@@ -38,11 +38,11 @@ Azure Health Data Services includes support for the DICOM service. DICOM enables
 
 **MedTech service**
 
-Azure Health Data Services includes support for the MedTech service. The MedTech service enables you to ingest high-frequency IoT device data into the FHIR Service in a scalable, secure, and compliant manner. For more information about MedTech, see [Overview of MedTech](../healthcare-apis/iot/iot-connector-overview.md).
+Azure Health Data Services includes support for the MedTech service. The MedTech service enables you to ingest high-frequency IoT device data into the FHIR Service in a scalable, secure, and compliant manner. For more information about MedTech, see [Overview of MedTech](../healthcare-apis/iot/overview.md).
 
 **FHIR service**
 
-Azure Health Data Services includes support for FHIR service. The FHIR service enables rapid exchange of health data using the Fast Healthcare Interoperability Resources (FHIR®) data standard. For more information about MedTech, see [Overview of FHIR](../healthcare-apis/fhir/overview.md).
+Azure Health Data Services includes support for FHIR service. The FHIR service enables rapid exchange of health data using the Fast Healthcare Interoperability Resources (FHIR®) data standard. For more information about FHIR, see [Overview of FHIR](../healthcare-apis/fhir/overview.md).
 
 For the secure exchange of FHIR data, Azure Health Data Services offers a few incremental capabilities that aren't available in Azure API for FHIR.
  
@@ -62,4 +62,4 @@ To start working with the Azure Health Data Services, follow the 5-minute quick 
 > [!div class="nextstepaction"]
 > [Workspace overview](workspace-overview.md)
 
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7. 
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

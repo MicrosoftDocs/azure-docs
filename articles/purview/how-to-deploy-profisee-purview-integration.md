@@ -131,7 +131,7 @@ For example, DNSHOSTNAME="purviewprofisee.southcentralus.cloudapp.azure.com". Su
 1. For your Profisee configuration, you can have your information stored in Key Vault or supply the details during deployment. 
     1. Choose your Profisee version, and provide your admin user account and license. 
     1. Select to configure using Microsoft Purview.
-    1. For the Application Registration Client ID, provide the [**application (client) ID**](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) for the [application registration you created earlier](#microsoft-purview---profisee-integration-deployment-on-azure-kubernetes-service-aks).
+    1. For the Application Registration Client ID, provide the [**application (client) ID**](../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application) for the [application registration you created earlier](#microsoft-purview---profisee-integration-deployment-on-azure-kubernetes-service-aks).
     1. Select your Microsoft Purview account.
     1. Add the **object ID** for the [service principal you created earlier](#microsoft-purview---profisee-integration-deployment-on-azure-kubernetes-service-aks).
     1. Add the value for the secret you created for that service principal.

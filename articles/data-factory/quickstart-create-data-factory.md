@@ -70,8 +70,6 @@ A quick creation experience provided in the Azure Data Factory Studio to enable 
 
 1. For **Version**, select **V2**.
 
-1. Select **Next: Git configuration**, and then select **Configure Git later** check box.
-
 1. Select **Review + create**, and select **Create** after the validation is passed. After the creation is complete, select **Go to resource** to navigate to the **Data Factory** page. 
 
 1. Select **Launch Studio** to open Azure Data Factory Studio to start the Azure Data Factory user interface (UI) application on a separate browser tab.
@@ -82,5 +80,5 @@ A quick creation experience provided in the Azure Data Factory Studio to enable 
    > If you see that the web browser is stuck at "Authorizing", clear the **Block third-party cookies and site data** check box. Or keep it selected, create an exception for **login.microsoftonline.com**, and then try to open the app again.
 
 ## Next steps
-Learn how to use Azure Data Factory to copy data from one location to another with the [Hello World - How to copy data](tutorial-copy-data-portal.md) tutorial.
+Learn how to use Azure Data Factory to copy data from one location to another with the [Hello World - How to copy data](quickstart-hello-world-copy-data-tool.md) tutorial.
 Lean how to create a data flow with Azure Data Factory[data-flow-create.md].

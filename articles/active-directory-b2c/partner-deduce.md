@@ -538,7 +538,7 @@ At this point, the **Deduce RESTfull API** has been set up, but it's not yet ava
 
 1. Open the `TrustFrameworkBase.xml` file from the starter pack.
 
-1. Find and copy the entire contents of the **UserJourneys** element that includes 'Id=SignUpOrSignIn`.
+1. Find and copy the entire contents of the **UserJourneys** element that includes `Id=SignUpOrSignIn`.
 
 1. Open the `TrustFrameworkExtensions.xml` and find the **UserJourneys** element. If the element doesn't exist, add one.
 

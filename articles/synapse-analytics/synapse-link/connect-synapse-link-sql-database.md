@@ -1,23 +1,19 @@
 ---
-title: Get started with Azure Synapse Link for Azure SQL Database (preview)
-description: Learn how to connect an Azure SQL database to an Azure Synapse workspace with Azure Synapse Link (preview).
+title: Get started with Azure Synapse Link for Azure SQL Database
+description: Learn how to connect an Azure SQL database to an Azure Synapse workspace with Azure Synapse Link.
 author: SnehaGunda
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
 ms.custom: event-tier1-build-2022
-ms.date: 05/09/2022
+ms.date: 11/16/2022
 ms.author: sngun
 ms.reviewer: sngun, wiassaf
 ---
 
-# Get started with Azure Synapse Link for Azure SQL Database (preview)
+# Get started with Azure Synapse Link for Azure SQL Database
 
-This article is a step-by-step guide for getting started with Azure Synapse Link for Azure SQL Database. For an overview of this feature, see [Azure Synapse Link for Azure SQL Database (preview)](sql-database-synapse-link.md). 
-
-> [!IMPORTANT]
-> Azure Synapse Link for SQL is currently in preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+This article is a step-by-step guide for getting started with Azure Synapse Link for Azure SQL Database. For an overview of this feature, see [Azure Synapse Link for Azure SQL Database](sql-database-synapse-link.md). 
 
 ## Prerequisites
 
@@ -31,7 +27,7 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
 
 1. Go to your Azure SQL logical server, select **Identity**, and then set **System assigned managed identity** to **On**.
 
-   :::image type="content" source="../media/connect-synapse-link-sql-database/set-identity-sql-database.png" alt-text="Screenshot of turning on the system-assigned managed identity.":::
+   :::image type="content" source="../media/connect-synapse-link-sql-database/set-identity-sql-database.png" alt-text="Screenshot of turning on the system assigned managed identity.":::
 
 1. Go to **Networking**, and then select the **Allow Azure services and resources to access this server** checkbox. 
 
@@ -75,7 +71,7 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
 
 1. On the left pane of the Azure portal, select **Integrate**.
 
-1. On the **Integrate** pane, select the plus sign (**+**), and then select **Link connection (Preview)**.
+1. On the **Integrate** pane, select the plus sign (**+**), and then select **Link connection**.
 
    :::image type="content" source="../media/connect-synapse-link-sql-database/studio-new-link-connection.png" alt-text="Screenshot that shows how to select a new link connection from Synapse Studio.":::
 
@@ -109,7 +105,8 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
 1. Provide a name for your Azure Synapse Link connection, and select the number of cores for the [link connection compute](sql-database-synapse-link.md#link-connection). These cores will be used for the movement of data from the source to the target.
 
    > [!NOTE]
-   > We recommend starting low and increasing the number of cores as needed.
+   > * The number of cores you select here are allocated to the ingestion service for processing data loading and changes. They don't affect the source Azure SQL Database configuration or the target dedicated SQL pool confiruation.
+   > * We recommend starting low and increasing the number of cores as needed.
 
 1. Select **OK**.
 
@@ -196,4 +193,4 @@ If you're using a database other than an Azure SQL database, see:
 * [Configure Azure Synapse Link for Azure Cosmos DB](../../cosmos-db/configure-synapse-link.md?context=/azure/synapse-analytics/context/context)
 * [Configure Azure Synapse Link for Dataverse](/powerapps/maker/data-platform/azure-synapse-link-synapse?context=/azure/synapse-analytics/context/context)
 * [Get started with Azure Synapse Link for SQL Server 2022](connect-synapse-link-sql-server-2022.md)
-* [Get or set a managed identity for an Azure SQL Database logical server or managed instance](/sql/azure-sql/database/authentication-azure-ad-user-assigned-managed-identity.md#get-or-set-a-managed-identity-for-a-logical-server-or-managed-instance)
+* [Get or set a managed identity for an Azure SQL Database logical server or managed instance](/azure/azure-sql/database/authentication-azure-ad-user-assigned-managed-identity#get-or-set-a-managed-identity-for-a-logical-server-or-managed-instance)

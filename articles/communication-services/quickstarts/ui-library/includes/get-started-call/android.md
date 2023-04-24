@@ -8,7 +8,7 @@ ms.service: azure-communication-services
 
 > [!VIDEO https://www.youtube.com/embed/8hOKCHgSNsg]
 
-Get the sample Android application for this [quickstart](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-library-quick-start) in the open source Azure Communication Services [UI Library for Android](https://github.com/Azure/communication-ui-library-android).
+Get the sample Android application for this [quickstart](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-calling) in the open source Azure Communication Services [UI Library for Android](https://github.com/Azure/communication-ui-library-android).
 
 ## Prerequisites
 
@@ -337,15 +337,59 @@ CallCompositeRemoteOptions remoteOptions = new CallCompositeRemoteOptions(
         communicationTokenCredential,                
         "DISPLAY_NAME");
 ```
----
-
----
 
 #### Get a Microsoft Teams meeting link
 
 You can get a Microsoft Teams meeting link by using Graph APIs. This process is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?preserve-view=true&tabs=http&view=graph-rest-beta).
 
 The Communication Services Call SDK accepts a full Microsoft Teams meeting link. This link is returned as part of the `onlineMeeting` resource, under the [joinWebUrl property](/graph/api/resources/onlinemeeting?preserve-view=true&view=graph-rest-beta). You also can get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
+
+---
+
+### Set up a Rooms call
+
+[!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
+
+To set up a ACS Rooms call, initialize a `CallCompositeRoomLocator`, supply it to the `CallCompositeRemoteOptions` object and set `CallCompositeParticipantRole` to the `CallCompositeLocalOptions` by `setRoleHint()`.
+`CallComposite` will use role hint before connecting to the call. Once call is connected, actual up-to-date participant role is retrieved from ACS.
+
+
+For more information about Rooms, how to create and manage one see [Rooms Quickstart](../../../rooms/get-started-rooms.md)
+
+#### [Kotlin](#tab/kotlin)
+
+```kotlin
+val locator = CallCompositeRoomLocator("<ROOM_ID>")
+
+val remoteOptions = CallCompositeRemoteOptions(
+    locator,
+    communicationTokenCredential,            
+    "DISPLAY_NAME",
+)
+
+val localOptions = CallCompositeLocalOptions().setRoleHint(participantRole)
+
+val callComposite = CallCompositeBuilder().build()
+callComposite.launch(context, remoteOptions, localOptions)
+```
+
+#### [Java](#tab/java)
+
+```java
+CallCompositeJoinLocator locator = new CallCompositeRoomLocator("<ROOM_ID>");
+
+CallCompositeRemoteOptions remoteOptions = new CallCompositeRemoteOptions(
+        locator,
+        communicationTokenCredential,                
+        "DISPLAY_NAME");
+
+CallCompositeLocalOptions localOptions = new CallCompositeLocalOptions().setRoleHint(participantRole);
+
+CallComposite callComposite = new CallCompositeBuilder().build();
+callComposite.launch(context, remoteOptions, localOptions);
+```
+
+---
 
 ### Launch the composite
 
@@ -373,6 +417,11 @@ The following `errorCode` values might be sent to the error handler:
 - `CallCompositeErrorCode.CALL_JOIN_FAILED`
 - `CallCompositeErrorCode.CALL_END_FAILED`
 - `CallCompositeErrorCode.TOKEN_EXPIRED`
+- `CallCompositeErrorCode.CAMERA_FAILURE`
+- `CallCompositeErrorCode.MICROPHONE_PERMISSION_NOT_GRANTED`
+- `CallCompositeErrorCode.NETWORK_CONNECTION_NOT_AVAILABLE`
+
+The following example shows an error event for a failed composite event.
 
 #### [Kotlin](#tab/kotlin)
 

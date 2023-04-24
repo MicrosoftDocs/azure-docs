@@ -61,12 +61,10 @@ The following metrics provide insight on VM-level bursting:
 - **VM Uncached Used Burst IO Credits Percentage**: The accumulated percentage of the VM’s uncached IOPS burst used. Emitted on a 5 minute interval.
 - **VM Uncached Used Burst BPS Credits Percentage**: The accumulated percentage of the VM’s uncached throughput burst used. Emitted on a 5 minute interval.
 - **VM Cached Used Burst IO Credits Percentage**: The accumulated percentage of the VM’s cached IOPS burst used. Emitted on a 5 minute interval.
-- **VM Cached Used Burst BPS Credits Percentage**: The accumulated percentage of the VM’s cached IOPS burst used. Emitted on a 5 minute interval.
+- **VM Cached Used Burst BPS Credits Percentage**: The accumulated percentage of the VM’s cached throughput burst used. Emitted on a 5 minute interval.
 
 ## Storage IO utilization metrics
-The following metrics help diagnose bottleneck in your Virtual Machine and Disk combination. These metrics are only available with the following configuration:
-- Only available on VM series that support premium storage.
-- Not available for ultra disks, all other disk types on these VM series can utilize these metrics.
+The following metrics help diagnose bottleneck in your Virtual Machine and Disk combination. These metrics are only available on VM series that support premium storage.
 
 Metrics that help diagnose disk IO capping:
 

@@ -6,10 +6,10 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 01/30/2023
 ---
 
-# Performance tuning
+# Performance tuning in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

@@ -1,19 +1,21 @@
 ---
-title: 'How to configure virtual hub routing'
+title: 'How to configure virtual hub routing: Azure portal'
 titleSuffix: Azure Virtual WAN
-description: Learn how to configure Virtual WAN virtual hub routing.
+description: Learn how to configure Virtual WAN virtual hub routing using the Azure portal.
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 10/18/2022
+ms.date: 10/26/2022
 ms.author: cherylmc
 
 ---
-# How to configure virtual hub routing
+# How to configure virtual hub routing - Azure portal
 
-A virtual hub can contain multiple gateways such as a site-to-site VPN gateway, ExpressRoute gateway, point-to-site gateway, and Azure Firewall. The routing capabilities in the virtual hub are provided by a router that manages all routing, including transit routing, between the gateways using Border Gateway Protocol (BGP). This router also provides transit connectivity between virtual networks that connect to a virtual hub and can support up to an aggregate throughput of 50 Gbps. These routing capabilities apply to customers using **Standard** Virtual WANs. For more information, see [About virtual hub routing](about-virtual-hub-routing.md).
+A virtual hub can contain multiple gateways such as a site-to-site VPN gateway, ExpressRoute gateway, point-to-site gateway, and Azure Firewall. The routing capabilities in the virtual hub are provided by a router that manages all routing, including transit routing, between the gateways using Border Gateway Protocol (BGP). The virtual hub router also provides transit connectivity between virtual networks that connect to a virtual hub and can support up to an aggregate throughput of 50 Gbps. These routing capabilities apply to customers using **Standard** Virtual WANs. For more information, see [About virtual hub routing](about-virtual-hub-routing.md).
+
+This article helps you configure virtual hub routing using Azure portal. You can also configure virtual hub routing using the [Azure PowerShell steps](how-to-virtual-hub-routing-powershell.md).
 
 ## Create a route table
 
@@ -49,7 +51,7 @@ In the Azure portal, go to your **Virtual HUB -> Route Tables** page. To open th
 
 ## Delete a route table
 
-In the Azure portal, go to your **Virtual HUB -> Route Tables** page. Select the checkbox for route table that you want to delete. Click **"…"**, and then select **Delete**. You can't delete a Default or None route table. However, you can delete all custom route tables. 
+In the Azure portal, go to your **Virtual HUB -> Route Tables** page. Select the checkbox for route table that you want to delete. Click **"…"**, and then select **Delete**. You can't delete a Default or None route table. However, you can delete all custom route tables.
 
 ## View effective routes
 
@@ -59,11 +61,11 @@ In the Azure portal, go to your **Virtual HUB -> Route Tables** page. Select the
 
    :::image type="content" source="./media/how-to-virtual-hub-routing/effective-routes.png" alt-text="Screenshot of Effective Routes page." lightbox="./media/how-to-virtual-hub-routing/effective-routes.png":::
 
-## <a name="routing-configuration"></a>Set up routing configuration for a virtual network connection
+## <a name="routing-configuration"></a>Configure routing for a virtual network connection
 
 [!INCLUDE [Connect](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 
 ## Next steps
 
-For more information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
-For more information about Virtual WAN, see the [FAQ](virtual-wan-faq.md).
+* For more information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
+* For more information about Virtual WAN, see the [Virtual WAN FAQ](virtual-wan-faq.md).

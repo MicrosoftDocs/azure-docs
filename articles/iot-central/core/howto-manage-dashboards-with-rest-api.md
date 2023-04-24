@@ -1,8 +1,8 @@
 ---
 title: Use the REST API to manage dashboards in Azure IoT Central
 description: How to use the IoT Central REST API to manage dashboards in an application
-author: v-krishnag
-ms.author: v-krishnag
+author: dominicbetts
+ms.author: dobett
 ms.date: 10/06/2022
 ms.topic: how-to
 ms.service: iot-central
@@ -46,15 +46,15 @@ The IoT Central REST API lets you:
 Use the following request to create a dashboard.
 
 ```http
-PUT https://{your app subdomain}.azureiotcentral.com/api/dashboards/{dashboardId}?api-version=2022-06-30-preview
+PUT https://{your app subdomain}.azureiotcentral.com/api/dashboards/{dashboardId}?api-version=2022-10-31-preview
 ```
 
-`dashboardId` - A unique [DTMI](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#digital-twin-model-identifier) identifier for the dashboard.
+`dashboardId` - A unique [DTMI](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#digital-twin-model-identifier) identifier for the dashboard.
 
 The request body has some required fields:
 
 * `@displayName`: Display name of the dashboard.
-* `@favorite`: Is the dashboard in the favorites list.
+* `@favorite`: Is the dashboard in the favorites list?
 * `group`: Device group ID.
 * `Tile` : Configuration specifying tile object, including the layout, display name, and configuration.
 
@@ -246,7 +246,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve the details of a dashboard by using a dashboard ID.
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/dashboards/{dashboardId}?api-version=2022-06-30-preview
+GET https://{your app subdomain}.azureiotcentral.com/api/dashboards/{dashboardId}?api-version=2022-10-31-preview
 ```
 
 The response to this request looks like the following example:
@@ -296,7 +296,7 @@ The response to this request looks like the following example:
 ## Update a dashboard
 
 ```http
-PATCH https://{your app subdomain}.azureiotcentral.com/api/dashboards/{dashboardId}?api-version=2022-06-30-preview
+PATCH https://{your app subdomain}.azureiotcentral.com/api/dashboards/{dashboardId}?api-version=2022-10-31-preview
 ```
 
 The following example shows a request body that updates the display name of a dashboard and size of the tile:
@@ -392,7 +392,7 @@ The response to this request looks like the following example:
 Use the following request to delete a dashboard by using the dashboard ID:
 
 ```http
-DELETE https://{your app subdomain}.azureiotcentral.com/api/dashboards/{dashboardId}?api-version=2022-06-30-preview
+DELETE https://{your app subdomain}.azureiotcentral.com/api/dashboards/{dashboardId}?api-version=2022-10-31-preview
 ```
 
 ## List dashboards
@@ -400,7 +400,7 @@ DELETE https://{your app subdomain}.azureiotcentral.com/api/dashboards/{dashboar
 Use the following request to retrieve a list of dashboards from your application:
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/dashboards?api-version=2022-06-30-preview
+GET https://{your app subdomain}.azureiotcentral.com/api/dashboards?api-version=2022-10-31-preview
 ```
 
 The response to this request looks like the following example:

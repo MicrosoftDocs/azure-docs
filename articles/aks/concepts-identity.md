@@ -1,7 +1,6 @@
 ---
 title: Concepts - Access and identity in Azure Kubernetes Services (AKS)
 description: Learn about access and identity in Azure Kubernetes Service (AKS), including Azure Active Directory integration, Kubernetes role-based access control (Kubernetes RBAC), and roles and bindings.
-services: container-service
 ms.topic: conceptual
 ms.date: 09/27/2022
 author: palma21

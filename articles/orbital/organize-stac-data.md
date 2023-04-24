@@ -88,7 +88,7 @@ The following sections describe the four stages in the architecture.
 
 - STAC API is based on open source STAC FastAPI. 
 - STAC API layer is implemented on Azure Kubernetes Service and the APIs are exposed using [API Management Service](https://azure.microsoft.com/products/api-management/).
-- STAC APIs are used to discover the geospatial data in your Catalog. These APIs are based on STAC specifications and understand the STAC metadata defined and indexed in the STAC Catalog database (PostgresSQL server).
+- STAC APIs are used to discover the geospatial data in your Catalog. These APIs are based on STAC specifications and understand the STAC metadata defined and indexed in the STAC Catalog database (PostgreSQL server).
 - Based on the search criteria, you can quickly locate your data from a large dataset.
   - Querying the STAC Collection, Items & Assets:
     - A query is submitted by a user to look up one or more STAC Collection, Items & Assets through the STAC FastAPI.
@@ -138,9 +138,9 @@ To catalog more data sources or to catalog your own data source, consider the fo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- Azure Kubernetes Service [Container Security](/azure/aks/concepts-security) implementation ensures the processors are built and run as containers are secure.
-- API Management Service [Security baseline](/azure/aks/concepts-security) provides recommendations on how to secure your cloud solutions on Azure.
-- [Azure Database for PostgreSQL Security](/azure/postgresql/flexible-server/concepts-security) covers in-depth the security at multiple layers when data is stored in PostgreSQL Flexible Server including data at rest and data in transit scenarios.
+- Azure Kubernetes Service [Container Security](../aks/concepts-security.md) implementation ensures the processors are built and run as containers are secure.
+- API Management Service [Security baseline](../aks/concepts-security.md) provides recommendations on how to secure your cloud solutions on Azure.
+- [Azure Database for PostgreSQL Security](../postgresql/flexible-server/concepts-security.md) covers in-depth the security at multiple layers when data is stored in PostgreSQL Flexible Server including data at rest and data in transit scenarios.
 
 ### Cost optimization
 

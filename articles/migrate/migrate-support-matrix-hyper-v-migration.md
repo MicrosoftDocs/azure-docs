@@ -5,12 +5,13 @@ author: v-ksreedevan
 ms.author: v-ksreedevan
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 12/12/2022
+ms.custom: engagement-fy23
 ---
 
 # Support matrix for Hyper-V migration
 
-This article summarizes support settings and limitations for migrating Hyper-V VMs with [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) . If you're looking for information about assessing Hyper-V VMs for migration to Azure, review the [assessment support matrix](migrate-support-matrix-hyper-v.md).
+This article summarizes support settings and limitations for migrating Hyper-V VMs with [Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) . If you're looking for information about assessing Hyper-V VMs for migration to Azure, review the [assessment support matrix](migrate-support-matrix-hyper-v.md).
 
 ## Migration limitations
 
@@ -50,7 +51,7 @@ You can select up to 10 VMs at once for replication. If you want to migrate more
 | **Target disk**                | You can migrate to Azure VMs with managed disks only. |
 | **IPv6** | Not supported.|
 | **NIC teaming** | Not supported.|
-| **Azure Site Recovery** | You can't replicate using Azure Migrate Server Migration if the VM is enabled for replication with Azure Site Recovery.|
+| **Azure Site Recovery** | You can't replicate using Migration and modernization if the VM is enabled for replication with Azure Site Recovery.|
 | **Ports** | Outbound connections on HTTPS port 443 to send VM replication data.|
 
 

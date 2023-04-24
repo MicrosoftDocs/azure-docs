@@ -22,11 +22,17 @@ The URL endpoints to allow for the Azure portal are specific to the Azure cloud 
 
 ### [Public Cloud](#tab/public-cloud)
 
+> [!TIP]
+> The service tags required to access the Azure portal (including authentication and resource listing) are **AzureActiveDirectory**, **AzureResourceManager**, and **AzureFrontDoor.Frontend**. Access to other services may require additional permissions, as described below.  
+> However, there is a possibility that unnecessary communication other than communication to access the portal may also be allowed. If granular control is required, FQDN-based access control such as Azure Firewall is required.
+
 #### Azure portal authentication
 
 ```
 *.login.microsoftonline.com
 *.aadcdn.msftauth.net
+*.aadcdn.msftauthimages.net
+*.aadcdn.msauthimages.net
 *.logincdn.msftauth.net
 *.login.live.com
 *.msauth.net
@@ -64,6 +70,7 @@ aka.ms (Microsoft short URL)
 *.aad.azure.com (Azure AD)
 *.aadconnecthealth.azure.com (Azure AD)
 ad.azure.com (Azure AD)
+adf.azure.com (Azure Data Factory)
 api.aadrm.com (Azure AD)
 api.loganalytics.io (Log Analytics Service)
 *.applicationinsights.azure.com (Application Insights Service)

@@ -23,7 +23,7 @@ Create a basic WAF policy for Application Gateway by following the instructions 
 
 1. In the **Basic** policy page that you created previously, under **Settings**, select **Rules**.  
 
-2. In the details page, under the **Manage rules** section, from the drop-down menu, select the check box for the bot Protection rule, and then select **Save**.
+2. In the details page, under the **Managed rules** section, from the drop-down menu, select the check box for the bot Protection rule, and then select **Save**.
 
 > [!div class="mx-imgBorder"]
 > ![Bot protection](../media/bot-protection/bot-protection.png)

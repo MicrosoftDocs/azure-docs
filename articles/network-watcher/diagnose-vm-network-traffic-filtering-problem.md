@@ -4,11 +4,9 @@ titleSuffix: Azure Network Watcher
 description: In this quickstart, you learn how to diagnose a virtual machine network traffic filter problem using the IP flow verify  capability of Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
-author: damendo
-ms.author: ankitadutta
-editor: 
-ms.date: 10/12/2022
-ms.assetid: 
+author: halkazwini
+ms.author: halkazwini
+ms.date: 11/18/2022
 ms.topic: quickstart
 ms.service: network-watcher
 ms.workload: infrastructure
@@ -97,11 +95,9 @@ To determine why the rules in steps 3-5 of **Use IP flow verify** allow or deny 
     :::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem/effective-security-rules.png" alt-text="Screenshot of Effective security rules." lightbox="./media/diagnose-vm-network-traffic-filtering-problem/effective-security-rules.png" :::
 
     In step 3 of **Use IP flow verify**, you learned that the reason the communication was allowed is because of the **AllowInternetOutbound** rule. You can see in the previous picture that the **Destination** for the rule is **Internet**. It's not clear how 13.107.21.200, the address you tested in step 3 of **Use IP flow verify**, relates to **Internet** though.
-1. Select the **AllowInternetOutBound** rule, and then scroll down to **Destination**, as shown in the following picture:
-    
-    :::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem/security-rule-prefixes.png" alt-text="Screenshot of Security rule prefixes.":::
+1. Select the **AllowInternetOutBound** rule, and then scroll down to **Destination**.
 
-    One of the prefixes in the list is **12.0.0.0/8**, which encompasses the 12.0.0.1-15.255.255.254 range of IP addresses. Since 13.107.21.200 is within that address range, the **AllowInternetOutBound** rule allows the outbound traffic. Additionally, there are no higher priority (lower number) rules shown in the picture in step 2 that override this rule. Close the **Address prefixes** box. To deny outbound communication to 13.107.21.200, you could add a security rule with a higher priority, that denies port 80 outbound to the IP address.
+    One of the prefixes in the list is **13.0.0.0/8**, which encompasses the 13.0.0.1-13.255.255.254 range of IP addresses. Since 13.107.21.200 is within that address range, the **AllowInternetOutBound** rule allows the outbound traffic. Additionally, there are no higher priority (lower number) rules shown in the picture in step 2 that override this rule. Close the **Address prefixes** box. To deny outbound communication to 13.107.21.200, you could add a security rule with a higher priority, that denies port 80 outbound to the IP address.
 
 1. When you ran the outbound check to 172.131.0.100 in step 4 of **Use IP flow verify**, you learned that the **DenyAllOutBound** rule denied communication. That rule equates to the **DenyAllOutBound** rule shown in the picture in step 2 that specifies **0.0.0.0/0** as the **Destination**. This rule denies the outbound communication to 172.131.0.100 because the address is not within the **Destination** of any of the other **Outbound rules** shown in the picture. To allow the outbound communication, you can add a security rule with a higher priority, that allows outbound traffic to port 80 for the 172.131.0.100 address.
 1. When you ran the inbound check from 172.131.0.100 in step 5 of **Use IP flow verify**, you learned that the **DenyAllInBound** rule denied communication. That rule equates to the **DenyAllInBound** rule shown in the picture in step 2. The **DenyAllInBound** rule is enforced because no other higher priority rule exists that allows port 80 inbound to the VM from 172.31.0.100. To allow the inbound communication, you could add a security rule with a higher priority, that allows port 80 inbound from 172.31.0.100.

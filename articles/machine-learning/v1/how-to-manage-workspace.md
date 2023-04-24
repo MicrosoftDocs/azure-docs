@@ -10,7 +10,7 @@ author: deeikele
 ms.reviewer: sgilley
 ms.date: 03/08/2022
 ms.topic: how-to
-ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-tier1-build-2022, ignite-2022
 ---
 
 # Manage Azure Machine Learning workspaces with the Python SDK (v1)
@@ -18,7 +18,7 @@ ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-ti
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
 > * [v1](how-to-manage-workspace.md)
-> * [v2 (current version)](../how-to-manage-workspace.md)
+> * [v2 (current version)](../how-to-manage-workspace.md?view=azureml-api-2&preserve-view=true)
 
 In this article, you create, view, and delete [**Azure Machine Learning workspaces**](../concept-workspace.md) for [Azure Machine Learning](../overview-what-is-azure-machine-learning.md), using the [SDK for Python](/python/api/overview/azure/ml/).  
 
@@ -129,10 +129,10 @@ For more information, see [Workspace SDK reference](/python/api/azureml-core/azu
 If you have problems in accessing your subscription, see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md), as well as the [Authentication in Azure Machine Learning](https://aka.ms/aml-notebook-auth) notebook.
 
 
-### Networking	
+### Networking    
 
-> [!IMPORTANT]	
-> For more information on using a private endpoint and virtual network with your workspace, see [Network isolation and privacy](how-to-network-security-overview.md).
+> [!IMPORTANT]    
+> For more information on using a private endpoint and virtual network with your workspace, see [Network isolation and privacy](../how-to-network-security-overview.md).
 
 
 The Azure Machine Learning Python SDK provides the [PrivateEndpointConfig](/python/api/azureml-core/azureml.core.privateendpointconfig) class, which can be used with [Workspace.create()](/python/api/azureml-core/azureml.core.workspace.workspace#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-) to create a workspace with a private endpoint. This class requires an existing virtual network.
@@ -144,8 +144,8 @@ By default, metadata for the workspace is stored in an Azure Cosmos DB instance 
 
 To limit the data that Microsoft collects on your workspace, select __High business impact workspace__ in the portal, or set `hbi_workspace=true ` in Python. For more information on this setting, see [Encryption at rest](../concept-data-encryption.md#encryption-at-rest).
 
-> [!IMPORTANT]	
-> Selecting high business impact can only be done when creating a workspace. You cannot change this setting after workspace creation.	
+> [!IMPORTANT]    
+> Selecting high business impact can only be done when creating a workspace. You cannot change this setting after workspace creation.    
 
 #### Use your own data encryption key
 
@@ -153,8 +153,8 @@ You can provide your own key for data encryption. Doing so creates the Azure Cos
 
 Use the following steps to provide your own key:
 
-> [!IMPORTANT]	
-> Before following these steps, you must first perform the following actions:	
+> [!IMPORTANT]    
+> Before following these steps, you must first perform the following actions:    
 >
 > Follow the steps in [Configure customer-managed keys](../how-to-setup-customer-managed-keys.md) to:
 > * Register the Azure Cosmos DB provider
@@ -308,4 +308,4 @@ To learn more about planning a workspace for your organization's requirements, s
 
 * To find a workspace, see [Search for Azure Machine Learning assets (preview)](../how-to-search-assets.md).
 
-For information on how to keep your Azure ML up to date with the latest security updates, see [Vulnerability management](../concept-vulnerability-management.md).
+For information on how to keep your Azure Machine Learning up to date with the latest security updates, see [Vulnerability management](../concept-vulnerability-management.md).

@@ -3,9 +3,8 @@ title: Entity Linking cognitive skill (v3)
 titleSuffix: Azure Cognitive Search
 description: Extract different linked entities from text in an enrichment pipeline in Azure Cognitive Search.
 
-manager: jennmar
-author: nitinme
-ms.author: nitinme
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: reference
 ms.date: 08/17/2022
@@ -25,7 +24,7 @@ Microsoft.Skills.Text.V3.EntityLinkingSkill
 
 ## Data limits
 
-The maximum size of a record should be 50,000 characters as measured by [`String.Length`](/dotnet/api/system.string.length). If you need to break up your data before sending it to the EntityLinking skill, consider using the [Text Split skill](cognitive-search-skill-textsplit.md).
+The maximum size of a record should be 50,000 characters as measured by [`String.Length`](/dotnet/api/system.string.length). If you need to break up your data before sending it to the EntityLinking skill, consider using the [Text Split skill](cognitive-search-skill-textsplit.md). If you do use a text split skill, set the page length to 5000 for the best performance.
 
 ## Skill parameters
 

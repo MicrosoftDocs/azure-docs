@@ -1,9 +1,10 @@
 ---
 author: karavar
 ms.author: vakarand
-ms.date: 09/01/2022
+ms.date: 10/28/2022
 ms.service: active-directory
 ms.subservice: managed-identity
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: include
 title: Cross-tenant customer-managed key (CMK) configuration - Azure
 description: include file for cross-tenant customer-managed key (CMK) configuration
@@ -109,7 +110,7 @@ $multiTenantApp = New-AzADApplication -DisplayName $multiTenantAppName `
 # Object ID for the new multi-tenant app
 $objectId = $multiTenantApp.Id
 # Application (client) ID for the multi-tenant app
-$appId = $multiTenantApp.AppId
+$multiTenantAppObjectId = $multiTenantApp.AppId
 ```
 
 #### The service provider creates a user-assigned managed identity
@@ -148,7 +149,7 @@ New-AzADAppFederatedCredential -ApplicationObjectId $multiTenantApp.Id `
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ### The service provider configures identities
 
@@ -388,7 +389,7 @@ Now you can configure customer-managed keys with the key vault URI and key.
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 #### The customer signs in to Azure
 

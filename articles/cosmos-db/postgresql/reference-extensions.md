@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 10/19/2022
+ms.date: 02/25/2023
 ---
 # PostgreSQL extensions in Azure Cosmos DB for PostgreSQL
 
@@ -25,6 +25,8 @@ PostgreSQL extensions must be installed in your database before you can use them
 > ```sql
 > SELECT create_extension('postgis');
 > ```
+>
+> To remove an extension installed this way, use `drop_extension()`.
 
 Azure Cosmos DB for PostgreSQL currently supports a subset of key extensions as listed here. Extensions other than the ones listed aren't supported. You can't create your own extension with Azure Cosmos DB for PostgreSQL.
 
@@ -39,7 +41,7 @@ The versions of each extension installed in a cluster sometimes differ based on 
 > [!div class="mx-tableFixed"]
 > | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14** | **PG 15** |
 > |---|---|---|---|---|
-> | [citus](https://github.com/citusdata/citus) | Citus distributed database. | 9.5.11 | 10.0.7 | 10.2.6 | 11.0.4 | 11.1.3 |
+> | [citus](https://github.com/citusdata/citus) | Citus distributed database. | 9.5.11 | 10.0.7 | 10.2.8 | 11.1.5 | 11.2.0 |
 
 ### Data types extensions
 
@@ -113,6 +115,7 @@ The versions of each extension installed in a cluster sometimes differ based on 
 > | [dblink](https://www.postgresql.org/docs/current/dblink.html) | A module that supports connections to other PostgreSQL databases from within a database session. See the "dblink and postgres_fdw" section for information about this extension. | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 |
 > | [old\_snapshot](https://www.postgresql.org/docs/current/oldsnapshot.html) | Allows inspection of the server state that is used to implement old_snapshot_threshold. |     |     |     | 1.0 | 1.0 |
 > | [pageinspect](https://www.postgresql.org/docs/current/pageinspect.html) | Inspect the contents of database pages at a low level. | 1.7 | 1.7 | 1.8 | 1.9 | 1.10 |
+> | [pg\_azure\_storage](howto-ingest-azure-blob-storage.md) | Azure integration for PostgreSQL. | | | 1.0 | 1.0 | 1.0 |
 > | [pg\_buffercache](https://www.postgresql.org/docs/current/static/pgbuffercache.html) | Provides a means for examining what's happening in the shared buffer cache in real time. | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 |
 > | [pg\_cron](https://github.com/citusdata/pg_cron) | Job scheduler for PostgreSQL. | 1.4 | 1.4 | 1.4 | 1.4 | 1.4 |
 > | [pg\_freespacemap](https://www.postgresql.org/docs/current/pgfreespacemap.html) | Examine the free space map (FSM). | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 |
@@ -133,7 +136,7 @@ The versions of each extension installed in a cluster sometimes differ based on 
 > [!div class="mx-tableFixed"]
 > | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14** | **PG 15** |
 > |---|---|---|---|---|
-> | [PostGIS](https://www.postgis.net/) | Spatial and geographic objects for PostgreSQL. | 2.5.5 | 3.0.5 | 3.0.5 | 3.1.5 |
+> | [PostGIS](https://www.postgis.net/) | Spatial and geographic objects for PostgreSQL. | 2.5.5 | 3.0.5 | 3.0.5 | 3.1.5 | 3.3.1 |
 > | address\_standardizer | Used to parse an address into constituent elements. Used to support geocoding address normalization step. | 2.5.5 | 3.0.5 | 3.0.5 | 3.1.5 | 3.3.1 |
 > | postgis\_sfcgal | PostGIS SFCGAL functions. | 2.5.5 | 3.0.5 | 3.0.5 | 3.1.5 | 3.3.1 |
 > | postgis\_topology | PostGIS topology spatial types and functions. | 2.5.5 | 3.0.5 | 3.0.5 | 3.1.5 | 3.3.1 |

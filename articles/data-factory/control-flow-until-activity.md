@@ -8,14 +8,14 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/25/2022
 ms.custom: devx-track-azurepowershell, synapse
 ---
 
 # Until activity in Azure Data Factory and Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-The Until activity provides the same functionality that a do-until looping structure provides in programming languages. It executes a set of activities in a loop until the condition associated with the activity evaluates to true. If a inner activity fails the Until activity does not stop. You can specify a timeout value for the until activity. 
+The Until activity provides the same functionality that a do-until looping structure provides in programming languages. It executes a set of activities in a loop until the condition associated with the activity evaluates to true. If an inner activity fails, the Until activity does not stop. You can specify a timeout value for the until activity. 
 
 ## Create an Until activity with UI
 

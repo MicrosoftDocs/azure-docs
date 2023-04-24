@@ -29,9 +29,9 @@ Azure Cosmos DB supports two indexing modes:
 - **None**: Indexing is disabled on the container. This mode is commonly used when a container is used as a pure key-value store without the need for secondary indexes. It can also be used to improve the performance of bulk operations. After the bulk operations are complete, the index mode can be set to Consistent and then monitored using the [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) until complete.
 
 > [!NOTE]
-> Azure Cosmos DB also supports a Lazy indexing mode. Lazy indexing performs updates to the index at a much lower priority level when the engine is not doing any other work. This can result in **inconsistent or incomplete** query results. If you plan to query an Azure Cosmos DB container, you should not select lazy indexing. New containers cannot select lazy indexing. You can request an exemption by contacting cosmoslazyindexing@microsoft.com (except if you are using an Azure Cosmos DB account in [serverless](serverless.md) mode which doesn't support lazy indexing).
+> Azure Cosmos DB also supports a Lazy indexing mode. Lazy indexing performs updates to the index at a much lower priority level when the engine is not doing any other work. This can result in **inconsistent or incomplete** query results. If you plan to query an Azure Cosmos DB container, you should not select lazy indexing. New containers cannot select lazy indexing. You can request an exemption by contacting cosmosdblazyindexing@microsoft.com (except if you are using an Azure Cosmos DB account in [serverless](serverless.md) mode which doesn't support lazy indexing).
 
-By default, indexing policy is set to `automatic`. It's achieved by setting the `automatic` property in the indexing policy to `true`. Setting this property to `true` allows Azure Cosmos DB to automatically index documents as they're written.
+By default, indexing policy is set to `automatic`. It's achieved by setting the `automatic` property in the indexing policy to `true`. Setting this property to `true` allows Azure Cosmos DB to automatically index items as they're written.
 
 ## <a id="index-size"></a>Index size
 
@@ -87,21 +87,9 @@ Any indexing policy has to include the root path `/*` as either an included or a
 
 - If the indexing mode is set to **consistent**, the system properties `id` and `_ts` are automatically indexed.
 
-When including and excluding paths, you may encounter the following attributes:
+- If an explicitly indexed path doesn't exist in an item, a value will be added to the index to indicate that the path is undefined.
 
-- `kind` can be either `range` or `hash`. Hash index support is limited to equality filters. Range index functionality provides all of the functionality of hash indexes as well as efficient sorting, range filters, system functions. We always recommend using a range index.
-
-- `precision` is a number defined at the index level for included paths. A value of `-1` indicates maximum precision. We recommend always setting this value to `-1`.
-
-- `dataType` can be either `String` or `Number`. This indicates the types of JSON properties that will be indexed.
-
-It's no longer necessary to set these properties. When not specified, these properties will have the following default values:
-
-| **Property Name**     | **Default Value** |
-| ----------------------- | -------------------------------- |
-| `kind`   | `range` |
-| `precision`   | `-1`  |
-| `dataType`    | `String` and `Number` |
+All explicitly included paths will have values added to the index for each item in the container, even if the path is undefined for a given item.
 
 See [this section](how-to-manage-indexing-policy.md#indexing-policy-examples) for indexing policy examples for including and excluding paths.
 
@@ -143,7 +131,7 @@ Azure Cosmos DB, by default, won't create any spatial indexes. If you would like
 
 Queries that have an `ORDER BY` clause with two or more properties require a composite index. You can also define a composite index to improve the performance of many equality and range queries. By default, no composite indexes are defined so you should [add composite indexes](how-to-manage-indexing-policy.md#composite-index) as needed.
 
-Unlike with included or excluded paths, you can't create a path with the `/*` wildcard. Every composite path has an implicit `/?` at the end of the path that you don't need to specify. Composite paths lead to a scalar value that is the only value included in the composite index.
+Unlike with included or excluded paths, you can't create a path with the `/*` wildcard. Every composite path has an implicit `/?` at the end of the path that you don't need to specify. Composite paths lead to a scalar value that is the only value included in the composite index. If a path in a composite index doesn't exist in an item, a value will be added to the index to indicate that the path is undefined.
 
 When defining a composite index, you specify:
 
@@ -335,7 +323,7 @@ A container's indexing policy can be updated at any time [by using the Azure por
 > Index transformation is an operation that consumes [Request Units](request-units.md). Request Units consumed by an index transformation aren't currently billed if you are using [serverless](serverless.md) containers. These Request Units will get billed once serverless becomes generally available.
 
 > [!NOTE]
-> You can track the progress of index transformation in the Azure portal or [by using one of the SDKs](how-to-manage-indexing-policy.md).
+> You can track the progress of index transformation in the [Azure portal](how-to-manage-indexing-policy.md#use-the-azure-portal) or by [using one of the SDKs](how-to-manage-indexing-policy.md#dotnet-sdk).
 
 There's no impact to write availability during any index transformations. The index transformation uses your provisioned RUs but at a lower priority than your CRUD operations or queries.
 

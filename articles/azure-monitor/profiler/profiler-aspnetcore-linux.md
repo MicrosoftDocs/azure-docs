@@ -22,6 +22,9 @@ In this guide, you'll:
 
 - Install the [latest and greatest .NET Core SDK](https://dotnet.microsoft.com/download/dotnet).
 - Install Git by following the instructions at [Getting Started - Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+- Review the following samples for context:
+  - [Enable Service Profiler for containerized ASP.NET Core Application (.NET 6)](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore/tree/main/examples/EnableServiceProfilerForContainerAppNet6)
+  - [Application Insights Profiler for Worker Service Example](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore/tree/main/examples/ServiceProfilerInWorkerNet6)
 
 ## Set up the project locally
 
@@ -41,30 +44,31 @@ In this guide, you'll:
    dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
    ```
 
-1. In your preferred code editor, enable Application Insights and Profiler in `Program.cs`:
+1. In your preferred code editor, enable Application Insights and Profiler in `Program.cs`. [Add custom Profiler settings, if applicable](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore/blob/main/Configurations.md).
+
+   For `WebAPI`:
 
     ```csharp
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddApplicationInsightsTelemetry(); // Add this line of code to enable Application Insights.
-        services.AddServiceProfiler(); // Add this line of code to Enable Profiler
-        services.AddControllersWithViews();
-    }
+    // Add services to the container.
+    builder.Services.AddApplicationInsightsTelemetry();
+    builder.Services.AddServiceProfiler();
     ```
 
-1. Add a line of code in the **HomeController.cs** section to randomly delay a few seconds:
+   For `Worker`:
 
     ```csharp
-    using System.Threading;
-    ...
-
-    public IActionResult About()
+    IHost host = Host.CreateDefaultBuilder(args)
+        .ConfigureServices(services =>
         {
-            Random r = new Random();
-            int delay = r.Next(5000, 10000);
-            Thread.Sleep(delay);
-            return View();
-        }
+            services.AddApplicationInsightsTelemetryWorkerService();
+            services.AddServiceProfiler();
+            
+            // Assuming Worker is your background service class.
+            services.AddHostedService<Worker>();
+        })
+        .Build();
+    
+    await host.RunAsync();
     ```
 
 1. Save and commit your changes to the local repository:
@@ -140,11 +144,11 @@ In this guide, you'll:
 
 You can add Application Insights to your web app either via:
 
-- The Enablement blade in the Azure portal,
-- The Configuration blade in the Azure portal, or 
+- The Application Insights pane in the Azure portal,
+- The Configuration pane in the Azure portal, or 
 - Manually adding to your web app settings.
 
-# [Enablement blade](#tab/enablement)
+# [Application Insights pane](#tab/enablement)
 
 1. In your web app on the Azure portal, select **Application Insights** in the left side menu. 
 1. Click **Turn on Application Insights**. 
@@ -161,7 +165,7 @@ You can add Application Insights to your web app either via:
 
 1. Click **Apply** > **Yes** to apply and confirm.
 
-# [Configuration blade](#tab/config)
+# [Configuration pane](#tab/config)
 
 1. [Create an Application Insights resource](../app/create-workspace-resource.md) in the same Azure subscription as your App Service.
 1. Navigate to the Application Insights resource.
@@ -169,7 +173,7 @@ You can add Application Insights to your web app either via:
 1. In your web app on the Azure portal, select **Configuration** in the left side menu. 
 1. Click **New application setting**.
 
-   :::image type="content" source="./media/profiler-aspnetcore-linux/new-setting-configuration.png" alt-text="Screenshot of adding new application setting in the configuration blade.":::    
+   :::image type="content" source="./media/profiler-aspnetcore-linux/new-setting-configuration.png" alt-text="Screenshot of adding new application setting in the configuration pane.":::    
 
 1. Add the following settings in the **Add/Edit application setting** pane, using your saved iKey:
 

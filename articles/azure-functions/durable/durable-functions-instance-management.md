@@ -3,7 +3,7 @@ title: Manage instances in Durable Functions - Azure
 description: Learn how to manage instances in the Durable Functions extension for Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 05/25/2022
+ms.date: 12/07/2022
 ms.author: azfuncdf
 ms.devlang: csharp, java, javascript, python
 ms.custom: ignite-2022
@@ -600,7 +600,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
     client = df.DurableOrchestrationClient(starter)
 
     reason = "Found a bug"
-    return client.terminate(instance_id, reason)
+    return await client.terminate(instance_id, reason)
 ```
 
 # [Java](#tab/java)
@@ -736,7 +736,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
     client = df.DurableOrchestrationClient(starter)
 
     event_data = [1, 2 ,3]
-    return client.raise_event(instance_id, 'MyEvent', event_data)
+    return await client.raise_event(instance_id, 'MyEvent', event_data)
 ```
 
 # [Java](#tab/java)
@@ -795,7 +795,7 @@ Here is an example HTTP-trigger function that demonstrates how to use this API:
 
 # [JavaScript](#tab/javascript)
 
-[!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpSyncStart/index.js)]
+:::code language="javascript" source="~/azure-functions-durable-js/samples/HttpSyncStart/index.js":::
 
 See [Start instances](#javascript-function-json) for the function.json configuration.
 
@@ -820,7 +820,7 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
     retry_interval_in_milliseconds = get_time_in_seconds(req, retry_interval)
     retry_interval_in_milliseconds = retry_interval_in_milliseconds if retry_interval_in_milliseconds != None else 1000
 
-    return client.wait_for_completion_or_create_check_status_response(
+    return await client.wait_for_completion_or_create_check_status_response(
         req,
         instance_id,
         timeout_in_milliseconds,
@@ -852,7 +852,7 @@ public HttpResponseMessage httpStartAndWait(
     try {
         String timeoutString = req.getQueryParameters().get("timeout");
         Integer timeoutInSeconds = Integer.parseInt(timeoutString);
-        OrchestrationMetadata orchestration = client.waitForInstanceStart(
+        OrchestrationMetadata orchestration = client.waitForInstanceCompletion(
                 instanceId,
                 Duration.ofSeconds(timeoutInSeconds),
                 true /* getInputsAndOutputs */);
@@ -860,7 +860,7 @@ public HttpResponseMessage httpStartAndWait(
                 .body(orchestration.getSerializedOutput())
                 .header("Content-Type", "application/json")
                 .build();
-    } catch (Exception timeoutEx) {
+    } catch (TimeoutException timeoutEx) {
         // timeout expired - return a 202 response
         return durableContext.createCheckStatusResponse(req, instanceId);
     }
@@ -1011,7 +1011,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.co
 If you have an orchestration failure for an unexpected reason, you can *rewind* the instance to a previously healthy state by using an API built for that purpose.
 
 > [!NOTE]
-> This API is not intended to be a replacement for proper error handling and retry policies. Rather, it is intended to be used only in cases where orchestration instances fail for unexpected reasons. For more information on error handling and retry policies, see the [Error handling](durable-functions-error-handling.md) article.
+> This API is not intended to be a replacement for proper error handling and retry policies. Rather, it is intended to be used only in cases where orchestration instances fail for unexpected reasons. Orchestrations in states other than `Failed` (e.g., `Running`, `Pending`, `Terminated`, `Completed`) cannot be "rewound". For more information on error handling and retry policies, see the [Error handling](durable-functions-error-handling.md) article.
 
 Use the `RewindAsync` (.NET) or `rewind` (JavaScript) method of the [orchestration client binding](durable-functions-bindings.md#orchestration-client) to put the orchestration back into the *Running* state. This method will also rerun the activity or sub-orchestration execution failures that caused the orchestration failure.
 
@@ -1147,7 +1147,7 @@ import azure.durable_functions as df
 async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.HttpResponse:
     client = df.DurableOrchestrationClient(starter)
 
-    return client.purge_instance_history(instance_id)
+    return await client.purge_instance_history(instance_id)
 ```
 
 # [Java](#tab/java)
@@ -1252,7 +1252,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
     created_time_to = datetime.today() + timedelta(days = -30)
     runtime_statuses = [OrchestrationRuntimeStatus.Completed]
 
-    return client.purge_instance_history_by(created_time_from, created_time_to, runtime_statuses)
+    return await client.purge_instance_history_by(created_time_from, created_time_to, runtime_statuses)
 ```
 
 # [Java](#tab/java)
@@ -1262,7 +1262,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 public void purgeInstances(
         @TimerTrigger(name = "purgeTimer", schedule = "0 0 12 * * *") String timerInfo,
         @DurableClientInput(name = "durableContext") DurableClientContext durableContext,
-        ExecutionContext context) {
+        ExecutionContext context) throws TimeoutException {
     PurgeInstanceCriteria criteria = new PurgeInstanceCriteria()
             .setCreatedTimeFrom(Instant.now().minus(Duration.ofDays(60)))
             .setCreatedTimeTo(Instant.now().minus(Duration.ofDays(30)))

@@ -1,5 +1,5 @@
 ---
-title: azcopy jobs list | Microsoft Docs
+title: azcopy jobs list
 description: This article provides reference information for the azcopy jobs list command.
 author: normesta
 ms.service: storage

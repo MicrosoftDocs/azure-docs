@@ -13,17 +13,17 @@ ms.date: 05/24/2022
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-This article provides considerations and guidelines for configuring server parameters in Azure Database for MySQL flexible server.
+This article provides considerations and guidelines for configuring server parameters in Azure Database for MySQL - Flexible Server.
 
 ## What are server variables?
 
 The MySQL engine provides many different [server variables/parameters](https://dev.mysql.com/doc/refman/5.7/en/server-option-variable-reference.html) that can be used to configure and tune engine behavior. Some parameters can be set dynamically during runtime while others are "static", requiring a server restart in order to apply.
 
-Azure Database for MySQL Flexible Server exposes the ability to change the value of various MySQL server parameters using the [Azure portal](./how-to-configure-server-parameters-portal.md) and [Azure CLI](./how-to-configure-server-parameters-cli.md) to match your workload's needs.
+Azure Database for MySQL - Flexible Server exposes the ability to change the value of various MySQL server parameters using the [Azure portal](./how-to-configure-server-parameters-portal.md) and [Azure CLI](./how-to-configure-server-parameters-cli.md) to match your workload's needs.
 
 ## Configurable server parameters
 
-You can manage Azure Database for MySQL Flexible Server configuration using server parameters. The server parameters are configured with the default and recommended value when you create the server. The server parameter blade on Azure portal shows both the modifiable and non-modifiable server parameters. The non-modifiable server parameters are greyed out.
+You can manage Azure Database for MySQL - Flexible Server configuration using server parameters. The server parameters are configured with the default and recommended value when you create the server. The server parameter blade on Azure portal shows both the modifiable and non-modifiable server parameters. The non-modifiable server parameters are greyed out.
 
 The list of supported server parameters is constantly growing. Use the server parameters tab in the Azure portal to view the full list and configure server parameters values.
 
@@ -35,7 +35,7 @@ Refer to the following sections below to learn more about the limits of the seve
 
 ### log_bin_trust_function_creators
 
-In Azure Database for MySQL Flexible Server, binary logs are always enabled (that is, `log_bin` is set to ON). log_bin_trust_function_creators is set to ON by default in flexible servers.
+In Azure Database for MySQL - Flexible Server, binary logs are always enabled (that is, `log_bin` is set to ON). log_bin_trust_function_creators is set to ON by default in flexible servers.
 
 The binary logging format is always **ROW** and all connections to the server **ALWAYS** use row-based binary logging. With row-based binary logging, security issues do not exist and binary logging cannot break, so you can safely allow [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) to remain **ON**.
 
@@ -69,11 +69,11 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-
 
 MySQL stores the InnoDB table in different tablespaces based on the configuration you provided during the table creation. The [system tablespace](https://dev.mysql.com/doc/refman/5.7/en/innodb-system-tablespace.html) is the storage area for the InnoDB data dictionary. A [file-per-table tablespace](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-per-table-tablespaces.html) contains data and indexes for a single InnoDB table, and is stored in the file system in its own data file. This behavior is controlled by the `innodb_file_per_table` server parameter. Setting `innodb_file_per_table` to `OFF` causes InnoDB to create tables in the system tablespace. Otherwise, InnoDB creates tables in file-per-table tablespaces.
 
-Azure Database for MySQL Flexible Server supports at largest, **4 TB**, in a single data file. If your database size is larger than 4 TB, you should create the table in [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) tablespace. If you have a single table size larger than 4 TB, you should use the partition table.
+Azure Database for MySQL - Flexible Server supports at largest, **4 TB**, in a single data file. If your database size is larger than 4 TB, you should create the table in [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) tablespace. If you have a single table size larger than 4 TB, you should use the partition table.
 
 ### innodb_log_file_size
 
-[innodb_log_file_size](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) is the size in bytes of each [log file](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_log_file) in a [log group](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_log_group). The combined size of log files [(innodb_log_file_size](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) * [innodb_log_files_in_group](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_files_in_group)) cannot exceed a maximum value that is slightly less than 512GB). A bigger log file size is better for performance, but it has a drawback that the recovery time after a crash will be high. You need to balance recovery time in the rare event of a crash recovery versus maximizing throughput during peak operations. These can also result in longer restart times. You can configure innodb_log_size to any of these values - 256MB, 512MB, 1GB or 2GB for Azure database for MySQL Flexible server. The parameter is static and requires a restart.
+[innodb_log_file_size](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) is the size in bytes of each [log file](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_log_file) in a [log group](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_log_group). The combined size of log files [(innodb_log_file_size](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) * [innodb_log_files_in_group](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_files_in_group)) cannot exceed a maximum value that is slightly less than 512GB). A bigger log file size is better for performance, but it has a drawback that the recovery time after a crash will be high. You need to balance recovery time in the rare event of a crash recovery versus maximizing throughput during peak operations. These can also result in longer restart times. You can configure innodb_log_size to any of these values - 256MB, 512MB, 1GB or 2GB for Azure Database for MySQL - Flexible Server. The parameter is static and requires a restart.
 
 > [!NOTE]
 > If you have changed the parameter innodb_log_file_size from default, check if the value of "show global status like 'innodb_buffer_pool_pages_dirty'" stays at 0 for 30 seconds to avoid restart delay.

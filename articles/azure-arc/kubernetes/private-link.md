@@ -1,6 +1,6 @@
 ---
 title: Private connectivity for Azure Arc-enabled Kubernetes clusters using private link (preview)
-ms.date: 09/21/2021
+ms.date: 09/21/2022
 ms.topic: article
 description: With Azure Arc, you can use a Private Link Scope model to allow multiple Kubernetes clusters to use a single private endpoint.
 ms.custom: references_regions
@@ -191,7 +191,7 @@ If you run into problems, the following suggestions may help:
   nslookup gbl.his.arc.azure.com
   nslookup agentserviceapi.guestconfiguration.azure.com
   nslookup dp.kubernetesconfiguration.azure.com
-    ```
+  ```
 
 * If you are having trouble onboarding your Kubernetes cluster, confirm that you’ve added the Azure Active Directory, Azure Resource Manager, AzureFrontDoor.FirstParty and Microsoft Container Registry service tags to your local network firewall.
 

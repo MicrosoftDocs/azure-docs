@@ -36,7 +36,7 @@ az postgres flexible-server parameter set --resource-group <your resource group>
    ```
 
    Using [ARM Template](../../azure-resource-manager/templates/index.yml):
-   Example below allow-lists extensions dblink, dict_xsyn, pg_buffercache on server mypostgreserver 
+   Example shown below allow-lists extensions dblink, dict_xsyn, pg_buffercache on server mypostgreserver 
 ```json
 {
 
@@ -93,7 +93,7 @@ az postgres flexible-server parameter set --resource-group <your resource group>
 
   ```
 
-Shared_Preload_Libraries is a server configuration parameter determining which libraries are to be loaded when PostgreSQL starts. Any libraries which use shared memory must be loaded via this parameter. If your extension needs to be added to shared preload libraries this can be done:
+Shared_Preload_Libraries is a server configuration parameter determining which libraries are to be loaded when PostgreSQL starts. Any libraries which use shared memory must be loaded via this parameter. If your extension needs to be added to shared preload libraries this action can be done:
 
 Using the [Azure portal](https://portal.azure.com):
 
@@ -101,7 +101,7 @@ Using the [Azure portal](https://portal.azure.com):
    2. On the sidebar, select **Server Parameters**.
    3. Search for the `shared_preload_libraries` parameter.
    4. Select extensions you wish to add.
-     :::image type="content" source="./media/concepts-extensions/shared-libraries.png" alt-text=" Screenshot showing Azure Database for PostgreSQL -setting shared preload libraries parameter setting  for extensions installation .":::
+     :::image type="content" source="./media/concepts-extensions/shared-libraries.png" alt-text=" Screenshot showing Azure Database for PostgreSQL -setting shared preload libraries parameter setting  for extensions installation.":::
   
 
 Using [Azure CLI](/cli/azure/):
@@ -118,10 +118,10 @@ After extensions are allow-listed and loaded, these must be installed in your da
 
 
 
-Azure Database for PostgreSQL supports a subset of key extensions as listed below. This information is also available by running `SHOW azure.extensions;`. Extensions not listed in this document are not supported on Azure Database for PostgreSQL - Flexible Server. You cannot create or load your own extension in Azure Database for PostgreSQL.
+Azure Database for PostgreSQL supports a subset of key extensions as listed below. This information is also available by running `SHOW azure.extensions;`. Extensions not listed in this document aren't supported on Azure Database for PostgreSQL - Flexible Server. You can't create or load your own extension in Azure Database for PostgreSQL.
 ## Postgres 14 extensions
 
-The following extensions are available in Azure Database for PostgreSQL - Flexible Servers which have Postgres version 14. 
+The following extensions are available in Azure Database for PostgreSQL - Flexible Servers, which have Postgres version 14. 
 
 > [!div class="mx-tableFixed"]
 > | **Extension**| **Extension version** | **Description** |
@@ -156,6 +156,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pg_repack](https://reorg.github.io/pg_repack/)                   | 1.4.7             |   lets you remove bloat from tables and indexes|
 > |[pg_stat_statements](https://www.postgresql.org/docs/13/pgstatstatements.html)           | 1.8             | track execution statistics of all SQL statements executed|
 > |[pg_trgm](https://www.postgresql.org/docs/13/pgtrgm.html)                      | 1.5             | text similarity measurement and index searching based on trigrams|
+> |[pg_hint_plan](https://github.com/ossc-db/pg_hint_plan)                      | 1.4            | makes it possible to tweak PostgreSQL execution plans using so-called "hints" in SQL comments|
 > |[pg_visibility](https://www.postgresql.org/docs/13/pgvisibility.html)                      | 1.2             | examine the visibility map (VM) and page-level visibility info|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.6.2            | provides auditing functionality|
 > |[pgcrypto](https://www.postgresql.org/docs/13/pgcrypto.html)                     | 1.3             | cryptographic functions| 
@@ -164,7 +165,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pgrowlocks](https://www.postgresql.org/docs/13/pgrowlocks.html)                   | 1.2             | show row-level locking information|
 > |[pgstattuple](https://www.postgresql.org/docs/13/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
 > |[plpgsql](https://www.postgresql.org/docs/13/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
-> |[plv8](https://plv8.github.io/)                      | 3.0.0             | Trusted Javascript language extension|
+> |[plv8](https://plv8.github.io/)                      | 3.0.0             | Trusted JavaScript language extension|
 > |[postgis](https://www.postgis.net/)                      | 3.2.0           | PostGIS geometry, geography |
 > |[postgis_raster](https://www.postgis.net/)               | 3.2.0           | PostGIS raster types and functions| 
 > |[postgis_sfcgal](https://www.postgis.net/)               | 3.2.0          | PostGIS SFCGAL functions|
@@ -172,6 +173,8 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 3.2.0           | PostGIS topology spatial types and functions|
 > |[postgres_fdw](https://www.postgresql.org/docs/13/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
 > |[sslinfo](https://www.postgresql.org/docs/13/sslinfo.html)                    | 1.2             | information about SSL certificates|
+> |[semver](https://pgxn.org/dist/semver/doc/semver.html)                    | 0.32.0            | semantic version data type|
+> |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | functions that manipulate whole tables, including crosstab|
 > |[timescaledb](https://github.com/timescale/timescaledb)                    | 2.5.1            |  Open-source relational database for time-series and analytics|
 > |[tsm_system_rows](https://www.postgresql.org/docs/13/tsm-system-rows.html)                    | 1.0             |  TABLESAMPLE method which accepts number of rows as a limit|
 > |[tsm_system_time](https://www.postgresql.org/docs/13/tsm-system-time.html)                    | 1.0             |  TABLESAMPLE method which accepts time in milliseconds as a limit|
@@ -180,7 +183,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 
 ## Postgres 13 extensions
 
-The following extensions are available in Azure Database for PostgreSQL - Flexible Servers which have Postgres version 13. 
+The following extensions are available in Azure Database for PostgreSQL - Flexible Servers that have Postgres version 13. 
 
 > [!div class="mx-tableFixed"]
 > | **Extension**| **Extension version** | **Description** |
@@ -215,6 +218,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pg_repack](https://reorg.github.io/pg_repack/)                   | 1.4.7             |   lets you remove bloat from tables and indexes|
 > |[pg_stat_statements](https://www.postgresql.org/docs/13/pgstatstatements.html)           | 1.8             | track execution statistics of all SQL statements executed|
 > |[pg_trgm](https://www.postgresql.org/docs/13/pgtrgm.html)                      | 1.5             | text similarity measurement and index searching based on trigrams|
+> |[pg_hint_plan](https://github.com/ossc-db/pg_hint_plan)                      | 1.4            | makes it possible to tweak PostgreSQL execution plans using so-called "hints" in SQL comments|
 > |[pg_visibility](https://www.postgresql.org/docs/13/pgvisibility.html)                      | 1.2             | examine the visibility map (VM) and page-level visibility info|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.5             | provides auditing functionality|
 > |[pgcrypto](https://www.postgresql.org/docs/13/pgcrypto.html)                     | 1.3             | cryptographic functions| 
@@ -223,7 +227,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pgrowlocks](https://www.postgresql.org/docs/13/pgrowlocks.html)                   | 1.2             | show row-level locking information|
 > |[pgstattuple](https://www.postgresql.org/docs/13/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
 > |[plpgsql](https://www.postgresql.org/docs/13/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
-> |[plv8](https://plv8.github.io/)                      | 3.0.0             | Trusted Javascript language extension|
+> |[plv8](https://plv8.github.io/)                      | 3.0.0             | Trusted JavaScript language extension|
 > |[postgis](https://www.postgis.net/)                      | 3.2.0           | PostGIS geometry, geography |
 > |[postgis_raster](https://www.postgis.net/)               | 3.2.0           | PostGIS raster types and functions| 
 > |[postgis_sfcgal](https://www.postgis.net/)               | 3.2.0          | PostGIS SFCGAL functions|
@@ -231,6 +235,8 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 3.2.0           | PostGIS topology spatial types and functions|
 > |[postgres_fdw](https://www.postgresql.org/docs/13/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
 > |[sslinfo](https://www.postgresql.org/docs/13/sslinfo.html)                    | 1.2             | information about SSL certificates|
+> |[semver](https://pgxn.org/dist/semver/doc/semver.html)                    | 0.32.0            | semantic version data type|
+> |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | functions that manipulate whole tables, including crosstab|
 > |[timescaledb](https://github.com/timescale/timescaledb)                    | 2.5.1            |  Open-source relational database for time-series and analytics|
 > |[tsm_system_rows](https://www.postgresql.org/docs/13/tsm-system-rows.html)                    | 1.0             |  TABLESAMPLE method which accepts number of rows as a limit|
 > |[tsm_system_time](https://www.postgresql.org/docs/13/tsm-system-time.html)                    | 1.0             |  TABLESAMPLE method which accepts time in milliseconds as a limit|
@@ -239,7 +245,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 
 ## Postgres 12 extensions
 
-The following extensions are available in Azure Database for PostgreSQL - Flexible Servers which have Postgres version 12. 
+The following extensions are available in Azure Database for PostgreSQL - Flexible Servers that have Postgres version 12. 
 
 > [!div class="mx-tableFixed"]
 > | **Extension**| **Extension version** | **Description** |
@@ -274,6 +280,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pg_repack](https://reorg.github.io/pg_repack/)                   | 1.4.7             |   lets you remove bloat from tables and indexes|
 > |[pg_stat_statements](https://www.postgresql.org/docs/12/pgstatstatements.html)           | 1.7             | track execution statistics of all SQL statements executed|
 > |[pg_trgm](https://www.postgresql.org/docs/12/pgtrgm.html)                      | 1.4             | text similarity measurement and index searching based on trigrams|
+> |[pg_hint_plan](https://github.com/ossc-db/pg_hint_plan)                      | 1.4            | makes it possible to tweak PostgreSQL execution plans using so-called "hints" in SQL comments|
 > |[pg_visibility](https://www.postgresql.org/docs/12/pgvisibility.html)                      | 1.2             | examine the visibility map (VM) and page-level visibility info|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.4             | provides auditing functionality|
 > |[pgcrypto](https://www.postgresql.org/docs/12/pgcrypto.html)                     | 1.3             | cryptographic functions|
@@ -282,7 +289,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pgrowlocks](https://www.postgresql.org/docs/12/pgrowlocks.html)                   | 1.2             | show row-level locking information|
 > |[pgstattuple](https://www.postgresql.org/docs/12/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
 > |[plpgsql](https://www.postgresql.org/docs/12/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
-> |[plv8](https://plv8.github.io/)                      | 3.2.0             | Trusted Javascript language extension|
+> |[plv8](https://plv8.github.io/)                      | 3.2.0             | Trusted JavaScript language extension|
 > |[postgis](https://www.postgis.net/)                      | 3.2.0           | PostGIS geometry, geography |
 > |[postgis_raster](https://www.postgis.net/)               | 3.2.0           | PostGIS raster types and functions| 
 > |[postgis_sfcgal](https://www.postgis.net/)               | 3.2.0           | PostGIS SFCGAL functions|
@@ -290,6 +297,8 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 3.2.0           | PostGIS topology spatial types and functions|
 > |[postgres_fdw](https://www.postgresql.org/docs/12/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
 > |[sslinfo](https://www.postgresql.org/docs/12/sslinfo.html)                    | 1.2             | information about SSL certificates|
+> |[semver](https://pgxn.org/dist/semver/doc/semver.html)                    | 0.32.0            | semantic version data type|
+> |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | functions that manipulate whole tables, including crosstab|
 > |[timescaledb](https://github.com/timescale/timescaledb)                    | 2.5.1            |  Open-source relational database for time-series and analytics|
 > |[tsm_system_rows](https://www.postgresql.org/docs/12/tsm-system-rows.html)                    | 1.0             |  TABLESAMPLE method which accepts number of rows as a limit|
 > |[tsm_system_time](https://www.postgresql.org/docs/12/tsm-system-time.html)                    | 1.0             |  TABLESAMPLE method which accepts time in milliseconds as a limit|
@@ -298,7 +307,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 
 ## Postgres 11 extensions
 
-The following extensions are available in Azure Database for PostgreSQL - Flexible Servers which have Postgres version 11. 
+The following extensions are available in Azure Database for PostgreSQL - Flexible Servers that have Postgres version 11. 
 
 > [!div class="mx-tableFixed"]
 > | **Extension**| **Extension version** | **Description** |
@@ -333,6 +342,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pg_repack](https://reorg.github.io/pg_repack/)                   | 1.4.7             |   lets you remove bloat from tables and indexes|
 > |[pg_stat_statements](https://www.postgresql.org/docs/11/pgstatstatements.html)           | 1.6             | track execution statistics of all SQL statements executed|
 > |[pg_trgm](https://www.postgresql.org/docs/11/pgtrgm.html)                      | 1.4             | text similarity measurement and index searching based on trigrams|
+> |[pg_hint_plan](https://github.com/ossc-db/pg_hint_plan)                      | 1.4            | makes it possible to tweak PostgreSQL execution plans using so-called "hints" in SQL comments|
 > |[pg_visibility](https://www.postgresql.org/docs/11/pgvisibility.html)                      | 1.2             | examine the visibility map (VM) and page-level visibility info|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.3.1             | provides auditing functionality|
 > |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1.3             | cryptographic functions|
@@ -341,13 +351,14 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | show row-level locking information|
 > |[pgstattuple](https://www.postgresql.org/docs/11/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
 > |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
-> |[plv8](https://plv8.github.io/)                      | 3.0.0             | Trusted Javascript language extension|
+> |[plv8](https://plv8.github.io/)                      | 3.0.0             | Trusted JavaScript language extension|
 > |[postgis](https://www.postgis.net/)                      | 2.5.5           | PostGIS geometry, geography, and raster spatial types and functions|
 > |[postgis_sfcgal](https://www.postgis.net/)               | 2.5.5           | PostGIS SFCGAL functions|
 > |[postgis_tiger_geocoder](https://www.postgis.net/)       | 2.5.5           | PostGIS tiger geocoder and reverse geocoder|
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.5.5           | PostGIS topology spatial types and functions|
 > |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
 > |[sslinfo](https://www.postgresql.org/docs/11/sslinfo.html)                    | 1.2             | information about SSL certificates|
+> |[semver](https://pgxn.org/dist/semver/doc/semver.html)                    | 0.32.0            | semantic version data type|
 > |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | functions that manipulate whole tables, including crosstab|
 > |[timescaledb](https://github.com/timescale/timescaledb)                    | 1.7.4           |  Open-source relational database for time-series and analytics|
 > |[tsm_system_rows](https://www.postgresql.org/docs/11/tsm-system-rows.html)                    | 1.0             |  TABLESAMPLE method which accepts number of rows as a limit|
@@ -377,7 +388,7 @@ To delete old data on Saturday at 3:30am (GMT)
 ```
 SELECT cron.schedule('30 3 * * 6', $$DELETE FROM events WHERE event_time < now() - interval '1 week'$$);
 ```
-To run vacuum every day at 10:00am (GMT)
+To run vacuum every day at 10:00am (GMT) in default database 'postgres'
 ```
 SELECT cron.schedule('0 10 * * *', 'VACUUM');
 ```
@@ -386,12 +397,41 @@ To unschedule all tasks from pg_cron
 ```
 SELECT cron.unschedule(jobid) FROM cron.job;
 ```
+To see all jobs currently scheduled with pg_cron
+```
+SELECT * FROM cron.job;
+```
+To run vacuum every day at 10:00 am (GMT) in database 'testcron' under azure_pg_admin role account
+```
+SELECT cron.schedule_in_database('VACUUM','0 10 * * * ','VACUUM','testcron',null,TRUE)
+```
+
 > [!NOTE]
-> pg_cron extension is preloaded in every Azure Database for PostgreSQL -Flexible Server inside postgres database to provide you with ability to schedule jobs to run in other databases within your PostgreSQL DB instance without compromising security.
+> pg_cron extension is preloaded in shared_preload_libraries for every Azure Database for PostgreSQL -Flexible Server inside postgres database to provide you with ability to schedule jobs to run in other databases within your PostgreSQL DB instance without compromising security. However, for security reasons, you still have to [allow list](#how-to-use-postgresql-extensions) pg_cron extension and install it using [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) command. 
+
+Starting with pg_cron version 1.4, you can use the cron.schedule_in_database and cron.alter_job functions to schedule your job in a specific database and update an existing schedule respectively.
+
+Some examples:
+
+To delete old data on Saturday at 3:30am (GMT) on database DBName
+```
+SELECT cron.schedule_in_database('JobName', '30 3 * * 6', $$DELETE FROM events WHERE event_time < now() - interval '1 week'$$,'DBName');
+```
+>[!NOTE]
+> cron_schedule_in_database function allows for user name as optional parameter. Setting the username to a non-null value requires PostgreSQL superuser privilege and is not supported in Azure Database for PostgreSQL - Flexible Server. Above examples show running this function with optional user name parameter ommitted or set to null, which runs the job in context of user scheduling the job, which should have azure_pg_admin role priviledges. 
+
+
+To update or change the database name for the existing schedule 
+```
+select cron.alter_job(job_id:=MyJobID,database:='NewDBName');
+```
 
 ## pg_stat_statements
 
-The [pg_stat_statements extension](https://www.postgresql.org/docs/current/pgstatstatements.html) is preloaded on every Azure Database for PostgreSQL flexible server to provide you a means of tracking execution statistics of SQL statements.
+The [pg_stat_statements extension](https://www.postgresql.org/docs/current/pgstatstatements.html) gives you a view of all the queries that have run on your database. That is very useful to get an understanding of what your query workload performance looks like on a production system.
+
+The [pg_stat_statements extension](https://www.postgresql.org/docs/current/pgstatstatements.html) is preloaded in shared_preload_libraries on every Azure Database for PostgreSQL flexible server to provide you a means of tracking execution statistics of SQL statements.
+However, for security reasons, you still have to [allow list](#how-to-use-postgresql-extensions)  [pg_stat_statements extension](https://www.postgresql.org/docs/current/pgstatstatements.html) and install it using [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) command.
 The setting `pg_stat_statements.track`, which controls what statements are counted by the extension, defaults to `top`, meaning all statements issued directly by clients are tracked. The two other tracking levels are `none` and `all`. This setting is configurable as a server parameter.
 
 There is a tradeoff between the query execution information pg_stat_statements provides and the impact on server performance as it logs each SQL statement. If you are not actively using the pg_stat_statements extension, we recommend that you set `pg_stat_statements.track` to `none`. Note that some third party monitoring services may rely on pg_stat_statements to deliver query performance insights, so confirm whether this is the case for you or not.
@@ -402,7 +442,7 @@ There is a tradeoff between the query execution information pg_stat_statements p
 TimescaleDB is a time-series database that is packaged as an extension for PostgreSQL. TimescaleDB provides time-oriented analytical functions, optimizations, and scales Postgres for time-series workloads.
 [Learn more about TimescaleDB](https://docs.timescale.com/timescaledb/latest/), a registered trademark of Timescale, Inc.. Azure Database for PostgreSQL provides the TimescaleDB [Apache-2 edition](https://www.timescale.com/legal/licenses).
 ## Installing TimescaleDB
-To install TimescaleDB, you need to include it in the server's shared preload libraries. A change to Postgres's `shared_preload_libraries` parameter requires a **server restart** to take effect. You can change parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md) or the [Azure CLI](howto-configure-server-parameters-using-cli.md).
+To install TimescaleDB, in addition to allow listing it, as shown [above](#how-to-use-postgresql-extensions), you need to include it in the server's shared preload libraries. A change to Postgres's `shared_preload_libraries` parameter requires a **server restart** to take effect. You can change parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md) or the [Azure CLI](howto-configure-server-parameters-using-cli.md).
 
 Using the [Azure portal](https://portal.azure.com/):
 
@@ -463,6 +503,59 @@ For more details on restore method wiith Timescale enabled database see [Timesca
  More details on these utilities can be found [here](https://github.com/timescale/timescaledb-backup). 
 > [!NOTE]
 > When using `timescale-backup` utilities to restore to Azure is that since database user names for non-flexible Azure Database for PostgresQL  must use the `<user@db-name>` format, you need to replace `@` with `%40` character encoding. 
+
+## pg_hint_plan
+
+`pg_hint_plan` makes it possible to tweak PostgreSQL execution plans using so-called "hints" in SQL comments, like
+```sql
+/*+ SeqScan(a) */
+```
+`pg_hint_plan` reads hinting phrases in a comment of special form given with the target SQL statement. The special form is beginning by the character sequence "/\*+" and ends with "\*/". Hint phrases are consists of hint name and following parameters enclosed by parentheses and delimited by spaces. Each hinting phrases can be delimited by new lines for readability.
+Example:
+```sql
+  /*+
+      HashJoin(a b)
+      SeqScan(a)
+    */
+    SELECT *
+      FROM pgbench_branches b
+      JOIN pgbench_accounts a ON b.bid = a.bid
+     ORDER BY a.aid;
+```
+The above example will cause the planner to use the results of a `seq scan` on table a to be combined with table b as a `hash join`.
+
+To install pg_hint_plan, in addition to allow listing it, as shown [above](#how-to-use-postgresql-extensions), you need to include it in the server's shared preload libraries. A change to Postgres's `shared_preload_libraries` parameter requires a **server restart** to take effect. You can change parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md) or the [Azure CLI](howto-configure-server-parameters-using-cli.md).
+
+Using the [Azure portal](https://portal.azure.com/):
+
+1. Select your Azure Database for PostgreSQL server.
+
+2. On the sidebar, select **Server Parameters**.
+
+3. Search for the `shared_preload_libraries` parameter.
+
+4. Select **pg_hint_plan**.
+
+5. Select **Save** to preserve your changes. You get a notification once the change is saved. 
+
+6. After the notification, **restart** the server to apply these changes. 
+
+
+You can now enable pg_hint_plan your Postgres database. Connect to the database and issue the following command:
+```sql
+CREATE EXTENSION  pg_hint_plan ;
+```
+
+## pg_buffercache
+
+`Pg_buffercache` can be used to study the contents of *shared_buffers* . Using [this extension](https://www.postgresql.org/docs/current/pgbuffercache.html) you can tell if a particular relation is cached or not(in *shared_buffers*) . This extension can help you in troubleshooting performance issues (caching related performance issues)
+
+This is part of contrib and it is very easy to install this extension.
+
+```sql
+CREATE EXTENSION pg_buffercache;
+```
+
 
 
 

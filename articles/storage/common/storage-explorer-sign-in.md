@@ -1,5 +1,5 @@
 ---
-title: Sign in to Azure Storage Explorer | Microsoft Docs
+title: Sign in to Azure Storage Explorer
 description: Documentation on signing into Azure Storage Explorer
 services: storage
 author: MRayermannMSFT

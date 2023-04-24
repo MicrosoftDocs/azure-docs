@@ -4,6 +4,7 @@ description: Describes options for dangling subdomain prevention on Azure App Se
 ms.topic: article
 ms.date: 10/14/2022
 ms.author: msangapu
+ms.custom: UpdateFrequency3
 author: msangapu-msft
 ---
 
@@ -18,14 +19,14 @@ The risks of subdomain takeover include:
 - Phishing campaigns
 - Further risks of classic attacks such as XSS, CSRF, CORS bypass
 
-Learn more about Subdomain Takeover at [Dangling DNS and subdomain takeover](/azure/security/fundamentals/subdomain-takeover.md).
+Learn more about Subdomain Takeover at [Dangling DNS and subdomain takeover](../security/fundamentals/subdomain-takeover.md).
 
 Azure App Service provides [Name Reservation Service](#how-app-service-prevents-subdomain-takeovers) and [domain verification tokens](#how-you-can-prevent-subdomain-takeovers) to prevent subdomain takeovers.
 ## How App Service prevents subdomain takeovers
 
-Upon deletion of an App Service app, the corresponding DNS is reserved. During the reservation period, reuse of the DNS is forbidden except for subscriptions belonging to tenant of the subscription originally owning the DNS.
+Upon deletion of an App Service app or App Service Environment (ASE), the corresponding DNS is reserved. During the reservation period, reuse of the DNS is forbidden except for subscriptions belonging to tenant of the subscription originally owning the DNS.
 
-After the reservation expires, the DNS is free to be claimed by any subscription. By Name Reservation Service, the customer is afforded some time to either clean-up any associations/pointers to said DNS or reclaim the DNS in Azure. The DNS name being reserved can be derived by appending 'azurewebsites.net'. Name Reservation Service is enabled by default on Azure App Service and doesn't require more configuration.
+After the reservation expires, the DNS is free to be claimed by any subscription. By Name Reservation Service, the customer is afforded some time to either clean-up any associations/pointers to said DNS or reclaim the DNS in Azure. The DNS name being reserved for web apps can be derived by appending 'azurewebsites.net' and for ASE can be derived by appending 'appserviceenvironment.net'. Name Reservation Service is enabled by default on Azure App Service and doesn't require more configuration.
 
 #### Example scenario
 
@@ -42,4 +43,4 @@ These records prevent the creation of another App Service app using the same nam
 
 DNS records should be updated before the site deletion to ensure bad actors can't take over the domain between the period of deletion and re-creation.
 
-To get a domain verification ID, see the [Map a custom domain tutorial](app-service-web-tutorial-custom-domain.md#2-get-a-domain-verification-id)
+To get a domain verification ID, see the [Map a custom domain tutorial](app-service-web-tutorial-custom-domain.md)

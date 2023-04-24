@@ -1,12 +1,12 @@
 ---
 title: Query Azure IoT Hub device twins and module twins
-description: Developer guide - retrieve information about device/module twins from your IoT hub using the query language.
+description: This article describes how to retrieve information about device/module twins from your IoT hub using the query language.
 author: kgremban
-ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
-ms.date: 09/29/2022
+
 ms.author: kgremban
+ms.service: iot-hub
+ms.topic: concept-article
+ms.date: 09/29/2022
 ---
 
 # Queries for IoT Hub device and module twins
@@ -185,11 +185,19 @@ SELECT * FROM devices.modules
 ## Twin query limitations
 
 > [!IMPORTANT]
-> Query results can have a few minutes of delay with respect to the latest values in device twins. If querying individual device twins by ID, use the [get twin REST API](/java/api/com.microsoft.azure.sdk.iot.device.devicetwin). This API always returns the latest values and has higher throttling limits. You can issue the REST API directly or use the equivalent functionality in one of the [Azure IoT Hub Service SDKs](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
+> Query results are eventually consistent operations and delays of up to 30 minutes should be tolerated. In most instances, twin query returns results in the order of a few seconds. IoT Hub strives to provide low latency for all operations. However, due to network conditions and other unpredictable factors it cannot guarantee a certain latency. 
+
+An alternative option to twin queries is to query individual device twins by ID by using the [get twin REST API](/java/api/com.microsoft.azure.sdk.iot.device.devicetwin). This API always returns the latest values and has higher throttling limits. You can issue the REST API directly or use the equivalent functionality in one of the [Azure IoT Hub Service SDKs](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
 Query expressions can have a maximum length of 8192 characters.
 
 Currently, comparisons are supported only between primitive types (no objects), for instance `... WHERE properties.desired.config = properties.reported.config` is supported only if those properties have primitive values.
+
+We recommend to not take a dependency on lastActivityTime found in Device Identity Properties for Twin Queries for any scenario. This field does not guarantee an accurate gauge of device status. Instead, please use IoT Device Lifecycle events to manage device state and activities.  More information on how to use IoT Hub Lifecycle events in your solution, please visit [React to IoT Hub events by using Event Grid to trigger actions](./iot-hub-event-grid.md).
+
+
+> [!Note]
+> Avoid making any assumptions about the maximum latency of this operation.  Please refer to [Latency Solutions](./iot-hub-devguide-quotas-throttling.md) for more information on how to build your solution taking latency into account.
 
 ## Next steps
 

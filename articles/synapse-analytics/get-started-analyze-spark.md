@@ -7,7 +7,7 @@ ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
-ms.date: 10/10/2022
+ms.date: 11/18/2022
 ---
 
 # Analyze with Apache Spark
@@ -79,20 +79,19 @@ Data is available via the dataframe named **df**. Load it into a Spark database 
    ```py
    %%pyspark
    df = spark.sql("""
-      SELECT PassengerCount,
-          SUM(TripDistanceMiles) as SumTripDistance,
-          AVG(TripDistanceMiles) as AvgTripDistance
+      SELECT passenger_count,
+          SUM(trip_distance) as SumTripDistance,
+          AVG(trip_distance) as AvgTripDistance
       FROM nyctaxi.trip
-      WHERE TripDistanceMiles > 0 AND PassengerCount > 0
-      GROUP BY PassengerCount
-      ORDER BY PassengerCount
+      WHERE trip_distance > 0 AND passenger_count > 0
+      GROUP BY passenger_count
+      ORDER BY passenger_count
    """) 
    display(df)
    df.write.saveAsTable("nyctaxi.passengercountstats")
    ```
 
 1. In the cell results, select **Chart** to see the data visualized.
-
 
 ## Next steps
 

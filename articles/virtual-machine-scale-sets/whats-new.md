@@ -4,7 +4,8 @@ description: Learn about what's new for Virtual Machine Scale Sets in Azure.
 author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.topic: whats-new
-ms.date: 10/12/2022
+ms.date: 11/22/2022
+ms.reviewer: jushiman
 ms.author: cynthn
 ms.custom: day0
 ---

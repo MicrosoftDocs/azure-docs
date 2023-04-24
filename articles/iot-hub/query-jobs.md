@@ -1,12 +1,12 @@
 ---
 title: Run queries on Azure IoT Hub jobs
-description: Developer guide - retrieve information about device jobs from your Azure IoT hub using the query language.
+description: This article describes how to retrieve information about device jobs from your Azure IoT hub using the query language.
 author: kgremban
-ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
-ms.date: 09/29/2022
+
 ms.author: kgremban
+ms.service: iot-hub
+ms.topic: concept-article
+ms.date: 09/29/2022
 ---
 
 # Queries for IoT Hub jobs
@@ -29,7 +29,7 @@ Here's a sample IoT hub device twin that is part of a job called **myJobId**:
         {
             "deviceId": "myDeviceId",
             "jobId": "myJobId",
-            "jobType": "scheduleTwinUpdate",
+            "jobType": "scheduleUpdateTwin",
             "status": "completed",
             "startTimeUtc": "2016-09-29T18:18:52.7418462",
             "endTimeUtc": "2016-09-29T18:20:52.7418462",
@@ -47,7 +47,7 @@ Here's a sample IoT hub device twin that is part of a job called **myJobId**:
 Currently, this collection is queryable as **devices.jobs** in the IoT Hub query language.
 
 > [!IMPORTANT]
-> Currently, the jobs property is never returned when querying device twins. That is, queries that contain `FROM devices`. The jobs property can only be accessed directly with queries using `FROM devices.jobs`.
+> Currently, the jobs property is not returned when querying device twins. That is, queries that contain `FROM devices`. The jobs property can only be accessed directly with queries using `FROM devices.jobs`.
 
 For example, the following query returns all jobs (past and scheduled) that affect a single device:
 
@@ -65,7 +65,7 @@ For example, the following query retrieves all completed device twin update jobs
 ```sql
 SELECT * FROM devices.jobs
   WHERE devices.jobs.deviceId = 'myDeviceId'
-    AND devices.jobs.jobType = 'scheduleTwinUpdate'
+    AND devices.jobs.jobType = 'scheduleUpdateTwin'
     AND devices.jobs.status = 'completed'
     AND devices.jobs.createdTimeUtc > '2016-09-01'
 ```

@@ -4,7 +4,7 @@ description: Learn how to use Kafka on HDInsight from container images hosted in
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 08/23/2022
+ms.date: 11/17/2022
 ---
 
 # Use Azure Kubernetes Service with Apache Kafka on HDInsight
@@ -224,7 +224,6 @@ Use the following links to learn how to use Apache Kafka on HDInsight:
 
 * [Use MirrorMaker to create a replica of Apache Kafka on HDInsight](apache-kafka-mirroring.md)
 
-* [Use Apache Storm with Apache Kafka on HDInsight](../hdinsight-apache-storm-with-kafka.md)
 
 * [Use Apache Spark with Apache Kafka on HDInsight](../hdinsight-apache-spark-with-kafka.md)
 

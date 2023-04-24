@@ -1163,6 +1163,26 @@ When you observe that the activity is running much longer than your normal runs 
 > [!TIP]
 > Actually, both [Binary format in Azure Data Factory and Synapse Analytics](format-binary.md) and [Delimited text format in Azure Data Factory and Azure Synapse Analytics](format-delimited-text.md) clearly state that the "deflate64" format is not supported in Azure Data Factory.
 
+### Execute Pipeline passes array parameter as string to the child pipeline
+
+**Error message:** `Operation on target ForEach1 failed: The execution of template action 'MainForEach1' failed: the result of the evaluation of 'foreach' expression '@pipeline().parameters.<parameterName>' is of type 'String'. The result must be a valid array.`
+
+**Cause:** Even if in the Execute Pipeline you create the parameter of type array, as shown in the below image, the pipeline will fail.
+
+:::image type="content" source="media/data-factory-troubleshoot-guide/parameter-type-array.png" alt-text="Screenshot showing the parameters of the Execute Pipeline activity.":::
+
+This is due to the fact that the payload is passed from the parent pipeline to the child as string. We can see it when we check the input passed to the child pipeline.
+
+:::image type="content" source="media/data-factory-troubleshoot-guide/input-type-string.png" alt-text="Screenshot showing the input type string.":::
+
+**Recommendation:** To solve the issue we can leverage the create array function as shown in the below image.
+
+:::image type="content" source="media/data-factory-troubleshoot-guide/create-array-function.png" alt-text="Screenshot showing how to use the create array function.":::
+
+Then our pipeline will succeed. And we can see in the input box that the parameter passed is an array.
+
+:::image type="content" source="media/data-factory-troubleshoot-guide/input-type-array.png" alt-text="Screenshot showing input type array.":::
+
 ## Next steps
 
 For more troubleshooting help, try these resources:

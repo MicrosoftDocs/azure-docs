@@ -8,21 +8,22 @@ ms.subservice: mldata
 ms.topic: reference
 author: SturgeonMi
 ms.author: xunwan
-ms.date: 09/16/2022
-ms.reviewer: sgilley
+ms.date: 02/13/2023
+ms.reviewer: franksolomon
 ms.custom: migration
+monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
 # Upgrade data management to SDK v2
 
-In V1, an AzureML dataset can either be a `Filedataset` or a `Tabulardataset`.
-In V2, an AzureML data asset can be a `uri_folder`, `uri_file` or `mltable`.
+In V1, an Azure Machine Learning dataset can either be a `Filedataset` or a `Tabulardataset`.
+In V2, an Azure Machine Learning data asset can be a `uri_folder`, `uri_file` or `mltable`.
 You can conceptually map `Filedataset` to `uri_folder` and `uri_file`, `Tabulardataset` to `mltable`.
 
-* URIs (`uri_folder`, `uri_file`) - a Uniform Resource Identifier that is a reference to a storage location on your local computer or in the cloud that makes it easy to access data in your jobs.
-* MLTable - a method to abstract the schema definition for tabular data so that it's easier for consumers of the data to materialize the table into a Pandas/Dask/Spark dataframe.
+* URIs (`uri_folder`, `uri_file`) - a Uniform Resource Identifier that is a reference to a storage location on your local computer or in the cloud, that makes it easy to access data in your jobs.
+* MLTable - a method to abstract the tabular data schema definition, to make it easier for consumers of that data to materialize the table into a Pandas/Dask/Spark dataframe.
 
-This article gives a comparison of data scenario(s) in SDK v1 and SDK v2.
+This article compares data scenario(s) in SDK v1 and SDK v2.
 
 ## Create a `filedataset`/ uri type of data asset
 
@@ -215,7 +216,7 @@ This article gives a comparison of data scenario(s) in SDK v1 and SDK v2.
 
 |Functionality in SDK v1|Rough mapping in SDK v2|
 |-|-|
-|[Method/API in SDK v1](/python/api/azurzeml-core/azureml.data)|[Method/API in SDK v2](/python/api/azure-ai-ml/azure.ai.ml.entities)|
+|[Method/API in SDK v1](/python/api/azureml-core/azureml.data)|[Method/API in SDK v2](/python/api/azure-ai-ml/azure.ai.ml.entities)|
 
 ## Next steps
 

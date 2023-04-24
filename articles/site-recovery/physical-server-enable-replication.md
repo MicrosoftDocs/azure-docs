@@ -1,11 +1,11 @@
 ---
 title: Enable replication for a physical server – Modernized
 description: This article describes how to enable physical servers replication for disaster recovery using the Azure Site Recovery service
-author: v-pgaddala
+author: ankitaduttaMSFT
 manager: jsuri
 ms.service: site-recovery
 ms.topic: conceptual
-ms.author: v-pgaddala
+ms.author: ankitadutta
 ms.date: 10/20/2022
 ---
 
@@ -23,7 +23,7 @@ This tutorial, explains on how to enable replication for a physical server.
 
 Physical server to Azure replication includes the following procedures:
 
-- Sign in to the [Azure portal](https://ms.portal.azure.com/#home)
+- Sign in to the [Azure portal](https://portal.azure.com/#home)
 - [Prepare Azure account](/azure/site-recovery/vmware-azure-set-up-replication-tutorial-preview#prepare-azure-account)
 - [Create a recovery Services vault](./quickstart-create-vault-template.md?tabs=CLI)
 - [Prepare infrastructure](#prepare-infrastructure---set-up-azure-site-recovery-replication-appliance)

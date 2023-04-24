@@ -4,7 +4,8 @@ description: Describes the functions to use in a Bicep file to retrieve deployme
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/27/2022
+ms.custom: devx-track-bicep
+ms.date: 11/09/2022
 ---
 
 # Deployment functions for Bicep
@@ -177,10 +178,7 @@ The preceding example returns the following object when deployed to global Azure
   "resourceManager": "https://management.azure.com/",
   "authentication": {
     "loginEndpoint": "https://login.microsoftonline.com/",
-    "audiences": [
-      "https://management.core.windows.net/",
-      "https://management.azure.com/"
-    ],
+    "audiences": [ "https://management.core.windows.net/", "https://management.azure.com/" ],
     "tenant": "common",
     "identityProvider": "AAD"
   },

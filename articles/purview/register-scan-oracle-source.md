@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 05/04/2022
+ms.date: 04/20/2023
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -16,13 +16,13 @@ This article outlines how to register Oracle, and how to authenticate and intera
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | [Yes](#scan) | No| [Yes*](#lineage)| No |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Labeling**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | [Yes](#scan) | No |No| [Yes*](#lineage)| No |
 
 \* *Besides the lineage on assets within the data source, lineage is also supported if dataset is used as a source/sink in [Data Factory](how-to-link-azure-data-factory.md) or [Synapse pipeline](how-to-lineage-azure-synapse-analytics.md).*
 
-The supported Oracle server versions are 6i to 19c. Proxy server isn't supported when scanning Oracle source.
+The supported Oracle server versions are 6i to 19c. Oracle proxy server isn't supported when scanning Oracle source.
 
 When scanning Oracle source, Microsoft Purview supports:
 
@@ -39,11 +39,14 @@ When scanning Oracle source, Microsoft Purview supports:
     - Synonyms
     - Types including the type attributes
 
-- Fetching static lineage on assets relationships among tables, views and stored procedures. Stored procedure lineage is supported for static SQL returning result set.
+- Fetching static lineage on assets relationships among tables and views.
 
 When setting up scan, you can choose to scan an entire Oracle server, or scope the scan to a subset of schemas matching the given name(s) or name pattern(s).
 
-Currently, the Oracle service name isn't captured in the metadata or hierarchy.
+### Known limitations
+
+- Currently, the Oracle service name isn't captured in the metadata or hierarchy.
+- When object is deleted from the data source, currently the subsequent scan won't automatically remove the corresponding asset in Microsoft Purview.
 
 ## Prerequisites
 
@@ -64,13 +67,14 @@ Currently, the Oracle service name isn't captured in the metadata or hierarchy.
         > [!Note]
         > The driver should be accessible by the self-hosted integration runtime. By default, self-hosted integration runtime uses [local service account "NT SERVICE\DIAHostService"](manage-integration-runtimes.md#service-account-for-self-hosted-integration-runtime). Make sure it has "Read and execute" and "List folder contents" permission to the driver folder.
 
-## Register
+### Required permissions for scan
 
-This section describes how to register Oracle in Microsoft Purview using the [Microsoft Purview governance portal](https://web.purview.azure.com/).
+Microsoft Purview supports basic authentication (username and password) for scanning Oracle. The Oracle user must have read access to system tables in order to access advanced metadata. 
 
-### Prerequisites for registration
+For classification, user also needs to be the owner of the table.
 
-A read-only access to system tables is required.
+>[!IMPORTANT]
+>If the user is not the owner of the table, the scan will run successfully and ingest metadata, but will not identify any classifications.
 
 The user should have permission to create a session and role SELECT\_CATALOG\_ROLE assigned. Alternatively, the user may have SELECT permission granted for every individual system table that this connector queries metadata from:
 
@@ -102,9 +106,9 @@ grant select on V_$INSTANCE to [user];
 grant select on v_$database to [user];
 ```
 
-### Authentication for registration
+## Register
 
-The only supported authentication for an Oracle source is **Basic authentication**.
+This section describes how to register Oracle in Microsoft Purview using the [Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 ### Steps to register
 
@@ -200,6 +204,8 @@ To create and run a new scan, do the following:
     > Use the "Test connection" button in the scan setup UI to test the connection. The "Test Connection" in self-hosted integration runtime configuration manager UI -> Diagnostics tab does not fully validate the connectivity.
 
 1. Select **Continue**.
+
+1. Select a **scan rule set** for classification. You can choose between the system default, existing custom rule sets, or [create a new rule set](create-a-scan-rule-set.md) inline.
 
 1. Choose your **scan trigger**. You can set up a schedule or ran the scan once.
 

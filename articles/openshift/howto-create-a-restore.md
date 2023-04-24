@@ -83,4 +83,4 @@ In this article, an Azure Red Hat OpenShift 4 cluster application was restored. 
 
 Advance to the next article to learn about Azure Red Hat OpenShift 4 supported resources.
 
-* [Azure Red Hat OpenShift v4 supported resources](supported-resources.md)
+* [Azure Red Hat OpenShift v4 supported resources](support-policies-v4.md#supported-virtual-machine-sizes)

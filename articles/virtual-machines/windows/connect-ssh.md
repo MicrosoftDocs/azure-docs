@@ -7,8 +7,7 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/29/2022
 ms.author: migreene
-ms.custom: devx-track-azurepowershell
-
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # How to connect using Secure Shell (SSH) and sign on to an Azure virtual machine running Windows
 
@@ -114,7 +113,7 @@ Set-AzVMExtension -ResourceGroupName $myResourceGroup -VMName $myVM -Name 'OpenS
   "properties": {
     "publisher": "Microsoft.Azure.OpenSSH",
     "type": "WindowsOpenSSH",
-    "typeHandlerVersion": "3.0",
+    "typeHandlerVersion": "3.0"
   }
 }
 ```

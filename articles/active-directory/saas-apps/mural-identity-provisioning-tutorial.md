@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Configure MURAL Identity for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure MURAL Identity for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to MURAL Identity.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: 0b932dbd-b5c9-40e3-baeb-a7c7424e1bfd
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/21/2022
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

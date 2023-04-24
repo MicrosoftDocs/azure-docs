@@ -41,7 +41,7 @@ Check the following conditions:
 
 ## Delete the organization
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is the global administrator for your organization.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is the Global Administrator for your organization.
 1. Select **Azure Active Directory**.
 1. On a tenant's **Overview** page, select **Manage tenants**.
   
@@ -93,7 +93,7 @@ You can use the Microsoft admin center to put a subscription into the **Deprovis
 
    Now the subscription state has changed to **Disabled**, and the subscription is marked for deletion. The subscription enters the **Deprovisioned** state 72 hours later.
 
-1. After you've deleted a subscription in your organization and 72 hours have elapsed, sign in to the Azure AD admin center again. Confirm that no required actions or subscriptions are blocking your organization deletion. You should be able to successfully delete your Azure AD organization.
+1. After you've deleted a subscription in your organization and 72 hours have elapsed, sign in to the Azure portal again. Confirm that no required actions or subscriptions are blocking your organization deletion. You should be able to successfully delete your Azure AD organization.
   
    ![Screenshot that shows resources that have passed a subscription check.](./media/directory-delete-howto/delete-checks-passed.png)
    
@@ -103,7 +103,7 @@ If you have an active or canceled Azure subscription associated with your Azure 
 
 If you have a free trial or pay-as-you-go subscription, you don't have to wait 90 days for the subscription to be automatically deleted. You can delete your subscription three days after you cancel it, when the **Delete subscription** option becomes available. For details, read through [Delete free trial or pay-as-you-go subscriptions](../../cost-management-billing/manage/cancel-azure-subscription.md#delete-subscriptions).
 
-All other subscription types are deleted only through the [subscription cancellation](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-subscription-in-the-azure-portal) process. In other words, you can't delete a subscription directly unless it's a free trial or pay-as-you-go subscription. However, after you cancel a subscription, you can create an [Azure support request](https://go.microsoft.com/fwlink/?linkid=2083458) and ask to have the subscription deleted immediately.
+All other subscription types are deleted only through the [subscription cancellation](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-a-subscription-in-the-azure-portal) process. In other words, you can't delete a subscription directly unless it's a free trial or pay-as-you-go subscription. However, after you cancel a subscription, you can create an [Azure support request](https://go.microsoft.com/fwlink/?linkid=2083458) and ask to have the subscription deleted immediately.
 
 Alternatively, you can move the Azure subscription to another Azure AD tenant account. When you transfer billing ownership of your subscription to an account in another Azure AD tenant, you can move the subscription to the new account's tenant. Performing a **Switch Directory** action on the subscription wouldn't help, because the billing would still be aligned with the Azure AD tenant that was used to sign up for the subscription. For more information, review [Transfer a subscription to another Azure AD tenant account](../../cost-management-billing/manage/billing-subscription-transfer.md#transfer-a-subscription-to-another-azure-ad-tenant-account).
 
@@ -132,12 +132,16 @@ A few enterprise applications can't be deleted in the Azure portal and might blo
     >
     > Before you proceed, verify that you're connected to the tenant that you want to delete with the MSOnline module. We recommend that you run the `Get-MsolDomain` command to confirm that you're connected to the correct tenant ID and `onmicrosoft.com` domain.
 
-5. Run the following command to set the tenant context: 
+5. Run the following commands to set the tenant context.  DO NOT skip these steps or you run the risk of deleting enterprise apps from the wrong teant.
+
+   `Clear-AzContext -Scope CurrentUser`
 
    `Connect-AzAccount -Tenant \<object id of the tenant you are attempting to delete\>`
+   
+   `Get-AzContext`
 
     >[!WARNING]
-    > Before you proceed, verify that you're connected to the tenant that you want to delete with the Az PowerShell module. We recommend that you run the `Get-AzContext` command to check the connected tenant ID and `onmicrosoft.com` domain.
+    > Before you proceed, verify that you're connected to the tenant that you want to delete with the Az PowerShell module. We recommend that you run the `Get-AzContext` command to check the connected tenant ID and `onmicrosoft.com` domain.  Do NOT skip the above steps or you run the risk of deleting enterprise apps from the wrong tenant.
 
 6. Run the following command to remove any enterprise apps that you can't delete:
 
@@ -179,9 +183,10 @@ Product state | Data | Access to data
 
 ## Delete a self-service sign-up product
 
-You can put a self-service sign-up product like Microsoft Power BI or Azure RMS into a **Delete** state to be immediately deleted in the Azure AD portal:
+You can put a self-service sign-up product like Microsoft Power BI or Azure RMS into a **Delete** state to be immediately deleted in the Azure portal:
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that is a global administrator in the organization. If you're trying to delete the Contoso organization that has the initial default domain `contoso.onmicrosoft.com`, sign in with a UPN such as `admin@contoso.onmicrosoft.com`.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with an account that is a global administrator in the organization. If you're trying to delete the Contoso organization that has the initial default domain `contoso.onmicrosoft.com`, sign in with a UPN such as `admin@contoso.onmicrosoft.com`.
+1. Browse to **Azure Active Directory**.
 
 1. Select **Licenses**, and then select **Self-service sign-up products**. You can see all the self-service sign-up products separately from the seat-based subscriptions. Choose the product that you want to permanently delete. Here's an example in Microsoft Power BI:
 
@@ -199,7 +204,7 @@ You can put a self-service sign-up product like Microsoft Power BI or Azure RMS 
 
     ![Screenshot that shows the list of self-service sign-up products and a pane that confirms the deletion of a self-service sign-up product.](./media/directory-delete-howto/product-deleted.png)
 
-1. After you've deleted all the products, sign in to the Azure AD admin center again. Confirm that no required actions or products are blocking your organization deletion. You should be able to successfully delete your Azure AD organization.
+1. After you've deleted all the products, sign in to the Azure portal again. Confirm that no required actions or products are blocking your organization deletion. You should be able to successfully delete your Azure AD organization.
 
     ![Screenshot that shows status information for resources.](./media/directory-delete-howto/delete-checks-passed.png)
 

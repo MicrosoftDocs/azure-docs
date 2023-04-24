@@ -16,7 +16,7 @@ Currently, depending on how you delete an API Management instance, the instance 
 
 * When you use the Azure portal or REST API version `2020-06-01-preview` or later to delete an API Management instance, it's **soft-deleted**.
 * An API Management instance deleted using a REST API version before `2020-06-01-preview` is **permanently deleted**.
-* An API Management instance deleted using API Management commands in Azure PowerShell or Azure CLI is **permanently deleted**.
+* An API Management instance deleted using API Management commands in Azure PowerShell or Azure CLI is **soft-deleted**.
 
 ## Supporting interfaces
 
@@ -117,7 +117,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 Use the API Management [Purge](/rest/api/apimanagement/current-ga/deleted-services/purge) operation, substituting `{subscriptionId}`, `{location}`, and `{serviceName}` with your Azure subscription, resource location, and API Management name.
 
 > [!NOTE]
-> To purge a soft-deleted instance, you must have the following RBAC permissions at the subscription scope: Microsoft.ApiManagement/locations/deletedservices/delete, Microsoft.ApiManagement/deletedservices/read.
+> To purge a soft-deleted instance, you must have the following RBAC permissions at the subscription scope in addition to Contributor access to the API Management instance: Microsoft.ApiManagement/locations/deletedservices/delete, Microsoft.ApiManagement/deletedservices/read.
 
 ```rest
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/locations/{location}/deletedservices/{serviceName}?api-version=2021-08-01

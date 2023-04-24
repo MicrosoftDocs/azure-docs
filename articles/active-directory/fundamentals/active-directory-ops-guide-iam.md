@@ -3,7 +3,7 @@ title: Azure Active Directory Identity and access management operations referenc
 description: This operations reference guide describes the checks and actions you should take to secure identity and access management operations
 services: active-directory
 author: martincoetzer
-manager: rkarlin
+manager: travisgr
 tags: azuread
 ms.service: active-directory
 ms.topic: conceptual
@@ -41,7 +41,6 @@ As you review your list, you may find you need to either assign an owner for tas
 #### Assigning owners recommended reading
 
 - [Assigning administrator roles in Azure Active Directory](../roles/permissions-reference.md)
-- [Governance in Azure](../../governance/index.yml)
 
 ## On-premises identity synchronization
 

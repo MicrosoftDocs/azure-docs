@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.date: 09/20/2022
 ms.author: evanhi
 author: MSEvanhi
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Create Azure Custom Resource Provider and deploy custom resources
@@ -21,7 +21,7 @@ In this quickstart, you create a custom resource provider and deploy custom reso
 
 Prepare your environment for the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 Azure CLI examples use `az rest` for `REST` requests. For more information, see [az rest](/cli/azure/reference-index#az-rest).
 

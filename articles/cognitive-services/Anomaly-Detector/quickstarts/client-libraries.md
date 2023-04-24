@@ -9,7 +9,7 @@ zone_pivot_groups: anomaly-detector-quickstart
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 09/22/2020
+ms.date: 10/27/2022
 ms.author: mbullwin
 keywords: anomaly detection, algorithms
 ms.devlang: csharp, javascript, python
@@ -17,7 +17,7 @@ recommendations: false
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-api
 ---
 
-# Quickstart: Use the Anomaly Detector univariate client library
+# Quickstart: Use the Univariate Anomaly Detector client library
 
 ::: zone pivot="programming-language-csharp"
 

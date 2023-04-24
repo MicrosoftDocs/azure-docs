@@ -1,21 +1,19 @@
 ---
 title: Diagnose a VM network routing problem - Azure CLI
 titleSuffix: Azure Network Watcher
-description: In this article, you learn how use Azure CLI to diagnose a virtual machine network routing problem using the next hop capability of Azure Network Watcher.
+description: In this article, you learn how to use Azure CLI to diagnose a virtual machine network routing problem using the next hop capability of Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
-author: damendo
-editor: ''
+author: halkazwini
 tags: azure-resource-manager
-# Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
-ms.assetid: 
 ms.service: network-watcher
 ms.topic: how-to
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
-ms.date: 01/07/2021
-ms.author: damendo
-ms.custom:
+ms.date: 03/18/2022
+ms.author: halkazwini
+ms.custom: engagement-fy23, devx-track-azurecli
+# Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
 ---
 
 # Diagnose a virtual machine network routing problem - Azure CLI
@@ -24,7 +22,7 @@ In this article, you deploy a virtual machine (VM), and then check communication
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
 

@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create a NAT gateway - PowerShell'
-titlesuffix: Azure Virtual Network NAT
+titlesuffix: Azure NAT Gateway
 description: Get started creating a NAT gateway using Azure PowerShell.
 author: asudbring
 ms.author: allensu
@@ -13,7 +13,7 @@ ms.custom: template-quickstart, devx-track-azurepowershell
 
 # Quickstart: Create a NAT gateway using Azure PowerShell
 
-This quickstart shows you how to use Azure Virtual Network NAT service. You'll create a NAT gateway to provide outbound connectivity for a virtual machine in Azure. 
+This quickstart shows you how to use the Azure NAT Gateway service. You'll create a NAT gateway to provide outbound connectivity for a virtual machine in Azure. 
 
 ## Prerequisites
 
@@ -188,7 +188,7 @@ In this section, we'll test the NAT gateway. We'll first discover the public IP 
 
 2. Make note of the public IP address:
 
-    :::image type="content" source="./media/tutorial-create-nat-gateway-portal/find-public-ip.png" alt-text="Discover public IP address of NAT gateway" border="true":::
+    :::image type="content" source="./media/quickstart-create-nat-gateway-portal/find-public-ip.png" alt-text="Discover public IP address of NAT gateway" border="true":::
 
 3. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myVM** that is located in the **myResourceGroupNAT** resource group.
 
@@ -204,7 +204,7 @@ In this section, we'll test the NAT gateway. We'll first discover the public IP 
 
 9. Verify the IP address displayed matches the NAT gateway address you noted in the previous step:
 
-    :::image type="content" source="./media/tutorial-create-nat-gateway-portal/my-ip.png" alt-text="Internet Explorer showing external outbound IP" border="true":::
+    :::image type="content" source="./media/quickstart-create-nat-gateway-portal/my-ip.png" alt-text="Internet Explorer showing external outbound IP" border="true":::
 
 ## Clean up resources
 
@@ -217,6 +217,6 @@ Remove-AzResourceGroup -Name 'myResourceGroupNAT' -Force
 
 ## Next steps
 
-For more information on Azure Virtual Network NAT, see:
+For more information on Azure NAT Gateway, see:
 > [!div class="nextstepaction"]
-> [Virtual Network NAT overview](nat-overview.md)
+> [Azure NAT Gateway overview](nat-overview.md)

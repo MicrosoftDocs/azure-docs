@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure BlogIn for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure BlogIn for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to BlogIn.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 4b2ef46c-97a1-450d-bbc8-b2fa76280219
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 10/08/2020
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

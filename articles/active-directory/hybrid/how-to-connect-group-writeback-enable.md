@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/15/2022
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -28,6 +28,10 @@ Group writeback requires enabling both the original and new versions of the feat
 > We recommend that you follow the [swing migration](how-to-upgrade-previous-version.md#swing-migration) method for rolling out the new group writeback feature in your environment. This method will provide a clear contingency plan if a major rollback is necessary. 
 >
 >The enhanced group writeback feature is enabled on the tenant and not per Azure AD Connect client instance. Please be sure that all Azure AD Connect client instances are updated to a minimal build version of 1.6.4.0 or later.
+
+> [!NOTE]
+> If you don't want to writeback all existing Microsoft 365 groups to Active Directory, you need to make changes to group writeback default behaviour before performing the steps in this article to enable the feature. See [Modify Azure AD Connect group writeback default behavior](how-to-connect-modify-group-writeback.md).
+> Also the new and original versions of the feature need to be enabled in the order documented. If the original feature is enabled first, all existing Microsoft 365 groups will be written back to Active Directory.
 
 ### Enable group writeback by using PowerShell 
 
@@ -52,6 +56,11 @@ Group writeback requires enabling both the original and new versions of the feat
    ``` PowerShell 
    Set-ADSyncScheduler -SyncCycleEnabled $true  
    ``` 
+6. Run a full sync cycle if group writeback was previously configured and will not be configured in the ⁠Azure AD Connect wizard:
+   ``` PowerShell 
+   Start-ADSyncSyncCycle -PolicyType Initial
+   ``` 
+
 
 ### Enable group writeback by using the Azure AD Connect wizard 
 If the original version of group writeback was not previously enabled, continue with the following steps: 

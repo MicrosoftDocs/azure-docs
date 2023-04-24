@@ -77,8 +77,8 @@
         href: plan-sso-deployment.md
     - name: Consent and permissions
       items:
-      - name: Consent and permissions overview
-        href: consent-and-permissions-overview.md
+      - name: User and admin consent overview
+        href: user-admin-consent-overview.md
       - name: Admin consent workflow overview
         href: admin-consent-workflow-overview.md
       - name: Manage and evaluate consent requests
@@ -88,7 +88,7 @@
   - name: How-to guides
     expanded: false
     items:
-    - name: Application integration guidance
+    - name: Integrate SaaS applications
       href: ../saas-apps/tutorial-list.md
     - name: Assign owners
       href: assign-app-owners.md
@@ -124,7 +124,7 @@
         href: assign-user-or-group-access-portal.md
       - name: Assign custom security attributes
         href: custom-security-attributes-apps.md
-      - name: Disable user sign-on
+      - name: Disable user sign-in
         href: disable-user-sign-in-portal.md
       - name: Force auto-acceleration
         href: configure-authentication-for-federated-users-portal.md
@@ -140,7 +140,7 @@
         href: hide-application-from-user-portal.md
     - name: Migrate applications
       items:
-      - name: Migrate an AD FS app to Azure
+      - name: Migrate an AD FS app to Azure AD
         href: migrate-adfs-apps-to-azure.md
       - name: Migrate application authentication to Azure Active Directory
         href: migrate-application-authentication-to-azure-active-directory.md
@@ -162,7 +162,7 @@
         href: secure-hybrid-access.md
       - name: Secure hybrid access partner integrations
         href: secure-hybrid-access-integrations.md
-      - name: Cloudflare
+      - name: Configure Cloudflare with Azure AD
         href: cloudflare-azure-ad-integration.md
       - name: Datawiza
         items:
@@ -172,6 +172,8 @@
           href: datawiza-azure-ad-sso-oracle-jde.md
         - name: Configure Oracle PeopleSoft with Azure AD 
           href: datawiza-azure-ad-sso-oracle-peoplesoft.md
+        - name: Configure Datawiza for Azure AD SSO and MFA to Oracle EBS
+          href: datawiza-azure-ad-sso-mfa-oracle-ebs.md
       - name: F5
         items:
         - name: Deploy F5 BIG-IP in Azure
@@ -207,7 +209,7 @@
               - name: SSL-VPN
                 href: f5-aad-password-less-vpn.md  
               - name: B2C
-                href: ../../active-directory-b2c/partner-f5.md
+                href: ../../active-directory-b2c/partner-f5.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
       - name: Silverfort
         href: silverfort-azure-ad-integration.md
     - name: Single sign-on
@@ -240,7 +242,7 @@
         href: application-sign-in-problem-application-error.md
       - name: Problem signing into a Microsoft app
         href: application-sign-in-problem-first-party-microsoft.md
-    - name: Deprecate
+    - name: Delete and restore apps
       items:
       - name: Delete an enterprise application
         href: delete-application-portal.md
@@ -248,6 +250,12 @@
         href: restore-application.md   
   - name: Reference
     items:
+    - name: Application API - Microsoft Graph
+      href: /graph/api/resources/application?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
+    - name: Service principals API - Microsoft Graph
+      href: /graph/api/resources/serviceprincipal?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
+    - name: Manage apps using Microsoft Graph
+      href: /graph/tutorial-applications-basics?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
     - name: Deletion and recovery FAQ
       href: delete-recover-faq.yml
     - name: Admin consent workflow FAQ

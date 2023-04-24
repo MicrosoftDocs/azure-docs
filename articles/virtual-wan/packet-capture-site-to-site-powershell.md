@@ -5,15 +5,15 @@ services: virtual-wan
 titleSuffix: Azure Virtual WAN
 author: cherylmc
 ms.service: virtual-wan
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: cherylmc
-
 ---
 
 # Configure a packet capture for Virtual WAN site-to-site VPN: PowerShell
 
-This article helps you create a packet capture for an Azure Virtual WAN site-to-site VPN gateway using Azure PowerShell. Packet capture helps you narrow down the scope of a problem to certain parts of the network. It can help you determine whether the problem is on the on-premises side of the network, the Azure side of the network, or somewhere in between. By narrowing down the problem, you can more efficiently debug and take remedial action.
+This article helps you create a packet capture for an Azure Virtual WAN site-to-site VPN gateway using Azure PowerShell. Packet capture helps you narrow down the scope of a problem to certain parts of the network. It can help you determine whether the problem is on the on-premises side or the Azure side. By narrowing down the problem, you can more efficiently debug and take remedial action.
 
 While some commonly available packet capture tools do exist, getting relevant packet captures with these tools can be cumbersome, especially in high-volume traffic scenarios. The filtering capabilities provided by the Virtual WAN packet capture are a major differentiator. The Virtual WAN packet capture can be used along with commonly available packet capture tools.
 
@@ -21,7 +21,7 @@ While some commonly available packet capture tools do exist, getting relevant pa
 
 Verify that you have the following configuration already set up in your environment:
 
-* A virtual WAN and a virtual hub.
+* A Virtual WAN and a virtual hub.
 * A site-to-site VPN gateway deployed in the virtual hub.
 * You may also have connections connecting VPN sites to your site-to-site VPN gateway.
 
@@ -87,7 +87,7 @@ To simplify your packet captures, you may specify filters on your packet capture
 | Parameter | Description | Default values | Available values|
 |--- |--- | --- | ---|
 | TracingFlags | Integer that determines what types of packets are captured | 11 (ESP, IKE, OVPN) | ESP = 1 IKE  = 2 OPVN = 8 |
-| TCPFlags | Integer that determines which Types of TCP Packets are captured | 0 (none) | FIN = 1, SYN = 2, RST = 4, PSH = 8, ACK = 16,URG = 32, ECE = 64, CWR = 128| 
+| TCPFlags | Integer that determines which types of TCP Packets are captured | 0 (none) | FIN = 1, SYN = 2, RST = 4, PSH = 8, ACK = 16,URG = 32, ECE = 64, CWR = 128| 
 | MaxPacketBufferSize|Maximum size of a captured packet in bytes. Packets are truncated if larger than the provided value. |120|Any|
 | MaxFileSize |Maximum capture file size in Mb. Captures are stored in a circular buffer so overflow is handled in a FIFO manner (older packets removed first)|100|Any|
 |SourceSubnets|Packets from the specified CIDR ranges are captured. Specified as an array.|[] (all IPv4 addresses)|Array of comma-separated IPV4 Subnets|
@@ -95,7 +95,7 @@ To simplify your packet captures, you may specify filters on your packet capture
 |SourcePort |Packets with source in the specified ranges are captured. Specified as an array.|[] (all ports)|Array of comma-separated ports|
 |DestinationPort |Packets with destination in the specified ranges are captured. Specified as an array.|[] (all ports)|Array of comma-separated ports|
 | CaptureSingleDirectionTrafficOnly |If true, only one direction of a bidirectional flow will show up in the packet capture. This will capture all possible combo of IP and ports.|True|True, False|
-|Protocol|An array of integers that correspond IANA protocols. |[] (all protocols)| Any protocols found [here](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) |
+|Protocol|An array of integers that correspond to IANA protocols. |[] (all protocols)| Any protocols found [here](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) |
 
 The following example shows a packet capture using a filter string. You can change the parameters to suit your needs.
 

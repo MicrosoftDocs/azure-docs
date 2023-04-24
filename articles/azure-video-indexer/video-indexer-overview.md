@@ -2,13 +2,11 @@
 title: What is Azure Video Indexer?
 description: This article gives an overview of the Azure Video Indexer service.
 ms.topic: overview
-ms.date: 08/18/2022
+ms.date: 12/19/2022
 ms.author: juliako
 ---
 
 # What is Azure Video Indexer?
-
-[!INCLUDE [accounts](./includes/arm-accounts.md)]
 
 [!INCLUDE [regulation](./includes/regulation.md)]
 
@@ -22,11 +20,6 @@ Azure Video Indexer analyzes the video and audio content by running 30+ AI model
 > :::image type="content" source="./media/video-indexer-overview/model-chart.png" alt-text="Diagram of Azure Video Indexer flow." lightbox="./media/video-indexer-overview/model-chart.png":::
 
 To start extracting insights with Azure Video Indexer, see the [how can I get started](#how-can-i-get-started-with-azure-video-indexer) section below.
-
-## Compliance, Privacy and Security
-
-> [!Important]
-> Before you continue with Azure Video Indexer, read [Compliance, privacy and security](compliance-privacy-security.md).
 
 ## What can I do with Azure Video Indexer?
 
@@ -59,7 +52,6 @@ Unless specified otherwise, a model is generally available.
 * **Black frame detection**: Identifies black frames presented in the video.
 * **Keyframe extraction**: Detects stable keyframes in a video.
 * **Rolling credits**: Identifies the beginning and end of the rolling credits in the end of TV shows and movies.
-* **Animated characters detection** : Detects, groups, and recognizes characters in animated content via integration with [Cognitive Services custom vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/). For more information, see [Animated character detection](animated-characters-recognition.md).
 * **Editorial shot type detection**: Tags shots based on their type (like wide shot, medium shot, close up, extreme close up, two shot, multiple people, outdoor and indoor, and so on). For more information, see [Editorial shot type detection](scenes-shots-keyframes.md#editorial-shot-type-detection).
 * **Observed people tracking** (preview): Detects observed people in videos and provides information such as the location of the person in the video frame (using bounding boxes) and the exact timestamp (start, end) and confidence when a person appears. For more information, see [Trace observed people in a video](observed-people-tracing.md).
     * **People's detected clothing** (preview): Detects the clothing types of people appearing in the video and provides information such as long or short sleeves, long or short pants and skirt or dress. The detected clothing is associated with the people wearing it and the exact timestamp (start, end) along with a confidence level for the detection are provided. For more information, see [detected clothing](detected-clothing.md).
@@ -72,6 +64,7 @@ Unless specified otherwise, a model is generally available.
     * Textless slate detection, including scene matching.
 
     For details, see [Slate detection](slate-detection-insight.md).
+* **Textual logo detection** (preview): Matches a specific predefined text using Azure Video Indexer OCR. For example, if a user created a textual logo: "Microsoft", different appearances of the word *Microsoft* will be detected as the "Microsoft" logo. For more information, see [Detect textual logo](detect-textual-logo.md).
 
 ### Audio models
 
@@ -89,7 +82,7 @@ Unless specified otherwise, a model is generally available.
 * **Translation**: Creates translations of the audio transcript to many different languages. For more information, see [Azure Video Indexer language support](language-support.md).
 * **Audio effects detection** (preview): Detects the following audio effects in the non-speech segments of the content: alarm or siren, dog barking, crowd reactions (cheering, clapping, and booing), gunshot or explosion, laughter, breaking glass, and silence.
 
-    The detected acoustic events are in the closed captions file. The file can be downloaded from the Azure Video Indexer portal. For more information, see [Audio effects detection](audio-effects-detection.md).
+    The detected acoustic events are in the closed captions file. The file can be downloaded from the Azure Video Indexer website. For more information, see [Audio effects detection](audio-effects-detection.md).
 
     > [!NOTE]
     > The full set of events is available only when you choose **Advanced Audio Analysis** when uploading a file, in upload preset. By default, only silence is detected.
@@ -109,6 +102,14 @@ When indexing by one channel, partial result for those models will be available.
 Learn how to [get started with Azure Video Indexer](video-indexer-get-started.md).
 
 Once you set up, start using [insights](video-indexer-output-json-v2.md) and check out other **How to guides**.
+
+## Compliance, Privacy and Security
+
+As an important reminder, you must comply with all applicable laws in your use of Azure Video Indexer, and you may not use Azure Video Indexer or any Azure service in a manner that violates the rights of others, or that may be harmful to others.
+
+Before uploading any video/image to Azure Video Indexer, You must have all the proper rights to use the video/image, including, where required by law, all the necessary consents from individuals (if any) in the video/image, for the use, processing, and storage of their data in Azure Video Indexer and Azure. Some jurisdictions may impose special legal requirements for the collection, online processing and storage of certain categories of data, such as biometric data. Before using Azure Video Indexer and Azure for the processing and storage of any data subject to special legal requirements, You must ensure compliance with any such legal requirements that may apply to You.
+
+To learn about compliance, privacy and security in Azure Video Indexer please visit the Microsoft [Trust Center](https://www.microsoft.com/TrustCenter/CloudServices/Azure/default.aspx). For Microsoft's privacy obligations, data handling and retention practices, including how to delete your data, please review Microsoft's [Privacy Statement](https://privacy.microsoft.com/PrivacyStatement), the [Online Services Terms](https://www.microsoft.com/licensing/product-licensing/products?rtc=1) ("OST") and [Data Processing Addendum](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). By using Azure Video Indexer, you agree to be bound by the OST, DPA and the Privacy Statement.
 
 ## Next steps
 

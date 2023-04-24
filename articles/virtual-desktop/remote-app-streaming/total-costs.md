@@ -31,7 +31,7 @@ In Azure Virtual Desktop, session host VMs use the following three Azure service
 - Storage for managed disks (including OS storage per VM and any data disks for personal desktops)
 - Bandwidth (networking)
 
-These charges can be viewed at the Azure Resource Group level where the host pool-specific resources including session host VMs are assigned. If one or more host pools are also configured to use the paid Log Analytics service to send VM data to the optional Azure Virtual Desktop Insights feature, then the bill will also charge you for the Log Analytics for the corresponding Azure Resource Groups. For more information, see [Estimate Azure Virtual Desktop monitoring costs](../azure-monitor-costs.md).
+These charges can be viewed at the Azure Resource Group level where the host pool-specific resources including session host VMs are assigned. If one or more host pools are also configured to use the paid Log Analytics service to send VM data to the optional Azure Virtual Desktop Insights feature, then the bill will also charge you for the Log Analytics for the corresponding Azure Resource Groups. For more information, see [Estimate Azure Virtual Desktop monitoring costs](../insights-costs.md).
 
 Of the three primary VM session host usage costs that are listed at the beginning of this section, compute usually costs the most. To mitigate compute costs and optimize resource demand with availability, many customers choose to [scale session hosts automatically](../set-up-scaling-script.md).
 
@@ -85,7 +85,7 @@ You can use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/c
 >You can add extra Azure Pricing Calculator modules to estimate the cost impact of other components of your deployment, including but not limited to:
 >
 >- Domain controllers
->- Other storage-dependent features, such as custom OS images, MSIX app attach, and Azure Monitor
+>- Other storage-dependent features, such as custom OS images, MSIX app attach, and Azure Virtual Desktop Insights
 
 ### Predicting user access costs
 

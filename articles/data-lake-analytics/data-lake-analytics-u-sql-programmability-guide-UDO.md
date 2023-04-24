@@ -1,16 +1,16 @@
 ---
 title: U-SQL UDO programmability guide for Azure Data Lake
-description: Learn about the U-SQL UDO programmability Azure Data Lake Analytics to enable you create good USQL script.
+description: Learn about the U-SQL UDO programmability Azure Data Lake Analytics to enable you to create good USQL scripts.
 ms.service: data-lake-analytics
-ms.reviewer: jasonh
+ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 06/30/2017
+ms.date: 01/27/2023
 ---
 
 # U-SQL user-defined objects overview
 
-
 ## U-SQL: user-defined objects: UDO
+
 U-SQL enables you to define custom programmability objects, which are called user-defined objects or UDO.
 
 The following is a list of UDO in U-SQL:
@@ -50,5 +50,6 @@ UDO is typically called explicitly in U-SQL script as part of the following U-SQ
 > UDO’s are limited to consume 0.5Gb memory.  This memory limitation does not apply to local executions.
 
 ## Next steps
+
 * [U-SQL programmability guide - overview](data-lake-analytics-u-sql-programmability-guide.md)
 * [U-SQL programmability guide - UDT and UDAGG](data-lake-analytics-u-sql-programmability-guide-UDT-AGG.md)

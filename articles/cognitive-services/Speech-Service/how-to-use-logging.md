@@ -18,38 +18,45 @@ Logging to file is an optional feature for the Speech SDK. During development lo
 
 ## Sample
 
-The log file name is specified on a configuration object. Taking the `SpeechConfig` as an example and assuming that you have created an instance called `config`:
+The log file name is specified on a configuration object. Taking the `SpeechConfig` as an example and assuming that you've created an instance called `speechConfig`:
 
 ```csharp
-config.SetProperty(PropertyId.Speech_LogFilename, "LogfilePathAndName");
+speechConfig.SetProperty(PropertyId.Speech_LogFilename, "LogfilePathAndName");
 ```
 
 ```java
-config.setProperty(PropertyId.Speech_LogFilename, "LogfilePathAndName");
+speechConfig.setProperty(PropertyId.Speech_LogFilename, "LogfilePathAndName");
 ```
 
 ```C++
-config->SetProperty(PropertyId::Speech_LogFilename, "LogfilePathAndName");
+speechConfig->SetProperty(PropertyId::Speech_LogFilename, "LogfilePathAndName");
 ```
 
 ```Python
-config.set_property(speechsdk.PropertyId.Speech_LogFilename, "LogfilePathAndName")
+speech_config.set_property(speechsdk.PropertyId.Speech_LogFilename, "LogfilePathAndName")
 ```
 
 ```objc
-[config setPropertyTo:@"LogfilePathAndName" byId:SPXSpeechLogFilename];
+[speechConfig setPropertyTo:@"LogfilePathAndName" byId:SPXSpeechLogFilename];
 ```
 
 ```go
 import ("github.com/Microsoft/cognitive-services-speech-sdk-go/common")
 
-config.SetProperty(common.SpeechLogFilename, "LogfilePathAndName")
+speechConfig.SetProperty(common.SpeechLogFilename, "LogfilePathAndName")
 ```
 
-You can create a recognizer from the config object. This will enable logging for all recognizers.
+You can create a recognizer from the configuration object. This will enable logging for all recognizers.
 
 > [!NOTE]
-> If you create a `SpeechSynthesizer` from the config object, it will not enable logging. If logging is enabled though, you will also receive diagnostics from the `SpeechSynthesizer`.
+> If you create a `SpeechSynthesizer` from the configuration object, it will not enable logging. If logging is enabled though, you will also receive diagnostics from the `SpeechSynthesizer`.
+
+JavaScript is an exception where the logging is enabled via SDK diagnostics as shown in the following code snippet:
+
+```javascript
+sdk.Diagnostics.SetLoggingLevel(sdk.LogLevel.Debug);
+sdk.Diagnostics.SetLogOutputPath("LogfilePathAndName");
+```
 
 ## Create a log file on different platforms
 
@@ -62,7 +69,7 @@ UWP applications need to be places log files in one of the application data loca
 ```csharp
 StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
 StorageFile logFile = await storageFolder.CreateFileAsync("logfile.txt", CreationCollisionOption.ReplaceExisting);
-config.SetProperty(PropertyId.Speech_LogFilename, logFile.Path);
+speechConfig.SetProperty(PropertyId.Speech_LogFilename, logFile.Path);
 ```
 
 Within a Unity UWP application, a log file can be created using the application persistent data path folder as follows:
@@ -70,7 +77,7 @@ Within a Unity UWP application, a log file can be created using the application 
 ```csharp
 #if ENABLE_WINMD_SUPPORT
     string logFile = Application.persistentDataPath + "/logFile.txt";
-    config.SetProperty(PropertyId.Speech_LogFilename, logFile);
+    speechConfig.SetProperty(PropertyId.Speech_LogFilename, logFile);
 #endif
 ```
 For more about file access permissions in UWP applications, see [File access permissions](/windows/uwp/files/file-access-permissions).
@@ -82,7 +89,7 @@ You can save a log file to either internal storage, external storage, or the cac
 ```java
 File dir = context.getExternalFilesDir(null);
 File logFile = new File(dir, "logfile.txt");
-config.setProperty(PropertyId.Speech_LogFilename, logFile.getAbsolutePath());
+speechConfig.setProperty(PropertyId.Speech_LogFilename, logFile.getAbsolutePath());
 ```
 
 The code above will save a log file to the external storage in the root of an application-specific directory. A user can access the file with the file manager (usually in `Android/data/ApplicationName/logfile.txt`). The file will be deleted when the application is uninstalled.
@@ -101,7 +108,7 @@ Within a Unity Android application, the log file can be created using the applic
 
 ```csharp
 string logFile = Application.persistentDataPath + "/logFile.txt";
-config.SetProperty(PropertyId.Speech_LogFilename, logFile);
+speechConfig.SetProperty(PropertyId.Speech_LogFilename, logFile);
 ```
 In addition, you need to also set write permission in your Unity Player settings for Android to "External (SDCard)". The log will be written 
 to a directory you can get using a tool such as AndroidStudio Device File Explorer. The exact directory path may vary between Android devices, 
@@ -131,7 +138,7 @@ To access a created file, add the below properties to the `Info.plist` property 
 <true/>
 ```
 
-If you are using Swift on iOS, please use the following code snippet to enable logs:
+If you're using Swift on iOS, please use the following code snippet to enable logs:
 ```swift
 let documentsDirectoryPathString = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
 let documentsDirectoryPath = NSURL(string: documentsDirectoryPathString)!
@@ -145,9 +152,9 @@ More about iOS File System is available [here](https://developer.apple.com/libra
 
 Although a log file output path is specified as a configuration property into a `SpeechRecognizer` or other SDK object, SDK logging is a singleton, *process-wide* facility with no concept of individual instances. You can think of this as the `SpeechRecognizer` constructor (or similar) implicitly calling a static and internal "Configure Global Logging" routine with the property data available in the corresponding `SpeechConfig`.
 
-This means that you cannot, as an example, configure six parallel recognizers to output simultaneously to six separate files. Instead, the latest recognizer created will configure the global logging instance to output to the file specified in its configuration properties and all SDK logging will be emitted to that file.
+This means that you can't, as an example, configure six parallel recognizers to output simultaneously to six separate files. Instead, the latest recognizer created will configure the global logging instance to output to the file specified in its configuration properties and all SDK logging will be emitted to that file.
 
-This also means that the lifetime of the object that configured logging is not tied to the duration of logging. Logging will not stop in response to the release of an SDK object and will continue as long as no new logging configuration is provided. Once started, process-wide logging may be stopped by setting the log file path to an empty string when creating a new object.
+This also means that the lifetime of the object that configured logging isn't tied to the duration of logging. Logging will not stop in response to the release of an SDK object and will continue as long as no new logging configuration is provided. Once started, process-wide logging may be stopped by setting the log file path to an empty string when creating a new object.
 
 To reduce potential confusion when configuring logging for multiple instances, it may be useful to abstract control of logging from objects doing real work. An example pair of helper routines:
 

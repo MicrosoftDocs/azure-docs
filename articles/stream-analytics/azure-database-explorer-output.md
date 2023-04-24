@@ -6,7 +6,7 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 09/26/2022
+ms.date: 10/27/2022
 ---
 
 # Azure Data Explorer output from Azure Stream Analytics
@@ -20,7 +20,7 @@ For more information about Azure Data Explorer, visit the [What is Azure Data Ex
 To learn more about how to create an Azure Data Explorer cluster by using the Azure portal, visit: [Quickstart: Create an Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-database-portal/)
 
 > [!NOTE] 
-> Azure Data Explorer from Azure Stream Analytics supports output to Synapse Data Explorer clusters. To write to your synapse data explorer clusters, you have to specify the url of your cluster in the configuration blade in for Azure Data Explorer output in your Azure Stream Analytics job.
+> Azure Data Explorer from Azure Stream Analytics supports output to Synapse Data Explorer clusters. To write to your synapse data explorer clusters, you have to specify the url of your cluster in the configuration blade for Azure Data Explorer output in your Azure Stream Analytics job.
 
 ## Output configuration
 

@@ -63,7 +63,10 @@ When you're debugging application crashes, start by checking the running status 
     * The surge memory allocation for a specific logic path.
     * Gradual memory leaks.
 
-   For more information, see [Metrics](./concept-metrics.md).
+  For more information, see [Metrics](./concept-metrics.md).
+
+  > [!NOTE]
+  > These metrics are available only for Spring Boot applications. To enable these metrics, add the `spring-boot-starter-actuator` dependency. For more information, see the [Add actuator dependency](concept-manage-monitor-app-spring-boot-actuator.md#add-actuator-dependency) section of [Manage and monitor app with Spring Boot Actuator](concept-manage-monitor-app-spring-boot-actuator.md).
 
 * If the application fails to start, verify that the application has valid jvm parameters. If jvm memory is set too high, the following error message might appear in your logs:
 
@@ -246,7 +249,7 @@ Creating an Azure Spring Apps Enterprise tier instance fails with error code "11
 
   For more information, see the section [No plans are available for market '\<Location>'](#no-plans-are-available-for-market-location).
 
-* **"Failed to purchase on Azure Marketplace due to signature verification on Marketplace legal agreement. Check the Azure subscription has agree terms vmware-inc.azure-spring-cloud-vmware-tanzu-2.tanzu-asc-ent-mtr"**: Your Azure subscription has not signed the terms for the offer and plan to be purchased.
+* **"Failed to purchase on Azure Marketplace due to signature verification on Marketplace legal agreement. Check the Azure subscription has agree terms vmware-inc.azure-spring-cloud-vmware-tanzu-2.asa-ent-hr-mtr"**: Your Azure subscription has not signed the terms for the offer and plan to be purchased.
 
   Go to your Azure subscription and run the following Azure CLI command to agree to the terms:
 
@@ -254,7 +257,7 @@ Creating an Azure Spring Apps Enterprise tier instance fails with error code "11
   az term accept \
       --publisher vmware-inc \
       --product azure-spring-cloud-vmware-tanzu-2 \
-      --plan tanzu-asc-ent-mtr
+      --plan asa-ent-hr-mtr
   ```
 
   If that doesn't help, you can contact the support team with the following info.

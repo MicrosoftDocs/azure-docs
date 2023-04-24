@@ -4,8 +4,7 @@ description: Learn about best practices to employ when connecting data sources t
 author: limwainstein
 ms.author: lwainstein
 ms.topic: conceptual
-ms.date: 11/09/2021
-ms.custom: ignite-fall-2021
+ms.date: 01/09/2023
 ---
 
 #  Data collection best practices
@@ -92,7 +91,7 @@ If you need to collect Microsoft Office data, outside of the standard connector 
 
 |Challenge / Requirement  |Possible solutions  |Considerations  |
 |---------|---------|---------|
-|**Collect raw data from Teams, message trace, phishing data, and so on**     |    Use the built-in [Office 365 connector](./data-connectors-reference.md#microsoft-office-365) functionality, and then create a custom connector for other raw data.  |  Mapping events to the corresponding recordID may be challenging.  |
+|**Collect raw data from Teams, message trace, phishing data, and so on**     |    Use the built-in [Office 365 connector](./data-connectors/office-365.md) functionality, and then create a custom connector for other raw data.  |  Mapping events to the corresponding recordID may be challenging.  |
 |**Requires RBAC for splitting countries, departments, and so on**     | Customize your data collection by adding tags to data and creating dedicated workspaces for each separation needed.|   Custom data collection has extra ingestion costs.     |
 |**Requires multiple tenants in a single workspace**     |  Customize your data collection using Azure LightHouse and a unified incident view.|  Custom data collection has extra ingestion costs.  <br><br>For more information, see [Extend Microsoft Sentinel across workspaces and tenants](extend-sentinel-across-workspaces-tenants.md).      |
 

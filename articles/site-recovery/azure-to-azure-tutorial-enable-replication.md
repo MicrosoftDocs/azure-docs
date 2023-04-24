@@ -2,8 +2,10 @@
 title: Tutorial to set up Azure VM disaster recovery with Azure Site Recovery
 description: In this tutorial, set up disaster recovery for Azure VMs to another Azure region, using the Site Recovery service.
 ms.topic: tutorial
-ms.date: 10/19/2022
+ms.service: site-recovery
+ms.date: 01/04/2023
 ms.custom: mvc
+ms.author: ankitadutta
 #Customer intent: As an Azure admin, I want to set up disaster recovery for my Azure VMs, so that they're available in a secondary region if the primary region becomes unavailable.
 ---
 # Tutorial: Set up disaster recovery for Azure VMs
@@ -42,6 +44,7 @@ Your Azure account needs permissions to create a Recovery Services vault, and to
 
 - If you just created a free Azure subscription, you're the account admin, and no further action is needed.
 - If you aren't the admin, work with the admin to get the permissions you need.
+    - **Azure Active Directory**: Application owner and application developer roles to enable replication.
     - **Create a vault**: Admin or owner permissions on the subscription.
     - **Manage Site Recovery operations in the vault**: The *Site Recovery Contributor* built-in Azure role.
     - **Create Azure VMs in the target region**: Either the built-in *Virtual Machine Contributor* role, or specific permissions to:

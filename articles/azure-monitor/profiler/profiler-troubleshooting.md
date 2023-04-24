@@ -27,6 +27,9 @@ If your web app is an ASP.NET Core application, it must be running on the [lates
 
 Profiler isn't currently supported on free or shared app service plans. Upgrade to one of the basic plans for Profiler to start working.
 
+> [!NOTE]
+> The Azure Functions consumption plan isn't supported. See [Profile live Azure Functions app with Application Insights](./profiler-azure-functions.md).
+
 ## Make sure you're searching for Profiler data within the right timeframe
 
 If the data you're trying to view is older than a couple of weeks, try limiting your time filter and try again. Traces are deleted after seven days.
@@ -94,7 +97,7 @@ For Profiler to work properly, make sure:
 
       :::image type="content" source="./media/profiler-troubleshooting/profiler-web-job-log.png" alt-text="Screenshot of the Continuous WebJob Details pane.":::
 
-If Profiler still isn't working for you, you can download the log and [send it to our team](mailto:serviceprofilerhelp@microsoft.com).
+If Profiler still isn't working for you, you can download the log and [submit an Azure support ticket](https://azure.microsoft.com/support/).
 
 #### Check the Diagnostic Services site extension' status page
 

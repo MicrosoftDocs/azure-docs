@@ -115,7 +115,7 @@ Keep and Remove Top, Keep Range (corresponding M functions,
 | -- | -- |
 | Table.PromoteHeaders | Not supported. The same result can be achieved by setting "First row as header" in the dataset. |
 | Table.CombineColumns | This is a common scenario that isn't directly supported but can be achieved by adding a new column that concatenates two given columns.  For example, Table.AddColumn(RemoveEmailColumn, "Name", each [FirstName] & " " & [LastName]) |
-| Table.TransformColumnTypes | This is supported in most cases. The following scenarios are unsupported: transforming string to currency type, transforming string to time type, transforming string to Percentage type. |
+| Table.TransformColumnTypes | This is supported in most cases. The following scenarios are unsupported: transforming string to currency type, transforming string to time type, transforming string to Percentage type and tranfoming with locale. |
 | Table.NestedJoin | Just doing a join will result in a validation error. The columns must be expanded for it to work. |
 | Table.RemoveLastN | Remove bottom rows isn't supported. |
 | Table.RowCount | Not supported, but can be achieved by adding a custom column containing the value 1, then aggregating that column with List.Sum. Table.Group is supported. | 

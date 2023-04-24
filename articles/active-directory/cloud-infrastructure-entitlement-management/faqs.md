@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: faq
-ms.date: 04/20/2022
+ms.date: 01/25/2023
 ms.author: jfields
 ---
 
@@ -18,7 +18,7 @@ This article answers frequently asked questions (FAQs) about Permissions Managem
 
 ## What's Permissions Management?
 
-Permissions Management is a cloud infrastructure entitlement management (CIEM) solution that provides comprehensive visibility into permissions assigned to all identities. For example, over-privileged workload and user identities, actions, and resources across multi-cloud infrastructures in Microsoft Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP). Permissions Management detects, automatically right-sizes, and continuously monitors unused and excessive permissions. It deepens the Zero Trust security strategy by augmenting the least privilege access principle.
+Permissions Management is a cloud infrastructure entitlement management (CIEM) solution that provides comprehensive visibility into permissions assigned to all identities. For example, over-privileged workload and user identities, actions, and resources across multicloud infrastructures in Microsoft Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP). Permissions Management detects, automatically right-sizes, and continuously monitors unused and excessive permissions. It deepens the Zero Trust security strategy by augmenting the least privilege access principle.
 
 
 ## What are the prerequisites to use Permissions Management?
@@ -39,7 +39,7 @@ No, Permissions Management is a hosted cloud offering.
 
 ## Can non-Azure customers use Permissions Management?
 
-Yes, non-Azure customers can use our solution. Permissions Management is a multi-cloud solution so even customers who have no subscription to Azure can benefit from it.
+Yes, non-Azure customers can use our solution. Permissions Management is a multicloud solution so even customers who have no subscription to Azure can benefit from it.
 
 ## Is Permissions Management available for tenants hosted in the European Union (EU)?
 
@@ -47,7 +47,7 @@ Yes, Permissions Management is currently for tenants hosted in the European Unio
 
 ## If I'm already using Azure AD  Privileged Identity Management (PIM) for Azure, what value does Permissions Management provide?
 
-Permissions Management complements Azure AD PIM. Azure AD PIM provides just-in-time access for admin roles in Azure (as well as Microsoft Online Services and apps that use groups), while Permissions Management allows multi-cloud discovery, remediation, and monitoring of privileged access across Azure, AWS, and GCP.
+Permissions Management complements Azure AD PIM. Azure AD PIM provides just-in-time access for admin roles in Azure (as well as Microsoft Online Services and apps that use groups), while Permissions Management allows multicloud discovery, remediation, and monitoring of privileged access across Azure, AWS, and GCP.
 
 ## What public cloud infrastructures are supported by Permissions Management?
 
@@ -112,7 +112,7 @@ Integration with ITMS tools, such as ServiceNow, is in the future roadmap.
 
 ## How is Permissions Management being deployed?
 
-Customers with Global Admin role have first to onboard Permissions Management on their Azure AD tenant, and then onboard their AWS accounts, GCP projects, and Azure subscriptions. More details about onboarding can be found in our product documentation.
+Customers with Global Administrator role have first to onboard Permissions Management on their Azure AD tenant, and then onboard their AWS accounts, GCP projects, and Azure subscriptions. More details about onboarding can be found in our product documentation.
 
 ## How long does it take to deploy Permissions Management?
 
@@ -132,21 +132,33 @@ You can read our blog and visit our web page. You can also get in touch with you
 
 ## What is the data destruction/decommission process? 
 
-If a customer initiates a free Permissions Management 90-day trial, but does not follow up and convert to a paid license within 90 days of the free trial expiration, we will delete all collected data on or just before 90 days.  
+If a customer initiates a free Permissions Management 45-day trial, but does not follow up and convert to a paid license within 45 days of the free trial expiration, we will delete all collected data on or just before 45 days.  
 
-If a customer decides to discontinue licensing the service, we will also delete all previously collected data within 90 days of license termination.  
+If a customer decides to discontinue licensing the service, we will also delete all previously collected data within 45 days of license termination.  
 
-We also have the ability to remove, export or modify specific data should the Global Admin using the Entra Permissions Management service file an official Data Subject Request. This can be initiated by opening a ticket in the Azure portal [New support request - Microsoft Entra admin center](https://entra.microsoft.com/#blade/Microsoft_Azure_Support/NewSupportRequestV3Blade/callerName/ActiveDirectory/issueType/technical), or alternately contacting your local Microsoft representative. 
+We also have the ability to remove, export or modify specific data should the Global Administrator using the Entra Permissions Management service file an official Data Subject Request. This can be initiated by opening a ticket in the Azure portal [New support request - Microsoft Entra admin center](https://entra.microsoft.com/#blade/Microsoft_Azure_Support/NewSupportRequestV3Blade/callerName/ActiveDirectory/issueType/technical), or alternately contacting your local Microsoft representative. 
 
 ## Do I require a license to use Entra Permissions Management? 
 
-Yes, as of July 1st, 2022, new customers must acquire a free 90-trial license or a paid license to use the service. You can enable a trial here: [https://aka.ms/TryPermissionsManagement](https://aka.ms/TryPermissionsManagement) or you can directly purchase resource-based licenses here: [https://aka.ms/BuyPermissionsManagement](https://aka.ms/BuyPermissionsManagement) 
- 
+Yes, as of July 1st, 2022, new customers must acquire a free 45-day trial license or a paid license to use the service. You can enable a trial here: [https://aka.ms/TryPermissionsManagement](https://aka.ms/TryPermissionsManagement) or you can directly purchase resource-based licenses here: [https://aka.ms/BuyPermissionsManagement](https://aka.ms/BuyPermissionsManagement) 
+
+## How is Permissions Management priced? 
+
+Permissions Management is $125 per resources/year ($10.40 per resource/month). Permissions Management requires licenses for workloads, which include any resource that uses compute or memory. 
+
+## Do I need to pay for all resources?
+
+Although Permissions Management supports all resources, Microsoft only requires licenses for certain resources per cloud. To learn more about billable resources, visit [View billable resources listed in your authorization system](product-data-billable-resources.md)
+
+## How do I figure out how many resources I have? 
+
+To find out how many resources you have across your multicloud infrastructure, view the Billable Resources tab in Permissions Management.
+
 ## What do I do if I’m using Public Preview version of Entra Permissions Management?  
 
 If you are using the Public Preview version of Entra Permissions Management, your current deployment(s) will continue to work through October 1st.  
 
-After October 1st you will need to move over to use the newly released version of the service and enable a 90-day trial or purchase licenses to continue using the service.  
+After October 1st you will need to move over to use the newly released version of the service and enable a 45-day trial or purchase licenses to continue using the service.  
 
 ## What do I do if I’m using the legacy version of the CloudKnox service?  
 

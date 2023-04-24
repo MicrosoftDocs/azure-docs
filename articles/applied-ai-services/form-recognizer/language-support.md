@@ -6,9 +6,8 @@ author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
-ms.topic: overview
-ms.date: 10/20/2022
-ms.author: lajanuar
+ms.topic: conceptual
+ms.date: 03/03/2023
 ---
 
 # Language support for Form Recognizer
@@ -26,7 +25,7 @@ This article covers the supported languages for text and field **extraction (by 
 
 ## Read, layout, and custom form (template) model
 
-The following lists include the currently GA languages in the most recent v3.0 version. These languages are supported by Read, Layout, and Custom form (template) model features.
+The following lists include the currently GA languages in the most recent v3.0 version for Read, Layout, and Custom template (form) models.
 
 > [!NOTE]
 > **Language code optional**
@@ -214,25 +213,30 @@ Use the parameter `api-version=2022-06-30-preview` when using the REST API or th
 
 ## Custom neural model
 
-Language| Locale code |
+Language| API Version |
 |:-----|:----:|
-|English (United States)|en-us|
+|English | `2022-08-31` (GA), `2023-02-28-preview`|
+|Spanish | `2023-02-28-preview`|
+|German | `2023-02-28-preview`|
+|French | `2023-02-28-preview`|
+|Italian | `2023-02-28-preview`|
+|Dutch | `2023-02-28-preview`|
 
 ## Receipt model
 
 >[!NOTE]
  > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
 
-Receipt supports all English receipts with the following locales:
+Receipt supports all English receipts and the following locales:
 
 |Language| Locale code |
 |:-----|:----:|
-|English (Australia)|`en-au`|
+|English |`en-au`|
 |English (Canada)|`en-ca`|
 |English (United Kingdom)|`en-gb`|
-|English (India|`en-in`|
+|English (India)|`en-in`|
 |English (United States)| `en-us`|
-|French | 'fr' |
+|French | `fr` |
 | Spanish | `es` |
 
 ## Business card model
@@ -244,11 +248,12 @@ Business Card supports all English business cards with the following locales:
 
 |Language| Locale code |
 |:-----|:----:|
-|English (Australia)|`en-au`|
-|English (Canada)|`en-ca`|
-|English (United Kingdom)|`en-gb`|
-|English (India|`en-in`|
-|English (United States)| `en-us`|
+|English |`en-US`, `en-CA`, `en-GB`, `en-IN`|
+|German | de|
+|French | fr|
+|Italian |it|
+|Portuguese |pt|
+|Dutch | nl|
 
 The **2022-06-30** and later releases  include Japanese language support:
 
@@ -260,13 +265,13 @@ The **2022-06-30** and later releases  include Japanese language support:
 
 Language| Locale code |
 |:-----|:----:|
-|English (United States) |en-US|
+|English |`en-US`, `en-CA`, `en-GB`, `en-IN`|
 |Spanish| es|
-|German (**2022-06-30** and later)| de|
-|French (**2022-06-30** and later)| fr|
-|Italian (**2022-06-30** and later)|it|
-|Portuguese (**2022-06-30** and later)|pt|
-|Dutch (**2022-06-30** and later)| nl|
+|German | de|
+|French | fr|
+|Italian |it|
+|Portuguese |pt|
+|Dutch | nl|
 
 ## ID document model
 
@@ -507,11 +512,11 @@ This table lists the written languages supported by each Form Recognizer service
 >[!NOTE]
  > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
 
-Pre-Built Receipt and Business Cards support all English receipts and business cards with the following locales:
+Prebuilt Receipt and Business Cards support all English receipts and business cards with the following locales:
 
 |Language| Locale code |
 |:-----|:----:|
-|English (Austrialia)|`en-au`|
+|English (Australia)|`en-au`|
 |English (Canada)|`en-ca`|
 |English (United Kingdom)|`en-gb`|
 |English (India|`en-in`|
@@ -539,5 +544,5 @@ This technology is currently available for US driver licenses and the biographic
 
 ::: moniker range="form-recog-2.1.0"
 > [!div class="nextstepaction"]
-> [Try Form Recognizer sample labeling tool](https://aka.ms/fott-2.1-ga)
+> [Try Form Recognizer Sample Labeling tool](https://aka.ms/fott-2.1-ga)
 ::: moniker-end

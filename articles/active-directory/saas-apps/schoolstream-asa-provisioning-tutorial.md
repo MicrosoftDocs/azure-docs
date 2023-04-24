@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Configure SchoolStream ASA for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure SchoolStream ASA for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to SchoolStream ASA.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: ac594768-7b76-4e5a-b46e-8f1cb41f2754
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/27/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

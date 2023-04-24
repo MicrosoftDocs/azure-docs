@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/25/2021
+ms.date: 01/11/2023
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -71,7 +71,7 @@ To view the schema and verify it, follow these steps.
 1.  Go to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 1.  Sign in with your global administrator account.
 1.  On the left, select **modify permissions** and ensure that **Directory.ReadWrite.All** is *Consented*.
-1.  Run the query `https://graph.microsoft.com/beta/serviceprincipals/?$filter=startswith(DisplayName, ‘{sync config name}’)`. This query returns a filtered list of service principals.  This can also be acquire via the App Registration node under Azure Active Directory.
+1.  Run the query `https://graph.microsoft.com/beta/serviceprincipals/?$filter=startswith(DisplayName, ‘{sync config name}’)`. This query returns a filtered list of service principals.  This can also be acquired via the App Registration node under Azure Active Directory.
 1.  Locate `"appDisplayName": "Active Directory to Azure Active Directory Provisioning"` and note the value for `"id"`.
     ```
     "value": [
@@ -239,7 +239,7 @@ To view the schema and verify it, follow these steps.
     ```
 1. Now run the query `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal Id}/synchronization/jobs/{AD2AAD Provisioning id}/schema`.
  
-    Example: https://graph.microsoft.com/beta/serviceprincipals/653c0018-51f4-4736-a3a3-94da5dcb6862/synchronization/jobs/AD2AADProvisioning.e9287a7367e444c88dc67a531c36d8ec/schema
+
 
    Replace `{Service Principal Id}` and `{AD2ADD Provisioning Id}` with your values.
 

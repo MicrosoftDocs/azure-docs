@@ -235,7 +235,7 @@ def main(req: func.HttpRequest, outputMessage: func.Out[str]) -> func.HttpRespon
 
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the <!--attribute API here--> attribute to define the function. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the <!--attribute API here--> attribute to define the function. C# script instead uses a function.json configuration file.
 
 The attribute's constructor takes the following parameters:
 
@@ -269,7 +269,7 @@ ILogger log)
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [RabbitMQTrigger](https://github.com/Azure/azure-functions-rabbitmq-extension/blob/dev/extension/WebJobs.Extensions.RabbitMQ/Trigger/RabbitMQTriggerAttribute.cs) attribute.
 
-Here's a `RabbitMQTrigger` attribute in a method signature for an isolated process library:
+Here's a `RabbitMQTrigger` attribute in a method signature for an isolated worker process library:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/RabbitMQ/RabbitMQFunction.cs" range="12-16":::
 
@@ -357,7 +357,7 @@ When working with C# functions:
 
 # [Isolated process](#tab/isolated-process)
 
-The RabbitMQ bindings currently support only string and serializable object types when running in an isolated process.
+The RabbitMQ bindings currently support only string and serializable object types when running in an isolated worker process.
 
 # [C# script](#tab/csharp-script)
 

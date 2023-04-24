@@ -2,10 +2,9 @@
 title: Best practices for managing identity
 titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for how to manage authentication and authorization for clusters in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 09/29/2022
+ms.date: 04/14/2023
 ---
 
 # Best practices for authentication and authorization in Azure Kubernetes Service (AKS)
@@ -117,12 +116,10 @@ There are two levels of access needed to fully operate an AKS cluster:
 
 ## Use pod-managed identities
 
-> **Best practice guidance**
->
-> Don't use fixed credentials within pods or container images, as they are at risk of exposure or abuse. Instead, use *pod identities* to automatically request access using Azure AD.
+Don't use fixed credentials within pods or container images, as they are at risk of exposure or abuse. Instead, use *pod identities* to automatically request access using Azure AD.
 
 > [!NOTE]
-> Pod identities are intended for use with Linux pods and container images only. Pod-managed identities support for Windows containers is coming soon.
+> Pod identities are intended for use with Linux pods and container images only. Pod-managed identities (preview) support for Windows containers is coming soon.
 
 To access other Azure resources, like Azure Cosmos DB, Key Vault, or Blob storage, the pod needs authentication credentials. You could define authentication credentials with the container image or inject them as a Kubernetes secret. Either way, you would need to manually create and assign them. Usually, these credentials are reused across pods and aren't regularly rotated.
 
@@ -134,6 +131,8 @@ With pod-managed identities (preview) for Azure resources, you automatically req
 > recommendations and options to set up your cluster to use an Azure AD workload identity (preview).
 > This authentication method replaces pod-managed identity (preview), which integrates with the Kubernetes native capabilities
 > to federate with any external identity providers.
+>
+> The open source Azure AD pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022.
 
 Azure Active Directory pod-managed identity (preview) supports two modes of operation:
 
@@ -206,5 +205,4 @@ For more information about cluster operations in AKS, see the following best pra
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [azure-ad-rbac]: azure-ad-rbac.md
 [aad-pod-identity]: ./use-azure-ad-pod-identity.md
-[use-azure-ad-pod-identity]: ./use-azure-ad-pod-identity.md#create-an-identity
 [workload-identity-overview]: workload-identity-overview.md

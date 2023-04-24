@@ -3,20 +3,15 @@ title: Restrict network access to PaaS resources - Azure PowerShell
 description: In this article, you learn how to limit and restrict network access to Azure resources, such as Azure Storage and Azure SQL Database, with virtual network service endpoints using Azure PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
-author: mbender-ms
+author: asudbring
 manager: mtillman
-editor: ''
 tags: azure-resource-manager
 # Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
-
-ms.assetid: 
 ms.service: virtual-network
-ms.devlang: 
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
-ms.author: mbender
+ms.author: allensu
 ms.custom: devx-track-azurepowershell
 ---
 

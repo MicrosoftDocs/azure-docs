@@ -1,5 +1,5 @@
 ---
-title: Configuring Azure Files network endpoints | Microsoft Docs
+title: Configuring Azure Files network endpoints
 description: Learn how to configure Azure File network endpoints.
 author: khdownie
 ms.service: storage

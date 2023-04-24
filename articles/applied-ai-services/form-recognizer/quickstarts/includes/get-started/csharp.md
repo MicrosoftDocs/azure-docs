@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 10/07/2022
+ms.date: 02/14/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -17,7 +17,7 @@ recommendations: false
 
 [Reference documentation](/dotnet/api/overview/azure/ai.formrecognizer-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/src) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
 
-In this quickstart, you'll use the following APIs to extract structured data from forms and documents:
+In this quickstart, you use the following APIs to extract structured data from forms and documents:
 
 * [Layout](#try-it-layout-model)
 
@@ -34,7 +34,7 @@ In this quickstart, you'll use the following APIs to extract structured data fro
     > [!TIP]
     > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../../active-directory/authentication/overview-authentication.md).
 
-* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
+* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You paste your key and endpoint into the code later in the quickstart:
 
   :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
@@ -66,13 +66,13 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 
  1. Select the Browse tab and type Azure.AI.FormRecognizer.
 
-      :::image type="content" source="../../../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot showing the select Form Recognizer package dropdown window.":::
+      :::image type="content" source="../../../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot showing the select Form Recognizer package dropdown menu.":::
 
  1. Select version **3.1.1** from the dropdown menu and select **Install**.
 
 ## Build your application
 
-To interact with the Form Recognizer service, you'll need to create an instance of the `FormRecognizerClient` class. To do so, you'll create an `AzureKeyCredential` with your key and a `FormRecognizerClient`  instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
+To interact with the Form Recognizer service, you need to create an instance of the `FormRecognizerClient` class. To do so, you create an `AzureKeyCredential` with your key and a `FormRecognizerClient`  instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
 
 > [!NOTE]
 >

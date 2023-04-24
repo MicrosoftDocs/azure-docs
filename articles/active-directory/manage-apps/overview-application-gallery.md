@@ -2,14 +2,15 @@
 title: Overview of the Azure Active Directory application gallery
 description: An overview of using the Azure Active Directory application gallery.
 services: active-directory
-author: eringreenlee
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
 ms.date: 01/22/2022
-ms.author: ergreenl
+ms.author: jomondi
+ms.reviewer: ergreenl
 ---
 
 # Overview of the Azure Active Directory application gallery

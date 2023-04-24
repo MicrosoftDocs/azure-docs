@@ -14,7 +14,7 @@ ms.date: 09/12/2022
 ms.author: pafarley
 ---
 
-# People detection (preview)
+# People detection (version 4.0 preview)
 
 Version 4.0 of Image Analysis offers the ability to detect people appearing in images. The bounding box coordinates of each detected person are returned, along with a confidence score. 
 
@@ -23,40 +23,64 @@ Version 4.0 of Image Analysis offers the ability to detect people appearing in i
 
 ## People detection example
 
-The following JSON response illustrates what the Analyze API returns when describing the example image based on its visual features.
+The following JSON response illustrates what the Analysis 4.0 API returns when describing the example image based on its visual features.
 
-![Photo of a woman in a kitchen.](./Images/windows-kitchen.jpg)
+![Photo of four people.](./Images/family_photo.png)
 
 ```json
 {
-    "metadata":
-    {
-        "width": 1260,
-        "height": 473
-    },
-    "peopleResult":
-    {
-        "values":
-        [
-            {
-                "boundingBox":
-                {
-                    "x": 660,
-                    "y": 0,
-                    "w": 582,
-                    "h": 473
-                },
-                "confidence": 0.9680353999137878
-            }
-        ]
-    }
+  "modelVersion": "2023-02-01-preview",
+  "metadata": {
+    "width": 300,
+    "height": 231
+  },
+  "peopleResult": {
+    "values": [
+      {
+        "boundingBox": {
+          "x": 0,
+          "y": 41,
+          "w": 95,
+          "h": 189
+        },
+        "confidence": 0.9474349617958069
+      },
+      {
+        "boundingBox": {
+          "x": 204,
+          "y": 96,
+          "w": 95,
+          "h": 134
+        },
+        "confidence": 0.9470965266227722
+      },
+      {
+        "boundingBox": {
+          "x": 53,
+          "y": 20,
+          "w": 136,
+          "h": 210
+        },
+        "confidence": 0.8943784832954407
+      },
+      {
+        "boundingBox": {
+          "x": 170,
+          "y": 31,
+          "w": 91,
+          "h": 199
+        },
+        "confidence": 0.2713555097579956
+      }
+    ]
+  }
 }
 ```
 
 ## Use the API
 
-The people detection feature is part of the [Analyze Image](https://aka.ms/vision-4-0-ref) API. You can call this API using REST. Include `People` in the **visualFeatures** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"people"` section.
+The people detection feature is part of the [Image Analysis 4.0 API](https://aka.ms/vision-4-0-ref). Include `People` in the **features** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"people"` section.
 
 ## Next steps
 
-Learn the related concept of [Face detection](concept-face-detection.md).
+* [Call the Analyze Image API](./how-to/call-analyze-image-40.md)

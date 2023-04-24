@@ -5,29 +5,29 @@ ms.date: 10/14/2022
 ms.topic: include
 ms.custom: public_preview
 ---
+## Sample Code
+
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/ServerRecording)
 
 ## Prerequisites
 
-Before you start testing Call Recording, make sure to comply with the following prerequisites:
-
-
 - You need an Azure account with an active subscription.
 - Deploy a Communication Service resource. Record your resource **connection string**.
-- Subscribe to events via [Azure Event Grid](https://learn.microsoft.com/azure/event-grid/event-schema-communication-services).
-- Download the [.NET SDK](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-net/NuGet/Azure.Communication.CallAutomation/overview/1.0.0-alpha.20221013.2)
+- Subscribe to events via [Azure Event Grid](../../../../../event-grid/event-schema-communication-services.md).
+- Download the [.NET SDK](https://www.nuget.org/packages/Azure.Communication.CallAutomation/1.0.0-beta.1)
 
-**IMPORTANT**:  
+## Before you start
+
 Call Recording APIs use exclusively the `serverCallId`to initiate recording. There are a couple of methods you can use to fetch the `serverCallId` depending on your scenario:
-- When using Call Automation, you have two options to get the `serverCallId`:
-    1) Once a call is created, a `serverCallId` is returned as a property of the `CallConnected` event after a call has been established. Learn how to [Get serverCallId](https://learn.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/callflows-for-customer-interactions?pivots=programming-language-csharp#configure-programcs-to-answer-the-call) from Call Automation SDK.
+
+### Call Automation scenarios
+- When using [Call Automation](../../../call-automation/callflows-for-customer-interactions.md), you have two options to get the `serverCallId`:
+    1) Once a call is created, a `serverCallId` is returned as a property of the `CallConnected` event after a call has been established. Learn how to [Get CallConnected event](../../../call-automation/callflows-for-customer-interactions.md?pivots=programming-language-csharp#update-programcs) from Call Automation SDK.
     2) Once you answer the call or a call is created the `serverCallId` is returned as a property of the `AnswerCallResult` or `CreateCallResult` API responses respectively.
 
-- When using Calling Client SDK, you can retrieve the `serverCallId` by using the `getServerCallId` method on the call. 
+### Calling SDK scenarios
+- When using [Calling Client SDK](../../get-started-with-video-calling.md), you can retrieve the `serverCallId` by using the `getServerCallId` method on the call. 
 Use this example to learn how to [Get serverCallId](../../get-server-call-id.md) from the Calling Client SDK. 
-
-
-> [!NOTE]
-> Unmixed audio is in Private Preview and is available in the US only. Make sure to provide the Call Recording team with your [immutable Azure resource ID](../../get-resource-id.md) to be allowlisted during the Unmixed audio **private preview** tests. Changes are expected based on feedback we receive during this stage.
 
 
 
@@ -37,6 +37,7 @@ Let's get started with a few simple steps!
 
 ## 1. Create a Call Automation client
 
+Call Recording APIs are part of the Azure Communication Services [Call Automation](../../../../concepts/call-automation/call-automation.md) libraries. Thus, it's necessary to create a Call Automation client. 
 To create a call automation client, you'll use your Communication Services connection string and pass it to `CallAutomationClient` object.
 
 ```csharp
@@ -62,7 +63,8 @@ Response<RecordingStateResult> response = await callAutomationClient.getCallReco
 .StartRecordingAsync(recordingOptions);
 ```
 
-### 2.1. Only for Unmixed - Specify a user on a channel 0
+### 2.1. Only for Unmixed - Specify a user on channel 0
+To produce unmixed audio recording files, you can use the `AudioChannelParticipantOrdering` functionality to specify which user you want to record on channel 0. The rest of the participants will be assigned to a channel as they speak. If you use `RecordingChannel.Unmixed` but don't use `AudioChannelParticipantOrdering`, Call Recording will assign channel 0 to the first participant speaking. 
 
 ```csharp
 StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCallLocator("<ServerCallId>")) 
@@ -71,16 +73,10 @@ StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCal
     RecordingChannel = RecordingChannel.Unmixed,
     RecordingFormat = RecordingFormat.Wav,
     RecordingStateCallbackEndpoint = new Uri("<CallbackUri>"),
-    ChannelAffinity = new List<ChannelAffinity>
-    {
-        new ChannelAffinity {
-            Channel = 0,
-            Participant = new CommunicationUserIdentifier("<ACS_USER_MRI>")
-        }
-    }
+    AudioChannelParticipantOrdering = { new CommunicationUserIdentifier("<ACS_USER_MRI>") }
+    
 };
-Response<RecordingStateResult> response = await callAutomationClient.getCallRecording()
-.StartRecordingAsync(recordingOptions);
+Response<RecordingStateResult> response = await callAutomationClient.getCallRecording().StartRecordingAsync(recordingOptions);
 ```
 The `StartRecordingAsync` API response contains the `recordingId` of the recording session.
 
@@ -110,7 +106,9 @@ var resumeRecording = await callAutomationClient.GetCallRecording().ResumeRecord
 
 ## 6.	Download recording File using 'DownloadToAsync' API
 
-Use an [Azure Event Grid](https://learn.microsoft.com/azure/event-grid/event-schema-communication-services) web hook or other triggered action should be used to notify your services when the recorded media is ready for download.
+Use an [Azure Event Grid](../../../../../event-grid/event-schema-communication-services.md) web hook or other triggered action should be used to notify your services when the recorded media is ready for download.
+
+An Event Grid notification `Microsoft.Communication.RecordingFileStatusUpdated` is published when a recording is ready for retrieval, typically a few minutes after the recording process has completed (for example, meeting ended, recording stopped). Recording event notifications include `contentLocation` and `metadataLocation`, which are used to retrieve both recorded media and a recording metadata file.
 
 Below is an example of the event schema.
 
@@ -146,7 +144,7 @@ Below is an example of the event schema.
 Use `DownloadStreamingAsync` API for downloading the recorded media.
 
 ```csharp
-var recordingDownloadUri = new Uri(downloadLocation);
+var recordingDownloadUri = new Uri(contentLocation);
 var response = await callAutomationClient.GetCallRecording().DownloadStreamingAsync(recordingDownloadUri);
 ```
 The `downloadLocation` for the recording can be fetched from the `contentLocation` attribute of the `recordingChunk`. `DownloadStreamingAsync` method returns response of type `Response<Stream>`, which contains the downloaded content.

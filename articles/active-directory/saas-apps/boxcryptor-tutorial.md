@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Boxcryptor | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Boxcryptor'
 description: Learn how to configure single sign-on between Azure Active Directory and Boxcryptor.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/27/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Boxcryptor
