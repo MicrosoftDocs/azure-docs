@@ -76,7 +76,7 @@ This command also installs the required Az PowerShell module.
 
 ### Install with the script directly
 
-If you do have Az PowerShell module installed and can't uninstall them, or don't want to uninstall them,you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw **nupkg** file. To install the script from this **nupkg** file, see [Manual Package Download](/powershell/gallery/gallery/how-to/working-with-packages/manual-download).
+If you do have Az PowerShell module installed and can't uninstall them, or don't want to uninstall them, you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw **nupkg** file. To install the script from this **nupkg** file, see [Manual Package Download](/powershell/gallery/gallery/how-to/working-with-packages/manual-download).
 
 To run the script:
 
@@ -137,7 +137,7 @@ The following scenarios explain how you add VMs to the backend pools of the newl
 
 ### Create a NAT gateway for outbound access
 
-The script creates an outbound rule that enables outbound connectivity. Azure Virtual Network NAT is the recommended service for outbound connectivity. For more information about Azure Virtual Network NAT, see [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md). 
+The script creates an outbound rule that enables outbound connectivity. Azure NAT Gateway is the recommended service for outbound connectivity. For more information about Azure NAT Gateway, see [What is Azure NAT Gateway?](../virtual-network/nat-gateway/nat-overview.md). 
 
 To create a NAT gateway resource and associate it with a subnet of your virtual network see, [Create NAT gateway](quickstart-load-balancer-standard-public-portal.md#create-nat-gateway).
 

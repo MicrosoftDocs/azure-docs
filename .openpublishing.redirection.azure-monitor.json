@@ -72,12 +72,12 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/app/correlation.md",
-            "redirect_url": "/previous-versions/azure/azure-monitor/app/distributed-tracing-telemetry-correlation",
+            "redirect_url": "/azure/azure-monitor/app/distributed-tracing-telemetry-correlation",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/app/distributed-tracing.md",
-            "redirect_url": "/previous-versions/azure/azure-monitor/app/distributed-tracing-telemetry-correlation",
+            "redirect_url": "/azure/azure-monitor/app/distributed-tracing-telemetry-correlation",
             "redirect_document_id": false
         },
         {

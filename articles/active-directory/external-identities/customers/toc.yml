@@ -132,7 +132,7 @@ items:
       - name: Add your app
         items:
           - name: Register an app
-            href: register-ciam-app.md
+            href: how-to-register-ciam-app.md
       - name: Create user flows
         items:
           - name: Add a sign-up and sign-in flow

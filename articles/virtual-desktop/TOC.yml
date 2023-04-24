@@ -318,6 +318,12 @@
             href: set-up-scaling-script.md
       - name: Drain session hosts
         href: drain-mode.md
+      - name: Manage with Intune
+        items:
+        - name: Manage single-session hosts
+          href: /mem/intune/fundamentals/azure-virtual-desktop?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+        - name: Manage multi-session hosts
+          href: /mem/intune/fundamentals/azure-virtual-desktop-multi-session?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
       - name: Deploy updates with Configuration Manager
         href: configure-automatic-updates.md
       - name: Start VM on Connect

@@ -197,7 +197,9 @@ items:
     - name: Add video calling to your Android WebView client app
       href: quickstarts/voice-video-calling/get-started-android-webview.md
     - name: Build virtual visit
-      href: tutorials/virtual-visits/sample-builder.md      
+      href: tutorials/virtual-visits/sample-builder.md
+    - name: Proxy your calling traffic
+      href: tutorials/proxy-calling-support-tutorial.md
     - name: Call management
       items:
       - name: Manage calls

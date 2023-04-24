@@ -4,7 +4,7 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 3/16/2023
+ms.date: 4/20/2023
 ---
 
 # What's new in Azure VMware Solution
@@ -13,9 +13,9 @@ Microsoft will regularly apply important updates to the Azure VMware Solution fo
 
 ## April 2023
 
-**HCX Run commands**
+**VMware HCX Run Commands**
 
-Introducing run commands for HCX on Azure VMware solutions. You can use these run commands to restart HCX cloud manager in your Azure VMware solution private cloud. Additionally, you can also scale HCX cloud manager using run commands. To learn how to use run commands for HCX, see [Use HCX Run commands](use-hcx-run-commands.md).
+Introducing Run Commands for VMware HCX on Azure VMware Solution. You can use these run commands to restart VMware HCX Cloud Manager in your Azure VMware Solution private cloud. Additionally, you can also scale VMware HCX Cloud Manager using Run Commands. To learn how to use run commands for VMware HCX, see [Use VMware HCX Run commands](use-hcx-run-commands.md).
 
 ## February 2023
 
@@ -31,13 +31,13 @@ The data in Azure Log Analytics offer insights into issues by searching using Ku
 
 **New SKU availability - AV36P and AV52 nodes**
 
-The AV36P is now available in the West US Region.  This node size is used for memory and storage workloads by offering increased Memory and NVME based SSDs.  
+The AV36P is now available in the West US Region. This node size is used for memory and storage workloads by offering increased Memory and NVME based SSDs.  
 
 AV52 is now available in the East US 2 Region. This node size is used for intensive workloads with higher physical core count, additional memory, and larger capacity NVME based SSDs.
 
 **Customer-managed keys using Azure Key Vault**
 
-You can use customer-managed keys to bring and manage your master encryption keys to encrypt van. Azure Key Vault allows you to store your privately managed keys securely to access your Azure VMware Solution data.
+You can use customer-managed keys to bring and manage your master encryption keys to encrypt vSAN. Azure Key Vault allows you to store your privately managed keys securely to access your Azure VMware Solution data.
 
 **Azure NetApp Files - more storage options available**    
 
@@ -57,8 +57,9 @@ For pricing and region availability, see the [Azure VMware Solution pricing page
 
 ## July 2022
 
-HCX cloud manager in Azure VMware Solution can now be accessible over a public IP address. You can pair HCX sites and create a service mesh from on-premises to Azure VMware Solution private cloud using Public IP.
-HCX with public IP is especially useful in cases where On-premises sites aren't connected to Azure via Express Route or VPN. HCX service mesh appliances can be configured with public IPs to avoid lower tunnel MTUs due to double encapsulation if a VPN is used for on-premises to cloud connections. For more information, please see [Enable HCX over the internet](./enable-hcx-access-over-internet.md)
+VMware HCX Cloud Manager in Azure VMware Solution can now be accessible over a public IP address. You can pair VMware HCX sites and create a service mesh from on-premises to Azure VMware Solution private cloud using Public IP.
+
+VMware HCX with public IP is especially useful in cases where On-premises sites aren't connected to Azure via ExpressRoute or VPN. VMware HCX service mesh appliances can be configured with public IPs to avoid lower tunnel MTUs due to double encapsulation if a VPN is used for on-premises to cloud connections. For more information, please see [Enable VMware HCX over the internet](./enable-hcx-access-over-internet.md)
 
 All new Azure VMware Solution private clouds are now deployed with VMware vCenter Server version 7.0 Update 3c and ESXi version 7.0 Update 3c. 
 
@@ -74,7 +75,8 @@ Any existing private clouds in the above mentioned regions will also be upgraded
 
 ## May 2022
 
-All new Azure VMware Solution private clouds in regions (Germany West Central, Australia East, Central US and UK West), are now deployed with VMware vCenter Server version 7.0 Update 3c and ESXi version 7.0 Update 3c.  
+All new Azure VMware Solution private clouds in regions (Germany West Central, Australia East, Central US and UK West), are now deployed with VMware vCenter Server version 7.0 Update 3c and ESXi version 7.0 Update 3c.
+
 Any existing private clouds in the previously mentioned regions will be upgraded to those versions. For more information, please see [VMware ESXi 7.0 Update 3c Release Notes](https://docs.vmware.com/en/VMware-vSphere/7.0/rn/vsphere-esxi-70u3c-release-notes.html) and [VMware vCenter Server 7.0 Update 3c Release Notes](https://docs.vmware.com/en/VMware-vSphere/7.0/rn/vsphere-vcenter-server-70u3c-release-notes.html). 
 
 You'll receive a notification through Azure Service Health that includes the timeline of the upgrade. You can reschedule an upgrade as needed. This notification also provides details on the upgraded component, its effect on workloads, private cloud access, and other Azure services.
@@ -97,15 +99,15 @@ No further action is required.
 
 ## December 2021
 
-Azure VMware Solution (AVS) has completed maintenance  activities to address critical vulnerabilities in Apache Log4j.  The fixes documented in the VMware security advisory [VMSA-2021-0028.6](https://www.vmware.com/security/advisories/VMSA-2021-0028.html) to address CVE-2021-44228 and CVE-2021-45046 have been applied to these AVS managed VMware products: vCenter Server, NSX-T Data Center, SRM and HCX.   We strongly encourage customers to apply the fixes to on-premises HCX connector appliances. 
+Azure VMware Solution has completed maintenance  activities to address critical vulnerabilities in Apache Log4j. The fixes documented in the VMware security advisory [VMSA-2021-0028.6](https://www.vmware.com/security/advisories/VMSA-2021-0028.html) to address CVE-2021-44228 and CVE-2021-45046 have been applied to these Azure VMware Solution managed VMware products: vCenter Server, NSX-T Data Center, SRM and HCX. We strongly encourage customers to apply the fixes to on-premises HCX connector appliances. 
 
- We also recommend customers to review the security advisory and apply the fixes for other affected VMware products or workloads. 
+We also recommend customers to review the security advisory and apply the fixes for other affected VMware products or workloads. 
   
- If you need any assistance or have questions, [contact us](https://portal.azure.com/#home).
+If you need any assistance or have questions, [contact us](https://portal.azure.com/#home).
 
-VMware has announced a security advisory [VMSA-2021-0028](https://www.vmware.com/security/advisories/VMSA-2021-0028.html), addressing a critical vulnerability in Apache Log4j identified by CVE-2021-44228.  Azure VMware Solution is actively monitoring this issue. We're addressing this issue by applying VMware recommended workarounds or patches for AVS managed VMware components as they become available.
+VMware has announced a security advisory [VMSA-2021-0028](https://www.vmware.com/security/advisories/VMSA-2021-0028.html), addressing a critical vulnerability in Apache Log4j identified by CVE-2021-44228.  Azure VMware Solution is actively monitoring this issue. We're addressing this issue by applying VMware recommended workarounds or patches for Azure VMware Solution managed VMware components as they become available.
 
- Note that you may experience intermittent connectivity to these components when we apply a fix.   We strongly recommend that you read the advisory and patch or apply the recommended workarounds for other VMware products you may have deployed in Azure VMware Solution.   If you need any assistance or have questions, [contact us](https://portal.azure.com).
+Note that you may experience intermittent connectivity to these components when we apply a fix. We strongly recommend that you read the advisory and patch or apply the recommended workarounds for other VMware products you may have deployed in Azure VMware Solution. If you need any assistance or have questions, [contact us](https://portal.azure.com).
 
 ## November 2021
 
@@ -121,11 +123,11 @@ No further action is required.
 
 Per VMware security advisory [VMSA-2021-0020](https://www.vmware.com/security/advisories/VMSA-2021-0020.html), multiple vulnerabilities in the VMware vCenter Server have been reported to VMware.  To address the vulnerabilities (CVE-2021-21991, CVE-2021-21992, CVE-2021-21993, CVE-2021-22005, CVE-2021-22006, CVE-2021-22007, CVE-2021-22008, CVE-2021-22009, CVE-2021-22010, CVE-2021-22011, CVE-2021-22012,CVE-2021-22013, CVE-2021-22014, CVE-2021-22015, CVE-2021-22016, CVE-2021-22017, CVE-2021-22018, CVE-2021-22019, CVE-2021-22020) reported in VMware security advisory [VMSA-2021-0020](https://www.vmware.com/security/advisories/VMSA-2021-0020.html), vCenter Server has been updated to 6.7 Update 3o in all Azure VMware Solution private clouds. All new Azure VMware Solution private clouds are deployed with vCenter Server version 6.7 Update 3o.   For more information, see [VMware vCenter Server 6.7 Update 3o Release Notes](https://docs.vmware.com/en/VMware-vSphere/6.7/rn/vsphere-vcenter-server-67u3o-release-notes.html).  No further action is required.
 
-All new Azure VMware Solution private clouds are now   deployed with ESXi version ESXi670-202103001 (Build number: 17700523). ESXi hosts in existing private clouds have been patched to this version. For more information on this ESXi version, see [VMware ESXi 6.7, Patch Release ESXi670-202103001](https://docs.vmware.com/en/VMware-vSphere/6.7/rn/esxi670-202103001.html).
+All new Azure VMware Solution private clouds are now deployed with ESXi version ESXi670-202103001 (Build number: 17700523). ESXi hosts in existing private clouds have been patched to this version. For more information on this ESXi version, see [VMware ESXi 6.7, Patch Release ESXi670-202103001](https://docs.vmware.com/en/VMware-vSphere/6.7/rn/esxi670-202103001.html).
 
 ## July 2021
 
-All new Azure VMware Solution private clouds are now deployed with NSX-T Data Center version [!INCLUDE [nsxt-version](includes/nsxt-version.md)]. NSX-T Data Center version in existing private clouds will be upgraded through September  2021 to NSX-T Data Center [!INCLUDE [nsxt-version](includes/nsxt-version.md)] release.
+All new Azure VMware Solution private clouds are now deployed with NSX-T Data Center version 3.1.1. NSX-T Data Center version in existing private clouds will be upgraded through September 2021 to NSX-T Data Center 3.1.1 release.
  
 You'll receive an email with the planned maintenance date and time. You can reschedule an upgrade. The email also provides details on the upgraded component, its effect on workloads, private cloud access, and other Azure services. 
 
