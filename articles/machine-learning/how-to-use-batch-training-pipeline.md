@@ -1,5 +1,5 @@
 ---
-title: "Operationalize a training pipeline on batch endpoints"
+title: "Operationalize a training pipeline on batch endpoints (preview)"
 titleSuffix: Azure Machine Learning
 description: Learn how to deploy a training pipeline under a batch endpoint.
 services: machine-learning
@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
-ms.date: 03/29/2023
+ms.date: 04/21/2023
 reviewer: msakande
 ms.reviewer: mopeakande
 ms.custom: how-to, devplatv2, event-tier1-build-2023
 ---
 
-# How to operationalize a training pipeline with batch endpoints
+# How to operationalize a training pipeline with batch endpoints (preview)
 
 [!INCLUDE [ml v2](../../includes/machine-learning-dev-v2.md)]
 
@@ -28,17 +28,19 @@ You'll learn to:
 > * Modify the pipeline and create a new deployment in the same endpoint
 > * Test the new deployment and set it as the default deployment
 
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 ## About this example
 
 The model training component will use tabular data from the [UCI Heart Disease Data Set](https://archive.ics.uci.edu/ml/datasets/Heart+Disease) to train an XGBoost model. During training, the data preprocessing component will perform data transformations, and finally, the model evaluation component will be used for inferencing.
 
 A visualization of the pipeline is as follows:
 
-:::image type="content" source="media/how-to-use-batch-training-pipeline/pipeline-overview.png" alt-text="Pipeline showing the preprocessing and training components" lightbox="media/how-to-use-batch-training-pipeline/pipeline-overview.png":::
+:::image type="content" source="media/how-to-use-batch-training-pipeline/pipeline-overview.png" alt-text="Pipeline showing the preprocessing and training components." lightbox="media/how-to-use-batch-training-pipeline/pipeline-overview.png":::
 
 [!INCLUDE [machine-learning-batch-clone](../../includes/machine-learning/azureml-batch-clone-samples.md)]
 
-The files of this example are in:
+The files for this example are in:
 
 ```azurecli
 cd endpoints/batch/deploy-pipelines/training-with-components
@@ -46,7 +48,7 @@ cd endpoints/batch/deploy-pipelines/training-with-components
 
 ### Follow along in Jupyter notebooks
 
-You can follow along with this example in the following notebook. In the cloned repository, open the notebook: [sdk-deploy-and-test.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb).
+You can follow along with the Python SDK version of this example by opening the [sdk-deploy-and-test.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb) notebook in the cloned repository.
 
 ## Prerequisites
 
@@ -54,11 +56,11 @@ You can follow along with this example in the following notebook. In the cloned 
 
 ## Create the training pipeline component
 
-In this section, we will create all the assets required for our training pipeline. We'll begin by creating an environment that includes necessary libraries to train the model. We'll then create a compute cluster on which the batch deployment will run, and finally, we'll register the input data as a data asset.
+In this section, we'll create all the assets required for our training pipeline. We'll begin by creating an environment that includes necessary libraries to train the model. We'll then create a compute cluster on which the batch deployment will run, and finally, we'll register the input data as a data asset.
 
 ### Create the environment
 
-The components in this example will use an environment with the `XGBoost` and `scikit-learn` libraries. Its conda file looks as follows:
+The components in this example will use an environment with the `XGBoost` and `scikit-learn` libraries. The `environment/conda.yml` file contains the environment's configuration:
 
 __environment/conda.yml__
 
@@ -99,7 +101,7 @@ Create the environment as follows:
 
 ### Create a compute cluster
 
-Batch endpoints and deployments run on compute clusters. They can run on any Azure Machine Learning compute cluster that already exists in the workspace. This means that multiple batch deployments can share the same compute infrastructure. In this example, we'll work on an Azure Machine Learning compute cluster called `batch-cluster`. Let's verify that the compute exists on the workspace or create it otherwise.
+Batch endpoints and deployments run on compute clusters. They can run on any Azure Machine Learning compute cluster that already exists in the workspace. Therefore, multiple batch deployments can share the same compute infrastructure. In this example, we'll work on an Azure Machine Learning compute cluster called `batch-cluster`. Let's verify that the compute exists on the workspace or create it otherwise.
 
 # [Azure CLI](#tab/cli)
 
@@ -133,7 +135,7 @@ print(" [DONE]")
 
 ### Register the training data as a data asset
 
-We are going to use a data asset for our training dataset. We're going to register the training dataset in the `heart.csv` file as a data asset in your workspace.
+We're going to register the training data in the `heart.csv` file as a data asset in the workspace. We'll use this data asset for training.
 
 # [Azure CLI](#tab/cli)
 
@@ -154,7 +156,7 @@ heart_dataset_train = Data(
 ```
 
 Create the data asset:
-    
+
 ```python
 ml_client.data.create_or_update(heart_dataset_train)
 ```
@@ -167,30 +169,30 @@ heart_dataset_train = ml_client.data.get(name=dataset_name, label="latest")
 
 ---
 
-### Create the pipeline
+## Create the pipeline
 
 The pipeline we want to operationalize has two components (steps):
 
 1. `preprocess_job`: This step reads the input data and returns the prepared data and the applied transformations. The step receives three inputs:
     - `data`: a folder containing the input data to transform and score
-    - `transformations`: (optional) the path to the transformations that will be applied, if available. If the path isn't provided, then the transformations will be learned from the input data. Since this input is optional, the `preprocess_job` component can be used for both training and serving.
+    - `transformations`: (optional) Path to the transformations that will be applied, if available. If the path isn't provided, then the transformations will be learned from the input data. Since the `transformations` input is optional, the `preprocess_job` component can be used during training and scoring.
     - `categorical_encoding`: the encoding strategy for the categorical features (`ordinal` or `onehot`).
 1. `train_job`: This step will train an XGBoost model based on the prepared data and return the evaluation results and the trained model.
 
 # [Azure CLI](#tab/cli)
 
-The pipeline is defined in the following YAML file:
+The pipeline configuration is defined in the `deployment-ordinal/pipeline.yml` file:
 
 __deployment-ordinal/pipeline.yml__
 
 :::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deployment-ordinal/pipeline.yml" :::
 
 > [!NOTE]
-> In the `pipeline.yml` file, the `transformations` input is missing; therefore, the script will learn the parameters from the input data.
+> In the `pipeline.yml` file, the `transformations` input is missing from the `preprocess_job`; therefore, the script will learn the transformation parameters from the input data.
 
 # [Python](#tab/python)
 
-The pipeline components are configured in the `prepare.yml` and `train_xgb.yml` files. Load the components:
+The configurations for the pipeline components are in the `prepare.yml` and `train_xgb.yml` files. Load the components:
 
 ```python
 prepare_data = load_component(source="components/prepare/prepare.yml")
@@ -223,7 +225,7 @@ def uci_heart_classifier_trainer(input_data: Input(type=AssetTypes.URI_FOLDER)):
 
 A visualization of the pipeline is as follows:
 
-:::image type="content" source="media/how-to-use-batch-training-pipeline/pipeline-with-transform-and-training-components.png" alt-text="Pipeline showing the preprocessing and training components." lightbox="media/how-to-use-batch-training-pipeline/pipeline-with-transform-and-training-components.png":::
+:::image type="content" source="media/how-to-use-batch-training-pipeline/pipeline-with-transform-and-training-components.png" alt-text="An image of the pipeline showing the job input, pipeline components, and the outputs at each step of the pipeline." lightbox="media/how-to-use-batch-training-pipeline/pipeline-with-transform-and-training-components.png":::
 
 ### Test the pipeline
 
@@ -231,7 +233,7 @@ Let's test the pipeline with some sample data. To do that, we'll create a job us
 
 # [Azure CLI](#tab/cli)
 
-The job is described in the following `pipeline-job.yml` file:
+The following `pipeline-job.yml` file contains the configuration for the pipeline job:
 
 __deployment-ordinal/pipeline-job.yml__
 
@@ -252,6 +254,7 @@ Now, we'll configure some run settings to run the test:
 pipeline_job.settings.default_datastore = "workspaceblobstore"
 pipeline_job.settings.default_compute = "batch-cluster"
 ```
+
 ---
 
 Create the test job:
@@ -269,11 +272,12 @@ pipeline_job_run = ml_client.jobs.create_or_update(
 )
 pipeline_job_run
 ```
+
 ---
 
 ## Create a batch endpoint
 
-1. Decide on the name of the endpoint. A batch endpoint's name needs to be unique in each region since the name is used to construct the invocation URI. To ensure uniqueness, append any trailing characters in the name.
+1. Provide a name for the endpoint. A batch endpoint's name needs to be unique in each region since the name is used to construct the invocation URI. To ensure uniqueness, append any trailing characters to the name specified in the following code.
 
     # [Azure CLI](#tab/cli)
 
@@ -285,7 +289,7 @@ pipeline_job_run
     endpoint_name="uci-classifier-train"
     ```
 
-1. Configure the endpoint
+1. Configure the endpoint:
 
     # [Azure CLI](#tab/cli)
     
@@ -319,7 +323,7 @@ pipeline_job_run
     ml_client.batch_endpoints.begin_create_or_update(endpoint).result()
     ```
 
-1. You can query the endpoint URI as follows:
+1. Query the endpoint URI:
 
     # [Azure CLI](#tab/cli)
 
@@ -334,9 +338,9 @@ pipeline_job_run
 
 ## Deploy the pipeline component
 
-To deploy the pipeline component we have to create a batch deployment. A deployment is a set of resources required for hosting the asset that does the actual work.
+To deploy the pipeline component, we have to create a batch deployment. A deployment is a set of resources required for hosting the asset that does the actual work.
 
-1. Configure the deployment
+1. Configure the deployment:
 
     # [Azure CLI](#tab/cli)
     
@@ -348,7 +352,7 @@ To deploy the pipeline component we have to create a batch deployment. A deploym
     
     # [Python](#tab/python)
 
-    Our pipeline is defined in a function. To transform it to a component, you will use the `build()` method. Pipeline components are reusable compute graphs that can be included in batch deployments or used to compose more complex pipelines.
+    Our pipeline is defined in a function. To transform it to a component, you'll use the `build()` method. Pipeline components are reusable compute graphs that can be included in batch deployments or used to compose more complex pipelines.
 
     ```python
     pipeline_component = uci_heart_classifier_trainer.pipeline_builder.build()
@@ -367,17 +371,19 @@ To deploy the pipeline component we have to create a batch deployment. A deploym
         }
     )
     ```
-    
-1. Create the deployment
+
+1. Create the deployment:
 
     # [Azure CLI](#tab/cli)
-    
+
     Run the following code to create a batch deployment under the batch endpoint and set it as the default deployment.
-    
+
     :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/cli-deploy.sh" ID="create_deployment" :::
-    
+
     > [!TIP]
     > Notice the use of the `--set-default` flag to indicate that this new deployment is now the default.
+
+    Your deployment is ready for use.
 
     # [Python](#tab/python)
 
@@ -395,18 +401,17 @@ To deploy the pipeline component we have to create a batch deployment. A deploym
     ml_client.batch_endpoints.begin_create_or_update(endpoint).result()
     ```
 
-1. Your deployment is ready to be used.
-
+    Your deployment is ready for use.
 
 ### Test the deployment
 
-Once the deployment is created, it's ready to receive jobs. Follow this steps to test it:
+Once the deployment is created, it's ready to receive jobs. Follow these steps to test it:
 
-1. Our deployment requires 1 data input to be indicated.
+1. Our deployment requires that we indicate one data input.
 
     # [Azure CLI](#tab/cli)
     
-    The input data asset definition is contained in the `inputs.yml` file:
+    The `inputs.yml` file contains the definition for the input data asset: 
     
     __inputs.yml__
     
@@ -414,17 +419,18 @@ Once the deployment is created, it's ready to receive jobs. Follow this steps to
     
     # [Python](#tab/python)
     
-    The input data asset definition:
+    Define the input data asset:
     
     ```python
     input_data = Input(type=AssetTypes.URI_FOLDER, path=heart_dataset_train.id)
     ```
+
     ---
     
     > [!TIP]
     > To learn more about how to indicate inputs, see [Create jobs and input data for batch endpoints](how-to-access-data-batch-endpoints-jobs.md).
     
-1. Invoke the default deployment:
+1. You can invoke the default deployment as follows:
 
     # [Azure CLI](#tab/cli)
     
@@ -459,11 +465,11 @@ Once the deployment is created, it's ready to receive jobs. Follow this steps to
     ml_client.jobs.get(name=job.name).stream()
     ```
 
-### Access job output
+### Access job outputs
 
-Once the job is completed, we can access some of its outputs. This pipeline produces the following outputs:
-- `preprocess job`: outputs `transformations_output`
-- `train job`: outputs `model` and `evaluation_results`
+Once the job is completed, we can access some of its outputs. This pipeline produces the following outputs for its components:
+- `preprocess job`: output is `transformations_output`
+- `train job`: outputs are `model` and `evaluation_results`
 
 You can download the associated results using `az ml job download`.
 
@@ -478,27 +484,28 @@ ml_client.jobs.download(name=job.name, download_path=".", output_name="transform
 ml_client.jobs.download(name=job.name, download_path=".", output_name="model")
 ml_client.jobs.download(name=job.name, download_path=".", output_name="evaluation_results")
 ```
+
 ---
 
 ## Create a new deployment in the endpoint
 
-Endpoints can host multiple deployments at once, while keeping only one deployment as the default. This allows you to iterate over your different models, deploy the different models to your endpoint and test them, and finally, switch the default deployment to the model deployment that works best for you.
+Endpoints can host multiple deployments at once, while keeping only one deployment as the default. Therefore, you can iterate over your different models, deploy the different models to your endpoint and test them, and finally, switch the default deployment to the model deployment that works best for you.
 
 Let's change the way preprocessing is done in the pipeline to see if we get a model that performs better.
 
 ### Change a parameter in the pipeline's preprocessing component
 
-The preprocessing component has a parameter called `categorical_encoding` which can have values `ordinal` or `onehot`. These values correspond to two different ways of encoding categorical features. 
+The preprocessing component has a parameter called `categorical_encoding`, which can have values `ordinal` or `onehot`. These values correspond to two different ways of encoding categorical features. 
 
-- `ordinal`: Encodes the feature values with numeric values (ordinal) from `[1:n]`, where `n` is the number of categories in the feature. Ordinal encoding implies that there is a natural rank order among the feature categories.
-- `onehot`: Doesn't imply an ordinal relationship but introduces a dimensionality problem if the number of categories is large. 
+- `ordinal`: Encodes the feature values with numeric values (ordinal) from `[1:n]`, where `n` is the number of categories in the feature. Ordinal encoding implies that there's a natural rank order among the feature categories.
+- `onehot`: Doesn't imply a natural rank ordered relationship but introduces a dimensionality problem if the number of categories is large.
  
 By default, we used `ordinal` previously. Let's now change the categorical encoding to use `onehot` and see how the model performs.
 
 > [!TIP]
-> As an alternative, we could have exposed the `categorial_encoding` as an input in the pipeline job itself, rather than changing it in the specific step. Such an alternative is completely valid but will expose the existence of the parameter as an input to your clients. In this case, we want to hide and control the parameter inside of the deployment by taking advantage of having multiple deployments under the same endpoint.
+> Alternatively, we could have exposed the `categorial_encoding` parameter to clients as an input to the pipeline job itself. However, we chose to change the parameter value in the preprocessing step so that we can hide and control the parameter inside of the deployment and take advantage of the opportunity to have multiple deployments under the same endpoint.
 
-1. Configure the deployment
+1. Configure the deployment:
 
     # [Azure CLI](#tab/cli)
     
@@ -510,7 +517,7 @@ By default, we used `ordinal` previously. Let's now change the categorical encod
     
     # [Python](#tab/python)
 
-    Our pipeline is defined in a function. To transform it to a component, you will use the `build()` method. Pipeline components are reusable compute graphs that can be included in batch deployments or used to compose more complex pipelines.
+    Our pipeline is defined in a function. To transform it to a component, you'll use the `build()` method. Pipeline components are reusable compute graphs that can be included in batch deployments or used to compose more complex pipelines.
 
     ```python
     pipeline_component = uci_heart_classifier_onehot.pipeline_builder.build()
@@ -530,14 +537,15 @@ By default, we used `ordinal` previously. Let's now change the categorical encod
     )
     ```
     
-1. Create the deployment
+1. Create the deployment:
 
     # [Azure CLI](#tab/cli)
     
     Run the following code to create a batch deployment under the batch endpoint and set it as the default deployment.
     
     :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/cli-deploy.sh" ID="create_nondefault_deployment" :::
-    
+
+    Your deployment is ready for use.   
 
     # [Python](#tab/python)
 
@@ -547,11 +555,11 @@ By default, we used `ordinal` previously. Let's now change the categorical encod
     ml_client.batch_deployments.begin_create_or_update(deployment).result()
     ```
 
-1. Your deployment is ready to be used.
+    Your deployment is ready for use.
 
 ### Test a non-default deployment
 
-Once the deployment is created, it is ready to receive jobs. We can test it in the same way we did before, but now we will invoke an specific deployment:
+Once the deployment is created, it's ready to receive jobs. We can test it in the same way we did before, but now we'll invoke a specific deployment:
 
 1. Invoke the deployment as follows, specifying the deployment parameter to trigger the specific deployment `uci-classifier-train-onehot`:
 
@@ -658,7 +666,7 @@ ml_client.compute.begin_delete(name="batch-cluster")
 
 ## Next steps
 
-- [How to deploy a pipeline to perform batch scoring with preprocessing](how-to-use-batch-scoring-pipeline.md)
-- [Create batch endpoints from pipeline jobs](how-to-use-batch-pipeline-from-job.md)
+- [How to deploy a pipeline to perform batch scoring with preprocessing (preview)](how-to-use-batch-scoring-pipeline.md)
+- [Create batch endpoints from pipeline jobs (preview)](how-to-use-batch-pipeline-from-job.md)
 - [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md)
 - [Troubleshooting batch endpoints](how-to-troubleshoot-batch-endpoints.md)

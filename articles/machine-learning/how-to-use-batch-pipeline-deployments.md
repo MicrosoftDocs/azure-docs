@@ -1,5 +1,5 @@
 ---
-title: "Deploy pipelines with batch endpoints"
+title: "Deploy pipelines with batch endpoints (preview)"
 titleSuffix: Azure Machine Learning
 description: Learn how to create a batch deploy a pipeline component and invoke it.
 services: machine-learning
@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
-ms.date: 04/03/2023
+ms.date: 04/21/2023
 reviewer: msakande
 ms.reviewer: mopeakande
 ms.custom: how-to, devplatv2, event-tier1-build-2023
 ---
 
-# How to deploy pipelines with batch endpoints
+# How to deploy pipelines with batch endpoints (preview)
 
 [!INCLUDE [ml v2](../../includes/machine-learning-dev-v2.md)]
 
@@ -25,13 +25,15 @@ In this article, you'll learn how to create a batch deployment that contains a p
 > * Create a batch endpoint with a deployment to host the component
 > * Test the deployment
 
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 ## About this example
 
-In this example, we are going to deploy a pipeline component consisting of a simple command job that prints "hello world!", and it requires no inputs or outputs. This would be the simplest scenario.
+In this example, we're going to deploy a pipeline component consisting of a simple command job that prints "hello world!". This component requires no inputs or outputs and is the simplest pipeline deployment scenario.
 
 [!INCLUDE [machine-learning-batch-clone](../../includes/machine-learning/azureml-batch-clone-samples.md)]
 
-The files of this example are in:
+The files for this example are in:
 
 ```azurecli
 cd endpoints/batch/deploy-pipelines/hello-batch
@@ -39,7 +41,7 @@ cd endpoints/batch/deploy-pipelines/hello-batch
 
 ### Follow along in Jupyter notebooks
 
-You can follow along with this example in the following notebook. In the cloned repository, open the notebook: [sdk-deploy-and-test.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb).
+You can follow along with the Python SDK version of this example by opening the [sdk-deploy-and-test.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb) notebook in the cloned repository.
 
 ## Prerequisites
 
@@ -47,14 +49,14 @@ You can follow along with this example in the following notebook. In the cloned 
 
 ## Create the pipeline component
 
-Batch endpoints can deploy either models or pipeline components. Pipeline components have the advantage of being reusable components and you can use [shared registries](concept-machine-learning-registries-mlops.md) to move them from one workspace to another one to streamline your MLOps practice.
+Batch endpoints can deploy either models or pipeline components. Pipeline components are reusable, and you can streamline your MLOps practice by using [shared registries](concept-machine-learning-registries-mlops.md) to move these components from one workspace to another.
 
 The pipeline component in this example contains one single step that only prints a "hello world" message in the logs. It doesn't require any inputs or outputs.
 
-The component looks as folows:
+The `hello-component/hello.yml` file contains the configuration for the pipeline component:
 
 __hello-component/hello.yml__
-    
+
 :::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/hello-component/hello.yml" :::
 
 Register the component:
@@ -69,11 +71,12 @@ Register the component:
 hello_batch = load_component(source="hello-component/hello.yml")
 hello_batch_registered = ml_client.components.create(hello_batch)
 ```
+
 ---
 
 ## Create a batch endpoint
 
-1. Decide on the name of the endpoint. A batch endpoint's name needs to be unique in each region since the name is used to construct the invocation URI. To ensure uniqueness, append any trailing characters in the name.
+1. Provide a name for the endpoint. A batch endpoint's name needs to be unique in each region since the name is used to construct the invocation URI. To ensure uniqueness, append any trailing characters to the name specified in the following code.
 
     # [Azure CLI](#tab/cli)
 
@@ -85,7 +88,7 @@ hello_batch_registered = ml_client.components.create(hello_batch)
     endpoint_name="hello-batch-component"
     ```
 
-1. Configure the endpoint
+1. Configure the endpoint:
 
     # [Azure CLI](#tab/cli)
     
@@ -116,7 +119,7 @@ hello_batch_registered = ml_client.components.create(hello_batch)
     ml_client.batch_endpoints.begin_create_or_update(endpoint).result()
     ```
 
-1. You can query the endpoint URI as follows:
+1. Query the endpoint URI:
 
     # [Azure CLI](#tab/cli)
 
@@ -131,7 +134,7 @@ hello_batch_registered = ml_client.components.create(hello_batch)
 
 ## Deploy the pipeline component
 
-To deploy the pipeline component we have to create a batch deployment. A deployment is a set of resources required for hosting the asset that does the actual work.
+To deploy the pipeline component, we have to create a batch deployment. A deployment is a set of resources required for hosting the asset that does the actual work.
 
 1. Create a compute cluster. Batch endpoints and deployments run on compute clusters. They can run on any Azure Machine Learning compute cluster that already exists in the workspace. Therefore, multiple batch deployments can share the same compute infrastructure. In this example, we'll work on an Azure Machine Learning compute cluster called `batch-cluster`. Let's verify that the compute exists on the workspace or create it otherwise.
 
@@ -164,7 +167,7 @@ To deploy the pipeline component we have to create a batch deployment. A deploym
     print(" [DONE]")
     ```
 
-1. Configure the deployment
+1. Configure the deployment:
 
     # [Azure CLI](#tab/cli)
     
@@ -189,7 +192,7 @@ To deploy the pipeline component we have to create a batch deployment. A deploym
     )
     ```
     
-1. Create the deployment
+1. Create the deployment:
 
     # [Azure CLI](#tab/cli)
     
@@ -199,6 +202,8 @@ To deploy the pipeline component we have to create a batch deployment. A deploym
     
     > [!TIP]
     > Notice the use of the `--set-default` flag to indicate that this new deployment is now the default.
+
+    Your deployment is ready for use.
 
     # [Python](#tab/python)
 
@@ -216,8 +221,8 @@ To deploy the pipeline component we have to create a batch deployment. A deploym
     ml_client.batch_endpoints.begin_create_or_update(endpoint).result()
     ```
 
-1. Your deployment is ready to be used.
-    
+    Your deployment is ready for use.
+
 ### Test the deployment
 
 Once the deployment is created, it's ready to receive jobs. You can invoke the default deployment as follows:
@@ -233,6 +238,7 @@ job = ml_client.batch_endpoints.invoke(
     endpoint_name=endpoint.name, 
 )
 ```
+
 ---
 
 You can monitor the progress of the show and stream the logs using:
@@ -290,8 +296,8 @@ ml_client.compute.begin_delete(name="batch-cluster")
 
 ## Next steps
 
-- [How to deploy a training pipeline with batch endpoints](how-to-use-batch-training-pipeline.md)
-- [How to deploy a pipeline to perform batch scoring with preprocessing](how-to-use-batch-scoring-pipeline.md)
-- [Create batch endpoints from pipeline jobs](how-to-use-batch-pipeline-from-job.md)
-- [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md)
+- [How to deploy a training pipeline with batch endpoints (preview)](how-to-use-batch-training-pipeline.md)
+- [How to deploy a pipeline to perform batch scoring with preprocessing (preview)](how-to-use-batch-scoring-pipeline.md)
+- [Create batch endpoints from pipeline jobs (preview)](how-to-use-batch-pipeline-from-job.md)
+- [Access data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md)
 - [Troubleshooting batch endpoints](how-to-troubleshoot-batch-endpoints.md)

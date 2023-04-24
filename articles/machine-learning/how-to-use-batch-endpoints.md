@@ -1,7 +1,7 @@
 ---
 title: 'Use batch endpoints and deployments'
 titleSuffix: Azure Machine Learning
-description: In this article you will learn how to use batch endpoints to operationalize long running machine learning jobs under an stable API.
+description: Learn how to use batch endpoints to operationalize long running machine learning jobs under a stable API.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
@@ -15,9 +15,9 @@ ms.custom: how-to, devplatv2
 
 # Use batch endpoints and deployments
 
-Use Azure Machine Learning batch endpoints to operationalize your machine learning workloads in a repetitible and scalable way. Batch endpoints provide a unified interface to invoke and manage long running machine learning jobs.
+Use Azure Machine Learning batch endpoints to operationalize your machine learning workloads in a repeatable and scalable way. Batch endpoints provide a unified interface to invoke and manage long running machine learning jobs.
 
-In this article, you will learn how to work with batch endpoints.
+In this article, you'll learn how to work with batch endpoints.
 
 ## Prerequisites
 
@@ -26,11 +26,11 @@ In this article, you will learn how to work with batch endpoints.
 
 ## Create a batch endpoint
 
-A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch inference job. A batch deployment is a set of compute resources hosting the model or pipeline that does the actual inference. One batch endpoint can have multiple batch deployments.
+A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch inference job. A batch deployment is a set of compute resources hosting the model or pipeline (preview) that does the actual inferencing. One batch endpoint can have multiple batch deployments.
 
 ### Steps
 
-1. Decide on the name of the endpoint. The name of the endpoint will end-up in the URI associated with your endpoint. Because of that, __batch endpoint names need to be unique within an Azure region__. For example, there can be only one batch endpoint with the name `mybatchendpoint` in `westus2`.
+1. Provide a name for the endpoint. The endpoint name appears in the URI associated with your endpoint; therefore, __batch endpoint names need to be unique within an Azure region__. For example, there can be only one batch endpoint with the name `mybatchendpoint` in `westus2`.
 
     # [Azure CLI](#tab/azure-cli)
     
@@ -57,7 +57,7 @@ A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch i
 
     # [Azure CLI](#tab/azure-cli)
 
-    The following YAML file defines a batch endpoint, which you can include in the CLI command for [batch endpoint creation](#create-a-batch-endpoint).
+    The following YAML file defines a batch endpoint. You can include the YAML file in the CLI command for [batch endpoint creation](#create-a-batch-endpoint).
     
     __endpoint.yml__
 
@@ -105,19 +105,19 @@ A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch i
     ```
     # [Studio](#tab/azure-studio)
     
-    *You'll create the endpoint in the same step you are creating the deployment later.*
+    *You'll create the endpoint at the same time that you create the deployment later.*
 
 ## Create a batch deployment
 
-A deployment is a set of resources and compute required to implement the functionality the endpoint provides. There are two types of deployments depending on the asset you want to deploy:
+A deployment is a set of resources and computes required to implement the functionality the endpoint provides. There are two types of deployments depending on the asset you want to deploy:
 
-* [Model deployments](concept-endpoints-batch.md#model-deployments): Use them when you want to operationalize machine learning model inference routines. See [How to deploy a model in a batch endpoint](how-to-use-batch-model-deployments.md) for a tutorial about how to deploy models.
-* [Pipeline component deployment](concept-endpoints-batch.md#pipeline-component-deployment): Use them when you want to operationalize complex inference pipelines under an stable URI. See [How to deploy a pipeline component in a batch endpoint](how-to-use-batch-pipeline-deployments.md) for a tutorial about how to deploy pipeline components.
+* [Model deployment](concept-endpoints-batch.md#model-deployments): Use this to operationalize machine learning model inference routines. See [How to deploy a model in a batch endpoint](how-to-use-batch-model-deployments.md) for a guide to deploy models in batch endpoints.
+* [Pipeline component deployment (preview)](concept-endpoints-batch.md#pipeline-component-deployment): Use this to operationalize complex inference pipelines under a stable URI. See [How to deploy a pipeline component in a batch endpoint (preview)](how-to-use-batch-pipeline-deployments.md) for a guide to deploy pipeline components.
 
 
 ## Create jobs from batch endpoints
 
-Invoking a batch endpoint triggers a batch scoring job. A job `name` will be returned from the invoke response and can be used to track the batch scoring progress. 
+When you invoke a batch endpoint, it triggers a batch scoring job. The invoke response returns a job `name` that can be used to track the batch scoring progress.
 
 # [Azure CLI](#tab/azure-cli)
     
@@ -158,7 +158,7 @@ job = ml_client.batch_endpoints.invoke(
 
 ---
 
-Batch endpoints support reading files or folders that are located in different locations. To learn more about how the supported types and how to specify them read [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md). 
+Batch endpoints support reading files or folders from different locations. To learn more about the supported types and how to specify them read [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md). 
 
 > [!TIP]
 > Local data folders/files can be used when executing batch endpoints from the Azure Machine Learning CLI or Azure Machine Learning SDK for Python. However, that operation will result in the local data to be uploaded to the default Azure Machine Learning Data Store of the workspace you are working on.
@@ -169,7 +169,7 @@ Batch endpoints support reading files or folders that are located in different l
 
 ## Accessing outputs from batch jobs
 
-Invoking a batch endpoint triggers a batch scoring job. A job `name` will be returned from the invoke response and can be used to track the batch scoring progress. When the job is finished, you can access any output the endpoint provides. Each output has a name that allows you to access it.
+When you invoke a batch endpoint, it triggers a batch scoring job. The invoke response returns a job `name` that can be used to track the batch scoring progress. When the job is finished, you can access any output the endpoint provides. Each output has a name that allows you to access it.
 
 For instance, the following example downloads the output __score__ from the job. All model deployments have an output with that name:
 
@@ -207,7 +207,7 @@ You can add, remove, and update deployments without affecting the endpoint itsel
 
 ### Add non-default deployments
 
-To add a new deployment to an existing endpoint, use the following:
+To add a new deployment to an existing endpoint, use the  code:
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -229,11 +229,11 @@ In the wizard, select __Create__ to start the deployment process.
 
 ---
 
-A new deployment will be addded to the endpoint, but it won't be set as default. You can test this deployment to verify the results are the one you expect before switching traffic to it.
+Azure Machine Learning will add a new deployment to the endpoint but won't set it as default. Before you switch traffic to this deployment, you can test it to confirm that the results are what you expect.
 
 ### Change the default deployment
 
-Batch endpoints can have one deployment marked as __default__. Changing the default deployment gives you the possibility of changing the model or pipeline serving the deployment without changing the contract with the user. Use the following instruction to update the default deployment:
+Batch endpoints can have one deployment marked as __default__. Changing the default deployment gives you the possibility of changing the model or pipeline (preview) serving the deployment without changing the contract with the user. Use the following instruction to update the default deployment:
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -269,7 +269,7 @@ ml_client.batch_endpoints.begin_create_or_update(endpoint)
 
 ### Delete a deployment
 
-You can delete a given deployment as long as it is not the default one. Deleting a deployment doesn't delete the jobs generated by it neither their outputs.
+You can delete a given deployment as long as it's not the default one. Deleting a deployment doesn't delete the jobs or outputs it generated.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -290,15 +290,15 @@ ml_client.batch_deployments.begin_delete(name=deployment.name, endpoint_name=end
 
 1. Select the batch endpoint where the deployment is located. 
 
-1. On the batch deployment you want to delete, click on __Delete__.
+1. On the batch deployment you want to delete, select __Delete__.
 
-1. Notice that this won't affect the compute cluster where the deployment(s) run.
+1. Notice that deleting the endpoint won't affect the compute cluster where the deployment(s) run.
 
 ---
 
 ## Delete an endpoint
 
-Deleting and endpoint will delete all the deployments under it. However, this won't remove any previously executed job from the workspace, neither their outputs.
+Deleting an endpoint will delete all the deployments under it. However, this deletion won't remove any previously executed jobs and their outputs from the workspace.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -320,16 +320,14 @@ ml_client.batch_endpoints.begin_delete(name=endpoint.name)
 
 1. Select __Delete__.
 
-1. The endpoint all along with its deployments will be deleted.
-
-1. Notice that this won't affect the compute cluster where the deployment(s) run.
+Now, the endpoint all along with its deployments will be deleted. Notice that this deletion won't affect the compute cluster where the deployment(s) run.
 
 ---
 
 ## Next steps
 
 - [Deploy models with batch endpoints](how-to-use-batch-model-deployments.md)
-- [Deploy pipelines with batch endpoints](how-to-use-batch-pipeline-deployments.md)
+- [Deploy pipelines with batch endpoints (preview)](how-to-use-batch-pipeline-deployments.md)
 - [Deploy MLFlow models in batch deployments](how-to-mlflow-batch.md)
 - [Create jobs and input data to batch endpoints](how-to-access-data-batch-endpoints-jobs.md)
 - [Network isolation for Batch Endpoints](how-to-secure-batch-endpoint.md)

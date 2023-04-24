@@ -10,7 +10,7 @@ Before following the steps in this article, make sure you have the following pre
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
-* An Azure Machine Learning workspace. If you don't have one, use the steps in the [How to manage workspaces](../../articles/machine-learning/how-to-manage-workspace.md) to create one.
+* An Azure Machine Learning workspace. If you don't have one, use the steps in the [How to manage workspaces](../../articles/machine-learning/how-to-manage-workspace.md) article to create one.
 
 * Ensure you have the following permissions in the workspace:
 
@@ -30,7 +30,7 @@ Before following the steps in this article, make sure you have the following pre
     
     # [Python](#tab/python)
     
-    Install the [Azure Machine Learning SDK for Python](https://aka.ms/sdk-v2-install).
+    The [Azure Machine Learning SDK for Python](https://aka.ms/sdk-v2-install).
     
     ```python
     pip install azure-ai-ml
@@ -38,9 +38,11 @@ Before following the steps in this article, make sure you have the following pre
 
 ### Connect to your workspace
 
-First, let's connect to Azure Machine Learning workspace where we're going to work on.
+The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
 
 # [Azure CLI](#tab/cli)
+
+Pass in the values for your subscription ID, workspace, location, and resource group in the following code:
 
 ```azurecli
 az account set --subscription <subscription>
@@ -49,25 +51,25 @@ az configure --defaults workspace=<workspace> group=<resource-group> location=<l
 
 # [Python](#tab/python)
 
-The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
-
 1. Import the required libraries:
 
-```python
-from azure.ai.ml import MLClient, Input
-from azure.ai.ml.entities import BatchEndpoint, BatchDeployment, Model, AmlCompute, Data, BatchRetrySettings
-from azure.ai.ml.constants import AssetTypes, BatchDeploymentOutputAction
-from azure.identity import DefaultAzureCredential
-```
+    ```python
+    from azure.ai.ml import MLClient, Input
+    from azure.ai.ml.entities import BatchEndpoint, BatchDeployment, Model, AmlCompute, Data, BatchRetrySettings
+    from azure.ai.ml.constants import AssetTypes, BatchDeploymentOutputAction
+    from azure.identity import DefaultAzureCredential
+    ```
 
-2. Configure workspace details and get a handle to the workspace:
+1. Configure the workspace details and get a handle to the workspace:
 
-```python
-subscription_id = "<subscription>"
-resource_group = "<resource-group>"
-workspace = "<workspace>"
-
-ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
-```
+    Pass in the values for your subscription ID, workspace, and resource group in the following code:
+    
+    ```python
+    subscription_id = "<subscription>"
+    resource_group = "<resource-group>"
+    workspace = "<workspace>"
+    
+    ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
+    ```
 
 ---
