@@ -20,12 +20,12 @@ Azure Container Apps jobs enable you to run containerized workloads that have a 
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
 
-## Private preview limitations
+## Preview limitations
 
-The jobs private preview has the following limitations:
+The jobs preview has the following limitations:
 
 - Only supported in the East US 2 EUAP (`eastus2euap`) region
-- Only supported in the Azure CLI using a private preview version of the Azure Container Apps extension
+- Only supported in the Azure CLI using a preview version of the Azure Container Apps extension
 - Only supported in the Consumption plan
 
 ## Setup
@@ -42,7 +42,7 @@ The jobs private preview has the following limitations:
     az upgrade
     ```
 
-1. Uninstall any existing versions of the Azure Container Apps extension for the CLI and install the latest version that supports the jobs private preview.
+1. Uninstall any existing versions of the Azure Container Apps extension for the CLI and install the latest version that supports the jobs preview.
 
     ```azurecli
     az extension remove --name containerapp
@@ -50,7 +50,7 @@ The jobs private preview has the following limitations:
     ```
 
     > [!NOTE]
-    > Only use this version of the extension for the jobs private preview. To use the Azure CLI for other Container Apps scenarios, uninstall this version and install the latest version of the extension.
+    > Only use this version of the extension for the jobs preview. To use the Azure CLI for other Container Apps scenarios, uninstall this version and install the latest version of the extension.
     > 
     > ```azurecli
     > az extension remove --name containerapp
@@ -74,7 +74,7 @@ The jobs private preview has the following limitations:
     ```
 
     > [!NOTE]
-    > The jobs private preview is only supported in the East US 2 EUAP (`eastus2euap`) region.
+    > The jobs preview is only supported in the East US 2 EUAP (`eastus2euap`) region.
 
 ## Create a Container Apps environment
 
