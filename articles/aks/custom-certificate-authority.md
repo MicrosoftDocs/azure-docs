@@ -176,7 +176,7 @@ az aks nodepool add \
     --os-type Linux
 ```
 
-If no other node pools with the feature enabled exist, the cluster has to reconcile its settings for the changes to take effect. This operation happens automatically as a part of AKS's reconcile loop. Before the operation, the daemonset and pods won't appear on the cluster. You can trigger an immediate reconcile operation using the [`az aks update`][az-aks-update] command. The daemonset and pods will appear after the update completes.
+If no other node pools with the feature enabled exist, the cluster has to reconcile its settings for the changes to take effect. This operation happens automatically as a part of AKS's reconcile loop. Before the operation, the daemon set and pods don't appear on the cluster. You can trigger an immediate reconcile operation using the [`az aks update`][az-aks-update] command. The daemon set and pods appear after the update completes.
 
 ```azurecli
 az aks update \
@@ -196,7 +196,7 @@ az aks nodepool update \
     --enable-custom-ca-trust
 ```
 
-If no other node pools with the feature enabled exist, the cluster has to reconcile its settings for the changes to take effect. This operation happens automatically as a part of AKS's reconcile loop. Before the operation, the daemonset and pods won't appear on the cluster. You can trigger an immediate reconcile operation using the [`az aks update`][az-aks-update] command. The daemonset and pods will appear after the update completes.
+If no other node pools with the feature enabled exist, the cluster has to reconcile its settings for the changes to take effect. This operation happens automatically as a part of AKS's reconcile loop. Before the operation, the daemon set and pods don't appear on the cluster. You can trigger an immediate reconcile operation using the [`az aks update`][az-aks-update] command. The daemon set and pods appear after the update completes.
 
 ```azurecli
 az aks update -g myResourceGroup --name cluster-name
@@ -213,7 +213,7 @@ Certificates passed to ```--custom-ca-trust-certificates``` shouldn't be base64 
 
 #### containerd hasn't picked up new certs
 
-From the node's shell, run ```systemctl restart containerd```. Once containerd is restarts, the new certs will be properly picked up by the container runtime.
+From the node's shell, run ```systemctl restart containerd```. Once containerd is restarts, the new certs are properly picked up by the container runtime.
 
 ## Next steps
 
