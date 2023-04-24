@@ -28,8 +28,6 @@ To work with the code examples in this article, make sure you have:
     - [Put Block](/rest/api/storageservices/put-block#authorization)
 - The package **azure-storage-blob** installed to your project directory. To learn more about setting up your project, see [Get Started with Azure Storage and Java](storage-blob-java-get-started.md#set-up-your-project).
 
-[!INCLUDE [storage-dev-guide-about-blob-upload](../../../includes/storage-dev-guides/storage-dev-guide-about-blob-upload.md)]
-
 ## Upload data to a block blob
 
 To upload a block blob from a stream or a binary object, use the following method:
@@ -75,7 +73,7 @@ To learn more about uploading blobs using the Azure Blob Storage client library 
 The Azure SDK for Java contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Java paradigms. The client library methods for uploading blobs use the following REST API operations:
 
 - [Put Blob](/rest/api/storageservices/put-blob) (REST API)
-- [Put Blob From URL](/rest/api/storageservices/put-blob-from-url) (REST API)
+- [Put Block](/rest/api/storageservices/put-block) (REST API)
 
 ### Code samples
 

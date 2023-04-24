@@ -27,8 +27,6 @@ To work with the code examples in this article, make sure you have:
     - [Put Block](/rest/api/storageservices/put-block#authorization)
 - The package **Azure.Storage.Blobs** installed to your project directory. To learn more about setting up your project, see [Get Started with Azure Storage and .NET](storage-blob-dotnet-get-started.md#set-up-your-project).
 
-[!INCLUDE [storage-dev-guide-about-blob-upload](../../../includes/storage-dev-guides/storage-dev-guide-about-blob-upload.md)]
-
 ## Upload data to a block blob
 
 You can use either of the following methods to upload data to a block blob:
@@ -94,6 +92,7 @@ To learn more about uploading blobs using the Azure Blob Storage client library 
 The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library methods for uploading blobs use the following REST API operations:
 
 - [Put Blob](/rest/api/storageservices/put-blob) (REST API)
+- [Put Block](/rest/api/storageservices/put-block) (REST API)
 
 ### Code samples
 

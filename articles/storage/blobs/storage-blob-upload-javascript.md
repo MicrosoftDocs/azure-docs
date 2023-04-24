@@ -27,8 +27,6 @@ To work with the code examples in this article, make sure you have:
     - [Put Block](/rest/api/storageservices/put-block#authorization)
 - The package **@azure/storage-blob** installed to your project directory. To learn more about setting up your project, see [Get Started with Azure Storage and JavaScript](storage-blob-javascript-get-started.md#set-up-your-project).
 
-[!INCLUDE [storage-dev-guide-about-blob-upload](../../../includes/storage-dev-guides/storage-dev-guide-about-blob-upload.md)]
-
 ## Upload data to a block blob
 
 You can use any of the following methods to upload data to a block blob:
@@ -137,7 +135,7 @@ To learn more about uploading blobs using the Azure Blob Storage client library 
 The Azure SDK for JavaScript contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar JavaScript paradigms. The client library methods for uploading blobs use the following REST API operations:
 
 - [Put Blob](/rest/api/storageservices/put-blob) (REST API)
-- [Put Blob From URL](/rest/api/storageservices/put-blob-from-url) (REST API)
+- [Put Block](/rest/api/storageservices/put-block) (REST API)
 
 ### Code samples
 

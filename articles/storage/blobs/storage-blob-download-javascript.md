@@ -27,8 +27,6 @@ To work with the code examples in this article, make sure you have:
     - [Get Blob](/rest/api/storageservices/get-blob#authorization)
 - The package **@azure/storage-blob** installed to your project directory. To learn more about setting up your project, see [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md).
 
-[!INCLUDE [storage-dev-guide-about-blob-download](../../../includes/storage-dev-guides/storage-dev-guide-about-blob-download.md)]
-
 ## Download a blob
 
 You can use any of the following methods to download a blob: 
