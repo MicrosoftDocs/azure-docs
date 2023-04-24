@@ -212,41 +212,61 @@ For parameter `Enable-AzRecoveryServicesBackupProtection`, the additional valida
 
 # [CLI](#tab/cli)
 
+To create an enhanced backup policy, run the following command:
+
+```azurecli
+az backup policy create --policy {policy} --resource-group MyResourceGroup --vault-name MyVault --name MyPolicy --backup-management-type AzureIaaSVM
+Policy is passed in JSON format to the create command.
+
+```
+
+### Update an enhanced backup policy
+
+To update an enhanced backup policy, run the following command: 
+
+```azurecli
+az backup policy set --policy {policy} --resource-group MyResourceGroup --vault-name MyVault 
+
+```
+
+### List enhanced backup policies
+
+To list all existing enhanced policies, run the following command:
+
+```azurecli
+az backup policy list --resource-group MyResourceGroup --vault-name MyVault --policy-sub-type Enhanced --workload-type VM
+
+```
+
+For parameter `–policy-sub-type`, the allowed values are `Enhanced` and `Standard`. If you don't specify a value for this parameter, all policies (standard and enhanced) get listed.
+
+For non-VM workloads, the only allowed value is `Standard`
 
 
+### Configure backup for a VM or assign a new policy to a VM
 
+To configure backup for a Trusted Launch VM or assign a new policy to the VM, run the following command:
 
+```azurecli
+az backup protection enable-for-vm \
+    --resource-group myResourceGroup \
+    --vault-name myRecoveryServicesVault \
+    --vm $(az vm show -g VMResourceGroup -n MyVm --query id | tr -d '"') \
+    --policy-name DefaultPolicy
 
+```
 
+The Enhanced policy command `az backup protection enable-for-vm` allows you to back up Trusted Launch VMs only.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+>[!Note]
+>- Currently, a non-Trusted Launch VM that was earlier using Standard policy can't start using Enhanced policy.
+>- A VM that is using Enhanced policy can't be updated to use Standard policy.
 
 
 
 ...
+
+
 
 >[!Note]
 >- The support for Enhanced policy is available in all Azure Public and US Government regions.
