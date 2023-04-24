@@ -240,16 +240,6 @@ reactspalocal/
    };
    ```
 
-## Creating a helper the Microsoft Graph client
-
-To allow the SPA to request access to Microsoft Graph, a reference to the `graphConfig` object needs to be added. This contains the Graph REST API endpoint defined in *authConfig.js* file.
-
-
-1. Right click on the *src* folder, select **Add** > **New Item**. Create a new file called *graph.js* and select **Add**.
-1. Replace the contents of the file with the following code snippet to request access to Microsoft Graph;
-
-   :::code language="javascript" source="~/ms-identity-docs-code-javascript/react-spa/src/graph.js" :::
-
 ## Change filename and add required imports
 
 By default, the application runs via a JavaScript file called App.js. It needs to be changed to App.jsx file, which is an extension that allows a developer to write HTML in React.
@@ -271,46 +261,6 @@ By default, the application runs via a JavaScript file called App.js. It needs t
    import Button from 'react-bootstrap/Button';
    ```
 
-### Adding the `ProfileContent` function
-
-The `ProfileContent` function is used to render the user's profile information. In the *App.jsx* file, add the following code below your imports:
-
-```javascript
-
-/**
-* Renders information about the signed-in user or a button to retrieve data about the user
-*/
-const ProfileContent = () => {
-    const { instance, accounts } = useMsal();
-    const [graphData, setGraphData] = useState(null);
-    
-    function RequestProfileData() {
-        // Silently acquires an access token which is then attached to a request for MS Graph data
-        instance
-            .acquireTokenSilent({
-                ...loginRequest,
-                account: accounts[0],
-            })
-            .then((response) => {
-                callMsGraph(response.accessToken).then((response) => setGraphData(response));
-            });
-    }
-    
-    return (
-        <>
-            <h5 className="card-title">Welcome {accounts[0].name}</h5>
-            <br/>
-            {graphData ? (
-                <ProfileData graphData={graphData} />
-            ) : (
-                <Button variant="secondary" onClick={RequestProfileData}>
-                    Request Profile Information
-                </Button>
-            )}
-        </>
-    );
-};
-```
 ### Replacing the default function to render authenticated information
 
 The following code will render based on whether the user is authenticated or not. Replace the default function `App()` to render authenticated information with the following code:
@@ -362,8 +312,8 @@ All the required code snippets have been added, so the application can now be ca
 1. Open a web browser and navigate to the port specified in [Prepare a Single-page application for authentication](./how-to-spa-react-prepare-app.md). For example, http://localhost:3000/.
 1. Select the Sign In button. For the purposes of this tutorial, choose the Sign in using Popup option.
 1. After the popup window appears with the sign-in options, select the account with which to sign-in.
-1. A second window may appear indicating that a code will be sent to your email address. If this happens, select Send code. Open the email from the sender Microsoft account team, and enter the 7-digit single-use code. Once entered, select Sign in.
-1. For Stay signed in, you can select either No or Yes.
-1. The app will now ask for permission to sign-in and access data. Select Accept to continue.
-1. The SPA will now display a button saying Request Profile Information. Select it to display the Microsoft Graph profile data acquired from the Microsoft Graph API.
+1. A second window may appear indicating that a code will be sent to your email address. If this happens, select **Send code**. Open the email from the sender Microsoft account team, and enter the 7-digit single-use code. Once entered, select **Sign in**.
+1. For **Stay signed in**, you can select either **No** or **Yes**.
+1. The app will now ask for permission to sign-in and access data. Select **Accept** to continue.
+
 
