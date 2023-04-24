@@ -28,7 +28,7 @@ When you integrate Azure AD with your AKS cluster, you can use [Conditional Acce
 
 4. Under **Assignments**, select **Users and groups**. Choose the users and groups you want to apply the policy to. In this example, choose the same Azure AD group that has administrator access to your cluster.
 
-    :::image type="content" source="./media/managed-aad/conditional-access-users-groups.png" alt-text="Screenshot of selecting users or groups to apply the Conditional Access policy." lightbox=source="./media/managed-aad/conditional-access-users-groups.png":::
+    :::image type="content" source="./media/managed-aad/conditional-access-users-groups.png" alt-text="Screenshot of selecting users or groups to apply the Conditional Access policy." lightbox="./media/managed-aad/conditional-access-users-groups.png":::
 
 5. Under **Cloud apps or actions** > **Include**, select **Select apps**. Search for **Azure Kubernetes Service** and select **Azure Kubernetes Service AAD Server**.
 

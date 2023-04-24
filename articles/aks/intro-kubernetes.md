@@ -170,7 +170,7 @@ Learn more about deploying and managing AKS.
 [concepts-identity]: concepts-identity.md
 [concepts-storage]: concepts-storage.md
 [conf-com-node]: ../confidential-computing/confidential-nodes-aks-overview.md
-[aad]: managed-aad.md
+[aad]: managed-azure-ad.md
 [aks-monitor]: monitor-aks.md
 [azure-monitor]: /previous-versions/azure/azure-monitor/containers/containers
 [azure-logs]: ../azure-monitor/logs/log-analytics-overview.md

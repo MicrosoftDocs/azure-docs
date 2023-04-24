@@ -75,7 +75,7 @@ This section addresses common problems and troubleshooting steps.
 To access the Kubernetes resources, you must have access to the AKS cluster, the Kubernetes API, and the Kubernetes objects. Ensure that you're either a cluster administrator or a user with the appropriate permissions to access the AKS cluster. For more information on cluster security, see [Access and identity options for AKS][concepts-identity].
 
 >[!NOTE]
-> The Kubernetes resource view in the Azure portal is only supported by [managed-AAD enabled clusters](managed-aad.md) or non-AAD enabled clusters. If you're using a managed-AAD enabled cluster, your AAD user or identity needs to have the respective roles/role bindings to access the Kubernetes API and the permission to pull the [user `kubeconfig`](control-kubeconfig-access.md).
+> The Kubernetes resource view in the Azure portal is only supported by [managed-AAD enabled clusters](managed-azure-ad.md) or non-AAD enabled clusters. If you're using a managed-AAD enabled cluster, your AAD user or identity needs to have the respective roles/role bindings to access the Kubernetes API and the permission to pull the [user `kubeconfig`](control-kubeconfig-access.md).
 
 ### Enable resource view
 
