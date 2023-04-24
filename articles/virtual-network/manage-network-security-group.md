@@ -30,7 +30,7 @@ If you don't have an Azure account with an active subscription, [create one for 
 
     If you're running Azure CLI locally, use Azure CLI version 2.0.28 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). Run `az login` to sign in to Azure.
 
-The account you log into, or connect to Azure with must be assigned to the [Network contributor role](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) or to a [Custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that's assigned the appropriate actions listed in [Permissions](#permissions).
+Assign the [Network contributor role](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) or a [Custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) with the appropriate [Permissions](#permissions).
 
 ## Work with network security groups
 
@@ -170,7 +170,7 @@ The most common changes to a network security group are:
 
 ### Associate or dissociate a network security group to or from a network interface
 
-To associate a network security group to, or dissociate a network security group from a network interface, see [Associate a network security group to, or dissociate a network security group from a network interface](virtual-network-network-interface.md#associate-or-dissociate-a-network-security-group).
+For more information about the association and dissociation of a network security group, see [Associate or dissociate a network security group](virtual-network-network-interface.md#associate-or-dissociate-a-network-security-group).
 
 ### Associate or dissociate a network security group to or from a subnet
 
@@ -650,7 +650,7 @@ az network asg delete --resource-group myResourceGroup --name myASG
 ---
 ## Permissions
 
-To do tasks on network security groups, security rules, and application security groups, your account must be assigned to the [Network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [Custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that's assigned the appropriate permissions as listed in the following tables:
+To manage network security groups, security rules, and application security groups, your account must be assigned to the [Network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role. A [Custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) can also be used that's assigned the appropriate permissions as listed in the following tables:
 
 ### Network security group
 
