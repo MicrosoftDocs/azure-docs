@@ -207,4 +207,4 @@ Job executions output logs to the logging provider that you configured for the C
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Jobs in Azure Container Apps](jobs.md)
+> [Container Apps environment](environment.md)
