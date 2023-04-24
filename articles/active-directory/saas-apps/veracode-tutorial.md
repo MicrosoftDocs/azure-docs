@@ -145,11 +145,11 @@ Notes:
     
 1. Take the values of the **SAML Assertion URL**, **SAML Audience URL** and **Relay state URL** and update them in the Azure Active Directory settings for the Veracode integration (follow the table below for proper conversions) NOTE: **Relay State** is NOT optional
 
-Veracode URL | Azure AD Field
--------------------------------
-SAML Audience URL -> Identifier (Entity ID)
-SAML Assertion URL -> Reply URL (Assertion Consumer Service URL)
-Relaystate URL -> Relay State
+	| Veracode URL | Azure AD Field|
+	| ---------------| --------------- |
+	| SAML Audience URL |Identifier (Entity ID) |
+	| SAML Assertion URL |Reply URL (Assertion Consumer Service URL) |
+	| Relaystate URL |Relay State |
 
 1. Select the **JIT Provisioning** tab.
 
