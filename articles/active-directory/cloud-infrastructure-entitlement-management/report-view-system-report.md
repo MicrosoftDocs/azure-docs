@@ -35,7 +35,7 @@ F
 1. For each **Authorization System**, select the **Authorization System Name** you want to include in the report by selecting the box next to the name. 
 1. If you want to combine all Authorization Systems into one report, check the box for **Collate**.
 1. For **Report Format**, check the boxes for a **Detailed** or **Summary** of the report in CSV format. You can select both. 
-1. For **Schedule**, select the frequency for which you would like to receive the report(s). You can select **None** if you don't what to generate reports on a scheduled basis.
+1. For **Schedule**, select the frequency for which you would like to receive the report(s). You can select **None** if you don't want to generate reports on a scheduled basis.
 1. Click **Save**. Upon clicking **Save**, you receive a message **Report has been created**. The report appears on the **Custom Reports** tab.
 1. To refresh the list of reports, select **Reload**.
 1. To download a report, hover your mouse over the report, click the down arrow to **Download** the report. A message appears **Successfully Started to Generate On Demand Report**. The report is sent to your email.
@@ -47,9 +47,9 @@ F
 1. Select a report from the **Report Name** column.
 1. To download a report, select the ellipses **(...)** menu for that report, and select **Generate * Download**. 
 1. For each **Authorization System**, select the **Authorization System Name** you want to include in the report by selecting the box next to the name. 
-1. If you want to combine all Authorization Systems into one reports, check the box for **Collate**.
+1. If you want to combine all Authorization Systems into one report, check the box for **Collate**.
 1. For **Report Format**, check the boxes for a **Detailed** or **Summary** of the report in CSV format. You can select both. 
-1. For **Schedule**, select the frequency for which you would like to receive the report(s). You can select **None** if you don't what to generate reports on a scheduled basis.
+1. For **Schedule**, select the frequency for which you would like to receive the report(s). You can select **None** if you don't want to generate reports on a scheduled basis.
 1. Click **Save**. Upon clicking **Save**, you receive a message **Report has been created**. The report appears on the **Custom Reports** tab.
 1. To refresh the list of reports, select **Reload**.
 1. To download a report, hover your mouse over the report, click the down arrow to **Download** the report. A message appears **Successfully Started to Generate On Demand Report**. The report is sent to your email.
