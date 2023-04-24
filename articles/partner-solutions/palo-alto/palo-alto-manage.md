@@ -12,14 +12,15 @@ ms.date: 01/18/2023
 
 Once your Palo Alto resource is created in the Azure portal, you might need to get information about it or change it. Here's list of ways to manage your Palo Alto resource.
 
-- [Configure managed identity](#configure-managed-identity)
-- [Changing the configuration](#changing-the-configuration)
-- [Adding certificates](#adding-certificates)
-- [Send metrics to monitoring](#send-metrics-to-monitoring)
+- [Configure Netowrking and NAT](#configure-networking-NAT)
+- [Configure Rulestack](#configure-the-Rulestack)
+- [Enable Log settings](#enable-log-settings)
+- [Enable DNS Proxy](#enable-dns-proxy)
+- [Configure Rules](#configure-rules)
 - [Delete an Palo Alto deployment](#delete-an-palo-alto-deployment)
-- [GitHub integration](#github-integration)
 
-## Configure managed identity
+
+## Configure Netowrking and NAT
 
 Add a new User Assigned Managed Identity.
 
@@ -33,7 +34,7 @@ Add a new User Assigned Managed Identity.
 
     <!-- :::image type="content" source="media/palo-alto-manage/palo-alto-user-assigned.png" alt-text="Screenshot after user assigned managed identity is added."::: -->
 
-## Changing the configuration
+## Configure Rulestack
 
 1. From the Resource menu, select your Palo Alto deployment.
 
@@ -53,7 +54,7 @@ Add a new User Assigned Managed Identity.
 
     <!-- :::image type="content" source="media/palo-alto-manage/palo-alto-config-editor.png" alt-text="Screenshot of editor for config file with Intellisense displayed."::: -->
 
-## Adding certificates
+## Enable Log settings
 
 You can add a certificate by uploading it to Azure Key vault, and then associating the certificate with your deployment.
 
@@ -69,7 +70,7 @@ You can add a certificate by uploading it to Azure Key vault, and then associati
 
 1. When you've added the needed information, select **Save**.
 
-## Send metrics to monitoring
+## Enable DNS Proxy
 
 1. From the Resource menu, select your Palo Alto deployment.
 
@@ -80,6 +81,10 @@ You can add a certificate by uploading it to Azure Key vault, and then associati
 1. Select **Send metrics to Azure Monitor** to enable metrics and select **Save**.
 
     <!-- :::image type="content" source="media/palo-alto-manage/palo-alto-send-to-monitor.png" alt-text="screenshot of palo-alto sent to monitoring"::: -->
+
+## Configure Rules
+
+Enable CI/CD deployments via GitHub Actions integrations.
 
 ## Delete an Palo Alto deployment
 
@@ -104,9 +109,6 @@ After the account is deleted, logs are no longer sent to Palo Alto, and all bill
 > [!NOTE]
 > The delete button on the main account is only activated if all the sub-accounts mapped to the main account are already deleted. Refer to section for deleting sub-accounts here.
 
-## GitHub Integration
-
-Enable CI/CD deployments via GitHub Actions integrations.
 
 ## Next steps
 
