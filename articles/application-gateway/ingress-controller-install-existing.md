@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.custom: devx-track-arm-template
 ms.topic: how-to
-ms.date: 11/4/2019
+ms.date: 04/24/2023
 ms.author: greglin
 ---
 
@@ -22,7 +22,7 @@ resources, and creates and applies Application Gateway config based on the statu
     - Option 1: [Set up aad-pod-identity](#set-up-aad-pod-identity) and create Azure Identity on ARMs
     - Option 2: [Using a Service Principal](#using-a-service-principal)
 - [Install Ingress Controller using Helm](#install-ingress-controller-as-a-helm-chart)
-- [Multi-cluster / Shared Application Gateway](#multi-cluster--shared-application-gateway): Install AGIC in an environment, where Application Gateway is
+- [Shared Application Gateway](#shared-application-gateway): Install AGIC in an environment, where Application Gateway is
 shared between one or more AKS clusters and/or other Azure components.
 
 ## Prerequisites
@@ -242,7 +242,7 @@ Refer to [this how-to guide](ingress-controller-expose-service-over-http-https.m
 
 
 
-## Multi-cluster / Shared Application Gateway
+## Shared Application Gateway
 By default AGIC assumes full ownership of the Application Gateway it is linked to. AGIC version 0.8.0 and later can
 share a single Application Gateway with other Azure components. For instance, we could use the same Application Gateway for an app
 hosted on Virtual Machine Scale Set as well as an AKS cluster.
