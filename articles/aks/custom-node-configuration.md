@@ -92,6 +92,8 @@ Create a `windowskubeletconfig.json` file with the following contents:
 }
 ```
 
+---
+
 #### OS configuration
 
 ### [Linux node pools](#tab/linux-node-pools)
@@ -114,6 +116,8 @@ Create a `linuxosconfig.json` file with the following contents:
 ### [Windows node pools](#tab/windows-node-pools)
 
 Not currently supported.
+
+---
 
 ### Create a new cluster using custom configuration files
 
@@ -146,6 +150,8 @@ az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-gr
 ```azurecli
 az aks nodepool add --name mynodepool1 --cluster-name myAKSCluster --resource-group myResourceGroup --os-type Windows --kubelet-config ./windowskubeletconfig.json
 ```
+
+---
 
 ### Other configurations
 
