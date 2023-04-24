@@ -57,10 +57,10 @@ Use [online endpoints](concept-endpoints-online.md) to operationalize models for
 > * Your model's inputs fit on the HTTP payload of the request.
 > * You need to scale up in term of number of request.
 
-Use [batch endpoints](concept-endpoints-batch.md) to operationalize models or pipelines for long-running asynchronous inference. We recommend using them when:
+Use [batch endpoints](concept-endpoints-batch.md) to operationalize models or pipelines (preview) for long-running asynchronous inference. We recommend using them when:
 
 > [!div class="checklist"]
-> * You have expensive models or pipelines that requires a longer time to run.
+> * You have expensive models or pipelines that require a longer time to run.
 > * You want to operationalize machine learning pipelines and reuse components.
 > * You need to perform inference over large amounts of data, distributed in multiple files.
 > * You don't have low latency requirements.
@@ -87,18 +87,18 @@ Both of online and batch endpoints use the same constructs, which help you trans
 
 #### Deployments
 
-| Feature                          | Online endpoints                 | Batch endpoints                 |
-|----------------------------------|----------------------------------|---------------------------------|
-| Deployment's types               | Models                           | Models and pipeline components  |
-| Custom model's deployment        | Yes, with scoring script         | Yes, with scoring script        |
-| MLflow model's deployment        | Yes (requires public networking) | Yes                             |
-| Triton model's deployment        | Yes                              | No                              |
-| Compute resource consumed        | Instances or granular resources  | Cluster instances               |
-| Compute type                     | AzureML and Kubernetes           | AzureML and Kubernetes          |
-| Scale compute to zero            | No                               | Yes                             |
-| Low-priority compute             | No                               | Yes                             |
-| Autoscale                        | Yes                              | No                              |
-| Test deployments locally         | Yes                              | No                              |
+| Feature                   | Online endpoints                 | Batch endpoints                          |
+|---------------------------|----------------------------------|------------------------------------------|
+| Deployment's types        | Models                           | Pipeline components (preview) and models |
+| Custom model's deployment | Yes, with scoring script         | Yes, with scoring script                 |
+| MLflow model's deployment | Yes (requires public networking) | Yes                                      |
+| Triton model's deployment | Yes                              | No                                       |
+| Compute resource consumed | Instances or granular resources  | Cluster instances                        |
+| Compute type              | AzureML and Kubernetes           | AzureML and Kubernetes                   |
+| Scale compute to zero     | No                               | Yes                                      |
+| Low-priority compute      | No                               | Yes                                      |
+| Autoscale                 | Yes                              | No                                       |
+| Test deployments locally  | Yes                              | No                                       |
 
 
 ## Developer interfaces
@@ -118,7 +118,7 @@ Create and manage batch and online endpoints with multiple developer tools:
 
 - [How to deploy online endpoints with the Azure CLI and Python SDK](how-to-deploy-online-endpoints.md)
 - [How to deploy models with batch endpoints](how-to-use-batch-model-deployments.md)
-- [How to deploy pipelines with batch endpoints](how-to-use-batch-pipeline-deployments.md)
+- [How to deploy pipelines with batch endpoints (preview)](how-to-use-batch-pipeline-deployments.md)
 - [How to use online endpoints with the studio](how-to-use-managed-online-endpoint-studio.md)
 - [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md)
 - [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)

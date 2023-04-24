@@ -70,7 +70,9 @@ If you're deploying [MLFlow models in batch deployments](how-to-mlflow-batch.md)
 
 ### Pipeline component deployment (preview)
 
-Pipeline component deployments (preview) allows operationalizing entire processing graphs (pipelines) to perform batch inference in a low latency and asynchronous way.
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
+Pipeline component deployment allows operationalizing entire processing graphs (pipelines) to perform batch inference in a low latency and asynchronous way.
 
 Use __Pipeline component deployments__ when:
 
