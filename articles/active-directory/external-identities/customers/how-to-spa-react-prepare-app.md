@@ -31,7 +31,7 @@ In this article, you learn how to:
 * Although any IDE that supports React applications can be used, Visual Studio Code is used for this guide. This can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads/) page.
 * [Node.js](https://nodejs.org/en/download/)
 
-## Create a new React Project
+## Create a new React project
 
 Use the following tabs to create a React project within the IDE.
 
