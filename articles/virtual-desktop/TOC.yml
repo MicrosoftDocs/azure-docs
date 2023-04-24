@@ -105,7 +105,7 @@
           href: app-attach-glossary.md
         - name: FAQ
           href: app-attach-faq.yml
-      - name: Supported features for Teams
+      - name: Microsoft Teams supported features
         href: teams-supported-features.md
     - name: Data locations
       href: data-locations.md
@@ -456,7 +456,7 @@
     href: /troubleshoot/azure/virtual-desktop/windows-virtual-desktop-blank-screen
   - name: Multimedia redirection
     href: troubleshoot-multimedia-redirection.md
-  - name: Teams on Azure Virtual Desktop
+  - name: Microsoft Teams
     href: troubleshoot-teams.md
 - name: Reference
   items:
