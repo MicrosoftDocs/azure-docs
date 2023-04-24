@@ -34,7 +34,7 @@ The function.json file defines the function's trigger, bindings, and other confi
 
 For more information, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
-The `bindings` property is where you configure both triggers and bindings. Each binding shares a few common settings and some settings which are specific to a particular type of binding. Every binding requires the following settings:
+The `bindings` property is where you configure both triggers and bindings. Each binding shares a few common settings and some settings, which are specific to a particular type of binding. Every binding requires the following settings:
 
 | Property    | Values | Type | Comments|
 |---|---|---|---|
@@ -43,7 +43,7 @@ The `bindings` property is where you configure both triggers and bindings. Each 
 | name | Function identifier.<br><br>For example, `myQueue`. | string | The name that is used for the bound data in the function. For C#, this is an argument name; for JavaScript, it's the key in a key/value list. |
 
 ## Function app
-A function app provides an execution context in Azure in which your functions run. As such, it is the unit of deployment and management for your functions. A function app is comprised of one or more individual functions that are managed, deployed, and scaled together. All of the functions in a function app share the same pricing plan, deployment method, and runtime version. Think of a function app as a way to organize and collectively manage your functions. To learn more, see [How to manage a function app](functions-how-to-use-azure-function-app-settings.md).
+A function app provides an execution context in Azure in which your functions run. As such, it is the unit of deployment and management for your functions. A function app is composed of one or more individual functions that are managed, deployed, and scaled together. All of the functions in a function app share the same pricing plan, deployment method, and runtime version. Think of a function app as a way to organize and collectively manage your functions. To learn more, see [How to manage a function app](functions-how-to-use-azure-function-app-settings.md).
 
 > [!NOTE]
 > All functions in a function app must be authored in the same language. In [previous versions](functions-versions.md) of the Azure Functions runtime, this wasn't required.
@@ -112,19 +112,20 @@ For example, the `connection` property for an Azure Blob trigger definition migh
 
 Some connections in Azure Functions can be configured to use an identity instead of a secret. Support depends on the extension using the connection. In some cases, a connection string may still be required in Functions even though the service to which you are connecting supports identity-based connections. For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md).
 
-Identity-based connections are supported by the following components:
+The following components support identity-based connections:
 
 | Connection source                                       | Plans supported | Learn more                                                                                                         |
 |---------------------------------------------------------|-----------------|--------------------------------------------------------------------------------------------------------------------|
 | Azure Blobs triggers and bindings               | All             | [Azure Blobs extension version 5.0.0 or later][blobv5],<br/>[Extension bundle 3.3.0 or later][blobv5]  |
 | Azure Queues triggers and bindings            | All             | [Azure Queues extension version 5.0.0 or later][queuev5],<br/>[Extension bundle 3.3.0 or later][queuev5] |
 | Azure Tables (when using Azure Storage)  | All | [Azure Tables extension version 1.0.0 or later](./functions-bindings-storage-table.md#table-api-extension),<br/>[Extension bundle 3.3.0 or later][tablesv1] |
+| Azure SQL Database | All | [Connect a function app to Azure SQL with managed identity and SQL bindings][azuresql-identity]
 | Azure Event Hubs triggers and bindings     | All             | [Azure Event Hubs extension version 5.0.0 or later][eventhubv5],<br/>[Extension bundle 3.3.0 or later][eventhubv5]   |
 | Azure Service Bus triggers and bindings       | All             | [Azure Service Bus extension version 5.0.0 or later][servicebusv5],<br/>[Extension bundle 3.3.0 or later][servicebusv5] |
 | Azure Cosmos DB triggers and bindings         | All | [Azure Cosmos DB extension version 4.0.0 or later][cosmosv4],<br/> [Extension bundle 4.0.2 or later][cosmosv4]|
 | Azure SignalR triggers and bindings           | All | [Azure SignalR extension version 1.7.0 or later][signalr] <br/>[Extension bundle 3.6.1 or later][signalr] |
 | Durable Functions storage provider (Azure Storage) | All | [Durable Functions extension version 2.7.0 or later][durable-identity],<br/>[Extension bundle 3.3.0 or later][durable-identity] |
-| Host-required storage ("AzureWebJobsStorage") - Preview | All             | [Connecting to host storage with an identity](#connecting-to-host-storage-with-an-identity-preview)                        |
+| Host-required storage ("AzureWebJobsStorage") | All             | [Connecting to host storage with an identity](#connecting-to-host-storage-with-an-identity)                        |
 
 [blobv5]: ./functions-bindings-storage-blob.md#install-extension
 [queuev5]: ./functions-bindings-storage-queue.md#storage-extension-5x-and-higher
@@ -134,6 +135,7 @@ Identity-based connections are supported by the following components:
 [tablesv1]: ./functions-bindings-storage-table.md#table-api-extension
 [signalr]: ./functions-bindings-signalr-service.md#install-extension
 [durable-identity]: ./durable/durable-functions-configure-durable-functions-with-credentials.md
+[azuresql-identity]: ./functions-identity-access-azure-sql-with-managed-identity.md
 
 [!INCLUDE [functions-identity-based-connections-configuration](../../includes/functions-identity-based-connections-configuration.md)]
 
@@ -164,13 +166,14 @@ Choose a tab below to learn about permissions for each component:
 [!INCLUDE [functions-cosmos-permissions](../../includes/functions-cosmos-permissions.md)]
 
 # [Azure SignalR extension](#tab/signalr)
-You'll need to create a role assignment that provides access to Azure SignalR Service data plane REST APIs. We recommend you to use the built-in role [SignalR Service Owner](../role-based-access-control/built-in-roles.md#signalr-service-owner). Management roles like [Owner](../role-based-access-control/built-in-roles.md#owner) aren't sufficient.
+
+You need to create a role assignment that provides access to Azure SignalR Service data plane REST APIs. We recommend you to use the built-in role [SignalR Service Owner](../role-based-access-control/built-in-roles.md#signalr-service-owner). Management roles like [Owner](../role-based-access-control/built-in-roles.md#owner) aren't sufficient.
 
 # [Durable Functions storage provider](#tab/durable)
 
 [!INCLUDE [functions-durable-permissions](../../includes/functions-durable-permissions.md)]
 
-# [Functions host storage (preview)](#tab/azurewebjobsstorage)
+# [Functions host storage](#tab/azurewebjobsstorage)
 
 [!INCLUDE [functions-azurewebjobsstorage-permissions](../../includes/functions-azurewebjobsstorage-permissions.md)]
 
@@ -182,17 +185,17 @@ An identity-based connection for an Azure service accepts the following common p
 
 | Property    |  Environment variable template | Description |
 |---|---|---|---|
-| Token Credential |  `<CONNECTION_NAME_PREFIX>__credential` | Defines how a token should be obtained for the connection. Recommended only when specifying a user-assigned identity, when it should be set to "managedidentity". This is only valid when hosted in the Azure Functions service. |
-| Client ID | `<CONNECTION_NAME_PREFIX>__clientId` | When `credential` is set to "managedidentity", this property specifies the user-assigned identity to be used when obtaining a token. The property accepts a client ID corresponding to a user-assigned identity assigned to the application. If not specified, the system-assigned identity will be used. This property is used differently in [local development scenarios](#local-development-with-identity-based-connections), when `credential` should not be set. |
+| Token Credential |  `<CONNECTION_NAME_PREFIX>__credential` | Defines how a token should be obtained for the connection. This setting is recommended only when specifying a user-assigned identity, when it should be set to "managedidentity". This value is only valid when hosted in the Azure Functions service. |
+| Client ID | `<CONNECTION_NAME_PREFIX>__clientId` | When `credential` is set to "managedidentity", this property specifies the user-assigned identity to be used when obtaining a token. The property accepts a client ID corresponding to a user-assigned identity assigned to the application. If not specified, the system-assigned identity is used. This property is used differently in [local development scenarios](#local-development-with-identity-based-connections), when `credential` should not be set. |
 
-Additional options may be supported for a given connection type. Please refer to the documentation for the component making the connection.
+Additional options may be supported for a given connection type. Refer to the documentation for the component making the connection.
 
 ##### Local development with identity-based connections
 
 > [!NOTE]
 > Local development with identity-based connections requires updated versions of the [Azure Functions Core Tools](./functions-run-local.md). You can check your currently installed version by running `func -v`. For Functions v3, use version `3.0.3904` or later. For Functions v4, use version `4.0.3904` or later.
 
-When running locally, the above configuration tells the runtime to use your local developer identity. The connection will attempt to get a token from the following locations, in order:
+When you are running your function project locally, the above configuration tells the runtime to use your local developer identity. The connection attempts to get a token from the following locations, in order:
 
 - A local cache shared between Microsoft applications
 - The current user context in Visual Studio
@@ -226,7 +229,7 @@ Here is an example of `local.settings.json` properties required for identity-bas
 }
 ```
 
-#### Connecting to host storage with an identity (Preview)
+#### Connecting to host storage with an identity
 
 The Azure Functions host uses the "AzureWebJobsStorage" connection for core behaviors such as coordinating singleton execution of timer triggers and default app key storage. This can be configured to leverage an identity as well.
 

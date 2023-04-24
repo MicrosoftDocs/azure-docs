@@ -46,7 +46,7 @@ AutoML creates a number of pipelines in parallel that try different algorithms a
 
 1. The **[Optional] Validate and test** form allows you to do the following. 
 
-    1. Specify the type of validation to be used for your training job. [Learn more about cross validation](../how-to-configure-cross-validation-data-splits.md#prerequisites). 
+    1. Specify the type of validation to be used for your training job. [Learn more about cross validation](../v1/how-to-configure-cross-validation-data-splits.md#prerequisites). 
     
     
     1. Provide a test dataset (preview) to evaluate the recommended model that automated ML generates for you at the end of your experiment. When you provide test data, a test job is automatically triggered at the end of your experiment. This test job is only job on the best model that was recommended by automated ML.

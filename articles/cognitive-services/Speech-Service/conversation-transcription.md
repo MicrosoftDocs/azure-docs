@@ -41,7 +41,7 @@ See the real-time conversation transcription [quickstart](how-to-use-conversatio
 
 ## Use cases
 
-To make meetings inclusive for everyone, such as participants who are deaf and hard of hearing, it's important to have transcription in real time. Conversation transcription in real-time mode takes meeting audio and determines who is saying what, allowing all meeting participants to follow the transcript and participate in the meeting, without a delay.
+To make meetings inclusive for everyone, such as participants who are deaf and hard of hearing, it's important to have transcription in real-time. Conversation transcription in real-time mode takes meeting audio and determines who is saying what, allowing all meeting participants to follow the transcript and participate in the meeting, without a delay.
 
 Meeting participants can focus on the meeting and leave note-taking to conversation transcription. Participants can actively engage in the meeting and quickly follow up on next steps, using the transcript instead of taking notes and potentially missing something during the meeting.
 
@@ -90,4 +90,4 @@ Currently, conversation transcription supports [all speech-to-text languages](la
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Transcribe conversations in real time](how-to-use-conversation-transcription.md)
+> [Transcribe conversations in real-time](how-to-use-conversation-transcription.md)

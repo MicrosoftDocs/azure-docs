@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create a NAT gateway - PowerShell'
-titlesuffix: Azure Virtual Network NAT
+titlesuffix: Azure NAT Gateway
 description: Get started creating a NAT gateway using Azure PowerShell.
 author: asudbring
 ms.author: allensu
@@ -13,7 +13,7 @@ ms.custom: template-quickstart, devx-track-azurepowershell
 
 # Quickstart: Create a NAT gateway using Azure PowerShell
 
-This quickstart shows you how to use the Azure Virtual Network NAT service. You'll create a NAT gateway to provide outbound connectivity for a virtual machine in Azure. 
+This quickstart shows you how to use the Azure NAT Gateway service. You'll create a NAT gateway to provide outbound connectivity for a virtual machine in Azure. 
 
 ## Prerequisites
 
@@ -217,6 +217,6 @@ Remove-AzResourceGroup -Name 'myResourceGroupNAT' -Force
 
 ## Next steps
 
-For more information on Azure Virtual Network NAT, see:
+For more information on Azure NAT Gateway, see:
 > [!div class="nextstepaction"]
-> [Virtual Network NAT overview](nat-overview.md)
+> [Azure NAT Gateway overview](nat-overview.md)

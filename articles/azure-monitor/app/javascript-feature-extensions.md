@@ -19,7 +19,41 @@ In this article, we cover the Click Analytics plug-in that automatically tracks 
 
 ## Get started
 
-Users can set up the Click Analytics Autocollection plug-in via npm.
+Users can set up the Click Analytics Auto-Collection plug-in via snippet or NPM.
+
+### Snippet setup
+
+Ignore this setup if you use the npm setup.
+
+```html
+<script type="text/javascript" src="https://js.monitor.azure.com/scripts/b/ext/ai.clck.2.6.2.min.js"></script>
+<script type="text/javascript">
+  var clickPluginInstance = new Microsoft.ApplicationInsights.ClickAnalyticsPlugin();
+  // Click Analytics configuration
+  var clickPluginConfig = {
+    autoCapture : true,
+    dataTags: {
+      useDefaultContentNameOrId: true
+    }
+  }
+  // Application Insights configuration
+  var configObj = {
+    connectionString: "YOUR CONNECTION STRING",
+    extensions: [
+      clickPluginInstance
+    ],
+    extensionConfig: {
+      [clickPluginInstance.identifier] : clickPluginConfig
+    },
+  };
+  // Application Insights Snippet code
+  !function(T,l,y){<!-- Removed the Snippet code for brevity -->}(window,document,{
+    src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
+    crossOrigin: "anonymous",
+    cfg: configObj
+  });
+</script>
+```
 
 ### npm setup
 
@@ -41,7 +75,7 @@ const clickPluginConfig = {
 };
 // Application Insights Configuration
 const configObj = {
-  instrumentationKey: "YOUR INSTRUMENTATION KEY",
+  connectionString: "YOUR CONNECTION STRING",
   extensions: [clickPluginInstance],
   extensionConfig: {
     [clickPluginInstance.identifier]: clickPluginConfig
@@ -50,40 +84,6 @@ const configObj = {
 
 const appInsights = new ApplicationInsights({ config: configObj });
 appInsights.loadAppInsights();
-```
-
-## Snippet setup
-
-Ignore this setup if you use the npm setup.
-
-```html
-<script type="text/javascript" src="https://js.monitor.azure.com/scripts/b/ext/ai.clck.2.6.2.min.js"></script>
-<script type="text/javascript">
-  var clickPluginInstance = new Microsoft.ApplicationInsights.ClickAnalyticsPlugin();
-  // Click Analytics configuration
-  var clickPluginConfig = {
-    autoCapture : true,
-    dataTags: {
-      useDefaultContentNameOrId: true
-    }
-  }
-  // Application Insights configuration
-  var configObj = {
-    instrumentationKey: "YOUR INSTRUMENTATION KEY",
-    extensions: [
-      clickPluginInstance
-    ],
-    extensionConfig: {
-      [clickPluginInstance.identifier] : clickPluginConfig
-    },
-  };
-  // Application Insights Snippet code
-  !function(T,l,y){<!-- Removed the Snippet code for brevity -->}(window,document,{
-    src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
-    crossOrigin: "anonymous",
-    cfg: configObj
-  });
-</script>
 ```
 
 ## Use the plug-in
@@ -104,7 +104,7 @@ Ignore this setup if you use the npm setup.
     > After `parentDataTag` is used, the SDK begins looking for parent tags across your entire application and not just the HTML element where you used it.
 1. The `customDataPrefix` provided by the user should always start with `data-`. An example is `data-sample-`. In HTML, the `data-*` global attributes are called custom data attributes that allow proprietary information to be exchanged between the HTML and its DOM representation by scripts. Older browsers like Internet Explorer and Safari drop attributes they don't understand, unless they start with `data-`.
 
-    The asterisk (`*`) in `data-*` can be replaced by any name following the [production rule of XML names](https://www.w3.org/TR/REC-xml/#NT-Name) with the following restrictions:
+    You can replace the asterisk (`*`) in `data-*` with any name following the [production rule of XML names](https://www.w3.org/TR/REC-xml/#NT-Name) with the following restrictions.
     - The name must not start with "xml," whatever case is used for the letters.
     - The name must not contain a semicolon (U+003A).
     - The name must not contain capital letters.
@@ -135,13 +135,13 @@ The following key properties are captured by default when the plug-in is enabled
 | --------------------- | ---------------------------------------|-----------------|
 | timeToAction          | Time taken in milliseconds for the user to click the element since the initial page load. | 87407              |
 
-## Configuration
+## Advanced configuration
 
 | Name                  | Type                               | Default | Description                                                                                                                              |
 | --------------------- | -----------------------------------| --------| ---------------------------------------------------------------------------------------------------------------------------------------- |
 | auto-Capture           | Boolean                            | True    | Automatic capture configuration.                                |
 | callback              | [IValueCallback](#ivaluecallback)  | Null    | Callbacks configuration.                               |
-| pageTags              | String                             | Null    | Page tags.                                             |
+| pageTags              | Object                             | Null    | Page tags.                                             |
 | dataTags              | [ICustomDataTags](#icustomdatatags)| Null    | Custom Data Tags provided to override default tags used to capture click data. |
 | urlCollectHash        | Boolean                            | False   | Enables the logging of values after a "#" character of the URL.                |
 | urlCollectQuery       | Boolean                            | False   | Enables the logging of the query string of the URL.                            |
@@ -167,7 +167,7 @@ The following key properties are captured by default when the plug-in is enabled
 | metaDataPrefix            | String  | Null      | N/A  | Automatic capture HTML Head's meta element name and content with provided prefix when captured. For example, `custom-` can be used in the HTML meta tag. |
 | captureAllMetaDataContent | Boolean | False     | N/A   | Automatic capture all HTML Head's meta element names and content. Default is false. If enabled, it overrides provided `metaDataPrefix`. |
 | parentDataTag             | String  | Null      |  N/A  | Stops traversing up the DOM to capture content name and value of elements when encountered with this tag. For example, `data-<yourparentDataTag>` can be used in the HTML tags.|
-| dntDataTag                | String  | `ai-dnt`  |  `data-ai-dnt`| HTML elements with this attribute are ignored by the plug-in for capturing telemetry data.|
+| dntDataTag                | String  | `ai-dnt`  |  `data-ai-dnt`| The plug-in for capturing telemetry data ignores HTML elements with this attribute.|
 
 ### behaviorValidator
 
@@ -351,7 +351,7 @@ var behaviorMap = {
 
 // Application Insights Configuration
 var configObj = {
-  instrumentationKey: "YOUR INSTRUMENTATION KEY",
+  connectionString: "YOUR CONNECTION STRING",
   extensions: [clickPluginInstance],
   extensionConfig: {
     [clickPluginInstance.identifier]: {
@@ -365,12 +365,6 @@ var appInsights = new Microsoft.ApplicationInsights.ApplicationInsights({
 });
 appInsights.loadAppInsights();
 ```
-
-## Enable correlation
-
-Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
-
-JavaScript correlation is turned off by default to minimize the telemetry we send by default. To enable correlation, see the [JavaScript client-side correlation documentation](./javascript.md#enable-distributed-tracing).
 
 ## Sample app
 

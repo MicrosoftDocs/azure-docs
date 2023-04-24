@@ -5,8 +5,7 @@ description: Learn how to deploy multiple Azure App Service apps as a single uni
 ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
-ms.custom: seodec18
-
+ms.custom: seodec18, devx-track-arm-template
 ---
 # Provision and deploy microservices predictably in Azure
 This tutorial shows how to provision and deploy an application composed of [microservices](https://en.wikipedia.org/wiki/Microservices) in [Azure App Service](https://azure.microsoft.com/services/app-service/) as a single unit and in a predictable manner using JSON resource group templates and PowerShell scripting. 
