@@ -158,7 +158,7 @@ You can also authorize access to file data using the Azure portal or Azure Power
 
 # [Azure portal](#tab/portal)
 
-The Azure portal can use either your Azure AD account or the storage account access key to access file data in an Azure storage account. Which authorization scheme the Azure portal uses depends on the Azure roles that are assigned to you.
+The [Azure portal](https://portal.azure.com?azure-portal=true) can use either your Azure AD account or the storage account access key to access file data in an Azure storage account. Which authorization scheme the Azure portal uses depends on the Azure roles that are assigned to you.
 
 When you attempt to access file data, the Azure portal first checks whether you've been assigned an Azure role with `Microsoft.Storage/storageAccounts/listkeys/action`. If you've been assigned a role with this action, then the Azure portal uses the account key for accessing file data via Shared Key authorization. If you haven't been assigned a role with this action, then the Azure portal attempts to access data using your Azure AD account.
 
@@ -235,6 +235,6 @@ To authorize access to file data, follow these steps.
    Because this is called using the context from step 4, the file and directory will be created using Azure AD credentials. 
 ---
 
-## Next steps
+## See also
 
-- [Authorize access to Azure file share data in the Azure portal](authorize-data-operations-portal.md)
+- [Choose how to authorize access to file data in the Azure portal](authorize-data-operations-portal.md)
