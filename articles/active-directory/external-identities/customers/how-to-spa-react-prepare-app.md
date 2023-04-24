@@ -12,7 +12,7 @@ ms.date: 04/12/2023
 ms.author: godonnell
 ms.custom: it-pro
 
-#Customer intent: As a dev, devops, or it admin, I want to my app for React Single Page App for authentication
+#Customer intent: As a dev, devops, or IT admin, enable authentication in my own React SPA with Azure Active Directory (Azure AD) for customers tenant
 ---
 # Prepare a Single-page application for authentication
 
