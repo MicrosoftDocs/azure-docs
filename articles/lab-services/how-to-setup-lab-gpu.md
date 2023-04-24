@@ -51,7 +51,7 @@ The *visualization* GPU sizes are intended for graphics-intensive applications. 
 
 To take advantage of the GPU capabilities of your lab VMs, ensure that the appropriate GPU drivers are installed.  In the lab creation wizard, when you select a GPU VM size, you can select the **Install GPU drivers** option.  This option is enabled by default.
 
-:::image type="content" source="./media/how-to-setup-gpu/lab-gpu-drivers.png" alt-text="Screenshot of the New lab page in the Lab Services website, highlighting the Install GPU drivers" option.":::
+:::image type="content" source="./media/how-to-setup-gpu/lab-gpu-drivers.png" alt-text="Screenshot of the New lab page in the Lab Services website, highlighting the Install GPU drivers option.":::
 
 When you select **Install GPU drivers**, it ensures that recently released drivers are installed for the type of GPU and image that you selected.
 
