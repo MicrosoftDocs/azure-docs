@@ -58,7 +58,7 @@ Mounting a virtual file system on a pool makes the file system available to ever
 
 To mount a file system on a pool, you create a [MountConfiguration](/dotnet/api/microsoft.azure.batch.mountconfiguration) object that matches your virtual file system: `AzureBlobFileSystemConfiguration`, `AzureFileShareConfiguration`, `NfsMountConfiguration`, or `CifsMountConfiguration`.
 
-All mount configuration objects need the following base parameters. Some mount configurations have specific parameters for the particular file system, which the [code examples](#mount-configuration-examples) present in more detail.
+All mount configuration objects need the following base parameters. Some mount configurations have specific parameters for the particular file system, which the [code examples](#example-mount-configurations) present in more detail.
 
 - **Account name or source** of the storage account.
 
