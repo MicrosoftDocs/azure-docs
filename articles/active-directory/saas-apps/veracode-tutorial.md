@@ -86,7 +86,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| lastname |User.surname |
 	| email |User.mail |
 
-1. On the **Set up Veracode** section, copy the appropriate URL(s) based on your requirement.
+1. On the **Set up Veracode** section, copy and save the provided URLs to use later in your Veracode Platform SAML setup.
 
 	![Screenshot of Set up Veracode section, with configuration URLs highlighted.](common/copy-configuration-urls.png)
 
