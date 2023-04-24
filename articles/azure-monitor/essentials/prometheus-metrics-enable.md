@@ -32,6 +32,8 @@ The Azure Monitor metrics agent's architecture utilizes a ReplicaSet and a Daemo
 Use any of the following methods to install the Azure Monitor agent on your AKS cluster and send Prometheus metrics to your Azure Monitor workspace.
 
 ### [Azure portal](#tab/azure-portal)
+> [!NOTE]
+> Azure Managed Grafana is not available in the Azure US Government cloud currently.
 
 1. Open the **Azure Monitor workspaces** menu in the Azure portal and select your cluster.
 1. Select **Managed Prometheus** to display a list of AKS clusters.
@@ -40,7 +42,6 @@ Use any of the following methods to install the Azure Monitor agent on your AKS 
     :::image type="content" source="media/prometheus-metrics-enable/azure-monitor-workspace-configure-prometheus.png" lightbox="media/prometheus-metrics-enable/azure-monitor-workspace-configure-prometheus.png" alt-text="Screenshot that shows an Azure Monitor workspace with a Prometheus configuration.":::
 
 ### [CLI](#tab/cli)
-
 > [!NOTE]
 > Azure Managed Grafana is not available in the Azure US Government cloud currently.
 
@@ -119,6 +120,9 @@ The output is similar to the following example:
 
 ## [Azure Resource Manager](#tab/resource-manager)
 
+> [!NOTE]
+> Azure Managed Grafana is not available in the Azure US Government cloud currently.
+
 ### Prerequisites
 
 - Register the `AKS-PrometheusAddonPreview` feature flag in the Azure Kubernetes clusters subscription with the following command in the Azure CLI: `az feature register --namespace Microsoft.ContainerService --name AKS-PrometheusAddonPreview`.
@@ -128,6 +132,10 @@ The output is similar to the following example:
 - Users with the `User Access Administrator` role in the subscription of the AKS cluster can enable the `Monitoring Data Reader` role directly by deploying the template.
 
 ### Retrieve required values for Grafana resource
+
+> [!NOTE]
+> Azure Managed Grafana is not available in the Azure US Government cloud currently.
+
 On the **Overview** page for the Azure Managed Grafana instance in the Azure portal, select **JSON view**.
 
 If you're using an existing Azure Managed Grafana instance that's already linked to an Azure Monitor workspace, you will need the list of already existing Grafana integrations. Copy the value of the `azureMonitorWorkspaceIntegrations` field. If it doesn't exist, then the instance hasn't been linked with any Azure Monitor workspace.
@@ -199,6 +207,9 @@ The final `azureMonitorWorkspaceResourceId` entry is already in the template and
 
 ## [Bicep](#tab/bicep)
 
+> [!NOTE]
+> Azure Managed Grafana is not available in the Azure US Government cloud currently.
+
 ### Prerequisites
 
 - Register the `AKS-PrometheusAddonPreview` feature flag in the Azure Kubernetes clusters subscription with the following command in Azure CLI: `az feature register --namespace Microsoft.ContainerService --name AKS-PrometheusAddonPreview`.
@@ -206,7 +217,7 @@ The final `azureMonitorWorkspaceResourceId` entry is already in the template and
 - The template needs to be deployed in the same resource group as the Azure Managed Grafana instance.
 - Users with the `User Access Administrator` role in the subscription of the AKS cluster can enable the `Monitoring Data Reader` role directly by deploying the template.
 
-### Minor limitation with Bicep deployment
+### Limitation with Bicep deployment
 Currently in Bicep, there's no way to explicitly scope the `Monitoring Data Reader` role assignment on a string parameter "resource ID" for an Azure Monitor workspace (like in an ARM template). Bicep expects a value of type `resource | tenant`. There also is no REST API [spec](https://github.com/Azure/azure-rest-api-specs) for an Azure Monitor workspace.
 
 Therefore, the default scoping for the `Monitoring Data Reader` role is on the resource group. The role is applied on the same Azure Monitor workspace (by inheritance), which is the expected behavior. After you deploy this Bicep template, the Grafana instance is given `Monitoring Data Reader` permissions for all the Azure Monitor workspaces in that resource group.
@@ -286,6 +297,9 @@ The final `azureMonitorWorkspaceResourceId` entry is already in the template and
 
 ## [Azure Policy](#tab/azurepolicy)
 
+> [!NOTE]
+> Azure Managed Grafana is not available in the Azure US Government cloud currently.
+
 ### Prerequisites
 
 - Register the `AKS-PrometheusAddonPreview` feature flag in the Azure Kubernetes clusters subscription with the following command using the Azure CLI:
@@ -339,7 +353,7 @@ Deploy the template with the parameter file by using any valid method for deploy
 
 ## Enable Windows metrics collection
 
-As of version `6.4.0-main-02-22-2023-3ee44b9e`, Windows metric collection has been enabled for AKS clusters. Onboarding to the Azure Monitor Metrics add-on enables the Windows DaemonSet pods to start running on your Windows nodes. Both Windows Server 2019 and Windows Server 2022 are supported. Follow these steps to enable the pods to collect metrics from your Windows nodes:
+As of version `6.4.0-main-02-22-2023-3ee44b9e`, Windows metric collection has been enabled for AKS clusters but it requires certain manual steps to be performed to start metric collection for the Azure Monitor Metrics addon. Onboarding to the Azure Monitor Metrics add-on enables the Windows DaemonSet pods to start running on your Windows nodes. Both Windows Server 2019 and Windows Server 2022 are supported. Follow these steps to enable the pods to collect metrics from your Windows nodes:
 
 1. Manually install windows-exporter on AKS nodes to access Windows metrics.
    Enable the following collectors:
@@ -418,7 +432,7 @@ As of version `6.4.0-main-02-22-2023-3ee44b9e`, Windows metric collection has be
 - CPU and Memory requests and limits can't be changed for the Azure Monitor metrics add-on. If changed, they will be reconciled and replaced by original values in a few seconds.
 
 - Azure Monitor Private Links and private AKS clusters aren't currently supported.
-- Only public clouds are currently supported.
+- Azure Managed Grafana is not available in the Azure US Government cloud currently.
 
 ## Uninstall the metrics add-on
 Currently, the Azure CLI is the only option to remove the metrics add-on and stop sending Prometheus metrics to Azure Monitor managed service for Prometheus.
@@ -445,58 +459,8 @@ Currently, the Azure CLI is the only option to remove the metrics add-on and sto
     ```
 
 ## Region mappings
-When you allow a default Azure Monitor workspace to be created when you install the metrics add-on, it's created in the region listed in the following table.
 
-| AKS cluster region | Azure Monitor workspace region |
-|-----------------------|------------------------------------|
-|australiacentral |eastus|
-|australiacentral2 |eastus|
-|australiaeast |eastus|
-|australiasoutheast |eastus|
-|brazilsouth |eastus|
-|canadacentral |eastus|
-|canadaeast |eastus|
-|centralus |centralus|
-|centralindia |centralindia|
-|eastasia |westeurope|
-|eastus |eastus|
-|eastus2 |eastus2|
-|francecentral |westeurope|
-|francesouth |westeurope|
-|japaneast |eastus|
-|japanwest |eastus|
-|koreacentral |westeurope|
-|koreasouth |westeurope|
-|northcentralus |eastus|
-|northeurope |westeurope|
-|southafricanorth |westeurope|
-|southafricawest |westeurope|
-|southcentralus |eastus|
-|southeastasia |westeurope|
-|southindia |centralindia|
-|uksouth |westeurope|
-|ukwest |westeurope|
-|westcentralus |eastus|
-|westeurope |westeurope|
-|westindia |centralindia|
-|westus |westus|
-|westus2 |westus2|
-|westus3 |westus|
-|norwayeast |westeurope|
-|norwaywest |westeurope|
-|switzerlandnorth |westeurope|
-|switzerlandwest |westeurope|
-|uaenorth |westeurope|
-|germanywestcentral |westeurope|
-|germanynorth |westeurope|
-|uaecentral |westeurope|
-|eastus2euap |eastus2euap|
-|centraluseuap |westeurope|
-|brazilsoutheast |eastus|
-|jioindiacentral |centralindia|
-|swedencentral |westeurope|
-|swedensouth |westeurope|
-|qatarcentral |westeurope|
+The list of regions Azure Monitor Metrics and Azure Monitor Worskapce is supported in can be found [here](https://aka.ms/ama-metrics-supported-regions) under the Managed Prometheus tag.
 
 ## Next steps
 
