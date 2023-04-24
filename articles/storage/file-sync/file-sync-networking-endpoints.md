@@ -47,7 +47,7 @@ When you are creating a private endpoint for an Azure resource, the following re
 
 If you have a virtual machine inside of your virtual network, or you've configured DNS forwarding as described in [Configuring DNS forwarding for Azure Files](../files/storage-files-networking-dns.md?toc=/azure/storage/filesync/toc.json), you can test that your private endpoint has been set up correctly by running the following commands from PowerShell, the command line, or the terminal (works for Windows, Linux, or macOS). You must replace `<storage-account-name>` with the appropriate storage account name:
 
-```console
+```bash
 nslookup <storage-account-name>.file.core.windows.net
 ```
 

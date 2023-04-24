@@ -3,7 +3,7 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 03/25/2023
+ms.date: 04/18/2023
 ms.author: cwatson
 ---
 
@@ -84,6 +84,7 @@ Data connectors are available as part of the following offerings:
 ## Atlassian
 
 - [Atlassian Confluence Audit (using Azure Function)](data-connectors/atlassian-confluence-audit-using-azure-function.md)
+- [Atlassian Jira Audit (using Azure Function)](data-connectors/atlassian-jira-audit-using-azure-function.md)
 
 ## Auth0
 
@@ -119,6 +120,7 @@ Data connectors are available as part of the following offerings:
 - [Cisco ASA](data-connectors/cisco-asa.md)
 - [Cisco ASA/FTD via AMA (Preview)](data-connectors/cisco-asa-ftd-via-ama.md)
 - [Cisco Duo Security (using Azure Function)](data-connectors/cisco-duo-security-using-azure-function.md)
+- [Cisco Identity Services Engine](data-connectors/cisco-identity-services-engine.md)
 - [Cisco Meraki](data-connectors/cisco-meraki.md)
 - [Cisco Secure Email Gateway](data-connectors/cisco-secure-email-gateway.md)
 - [Cisco Secure Endpoint (AMP) (using Azure Function)](data-connectors/cisco-secure-endpoint-amp-using-azure-function.md)
@@ -226,7 +228,7 @@ Data connectors are available as part of the following offerings:
 
 - [ExtraHop Reveal(x)](data-connectors/extrahop-reveal-x.md)
 
-## F5 Networks
+## F5, Inc.
 
 - [F5 BIG-IP](data-connectors/f5-big-ip.md)
 - [F5 Networks](data-connectors/f5-networks.md)
@@ -283,6 +285,10 @@ Data connectors are available as part of the following offerings:
 ## Imperva
 
 - [Imperva Cloud WAF (using Azure Function)](data-connectors/imperva-cloud-waf-using-azure-function.md)
+
+## Infoblox
+
+- [Infoblox NIOS](data-connectors/infoblox-nios.md)
 
 ## Infoblox Inc.
 

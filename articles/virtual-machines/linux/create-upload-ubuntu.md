@@ -59,21 +59,22 @@ This article assumes that you've already installed an Ubuntu Linux operating sys
 
 4. The Ubuntu Azure images are now using the [Azure-tailored kernel](https://ubuntu.com/blog/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel). Update the operating system to the latest Azure-tailored kernel and install Azure Linux tools (including Hyper-V dependencies) by running the following commands:
 
-    Ubuntu 18.04 and Ubuntu 20.04:
+    - Ubuntu 18.04 and Ubuntu 20.04:
 
     ```bash
      sudo apt update
      sudo apt install linux-azure linux-image-azure linux-headers-azure linux-tools-common linux-cloud-tools-common linux-tools-azure linux-cloud-tools-azure
     ```
-Recommended:
-```bash
+    - Recommended:
+
+    ```bash
     sudo apt full-upgrade
     sudo reboot
-```
+    ```
 
 5. Modify the kernel boot line for Grub to include additional kernel parameters for Azure. To do this open `/etc/default/grub` in a text editor, find the variable called `GRUB_CMDLINE_LINUX_DEFAULT` (or add it if needed) and edit it to include the following parameters:
 
-	```output
+	```config
 	GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300 quiet splash"
 	```
 

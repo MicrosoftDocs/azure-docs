@@ -33,9 +33,9 @@ The `validate-headers` policy validates the response headers against the API sch
 
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-| specified-header-action | [Action](#actions) to perform for response headers specified in the API schema.  |  Yes     | N/A   |
-| unspecified-header-action | [Action](#actions) to perform for response headers that aren’t specified in the API schema.  |  Yes     | N/A   |
-| errors-variable-name | Name of the variable in `context.Variables` to log validation errors to.  |   No    | N/A   |
+| specified-header-action | [Action](#actions) to perform for response headers specified in the API schema. Policy expressions are allowed. |  Yes     | N/A   |
+| unspecified-header-action | [Action](#actions) to perform for response headers that aren’t specified in the API schema. Policy expressions are allowed. |  Yes     | N/A   |
+| errors-variable-name | Name of the variable in `context.Variables` to log validation errors to. Policy expressions aren't allowed. |   No    | N/A   |
 
 ## Elements
 

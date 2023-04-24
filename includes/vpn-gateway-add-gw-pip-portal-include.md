@@ -7,7 +7,7 @@
 
 # The numbers in this include are correct. They add on to sections in multiple articles that are already numbered.
 ---
-3. Specify in the values for **Public IP address**. These settings specify the public IP address object that gets associated to the VPN gateway. The public IP address is assigned to this object when the VPN gateway is created. The only time the primary Public IP address changes is when the gateway is deleted and re-created. It doesn't change across resizing, resetting, or other internal maintenance/upgrades of your VPN gateway.
+3. Specify in the values for **Public IP address**. These settings specify the public IP address object that gets associated to the VPN gateway. The public IP address is assigned to this object when the VPN gateway is created. The only time the primary public IP address changes is when the gateway is deleted and re-created. It doesn't change across resizing, resetting, or other internal maintenance/upgrades of your VPN gateway.
 
    :::image type="content" source="./media/vpn-gateway-add-gw-pip-portal/pip-details.png" alt-text="Screenshot of public IP address field." lightbox="./media/vpn-gateway-add-gw-pip-portal/pip-details.png":::
 

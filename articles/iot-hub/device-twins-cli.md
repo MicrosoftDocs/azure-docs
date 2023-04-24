@@ -18,9 +18,11 @@ ms.custom: "mqtt, devx-track-azurecli"
 
 This article shows you how to:
 
-* Use a simulated device to report its connectivity channel as a reported property on the device twin.
+* Use a simulated device to report its connectivity channel as a *reported property* on the device twin.
 
 * Query devices using filters on the tags and properties previously created.
+
+For more information about using device twin reported properties, see [Device-to-cloud communication guidance](iot-hub-devguide-d2c-guidance.md).
 
 This article shows you how to create two Azure CLI sessions:
 

@@ -6,8 +6,8 @@ items:
   items:
   - name: What is the MedTech service?
     href: overview.md
-  - name: Understand the device message processing stages
-    href: understand-service.md
+  - name: Overview of the device data processing stages
+    href: overview-of-device-data-processing-stages.md
 - name: Quickstarts
   expanded: true
   items:
@@ -49,19 +49,19 @@ items:
     - name: Device
       expanded: false
       items:
-      - name: Configure the device mapping
-        href: how-to-configure-device-mappings.md
+      - name: Overview of the device mapping
+        href: overview-of-device-mapping.md
       - name: Use CalculatedContent mappings
         href: how-to-use-calculatedcontent-mappings.md
-      - name: Use IotJsonPathContentTemplate mappings
-        href: how-to-use-iotjsonpathcontenttemplate-mappings.md
+      - name: Use IotJsonPathContent mappings
+        href: how-to-use-iotjsonpathcontent-mappings.md
       - name: Use custom functions
         href: how-to-use-custom-functions.md 
     - name: Destination
       expanded: false
       items:
-      - name: Configure the FHIR destination mapping
-        href: how-to-configure-fhir-mappings.md
+      - name: Overview of the FHIR destination mapping
+        href: overview-of-fhir-destination-mapping.md
   - name: Monitor
     expanded: false
     items:

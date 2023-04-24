@@ -57,7 +57,7 @@ Depending on the DDoS Protection plan you use, enable DDoS protection on the vir
 
 ### Enable DDoS protection on the API Management public IP address
 
-If your plan uses the IP DDoS Protection SKU, see [Enable DDoS IP Protection Preview for a public IP address](../ddos-protection/manage-ddos-protection-powershell-ip.md#disable-ddos-ip-protection-preview-for-an-existing-public-ip-address).
+If your plan uses the IP DDoS Protection SKU, see [Enable DDoS IP Protection for a public IP address](../ddos-protection/manage-ddos-protection-powershell-ip.md#disable-ddos-ip-protection-for-an-existing-public-ip-address).
 
 ## Next steps
 

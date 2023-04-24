@@ -1,15 +1,14 @@
 ---
-title: Manage endpoints in Azure Traffic Manager | Microsoft Docs
+title: Manage endpoints in Azure Traffic Manager
 description: This article will help you add, remove, enable and disable endpoints from Azure Traffic Manager.
 services: traffic-manager
-documentationcenter: ''
 author: greg-lindsay
 ms.service: traffic-manager
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: greglin
+ms.custom: template-how-to
 ---
 
 # Add, disable, enable, or delete endpoints

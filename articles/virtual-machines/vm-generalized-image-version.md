@@ -6,9 +6,9 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 02/16/2023
+ms.date: 03/23/2023
 ms.author: saraic
-ms.reviewer: cynthn 
+ms.reviewer: cynthn, mattmcinnes 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 ---
@@ -573,7 +573,22 @@ New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 > [!IMPORTANT]
 > Azure Compute Gallery – community galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
+>To publish a community gallery, you'll need to [set up preview features in your Azure subscription](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal). Creating VMs from community gallery images is open to all Azure users. 
+>
 > Microsoft does not provide support for images in the [community gallery](azure-compute-gallery.md#community).
+
+## Reporting issues with a public image 
+Utilizing community-submitted virtual machine images has several risks. Certain images could harbor malware, security vulnerabilities, or violate someone's intellectual property. To help create a secure and reliable experience for the community, you can report images in which you see these issues.
+
+### Reporting images through the Azure portal:
+Selecting a community image will show several "Report" options. You can report the whole image, or report a specific version if previous versions were unaffected by the issue you encountered.
+
+:::image type="content" source="media/shared-image-galleries/report-options.png" alt-text="Screenshot showing the Report button for malicious images.":::
+
+### Reporting images externally:
+- Malicious images: Contact [Abuse Report](https://msrc.microsoft.com/report/abuse).
+
+- Intellectual Property violations: Contact [Infringement Report](https://msrc.microsoft.com/report/infringement).
 
 
 ### [CLI](#tab/cli3)

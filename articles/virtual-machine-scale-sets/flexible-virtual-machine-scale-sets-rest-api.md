@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.date: 11/22/2022
 ms.reviewer: jushiman
-ms.custom: mimckitt, vmss-flex
+ms.custom: mimckitt, vmss-flex, devx-track-arm-template
 ---
 
 # Create virtual machines in a scale set using an ARM template

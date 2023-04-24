@@ -11,6 +11,7 @@ ms.subservice: core
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.date: 05/25/2021
+monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 
 # Manage Azure Machine Learning resources with the VS Code Extension (preview)
@@ -47,7 +48,7 @@ Alternatively, you can create a resource by using the command palette:
 
 ## Version resources
 
-Some resources like environments, datasets, and models allow you to make changes to a resource and store the different versions.
+Some resources like environments, and models allow you to make changes to a resource and store the different versions.
 
 To version a resource:
 
@@ -88,8 +89,12 @@ The extension currently supports datastores of the following types:
 - Azure Data Lake Gen 2
 - Azure File
 
+:::moniker range="azureml-api-2"
 For more information, see [datastore](concept-data.md#datastore).
-
+:::moniker-end
+:::moniker range="azureml-api-1"
+For more information, see [datastore](./v1/concept-data.md#connect-to-storage-with-datastores).
+:::moniker-end
 ### Create a datastore
 
 1. Expand the subscription node that contains your workspace.
@@ -112,6 +117,7 @@ Alternatively, use the `> Azure ML: Create Datastore` command in the command pal
 
 Alternatively, use the `> Azure ML: Unregister Datastore` and `> Azure ML: View Datastore` commands respectively in the command palette.
 
+:::moniker range="azureml-api-1"
 ## Datasets
 
 The extension currently supports the following dataset types:
@@ -142,6 +148,7 @@ Alternatively, use the `> Azure ML: Create Dataset` command in the command palet
     - **Unregister dataset**. Removes a dataset and all versions of it from your workspace.
 
 Alternatively, use the `> Azure ML: View Dataset Properties` and `> Azure ML: Unregister Dataset` commands respectively in the command palette.
+:::moniker-end
 
 ## Environments
 
@@ -168,9 +175,11 @@ To view the dependencies and configurations for a specific environment in the ex
 
 Alternatively, use the `> Azure ML: View Environment` command in the command palette.
 
+:::moniker range="azureml-api-1"
 ## Experiments
 
 For more information, see [experiments](v1/concept-azure-machine-learning-architecture.md#experiments).
+:::moniker-end
 
 ### Create job
 
@@ -341,7 +350,12 @@ Alternatively, use the `> Azure ML: View Compute Properties` and `> Azure ML: De
 
 ## Models
 
-For more information, see [models](v1/concept-azure-machine-learning-architecture.md#models)
+:::moniker range="azureml-api-2"
+For more information, see [train machine learning models](concept-train-machine-learning-model.md).
+:::moniker-end
+:::moniker range="azureml-api-1"
+For more information, see [train machine learning models](./v1/concept-train-machine-learning-model-v1.md).
+:::moniker-end
 
 ### Create model
 
@@ -380,7 +394,12 @@ Alternatively, use the `> Azure ML: Remove Model` command in the command palette
 
 ## Endpoints
 
+:::moniker range="azureml-api-2"
+For more information, see [endpdoints](concept-endpoints.md).
+:::moniker-end
+:::moniker range="azureml-api-1"
 For more information, see [endpoints](v1/concept-azure-machine-learning-architecture.md#endpoints).
+:::moniker-end
 
 ### Create endpoint
 
