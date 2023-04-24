@@ -145,7 +145,7 @@ By using [Azure Policy](concept-azure-policy-integration.md), you define a condi
     | Setting | Value |
     | ------- | ----- |
     | **Policy name** | Enter **azpol-learn-prod-eastus-001**. |
-    | **Scope** | Select **Select scopes** and choose your current subscription. |
+    | **Scope** | Choose **Select scopes** and then select your current subscription. |
     | **Parameter** | Select **Name** from the dropdown list.|
     | **Operator** | Select **Contains** from the dropdown list.|
     | **Condition** | Enter **-prod**. |
@@ -181,11 +181,10 @@ Now that you've created the network group and given it the correct virtual netwo
     | **Name** | Enter **cc-learn-prod-eastus-001**. |
     | **Description** | *(Optional)* Provide a description about this connectivity configuration. |
 
-1. On the **Topology** tab, select the **Mesh** topology if it's not selected, and leave the **Enable mesh connectivity across regions** checkbox cleared.  Cross-region connectivity isn't required for this setup, because all the virtual networks are in the same region.
+1. On the **Topology** tab, select the **Mesh** topology if it's not selected, and leave the **Enable mesh connectivity across regions** checkbox cleared.  Cross-region connectivity isn't required for this setup, because all the virtual networks are in the same region. When you're ready, select **Add** > **Add network group**.
 
      :::image type="content" source="./media/create-virtual-network-manager-portal/topology-configuration.png" alt-text="Screenshot of topology selection for network group connectivity configuration.":::
 
-1. Select **+ Add** > **Add network group**.
 1. Under **Network groups**, select **ng-learn-prod-eastus-001**. Then choose **Select** to add the network group to the configuration.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/add-network-group-configuration.png" alt-text="Screenshot of adding a network group to a connectivity configuration.":::
@@ -234,7 +233,7 @@ Use the **Network Manager** section for each virtual network to verify that you 
 
 1. Go to the **vnet-learn-prod-eastus-001** virtual network.
 1. Under **Settings**, select **Network Manager**.
-1. On the **Connectivity Configurations** tab, verify that **cc-learn-prod-eastus-001** is listed.
+1. On the **Connectivity Configurations** tab, verify that **cc-learn-prod-eastus-001** appears in the list.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/vnet-configuration-association.png" alt-text="Screenshot of a connectivity configuration listed for a virtual network." lightbox="./media/create-virtual-network-manager-portal/vnet-configuration-association.png":::
 
@@ -256,7 +255,7 @@ If you no longer need Azure Virtual Network Manager, you can remove it after you
 
 1. Select **Deploy** to complete the deployment removal.
 
-1. To delete a configuration, go to the left pane of Azure Virtual Network Manager. Under **Settings**, select **Configurations**. Select the checkbox next to the configuration that you want to remove, and then select **Delete** at the top of the resource pane.
+1. To delete a configuration, go to the left pane of Virtual Network Manager. Under **Settings**, select **Configurations**. Select the checkbox next to the configuration that you want to remove, and then select **Delete** at the top of the resource pane.
 
 1. On the **Delete a configuration** pane, select the following options, and then select **Delete**.
 
@@ -297,5 +296,7 @@ If you no longer need Azure Virtual Network Manager, you can remove it after you
 
 ## Next steps
 
+Now that you've created an Azure Virtual Network Manager instance, learn how to block network traffic by using a security admin configuration:
+
 > [!div class="nextstepaction"]
-> Learn how to [block network traffic by using security admin rules](how-to-block-network-traffic-portal.md).
+> [Block network traffic with Azure Virtual Network Manager](how-to-block-network-traffic-portal.md).

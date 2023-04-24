@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create a mesh network with Azure Virtual Network Manager using Azure PowerShell'
-description: Use this quickstart to learn how to create a mesh network with Virtual Network Manager by using Azure PowerShell.
+title: 'Quickstart: Create a mesh network topology with Azure Virtual Network Manager using Azure PowerShell'
+description: Use this quickstart to learn how to create a mesh network topology with Virtual Network Manager by using Azure PowerShell.
 author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
@@ -9,7 +9,7 @@ ms.date: 04/12/2023
 ms.custom: template-quickstart, ignite-fall-2021, mode-api, engagement-fy23
 ---
 
-# Quickstart: Create a mesh network with Azure Virtual Network Manager by using Azure PowerShell
+# Quickstart: Create a mesh network topology with Azure Virtual Network Manager by using Azure PowerShell
 
 Get started with Azure Virtual Network Manager by using Azure PowerShell to manage connectivity for your virtual networks.
 
@@ -81,9 +81,9 @@ $scope = New-AzNetworkManagerScope -Subscription $subGroup
 
 ```
 
-## Create the Virtual Network Manager instance
+## Create a Virtual Network Manager instance
 
-Create the Virtual Network Manager instance by using [New-AzNetworkManager](/powershell/module/az.network/new-aznetworkmanager). This example creates an instance named *vnm-learn-eastus-001* in the East US location:
+Create a Virtual Network Manager instance by using [New-AzNetworkManager](/powershell/module/az.network/new-aznetworkmanager). This example creates an instance named *vnm-learn-eastus-001* in the East US location:
     
 ```azurepowershell
 $avnm = @{
@@ -285,7 +285,7 @@ By using [Azure Policy](concept-azure-policy-integration.md), you define a condi
 
 ## Create a connectivity configuration
 
-In this task, you create a connectivity configuration with the network group *ng-learn-prod-eastus-001* by using [New-AzNetworkManagerConnectivityConfiguration](/powershell/module/az.network/new-aznetworkmanagerconnectivityconfiguration) and [New-AzNetworkManagerConnectivityGroupItem](/powershell/module/az.network/new-aznetworkmanagerconnectivitygroupitem).
+In this task, you create a connectivity configuration with the network group *ng-learn-prod-eastus-001* by using [New-AzNetworkManagerConnectivityConfiguration](/powershell/module/az.network/new-aznetworkmanagerconnectivityconfiguration) and [New-AzNetworkManagerConnectivityGroupItem](/powershell/module/az.network/new-aznetworkmanagerconnectivitygroupitem):
 
 1. Create a connectivity group item:
 
@@ -399,5 +399,7 @@ To delete the resource:
 
 ## Next steps
 
+Now that you've created an Azure Virtual Network Manager instance, learn how to block network traffic by using a security admin configuration:
+
 > [!div class="nextstepaction"]
-> Learn how to [block network traffic by using security admin rules](how-to-block-network-traffic-powershell.md).
+> [Block network traffic with Azure Virtual Network Manager](how-to-block-network-traffic-powershell.md).
