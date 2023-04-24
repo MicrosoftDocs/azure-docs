@@ -14,7 +14,7 @@ ms.custom: engagement-fy23
 
 # Build a business case (preview)
 
-This article describes how to build a Business case for on-premises servers and workloads in your VMware environment with Azure Migrate: Discovery and assessment tool.
+This article describes how to build a Business case for on-premises servers and workloads in your datacenter with Azure Migrate: Discovery and assessment tool.
 
 [Azure Migrate](migrate-services-overview.md) helps you to plan and execute migration and modernization projects to Azure. Azure Migrate provides a centralized hub to track discovery, assessment, and migration of on-premises infrastructure, applications, and data to Azure. The hub provides Azure tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
 
@@ -22,7 +22,7 @@ This article describes how to build a Business case for on-premises servers and 
 
 - Make sure you've [created](./create-manage-projects.md) an Azure Migrate project. You can also reuse an existing project to use this capability.
 - Once you've created a project, the Azure Migrate: Discovery and assessment tool is automatically [added](how-to-assess.md) to the project.
-- Before you build the Business case, you need to set up an Azure Migrate appliance for [VMware](how-to-set-up-appliance-vmware.md). The appliance discovers on-premises servers, SQL Server instance and databases, and ASP.NET webapps and sends metadata and performance (resource utilization) data to Azure Migrate. [Learn more](migrate-appliance.md).
+- Before you build the Business case, you need to set up an Azure Migrate appliance for [VMware](how-to-set-up-appliance-vmware.md) or [Hyper-V](how-to-set-up-appliance-hyper-v.md) or [Physical/Bare-metal or other clouds](how-to-set-up-appliance-physical.md). The appliance discovers servers, SQL Server instance and databases, and ASP.NET webapps and sends metadata and performance (resource utilization) data to Azure Migrate. [Learn more](migrate-appliance.md).
 
 
 ## Business case overview

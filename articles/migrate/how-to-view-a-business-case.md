@@ -12,7 +12,7 @@ ms.custom: engagement-fy23
 
 # View a business case (preview)
 
-This article describes how to review the business case reports for on-premises servers and workloads in your VMware environment with Azure Migrate: Discovery and assessment tool.
+This article describes how to review the business case reports for on-premises servers and workloads in your datacenter with Azure Migrate: Discovery and assessment tool.
 
 [Azure Migrate](migrate-services-overview.md) helps you to plan and execute migration and modernization projects to Azure. Azure Migrate provides a centralized hub to track discovery, assessment, and migration of on-premises infrastructure, applications, and data to Azure. The hub provides Azure tools for assessment and migration, as well as third-party Independent Software Vendor (ISV) offerings.
 
