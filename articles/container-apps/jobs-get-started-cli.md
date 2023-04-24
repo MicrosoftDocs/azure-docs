@@ -27,7 +27,7 @@ The jobs preview has the following limitations:
 - Only supported in the East US 2 EUAP (`eastus2euap`) region
 - Only supported in the Azure CLI using a preview version of the Azure Container Apps extension
 - Only supported in the Consumption plan
-- Logs are not yet supported for scheduled jobs
+- Logs are not currently supported for scheduled jobs
 
 ## Setup
 
@@ -199,7 +199,7 @@ Job executions output logs to the logging provider that you configured for the C
     ```azurecli
     az monitor log-analytics query \
         --workspace "$LOG_ANALYTICS_WORKSPACE_ID" \
-        --analytics-query "ContainerAppConsoleLogs_CL | where ContainerGroupName_s startswith '$JOB_EXECUTION_NAME' | order by _timestamp_d asc | take 1000" \
+        --analytics-query "ContainerAppConsoleLogs_CL | where ContainerGroupName_s startswith '$JOB_EXECUTION_NAME' | order by _timestamp_d asc" \
         --query "[].Log_s"
     ```
 
