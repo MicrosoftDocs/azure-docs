@@ -7,7 +7,7 @@ author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 02/14/2023
+ms.date: 04/24/2023
 ms.author: allensu
 ms.custom: template-how-to, engagement-fy23, devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -124,9 +124,13 @@ Under **Help**, you can view **Effective security rules**. For more information,
 To learn more about the common Azure settings listed, see the following articles:
 
 - [Activity log](../azure-monitor/essentials/platform-logs-overview.md)
+
 - [Access control (IAM)](../role-based-access-control/overview.md)
+
 - [Tags](../azure-resource-manager/management/tag-resources.md)
+
 - [Locks](../azure-resource-manager/management/lock-resources.md)
+
 - [Automation script](../azure-resource-manager/templates/export-template-portal.md)
 
 # [**PowerShell**](#tab/network-security-group-powershell)
@@ -140,8 +144,11 @@ Get-AzNetworkSecurityGroup -Name myNSG -ResourceGroupName myResourceGroup
 To learn more about the common Azure settings listed, see the following articles:
 
 - [Activity log](../azure-monitor/essentials/platform-logs-overview.md)
+
 - [Access control (IAM)](../role-based-access-control/overview.md)
+
 - [Tags](../azure-resource-manager/management/tag-resources.md)
+
 - [Locks](../azure-resource-manager/management/lock-resources.md)
 
 # [**Azure CLI**](#tab/network-security-group-cli)
@@ -155,8 +162,11 @@ az network nsg show --resource-group myResourceGroup --name myNSG
 To learn more about the common Azure settings listed, see the following articles:
 
 - [Activity log](../azure-monitor/essentials/platform-logs-overview.md)
+
 - [Access control (IAM)](../role-based-access-control/overview.md)
+
 - [Tags](../azure-resource-manager/management/tag-resources.md)
+
 - [Locks](../azure-resource-manager/management/lock-resources.md)
 
 ---
@@ -164,8 +174,11 @@ To learn more about the common Azure settings listed, see the following articles
 
 The most common changes to a network security group are:
 - [Associate or dissociate a network security group to or from a network interface](#associate-or-dissociate-a-network-security-group-to-or-from-a-network-interface)
+
 - [Associate or dissociate a network security group to or from a subnet](#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet)
+
 - [Create a security rule](#create-a-security-rule)
+
 - [Delete a security rule](#delete-a-security-rule)
 
 ### Associate or dissociate a network security group to or from a network interface
@@ -661,12 +674,8 @@ To manage network security groups, security rules, and application security grou
 | Microsoft.Network/networkSecurityGroups/delete                |   Delete network security group                                       |
 | Microsoft.Network/networkSecurityGroups/join/action           |   Associate a network security group to a subnet or network interface 
 
-
-
 >[!NOTE]
 > To perform `write` operations on a network security group, the subscription account must have at least `read` permissions for resource group along with `Microsoft.Network/networkSecurityGroups/write` permission.
-
-
 
 ### Network security group rule
 
@@ -689,4 +698,5 @@ To manage network security groups, security rules, and application security grou
 ## Next steps
 
 - Add or remove [a network interface to or from an application security group](./virtual-network-network-interface.md?tabs=network-interface-portal#add-or-remove-from-application-security-groups).
+
 - Create and assign [Azure Policy definitions](./policy-reference.md) for virtual networks
