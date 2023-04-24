@@ -34,7 +34,7 @@ To understand the number of Application Insights resources required to cover you
 
 ## How do I use Application Insights?
 
-Application Insights is enabled through either [auto-instrumentation](codeless-overview.md) (agent) or by adding the [Application Insights SDK](sdk-support-guidance.md) to your application code. [Many languages](#supported-languages) are supported. The applications could be on Azure, on-premises, or hosted by another cloud. To figure out which type of instrumentation is best for you, see [How do I instrument an application?](#how-do-i-instrument-an-application).
+Application Insights is enabled through either [autoinstrumentation](codeless-overview.md) (agent) or by adding the [Application Insights SDK](sdk-support-guidance.md) to your application code. [Many languages](#supported-languages) are supported. The applications could be on Azure, on-premises, or hosted by another cloud. To figure out which type of instrumentation is best for you, see [How do I instrument an application?](#how-do-i-instrument-an-application).
 
 The Application Insights agent or SDK preprocesses telemetry and metrics before sending the data to Azure. Then it's ingested and processed further before it's stored in Azure Monitor Logs (Log Analytics). For this reason, an Azure account is required to use Application Insights.
 
@@ -56,13 +56,13 @@ Application Insights pricing is based on consumption. You only pay for what you 
 
 ## How do I instrument an application?
 
-[Auto-instrumentation](codeless-overview.md) is the preferred instrumentation method. It requires no developer investment and eliminates future overhead related to [updating the SDK](sdk-support-guidance.md). It's also the only way to instrument an application in which you don't have access to the source code.
+[Autoinstrumentation](codeless-overview.md) is the preferred instrumentation method. It requires no developer investment and eliminates future overhead related to [updating the SDK](sdk-support-guidance.md). It's also the only way to instrument an application in which you don't have access to the source code.
 
 You only need to install the Application Insights SDK if:
 
 - You require [custom events and metrics](api-custom-events-metrics.md).
 - You require control over the flow of telemetry.
-- [Auto-instrumentation](codeless-overview.md) isn't available, typically because of language or platform limitations.
+- [Autoinstrumentation](codeless-overview.md) isn't available, typically because of language or platform limitations.
 
 To use the SDK, you install a small instrumentation package in your app and then instrument the web app, any background components, and JavaScript within the webpages. The app and its components don't have to be hosted in Azure.
 
@@ -70,11 +70,11 @@ The instrumentation monitors your app and directs the telemetry data to an Appli
 
 ### [.NET](#tab/net)
 
-Integrated auto-instrumentation is available for [Azure App Service .NET](azure-web-apps-net.md), [Azure App Service .NET Core](azure-web-apps-net-core.md), [Azure Functions](../../azure-functions/functions-monitoring.md), and [Azure Virtual Machines](azure-vm-vmss-apps.md).
+Integrated autoinstrumentation is available for [Azure App Service .NET](azure-web-apps-net.md), [Azure App Service .NET Core](azure-web-apps-net-core.md), [Azure Functions](../../azure-functions/functions-monitoring.md), and [Azure Virtual Machines](azure-vm-vmss-apps.md).
 
 The [Azure Monitor Application Insights agent](application-insights-asp-net-agent.md) is available for workloads running in on-premises virtual machines.
 
-For a detailed view of all auto-instrumentation supported environments, languages, and resource providers, see [What is auto-instrumentation for Azure Monitor Application Insights?](codeless-overview.md#supported-environments-languages-and-resource-providers).
+For a detailed view of all autoinstrumentation supported environments, languages, and resource providers, see [What is autoinstrumentation for Azure Monitor Application Insights?](codeless-overview.md#supported-environments-languages-and-resource-providers).
 
 For other scenarios, the [Application Insights SDK](/dotnet/api/overview/azure/insights) is required.
 
@@ -82,13 +82,13 @@ A preview [OpenTelemetry](opentelemetry-enable.md?tabs=net) offering is also ava
 
 ### [Java](#tab/java)
 
-Integrated auto-instrumentation is available for Java Apps hosted on [Azure App Service](azure-web-apps-java.md) and [Azure Functions](monitor-functions.md).
+Integrated autoinstrumentation is available for Java Apps hosted on [Azure App Service](azure-web-apps-java.md) and [Azure Functions](monitor-functions.md).
 
-Auto-instrumentation is available for any environment by using [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](opentelemetry-enable.md?tabs=java).
+Autoinstrumentation is available for any environment by using [Azure Monitor OpenTelemetry-based autoinstrumentation for Java applications](opentelemetry-enable.md?tabs=java).
 
 ### [Node.js](#tab/nodejs)
 
-Auto-instrumentation is available for [Azure App Service](azure-web-apps-nodejs.md).
+Autoinstrumentation is available for [Azure App Service](azure-web-apps-nodejs.md).
 
 The [Application Insights SDK](nodejs.md) is an alternative. We also have a preview [OpenTelemetry](opentelemetry-enable.md?tabs=nodejs) offering available.
 
@@ -128,7 +128,7 @@ This section lists all supported platforms and frameworks.
 * [Azure Spring Apps](../../spring-apps/how-to-application-insights.md)
 * [Azure Cloud Services](./azure-web-apps-net-core.md), including both web and worker roles
 
-#### Auto-instrumentation (enable without code changes)
+#### Autoinstrumentation (enable without code changes)
 * [ASP.NET: For web apps hosted with IIS](./application-insights-asp-net-agent.md)
 * [ASP.NET Core: For web apps hosted with IIS](./application-insights-asp-net-agent.md)
 * [Java](./opentelemetry-enable.md?tabs=java)
@@ -193,7 +193,7 @@ Leave product feedback for the engineering team in the [Feedback Community](http
 ## Next steps
 
 - [Create a resource](create-workspace-resource.md)
-- [Auto-instrumentation overview](codeless-overview.md)
+- [Autoinstrumentation overview](codeless-overview.md)
 - [Overview dashboard](overview-dashboard.md)
 - [Availability overview](availability-overview.md)
 - [Application Map](app-map.md)
