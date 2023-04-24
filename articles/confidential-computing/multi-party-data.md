@@ -69,11 +69,11 @@ _Code integrity and confidential ledgers:_ With distributed ledger technology (D
 ### ACC platform offerings that help enable confidential cleanrooms
 Roll up your sleeves and build a data clean room solution directly on these confidential computing service offerings.
 
-[Confidential containers](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-containers) on Azure Container Instances (ACI) and Intel SGX VMs with application enclaves provide a container solution for building confidential cleanroom solutions.
+[Confidential containers](confidential-computing/confidential-containers) on Azure Container Instances (ACI) and Intel SGX VMs with application enclaves provide a container solution for building confidential cleanroom solutions.
 
-[Confidential Virtual Machines (VMs)](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-vm-overview) provide a VM platform for confidential cleanroom solutions.
+[Confidential Virtual Machines (VMs)](confidential-vm-overview) provide a VM platform for confidential cleanroom solutions.
 
-[Azure SQL AE in secure enclaves](https://learn.microsoft.com/en-us/sql/relational-databases/security/encryption/always-encrypted-enclaves) provides a platform service for encrypting data and queries in SQL that can be used in multi-party data analytics and confidential cleanrooms.
+[Azure SQL AE in secure enclaves](https://learn.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves) provides a platform service for encrypting data and queries in SQL that can be used in multi-party data analytics and confidential cleanrooms.
 
 [Confidential Consortium Framework](https://ccf.microsoft.com/) is an open-source framework for building highly available stateful services that use centralized compute for ease of use and performance, while providing decentralized trust. It enables multiple parties to execute auditable compute over confidential data without trusting each other or a privileged operator.
 
