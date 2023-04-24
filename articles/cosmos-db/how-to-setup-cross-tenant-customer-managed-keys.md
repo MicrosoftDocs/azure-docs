@@ -4,7 +4,7 @@ description: Learn how to configure encryption with customer-managed keys for Az
 author: seesharprun
 ms.author: sidandrews
 ms.service: cosmos-db
-ms.custom: ignite-2022, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: ignite-2022, devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
 ms.topic: how-to
 ms.date: 09/27/2022
 ms.reviewer: turao

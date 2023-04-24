@@ -8,10 +8,15 @@ ms.author: eur
 
 ### March 2023 release
 
+#### New features
+
+Speech Synthesis Markup Language (SSML) has been updated to support audio effect processor elements that optimize the quality of the synthesized speech output for specific scenarios on devices. Learn more at [speech synthesis markup](../../speech-synthesis-markup-voice.md#voice-element).
+
 #### Custom neural voice
+
 Added support for the `nl-BE` locale with [Custom Neural Voice](../../custom-neural-voice.md) Pro. See the [full language and voice list](../../language-support.md?tabs=tts#custom-neural-voice) for more information.
 
-#### Prebuilt Neural TTS Voices (GA)
+#### Prebuilt Neural TTS Voices
 
 The following voices are now generally available. See the [full language and voice list](../../language-support.md?tabs=tts) for more information.
 
@@ -29,7 +34,7 @@ Added support for the `cheerful` style with the `de-DE-ConradNeural` voice.
 
 ### February 2023 release
 
-#### Prebuilt Neural TTS Voices (GA)
+#### Prebuilt Neural TTS Voices
 
 The following voices are now generally available. See the [full language and voice list](../../language-support.md?tabs=tts) for more information.
 

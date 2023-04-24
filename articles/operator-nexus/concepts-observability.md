@@ -1,12 +1,12 @@
 ---
 title: "Azure Operator Nexus: observability using Azure Monitor"
 description: Operator Nexus uses Azure Monitor and collects and aggregates data in Azure Log Analytics Workspace (LAW). The analysis, visualization, and alerting is performed on this collected data.
-author: mukesh-dua #Required; your GitHub user alias, with correct capitalization.
-ms.author: mukeshdua #Required; microsoft alias of author; optional team alias.
-ms.service: azure-operator-nexus #Required
-ms.topic: conceptual #Required; leave this attribute/value as-is.
-ms.date: 03/06/2023 #Required; mm/dd/yyyy format.
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+author: mukesh-dua
+ms.author: mukeshdua
+ms.service: azure-operator-nexus
+ms.topic: conceptual
+ms.date: 03/06/2023
+ms.custom: template-concept
 ---
 
 # Azure Operator Nexus observability

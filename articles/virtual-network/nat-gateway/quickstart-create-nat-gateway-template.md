@@ -1,8 +1,8 @@
 ---
 title: 'Create a NAT gateway - Resource Manager Template'
-titleSuffix: Azure Virtual Network NAT
+titleSuffix: Azure NAT Gateway
 description: This quickstart shows how to create a NAT gateway by using the Azure Resource Manager template (ARM template).
-services: load-balancer
+services: nat-gateway
 author: asudbring
 manager: KumudD
 ms.service: virtual-network
@@ -16,7 +16,7 @@ ms.custom: subject-armqs, devx-track-arm-template
 
 # Quickstart: Create a NAT gateway - ARM template
 
-Get started with Virtual Network NAT by using an Azure Resource Manager template (ARM template). This template deploys a virtual network, a NAT gateway resource, and Ubuntu virtual machine. The Ubuntu virtual machine is deployed to a subnet that is associated with the NAT gateway resource.
+Get started with Azure NAT Gateway by using an Azure Resource Manager template (ARM template). This template deploys a virtual network, a NAT gateway resource, and Ubuntu virtual machine. The Ubuntu virtual machine is deployed to a subnet that is associated with the NAT gateway resource.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -133,8 +133,8 @@ In this quickstart, you created a:
 
 The virtual machine is deployed to a virtual network subnet associated with the NAT gateway.
 
-To learn more about Virtual Network NAT and Azure Resource Manager, continue to the articles below.
+To learn more about Azure NAT Gateway and Azure Resource Manager, continue to the articles below.
 
-* Read an [Overview of Virtual Network NAT](nat-overview.md)
+* Read an [Overview of Azure NAT Gateway](nat-overview.md)
 * Read about the [NAT Gateway resource](nat-gateway-resource.md)
 * Learn more about [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
