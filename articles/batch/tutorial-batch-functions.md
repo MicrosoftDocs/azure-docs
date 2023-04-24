@@ -34,7 +34,7 @@ In this section, you use Batch Explorer to create the Batch pool and Batch job t
 ### Create a pool
 
 1. Sign in to Batch Explorer using your Azure credentials.
-1. Create a pool by selecting **Pools** on the left side side navigation, and then the select the **Add** button above the search form. 
+1. Create a pool by selecting **Pools** on the left side navigation, and then the select the **Add** button above the search form. 
 
     :::image type="content" source="./media/tutorial-batch-functions/add-pool.png" alt-text="Screenshot of the Pools page in a Batch account that highlights the Add button.":::
  
@@ -80,9 +80,9 @@ In this section, you create the Azure Function that triggers the OCR Batch job w
 
     1. Select **Review + create > Create**.
 	1. While creating the Azure Blob storage account trigger, be sure to set 
-1. In your function select **Functions** from the left side navigation and select **Create**.
+1. In your function, select **Functions** from the left side navigation and select **Create**.
 1. In the **Create function** pane, select Azure Blob Storage trigger.
-1. Enter a name for your function in **New Function**. In this example the name is OcrTrigger, and enter the path as `input/{name}` where input in the name of your Blob container.
+1. Enter a name for your function in **New Function**. In this example, the name is OcrTrigger. Enter the path as `input/{name}`, where input in the name of your Blob container.
 1. Select **Create**.
 
     :::image type="content" source="./media/tutorial-batch-functions/create-azure-blob-storage-trigger.png" alt-text="Screenshot of the Create Function pane that highlights the Azure Blob Storage trigger option and New Function and Path Fields.":::
