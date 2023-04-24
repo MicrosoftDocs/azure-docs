@@ -12,7 +12,7 @@ ms.date: 01/18/2023
 
 Once your Palo Alto resource is created in the Azure portal, you might need to get information about it or change it. Here's list of ways to manage your Palo Alto resource.
 
-- [Configure Netowrking and NAT](#configure-networking-NAT)
+- [Configure Networking and NAT](#configure-networking-NAT)
 - [Configure Rulestack](#configure-the-Rulestack)
 - [Enable Log settings](#enable-log-settings)
 - [Enable DNS Proxy](#enable-dns-proxy)
@@ -20,7 +20,7 @@ Once your Palo Alto resource is created in the Azure portal, you might need to g
 - [Delete an Palo Alto deployment](#delete-an-palo-alto-deployment)
 
 
-## Configure Netowrking and NAT
+## Configure Networking and NAT
 
 Add a new User Assigned Managed Identity.
 
