@@ -40,7 +40,7 @@ The zip file you downloaded contains JSON templates, bash, and PowerShell script
 Gateway should that become necessary
 
 ## Install Helm
-[Helm](../aks/kubernetes-helm.md) is a package manager for Kubernetes. This is used to install the `application-gateway-kubernetes-ingress` package.
+[Helm](../aks/kubernetes-helm.md) is a package manager for Kubernetes, used to install the `application-gateway-kubernetes-ingress` package.
 Use [Cloud Shell](https://shell.azure.com/) to install Helm:
 
 1. Install [Helm](../aks/kubernetes-helm.md) and run the following to add `application-gateway-kubernetes-ingress` helm package:
@@ -83,7 +83,7 @@ Next we need to create an Azure identity and give it permissions ARM.
 Use [Cloud Shell](https://shell.azure.com/) to run all of the following commands and create an identity:
 
 1. Create an Azure identity **in the same resource group as the AKS nodes**. Picking the correct resource group is
-important. The resource group required in the command below is *not* the one referenced on the AKS portal pane. This is
+important. The resource group required in the following commands is *not* the one referenced on the AKS portal pane. This is
 the resource group of the `aks-agentpool` virtual machines. Typically that resource group starts with `MC_` and contains
  the name of your AKS. For instance: `MC_resourceGroup_aksABCD_westus`
 
@@ -91,7 +91,7 @@ the resource group of the `aks-agentpool` virtual machines. Typically that resou
     az identity create -g <agent-pool-resource-group> -n <identity-name>
     ```
 
-1. For the role assignment commands below we need to obtain `principalId` for the newly created identity:
+1. For the role assignment, commands we need to obtain `principalId` for the newly created identity:
 
     ```azurecli
     az identity show -g <resourcegroup> -n <identity-name>
@@ -151,7 +151,7 @@ In the first few steps, we install Helm's Tiller on your Kubernetes cluster. Use
     ```bash
     wget https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/docs/examples/sample-helm-config.yaml -O helm-config.yaml
     ```
-    Or copy the YAML file below: 
+    Or copy the following YAML file: 
     
     ```yaml
     # This file contains the essential configs for the ingress controller helm chart
@@ -244,9 +244,9 @@ Refer to [this how-to guide](ingress-controller-expose-service-over-http-https.m
 ## Shared Application Gateway
 By default AGIC assumes full ownership of the Application Gateway it's linked to. AGIC version 0.8.0 and later can
 share a single Application Gateway with other Azure components. For instance, we could use the same Application Gateway for an app
-hosted on Virtual Machine Scale Set as well as an AKS cluster.
+hosted on Virtual Machine Scale Set and an AKS cluster.
 
-Please __backup your Application Gateway's configuration__ before enabling this setting:
+**Backup your Application Gateway's configuration** before enabling this setting:
   1. using [Azure portal](https://portal.azure.com/) navigate to your `Application Gateway` instance
   2. from `Export template` click `Download`
 
@@ -312,13 +312,12 @@ kubectl get AzureIngressProhibitedTargets prohibit-all-targets -o yaml
 ```
 
 The object `prohibit-all-targets`, as the name implies, prohibits AGIC from changing config for *any* host and path.
-Helm install with `appgw.shared=true` deploys AGIC, but won't make any changes to Application Gateway.
+Helm install with `appgw.shared=true` deploys AGIC, but doesn't make any changes to Application Gateway.
 
 
 ### Broaden permissions
-Since Helm with `appgw.shared=true` and the default `prohibit-all-targets` blocks AGIC from applying a config.
+Since Helm with `appgw.shared=true` and the default `prohibit-all-targets` blocks AGIC from applying a config, broaden AGIC permissions:
 
-Broaden AGIC permissions with:
 1. Create a new `AzureIngressProhibitedTarget` with your specific setup:
     ```bash
     cat <<EOF | kubectl apply -f -
