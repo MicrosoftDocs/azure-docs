@@ -17,8 +17,9 @@ ms.collection:
 
 # Azure Active Directory PCI-DSS guidance
 
-The PCI Security Standards Council (PCI SSC) creates and promotes the use of data security standards and resources through the Payment Card Industry Data Security Standard (PCI-DSS) to ensure secure payments. This document provides guidance to organizations using Azure Active Directory (Azure AD) to meet PCI compliance. 
-Organizations are responsible for their PCI compliance. Their IT teams, SecOps teams, and Solutions Architects are responsible for creating and maintaining systems, products and networks that handle, process and store payment card information.
+The Payment Card Industry Security Standards Council (PCI SSC) is responsible for developing and promoting data security standards and resources, including the Payment Card Industry Data Security Standard (PCI-DSS), to ensure the security of payment transactions. To achieve PCI compliance, organizations using Azure Active Directory (Azure AD) can refer to guidance in this document. However, it is the responsibility of the organizations to ensure their PCI compliance. Their IT teams, SecOps teams, and Solutions Architects are responsible for creating and maintaining secure systems, products, and networks that handle, process, and store payment card information. 
+
+While Azure AD helps meet some PCI-DSS control requirements, and provides modern identity and access protocols for cardholder data environment (CDE) resources, it should not be the sole mechanism for protecting cardholder data. Therefore, review this document set and all PCI-DSS requirements to establish a comprehensive security program that preserves customer trust. For a complete list of requirements, please visit the official PCI Security Standards Council website at pcisecuritystandards.org: [Official PCI Security Standards Council Site](https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v4_0.pdf)
 
 ## PCI requirements for controls
 
