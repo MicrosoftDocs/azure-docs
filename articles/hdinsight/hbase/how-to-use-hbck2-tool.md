@@ -9,9 +9,14 @@ ms.custom: troubleshooting
 ms.topic: conceptual
 ms.date: 04/25/2023
 ---
-# Apache HBase HBCK2 Tool
+# How to use Apache HBase HBCK2 Tool
 
-Overview -
+Learn how to use  HBase HBCK2 Tool.
+
+## HBCK2 Overview
+
+HBCK2 is currently a simple tool that does one thing at a time only. In hbase-2.x, the Master is the final arbiter of all state, so a general principle for most HBCK2 commands is that it asks the Master to affect all repair. A Master must be up and running, before you can run HBCK2 commands. While HBCK1 performed analysis reporting your cluster GOOD or BAD, HBCK2 is less presumptuous. In hbase-2.x, the operator figures what needs fixing and then uses tooling including HBCK2 to do fixup.
+
 
 ## HBCK2 vs HBCK1
 
@@ -22,16 +27,15 @@ HBCK2 is the successor to HBCK, the repair tool that shipped with hbase-1.x (A.K
 You can find the release under the HBase distribution directory. See the HBASE Downloads Page.
 https://dlcdn.apache.org/hbase/hbase-operator-tools-1.2.0/hbase-operator-tools-1.2.0-bin.tar.gz
 
-## HBCK2 Overview
 
-HBCK2 is currently a simple tool that does one thing at a time only. In hbase-2.x, the Master is the final arbiter of all state, so a general principle for most HBCK2 commands is that it asks the Master to affect all repair. A Master must be up and running, before you can run HBCK2 commands. While HBCK1 performed analysis reporting your cluster GOOD or BAD, HBCK2 is less presumptuous. In hbase-2.x, the operator figures what needs fixing and then uses tooling including HBCK2 to do fixup.
-
-**Master UI: The 'HBCK Report'**
+### Master UI: The HBCK Report
 
 An HBCK Report page was added to the Master in 2.1.6 at /hbck.jsp, which shows output from two inspections run by the master on an interval; one is output by the CatalogJanitor whenever it runs. If overlaps or holes in, `hbase:meta`, the CatalogJanitor lists what it has found. Another background 'chore' process was added to compare `hbase:meta` and filesystem content; if any anomaly, it makes note in its HBCK Report section.
-To run the CatalogJanitor, execute the following command in hbase shell: catalogjanitor_run
-To run hbck chore, execute the following command in hbase shell: hbck_chore_run
-Both commands don't take any inputs.
+
+To run the CatalogJanitor, execute the command in hbase shell: `catalogjanitor_run`
+To run hbck chore, execute the  command in hbase shell: `hbck_chore_run`
+B
+oth commands don't take any inputs.
 
 ## Running HBCK2
 
@@ -44,11 +48,12 @@ The above command with no options or arguments passed prints the HBCK2 help.
 > [!NOTE]
 > Test these commands on a test cluster to understand the functionality before running in production environment
 
-**assigns \[OPTIONS\] \<ENCODED_REGIONNAME/INPUTFILES_FOR_REGIONNAMES\>... | -i \<INPUT_FILE\>...**
+`**assigns \[OPTIONS\] \<ENCODED_REGIONNAME/INPUTFILES_FOR_REGIONNAMES\>... | -i \<INPUT_FILE\>...**`
 
 **Options:**
 
 `&emsp;-o,--override`  - override ownership by another procedure
+
 `&emsp;-i,--inputFiles`  - takes one or more encoded region names
 
 A 'raw' assign that can be used even during Master initialization (if the -skip flag is specified). Skirts Coprocessors. Pass one or more encoded region names. de00010733901a05f5a2a3a382e27dd4 is an example of what a user-space encoded region name looks like. For example:
@@ -65,6 +70,7 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 **Options:**
 
 &emsp;-o,--override  - override ownership by another procedure
+
 &emsp;-i,--inputFiles  - takes ones or more input files of encoded names
 
 A 'raw' unassign that can be used even during Master initialization (if the -skip flag is specified). Skirts Coprocessors. Pass one or more encoded region names. de00010733901a05f5a2a3a382e27dd4 is an example of what a user override space encoded region name looks like. For example:
@@ -80,10 +86,14 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 
 **Options:**
 
-&emsp;-o,--override   - override if procedure is running/stuck\
+&emsp;-o,--override   - override if procedure is running/stuck
+
 &emsp;-r,--recursive  = bypass parent and its children. SLOW! EXPENSIVE!
+
 &emsp;-w,--lockWait   milliseconds to wait before giving up; default=1
+
 &emsp;-i,--inputFiles  takes one or more input files of PIDs
+
 Pass one (or more) procedure 'PIDs to skip to procedure finish. Parent of bypassed procedure skips to the finish. Entities are left in an inconsistent state and require manual fixup May need Master restart to clear locks still held. Bypass fails if procedure has children. Add 'recursive' if all you have is a parent PID to finish parent and children. ***This is SLOW, and dangerous so use selectively. Doesn't always work***. 
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar bypass <PID>
@@ -116,8 +126,7 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 
 **Options**
 
-&emsp;-i,--inputFiles  takes one or more input files of namespace of table names
-to be used when regions missing from `hbase:meta` but directories are present still in HDFS. **Needs `hbase:meta` to be online**. For each table name passed as parameter, performs diff between regions available in `hbase:meta` and region dirs on HDFS. Then for dirs with no `hbase:meta` matches, it reads the 'regioninfo' metadata file and re-creates given region in `hbase:meta`. Regions are re-created in 'CLOSED' state in the `hbase:meta` table, but not in the Masters' cache, and they aren't assigned either. To get these regions online, run the HBCK2 'assigns' command printed when this command-run completes.\
+&emsp;-i,--inputFiles  takes one or more input files of namespace of table names to be used when regions missing from `hbase:meta` but directories are present still in HDFS. **Needs `hbase:meta` to be online**. For each table name passed as parameter, performs diff between regions available in `hbase:meta` and region dirs on HDFS. Then for dirs with no `hbase:meta` matches, it reads the 'regioninfo' metadata file and re-creates given region in `hbase:meta`. Regions are re-created in 'CLOSED' state in the `hbase:meta` table, but not in the Masters' cache, and they aren't assigned either. To get these regions online, run the HBCK2 'assigns' command printed when this command-run completes.\
 
 > [!NOTE]
 > If using hbase releases older than 2.3.0, a rolling restart of HMasters is needed prior to executing the set of 'assigns' output**. An example adding missing regions for tables 'tbl_1' in the default namespace, 'tbl_2' in namespace 'n1' and for all tables from namespace 'n2':
@@ -135,6 +144,7 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 **Options**
 
 &emsp;-f, --fix    fix meta by removing all extra regions found.
+
 &emsp;-i,--inputFiles  take one or more input files of namespace or table names
 
 Reports regions present on `hbase:meta`, but with no related directories on the file system. Needs `hbase:meta` to be online. For each table name passed as parameter, performs diff between regions available in `hbase:meta` and region dirs on the given file system. Extra regions would get deleted from Meta if passed the --fix option.\
@@ -181,6 +191,7 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 **Options**
 
 &emsp;-f, --fix    fix any replication issues found.
+
 &emsp;-i,--inputFiles  take one or more input files of table names
 
 Looks for undeleted replication queues and deletes them if passed the '--fix' option. Pass a table name to check for replication barrier and purge if '--fix'. 
@@ -199,13 +210,29 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 
 `&emsp;-i,--inputFiles`  take one or more input files of encoded region names and states
   
-Possible region states: **OFFLINE, OPENING, OPEN, CLOSING, CLOSED, SPLITTING, SPLIT, FAILED_OPEN, FAILED_CLOSE, MERGING, MERGED, SPLITTING_NEW, MERGING_NEW, ABNORMALLY_CLOSED** 
+**Possible region states: **
+
+* OFFLINE
+* OPENING
+* OPEN
+* CLOSIN 
+* CLOSED 
+* SPLITTING 
+* SPLIT
+* FAILED_OPEN 
+* FAILED_CLOSE 
+* MERGING
+* MERGED 
+* SPLITTING_NEW
+* MERGING_NEW
+* ABNORMALLY_CLOSED
   
-**WARNING: This is a very risky option intended for use as last resort**.
+> [!WARNING]
+> This is a very risky option intended for use as last resort.
 
 Example scenarios include unassigns/assigns that can't move forward because region is in an inconsistent state in 'hbase:meta'. For example, the 'unassigns' command can only proceed if passed a region in one of the following states: **SPLITTING|SPLIT|MERGING|OPEN|CLOSING**.\
 
-  Before manually setting a region state with this command, certify that this region not handled by a running procedure, such as 'assign' or 'split'. You can get a view of running procedures in the hbase shell using the 'list_procedures' command. An example
+ Before manually setting a region state with this command, certify that this region not handled by a running procedure, such as 'assign' or 'split'. You can get a view of running procedures in the hbase shell using the 'list_procedures' command. An example
 setting region 'de00010733901a05f5a2a3a382e27dd4' to CLOSING:
 
 ```
@@ -225,7 +252,7 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 
 `&emsp;-i,--inputFiles`  take one or more input files of table names and states
 
-Possible table states: **ENABLED, DISABLED, DISABLING, ENABLING**.\
+Possible table states: **ENABLED, DISABLED, DISABLING, ENABLING**.
 
 To read current table state, in the hbase shell run:
   
