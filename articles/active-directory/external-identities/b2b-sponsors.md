@@ -65,4 +65,4 @@ When you invite a guest user, you became their sponsor by default. If you need t
 ## Next steps
 - [Add and invite guest users](add-users-administrator.md)
 - [Crete a new access package](/azure/active-directory/governance/entitlement-management-access-package-create#approval)
-- [Create an access review](../../governance/create-access-review.md)
+- [Create an access review](/azure/active-directory/governance/create-access-review)
