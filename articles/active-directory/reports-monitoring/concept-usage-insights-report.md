@@ -8,20 +8,19 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 01/10/2023
+ms.date: 04/24/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ---
 
 # Usage and insights in Azure Active Directory
 
-With the Azure Active Directory (Azure AD) **Usage and insights** reports, you can get an application-centric view of your sign-in data. Usage & insights also includes a report on authentication methods activity. You can find answers to the following questions:
+With the Azure Active Directory (Azure AD) **Usage and insights** reports, you can get an application-centric view of your sign-in data. Usage & insights includes a report on authentication methods, service principal sign-ins, and application credential activity. You can find answers to the following questions:
 
 *	What are the top used applications in my organization?
 *	What applications have the most failed sign-ins? 
 *	What are the top sign-in errors for each application?
-
-This article provides an overview of three reports that look sign-in data. 
+*   What was the date of the last sign-in for an application?
 
 ## Access Usage & insights 
 
@@ -36,11 +35,11 @@ To access Usage & insights:
 1. Sign in to the [Azure portal](https://portal.azure.com) using the appropriate least privileged role.
 1. Go to **Azure Active Directory** > **Usage & insights**.
 
-The **Usage & insights** report is also available from the **Enterprise applications** area of Azure AD. All users can access their own sign-ins at the [My Sign-Ins portal](https://mysignins.microsoft.com/security-info).
+The **Usage & insights** reports are also available from the **Enterprise applications** area of Azure AD. All users can access their own sign-ins at the [My Sign-Ins portal](https://mysignins.microsoft.com/security-info).
 
 ## View the Usage & insights reports
 
-There are currently three reports available in Azure AD Usage & insights. All three reports use sign-in data to provide helpful information an application usage and authentication methods.
+The Usage & insights reports use sign-in data to provide helpful information an application usage and authentication methods.
 
 ### Azure AD application activity (preview)
 
@@ -71,6 +70,14 @@ Are you planning on running a registration campaign to nudge users to sign up fo
 Looking for the details of a user and their authentication methods? Look at the **User registration details** report from the side menu and search for a name or UPN. The default MFA method and other methods registered are displayed. You can also see if the user is capable of registering for one of the authentication methods.
 
 Looking for the status of an authentication registration or reset event of a user? Look at the **Registration and reset events** report from the side menu and then search for a name or UPN. You'll be able to see the method used to attempt to register or reset an authentication method.
+
+### Service principal sign-in activity (preview)
+
+The Service principal sign-in activity (preview) report provides the last service principal sign-in activity for your applications. You can see the last month's service principal sign-in activity. 
+
+### Application credential activity (preview)
+
+
 
 ## Next steps
 
