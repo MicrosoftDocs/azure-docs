@@ -25,6 +25,13 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 > [!NOTE]  
 > This article references the term slave, which Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
+## April 2023
+
+- **Known issues**
+
+  [Storage Auto-grow](./concepts-service-tiers-storage.md#storage-auto-grow): When [storage auto-grow feature](./concepts-service-tiers-storage.md#storage-auto-grow) is enabled and pre-provisioned [IOPS](./concepts-service-tiers-storage.md#iops) is increased, it may result in unexpected increase in the storage size of the instance. We are actively working to resolve this issue and will provide updates as soon as they are available.
+
+
 ## March 2023
 
 - **Azure Resource Health**
