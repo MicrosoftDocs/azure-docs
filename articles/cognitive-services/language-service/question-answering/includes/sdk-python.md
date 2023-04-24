@@ -35,6 +35,11 @@ Use this quickstart for the question answering client library for Python to:
 
 ## Setting up
 
+[!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Question-answering&Page=quickstart&Section=Create-environment-variables" target="_target">I ran into an issue</a>
+
 ### Install the client library
 
 After installing Python, you can install the client library with:
@@ -68,8 +73,9 @@ You will need to update the code below and provide your own values for the follo
 from azure.core.credentials import AzureKeyCredential
 from azure.ai.language.questionanswering import QuestionAnsweringClient
 
-endpoint = "https://{YOUR-ENDPOINT}.api.cognitive.microsoft.com/"
-credential = AzureKeyCredential("{YOUR-LANGUAGE-RESOURCE-KEY}")
+# This example requires environment variables named "LANGUAGE_KEY" and "LANGUAGE_ENDPOINT"
+endpoint = "$LANGUAGE_ENDPOINT.api.cognitive.microsoft.com/"
+credential = AzureKeyCredential("$LANGUAGE_KEY")
 knowledge_base_project = "{YOUR-PROJECT-NAME}"
 deployment = "production"
 
@@ -150,8 +156,9 @@ from azure.core.credentials import AzureKeyCredential
 from azure.ai.language.questionanswering import QuestionAnsweringClient
 from azure.ai.language.questionanswering import models as qna
 
-endpoint = "https://{YOUR-ENDPOINT}.api.cognitive.microsoft.com/"
-credential = AzureKeyCredential("YOUR-LANGUAGE-RESOURCE-KEY")
+# This example requires environment variables named "LANGUAGE_KEY" and "LANGUAGE_ENDPOINT"
+endpoint = "LANGUAGE_ENDPOINT.api.cognitive.microsoft.com/"
+credential = AzureKeyCredential("LANGUAGE_KEY")
 
 def main():
     client = QuestionAnsweringClient(endpoint, credential)
