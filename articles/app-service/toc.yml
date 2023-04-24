@@ -381,7 +381,7 @@
           href: configure-encrypt-at-rest-using-cmk.md
     - name: Scale app
       items:
-        - name: Automatic scaling
+        - name: Scale out automatically
           href: manage-automatic-scaling.md      
         - name: Scale up server capacity
           href: manage-scale-up.md
