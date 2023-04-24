@@ -66,7 +66,7 @@ You need a separate private endpoint for each storage resource that you need to 
 
 If you create a private endpoint for the Data Lake Storage Gen2 storage resource, then you should also create one for the Blob storage resource. That's because operations that target the Data Lake Storage Gen2 endpoint might be redirected to the Blob endpoint. By creating a private endpoint for both resources, you ensure that operations can complete successfully.
 
-Similarly, while working with Data Lake Storage Gen2 storage account, if you have added a private endpoint for Blob only and not for DFS it may result in failure of certain operations like Manage ACL, Create Directory, Delete Directory etc as most of the Gen2 operations honor Gen2 APIs and thus it needs a DFS private endpoint.
+If you create a private endpoint for the Data Lake Storage Gen2 storage resource, then you should also create one for the Blob Storage resource. That's because operations that target the Data Lake Storage Gen2 endpoint might be redirected to the Blob endpoint. Similarly, if you add a private endpoint for Blob Storage only, and not for Data Lake Storage Gen2, some operations such as Manage ACL, Create Directory, Delete Directory, etc. will fail since the Gen2 APIs require a DFS private endpoint. By creating a private endpoint for both resources, you ensure that all operations can complete successfully.
 
 > [!TIP]
 > Create a separate private endpoint for the secondary instance of the storage service for better read performance on RA-GRS accounts.
