@@ -183,7 +183,7 @@ Add the following to your ARM template:
 If you have the Upgrade Policy set to manual, you need to trigger manual upgrades of each existing VM to apply changes to the instances based on the updated scale set model. 
 
 > [!NOTE]
-> While upgrading, the instances may be restarted.
+> While performing upgrades, the instances may be restarted.
 
 ### CLI
 Update Virtual Machine Scale Set instances using [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances).
