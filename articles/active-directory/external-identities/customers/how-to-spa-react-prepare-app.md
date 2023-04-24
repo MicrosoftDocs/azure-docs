@@ -16,7 +16,7 @@ ms.custom: it-pro
 ---
 # Prepare a Single-page application for authentication
 
-After registration is complete, a React project can be created using an integrated development environment (IDE). This tutorial demonstrates how to create a single-page React application using npm and create files needed for authentication and authorization.
+After registration is complete, a React project can be created using an integrated development environment (IDE). This tutorial demonstrates how to create a React Single-page application using npm and create files needed for authentication and authorization.
 
 In this article, you learn how to:
 
