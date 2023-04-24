@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 10/21/2022
+ms.date: 04/20/2023
 ms.custom: template-how-to
 ---
 
@@ -26,13 +26,17 @@ When scanning SAP HANA source, Microsoft Purview supports extracting technical m
 - Databases
 - Schemas
 - Tables including the columns, foreign keys, indexes, and unique constraints
-- Views including the columns
+- Views including the columns. Note SAP HANA Calculation Views are not supported now.
 - Stored procedures including the parameter dataset and result set
 - Functions including the parameter dataset
 - Sequences
 - Synonyms
 
 When setting up scan, you can choose to scan an entire SAP HANA database, or scope the scan to a subset of schemas matching the given name(s) or name pattern(s).
+
+### Known limitations
+
+When object is deleted from the data source, currently the subsequent scan won't automatically remove the corresponding asset in Microsoft Purview.
 
 ## Prerequisites
 
@@ -75,7 +79,7 @@ GRANT SELECT ON SCHEMA _SYS_BIC TO <user>;
 
 ## Register
 
-This section describes how to register a SAP HANA in Microsoft Purview by using [the Microsoft Purview governance portal](https://web.purview.azure.com/).
+This section describes how to register an SAP HANA in Microsoft Purview by using [the Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 1. Open the Microsoft Purview governance portal by:
     - Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
@@ -90,7 +94,7 @@ This section describes how to register a SAP HANA in Microsoft Purview by using 
 
    1. For **Name**, enter a name that Microsoft Purview will list as the data source.
 
-   1. For **Server**, enter the host name or IP address used to connect to a SAP HANA source. For example, `MyDatabaseServer.com` or `192.169.1.2`.
+   1. For **Server**, enter the host name or IP address used to connect to an SAP HANA source. For example, `MyDatabaseServer.com` or `192.169.1.2`.
 
    1. For **Port**, enter the port number used to connect to the database server (39013 by default for SAP HANA).
 
@@ -106,7 +110,7 @@ Use the following steps to scan SAP HANA databases to automatically identify ass
 
 ### Authentication for a scan
 
-The supported authentication type for a SAP HANA source is **Basic authentication**.
+The supported authentication type for an SAP HANA source is **Basic authentication**.
 
 ### Create and run scan
 
