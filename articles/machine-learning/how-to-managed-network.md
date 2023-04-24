@@ -15,6 +15,9 @@ ms.custom:
 
 # Workspace managed network isolation (preview)
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
 Azure Machine Learning provides preview support for managed network isolation. Managed network isolation streamlines and automates your network isolation configuration with a built-in, workspace-level Azure Machine Learning managed virtual network, instead of using your virtual network.
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
@@ -52,52 +55,193 @@ The managed virtual network is preconfigured with [required default outbound rul
 |Compute|Compute Instance<br>Compute Cluster<br>Serverless<br>Serverless spark|New managed online endpoint creation<br>Migration of existing managed online endpoint<br>No Public IP option of Compute Instance, Compute Cluster and Serverless|
 |Outbound|Private Endpoint<br>Service Tag|FQDN|
 
-## Configure a workspace with allow internet outbound mode
+## Prerequisites
 
-# [Azure CLI](#tab/cli)
+# [Azure CLI](#tab/azure-cli)
 
-In the `az ml workspace create` command, replace the following values:
+[!INCLUDE [basic prereqs cli](../../includes/machine-learning-cli-prereqs.md)]
 
-* `rg`: The resource group that the workspace will be created in.
-* `ws`: The Azure Machine Learning workspace name.
+* The Azure CLI examples in this article use `ws` to represent the name of the workspace, and `rg` to represent the name of the resource group. Change these values as needed when using the commands with your Azure subscription. If you are creating a new workspace, you must first create an Azure Resource Group to contain it. For more information, see [Manage Azure Resource Groups](/azure/azure-resource-manager/management/manage-resource-groups-cli).
 
-```azurecli
-az ml workspace create --name ws --resource-group rg --managed-network allow_internet_outbound
-```
-
-> [!TIP]
-> We recommend using a yml file to have additional private endpoint outbound rules. You can find a sample yaml file at [https://github.com/Azure/azureml_run_specification/blob/master/configs/workspace/add-pe-outboundrule-Workspace.yaml](https://github.com/Azure/azureml_run_specification/blob/master/configs/workspace/add-pe-outboundrule-Workspace.yaml).
->
-> ```azurecli
-> az ml workspace create --name ws --resource-group rg --file add-pe-outboundrule-Workspace.yaml
-> ```
-
+> [!IMPORTANT]
+> The examples in this document assume that you are using the Bash shell. For example, from a Linux system or [Windows Subsystem for Linux](/windows/wsl/about). 
 
 # [Python](#tab/python)
 
-> [!IMPORTANT]
-> The following code snippet assumes that `ml_client` points to an Azure Machine Learning workspace that uses a private endpoint to participate in a VNet. For more information on using `ml_client`, see the tutorial [Azure Machine Learning in a day](tutorial-azure-ml-in-a-day.md).
+Before following the steps in this article, make sure you have the following prerequisites:
 
-```python
-from azure.ai.ml import MLClient
-from azure.ai.ml.entities import Workspace, ManagedNetwork
-from azure.ai.ml.constants._workspace import IsolationMode
-from azure.identity import DefaultAzureCredential
+* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
-subscription_id = "<SUBSCRIPTION_ID>"
-resource_group = "<RESOURCE_GROUP>"
-workspace = "<WORKSPACE>"
+* To install the Python SDK v2, use the following command:
 
-ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group)
+    ```bash
+    pip install azure-ai-ml azure-identity
+    ```
 
-ws = ml_client.workspaces.get(workspace)
-ws.managed_network = ManagedNetwork(IsolationMode.ALLOW_INTERNET_OUTBOUND)
-ws.managed_network.outbound_rules = [
-  PrivateEndpointDestination(rule_name="my-storage", service_resource_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/MyGroup/providers/Microsoft.Storage/storageAccounts/myaccount", subresource_target="blob")
-]
+    For more information, see [Install the Python SDK v2 for Azure Machine Learning](/python/api/overview/azure/ai-ml-readme).
 
-ml_client.workspaces.begin_update(ws)
+* The examples in this article assume that your code begins with the following Python. This code imports the classes required when creating a workspace with managed network, sets variables for your Azure subscription and resource group, and creates the `ml_client`:
+
+    ```python
+    from azure.ai.ml import MLClient
+    from azure.ai.ml.entities import Workspace, ManagedNetwork
+    from azure.ai.ml.constants._workspace import IsolationMode
+    from azure.identity import DefaultAzureCredential
+    from azure.ai.ml.entities import FqdnDestination, ServiceTagDestination, PrivateEndpointDestination
+
+    # Replace with the values for your Azure subscription and resource group.
+    subscription_id = "<SUBSCRIPTION_ID>"
+    resource_group = "<RESOURCE_GROUP>"
+    ```
+
+    > [!TIP]
+    > If you are creating a new workspace, you must first create an Azure Resource Group to contain it. For more information, see [Manage Azure Resource Groups](/azure/azure-resource-manager/management/manage-resource-groups-python).
+
+---
+
+## Create a managed network
+
+# [Azure CLI](#tab/azure-cli)
+
+To configure a managed network that allows internet outbound communications, you can use either the `--managed-network allow_internet_outbound` parameter or a YAML configuration file that contains the following entries:
+
+```yml
+managed_network:
+  isolation_mode: allow_internet_outbound
 ```
+
+You can also define _outbound rules_ to other Azure services that the workspace relies on. These rules define _private endpoints_ that allow an Azure resource to securely communicate with the managed network. The following rule demonstrates adding a private endpoint to an Azure Blob resource:
+
+```yml
+managed_network:
+  isolation_mode: allow_internet_outbound
+  outbound_rules:
+  - name: added-perule
+    destination:
+      service_resource_id: /subscriptions/{subscription ID}/resourceGroups/{resource group name}/providers/Microsoft.Storage/storageAccounts/{storage account name}
+      spark_enabled: true
+      subresource_target: blob
+    type: private_endpoint
+```
+
+You can configure a managed network using either the `az ml workspace create` or `az ml workspace update` commands:
+
+* __Create a new workspace__: 
+
+    The following example uses the `--managed-network allow_internet_outbound` parameter to configure the managed network:
+
+    ```azurecli
+    az ml workspace create --name ws --resource-group rg --managed-network allow_internet_outbound
+    ```
+
+    The following YAML file defines a workspace with a managed virtual network:
+
+    ```yml
+    name: myworkspace
+    location: EastUS
+    managed_network:
+    isolation_mode: allow_internet_outbound
+    ```
+
+    To create a workspace using the YAML file, use the `--file` parameter:
+
+    ```azurecli
+    az ml workspace create --file workspace.yaml --resource-group rg
+    ```
+
+* __Update an existing workspace__:
+
+    The following example uses the `--managed-network allow_internet_outbound` parameter to configure the managed network for an existing workspace:
+
+    ```azurecli
+    az ml workspace update --name ws --resource-group rg --managed-network allow_internet_outbound
+    ```
+
+    The following YAML file defines a managed network for the workspace. It also demonstrates how to add a private endpoint connection to a resource used by the workspace; in this example, a private endpoint for a blob store is configured:
+
+    ```yml
+    name: myworkspace
+    managed_network:
+    isolation_mode: allow_internet_outbound
+    outbound_rules:
+    - name: added-perule
+      destination:
+        service_resource_id: /subscriptions/{subscription ID}/resourceGroups/{resource group name}/providers/Microsoft.Storage/storageAccounts/{storage account name}
+        spark_enabled: true
+        subresource_target: blob
+      type: private_endpoint
+    ```
+
+    To Update an existing workspace using the YAML file, use the `--file` parameter:
+
+    ```azurecli
+    az ml workspace update --file workspace.yaml --resource-group MyGroup
+    ```
+
+# [Python](#tab/python)
+
+To configure a managed network that allows internet outbound communications, use the `ManagedNetwork` class to define a network with `IsolationMode.ALLOW_INTERNET_OUTBOUND`. You can then use the `ManagedNetwork` object to create a new workspace or update an existing one. To define _outbound rules_ to Azure services that the workspace relies on, use the `PrivateEndpointDestination` class to define a new private endpoint to the service.
+
+* __Create a new workspace__:
+
+    The following example creates a new workspace named `myworkspace`, with an outbound rule named `myrule` that adds a private endpoint for an Azure Blob store:
+
+    ```python
+    # get a handle to the subscription
+    ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group)
+
+    # Basic managed network configuration
+    network = ManagedNetwork(IsolationMode.ALLOW_INTERNET_OUTBOUND)
+
+    # Workspace configuration
+    ws = Workspace(
+        name="myworkspace",
+        location="eastus",
+        managed_network=network
+    )
+
+    # Example private endpoint outbound to a blob
+    rule_name = "myrule"
+    service_resource_id = "/subscriptions/{subscription ID}/resourceGroups/{resource group name}/providers/Microsoft.Storage/storageAccounts/{storage account name}"
+    subresource_target = "blob"
+    spark_enabled = true
+
+    # Add the outbound 
+    ws.managed_network.outbound_rules = [PrivateEndpointDestination(
+        name=rule_name, 
+        service_resource_id=service_resource_id, 
+        subresource_target=subresource_target, 
+        spark_enabled=spark_enabled)]
+
+    # Create the workspace
+    ws = ml_client.workspaces.begin_create(ws).result()
+    ```
+
+* __Update an existing workspace__:
+
+    The following example demonstrates how to create a managed network for an existing Azure Machine Learning workspace named "myworkspace":
+    
+    ```python
+    ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, "myworkspace")
+
+    ws = ml_client.workspaces.get()
+    ws.managed_network = ManagedNetwork(IsolationMode.ALLOW_INTERNET_OUTBOUND)
+
+    # Example private endpoint outbound to a blob
+    rule_name = "myrule"
+    service_resource_id = "/subscriptions/{subscription ID}/resourceGroups/{resource group name}/providers/Microsoft.Storage/storageAccounts/{storage account name}"
+    subresource_target = "blob"
+    spark_enabled = true
+
+    # Add the outbound 
+    ws.managed_network.outbound_rules = [PrivateEndpointDestination(
+        name=rule_name, 
+        service_resource_id=service_resource_id, 
+        subresource_target=subresource_target, 
+        spark_enabled=spark_enabled)]
+
+    ml_client.workspaces.begin_update(ws)
+    ```
 
 # [Studio](#tab/azure-studio)
 
@@ -110,57 +254,170 @@ ml_client.workspaces.begin_update(ws)
 
 ---
 
-## Configure a workspace with allow only approved outbound mode
+## Managed network that allows only approved outbound
 
-# [Azure CLI](#tab/cli)
+# [Azure CLI](#tab/azure-cli)
 
-In the `az ml workspace create` command, replace the following values:
+To configure a managed network that allows only approved outbound communications, you can use either the `--managed-network allow_only_approved_outbound` parameter or a YAML configuration file that contains the following entries:
 
-* `rg`: The resource group that the workspace will be created in.
-* `ws`: The Azure Machine Learning workspace name.
-
-```azurecli
-az ml workspace create --name ws --resource-group rg --managed-network allow_only_approved_outbound
+```yml
+managed_network:
+  isolation_mode: allow_only_approved_outbound
 ```
 
-> [!TIP]
-> We recommend using a yml file to have additional outbound rules. You can find a sample yaml file at [https://github.com/Azure/azureml_run_specification/blob/master/configs/workspace/add-several-outboundrules-Workspace.yaml](https://github.com/Azure/azureml_run_specification/blob/master/configs/workspace/add-several-outboundrules-Workspace.yaml).
->
-> ```azurecli
-> az ml workspace create --name ws --resource-group rg --file add-several-outboundrules-Workspace.yaml
-> ```
+You can also define _outbound rules_ to define approved outbound communication. An outbound rule can be created for a type of `fqdn` or `service_tag`. You can also define _private endpoints_ that allow an Azure resource to securely communicate with the managed network. The following rule demonstrates adding a private endpoint to an Azure Blob resource, a service tag to Azure Data Factory, and an FQDN destination of `contoso.com`:
 
+> [!TIP]
+> Adding an outbound for a service tag or FQDN is only valid when the managed network is configured to `allow_only_approved_outbound`.
+
+```yaml
+managed_network:
+  isolation_mode: allow_only_approved_outbound
+  outbound_rules:
+  - name: added-servicetagrule
+    destination:
+      port_ranges: 80, 8080
+      protocol: TCP
+      service_tag: DataFactory
+    type: service_tag
+  - name: added-perule
+    destination:
+      service_resource_id: /subscriptions/{subscription ID}/resourceGroups/{resource group name}/providers/Microsoft.Storage/storageAccounts/{storage account name}
+      spark_enabled: true
+      subresource_target: blob
+    type: private_endpoint
+  - name: added-fqdnrule
+    destination: 'contoso.com'
+    type: fqdn
+```
+
+You can configure a managed network using either the `az ml workspace create` or `az ml workspace update` commands:
+
+* __create a new workspace__:
+
+    The following example uses the `--managed-network allow_only_approved_outbound` parameter to configure the managed network:
+
+    ```azurecli
+    az ml workspace create --name ws --resource-group rg --managed-network allow_only_approved_outbound
+    ```
+
+    The following YAML file defines a workspace with a managed virtual network:
+
+    ```yml
+    name: myworkspace
+    location: EastUS
+    managed_network:
+    isolation_mode: allow_only_approved_outbound
+    ```
+
+    To create a workspace using the YAML file, use the `--file` parameter:
+
+    ```azurecli
+    az ml workspace create --file workspace.yaml --resource-group rg
+    ```
+
+* __Update an existing workspace__
+
+    > [!WARNING]
+    > Before updating an existing workspace to use a managed network, you must delete all computing resources for the workspace. This includes compute instance, compute cluster, serverless, serverless spark, and managed online endpoints.
+
+    The following example uses the `--managed-network allow_only_approved_outbound` parameter to configure the managed network for an existing workspace:
+
+    ```azurecli
+    az ml workspace update --name ws --resource-group rg --managed-network allow_only_approved_outbound
+    ```
+
+    The following YAML file defines a managed network for the workspace. It also demonstrates how to add an approved outbound to the managed network. In this example, 
+
+    ```yaml
+    name: myworkspace_dep
+    managed_network:
+      isolation_mode: allow_only_approved_outbound
+      outbound_rules:
+      - name: added-servicetagrule
+        destination:
+          port_ranges: 80, 8080
+          protocol: TCP
+          service_tag: DataFactory
+        type: service_tag
+      - name: added-perule
+        destination:
+          service_resource_id: /subscriptions/{subscription ID}/resourceGroups/{resource group name}/providers/Microsoft.Storage/storageAccounts/{storage account name}
+          spark_enabled: true
+          subresource_target: blob
+        type: private_endpoint
+      - name: added-fqdnrule
+        destination: 'contoso.com'
+        type: fqdn
+    ```
+
+-----
 
 # [Python](#tab/python)
 
-> [!IMPORTANT]
-> The following code snippet assumes that `ml_client` points to an Azure Machine Learning workspace that uses a private endpoint to participate in a VNet. For more information on using `ml_client`, see the tutorial [Azure Machine Learning in a day](tutorial-azure-ml-in-a-day.md).
+To configure a managed network that allows only approved outbound communications, use the `ManagedNetwork` class to define a network with `IsolationMode.ALLOw_ONLY_APPROVED_OUTBOUND`. You can then use the `ManagedNetwork` object to create a new workspace or update an existing one. To define _outbound rules_ to Azure services that the workspace relies on, use the `PrivateEndpointDestination` class to define a new private endpoint to the service.
 
-```python
-from azure.ai.ml import MLClient
-from azure.ai.ml.entities import Workspace
-from azure.ai.ml.entities import ManagedNetwork, FqdnDestination, ServiceTagDestination, PrivateEndpointDestination
-from azure.ai.ml.constants._workspace import IsolationMode
-from azure.identity import DefaultAzureCredential
+* __Create a new workspace__:
 
-subscription_id = "<SUBSCRIPTION_ID>"
-resource_group = "<RESOURCE_GROUP>"
-workspace = "<WORKSPACE>"
+    The following example creates a new workspace named `myworkspace`, with an outbound rule named `myrule` that adds a private endpoint for an Azure Blob store:
 
-ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
+    ```python
+    # Basic managed network configuration
+    network = ManagedNetwork(IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND)
 
-ws = ml_client.workspaces.get()
-ws.managed_network = ManagedNetwork(IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND)
-ws.managed_network.outbound_rules = [
-  FqdnDestination(rule_name="pytorch", destination="*.pytorch.org"),
-  ServiceTagDestination(rule_name="my-service", service_tag="DataFactory", protocol="TCP", port_ranges="80, 8080-8089"),
-  PrivateEndpointDestination(rule_name="my-storage", service_resource_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/MyGroup/providers/Microsoft.Storage/storageAccounts/myaccount", subresource_target="blob")
-]
+    # Workspace configuration
+    ws = Workspace(
+        name="myworkspace",
+        location="eastus",
+        managed_network=network
+    )
 
-ml_client.workspaces.begin_update(ws)
-```
+    # Example private endpoint outbound to a blob
+    rule_name = "myrule"
+    service_resource_id = "/subscriptions/{subscription ID}/resourceGroups/{resource group name}/providers/Microsoft.Storage/storageAccounts/{storage account name}"
+    subresource_target = "blob"
+    spark_enabled = true
+
+    # Add the outbound 
+    ws.managed_network.outbound_rules = [PrivateEndpointDestination(
+        name=rule_name, 
+        service_resource_id=service_resource_id, 
+        subresource_target=subresource_target, 
+        spark_enabled=spark_enabled)]
+
+    # Create the workspace
+    ws = ml_client.workspaces.begin_create(ws).result()
+    ```
+
+* __Update an existing workspace__:
+
+    The following example demonstrates how to create a managed network for an existing Azure Machine Learning workspace named "myworkspace":
+    
+    ```python
+    ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, "myworkspace")
+
+    ws = ml_client.workspaces.get()
+    ws.managed_network = ManagedNetwork(IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND)
+
+    # Example private endpoint outbound to a blob
+    rule_name = "myrule"
+    service_resource_id = "/subscriptions/{subscription ID}/resourceGroups/{resource group name}/providers/Microsoft.Storage/storageAccounts/{storage account name}"
+    subresource_target = "blob"
+    spark_enabled = true
+
+    # Add the outbound 
+    ws.managed_network.outbound_rules = [PrivateEndpointDestination(
+        name=rule_name, 
+        service_resource_id=service_resource_id, 
+        subresource_target=subresource_target, 
+        spark_enabled=spark_enabled)]
+
+    ml_client.workspaces.begin_update(ws)
+    ```
 
 # [Studio](#tab/azure-studio)
+
+To __create a new workspace__ that is configured with a managed network, use the following steps:
 
 1. Sign in to the [Azure portal](https://ms.azure.com), and choose Azure Machine Learning from Create a resource menu.
 1. Fill the information in Basics tab and move to Networking tab
@@ -168,73 +425,8 @@ ml_client.workspaces.begin_update(ws)
 1. Create a workspace
 
     <!-- :::image type="content" source="TBU" alt-text="" lightbox=""::: -->
----
 
-## Update existing workspaces with managed network isolation
-
-> [!WARNING]
-> You need to delete your all computing resources incl. compute instance, compute cluster, serverless, serverless spark, managed online endpoint to enable managed network isolation.
-
-# [Azure CLI](#tab/cli)
-
-In the `az ml workspace update` command, replace the following values:
-
-* `rg`: The resource group that the workspace will be created in.
-* `ws`: The Azure Machine Learning workspace name.
-
-Update a workspace with allow only approved outbound mode
-
-```azurecli
-az ml workspace update --name ws --resource-group rg --managed-network allow_internet_outbound
-```
-
-> [!TIP]
-> We recommend using a yml file to have additional private endpoint outbound rules. You can find a sample yaml file at [https://github.com/Azure/azureml_run_specification/blob/master/configs/workspace/add-pe-outboundrule-Workspace.yaml](https://github.com/Azure/azureml_run_specification/blob/master/configs/workspace/add-pe-outboundrule-Workspace.yaml).
->
-> ```azurecli
-> az ml workspace update --name ws --resource-group rg --file add-pe-outboundrule-Workspace.yaml
-> ```
-
-Update a workspace with allow only approved outbound mode
-
-```azurecli
-az ml workspace update --name ws --resource-group rg --managed-network allow_only_approved_outbound
-```
-
-> [!TIP]
-> We recommend using a yml file to have additional outbound rules. You can find a sample yaml file from [https://github.com/Azure/azureml_run_specification/blob/master/configs/workspace/add-several-outboundrules-Workspace.yaml](https://github.com/Azure/azureml_run_specification/blob/master/configs/workspace/add-several-outboundrules-Workspace.yaml).
->
-> ```azurecli
-> az ml workspace update --name ws --resource-group rg --file add-several-outboundrules-Workspace.yaml
-> ```
-
-# [Python](#tab/python)
-
-```python
-from azure.ai.ml import MLClient
-from azure.ai.ml.entities import Workspace
-from azure.ai.ml.entities import ManagedNetwork, FqdnDestination, ServiceTagDestination, PrivateEndpointDestination
-from azure.ai.ml.constants._workspace import IsolationMode
-from azure.identity import DefaultAzureCredential
-
-subscription_id = "<SUBSCRIPTION_ID>"
-resource_group = "<RESOURCE_GROUP>"
-workspace = "<WORKSPACE>"
-
-ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
-
-ws = ml_client.workspaces.get()
-ws.managed_network = ManagedNetwork(IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND)
-ws.managed_network.outbound_rules = [
-  FqdnDestination(rule_name="pytorch", destination="*.pytorch.org"),
-  ServiceTagDestination(rule_name="my-service", service_tag="DataFactory", protocol="TCP", port_ranges="80, 8080-8089"),
-  PrivateEndpointDestination(rule_name="my-storage", service_resource_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/MyGroup/providers/Microsoft.Storage/storageAccounts/myaccount", subresource_target="blob")
-]
-
-ml_client.workspaces.begin_update(ws)
-```
-
-# [Studio](#tab/azure-studio)
+To __update an existing workspace__ to use a managed network, use the following steps:
 
 1. Sign in to the [Azure portal](https://ms.azure.com), and choose your Azure Machine Learning workspace.
 1. Go to the networking blade and managed network tab.
@@ -244,11 +436,12 @@ ml_client.workspaces.begin_update(ws)
 
 ---
 
+
 ## Configuration for using serverless spark compute
 
 You need to run the following commands to have network isolation for your [serverless spark jobs](how-to-submit-spark-jobs.md).
 
-# [Azure CLI](#tab/cli)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az ml workspace provision-network -g my_resource_group -n my_workspace_name --include-spark
@@ -280,7 +473,7 @@ ws = ml_client.workspaces.provision_network(workspace, true)
 
 ## Manage outbound rules
 
-# [Azure CLI](#tab/cli)
+# [Azure CLI](#tab/azure-cli)
 
 To list the managed network outbound rules for a workspace, use the following command:
 
