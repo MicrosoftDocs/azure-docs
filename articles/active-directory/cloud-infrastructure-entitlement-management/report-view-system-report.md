@@ -36,8 +36,9 @@ This article describes how to generate and view a system report in Permissions M
 1. If you want to combine all Authorization Systems into one reports, check the box for **Collate**.
 1. For **Report Format**, check the boxes for a **Detailed** or **Summary** of the report in CSV format. You can select both. 
 1. For **Schedule**, select the frequency for which you would like to receive the report(s). You can select **None** if you don't what to generate reports on a scheduled basis.
-1. Click **Save**. Upon clicking **Save**, you'll receive a message **Report has been created**. The report is sent to your email.
+1. Click **Save**. Upon clicking **Save**, you'll receive a message **Report has been created**. The report will appear on the **Custom Reports** tab.
 1. To refresh the list of reports, select **Reload**.
+1. To download a report, hover your mouse over the report, click the down arrow to **Download** the report. You will see a message **Successfully Started to Generate On Demand Report**. The report is sent to your email.
 
 ## Search for a system report
 
@@ -49,8 +50,10 @@ This article describes how to generate and view a system report in Permissions M
 1. If you want to combine all Authorization Systems into one reports, check the box for **Collate**.
 1. For **Report Format**, check the boxes for a **Detailed** or **Summary** of the report in CSV format. You can select both. 
 1. For **Schedule**, select the frequency for which you would like to receive the report(s). You can select **None** if you don't what to generate reports on a scheduled basis.
-1. Click **Save**. Upon clicking **Save**, you'll receive a message **Report has been created**. The report is sent to your email.
+1. Click **Save**. Upon clicking **Save**, you'll receive a message **Report has been created**. The report will appear on the **Custom Reports** tab.
 1. To refresh the list of reports, select **Reload**.
+1. To download a report, hover your mouse over the report, click the down arrow to **Download** the report. You will see a message **Successfully Started to Generate On Demand Report**. The report is sent to your email.
+ 
 
 
 ## Next steps
