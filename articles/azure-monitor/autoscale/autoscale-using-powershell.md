@@ -254,8 +254,9 @@ Update-AzAutoscaleSetting  `
 
 Recurring profiles let you schedule a scaling profile that repeats each week. For example, scale to a single instance on the weekend from Friday night to Monday morning.
 
-While scheduled profiles have a start and end date, recurring profiles don't have an end time. The profile remains active until another profile becomes active. You must therefore create recurring default profile to start when you want the previous recurring profile to finish.
-For example, to configure a weekend profile that starts on Friday nights and ends on Monday mornings, create one profile that starts on Friday night, and a copy of the default profile that starts on Monday morning.
+While scheduled profiles have a start and end date, recurring profiles don't have an end time. A profile remains active until the next profile's start time. Therefore, when you create a recurring profile you must create a recurring default profile that starts when you want the previous recurring profile to finish.
+
+For example, to configure a weekend profile that starts on Friday nights and ends on Monday mornings, create a profile that starts on Friday night, then create recurring profile with your default settings that starts on Monday morning.
 
 The following script creates a weekend profile and an addition default profile to end the weekend profile.
 ```azurepowershell
@@ -272,11 +273,11 @@ $fridayProfile=New-AzAutoscaleProfileObject `
     -Rule $rule1, $rule2
 
 
-$mondayProfile=New-AzAutoscaleProfileObject `
-    -Name "default2" `
-    -CapacityDefault 1 `
+$defaultRecurringProfile=New-AzAutoscaleProfileObject `
+    -Name "default recurring profile" `
+    -CapacityDefault 2 `
     -CapacityMaximum 10 `
-    -CapacityMinimum 1 `
+    -CapacityMinimum 2 `
     -RecurrenceFrequency week  `
     -ScheduleDay "Monday" `
     -ScheduleHour 00  `
@@ -284,10 +285,11 @@ $mondayProfile=New-AzAutoscaleProfileObject `
     -ScheduleTimeZone  "Pacific Standard Time" `
     -Rule $rule1, $rule2
 
-Update-AzAutoscaleSetting  `
+New-AzAutoscaleSetting  `
+    -Location eastus `
     -Name vmss-autoscalesetting1 `
     -ResourceGroupName $resourceGroupName `
-    -Profile $defaultProfile, $highDemandDay, $fridayProfile, $mondayProfile `
+    -Profile $defaultRecurringProfile, $fridayProfile `
     -Notification $notification1 `
     -TargetResourceUri "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssName"  
 
