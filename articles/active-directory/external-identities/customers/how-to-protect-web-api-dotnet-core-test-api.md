@@ -26,9 +26,9 @@ Before going through this article, ensure you have a [protected web API](how-to-
 
 ## Register the daemon app 
 
-1. Register a new daemon app in your CIAM tenant via the Azure portal.
-1. Note down the app's Application (Client) ID and Directory (tenant) ID.
-1. Create a [secret](/azure/active-directory/develop/quickstart-register-app#add-a-client-secret) for the app and note it down.
+[!INCLUDE [Register daemon app](./includes/register-app/register-daemon-app.md)]
+
+[!INCLUDE [Add app client secret](./includes/register-app/add-app-client-secret.md)]
 
 ## Preauthorize the daemon app
 
@@ -36,7 +36,7 @@ Before going through this article, ensure you have a [protected web API](how-to-
 1. In the app registration window of your API, select *Expose an API* in the *Manage* section.
 1. Under *Authorized client applications*, select *Add a client application*.
 1. In the Client ID box, paste the Application ID of the daemon app.
-1. In the *Authorized scopes8 section, select the scope that allows you to at least read user data. In our case, we select the `api://<ApplicationID>/ToDoList.ReadWrite` and  `api://<ApplicationID>/ToDoList.Read` scopes.
+1. In the *Authorized scopes8 section, select the scope that allows you to at least read user data. In our case, we select the `api://<ApplicationID>/ToDoList.ReadWrite.All` and  `api://<ApplicationID>/ToDoList.Read.All` scopes.
 1. Select *Add application*.
 
 ## Write code
@@ -53,7 +53,7 @@ Before going through this article, ensure you have a [protected web API](how-to-
     dotnet add package Microsoft.Identity.Client
     ```
 1. Run your API project and note the port on which it's running.
-1. Open the *Program.cs* file and replace the "Hello world" code with the following code. This code sends a request without an access token. You should see the string *Your response is: Unauthorized* printed in your console.
+1. Open the *Program.cs* file and replace the "Hello world" code with the following code. 
 
     ```csharp
     using System;
@@ -66,6 +66,7 @@ Before going through this article, ensure you have a [protected web API](how-to-
     Console.WriteLine("Your response is: " + response.StatusCode);
     ```
 
+    Navigate to the daemon app root directory and run app using the command `dotnet run`. This code sends a request without an access token. You should see the string *Your response is: Unauthorized* printed in your console.
 1. Remove the code in step 4 and replace with the following to test your API by sending a request with a valid access token. You should see the string *Your response is: OK* printed in your console.
 
 
@@ -95,3 +96,5 @@ Before going through this article, ensure you have a [protected web API](how-to-
     var response = await client.GetAsync("https://localhost:44351/api/todolist");
     Console.WriteLine("Your response is: " + response.StatusCode);
     ```
+
+    Navigate to the daemon app root directory and run app using the command `dotnet run`. This code sends a request without an access token. You should see the string *Your response is: Unauthorized* printed in your console.
