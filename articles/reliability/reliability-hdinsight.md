@@ -12,22 +12,17 @@ CustomerIntent: As a cloud architect/engineer, I need general guidance on migrat
 
 # Reliability in Azure HDInsight 
 
-This article describes reliability support in Azure HDInsight and covers both intra-regional resiliency with [availability zones](#availability-zone-support) 
-(#disaster-recovery-cross-region-failover). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
+This article describes reliability support in Azure HDInsight, and covers [availability zones](#availability-zone-support). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
 
 ## Availability zone support
 
 Azure availability zones are at least three physically separate groups of datacenters within each Azure region. Datacenters within each zone are equipped with independent power, cooling, and networking infrastructure. In the case of a local zone failure, availability zones are designed so that if one zone is affected, regional services, capacity, and high availability are supported by the remaining two zones.  Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved with redundancy and logical isolation of Azure services. For more detailed information on availability zones in Azure, see [Availability zone service and regional support](availability-zones-service-support.md).
 
-An Azure HDInsight cluster consists of multiple nodes (head nodes, worker nodes, gateway nodes and zookeeper nodes). In a region that supports availability zones, HDInsight by default automatically spreads the cluster nodes across all zones of the selected region.  In this default deployment model, you choose to have no control over which cluster nodes are provisioned in which availability zone. 
+Azure HDInsight supports a [zonal deployment configuration](availability-zones-service-support.md#azure-services-with-availability-zone-support). Azure HDInsight cluster nodes are placed in a single zone that you select in the selected region. A zonal HDInsight cluster is isolated from any outages that occur in other zones. However, if an outage impacts the specific zone chosen for the HDInsight cluster, the cluster won't be available.  This deployment model provides inexpensive, low latency network connectivity within the cluster. Replicating this deployment model into multiple availability zones can provide a higher level of availability to protect against hardware failure.
 
-However, Azure HDInsight also supports both [zone-redundant and zonal deployment configurations](availability-zones-service-support.md#azure-services-with-availability-zone-support). 
-
-- **Zonal**. Azure HDInsight cluster nodes are placed in a single zone that you select in the selected region. A zonal HDInsight cluster is isolated from any outages that occur in other zones. However, if an outage impacts the specific zone chosen for the HDInsight cluster, the cluster won't be available.  This deployment model provides inexpensive, low latency network connectivity within the cluster. Replicating this deployment model into multiple availability zones can provide a higher level of availability to protect against hardware failure.
-
-- **Zone-redundant**. If you want application requires availability across multiple availability zones, you can create one primary HDInsight cluster in one availability zone and create a secondary HDInsight cluster in a different availability zone with minimum size to save cost. With this design, if one of the other availability zones goes down, this HDInsight cluster won’t be impacted. If this availability zone goes down, customers need to switch the secondary clusters in a different availability zone to the primary, route the workload to this new primary cluster, and quickly scale up the cluster size to pick up the data processing.
-
+>[!IMPORTANT]
+>For deployments where users don't specify a specific zone, node types are not zone resilient and can experience downtime during an outage in any zone in that region.
 
 ## Prerequisites
 
@@ -104,7 +99,7 @@ You can scale up an HDInsight cluster with more worker nodes. The newly added wo
 
 ### Availability zone redeployment
 
-Azure HDInsight clusters currently doesn't support in-place migration of existing cluster instances to availability zone support. However, you can choose to [recreate your cluster](#create-an-hdinsight-cluster-using-availability-zone), and choose availability zone support during the cluster creation.  
+Azure HDInsight clusters currently doesn't support in-place migration of existing cluster instances to availability zone support. However, you can choose to [recreate your cluster](#create-an-hdinsight-cluster-using-availability-zone), and choose a different availability zone or region during the cluster creation. A secondary standby cluster in a different region and a different availability zone can be used in disaster recovery scenarios.
 
 ### Zone down experience
 
