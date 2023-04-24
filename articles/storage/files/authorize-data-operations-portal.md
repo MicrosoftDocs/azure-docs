@@ -11,17 +11,17 @@ ms.subservice: files
 
 # Choose how to authorize access to file data in the Azure portal
 
-When you access file data using the [Azure portal](https://portal.azure.com?azure-portal=true), the portal makes requests to Azure Files behind the scenes. These requests can be authorized using either your Azure AD account or the storage account access key. The portal indicates which method you are using, and enables you to switch between the two if you have the appropriate permissions.
+When you access file data using the [Azure portal](https://portal.azure.com?azure-portal=true), the portal makes requests to Azure Files behind the scenes. These requests can be authorized using either your Azure AD account or the storage account access key. The portal indicates which method you're using, and enables you to switch between the two if you have the appropriate permissions.
 
 You can also specify how to authorize an individual file share operation in the Azure portal. By default, the portal uses whichever method you're already using to authorize all file shares, but you have the option to change this setting for individual file shares.
 
 ## Permissions needed to access file data
 
-Depending on how you want to authorize access to file data in the Azure portal, you'll need specific permissions. In most cases, these permissions are provided via Azure role-based access control (Azure RBAC). For more information about Azure RBAC, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md).
+Depending on how you want to authorize access to file data in the Azure portal, you'll need specific permissions. In most cases, these permissions are provided via [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
 ### Use the storage account access key
 
-To access file data with the storage account access key, you must have an Azure role assigned to you that includes the Azure RBAC action **Microsoft.Storage/storageAccounts/listkeys/action**. This Azure role may be a built-in or custom role. Built-in roles that support **Microsoft.Storage/storageAccounts/listkeys/action** include the following, listed in order from least to greatest permissions:
+To access file data with the storage account access key, you must have an Azure role assigned to you that includes the Azure RBAC action **Microsoft.Storage/storageAccounts/listkeys/action**. This Azure role may be a built-in role or a custom role. Built-in roles that support **Microsoft.Storage/storageAccounts/listkeys/action** include the following, listed in order from least to greatest permissions:
 
 - The [Reader and Data Access](../../role-based-access-control/built-in-roles.md#reader-and-data-access) role
 - The [Storage Account Contributor role](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
@@ -65,7 +65,7 @@ If you're authenticating using the storage account access key, you'll see **Acce
 
 :::image type="content" source="media/authorize-data-operations-portal/auth-method-access-key.png" alt-text="Screenshot showing user currently accessing containers with the account key.":::
 
-To switch to using your Azure AD account, select the link highlighted in the image. If you have the appropriate permissions via the Azure roles that are assigned to you, you'll be able to proceed. However, if you lack the right permissions, you'll see an error message like the following:
+To switch to using your Azure AD account, select the link highlighted in the image. If you have the appropriate permissions via the Azure roles that are assigned to you, you'll be able to proceed. However, if you lack the necessary permissions, you'll see an error message like the following:
 
 :::image type="content" source="media/authorize-data-operations-portal/auth-error-azure-ad.png" alt-text="Error shown if Azure AD account doesn't support access.":::
 
