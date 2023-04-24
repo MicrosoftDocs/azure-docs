@@ -59,6 +59,8 @@ The managed virtual network is preconfigured with [required default outbound rul
 
 Before following the steps in this article, make sure you have the following prerequisites:
 
+# [Azure CLI](#tab/azure-cli)
+
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
 * The [Azure CLI](/cli/azure/) and the `ml` extension to the Azure CLI. For more information, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
@@ -71,6 +73,10 @@ Before following the steps in this article, make sure you have the following pre
     > [!IMPORTANT]
     > The examples in this document assume that you are using the Bash shell. For example, from a Linux system or [Windows Subsystem for Linux](/windows/wsl/about). 
 
+# [Python](#tab/python)
+
+* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
+
 * The Azure Machine Learning Python SDK v2. To install or update the SDK, use the following command:
 
     ```bash
@@ -79,7 +85,7 @@ Before following the steps in this article, make sure you have the following pre
 
     For more information, see [Install the Python SDK v2 for Azure Machine Learning](/python/api/overview/azure/ai-ml-readme).
 
-    The examples in this article assume that your code begins with the following Python. This code imports the classes required when creating a workspace with managed network, sets variables for your Azure subscription and resource group, and creates the `ml_client`:
+* The examples in this article assume that your code begins with the following Python. This code imports the classes required when creating a workspace with managed network, sets variables for your Azure subscription and resource group, and creates the `ml_client`:
 
     ```python
     from azure.ai.ml import MLClient
@@ -92,6 +98,12 @@ Before following the steps in this article, make sure you have the following pre
     subscription_id = "<SUBSCRIPTION_ID>"
     resource_group = "<RESOURCE_GROUP>"
     ```
+
+# [Studio](#tab/azure-studio)
+
+* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
+
+---
 
 ## Configure a managed network to allow internet outbound
 
