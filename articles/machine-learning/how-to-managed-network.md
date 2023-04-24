@@ -57,30 +57,29 @@ The managed virtual network is preconfigured with [required default outbound rul
 
 ## Prerequisites
 
-# [Azure CLI](#tab/azure-cli)
-
-[!INCLUDE [basic prereqs cli](../../includes/machine-learning-cli-prereqs.md)]
-
-* The Azure CLI examples in this article use `ws` to represent the name of the workspace, and `rg` to represent the name of the resource group. Change these values as needed when using the commands with your Azure subscription. If you are creating a new workspace, you must first create an Azure Resource Group to contain it. For more information, see [Manage Azure Resource Groups](/azure/azure-resource-manager/management/manage-resource-groups-cli).
-
-> [!IMPORTANT]
-> The examples in this document assume that you are using the Bash shell. For example, from a Linux system or [Windows Subsystem for Linux](/windows/wsl/about). 
-
-# [Python](#tab/python)
-
 Before following the steps in this article, make sure you have the following prerequisites:
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
-* To install the Python SDK v2, use the following command:
+* The [Azure CLI](/cli/azure/) and the `ml` extension to the Azure CLI. For more information, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
+
+    > [!IMPORTANT]
+    > The CLI examples in this article assume that you are using the Bash (or compatible) shell. For example, from a Linux system or [Windows Subsystem for Linux](/windows/wsl/about).
+
+    The Azure CLI examples in this article use `ws` to represent the name of the workspace, and `rg` to represent the name of the resource group. Change these values as needed when using the commands with your Azure subscription.
+
+    > [!IMPORTANT]
+    > The examples in this document assume that you are using the Bash shell. For example, from a Linux system or [Windows Subsystem for Linux](/windows/wsl/about). 
+
+* The Azure Machine Learning Python SDK v2. To install or update the SDK, use the following command:
 
     ```bash
-    pip install azure-ai-ml azure-identity
+    pip install --upgrade azure-ai-ml azure-identity
     ```
 
     For more information, see [Install the Python SDK v2 for Azure Machine Learning](/python/api/overview/azure/ai-ml-readme).
 
-* The examples in this article assume that your code begins with the following Python. This code imports the classes required when creating a workspace with managed network, sets variables for your Azure subscription and resource group, and creates the `ml_client`:
+    The examples in this article assume that your code begins with the following Python. This code imports the classes required when creating a workspace with managed network, sets variables for your Azure subscription and resource group, and creates the `ml_client`:
 
     ```python
     from azure.ai.ml import MLClient
@@ -93,11 +92,6 @@ Before following the steps in this article, make sure you have the following pre
     subscription_id = "<SUBSCRIPTION_ID>"
     resource_group = "<RESOURCE_GROUP>"
     ```
-
-    > [!TIP]
-    > If you are creating a new workspace, you must first create an Azure Resource Group to contain it. For more information, see [Manage Azure Resource Groups](/azure/azure-resource-manager/management/manage-resource-groups-python).
-
----
 
 ## Configure a managed network to allow internet outbound
 
@@ -129,7 +123,10 @@ managed_network:
 
 You can configure a managed network using either the `az ml workspace create` or `az ml workspace update` commands:
 
-* __Create a new workspace__: 
+* __Create a new workspace__:
+
+    > [!TIP]
+    > before creating a new workspace, you must create an Azure Resource Group to contain it. For more information, see [Manage Azure Resource Groups](/azure/azure-resource-manager/management/manage-resource-groups-cli).
 
     The following example uses the `--managed-network allow_internet_outbound` parameter to configure the managed network:
 
@@ -189,6 +186,9 @@ You can configure a managed network using either the `az ml workspace create` or
 To configure a managed network that allows internet outbound communications, use the `ManagedNetwork` class to define a network with `IsolationMode.ALLOW_INTERNET_OUTBOUND`. You can then use the `ManagedNetwork` object to create a new workspace or update an existing one. To define _outbound rules_ to Azure services that the workspace relies on, use the `PrivateEndpointDestination` class to define a new private endpoint to the service.
 
 * __Create a new workspace__:
+
+    > [!TIP]
+    > before creating a new workspace, you must create an Azure Resource Group to contain it. For more information, see [Manage Azure Resource Groups](/azure/developer/python/sdk/examples/azure-sdk-example-resource-group).
 
     The following example creates a new workspace named `myworkspace`, with an outbound rule named `myrule` that adds a private endpoint for an Azure Blob store:
 
@@ -304,6 +304,9 @@ You can configure a managed network using either the `az ml workspace create` or
 
 * __create a new workspace__:
 
+    > [!TIP]
+    > before creating a new workspace, you must create an Azure Resource Group to contain it. For more information, see [Manage Azure Resource Groups](/azure/azure-resource-manager/management/manage-resource-groups-cli).
+
     The following example uses the `--managed-network allow_only_approved_outbound` parameter to configure the managed network:
 
     ```azurecli
@@ -360,13 +363,16 @@ You can configure a managed network using either the `az ml workspace create` or
         type: fqdn
     ```
 
------
+---
 
 # [Python](#tab/python)
 
 To configure a managed network that allows only approved outbound communications, use the `ManagedNetwork` class to define a network with `IsolationMode.ALLOw_ONLY_APPROVED_OUTBOUND`. You can then use the `ManagedNetwork` object to create a new workspace or update an existing one. To define _outbound rules_ to Azure services that the workspace relies on, use the `PrivateEndpointDestination` class to define a new private endpoint to the service.
 
 * __Create a new workspace__:
+
+    > [!TIP]
+    > before creating a new workspace, you must create an Azure Resource Group to contain it. For more information, see [Manage Azure Resource Groups](/azure/developer/python/sdk/examples/azure-sdk-example-resource-group).
 
     The following example creates a new workspace named `myworkspace`, with an outbound rule named `myrule` that adds a private endpoint for an Azure Blob store:
 
