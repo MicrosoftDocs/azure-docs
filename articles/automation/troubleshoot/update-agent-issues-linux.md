@@ -80,8 +80,8 @@ To fix this issue, you must start the OMS Agent service by using the following c
 To validate you can perform process check using the below command: 
 
 ```
-process_name = "omsagent" 
-ps aux | grep %s | grep -v grep" % (process_name) 
+process_name="omsagent" 
+ps aux | grep %s | grep -v grep" % (process_name)" 
 ```
 
 For more information, see [Troubleshoot issues with the Log Analytics agent for Linux](../../azure-monitor/agents/agent-linux-troubleshoot.md)

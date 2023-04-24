@@ -90,7 +90,7 @@ To migrate a classic storage account to the Azure Resource Manager deployment mo
 >
 > To manage Azure Resource Manager resources, we recommend that you use the Az PowerShell module. The Az module replaces the deprecated AzureRM module. For more information about moving from the AzureRM module to the Az module, see [Migrate Azure PowerShell scripts from AzureRM to Az](/powershell/azure/migrate-from-azurerm-to-az).
 
-First, install PowerShellGet if you don't already have it installed. For more information on how to install PowerShellGet, see [Installing PowerShellGet](/powershell/scripting/gallery/installing-psget#installing-the-latest-version-of-powershellget). After you install PowerShellGet, close and reopen the PowerShell console.
+First, install PowerShellGet if you don't already have it installed. For more information on how to install PowerShellGet, see [Installing PowerShellGet](/powershell/gallery/powershellget/install-powershellget). After you install PowerShellGet, close and reopen the PowerShell console.
 
 Next, install the Azure Service Management module. If you also have the AzureRM module installed, you'll need to include the `-AllowClobber` parameter, as described in [Step 2: Install Azure PowerShell](/powershell/azure/servicemanagement/install-azure-ps#step-2-install-azure-powershell). After the installation is complete, import the Azure Service Management module.
 
