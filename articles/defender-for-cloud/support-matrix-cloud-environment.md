@@ -17,7 +17,7 @@ In the support table, **NA** indicates that the feature is not available.
 
 **Feature/Plan** | **Azure** | **Azure Government** | **Azure China**<br/><br/>**21Vianet**
 --- | --- | --- |--- 
-**Foundational CSPM** | | |  
+**Foundational CSPM features** | | |  
 [Continuous export](./continuous-export.md) | GA | GA | GA
 [Workflow automation](./workflow-automation.md) | GA | GA | GA
 [Recommendation exemption rules](./exempt-resource.md) | Public preview | NA | NA
@@ -27,28 +27,28 @@ In the support table, **NA** indicates that the feature is not available.
 [Asset inventory](./asset-inventory.md) | GA | GA | GA
 [Azure Workbooks support](./custom-dashboards-azure-workbooks.md) | GA | GA | GA
 [Microsoft Defender for Cloud Apps integration](./other-threat-protections.md#display-recommendations-in-microsoft-defender-for-cloud-apps) | GA | GA | GA
-**[Defender CSPM](concept-cloud-security-posture-management.md)** | GA | NA | NA
+*[Defender CSPM](concept-cloud-security-posture-management.md)** | GA | NA | NA
 **[Defender for APIs](defender-for-apis-introduction.md)** | Public preview | NA | NA
 **[Defender for App Service](defender-for-app-service-introduction.md)** | GA | NA | NA
 **[Defender for Azure Cosmos DB](concept-defender-for-cosmos.md)** | Public preview | NA | NA
-**[Defender for Azure SQL database servers](defender-for-sql-introduction.md)**<br/><br/> Partial GA in Vianet21<br/> - A subset of alerts/vulnerability assessments is available.<br/>- Behavioral threat protection isn't available. | GA | GA | GA
+**[Defender for Azure SQL database servers](defender-for-sql-introduction.md)**<br/><br/> Partial GA in Vianet21<br/> - A subset of alerts/vulnerability assessments is available.<br/>- Behavioral threat protection isn't available.| GA | GA | GA
 **[Defender for Containers](defender-for-containers-introduction.md)**| GA | GA | GA
 [Azure Arc extension for Kubernetes clusters/servers/data services](defender-for-kubernetes-azure-arc.md): | Public preview | NA | NA
 Runtime visibility of vulnerabilities in container images | Public preview | NA | NA
 **[Defender for DNS](defender-for-dns-introduction.md)** | GA | GA | GA
 **[Defender for Key Vault](./defender-for-key-vault-introduction.md)** | GA | NA | NA
-[Defender for Kubernetes](./defender-for-kubernetes-introduction.md)<br/><br/> Defender for Kubernetes is deprecated and doesn't include new features. In particular, support for Azure Arc-enabled clusters is in public preview and not available in governement clouds. [Learn more](defender-for-kubernetes-introduction.md). | GA | GA | GA
+**[Defender for Kubernetes](./defender-for-kubernetes-introduction.md)**<br/><br/> Defender for Kubernetes is deprecated and doesn't include new features. In particular, support for Azure Arc-enabled clusters is in public preview and not available in governement clouds. [Learn more](defender-for-kubernetes-introduction.md). | GA | GA | GA
 **[Defender for open-source relational databases](defender-for-databases-introduction.md)** | GA | NA | NA  
 **[Defender for Resource Manager](./defender-for-resource-manager-introduction.md)** | GA | GA | GA
-**[Defender for Servers](plan-defender-for-servers.md)** | | | |
+**[Defender for Servers](plan-defender-for-servers.md) features** | | |
 [Just-in-time VM access](./just-in-time-access-usage.md) | GA | GA | GA
 [File integrity monitoring](./file-integrity-monitoring-overview.md)  | GA | GA | GA
 [Adaptive application controls](./adaptive-application-controls.md)  | GA | GA | GA
 [Adaptive network hardening](./adaptive-network-hardening.md) | GA | GA | NA
-[Docker host hardening](./harden-docker-hosts.md) |  | GA | GA | GA
+[Docker host hardening](./harden-docker-hosts.md)  | GA | GA | GA
 [Integrated Qualys scanner](./deploy-vulnerability-assessment-vm.md) | GA | NA | NA
 [Compliance dashboard/reports](./regulatory-compliance-dashboard.md)<br/><br/> Compliance standards might differ depending on the cloud type.| GA | GA | GA
-[Defender for Endpoint integration](./integration-defender-for-endpoint.md) | | GA | GA | NA
+[Defender for Endpoint integration](./integration-defender-for-endpoint.md) | GA | GA | NA
 [Connect AWS account](./quickstart-onboard-aws.md) | GA | NA | NA
 [Connect GCP project](./quickstart-onboard-gcp.md) | GA | NA | NA
 **[Defender for Storage](./defender-for-storage-introduction.md)**<br/><br/> Some alerts in Defender for Storage are in public preview. | GA | GA | NA
