@@ -99,7 +99,10 @@ Before following the steps in this article, make sure you have the following pre
 
 ---
 
-## Create a managed network
+## Configure a managed network to allow internet outbound
+
+> [!IMPORTANT]
+> The creation of the managed network is deferred until a compute resource is created or provisioning is manually started. [Manually start provisioning if you plan to submit serverless spark jobs](#configure-for-serverless-spark-jobs).
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -148,6 +151,9 @@ You can configure a managed network using either the `az ml workspace create` or
     ```azurecli
     az ml workspace create --file workspace.yaml --resource-group rg
     ```
+
+    > [!IMPORTANT]
+    > The creation of the managed network is deferred until a compute resource is created or provisioning is manually started. [Manually start provisioning if you plan to submit serverless spark jobs](#configure-for-serverless-spark-jobs).
 
 * __Update an existing workspace__:
 
@@ -254,7 +260,10 @@ To configure a managed network that allows internet outbound communications, use
 
 ---
 
-## Managed network that allows only approved outbound
+## Configure a managed network to allow only approved outbound
+
+> [!IMPORTANT]
+> The creation of the managed network is deferred until a compute resource is created or provisioning is manually started. [Manually start provisioning if you plan to submit serverless spark jobs](#configure-for-serverless-spark-jobs).
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -391,6 +400,9 @@ To configure a managed network that allows only approved outbound communications
 
 * __Update an existing workspace__:
 
+    > [!WARNING]
+    > Before updating an existing workspace to use a managed network, you must delete all computing resources for the workspace. This includes compute instance, compute cluster, serverless, serverless spark, and managed online endpoints.
+
     The following example demonstrates how to create a managed network for an existing Azure Machine Learning workspace named "myworkspace":
     
     ```python
@@ -417,31 +429,36 @@ To configure a managed network that allows only approved outbound communications
 
 # [Studio](#tab/azure-studio)
 
-To __create a new workspace__ that is configured with a managed network, use the following steps:
+* To __create a new workspace__ that is configured with a managed network, use the following steps:
 
-1. Sign in to the [Azure portal](https://ms.azure.com), and choose Azure Machine Learning from Create a resource menu.
-1. Fill the information in Basics tab and move to Networking tab
-1. Choose managed network mode; Private with Internet outbound or Private only with approved outbound
-1. Create a workspace
+    1. Sign in to the [Azure portal](https://ms.azure.com), and choose Azure Machine Learning from Create a resource menu.
+    1. Fill the information in Basics tab and move to Networking tab
+    1. Choose managed network mode; Private with Internet outbound or Private only with approved outbound
+    1. Create a workspace
 
-    <!-- :::image type="content" source="TBU" alt-text="" lightbox=""::: -->
+        <!-- :::image type="content" source="TBU" alt-text="" lightbox=""::: -->
 
-To __update an existing workspace__ to use a managed network, use the following steps:
+* To __update an existing workspace__ to use a managed network, use the following steps:
 
-1. Sign in to the [Azure portal](https://ms.azure.com), and choose your Azure Machine Learning workspace.
-1. Go to the networking blade and managed network tab.
-1. Change managed network mode to "private with internet outbound" or "private with allowed outbound"
+    > [!WARNING]
+    > Before updating an existing workspace to use a managed network, you must delete all computing resources for the workspace. This includes compute instance, compute cluster, serverless, serverless spark, and managed online endpoints.
 
-    <!-- :::image type="content" source="TBU" alt-text="" lightbox=""::: -->
+    1. Sign in to the [Azure portal](https://ms.azure.com), and choose your Azure Machine Learning workspace.
+    1. Go to the networking blade and managed network tab.
+    1. Change managed network mode to "private with internet outbound" or "private with allowed outbound"
+
+        <!-- :::image type="content" source="TBU" alt-text="" lightbox=""::: -->
 
 ---
 
 
-## Configuration for using serverless spark compute
+## Configure for serverless spark jobs
 
-You need to run the following commands to have network isolation for your [serverless spark jobs](how-to-submit-spark-jobs.md).
+To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the managed network, you must provision the network after configuring it and flag it to allow spark jobs.
 
 # [Azure CLI](#tab/azure-cli)
+
+The following example shows how to provision a managed network for serverless spark jobs by using the `--include-spark` parameter.
 
 ```azurecli
 az ml workspace provision-network -g my_resource_group -n my_workspace_name --include-spark
@@ -449,16 +466,16 @@ az ml workspace provision-network -g my_resource_group -n my_workspace_name --in
 
 # [Python](#tab/python)
 
+The following example shows how to provision a managed network for serverless spark jobs:
+
 ```python
-from azure.ai.ml import MLClient
-from azure.ai.ml.entities import Workspace, ManagedNetwork
-from azure.ai.ml.constants._workspace import IsolationMode
-from azure.identity import DefaultAzureCredential
-subscription_id = "<SUBSCRIPTION_ID>"
-resource_group = "<RESOURCE_GROUP>"
-workspace = "<WORKSPACE>"
-ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group)
-ws = ml_client.workspaces.provision_network(workspace, true)
+# Connect to a workspace named "myworkspace"
+ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace_name="myworkspace")
+
+# whether to provision spark vnet as well
+include_spark = True
+
+provision_network_result = ml_client.workspaces.begin_provision_network(ws_name, include_spark).result()
 ```
 
 # [Studio](#tab/azure-studio)
@@ -494,6 +511,8 @@ az ml workspace outbound-rule remove --rule rule-name --workspace-name ws --reso
 ```
 
 # [Python](#tab/python)
+
+TBD
 
 # [Studio](#tab/azure-studio)
 
