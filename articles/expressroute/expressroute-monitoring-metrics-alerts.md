@@ -226,7 +226,7 @@ When you deploy an ExpressRoute gateway, Azure manages the compute and functions
 * Count of routes learned from peers
 * Frequency of routes changed
 * Number of VMs in the virtual network
-* Count of active flows
+* Active flows
 * Max flows created per second
 
 It's highly recommended you set alerts for each of these metrics so that you're aware of when your gateway could be seeing performance issues.
