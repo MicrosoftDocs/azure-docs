@@ -6,8 +6,6 @@
       href: overview.md
     - name: Compare container options in Azure
       href: compare-options.md
-    - name: Application types
-      href: application-types.md
 - name: Quickstarts
   expanded: true
   items: 
@@ -85,8 +83,6 @@
         href: dapr-overview.md
       - name: Scale Dapr apps with KEDA using Bicep
         href: dapr-keda-scaling.md
-    - name: Jobs
-      href: jobs.md
     - name: Azure Arc-enabled Kubernetes clusters
       href: azure-arc-overview.md
 - name: How-to guides
@@ -202,14 +198,8 @@
         href: microservices-dapr-service-invoke.md
       - name: Deploy a Dapr application using GitHub Actions
         href: dapr-github-actions.md
-    - name: Custom runner with a job
-      href: jobs-runner.md
     - name: Background processing
-      items: 
-      - name: In a container app
-        href: background-processing.md
-      - name: In a job
-        href: background-processing-jobs.md
+      href: background-processing.md
     - name: Create an Azure Files storage mount
       href: storage-mounts-azure-files.md
     - name: Azure Arc
