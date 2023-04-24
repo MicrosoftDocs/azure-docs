@@ -1,5 +1,5 @@
 ---
-title: Upgrade Policy for Virtual Machine Scale Sets
+title: Manage Upgrade Policies for Virtual Machine Scale Sets
 description: Learn about the different upgrade policies available for Virtual Machine Scale Sets
 author: mimckitt
 ms.author: mimckitt
@@ -10,7 +10,7 @@ ms.reviewer: ju-shim
 ms.custom: 
 
 ---
-# Upgrade Policy for Virtual Machine Scale Sets
+# Manage Upgrade Policies for Virtual Machine Scale Sets
 
 > [!NOTE]
 > Upgrade Policy currently only applies to Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchestration modes for Virtual Machine Scale Sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
