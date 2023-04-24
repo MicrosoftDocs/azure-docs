@@ -27,18 +27,19 @@ This article shows you how to configure autoscale for a Virtual Machine Scale Se
 
 To configure autoscale using PowerShell, you need an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free).
 
+## Set up your environemnt
 
+```azurepowershell
+#Set the subscription Id, VMSS name, and resource group name
+$subscriptionId = (Get-AzContext).Subscription.Id
+$resourceGroupName="rg-powershell-autoscale"
+$vmssName="vmss-001"
+```
 ## Create a Virtual Machine Scale Set
 
 Create a scale set using the following cmdlets. Set the `$resourceGroupName` and `$vmssName` variables to suite your environment.
 
 ```azurepowershell
-#Set the VMSS name and resource group name
-
-$subscriptionId = (Get-AzContext).Subscription.Id
-$resourceGroupName="rg-powershell-autoscale"
-$vmssName="vmss-001"
-
 # create a new resource group
 New-AzResourceGroup -ResourceGroupName $resourceGroupName -Location "EastUS"
 
@@ -65,7 +66,8 @@ To create autoscale setting using PowerShell, follow the sequence below:
 
 1. Create rules using `New-AzAutoscaleScaleRuleObject`
 1. Create a profile using `New-AzAutoscaleProfileObject`
-1. Create or update the autoscale settings using `Update-AzAutoscaleSetting`
+1. Create the autoscale settings using `New-AzAutoscaleSetting`
+1. Update the settings using `Update-AzAutoscaleSetting`
 
 ### Create rules
 
@@ -78,9 +80,6 @@ The following PowerShell script created two rules.
 + Scale in when Percentage CPU is less than 30%
 
 ```azurepowershell
-
-$resourceGroupName="rg-powershell-autoscale"
-$vmssName="vmss-001"
 
 $rule1=New-AzAutoscaleScaleRuleObject `
     -MetricTriggerMetricName "Percentage CPU" `
@@ -182,7 +181,7 @@ For more information on webhook notifications, see [`New-AzAutoscaleWebhookNotif
 Set a webhook using the following cmdlet;
 ```azurepowershell
 
-  $webhook1=New-AzAutoscaleWebhookNotificationObject -Property @{} -ServiceUri "http://contoso.com/wbhook1"
+  $webhook1=New-AzAutoscaleWebhookNotificationObject -Property @{} -ServiceUri "http://contoso.com/webhook1"
 ```
 
 Configure the notification using the webhook and set up email notification using the [`New-AzAutoscaleNotificationObject`](https://learn.microsoft.com/powershell/module/az.monitor/new-azautoscalenotificationobject) cmdlet:
@@ -293,6 +292,8 @@ Update-AzAutoscaleSetting  `
     -TargetResourceUri "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssName"  
 
 ```
+
+For more information on scheduled profiles, see [Autoscale with multiple profiles](./autoscale-multiprofile.md)
 
 ## Other autoscale commands
 
