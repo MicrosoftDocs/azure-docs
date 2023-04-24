@@ -143,17 +143,6 @@ For sample alerts that use the common schema, see [Sample alert payloads](alerts
 |windowEndTime        |The end time of the evaluation window in which the alert fired.         |
 |customProperties     ||
 
-## Custom properties fields
-
-If you've configured action groups for a metric alert rule, you can add more information to the alert payload by adding custom properties .
-
-The custom properties section contains “key: value” objects that are added to webhook notifications. 
-
-If custom properties are not set in the alert rule, the field is null.
-
-> [!NOTE]
-> Custom properties are currently only supported by metric alerts. For all other alert types, the **custom properties** field is null.
-
 ### Sample metric alert with a static threshold when the monitoringService = `Platform`
 
 ```json
@@ -686,6 +675,16 @@ See [Azure Monitor managed service for Prometheus rule groups (preview)](../esse
   }
 }
 ```
+## Custom properties fields
+
+If you've configured action groups for a metric alert rule, you can add more information to the alert payload by adding custom properties .
+
+The custom properties section contains “key: value” objects that are added to webhook notifications. 
+
+If custom properties are not set in the alert rule, the field is null.
+
+> [!NOTE]
+> Custom properties are currently only supported by metric alerts. For all other alert types, the **custom properties** field is null.
 ## Enable the common alert schema
 
 Use action groups in the Azure portal or use the REST API to enable the common alert schema. Schemas are defined at the action level. For example, you must separately enable the schema for an email action and a webhook action.
