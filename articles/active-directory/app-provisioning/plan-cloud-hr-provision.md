@@ -399,8 +399,8 @@ When you initiate the Joiners-Movers-Leavers process, gather the following requi
 Depending on your requirements, you can modify the mappings to meet your integration goals. For more information, see the specific cloud HR app tutorial (such as [Workday](../saas-apps/workday-inbound-tutorial.md#part-4-configure-attribute-mappings)) for a list of custom attributes to map.
 
 ### Generate a unique attribute value
+Attributes like CN, samAccountName, and the UPN have unique constraints. You may need to generate unique attribute values when you initiate the Joiners process.
 
-When you initiate the Joiners process, you might need to generate unique attribute values when you set attributes like CN, samAccountName, and the UPN, which has unique constraints.
 
 The Azure AD function [SelectUniqueValues](../app-provisioning/functions-for-customizing-application-data.md#selectuniquevalue) evaluates each rule and then checks the value generated for uniqueness in the target system. For an example, see [Generate unique value for the userPrincipalName (UPN) attribute](../app-provisioning/functions-for-customizing-application-data.md#generate-unique-value-for-userprincipalname-upn-attribute).
 
