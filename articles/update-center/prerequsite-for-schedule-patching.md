@@ -132,9 +132,10 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
 } 
 ```
 ---
+
 > [!NOTE]
 > Currently, you can only enable the new prerequisite for schedule patching via Azure portal and REST API. It cannot be enabled via Azure CLI and PowerShell.
---- 
+
 
 ## Enable automatic guest VM patching on Azure VMs
 
