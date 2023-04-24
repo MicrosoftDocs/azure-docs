@@ -56,14 +56,14 @@ Before you begin this tutorial, you should:
 --- | ---
 **Identify a machine to install the tool** | A Windows machine to install and run the Azure Migrate: App Containerization tool. The Windows machine could be a server (Windows Server 2016 or later) or client (Windows 10) operating system, meaning that the tool can run on your desktop as well. <br/><br/> The Windows machine running the tool should have network connectivity to the servers/virtual machines hosting the ASP.NET applications to be containerized.<br/><br/> Ensure that 6-GB space is available on the Windows machine running the Azure Migrate: App Containerization tool for storing application artifacts. <br/><br/> The Windows machine should have internet access, directly or via a proxy. <br/> <br/>Install the Microsoft Web Deploy tool on the machine running the App Containerization helper tool and application server if not already installed. You can download the tool from [here](https://aka.ms/webdeploy3.6).
 **Application servers** | Enable PowerShell remoting on the application servers: Sign in to the application server and follow [these](/powershell/module/microsoft.powershell.core/enable-psremoting) instructions to turn on PowerShell remoting. <br/><br/> If the application server is running Windows Server 2008 R2, ensure that PowerShell 5.1 is installed on the application server. Follow the instruction [here](/powershell/scripting/windows-powershell/wmf/setup/install-configure) to download and install PowerShell 5.1 on the application server. <br/><br/> Install the Microsoft Web Deploy tool on the machine running the App Containerization helper tool and application server if not already installed. You can download the tool from [here](https://aka.ms/webdeploy3.6).
-**ASP.NET application** | The tool currently supports:<br/> - ASP.NET applications using Microsoft .NET framework 3.5 or later. <br/>- Application servers running Windows Server 2008 R2 or later (application servers should be running PowerShell version 5.1). <br/>- Applications running on Internet Information Services (IIS) 7.5 or later. <br/><br/> The tool currently doesn't support: <br/>- Applications requiring Windows authentication (The App Containerization tool currently does not support gMSA.). <br/>- Applications that depend on other Windows services hosted outside IIS.
+**ASP.NET application** | The tool currently supports:<br/> - ASP.NET applications using Microsoft .NET framework 3.5 or later. <br/>- Application servers running Windows Server 2008 R2 or later (application servers should be running PowerShell version 5.1). <br/>- Applications running on Internet Information Services (IIS) 7.5 or later. <br/><br/> The tool currently doesn't support: <br/>- Applications requiring Windows authentication(The App Containerization tool currently doesn't support gMSA). <br/>- Applications that depend on other Windows services hosted outside IIS.
 
 
 ## Prepare an Azure user account
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
-Once your subscription is set up, you'll need an Azure user account with:
+Once your subscription is set up, you need an Azure user account with:
 - Owner permissions on the Azure subscription.
 - Permissions to register Azure Active Directory apps.
 
@@ -122,7 +122,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
     ![Screenshot of default load-up for App Containerization tool.](./media/tutorial-containerize-apps-aks/tool-home.png)
 
-### Complete tool pre-requisites
+### Complete tool prerequisites
 1. Accept the **license terms**, and read the third-party information.
 6. In the tool web app > **Set up prerequisites**, do the following steps:
    - **Connectivity**: The tool checks that the Windows machine has internet access. If the machine uses a proxy:
