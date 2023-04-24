@@ -143,6 +143,8 @@ items:
       href: protect-azure-virtual-desktop.md
     - name: Protect Azure Kubernetes Service (AKS)
       href: protect-azure-kubernetes-service.md
+    - name: Protect Office 365
+      href: protect-office-365.md
     - name: DNS settings
       href: dns-settings.md
     - name: Monitor diagnostic logs
