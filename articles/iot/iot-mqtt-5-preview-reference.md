@@ -1,6 +1,6 @@
 ---
  title: Azure IoT Hub MQTT 5 API reference (preview)
- description: Learn about IoT Hub's MQTT 5 API reference
+ description: Learn about the IoT Hub MQTT 5 preview API
  services: iot
  ms.service: iot
  author: kgremban
@@ -10,7 +10,7 @@
 
 ---
 
-# IoT Hub data plane MQTT 5 API reference
+# IoT Hub data plane MQTT 5 API reference (preview) 
 
 This document defines operations available in version 2.0 (api-version: `2020-10-01-preview`) of IoT Hub data plane API.
 

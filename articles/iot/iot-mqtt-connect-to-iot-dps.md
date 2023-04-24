@@ -10,7 +10,7 @@ ms.date: 04/24/2023
 ms.custom:  [amqp, mqtt]
 ---
 
-# Communicate with your DPS using the MQTT protocol
+# Communicate with DPS using the MQTT protocol
 
 DPS enables devices to communicate with the DPS device endpoint using:
 
@@ -22,13 +22,13 @@ DPS isn't a full-featured MQTT broker and doesn't support all the behaviors spec
 All device communication with DPS must be secured using TLS/SSL. Therefore, DPS doesn't support nonsecure connections over port 1883.
 
  > [!NOTE]
- > DPS does not currently support devices using TPM [attestation mechanism](./concepts-service.md#attestation-mechanism) over the MQTT protocol.
+ > DPS does not currently support devices using TPM [attestation mechanism](../iot-dps/concepts-service.md#attestation-mechanism) over the MQTT protocol.
 
 ## Connecting to DPS
 
 A device can use the MQTT protocol to connect to a DPS instance using any of the following options.
 
-* Libraries in the [Azure IoT Provisioning SDKs](libraries-sdks.md).
+* Libraries in the [Azure IoT Provisioning SDKs](iot-sdks#dps-management-sdks).
 * The MQTT protocol directly.
 
 ## Using the MQTT protocol directly (as a device)
@@ -37,7 +37,7 @@ If a device can't use the device SDKs, it can still connect to the public device
 
 * For the **ClientId** field, use **registrationId**.
 
-* For the **Username** field, use `{idScope}/registrations/{registration_id}/api-version=2019-03-31`, where `{idScope}` is the [ID scope](./concepts-service.md#id-scope) of the DPS and `{registration_id}` is the [Registration ID](./concepts-service.md#registration-id) for your device.
+* For the **Username** field, use `{idScope}/registrations/{registration_id}/api-version=2019-03-31`, where `{idScope}` is the [ID scope](../iot-dps/concepts-service.md#id-scope) of the DPS and `{registration_id}` is the [Registration ID](../iot-dps/concepts-service.md#registration-id) for your device.
 
   > [!NOTE]
   > If you use X.509 certificate authentication, the registration ID is provided by the subject common name (CN) of your device leaf (end-entity) certificate. `{registration_id}` in the **Username** field must match the common name.
@@ -50,7 +50,7 @@ If a device can't use the device SDKs, it can still connect to the public device
   > [!NOTE]
   > If you use X.509 certificate authentication, SAS token passwords are not required.
 
-  For more information about how to generate SAS tokens, see the security tokens section of [Control access to DPS](how-to-control-access.md#security-tokens).
+  For more information about how to generate SAS tokens, see the security tokens section of [Control access to DPS](../iot-dps/how-to-control-access.md#security-tokens).
 
 The following list contains DPS implementation-specific behaviors:
 

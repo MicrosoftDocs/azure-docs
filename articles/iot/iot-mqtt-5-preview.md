@@ -1,6 +1,6 @@
 ---
  title: Azure IoT Hub MQTT 5 support (preview)
- description: Learn about IoT Hub's MQTT 5 support
+ description: Learn about MQTT 5 support in IoT Hub
  services: iot
  ms.service: iot
  author: kgremban
@@ -9,23 +9,23 @@
  ms.date: 04/24/2023
 ---
 
-# IoT Hub MQTT 5 support overview (preview)
+# IoT Hub MQTT 5 support (preview) 
 
 **Version:** 2.0
 **api-version:** 2020-10-01-preview
 
-This document defines IoT Hub data plane API over MQTT version 5.0 protocol. See [API Reference](iot-hub-mqtt-5-reference.md) for complete definitions in this API.
+This document defines IoT Hub data plane API over MQTT version 5.0 protocol. See [API Reference](iot-mqtt-5-preview-reference.md) for complete definitions in this API.
 
 ## Prerequisites
 
-- [Enable preview mode](iot-hub-preview-mode.md) on a brand new IoT hub to try MQTT 5.
+- [Enable preview mode](../iot-hub/iot-hub-preview-mode.md) on a brand new IoT hub to try MQTT 5.
 - Prior knowledge of [MQTT 5 specification](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html) is required.
 
 ## Level of support and limitations
 
 IoT Hub support for MQTT 5 is in preview and limited in following ways (communicated to client via `CONNACK` properties unless explicitly noted otherwise):
 
-- No official [Azure IoT Hub device SDK](iot-hub-devguide-sdks.md) support yet.
+- No official [Azure IoT device SDKs](iot-sdks.md) support yet.
 - Subscription identifiers aren't supported.
 - Shared subscriptions aren't supported.
 - `RETAIN` isn't supported.
@@ -107,7 +107,7 @@ Username/password authentication used in previous API versions isn't supported.
 
 #### SAS
 
-With SAS-based authentication, a client must provide the signature of the connection context. The signature proves authenticity of the MQTT connection. The signature must be based on one of two authentication keys in the client's configuration in IoT Hub.  Or it must be based on one of two shared access keys of a [Shared access policy](iot-hub-dev-guide-sas.md).
+With SAS-based authentication, a client must provide the signature of the connection context. The signature proves authenticity of the MQTT connection. The signature must be based on one of two authentication keys in the client's configuration in IoT Hub.  Or it must be based on one of two shared access keys of a [shared access policy](../iot-hub/iot-hub-dev-guide-sas.md).
 
 String to sign must be formed as follows:
 
@@ -184,7 +184,7 @@ All functionalities in this API are expressed as operations. Here's an example o
     Reason_Code: 0
 ```
 
-For complete specification of operations in this API, see [API Reference](iot-hub-mqtt-5-reference.md).
+For complete specification of operations in this API, see [IoT Hub data plane MQTT 5 API reference](iot-mqtt-5-preview-reference.md).
 
 > [!NOTE]
 > All the samples in this specification are shown from client's perspective. Sign `->` means client sending packet, `<-` - receiving.
@@ -409,7 +409,7 @@ There's no special format to send a batch of messages. To reduce overhead of res
 
 ## Migration
 
-This section lists the changes in the API compared to [previous MQTT API](iot-hub-mqtt-support.md).
+This section lists the changes in the API compared to [previous MQTT support](iot-mqtt-connect-to-iot-hub.md).
 
 - Transport protocol is MQTT 5. Previously - MQTT 3.1.1.
 - Context information for SAS Authentication is contained in `CONNECT` packet directly instead of being encoded along with signature.
@@ -580,5 +580,5 @@ Response:
 ```
 ## Next steps
 
-- To review the MQTT 5 preview API reference, see [IoT Hub data plane MQTT 5 API reference](iot-hub-mqtt-5-reference.md).
+- To review the MQTT 5 preview API reference, see [IoT Hub data plane MQTT 5 API reference (preview)](iot-mqtt-5-preview-reference.md).
 - To follow a C# sample, see [GitHub sample repository](https://github.com/Azure-Samples/iot-hub-mqtt-5-preview-samples-csharp).
