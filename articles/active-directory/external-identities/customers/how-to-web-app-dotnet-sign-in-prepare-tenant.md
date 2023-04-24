@@ -29,6 +29,16 @@ If you have already registered a web application in the Microsoft Entra admin ce
 
 [!INCLUDE [ciam-register-app](./includes/register-app/register-client-app-common.md)]
 
+## Define the platform and URLs
+
+1. In the Microsoft Entra admin center, under **Manage**, select **App registrations**, and then select the application that was previously created.
+1. In the left menu, under **Manage**, select **Authentication**.
+1. In **Platform configurations**, select **Add a platform**, and then select **Web**.
+1. Under **Redirect URIs**, enter the `applicationURL` and the `CallbackPath`, `/signin-oidc`, in the form of `https://localhost:{port}/signin-oidc`.
+1. Under **Front-channel logout URL**, enter the following URL for signing out, `https://localhost:{port}/signout-callback-oidc`.
+1. Under **Implicit grant and hybrid flows**, select the **ID tokens** checkbox.
+1. Select **Configure**.
+
 ## Add app client secret
 
 [!INCLUDE [ciam-add-client-secret](./includes/register-app/add-app-client-secret.md)]

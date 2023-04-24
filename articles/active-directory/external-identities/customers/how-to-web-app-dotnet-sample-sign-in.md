@@ -76,8 +76,8 @@ To get the web app sample code, you can do either of the following tasks:
     ```
 
 1. Open the *appsettings.json* file.
-1. Find the `Enter_the_Application_Id_Here` value and replace it with the application ID (clientId) of the app registered in the Microsoft Entra admin center.
-1. Find the `Enter_the_Tenant_Id_Here` value and replace it with your Azure AD tenant/directory ID.
+1. Find the `Enter_the_Application_Id_Here` value and replace it with the application ID (clientId) of the app you registered in the Microsoft Entra admin center.
+1. Find the `Enter_the_Tenant_Id_Here` value and replace it with the Directory (tenant) ID you copied earlier.
 
 ## Run the code sample
 
@@ -88,12 +88,14 @@ To get the web app sample code, you can do either of the following tasks:
     ```
 
 1. Open your web browser and navigate to `https://localhost:7274`.
+
 1. Sign-in with an account registered to the CIAM tenant.
+
 1. Once signed in the display name is shown next to the **Sign out** button as shown in the following screenshot.
 
     :::image type="content" source="media/how-to-web-app-dotnet-sign-in-sign-in-out/display-aspnet-welcome.png" alt-text="Screenshot of sign in into a ASP.NET web app.":::
 
-1. To sign-out from the application, select the **Sign out button**.
+1. To sign-out from the application, select the **Sign out** button.
 
 ## Next steps
 

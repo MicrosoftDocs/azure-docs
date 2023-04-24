@@ -35,7 +35,7 @@ Identity related NuGet packages must be installed in the project for authenticat
 
 ## Add source code to Program and Controller
 
-1. Navigate to *Controllers* and open *HomeController.cs*.
+1. In your code editor, open *Controllers\HomeController.cs* file.
 1. Authorization needs to be added to the controller, add `Microsoft.AspNetCore.Authorization` so that the top of the file is identical to the following snippet:
 
     ```cshtml
@@ -82,7 +82,7 @@ Identity related NuGet packages must be installed in the project for authenticat
 
 After installing the NuGet packages and adding necessary code for authentication, we need to add the sign-in and sign-out experiences.
 
-1. In your IDE, navigate to *Views* > *Shared*, and create a new file called *_LoginPartial.cshtml*. 
+1. In your IDE, navigate to *Views* > *Shared*, and create a new file called *_LoginPartial.cshtml*.
 1. Open *_LoginPartial.cshtml* and add the following code for adding the sign in and sign out experience:
 
     ```csharp

@@ -27,26 +27,24 @@ After registering an application and creating a user flow in a CIAM tenant, an A
 ## Create an ASP.NET project
 
 1. Open a terminal in your IDE and navigate to the location in which to create your project.
-1. Enter the following code snippet to make the project folder and create your project.
+1. Enter the following command to make the project folder and create your project.
 
     ```powershell
-    mkdir aspnet_ciam_webapp
-    cd aspnet_ciam_webapp
-    dotnet new mvc
+    dotnet new mvc -n aspnet_ciam_webapp
     ```
 
 ## Configure the application for authentication
 
 1. Open the *appsettings.json* file and replace the existing code with the following snippet.
 
-    ```csharp
+    ```json
     {
-      "AzureAd": {
-        "Instance": "https://login.microsoftonline.com/",
-        "TenantId": "[Enter the Tenant Id obtained from the Azure portal]",
-        "ClientId": "[Enter the Client Id (Application ID) obtained from the Azure portal)]",
+        "AzureAd": {
+        "Authority": "https://Enter_the_Tenant_Name_Here.ciamlogin.com/",
+        "ExtraQueryParameters": { "dc": "ESTS-PUB-EUS-AZ1-FD000-TEST1" },
+        "ClientId": "Enter_the_Application_Id_Here",
         "CallbackPath": "/signin-oidc",
-        "SignedOutCallbackPath ": "/signout-oidc"
+        "SignedOutCallbackPath": "/signout-callback-oidc"
       },
       "Logging": {
         "LogLevel": {
@@ -55,27 +53,17 @@ After registering an application and creating a user flow in a CIAM tenant, an A
         }
       },
       "AllowedHosts": "*"
-  	}
+    }
     ```
 
     * `Instance` - The authentication endpoint. Check with the different available endpoints in [National clouds](../../develop/authentication-national-cloud.md#azure-ad-authentication-endpoints).
-    * `TenantId` - The identifier of the tenant where the application is registered. Replace the text in quotes with the **Directory (tenant) ID** value that was recorded earlier from the overview page of the registered application.
+    * `Authority` - The identity provider instance and sign-in audience for the app. Replace `Enter_the_Tenant_Name_Here` with the name of your CIAM tenant.
     * `ClientId` - The identifier of the application, also referred to as the client. Replace the text in quotes with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
     * `CallbackPath` - Is an identifier to help the server redirect a response to the appropriate application.
     
 1. Save changes to the file.
-1. In the **Properties** folder, open the *launchSettings.json* file.
-1. Find and record the `https` value `applicationURI` within *launchSettings.json*, for example `https://localhost:{port}`. This URL is used when defining the **Redirect URI**.
-
-## Define the platform and URLs
-
-1. In the Microsoft Entra admin center, under **Manage**, select **App registrations**, and then select the application that was previously created.
-1. In the left menu, under **Manage**, select **Authentication**.
-1. In **Platform configurations**, select **Add a platform**, and then select **Web**.
-1. Under **Redirect URIs**, enter the `applicationURL` and the `CallbackPath`, `/signin-oidc`, in the form of `https://localhost:{port}/signin-oidc`.
-1. Under **Front-channel logout URL**, enter the following URL for signing out, `https://localhost:{port}/signout-oidc`.
-1. Under **Implicit grant and hybrid flows**, select the **ID tokens** checkbox.
-1. Select **Configure**.
+1. Open the *Properties/launchSettings.json* file.
+1. Find and record the `https` value `applicationURI` within *launchSettings.json*, for example `https://localhost:{port}`. You use this URL to define the **Redirect URI**.
 
 ## Next steps
 
