@@ -88,13 +88,13 @@ if __name__ == '__main__':
 
 ```
 
-Replace the following placeholders with your data:
+Replace the following parameters with your data:
 
-- **<subscription_id>**: Your own [subscription id](../../azure-portal/get-subscription-tenant-id.md#find-your-azure-subscription).
-- **<resource_group>**: The name of the resource group you want to use. The script will create a new resource group if it doesn't exist.   
-- **<servername>**: A unique name that identifies your Azure Database for PostgreSQL server. The domain name `postgres.database.azure.com` is appended to the server name you provide. The server name must be at least 3 characters and at most 63 characters, and can only contain lowercase letters, numbers, and hyphens.
+- **subscription_id**: Your own [subscription id](../../azure-portal/get-subscription-tenant-id.md#find-your-azure-subscription).
+- **resource_group**: The name of the resource group you want to use. The script will create a new resource group if it doesn't exist.   
+- **server_name**: A unique name that identifies your Azure Database for PostgreSQL server. The domain name `postgres.database.azure.com` is appended to the server name you provide. The server name must be at least 3 characters and at most 63 characters, and can only contain lowercase letters, numbers, and hyphens.
 - **administrator_login**: The primary administrator username for the server. You can create additional users after the server has been created.
-- **<mySecurePassword>**: A password for the primary administrator for the server. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, etc.).
+- **administrator_login_password**: A password for the primary administrator for the server. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, etc.).
 
 You can also customize other parameters like location, storage size, engine version, etc.
 
@@ -108,7 +108,7 @@ You can also customize other parameters like location, storage size, engine vers
 You can use the Python SDK, Azure portal, Azure CLI, Azure PowerShell, and various other tools to validate the deployment and review the deployed resources. Some examples are provided below.
 
 
-# [Python SDK](#tab/Python SDK)
+# [Python SDK](#tab/PythonSDK)
 Add the `check_server_created` function to your existing script to use the servers attribute of the `PostgreSQLManagementClient` instance to check if the PostgreSQL Flexible Server was created:
 
 ```python
@@ -159,7 +159,7 @@ Get-AzResource -ResourceGroupName <resource_group>
 
 If you no longer need the PostgreSQL Flexible Server, you can delete it and the associated resource group using the following methods.
 
-# [Python SDK](#tab/Python SDK)
+# [Python SDK](#tab/PythonSDK)
 
 ```python
 def delete_resources(subscription_id, resource_group, server_name):
