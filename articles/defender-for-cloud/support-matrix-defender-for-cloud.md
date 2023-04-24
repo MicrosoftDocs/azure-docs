@@ -31,6 +31,7 @@ Defender for Cloud provides recommendations, security alerts, and vulnerability 
 |Azure Database for MySQL*|-|✔|-|
 |Azure Database for PostgreSQL*|-|✔|-|
 |Azure Event Hubs namespace|✔|-|-|
+|Azure Files|✔|✔|-|
 |Azure Functions app|✔|-|-|
 |Azure Key Vault|✔|✔|-|
 |Azure Kubernetes Service|✔|✔|-|
@@ -40,7 +41,6 @@ Defender for Cloud provides recommendations, security alerts, and vulnerability 
 |Azure SQL Managed Instance|✔|✔|[Defender for Azure SQL](defender-for-sql-introduction.md)|
 |Azure Service Bus namespace|✔|-|-|
 |Azure Service Fabric account|✔|-|-|
-|Azure Storage accounts|✔|✔|-|
 |Azure Stream Analytics|✔|-|-|
 |Azure Subscription|✔ **|✔|-|
 |Azure Virtual Network</br> (incl. subnets, NICs, and network security groups)|✔|-|-|
@@ -69,6 +69,8 @@ Microsoft Defender for Cloud is available in the following Azure cloud environme
 | - [Microsoft Defender for Servers](./defender-for-servers-introduction.md)                                                                                    | GA             | GA                             | GA                             |
 | - [Microsoft Defender for App Service](./defender-for-app-service-introduction.md)                                                                            | GA             | Not Available                  | Not Available                  |
 | - [Microsoft Defender CSPM](./concept-cloud-security-posture-management.md) | GA | Not Available | Not Available |
+| - [Agentless discovery for Kubernetes](concept-agentless-containers.md) | Public Preview | Not Available                  | Not Available                  |
+| [Agentless vulnerability assessments for container images](defender-for-containers-vulnerability-assessment-azure.md), including registry scanning (\* Up to 20 unique images per billable resource) | Public Preview | Not Available                  | Not Available                  |
 | - [Microsoft Defender for DNS](./defender-for-dns-introduction.md)                                                                                            | GA             | GA                             | GA                             |
 | - [Microsoft Defender for Kubernetes](./defender-for-kubernetes-introduction.md) <sup>[1](#footnote1)</sup>                                                   | GA             | GA                             | GA                             |
 | - [Microsoft Defender for Containers](./defender-for-containers-introduction.md) <sup>[7](#footnote7)</sup>                                                  | GA             | GA                             | GA                             |

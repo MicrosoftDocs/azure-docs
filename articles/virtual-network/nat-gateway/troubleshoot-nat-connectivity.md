@@ -1,7 +1,7 @@
 ---
-title: Troubleshoot Azure Virtual Network NAT connectivity
+title: Troubleshoot Azure NAT Gateway connectivity
 titleSuffix: Azure Virtual Network
-description: Troubleshoot connectivity issues with Virtual Network NAT.
+description: Troubleshoot connectivity issues with NAT gateway.
 author: asudbring
 ms.service: virtual-network
 ms.subservice: nat
@@ -11,7 +11,7 @@ ms.date: 08/29/2022
 ms.author: allensu
 ---
 
-# Troubleshoot Azure Virtual Network NAT connectivity 
+# Troubleshoot Azure NAT Gateway connectivity 
 
 This article provides guidance on how to troubleshoot and resolve common outbound connectivity issues with your NAT gateway resource. This article also provides best practices on how to design applications to use outbound connections efficiently. 
 
@@ -197,6 +197,6 @@ We're always looking to improve the experience of our customers. If you're exper
 
 To learn more about NAT gateway, see: 
 
-* [Virtual Network NAT](./nat-overview.md) 
+* [Azure NAT Gateway](./nat-overview.md) 
 * [NAT gateway resource](./nat-gateway-resource.md) 
 * [Metrics and alerts for NAT gateway resources](./nat-metrics.md)
