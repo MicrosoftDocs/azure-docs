@@ -39,7 +39,7 @@ ms.collection:
 |**10.2.1.5** Audit logs capture all changes to identification and authentication credentials including, but not limited to:  </br> Creation of new accounts </br> Elevation of privileges </br> All changes, additions, or deletions to accounts with administrative access|Azure AD generates audit logs for the events in this requirement. |
 |**10.2.1.6** Audit logs capture the following: </br> All initialization of new audit logs, and </br> All starting, stopping, or pausing of the existing audit logs.|Not applicable to Azure AD.|
 |**10.2.1.7** Audit logs capture all creation and deletion of system-level objects.|Azure AD generates audit logs for events in this requirement.|
-|**10.2.2** Audit logs record the following details for each auditable event: </br> User identification </br> Type of event </br> Date and time </br> Success and failure indication </br> Origination of event </br> Identity or name of affected data, system component, resource, or service (for example, name and protocol).|See, [Audit logs in Azure AD](../reports-monitoring/concept-audit-logs.md)|
+|**10.2.2** Audit logs record the following details for each auditable event: </br> User identification. </br> Type of event. </br> Date and time. </br> Success and failure indication. </br> Origination of event. </br> Identity or name of affected data, system component, resource, or service (for example, name and protocol).|See, [Audit logs in Azure AD](../reports-monitoring/concept-audit-logs.md)|
 
 ## 10.3 Audit logs are protected from destruction and unauthorized modifications.
 
