@@ -1,8 +1,8 @@
 ---
 title: Azure App Configuration resiliency and disaster recovery
 description: Learn how to implement resiliency and disaster recovery with Azure App Configuration.
-author: mcleanbyron
-ms.author: mcleans
+author: avanigupta
+ms.author: avgupta
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 04/20/2023
@@ -10,13 +10,14 @@ ms.date: 04/20/2023
 
 # Resiliency and disaster recovery
 
-Azure App Configuration is a regional service. Each configuration store is created in a particular Azure region. A region-wide outage affects all stores in that region and automatic failover to another region isn't supported. However, Azure App Configuration supports [geo-replication](./concept-geo-replication.md). You can enable replicas of your data across multiple locations for enhanced resiliency to regional outages. Utilizing geo-replication is the recommended solution for high availability.
+Azure App Configuration is a regional service. Each configuration store is created in a particular Azure region. A region-wide outage affects all stores in that region, and failover between regions isn't available by default. However, Azure App Configuration supports [geo-replication](./concept-geo-replication.md). You can enable replicas of your data across multiple locations for enhanced resiliency to regional outages. Utilizing geo-replication is the recommended solution for high availability.
 
 This article provides general guidance on how you can use multiple replicas across Azure regions to increase the geo-resiliency of your application.
 
 ## High-availability architecture
 
-To realize cross-region redundancy, you can create multiple App Configuration replicas in different regions. You may then utilize these replicas in your application in the order of your preference. With this setup, your application has at least one additional replica to fall back on if the primary replica becomes inaccessible. 
+The original App Configuration store is also considered a replica, so to realize cross-region redundancy, you need to create at least one new replica in a different region. However, you can choose to create multiple App Configuration replicas in different regions based on your requirements. You may then utilize these replicas in your application in the order of your preference. With this setup, your application has at least one additional replica to fall back on if the primary replica becomes inaccessible.
+
 The following diagram illustrates the topology between your application and two replicas:
 
 ![Geo-redundant Replicas](./media/geo-redundant-app-configuration-replicas.png)
