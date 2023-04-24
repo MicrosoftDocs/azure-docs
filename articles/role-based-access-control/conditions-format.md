@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/20/2023
+ms.date: 04/24/2023
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
@@ -240,8 +240,8 @@ Currently, conditions can be added to built-in or custom role assignments that h
 
 For a list of the storage actions you can use in conditions, see:
 
-> [Actions and attributes for Azure role assignment conditions for Azure Blob Storage](../storage/blobs/storage-auth-abac-attributes.md)
-> [Actions and attributes for Azure role assignment conditions for Azure Queue Storage](../storage/queues/queues-auth-abac-attributes.md).
+- [Actions and attributes for Azure role assignment conditions for Azure Blob Storage](../storage/blobs/storage-auth-abac-attributes.md)
+- [Actions and attributes for Azure role assignment conditions for Azure Queue Storage](../storage/queues/queues-auth-abac-attributes.md).
 
 ## Attributes
 
@@ -250,10 +250,15 @@ Depending on the selected actions, the attribute might be found in different pla
 > [!div class="mx-tableFixed"]
 > | Attribute source | Description | Code |
 > | --- | --- | --- |
-> | [Environment](#environment-attributes) | Indicates that the attribute is associated with the environment of the request, such as the network origin of the request and the current date and time.</br>***(Environment attributes are currently in preview.)*** | `@Environment` |
+> | [Environment](#environment-attributes) | Indicates that the attribute is associated with the environment of the request, such as the network origin of the request or the current date and time.</br>***(Environment attributes are currently in preview.)*** | `@Environment` |
 > | [Principal](#principal-attributes) | Indicates that the attribute is an Azure AD custom security attribute on the principal, such as a user, enterprise application (service principal), or managed identity.</br>***(Principal attributes are currently in preview.)*** | `@Principal` |
 > | [Request](#request-attributes) | Indicates that the attribute is part of the action request, such as setting the blob index tag. | `@Request` |
 > | [Resource](#resource-attributes) | Indicates that the attribute is a property of the resource, such as a container name. | `@Resource` |
+
+For a complete list of the storage attributes you can use in conditions, see:
+
+- [Azure Blob Storage attributes](../storage/blobs/storage-auth-abac-attributes.md#azure-blob-storage-attributes)
+- [Azure Queue Storage attributes](../storage/queues/queues-auth-abac-attributes.md#azure-queues-storage-attributes)
 
 #### Environment attributes
 
@@ -267,15 +272,10 @@ The following table lists the the supported environment attributes for condition
 
 | Display name | Description | Attribute | Type |
 | --- | --- | --- | --- |
-| Subnet name | Use this attribute in conditions to restrict access over a specific subnet. | `Microsoft.Network/virtualNetworks/subnets` | [String](#string-comparison-operators) |
+| Subnet name | Use this attribute in conditions to restrict access from a specific subnet. | `Microsoft.Network/virtualNetworks/subnets` | [String](#string-comparison-operators) |
 | Private endpoint name | Use this attribute in conditions to restrict access over a specific private endpoint. | `Microsoft.Network/privateEndpoints` | [String](#string-comparison-operators) |
 | Is private link | Use this attribute in conditions to require access over any private link. | `isPrivateLink` | [Boolean](#boolean-comparison-operators) |
 | UTC now | Use this attribute in conditions to restrict access to objects during specific time periods. | `UtcNow` | [DateTime](#datetime-comparison-operators) |
-
-For a complete list of the storage attributes you can use in conditions, see:
-
-- [Azure Blob Storage attributes](../storage/blobs/storage-auth-abac-attributes.md#azure-blob-storage-attributes)
-- [Azure Queue Storage attributes](../storage/queues/queues-auth-abac-attributes.md#azure-queues-storage-attributes)
 
 #### Principal attributes
 
@@ -301,19 +301,9 @@ For more information about custom security attributes, see:
 
 Request attributes are associated with the criteria specified in an access request, such as the specified prefix of blobs to be listed.
 
-For a complete list of the blob storage and queue storage attributes you can use in conditions, see:
-
-- [Azure Blob Storage attributes](../storage/blobs/storage-auth-abac-attributes.md#azure-blob-storage-attributes)
-- [Azure Queue Storage attributes](../storage/queues/queues-auth-abac-attributes.md#azure-queues-storage-attributes)
-
 #### Resource attributes
 
 Resource attributes are associated with the object to which access is being requested, such as the storage account name, container name, or whether hierarchical namespace is enabled for the storage account.
-
-For a complete list of the blob storage and queue storage attributes you can use in conditions, see:
-
-- [Azure Blob Storage attributes](../storage/blobs/storage-auth-abac-attributes.md#azure-blob-storage-attributes)
-- [Azure Queue Storage attributes](../storage/queues/queues-auth-abac-attributes.md#azure-queues-storage-attributes)
 
 ## Function operators
 
