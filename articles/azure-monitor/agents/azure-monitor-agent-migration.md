@@ -23,21 +23,20 @@ In addition to consolidating and improving on the legacy Log Analytics agents, A
 
 ## Migration guidance
 
-Before you begin migrating from the Log Analytics agent to Azure Monitor Agent, review the migration plan checklist.
+Before you begin migrating from the Log Analytics agent to Azure Monitor Agent, review the checklist below.
 
 ### Before you begin 
 
 > [!div class="checklist"]
 > - **Check the [prerequisites](./azure-monitor-agent-manage.md#prerequisites) for installing Azure Monitor Agent.**<br>To monitor non-Azure and on-premises servers, you must [install the Azure Arc agent](../../azure-arc/servers/agent-overview.md). You won't incur an additional cost for installing the Azure Arc agent and you don't necessarily need to use Azure Arc to manage your non-Azure virtual machines. 
 > - **Understand your current needs.**<br>Use the **Workspace overview** tab of the [AMA Migration Helper](./azure-monitor-agent-migration-tools.md#using-ama-migration-helper) to see connected agents and discover solutions enabled on your Log Analytics workspaces that use legacy agents, including per-solution migration recommendations. 
-> - **Verify that Azure Monitor Agent can address all of your needs.**
-> Azure Monitor Agent is generally available for data collection and is used for data collection by various Azure Monitor features and other Azure services. For details, see [Supported services and features](#supported-services-and-features). 
-> - **Consider installing Azure Monitor Agent together with a legacy agent for a transition period.**<br>You can run Azure Monitor Agent alongside the legacy Log Analytics agent on the same machine to continue using existing functionality during evaluation or migration. Keep in mind that running two agents on the same machine doubles resource consumption, including but not limited to CPU, memory, storage space, and network bandwidth.<br>
+> - **Verify that Azure Monitor Agent can address all of your needs.**<br>Azure Monitor Agent is generally available for data collection and is used for data collection by various Azure Monitor features and other Azure services. For details, see [Supported services and features](#supported-services-and-features). 
+> - **Consider installing Azure Monitor Agent together with a legacy agent for a transition period.**<br>Run Azure Monitor Agent alongside the legacy Log Analytics agent on the same machine to continue using existing functionality during evaluation or migration. Keep in mind that running two agents on the same machine doubles resource consumption, including but not limited to CPU, memory, storage space, and network bandwidth.<br>
 >     If you're setting up a new environment with resources, such as deployment scripts and onboarding templates, install Azure Monitor Agent together with a legacy agent in your new environment to decrease the migration effort later.
 > - **If you have two agents on the same machine, avoid collecting duplicate data.**<br> Collecting duplicate data from the same machine can skew query results, affect downstream features like alerts, dashboards, and workbooks, and generate extra charges for data ingestion and retention.<br> 
 >    **To avoid data duplication:**
 >    - Configure the agents to send the data to different workspaces or different tables in the same workspace.
->    - Disable duplicate data collection from legacy agents by [removing the workspace configurations](./agent-data-sources.md#configure-data-sources)
+>    - Disable duplicate data collection from legacy agents by [removing the workspace configurations](./agent-data-sources.md#configure-data-sources).
 >    - Defender for Cloud natively deduplicates data when you use both agents, and [you'll be billed once per machine](../../defender-for-cloud/auto-deploy-azure-monitoring-agent.md#impact-of-running-with-both-the-log-analytics-and-azure-monitor-agents) when you run the agents side by side. 
 >    - For Sentinel, you can easily [disable the legacy connector](../../sentinel/ama-migrate.md#recommended-migration-plan) to stop ingestion of logs from legacy agents.    
 
@@ -55,7 +54,7 @@ Before you begin migrating from the Log Analytics agent to Azure Monitor Agent, 
     
         To avoid double ingestion, you can disable data collection from legacy agents without uninstalling them yet, by [removing the workspace configurations for legacy agents](./agent-data-sources.md#configure-data-sources).
 
-    1. Compare the data ingested by Azure Monitor Agent with legacy agent data to ensure there are no gaps. You can do this on any table by using the [join operator](s/azure/data-explorer/kusto/query/joinoperator?pivots=azuremonitor) to add the `Category` column from the [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat) table, which indicates `Azure Monitor Agent` for data collected by the Azure Monitor Agent.
+    1. Compare the data ingested by Azure Monitor Agent with legacy agent data to ensure there are no gaps. You can do this on any table by using the [join operator](/azure/data-explorer/kusto/query/joinoperator?pivots=azuremonitor) to add the `Category` column from the [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat) table, which indicates `Azure Monitor Agent` for data collected by the Azure Monitor Agent.
     
         For example:
     
@@ -79,9 +78,9 @@ Before you begin migrating from the Log Analytics agent to Azure Monitor Agent, 
     1. Look at the **Overview** and **Usage** tabs of [Log Analytics Workspace Insights](../logs/log-analytics-workspace-overview.md) for spikes or dips in ingestion rates following the migration. Check both the overall workspace ingestion and the table-level ingestion rates.  
     1. Check your workbooks, dashboards, and alerts for variances from typical behavior following the migration.   
     
-1. Clean up: After you confirm that Azure Monitor Agent is collecting data properly, you can **either disable or uninstall the legacy Log Analytics agents**.
+1. Clean up: After you confirm that Azure Monitor Agent is collecting data properly, **disable or uninstall the legacy Log Analytics agents**.
     - If you have need to continue using both agents, [disable data collection with the Log Analytics agent](./agent-data-sources.md#configure-data-sources).
-    - If you've migrated to Azure Monitor Agent for all your requirements, you can [uninstall the Log Analytics agent](./agent-manage.md#uninstall-agent) from monitored resources. Clean up any configuration files, workspace keys, or certificates that were used previously by the Log Analytics agent. Continue using the legacy Log Analytics for features and solutions that Azure Monitor Agent doesn't support.     
+    - If you've migrated to Azure Monitor Agent for all your requirements, [uninstall the Log Analytics agent](./agent-manage.md#uninstall-agent) from monitored resources. Clean up any configuration files, workspace keys, or certificates that were used previously by the Log Analytics agent. Continue using the legacy Log Analytics for features and solutions that Azure Monitor Agent doesn't support.     
     - Don't uninstall the legacy agent if you need to use it to upload data to System Center Operations Manager.
 
 <sup>1</sup> The DCR generator only converts the configurations for Windows event logs, Linux syslog and performance counters. Support for additional features and solutions will be available soon  
@@ -91,17 +90,12 @@ Before you begin migrating from the Log Analytics agent to Azure Monitor Agent, 
 
 Azure Monitor Agent is generally available for data collection.
 
-The following Azure Monitor features now use Azure Monitor Agent in preview. This means you can select to use Azure Monitor Agent to collect data when you enable the feature; otherwise, the legacy agent will be enabled by default.
+The following features and services now use Azure Monitor Agent in preview. This means you can select Azure Monitor Agent to collect data when you enable the feature; otherwise, the services and features still enable the legacy agent by default.
     
-|	Azure Monitor feature	|	Current support	|	Other extensions installed	|	More information	|
+|	Service or feature	|	Current support	|	Other extensions installed	|	More information	|
 |	:---	|	:---	|	:---	|	:---	|
 |	[VM insights](../vm/vminsights-overview.md)	|	Public preview 	|	Dependency Agent extension, if you’re using the Map Services feature	|	[Enable VM Insights](../vm/vminsights-enable-overview.md)	|
 |	[Container insights](../containers/container-insights-overview.md)	|	Public preview 	|	Containerized Azure Monitor agent	|	[Enable Container Insights](../containers/container-insights-onboard.md)	|
-
-The following Azure Monitor services now use Azure Monitor Agent in preview. This means you can select to use Azure Monitor Agent to collect data when you enable the service; otherwise, the legacy agent will be enabled by default.
-
-|	 Azure service	|	 Current support	|	Other extensions installed	|	 More information	|
-|	:---	|	:---	|	:---	|	:---	|
 | [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)	| Public preview	|	<ul><li>Azure Security Agent extension</li><li>SQL Advanced Threat Protection extension</li><li>SQL Vulnerability Assessment extension</li></ul> | [Auto-deployment of Azure Monitor Agent (Preview)](../../defender-for-cloud/auto-deploy-azure-monitoring-agent.md)	|
 | [Microsoft Sentinel](../../sentinel/overview.md)	| <ul><li>Windows Security Events: [Generally available](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li><li>Windows Forwarding Event (WEF): [Public preview](../../sentinel/data-connectors/windows-forwarded-events.md)</li><li>Windows DNS logs: [Public preview](../../sentinel/connect-dns-ama.md)</li><li>Linux Syslog CEF: [Public preview](../../sentinel/connect-cef-ama.md#set-up-the-common-event-format-cef-via-ama-connector)</li></ul> |	Sentinel DNS extension, if you’re collecting DNS logs. For all other data types, you just need the Azure Monitor Agent extension. |  See [Gap analysis for Microsoft Sentinel](../../sentinel/ama-migrate.md#gap-analysis-between-agents) for a comparison of the extra data collected by Microsoft Sentinel.  |
 |	 [Change Tracking and Inventory Management](../../automation/change-tracking/overview.md) |	 Public preview 	|	Change Tracking extension	|	[Change Tracking and Inventory using Azure Monitor Agent](../../automation/change-tracking/overview-monitoring-agent.md)	|
