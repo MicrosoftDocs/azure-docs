@@ -16,7 +16,7 @@ This article indicates which Defender for Cloud features are supported in Azure 
 In the support table, **NA** indicates that the feature is not available.
 
 **Feature/Plan** | **Azure** | **Azure Government** | **Azure China**<br/><br/>**21Vianet**
---- | --- | --- |--- 
+--- | --- | --- | --- 
 **Foundational CSPM features** | | |  
 [Continuous export](./continuous-export.md) | GA | GA | GA
 [Workflow automation](./workflow-automation.md) | GA | GA | GA
