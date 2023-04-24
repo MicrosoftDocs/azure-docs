@@ -490,8 +490,8 @@ Now that you have an idea of what's involved in training and deploying a model, 
 
 |Tutorial  |Description  |
 |---------|---------|
-| [Tutorial: Upload, access and explore your data in Azure Machine Learning](tutorial-explore-data.md)     |  Store large data in the cloud and retrieve it from notebooks and scripts |
+| [Upload, access and explore your data in Azure Machine Learning](tutorial-explore-data.md)     |  Store large data in the cloud and retrieve it from notebooks and scripts |
 | [Model development on a cloud workstation](tutorial-cloud-workstation.md) | Start prototyping and developing machine learning models |
-| [Tutorial: Train a model in Azure Machine Learning](tutorial-train-model.md) |    Dive in to the details of training a model     |
+| [Train a model in Azure Machine Learning](tutorial-train-model.md) |    Dive in to the details of training a model     |
 | [Deploy a model as an online endpoint](tutorial-deploy-model.md)  |   Dive in to the details of deploying a model      |
-| [Tutorial: Create production machine learning pipelines](tutorial-pipeline-python-sdk.md) | Split a complete machine learning task into a multistep workflow. |
+| [Create production machine learning pipelines](tutorial-pipeline-python-sdk.md) | Split a complete machine learning task into a multistep workflow. |
