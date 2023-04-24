@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/26/2023
+ms.date: 04/24/2023
 ms.author: jfields
 ---
 
@@ -46,7 +46,9 @@ If you're a partner and would like to be considered for the Entra Permissions Ma
 | ![Screenshot of a invoke logo.](media/partner-list/partner-invoke.png) | [Invoke's Entra PM multicloud risk assessment](https://www.invokellc.com/offers/microsoft-entra-permissions-management-multi-cloud-risk-assessment)|
 | ![Screenshot of a Vu logo.](media/partner-list/partner-oxford-computer-group.png) | [Permissions Management implementation and remediation](https://oxfordcomputergroup.com/microsoft-entra-permissions-management-implementation/)|
 | ![Screenshot of a Onfido logo.](media/partner-list/partner-ada-quest.png) | [adaQuest Microsoft Entra Permissions Management Risk Assessment](https://adaquest.com/entra-permission-risk-assessment/)
-
+| ![Screenshot of Ascent Solutions logo.](media/partner-list/partner-ascent-solutions.png) | [Ascent Solutions Microsoft Entra Permissions Management Rapid Risk Assessment](https://www.meetascent.com/resources/microsoft-entra-permissions-rapid-risk-assessment)
+| ![Screenshot of Synergy Advisors logo.](media/partner-list/partner-synergy-advisors.png) | [Synergy Advisors Identity Optimization](https://synergyadvisors.biz/solutions-item/identity-optimization/)
+| ![Screenshot of BDO Digital logo.](media/partner-list/partner-bdo-digital.png) | [BDO Digital Managing Permissions Across Multicloud](https://www.bdodigital.com/services/security-compliance/cybersecurity/entra-permissions-management)
 ## Next steps
 
 * For an overview of Permissions Management, see [What's Permissions Management?](overview.md)
