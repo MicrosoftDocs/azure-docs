@@ -174,8 +174,6 @@ Add the following key-values to the App Configuration store. For more informatio
 
 ## Web Applications
 
-Django/Flask Application
-
 ### [Flask](#tab/flask)
 You can use Azure App Configuration in your existing Flask web apps by updating its in-built configuration. You can do this by passing your App Configuration Provider object to the `update` function of your flask app instance in `app.py`:
 
