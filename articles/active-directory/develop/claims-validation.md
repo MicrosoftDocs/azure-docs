@@ -56,7 +56,7 @@ The `roles`, `groups` or `wids` claims can also be used to determine if the subj
 
 ## Validate the actor
 
-Lastly, when an app is acting for a user, this client app (the actor), must also be authorized. Use the `scp` claim (scope) to validate that the app has permission to perform an operation.
+Lastly, a client app that is acting on behalf of a user (referred to as the *actor*), must also be authorized. Use the `scp` claim (scope) to validate that the app has permission to perform an operation.
 
 The application defines the scopes and the absence of the `scp` claim means full actor permissions.
 
