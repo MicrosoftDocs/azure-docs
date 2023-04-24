@@ -72,7 +72,7 @@ az aks show -n myAKScluster -g myResourceGroup --query "oidcIssuerProfile.issuer
 
 ### Get the discovery document
 
-To get the discovery document, copy the URL https://<OIDC issuer URL>.well-known/openid-configuration and open it in browser. 
+To get the discovery document, copy the URL https://(OIDC issuer URL).well-known/openid-configuration and open it in browser. 
 
 The output should resemble the following:
 
