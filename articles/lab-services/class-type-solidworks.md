@@ -60,7 +60,7 @@ SOLIDWORKS supports other versions of Windows besides Windows 10.  See [SOLIDWOR
     | Lab setting | Value and description |
     | ------------ | ------------------ |
     | Virtual Machine Size | **Small GPU (Visualization)**. Best suited for remote visualization, streaming, gaming, and encoding with frameworks such as OpenGL and DirectX. |
-    | Virtual Machine Image | Windows 10 Pro |
+    | Virtual Machine Image | **Windows 10 Pro** |
 
 1. When you create a lab with the **Small GPU (Visualization)** size, follow these steps to [set up a lab with GPUs](./how-to-setup-lab-gpu.md).
 
