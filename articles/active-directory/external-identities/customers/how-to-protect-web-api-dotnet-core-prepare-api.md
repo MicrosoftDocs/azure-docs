@@ -18,7 +18,7 @@ ms.custom: developer
 
 # Secure an ASP.NET web API by using Microsoft Entra - configure your web API
 
-In this how to article, we go through the steps you take to configure your web API before securing it's endpoints. When using the Microsoft identity platform to secure your web API, you first need to have it registered before configuring your API.
+In this how-to article, we go through the steps you take to configure your web API before securing it's endpoints. When using the Microsoft identity platform to secure your web API, you first need to have it registered before configuring your API.
 
 ## Prerequisites
 
@@ -29,12 +29,12 @@ Go through the [overview of creating a protected web API](how-to-protect-web-api
 In this how to guide, we use Visual Studio Code and .NET 7.0. If you're using Visual Studio to create the API, see the [create a Create a web API with ASP.NET Core](/aspnet/core/tutorials/first-web-api).
 
 1. Open the [integrated terminal](https://code.visualstudio.com/docs/editor/integrated-terminal).
-1. Change directories (`cd`) to the folder that contains the project folder.
+1. Navigate to the folder where you want your project to live.
 1. Run the following commands:
 
    ```dotnetcli
-   dotnet new webapi -o TodoApi
-   cd TodoApi
+   dotnet new webapi -o TodoListApi
+   cd TodoListApi
    ```
 
 1. When a dialog box asks if you want to add required assets to the project, select **Yes**.
@@ -43,7 +43,7 @@ In this how to guide, we use Visual Studio Code and .NET 7.0. If you're using Vi
 
 Install the following packages:
 
-- *Microsoft.EntityFrameworkCore.InMemory* that allows Entity Framework Core to be used with an in-memory database. It's not designed for production use.
+- `Microsoft.EntityFrameworkCore.InMemory` that allows Entity Framework Core to be used with an in-memory database. It's not designed for production use.
 - `Microsoft.Identity.Web` simplifies adding authentication and authorization support to web apps and web APIs integrating with the Microsoft identity platform.
 
   ```dotnetcli
@@ -53,7 +53,7 @@ Install the following packages:
 
 ## Configure app registration details
 
-To protect your web API, you need to have the Application (Client) ID, Directory / Tenant ID and the secret value that you generated during registration on the Microsoft Entra admin center. If you haven't registered your web API yet, kindly follow the [web API registration instructions]() before proceeding.
+To protect your web API, you need to have the Application (Client) ID, Directory / Tenant ID and the secret value that you generated during registration on the Microsoft Entra admin center. If you haven't registered your web API yet, kindly follow the [web API registration instructions](how-to-register-ciam-app.md?tabs=webapi) before proceeding.
 
 Open the *appsettings.json* file in your app folder and add in the app registration details.
 

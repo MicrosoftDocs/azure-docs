@@ -22,14 +22,13 @@ Web APIs may contain sensitive information that requires user authentication and
 
 ## Prerequisites
 
-- An API registration that exposes name scopes. If you haven't already, register an API in the Microsoft Entra admin center by following the registration steps.
-- Understanding of [MSAL](/azure/active-directory/develop/msal-overview) and related [authentication scenarios](/azure/active-directory/develop/authentication-flows-app-scenarios).
+- [An API registration](how-to-register-ciam-app.md?tabs=webapi.md) that exposes name scopes such as *ToDoList.Read*. If you haven't already, register an API in the Microsoft Entra admin center by following the registration steps.
 
 ## Protecting a web API
 
 The following are the steps you'll complete to protect your web API:
 
-1. [Register your web API]() in the Microsoft Entra admin center.
+1. [Register your web API](how-to-register-ciam-app.md?tabs=webapi) in the Microsoft Entra admin center.
 1. [Configure your web API](how-to-protect-web-api-dotnet-core-prepare-api.md).
 1. [Protect your web API endpoints](how-to-protect-web-api-dotnet-core-protect-endpoints.md).
 1. [Test your protected web API](how-to-protect-web-api-dotnet-core-test-api.md).
