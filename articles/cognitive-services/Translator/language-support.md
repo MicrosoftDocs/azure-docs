@@ -311,8 +311,7 @@ Add more capabilities to your apps and workflows by utilizing other Cognitive Se
 
 * [Computer Vision](../computer-vision/language-support.md) 
 * [Speech](../speech-service/language-support.md) 
-* [Language service](../language-service/index.yml) 
-  * Select the feature you want to use, and then **Language support** on the left navigation menu.
+* [Language service](../language-service/concepts/language-support.md) 
 
 View all [Cognitive Services](../index.yml).
 

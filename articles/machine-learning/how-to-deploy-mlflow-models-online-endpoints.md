@@ -579,7 +579,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
 
     __conda.yml__
 
-    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/ncd/sklearn-diabetes/environment/conda.yml":::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/ncd/sklearn-diabetes/environment/conda.yaml":::
 
     > [!NOTE]
     > Note how the package `azureml-inference-server-http` has been added to the original conda dependencies file. 

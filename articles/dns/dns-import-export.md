@@ -5,6 +5,7 @@ description: Learn how to import and export a DNS (Domain Name System) zone file
 services: dns
 author: greg-lindsay
 ms.service: dns
+ms.custom: devx-track-azurecli
 ms.date: 09/27/2022
 ms.author: greglin
 ms.topic: how-to

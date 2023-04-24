@@ -4,6 +4,7 @@ description: Get started guide for Azure IT operators
 author: RicksterCDN
 ms.author: rclaus
 tags: azure-resource-manager
+ms.custom: devx-track-arm-template
 ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure

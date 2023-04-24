@@ -1,12 +1,12 @@
 ---
 title: How to install Azure Data Manager for Agriculture
 description: Provides step by step guidance to install Data Manager for Agriculture
-author: gourdsay #Required; your GitHub user alias, with correct capitalization.
+author: gourdsay
 ms.author: angour
 ms.service: data-manager-for-agri
 ms.topic: quickstart
 ms.date: 04/05/2023
-ms.custom: template-quickstart #Required; leave this attribute/value as-is.
+ms.custom: template-quickstart
 ---
 
 # Quickstart install Azure Data Manager for Agriculture preview
@@ -14,7 +14,7 @@ ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 Use this document to get started with the steps to install Data Manager for Agriculture. Make sure that  your Azure subscription ID is in our allowlist. Microsoft Azure Data Manager for Agriculture requires registration and is available to only approved customers and partners during the preview period. To request access to Azure Data Manager for Agriculture during the preview period, use this [**form**](https://aka.ms/agridatamanager).
 
 > [!NOTE]
-> Microsoft Azure Data Manager for Agriculture is currently in preview. For legal terms that apply to features that are in beta, in preview, or otherwise not yet released into general availability, see the [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Microsoft Azure Data Manager for Agriculture is currently in preview. For legal terms that apply to features that are in beta, in preview, or otherwise not yet released into general availability, see the [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). See Azure Data Manager for Agriculture specific terms of use [**here**](supplemental-terms-azure-data-manager-for-agriculture.md). 
 
 ## 1: Register resource provider
 
