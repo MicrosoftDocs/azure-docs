@@ -28,6 +28,8 @@ The Enterprise tier deployment plan includes the following Tanzu components:
 * Service Registry
 * Spring Cloud Gateway
 * API Portal
+* Application Accelerator
+* Application Live View
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
