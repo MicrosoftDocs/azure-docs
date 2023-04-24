@@ -6135,7 +6135,12 @@
             "source_path_from_root": "/articles/azure-monitor/app/data-model-context.md",
             "redirect_url": "/azure/azure-monitor/app/data-model-complete",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/dashboard-upgrade.md",
+            "redirect_url": "/azure/azure-monitor/visualize/tutorial-logs-dashboards",
+            "redirect_document_id": false
         }
-
+        
     ]
 }

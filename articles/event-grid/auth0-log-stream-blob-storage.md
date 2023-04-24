@@ -14,7 +14,7 @@ This article shows you how to send Auth0 events to Azure Blob Storage via Azure 
 - [Get connection string to Azure Storage account](../storage/common/storage-account-keys-manage.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal#view-account-access-keys). Make sure you select the **Copy** button to copy connection string to the clipboard.
 
 ## Create an Azure function
-1. Create an Azure function by following instructions from the **Create a local project** section of [Quickstart: Create a JavaScript function in Azure using Visual Studio Code](../azure-functions/create-first-function-vs-code-node.md).
+1. Create an Azure function by following instructions from the **Create a local project** section of [Quickstart: Create a JavaScript function in Azure using Visual Studio Code](../azure-functions/create-first-function-vs-code-node.md?pivots=nodejs-model-v3).
     1. Select **Azure Event Grid trigger** for the function template instead of **HTTP trigger** as mentioned in the quickstart. 
     1. Continue to follow the steps, but use the following **index.js** and **function.json** files. 
 
