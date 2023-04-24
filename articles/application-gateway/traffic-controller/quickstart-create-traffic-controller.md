@@ -14,11 +14,11 @@ ms.author: greglin
 
 # Quickstart: Create a Traffic Controller
 
-This document provides instructions on how to deploy the 3 types of resources (Traffic Controller, Association, and Frontend) needed for Traffic Controller to work with your AKS workload, and how to install Gateway Controller on your AKS cluster to control the behavior of the Traffic Controller.
+This document provides instructions on how to deploy the 3 types of resources (Traffic Controller, Association, and Frontend) needed for Traffic Controller to work with your AKS workload, and how to install LB Controller on your AKS cluster to control the behavior of the Traffic Controller.
 
 ## Prerequisites
 
-You will need to need to complete the following tasks prior to deploying Traffic Controller on Azure and installing Gateway Controller on your cluster:
+You will need to need to complete the following tasks prior to deploying Traffic Controller on Azure and installing LB Controller on your cluster:
 
 1. Prepare your Azure subscription and your `az-cli` client.
 
@@ -104,7 +104,7 @@ You will need to need to complete the following tasks prior to deploying Traffic
 
 4. Install Helm.
 
-	[Helm](https://github.com/helm/helm) is an open-source packaging tool that will be leveraged to install gateway controller. Ensure that you have the latest version of helm installed. Instructions on installation can be found [here](https://github.com/helm/helm#install).
+	[Helm](https://github.com/helm/helm) is an open-source packaging tool that will be leveraged to install LB controller. Ensure that you have the latest version of helm installed. Instructions on installation can be found [here](https://github.com/helm/helm#install).
 
 ## Deploy Traffic Controller
 
@@ -138,7 +138,7 @@ You will need to need to complete the following tasks prior to deploying Traffic
 	az resource show --ids $(az resource list --resource-type 'Microsoft.ServiceNetworking/trafficControllers/frontends' --resource-group $RESOURCE_GROUP --query '[].id' -o tsv)
 	```
 
-## Install Gateway Controller
+## Install LB Controller
 
 0. Prerequisites - Federate user assigned identity as Pod Identity to use in AKS cluster.
 
@@ -151,36 +151,36 @@ You will need to need to complete the following tasks prior to deploying Traffic
 		--subject "system:serviceaccount:azure-application-lb-system:gateway-controller-sa"
     ```
 
-1. Install Gateway Controller
+1. Install LB Controller
 
-	Gateway Controller can be installed by running the following commands:
+	LB Controller can be installed by running the following commands:
 
 	```bash
 	az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
 	helm upgrade \
-		--install gateway-controller oci://mcr.microsoft.com/application-lb/charts/gateway-controller \
+		--install lb-controller oci://mcr.microsoft.com/application-lb/charts/gateway-controller \
 		--create-namespace --namespace azure-application-lb-system \
 		--version '0.1.022981' \
 		--set gatewayController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-application-lb-identity --query clientId -o tsv)
 	```
 
-### Verify the Gateway Controller installation
+### Verify the LB Controller installation
 
-1. Verify the Gateway Controller pods are ready:
+1. Verify the LB Controller pods are ready:
 
     ```bash
     kubectl get pods -n azure-application-lb-system
     ```
     You should see the following:
-    - 1 gateway-controller pod with status **Running** and 1/1 **Ready**
-    - 1 gateway-controller-bootstrap pod with status **Running** and 1/1 **Ready**
+    - 1 lb-controller pod with status **Running** and 1/1 **Ready**
+    - 1 lb-controller-bootstrap pod with status **Running** and 1/1 **Ready**
 
 2. Verify GatewayClass `azure-application-lb` is installed on your cluster:
 
     ```bash
     kubectl get gatewayclass azure-application-lb -o yaml
     ```
-    You should see that the GatewayClass has a condition that reads **Valid GatewayClass** . This indicates that a default GatewayClass has been setup and that any gateway objects that reference this GatewayClass will be managed by Gateway Controller automatically.
+    You should see that the GatewayClass has a condition that reads **Valid GatewayClass** . This indicates that a default GatewayClass has been setup and that any gateway objects that reference this GatewayClass will be managed by LB Controller automatically.
 
     You should also see that the gateway class has a parameterRef section that links this gateway class to an ApplicationLbParam of name `default`
 
@@ -189,11 +189,11 @@ You will need to need to complete the following tasks prior to deploying Traffic
     kubectl get applicationlbparam
     ```
 
-## Link your Gateway Controller to Traffic Controller
+## Link your LB Controller to Traffic Controller
 
-Now that you have successfully installed a Gateway Controller on your cluster you can link it to an existing Traffic Controller by leveraging the GatewayClass and ApplicationLbParam on the cluster.
+Now that you have successfully installed a LB Controller on your cluster you can link it to an existing Traffic Controller by leveraging the GatewayClass and ApplicationLbParam on the cluster.
 
-Update the ApplicationLbParam to contain the resource ID of the traffic controller you wish to associate with your Gateway Controller.
+Update the ApplicationLbParam to contain the resource ID of the traffic controller you wish to associate with your LB Controller.
 
 ```bash
 kubectl apply -f - <<EOF
@@ -216,9 +216,9 @@ EOF
 
 ## Test it out!
 
-Congratulations, you have installed Gateway Controller on you cluster!
+Congratulations, you have installed LB Controller on you cluster!
 
-## Uninstall Traffic Controller and Gateway Controller
+## Uninstall Traffic Controller and LB Controller
 
 1. To delete the Traffic Controller, you may simply delete the Resource Group containing the Traffic Controller resources:
 
@@ -226,10 +226,10 @@ Congratulations, you have installed Gateway Controller on you cluster!
 	az group delete --resource-group $RESOURCE_GROUP
 	```
 
-2. To uninstall Gateway Controller and its resources from your cluster run the following commands:
+2. To uninstall LB Controller and its resources from your cluster run the following commands:
 
 	```bash
-	helm uninstall gateway-controller -n azure-application-lb-system
+	helm uninstall lb-controller -n azure-application-lb-system
 	kubectl delete ns azure-application-lb-system
 	kubectl delete gatewayclass azure-application-lb
 	kubectl delete applicationlbparam default
