@@ -93,10 +93,23 @@ items:
                           href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
                         - name: Sign in and sign out
                           href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
+                - name: React
+                  items:
+                    - name: Sign in users
+                      items:
+                        - name: Overview
+                          href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
+                        - name: Prepare tenant
+                          href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
+                        - name: Prepare app
+                          href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
+                        - name: Configure app for authentication
+                          href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
+                        - name: Sign in and sign out
+                          href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
                 - name: Angular JS - Sign in users and call an API
                   href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-angular-auth-code
-                - name: React JS​ - Sign in users and call an API
-                  href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-react
+
             - name: Web app
               items: 
                 - name: Node/Express.js
