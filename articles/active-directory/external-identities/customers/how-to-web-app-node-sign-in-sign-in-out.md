@@ -18,7 +18,7 @@ ms.custom: developer
 
 # Sign in users in your own Node.js web application by using Microsoft Entra - Add sign-in and sign-out
 
-In this article, you add sign in and sign out to the web app project that you prepare in the previous chapter, [Prepare your web app](how-to-web-app-node-sign-in-prepare-app.md). The application you build uses [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) to simplify adding authentication to your node web application.
+In this article, you add sign in and sign out to the web app project that you prepared in the previous chapter, [Prepare your web app](how-to-web-app-node-sign-in-prepare-app.md). The application you build uses [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) to simplify adding authentication to your node web application.
 
 ## Create MSAL configuration object
 

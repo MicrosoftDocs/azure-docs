@@ -53,7 +53,7 @@ Create a folder to host your node application, such as `ciam-sign-in-node-expres
 In your terminal, install `axios`, `cookie-parser`, `dotenv`, `express`, `express-session`, `hbs`, `http-errors`, `morgan` and `@azure/msal-node` packages by running the following commands:
 
 ```console
-    npm install express dotenv hbs express-session axios cookie-parser http-errors @azure/msal-node   
+    npm install express dotenv hbs express-session axios cookie-parser http-errors morgan @azure/msal-node   
 ```
 
 ## Build app UI components
@@ -72,7 +72,7 @@ In your terminal, install `axios`, `cookie-parser`, `dotenv`, `express`, `expres
         <a href="/auth/signin">Sign in</a>
         {{/if}}
     ```
-    In this view, if the user is authenticated we show their username and links to visit `/auth/signout` and `/users/id` endpoints, otherwise, user needs to visit the `/auth/signin` endpoint to sign in. We define the express routes for these endpoints later in this article.
+    In this view, if the user is authenticated, we show their username and links to visit `/auth/signout` and `/users/id` endpoints, otherwise, user needs to visit the `/auth/signin` endpoint to sign in. We define the express routes for these endpoints later in this article.
 
 1. In your code editor, open `views/id.hbs` file, then add the following code:
 
