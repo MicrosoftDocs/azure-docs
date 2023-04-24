@@ -255,7 +255,7 @@ To allow the SPA to request access to Microsoft Graph, a reference to the `graph
 
 ## Change filename and add required imports
 
-By default, the application runs via a JavaScript file called App.js. It needs to be changed to App.jsx file, which is an extension that allows a developer to write HTML in React.
+By default, the application runs via a JavaScript file called *App.js*. It needs to be renamed to *App.jsx*, which is an extension that allows a developer to write HTML in React.
 
 1. Rename App.js to App.jsx.
 1. Replace the existing imports with the following snippet;
