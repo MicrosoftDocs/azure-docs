@@ -164,7 +164,10 @@ reactspalocal/
 
      const handleLogin = (loginType) => {
        if (loginType === "popup") {
-         instance.loginPopup(loginRequest).catch((e) => {
+         instance.loginPopup( 
+         ...loginRequest,
+                redirectUri: '/redirect',
+                ).catch((e) => {
            console.log(e);
          });
        } else if (loginType === "redirect") {
