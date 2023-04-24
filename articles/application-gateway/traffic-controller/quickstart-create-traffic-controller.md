@@ -160,7 +160,7 @@ You will need to need to complete the following tasks prior to deploying Traffic
 	helm upgrade \
 		--install gateway-controller oci://mcr.microsoft.com/application-lb/charts/gateway-controller \
 		--create-namespace --namespace azure-application-lb-system \
-		--version '0.1.021621' \
+		--version '0.1.022981' \
 		--set gatewayController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-application-lb-identity --query clientId -o tsv)
 	```
 
