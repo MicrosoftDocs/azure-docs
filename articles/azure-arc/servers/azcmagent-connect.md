@@ -69,6 +69,12 @@ To authenticate with an access token, use the `--access-token [token]` flag. If 
 
 Specifies the Azure Active Directory access token used to create the Azure Arc-enabled server resource in Azure. For more information, see [authentication options](#authentication-options).
 
+`--automanage-profile`
+
+Resource ID of an Azure Automanage best practices profile that will be applied to the server once it's connected to Azure.
+
+Sample value: /providers/Microsoft.Automanage/bestPractices/AzureBestPracticesProduction
+
 `--cloud`
 
 Specifies the Azure cloud instance. Must be used with the `--location` flag. If the machine is already connected to Azure Arc, the default value is the cloud to which the agent is already connected. Otherwise, the default value is "AzureCloud".
