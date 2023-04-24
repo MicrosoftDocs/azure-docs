@@ -6,7 +6,7 @@ ms.topic: reference
 ms.date: 04/23/2023
 ---
 
-# Security policy enhancements in Defender for Cloud | Defender for Cloud in the field 
+# Security policy enhancements in Defender for Cloud
 
 **Episode description**: In this episode of Defender for Cloud in the field, Tuval Rozner joins Yuri Diogenes to talk about the new security policy enhancements. Tuval covers the new security policy dashboard within Defender for Cloud, how to filter, and create exemptions from a single place without having to make changes in the Azure Policy dashboard. Tuval also demonstrates how to use the new dashboard and customize policies.
 <br>
