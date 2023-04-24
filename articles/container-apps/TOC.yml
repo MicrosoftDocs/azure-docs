@@ -96,7 +96,11 @@
     - name: Manage revisions
       href: revisions-manage.md
     - name: Manage workload profiles
-      href: workload-profiles-manage-cli.md
+      items:
+        - name: CLI
+          href: workload-profiles-manage-cli.md
+        - name: Portal
+          href: workload-profiles-manage-portal.md
     - name: Ingress
       items:
       - name: Configure ingress

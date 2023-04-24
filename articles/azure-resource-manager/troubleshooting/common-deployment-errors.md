@@ -2,6 +2,7 @@
 title: Troubleshoot common Azure deployment errors
 description: Troubleshoot common Azure deployment errors for resources that are deployed with Bicep files or Azure Resource Manager templates (ARM templates).
 tags: top-support-issue
+ms.custom: devx-track-arm-template, devx-track-bicep
 ms.topic: troubleshooting
 ms.date: 04/05/2023
 ---

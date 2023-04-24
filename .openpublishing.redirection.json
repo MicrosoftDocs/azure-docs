@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path": "articles/route-server/routing-preference.md",
+            "redirect_url": "/azure/route-server/overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/storage/queues/storage-ruby-how-to-use-queue-storage.md",
             "redirect_url": "/previous-versions/azure/storage/queues/storage-ruby-how-to-use-queue-storage",
             "redirect_document_id": false
@@ -22504,6 +22509,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/private-5g-core/monitor-private-5g-core-with-log-analytics.md",
+            "redirect_url": "/azure/private-5g-core/monitor-private-5g-core-with-platform-metrics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/private-5g-core/enable-log-analytics-for-private-5g-core.md",
+            "redirect_url": "/azure/private-5g-core/monitor-private-5g-core-with-platform-metrics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/private-5g-core/create-overview-dashboard.md",
+            "redirect_url": "/azure/private-5g-core/monitor-private-5g-core-with-platform-metrics",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/communications-gateway/rotate-secrets.md",
             "redirect_URL": "/azure/communications-gateway/whats-new",
             "redirect_document_id": false
@@ -22519,10 +22539,24 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/openshift/howto-configure-ovn-kubernetes.md",
+            "redirect_url": "/azure/openshift/concepts-ovn-kubernetes",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/sentinel/data-connectors/microsoft-defender-threat-intelligence.md",
             "redirect_url": "/azure/sentinel/understand-threat-intelligence",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/principles-for-ai-generated-content.md",
+            "redirect_url": "https://aka.ms/ai-content-principles",
+            "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/azure-monitor/app/java-standalone-arguments.md",
+          "redirect_url": "/azure/azure-monitor/app/java-get-started-supplemental",
+          "redirect_document_id": true
         }
-       
     ]
 }

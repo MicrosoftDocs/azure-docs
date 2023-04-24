@@ -283,9 +283,9 @@ To enable and configure Microsoft Defender for Storage at the storage account le
 
 ```json
 {
-    "type": "Microsoft.Storage/storageAccounts/providers/DefenderForStorageSettings",
+    "type": "Microsoft.Security/DefenderForStorageSettings",
     "apiVersion": "2022-12-01-preview",
-    "name": "[concat(parameters('accountName'), '/Microsoft.Security/current')]",
+    "name": "current",
     "properties": {
         "isEnabled": true,
         "malwareScanning": {
@@ -298,7 +298,8 @@ To enable and configure Microsoft Defender for Storage at the storage account le
             "isEnabled": true
         },
         "overrideSubscriptionLevelSettings": true
-    }
+    },
+    "scope": "[resourceId('Microsoft.Storage/storageAccounts', parameters('StorageAccountName'))]"
 }
 ```
 
@@ -312,13 +313,14 @@ Learn more about the [ARM template AzAPI reference](/azure/templates/microsoft.s
 
 #### Bicep template
 
-To enable and configure Microsoft Defender for Storage at the subscription level with per-transaction pricing using [Bicep](../../azure-resource-manager/bicep/overview.md), add the following to your Bicep template:
+To enable and configure Microsoft Defender for Storage at the storage account level using [Bicep](../../azure-resource-manager/bicep/overview.md), add the following to your Bicep template:
 
 ```bicep
-param accountName string
+resource storageAccount 'Microsoft.Storage/storageAccounts@2021-04-01' ...
 
-resource accountName_current 'Microsoft.Storage/storageAccounts/providers/DefenderForStorageSettings@2022-12-01-preview' = {
-  name: '${accountName}/Microsoft.Security/current'
+resource defenderForStorageSettings 'Microsoft.Security/DefenderForStorageSettings@2022-12-01-preview' = {
+  name: 'current'
+  scope: storageAccount
   properties: {
     isEnabled: true
     malwareScanning: {
@@ -345,7 +347,7 @@ Learn more about the [Bicep template AzAPI reference](/azure/templates/microsoft
 
 ### REST API
 
-To enable and configure Microsoft Defender for Storage at the subscription level using REST API, create a PUT request with this endpoint. Replace the `subscriptionId` , `resourceGroupName`, and `accountName` in the endpoint URL with your own Azure subscription ID, resource group and storage account names accordingly.
+To enable and configure Microsoft Defender for Storage at the storage account level using REST API, create a PUT request with this endpoint. Replace the `subscriptionId` , `resourceGroupName`, and `accountName` in the endpoint URL with your own Azure subscription ID, resource group and storage account names accordingly.
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Security/pricings/StorageAccounts?api-version=2023-01-01

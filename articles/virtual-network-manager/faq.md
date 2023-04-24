@@ -7,7 +7,7 @@ ms.service: virtual-network-manager
 ms.topic: article
 ms.date: 03/15/2023
 ms.author: mbender
-ms.custom: references_regions, ignite-fall-2021
+ms.custom: references_regions, ignite-fall-2021, engagement-fy23
 ---
 
 # Azure Virtual Network Manager FAQ
@@ -89,6 +89,10 @@ Should a regional outage occur, all configurations applied to current resources 
 ### Can a virtual network managed by Azure Virtual Network Manager be peered to a non-managed virtual network?
 
 Yes, you can choose to override and delete an existing peering already created, or allow them to coexist with those created by Azure Virtual Network Manager.
+
+### How do connected groups differ from virtual network peering regarding establishing connectivity between virtual networks?
+
+In Azure, VNet peering and connected groups are two methods of establishing connectivity between virtual networks (VNets). While VNet peering works by creating a 1:1 mapping between each peered VNet, connected groups use a new construct that establishes connectivity without such a mapping. In a connected group, all virtual networks are connected without individual peering relationships.  For example, if VNetA, VNetB, and VNetC are part of the same connected group, connectivity is enabled between each VNet without the need for individual peering relationships.
 
 ### How can I explicitly allow Azure SQL Managed Instance traffic before having deny rules?
 

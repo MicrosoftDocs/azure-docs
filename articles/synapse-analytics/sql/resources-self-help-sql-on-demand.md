@@ -49,6 +49,10 @@ Incorrect network configuration is often the cause of this behavior. Make sure t
 
 Finally, make sure the appropriate roles are granted and have not been revoked.
 
+### Unable to create new database as the request will use the old/expired key
+
+This error is caused by changing workspace customer managed key used for enryption. You can choose to re-encrypt all the data in the workspace with the latest version of the active key. To-re-encrypt, change the key in the Azure portal to a temporary key and then switch back to the key you wish to use for encryption. Learn here how to [manage the workspace keys](../security/workspaces-encryption.md#manage-the-workspace-customer-managed-key).
+
 ### Synapse serverless SQL pool is unavailable after transfering a subscription to a different Azure AD tenant
 
 If you moved a subscription to another Azure AD tenant, you might experience some issues with serverless SQL pool. Create a support ticket and Azure suport will contact you to resolve the issue.
@@ -1105,7 +1109,7 @@ Some general system constraints might affect your workload:
 | Property | Limitation |
 |---|---|
 | Maximum number of Azure Synapse workspaces per subscription | [See limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-synapse-limits-for-workspaces). |
-| Maximum number of databases per serverless pool | 20 (not including databases synchronized from Apache Spark pool). |
+| Maximum number of databases per serverless pool | 100 (not including databases synchronized from Apache Spark pool). |
 | Maximum number of databases synchronized from Apache Spark pool | Not limited. |
 | Maximum number of databases objects per database | The sum of the number of all objects in a database can't exceed 2,147,483,647. See [Limitations in SQL Server database engine](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects). |
 | Maximum identifier length in characters | 128. See [Limitations in SQL Server database engine](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects).|

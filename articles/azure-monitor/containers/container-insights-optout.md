@@ -3,7 +3,7 @@ title: Stop monitoring your Azure Kubernetes Service cluster | Microsoft Docs
 description: This article describes how you can discontinue monitoring of your Azure AKS cluster with Container insights.
 ms.topic: conceptual
 ms.date: 05/24/2022
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ms.reviewer: aul
 ---
