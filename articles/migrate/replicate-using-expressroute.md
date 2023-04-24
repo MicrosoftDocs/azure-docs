@@ -4,7 +4,7 @@ description: Use Azure ExpressRoute for replication with the Migration and moder
 author: vijain
 ms.author: vijain
 ms.topic: how-to
-ms.date: 24/04/2023
+ms.date: 04/24/2023
 ms.custom: engagement-fy23
 ---
 
