@@ -60,8 +60,8 @@ items:
     - name: Destination
       expanded: false
       items:
-      - name: Configure the FHIR destination mapping
-        href: how-to-configure-fhir-mappings.md
+      - name: Overview of the FHIR destination mapping
+        href: overview-of-fhir-destination-mapping.md
   - name: Monitor
     expanded: false
     items:

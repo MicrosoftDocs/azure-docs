@@ -4,9 +4,10 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to configure Azure CNI (advanced) networking in Azure Kubernetes Service (AKS), including deploying an AKS cluster into an existing virtual network and subnet.
 author: asudbring
 ms.author: allensu
+ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
 ms.topic: how-to
-ms.date: 05/16/2022
+ms.date: 04/20/2023
 ms.custom: references_regions, devx-track-azurecli
 ---
 
@@ -146,43 +147,6 @@ az aks create \
 The following screenshot from the Azure portal shows an example of configuring these settings during AKS cluster creation:
 
 :::image type="content" source="../aks/media/networking-overview/portal-01-networking-advanced.png" alt-text="Screenshot from the Azure portal showing an example of configuring these settings during AKS cluster creation.":::
-
-## Monitor IP subnet usage
-
-Azure CNI provides the capability to monitor IP subnet usage. To enable IP subnet usage monitoring, follow the steps below:
-
-### Get the YAML file
-
-1. Download or grep the file named container-azm-ms-agentconfig.yaml from [GitHub][github].
-2. Find azure_subnet_ip_usage in integrations. Set `enabled` to `true`.
-3. Save the file.
-
-### Get the AKS credentials
-
-Set the variables for subscription, resource group and cluster. Consider the following as examples:
-
-```azurepowershell
-
-    $s="subscriptionId"
-
-    $rg="resourceGroup"
-
-    $c="ClusterName"
-
-    az account set -s $s
-
-    az aks get-credentials -n $c -g $rg
-
-```
-
-### Apply the config
-
-1.	Open terminal in the folder the downloaded container-azm-ms-agentconfig.yaml file is saved.
-2.	First, apply the config using the command: `kubectl apply -f container-azm-ms-agentconfig.yaml`
-3.	This will restart the pod and after 5-10 minutes, the metrics will be visible.
-4.	To view the metrics on the cluster, go to Workbooks on the cluster page in the Azure portal, and find the workbook named "Subnet IP Usage". Your view will look similar to the following:
-
-  :::image type="content" source="media/Azure-cni/ip-subnet-usage.png" alt-text="A diagram of the Azure portal's workbook blade is shown, and metrics for an AKS cluster's subnet IP usage are displayed.":::    
 
 ## Frequently asked questions
 

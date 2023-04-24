@@ -85,9 +85,9 @@ There are different reasons for wanting to do this. For example:
 
 ### Token management by API Management
 
-API Management also supports acquisition and secure storage of OAuth 2.0 tokens for certain downstream services using the [authorizations](authorizations-overview.md) (preview) feature, including through use of custom policies and caching.
+API Management also supports acquisition and secure storage of OAuth 2.0 tokens for certain downstream services using the [authorizations](authorizations-overview.md) feature, including through use of custom policies and caching.
 
-With authorizations, API Management manages the tokens for access to OAuth 2.0 backends, simplifying the development of client apps that access APIs.
+With authorizations, API Management manages the tokens for access to OAuth 2.0 backends, allowing you to delegate authentication to your API Management instance to simplify access by client apps to a given backend service or SaaS platform.
 
 ### Other options
 

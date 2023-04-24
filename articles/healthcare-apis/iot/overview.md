@@ -51,7 +51,7 @@ The MedTech service delivers your device data into FHIR service, ensuring that y
 
 ### Configurable
 
-The MedTech service can be customized and configured by using [device](overview-of-device-mapping.md) and [FHIR destination](how-to-configure-fhir-mappings.md) mappings to define the filtering and transformation of your data into FHIR Observations.
+The MedTech service can be customized and configured by using [device](overview-of-device-mapping.md) and [FHIR destination](overview-of-fhir-destination-mapping.md) mappings to define the filtering and transformation of your data into FHIR Observations.
 
 Useful options could include:
 

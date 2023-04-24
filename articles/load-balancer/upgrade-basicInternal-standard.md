@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 12/15/2022
+ms.date: 04/17/2023
 ms.author: mbender
 ms.custom: template-how-to, engagement-fy23
 ---
@@ -70,7 +70,7 @@ This command also installs the required Az PowerShell module.
 
 ### Install using the Manual Download method
 
-If you do have some Azure Az PowerShell module installed and can't uninstall them (or don't want to uninstall them), you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw nupkg file. To install the script from this nupkg file, see [Manual Package Download](/powershell/scripting/gallery/how-to/working-with-packages/manual-download).
+If you do have some Azure Az PowerShell module installed and can't uninstall them (or don't want to uninstall them), you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw nupkg file. To install the script from this nupkg file, see [Manual Package Download](/powershell/gallery/gallery/how-to/working-with-packages/manual-download).
 
 ### Run the script
 

@@ -55,9 +55,12 @@ When you're setting up a scan, you can further scope it after providing the data
 
 Before you scan, it's important to register the data source in Microsoft Purview:
 
-1. In the [Azure portal](https://portal.azure.com), go to the **Microsoft Purview accounts** page and select your Microsoft Purview account.
+1. Open the Microsoft Purview governance portal by:
 
-1. Under **Open Microsoft Purview Governance Portal**, select **Open**, and then select **Data Map**.
+   - Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+   - Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Select the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
+
+1. Navigate to the **Data Map**.
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-open-purview-studio.png" alt-text="Screenshot that shows the area for opening a Microsoft Purview governance portal.":::
 

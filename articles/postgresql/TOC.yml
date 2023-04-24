@@ -502,6 +502,8 @@
       href: flexible-server/concepts-pgbouncer.md
     - name: Server parameters
       href: flexible-server/concepts-server-parameters.md
+    - name: Troubleshooting guides
+      href: flexible-server/concepts-troubleshooting-guides.md
     - name: Business continuity
       items:
       - name: Business continuity overview
@@ -600,6 +602,8 @@
         href: flexible-server/how-to-create-server-customer-managed-key-cli.md
       - name: Azure portal
         href: flexible-server/how-to-create-server-customer-managed-key-portal.md
+      - name: Azure API
+        href: flexible-server/how-to-create-server-customer-managed-key-azure-api.md
     - name: Database deployment
       items:
       - name: GitHub Actions
@@ -689,6 +693,12 @@
         href: flexible-server/howto-alert-on-metrics.md
       - name: Configure and access logs
         href: flexible-server/howto-configure-and-access-logs.md
+    - name: Cost optimization
+      items:
+      - name: How to optimize costs
+        href: flexible-server/how-to-cost-optimization.md
+    - name: Troubleshooting guides
+      href: flexible-server/how-to-troubleshooting-guides.md
 - name: Hyperscale (Citus)
   items:
   - name: Where is Hyperscale (Citus)?

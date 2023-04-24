@@ -56,8 +56,10 @@ Follow the instructions in [CREATE DATABASES AND USERS](../mysql/howto-create-us
 
 To register a new Azure Database for MySQL in your data catalog, do the following:
 
-1. Navigate to your Microsoft Purview account.
+1. Open the Microsoft Purview governance portal by:
 
+   - Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+   - Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Selecting the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
 1. Select **Data Map** on the left navigation.
 
 1. Select **Register**.

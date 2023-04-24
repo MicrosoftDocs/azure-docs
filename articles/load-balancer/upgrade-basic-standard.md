@@ -6,9 +6,9 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 03/17/2022
+ms.date: 04/17/2023
 ms.author: mbender
-ms.custom: template-how-to
+ms.custom: template-how-to, engagement-fy23
 ---
 
 # Upgrade from a basic public to standard public load balancer
@@ -44,7 +44,7 @@ An Azure PowerShell script is available that does the following procedures:
 
 * If the load balancer doesn't have a frontend IP configuration or backend pool, you'll encounter an error running the script. Ensure the load balancer has a frontend IP and backend pool
 
-* The script cannot migrate Virtual Machine Scale Set from Basic Load Balancer's backend to Standard Load Balancer's backend. For this type of upgrade, see [Upgrade a basic load balancer used with Virtual Machine Scale Sets](./upgrade-basic-standard-virtual-machine-scale-sets.md) for instructions and more information.
+* The script can't migrate Virtual Machine Scale Set from Basic Load Balancer's backend to Standard Load Balancer's backend. For this type of upgrade, see [Upgrade a basic load balancer used with Virtual Machine Scale Sets](./upgrade-basic-standard-virtual-machine-scale-sets.md) for instructions and more information.
 
 ### Change allocation method of the public IP address to static
 
@@ -75,32 +75,32 @@ Download the migration script from the [PowerShell Gallery](https://www.powershe
 
 There are two options depending on your local PowerShell environment setup and preferences:
 
-* If you don’t have the Azure Az modules installed, or don’t mind uninstalling the Azure Az modules, use the `Install-Script` option to run the script.
+* If you don’t have the Az PowerShell module installed, or don’t mind uninstalling the Az PowerShell module, use the `Install-Script` option to run the script.
 
-* If you need to keep the Azure Az modules, download the script and run it directly.
+* If you need to keep the Az PowerShell module, download the script and run it directly.
 
-To determine if you have the Azure Az modules installed, run `Get-InstalledModule -Name az`. If you don't see any installed Az modules, then you can use the `Install-Script` method.
+To determine if you have the Az PowerShell module installed, run `Get-InstalledModule -Name az`. If you don't see any installed Az PowerShell module, then you can use the `Install-Script` method.
 
 ### Install with Install-Script
 
-To use this option, don't have the Azure Az modules installed on your computer. If they're installed, the following command displays an error. Uninstall the Azure Az modules, or use the other option to download the script manually and run it.
+To use this option, don't have the Az PowerShell module installed on your computer. If they're installed, the following command displays an error. Uninstall the Az PowerShell module, or use the other option to download the script manually and run it.
   
 Run the script with the following command:
 
 ```azurepowershell
 Install-Script -Name AzurePublicLBUpgrade
 ```
-This command also installs the required Az modules.  
+This command also installs the required Az PowerShell module.  
 
 ### Install with the script directly
 
-If you do have Azure Az modules installed and can't uninstall them, or don't want to uninstall them,you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw **nupkg** file. To install the script from this **nupkg** file, see [Manual Package Download](/powershell/scripting/gallery/how-to/working-with-packages/manual-download).
+If you do have Az PowerShell module installed and can't uninstall it, or don't want to uninstall it,you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw **nupkg** file. To install the script from this **nupkg** file, see [Manual Package Download](/powershell/gallery/gallery/how-to/working-with-packages/manual-download)
 
 To run the script:
 
 1. Use `Connect-AzAccount` to connect to Azure.
 
-2. Use `Import-Module Az` to import the Az modules.
+2. Use `Import-Module Az` to import the Az PowerShell module.
 
 3. Examine the required parameters:
 

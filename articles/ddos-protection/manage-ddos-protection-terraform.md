@@ -5,9 +5,9 @@ author: TomArcherMsft
 ms.service: ddos-protection
 ms.topic: quickstart
 ms.workload: infrastructure-services
-ms.custom: devx-track-terraform
+ms.custom: devx-track-terraform, ai-gen-docs
 ms.author: tarcher
-ms.date: 4/12/2023
+ms.date: 4/14/2023
 ---
 
 # Quickstart: Create and configure Azure DDoS Network Protection using Terraform

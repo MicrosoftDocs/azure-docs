@@ -80,7 +80,7 @@ In this article you learn how to enable the following workspaces resources in a 
 
 ### Azure Container Instances
 
-When your Azure Machine Learning workspace is configured with a private endpoint, deploying to Azure Container Instances in a VNet is not supported. Instead, consider using a [Managed online endpoint with network isolation](how-to-secure-online-endpoint.md).
+When your Azure Machine Learning workspace is configured with a private endpoint, deploying to Azure Container Instances in a VNet isn't supported. Instead, consider using a [Managed online endpoint with network isolation](how-to-secure-online-endpoint.md).
 
 ### Azure Container Registry
 
@@ -216,7 +216,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
     [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-    If you've [installed the Machine Learning extension v2 for Azure CLI](how-to-configure-cli.md), you can use the `az ml workspace show` command to show the workspace information. The v1 extension does not return this information.
+    If you've [installed the Machine Learning extension v2 for Azure CLI](how-to-configure-cli.md), you can use the `az ml workspace show` command to show the workspace information. The v1 extension doesn't return this information.
 
     ```azurecli-interactive
     az ml workspace show -n yourworkspacename -g resourcegroupname --query 'container_registry'
@@ -338,6 +338,18 @@ To enable network isolation for Azure Monitor and the Application Insights insta
 ## Workspace diagnostics
 
 [!INCLUDE [machine-learning-workspace-diagnostics](../../includes/machine-learning-workspace-diagnostics.md)]
+
+## Public access to workspace
+
+> [!IMPORTANT]
+> While this is a supported configuration for Azure Machine Learning, Microsoft doesn't recommend it. You should verify this configuration with your security team before using it in production.
+
+In some cases, you may need to allow access to the workspace from the public network (without connecting through the VNet using the methods detailed the [Securely connect to your workspace](#securely-connect-to-your-workspace) section). Access over the public internet is secured using TLS.
+
+To enable public network access to the workspace, use the following steps:
+
+1. [Enable public access](how-to-configure-private-link.md#enable-public-access) to the workspace after configuring the workspace's private endpoint.
+1. [Configure the Azure Storage firewall](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#grant-access-from-an-internet-ip-range) to allow communication with the IP address of clients that connect over the public internet. You may need to change the allowed IP address if the clients don't have a static IP. For example, if one of your Data Scientists is working from home and can't establish a VPN connection to the VNet.
 
 ## Next steps
 
