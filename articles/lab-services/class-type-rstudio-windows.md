@@ -137,9 +137,11 @@ $installPath = Get-Item -Path $outputfile
 Start-Process -FilePath $installPath.FullName -ArgumentList "/S" -NoNewWindow -Wait
 ```
 
-### CRAN packages
+### Install CRAN packages
 
-To install CRAN packages:
+Comprehensive R Archive Network (CRAN) is R's central software repository. Among others, the repository contains R packages, which you can use to extend your R programs.
+
+To install CRAN packages on the template virtual machine:
 
 - Use the `install.packages(“package name”)` command in an R interactive session as shown in [quick list of useful R packages](https://support.rstudio.com/hc/articles/201057987-Quick-list-of-useful-R-packages) article.
 
