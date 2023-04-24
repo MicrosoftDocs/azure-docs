@@ -129,7 +129,8 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |		|	Microsoft Sentinel 	|	X ([View scope](#supported-services-and-features))	|	X	|		|
 |		|	VM Insights	|	X (Public preview)	|	X	|		|
 |		|	Microsoft Defender for Cloud	|	X (Public preview)	|	X	|		|
-|		|	Update Management	|	X (Public preview, independent of monitoring agents)	|	X	|		|
+|		|	Automation Update Management	|	|	X	|		|
+|		|	Update Management	|	X (Public preview, independent of monitoring agents)	|	|		|
 |		|	Change Tracking	| X (Public preview) |	X	|		|
 |       |   SQL Best Practices Assessment | X |     |       |
 

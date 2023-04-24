@@ -86,11 +86,11 @@ Before you begin migrating from the Log Analytics agent to Azure Monitor Agent, 
 <sup>1</sup> The DCR generator only converts the configurations for Windows event logs, Linux syslog and performance counters. Support for additional features and solutions will be available soon  
 <sup>2</sup> You might need to deploy [extensions required for specific solutions](./agents-overview.md#supported-services-and-features) in addition to the Azure Monitor Agent extension.  
 
-## Services and features migrating off of the Log Analytics agent
+## Services and features migrating away from Log Analytics agent
 
 Azure Monitor Agent is generally available for data collection.
 
-Services that used Log Analytics agent for data collection are migrating to Azure Monitor Agent. Som 
+Most services that used Log Analytics agent for data collection are migrating to Azure Monitor Agent. 
 
 The following features and services now use Azure Monitor Agent in preview. This means you can already choose to use Azure Monitor Agent to collect data when you enable the feature or service; otherwise, the Log Analytics agent is still enabled by default.
     
@@ -109,6 +109,13 @@ The following features and services now use Azure Monitor Agent in preview. This
 
 > [!NOTE]
 > Features and services listed above in preview **may not be available in Azure Government and China clouds**. They will be available typically within a month *after* the features/services become generally available.
+
+The following services, which used Log Analytics agent, no longer require a data collection agent for monitoring:
+
+|	Service	|	Current support	|	Other extensions installed	|	More information	|
+|	:---	|	:---	|	:---	|	:---	|
+|	 [Update Management](../../automation/update-management/overview.md)	|	 Use Update Management v2 - Public preview	|	None	|	[Update management center (Public preview) documentation](../../update-center/index.yml)	|
+|	 [Automation Hybrid Runbook Worker overview](../../automation/automation-hybrid-runbook-worker.md)	|	 Migrate to Azure Automation Hybrid Worker Extension - Generally available	|	None	|	[Migrate an existing Agent based to Extension based Hybrid Workers](../../automation/extension-based-hybrid-runbook-worker-install.md#migrate-an-existing-agent-based-to-extension-based-hybrid-workers)	|
 
 ## Next steps
 
