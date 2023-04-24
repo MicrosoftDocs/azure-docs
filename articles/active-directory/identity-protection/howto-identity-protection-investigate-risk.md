@@ -50,7 +50,7 @@ Administrators can then choose to take action on these events. Administrators ca
 - Confirm user compromise
 - Dismiss user risk
 - Block user from signing in
-- Investigate further using Azure ATP
+- Investigate further using Microsoft Defender for Identity
 
 ## Risky sign-ins
 
