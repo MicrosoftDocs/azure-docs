@@ -2,7 +2,7 @@
 title: Recommended approaches for creating custom images for labs
 description: Describes approaches for creating custom images for labs.
 ms.date: 07/27/2021
-ms.topic: how-to
+ms.topic: conceptual
 ---
 
 # Recommended approaches for creating custom images
