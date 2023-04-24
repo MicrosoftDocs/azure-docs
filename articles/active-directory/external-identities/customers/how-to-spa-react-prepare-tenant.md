@@ -14,7 +14,7 @@ ms.custom: it-pro
 
 #Customer intent: As a dev I want to prepare my customer tenant for building a Single Page App with React
 ---
-# Prepare your customer tenant for building a Single Page App(SPA) in Microsoft Entra
+# Prepare your customer tenant for building a Single Page App (SPA) in Microsoft Entra
 
 Before your applications can interact with Microsoft Identity Platform they must be registered in a Microsoft Entra for Customers tenant that you manage and must be associated with a user flow.
 

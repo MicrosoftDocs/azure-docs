@@ -1,6 +1,6 @@
 ---
 title: Prepare a React Single Page App (SPA) for authentication in Microsoft Entra
-description: Learn how to rrepare a React Single Page App (SPA) for authentication in Microsoft Entra
+description: Learn how to prepare a React Single Page App (SPA) for authentication in Microsoft Entra
 services: active-directory
 author: godonnell
 manager: celestedg
@@ -12,11 +12,11 @@ ms.date: 04/12/2023
 ms.author: godonnell
 ms.custom: it-pro
 
-#Customer intent: As a dev, devops, or it admin, I want to my app for React Single Page App for authentication
+#Customer intent: As a dev, devops, or IT admin, enable authentication in my own React SPA with Azure Active Directory (Azure AD) for customers tenant
 ---
 # Prepare a Single-page application for authentication
 
-After registration is complete, a React project can be created using an integrated development environment (IDE). This tutorial demonstrates how to create a single-page React application using npm and create files needed for authentication and authorization.
+After registration is complete, a React project can be created using an integrated development environment (IDE). This tutorial demonstrates how to create a React Single-page application using npm and create files needed for authentication and authorization.
 
 In this article, you learn how to:
 
@@ -31,7 +31,7 @@ In this article, you learn how to:
 * Although any IDE that supports React applications can be used, Visual Studio Code is used for this guide. This can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads/) page.
 * [Node.js](https://nodejs.org/en/download/)
 
-## Create a new React Project
+## Create a new React project
 
 Use the following tabs to create a React project within the IDE.
 
@@ -75,7 +75,7 @@ Identity related **npm** packages must be installed in the project to enable use
 
 All parts of the app that require authentication must be wrapped in the [`MsalProvider`](/javascript/api/@azure/msal-react/#@azure-msal-react-msalprovider) component. You instantiate a [PublicClientApplication](/javascript/api/@azure/msal-browser/publicclientapplication) then pass it to `MsalProvider`.
 
-1. In the *src* folder, open the *index.js* file and replace the contents of the file with the following code snippet to use the `msal` packages and bootstrap styling:
+1. In the *src* folder, open *index.js* and replace the contents of the file with the following code snippet to use the `msal` packages and bootstrap styling:
 
     :::code language="javascript" source="~/ms-identity-docs-code-javascript/react-spa/src/index.js" :::
 

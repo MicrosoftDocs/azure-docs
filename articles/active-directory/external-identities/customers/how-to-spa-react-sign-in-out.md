@@ -164,7 +164,10 @@ reactspalocal/
 
      const handleLogin = (loginType) => {
        if (loginType === "popup") {
-         instance.loginPopup(loginRequest).catch((e) => {
+         instance.loginPopup( 
+         ...loginRequest,
+                redirectUri: '/redirect',
+                ).catch((e) => {
            console.log(e);
          });
        } else if (loginType === "redirect") {
@@ -242,7 +245,7 @@ reactspalocal/
 
 ## Change filename and add required imports
 
-By default, the application runs via a JavaScript file called App.js. It needs to be changed to App.jsx file, which is an extension that allows a developer to write HTML in React.
+By default, the application runs via a JavaScript file called *App.js*. It needs to be renamed to *App.jsx*, which is an extension that allows a developer to write HTML in React.
 
 1. Rename App.js to App.jsx.
 1. Replace the existing imports with the following snippet;
@@ -302,7 +305,7 @@ export default function App() {
 
 All the required code snippets have been added, so the application can now be called and tested in a web browser.
 
-1. Open a new terminal by selecting Terminal > New Terminal.
+1. Open a new terminal by selecting **Terminal** > **New Terminal**.
 1. Run the following command to start your express web server.
 
     ```powershell
