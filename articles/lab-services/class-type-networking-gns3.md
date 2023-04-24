@@ -1,5 +1,5 @@
 ---
-title: Set up a networking lab with GNS3
+title: Set up a GNS3 networking lab
 titleSuffix: Azure Lab Services
 description: Learn how to set up a lab using Azure Lab Services to teach networking with GNS3. 
 services: lab-services
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 04/24/2023
 ---
 
-# Set up a lab to teach a networking class
+# Set up a lab to teach a networking class with GNS3 in Azure Lab Services
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
