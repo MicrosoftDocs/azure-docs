@@ -8,22 +8,20 @@ ms.date: 04/21/2023
 
 ---
 
-# What is Palo Alto Networks?
+# What is NGFW by Palo Alto Networks?
 
-In this article you learn how to enable deeper integration of the NGINXSaaS service with Azure.
+In this article you learn how to enable deeper integration of the Palo Alto Networks NGFW (Next Generation Firewall) service with Azure.
 
-Palo Alto delivers secure and high performance applications using familiar and trusted load balancing solutions. Use Palo Alto as a reverse proxy within your Azure environment.
+Palo Alto Networks (PAN) is a security ISV that has been shipping network firewalls since 2007 to help protect the digital way of life for our customers by addressing the security challenges through analytics, automation, and orchestration. With the integration of Cloud NGFW for Azure into the Azure ecosystem we are delivering an integrated platform and empowering a growing ecosystem of developers and customers to help protect their organizations on Azure.
 
-The Palo Alto offering in the Azure Marketplace allows you to manage NGINX in the Azure portal as an integrated service. You can implement Palo Alto as a monitoring solution for your cloud workloads through a streamlined workflow.
-
-You can set up the Palo Alto resources through a resource provider named Nginx.NginxPlus. You can create and manage Palo Alto resources through the Azure portal. NGINX owns and runs the software as a service (SaaS) application including the NGINX accounts created.
+The Palo Alto offering in the Azure Marketplace allows you to manage the NGFW offeirng in the Azure portal as an integrated service. You can set up the Palo Alto resources through a resource provider named PAN.NGFW. You can create and manage Palo Alto resources through the Azure portal. Palo Alto owns and runs the software as a service (SaaS) application including the NGINX accounts created.
 
 Here are the key capabilities provided by the Palo Alto integration:
 
 - **Seamless onboarding** of Palo Alto software as an integrated service on Azure.
 - **Unified billing** of Palo Alto through Azure monthly billing.
 - **Single-Sign on to Palo Alto** - No separate sign-up needed from NGINX portal.
-- **Lift and Shift config files** - Ability to use existing Configuration (.conf) files for Palo Alto deployment.
+- **Manage VNET and VWAN traffic** - Ability to use existing Configuration (.conf) files for Palo Alto deployment.
 
 ## Pre-requisites for Palo Alto
 
