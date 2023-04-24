@@ -69,7 +69,7 @@ _Code integrity and confidential ledgers:_ With distributed ledger technology (D
 ### ACC platform offerings that help enable confidential cleanrooms
 Roll up your sleeves and build a data clean room solution directly on these confidential computing service offerings.
 
-[Confidential containers](confidential-computing/confidential-containers.md) on Azure Container Instances (ACI) and Intel SGX VMs with application enclaves provide a container solution for building confidential cleanroom solutions.
+[Confidential containers](./confidential-containers.md) on Azure Container Instances (ACI) and Intel SGX VMs with application enclaves provide a container solution for building confidential cleanroom solutions.
 
 [Confidential Virtual Machines (VMs)](confidential-vm-overview.md) provide a VM platform for confidential cleanroom solutions.
 
