@@ -125,7 +125,7 @@ The **Queries** tab contains hunting queries specific to this hunt. These querie
 
 1. Select the **View results** button. 
 
-    View results launches a special version of the Log Analytics (LA) search page. All the query tabs in this special LA space persist for your browser session. If you pivot to another part of the Microsoft Sentinel portal, then browse back to the LA log search user experience from an entry point within the hunt user experience, all the previously created LA query tabs will still be there.
+    A special version of the Log Analytics (LA) search page launches. All the query tabs in this special LA space persist for your browser session. If you pivot to another part of the Microsoft Sentinel portal, then browse back to the LA log search experience from the hunt page, all your LA query tabs remain.
 
     > [!TIP]
     > These LA query tabs are lost if you close the browser tab. If you want to persist the queries long term, you need to save the query, create a new hunting query, or [copy it into a comment](#add-comments) for later use within the hunt.
@@ -135,7 +135,7 @@ The **Queries** tab contains hunting queries specific to this hunt. These querie
 When you find interesting results or important rows of data, add those results to the hunt by creating a bookmark. 
 
 1. Select the desired row or rows. Select the Add bookmark action, right above the Results table.
-    :::image type="content" source="media/organize-hunts/add-bookmark.png" alt-text="Screenshot showing add bookmark pane with optional fields filled in.":::
+    :::image type="content" source="media/organize-hunts/add-bookmark.png" alt-text="Screenshot showing add bookmark pane with optional fields filled in." lightbox="media/organize-hunts/add-bookmark.png":::
 
    Optional steps:
 1. Name the bookmark(s), 
@@ -144,14 +144,15 @@ When you find interesting results or important rows of data, add those results t
 1. Set MITRE tactics and techniques
 1. Add tags, and add notes. 
 
-    The bookmarks will preserve the specific row results, KQL query, and time range that generated the result. For more information, see [Hunt with bookmarks](bookmarks.md).
+    The bookmarks preserve the specific row results, KQL query, and time range that generated the result. For more information, see [Hunt with bookmarks](bookmarks.md).
 
 1. Select **Create** to add the bookmark to the hunt.
 
 
 ## View bookmarks
 Navigate to your hunt's bookmark tab to view your bookmarks with previously created details.
-:::image type="content" source="{source}" alt-text="{alt-text}":::
+
+:::image type="content" source="media/organize-hunts/view-bookmark.png" alt-text="Screenshot showing a bookmark with all its details and the hunts action menu open." lightbox="media/organize-hunts/view-bookmark.png":::
 
 From here select a desired bookmark and perform the following actions:
 - Select entity links to view the corresponding UEBA entity page.
@@ -161,49 +162,61 @@ From here select a desired bookmark and perform the following actions:
 - Select **Investigate** button to view the bookmark and related entities in the investigation graph. 
 - Select the **Edit** button to update the tags, MITRE tactics and techniques, and notes.
 
+## Interact with entities
+1. Navigate to your hunt's **Entities** tab to view, search, and filter the entities contained in your hunt. This list is generated from the list of entities in the bookmarks. The Entities tab automatically resolves duplicated entries. 
+1. Select entity names to visit the corresponding UEBA entity page. 
+1. Right-click on the entity to take actions appropriate to the entity types, such as adding an IP address to TI or running an entity type specific playbook.
+
+    :::image type="content" source="media/organize-hunts/entities-add-ti.png" alt-text="Screenshot showing context menu for entities.":::
+
+
+## Add comments
+Comments are an excellent place to collaborate with colleagues, preserve notes, and document findings. 
+
+1. Select :::image type="icon" source="media/organize-hunts/comments-icon.png":::
+1. Type and format your comment in the edit box.
+1. Add a query result as a link for collaborators to quickly understand the context.  
+1. Select the **Comment** button to apply your comments.
+
+    :::image type="content" source="media/organize-hunts/add-comment.png" alt-text="Screenshot showing comment edit box with LA query as a link.":::
+
+
 ## Create incidents
 There are two choices for incident creation while hunting. 
 
 Option 1: Use bookmarks.
-- Select a bookmark or bookmarks.
-- Select the Incident actions button.
-- Select Create new incident or Add to existing incident
-:::image type="content" source="{source}" alt-text="{alt-text}":::
+1. Select a bookmark or bookmarks.
+1. Select the Incident actions button.
+1. Select Create new incident or Add to existing incident
 
-- For **Create new incident**, follow the guided steps. The bookmarks tab is prepopulated with your selected bookmarks. 
-- For **Add to existing incident**, select the incident and select the **Accept** button.
+    :::image type="content" source="media/organize-hunts/create-incident.png" alt-text="Screenshot showing incident actions menu from the bookmarks window.":::
 
-Option 2: Use **Hunt actions**.
-- Select the **Hunts actions** menu > **Create incident**, and follow the guided steps.
-:::image type="content" source="{source}" alt-text="{alt-text}":::
+    - For **Create new incident**, follow the guided steps. The bookmarks tab is prepopulated with your selected bookmarks. 
+    - For **Add to existing incident**, select the incident and select the **Accept** button.
 
-During the **Add bookmarks** step use the **Add bookmark** action to choose additional bookmarks from the hunt to add to the incident. You're limited to bookmarks that haven't already been assigned to an incident.
-:::image type="content" source="{source}" alt-text="{alt-text}":::
+Option 2: Use the hunts **Actions**.
+1. Select the hunts **Actions** menu > **Create incident**, and follow the guided steps.
 
-## Interact with entities
-Navigate to your hunt's Entities tab to view, search, and filter the entities contained in your hunt. This list is generated from the list of entities in the bookmarks. The Entities tab automatically resolves duplicated entries. Select entity names to visit the corresponding UEBA entity page. Right-click on the entity to take actions appropriate to the entity types, such as adding an IP address to TI or running an entity type specific playbook.
-:::image type="content" source="{source}" alt-text="{alt-text}":::
+    :::image type="content" source="media/organize-hunts/create-incident-actions-menu.png" alt-text="Screenshot showing hunts actions menu from the bookmarks window.":::
 
-## Add comments
-Comments are an excellent place to collaborate with colleagues, preserve notes, and document findings. To create, edit, and delete comments, click the comment icon in the upper right of the hunt details.
-:::image type="content" source="{source}" alt-text="{alt-text}":::
+1. During the **Add bookmarks** step use the **Add bookmark** action to choose additional bookmarks from the hunt to add to the incident. You're limited to bookmarks that haven't already been assigned to an incident.
 
-Type and format your comment in the edit box. Included URLs resolve into hyperlinks. 
-Select the **Comment** button to apply your comments. 
-:::image type="content" source="{source}" alt-text="{alt-text}":::
 
 ## Update status
-When you have captured enough evidence to validate or invalidate your hypothesis, update your hypothesis state.
-:::image type="content" source="media/organize-hunts/set-hypothesis.png" alt-text="Screenshot shows hypothesis state menu selection.":::
+1. When you have captured enough evidence to validate or invalidate your hypothesis, update your hypothesis state.
 
-When all the actions associated with the hunt are complete, such as creating analytics rules, incidents, or adding indicators of compromise (IOCs) to TI, close out the hunt.
-:::image type="content" source="media/organize-hunts/set-status.png" alt-text="Screenshot shows Hunt state menu selection.":::
+    :::image type="content" source="media/organize-hunts/set-hypothesis.png" alt-text="Screenshot shows hypothesis state menu selection.":::
+
+1. When all the actions associated with the hunt are complete, such as creating analytics rules, incidents, or adding indicators of compromise (IOCs) to TI, close out the hunt.
+
+    :::image type="content" source="media/organize-hunts/set-status.png" alt-text="Screenshot shows Hunt state menu selection.":::
 
 These status updates are visible on the main Hunting page and are used to [track metrics](#track-metrics).
 
 ## Track metrics
-On the hunting page track tangible results from hunting activity using the metrics bar for the hunts tab near the top of the page. This will show the number of validated hypotheses, new incidents created, and new analytic rules created. This information makes it easy to see the total results across all the hunts. 
-:::image type="content" source="{source}" alt-text="{alt-text}":::
+Track tangible results from hunting activity using the metrics bar in the **Hunts** tab. Metrics show the number of validated hypotheses, new incidents created, and new analytic rules created. Use these results to set goals or celebrate milestones of your hunting program.
+ 
+:::image type="content" source="media/organize-hunts/track-metrics.png" alt-text="Screenshot shows hunting metrics.":::
 
 
 ## Next steps
