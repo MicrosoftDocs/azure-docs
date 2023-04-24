@@ -101,7 +101,7 @@ After creating a connector, a scan will start on your GCP environment. New recom
 
 By default, all plans are `On`. You can disable plans that you don't need.
 
-:::image type="content" source="media/quickstart-onboard-gcp/toggle-plans-to-on.png" alt-text="Screenshot showing that all plans are toggle to on." lightbox="media/quickstart-onboard-gcp/toggle-plans-to-on.png" lightbox="media/quickstart-onboard-gcp/toggle-plans-to-on.png":::
+:::image type="content" source="media/quickstart-onboard-gcp/toggle-plans-to-on.png" alt-text="Screenshot showing that all plans are toggle to on." lightbox="media/quickstart-onboard-gcp/toggle-plans-to-on.png":::
 
 ### Configure the servers plan
 
