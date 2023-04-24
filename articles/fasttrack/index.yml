@@ -31,12 +31,12 @@ productDirectory:
     - title: Watch on-demand recordings
       imageSrc: ./media/Productivity.png
       summary: Catch up on past sessions at your own pace
-      url: ./shows/learn-live/?terms=fasttrack
+      url: https://learn.microsoft.com/shows/learn-live/?terms=fasttrack
     # Card
     - title: AskFTA
       imageSrc: ./media/Interact.png
       summary: Get your technical questions answered directly from an Azure engineer
-      url: ./answers/tags/351/azure-fasttrack
+      url: https://learn.microsoft.com/answers/tags/351/azure-fasttrack
       
 # conceptualContent section
 conceptualContent:
@@ -48,49 +48,49 @@ conceptualContent:
         # Card
         - title: Infrastructure
           links:
-            - url: ./shows/learn-live/fasttrack-for-azure-season-2-ep05-learn-how-azure-migrate-can-help-migrate-your-servers-to-azure-part-1
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep05-learn-how-azure-migrate-can-help-migrate-your-servers-to-azure-part-1
               itemType: video
               text: Learn how Azure Migrate can help migrate your servers to Azure - Part 1
-            - url: ./shows/learn-live/fasttrack-for-azure-season-2-ep06-learn-how-azure-migrate-can-help-migrate-servers-azure-part-2
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep06-learn-how-azure-migrate-can-help-migrate-servers-azure-part-2
               itemType: video
               text: Learn how Azure Migrate can help migrate your servers to Azure - Part 2
-            - url: ./shows/learn-live/fasttrack-for-azure-season-2-ep07-apply-well-architected-framework-to-your-solution-design
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep07-apply-well-architected-framework-to-your-solution-design
               itemType: video
               text: Apply Well-Architected Framework to your solution design
-            - url: ./shows/learn-live/fasttrack-for-azure-season-2-ep08-how-to-get-started-fast-azure-virtual-desktop-for-beginners
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep08-how-to-get-started-fast-azure-virtual-desktop-for-beginners
               itemType: video
               text: How To Get Started FAST Azure Virtual Desktop for Beginners 
         # Card
         - title: "AI/ML"
           links:
-            - url: ./shows/learn-live/fasttrack-for-azure-season-2-ep02-azure-openai-introduction-to-language-models-and-applications
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep02-azure-openai-introduction-to-language-models-and-applications
               itemType: video
               text: "Azure OpenAI: Introduction to Language Models and Applications"
-            - url: ./shows/learn-live/fasttrack-for-azure-season-2-ep09-azure-ml-fundamentals
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep09-azure-ml-fundamentals
               itemType: video
               text: Azure ML Fundamentals
-            - url: ./shows/learn-live/fasttrack-for-azure-season-2-ep03-azure-ml-developer-experience
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep03-azure-ml-developer-experience
               itemType: video
               text: Azure ML Developer Experience
-            - url: ./shows/learn-live/fasttrack-for-azure-season-2-ep01-azure-ml-enterprise-deployment
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep01-azure-ml-enterprise-deployment
               itemType: video
               text: Azure ML Enterprise Deployment
-            - url: ./shows/learn-live/fasttrack-for-azure-season-2-ep04-azure-ml-operations
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep04-azure-ml-operations
               itemType: video
               text: Azure ML Operations
         # Card
         - title: Application Development
           links:
-            - url: ./shows/learn-live/fasttrack-for-azure-season-2-ep17-azure-container-options-aks-vs-aca-vs-aci
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep17-azure-container-options-aks-vs-aca-vs-aci
               itemType: video
               text: Azure Container Options (AKS vs ACA vs ACI)
-            - url: ./shows/learn-live/fasttrack-for-azure-season-1-ep01-aks-security-best-practices
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-1-ep01-aks-security-best-practices
               itemType: video
               text: AKS Security Best Practices
-            - url: ./shows/learn-live/fasttrack-for-azure-season-1-ep08-aks-operations-best-practices
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-1-ep08-aks-operations-best-practices
               itemType: video
               text: AKS Operations Best Practices
-            - url: ./shows/learn-live/fasttrack-for-azure-season-1-ep09-microsoft-identity-platform
+            - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-1-ep09-microsoft-identity-platform
               itemType: video
               text: Microsoft Identity Platform
               
