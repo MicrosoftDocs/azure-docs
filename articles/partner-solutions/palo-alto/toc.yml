@@ -1,0 +1,18 @@
+items:
+- name: Palo Alto documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Palo Alto?
+    href: palo-alto-overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create an Palo Alto deployment
+    href: palo-alto-create.md
+- name: How to
+  items:
+  - name: Manage your Palo Alto resource
+    href: palo-alto-manage.md
+  - name: Troubleshoot Palo Alto
+    href: palo-alto-troubleshoot.md

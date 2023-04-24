@@ -1,0 +1,39 @@
+### YamlMime:Landing
+
+title: Palo Alto 
+summary: Palo Alto is part of Marketplace and combines the benefits of Palo Alto and the Azure cloud. You can learn how to create an Palo Alto resource, manage it, and get support for your Palo Alto deployment.
+
+metadata:
+  title: Palo Alto 
+  description: Palo Alto integrates with Azure to combine the benefits of Palo Alto and the Azure cloud.
+  ms.topic: landing-page
+  ms.date: 01/18/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  # Card (optional)
+  - title: About Palo Alto
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Palo Alto?
+            url: palo-alto-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage your Palo Alto resource
+            url: palo-alto-manage.md
+
+  # Card
+  - title: Create an Palo Alto deployment
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Get started with Palo Alto
+            url: palo-alto-create.md
+      - linkListType: how-to-guide
+        links:
+          - text: Troubleshooting Palo Alto 
+            url: palo-alto-troubleshoot.md
+
+  
