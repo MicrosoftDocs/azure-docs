@@ -6,7 +6,7 @@ services: lab-services
 ms.service: lab-services
 author: ntrogh
 ms.author: nicktrog
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 04/24/2023
 ---
 
