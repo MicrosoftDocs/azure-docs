@@ -7,11 +7,11 @@ ms.date: 11/15/2022
 
 # Azure Kubernetes Service Diagnostics (preview) overview
 
-Troubleshooting Azure Kubernetes Service (AKS) cluster issues plays an important role in maintaining your cluster, especially if your cluster is running mission-critical workloads. AKS Diagnostics (preview) is an intelligent, self-diagnostic experience that:
+Troubleshooting Azure Kubernetes Service (AKS) cluster issues plays an important role in maintaining your cluster, especially if your cluster is running mission-critical workloads. AKS Diagnostics (preview) is an intelligent, self-diagnostic experience with the following features:
 
 * Helps you identify and resolve problems in your cluster.
 * Is cloud-native.
-* Requires no extra configuration or billing cost.
+* Requires no extra configuration or billing costs.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -22,22 +22,19 @@ To access AKS Diagnostics:
 1. Sign in to the [Azure portal](https://portal.azure.com)
 1. From **All services** in the Azure portal, select **Kubernetes Service**.
 1. Select **Diagnose and solve problems** in the left navigation, which opens AKS Diagnostics.
-1. Choose a category that best describes the issue of your cluster, like _Cluster Node Issues_, by:
-
-    * Using the keywords in the homepage tile.
-    * Typing a keyword that best describes your issue in the search bar.
+1. Choose a category that best describes the issue of your cluster, like _Cluster Node Issues_, using the keywords in the homepage tile or typing a keyword that best describes your issue in the search bar.
 
 ![Homepage](./media/concepts-diagnostics/aks-diagnostics-homepage.png)
 
 ## View a diagnostic report
 
-After you click on a category, you can view a diagnostic report specific to your cluster. Diagnostic reports intelligently call out any issues in your cluster with status icons. You can drill down on each topic by clicking **More Info** to see a detailed description of:
+After selecting a category, you can view a diagnostic report specific to your cluster. Diagnostic reports intelligently call out any issues in your cluster with status icons. You can drill down on each topic by clicking **More Info** to see a detailed description of:
 
 * Issues
 * Recommended actions
 * Links to helpful docs
 * Related-metrics
-* Logging data 
+* Logging data
 
 Diagnostic reports generate based on the current state of your cluster after running various checks. They can be useful for pinpointing the problem of your cluster and understanding next steps to resolve the issue.
 
