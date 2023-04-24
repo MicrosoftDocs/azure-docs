@@ -36,7 +36,7 @@ In this mode, the scale set makes no guarantees about the order of VMs being bro
 > To enable this feature for your subscription, run `Register-AzProviderFeature -FeatureName MaxSurgeRollingUpgrade -ProviderNamespace Microsoft.Compute` in [Azure CloudShell](../cloud-shell/overview.md?).
 
 
-When using a Rolling Upgrade Policy, the scale set rolls out the update in batches with an optional pause time in between. There are two types of Rolling Upgrade Policies that can be configured:
+In this mode, the scale set performs updates in batches with an optional pause time in between. There are two types of Rolling Upgrade Policies that can be configured:
 
 -  **Rolling Upgrades with MaxSurge disabled**
     
