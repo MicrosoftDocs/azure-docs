@@ -144,7 +144,8 @@ The recommendations `System updates should be installed on your machines (powere
 To use the new recommendation, you need to:
 
 - Connect your non-Azure machines to Arc.
-- [Enable the periodic assessment property](../update-center/assessment-options.md#periodic-assessment). You can use the Quick Fix in the new recommendation, `Machines should be configured to periodically check for missing system updates` to fix the recommendation.
+- [Enable the periodic assessment property](../update-center/assessment-options.md#periodic-assessment). You can use the [Fix button](implement-security-recommendations.md). 
+ in the new recommendation, `Machines should be configured to periodically check for missing system updates` to fix the recommendation.
 
 After completing these steps, you can remove the old recommendation `System updates should be installed on your machines`, by disabling it from Defender for Cloud's built-in initiative in Azure policy.
 
@@ -157,9 +158,9 @@ will both be available until the [Log Analytics agent is deprecated on August 31
 
 The new recommendation `System updates should be installed on your machines (powered by Update management center)`, has a remediation flow available through the Fix button, which can be used to remediate any results through the Update Management Center (Preview). This remediation mechanism is still in Preview. 
 
-There's no change expected to your Secure Score, as both recommendations return the same results. 
+The new recommendation `System updates should be installed on your machines (powered by Update management center)`, isn't expected to affect your Secure Score, as it will have the same results as the old recommendation `System updates should be installed on your machines`.
 
-However, the prerequisite recommendation ([Enable the periodic assessment property](../update-center/assessment-options.md#periodic-assessment)) is expected to have a negative effect on the Secure Score. This can be remediated with the available quick fix. 
+The prerequisite recommendation ([Enable the periodic assessment property](../update-center/assessment-options.md#periodic-assessment)) will have a negative effect on your Secure Score. You can be remediated the effect with the available [Fix button](implement-security-recommendations.md). 
 
 ## March 2023
 
