@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/18/2023
+ms.date: 04/19/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -113,7 +113,7 @@ The following example describes the end-to-end user provisioning solution archit
 The following key steps are indicated in the diagram:  
 
 1. **HR team** performs the transactions in the cloud HR app tenant.
-2. **Azure AD provisioning service** runs the scheduled cycles from the cloud HR app tenant and identifies changes that need to be processed for sync with Active Directory.
+2. **Azure AD provisioning service** runs the scheduled cycles from the cloud HR app tenant and identifies changes to process for sync with Active Directory.
 3. **Azure AD provisioning service** invokes the Azure AD Connect provisioning agent with a request payload that contains Active Directory account create, update, enable, and disable operations.
 4. **Azure AD Connect provisioning agent** uses a service account to manage Active Directory account data.
 5. **Azure AD Connect** runs delta [sync](../hybrid/how-to-connect-sync-whatis.md) to pull updates in Active Directory.
@@ -215,11 +215,11 @@ For high availability, you can deploy more than one Azure AD Connect provisionin
 
 ## Design HR provisioning app deployment topology
 
-Depending on the number of Active Directory domains involved in the inbound user provisioning configuration, you may consider one of the following deployment topologies. Each topology diagram uses an example deployment scenario to highlight configuration aspects. Use the example that closely resembles your deployment requirement to determine the configuration that will meet your needs. 
+Depending on the number of Active Directory domains involved in the inbound user provisioning configuration, you may consider one of the following deployment topologies. Each topology diagram uses an example deployment scenario to highlight configuration aspects. Use the example that closely resembles your deployment requirement to determine the configuration that meets your needs. 
 
-### Deployment topology 1: Single app to provision all users from Cloud HR to single on-premises Active Directory domain
+### Deployment topology one: Single app to provision all users from Cloud HR to single on-premises Active Directory domain
 
-This is the most common deployment topology. Use this topology, if you need to provision all users from Cloud HR to a single AD domain and same provisioning rules apply to all users. 
+Deployment topology one is the most common deployment topology. Use this topology, if you need to provision all users from Cloud HR to a single AD domain and same provisioning rules apply to all users. 
 
 :::image type="content" source="media/plan-cloud-hr-provision/topology-1-single-app-with-single-ad-domain.png" alt-text="Screenshot of single app to provision users from Cloud HR to single AD domain" lightbox="media/plan-cloud-hr-provision/topology-1-single-app-with-single-ad-domain.png":::
 
@@ -229,7 +229,7 @@ This is the most common deployment topology. Use this topology, if you need to p
 * When configuring the provisioning app, select the AD domain from the dropdown of registered domains. 
 * If you're using scoping filters, configure [skip out of scope deletions flag](skip-out-of-scope-deletions.md) to prevent accidental account deactivations. 
 
-### Deployment topology 2: Separate apps to provision distinct user sets from Cloud HR to single on-premises Active Directory domain
+### Deployment topology two: Separate apps to provision distinct user sets from Cloud HR to single on-premises Active Directory domain
 
 This topology supports business requirements where attribute mapping and provisioning logic differ based on user type (employee/contractor), user location or user's business unit. You can also use this topology to delegate the administration and maintenance of inbound user provisioning based on division or country.
 
@@ -238,18 +238,18 @@ This topology supports business requirements where attribute mapping and provisi
 **Salient configuration aspects**
 * Setup two provisioning agent nodes for high availability and failover. 
 * Create an HR2AD provisioning app for each distinct user set that you want to provision. 
-* Use [scoping filters](define-conditional-rules-for-provisioning-user-accounts.md) in the provisioning app to define users to be processed by each app. 
-* To handle the scenario where managers references need to be resolved across distinct user sets (e.g. contractors reporting to managers who are employees), you can create a separate HR2AD provisioning app for updating only the *manager* attribute. Set the scope of this app to all users. 
+* Use [scoping filters](define-conditional-rules-for-provisioning-user-accounts.md) in the provisioning app to define users to process each app. 
+* In the scenario where manager references need to be resolved across distinct user sets, create a separate HR2AD provisioning app. For example,  contractors reporting to managers who are employees. Use the separate app to update only the *manager* attribute. Set the scope of this app to all users. 
 * Configure [skip out of scope deletions flag](skip-out-of-scope-deletions.md) to prevent accidental account deactivations. 
 
 > [!NOTE] 
 > If you do not have a test AD domain and use a TEST OU container in AD, then you may use this topology to create two separate apps *HR2AD (Prod)* and *HR2AD (Test)*. Use the *HR2AD (Test)* app to test your attribute mapping changes before promoting it to the *HR2AD (Prod)* app.  
 
-### Deployment topology 3: Separate apps to provision distinct user sets from Cloud HR to multiple on-premises Active Directory domains (no cross-domain visibility)
+### Deployment topology three: Separate apps to provision distinct user sets from Cloud HR to multiple on-premises Active Directory domains (no cross-domain visibility)
 
-Use this topology to manage multiple independent child AD domains belonging to the same forest, if managers always exist in the same domain as the user and your unique ID generation rules for attributes like *userPrincipalName*, *samAccountName* and *mail* doesn't require a forest-wide lookup. It also offers the flexibility of delegating the administration of each provisioning job by domain boundary. 
+Use topology three to manage multiple independent child AD domains belonging to the same forest. Make sure that managers always exist in the same domain as the user. Also make sure that your unique ID generation rules for attributes like *userPrincipalName*, *samAccountName*, and *mail* don't require a forest-wide lookup. Topology three offers the flexibility of delegating the administration of each provisioning job by domain boundary. 
 
-For example: In the diagram below, the provisioning apps are set up for each geographic region: North America (NA), Europe, Middle East and Africa (EMEA) and Asia Pacific (APAC). Depending on the location, users are provisioned to the respective AD domain. Delegated administration of the provisioning app is possible so that *EMEA administrators* can independently manage the provisioning configuration of users belonging to the EMEA region.  
+For example: In the diagram, the provisioning apps are set up for each geographic region: North America (NA), Europe, Middle East and Africa (EMEA) and Asia Pacific (APAC). Depending on the location, users are provisioned to the respective AD domain. Delegated administration of the provisioning app is possible so that *EMEA administrators* can independently manage the provisioning configuration of users belonging to the EMEA region.  
 
 :::image type="content" source="media/plan-cloud-hr-provision/topology-3-separate-apps-with-multiple-ad-domains-no-cross-domain.png" alt-text="Screenshot of separate apps to provision users from Cloud HR to multiple AD domains" lightbox="media/plan-cloud-hr-provision/topology-3-separate-apps-with-multiple-ad-domains-no-cross-domain.png":::
 
@@ -262,11 +262,11 @@ For example: In the diagram below, the provisioning apps are set up for each geo
 * Configure [skip out of scope deletions flag](skip-out-of-scope-deletions.md) to prevent accidental account deactivations. 
 
 
-### Deployment topology 4: Separate apps to provision distinct user sets from Cloud HR to multiple on-premises Active Directory domains (with cross-domain visibility)
+### Deployment topology four: Separate apps to provision distinct user sets from Cloud HR to multiple on-premises Active Directory domains (with cross-domain visibility)
 
-Use this topology to manage multiple independent child AD domains belonging to the same forest, if a user's manager may exist in the different domain and your unique ID generation rules for attributes like *userPrincipalName*, *samAccountName* and *mail* requires a forest-wide lookup. 
+Use topology four to manage multiple independent child AD domains belonging to the same forest. A user's manager may exist in a different domain. Also, your unique ID generation rules for attributes like *userPrincipalName*, *samAccountName* and *mail* require a forest-wide lookup. 
 
-For example: In the diagram below, the provisioning apps are set up for each geographic region: North America (NA), Europe, Middle East and Africa (EMEA) and Asia Pacific (APAC). Depending on the location, users are provisioned to the respective AD domain. Cross-domain manager references and forest-wide lookup are handled by enabling referral chasing on the provisioning agent. 
+For example: In the diagram, the provisioning apps are set up for each geographic region: North America (NA), Europe, Middle East and Africa (EMEA) and Asia Pacific (APAC). Depending on the location, users are provisioned to the respective AD domain. Cross-domain manager references and forest-wide lookup are handled by enabling referral chasing on the provisioning agent. 
 
 :::image type="content" source="media/plan-cloud-hr-provision/topology-4-separate-apps-with-multiple-ad-domains-cross-domain.png" alt-text="Screenshot of separate apps to provision users from Cloud HR to multiple AD domains with cross domain support" lightbox="media/plan-cloud-hr-provision/topology-4-separate-apps-with-multiple-ad-domains-cross-domain.png":::
 
@@ -285,7 +285,7 @@ For example: In the diagram below, the provisioning apps are set up for each geo
 
 Use this topology if you want to use a single provisioning app to manage users belonging to all your parent and child AD domains. This topology is recommended if provisioning rules are consistent across all domains and there's no requirement for delegated administration of provisioning jobs. This topology supports resolving cross-domain manager references and can perform forest-wide uniqueness check. 
 
-For example: In the diagram below, a single provisioning app manages users present in three different child domains grouped by region: North America (NA), Europe, Middle East and Africa (EMEA) and Asia Pacific (APAC). The attribute mapping for *parentDistinguishedName* is used to dynamically create a user in the appropriate child domain. Cross-domain manager references and forest-wide lookup are handled by enabling referral chasing on the provisioning agent. 
+For example: In the diagram, a single provisioning app manages users present in three different child domains grouped by region: North America (NA), Europe, Middle East and Africa (EMEA) and Asia Pacific (APAC). The attribute mapping for *parentDistinguishedName* is used to dynamically create a user in the appropriate child domain. Cross-domain manager references and forest-wide lookup are handled by enabling referral chasing on the provisioning agent. 
 
 :::image type="content" source="media/plan-cloud-hr-provision/topology-5-single-app-with-multiple-ad-domains-cross-domain.png" alt-text="Screenshot of single app to provision users from Cloud HR to multiple AD domains with cross domain support" lightbox="media/plan-cloud-hr-provision/topology-5-single-app-with-multiple-ad-domains-cross-domain.png":::
 
@@ -314,7 +314,7 @@ Use this topology if your IT infrastructure has disconnected/disjoint AD forests
 
 ### Deployment topology 7: Separate apps to provision distinct users from multiple Cloud HR to disconnected on-premises Active Directory forests
 
-In large organizations, it isn't uncommon to have multiple HR systems. During business M&A (mergers and acquisitions) scenarios, you may come across a need to connect your on-premises Active Directory to multiple HR sources. We recommend the topology below if you have multiple HR sources and would like to channel the identity data from these HR sources to either the same or different on-premises Active Directory domains.  
+In large organizations, it isn't uncommon to have multiple HR systems. During business M&A (mergers and acquisitions) scenarios, you may come across a need to connect your on-premises Active Directory to multiple HR sources. We recommend the topology if you have multiple HR sources and would like to channel the identity data from these HR sources to either the same or different on-premises Active Directory domains.  
 
 :::image type="content" source="media/plan-cloud-hr-provision/topology-7-separate-apps-from-multiple-hr-to-disconnected-ad-forests.png" alt-text="Screenshot of separate apps to provision users from multiple Cloud HR to disconnected AD forests" lightbox="media/plan-cloud-hr-provision/topology-7-separate-apps-from-multiple-hr-to-disconnected-ad-forests.png":::
 
