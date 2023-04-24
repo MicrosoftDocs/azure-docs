@@ -103,7 +103,7 @@ The component trying to replicate data to Azure is either down or not responding
       
       5. Select Generate SAS and connection string and copy the SAS token. If you're using PowerShell, ensure you enclose the URL with single quotation marks (**' '**). 
         
-      5. Execute the above command in Command Prompt by replacing account, container, SAS with the values obtained in steps b, c, and d respectively.
+      5. Execute the above command in Command Prompt by replacing account, container, SAS with the values obtained in steps b, c, and e respectively.
         
       Alternatively, [download](https://go.microsoft.com/fwlink/?linkid=2138967) the Azure Storage Explore on to the appliance and try to upload 10 blobs of ~64 MB into the storage accounts. If there's no issue, the upload should be successful.
         
@@ -114,7 +114,7 @@ The component trying to replicate data to Azure is either down or not responding
     > [!Note]
     > This is applicable only for the projects that are set up with public endpoint.<br/> A Service bus refers to the ServiceBusNamespace type resource in the resource group for a Migrate project. The name of the Service Bus is of the format *migratelsa(keyvaultsuffix)*. The Migrate key vault suffix is available in the gateway.json file on the appliance. <br/>
     > For example, if the gateway.json contains:  <br/>
-    > *"AzureKeyVaultArmId": "/subscriptions/ccd78886-4365-42e0-947d-8a976413ab5c/resourceGroups/pkataria-rg-ccy/providers/Microsoft.KeyVault/vaults/migratekv1329610309"*,<br/> the service bus namespace resource will be *migratelsa1329610309*. 
+    > *"AzureKeyVaultArmId": "/subscriptions/<SubscriptionId>/resourceGroups/<SubscriptionName>/providers/Microsoft.KeyVault/vaults/migratekv1329610309"*,<br/> the service bus namespace resource will be *migratelsa1329610309*. 
 
     This test checks if the Azure Migrate appliance can communicate to the Azure Migrate Cloud Service backend. The appliance communicates to the service backend through Service Bus and Event Hubs message queues. To validate connectivity from the appliance to the Service Bus, [download](https://go.microsoft.com/fwlink/?linkid=2139104) the Service Bus Explorer, try to connect to the appliance Service Bus and perform the send message/receive message operations. If there's no issue, this should be successful.
 
