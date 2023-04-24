@@ -41,7 +41,7 @@ productDirectory:
 # productDirectory section
 productDirectory:
   title: More resources
-    items:
+  items:
     # Card
     - title: Infrastructure
       # imageSrc should be square in ratio with no white space
