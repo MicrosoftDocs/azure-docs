@@ -205,7 +205,7 @@ Update Virtual Machine Scale Set instances using [update instances](/rest/api/co
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/manualupgrade?api-version={apiVersion}
 ```
 
-## Exceptions to Upgrade Policy
+## Exceptions to Upgrade Policies
 
 Changes to the scale set OS, data disk Profile (such as admin username and password) and [Custom Data](../virtual-machines/custom-data.md) only apply to VMs created after the change in the scale set model. To bring existing VMs up-to-date, you must do a "reimage" of each existing VM. You can do this reimage using:
 
