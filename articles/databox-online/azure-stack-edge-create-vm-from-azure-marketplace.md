@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/21/2023
+ms.date: 04/24/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to create VM images using source images from Azure Marketplace or images from an Azure Storage account.
 ---
@@ -139,7 +139,7 @@ To add a VM to your Azure Stack Edge resource, perform the following steps:
     1. **Administrator account** – Specify administrator authentication type, username, and SSH public key.
 4. To continue, select **Review + create**.
 
-    ![Screenshot showing the Basics tab on the Add Virtual machines page for an Azure Stack Edge device in Azure portal](./media/azure-stack-edge-create-vm-from-azure-marketplace/azure-stack-edge-add-vm-12.png)(./media/azure-stack-edge-create-vm-from-azure-marketplace/azure-stack-edge-add-vm-12.png#lightbox)
+    [![Screenshot showing the Basics tab on the Add Virtual machines page for an Azure Stack Edge device in Azure portal](./media/azure-stack-edge-create-vm-from-azure-marketplace/azure-stack-edge-add-vm-12.png)](./media/azure-stack-edge-create-vm-from-azure-marketplace/azure-stack-edge-add-vm-12.png#lightbox)
  
 5. Review the details for the VM you intend to create. To start the VM creation job, select **Create**.
 
