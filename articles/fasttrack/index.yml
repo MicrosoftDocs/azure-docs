@@ -19,22 +19,22 @@ productDirectory:
     # Card
     - title: Learn Live on YouTube
       # imageSrc should be square in ratio with no white space
-      imageSrc: ./media/index/AzureCloud.png
+      imageSrc: ./media/AzureCloud.png
       summary: Watch upcoming live webcasts with Azure engineers on technical topics
       url: https://developer.microsoft.com/reactor/?search=learn+live+%23fasttrack-azure
     # Card
     - title: Learn Live on Teams
-      imageSrc: ./media/index/Migrate.png
+      imageSrc: ./media/Migrate.png
       summary: Join upcoming interactive live sessions and get your questions answered real time by Azure engineers
       url: https://developer.microsoft.com/reactor/?search=fasttrack
     # Card
     - title: Watch on-demand recordings
-      imageSrc: ./media/index/Productivity.png
+      imageSrc: ./media/Productivity.png
       summary: Catch up on past sessions at your own pace
       url: https://learn.microsoft.com/shows/learn-live/?terms=fasttrack
     # Card
     - title: AskFTA
-      imageSrc: ./media/index/Interact.png
+      imageSrc: ./media/Interact.png
       summary: Get your technical questions answered directly from an Azure engineer
       url: https://learn.microsoft.com/answers/tags/351/azure-fasttrack
 
@@ -45,7 +45,7 @@ productDirectory:
     # Card
     - title: Infrastructure
       # imageSrc should be square in ratio with no white space
-      imageSrc: ./media/index/Infrastructure.png
+      imageSrc: ./media/Infrastructure.png
       links:
         - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep05-learn-how-azure-migrate-can-help-migrate-your-servers-to-azure-part-1
           text: Learn how Azure Migrate can help migrate your servers to Azure - Part 1
@@ -57,7 +57,7 @@ productDirectory:
           text: How To Get Started FAST Azure Virtual Desktop for Beginners        
     # Card
     - title: AI & Machine Learning
-      imageSrc: ./media/index/ArtificialIntelligence.png
+      imageSrc: ./media/ArtificialIntelligence.png
       links:
         - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep02-azure-openai-introduction-to-language-models-and-applications
           text: "Azure OpenAI: Introduction to Language Models and Applications"
@@ -71,7 +71,7 @@ productDirectory:
           text: Azure ML Operations
     # Card
     - title: Application Development
-      imageSrc: ./media/index/Development.png
+      imageSrc: ./media/Development.png
       links:
         - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep17-azure-container-options-aks-vs-aca-vs-aci
           text: Azure Container Options (AKS vs ACA vs ACI)
