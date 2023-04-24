@@ -22539,6 +22539,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/openshift/howto-configure-ovn-kubernetes.md",
+            "redirect_url": "/azure/openshift/concepts-ovn-kubernetes",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/sentinel/data-connectors/microsoft-defender-threat-intelligence.md",
             "redirect_url": "/azure/sentinel/understand-threat-intelligence",
             "redirect_document_id": false
