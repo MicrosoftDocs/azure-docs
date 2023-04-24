@@ -29,7 +29,7 @@ To work with the code examples in this article, make sure you have:
     - [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob#authorization)
 - Packages installed to your project directory. These examples use **Azure.Storage.Blobs**. If you're using `DefaultAzureCredential` for authorization, you also need **Azure.Identity**. To learn more about setting up your project, see [Get Started with Azure Storage and .NET](storage-blob-dotnet-get-started.md#set-up-your-project). To see the necessary `using` directives, see [Code samples](#code-samples).
 
-[!INCLUDE [storage-dev-guide-blob-copy-async](../../../includes/storage-dev-guides/storage-dev-guide-blob-copy-async.md)]
+[!INCLUDE [storage-dev-guide-blob-copy-async](../../../includes/storage-dev-guides/storage-dev-guide-about-blob-copy-async.md)]
 
 ## Copy a blob with asynchronous scheduling
 
