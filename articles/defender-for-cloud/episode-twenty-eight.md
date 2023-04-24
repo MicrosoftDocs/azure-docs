@@ -39,4 +39,4 @@ ms.date: 04/20/2023
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Security Policy Enhancements in Defender for Cloud | Defender for Cloud in the Field](episode-twenty-nine.md)
+> [Security Policy Enhancements in Defender for Cloud](episode-twenty-nine.md)
