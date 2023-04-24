@@ -8,7 +8,7 @@ ms.date: 04/21/2023
 
 ---
 
-# What is Palo Alto?
+# What is Palo Alto Networks?
 
 In this article you learn how to enable deeper integration of the NGINXSaaS service with Azure.
 
