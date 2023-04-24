@@ -60,7 +60,7 @@ productDirectory:
       imageSrc: ./media/index/ArtificialIntelligence.png
       links:
         - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep02-azure-openai-introduction-to-language-models-and-applications
-          text: Azure OpenAI: Introduction to Language Models and Applications
+          text: "Azure OpenAI: Introduction to Language Models and Applications"
         - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep09-azure-ml-fundamentals
           text: Azure ML Fundamentals
         - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep03-azure-ml-developer-experience
