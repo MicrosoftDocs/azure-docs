@@ -83,7 +83,7 @@ AutoML uses machine learning best practices, such as cross-validated model selec
 
 It's possible to see perfect scores when you're viewing validation metrics from a training job. A perfect score means that the forecast and the actuals on the validation set are the same or nearly the same. For example, you have a root mean squared error equal to 0.0 or an R2 score of 1.0.
 
-A perfect validation score _usually_ indicates that the model is severely overfit, likely because of [data leakage](#how-can-i-prevent-over-fitting-and-data-leakage). The best course of action is to inspect the data for leaks and drop the columns that are causing the leak.
+A perfect validation score _usually_ indicates that the model is severely overfit, likely because of [data leakage](#how-can-i-prevent-overfitting-and-data-leakage). The best course of action is to inspect the data for leaks and drop the columns that are causing the leak.
 
 ## What if my time series data doesn't have regularly spaced observations?
 
