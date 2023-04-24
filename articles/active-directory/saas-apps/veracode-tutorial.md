@@ -62,13 +62,13 @@ To configure and test Azure AD SSO with Veracode, perform the following steps:
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the Azure portal, on the **Veracode** application integration page, find the **Manage** section. Select **single sign-on**.
-1. On the **Select a single sign-on method** page, select **SAML**.
+1. In the Azure AD navigate to the **Veracode** application page under **Enterprise Applications**, scroll down to the **Manage** section, and click on **single sign-on**.
+1. Again under the **Manage** tab, click on **Single sign-on**, then select **SAML**.
 1. On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, the application is pre-configured and the necessary URLs are already pre-populated with Azure. Select **Save**.
+1. The Relay state field should be autopopulated with `https://web.analysiscenter.veracode.com/login/#/saml`. The rest of these fields will populate after setting up SAML within the Veracode Platform.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)**. Select **Download** to download the certificate and save it on your computer.
 
