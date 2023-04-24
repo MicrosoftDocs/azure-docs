@@ -73,7 +73,7 @@ Roll up your sleeves and build a data clean room solution directly on these conf
 
 [Confidential Virtual Machines (VMs)](./confidential-vm-overview.md) provide a VM platform for confidential cleanroom solutions.
 
-[Azure SQL AE in secure enclaves](https://learn.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves) provides a platform service for encrypting data and queries in SQL that can be used in multi-party data analytics and confidential cleanrooms.
+[Azure SQL AE in secure enclaves](/sql/relational-databases/security/encryption/always-encrypted-enclaves) provides a platform service for encrypting data and queries in SQL that can be used in multi-party data analytics and confidential cleanrooms.
 
 [Confidential Consortium Framework](https://ccf.microsoft.com/) is an open-source framework for building highly available stateful services that use centralized compute for ease of use and performance, while providing decentralized trust. It enables multiple parties to execute auditable compute over confidential data without trusting each other or a privileged operator.
 
