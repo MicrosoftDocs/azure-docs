@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-spring-apps
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ❌ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ❌ Enterprise
 
 ::: zone pivot="programming-language-csharp"
 
@@ -44,7 +44,7 @@ You can use log streaming in the Azure CLI with the following command.
 az spring app logs --name solar-system-weather --follow
 ```
 
-You'll see output similar to the following example:
+You're shown output similar to the following example:
 
 ```output
 => ConnectionId:0HM2HOMHT82UK => RequestPath:/weatherforecast RequestId:0HM2HOMHT82UK:00000003, SpanId:|e8c1682e-46518cc0202c5fd9., TraceId:e8c1682e-46518cc0202c5fd9, ParentId: => Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather.Controllers.WeatherForecastController.Get (Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather)
@@ -71,7 +71,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
 1. Edit the query to remove the Where clauses that limit the display to warning and error logs.
 
-1. Then select **Run**, and you'll see logs. For more information, see [Get started with log queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md).
+1. Select **Run**. You're shown logs. For more information, see [Get started with log queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md).
 
    :::image type="content" source="media/quickstart-logs-metrics-tracing/logs-query-steeltoe.png" alt-text="Screenshot of a Logs Analytics query." lightbox="media/quickstart-logs-metrics-tracing/logs-query-steeltoe.png":::
 
@@ -142,7 +142,7 @@ az spring app logs \
     --follow
 ```
 
-You'll see logs like this:
+You're shown logs like this:
 
 :::image type="content" source="media/quickstart-logs-metrics-tracing/logs-streaming-cli.png" alt-text="Screenshot of CLI log output." lightbox="media/quickstart-logs-metrics-tracing/logs-streaming-cli.png":::
 
@@ -167,7 +167,7 @@ To get the logs using Azure Toolkit for IntelliJ:
 
    ![Select instance](media/quickstart-logs-metrics-tracing/select-instance.png)
 
-1. The streaming log will be visible in the output window.
+1. The streaming log is visible in the output window.
 
    ![Streaming log output](media/quickstart-logs-metrics-tracing/streaming-log-output.png)
 
@@ -181,7 +181,7 @@ To get the logs using Azure Toolkit for IntelliJ:
 
    :::image type="content" source="media/quickstart-logs-metrics-tracing/logs-entry.png" alt-text="Screenshot of the Logs opening page." lightbox="media/quickstart-logs-metrics-tracing/logs-entry.png":::
 
-1. Then you'll see filtered logs. For more information, see [Get started with log queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md).
+1. Then you're shown filtered logs. For more information, see [Get started with log queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md).
 
    :::image type="content" source="media/quickstart-logs-metrics-tracing/logs-query.png" alt-text="Screenshot of filtered logs." lightbox="media/quickstart-logs-metrics-tracing/logs-query.png":::
 
@@ -193,16 +193,16 @@ The following chart shows `gateway-requests` (Spring Cloud Gateway), `hikaricp_c
 
 :::image type="content" source="media/quickstart-logs-metrics-tracing/petclinic-microservices-metrics.jpg" alt-text="Screenshot of gateway requests." lightbox="media/quickstart-logs-metrics-tracing/petclinic-microservices-metrics.jpg":::
 
-Spring Boot registers several core metrics, including JVM, CPU, Tomcat, and Logback. The Spring Boot auto-configuration enables the instrumentation of requests handled by Spring MVC. All three REST controllers (`OwnerResource`, `PetResource`, and `VisitResource`) have been instrumented by the `@Timed` Micrometer annotation at the class level.
+Spring Boot registers several core metrics, including JVM, CPU, Tomcat, and Logback. The Spring Boot autoconfiguration enables the instrumentation of requests handled by Spring MVC. All three REST controllers (`OwnerResource`, `PetResource`, and `VisitResource`) are instrumented by the `@Timed` Micrometer annotation at the class level.
 
 The `customers-service` application has the following custom metrics enabled:
 
-  - @Timed: `petclinic.owner`
-  - @Timed: `petclinic.pet`
+- @Timed: `petclinic.owner`
+- @Timed: `petclinic.pet`
 
 The `visits-service` application has the following custom metrics enabled:
 
-  - @Timed: `petclinic.visit`
+- @Timed: `petclinic.visit`
 
 You can see these custom metrics in the `Metrics` blade:
 
