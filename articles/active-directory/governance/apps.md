@@ -42,39 +42,40 @@ Checkout the integrations [partners](https://learn.microsoft.com/azure/active-di
 | Application | User provisioning | SSO|
 | :--- | :---  | :--- |
 | [4me](https://learn.microsoft.com/azure/active-directory/saas-apps/4me-provisioning-tutorial) | ● | ● | 
-| [8x8](https://learn.microsoft.com/azure/active-directory/saas-apps/8x8-provisioning-tutorial) | ● | | ● |
-| [15five](https://learn.microsoft.com/azure/active-directory/saas-apps/15five-provisioning-tutorial) | ● | ● | ● |
-| [Acunetix 360](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● | ● |
-| [Adobe Identity Management](https://learn.microsoft.com/azure/active-directory/saas-apps/adobe-identity-management-provisioning-tutorial) | ● | ● | ● |
-| [Adobe Identity Management (OIDC)](https://learn.microsoft.com/azure/active-directory/saas-apps/adobe-identity-management-provisioning-oidc-tutorial) | ● | ● | ● |
-| [Airstack](https://learn.microsoft.com/azure/active-directory/saas-apps/airstack-provisioning-tutorial) | ● |  | ● |
-| [Akamai Enterprise Application Access](https://learn.microsoft.com/azure/active-directory/saas-apps/akamai-enterprise-application-access-provisioning-tutorial) | ● | ● | ● |
-| [AlertMedia](https://learn.microsoft.com/azure/active-directory/saas-apps/alertmedia-provisioning-tutorial) | ● | ● | ● |
-| [Alexis HR](https://learn.microsoft.com/azure/active-directory/saas-apps/alexishr-provisioning-tutorial) | ● | ● | ● |
-| [Alinto Protect (renamed Cleanmail)](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● | ● |
-| [Alvao](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● | ● |
-| [Amazon Web Services (AWS) - Role Provisioning](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● | ● |
-| [Appaegis Isolation Access Cloud](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● | ● |
-| [Apple School Manager](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● | ● |
-| [Apple Business Manager](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● | ● |
-| [Ardoq](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● | ● |
-| [Asana](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● | ● |
-| [AskSpoke](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● | ● |
-| [Atmos](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● | ● |
-| [AuditBoard](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● | ● |
-| [Autodesk SSO](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● | ● |
-| [Azure Databricks SCIM Connector](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● | ● |
-| [AWS IAM Identity Center](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● | ● |
-| [BenQ IAM](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● | ● |
-| [Bentley](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● | ● |
-| [Better Stack](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● | ● |
-| [BIC Cloud Design](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● | ● |
-| [BIS](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● | ● |
-| [BitaBIZ](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● | ● |
-| [Bizagi Studio for Digital Process Automation](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● | ● |
-| [BLDNG APP](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● | ● |
-| [Blink](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● | ● |
-| [Blinq](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● | ● |
+| [8x8](https://learn.microsoft.com/azure/active-directory/saas-apps/8x8-provisioning-tutorial) | ● | ● |
+| [15five](https://learn.microsoft.com/azure/active-directory/saas-apps/15five-provisioning-tutorial) | ● | ● |
+| [Acunetix 360](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Adobe Identity Management](https://learn.microsoft.com/azure/active-directory/saas-apps/adobe-identity-management-provisioning-tutorial) | ● | ● |
+| [Adobe Identity Management (OIDC)](https://learn.microsoft.com/azure/active-directory/saas-apps/adobe-identity-management-provisioning-oidc-tutorial) | ● | ● |
+| [Airstack](https://learn.microsoft.com/azure/active-directory/saas-apps/airstack-provisioning-tutorial) | ● |  |
+| [Akamai Enterprise Application Access](https://learn.microsoft.com/azure/active-directory/saas-apps/akamai-enterprise-application-access-provisioning-tutorial) | ● | ● |
+| [AlertMedia](https://learn.microsoft.com/azure/active-directory/saas-apps/alertmedia-provisioning-tutorial) | ● | ● |
+| [Alexis HR](https://learn.microsoft.com/azure/active-directory/saas-apps/alexishr-provisioning-tutorial) | ● | ● |
+| [Alinto Protect (renamed Cleanmail)](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Alvao](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Amazon Web Services (AWS) - Role Provisioning](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Appaegis Isolation Access Cloud](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Apple School Manager](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Apple Business Manager](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Ardoq](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Asana](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [AskSpoke](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Atmos](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [AuditBoard](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Autodesk SSO](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Azure Databricks SCIM Connector](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [AWS IAM Identity Center](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [BenQ IAM](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Bentley](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Better Stack](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [BIC Cloud Design](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [BIS](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [BitaBIZ](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Bizagi Studio for Digital Process Automation](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [BLDNG APP](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Open LDAP](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● |  |
+| [Novell eDirectory](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● |  |
+
 
 
 ## Next steps
