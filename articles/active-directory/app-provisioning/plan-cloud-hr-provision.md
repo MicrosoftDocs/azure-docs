@@ -258,7 +258,7 @@ For example: In the diagram, the provisioning apps are set up for each geographi
 * Use the [provisioning agent configuration wizard](../cloud-sync/how-to-install.md#install-the-agent) to register all child AD domains with your Azure AD tenant. 
 * Create a separate HR2AD provisioning app for each target domain. 
 * When configuring the provisioning app, select the respective child AD domain from the dropdown of available AD domains. 
-* Use [scoping filters](define-conditional-rules-for-provisioning-user-accounts.md) in the provisioning app to define users to be processed by each app. 
+* Use [scoping filters](define-conditional-rules-for-provisioning-user-accounts.md) in the provisioning app to define users that each app processes. 
 * Configure [skip out of scope deletions flag](skip-out-of-scope-deletions.md) to prevent accidental account deactivations. 
 
 
