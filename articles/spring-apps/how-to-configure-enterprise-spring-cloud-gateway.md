@@ -303,28 +303,29 @@ With the certificate updated to Azure Spring Apps, you can now configure the TLS
 
 Use the following steps to configure the certificate in the Azure portal:
 
-1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** in the navigation page and then select **Certificate management**.
+1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** in the navigation pane.
+1. On the **Spring Cloud Gateway** page, select **Certificate management**.
 1. Select **Enable cert verification**.
-1. Select the name of your certificate in **Certificates**.
+1. Select the TLS certificate in **Certificates**.
 1. Select **Save**.
 
 Updating the configuration can take a few minutes. You should get a notification when the configuration is complete.
 
 #### [Azure CLI](#tab/Azure-CLI)
 
-Use the following command to configure the certificate using Azure CLI:
+Use the following command to enable (true) or disable (false) a certificate using Azure CLI:
 
 ```azurecli
 az spring gateway update \
-    --enable-cert-verify <true/false> \
-    --certificate-names <name of certificate in Azure Spring Apps>
+    --enable-cert-verify <true-false> \
+    --certificate-names <certificate-name-in-Azure-Spring-Apps>
 ```
 
 ---
 
 ### Prepare the route configuration
 
-You must specify the protocol as HTTPS in the route configuration. This specification instructs the gateway to use the HTTPS protocol for all traffic between the gateway and the app.
+You must specify the protocol as HTTPS in the route configuration. The following JSON object instructs the gateway to use the HTTPS protocol for all traffic between the gateway and the app.
 
 1. Create a file with the following content and name the file `test-tls-route.json`.
 
@@ -355,24 +356,29 @@ You can now test whether the application is TLS enabled with the endpoint of the
 
 ### Certificate rotation
 
-You can use the Azure portal or Azure CLI to rotate and synchronize certificates.
+When a certificate expires, a new one needs to generated and synchronized. You can use the Azure portal or Azure CLI to synchronize certificates.
 
 #### [Azure portal](#tab/Azure-portal)
 
-Use the following steps to synchronize certificates.
+Use the following steps to rotate and synchronize certificates.
 
-1. Navigate to your Azure Spring Apps instance.
-1. In the navigation pane, select **Apps** and then selection an application.
-1. In the navigation pane, select **Certificate Management**.
-1. On the **Certificate Management** page, select **sync certificate** to synchronize the certificates.
+1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** in the navigation pane.
+1. On the **Spring Cloud Gateway** page, **Certificate management**.
+1. Select the new certificate in **Certificates**.
+1. Select **sync certificate**.
+1. Select **Save**.
+
+  :::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sync-certificate.png" alt-text="Screenshot of Azure portal showing the Spring Cloud Gateway page for an Azure Spring Apps instance with Certificate Management selected and the prompt to sync the certificate highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sync-certificate.png":::
 
 #### [Azure CLI](#tab/Azure-CLI) 
 
 Use the following command to synchronize a certificate.
 
 ```azurecli
-The gateway will restart after synchronization to ensure that gateway uses the new certificate for all future connections.
+az spring gateway sync-cert
 ```
+
+The gateway will restart after synchronization to ensure that gateway uses the new certificate for all future connections.
 
 ---
 
