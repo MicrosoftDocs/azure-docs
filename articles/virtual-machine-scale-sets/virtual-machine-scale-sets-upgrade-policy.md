@@ -21,10 +21,7 @@ The Upgrade Policy for a Virtual Machine Scale Set determines how VMs are brough
 There are three different modes an Upgrade Policy can be set to. The modes are **Automatic**, **Rolling** and **Manual**. Each mode is unique in the way upgrades are performed and can impact the overall service uptime of your Virtual Machine Scale Set. Additionally, as your application processes traffic, there can be situations where you might want specific instances to be treated differently from the rest of the scale set instance. For example, certain instances in the scale set could be needed to perform additional or different tasks than the other members of the scale set. You might require these 'special' VMs not to be modified with the other instances in the scale set. In these situations, [Instance Protection](virtual-machine-scale-sets-instance-protection.md) provides the additional controls needed to protect these instances from the various upgrades discussed in this article.
 
 ### Automatic 
-In this mode, the scale set makes no guarantees about the order of VMs being brought down. The scale set may take down all VMs at the same time when performing upgrades. 
-
->[!NOTE]
-> Service Fabric clusters can only use *Automatic* mode, but the update is handled differently. For more information, see [Service Fabric application upgrades](../service-fabric/service-fabric-application-upgrade.md).
+In this mode, the scale set makes no guarantees about the order of VMs being brought down. The scale set may take down all VMs at the same time when performing upgrades. If your scale set is part of a Service Fabric cluster, *Automatic* mode is the only available mode. For more information, see [Service Fabric application upgrades](../service-fabric/service-fabric-application-upgrade.md).
 
 ### Rolling
 
