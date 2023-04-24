@@ -59,11 +59,64 @@ https://containerappextension.blob.core.windows.net/containerappcliext/container
 > az extension add --name containerapp
 > ```
 
+Register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces if you haven't already registered them in your Azure subscription.
 
+```azurecli
+az provider register --namespace Microsoft.App
+az provider register --namespace Microsoft.OperationalInsights
+```
+
+Now that your Azure CLI setup is complete, you can define the environment variables that are used throughout this article.
+
+```azurecli
+export RESOURCE_GROUP="jobs-quickstart"
+export LOCATION="centraluseuap"
+ENVIRONMENT="env-jobs-quickstart"
+JOB_NAME="my-job"
+```
+
+> [!NOTE]
+> The jobs private preview is only supported in the Central US EUAP (`centraluseuap`) region.
+
+## Create a Container Apps environment
+
+The Azure Container Apps environment acts as a secure boundary. Container apps and jobs in an environment share the same network and can communicate with each other.
+
+Create the Container Apps environment using the following command.
+
+```
+az containerapp env create \
+  --name $ENVIRONMENT \
+  --resource-group $RESOURCE_GROUP \
+  --location "$LOCATION"
+```
 
 ::: zone pivot="container-apps-job-manual"
 
-Manual
+## Create and run a manual job
+
+To use manual jobs, you first create a job and then start an execution. You can start multiple executions of the same job and multiple job executions can run concurrently.
+
+Create a job in the Container Apps environment using the following command.
+
+```azurecli
+az containerapp job create \
+  --name $JOB_NAME \
+  --resource-group $RESOURCE_GROUP \
+  --environment $ENVIRONMENT \
+  --image "mcr.microsoft.com/azuredocs/azuredocs-job:latest"
+```
+
+Start an execution of the job using the following command.
+
+```azurecli
+az containerapp job start \
+  --name $JOB_NAME \
+  --resource-group $RESOURCE_GROUP \
+  --environment $ENVIRONMENT
+```
+
+The command returns details of the job execution, including its name.
 
 ::: zone-end
 
@@ -72,6 +125,10 @@ Manual
 Scheduled
 
 ::: zone-end
+
+## List job execution history
+
+
 
 ## Next steps
 
