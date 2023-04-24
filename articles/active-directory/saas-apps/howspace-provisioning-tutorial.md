@@ -157,7 +157,7 @@ This section guides you through the steps to configure the Azure AD provisioning
    |Attribute|Type|Supported for filtering|Required by Howspace|
    |---|---|---|---|
    |displayName|String|&check;|&check;
-   |externalId|String||
+   |externalId|String||&check;
    |members|Reference||
    
 1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

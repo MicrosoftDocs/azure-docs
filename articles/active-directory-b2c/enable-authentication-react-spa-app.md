@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/07/2022
+ms.date: 04/24/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -31,7 +31,6 @@ You can use an existing React app, or [create a new React App](https://reactjs.o
 ```
 npx create-react-app my-app
 cd my-app
-npm start
 ```
 
 ## Step 2: Install the dependencies
