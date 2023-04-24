@@ -33,7 +33,7 @@ This article describes how to generate and view a system report in Permissions M
 1. For **Report Format**, check the boxes for a **Detailed** or **Summary** of the report in CSV format. You can select both. 
     > [!NOTE]
     > If you select one authorization system, the report includes a summary. If you select more than one authorization system, the report does not include a summary.
-1. For **Schedule**, select the frequency for which you would like to receive the report(s). You can select **None** if you don't want to generate reports on a scheduled basis.
+1. For **Schedule**, select the frequency for how often you to receive the report(s). You can select **None** if you don't want to generate reports on a scheduled basis.
 1. Click **Save**. Upon clicking **Save**, you receive a message **Report has been created**. The report appears on the **Custom Reports** tab.
 1. To refresh the list of reports, select **Reload**.
 1. On the **Custom Reports** tab, hover your mouse over the report, click the down arrow to **Download** the report. A message appears **Successfully Started to Generate On Demand Report**. The report is sent to your email.
@@ -50,7 +50,7 @@ This article describes how to generate and view a system report in Permissions M
 
     > [!NOTE]
     > If you select one authorization system, the report includes a summary. If you select more than one authorization system, the report does not include a summary.
-1. For **Schedule**, select the frequency for which you would like to receive the report(s). You can select **None** if you don't want to generate reports on a scheduled basis.
+1. For **Schedule**, select the frequency for how often you want to receive the report(s). You can select **None** if you don't want to generate reports on a scheduled basis.
 1. Click **Save**. Upon clicking **Save**, you receive a message **Report has been created**. The report appears on the **Custom Reports** tab.
 1. To refresh the list of reports, select **Reload**.
 1. On the **Custom Reports** tab, hover your mouse over the report, click the down arrow to **Download** the report. A message appears **Successfully Started to Generate On Demand Report**. The report is sent to your email.
