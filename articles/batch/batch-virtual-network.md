@@ -19,9 +19,9 @@ To allow compute nodes to communicate securely with other virtual machines, or w
 
 ## Prerequisites
 
-- **Authentication**. To use an Azure Virtual Network, the Batch client API must use Azure Active Directory (Azure AD) authentication. Azure Batch support for Azure AD is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
+- **Authentication**. To use an Azure Virtual Network, the Batch client API must use Azure Active Directory (Azure AD) authentication. To learn more, see [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
 
-- **An Azure Virtual Network**. See the following section for Virtual Network requirements and configuration. To prepare a Virtual Network with one or more subnets in advance, you can use the Azure portal, Azure PowerShell, the Microsoft Azure CLI (CLI), or other methods.
+- **An Azure Virtual Network**. To prepare a Virtual Network with one or more subnets in advance, you can use the Azure portal, Azure PowerShell, the Microsoft Azure CLI (CLI), or other methods.
   - To create an Azure Resource Manager-based Virtual Network, see [Create a virtual network](../virtual-network/manage-virtual-network.md#create-a-virtual-network). A Resource Manager-based Virtual Network is recommended for new deployments, and is supported only on pools that use Virtual Machine Configuration.
   - To create a classic Virtual Network, see [Create a virtual network (classic) with multiple subnets](/previous-versions/azure/virtual-network/create-virtual-network-classic). A classic Virtual Network is supported only on pools that use Cloud Services Configuration.
 
@@ -29,7 +29,7 @@ To allow compute nodes to communicate securely with other virtual machines, or w
 
 * The Virtual Network must be in the same subscription and region as the Batch account you use to create your pool.
 
-* The subnet specified for the pool must have enough unassigned IP addresses to accommodate the number of VMs targeted for the pool; that is, the sum of the `targetDedicatedNodes` and `targetLowPriorityNodes` properties of the pool. If the subnet doesn't have enough unassigned IP addresses, the pool partially allocates the compute nodes, and a resize error occurs.
+* The subnet specified for the pool must have enough unassigned IP addresses to accommodate the number of VMs targeted for the pool, enough to accomodate the `targetDedicatedNodes` and `targetLowPriorityNodes` properties of the pool. If the subnet doesn't have enough unassigned IP addresses, the pool partially allocates the compute nodes, and a resize error occurs.
 
 * If you aren't using [Simplified Compute Node Communication](simplified-compute-node-communication.md), you need to resolve your Azure Storage endpoints by using any custom DNS servers that serve your virtual network. Specifically,
 URLs of the form `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, and
@@ -126,7 +126,7 @@ For more information about outbound security rules for the BatchNodeManagement.*
 ## Pools in the Cloud Services Configuration
 
 > [!WARNING]
-> Cloud Services Configuration pools are [deprecated](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). Please use Virtual Machine Configuration pools instead.
+> Cloud Services Configuration pools are [deprecated](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). Use Virtual Machine Configuration pools instead.
 
 Requirements:
 
