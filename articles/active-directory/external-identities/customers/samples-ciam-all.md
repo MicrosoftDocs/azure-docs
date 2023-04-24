@@ -43,7 +43,7 @@ These samples and how-to guides demonstrate how to write a web application that 
 > [!div class="mx-tdCol2BreakAll"]
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
-> | JavaScript, Node/Express | &#8226; [Sign in users]()<br/> &#8226; [Call an API against a customer tenant](https://github.com/Azure-Samples/active-directory-b2c-msal-node-sign-in-sign-out-webapp)  |  [Node/Express web app](https://github.com/Azure-Samples/active-directory-b2c-msal-node-sign-in-sign-out-webapp)  |
+> | JavaScript, Node/Express | &#8226; [Sign in users](how-to-web-app-node-sample-sign-in.md)<br/> &#8226; [Call an API against a customer tenant](https://github.com/Azure-Samples/active-directory-b2c-msal-node-sign-in-sign-out-webapp)  |  [Node/Express web app](how-to-web-app-node-sign-in-overview)  |
 > | ASP.NET Core | &#8226; [Sign in users](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C) <br/> &#8226; [Call an API against a customer tenant](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C)  | [ASP.NET Core web app](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C)   |
 
 ### Web API
@@ -73,7 +73,7 @@ These samples and how-to guides demonstrate how to write a desktop application t
 > [!div class="mx-tdCol2BreakAll"]
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
-> | JavaScript, Electron | &#8226; [Sign in users](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)<br/>&#8226; [Call an API against a customer tenant](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)| [Electron desktop app](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)   |
+> | JavaScript, Electron | &#8226; [Sign in users](how-to-desktop-app-electron-sample-sign-in.md)<br/>&#8226; [Call an API against a customer tenant](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)| [Electron desktop app](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)   |
 > | ASP.NET Core MAUI | [Sign in users](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)<br/>&#8226; [Call Microsoft Graph using MAUI](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) | [ASP.NET Core MAUI desktop app](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)   |
 
 <!--
@@ -138,13 +138,13 @@ These samples and how-to guides demonstrate how to write a public client mobile 
 > [!div class="mx-tdCol2BreakAll"]
 > | App type | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
-> | Web app |&#8226; [Sign in users](https://github.com/Azure-Samples/active-directory-b2c-msal-node-sign-in-sign-out-webapp)<br/> &#8226; [Call an API against a customer tenant](https://github.com/Azure-Samples/active-directory-b2c-msal-node-sign-in-sign-out-webapp)  | [Node/Express web app](https://github.com/Azure-Samples/active-directory-b2c-msal-node-sign-in-sign-out-webapp)   |
+> | Web app |&#8226; [Sign in users](how-to-web-app-node-sample-sign-in)<br/> &#8226; [Call an API against a customer tenant](https://github.com/Azure-Samples/active-directory-b2c-msal-node-sign-in-sign-out-webapp)  | [Node/Express web app](how-to-web-app-node-sign-in-overview)   |
 
 ### JavaScript, Electron
 
 > [!div class="mx-tdCol2BreakAll"]
 > | App type | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
-> | Desktop | &#8226; [Sign in users](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)<br/>&#8226; [Call an API against a customer tenant](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)|  [Electron desktop app](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)  |
+> | Desktop | &#8226; [Sign in users](how-to-desktop-app-electron-sample-sign-in)<br/>&#8226; [Call an API against a customer tenant](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)|  [Electron desktop app](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)  |
 
 ---
