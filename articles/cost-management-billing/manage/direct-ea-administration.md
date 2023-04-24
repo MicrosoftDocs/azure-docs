@@ -3,7 +3,7 @@ title: EA Billing administration on the Azure portal
 description: This article explains the common tasks that an enterprise administrator accomplishes in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/06/2023
+ms.date: 04/18/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -44,6 +44,21 @@ Enterprise agreements and the customers accessing the agreements can have multip
     :::image type="content" source="./media/direct-ea-administration/search-cost-management.png" alt-text="Screenshot showing search for Cost Management + Billing." lightbox="./media/direct-ea-administration/search-cost-management.png" :::
 1. Select **Billing scopes** from the navigation menu and then select the billing account that you want to work with.  
     :::image type="content" source="./media/direct-ea-administration/select-billing-scope.png" alt-text="Screenshot showing select a billing account." lightbox="./media/direct-ea-administration/select-billing-scope.png" :::
+
+## Activate your enrollment 
+
+To activate your enrollment, the initial enterprise administrator signs in to the Azure portal using their work, school, or Microsoft account.
+If you've been set up as the enterprise administrator, you don't need to receive the activation email. You can login to Azure portal and activate the enrollment.
+
+### To activate an enrollment
+
+1. Sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes).
+1. Search for **Cost Management + Billing** and select it.  
+    :::image type="content" source="./media/direct-ea-administration/search-cost-management.png" alt-text="Screenshot showing search for Cost Management + Billing." lightbox="./media/direct-ea-administration/search-cost-management.png" :::
+1. Select the enrollment that you want to activate.  
+    :::image type="content" source="./media/direct-ea-administration/select-billing-scope.png" alt-text="Screenshot showing select a billing account." lightbox="./media/direct-ea-administration/select-billing-scope.png" :::
+1. Once the enrollment is selected, status of enrollment is changed to active.
+1. You can view the status of enrollment under **Essentials** on Summary view.
 
 ## View enrollment details
 
@@ -412,6 +427,32 @@ New subscriptions can take up to 24 hours to appear in the subscriptions list. A
 - Manage subscription services
 
 You can also create subscriptions by navigating to the Azure Subscriptions page and selecting **+ Add**.
+
+### Create subscription in other tenant and view transfer requests
+
+A user with the following permission can create subscriptions in another directory if they're allowed or exempted with subscription policy. For more information, see [Setting subscription policy](manage-azure-subscription-policy.md#setting-subscription-policy).
+
+- Account owner
+
+When you try to create a subscription for someone in a directory outside of the current directory (such as a customer's tenant), a _subscription creation request_ is created.
+
+:::image type="content" source="./media/direct-ea-administration/create-subscription-other-directory.png" alt-text="Screenshot showing Create a subscription outside the current directory." lightbox="./media/direct-ea-administration/create-subscription-other-directory.png" :::
+
+When the request is created, the subscription owner (the customer) is sent an email letting them know that they need to accept subscription ownership. The email contains a link used to accept ownership in the Azure portal. The customer must accept the request within seven days. If not accepted within seven days, the request expires. The person that created the request can also manually send their customer the ownership URL to accept the subscription.
+
+After the request is created, it's visible in the Azure portal at **Subscriptions** > **View Requests** by the following people:
+
+- The tenant global administrator of the source tenant where the subscription provisioning request is made.
+- The user who made the subscription creation request for the subscription being provisioned in the other tenant.
+- The user who made the request to provision the subscription in a different tenant than where they make the [Subscription – Alias REST API](/rest/api/subscription/) call instead of the Azure portal.
+
+The subscription owner in the request who resides in the target tenant doesn't see this subscription creation request on the View requests page. Instead, they receive an email with the link to accept ownership of the subscription in the target tenant.
+
+:::image type="content" source="./media/direct-ea-administration/view-requests.png" alt-text="Screenshot showing View Requests page that lists all subscription creation requests." lightbox="./media/direct-ea-administration/view-requests.png" :::
+
+Anyone with access to view the request can view its details. In the request details, the **Accept ownership URL** is visible. You can copy it to manually share it with the subscription owner in the target tenant for subscription ownership acceptance.
+
+:::image type="content" source="./media/direct-ea-administration/request-details.png" alt-text="Screenshot showing request details to view Accept ownership URL." lightbox="./media/direct-ea-administration/request-details.png" :::
 
 ## Cancel a subscription
 

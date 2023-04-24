@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for how to manage authentication and authorization for clusters in Azure Kubernetes Service (AKS)
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 09/29/2022
+ms.date: 04/14/2023
 ---
 
 # Best practices for authentication and authorization in Azure Kubernetes Service (AKS)
@@ -116,12 +116,10 @@ There are two levels of access needed to fully operate an AKS cluster:
 
 ## Use pod-managed identities
 
-> **Best practice guidance**
->
-> Don't use fixed credentials within pods or container images, as they are at risk of exposure or abuse. Instead, use *pod identities* to automatically request access using Azure AD.
+Don't use fixed credentials within pods or container images, as they are at risk of exposure or abuse. Instead, use *pod identities* to automatically request access using Azure AD.
 
 > [!NOTE]
-> Pod identities are intended for use with Linux pods and container images only. Pod-managed identities support for Windows containers is coming soon.
+> Pod identities are intended for use with Linux pods and container images only. Pod-managed identities (preview) support for Windows containers is coming soon.
 
 To access other Azure resources, like Azure Cosmos DB, Key Vault, or Blob storage, the pod needs authentication credentials. You could define authentication credentials with the container image or inject them as a Kubernetes secret. Either way, you would need to manually create and assign them. Usually, these credentials are reused across pods and aren't regularly rotated.
 

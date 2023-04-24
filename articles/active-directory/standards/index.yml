@@ -6,8 +6,8 @@ summary: Azure and Azure Active Directory offer compliance certifications. Learn
 metadata:
   title: Implement identity standards with Azure Active Directory
   description: "Azure and Azure Active Directory offer compliance certifications. Learn to configure your environment to meet governmental and industry standards."
-  manager: mtillman
-  ms.author: baselden
+  manager: martinco
+  ms.author: jricketts
   ms.collection: na
   ms.date: 04/29/2022
   ms.service: active-directory
@@ -32,6 +32,8 @@ landingContent:
             url: configure-azure-active-directory-for-fedramp-high-impact.md
           - text: Configure Azure Active Directory for CMMC compliance
             url: configure-azure-active-directory-for-cmmc-compliance.md
+          - text: Configure Azure Active Directory for HIPAA compliance
+            url: hipaa-configure-azure-active-directory-for-compliance.md
 
   # Card 
   - title: Understand NIST AALs
@@ -98,4 +100,16 @@ landingContent:
             url: configure-cmmc-level-2-identification-and-authentication.md
           - text: Configure Azure Active Directory to meet CMMC Level 2
             url: configure-cmmc-level-2-additional-controls.md
+            
+  # Card
+  - title: Achieve HIPAA compliance
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure access control safeguards
+            url: hipaa-access-controls.md
+          - text: Configure audit control safeguards
+            url: hipaa-audit-controls.md
+          - text: Configure other safeguards
+            url: hipaa-other-controls.md
             

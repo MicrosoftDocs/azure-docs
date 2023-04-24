@@ -17,7 +17,7 @@ ms.custom: devplatv2
 
 [!INCLUDE [cli v2](../../includes/machine-learning-dev-v2.md)]
 
-Batch Endpoints can be used for processing tabular data, but also any other file type like text. Those deployments are supported in both MLflow and custom models. In this tutorial we will learn how to deploy a model that can perform text summarization of long sequences of text using a model from HuggingFace.
+Batch Endpoints can be used for processing tabular data that contain text. Those deployments are supported in both MLflow and custom models. In this tutorial we will learn how to deploy a model that can perform text summarization of long sequences of text using a model from HuggingFace.
 
 ## About this sample
 
@@ -27,12 +27,25 @@ The model we are going to work with was built using the popular library transfor
 * It is trained for summarization of text in English.
 * We are going to use Torch as a backend.
 
-The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, clone the repo and then change directories to the `cli/endpoints/batch/deploy-models/huggingface-text-summarization` if you are using the Azure CLI or `sdk/python/endpoints/batch/deploy-models/huggingface-text-summarization` if you are using our SDK for Python.
+The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, clone the repo and then change directories to the [`cli/endpoints/batch/deploy-models/huggingface-text-summarization`](https://github.com/azure/azureml-examples/tree/main/cli/endpoints/batch/deploy-models/huggingface-text-summarization) if you are using the Azure CLI or [`sdk/python/endpoints/batch/deploy-models/huggingface-text-summarization`](https://github.com/azure/azureml-examples/tree/main/sdk/python/endpoints/batch/deploy-models/huggingface-text-summarization) if you are using our SDK for Python.
+
+# [Azure CLI](#tab/cli)
 
 ```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
 cd azureml-examples/cli/endpoints/batch/deploy-models/huggingface-text-summarization
 ```
+
+# [Python](#tab/python)
+
+In a Jupyter notebook:
+
+```python
+!git clone https://github.com/Azure/azureml-examples --depth 1
+!cd azureml-examples/sdk/python/endpoints/batch/deploy-models/huggingface-text-summarization
+```
+
+---
 
 ### Follow along in Jupyter Notebooks
 
@@ -46,7 +59,7 @@ You can follow along this sample in a Jupyter Notebook. In the cloned repository
 
 First, let's connect to Azure Machine Learning workspace where we're going to work on.
 
-# [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/cli)
 
 ```azurecli
 az account set --subscription <subscription>
@@ -80,7 +93,13 @@ ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, 
 
 ### Registering the model
 
-Due to the size of the model, it hasn't been included in this repository. Instead, you can generate a local copy with the following code. A local copy of the model will be placed at `model`. We will use it during the course of this tutorial.
+Due to the size of the model, it hasn't been included in this repository. Instead, you can download a copy from the HuggingFace model's hub. You need the packages `transformers` and `torch` installed in the environment you are using.
+
+```python
+%pip install transformers torch
+```
+
+Use the following code to download the model to a folder `model`:
 
 ```python
 from transformers import pipeline
@@ -99,7 +118,7 @@ MODEL_NAME='bart-text-summarization'
 az ml model create --name $MODEL_NAME --path "model"
 ```
 
-# [Python](#tab/sdk)
+# [Python](#tab/python)
 
 ```python
 model_name = 'bart-text-summarization'
@@ -115,7 +134,7 @@ We are going to create a batch endpoint named `text-summarization-batch` where t
 
 1. Decide on the name of the endpoint. The name of the endpoint will end-up in the URI associated with your endpoint. Because of that, __batch endpoint names need to be unique within an Azure region__. For example, there can be only one batch endpoint with the name `mybatchendpoint` in `westus2`.
 
-    # [Azure CLI](#tab/azure-cli)
+    # [Azure CLI](#tab/cli)
     
     In this case, let's place the name of the endpoint in a variable so we can easily reference it later.
     
@@ -133,7 +152,7 @@ We are going to create a batch endpoint named `text-summarization-batch` where t
 
 1. Configure your batch endpoint
 
-    # [Azure CLI](#tab/azure-cli)
+    # [Azure CLI](#tab/cli)
 
     The following YAML file defines a batch endpoint:
     
@@ -156,7 +175,7 @@ We are going to create a batch endpoint named `text-summarization-batch` where t
 
    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/huggingface-text-summarization/deploy-and-run.sh" ID="create_batch_endpoint" :::
 
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
 
    ```python
    ml_client.batch_endpoints.begin_create_or_update(endpoint)
@@ -187,7 +206,7 @@ Let's create the deployment that will host the model:
 
    __environment/conda.yml__
 
-   :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/huggingface-text-summarization/environment/torch200-conda.yml" :::
+   :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/huggingface-text-summarization/environment/torch200-conda.yaml" :::
    
 1. We can use the conda file mentioned before as follows:
 
@@ -199,7 +218,7 @@ Let's create the deployment that will host the model:
    
    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/huggingface-text-summarization/deployment.yml" range="7-10" :::
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    Let's get a reference to the environment:
    
@@ -217,7 +236,7 @@ Let's create the deployment that will host the model:
    
 1. Each deployment runs on compute clusters. They support both [Azure Machine Learning Compute clusters (AmlCompute)](./how-to-create-attach-compute-cluster.md) or [Kubernetes clusters](./how-to-attach-kubernetes-anywhere.md). In this example, our model can benefit from GPU acceleration, which is why we will use a GPU cluster.
 
-   # [Azure CLI](#tab/azure-cli)
+   # [Azure CLI](#tab/cli)
 
    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/huggingface-text-summarization/deploy-and-run.sh" ID="create_compute" :::
 
@@ -253,7 +272,7 @@ Let's create the deployment that will host the model:
    
    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/huggingface-text-summarization/deploy-and-run.sh" ID="create_batch_deployment_set_default" :::
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    To create a new deployment with the indicated environment and scoring script use the following code:
    
@@ -298,7 +317,7 @@ Let's create the deployment that will host the model:
    az ml batch-endpoint update --name $ENDPOINT_NAME --set defaults.deployment_name=$DEPLOYMENT_NAME
    ```
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    ```python
    endpoint.defaults.deployment_name = deployment.name
@@ -321,7 +340,7 @@ For testing our endpoint, we are going to use a sample of the dataset [BillSum: 
    > [!NOTE]
    > The utility `jq` may not be installed on every installation. You can get instructions in [this link](https://stedolan.github.io/jq/download/).
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    ```python
    input = Input(type=AssetTypes.URI_FOLDER, path="data")
@@ -341,7 +360,7 @@ For testing our endpoint, we are going to use a sample of the dataset [BillSum: 
    
    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/huggingface-text-summarization/deploy-and-run.sh" ID="show_job_in_studio" :::
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    ```python
    ml_client.jobs.get(job.name)
@@ -357,7 +376,7 @@ For testing our endpoint, we are going to use a sample of the dataset [BillSum: 
    az ml job download --name $JOB_NAME --output-name score --download-path .
    ```
 
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
 
    ```python
    ml_client.jobs.download(name=job.name, output_name='score', download_path='./')

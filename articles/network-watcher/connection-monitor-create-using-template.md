@@ -8,7 +8,7 @@ ms.service: network-watcher
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/08/2021
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, devx-track-arm-template
 ms.author: halkazwini
 #Customer intent: I need to create a connection monitor to monitor communication between one VM and another.
 ---

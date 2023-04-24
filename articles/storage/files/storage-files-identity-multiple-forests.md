@@ -4,7 +4,7 @@ description: Configure on-premises Active Directory Domain Services (AD DS) auth
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/16/2023
+ms.date: 04/17/2023
 ms.author: kendownie
 ms.subservice: files 
 ---
@@ -82,6 +82,10 @@ Once authentication passes, the trust is established, and you should be able to 
 Once the trust is established, follow these steps to create a storage account and SMB file share for each domain, enable AD DS authentication on the storage accounts, and create hybrid user accounts synced to Azure AD.
 
 1. Log in to the Azure portal and create two storage accounts such as **onprem1sa** and **onprem2sa**. For optimal performance, we recommend that you deploy the storage accounts in the same region as the clients from which you plan to access the shares.
+   
+   > [!NOTE]
+   > Creating a second storage account isn't necessary. These instructions are meant to show an example of how to access storage accounts that belong to different forests. If you only have one storage account, you can ignore the second storage account setup instructions.
+   
 1. [Create an SMB Azure file share](storage-files-identity-ad-ds-assign-permissions.md) on each storage account.
 1. [Sync your on-premises AD to Azure AD](../../active-directory/hybrid/how-to-connect-install-roadmap.md) using [Azure AD Connect sync](../../active-directory/hybrid/whatis-azure-ad-connect.md) application. 
 1. Domain-join an Azure VM in **Forest 1** to your on-premises AD DS. For information about how to domain-join, refer to [Join a Computer to a Domain](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain).

@@ -1,12 +1,12 @@
 ---
 title: "Azure Operator Nexus: How to configure the L2 and L3 isolation-domains in Operator Nexus instances"
 description: Learn to create, view, list, update, delete commands for Layer 2 and Layer isolation-domains in Operator Nexus instances
-author: surajmb #Required
-ms.author: surmb #Required
-ms.service: azure-operator-nexus  #Required
-ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 02/02/2023 #Required; mm/dd/yyyy format.
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+author: jdasari
+ms.author: jdasari
+ms.service: azure-operator-nexus
+ms.topic: how-to
+ms.date: 04/02/2023
+ms.custom: template-how-to
 ---
 
 # Configure L2 and L3 isolation-domains using managed network fabric services
@@ -42,18 +42,19 @@ You'll create isolation-domains to enable layer 2 and layer 3 connectivity betwe
 
 ## Parameters for isolation-domain management
 
-| Parameter| Description|
-| :--| :--------|
-| vlan-id             | VLAN identifier value. VLANs 1-500 are reserved and can't be used. The VLAN identifier value can't be changed once specified. The isolation-domain must be deleted and recreated if the VLAN identifier value needs to be modified. |
-| administrativeState | Indicate administrative state of the isolation-domain |
-| provisioningState   | Indicates provisioning state |
+| Parameter|Description|Example|Required|
+|---|---|---|---|
+|resource-group	|Use an appropriate resource group name specifically for ISD of your choice|ResourceGroupName|True
+|resource-name	|Resource Name of the l2isolationDomain|example-l2domain| True
+|location|AODS Azure Region used during NFC Creation|eastus| True
+|nf-Id	|network fabric ID|/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFresourcegroupname/providers/Microsoft.ManagedNetworkFabric/NetworkFabrics/NFname"| True
+|Vlan-id | VLAN identifier value. VLANs 1-500 are reserved and can't be used. The VLAN identifier value can't be changed once specified. The isolation-domain must be deleted and recreated if the VLAN identifier value needs to be modified. The range is between 501-4095|501| True
+|mtu | maximum transmission unit is 1500 by default, if not specified|1500|
+|administrativeState|	Enable/Disable indicate the administrative state of the isolationDomain|Enable|
 | subscriptionId      | Your Azure subscriptionId for your Operator Nexus instance. |
-| resourceGroupName   | Use the corresponding NFC resource group name |
-| resource-name       | Resource Name of the isolation-domain |
-| nf-id               | ARM ID of the Network fabric |
-| location            | Azure region where the resource is being created |
+| provisioningState   | Indicates provisioning state |
 
-## L2 isolation-domain
+## L2 Isolation-Domain
 
 You use an L2 isolation-domain to establish layer 2 connectivity between workloads running on Operator Nexus compute nodes.
 
@@ -63,12 +64,12 @@ Create an L2 isolation-domain:
 
 ```azurecli
 az nf l2domain create \
---resource-group "NFresourcegroupname" \
+--resource-group "ResourceGroupName" \
 --resource-name "example-l2domain" \
 --location "eastus" \
---nf-id "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFresourcegroupname/providers/Microsoft.ManagedNetworkFabric/NetworkFabrics/NFname" \
---vlan-id  501\
---mtu 1500
+--nf-id "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/NetworkFabrics/NFname" \
+--vlan-id  750\
+--mtu 1501
 ```
 
 Expected output:
@@ -76,26 +77,26 @@ Expected output:
 ```json
 {
   "administrativeState": "Disabled",
-  "annotation": null,
+  "annotation": null,user
   "disabledOnResources": null,
-  "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFCresourcegroupname/providers/Microsoft.ManagedNetworkFabric/l2IsolationDomains/example-l2domain",
-  "location": "eastus2euap",
-  "mtu": 1500,
+  "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ResourceGroupName/providers/Microsoft.ManagedNetworkFabric/l2IsolationDomains/example-l2domain",
+  "location": "eastus",
+  "mtu": 1501,
   "name": "example-l2domain",
   "networkFabricId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/NFresourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/networkFabrics/NFName",
   "provisioningState": "Succeeded",
-  "resourceGroup": "NFresourcegroupname",
+  "resourceGroup": "ResourceGroupName",
   "systemData": {
-    "createdAt": "2022-11-02T05:59:00.534027+00:00",
+    "createdAt": "2023-XX-XXT14:57:59.167177+00:00",
     "createdBy": "email@address.com",
     "createdByType": "User",
-    "lastModifiedAt": "2022-11-02T05:59:00.534027+00:00",
+    "lastModifiedAt": "2023-XX-XXT14:57:59.167177+00:00",
     "lastModifiedBy": "email@address.com",
     "lastModifiedByType": "User"
   },
   "tags": null,
   "type": "microsoft.managednetworkfabric/l2isolationdomains",
-  "vlanId": 501
+  "vlanId": 750
 }
 ```
 
@@ -104,7 +105,7 @@ Expected output:
 This command shows L2 isolation-domain details and administrative state of isolation-domain.
 
 ```azurecli
-az nf l2domain show --resource-group "resourcegroupname" --resource-name "example-l2domain"
+az nf l2domain show --resource-group "ResourceGroupName" --resource-name "example-l2domain"
 ```
 
 Expected Output
@@ -114,24 +115,24 @@ Expected Output
   "administrativeState": "Disabled",
   "annotation": null,
   "disabledOnResources": null,
-  "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFCresourcegroupname/providers/Microsoft.ManagedNetworkFabric/l2IsolationDomains/example-l2domain",
-  "location": "eastus2euap",
-  "mtu": 1500,
+  "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ResourceGroupName/providers/Microsoft.ManagedNetworkFabric/l2IsolationDomains/example-l2domain",
+  "location": "eastus",
+  "mtu": 1501,
   "name": "example-l2domain",
-  "networkFabricId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/NFresourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/networkFabrics/NFName",
+  "networkFabricId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabrics/NFName",
   "provisioningState": "Succeeded",
-  "resourceGroup": "NFCresourcegroupname",
+  "resourceGroup": "ResourceGroupName",
   "systemData": {
-    "createdAt": "2022-11-02T05:59:00.534027+00:00",
+    "createdAt": "2023-XX-XXT14:57:59.167177+00:00",
     "createdBy": "email@address.com",
     "createdByType": "User",
-    "lastModifiedAt": "2022-11-02T05:59:00.534027+00:00",
+    "lastModifiedAt": "2023-XX-XXT14:57:59.167177+00:00",
     "lastModifiedBy": "email@address.com",
     "lastModifiedByType": "User"
   },
   "tags": null,
   "type": "microsoft.managednetworkfabric/l2isolationdomains",
-  "vlanId": 2026
+  "vlanId": 750
 }
 ```
 
@@ -140,7 +141,7 @@ Expected Output
 This command lists all l2 isolation-domains available in resource group.
 
 ```azurecli
-az nf l2domain list --resource-group "resourcegroupname"
+az nf l2domain list --resource-group "ResourceGroupName"
 ```
 
 Expected Output
@@ -150,48 +151,25 @@ Expected Output
     "administrativeState": "Enabled",
     "annotation": null,
     "disabledOnResources": null,
-    "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFCresourcegroupname/providers/Microsoft.ManagedNetworkFabric/l2IsolationDomains/example-l2domain",
+    "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ResourceGroupName/providers/Microsoft.ManagedNetworkFabric/l2IsolationDomains/example-l2domain",
     "location": "eastus",
-    "mtu": 1500,
+    "mtu": 1501,
     "name": "example-l2domain",
-    "networkFabricId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/NFresourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/networkFabrics/NFName",
+    "networkFabricId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxxxxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabrics/NFName",
     "provisioningState": "Succeeded",
-    "resourceGroup": "NFCresourcegroupname",
+    "resourceGroup": "ResourceGroupName",
     "systemData": {
-      "createdAt": "2022-10-24T22:26:33.065672+00:00",
+      "createdAt": "2022-XX-XXT22:26:33.065672+00:00",
       "createdBy": "email@address.com",
       "createdByType": "User",
-      "lastModifiedAt": "2022-10-26T14:46:45.753165+00:00",
+      "lastModifiedAt": "2022-XX-XXT14:46:45.753165+00:00",
       "lastModifiedBy": "d1bd24c7-b27f-477e-86dd-939e107873d7",
       "lastModifiedByType": "Application"
     },
     "tags": null,
     "type": "microsoft.managednetworkfabric/l2isolationdomains",
-    "vlanId": 501
-  },
-  {
-    "administrativeState": "Enabled",
-    "annotation": null,
-    "disabledOnResources": null,
-    "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFCresourcegroupname/providers/Microsoft.ManagedNetworkFabric/l2IsolationDomains/example-l2domain",
-    "location": "eastus",
-    "mtu": 1500,
-    "name": "example-l2domain",
-    "networkFabricId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFresourcegroupname/providers/Microsoft.ManagedNetworkFabric/networkFabrics/NFName",
-    "provisioningState": "Succeeded",
-    "resourceGroup": "NFCresourcegroupname",
-    "systemData": {
-      "createdAt": "2022-10-27T03:03:15.099007+00:00",
-      "createdBy": "email@address.com",
-      "createdByType": "User",
-      "lastModifiedAt": "2022-10-27T03:45:31.864152+00:00",
-      "lastModifiedBy": "d1bd24c7-b27f-477e-86dd-939e107873d7",
-      "lastModifiedByType": "Application"
-    },
-    "tags": null,
-    "type": "microsoft.managednetworkfabric/l2isolationdomains",
-    "vlanId": 501
-  },
+    "vlanId": 750
+  }
 ```
 
 ### Enable/disable L2 isolation-domain
@@ -199,10 +177,10 @@ Expected Output
 This command is used to change the administrative state of the isolation-domain.
 
 **Note:**
-Only after the isolation-domain is Enabled, that the layer 2 isolation-domain configuration is pushed to the Network fabric devices.
+Only after the Isolation-Domain is Enabled, that the layer 2 Isolation-Domain configuration is pushed to the Network Fabric devices.
 
 ```azurecli
-az nf l2domain update-admin-state --resource-group "NFCresourcegroupname" --resource-name "example-l2domain" --state Enable/Disable
+az nf l2domain update-admin-state --resource-group "ResourceGroupName" --resource-name "example-l2domain" --state Enable/Disable
 ```
 
 Expected Output
@@ -212,18 +190,18 @@ Expected Output
   "administrativeState": "Enabled",
   "annotation": null,
   "disabledOnResources": null,
-  "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFCresourcegroupname/providers/Microsoft.ManagedNetworkFabric/l2IsolationDomains/example-l2domain",
-  "location": "eastus2euap",
-  "mtu": 1500,
+  "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ResourceGroupName/providers/Microsoft.ManagedNetworkFabric/l2IsolationDomains/example-l2domain",
+  "location": "eastus",
+  "mtu": 1501,
   "name": "example-l2domain",
-  "networkFabricId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFresourcegroupname/providers/Microsoft.ManagedNetworkFabric/networkFabrics/NFName",
+  "networkFabricId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabrics/NFName",
   "provisioningState": "Succeeded",
-  "resourceGroup": "NFCresourcegroupname",
+  "resourceGroup": "ResourceGroupName",
   "systemData": {
-    "createdAt": "2022-11-02T05:59:00.534027+00:00",
+    "createdAt": "2023-XX-XXT14:57:59.167177+00:00",
     "createdBy": "email@address.com",
     "createdByType": "User",
-    "lastModifiedAt": "2022-11-02T06:01:03.552772+00:00",
+    "lastModifiedAt": "2023-XX-XXT14:57:59.167177+00:00",
     "lastModifiedBy": "d1bd24c7-b27f-477e-86dd-939e107873d7",
     "lastModifiedByType": "Application"
   },
@@ -238,7 +216,7 @@ Expected Output
 This command is used to delete L2 isolation-domain
 
 ```azurecli
-az nf l2domain delete --resource-group "resourcegroupname" --resource-name "example-l2domain"
+az nf l2domain delete --resource-group "ResourceGroupName" --resource-name "example-l2domain"
 ```
 
 Expected output:
@@ -271,19 +249,26 @@ To make changes to the L3 isolation-domain, first Disable the L3 isolation-domai
   - Make changes to the L3 isolation-domain
   - Re-enable the L3 isolation-domain
 
-Procedure to show, enable/disable and delete IPv6 based isolation-domains is same as used for IPv4.
+Procedure to show, enable/disable and delete IPv6 based isolation-domains is same as used for IPv4. 
+Vlan range for creation Isolation Domain 501-4095
+
+| Parameter|Description|Example|Required|
+|---|---|---|---|
+|resource-group	|Use an appropriate resource group name specifically for ISD of your choice|ResourceGroupName|True|
+|resource-name	|Resource Name of the l3isolationDomain|example-l3domain|True|
+|location|AODS Azure Region used during NFC Creation|eastus|True|
+|nf-Id	|azure subscriptionId used during NFC Creation|/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/NetworkFabrics/NFName"| True|
 
 ### Create L3 isolation-domain
 
 You can create the L3 isolation-domain:
 
 ```azurecli
-az nf l3domain create
---resource-group "NFCresourcegroupname"
+az nf l3domain create 
+--resource-group "ResourceGroupName" 
 --resource-name "example-l3domain"
---location "eastus"
---nf-id "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFresourcegroupname/providers/Microsoft.ManagedNetworkFabric/NetworkFabrics/NFName"
---external '{"optionBConfiguration": {"importRouteTargets": ["1234:1235"], "exportRouteTargets": ["1234:1234"]}}'
+--location "eastus" 
+--nf-id "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/NetworkFabrics/NFName"
 ```
 
 > [!NOTE]
@@ -294,24 +279,26 @@ Expected Output
 ```json
 {
   "administrativeState": "Disabled",
+  "aggregateRouteConfiguration": null,
   "annotation": null,
+  "connectedSubnetRoutePolicy": null,
   "description": null,
   "disabledOnResources": null,
-  "external": null,
-  "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/example-l3domain",
-  "internal": null,
-  "location": "eastus2euap",
+  "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ResourceGroupName/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/example-l3domain",
+  "location": "eastus",
   "name": "example-l3domain",
-  "networkFabricId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/NFresourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/networkFabrics/NFName",
+  "networkFabricId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/NFresourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabrics/NFName",
   "optionBDisabledOnResources": null,
   "provisioningState": "Accepted",
-  "resourceGroup": "resourcegroupname",
+  "redistributeConnectedSubnets": "True",
+  "redistributeStaticRoutes": "False",
+  "resourceGroup": "ResourceGroupName",
   "systemData": {
-    "createdAt": "2022-11-02T06:23:43.372461+00:00",
-    "createdBy": "email@address.com",
+    "createdAt": "2022-XX-XXT06:23:43.372461+00:00",
+    "createdBy": "email@example.com",
     "createdByType": "User",
-    "lastModifiedAt": "2022-11-02T06:23:43.372461+00:00",
-    "lastModifiedBy": "email@address.com",
+    "lastModifiedAt": "2023-XX-XXT09:40:38.815959+00:00",
+    "lastModifiedBy": "email@example.com",
     "lastModifiedByType": "User"
   },
   "tags": null,
@@ -324,7 +311,7 @@ Expected Output
 You can get the L3 isolation-domains details and administrative state.
 
 ```azurecli
-az nf l3domain show --resource-group "resourcegroupname" --resource-name "example-l3domain"
+az nf l3domain show --resource-group "ResourceGroupName" --resource-name "example-l3domain"
 ```
 
 Expected Output
@@ -332,25 +319,27 @@ Expected Output
 ```json
 {
   "administrativeState": "Disabled",
+  "aggregateRouteConfiguration": null,
   "annotation": null,
+  "connectedSubnetRoutePolicy": null,
   "description": null,
   "disabledOnResources": null,
-  "external": null,
-  "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/example-l3domain",
-  "internal": null,
-  "location": "eastus2euap",
+  "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ResourceGroupName/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/example-l3domain",
+  "location": "eastus",
   "name": "example-l3domain",
-  "networkFabricId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFresourcegroupname/providers/Microsoft.ManagedNetworkFabric/networkFabrics/NFName",
+  "networkFabricId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/NFresourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabrics/NFName",
   "optionBDisabledOnResources": null,
-  "provisioningState": "Accepted",
-  "resourceGroup": "resourcegroupname",
+  "provisioningState": "Succeeded",
+  "redistributeConnectedSubnets": "True",
+  "redistributeStaticRoutes": "False",
+  "resourceGroup": "ResourceGroupName",
   "systemData": {
-    "createdAt": "2022-11-02T06:23:43.372461+00:00",
-    "createdBy": "email@address.com",
+    "createdAt": "2023-XX-XXT09:40:38.815959+00:00",
+    "createdBy": "email@example.com",
     "createdByType": "User",
-    "lastModifiedAt": "2022-11-02T06:23:43.372461+00:00",
-    "lastModifiedBy": "email@address.com",
-    "lastModifiedByType": "User"
+    "lastModifiedAt": "2023-XX-XXT09:40:46.923037+00:00",
+    "lastModifiedBy": "d1bd24c7-b27f-477e-86dd-939e107873d7",
+    "lastModifiedByType": "Application"
   },
   "tags": null,
   "type": "microsoft.managednetworkfabric/l3isolationdomains"
@@ -362,7 +351,7 @@ Expected Output
 You can get a list of all L3 isolation-domains available in a resource group.
 
 ```azurecli
-az nf l3domain list --resource-group "resourcegroupname"
+az nf l3domain list --resource-group "ResourceGroupName"
 ```
 
 Expected Output
@@ -370,25 +359,27 @@ Expected Output
 ```json
 {
   "administrativeState": "Disabled",
+  "aggregateRouteConfiguration": null,
   "annotation": null,
+  "connectedSubnetRoutePolicy": null,
   "description": null,
   "disabledOnResources": null,
-  "external": null,
-  "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/example-l3domain",
-  "internal": null,
-  "location": "eastus2euap",
+  "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ResourceGroupName/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/example-l3domain",
+  "location": "eastus",
   "name": "example-l3domain",
-  "networkFabricId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFresourcegroupname/providers/Microsoft.ManagedNetworkFabric/networkFabrics/NFName",
+  "networkFabricId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/NFresourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabrics/NFName",
   "optionBDisabledOnResources": null,
   "provisioningState": "Succeeded",
-  "resourceGroup": "resourcegroupname",
+  "redistributeConnectedSubnets": "True",
+  "redistributeStaticRoutes": "False",
+  "resourceGroup": "ResourceGroupName",
   "systemData": {
-    "createdAt": "2022-11-02T06:23:43.372461+00:00",
-    "createdBy": "email@address.com",
+    "createdAt": "2023-XX-XXT09:40:38.815959+00:00",
+    "createdBy": "email@example.com",
     "createdByType": "User",
-    "lastModifiedAt": "2022-11-02T06:23:43.372461+00:00",
-    "lastModifiedBy": "email@address.com",
-    "lastModifiedByType": "User"
+    "lastModifiedAt": "2023-XX-XXT09:40:46.923037+00:00",
+    "lastModifiedBy": "d1bd24c7-b27f-477e-86dd-939e107873d7",
+    "lastModifiedByType": "Application"
   },
   "tags": null,
   "type": "microsoft.managednetworkfabric/l3isolationdomains"
@@ -397,170 +388,263 @@ Expected Output
 
 Once the isolation-domain is created successfully, the next step is to create an internal network.
 
-## Internal network creation
+## Optional parameters for Isolation Domain
 
-| Parameter                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Example     | Required | type   |
-| :--------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------- | :------- | :----- |
-| vlanId                       | VLAN identifier                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | 1001        | True     | string |
-| connectedIPv4Subnets/Prefix  | IP subnet used by the HAKS cluster's workloads                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | 10.0.0.0/24 | True     | string |
-| connectedIPv4Subnets/gateway | IPv4 subnet gateway used by the HAKS cluster's workloads                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | 10.0.0.1    | True     | string |
-| staticIPv4Routes/Prefix      | IPv4 Prefix of the static route                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | NA          |
-| staticIPv4Routes/nexthop     | IPv4 next hop address                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | NA          |
-| defaultRouteOriginate        | True/False "Enables default route to be originated when advertising routes via BGP"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| fabricASN                    | ASN of Network fabric                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | 65048       | True     | string |
-| peerASN                      | Peer ASN of Network Function                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 65047       | True     | string |
-| IPv4Prefix                   | IPv4 Prefix of NFs for BGP peering (range).<br />The maximum length of the prefix is /28. For example, in 10.1.0.0/28, 10.1.0.0 to 10.1.0.7 are reserved and can't be used by workloads. 10.1.0.1 is assigned as VIP on both CEs. 10.1.0.2 is assigned on CE1 and 10.1.0.3 is assigned on CE2.<br />Workloads must peer to CE1 and CE2. The IP addresses of workloads can start from 10.0.0.8.<br />When only the prefix is configured, and `ipv4NeighborAddresses` isn't specified, the fabric configures the valid addresses in the prefix as part of the listen range. If `ipv4NeighborAddresses` is specified, the fabric configures the specified addresses as neighbors.<br />A smaller prefix than /28, for example /29 or /30 can also be configured | NA          |          |
+| Parameter|Description|Example|Required|
+|---|---|---|---|
+| redistributeConnectedSubnet | Advertise connected subnets default value is True |True |      |
+| redistributeStaticRoutes  |Advertise Static Routes can have value of true/False.  Defualt Value is False | False       | |
+| aggregateRouteConfiguration|List of Ipv4 and Ipv6 route configurations  |     |   | 
+
+
+## Internal Network Creation 
+
+| Parameter|Description|Example|Required|
+|---|---|---|---|
+|vlan-Id |Vlan identifier with range from 501 to 4095|1001|True|
+|resource-group|Use the corresponding NFC resource group name| NFCresourcegroupname | True
+|l3-isolation-domain-name|Resource Name of the l3isolationDomain|example-l3domain | True
+|location|AODS Azure Region used during NFC Creation|eastus | True
+
+
+## Options to create Internal Networks
+
+|Parameter|Description|Example|Required|
+|---|---|---|---|
+|connectedIPv4Subnets |IPv4 subnet used by the HAKS cluster's workloads|10.0.0.0/24||
+|connectedIPv6Subnets	|IPv6 subnet used by the HAKS cluster's workloads|10:101:1::1/64||
+|staticRouteConfiguration	|IPv4 Prefix of the static route|10.0.0.0/24|
+|bgpConfiguration|IPv4 nexthop address|10.0.0.0/24| |
+|defaultRouteOriginate	| True/False "Enables default route to be originated when advertising routes via BGP" | True | |
+|peerASN	|Peer ASN of Network Function|65047||
+|allowAS	|Allows for routes to be received and processed even if the router detects its own ASN in the AS-Path. Input as 0 is disable, Possible values are 1-10, default is 2.|2||
+|allowASOverride	|Enable Or Disable allowAS|Enable||
+|ipv4ListenRangePrefixes| BGP IPv4 listen range, maximum range allowed in /28| 10.1.0.0/26 | |
+|ipv6ListenRangePrefixes| BGP IPv6 listen range, maximum range allowed in /127| 3FFE:FFFF:0:CD30::/126| |
+|ipv4ListenRangePrefixes| BGP IPv4 listen range, maximum range allowed in /28| 10.1.0.0/26 | |
+|ipv4NeighborAddress| IPv4 neighbor address|10.0.0.11| |
+|ipv6NeighborAddress| IPv6 neighbor address|10:101:1::11| |
 
 This command creates an internal network with BGP configuration and specified peering address.
 
 **Note:** You need to create an internal network before you enable an L3 isolation-domain.
 
 ```azurecli
-az nf internalnetwork create \
---resource-group "resourcegroupname" \
---l3-isolation-domain-name "example-l3domain" \
---resource-name "example-internalnetwork" \
+az nf internalnetwork create 
+--resource-group "ResourceGroupName" 
+--l3-isolation-domain-name "example-l3domain" 
+--resource-name "example-internalnetwork" 
 --location "eastus"
---vlan-id 1001 \
---connected-ipv4-subnets '[{"prefix":"10.0.0.0/24", "gateway":"10.0.0.1"}]' \
---mtu 1500 \
---bgp-configuration '{"fabricASN": 65048, "defaultRouteOriginate":true, "peerASN": 65047 ,"ipv4NeighborAddress":[{"address": "10.0.0.11"}]}'
+--vlan-id 805 
+--connected-ipv4-subnets '[{"prefix":"10.1.2.0/24"}]' 
+--mtu 1500 
+--bgp-configuration  '{"defaultRouteOriginate": "True", "allowAS": 2, "allowASOverride": "Enable", "PeerASN": 65535, "ipv4ListenRangePrefixes": ["10.1.2.0/28"]}'
 
 ```
 
 Expected Output
 
 ```json
-{
-  "administrativeState": "Enabled",
-  "annotation": null,
-  "bfdDisabledOnResources": null,
-  "bfdForStaticRoutesDisabledOnResources": null,
-  "bgpConfiguration": {
-    "annotation": null,
-    "bfdConfiguration": null,
-    "defaultRouteOriginate": false,
-    "fabricAsn": 65048,
-    "ipv4NeighborAddress": [
-      {
-        "address": "10.0.0.11",
-        "operationalState": null
-      }
-    ],
-    "ipv4Prefix": null,
-    "ipv6NeighborAddress": null,
-    "ipv6Prefix": null,
-    "peerAsn": 65047
-  },
-  "bgpDisabledOnResources": null,
-  "connectedIPv4Subnets": [
-    {
-      "annotation": null,
-      "gateway": null,
-      "prefix": "10.0.0.0/24"
-    }
-  ],
-  "connectedIPv6Subnets": null,
-  "disabledOnResources": null,
-  "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/example-l3domain/internalNetworks/example-internalnetwork",
-  "mtu": 1500,
-  "name": "example-internalnetwork",
-  "provisioningState": "Succeeded",
-  "resourceGroup": "resourcegroupname",
-  "staticRouteConfiguration": null,
-  "systemData": {
-    "createdAt": "2022-11-02T06:25:05.983557+00:00",
-    "createdBy": "email@address.com",
-    "createdByType": "User",
-    "lastModifiedAt": "2022-11-02T06:25:05.983557+00:00",
-    "lastModifiedBy": "email@address.com",
-    "lastModifiedByType": "User"
-  },
-  "type": "microsoft.managednetworkfabric/l3isolationdomains/internalnetworks",
-  "vlanId": 1001
+{ 
+  "administrativeState": "Enabled", 
+  "annotation": null, 
+  "bfdDisabledOnResources": null, 
+  "bfdForStaticRoutesDisabledOnResources": null, 
+  "bgpConfiguration": { 
+    "allowAs": 2, 
+    "allowAsOverride": "Enable", 
+    "annotation": null, 
+    "bfdConfiguration": null, 
+    "defaultRouteOriginate": "True", 
+    "fabricAsn": 65046, 
+    "ipv4ListenRangePrefixes": [ 
+      "10.1.2.0/28" 
+    ], 
+    "ipv4NeighborAddress": null, 
+    "ipv6ListenRangePrefixes": null, 
+    "ipv6NeighborAddress": null, 
+    "peerAsn": 65535 
+  }, 
+  "bgpDisabledOnResources": null, 
+  "connectedIPv4Subnets": [ 
+    { 
+      "annotation": null, 
+      "prefix": "10.1.2.0/24" 
+    } 
+  ], 
+  "connectedIPv6Subnets": null, 
+  "disabledOnResources": null, 
+  "exportRoutePolicyId": null, 
+  "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ResourceGroupName/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/example-l3domain", 
+  "importRoutePolicyId": null, 
+  "mtu": 1500, 
+  "name": "internalnetwork805", 
+  "provisioningState": "Accepted", 
+  "resourceGroup": "ResourceGroupName", 
+  "staticRouteConfiguration": null, 
+  "systemData": { 
+    "createdAt": "2023-XX-XXT05:26:33.547816+00:00", 
+    "createdBy": "email@example.com", 
+    "createdByType": "User", 
+    "lastModifiedAt": "2023-XX-XXT05:26:33.547816+00:00", 
+    "lastModifiedBy": "email@example.com", 
+    "lastModifiedByType": "User" 
+  }, 
+  "type": "microsoft.managednetworkfabric/l3isolationdomains/internalnetworks", 
+  "vlanId": 805 
 }
 ```
 
-**Note:** This command creates an Internal network where the BGP speakers of the NFs will be in the range 10.0.0.8 through 10.0.0.15
+## Multiple static routes with single next hop
 
 ```azurecli
-az nf internalnetwork create \
---resource-group "resourcegroupname" \
---l3-isolation-domain-name "example-l3domain" \
---name "example-internalnetwork" \
---vlan-id 1000  \
---connected-ipv4-subnets '[{"prefix":"10.0.0.0/24", "gateway":"10.0.0.1"}]' \
---mtu 1500
---bgp-configuration '{"fabricASN": 65048, "defaultRouteOriginate":true, "peerASN": 5001 ,"ipv4Prefix": "10.0.0.0/28"}'
+az nf internalnetwork create 
+--resource-name "example-internalnetwork" 
+--l3domain "example-l3domain" 
+--resource-group "ResourceGroupName" 
+--location "eastus" 
+--vlan-id "2028" 
+--mtu "1500" 
+--connected-ipv4-subnets '[{"prefix":"10.18.34.0/24","gateway":"10.18.34.2"}]' --bgp-configuration '{"defaultRouteOriginate":true,"peerASN":65510,"ipv4Prefix":"10.18.34.0/24"}'
+--static-route-configuration '{"ipv4Routes":[{"prefix":"10.23.0.0/19","nextHop":["10.20.0.1"]},{"prefix":"10.24.0.0/19","nextHop":["10.20.0.1"]}]}'
 
+```
+
+Expected Output
+```json
+{ 
+
+  "administrativeState": "Enabled", 
+  "annotation": null, 
+  "bfdDisabledOnResources": null, 
+  "bfdForStaticRoutesDisabledOnResources": null, 
+  "bgpConfiguration": { 
+    "allowAs": 2, 
+    "allowAsOverride": "Enable", 
+    "annotation": null, 
+    "bfdConfiguration": null, 
+    "defaultRouteOriginate": "True", 
+    "fabricAsn": 65046, 
+    "ipv4ListenRangePrefixes": null, 
+    "ipv4NeighborAddress": null, 
+    "ipv6ListenRangePrefixes": null, 
+    "ipv6NeighborAddress": null, 
+    "peerAsn": 65510 
+  }, 
+
+  "bgpDisabledOnResources": null, 
+  "connectedIPv4Subnets": [ 
+   { 
+      "annotation": null, 
+      "prefix": "10.18.34.0/24" 
+    } 
+  ], 
+  "connectedIPv6Subnets": null, 
+  "disabledOnResources": null, 
+  "exportRoutePolicyId": null, 
+  "id": "/subscriptions//xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx7/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/example-l3domain/internalNetworks/example-internalnetwor", 
+  "importRoutePolicyId": null, 
+  "mtu": 1500, 
+  "name": "example-internalnetwork", 
+  "provisioningState": "Accepted", 
+  "resourceGroup": "ResourceGroupName", 
+  "staticRouteConfiguration": { 
+    "bfdConfiguration": null, 
+    "ipv4Routes": [ 
+      { 
+        "nextHop": [ 
+          "10.20.0.1" 
+        ], 
+        "prefix": "10.23.0.0/19" 
+      }, 
+      { 
+        "nextHop": [ 
+          "10.20.0.1" 
+        ], 
+        "prefix": "10.24.0.0/19" 
+      } 
+    ], 
+    "ipv6Routes": null 
+  }, 
+  "systemData": { 
+    "createdAt": "2023-XX-XXT13:46:26.394343+00:00", 
+    "createdBy": "email@example.com", 
+    "createdByType": "User", 
+    "lastModifiedAt": "2023-XX-XXT13:46:26.394343+00:00", 
+    "lastModifiedBy": "email@example.com", 
+    "lastModifiedByType": "User" 
+  }, 
+  "type": "microsoft.managednetworkfabric/l3isolationdomains/internalnetworks", 
+  "vlanId": 2028 
+} 
 ```
 
 ### Internal network creation using IPv6
 
 ```azurecli
-az nf internalnetwork create \
---resource-group "resourcegroupname" \
---l3-isolation-domain-name "example-l3domain" \
---resource-name "example-internalipv6network" \
---location "eastus"
---vlan-id 1090 \
---connected-ipv6-subnets '[{"prefix":"10:101:1::0/64", "gateway":"10:101:1::1"}]'
- --mtu 1500
- --bgp-configuration '{"fabricASN": 65048, "defaultRouteOriginate":true, "peerASN": 65020 ,"ipv6NeighborAddress":[{"address": "10:101:1::11"}]}
+az nf internalnetwork create 
+--resource-group "ResourceGroupName" 
+--l3-isolation-domain-name "example-l3domain" 
+--resource-name "example-internalipv6network" 
+--location "eastus" 
+--vlan-id 1090 
+--connected-ipv6-subnets '[{"prefix":"10:101:1::0/64", "gateway":"10:101:1::1"}]' 
+--mtu 1500 --bgp-configuration '{"defaultRouteOriginate":true,"peerASN": 65020,"ipv6NeighborAddress":[{"address": "10:101:1::11"}]}'
 ```
 
 Expected Output
 
 ```json
-{
-  "administrativeState": "Enabled",
-  "annotation": null,
-  "bfdDisabledOnResources": null,
-  "bfdForStaticRoutesDisabledOnResources": null,
-  "bgpConfiguration": {
-    "annotation": null,
-    "bfdConfiguration": null,
-    "defaultRouteOriginate": true,
-    "fabricAsn": 65048,
-    "ipv4NeighborAddress": null,
-    "ipv4Prefix": null,
-    "ipv6NeighborAddress": [
-      {
-        "address": "10:101:1::11",
-        "operationalState": null
-      }
-    ],
-    "ipv6Prefix": null,
-    "peerAsn": 65020
-  },
-  "bgpDisabledOnResources": null,
-  "connectedIPv4Subnets": null,
-  "connectedIPv6Subnets": [
-    {
-      "annotation": null,
-      "gateway": "10:101:1::1",
-      "prefix": "10:101:1::0/64"
-    }
-  ],
-  "disabledOnResources": null,
-  "exportRoutePolicyId": null,
-  "id": "/subscriptions//xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx7/resourceGroups/fab1nfrg121322/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/fab1-l3domain121822/internalNetworks/fab1-internalnetworkv16",
-  "importRoutePolicyId": null,
-  "mtu": 1500,
-  "name": "example-internalipv6network",
-  "provisioningState": "Succeeded",
-  "resourceGroup": "resourcegroupname",
-  "staticRouteConfiguration": null,
-  "systemData": {
-    "createdAt": "2022-12-15T12:10:34.364393+00:00",
-    "createdBy": "email@address.com",
-    "createdByType": "User",
-    "lastModifiedAt": "2022-12-15T12:10:34.364393+00:00",
-    "lastModifiedBy": "email@address.com",
-    "lastModifiedByType": "User"
-  },
-  "type": "microsoft.managednetworkfabric/l3isolationdomains/internalnetworks",
-  "vlanId": 1090
+{ 
+  "administrativeState": "Enabled", 
+  "annotation": null, 
+  "bfdDisabledOnResources": null, 
+  "bfdForStaticRoutesDisabledOnResources": null, 
+  "bgpConfiguration": { 
+    "allowAs": 2, 
+    "allowAsOverride": "Enable", 
+    "annotation": null, 
+    "bfdConfiguration": null, 
+    "defaultRouteOriginate": "True", 
+    "fabricAsn": 65046, 
+    "ipv4ListenRangePrefixes": null, 
+    "ipv4NeighborAddress": null, 
+    "ipv6ListenRangePrefixes": null, 
+    "ipv6NeighborAddress": [ 
+      { 
+        "address": "10:101:1::11", 
+        "operationalState": "Disabled" 
+      } 
+    ], 
+    "peerAsn": 65020 
+  }, 
+  "bgpDisabledOnResources": null, 
+  "connectedIPv4Subnets": null, 
+  "connectedIPv6Subnets": [ 
+    { 
+      "annotation": null, 
+      "prefix": "10:101:1::0/64" 
+    } 
+  ], 
+  "disabledOnResources": null, 
+  "exportRoutePolicyId": null, 
+  "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/l3domain2/internalNetworks/internalipv6network", 
+  "importRoutePolicyId": null, 
+  "mtu": 1500, 
+  "name": "internalipv6network", 
+  "provisioningState": "Succeeded", 
+  "resourceGroup": "ResourceGroupName", 
+  "staticRouteConfiguration": null, 
+  "systemData": { 
+    "createdAt": "2023-XX-XXT10:34:33.933814+00:00", 
+    "createdBy": "email@example.com", 
+    "createdByType": "User", 
+    "lastModifiedAt": "2023-XX-XXT10:34:33.933814+00:00", 
+    "lastModifiedBy": "email@example.com", 
+    "lastModifiedByType": "User" 
+  }, 
+  "type": "microsoft.managednetworkfabric/l3isolationdomains/internalnetworks", 
+  "vlanId": 1090 
 }
 ```
 
@@ -568,69 +652,124 @@ Expected Output
 
 This command creates an External network using Azure CLI.
 
-**Note:** For Option A, you need to create an external network before you enable the L3 isolation-domain.
-An external is dependent on Internal network, so an external can't be enabled without an internal network.
-The vlan-id value should be between 501 and 4095.
+|Parameter|Description|Example|Required|
+|---|---|---|---|
+|peeringOption |Peering using either optionA or optionb. Possible values OptionA and OptionB |OptionB| True|
+|optionBProperties | OptionB properties configuration. To specify use exportRouteTargets or importRouteTargets|"exportRouteTargets": ["1234:1234"]}}||
+|optionAProperties | Configuration of OptionA properties. Please refer to OptionA example in section below |||
+|external|This is an optional Parameter to input MPLS Option 10 (B) connectivity to external networks via PE devices. Using this Option, a user can Input Import and Export Route Targets as shown in the example| || 
+
+**Note:** For Option A You need to create an external network before you enable the L3 isolation Domain. An external is dependent on Internal network, so an external can't be enabled without an internal network. The vlan-id value should be between 501 and 4095.
+
+## External Network Creation using Option B
 
 ```azurecli
-az nf externalnetwork create
---resource-group "resourcegroupname"
---l3-isolation-domain-name "example-l3domain"
---name "example-externalnetwork"
---location "eastus"
---vlan-id 515
---fabric-asn 65025
---peer-asn 65026
---primary-ipv4-prefix "10.1.1.0/30"
---secondary-ipv4-prefix "10.1.1.4/30"
+az nf externalnetwork create 
+--resource-group "ResourceGroupName" 
+--l3domain "examplel3domain" 
+--resource-name "examplel3-externalnetwork" 
+--location "eastus" 
+--peering-option "OptionB" --option-b-properties '{"importRouteTargets": ["65541:2001"], "exportRouteTargets": ["65531:2001"]}'
 ```
 
 Expected Output
 
 ```json
 {
-  "administrativeState": null,
+  "administrativeState": "Enabled",
   "annotation": null,
-  "bfdConfiguration": null,
-  "bfdDisabledOnResources": null,
-  "bgpDisabledOnResources": null,
   "disabledOnResources": null,
-  "fabricAsn": 65025,
-  "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFresourcegroupname/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/l3domainNEWS3/externalNetworks/example-l3domain",
-  "mtu": 0,
-  "name": "example-l3domain",
-  "peerAsn": 65026,
-  "primaryIpv4Prefix": "10.1.1.0/30",
-  "primaryIpv6Prefix": null,
+  "exportRoutePolicyId": null,
+  "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxxX/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/examplel3isolationdomain/externalNetworks/example-externalnetwork",
+  "importRoutePolicyId": null,
+  "name": "examplel3-externalnetwork",
+  "networkToNetworkInterconnectId": null,
+  "optionAProperties": null,
+  "optionBProperties": {
+    "exportRouteTargets": [
+      "65531:2001"
+    ],
+    "importRouteTargets": [
+      "65541:2001"
+    ]
+  },
+  "peeringOption": "OptionB",
   "provisioningState": "Succeeded",
-  "resourceGroup": "resourcegroupname",
-  "secondaryIpv4Prefix": "10.1.1.4/30",
-  "secondaryIpv6Prefix": null,
+  "resourceGroup": "ResourceGroupName",
   "systemData": {
-    "createdAt": "2022-10-29T17:24:32.077026+00:00",
+    "createdAt": "2023-XX-XXT15:45:31.938216+00:00",
     "createdBy": "email@address.com",
     "createdByType": "User",
-    "lastModifiedAt": "2022-11-07T09:28:18.873754+00:00",
+    "lastModifiedAt": "2023-XX-XXT15:45:31.938216+00:00",
     "lastModifiedBy": "email@address.com",
     "lastModifiedByType": "User"
   },
-  "type": "microsoft.managednetworkfabric/l3isolationdomains/externalnetworks",
-  "vlanId": 515
+  "type": "microsoft.managednetworkfabric/l3isolationdomains/externalnetworks"
 }
+```
+## External Network creation with Option A
+
+```azurecli
+az nf externalnetwork create
+--resource-group "ResourceGroupName" 
+--l3domain "example-l3domain" 
+--resource-name "example-externalipv4network" 
+--location "eastus" --peering-option "OptionA" 
+--option-a-properties '{"peerASN": 65026,"vlanId": 2423, "mtu": 1500, "primaryIpv4Prefix": "10.18.0.148/30", "secondaryIpv4Prefix": "10.18.0.152/30"}'
+```
+
+Expected Output
+
+```json
+{ 
+  "administrativeState": "Enabled", 
+  "annotation": null, 
+  "disabledOnResources": null, 
+  "exportRoutePolicyId": null, 
+  "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxxX/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/examplel3isolationdomain/externalNetworks/example-externalnetwork", 
+  "importRoutePolicyId": null, 
+  "name": "example-externalipv4network", 
+  "networkToNetworkInterconnectId": null, 
+  "optionAProperties": { 
+    "bfdConfiguration": null, 
+    "fabricAsn": 65026, 
+    "mtu": 1500, 
+    "peerAsn": 65026, 
+    "primaryIpv4Prefix": "10.18.0.148/30", 
+    "primaryIpv6Prefix": null, 
+    "secondaryIpv4Prefix": "10.18.0.152/30", 
+    "secondaryIpv6Prefix": null, 
+    "vlanId": 2423 
+  }, 
+
+  "optionBProperties": null, 
+  "peeringOption": "OptionA", 
+  "provisioningState": "Accepted", 
+  "resourceGroup": "ResourceGroupName", 
+  "systemData": { 
+    "createdAt": "2023-XX-XXT07:23:54.396679+00:00", 
+    "createdBy": "email@address.com", 
+    "createdByType": "User", 
+    "lastModifiedAt": "2023-XX-XX1T07:23:54.396679+00:00", 
+    "lastModifiedBy": "email@address.com", 
+    "lastModifiedByType": "User" 
+  }, 
+  "type": "microsoft.managednetworkfabric/l3isolationdomains/externalnetworks" 
+}
+
 ```
 
 ### External network creation using Ipv6
 
 ```azurecli
-az nf externalnetwork create
---resource-group " resourcegroupname "
---l3-isolation-domain-name " example-l3domain"
---resource-name " example-externalipv6network"
---location "westus3"
---vlan-id 516
---fabric-asn 65048
+az nf externalnetwork create 
+--resource-group "ResourceGroupName"
+--l3-isolation-domain-name "example-l3domain"
+--resource-name "example-externalipv6network"
+--location "eastus"
+--vlan-id 506
 --peer-asn 65022
- --primary-ipv4-prefix "10:101:2::0/127"
+--primary-ipv6-prefix "10:101:2::0/127"
 --secondary-ipv6-prefix "10:101:3::0/127"
 ```
 
@@ -647,8 +786,8 @@ Expected Output
   "bgpDisabledOnResources": null,
   "disabledOnResources": null,
   "exportRoutePolicyId": null,
-  "fabricAsn": 65048,
-  "id": "/subscriptions//xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/fab1nfrg121322/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/fab1-l3domain121822/externalNetworks/fab1-externalnetworkv6",
+  "fabricAsn": 65026,
+  "id": "/subscriptions//xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/example-l3domain/externalNetworks/example-externalipv6network",
   "importRoutePolicyId": null,
   "mtu": 1500,
   "name": "example-externalipv6network",
@@ -656,19 +795,19 @@ Expected Output
   "primaryIpv4Prefix": "10:101:2::0/127",
   "primaryIpv6Prefix": null,
   "provisioningState": "Succeeded",
-  "resourceGroup": "resourcegroupname",
+  "resourceGroup": "ResourceGroupName",
   "secondaryIpv4Prefix": null,
   "secondaryIpv6Prefix": "10:101:3::0/127",
   "systemData": {
-    "createdAt": "2022-12-16T07:52:26.366069+00:00",
+    "createdAt": "2022-XX-XXT07:52:26.366069+00:00",
     "createdBy": "email@address.com",
     "createdByType": "User",
-    "lastModifiedAt": "2022-12-16T07:52:26.366069+00:00",
+    "lastModifiedAt": "2022-XX-XXT07:52:26.366069+00:00",
     "lastModifiedBy": "",
     "lastModifiedByType": "User"
   },
   "type": "microsoft.managednetworkfabric/l3isolationdomains/externalnetworks",
-  "vlanId": 516
+  "vlanId": 506
 }
 ```
 
@@ -677,37 +816,37 @@ Expected Output
 This command is used change administrative state of L3 isolation-domain, you have to run the az show command to verify if the Administrative state has changed to Enabled or not.
 
 ```azurecli
-az nf l3domain update-admin-state --resource-group "resourcegroupname" --resource-name "example-l3domain" --state Enable/Disable
+az nf l3domain update-admin-state --resource-group "ResourceGroupName" --resource-name "example-l3domain" --state Enable/Disable
 ```
 
 Expected Output
 
 ```json
 {
-  "administrativeState": "Enabled",
-  "annotation": null,
-  "description": null,
-  "disabledOnResources": null,
-  "external": null,
-  "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/example-l3domain",
-  "internal": null,
-  "location": "eastus2euap",
-  "name": "example-l3domain",
-  "networkFabricId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/NFresourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/networkFabrics/NFName",
-  "optionBDisabledOnResources": null,
-  "provisioningState": "Succeeded",
-  "resourceGroup": "resourcegroupname",
-  "systemData": {
-    "createdAt": "2022-11-02T06:23:43.372461+00:00",
-    "createdBy": "email@address.com",
-    "createdByType": "User",
-    "lastModifiedAt": "2022-11-02T06:25:53.240975+00:00",
-    "lastModifiedBy": "d1bd24c7-b27f-477e-86dd-939e107873d7",
-    "lastModifiedByType": "Application"
-  },
-  "tags": null,
-  "type": "microsoft.managednetworkfabric/l3isolationdomains"
-}
+    "administrativeState": "Enabled",
+    "annotation": null,
+    "description": null,
+    "disabledOnResources": null,
+    "external": null,
+    "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ResourceGroupName/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/example-l3domain",
+    "internal": null,
+    "location": "eastus",
+    "name": "example-l3domain",
+    "networkFabricId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/NFresourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabrics/NFName",
+    "optionBDisabledOnResources": null,
+    "provisioningState": "Succeeded",
+    "resourceGroup": "NFResourceGroupName",
+    "systemData": {
+      "createdAt": "2022-XX-XXT06:23:43.372461+00:00",
+      "createdBy": "email@address.com",
+      "createdByType": "User",
+      "lastModifiedAt": "2022-XX-XXT06:25:53.240975+00:00",
+      "lastModifiedBy": "d1bd24c7-b27f-477e-86dd-939e107873d7",
+      "lastModifiedByType": "Application"
+    },
+    "tags": null,
+    "type": "microsoft.managednetworkfabric/l3isolationdomains"
+  }
 ```
 
 ### Delete L3 isolation-domains
@@ -715,7 +854,7 @@ Expected Output
 This command is used to delete L3 isolation-domain
 
 ```azurecli
-az nf l3domain delete --resource-group "fab1-nf" --resource-name "example-l3domain"
+ az nf l3domain delete --resource-group "ResourceGroupName" --resource-name "example-l3domain"
 ```
 
 Use the `show` or `list` commands to validate that the isolation-domain has been deleted.
@@ -741,22 +880,20 @@ Figure Network Function networking diagram
 
 ### Create required L3 isolation-domains
 
-**Create an L3 isolation-domain `l3untrust`**
+## Create L3 Isolation Untrust 
 
 ```azurecli
-az nf l3domain create --resource-group "resourcegroupname" --resource-name "l3untrust" --location "eastus" --nf-id "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFresourcegroupname/providers/Microsoft.ManagedNetworkFabric/networkFabrics/NFName"
+az nf l3domain create --resource-group "ResourceGroupName" --resource-name "l3untrust" --location "eastus" --nf-id "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabrics/NFName" 
 ```
-
-**Create an L3 isolation-domain `l3trust`**
+## Create L3 Isolation domain Trust
 
 ```azurecli
-az nf l3domain create --resource-group "resourcegroupname" --resource-name "l3trust" --location "eastus" --nf-id "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFresourcegroupname/providers/Microsoft.ManagedNetworkFabric/networkFabrics/NFName"
+az nf l3domain create --resource-group "ResourceGroupName" --resource-name "l3trust" --location "eastus" --nf-id "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabrics/NFName"
 ```
-
-**Create an L3 isolation-domain `l3mgmt`**
+## Create L3 Isolation domain Mgmt
 
 ```azurecli
-az nf l3domain create --resource-group "resourcegroupname" --resource-name "l3mgmt" --location "eastus" --nf-id "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFresourcegroupname/providers/Microsoft.ManagedNetworkFabric/networkFabrics/NFName"
+az nf l3domain create --resource-group "ResourceGroupName" --resource-name "l3mgmt" --location "eastus" --nf-id "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabrics/NFName"
 ```
 
 ### Create required internal networks
@@ -767,58 +904,46 @@ Now that the required L3 isolation-domains have been created, you can create the
 - Management network: 10.151.2.11/24
 - Untrusted network: 10.151.3.11/24
 
-**Create Internal Network in `l3untrust` L3 isolation-domain**
+## Internal Network Untrust L3 ISD
 
 ```azurecli
-az nf internalnetwork create --resource-group "resourcegroupname" --l3-isolation-domain-name l3untrust --resource-name untrustnetwork --location "eastus" --vlan-id 502 --fabric-asn 65048 --peer-asn 65047--connected-i-pv4-subnets prefix="10.151.3.11/24" --mtu 1500
+az nf internalnetwork create --resource-group "ResourceGroupName" --l3-isolation-domain-name l3untrust --resource-name untrustnetwork --location "eastus" --vlan-id 502 --fabric-asn 65048 --peer-asn 65047--connected-i-pv4-subnets prefix="10.151.3.11/24" --mtu 1500
+```
+## Internal Network Trust ISD 
+
+```azurecli
+az nf internalnetwork create --resource-group "ResourceGroupName" --l3-isolation-domain-name l3trust --resource-name trustnetwork --location "eastus" --vlan-id 503 --fabric-asn 65048 --peer-asn 65047--connected-i-pv4-subnets prefix="10.151.1.11/24" --mtu 1500
+```
+## Internal Network Mgmt ISD
+
+```azurecli
+az nf internalnetwork create --resource-group "ResourceGroupName" --l3-isolation-domain-name l3mgmt --resource-name mgmtnetwork --location "eastus" --vlan-id 504 --fabric-asn 65048 --peer-asn 65047--connected-i-pv4-subnets prefix="10.151.2.11/24" --mtu 1500
+```
+## Enable ISD Untrust
+
+```azurecli
+az nf l3domain update-admin-state --resource-group "ResourceGroupName" --resource-name "l3untrust" --state Enable 
+```
+## Enable ISD Trust
+
+```azurecli
+az nf l3domain update-admin-state --resource-group "ResourceGroupName" --resource-name "l3trust" --state Enable 
+```
+## Enable ISD Mgmt
+
+```azurecli
+az nf l3domain update-admin-state --resource-group "ResourceGroupName" --resource-name "l3mgmt" --state Enable
 ```
 
-**Create Internal Network in `l3trust` L3 isolation-domain**
+#### Below example is used to create any L2 Isolation needed by workload
+
+## L2 Isolation domain
 
 ```azurecli
-az nf internalnetwork create --resource-group "resourcegroupname" --l3-isolation-domain-name l3trust --resource-name trustnetwork --location "eastus" --vlan-id 503 --fabric-asn 65048 --peer-asn 65047--connected-i-pv4-subnets prefix="10.151.1.11/24" --mtu 1500
+az nf l2domain create --resource-group "ResourceGroupName" --resource-name "l2HAnetwork" --location "eastus" --nf-id "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabrics/NFName" --vlan-id 505 --mtu 1500
 ```
-
-**Create Internal Network in `l3mgmt` L3 isolation-domain**
-
-```azurecli
-az nf internalnetwork create --resource-group "resourcegroupname" --l3-isolation-domain-name l3mgmt --resource-name mgmtnetwork --location "eastus" --vlan-id 504 --fabric-asn 65048 --peer-asn 65047--connected-i-pv4-subnets prefix="10.151.2.11/24" --mtu 1500
-```
-
-### Enable the L3 isolation-domains
-
-You've created the required L3 isolation-domains and the associated internal network. You now need to enable these isolation-domains.
-
-**Enable L3 isolation-domain `l3untrust`**
+## Enable L2 Isolation Domain
 
 ```azurecli
-az nf l3domain update-admin-state --resource-group "resourcegroupname" --resource-name "l3untrust" --state Enable
-```
-
-**Enable L3 isolation-domain `l3trust`**
-
-```azurecli
-az nf l3domain update-admin-state --resource-group "resourcegroupname" --resource-name "l3trust" --state Enable
-```
-
-**Enable L3 isolation-domain `l3mgmt`**
-
-```azurecli
-az nf l3domain update-admin-state --resource-group "resourcegroupname" --resource-name "l3mgmt" --state Enable
-```
-
-## Example L2 isolation-domain creation for a workload
-
-First, you need to create the `l2HAnetwork` L2 isolation-domain and then enable it.
-
-**Create `l2HAnetwork` L2 isolation-domain**
-
-```azurecli
-az nf l2domain create --resource-group "resourcegroupname" --resource-name "l2HAnetwork" --location "eastus" --nf-id "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFresourcegroupname/providers/Microsoft.ManagedNetworkFabric/networkFabrics/NFName" --vlan-id 505 --mtu 1500
-```
-
-**Enable `l2HAnetwork` L2 isolation-domain**
-
-```azurecli
-az nf l2domain update-administrative-state --resource-group "resourcegroupname" --resource-name "l2HAnetwork" --state Enable
+az nf l2domain update-administrative-state --resource-group "ResourceGroupName" --resource-name "l2HAnetwork" --state Enable 
 ```

@@ -7,7 +7,7 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.service: cognitive-services
 ms.subservice: openai
-ms.topic: overview
+ms.topic: whats-new
 ms.date: 03/21/2023
 recommendations: false
 keywords:  

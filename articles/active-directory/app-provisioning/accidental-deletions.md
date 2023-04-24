@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 01/23/2023
+ms.date: 04/10/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 zone_pivot_groups: app-provisioning-cross-tenant-synchronization
@@ -86,13 +86,13 @@ You can test the feature by triggering disable / deletion events by setting the 
 
 Let the provisioning job run (20 – 40 mins) and navigate back to the provisioning page. You'll see the provisioning job in quarantine and can choose to allow the deletions or review the provisioning logs to understand why the deletions occurred.
 
-## Common de-provisioning scenarios to test
+## Common deprovisioning scenarios to test
 - Delete a user / put them into the recycle bin.
 - Block sign in for a user.
 - Unassign a user or group from the application (or configuration).
 - Remove a user from a group that's providing them access to the application (or configuration).
 
-To learn more about de-provisioning scenarios, see [How Application Provisioning Works](how-provisioning-works.md#de-provisioning).
+To learn more about deprovisioning scenarios, see [How Application Provisioning Works](how-provisioning-works.md#deprovisioning).
 
 ## Frequently Asked Questions
 
