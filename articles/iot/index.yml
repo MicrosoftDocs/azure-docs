@@ -40,9 +40,9 @@ highlightedContent:
       itemType: architecture
       url: /azure/architecture/reference-architectures/iot/
     # Card
-    - title: Azure IoT well-architected framework
+    - title: Azure IoT architectures
       itemType: architecture
-      url: /azure/architecture/framework/iot/iot-overview
+      url: /azure/architecture/browse/?azure_categories=iot
     # Card
     - title: Digital twin definition language (DTDL) models
       itemType: concept
@@ -65,12 +65,15 @@ conceptualContent:
         - url: ../iot-develop/quickstart-send-telemetry-iot-hub.md
           itemType: quickstart
           text: Send telemetry from a device to an Azure IoT hub
+        - url: ./iot-sdks.md#device-sdks
+          itemType: reference
+          text: Device SDKs reference
     # Card
     - title: Device connectivity
       links:
         - url: ./iot-overview-device-connectivity.md
           itemType: overview
-          text: Device infrastructure and connectivity
+          text: Introduction to device infrastructure and connectivity
         - url: ../iot-hub/iot-hub-mqtt-support.md
           itemType: concept
           text: MQTT support in Azure IoT Hub
@@ -82,7 +85,7 @@ conceptualContent:
       links:
         - url: ./iot-overview-device-management.md
           itemType: overview
-          text: Control and manage your devices
+          text: Introduction to device control and management
         - url: ../iot-dps/about-iot-dps.md
           itemType: overview
           text: Device provisioning at scale
@@ -97,7 +100,7 @@ conceptualContent:
       links:
         - url: ./iot-overview-message-processing.md
           itemType: overview
-          text: Message processing in an IoT solution
+          text: Introduction to message processing in an IoT solution
         - url: ../iot-hub/iot-hub-devguide-messages-d2c.md
           itemType: concept
           text: IoT Hub message routing
@@ -109,7 +112,7 @@ conceptualContent:
       links:
         - url: ./iot-overview-solution-extensibility.md
           itemType: overview
-          text: Extensibility options in Azure IoT
+          text: Introduction to Azure IoT extensibility options
         - url: ../industrial-iot/overview-what-is-industrial-iot.md
           itemType: overview
           text: Industrial IoT
@@ -121,48 +124,10 @@ conceptualContent:
       links:
         - url: ./iot-overview-analyze-visualize.md
           itemType: overview
-          text: Analyze and visualize your IoT data
+          text: Introduction to analyzing and visualizing your IoT data
         - url: ../digital-twins/overview.md
           itemType: overview
           text: Azure Digital Twins
         - url: ../iot-central/core/howto-create-analytics.md
           itemType: how-to-guide
           text: Use IoT Central data explorer to analyze device data
-
-
-tools:
-  title: Azure IoT SDKs and tools
-  summary: Azure IoT SDK code repositories and tools
-  items:
-    # Card
-    - title: Azure IoT SDK for C
-      imageSrc: /media/logos/logo_c.svg
-      url: https://github.com/Azure/azure-iot-sdk-c/
-    # Card
-    - title: Azure IoT SDK for Python
-      imageSrc: /media/logos/logo_python.svg
-      url: https://github.com/Azure/azure-iot-sdk-python
-    # Card
-    - title: Azure IoT SDK for Node.js
-      imageSrc: /media/logos/logo_nodejs.svg
-      url: https://github.com/Azure/azure-iot-sdk-node
-    # Card
-    - title: Azure IoT SDK for Java
-      imageSrc: /media/logos/logo_java.svg
-      url: https://github.com/Azure/azure-iot-sdk-java
-    # Card
-    - title: Azure IoT SDK for .NET
-      imageSrc: /media/logos/logo_NET.svg
-      url: https://github.com/azure/azure-iot-sdk-csharp
-    # Card
-    - title: Azure IoT Central REST API reference
-      imageSrc: /media/logos/logo_REST.svg
-      url: /rest/api/iotcentral
-    # Card
-    - title: VS Code tools for Azure IoT
-      imageSrc: /media/logos/logo_vs-code.svg
-      url: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
-    # Card
-    - title: Start building with Azure CLI for Azure IoT
-      imageSrc: /media/common/cli.svg
-      url: /cli/azure/azure-cli-reference-for-IoT
