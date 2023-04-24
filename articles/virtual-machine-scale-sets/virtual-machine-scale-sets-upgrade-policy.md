@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.date: 03/28/2023
 ms.reviewer: ju-shim
-ms.custom: 
+ms.custom: maxsurge, upgradepolicy
 
 ---
 # Manage Upgrade Policies for Virtual Machine Scale Sets
@@ -15,51 +15,46 @@ ms.custom:
 > [!NOTE]
 > Upgrade Policy currently only applies to Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchestration modes for Virtual Machine Scale Sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
 
-The Upgrade Policy for a Virtual Machine Scale Set determines how VMs are brought up-to-date with the latest Scale Set model. This includes updates such as changes to the OS version, adding or removing data disks, NIC updates, or other updates that apply to the Scale Set instances as a whole. The three modes for the upgrade policy are **Automatic**, **Rolling** and **Manual**. 
+The Upgrade Policy for a Virtual Machine Scale Set determines how VMs are brought up-to-date with the latest scale set model. This includes updates such as changes to the OS version, adding or removing data disks, NIC updates, or other updates that apply to the scale set instances as a whole.  
 
 ## Upgrade Policy options
+There are three different modes an Upgrade Policy can be set to. The modes are **Automatic**, **Rolling** and **Manual**. Each mode is unique in the way upgrades are performed and can impact the overall service uptime of your Virtual Machine Scale Set. Additionally, as your application processes traffic, there can be situations where you might want specific instances to be treated differently from the rest of the scale set instance. For example, certain instances in the scale set could be needed to perform additional or different tasks than the other members of the scale set. You might require these 'special' VMs not to be modified with the other instances in the scale set. In these situations, [Instance Protection](virtual-machine-scale-sets-instance-protection.md) provides the additional controls needed to protect these instances from the various upgrades discussed in this article.
 
 ### Automatic 
-In this mode, the Scale Set makes no guarantees about the order of VMs being brought down. The Scale Set may take down all VMs at the same time when performing upgrades. 
+In this mode, the scale set makes no guarantees about the order of VMs being brought down. The scale set may take down all VMs at the same time when performing upgrades. 
 
 >[!NOTE]
 > Service Fabric clusters can only use *Automatic* mode, but the update is handled differently. For more information, see [Service Fabric application upgrades](../service-fabric/service-fabric-application-upgrade.md).
 
 ### Rolling
 
-When using a Rolling Upgrade Policy, the Scale Set rolls out the update in batches with an optional pause time in between. There are two types of Rolling Upgrade Policies that can be configured:
+When using a Rolling Upgrade Policy, the scale set rolls out the update in batches with an optional pause time in between. There are two types of Rolling Upgrade Policies that can be configured:
 
 1. **Rolling Upgrades with MaxSurge disabled**
     
-    With MaxSurge disabled, the existing instances in a Scale Set are brought down in batches to be upgraded. Once the upgraded batch is complete, the instances will begin taking traffic again and the next batch will begin. This continues until all instances brought up-to-date. 
+    With MaxSurge disabled, the existing instances in a scale set are brought down in batches to be upgraded. Once the upgraded batch is complete, the instances will begin taking traffic again and the next batch will begin. This continues until all instances brought up-to-date. 
 
 1. **Rolling Upgrades with MaxSurge enabled**
     
-    With MaxSurge enabled, new instances are created and brought up-to-date with the latest scale model in batches rather than taking down the old instances for upgrades. Once complete, the new instances are added to the Scale Set and the old instances are removed. This continues until all instances are brought up-to-date. Rolling Upgrades with MaxSurge can help improve service uptime during upgrade events. 
+    With MaxSurge enabled, new instances are created and brought up-to-date with the latest scale model in batches rather than taking down the old instances for upgrades. Once complete, the new instances are added to the scale set and the old instances are removed. This continues until all instances are brought up-to-date. Rolling Upgrades with MaxSurge can help improve service uptime during upgrade events. 
 
 > [!IMPORTANT]
 > Rolling Upgrades with MaxSurge is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
 >
 > To enable this feature for your subscription, run `Register-AzProviderFeature -FeatureName MaxSurgeRollingUpgrade -ProviderNamespace Microsoft.Compute` in [Azure CloudShell](../cloud-shell/overview.md?).
 
-When a Rolling Upgrade Policy, the Scale set must also have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health.
+When a Rolling Upgrade Policy, the scale set must also have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health.
  
 
 ### Manual
-In this mode, you choose when to initiate an update to the Scale Set instances. Nothing happens automatically to the existing VMs when changes occur to the scale model. New instances added to the Scale Set will use the most update-to-date model available. If no upgrade policy is set during VM creation, the default value is manual. 
-
-## Instance Protection
-
-As your application processes traffic, there can be situations where you want specific instances to be treated differently from the rest of the scale set instance. For example, certain instances in the scale set could be performing long-running operations, and you don't want these instances to be scaled-in until the operations complete. You might also have specialized a few instances in the scale set to perform additional or different tasks than the other members of the scale set. You require these 'special' VMs not to be modified with the other instances in the scale set. Instance protection provides the additional controls to enable these and other scenarios for your application.
-
-For more information, see [Instance Protection for Virtual Machine Scale sets](virtual-machine-scale-sets-instance-protection.md)
+In this mode, you choose when to initiate an update to the scale set instances. Nothing happens automatically to the existing VMs when changes occur to the scale model. New instances added to the scale set will use the most update-to-date model available. If no upgrade policy is set during VM creation, the default value is manual. 
 
 ## Setting the Upgrade Policy
 
-The Upgrade Policy can be set during the initial Scale Set deployment or updated post deployment.  
+The Upgrade Policy can be set during the initial scale set deployment or updated post deployment.  
 
 ### CLI
-Create a new Virtual Machine Scale Set using [az vmss create](/cli/azure/vmss#az-vmss-create) and set the Upgrade Policy to `Rolling` and enable `MaxSurge`. When using an Upgrade Policy set to Rolling, the Scale set must also have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health. 
+Create a new Virtual Machine Scale Set using [az vmss create](/cli/azure/vmss#az-vmss-create) and set the Upgrade Policy to `Rolling` and enable `MaxSurge`. When using an Upgrade Policy set to Rolling, the scale set must also have a [health probe](../load-balancer/load-balancer-custom-probe-overview.md) or use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health. 
 
 ```azurecli-interactive
 # Create a Resource Group
@@ -74,7 +69,7 @@ az network lb probe create --resource-group MyResourceGroup --lb-name MyLoadBala
 # Create a load balancing rule and assign the health probe
 az network lb rule create --resource-group MyResourceGroup --lb-name myLoadBalancer --name MyLbRule --protocol Tcp --frontend-ip-name LoadBalancerFrontEnd --frontend-port 80 --backend-pool-name MyLoadBalancerbepool --backend-port 80 --probe myProbe
 
-# Create the Scale Set
+# Create the scale set
 az vmss create \
     --resource-group myResourceGroup \
     --name myScaleSet \
@@ -96,7 +91,7 @@ Create a new Virtual Machine Scale Set using [New-AzVmss](/powershell/module/az.
 #Create a Resource Group
 New-AzResourceGroup -Name myResourceGroup -Location Eastus
 
-#Create the Scale Set
+#Create the scale set
 New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS" `
@@ -140,7 +135,7 @@ az network lb probe create --resource-group MyResourceGroup --lb-name MyLoadBala
 # Update the load balancing rule with the health probe
 az network lb rule update --resource-group MyResourceGroup --lb-name myLoadBalancer --name MyLbRule --protocol Tcp --frontend-ip-name LoadBalancerFrontEnd --frontend-port 80 --backend-pool-name MyLoadBalancerbepool --backend-port 80 --probe myProbe
 
-#Create the Scale Set
+#Create the scale set
 az vmss update \
     --resource-group myResourceGroup \
     --name myScaleSet \
@@ -188,7 +183,7 @@ Add the following to your ARM template:
 
 ## Performing Manual Upgrades
  
-If you have the Upgrade Policy set to manual, you need to trigger manual upgrades of each existing VM to apply changes to the instances based on the updated Scale Set model. 
+If you have the Upgrade Policy set to manual, you need to trigger manual upgrades of each existing VM to apply changes to the instances based on the updated scale set model. 
 
 > [!NOTE]
 > While upgrading, the instances may be restarted.
@@ -215,7 +210,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 ## Exceptions to Upgrade Policy
 
-Changes to the Scale Set OS, Data disk Profile (such as admin username and password) and [Custom Data](../virtual-machines/custom-data.md) only apply to VMs created after the change in the Scale Set model. To bring existing VMs up-to-date, you must do a "reimage" of each existing VM. You can do this reimage using:
+Changes to the scale set OS, data disk Profile (such as admin username and password) and [Custom Data](../virtual-machines/custom-data.md) only apply to VMs created after the change in the scale set model. To bring existing VMs up-to-date, you must do a "reimage" of each existing VM. You can do this reimage using:
 
 > [!NOTE]
 > The Reimage flag will reimage the selected instance, restoring it to the initial state. The instance may be restarted, and any local data will be lost.
@@ -242,4 +237,4 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 ```
 
 ## Next steps
-You can also perform common management tasks on Scale Sets with the [Azure CLI](virtual-machine-scale-sets-manage-cli.md) or [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).
+You can also perform common management tasks on Virtual Machine Scale Sets using the [Azure CLI](virtual-machine-scale-sets-manage-cli.md) or [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).
