@@ -28,28 +28,44 @@ The **Microsoft Sentinel Responder** role is required to create automation rules
 
 ## View incident tasks in the SecurityIncident table
 
+The *SecurityIncident* table is an audit table&mdash;it stores not the incidents themselves, but rather records of the life of an incident: its creation and any changes made to it. Any time an incident is created or a change is made to an incident, a record is generated in this table showing the now-current state of the incident.
+
 1. In the **Logs** page, enter the following query in the query window and run it. This query will return all the incidents that have any tasks assigned.
 
-```kusto
-SecurityIncident
-| where array_length( Tasks) > 0
-```
+    ```kusto
+    SecurityIncident
+    | where array_length( Tasks) > 0
+    ```
 
-You can add any number of statements to the query to filter and narrow down the results. To demonstrate how to view and understand the results, we're going to add statements to filter the results to the tasks for a single incident, and to show the minimum number of necessary fields:
+    You can add any number of statements to the query to filter and narrow down the results. To demonstrate how to view and understand the results, we're going to add statements to filter the results to the tasks for a single incident, and to show the minimum number of necessary fields for our purposes:
 
-```kusto
+    ```kusto
+    SecurityIncident
+    | where array_length( Tasks) > 0
+    | where IncidentNumber == "405211"
+    | sort by LastModifiedTime desc 
+    | project IncidentName, Title, LastModifiedTime, Tasks
+    ```
 
-```
+    :::image type="content" source="media/audit-track-tasks/incident-with-tasks-query-1.png" alt-text="Screenshot of query results showing an incident with its tasks.":::
 
-    :::image type="content" source="media/work-with-tasks/tasks-from-incident-info-panel.png" alt-text="Screenshot of link to enter the tasks panel from the incident info panel on the main incidents screen.":::
+    The *Tasks* field is an array of the current state of all the tasks in this incident. Select the expander to view each item in the array in its own row.
 
-1. If you opted to enter the full details page, select **Tasks (Preview)** from the top banner.
+    :::image type="content" source="media/audit-track-tasks/incident-with-tasks-query-2.png" alt-text="Screenshot of query results showing an incident with its tasks expanded.":::
 
-    :::image type="content" source="media/work-with-tasks/incident-details-screen.png" alt-text="Screenshot shows incident details screen with tasks panel open." lightbox="media/work-with-tasks/incident-details-screen.png":::
+    Now you see that there are two tasks in this incident. Each one is represented in turn by an expandable array. Select a single task's expander to view its information.
 
-1. The **Incident tasks (Preview)** panel will open on the right side of whichever screen you were in (the main incidents page or the incident details page). You'll see the list of tasks defined for this incident, along with how or by whom it was created - whether manually or by an automation rule or a playbook.
+    :::image type="content" source="media/audit-track-tasks/incident-with-tasks-query-3.png" alt-text="Screenshot of query results showing an incident with a single task expanded.":::
 
-    :::image type="content" source="media/work-with-tasks/incident-tasks-panel.png" alt-text="Screenshot shows incident tasks panel as seen from incident details page.":::
+    Here you see the details for the first task in the array ("0" being the index position of the task in the array). The *title* field shows the name of the task as displayed in the incident.
+
+1. Let's add a task to the incident, and then we'll come back here and run the query again and see the changes in the results.
+
+    Select **Incidents** from the navigation menu, and in the **Incidents** page, enter the incident ID number in the Search bar.
+
+    :::image type="content" source="media/audit-track-tasks/incidents-page-find-incident.png" alt-text="Screenshot shows finding the incident in the query results.":::
+
+    
 
 1. The tasks that have descriptions will be marked with an expansion arrow. Expand a task to see its full description.
 
