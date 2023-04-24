@@ -37,7 +37,7 @@ Go to your resource in the Azure portal. The **Endpoint and Keys** can be found 
 
 Create a new Python file called quickstart.py. Then open it up in your preferred editor or IDE.
 
-1. Replace the contents of quickstart.py with the following code. Enter your endpoint URL and key in the appropriate fields.
+1. Replace the contents of quickstart.py with the following code. Enter your endpoint URL and key in the appropriate fields. Replace `YOUR_IMAGE_PROMPT` with your own custom prompt.
 
     ```python
     import requests
