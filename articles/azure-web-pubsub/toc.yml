@@ -49,7 +49,7 @@
           href: howto-websocket-connect.md
         - name: Create reliable Websocket clients
           href: howto-develop-reliable-clients.md
-        - name: Generate Client Access URL
+        - name: Generate client access URL
           href: howto-generate-client-access-url.md
         - name: Configure event handler
           href: howto-develop-eventhandler.md
