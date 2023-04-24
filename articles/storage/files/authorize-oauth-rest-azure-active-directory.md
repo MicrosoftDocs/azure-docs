@@ -4,7 +4,7 @@ description: Authorize access to Azure file shares and directories via the OAuth
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/21/2023
+ms.date: 04/24/2023
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -14,11 +14,13 @@ ms.subservice: files
 Azure Files OAuth over REST Preview enables privileged read and write data access to Azure file shares via the OAuth authentication protocol using Azure Active Directory (Azure AD) for REST API based access. Users, groups, first-party services such as Azure portal, and third-party services and applications using REST interfaces can now use OAuth authentication and authorization with an Azure AD account to access Azure Files. PowerShell cmdlets and Azure CLI commands that call REST APIs can also use OAuth to access Azure file shares.
 
 > [!IMPORTANT]
-> You must call the REST API using an explicit header to indicate your intent to use the additional privilege. This is also true for PowerShell and CLI access. The only supported value for the intent header today is `backup`.
+> You must call the REST API using an explicit header to indicate your intent to use the additional privilege. This is also true for Azure PowerShell and Azure CLI access. The only supported value for the intent header today is **backup**.
 
 ## Limitations
 
 Azure Files OAuth over REST Preview only supports the FileREST Data APIs that support operations on files and directories. OAuth isn't supported on FilesREST data plane APIs that manage FileService and FileShare resources. These management APIs are exposed through the data plane for legacy reasons. We recommend using the control plane APIs (the storage resource provider - Microsoft.Storage) for all management activities related to FileService and FileShare resources.
+
+Authorizing file data operations with Azure AD is supported only for REST API versions 2022-11-02 and later. See [Versioning for Azure Storage](/rest/api/storageservices/versioning-for-the-azure-storage-services).
 
 ## Customer use cases
 
@@ -48,16 +50,16 @@ To use the Azure Files OAuth over REST feature, there are certain additional per
 
 `Microsoft.Storage/storageAccounts/fileServices/writeFileBackupSemantics/action`
 
-Users, groups, or service principals that call the REST API with OAuth need to have either the `readFileBackupSemantics` or `writeFileBackupSemantics` action assigned to the role that allows data access. This is a requirement to use this feature. For details on the permissions required to call specific File service operations, see Permissions for calling data operations.
+Users, groups, or service principals that call the REST API with OAuth need to have either the `readFileBackupSemantics` or `writeFileBackupSemantics` action assigned to the role that allows data access. This is a requirement to use this feature. For details on the permissions required to call specific File service operations, see [Permissions for calling data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
 
-As part of the preview release, there are two new built-in roles that are created that include these new actions.  
+This preview provides two new built-in roles that include these new actions.  
 
 | **Role** | **Data actions** |
 |----------|------------------|
 | Storage File Data Privileged Reader | `Microsoft.Storage/storageAccounts/fileServices/fileShares/files/read`<br>`Microsoft.Storage/storageAccounts/fileServices/readFileBackupSemantics/action` |
 | Storage File Data Privileged Contributor | `Microsoft.Storage/storageAccounts/fileServices/fileShares/files/read`<br>`Microsoft.Storage/storageAccounts/fileServices/fileShares/files/write`<br>`Microsoft.Storage/storageAccounts/fileServices/fileShares/files/delete`<br>`Microsoft.Storage/storageAccounts/fileServices/writeFileBackupSemantics/action`<br>`Microsoft.Storage/storageAccounts/fileServices/fileshares/files/modifypermissions/action` |
 
-These new roles are similar to the existing **Storage File Data SMB Share Reader** and **Storage File Data SMB Share Elevated Contributor** built-in roles, but there are some differences:
+These new roles are similar to the existing [Storage File Data SMB Share Reader](../../role-based-access-control/built-in-roles.md#storage-file-data-smb-share-reader) and [Storage File Data SMB Share Elevated Contributor](../../role-based-access-control/built-in-roles.md#storage-file-data-smb-share-elevated-contributor) built-in roles, but there are some differences:
 
 - The new roles contain the additional data actions that are required for OAuth access.
 
@@ -80,11 +82,11 @@ There are many [built-in roles](../../role-based-access-control/built-in-roles.m
 
 ## Authorize access to file data in application code
 
-The Azure Identity client library simplifies the process of getting an OAuth 2.0 access token for authorization with Azure AD via the Azure SDK. The latest versions of the Azure Storage client libraries for .NET, Java, Python, JavaScript, and Go integrate with the Azure Identity libraries for each of those languages to provide a simple and secure means to acquire an access token for authorization of requests from the Azure file service. During public preview, .NET is the only supported Azure SDK language.
+The Azure Identity client library simplifies the process of getting an OAuth 2.0 access token for authorization with Azure AD via the [Azure SDK](https://github.com/Azure/azure-sdk). The latest versions of the Azure Storage client libraries for .NET, Java, Python, JavaScript, and Go integrate with the Azure Identity libraries for each of those languages to provide a simple and secure means to acquire an access token for authorization of requests from the Azure file service. During public preview, .NET is the only supported Azure SDK language.
 
 An advantage of the Azure Identity client library is that it enables you to use the same code to acquire the access token whether your application is running in the development environment or in Azure. The Azure Identity client library returns an access token for a security principal. When your code is running in Azure, the security principal may be a managed identity for Azure resources, a service principal, or a user or group. In the development environment, the client library provides an access token for either a user or a service principal for testing purposes.
 
-The access token returned by the Azure Identity client library is encapsulated in a token credential. You can then use the token credential to get a service client object to use in performing authorized operations against Azure Storage.  
+The access token returned by the Azure Identity client library is encapsulated in a token credential. You can then use the token credential to get a service client object to use in performing authorized operations against the Azure Files service.  
 
 Here's some sample code:
 
@@ -149,6 +151,89 @@ namespace FilesOAuthSample
     }
 }
 ```
+
+## Authorize access using FileREST data plane API
+
+You can also authorize access to file data using the Azure portal or Azure PowerShell.
+
+# [Azure portal](#tab/portal)
+
+The Azure portal can use either your Azure AD account or the storage account access key to access file data in an Azure storage account. Which authorization scheme the Azure portal uses depends on the Azure roles that are assigned to you.
+
+When you attempt to access file data, the Azure portal first checks whether you've been assigned an Azure role with `Microsoft.Storage/storageAccounts/listkeys/action`. If you've been assigned a role with this action, then the Azure portal uses the account key for accessing file data via Shared Key authorization. If you haven't been assigned a role with this action, then the Azure portal attempts to access data using your Azure AD account.
+
+To access file data from the Azure portal using your Azure AD account, you need permissions to access file data, and you also need permissions to navigate through the storage account resources in the Azure portal. The built-in roles provided by Azure grant access to file resources, but they don't grant permissions to storage account resources. For this reason, access to the portal also requires the assignment of an Azure Resource Manager (ARM) role such as the **Reader** role, scoped to the level of the storage account or higher. The **Reader** role grants the most restrictive permissions, but another ARM role that grants access to storage account management resources is also acceptable.
+
+The Azure portal indicates which authorization scheme is in use when you navigate to a container. For more information about data access in the portal, see [Choose how to authorize access to file data in the Azure portal](authorize-data-operations-portal.md).
+
+# [Azure PowerShell](#tab/powershell)
+
+Azure provides extensions for PowerShell that enable you to sign in and call PowerShell cmdlets using Azure AD credentials. When you sign into PowerShell with Azure AD credentials, an OAuth 2.0 access token is returned. PowerShell automatically uses that token to authorize subsequent data operations against file storage. For supported operations, you no longer need to pass an account key or SAS token with the command.
+
+You can assign permissions to file data to an Azure AD security principal via Azure RBAC.
+
+## Supported operations
+
+The extensions only support operations on file data. Which operations you may call depends on the permissions granted to the Azure AD security principal with which you signed into PowerShell.
+
+The storage context with OAuth will only work if it is called with `-ShareFileRequestIntent` option with a value of `Backup.` This is to specify the explicit intent to use the additional permissions that this feature provides.
+
+The storage context with OAuth will only work for operations on files and directories, and Get/Set permissions on Azure file shares. For all other operations on storage account and file shares, you must use the storage account key or SAS token.
+
+## Prerequisites
+
+You'll need an Azure resource group and a storage account within that resource group. The storage account must be assigned an appropriate role that grants explicit permissions to perform data operations against file shares. Make sure that you have the required roles and permissions to access both the management services and data services. For details on the permissions required to call specific File service operations, see [Permissions for calling data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
+
+## Install Az.Storage preview module
+
+This feature is available currently available in the Az.Storage preview module. You can install the preview module using the following steps.
+
+1. Install the latest PowerShellGet module (You can skip this step if PowerShellGet is already updated):
+   
+   `Install-Module PowerShellGet –Repository PSGallery –Force`
+   
+   Close and re-open the PowerShell console after you update the module.
+
+2. Install the latest Az.Storage preview module:
+   
+   `Install-Module Az.Storage -Repository PsGallery -RequiredVersion 5.4.2-preview -AllowClobber -AllowPrerelease -Force`  
+
+## Authorize access to file data
+
+To authorize access to file data, follow these steps.
+
+1. Sign in to your Azure account using the `Connect-AzAccount` cmdlet.
+
+2. Get the storage account context using the storage account key by calling the `Get-AzStorageAccount` cmdlet (management service). Replace `<ResourceGroupName>` and `<StorageAccountName>` with your values.
+   
+   ```azurepowershell-interactive
+   $ctxkey = (Get-AzStorageAccount -ResourceGroupName <ResourceGroupName> -Name <StorageAccountName>).Context
+   ```
+   
+3. Create a file share by calling `New-AzStorageShare`. Because you're using the storage account context from step 2, the file share is created using your storage account key.
+   
+   ```azurepowershell-interactive
+   $fileshareName = "sample-share"
+   New-AzStorageShare -Name $fileshareName -Context $ctxkey
+   ```
+   
+4. Get the storage account context using OAuth for performing data operations on the file share (data service). Replace `<StorageAccountName>` with your storage account name.
+   
+   ```azurepowershell-interactive
+   $ctx = New-AzStorageContext -StorageAccountName <StorageAccountName> -ShareFileRequestIntent Backup 
+   ```
+   
+   To get the storage account context with OAuth, you need to explicitly pass the `-ShareFileRequestIntent` parameter **Backup** to the `New-AzStorageContext` cmdlet. If you don't pass the intent parameter, subsequent file share data operation requests using the context will fail.
+   
+5. Create a test directory and file in the file share using `New-AzStorageDirectory` and `Set-AzStorageFileContent` cmdlets. Remember to specify a local source file path.
+   
+   ```azurepowershell-interactive
+   $dir = New-AzStorageDirectory -ShareName $fileshareName -Path "dir1" -Context $ctx
+   $file = Set-AzStorageFileContent -ShareName $fileshareName -Path "test2" -Source "<local source file path>" -Context $ctx  
+   ```
+   
+   Because this is called using the context from step 4, the file and directory will be created using Azure AD credentials. 
+---
 
 ## Next steps
 
