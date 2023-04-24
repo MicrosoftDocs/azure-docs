@@ -43,19 +43,17 @@ This tutorial shows you how to use the Azure Communication Services End of Call 
 
 ## Sample of API usage
 
+Call Survey feature should be used after the call ends. Users can rate any kind of call, 1:1, group, meeting, outgoing and incoming. Once the call ends the application can present a UI to a user, where they can choose a rating score and if needed, pick issues they’ve encountered during the call from pre-defined list.
+
+The code snip below shows an example of one-to-one call. After the end of the call, application can show a survey UI and once user choose rating, application should call feature API to submit survey with the input based on the user choices. Show the survey option.
+We encourage you to use the default rating scale. However, you have the option to submit a survey with custom rating scale. You can check out the sample application for the sample API usage.  
+
+
+
 We encourage you to use the default rating scale. However, you have the option to submit a survey with custom rating scale. You can check out the [sample application](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/blob/main/Project/src/MakeCall/CallSurvey.js) for the complete API usage.  You will need the call object to submit the call survey. You will have the call object when you start or receive a call. The code snip below shows an example of one-to-one call. After the end of the call, show the survey option.
 
 
-```typescript
-    const call: Call = callAgent.startCall(['{target participant / callee MRI / number}']);
-    call.on('stateChanged', callStateChangedHandler);
-    const callStateChangedHandler = () => {
-        if (call.state === 'Disconnected') {
-            console.log('call end reason', call.callEndReason);
-            // TODO: Show the UI to collect the survey data
-        }
-    };
-```
+
 
 When the participant submits the survey, then call the submit survey API with survey data.
 
@@ -64,12 +62,10 @@ When the participant submits the survey, then call the submit survey API with su
 ```javascript
 call.feature(Features.CallSurvey).submitSurvey({
     overallRating: { score: 5 }, // issues are optional
-    videoRating: { score: 4, issues: ['LowQuality'] },
-    screenshareRating: { score: 4, issues: ['LargeDelay'] }
 }).then(() => console.log('survey submitted successfully'));
 ```
 
-At least one of the four categories (overallRating, audioRating, videoRating or screenshareRating) is required.
+OverallRating is a required category for all surveys.
 
 
 ### Rate call only - with custom scale and issues
@@ -88,7 +84,8 @@ call.feature(Features.CallSurvey).submitSurvey({
 }).then(() => console.log('survey submitted successfully'));
 ```
 
-### Rate audio / video call with sample issue
+### Rate overall, audio / video call with sample issue
+
 ``` javascript
 call.feature(Features.CallSurvey).submitSurvey({
     overallRating: { score: 3 },
@@ -106,7 +103,7 @@ call.feature(Features.CallSurvey).submitSurvey({
 
 
 
-## Find different types of errors
+<!-- ## Find different types of errors
 
 ### Failures while submitting survey:
 
@@ -120,7 +117,7 @@ API will return the error messages when data validation failed or unable to subm
 -	${propertyName}: ${rating.score} should be between ${rating.scale?.lowerBound} and ${rating.scale?.upperBound}. ;
 -	${propertyName}: ${rating.scale?.lowScoreThreshold} should be between ${rating.scale?.lowerBound} and ${rating.scale?.upperBound}. ;
 -	${propertyName} lowerBound: ${rating.scale?.lowerBound} and upperBound: ${rating.scale?.upperBound} should be between 0 and 100. ;
--	event discarded [ACS failed to submit survey, due to network or other error]
+-	event discarded [ACS failed to submit survey, due to network or other error] -->
 
 ## All possible values
 
