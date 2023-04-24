@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 06/22/2022
+ms.date: 04/20/2023
 ---
 # Fuzzy search to correct misspellings and typos
 
@@ -26,7 +26,7 @@ A match succeeds if the discrepancies are limited to two or fewer edits, where a
 
 In Azure Cognitive Search:
 
-+ Fuzzy query applies to whole terms, but you can support phrases through AND constructions. For example, "Unviersty~ of~ "Wshington~" would match on "University of Washington".
++ Fuzzy query applies to whole terms. Phrases aren't supported directly but you can specify a fuzzy match on each term of a multi-part phrase through AND constructions. For example, `search=dr~ AND cleanin~`.  This query expression finds matches on "dry cleaning".
 
 + The default distance of an edit is 2. A value of `~0` signifies no expansion (only the exact term is considered a match), but you could specify `~1` for one degree of difference, or one edit. 
 

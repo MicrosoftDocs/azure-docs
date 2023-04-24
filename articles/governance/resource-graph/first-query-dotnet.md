@@ -4,7 +4,7 @@ description: In this quickstart, you follow the steps to enable the Resource Gra
 ms.date: 01/20/2023
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.author: timwarner
+ms.author: davidsmatlak
 ---
 # Quickstart: Run your first Resource Graph query using .NET
 

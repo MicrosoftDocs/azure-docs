@@ -15,6 +15,8 @@ ms.custom: cogserv-non-critical-speech
 
 # Test your Custom Commands Application
 
+[!INCLUDE [deprecation notice](./includes/custom-commands-retire.md)]
+
 In this article, you learn different approaches to testing a custom commands application.
 
 ## Test in the portal

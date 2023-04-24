@@ -1,16 +1,14 @@
 ---
-title: Modernize your Azure Kubernetes Service (AKS) application to use workload identity (preview)
+title: Migrate your Azure Kubernetes Service (AKS) pod to use workload identity (preview)
 description: In this Azure Kubernetes Service (AKS) article, you learn how to configure your Azure Kubernetes Service pod to authenticate with workload identity.
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 02/08/2023
+ms.date: 03/14/2023
 ---
 
-# Modernize application authentication with workload identity (preview)
+# Migrate from pod managed-identity to workload identity
 
-This article focuses on pod-managed identity migration to Azure Active Directory (Azure AD) workload identity (preview) for your Azure Kubernetes Service (AKS) cluster. It also provides guidance depending on the version of the [Azure Identity][azure-identity-supported-versions] client library used by your container-based application.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+This article focuses on migrating from a pod-managed identity to Azure Active Directory (Azure AD) workload identity (preview) for your Azure Kubernetes Service (AKS) cluster. It also provides guidance depending on the version of the [Azure Identity][azure-identity-supported-versions] client library used by your container-based application.
 
 ## Before you begin
 
@@ -30,10 +28,10 @@ For either scenario, you need to have the federated trust set up before you upda
 
 If your cluster is already using the latest version of the Azure Identity SDK, perform the following steps to complete the authentication configuration:
 
-- Deploy workload identity in parallel to where the trust is setup. You can restart your application deployment to begin using the workload identity, where it injects the OIDC annotations into the application automatically.
+- Deploy workload identity in parallel with pod-managed identity. You can restart your application deployment to begin using the workload identity, where it injects the OIDC annotations into the application automatically.
 - After verifying the application is able to authenticate successfully, you can [remove the pod-managed identity](#remove-pod-managed-identity) annotations from your application and then remove the pod-managed identity add-on.
 
-## Migrate from older version
+### Migrate from older version
 
 If your cluster isn't using the latest version of the Azure Identity SDK, you have two options:
 
@@ -65,7 +63,7 @@ If you don't have a managed identity created and assigned to your pod, perform t
     export USER_ASSIGNED_CLIENT_ID="$(az identity show --resource-group "resourceGroupName" --name "userAssignedIdentityName" --query 'clientId' -otsv)"
     ```
 
-2. Grant the managed identity the permissions required to access the resources in Azure it requires.
+2. Grant the managed identity the permissions required to access the resources in Azure it requires. For information on how to do this, see [Assign a managed identity access to a resource][assign-rbac-managed-identity].
 
 3. To get the OIDC Issuer URL and save it to an environmental variable, run the following command. Replace the default values for the cluster name and the resource group name.
 
@@ -115,6 +113,9 @@ az identity federated-credential create --name federatedIdentityName --identity-
 > It takes a few seconds for the federated identity credential to be propagated after being initially added. If a token request is made immediately after adding the federated identity credential, it might lead to failure for a couple of minutes as the cache is populated in the directory with old data. To avoid this issue, you can add a slight delay after adding the federated identity credential.
 
 ## Deploy the workload with migration sidecar
+
+> [!NOTE]
+> The migration sidecar is **not supported for production usage**.  This feature was designed to give customers time to migrate there application SDK's to a supported version and not be a long running process.
 
 If your application is using managed identity and still relies on IMDS to get an access token, you can use the workload identity migration sidecar to start migrating to workload identity. This sidecar is a migration solution and in the long-term applications, you should modify their code to use the latest Azure Identity SDKs that support client assertion.
 
@@ -208,6 +209,7 @@ This article showed you how to set up your pod to authenticate using a workload 
 [azure-identity-libraries]: ../active-directory/develop/reference-v2-libraries.md
 [openid-connect-overview]: ../active-directory/develop/v2-protocols-oidc.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[assign-rbac-managed-identity]: ../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md
 
 <!-- EXTERNAL LINKS -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe

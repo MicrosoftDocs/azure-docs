@@ -8,7 +8,7 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: openai
   ms.topic: faq
-  ms.date: 03/21/2023
+  ms.date: 04/04/2023
   ms.author: mbullwin
   author: mrbullwinkle
 title: Azure OpenAI Service frequently asked questions
@@ -45,8 +45,10 @@ sections:
           How do I apply for new use cases?
         answer: |
           Previously, the process for adding new use cases required customers to reapply to the service. Now, we're releasing a new process that allows you to quickly add new use cases to your use of the service. This process follows the established Limited Access process within Azure Cognitive Services. [Existing customers can attest to any and all new use cases here](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUM003VEJPRjRSOTZBRVZBV1E5N1lWMk1XUyQlQCN0PWcu). Please note that this is required anytime you would like to use the service for a new use case you did not originally apply for.
-
-
+      - question: |
+          I am trying to use embeddings and received the error "InvalidRequestError: Too many inputs. The max number of inputs is 1." How do I fix this?
+        answer: | 
+          This error typically occurs when you try to send a batch of text to embed in a single API request as an array. Currently Azure OpenAI does not support batching with embedding requests. Embeddings API calls should consist of a single string input per request. The string can be up to 8191 tokens in length when using the text-embedding-ada-002 (Version 2) model.
   - name: Getting access to Azure OpenAI Service
     questions:
       - question: |
@@ -98,7 +100,10 @@ sections:
           What are the SLAs for API responses in Azure OpenAI?
         answer:
           We don't have a defined API response time Service Level Agreement (SLA) at this time. The overall SLA for Azure OpenAI Service is the same as for other Azure Cognitive Services. For more information, see the Cognitive Services section of the [Service Level Agreements (SLA) for Online Services page](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/).  
-  
+      - question: |
+          Why was my fine-tuned model deployment deleted? 
+        answer:
+          If a customized (fine-tuned) model is deployed for more than fifteen (15) days during which no completions or chat completions calls are made to it, the deployment will automatically be deleted (and no further hosting charges will be incurred for that deployment). The underlying customized model will remain available and can be redeployed at any time. To learn more check out the [how-to-article](/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-studio#deploy-a-customized-model).  
 additionalContent: |
 
   ## Next steps

@@ -52,10 +52,10 @@ The policy validates the following content in the request or response against th
 
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-| unspecified-content-type-action | [Action](#actions) to perform for requests or responses with a content type that isn’t specified in the API schema. |  Yes     | N/A   |
-| max-size | Maximum length of the body of the request or response in bytes, checked against the `Content-Length` header. If the request body or response body is compressed, this value is the decompressed length. Maximum allowed value: 102,400 bytes (100 KB). (Contact [support](https://azure.microsoft.com/support/options/) if you need to increase this limit.) | Yes       | N/A   |
-| size-exceeded-action | [Action](#actions) to perform for requests or responses whose body exceeds the size specified in `max-size`. |  Yes     | N/A   |
-| errors-variable-name | Name of the variable in `context.Variables` to log validation errors to.  |   No    | N/A   |
+| unspecified-content-type-action | [Action](#actions) to perform for requests or responses with a content type that isn’t specified in the API schema. Policy expressions are allowed. |  Yes     | N/A   |
+| max-size | Maximum length of the body of the request or response in bytes, checked against the `Content-Length` header. If the request body or response body is compressed, this value is the decompressed length. Maximum allowed value: 102,400 bytes (100 KB). (Contact [support](https://azure.microsoft.com/support/options/) if you need to increase this limit.) Policy expressions are allowed. | Yes       | N/A   |
+| size-exceeded-action | [Action](#actions) to perform for requests or responses whose body exceeds the size specified in `max-size`. Policy expressions are allowed.|  Yes     | N/A   |
+| errors-variable-name | Name of the variable in `context.Variables` to log validation errors to. Policy expressions aren't allowed. |   No    | N/A   |
 
 ## Elements
 
@@ -68,8 +68,8 @@ The policy validates the following content in the request or response against th
 
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-| any-content-type-value | Content type used for validation of the body of a request or response, regardless of the incoming content type.  |   No    | N/A   |
-| missing-content-type-value | Content type used for validation of the body of a request or response, when the incoming content type is missing or empty.  |   No    | N/A   |
+| any-content-type-value | Content type used for validation of the body of a request or response, regardless of the incoming content type. Policy expressions aren't allowed. |   No    | N/A   |
+| missing-content-type-value | Content type used for validation of the body of a request or response, when the incoming content type is missing or empty. Policy expressions aren't allowed. |   No    | N/A   |
 
 ### content-type-map-elements
 

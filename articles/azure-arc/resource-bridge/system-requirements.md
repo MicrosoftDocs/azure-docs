@@ -2,7 +2,7 @@
 title: Azure Arc resource bridge (preview) system requirements
 description: Learn about system requirements for Azure Arc resource bridge (preview).
 ms.topic: conceptual
-ms.date: 02/15/2023
+ms.date: 03/23/2023
 ---
 
 # Azure Arc resource bridge (preview) system requirements
@@ -123,6 +123,6 @@ When deploying Arc resource bridge with AKS on Azure Stack HCI (AKS Hybrid), the
 
 ## Next steps
 
-- Review the [Azure Arc resource bridge (preview) overview](overview.md) to understand more about requirements and technical details.
+- Understand [network requirements for Azure Arc resource bridge (preview)](network-requirements.md).
+- Review the [Azure Arc resource bridge (preview) overview](overview.md) to understand more about features and benefits.
 - Learn about [security configuration and considerations for Azure Arc resource bridge (preview)](security-overview.md).
-

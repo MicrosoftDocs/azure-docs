@@ -102,22 +102,61 @@ To delete an enterprise application, you need:
 Delete an enterprise application using [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 1. To get the list of service principals in your tenant, run the following query.
 
-   
+   # [HTTP](#tab/http)
    ```http
    GET https://graph.microsoft.com/v1.0/servicePrincipals
    ```
 
+   # [C#](#tab/csharp)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/csharp/list-serviceprincipal-csharp-snippets.md)]
+
+   # [JavaScript](#tab/javascript)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/javascript/list-serviceprincipal-javascript-snippets.md)]
+
+   # [Java](#tab/java)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/java/list-serviceprincipal-java-snippets.md)]
+
+   # [Go](#tab/go)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/go/list-serviceprincipal-go-snippets.md)]
+
+   # [PowerShell](#tab/powershell)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/powershell/list-serviceprincipal-powershell-snippets.md)]
+
+   # [PHP](#tab/php)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/php/list-serviceprincipal-php-snippets.md)]
+
+   ---
+
 1. Record the ID of the enterprise app you want to delete.
 1. Delete the enterprise application.
-
+   
+   # [HTTP](#tab/http)
    ```http
    DELETE https://graph.microsoft.com/v1.0/servicePrincipals/{servicePrincipal-id}
    ```
 
+   # [C#](#tab/csharp)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/csharp/delete-serviceprincipal-csharp-snippets.md)]
+
+   # [JavaScript](#tab/javascript)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/javascript/delete-serviceprincipal-javascript-snippets.md)]
+
+   # [Java](#tab/java)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/java/delete-serviceprincipal-java-snippets.md)]
+
+   # [Go](#tab/go)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/go/delete-serviceprincipal-go-snippets.md)]
+
+   # [PowerShell](#tab/powershell)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/powershell/delete-serviceprincipal-powershell-snippets.md)]
+
+   # [PHP](#tab/php)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/php/delete-serviceprincipal-php-snippets.md)]
+
+   ---
 
 :::zone-end
 
 ## Next steps
 
 - [Restore a deleted enterprise application](restore-application.md)
-

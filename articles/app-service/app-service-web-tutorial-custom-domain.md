@@ -74,7 +74,7 @@ The DNS record type you need to add with your domain provider depends on the dom
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
 
-Select the type of record to create and follow the instructions. You can use either a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record) or an [A record](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A) to map a custom DNS name to App Service.
+Select the type of record to create and follow the instructions. You can use either a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record) or an [A record](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A) to map a custom DNS name to App Service. When your function app is hosted in a [Consumption plan](../azure-functions/consumption-plan.md), only the CNAME option is supported.
 
 ### [Root domain (e.g. contoso.com)](#tab/root)
 

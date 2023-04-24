@@ -19,7 +19,7 @@ ms.date: 06/20/2022
 
 In this quickstart, you connect to an Azure Database for MySQL by using Node.js. You then use SQL statements to query, insert, update, and delete data in the database from Mac, Ubuntu Linux, and Windows platforms. 
 
-This topic assumes that you're familiar with developing using Node.js, but you're new to working with Azure Database for MySQL.
+This article assumes that you're familiar with developing using Node.js, but you're new to working with Azure Database for MySQL.
 
 ## Prerequisites
 
@@ -109,7 +109,7 @@ Get the connection information needed to connect to the Azure Database for MySQL
 1. In the `ssl` config option, replace the `ca-cert` filename with the path to this local file.
 1. Open the command prompt or bash shell, and then change directory into your project folder `cd nodejsmysql`.
 1. To run the application, enter the node command followed by the file name, such as `node createtable.js`.
-1. On Windows, if the node application is not in your environment variable path, you may need to use the full path to launch the node application, such as `"C:\Program Files\nodejs\node.exe" createtable.js`
+1. On Windows, if the node application isn't in your environment variable path, you may need to use the full path to launch the node application, such as `"C:\Program Files\nodejs\node.exe" createtable.js`
 
 ## Connect, create table, and insert data
 

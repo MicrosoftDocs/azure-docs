@@ -97,7 +97,7 @@ Once you've subscribed to a workspace, its content will update automatically reg
 
 ## Connect to your desktops and applications
 
-1. Open the **Remote Desktop** app on your device.
+1. Open the **Remote Desktop** client on your device.
 
 1. Double-click one of the icons to launch a session to Azure Virtual Desktop. You may be prompted to enter the password for your user account again, depending on how your admin has configured Azure Virtual Desktop.
 

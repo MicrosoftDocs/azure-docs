@@ -1,12 +1,12 @@
 ---
-title: What's new in Azure Communication Services #Required; page title is displayed in search results. Include the brand.
-description: All of the latest additions to Azure Communication Services #Required; article description that is displayed in search results. 
-author: sroons #Required; your GitHub user alias, with correct capitalization.
-ms.author: serooney #Required; microsoft alias of author; optional team alias.
-ms.service: azure-communication-services #Required; service per approved list. slug assigned by ACOM.
-ms.topic: conceptual #Required; leave this attribute/value as-is.
-ms.date: 03/12/2023 #Required; mm/dd/yyyy format.
-ms.custom: template-concept, references_regions #Required; leave this attribute/value as-is.
+title: What's new in Azure Communication Services
+description: All of the latest additions to Azure Communication Services
+author: sroons
+ms.author: serooney
+ms.service: azure-communication-services
+ms.topic: conceptual
+ms.date: 03/12/2023
+ms.custom: template-concept, references_regions
 ---
 
 

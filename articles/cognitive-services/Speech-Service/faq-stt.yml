@@ -194,5 +194,5 @@ additionalContent: |
 
   ## Next steps
   
-  - [Troubleshoot the Speech SDK](troubleshooting.md)
-  - [Speech service release notes](releasenotes.md)
+  - [Speech to text quickstart](get-started-speech-to-text.md)
+  - [What's new](releasenotes.md)

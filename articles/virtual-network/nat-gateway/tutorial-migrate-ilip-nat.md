@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Migrate a virtual machine public IP address to NAT gateway'
-titleSuffix: Azure Virtual Network NAT
-description: Learn how to migrate your virtual machine public IP to a Virtual Network NAT gateway.
+titleSuffix: Azure NAT Gateway
+description: Learn how to migrate your virtual machine public IP to a NAT gateway.
 author: asudbring
 ms.author: allensu
 ms.service: virtual-network
@@ -11,13 +11,13 @@ ms.date: 5/25/2022
 ms.custom: template-tutorial 
 ---
 
-# Tutorial: Migrate a virtual machine public IP address to Azure Virtual Network NAT
+# Tutorial: Migrate a virtual machine public IP address to Azure NAT Gateway
 
 In this article, you'll learn how to migrate your virtual machine's public IP address to a NAT gateway. You'll learn how to remove the IP address from the virtual machine. You'll reuse the IP address from the virtual machine for the NAT gateway.
 
-Azure Virtual Network NAT is the recommended method for outbound connectivity. A NAT gateway is a fully managed and highly resilient Network Address Translation (NAT) service. A NAT gateway doesn't have the same limitations of SNAT port exhaustion as default outbound access. A NAT gateway replaces the need for a virtual machine to have a public IP address to have outbound connectivity.
+Azure NAT Gateway is the recommended method for outbound connectivity. Azure NAT Gateway is a fully managed and highly resilient Network Address Translation (NAT) service. A NAT gateway doesn't have the same limitations of SNAT port exhaustion as default outbound access. A NAT gateway replaces the need for a virtual machine to have a public IP address to have outbound connectivity.
 
-For more information about Azure Virtual Network NAT, see [What is Azure Virtual Network NAT](nat-overview.md)
+For more information about Azure NAT Gateway, see [What is Azure NAT Gateway](nat-overview.md)
 
 In this tutorial, you learn how to:
 
@@ -60,7 +60,7 @@ In this section, you'll learn how to remove the public IP address from the virtu
 
 ### (Optional) Upgrade IP address
 
-The NAT gateway resource in Azure Virtual Network NAT requires a standard SKU public IP address. In this section, you'll upgrade the IP you removed from the virtual machine in the previous section. If the IP address you removed is already a standard SKU public IP, you can proceed to the next section.
+The NAT gateway resource requires a standard SKU public IP address. In this section, you'll upgrade the IP you removed from the virtual machine in the previous section. If the IP address you removed is already a standard SKU public IP, you can proceed to the next section.
 
 1. In the search box at the top of the portal, enter **Public IP**. Select **Public IP addresses**.
 
@@ -132,6 +132,6 @@ In this article, you learned how to:
 
 Any virtual machine created within this subnet won't require a public IP address and will automatically have outbound connectivity. For more information about NAT gateway and the connectivity benefits it provides, see [Design virtual networks with NAT gateway](nat-gateway-resource.md). 
 
-Advance to the next article to learn how to migrate default outbound access to Azure Virtual Network NAT:
+Advance to the next article to learn how to migrate default outbound access to Azure NAT Gateway:
 > [!div class="nextstepaction"]
 > [Migrate outbound access to NAT gateway](tutorial-migrate-outbound-nat.md)

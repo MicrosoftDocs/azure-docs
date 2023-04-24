@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 09/13/2022
+ms.date: 03/23/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -23,7 +23,7 @@ Microsoft is making security defaults available to everyone, because managing se
 
 Security defaults make it easier to help protect your organization from these identity-related attacks with preconfigured security settings:
 
-- [Requiring all users to register for Azure AD Multi-Factor Authentication](#require-all-users-to-register-for-azure-ad-multi-factor-authentication).
+- [Requiring all users to register for Azure AD Multifactor Authentication](#require-all-users-to-register-for-azure-ad-multifactor-authentication).
 - [Requiring administrators to do multifactor authentication](#require-administrators-to-do-multifactor-authentication).
 - [Requiring users to do multifactor authentication when necessary](#require-users-to-do-multifactor-authentication-when-necessary).
 - [Blocking legacy authentication protocols](#block-legacy-authentication-protocols).
@@ -49,16 +49,16 @@ To enable security defaults in your directory:
 1. Sign in to the [Azure portal](https://portal.azure.com) as a security administrator, Conditional Access administrator, or global administrator.
 1. Browse to **Azure Active Directory** > **Properties**.
 1. Select **Manage security defaults**.
-1. Set the **Enable security defaults** toggle to **Yes**.
+1. Set **Security defaults** to **Enabled **.
 1. Select **Save**.
 
 ![Screenshot of the Azure portal with the toggle to enable security defaults](./media/concept-fundamentals-security-defaults/security-defaults-azure-ad-portal.png)
 
 ## Enforced security policies
 
-### Require all users to register for Azure AD Multi-Factor Authentication
+### Require all users to register for Azure AD Multifactor Authentication
 
-All users in your tenant must register for multifactor authentication (MFA) in the form of the Azure AD Multi-Factor Authentication. Users have 14 days to register for Azure AD Multi-Factor Authentication by using the [Microsoft Authenticator app](../authentication/concept-authentication-authenticator-app.md) or any app supporting [OATH TOTP](../authentication/concept-authentication-oath-tokens.md). After the 14 days have passed, the user can't sign in until registration is completed. A user's 14-day period begins after their first successful interactive sign-in after enabling security defaults.
+All users in your tenant must register for multifactor authentication (MFA) in the form of the Azure AD Multifactor Authentication. Users have 14 days to register for Azure AD Multifactor Authentication by using the [Microsoft Authenticator app](../authentication/concept-authentication-authenticator-app.md) or any app supporting [OATH TOTP](../authentication/concept-authentication-oath-tokens.md). After the 14 days have passed, the user can't sign in until registration is completed. A user's 14-day period begins after their first successful interactive sign-in after enabling security defaults.
 
 ### Require administrators to do multifactor authentication
 
@@ -67,7 +67,7 @@ Administrators have increased access to your environment. Because of the power t
 > [!TIP]
 > We recommend having separate accounts for administration and standard productivity tasks to significantly reduce the number of times your admins are prompted for MFA.
 
-After registration with Azure AD Multi-Factor Authentication is finished, the following Azure AD administrator roles will be required to do extra authentication every time they sign in:
+After registration with Azure AD Multifactor Authentication is finished, the following Azure AD administrator roles will be required to do extra authentication every time they sign in:
 
 - Global administrator
 - Application administrator
@@ -140,7 +140,7 @@ This policy applies to all users who are accessing Azure Resource Manager servic
 
 ### Authentication methods
 
-Security defaults users are required to register for and use Azure AD Multi-Factor Authentication using the [Microsoft Authenticator app using notifications](../authentication/concept-authentication-authenticator-app.md). Users may use verification codes from the Microsoft Authenticator app but can only register using the notification option. Users can also use any third party application using [OATH TOTP](../authentication/concept-authentication-oath-tokens.md) to generate codes.
+Security defaults users are required to register for and use Azure AD Multifactor Authentication using the [Microsoft Authenticator app using notifications](../authentication/concept-authentication-authenticator-app.md). Users may use verification codes from the Microsoft Authenticator app but can only register using the notification option. Users can also use any third party application using [OATH TOTP](../authentication/concept-authentication-oath-tokens.md) to generate codes.
 
 > [!WARNING]
 > Do not disable methods for your organization if you are using security defaults. Disabling methods may lead to locking yourself out of your tenant. Leave all **Methods available to users** enabled in the [MFA service settings portal](../authentication/howto-mfa-getstarted.md#choose-authentication-methods-for-mfa).
@@ -182,7 +182,7 @@ Any [B2B guest](../external-identities/what-is-b2b.md) users or [B2B direct conn
 
 ### Disabled MFA status
 
-If your organization is a previous user of per-user based Azure AD Multi-Factor Authentication, don't be alarmed to not see users in an **Enabled** or **Enforced** status if you look at the Multi-Factor Auth status page. **Disabled** is the appropriate status for users who are using security defaults or Conditional Access based Azure AD Multi-Factor Authentication.
+If your organization is a previous user of per-user based Azure AD Multifactor Authentication, don't be alarmed to not see users in an **Enabled** or **Enforced** status if you look at the Multi-Factor Auth status page. **Disabled** is the appropriate status for users who are using security defaults or Conditional Access based Azure AD Multifactor Authentication.
 
 ### Conditional Access
 
@@ -208,7 +208,7 @@ To disable security defaults in your directory:
 1. Sign in to the [Azure portal](https://portal.azure.com) as a security administrator, Conditional Access administrator, or global administrator.
 1. Browse to **Azure Active Directory** > **Properties**.
 1. Select **Manage security defaults**.
-1. Set the **Enable security defaults** toggle to **No**.
+1. Set **Security defaults** to **Disabled (not recommended)**.
 1. Select **Save**.
 
 ## Next steps

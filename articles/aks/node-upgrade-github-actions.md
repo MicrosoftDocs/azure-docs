@@ -3,9 +3,8 @@ title: Handle AKS node upgrades with GitHub Actions
 titleSuffix: Azure Kubernetes Service
 description: Learn how to update AKS nodes using GitHub Actions
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 11/27/2020
-
-
 #Customer intent: As a cluster administrator, I want to know how to automatically apply Linux updates and reboot nodes in AKS for security and/or compliance
 ---
 

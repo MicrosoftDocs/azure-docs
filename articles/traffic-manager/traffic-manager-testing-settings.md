@@ -5,10 +5,10 @@ services: traffic-manager
 author: greg-lindsay
 ms.service: traffic-manager
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: greglin
+ms.custom: template-how-to
 ---
 
 # Verify Traffic Manager settings

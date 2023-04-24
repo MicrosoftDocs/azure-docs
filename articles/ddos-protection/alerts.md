@@ -20,7 +20,7 @@ In this article, you'll learn how to configure metrics alerts through Azure Moni
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [DDoS Network Protection](manage-ddos-protection.md) must be enabled on a virtual network or [DDoS IP Protection (Preview)](manage-ddos-protection-powershell-ip.md) must be enabled on a public IP address. 
+- [DDoS Network Protection](manage-ddos-protection.md) must be enabled on a virtual network or [DDoS IP Protection](manage-ddos-protection-powershell-ip.md) must be enabled on a public IP address. 
 - DDoS Protection monitors public IP addresses assigned to resources within a virtual network. If you don't have any resources with public IP addresses in the virtual network, you must first create a resource with a public IP address. You can monitor the public IP address of all resources deployed through Resource Manager (not classic) listed in [Virtual network for Azure services](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (including Azure Load Balancers where the backend virtual machines are in the virtual network), except for Azure App Service Environments. To continue with this How-To guide, you can quickly create a [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine.     
 
 ## Configure metric alerts through portal
@@ -126,9 +126,5 @@ You can keep your resources for the next tutorial. If no longer needed, delete t
 1. Select the alerts created in this tutorial, then select **Delete**. 
 ## Next steps
 
-In this article, you learned how to configure metric alerts through Azure Monitor.
-
-To learn how to test and simulate a DDoS attack, see the simulation testing guide:
-
-> [!div class="nextstepaction"]
-> [Test through simulations](test-through-simulations.md)
+* [Test through simulations](test-through-simulations.md)
+* [View alerts in Microsoft Defender for Cloud](ddos-view-alerts-defender-for-cloud.md)

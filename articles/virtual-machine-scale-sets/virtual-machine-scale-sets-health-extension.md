@@ -1,22 +1,17 @@
 ---
-title: Use Application Health extension with Azure Virtual Machine Scale Sets (preview)
+title: Use Application Health extension with Azure Virtual Machine Scale Sets
 description: Learn how to use the Application Health extension to monitor the health of your applications deployed on Virtual Machine Scale Sets.
 author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: extensions
-ms.date: 01/17/2023
+ms.date: 04/12/2023
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
 ---
 
 # Using Application Health extension with Virtual Machine Scale Sets
-
-> [!IMPORTANT]
-> **Rich Health States** is currently in public preview. **Binary Health States** is generally available.
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Monitoring your application health is an important signal for managing and upgrading your deployment. Azure Virtual Machine Scale Sets provide support for [Rolling Upgrades](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) including [Automatic OS-Image Upgrades](virtual-machine-scale-sets-automatic-upgrade.md) and [Automatic VM Guest Patching](../virtual-machines/automatic-vm-guest-patching.md), which rely on health monitoring of the individual instances to upgrade your deployment. You can also use Application Health Extension to monitor the application health of each instance in your scale set and perform instance repairs using [Automatic Instance Repairs](virtual-machine-scale-sets-automatic-instance-repairs.md).
 
@@ -33,16 +28,11 @@ This article assumes that you're familiar with:
 
 ## When to use the Application Health extension
 
-The Application Health extension is deployed inside a Virtual Machine Scale Set instance and reports on VM health from inside the scale set instance. You can configure the extension to probe on an application endpoint and update the status of the application on that instance. This instance status is checked by Azure to determine whether an instance is eligible for upgrade operations.
-
 The Application Health Extension is deployed inside a Virtual Machine Scale Set instance and reports on application health from inside the scale set instance. The extension probes on a local application endpoint and will update the health status based on TCP/HTTP(S) responses received from the application. This health status is used by Azure to initiate repairs on unhealthy instances and to determine if an instance is eligible for upgrade operations. 
 
 The extension reports health from within a VM and can be used in situations where an external probe such as the [Azure Load Balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md) can’t be used.  
 
 ## Binary versus Rich Health States
-
-> [!IMPORTANT]
-> **Rich Health States** is currently in public preview.
 
 Application Health Extensions has two options available: **Binary Health States** and **Rich Health States**. The following table highlights some key differences between the two options. See the end of this section for general recommendations.
 
@@ -329,9 +319,10 @@ Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
   -VirtualMachineScaleSet $vmScaleSet
   
 # Upgrade instances to install the extension
-Update-AzVmssInstances -ResourceGroupName $vmScaleSetResourceGroup `
+Update-AzVmssInstance -ResourceGroupName $vmScaleSetResourceGroup `
   -VMScaleSetName $vmScaleSetName `
   -InstanceId '*'
+
 ```
 
 # [Azure CLI 2.0](#tab/azure-cli)
@@ -356,7 +347,7 @@ The extension.json file content.
 ```json
 {
   "protocol": "<protocol>",
-  "port": "<port>",
+  "port": <port>,
   "requestPath": "</requestPath>"
 }
 ```
@@ -453,11 +444,12 @@ Add-AzVmssExtension -VirtualMachineScaleSet $vmScaleSet `
 Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
   -Name $vmScaleSetName `
   -VirtualMachineScaleSet $vmScaleSet
-
+  
 # Upgrade instances to install the extension
-Update-AzVmssInstances -ResourceGroupName $vmScaleSetResourceGroup `
+Update-AzVmssInstance -ResourceGroupName $vmScaleSetResourceGroup `
   -VMScaleSetName $vmScaleSetName `
   -InstanceId '*'
+
 ```
 
 # [Azure CLI 2.0](#tab/azure-cli)

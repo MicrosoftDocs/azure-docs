@@ -4,6 +4,7 @@ description: Describes the Bicep operators available for Azure Resource Manager 
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
+ms.custom: devx-track-bicep, devx-track-arm-template
 ms.date: 09/10/2021
 ---
 

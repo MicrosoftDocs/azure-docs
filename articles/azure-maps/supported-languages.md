@@ -95,7 +95,7 @@ Azure Maps have been localized in variety languages across its services. The fol
 
 ## Azure Maps supported views
 
-> [!Note]
+> [!NOTE]
 > On August 1, 2019, Azure Maps was released in the following countries/regions:
 >
 > * Argentina

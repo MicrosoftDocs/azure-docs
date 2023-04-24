@@ -80,8 +80,8 @@ To fix this issue, you must start the OMS Agent service by using the following c
 To validate you can perform process check using the below command: 
 
 ```
-process_name = "omsagent" 
-ps aux | grep %s | grep -v grep" % (process_name) 
+process_name="omsagent" 
+ps aux | grep %s | grep -v grep" % (process_name)" 
 ```
 
 For more information, see [Troubleshoot issues with the Log Analytics agent for Linux](../../azure-monitor/agents/agent-linux-troubleshoot.md)
@@ -103,7 +103,7 @@ As they are the directories of workspaces, the number of directories equals the 
 To fix the issue, run the following command: 
 
 ```
-sudo su omsagent -c python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py
+sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py'
 ```
 
 This command forces the omsconfig agent to talk to Azure Monitor and retrieve the latest configuration. 
@@ -132,7 +132,7 @@ Update Management downloads Hybrid Runbook Worker packages from the operations e
 To fix this issue, run the following command:
 
 ```
-sudo su omsagent -c python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py
+sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py'
 ```
 
 This command forces the omsconfig agent to talk to Azure Monitor and retrieve the latest configuration. 

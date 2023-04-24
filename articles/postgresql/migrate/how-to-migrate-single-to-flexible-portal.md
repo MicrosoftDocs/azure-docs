@@ -16,9 +16,6 @@ ms.custom: seo-lt-2023
 
 You can migrate an instance of Azure Database for PostgreSQL – Single Server to Azure Database for PostgreSQL – Flexible Server by using the Azure portal. In this tutorial, we perform migration of a sample database from an Azure Database for PostgreSQL single server to a PostgreSQL flexible server using the Azure portal.
 
->[!NOTE]
-> The migration tool is in public preview.
-
 In this tutorial, you learn to:
 
 > [!div class="checklist"]
@@ -46,7 +43,7 @@ The migration tool comes with a simple, wizard-based experience on the Azure por
 
 2. Go to your Azure Database for PostgreSQL Flexible Server target.
 
-3. In the **Overview** tab of the Flexible Server, on the left menu, scroll down to **Migration (preview)** and select it.
+3. In the **Overview** tab of the Flexible Server, on the left menu, scroll down to **Migration** and select it.
 
     :::image type="content" source="./media/concepts-single-to-flexible/azure-portal-overview-page.png" alt-text="Screenshot of the Overview page." lightbox="./media/concepts-single-to-flexible/azure-portal-overview-page.png":::
 
@@ -131,7 +128,7 @@ The **Review + create** tab summarizes all the details for creating the migratio
 
 ## Monitor the migration
 
-After you select the **Create** button, a notification appears in a few seconds to say that the migration creation is successful. You are redirected automatically to the **Migration (Preview)** page of Flexible Server. That page has a new entry for the recently created migration.
+After you select the **Create** button, a notification appears in a few seconds to say that the migration creation is successful. You are redirected automatically to the **Migration** page of Flexible Server. That page has a new entry for the recently created migration.
 
 :::image type="content" source="./media/concepts-single-to-flexible/azure-portal-migration-grid-monitor.png" alt-text="Screenshot of recently created migration details." lightbox="./media/concepts-single-to-flexible/azure-portal-migration-grid-monitor.png":::
 

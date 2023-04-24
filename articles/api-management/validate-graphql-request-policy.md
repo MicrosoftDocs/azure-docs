@@ -30,9 +30,9 @@ The `validate-graphql-request` policy validates the GraphQL request and authoriz
 
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-| error-variable-name | Name of the variable in `context.Variables` to log validation errors to.  |   No    | N/A   |
-| max-size | Maximum size of the request payload in bytes. Maximum allowed value: 102,400 bytes (100 KB). (Contact [support](https://azure.microsoft.com/support/options/) if you need to increase this limit.) | Yes       | N/A   |
-| max-depth | An integer. Maximum query depth. | No | 6 |
+| error-variable-name | Name of the variable in `context.Variables` to log validation errors to. Policy expressions are allowed. |   No    | N/A   |
+| max-size | Maximum size of the request payload in bytes. Maximum allowed value: 102,400 bytes (100 KB). (Contact [support](https://azure.microsoft.com/support/options/) if you need to increase this limit.) Policy expressions are allowed. | Yes       | N/A   |
+| max-depth | An integer. Maximum query depth. Policy expressions are allowed. | No | 6 |
 
 
 ## Elements

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 01/12/2023
+ms.date: 03/24/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
@@ -81,7 +81,7 @@ Select the **Add filters** option from the top of the table to get started.
 
 ![Screenshot of the sign-in logs page with the Add filters option highlighted.](./media/concept-sign-ins/sign-in-logs-filter.png)
 
-There are several filter options to choose from. Below are some notable options and details.
+There are several filter options to choose from:
 
 - **User:** The *user principal name* (UPN) of the user in question.
 - **Status:** Options are *Success*, *Failure*, and *Interrupted*.
@@ -90,7 +90,7 @@ There are several filter options to choose from. Below are some notable options 
     - *Not applied:* No policy applied to the user and application during sign-in.
     - *Success:* One or more CA policies applied to the user and application (but not necessarily the other conditions) during sign-in.
     - *Failure:* The sign-in satisfied the user and application condition of at least one CA policy and grant controls are either not satisfied or set to block access.
-- **IP addresses:** There is no definitive connection between an IP address and where the computer with that address is physically located. Mobile providers and VPNs issue IP addresses from central pools that are often far from where the client device is actually used. Currently, converting IP address to a physical location is a best effort based on traces, registry data, reverse lookups and other information.
+- **IP addresses:** There's no definitive connection between an IP address and where the computer with that address is physically located. Mobile providers and VPNs issue IP addresses from central pools that are often far from where the client device is actually used. Currently, converting IP address to a physical location is a best effort based on traces, registry data, reverse lookups and other information.
 
 The following table provides the options and descriptions for the **Client app** filter option.
 
@@ -122,7 +122,7 @@ Now that your sign-in logs table is formatted appropriately, you can more effect
 
 ### Sign-in error codes
 
-If a sign-in failed, you can get more information about the reason in the **Basic info** section of the related log item. The error code and associated failure reason appear in the details. Because of the complexity of some Azure AD environments, we cannot document every possible error code and resolution. Some errors may require [submitting a support request](../fundamentals/how-to-get-support.md) to resolve the issue.
+If a sign-in failed, you can get more information about the reason in the **Basic info** section of the related log item. The error code and associated failure reason appear in the details. Because of the complexity of some Azure AD environments, we can't document every possible error code and resolution. Some errors may require [submitting a support request](../fundamentals/how-to-get-support.md) to resolve the issue.
 
 ![Screenshot of a sign-in error code.](./media/concept-sign-ins/error-code.png)
 
@@ -158,6 +158,10 @@ When analyzing authentication details, take note of the following details:
     - A **satisfied by claim in the token** message is incorrectly displayed when sign-in events are initially logged. 
     - The **Primary authentication** row isn't initially logged.
 - If you're unsure of a detail in the logs, gather the **Request ID** and **Correlation ID** to use for further analyzing or troubleshooting.
+
+#### Considerations for MFA sign-ins
+
+When a user signs in with MFA, several separate MFA events are actually taking place. For example, if a user enters the wrong validation code or doesn't respond in time, additional MFA events are sent to reflect the latest status of the sign-in attempt. These sign-in events appear as one line item in the Azure AD sign-in logs. That same sign-in event in Azure Monitor, however, appears as multiple line items. These events all have the same `correlationId`.
 
 ## Sign-in data used by other services
 
