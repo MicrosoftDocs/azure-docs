@@ -138,7 +138,7 @@ az vmss update \
 ```
 
 ### PowerShell
-Update an existing Virtual Machine Scale Set using [Set-AzVmssRollingUpgradePolicy](/powershell/module/az.compute/set-azvmssrollingupgradepolicy) and [Update-AzVmss](/powershell/module/az.compute/update-azvmss).
+Update an existing Virtual Machine Scale Set using [Set-AzVmssRollingUpgradePolicy](/powershell/module/az.compute/set-azvmssrollingupgradepolicy) and [Update-AzVmss](/powershell/module/az.compute/update-azvmss). If you do not already have a health probe or the Application Health Extension installed, configure that prior to changing the Upgrade Policy.
 
 ```azurepowershell-interactive
 $vmss = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
@@ -156,7 +156,7 @@ Update-Azvmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMa
 
 ### Template
 
-Add the following to your ARM template: 
+Update the properties section of your ARM template as follows: 
 
 ```ARM
 "properties": {
