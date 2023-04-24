@@ -126,6 +126,6 @@ This example applies the following validation and authorization rules to a Graph
 
 ## Related policies
 
-* [Validation policies](api-management-policies.md#validation-polies)
+* [Validation policies](api-management-policies.md#validation-policies)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]
