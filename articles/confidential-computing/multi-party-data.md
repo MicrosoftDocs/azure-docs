@@ -71,7 +71,7 @@ Roll up your sleeves and build a data clean room solution directly on these conf
 
 [Confidential containers](./confidential-containers.md) on Azure Container Instances (ACI) and Intel SGX VMs with application enclaves provide a container solution for building confidential cleanroom solutions.
 
-[Confidential Virtual Machines (VMs)](confidential-vm-overview.md) provide a VM platform for confidential cleanroom solutions.
+[Confidential Virtual Machines (VMs)](./confidential-vm-overview.md) provide a VM platform for confidential cleanroom solutions.
 
 [Azure SQL AE in secure enclaves](https://learn.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves) provides a platform service for encrypting data and queries in SQL that can be used in multi-party data analytics and confidential cleanrooms.
 
