@@ -26,7 +26,7 @@ In this article, you'll learn how to work with batch endpoints.
 
 ## Create a batch endpoint
 
-A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch inference job. A batch deployment is a set of compute resources hosting the model or pipeline that does the actual inferencing. One batch endpoint can have multiple batch deployments.
+A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch inference job. A batch deployment is a set of compute resources hosting the model or pipeline (preview) that does the actual inferencing. One batch endpoint can have multiple batch deployments.
 
 ### Steps
 
@@ -112,7 +112,7 @@ A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch i
 A deployment is a set of resources and computes required to implement the functionality the endpoint provides. There are two types of deployments depending on the asset you want to deploy:
 
 * [Model deployment](concept-endpoints-batch.md#model-deployments): Use this to operationalize machine learning model inference routines. See [How to deploy a model in a batch endpoint](how-to-use-batch-model-deployments.md) for a guide to deploy models in batch endpoints.
-* [Pipeline component deployment](concept-endpoints-batch.md#pipeline-component-deployment): Use this to operationalize complex inference pipelines under a stable URI. See [How to deploy a pipeline component in a batch endpoint](how-to-use-batch-pipeline-deployments.md) for a guide to deploy pipeline components.
+* [Pipeline component deployment (preview)](concept-endpoints-batch.md#pipeline-component-deployment): Use this to operationalize complex inference pipelines under a stable URI. See [How to deploy a pipeline component in a batch endpoint (preview)](how-to-use-batch-pipeline-deployments.md) for a guide to deploy pipeline components.
 
 
 ## Create jobs from batch endpoints
@@ -233,7 +233,7 @@ Azure Machine Learning will add a new deployment to the endpoint but won't set i
 
 ### Change the default deployment
 
-Batch endpoints can have one deployment marked as __default__. Changing the default deployment gives you the possibility of changing the model or pipeline serving the deployment without changing the contract with the user. Use the following instruction to update the default deployment:
+Batch endpoints can have one deployment marked as __default__. Changing the default deployment gives you the possibility of changing the model or pipeline (preview) serving the deployment without changing the contract with the user. Use the following instruction to update the default deployment:
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -327,7 +327,7 @@ Now, the endpoint all along with its deployments will be deleted. Notice that th
 ## Next steps
 
 - [Deploy models with batch endpoints](how-to-use-batch-model-deployments.md)
-- [Deploy pipelines with batch endpoints](how-to-use-batch-pipeline-deployments.md)
+- [Deploy pipelines with batch endpoints (preview)](how-to-use-batch-pipeline-deployments.md)
 - [Deploy MLFlow models in batch deployments](how-to-mlflow-batch.md)
 - [Create jobs and input data to batch endpoints](how-to-access-data-batch-endpoints-jobs.md)
 - [Network isolation for Batch Endpoints](how-to-secure-batch-endpoint.md)
