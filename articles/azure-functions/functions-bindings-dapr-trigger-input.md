@@ -262,6 +262,13 @@ The parameter type supported by the Event Grid trigger depends on the Functions 
 The [host.json] file contains settings that control Dapr trigger behavior. See the [host.json settings](functions-bindings-dapr.md#hostjson-settings) section for details regarding available settings.
 
 ::: zone-end
+ 
+::: zone pivot="programming-language-java,programming-language-powershell"
+
+> [!NOTE]
+> Currently, Dapr triggers and bindings are only supported in C#, JavaScript, and Python. 
+
+::: zone-end
 
 ## Next steps
 - Triggers 
@@ -275,11 +282,3 @@ The [host.json] file contains settings that control Dapr trigger behavior. See t
   - [Dapr invoke](./functions-bindings-dapr-output-invoke.md)
   - [Dapr publish](./functions-bindings-dapr-output-publish.md)
   - [Dapr output](./functions-bindings-dapr-output.md)
-
- 
-::: zone pivot="programming-language-java,programming-language-powershell"
-
-> [!NOTE]
-> Currently, Dapr triggers and bindings are only supported in C#, JavaScript, and Python. 
-
-::: zone-end

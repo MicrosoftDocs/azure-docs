@@ -263,6 +263,13 @@ The [host.json] file contains settings that control Dapr trigger behavior. See t
 
 ::: zone-end
 
+::: zone pivot="programming-language-java,programming-language-powershell"
+
+> [!NOTE]
+> Currently, Dapr triggers and bindings are only supported in C#, JavaScript, and Python. 
+
+::: zone-end
+
 ## Next steps
 - Triggers 
   - [Dapr input binding](./functions-bindings-dapr-trigger-input.md)
@@ -275,10 +282,3 @@ The [host.json] file contains settings that control Dapr trigger behavior. See t
   - [Dapr invoke](./functions-bindings-dapr-output-invoke.md)
   - [Dapr publish](./functions-bindings-dapr-output-publish.md)
   - [Dapr output](./functions-bindings-dapr-output.md)
-
-::: zone pivot="programming-language-java,programming-language-powershell"
-
-> [!NOTE]
-> Currently, Dapr triggers and bindings are only supported in C#, JavaScript, and Python. 
-
-::: zone-end

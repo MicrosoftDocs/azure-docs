@@ -45,15 +45,20 @@ This article supports both programming models.
 # [In-process](#tab/in-process)
 
 ```csharp
-[FunctionName("StateInputBinding")]
-public static IActionResult Run(
-    [HttpTrigger(AuthorizationLevel.Function, "get", Route = "state/{key}")] HttpRequest req,
-    [DaprState("statestore", Key = "{key}")] string state,
+[FunctionName("InvokeOutputBinding")]
+public static async Task<IActionResult> Run(
+    [HttpTrigger(AuthorizationLevel.Function, "get", Route = "invoke/{appId}/{methodName}")] HttpRequest req,
+    [DaprInvoke(AppId = "{appId}", MethodName = "{methodName}", HttpVerb = "post")] IAsyncCollector<InvokeMethodParameters> output,
     ILogger log)
 {
     log.LogInformation("C# HTTP trigger function processed a request.");
-
-    return new OkObjectResult(state);
+    string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+    var outputContent = new InvokeMethodParameters
+    {
+        Body = requestBody
+    };
+    await output.AddAsync(outputContent);
+    return new OkResult();
 }
 ```
 

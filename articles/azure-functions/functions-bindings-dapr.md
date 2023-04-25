@@ -165,6 +165,8 @@ The isolated worker process supports parameter types according to the table belo
 
 ::: zone-end
 
+::: zone pivot="programming-language-csharp, programming-language-javascript,programming-language-python"
+
 ## host.json settings
 
 This section describes the function app configuration settings available for functions that use this binding. These settings only apply when using extension version 5.0.0 and higher. The example host.json file below contains only the version 2.x+ settings for this binding. For more information about function app configuration settings in versions 2.x and later versions, see [host.json reference for Azure Functions](functions-host-json.md).
@@ -177,6 +179,15 @@ This section describes the function app configuration settings available for fun
     "version": "2.0"
 }
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-java,programming-language-powershell"
+
+> [!NOTE]
+> Currently, Dapr triggers and bindings are only supported in C#, JavaScript, and Python. 
+
+::: zone-end
 
 ## Next steps
 - Triggers 
@@ -191,11 +202,3 @@ This section describes the function app configuration settings available for fun
   - [Dapr invoke](./functions-bindings-dapr-output-invoke.md)
   - [Dapr publish](./functions-bindings-dapr-output-publish.md)
   - [Dapr output](./functions-bindings-dapr-output.md)
-
-
-::: zone pivot="programming-language-java,programming-language-powershell"
-
-> [!NOTE]
-> Currently, Dapr triggers and bindings are only supported in C#, JavaScript, and Python. 
-
-::: zone-end
