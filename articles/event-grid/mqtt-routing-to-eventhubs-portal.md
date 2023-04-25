@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Route MQTT messages to Event Hubs'
+title: 'Tutorial: Route MQTT messages to Event Hubs using portal'
 description: 'Tutorial: Use Azure Event Grid and Azure CLI to route MQTT messages to Azure Event Hubs.' 
 ms.topic: tutorial 
 ms.date: 04/20/2023
