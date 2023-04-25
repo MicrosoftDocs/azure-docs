@@ -1822,6 +1822,23 @@ This issue can happen when there's no package found that matches the version you
 * [pypi](https://aka.ms/azureml/environment/pypi)
 * [Installing Python Modules](https://docs.python.org/3/installing/index.html)
 
+### Invalid wheel filename
+<!--issueDescription-->
+This issue can happen when you've specified a wheel file incorrectly.
+
+**Potential causes:**
+* You spelled the wheel filename incorrectly or used improper formatting
+* The wheel file you specified can't be found
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+* Ensure that you've spelled the filename correctly and that it exists
+* Ensure that you're following the [format for wheel filenames](https://peps.python.org/pep-0491/#file-format)
+
 ## *Make issues*
 ### No targets specified and no makefile found
 <!--issueDescription-->

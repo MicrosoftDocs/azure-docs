@@ -83,11 +83,12 @@ As a new rollout is triggered every month, a VM will receive at least one patch 
 | Canonical  | UbuntuServer | 16.04-LTS |
 | Canonical  | UbuntuServer | 16.04.0-LTS |
 | Canonical  | UbuntuServer | 18.04-LTS |
-| Canonical  | UbuntuServer | 18.04-LTS-Gen2 |
+| Canonical  | UbuntuServer | 18.04-LTS-gen2 |
 | Canonical  | 0001-com-ubuntu-pro-bionic | pro-18_04-lts |
 | Canonical  | 0001-com-ubuntu-server-focal | 20_04-lts |
 | Canonical  | 0001-com-ubuntu-server-focal | 20_04-lts-gen2 |
 | Canonical  | 0001-com-ubuntu-pro-focal | pro-20_04-lts |
+| Canonical  | 0001-com-ubuntu-pro-focal | pro-20_04-lts-gen2 |
 | Canonical  | 0001-com-ubuntu-server-jammy | 22_04-lts |
 | Canonical  | 0001-com-ubuntu-server-jammy | 22_04-lts-gen2 |
 | microsoftcblmariner  | cbl-mariner | cbl-mariner-1 |
@@ -96,8 +97,8 @@ As a new rollout is triggered every month, a VM will receive at least one patch 
 | microsoftcblmariner  | cbl-mariner | cbl-mariner-2-gen2 |
 | microsoft-aks  | aks | aks-engine-ubuntu-1804-202112 |
 | Redhat  | RHEL | 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7_9, 7-RAW, 7-LVM |
-| Redhat  | RHEL | 8, 8.1, 8.2, 82gen2, 8_3, 8_4, 8_5, 8-LVM |
-| Redhat  | RHEL-RAW | 8-raw |
+| Redhat  | RHEL | 8, 8.1, 81gen2, 8.2, 82gen2, 8_3, 83-gen2, 8_4, 84-gen2, 8_5, 85-gen2, 8_6, 86-gen2, 8-lvm, 8-lvm-gen2 |
+| Redhat  | RHEL-RAW | 8-raw, 8-raw-gen2 |
 | OpenLogic  | CentOS | 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7_8, 7_9, 7_9-gen2 |
 | OpenLogic  | centos-lvm | 7-lvm |
 | OpenLogic  | CentOS | 8.0, 8_1, 8_2, 8_3, 8_4, 8_5 |
@@ -238,7 +239,7 @@ Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName
 Use the [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) and [Update-AzVM](/powershell/module/az.compute/update-azvm) cmdlet to enable automatic VM guest patching on an existing VM.
 
 ```azurepowershell-interactive
-Get-AzVM -VM $VirtualMachine -Windows -ComputerName $ComputerName -Credential $Credential
+$VirtualMachine = Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 Set-AzVMOperatingSystem -VM $VirtualMachine -PatchMode "AutomaticByPlatform"
 Update-AzVM -VM $VirtualMachine
 ```

@@ -1302,8 +1302,6 @@ items:
     items:
     - name: Run an existing pipeline with Airflow
       href: tutorial-run-existing-pipeline-with-airflow.md
-    - name: Refresh a Power BI dataset with Airflow
-      href: tutorial-refresh-power-bi-dataset-with-airflow.md
   - name: Concepts
     href: concept-managed-airflow.md
   - name: How-to

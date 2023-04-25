@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 04/14/2023
+ms.date: 04/17/2023
 ms.author: jasteppe
 ---
 
@@ -23,7 +23,7 @@ The MedTech service requires two types of [JSON](https://www.json.org/) mappings
 
 ## FHIR destination mapping basics
 
-The FHIR destination mapping controls how the data extracted from a device message is mapped into a FHIR observation.
+The FHIR destination mapping controls how the normalized data extracted from a device message is mapped into a FHIR observation.
 
 - Should an observation be created for a point in time or over a period of an hour?
 - What codes should be added to the observation?
@@ -31,7 +31,7 @@ The FHIR destination mapping controls how the data extracted from a device messa
 
 These data types are all options the FHIR destination mapping configuration controls.
 
-Once a device message is transformed into a normalized data model, the data is collected for transformation to a [FHIR Observation](https://www.hl7.org/fhir/observation.html). If the Observation type is [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData), the data is grouped according to device identifier, measurement type, and time period (time period can be either 1 hour or 24 hours). The output of this grouping is sent for conversion into a single [FHIR Observation](https://www.hl7.org/fhir/observation.html) that represents the time period for that data type. For other Observation types ([Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity), [CodeableConcept](https://www.hl7.org/fhir/datatypes.html#CodeableConcept) and [string](https://www.hl7.org/fhir/datatypes.html#string)) data is not grouped, but instead each measurement is transformed into a single Observation representing a point in time.
+Once device data is transformed into a normalized data model, the normalized data is collected for transformation to a [FHIR Observation](https://www.hl7.org/fhir/observation.html). If the Observation type is [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData), the data is grouped according to device identifier, measurement type, and time period (time period can be either 1 hour or 24 hours). The output of this grouping is sent for conversion into a single [FHIR Observation](https://www.hl7.org/fhir/observation.html) that represents the time period for that data type. For other Observation types ([Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity), [CodeableConcept](https://www.hl7.org/fhir/datatypes.html#CodeableConcept) and [string](https://www.hl7.org/fhir/datatypes.html#string)) data isn't grouped, but instead each measurement is transformed into a single Observation representing a point in time.
 
 > [!TIP]
 > For more information about how the MedTech service processes device message data into FHIR Observations for persistence on the FHIR service, see [Overview of the MedTech service device message processing stages](overview-of-device-message-processing-stages.md).
