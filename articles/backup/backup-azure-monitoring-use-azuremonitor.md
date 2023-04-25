@@ -2,7 +2,7 @@
 title: Monitor Azure Backup with Azure Monitor
 description: Monitor Azure Backup workloads and create custom alerts by using Azure Monitor.
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 04/18/2023
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
 author: jyothisuri
 ms.author: jsuri
@@ -57,7 +57,11 @@ For more information, see [Create, view, and manage log alerts by using Azure Mo
 
 ### Sample Kusto queries
 
-The default graphs give you Kusto queries for basic scenarios on which you can build alerts. You can also modify the queries to get the data you want to be alerted on. Paste the following sample Kusto queries in the **Logs** page and then create alerts on the queries:
+The default graphs give you Kusto queries for basic scenarios on which you can build alerts. You can also modify the queries to fetch the data you want to be alerted on. Paste the following sample Kusto queries on the **Logs** page, and then create alerts on the queries.
+
+Recovery Services vaults and Backup vaults send data to a common set of tables that are listed in this article. However, there are slight differences in the schema for Recovery Services vaults and Backup vaults ([learn more](backup-azure-monitoring-built-in-monitor.md)). So, this section is split into multiple sub-sections that helps you to use the right queries depending on which workload or vault types you want to query.
+
+#### Queries common across Recovery Services vaults and Backup vaults 
 
 - All successful backup jobs
 
@@ -76,6 +80,8 @@ The default graphs give you Kusto queries for basic scenarios on which you can b
     | summarize arg_max(TimeGenerated,*) by JobUniqueId
     | where JobStatus=="Failed"
     ````
+
+#### Queries specific to Recovery Services vault workloads
 
 - All successful Azure VM backup jobs
 
@@ -146,6 +152,37 @@ The default graphs give you Kusto queries for basic scenarios on which you can b
     | project BackupItemUniqueId , BackupItemFriendlyName , StorageConsumedInMBs
     | sort by StorageConsumedInMBs desc
     ````
+
+#### Queries specific to Backup vault workloads
+
+- All successful Azure PostgreSQL backup jobs
+
+    ````Kusto
+    AddonAzureBackupJobs
+    | where JobOperation=="Backup"
+    | summarize arg_max(TimeGenerated,*) by JobUniqueId
+	| where DatasourceType == "Microsoft.DBforPostgreSQL/servers/databases"
+    | where JobStatus=="Completed"	
+    ````
+
+- All successful Azure Disk restore jobs
+
+    ````Kusto
+    AddonAzureBackupJobs
+    | where JobOperation == "Restore"
+    | summarize arg_max(TimeGenerated,*) by JobUniqueId
+	| where DatasourceType == "Microsoft.Compute/disks"
+    | where JobStatus=="Completed"	
+    ````
+
+- Backup Storage Consumed per Backup Item
+
+    ````Kusto
+    CoreAzureBackup
+	| where OperationName == "BackupItem"
+	| summarize arg_max(TimeGenerated, *) by BackupItemUniqueId
+	| project BackupItemUniqueId, BackupItemFriendlyName, StorageConsumedInMBs
+	````
 
 ### Diagnostic data update frequency
 
