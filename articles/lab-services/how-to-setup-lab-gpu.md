@@ -76,7 +76,7 @@ To manually install drivers for the Small GPU *(Compute)* size, follow these ste
 
     - Follow the detailed installation steps in [NVIDIA Tesla (CUDA) drivers](../virtual-machines/windows/n-series-driver-setup.md#nvidia-tesla-cuda-drivers) for more information about specific driver versions that are recommended depending on the Windows OS version being used.
 
-       :::image type="content" source="./media/how-to-setup-gpu/nvidia-driver-download.png" alt-text="Screenshot of the NVIDIA Driver Downloads page":::
+       :::image type="content" source="./media/how-to-setup-gpu/nvidia-driver-download.png" alt-text="Screenshot of the NVIDIA Driver Downloads page.":::
 
     - Alternately, follow these steps to install the latest NVIDIA drivers:
         1. Go to the [NVIDIA Driver Downloads page](https://www.nvidia.com/Download/index.aspx).  
