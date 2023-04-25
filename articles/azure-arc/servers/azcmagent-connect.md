@@ -87,7 +87,7 @@ Supported values:
 
 `--correlation-id`
 
-Identifies the mechanism being used to connect the server to Azure Arc. For example, scripts generated in the Azure Portal include a GUID that helps Microsoft track usage of that experience. This flag is optional and only used for telemetry purposes to improve your experience.
+Identifies the mechanism being used to connect the server to Azure Arc. For example, scripts generated in the Azure portal include a GUID that helps Microsoft track usage of that experience. This flag is optional and only used for telemetry purposes to improve your experience.
 
 `--ignore-network-check`
 

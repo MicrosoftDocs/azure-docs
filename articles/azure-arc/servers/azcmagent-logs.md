@@ -37,7 +37,7 @@ Collect all log files on the system instead of just the most recent. Useful when
 
 `-o`, `--output`
 
-Specifies the path and name for the ZIP file. If this flag is not specified, the ZIP is saved to the console's current directory with the name "azcmagent-_TIMESTAMP_-_COMPUTERNAME_.zip"
+Specifies the path and name for the ZIP file. If this flag isn't specified, the ZIP is saved to the console's current directory with the name "azcmagent-_TIMESTAMP_-_COMPUTERNAME_.zip"
 
 Sample value: custom-logname.zip
 
