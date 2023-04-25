@@ -39,10 +39,10 @@ To update a branch using the Microsoft Graph API in Graph Explorer.
 1. Select the API version to **beta**. 
 1. Enter the query:
     ```
-    PATCH https://graph.microsoft.com/beta/networkaccess/branches/8d2b05c5-1e2e-4f1d-ba5a-1a678382ef16 
-    { 
-        "@odata.context": "#$delta", 
-        "name": "ContosoBranch2" 
+    PATCH https://graph.microsoft.com/beta/networkaccess/branches/8d2b05c5-1e2e-4f1d-ba5a-1a678382ef16
+    {
+        "@odata.context": "#$delta",
+        "name": "ContosoBranch2"
     }
     ``` 
 1. Select **Run query** to update the branch. 
