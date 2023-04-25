@@ -47,7 +47,7 @@ The jobs preview has the following limitations:
 
     ```azurecli
     az extension remove --name containerapp
-    az extension add --upgrade --source https://containerappextension.blob.core.windows.net/containerappcliext/containerapp-private_preview_jobs_1.0.4-py2.py3-none-any.whl -y
+    az extension add --upgrade --source https://containerappextension.blob.core.windows.net/containerappcliext/containerapp-private_preview_jobs_1.0.4-py2.py3-none-any.whl --yes
     ```
 
     > [!NOTE]
