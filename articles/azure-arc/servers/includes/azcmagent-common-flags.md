@@ -10,7 +10,7 @@ Takes in a path to a JSON or YAML file containing inputs to the command. The con
 }
 ```
 
-If a command line option is found both in the command invocation and a configuration file, the value specified on the command line will take precedence.
+If a command line option is found in both the command invocation and a configuration file, the value specified on the command line will take precedence.
 
 `-h`, `--help`
 
