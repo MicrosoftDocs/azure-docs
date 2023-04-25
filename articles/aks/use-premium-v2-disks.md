@@ -2,7 +2,7 @@
 title: Enable Premium SSD v2 Disk support on Azure Kubernetes Service (AKS)
 description: Learn how to enable and configure Premium SSD v2 Disks in an Azure Kubernetes Service (AKS) cluster
 ms.topic: article
-ms.date: 04/10/2023
+ms.date: 04/25/2023
 
 ---
 
@@ -123,7 +123,7 @@ spec:
   volumes:
     - name: volume
       persistentVolumeClaim:
-        claimName: premium-disk
+        claimName: premium2-disk
 ```
 
 Create the pod with the [kubectl apply][kubectl-apply] command, as shown in the following example:
@@ -147,19 +147,28 @@ kubectl describe pod nginx-premium2
 Volumes:
   volume:
     Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
-    ClaimName:  azure-managed-disk
+    ClaimName:  premium2-disk
     ReadOnly:   false
-  default-token-smm2n:
-    Type:        Secret (a volume populated by a Secret)
-    SecretName:  default-token-smm2n
-    Optional:    false
-[...]
+  kube-api-access-sh59b:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/memory-pressure:NoSchedule op=Exists
+                             node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
 Events:
-  Type    Reason                 Age   From                               Message
-  ----    ------                 ----  ----                               -------
-  Normal  Scheduled              2m    default-scheduler                  Successfully assigned mypod to aks-nodepool1-79590246-0
-  Normal  SuccessfulMountVolume  2m    kubelet, aks-nodepool1-79590246-0  MountVolume.SetUp succeeded for volume "default-token-smm2n"
-  Normal  SuccessfulMountVolume  1m    kubelet, aks-nodepool1-79590246-0  MountVolume.SetUp succeeded for volume "pvc-faf0f176-8b8d-11e8-923b-deb28c58d242"
+  Type    Reason                  Age    From                     Message
+  ----    ------                  ----   ----                     -------
+  Normal  Scheduled               7m58s  default-scheduler        Successfully assigned default/nginx-premium2 to aks-agentpool-12254644-vmss000006
+  Normal  SuccessfulAttachVolume  7m46s  attachdetach-controller  AttachVolume.Attach succeeded for volume "pvc-ff39fb64-1189-4c52-9a24-e065b855b886"
+  Normal  Pulling                 7m39s  kubelet                  Pulling image "mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine"
+  Normal  Pulled                  7m38s  kubelet                  Successfully pulled image "mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine" in 1.192915667s
+  Normal  Created                 7m38s  kubelet                  Created container nginx-premium2
+  Normal  Started                 7m38s  kubelet                  Started container nginx-premium2
 [...]
 ```
 
