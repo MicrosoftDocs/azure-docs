@@ -61,7 +61,7 @@ An HTTP 401 unauthorized response can be returned when backend pool is configure
 There are several ways to resolve this:
 - Allow anonymous access on backend pool.
 - Configure the probe to send the request to another “fake” site that doesn’t require NTLM.
-- Not recommended, as this will not tell us if the actual site behind the application aateway is active or not.
+- Not recommended, as this will not tell us if the actual site behind the application gateway is active or not.
 - Configure application gateway to allow 401 responses as valid for the probes: [Probe matching conditions](/azure/application-gateway/application-gateway-probe-overview).
    #### 403 – Forbidden
 
@@ -110,6 +110,7 @@ HTTP 504 errors are presented if a request is sent to application gateways using
 ## Next steps
 
 If the information in this article doesn't help to resolve the issue, [submit a support ticket](https://azure.microsoft.com/support/options/).
+
 
 
 
