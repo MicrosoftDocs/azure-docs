@@ -26,6 +26,21 @@
       href: iot-phone-app-how-to.md
     - name: Use IoT Explorer
       href: howto-use-iot-explorer.md
+- name: Concepts
+  items:
+    - name: MQTT support
+      items: 
+      - name: Use MQTT with IoT Hub
+        href: iot-mqtt-connect-to-iot-hub.md
+      - name: Use MQTT with DPS
+        href: iot-mqtt-connect-to-iot-dps.md
+      - name: MQTT 5 support (preview)
+        items: 
+        - name: MQTT 5 overview
+          href: iot-mqtt-5-preview.md
+        - name: MQTT 5 API reference
+          href: iot-mqtt-5-preview-reference.md         
+
 - name: Security
   items:
   - name: Security best practices

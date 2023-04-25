@@ -1,31 +1,31 @@
 ---
  title: Azure IoT Hub MQTT 5 support (preview)
- description: Learn about IoT Hub's MQTT 5 support
- services: iot-hub
+ description: Learn about MQTT 5 support in IoT Hub
+ services: iot
+ ms.service: iot
  author: kgremban
- ms.service: iot-hub
- ms.topic: conceptual
- ms.date: 11/19/2020
  ms.author: kgremban
+ ms.topic: conceptual
+ ms.date: 04/24/2023
 ---
 
-# IoT Hub MQTT 5 support overview (preview)
+# IoT Hub MQTT 5 support (preview) 
 
 **Version:** 2.0
 **api-version:** 2020-10-01-preview
 
-This document defines IoT Hub data plane API over MQTT version 5.0 protocol. See [API Reference](iot-hub-mqtt-5-reference.md) for complete definitions in this API.
+This document defines IoT Hub data plane API over MQTT version 5.0 protocol. See [API Reference](iot-mqtt-5-preview-reference.md) for complete definitions in this API.
 
 ## Prerequisites
 
-- [Enable preview mode](iot-hub-preview-mode.md) on a brand new IoT hub to try MQTT 5.
+- [Enable preview mode](../iot-hub/iot-hub-preview-mode.md) on a brand new IoT hub to try MQTT 5.
 - Prior knowledge of [MQTT 5 specification](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html) is required.
 
 ## Level of support and limitations
 
 IoT Hub support for MQTT 5 is in preview and limited in following ways (communicated to client via `CONNACK` properties unless explicitly noted otherwise):
 
-- No official [Azure IoT Hub device SDK](iot-hub-devguide-sdks.md) support yet.
+- No official [Azure IoT device SDKs](iot-sdks.md) support yet.
 - Subscription identifiers aren't supported.
 - Shared subscriptions aren't supported.
 - `RETAIN` isn't supported.
@@ -37,7 +37,7 @@ IoT Hub support for MQTT 5 is in preview and limited in following ways (communic
 - `Response Information` isn't supported; `CONNACK` doesn't return `Response Information` property even if `CONNECT` contains `Request Response Information` property.
 - `Receive Maximum` (maximum number of allowed outstanding unacknowledged `PUBLISH` packets (in client-server direction) with `QoS: 1`) is `16`.
 - Single client can have no more than `50` subscriptions.
-  When the limit's reached, `SUBACK` will return `0x97` (Quota exceeded) reason code for subscriptions.
+  When the limit's reached, `SUBACK` returns `0x97` (Quota exceeded) reason code for subscriptions.
 
 ## Connection lifecycle
 
@@ -107,7 +107,7 @@ Username/password authentication used in previous API versions isn't supported.
 
 #### SAS
 
-With SAS-based authentication, client must provide the signature of connection context. This proves authenticity of the MQTT connection. The signature must be based on one of two authentication keys in the client's configuration in IoT Hub or one of two shared access keys of a [Shared access policy](iot-hub-dev-guide-sas.md).
+With SAS-based authentication, a client must provide the signature of the connection context. The signature proves authenticity of the MQTT connection. The signature must be based on one of two authentication keys in the client's configuration in IoT Hub.  Or it must be based on one of two shared access keys of a [shared access policy](../iot-hub/iot-hub-dev-guide-sas.md).
 
 String to sign must be formed as follows:
 
@@ -121,7 +121,7 @@ String to sign must be formed as follows:
 
 - `host name` is derived either from SNI extension (presented by client in Client Hello record during TLS handshake) or `host` user property in `CONNECT` packet.
 - `Client Id` is Client Identifier in `CONNECT` packet.
-- `sas-policy` - if present, defines IoT Hub access policy used for authentication. It's encoded as user property on `CONNECT` packet. Optional: omitting it means authentication settings in device registry will be used instead.
+- `sas-policy` - if present, defines IoT Hub access policy used for authentication. It's encoded as user property on `CONNECT` packet. Optional: omitting it means authentication settings in device registry are used instead.
 - `sas-at` - if present, specifies time of connection - current time. It's encoded as user property of `time` type on `CONNECT` packet.
 - `sas-expiry` defines expiration time for the authentication. It's a `time`-typed user property on `CONNECT` packet. This property is required.
 
@@ -166,7 +166,7 @@ Server may disconnect with any reason code defined in MQTT 5.0 specification. No
 - `135` (Not authorized) when reauthentication fails, current SAS token expires or device's credentials change
 - `142` (Session taken over) when new connection with the same client identity has been opened.
 - `159` (Connection rate exceeded) when connection rate for the IoT hub exceeds  
-- `131` (Implementation-specific error) is used for any custom errors defined in this API. `status` and `reason` properties will be used to communicate further details about the cause for disconnection (see [Response](#response) for details).
+- `131` (Implementation-specific error) is used for any custom errors defined in this API. `status` and `reason` properties are used to communicate further details about the cause for disconnection (see [Response](#response) for details).
 
 ## Operations
 
@@ -184,7 +184,7 @@ All functionalities in this API are expressed as operations. Here's an example o
     Reason_Code: 0
 ```
 
-For complete specification of operations in this API, see [API Reference](iot-hub-mqtt-5-reference.md).
+For complete specification of operations in this API, see [IoT Hub data plane MQTT 5 API reference](iot-mqtt-5-preview-reference.md).
 
 > [!NOTE]
 > All the samples in this specification are shown from client's perspective. Sign `->` means client sending packet, `<-` - receiving.
@@ -195,7 +195,7 @@ Topics used in operations' messages in this API start with `$iothub/`.
 MQTT broker semantics don't apply to these operations (see "[Topics beginning with \$](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901246)" for details).
 Topics starting with `$iothub/` that aren't defined in this API aren't supported:
 
-- Sending messages to undefined topic results in `Not Found` response (see [Response](#response) for details below),
+- Sending messages to undefined topic results in `Not Found` response (see [Response](#response) for details),
 - Subscribing to undefined topic results in `SUBACK` with `Reason Code: 0x8F` (Topic Filter Invalid).
 
 Topic names and property names are case-sensitive and must be exact match. For example, `$iothub/telemetry/` isn't supported while `$iothub/telemetry` is.
@@ -298,7 +298,7 @@ All first class properties are ignored unless support for them is explicitly sta
 
 Where user-defined properties are allowed, their names must follow the format `@{property name}`. User-defined properties only support valid UTF-8 string values. for example, `MyProperty1` property with value `15` must be encoded as User property with name `@MyProperty` and value `15`.
 
-If IoT Hub doesn't recognize User property, it's considered an error and IoT Hub responds with `PUBACK` with `Reason Code: 0x83` (Implementation-specific error) and `status: 0100` (Bad Request). If acknowledgment was not requested (QoS: 0), `DISCONNECT` packet with the same error will be sent back and connection is terminated.
+If IoT Hub doesn't recognize User property, it's considered an error, and IoT Hub responds with `PUBACK` with `Reason Code: 0x83` (Implementation-specific error) and `status: 0100` (Bad Request). If acknowledgment wasn't requested (QoS: 0), `DISCONNECT` packet with the same error is sent back and connection is terminated.
 
 This API defines following data types besides `string`:
 
@@ -353,7 +353,7 @@ PUBLISH
 When needed, IoT Hub sets the following user properties:
 
 - `status` - IoT Hub's extended code for operation's status. This code can be used to differentiate outcomes.
-- `trace-id` – trace ID for the operation; IoT Hub may keep additional diagnostics concerning the operation that could be used for internal investigation.
+- `trace-id` – trace ID for the operation; IoT Hub may keep more diagnostics concerning the operation that could be used for internal investigation.
 - `reason` - human-readable message providing further information on why operation ended up in a state indicated by `status` property.
 
 > [!NOTE]
@@ -396,7 +396,7 @@ Clients may use type bits to identify whether operation concluded successfully. 
 
 `CONNACK` packet carries `Session Present` property to indicate whether server restored previously created session. Use this property to figure out whether to subscribe to topics or skip subscribing since subscription was done earlier.
 
-To rely on `Session Present`, client must keep track of subscriptions it's made (that is, sent `SUBSCRIBE` packet and received `SUBACK` with successful reason code), or make sure to subscribe to all topics in a single `SUBSCRIBE`/`SUBACK` exchange. Otherwise, if client sends two `SUBSCRIBE` packets, and only one of them is processed successfully by server, server will communicate `Session Present: 1` in `CONNACK` while having only part of client's subscriptions accepted.
+To rely on `Session Present`, client must keep track of subscriptions it's made (that is, sent `SUBSCRIBE` packet and received `SUBACK` with successful reason code), or make sure to subscribe to all topics in a single `SUBSCRIBE`/`SUBACK` exchange. Otherwise, if client sends two `SUBSCRIBE` packets, and the server processes only one of them successfully, the server communicates `Session Present: 1` in `CONNACK` while having only part of client's subscriptions accepted.
 
 To prevent the case where an older version of client didn't subscribe to all the topics, it's better to subscribe unconditionally when client behavior changes (for example, as part of firmware update). Also, to ensure no stale subscriptions are left behind (taking from maximum allowed number of subscriptions), explicitly unsubscribe from subscriptions that are no longer in use.
 
@@ -409,7 +409,7 @@ There's no special format to send a batch of messages. To reduce overhead of res
 
 ## Migration
 
-This section lists the changes in the API compared to [previous MQTT API](iot-hub-mqtt-support.md).
+This section lists the changes in the API compared to [previous MQTT support](iot-mqtt-connect-to-iot-hub.md).
 
 - Transport protocol is MQTT 5. Previously - MQTT 3.1.1.
 - Context information for SAS Authentication is contained in `CONNECT` packet directly instead of being encoded along with signature.
@@ -425,7 +425,7 @@ This section lists the changes in the API compared to [previous MQTT API](iot-hu
 - property names are spelled in "dash-case" naming convention instead of abbreviations with special prefix. User-defined properties now require prefix instead. For instance, `$.mid` is now `message-id`, while `myProperty1` becomes `@myProperty1`.
 - Correlation Data property is used to correlate request and response messages for request-response operations instead of `$rid` property encoded in topic.
 - `iothub-connection-auth-method` property is no longer stamped on telemetry events.
-- C2D commands won't be purged in absence of subscription from device. They'll remain queued up until device subscribes or they expire.
+- C2D commands aren't purged in absence of subscription from device. They remain queued up until device subscribes or they expire.
 
 ## Examples
 
@@ -580,5 +580,5 @@ Response:
 ```
 ## Next steps
 
-- To review the MQTT 5 preview API reference, see [IoT Hub data plane MQTT 5 API reference](iot-hub-mqtt-5-reference.md).
+- To review the MQTT 5 preview API reference, see [IoT Hub data plane MQTT 5 API reference (preview)](iot-mqtt-5-preview-reference.md).
 - To follow a C# sample, see [GitHub sample repository](https://github.com/Azure-Samples/iot-hub-mqtt-5-preview-samples-csharp).

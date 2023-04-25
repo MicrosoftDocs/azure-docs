@@ -325,7 +325,13 @@
             - name: Enable Azure Active Directory integration
               items:
                 - name: AKS-managed Azure AD
-                  href: managed-aad.md
+                  items: 
+                    - name: Enable AKS-managed Azure AD integration
+                      href: managed-azure-ad.md
+                    - name: Manage local accounts
+                      href: manage-local-accounts-managed-azure-ad.md
+                    - name: Cluster access control
+                      href: access-control-managed-azure-ad.md
                 - name: Azure AD integration (legacy)
                   href: azure-ad-integration-cli.md
                 - name: Enable GMSA integration
@@ -421,7 +427,9 @@
               href: coredns-custom.md
         - name: Egress
           items:
-            - name: Restrict and control cluster egress traffic
+            - name: Outbound network and FQDN rules for AKS clusters
+              href: outbound-rules-control-egress.md
+            - name: Control cluster egress traffic using Azure Firewall
               href: limit-egress-traffic.md
             - name: Configure outbound type for AKS
               href: egress-outboundtype.md
