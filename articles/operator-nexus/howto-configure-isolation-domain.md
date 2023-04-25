@@ -1,6 +1,6 @@
 ---
-title: "Azure Operator Nexus: How to configure the L2 and L3 isolation-domains in Operator Nexus instances"
-description: Learn to create, view, list, update, delete commands for Layer 2 and Layer isolation-domains in Operator Nexus instances
+title: "Configure the L2 and L3 isolation domains in Azure Operator Nexus instances"
+description: Learn commands to create, view, list, update, and delete Layer 2 and Layer 3 isolation domains in Azure Operator Nexus instances.
 author: jdasari
 ms.author: jdasari
 ms.service: azure-operator-nexus
@@ -9,54 +9,51 @@ ms.date: 04/02/2023
 ms.custom: template-how-to
 ---
 
-# Configure L2 and L3 isolation-domains using managed network fabric services
+# Configure L2 and L3 isolation domains by using managed network fabric services
 
-The isolation-domains enable communication between workloads hosted in the same rack (intra-rack communication) or different racks (inter-rack communication).
-This how-to describes how you can manage your Layer 2 and Layer 3 isolation-domains using the Azure Command Line Interface (AzureCLI). You can create, update, delete and check status of Layer 2 and Layer 3 isolation-domains.
+For Azure Operator Nexus instances, isolation domains enable communication between workloads hosted on the same rack (intra-rack communication) or different racks (inter-rack communication). This article describes how you can manage your Layer 2 and Layer 3 isolation domains by using the Azure CLI. You can use the commands in this article to create, update, delete, and check the status of Layer 2 and Layer 3 isolation domains.
 
 ## Prerequisites
 
-1. Ensure Network fabric Controller and Network fabric have been created.
-1. Install latest version of the
-[necessary CLI extensions](./howto-install-cli-extensions.md).
+1. Ensure that you've created a network fabric controller and a network fabric.
+1. Install the latest version of the
+[necessary Azure CLI extensions](./howto-install-cli-extensions.md).
+1. Use the following command to sign in to your Azure account and set the subscription to your Azure subscription ID. This ID should be the same subscription ID that you use across all Azure Operator Nexus resources.
 
-### Sign-in to your Azure account
+   ```azurecli
+       az login
+       az account set --subscription ********-****-****-****-*********
+   ```
 
-Sign-in to your Azure account and set the subscription to your Azure subscription ID. This ID should be the same subscription ID used across all Operator Nexus resources.
+1. Register providers for a managed network fabric:
+   1. In the Azure CLI, enter the command `az provider register --namespace Microsoft.ManagedNetworkFabric`.
 
-```azurecli
-    az login
-    az account set --subscription ********-****-****-****-*********
-```
+   1. Monitor the registration process by using this command: `az provider show -n Microsoft.ManagedNetworkFabric -o table`.
 
-### Register providers for managed network fabric
+      Registration can take up to 10 minutes. When it's finished, `RegistrationState` in the output changes to `Registered`.
 
-1. In Azure CLI, enter the command: `az provider register --namespace Microsoft.ManagedNetworkFabric`
-1. Monitor the registration process. Registration may take up to 10 minutes: `az provider show -n Microsoft.ManagedNetworkFabric -o table`
-1. Once registered, you should see the `RegistrationState` change to `Registered`: `az provider show -n Microsoft.ManagedNetworkFabric -o table`.
-
-You'll create isolation-domains to enable layer 2 and layer 3 connectivity between workloads hosted on an Operator Nexus instance.
+You'll create isolation domains to enable layer 2 and layer 3 connectivity between workloads hosted on an Azure Operator Nexus instance.
 
 > [!NOTE]
-> Operator Nexus reserves VLANs <=500 for Platform use, and therefore VLANs in this range can't be used for your (tenant) workload networks. You should use VLAN values between 501 and 4095.
+> Azure Operator Nexus reserves VLANs up to 500 for platform use. You can't use VLANs in this range for your (tenant) workload networks. You should use VLAN values from 501 through 4095.
 
 ## Parameters for isolation-domain management
 
 | Parameter|Description|Example|Required|
 |---|---|---|---|
-|resource-group	|Use an appropriate resource group name specifically for ISD of your choice|ResourceGroupName|True
-|resource-name	|Resource Name of the l2isolationDomain|example-l2domain| True
-|location|AODS Azure Region used during NFC Creation|eastus| True
-|nf-Id	|network fabric ID|/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFresourcegroupname/providers/Microsoft.ManagedNetworkFabric/NetworkFabrics/NFname"| True
-|Vlan-id | VLAN identifier value. VLANs 1-500 are reserved and can't be used. The VLAN identifier value can't be changed once specified. The isolation-domain must be deleted and recreated if the VLAN identifier value needs to be modified. The range is between 501-4095|501| True
-|mtu | maximum transmission unit is 1500 by default, if not specified|1500|
-|administrativeState|	Enable/Disable indicate the administrative state of the isolationDomain|Enable|
-| subscriptionId      | Your Azure subscriptionId for your Operator Nexus instance. |
-| provisioningState   | Indicates provisioning state |
+|`resource-group`	|Use an appropriate resource group name specifically for ISD of your choice.|ResourceGroupName|True
+|`resource-name`	|Resource Name of the l2isolationDomain.|example-l2domain| True
+|`location`|AODS Azure region used during NFC creation.|eastus| True
+|`nf-Id`	|Network fabric ID.|/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFresourcegroupname/providers/Microsoft.ManagedNetworkFabric/NetworkFabrics/NFname"| True
+|`Vlan-id` | VLAN identifier value. VLANs 1-500 are reserved and can't be used. The VLAN identifier value can't be changed once specified. The isolation-domain must be deleted and recreated if the VLAN identifier value needs to be modified. The range is 501 to 4095.|501| True
+|`mtu` | Maximum transmission unit is 1500 by default, if not specified.|1500|
+|`administrativeState`|	Enable/Disable indicate the administrative state of the isolationDomain.|Enable|
+| `subscriptionId`      | Your Azure subscriptionId for your Azure Operator Nexus instance. |
+| `provisioningState`   | Indicates provisioning state. |
 
 ## L2 Isolation-Domain
 
-You use an L2 isolation-domain to establish layer 2 connectivity between workloads running on Operator Nexus compute nodes.
+You use an L2 isolation-domain to establish layer 2 connectivity between workloads running on Azure Operator Nexus compute nodes.
 
 ### Create L2 isolation-domain
 
@@ -227,17 +224,17 @@ Please use show or list command to validate that isolation-domain is deleted. De
 
 ## L3 isolation-domain
 
-Layer 3 isolation-domain enables layer 3 connectivity between workloads running on Operator Nexus compute nodes.
+Layer 3 isolation-domain enables layer 3 connectivity between workloads running on Azure Operator Nexus compute nodes.
 The L3 isolation-domain enables the workloads to exchange layer 3 information with Network fabric devices.
 
 Layer 3 isolation-domain has two components: Internal and External Networks.
 At least one or more internal networks are required to be created.
-The internal networks define layer 3 connectivity between NFs running in Operator Nexus compute nodes and an optional external network.
+The internal networks define layer 3 connectivity between NFs running in Azure Operator Nexus compute nodes and an optional external network.
 The external network provides connectivity between the internet and internal networks via your PEs.
 
 L3 isolation-domain enables deploying workloads that advertise service IPs to the fabric via BGP.
 Fabric ASN refers to the ASN of the network devices on the Fabric. The Fabric ASN was specified while creating the Network fabric.
-Peer ASN refers to ASN of the Network Functions in Operator Nexus, and it can't be the same as Fabric ASN.
+Peer ASN refers to ASN of the Network Functions in Azure Operator Nexus, and it can't be the same as Fabric ASN.
 
 The workflow for a successful provisioning of an L3 isolation-domain is as follows:
   - Create a L3 isolation-domain
