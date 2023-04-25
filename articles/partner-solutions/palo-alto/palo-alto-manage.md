@@ -12,11 +12,11 @@ ms.date: 04/25/2023
 Once your Cloud NGFW by Palo Alto Networks Preview resource is created in the Azure portal, you might need to get information about it or change it. Here's list of ways to manage your Palo Alto resource.
 
 - [Networking and NAT](#networking-and-nat)
-- [Configure Rulestack](#configure-the-Rulestack)
-- [Enable Log settings](#enable-log-settings)
-- [Enable DNS Proxy](#enable-dns-proxy)
-- [Configure Rules](#configure-rules)
-- [Delete an Palo Alto deployment](#delete-an-palo-alto-deployment)
+- [Rulestack](#rulestack)
+- [Log settings](#log-settings)
+- [DNS Proxy](#dns-proxy)
+- [Rules](#rules)
+- [Delete a Cloud NGFW by Palo Alto Networks resource](#delete-a-cloud-ngfw-by-palo-alto-networks-resource)
 
 From the Resource menu, select your Cloud NGFW by Palo Alto Networks deployment. Use the Resource menu to move through the settings for your Cloud NGFW by Palo Alto Networks.
 
@@ -64,7 +64,7 @@ From the Resource menu, select your Cloud NGFW by Palo Alto Networks deployment.
 
 Search for  the Local rules under the **Search** option.
 
-## Delete an Cloud NGFW by Palo Alto Networks
+## Delete a Cloud NGFW by Palo Alto Networks resource
 
 To delete a Cloud NGFW by Palo Alto Networks resource
 
