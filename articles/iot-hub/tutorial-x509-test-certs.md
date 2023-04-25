@@ -36,8 +36,15 @@ The following tutorial uses [OpenSSL](https://www.openssl.org/) and the [OpenSSL
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 * An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](iot-hub-create-through-portal.md).
-* An [OpenSSL](https://www.openssl.org/) installation. If you don't have OpenSSL installed, see the [Where can I get a compiled version of OpenSSL](https://www.openssl.org/docs/faq.html#MISC5) section of the [OpenSSL FAQ](https://www.openssl.org/docs/faq.html) for more information, or you can download and build OpenSSL from [https://www.openssl.org/source/](https://www.openssl.org/source/).
+
+* The latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
+
+* An [OpenSSL](https://www.openssl.org/) installation. On Windows, your installation of Git includes an installation of OpenSSL. You can access OpenSSL from the Git Bash prompt. To verify that OpenSSL is installed, open a Git Bash prompt and enter `openssl version`.
+
+  >[!NOTE]
+  > Unless you're familiar with OpenSSL and already have it installed on your Windows machine, we recommend using OpenSSL from the Git Bash prompt. Alternatively, you can choose to download the source code and build OpenSSL. To learn more, see the [OpenSSL Downloads](https://www.openssl.org/source/) page. Or, you can download OpenSSL pre-built from a third-party. To learn more, see the [OpenSSL wiki](https://wiki.openssl.org/index.php/Binaries). Microsoft makes no guarantees about the validity of packages downloaded from third-parties. If you do choose to build or download OpenSSL make sure that the OpenSSL binary is accessible in your path and that the `OPENSSL_CNF` environment variable is set to the path of your *openssl.cnf* file.
 
 ## Create a root CA
 
@@ -47,13 +54,13 @@ You must first create an internal root certificate authority (CA) and a self-sig
 - Create a configuration file used by OpenSSL to configure your root CA and certificates created with your root CA
 - Request and create a self-signed CA certificate that serves as your root CA certificate
 
-1. Start a Bash window and run the following command, replacing *{base_dir}* with the desired directory in which to create the root CA.
+1. Start a Git Bash window and run the following command, replacing *{base_dir}* with the desired directory in which to create the root CA.
 
     ```bash
     cd {base_dir}
     ```
 
-1. In the Bash window, run the following commands, one at a time. This step creates the following directory structure and support files for the root CA.
+1. In the Git Bash window, run the following commands, one at a time. This step creates the following directory structure and support files for the root CA.
 
     | Directory or file | Description |
     | --- | --- |
@@ -69,6 +76,7 @@ You must first create an internal root certificate authority (CA) and a self-sig
     mkdir rootca
     cd rootca
     mkdir certs db private
+    chmod 700 private
     touch db/index
     openssl rand -hex 16 > db/serial
     echo 1001 > db/crlnumber
@@ -103,7 +111,7 @@ You must first create an internal root certificate authority (CA) and a self-sig
     commonName               = "{rootca_common_name}"
     
     [ca_default]
-    home                     = .
+    home                     = ../rootca
     database                 = $home/db/index
     serial                   = $home/db/serial
     crlnumber                = $home/db/crlnumber
@@ -156,16 +164,27 @@ You must first create an internal root certificate authority (CA) and a self-sig
     subjectKeyIdentifier     = hash    
     ```
 
-1. In the Bash window, run the following command to generate a certificate signing request (CSR) in the *rootca* directory and a private key in the *rootca/private* directory. For more information about the OpenSSL `req` command, see the [openssl-req](https://www.openssl.org/docs/man3.1/man1/openssl-req.html) manual page in OpenSSL documentation.
+1. In the Git Bash window, run the following command to generate a certificate signing request (CSR) in the *rootca* directory and a private key in the *rootca/private* directory. For more information about the OpenSSL `req` command, see the [openssl-req](https://www.openssl.org/docs/man3.1/man1/openssl-req.html) manual page in OpenSSL documentation.
 
     > [!NOTE]
     > Even though this root CA is for testing purposes and won't be exposed as part of a public key infrastructure (PKI), we recommend that you do not copy or share the private key.
+
+    # [Windows](#tab/windows)
+
+    ```bash
+    winpty openssl req -new -config rootca.conf -out rootca.csr \
+      -keyout private/rootca.key
+    ```
+
+    # [Linux](#tab/linux)
 
     ```bash
     openssl req -new -config rootca.conf -out rootca.csr \
       -keyout private/rootca.key
     ```
-    
+
+    ---
+     
     You're prompted to enter a PEM pass phrase, as shown in the following example, for the private key file. Enter and confirm a pass phrase to generate your private key and CSR.
 
     ```bash
@@ -176,12 +195,23 @@ You must first create an internal root certificate authority (CA) and a self-sig
     
     Confirm that the CSR file, *rootca.csr*, is present in the *rootca* directory and the private key file, *rootca.key*, is present in the *rootca/private* directory before continuing. For more information about the formats of the CSR and private key files, see [X.509 certificates](reference-x509-certificates.md#certificate-formats).
 
-1. In the Bash window, run the following command to create a self-signed root CA certificate. The command applies the `ca_ext` configuration file extensions to the certificate. These extensions indicate that the certificate is for a root CA and can be used to sign certificates and certificate revocation lists (CRLs). For more information about the OpenSSL `ca` command, see the [openssl-ca](https://www.openssl.org/docs/man3.1/man1/openssl-ca.html) manual page in OpenSSL documentation.
+1. In the Git Bash window, run the following command to create a self-signed root CA certificate. The command applies the `ca_ext` configuration file extensions to the certificate. These extensions indicate that the certificate is for a root CA and can be used to sign certificates and certificate revocation lists (CRLs). For more information about the OpenSSL `ca` command, see the [openssl-ca](https://www.openssl.org/docs/man3.1/man1/openssl-ca.html) manual page in OpenSSL documentation.
+
+    # [Windows](#tab/windows)
+
+    ```bash
+    winpty openssl ca -selfsign -config rootca.conf -in rootca.csr -out rootca.crt \
+      -extensions ca_ext
+    ```
+
+    # [Linux](#tab/linux)
 
     ```bash
     openssl ca -selfsign -config rootca.conf -in rootca.csr -out rootca.crt \
       -extensions ca_ext
     ```
+
+    ---
 
     You're prompted to provide the PEM pass phrase, as shown in the following example, for the private key file. After providing the pass phrase, OpenSSL generates a certificate, then prompts you to sign and commit the certificate for your root CA. Specify *y* for both prompts to generate the self-signed certificate for your root CA. 
 
@@ -214,13 +244,13 @@ Similar to your root CA, the files used to create and maintain your subordinate 
 > * Create a configuration file used by OpenSSL to configure your subordinate CA and certificates created with your subordinate CA
 > * Request and create a CA certificate signed by your root CA that serves as your subordinate CA certificate
 
-1. Start a Bash window and run the following command, replacing *{base_dir}* with the directory that contains your previously created root CA.
+1. Start a Git Bash window and run the following command, replacing *{base_dir}* with the directory that contains your previously created root CA.
 
     ```bash
     cd {base_dir}
     ```
 
-1. In the Bash window, run the following commands, one at a time, replacing the following placeholders with their corresponding values. 
+1. In the Git Bash window, run the following commands, one at a time, replacing the following placeholders with their corresponding values. 
 
     | Placeholder | Description |
     | --- | --- |
@@ -232,6 +262,7 @@ Similar to your root CA, the files used to create and maintain your subordinate 
     mkdir {subca_dir}
     cd {subca_dir}
     mkdir certs db private
+    chmod 700 private
     touch db/index
     openssl rand -hex 16 > db/serial
     echo 1001 > db/crlnumber
@@ -262,7 +293,7 @@ Similar to your root CA, the files used to create and maintain your subordinate 
     commonName               = "{subca_common_name}"
     
     [ca_default]
-    home                     = .
+    home                     = ../{subca_name}
     database                 = $home/db/index
     serial                   = $home/db/serial
     crlnumber                = $home/db/crlnumber
@@ -315,13 +346,24 @@ Similar to your root CA, the files used to create and maintain your subordinate 
     subjectKeyIdentifier     = hash    
     ```
     
-1. In the Bash window, run the following commands to generate a private key and a certificate signing request (CSR) in the subordinate CA directory.
+1. In the Git Bash window, run the following commands to generate a private key and a certificate signing request (CSR) in the subordinate CA directory.
+
+    # [Windows](#tab/windows)
+
+    ```bash
+    winpty openssl req -new -config subca.conf -out subca.csr \
+      -keyout private/subca.key
+    ```
+
+    # [Linux](#tab/linux)
 
     ```bash
     openssl req -new -config subca.conf -out subca.csr \
       -keyout private/subca.key
     ```
 
+    ---
+    
     You're prompted to enter a PEM pass phrase, as shown in the following example, for the private key file. Enter and verify a pass phrase to generate your private key and CSR.
     
     ```bash
@@ -332,12 +374,23 @@ Similar to your root CA, the files used to create and maintain your subordinate 
     
     Confirm that the CSR file, *subca.csr*, is present in the subordinate CA directory and the private key file, *subca.key*, is present in the *private* subdirectory of the subordinate CA directory before continuing. For more information about the formats of the CSR and private key files, see [X.509 certificates](reference-x509-certificates.md#certificate-formats).
 
-1. In the Bash window, run the following command to create a subordinate CA certificate in the subordinate CA directory. The command applies the `sub_ca_ext` configuration file extensions to the certificate. These extensions indicate that the certificate is for a subordinate CA and can also be used to sign certificates and certificate revocation lists (CRLs). Unlike the root CA certificate, this certificate isn't self-signed. Instead, the subordinate CA certificate is signed with the root CA certificate, establishing a certificate chain similar to what you would use for a public key infrastructure (PKI). The subordinate CA certificate is then used to sign client certificates for testing your devices.
+1. In the Git Bash window, run the following command to create a subordinate CA certificate in the subordinate CA directory. The command applies the `sub_ca_ext` configuration file extensions to the certificate. These extensions indicate that the certificate is for a subordinate CA and can also be used to sign certificates and certificate revocation lists (CRLs). Unlike the root CA certificate, this certificate isn't self-signed. Instead, the subordinate CA certificate is signed with the root CA certificate, establishing a certificate chain similar to what you would use for a public key infrastructure (PKI). The subordinate CA certificate is then used to sign client certificates for testing your devices.
+
+    # [Windows](#tab/windows)
+
+    ```bash
+    winpty openssl ca -config ../rootca/rootca.conf -in subca.csr -out subca.crt \
+      -extensions sub_ca_ext
+    ```
+
+    # [Linux](#tab/linux)
 
     ```bash
     openssl ca -config ../rootca/rootca.conf -in subca.csr -out subca.crt \
       -extensions sub_ca_ext
     ```
+
+    ---
 
     You're prompted to enter the pass phrase, as shown in the following example, for the private key file of your root CA. After you enter the pass phrase, OpenSSL generates and displays the details of the certificate, then prompts you to sign and commit the certificate for your subordinate CA. Specify *y* for both prompts to generate the certificate for your subordinate CA. 
 
@@ -391,13 +444,13 @@ Perform the following steps to:
 > * Create a private key and certificate signing request (CSR) for a client certificate
 > * Create a client certificate signed by your subordinate CA certificate
 
-1. Start a Bash window and run the following command, replacing *{base_dir}* with the directory that contains your previously created root CA and subordinate CA.
+1. Start a Git Bash window and run the following command, replacing *{base_dir}* with the directory that contains your previously created root CA and subordinate CA.
 
     ```bash
     cd {base_dir}
     ```
 
-1. In the Bash window, run the following commands, one at a time, replacing the following placeholders with their corresponding values. This step creates the private key and CSR for your client certificate.
+1. In the Git Bash window, run the following commands, one at a time, replacing the following placeholders with their corresponding values. This step creates the private key and CSR for your client certificate.
 
     | Placeholder | Description |
     | --- | --- |
@@ -406,12 +459,25 @@ Perform the following steps to:
     
     This step creates a 2048-bit RSA private key for your client certificate, and then generates a certificate signing request (CSR) using that private key.
 
+    # [Windows](#tab/windows)
+
+    ```bash
+    cd {subca_dir}
+    winpty openssl genpkey -out private/{device_name}.key -algorithm RSA \
+      -pkeyopt rsa_keygen_bits:2048
+    winpty openssl req -new -key private/{device_name}.key -out {device_name}.csr
+    ```
+
+    # [Linux](#tab/linux)
+
     ```bash
     cd {subca_dir}
     openssl genpkey -out private/{device_name}.key -algorithm RSA \
       -pkeyopt rsa_keygen_bits:2048
     openssl req -new -key private/{device_name}.key -out {device_name}.csr
     ```
+
+    ---
 
     You're prompted to provide certificate details, as shown in the following example. Replace the following placeholders with the corresponding values. 
 
@@ -440,13 +506,24 @@ Perform the following steps to:
 
     Confirm that the CSR file is present in the subordinate CA directory and the private key file is present in the *private* subdirectory of the subordinate CA directory before continuing. For more information about the formats of the CSR and private key files, see [X.509 certificates](reference-x509-certificates.md#certificate-formats).
 
-1. In the Bash window, run the following command, replacing the following placeholders with their corresponding values. This step creates a client certificate in the subordinate CA directory. The command applies the `client_ext` configuration file extensions to the certificate. These extensions indicate that the certificate is for a client certificate, which can't be used as a CA certificate. The client certificate is signed with the subordinate CA certificate.
+1. In the Git Bash window, run the following command, replacing the following placeholders with their corresponding values. This step creates a client certificate in the subordinate CA directory. The command applies the `client_ext` configuration file extensions to the certificate. These extensions indicate that the certificate is for a client certificate, which can't be used as a CA certificate. The client certificate is signed with the subordinate CA certificate.
+
+    # [Windows](#tab/windows)
+
+    ```bash
+    winpty openssl ca -config subca.conf -in {device_name}.csr -out {device_name}.crt \
+      -extensions client_ext
+    ```
+
+    # [Linux](#tab/linux)
 
     ```bash
     openssl ca -config subca.conf -in {device_name}.csr -out {device_name}.crt \
       -extensions client_ext
     ```
-    
+
+    ---
+
     You're prompted to enter the pass phrase, as shown in the following example, for the private key file of your subordinate CA. After you enter the pass phrase, OpenSSL generates and displays the details of the certificate, then prompts you to sign and commit the client certificate for your device. Specify *y* for both prompts to generate the client certificate. 
 
     ```bash
