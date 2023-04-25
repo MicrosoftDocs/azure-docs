@@ -58,8 +58,7 @@ az containerapp ingress enable \
 
 | Option | Property | Description | Values | Required |
 | --- | --- | --- | --- | --- |
-| `--type` | external | Allow ingress to your app from anywhere, or limit ingress to its internal 
- Container Apps environment. | `external` or `internal`  | Yes |
+| `--type` | external | Allow ingress to your app from anywhere, or limit ingress to its internal Container Apps environment. | `external` or `internal`  | Yes |
 |`--allow-insecure` | allowInsecure | Allow HTTP connections to your app. |  | No |
 | `--target-port` | targetPort | The port your container listens to for incoming requests. | Set this value to the port number that your container uses. Your application ingress endpoint is always exposed on port `443`. | Yes |
 |`--exposed-port` | exposedPort | (TCP ingress only) An port for TCP ingress. If `external` is `true`, the value must be unique in the Container Apps environment if ingress is external. | A port number from `1` to `65535`. (can't be `80` or `443`) | No |
