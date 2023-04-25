@@ -4,7 +4,7 @@ description: An overview of Azure Elastic SAN Preview, a service that enables yo
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/11/2023
+ms.date: 04/24/2023
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: ignite-2022, devx-track-azurepowershell, devx-track-azurecli
@@ -66,18 +66,18 @@ Configuring service endpoints between virtual networks and service instances in 
 
 When planning for disaster recovery during a regional outage, you should create the VNets in the paired region in advance. Enable service endpoints for Azure Storage, with network rules granting access from these alternative virtual networks. Then apply these rules to your geo-redundant storage accounts.
 
-#### Azure Storage global service endpoints
+#### Azure Storage cross-region service endpoints
 
-Global service endpoints for Azure became generally available in April of 2023. With global service endpoints, subnets will no longer use a public IP address to communicate with any storage account. Instead, all the traffic from subnets to storage accounts will use a private IP address as a source IP. As a result, any storage accounts that use IP network rules to permit traffic from those subnets will no longer have an effect.
+Cross-region service endpoints for Azure became generally available in April of 2023. With cross-region service endpoints, subnets will no longer use a public IP address to communicate with any storage account. Instead, all the traffic from subnets to storage accounts will use a private IP address as a source IP. As a result, any storage accounts that use IP network rules to permit traffic from those subnets will no longer have an effect.
 
-To use global service endpoints, it might be necessary to delete existing **Microsoft.Storage** endpoints and recreate them as global (**Microsoft.Storage.Global**).
+To use cross-region service endpoints, it might be necessary to delete existing **Microsoft.Storage** endpoints and recreate them as cross-region (**Microsoft.Storage.Global**).
 
 ## Managing virtual network rules
 
-You can manage virtual network rules for volume groups through the Azure portal, PowerShell, or CLI. 
+You can manage virtual network rules for volume groups through the Azure portal, PowerShell, or CLI.
 
 > [!NOTE]
-> If you registered the `AllowGlobalTagsForStorage` feature, and you want to enable access to your volumes from a virtual network/subnet in another Azure AD tenant, or in a region other than the region of the SAN or its paired region, then you must use PowerShell or the Azure CLI. The Azure portal does not show subnets in other Azure AD tenants or in regions other than the region of the storage account or its paired region, and hence cannot be used to configure access rules for virtual networks in other regions.
+> If you want to enable access to your storage account from a virtual network/subnet in another Azure AD tenant, you must use PowerShell or the Azure CLI. The Azure portal does not show subnets in other Azure AD tenants.
 
 ### [Portal](#tab/azure-portal)
 

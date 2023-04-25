@@ -11,8 +11,8 @@ items:
 - name: Quickstarts
   expanded: true
   items: 
-    - name: Explore a free trial
-      href: quickstart-trial-explore-features.md 
+    - name: Set up a free trial
+      href: quickstart-trial-setup.md 
 - name: Samples
   expanded: true
   items: 
