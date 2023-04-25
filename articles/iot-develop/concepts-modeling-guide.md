@@ -642,7 +642,7 @@ There's a DTDL authoring extension for VS Code.
 
 To install the DTDL extension for VS Code, go to [DTDL editor for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl). You can also search for **DTDL** in the **Extensions** view in VS Code.
 
-When you've installed the extension, use it to help you author DTDL model files in VS code:
+When you've installed the extension, use it to help you author DTDL model files in VS Code:
 
 - The extension provides syntax validation in DTDL model files, highlighting errors as shown on the following screenshot:
 
