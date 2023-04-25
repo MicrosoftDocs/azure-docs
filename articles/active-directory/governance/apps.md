@@ -1,8 +1,8 @@
 ---
-title: SaaS App Integration Tutorials for use with Azure AD
-description: Configure Azure Active Directory single sign-on integration with a variety of third-party software as a service applications.
+title: Entra Identity Governance Integrations
+description: This page provides a single place for the tutorials to the various entra identity governance integrations.
 services: active-directory
-author: jeevansd
+author: thomasakelo, arvinh
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -35,8 +35,8 @@ This page provides a single place for the tutorials to the various entra identit
 
 ## Full list of provisioning integrations
 | Application | Automated provisioning | Single Sign On (SSO)|
-| :--- | :---  | :--- |
-| [4me](https://learn.microsoft.com/azure/active-directory/saas-apps/4me-provisioning-tutorial) | ● | ● | 
+| :--- | :-:  | :-: |
+| [4me](https://learn.microsoft.com/azure/active-directory/saas-apps/4me-provisioning-tutorial) | ● | ●| 
 | [8x8](https://learn.microsoft.com/azure/active-directory/saas-apps/8x8-provisioning-tutorial) | ● | ● |
 | [15five](https://learn.microsoft.com/azure/active-directory/saas-apps/15five-provisioning-tutorial) | ● | ● |
 | [Acunetix 360](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
