@@ -174,9 +174,43 @@ To start a job execution using the ARM REST API, make a *POST* request to the jo
 POST https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/my-resource-group/providers/Microsoft.App/jobs/my-job/start?api-version=2022-11-01-preview
 ```
 
+Replace `<subscription_id>` with your subscription ID.
+
 To authenticate the request, add an `Authorization` header with a valid bearer token. For more information, see [Azure REST API reference](/rest/api/azure).
 
 ---
+
+## Get job execution status
+
+Each Container Apps job maintains a history of recent job executions.
+
+# [Azure CLI](#tab/azure-cli)
+
+To get the status of a job execution using the Azure CLI, use the `az containerapp job executionhistory` command. The following example gets the status of the most recent execution of a job named `my-job` in a resource group named `my-resource-group`:
+
+```azurecli
+az containerapp job executionhistory --name my-job --resource-group my-resource-group
+```
+
+# [Azure Resource Manager](#tab/azure-resource-manager)
+
+To get the status of a job execution using the ARM REST API, make a *GET* request to the job's `executions` operation. The following example gets the status of the most recent execution of a job named `my-job` in a resource group named `my-resource-group`:
+
+```http
+GET https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/my-resource-group/providers/Microsoft.App/jobs/my-job/executions?api-version=2022-11-01-preview
+```
+
+Replace `<subscription_id>` with your subscription ID.
+
+To authenticate the request, add an `Authorization` header with a valid bearer token. For more information, see [Azure REST API reference](/rest/api/azure).
+
+---
+
+To list all executions of a job or to get detailed output from a job, query the logs provider configured for your Container Apps environment.
+
+
+
+
 
 ## Next steps
 
