@@ -207,10 +207,6 @@ The following code calls the Image Analysis API and prints the results for all v
 
 [!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/1/Program.cs?name=analyze)]
 
-The above code uses the following helper method to display the coordinates of a bounding polygon:
-
-[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/1/Program.cs?name=polygon-to-string)]
-
 #### [Python](#tab/python)
 
 The following code calls the Image Analysis API and prints the results for all visual features using the standard model.
@@ -373,17 +369,49 @@ The following code calls the Image Analysis API and prints the results for the v
 The sample code above for getting analysis results shows how to handle errors and get the [ImageAnalysisErrorDetails](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysiserrordetails) object that contains the error information. This includes:
 
 * Error reason. See enum [ImageAnalysisErrorReason](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysiserrorreason).
-* Error code and error message. Click on the REST tab to see a list of common error codes and messages.
+* Error code and error message. Click on the REST tab to see a list of some common error codes and messages.
 
-In addition to those, the SDK has a few unique error messages ...
+In addition to those errors, the SDK has a few additional error messages, including:
+  * `Missing Image Analysis options: You must set at least one visual feature (or model name) for the 'analyze' operation. Or set segmentation mode for the 'segment' operation`
+  * `Invalid combination of Image Analysis options: You cannot set both visual features (or model name), and segmentation mode`
+
+Make sure the [ImageAnalysisOptions](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions) object is set correctly to fix the above. 
+
+In general, if you run into an issue, please first have a look at the [Image Analysis Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk) repository. Find the closest sample to your scenario and run it.
 
 #### [Python](#tab/python)
 
+The sample code above for getting analysis results shows how to handle errors and get the [ImageAnalysisErrorDetails](/python/api/azure-ai-vision/azure.ai.vision.imageanalysiserrordetails) object that contains the error information. This includes:
+
+* Error reason. See enum [ImageAnalysisErrorReason](/python/api/azure-ai-vision/azure.ai.vision.enums.imageanalysiserrorreason).
+* Error code and error message. Click on the REST tab to see a list of some common error codes and messages.
+
+In addition to those errors, the SDK has a few additional error messages, including:
+  * `Missing Image Analysis options: You must set at least one visual feature (or model name) for the 'analyze' operation. Or set segmentation mode for the 'segment' operation`
+  * `Invalid combination of Image Analysis options: You cannot set both visual features (or model name), and segmentation mode`
+
+Make sure the [ImageAnalysisOptions](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions) object is set correctly to fix the above. 
+
+In general, if you run into an issue, please first have a look at the [Image Analysis Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk) repository. Find the closest sample to your scenario and run it.
+
 #### [C++](#tab/cpp)
+
+The sample code above for getting analysis results shows how to handle errors and get the [ImageAnalysisErrorDetails](/cpp/cognitive-services/vision/imageanalysis-imageanalysiserrordetails) object that contains the error information. This includes:
+
+* Error reason. See enum [ImageAnalysisErrorReason](TODO).
+* Error code and error message. Click on the REST tab to see a list of some common error codes and messages.
+
+In addition to those errors, the SDK has a few additional error messages, including:
+  * `Missing Image Analysis options: You must set at least one visual feature (or model name) for the 'analyze' operation. Or set segmentation mode for the 'segment' operation`
+  * `Invalid combination of Image Analysis options: You cannot set both visual features (or model name), and segmentation mode`
+
+Make sure the [ImageAnalysisOptions](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions) object is set correctly to fix the above. 
+
+In general, if you run into an issue, please first have a look at the [Image Analysis Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk) repository. Find the closest sample to your scenario and run it.
 
 #### [REST](#tab/rest)
 
-On error the Image Analysis service response will be a JSON payload that includes an error code and error message. It will optionally include additional details in the form of and inner error code and message. For example:
+On error the Image Analysis service response will contain a JSON payload that includes an error code and error message. It may also include additional details in the form of and inner error code and message. For example:
 
 ```json
 {
@@ -411,23 +439,26 @@ List of common errors:
 * `400 Bad Request`
   * `InvalidRequest - Image URL is badly formatted or not accessible`. Make sure the image URL is valid and publicly accessible.
   * `InvalidRequest - The image size is not allowed to be zero or larger than 20971520 bytes`. Reduce the size of the image by compressing it and/or resizing, and resubmit your request.
+  * `InvalidRequest - The feature 'Caption' is not supported in this region`. The feature is only support in specific Azure regions. See [Quickstart prerequisites](../quickstarts-sdk/image-analysis-client-library-40) sections for the list of supported Azure regions.
+  * `InvalidRequest - The provided image content type ... is not supported`. The HTTP header **Content-Type** in the request is not an allowed type:
+    * For an image URL, **Content-Type** should be `application/json`
+    * For a binary image data, **Content-Type** should be `application/octet-stream` or `multipart/form-data`
+  * `InvalidRequest - Either 'features' or 'model-name' needs to be specified in the query parameter`. 
   * `InvalidRequest - Image format is not valid`
     * `InvalidImageFormat - Image format is not valid`. See the [Image requirements](..\overview-image-analysis?tabs=4-0#image-requirements) section for supported image formats.
   * `InvalidRequest - Analyze query is invalid`
     * `NotSupportedVisualFeature - Specified feature type is not valid`. Make sure the **features** query string has a valid value.
+    * `NotSupportedLanguage - The input language is not supported`. Make sure the **language** query string has a valid value for the selected visual feature, based on the [following table](https://aka.ms/cv-languages).
+    * `BadArgument - 'smartcrops-aspect-ratios' aspect ratio is not in allowed range [0.75 to 1.8]`
 * `401 PermissionDenied`
   * `401 - Access denied due to invalid subscription key or wrong API endpoint. Make sure to provide a valid key for an active subscription and use a correct regional API endpoint for your resource`.
+* `404 Resource Not Found`
+  * `404 - Resource not found`. The service could not find the custom model based on the name provided by the 'model-name' query string.
 
-<!--
+<!-- Add any of those if/when you have a working example:
     * `NotSupportedImage` - Unsupported image, for example child pornography.
     * `InvalidDetails` - Unsupported `detail` parameter value.
-    * `NotSupportedLanguage` - The requested operation isn't supported in the language specified.
     * `BadArgument` - More details are provided in the error message.
-* `401 PermissionDenied`
-  * `401 - Access denied due to invalid subscription key or wrong API endpoint. Make sure to provide a valid key for an active subscription and use a correct regional API endpoint for your resource`.
-* `415 - Unsupported media type error`. The Content-Type isn't in the allowed types:
-    * For an image URL, Content-Type should be `application/json`
-    * For a binary image data, Content-Type should be `application/octet-stream` or `multipart/form-data`
 * `500`
     * `FailedToProcess`
     * `Timeout` - Image processing timed out.
