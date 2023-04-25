@@ -16,7 +16,7 @@ Azure Lab Services provides built-in Azure role-based access control (Azure RBAC
 
 Azure role-based access control (RBAC) is an authorization system built on [Azure Resource Manager](/azure/azure-resource-manager/management/overview) that provides fine-grained access management of Azure resources.
 
-With Azure RBAC, you create a *role definition* that outlines the permissions to be applied. You then assign a user or group this role definition via a role assignment for a particular scope. The scope can be an individual resource, a resource group, or across the subscription.
+Azure RBAC specifies built-in role definitions that outline the permissions to be applied. You assign a user or group this role definition via a role assignment for a particular scope. The scope can be an individual resource, a resource group, or across the subscription. In the next section, you learn which [built-in roles](#built-in-roles) Azure Lab Services supports.
 
 For more information, see [What is Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview)?
 
@@ -65,7 +65,7 @@ The following table shows common lab activities and the role that's needed for a
 
 | Activity | Role type | Role | Scope |
 | -------- | --------- | ---- | ----- |
-| Grant permission to create a resource group. The resource group needs to exist *before* a lab plan or lab can be created. | Administrator | [Owner](#owner-role) or [Contributor](#contributor-role) | Subscription |
+| Grant permission to create a resource group. A resource group is a logical container in Azure to hold the lab plans and labs. *Before* you can create a lab plan or lab, this resource group needs to exist. | Administrator | [Owner](#owner-role) or [Contributor](#contributor-role) | Subscription |
 | Grant permission to submit a Microsoft support ticket, including to [request capacity](./capacity-limits.md). | Administrator | [Owner](#owner-role), [Contributor](#contributor-role), [Support Request Contributor](/azure/role-based-access-control/built-in-roles#support-request-contributor) | Subscription |
 | Grant permission to: <br/>- Assign roles to other users.<br/>- Create/manage lab plans, labs, and other resources within the resource group.<br/>- Enable/disable marketplace and custom images on a lab plan.<br/>- Attach/detach compute gallery on a lab plan. | Administrator | [Owner](#owner-role) | Resource group |
 | Grant permission to: <br/>- Create/manage lab plans, labs, and other resources within the resource group.<br/>- Enable or disable Azure Marketplace and custom images on a lab plan.<br/>- Attach or detach a compute gallery on a lab plan.<br/><br/>However, *not* the ability to assign roles to other users. | Administrator | [Contributor](#contributor-role) | Resource group |
@@ -103,7 +103,7 @@ The following table compares the different administrator roles when they're assi
 Assign the Owner role to give a user full control to create or manage lab plans and labs, and grant permissions to other users. When a user has the Owner role on the resource group, they can do the following activities across all resources within the resource group:
 
 - Assign roles to administrators, so they can manage lab-related resources.
-- Assign roles to educators so they can create and manage labs.
+- Assign roles to lab managers, so they can create and manage labs.
 - Create lab plans and labs.
 - View, delete, and change settings for all lab plans, including attaching or detaching the compute gallery and enabling or disabling Azure Marketplace and custom images on lab plans.
 - View, delete, and change settings for all labs.
@@ -180,18 +180,18 @@ Assign the Lab Assistant role on the *resource group or lab*.
 
 When you assign the Lab Assistant role on the resource group, the user:
 
-- Can view all labs within the resource group and start, stop, or reset student virtual machines for each lab.
+- Can view all labs within the resource group and start, stop, or reset lab virtual machines for each lab.
 - Can’t delete or make any other changes to the labs.
 
 When you assign the Lab Assistant role on the lab, the user:
 
-- Can view the assigned lab and start, stop, or reset student virtual machines.
+- Can view the assigned lab and start, stop, or reset lab virtual machines.
 - Can’t delete or make any other changes to the lab.
 - Can’t create new labs.
 
 ### Lab Services Reader role
 
-The Lab Services Reader role allows users to view existing labs. User can’t make any changes to existing labs. 
+Assign the Lab Services Reader role to grant a user permission view existing labs. The user can’t make any changes to existing labs.
 
 Assign the Lab Services Reader role on the *resource group or lab*.
 
@@ -207,7 +207,7 @@ When you assign the Lab Services Reader role on the lab, the user can:
 
 ## Identity and access management (IAM)
 
-The **Access control (IAM)** page in the Azure portal is used to configure Azure role-based access control on Azure Lab Services resources. The roles are applied to users, groups, service principals, and managed identities in Active Directory. You can use built-in roles or custom roles for individuals and groups. The following screenshot shows Active Directory integration (Azure RBAC) using access control (IAM) in the Azure portal:
+The **Access control (IAM)** page in the Azure portal is used to configure Azure role-based access control on Azure Lab Services resources. You can use built-in roles for individuals and groups in Active Directory. The following screenshot shows Active Directory integration (Azure RBAC) using access control (IAM) in the Azure portal:
 
 :::image type="content" source="./media/concept-lab-services-role-based-access-control/azure-portal-access-control.png" alt-text="Screenshot that shows the Access Control page in the Azure portal to manage role assignments.":::
 
