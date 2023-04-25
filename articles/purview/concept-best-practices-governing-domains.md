@@ -90,11 +90,11 @@ Next, we’ll grant our finance curators data curator access to the finance coll
 
 Now we can define key terms for these domains. It’s important for everyone at Contoso to have a shared understanding of core terms like order and account. If we were working with specialized finance or supply chain terms, we could create individual glossaries for these domains, but for now we’ll centralize terms in an enterprise glossary. 
 
-![Key terms]!(/media/concept-best-practices-domains/04-key-terms.png)
+![Screenshot from Purview glossary page showing two terms, 'account' and 'order' in the 'Contoso Enterprise Glossary'.](media/concept-best-practices-domains/04-key-terms.png)
 
 Let’s make sure to assign stewards and experts for these terms as well. Experts are people who understand the full context of an asset or glossary term and can help answer questions, provide context, and disambiguate differences between terms when used in different contexts. Stewards are responsible for governance¬—ensuring a term is reviewed, standardized, and approved for use.
 
-![Screenshot from Purview glossary page showing two terms, 'account' and 'order' in the 'Contoso Enterprise Glossary'.](media/concept-best-practices-domains/04-key-terms.png)
+![Screenshot from Purview glossary contacts page showing an Expert named Vishal and a Steward named Sunetra.](media/concept-best-practices-domains/05-glossary-contacts.png)
 
 ### Step 3: Use assets and asset types to model your domain
 
