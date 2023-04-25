@@ -13,6 +13,12 @@ ms.author: cshoe
 
 Azure Container Apps jobs enable you to run containerized workloads that execute for a finite duration and then terminate successfully. You can use jobs to perform tasks such as data processing, machine learning, and more.
 
+## Compare container apps and jobs
+
+Container apps are containerized services that run until their replicas are stopped by a scale-in or revision deactivation event. If a replica fails, it's restarted automatically. Examples of container apps include web apps, APIs, and background services that continuously process messages from a queue. Scale rules can be configured to automatically scale the number of container app replicas based on events.
+
+Jobs are containerized tasks that start, run for a finite duration, and exit when finished. Job executions are started manually or on a schedule and are considered complete when its replicas exit. A job replica may be configured to retry a failed execution a specified number of times. Examples of jobs include on-demand batch processing and scheduled tasks. You can query job executions and their statuses.
+
 ## Job types
 
 There are two types of jobs:
