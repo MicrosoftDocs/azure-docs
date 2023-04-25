@@ -1,4 +1,14 @@
-VMware Tanzu components
+---
+title: VMware Tanzu components
+description: Learn about what's Tanzu component
+author: 
+ms.author: taoxu0903
+ms.service: spring-apps
+ms.topic: concept
+ms.date: 04/25/2023
+ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022, engagement-fy23, references_regions
+---
+#VMware Tanzu components
 
 VMware Tanzu components are commercial products offered in VMware Tanzu Application Platform, which is an application development platform with a rich set of developer tools. In Azure Spring Apps Enterprise, we offer them as managed components with no operation cost from customers to help with a wide range of developer scenarios such as routing requests, managing APIs, managing application configuration, registering and discovering services, monitoring applications in real-time, and accelerating development with project templates.
 
