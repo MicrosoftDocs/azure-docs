@@ -75,13 +75,13 @@ Use the following steps to enable Azure Active Directory authentication to acces
 1. In the navigation pane, select **Authentication** and then select **Add identity provider** on the main pane.
 1. On the **Add an identity provider** page, select **Microsoft** from the **Identity provider** dropdown menu.
 
-   :::image type="content" source="media/spring-cloud-tutorial-managed-identities-functions/add-identity-provider.png" alt-text="Screenshot of the Azure portal showing the Add an identity provider page with Microsoft highlighted in the identity provider dropdown menu." lightbox="media/spring-cloud-tutorial-managed-identities-functions/add-identity-provider.png":::
+   :::image type="content" source="media/tutorial-managed-identities-functions/add-identity-provider.png" alt-text="Screenshot of the Azure portal showing the Add an identity provider page with Microsoft highlighted in the identity provider dropdown menu." lightbox="media/tutorial-managed-identities-functions/add-identity-provider.png":::
 
 1. Select **Add**.
 1. For the **Basics** settings on the **Add an identity provider** page, set **Supported account types** to **Any Azure AD directory - Multi-tenant**.
 1. Set **Unauthenticated requests** to **HTTP 401 Unauthorized: recommended for APIs**. This setting ensures that all unauthenticated requests are denied (401 response).
 
-   :::image type="content" source="media/spring-cloud-tutorial-managed-identities-functions/identity-provider-settings.png" alt-text="Screenshot of the Azure portal showing the settings page for adding an identity provider. This page highlights the 'supported account types' setting set to the 'Any Azure AD directory Multi tenant' option and also highlights the 'Unauthenticated requests' setting set to the 'HTTP 401 Unauthorized recommended for APIs' option." lightbox="media/spring-cloud-tutorial-managed-identities-functions/identity-provider-settings.png":::
+   :::image type="content" source="media/tutorial-managed-identities-functions/identity-provider-settings.png" alt-text="Screenshot of the Azure portal showing the settings page for adding an identity provider. This page highlights the 'supported account types' setting set to the 'Any Azure AD directory Multi tenant' option and also highlights the 'Unauthenticated requests' setting set to the 'HTTP 401 Unauthorized recommended for APIs' option." lightbox="media/tutorial-managed-identities-functions/identity-provider-settings.png":::
 
 1. Select **Add**.
 
@@ -91,11 +91,11 @@ You need the Application ID and the Application ID URI for later use. In the Azu
 
 To get the Application ID, select **Authentication** in the navigation pane, and then copy the **App (client) ID** value for the identity provider that includes the name of the Function app.
 
-:::image type="content" source="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-3.png" alt-text="Screenshot of the Azure portal showing the Authentication page for a Function app, with the Function app name highlighted in the Identity provider." lightbox="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-3.png":::
+:::image type="content" source="media/tutorial-managed-identities-functions/function-auth-config-3.png" alt-text="Screenshot of the Azure portal showing the Authentication page for a Function app, with the Function app name highlighted in the Identity provider." lightbox="media/tutorial-managed-identities-functions/function-auth-config-3.png":::
 
 To get the Application ID URI, select **Expose an API** in the navigation pane, and then copy the **Application ID URI** value.
 
-:::image type="content" source="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-4.png" alt-text="Screenshot of the Azure portal showing the Expose an API page for a Function app with the Application ID URI highlighted." lightbox="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-4.png":::
+:::image type="content" source="media/tutorial-managed-identities-functions/function-auth-config-4.png" alt-text="Screenshot of the Azure portal showing the Expose an API page for a Function app with the Application ID URI highlighted." lightbox="media/tutorial-managed-identities-functions/function-auth-config-4.png":::
 
 ## Create an HTTP triggered function
 
