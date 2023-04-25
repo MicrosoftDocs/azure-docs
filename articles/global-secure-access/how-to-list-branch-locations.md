@@ -15,10 +15,10 @@ ms.custom:
 Learn how to list all branch office locations for Global Secure Access.
 
 ## Prerequisites 
-- Global Secure Access license for your Microsoft Entra Identity tenant.  
+- Microsoft Entra Internet Access premium license for your Microsoft Entra Identity tenant.  
 - Entra Network Access Administrator role in Microsoft Entra Identity.
-- Microsoft Graph module when using PowerShell.
-- Admin consent when using Graph explorer for Microsoft Graph API. 
+- The *Microsoft Graph* module must be installed to use PowerShell.
+- Admin consent is required when using Graph explorer for the Microsoft Graph API. 
 
 ## List all branch locations
 List all branch locations in your tenant.
