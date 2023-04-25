@@ -30,28 +30,34 @@ You can also export monitoring data from Azure Monitor into other systems so you
   - Integrate with other third-party and open-source monitoring and visualization tools
   - Integrate with ticketing and other ITSM systems
 
+If you are a System Center Operations Manager (SCOM) user, Azure Monitor now includes [SCOM Managed Instance (SCOM MI)](./vm/scom-managed-instance-overview.md) as an option.  SCOM MI is a cloud-hosted version of System Center Operations Manager (SCOM). 
+
+
 ## Monitoring and observability
 
-Observability is the ability to assess an internal system’s state based on the data it produces. An observability solution analyzes output data, provides an assessment of the system’s health, and offers actionable insights for addressing problems across your IT infrastructure.
+**Observability** is the ability to assess an internal system’s state based on the data it produces. An observability solution analyzes output data, provides an assessment of the system’s health, and offers actionable insights for addressing problems across your IT infrastructure.
 
-Observability wouldn’t be possible without monitoring. Monitoring is the collection and analysis of data pulled from IT systems.
+Observability wouldn’t be possible without monitoring. Monitoring is the collection and analysis of data pulled from IT systems. When a system is observable, a user can identify the root cause of a performance problem by looking at the data it produces without additional testing or coding. 
 
-The pillars of observability are the different kinds of data that a monitoring tool must collect and analyze to provide sufficient observability of a monitored system. Metrics, logs, and distributed traces are commonly referred to as the pillars of observability. Azure Monitor adds “changes” to these pillars. 
+The pillars of observability are the different kinds of data that a monitoring tool must collect and analyze to provide sufficient observability of a monitored system. Metrics, logs, and distributed traces are commonly referred to as the pillars of observability. Azure Monitor adds "changes" to these pillars.
 
-When a system is observable, a user can identify the root cause of a performance problem by looking at the data it produces without additional testing or coding.
 Azure Monitor achieves observability by correlating data from multiple pillars and aggregating data across the entire set of monitored resources. Azure Monitor provides a common set of tools to correlate and analyze the data from multiple Azure subscriptions and tenants, in addition to data hosted for other services. 
 
 ## High level architecture
 
 The following diagram gives a high-level view of Azure Monitor. Click on the diagram to show an even more detailed expanded version. 
 
-:::image type="content" source="media/overview/overview-2023-02.png" alt-text="Diagram that shows an overview of Azure Monitor with data sources on the left sending data to a central data platform and features of Azure Monitor on the right that use the collected data." border="false" lightbox="media/overview/overview-2023-02-expanded-opt.svg":::
+:::image type="content" source="media/overview/overview-04-25-2023-scom-mi-simplier-opt.svg" alt-text="Diagram that shows an overview of Azure Monitor with data sources on the left sending data to a central data platform and features of Azure Monitor on the right that use the collected data." border="false" lightbox="media/overview/overview-04-25-2023-scom-mi-expanded-opt.svg":::
 
 The diagram depicts the Azure Monitor system components:
-- The **[data sources](data-sources.md)** are the types of data collected from each monitored resource. The data is collected and routed to the **data platform**.
-- The **[data platform](data-platform.md)** is made up of the data stores for collected data. Azure Monitor's data platform has stores for metrics, logs, traces, and changes.
-- The functions and components that consume data include analysis, visualizations, insights, and responses.
-- Services that integrate with Azure Monitor and provide additional functionality are marked with an asterisk * in the diagram.
+- The **[data sources](data-sources.md)** are the types of data collected from each monitored resource. 
+- The data is **collected and routed** to the data platform. Clicking on the diagram shows the larger expanded version showing the collection options, which are also called out in detail later in this article. 
+- The **[data platform](data-platform.md)** is made up of the data stores for collected data. Azure Monitor's data platform has stores for metrics, logs, traces, and changes. SCOM MI (preview) uses it's own database hosted in SQL Server Managed Instance. 
+- The **consumption** section shows the components that use data from the data platform. This includes insights, visualizations, and responses. The SCOM MI path uses the traditional Ops Console that SCOM customers are already familiar with. 
+- Interoperability options are shown in the **integrate** section.  Not all services integrate at all level. SCOM MI only integrates with Power BI.   
+
+The service Azure Monitor now includes [SCOM Managed Instance (SCOM MI)](./vm/scom-managed-instance-overview.md) in preview. It allows existing customers of System Center Operations Manager (SCOM) to maintain their investment in SCOM while moving their monitoring infrastructure into the Azure cloud. This first iteretation of SCOM MI has it's own data path and does not use the rest of the Azure Monitor data path (Data )
+
 
 ## Data sources
 
@@ -74,25 +80,6 @@ Azure Monitor collects these types of data:
 
 For detailed information about each of the data sources, see [data sources](./data-sources.md).
 
-## Data platform
-
-Azure Monitor stores data in data stores for each of the pillars of observability: metrics, logs, distributed traces, and changes. Each store is optimized for specific types of data and monitoring scenarios.
-
-:::image type="content" source="media/overview/data-platform-box.svg" alt-text="Diagram that shows an overview of Azure Monitor data platform." border="false" lightbox="media/overview/data-platform-blowup-type-2.svg":::
-
-Click on the picture above for a to see the Data Platform in the context of the whole of Azure Monitor. 
-
-|Pillar of Observability/<br>Data Store|Description|
-|---------|---------|
-|[Azure Monitor Metrics](essentials/data-platform-metrics.md)|Metrics are numerical values that describe an aspect of a system at a particular point in time. [Azure Monitor Metrics](./essentials/data-platform-metrics.md) is a time-series database, optimized for analyzing time-stamped data. Azure Monitor collects metrics at regular intervals. Metrics are identified with a timestamp, a name, a value, and one or more defining labels. They can be aggregated using algorithms, compared to other metrics, and analyzed for trends over time. It supports native Azure Monitor metrics and [Prometheus metrics](essentials/prometheus-metrics-overview.md).|
-|[Azure Monitor Logs](logs/data-platform-logs.md)|Logs are recorded system events. Logs can contain different types of data, be structured or free-form text, and they contain a timestamp. Azure Monitor stores structured and unstructured log data of all types in [Azure Monitor Logs](./logs/data-platform-logs.md). You can route data to [Log Analytics workspaces](./logs/log-analytics-overview.md) for querying and analysis.|
-|Traces|[Distributed tracing](app/distributed-tracing.md) allows you to see the path of a request as it travels through different services and components. Azure Monitor gets distributed trace data from [instrumented applications](app/app-insights-overview.md#how-do-i-instrument-an-application). The trace data is stored in a separate workspace in Azure Monitor Logs.|
-|Changes|Changes are a series of events in your application and resources. They're  tracked and stored when you use the [Change Analysis](./change/change-analysis.md) service, which uses [Azure Resource Graph](../governance/resource-graph/overview.md) as its store. Change Analysis helps you understand which changes, such as deploying updated code, may have caused issues in your systems.|
-
-Distributed tracing is a technique used to trace requests as they travel through a distributed system. It allows you to see the path of a request as it travels through different services and components. It helps you to identify performance bottlenecks and troubleshoot issues in a distributed system.
-
-For less expensive, long-term archival of monitoring data for auditing or compliance purposes, you can export to [Azure Storage](/azure/storage/).
-
 ## Data collection and routing
 
 Azure Monitor collects and routes monitoring data using a few different mechanisms depending on the data being routed and the destination.  Much like a road system built over time, not all roads lead to all locations. Some are legacy, some new, and some are better to take than others given how Azure Monitor has evolved over time. For more information, see **[data sources](data-sources.md)**.
@@ -114,6 +101,25 @@ Click on the diagram to see a larger version of the data collection in context.
 A common way to route monitoring data to other non-Microsoft tools is using *Event hubs*. See more in the [Integrate](#integrate) section below.
 
 For detailed information about data collection, see [data collection](./best-practices-data-collection.md).
+
+## Data platform
+
+Azure Monitor stores data in data stores for each of the pillars of observability: metrics, logs, distributed traces, and changes. Each store is optimized for specific types of data and monitoring scenarios.
+
+:::image type="content" source="media/overview/data-platform-box.svg" alt-text="Diagram that shows an overview of Azure Monitor data platform." border="false" lightbox="media/overview/data-platform-blowup-type-2.svg":::
+
+Click on the picture above for a to see the Data Platform in the context of the whole of Azure Monitor. 
+
+|Pillar of Observability/<br>Data Store|Description|
+|---------|---------|
+|[Azure Monitor Metrics](essentials/data-platform-metrics.md)|Metrics are numerical values that describe an aspect of a system at a particular point in time. [Azure Monitor Metrics](./essentials/data-platform-metrics.md) is a time-series database, optimized for analyzing time-stamped data. Azure Monitor collects metrics at regular intervals. Metrics are identified with a timestamp, a name, a value, and one or more defining labels. They can be aggregated using algorithms, compared to other metrics, and analyzed for trends over time. It supports native Azure Monitor metrics and [Prometheus metrics](essentials/prometheus-metrics-overview.md).|
+|[Azure Monitor Logs](logs/data-platform-logs.md)|Logs are recorded system events. Logs can contain different types of data, be structured or free-form text, and they contain a timestamp. Azure Monitor stores structured and unstructured log data of all types in [Azure Monitor Logs](./logs/data-platform-logs.md). You can route data to [Log Analytics workspaces](./logs/log-analytics-overview.md) for querying and analysis.|
+|Traces|[Distributed tracing](app/distributed-tracing.md) allows you to see the path of a request as it travels through different services and components. Azure Monitor gets distributed trace data from [instrumented applications](app/app-insights-overview.md#how-do-i-instrument-an-application). The trace data is stored in a separate workspace in Azure Monitor Logs.|
+|Changes|Changes are a series of events in your application and resources. They're  tracked and stored when you use the [Change Analysis](./change/change-analysis.md) service, which uses [Azure Resource Graph](../governance/resource-graph/overview.md) as its store. Change Analysis helps you understand which changes, such as deploying updated code, may have caused issues in your systems.|
+
+Distributed tracing is a technique used to trace requests as they travel through a distributed system. It allows you to see the path of a request as it travels through different services and components. It helps you to identify performance bottlenecks and troubleshoot issues in a distributed system.
+
+For less expensive, long-term archival of monitoring data for auditing or compliance purposes, you can export to [Azure Storage](/azure/storage/).
 
 ## Consumption
 
