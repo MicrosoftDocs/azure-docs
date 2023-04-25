@@ -33,7 +33,7 @@ Learn how to assign a traffic profile to a branch office location for Global Sec
 1. Select **Save**.
 
 ### Assign a traffic profile to a branch location using the API
-Traffic profiles, also known as forwarding profiles, determine what traffic is routed to the Microsoft network. Associating a traffic profile to your branch location is two step process. First, get the ID of the traffic profile. The ID is important because it is different for all tenants. Second, associate the traffic profile with your desired branch location.
+Traffic profiles, also known as forwarding profiles, determine what traffic is routed to the Microsoft network. Associating a traffic profile to your branch location is two step process. First, get the ID of the traffic profile. The ID is important because it's different for all tenants. Second, associate the traffic profile with your desired branch location.
 
 To update a branch using the Microsoft Graph API in Graph Explorer. 
 1. Open a web browser and navigate to the Graph Explorer at https://aka.ms/ge.
