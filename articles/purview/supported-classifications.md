@@ -6251,8 +6251,6 @@ Complex pattern that accounts for formatted IPv6 numbers (which include colons)
 
 #### Pattern
 
-##### Microsoft.Miscellaneous.IPAddress
-(Display name: IP Address)
 - 000.00.000.00
 - 000.000.00.00
 - 00.000.000.00
@@ -6263,12 +6261,6 @@ Complex pattern that accounts for formatted IPv6 numbers (which include colons)
 - 0a0a:a000:00a::
 - 0000:0000:0000:00::0
 - 0a00:00a0:a000:0000:a00a:a00a:00a:aaa0
-
-##### Microsoft.Personal.IPAddress
-(Display name: Personal IP Address)
-
-000.000.000.000
-
 
 #### Checksum
 
@@ -6287,29 +6279,13 @@ No
 
 -------------------------------------
 
-### IP Address v4
+### Personal IP Address
 
 #### Format
 
-Complex pattern that accounts for formatted (periods) and unformatted (no periods) versions of the IPv4 addresses
+Complex pattern that accounts for formatted (periods) versions of the IPv4 addresses
 
 #### Pattern
-
-##### Microsoft.Miscellaneous.IPAddress
-(Display name: IP Address)
-- 000.00.000.00
-- 000.000.00.00
-- 00.000.000.00
-- 000.000.000.00
-- 000.000.000.000
-- 0000:0000:00a0:0:00a:0b00:0a0a:0ea
-- 0000:0000:0000::00:00:000:0
-- 0a0a:a000:00a::
-- 0000:0000:0000:00::0
-- 0a00:00a0:a000:0000:a00a:a00a:00a:aaa0
-
-##### Microsoft.Personal.IPAddress
-(Display name: Personal IP Address)
 
 000.000.000.000
 
@@ -6330,48 +6306,6 @@ No
 
 -------------------------------------
 
-### IP Address v6
-
-#### Format
-
-Complex pattern that accounts for formatted IPv6 numbers (which include colons)
-
-#### Pattern
-
-##### Microsoft.Miscellaneous.IPAddress
-(Display name: IP Address)
-- 000.00.000.00
-- 000.000.00.00
-- 00.000.000.00
-- 000.000.000.00
-- 000.000.000.000
-- 0000:0000:00a0:0:00a:0b00:0a0a:0ea
-- 0000:0000:0000::00:00:000:0
-- 0a0a:a000:00a::
-- 0000:0000:0000:00::0
-- 0a00:00a0:a000:0000:a00a:a00a:00a:aaa0
-
-##### Microsoft.Personal.IPAddress
-(Display name: Personal IP Address)
-
-000.000.000.000
-
-#### Checksum
-
-No
-
-#### Keywords
-
-##### Keyword_ipaddress
-
-- IP (case sensitive)
-- ip address
-- ip addresses
-- internet protocol
-- IP-כתובת ה
-
-
--------------------------------------
 
 ### Ireland driver's license number
 
