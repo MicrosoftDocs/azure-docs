@@ -137,3 +137,7 @@ The overall resource compliance is 95% (19 out of 20).
 :::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Screenshot of policy compliance details from Compliance page." border="false":::
 
 ## Next steps
+
+- Learn how to [get compliance data](../how-to/get-compliance-data.md)
+- Learn how to [determine causes of non-compliance](../how-to/determine-non-compliance.md)
+- Get compliance data through [ARG query samples](../samples/resource-graph-samples.md)
