@@ -1,7 +1,7 @@
 ---
 title: What is Azure Deployment Environments?
-description: 'Azure Deployment Environments enables developer teams to quickly spin up app infrastructure with project-based templates, minimizing setup time while maximizing security, compliance, and cost efficiency.'
 titleSuffix: Azure Deployment Environments
+description: Enable developer teams to spin up app infrastructure with project-based templates, minimize setup time & maximize security, compliance, and cost efficiency.
 ms.service: deployment-environments
 ms.custom: ignite-2022
 ms.topic: overview

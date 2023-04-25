@@ -15,11 +15,11 @@ ms.date: 10/13/2021
 # Data schemas to train computer vision models with automated machine learning (v1)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
-	
+    
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
 > * [v1](reference-automl-images-schema-v1.md)
-> * [v2 (current version)](../reference-automl-images-schema.md)
-	
+> * [v2 (current version)](../reference-automl-images-schema.md?view=azureml-api-2&preserve-view=true)
+    
 [!INCLUDE [cli-version-info](../../../includes/machine-learning-cli-version-1-only.md)]
 
 > [!IMPORTANT]
@@ -404,7 +404,7 @@ In instance segmentation, output consists of multiple boxes with their scaled to
 ```
 
 > [!NOTE]
-> The images used in this article are from the Fridge Objects dataset, copyright © Microsoft Corporation and available at [computervision-recipes/01_training_introduction.ipynb](https://github.com/microsoft/computervision-recipes/blob/master/scenarios/detection/01_training_introduction.ipynb) under the [MIT License](https://github.com/microsoft/computervision-recipes/blob/master/LICENSE). 
+> The images used in this article are from the Fridge Objects dataset, copyright &copy; Microsoft Corporation and available at [computervision-recipes/01_training_introduction.ipynb](https://github.com/microsoft/computervision-recipes/blob/master/scenarios/detection/01_training_introduction.ipynb) under the [MIT License](https://github.com/microsoft/computervision-recipes/blob/master/LICENSE). 
 
 ## Next steps
 

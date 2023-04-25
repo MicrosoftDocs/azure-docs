@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: quickstart
 ms.tool: azure-powershell
-ms.custom: mvc, contperf-fy21q2, mode-api
+ms.custom: mvc, contperf-fy21q2, mode-api, devx-track-azurepowershell
 ms.date: 08/20/2022
 ---
 

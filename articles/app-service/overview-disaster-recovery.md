@@ -19,7 +19,7 @@ For IT, business continuity plans are largely driven by two metrics:
 - Recovery Time Objective (RTO) – the time duration in which your application must come back online after an outage. 
 - Recovery Point Objective (RPO) – the acceptable amount of data loss in a disaster, expressed as a unit of time (for example, 1 minute of transactional database records). 
 
-Normally, maintaining an SLA around RTO is impractical for regional disasters, and you would typically design your disaster recovery strategy around RPO alone (i.e. focus on recovering data and not on minimizing interruption). With Azure, however, it's not only practical but could even be straightforward to deploy App Service for automatic geo-failovers. This lets you disaster-proof your applications further by take care of both RTO and RPO.
+Normally, maintaining an SLA around RTO is impractical for regional disasters, and you would typically design your disaster recovery strategy around RPO alone (i.e. focus on recovering data and not on minimizing interruption). With Azure, however, it's not only practical but could even be straightforward to deploy App Service for automatic geo-failovers. This lets you disaster-proof your applications further by taking care of both RTO and RPO.
 
 Depending on your desired RTO and RPO metrics, three disaster recovery architectures are commonly used, as shown in the following table:
  

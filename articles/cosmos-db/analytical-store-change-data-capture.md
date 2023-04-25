@@ -7,26 +7,33 @@ ms.author: rosouz
 ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/23/2023
+ms.date: 04/03/2023
 ---
 
-# Change Data Capture in Azure Cosmos DB analytical store
+# Change Data Capture in Azure Cosmos DB analytical store (preview)
 
 [!INCLUDE[NoSQL, MongoDB](includes/appliesto-nosql-mongodb.md)]
 
-Change data capture (CDC) in [Azure Cosmos DB analytical store](analytical-store-introduction.md) allows you to efficiently consume a continuous and incremental feed of changed (inserted, updated, and deleted) data from analytical store. The change data capture feature of the analytical store is seamlessly integrated with Azure Synapse and Azure Data Factory, providing you with a scalable no-code experience for high data volume. As the change data capture feature is based on analytical store, it [doesn't consume provisioned RUs, doesn't affect your transactional workloads](analytical-store-introduction.md#decoupled-performance-for-analytical-workloads), provides lower latency, and has lower TCO.
+Change data capture (CDC) in [Azure Cosmos DB analytical store](analytical-store-introduction.md) allows you to efficiently consume a continuous and incremental feed of changed (inserted, updated, and deleted) data from analytical store. Seamlessly integrated with Azure Synapse and Azure Data Factory, it provides you with a scalable no-code experience for high data volume. As the change data capture feature is based on analytical store, it [doesn't consume provisioned RUs, doesn't affect your transactional workloads](analytical-store-introduction.md#decoupled-performance-for-analytical-workloads), provides lower latency, and has lower TCO.
 
-:::image type="content" source="media\analytical-store-change-data-capture\overview-diagram.png" alt-text="Diagram of the analytical store in Azure Cosmos DB and how it, with change data capture, can write to various first and third-party target services.":::
+The change data capture feature in Azure Cosmos DB analytical store can write to various sinks using an Azure Synapse or Azure Data Factory data flow.
+
+:::image type="content" source="media\analytical-store-change-data-capture\overview-diagram.svg" alt-text="Diagram of the analytical store in Azure Cosmos DB and how it, with change data capture, can write to various first and third-party target services.":::
+
+For more information on supported sink types in a mapping data flow, see [data flow supported sink types](../data-factory/data-flow-sink.md#supported-sinks).
 
 In addition to providing incremental data feed from analytical store to diverse targets, change data capture supports the following capabilities:
 
-- Supports applying filters, projections and transformations on the Change feed via source query
 - Supports capturing deletes and intermediate updates
 - Ability to filter the change feed for a specific type of operation (**Insert** | **Update** | **Delete** | **TTL**)
-- Each change in Container appears exactly once in the change data capture feed, and the checkpoints are managed internally for you
-- Changes can be synchronized from “the Beginning” or “from a given timestamp” or “from now”
-- There's no limitation around the fixed data retention period for which changes are available
+- Supports applying filters, projections and transformations on the Change feed via source query
 - Multiple change feeds on the same container can be consumed simultaneously
+- Each change in container appears exactly once in the change data capture feed, and the checkpoints are managed internally for you
+- Changes can be synchronized "from the Beginning” or “from a given timestamp” or “from now”
+- There's no limitation around the fixed data retention period for which changes are available
+
+> [!IMPORTANT]
+> Please note that if the "Start from beginning" option is selected, the initial load includes a full snapshot of container data in the first run, and changed or incremental data is captured in subsequent runs. Similarly, when the "Start from timestamp" option is selected, the initial load processes the data from the given timestamp, and incremental or changed data is captured in subsequent runs. The `Capture intermediate updates`, `Capture Deletes` and `Capture Transactional store TTLs`, which are found under the [source options](get-started-change-data-capture.md) tab, determine if intermediate updates and deletes are captured in sinks.
 
 ## Features
 
@@ -53,6 +60,11 @@ WHERE Category = 'Urban'
 > [!NOTE]
 > If you would like to enable source-query based change data capture on Azure Data Factory data flows during preview, please email [cosmosdbsynapselink@microsoft.com](mailto:cosmosdbsynapselink@microsoft.com) and share your **subscription Id** and **region**. This is not necessary to enable source-query based change data capture on an Azure Synapse data flow.
 
+### Multiple CDC processes
+
+You can create multiple processes to consume CDC in analytical store. This approach brings flexibility to support different scenarios and requirements. While one process may have no data transformations and multiple sinks, another one can have data flattening and one sink. And they can run in parallel.
+
+
 ### Throughput isolation, lower latency and lower TCO
 
 Operations on Cosmos DB analytical store don't consume the provisioned RUs and so don't affect your transactional workloads. change data capture with analytical store also has lower latency and lower TCO. The lower latency is attributed to analytical store enabling better parallelism for data processing and reduces the overall TCO enabling you to drive cost efficiencies in these rapidly shifting economic conditions.
@@ -75,7 +87,7 @@ You can use analytical store change data capture, if you're currently using or p
 
 ### Incremental feed to analytical platform of your choice
 
-change data capture capability enables end-to-end analytical story providing you with the flexibility to use Azure Cosmos DB data on analytical platform of your choice seamlessly. It also enables you to bring Cosmos DB data into a centralized data lake and join with data from diverse data sources. For more information, see [supported sink types](../data-factory/data-flow-sink.md#supported-sinks). You can flatten the data, apply more transformations either in Azure Synapse Analytics or Azure Data Factory.
+Change data capture capability enables an end-to-end analytical solution providing you with the flexibility to use Azure Cosmos DB data with any of the supported sink types. For more information on supported sink types, see [data flow supported sink types](../data-factory/data-flow-sink.md#supported-sinks). Change data capture also enables you to bring Azure Cosmos DB data into a centralized data lake and join the data with data from other diverse sources. You can flatten the data, partition it, and apply more transformations either in Azure Synapse Analytics or Azure Data Factory.
 
 ## Change data capture on Azure Cosmos DB for MongoDB containers
 

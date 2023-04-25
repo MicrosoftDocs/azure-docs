@@ -1,7 +1,7 @@
 ---
 title: Configure a managed identity
 titleSuffix: Azure Deployment Environments
-description: Learn how to configure a managed identity to deploy environments in your Azure Deployment Environments Preview dev center.
+description: Learn how to configure a managed identity to deploy environments in your Azure Deployment Environments dev center.
 ms.service: deployment-environments
 ms.custom: ignite-2022
 author: RoseHJM
@@ -10,7 +10,7 @@ ms.date: 10/12/2022
 ms.topic: how-to
 ---
 
-# Configure a managed identity
+# Configure a managed identity for a dev center
 
 A [managed identity](../active-directory/managed-identities-azure-resources/overview.md) adds elevated-privileges capabilities and secure authentication to any service that supports Azure Active Directory (Azure AD) authentication. Azure Deployment Environments Preview uses identities to give development teams self-serve deployment capabilities without giving them access to the subscriptions in which Azure resources are created.
 

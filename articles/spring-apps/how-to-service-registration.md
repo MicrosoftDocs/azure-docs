@@ -19,6 +19,9 @@ zone_pivot_groups: programming-languages-spring-apps
 
 This article shows you how to register your application using Spring Cloud Service Registry.
 
+> [!NOTE]
+> The discover and register feature for the Standard consumption plan is currently under private preview. To sign up for this feature, fill in the form at [Azure Spring Apps Consumption - Fully Managed Spring Eureka & Config - Private Preview](https://aka.ms/asa-consumption-middleware-signup).
+
 Service registration and discovery are key requirements for maintaining a list of live app instances to call, and routing and load balancing inbound requests. Configuring each client manually takes time and introduces the possibility of human error. Azure Spring Apps provides two options for you to solve this problem:
 
 * Use Kubernetes Service Discovery approach to invoke calls among your apps.

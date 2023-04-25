@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/27/2023
+ms.date: 03/28/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -43,7 +43,7 @@ To access the insights and reporting workbook:
 
 The insights and reporting dashboard lets you see the impact of one or more Conditional Access policies over a specified period. Start by setting each of the parameters at the top of the workbook. 
 
-![Conditional Access Insights and Reporting dashboard in the Azure portal](./media/howto-conditional-access-insights-reporting/conditional-access-insights-and-reporting-dashboard.png)
+:::image type="content" source="media/howto-conditional-access-insights-reporting/conditional-access-insights-and-reporting-dashboard.png" alt-text="Screenshot showing the Conditional Access insights and reporting workbook." lightbox="media/howto-conditional-access-insights-reporting/conditional-access-insights-and-reporting-dashboard-expanded.png":::
 
 **Conditional Access policy**: Select one or more Conditional Access policies to view their combined impact. Policies are separated into two groups: Enabled and Report-only policies. By default, all Enabled policies are selected. These enabled policies are the policies currently enforced in your tenant.  
 
@@ -59,7 +59,7 @@ The insights and reporting dashboard lets you see the impact of one or more Cond
 
 Once the parameters have been set, the impact summary loads. The summary shows how many users or sign-ins during the time range resulted in “Success”, “Failure”, ”User action required” or “Not applied” when the selected policies were evaluated.  
 
-![Impact summary in the Conditional Access workbook](./media/howto-conditional-access-insights-reporting/workbook-impact-summary.png)
+![Screenshot showing an example impact summary in the Conditional Access workbook.](./media/howto-conditional-access-insights-reporting/workbook-impact-summary.png)
 
 **Total**: The number of users or sign-ins during the time period where at least one of the selected policies was evaluated.
 
@@ -73,15 +73,15 @@ Once the parameters have been set, the impact summary loads. The summary shows h
 
 ### Understanding the impact 
 
-![Workbook breakdown per condition and status](./media/howto-conditional-access-insights-reporting/workbook-breakdown-condition-and-status.png)
+![Screenshot showing a workbook breakdown per condition and status.](./media/howto-conditional-access-insights-reporting/workbook-breakdown-condition-and-status.png)
 
 View the breakdown of users or sign-ins for each of the conditions. You can filter the sign-ins of a particular result (for example, Success or Failure) by selecting on of the summary tiles at the top of the workbook. You can see the breakdown of sign-ins for each of the Conditional Access conditions: device state, device platform, client app, location, application, and sign-in risk.  
 
 ## Sign-in details 
 
-![Workbook sign-in details](./media/howto-conditional-access-insights-reporting/workbook-sign-in-details.png)
+![Screenshot showing workbook sign-in details.](./media/howto-conditional-access-insights-reporting/workbook-sign-in-details.png)
 
-You can also investigate the sign-ins of a specific user by searching for sign-ins at the bottom of the dashboard. The query on the left displays the most frequent users. Selecting a user filters the query to the right.  
+You can also investigate the sign-ins of a specific user by searching for sign-ins at the bottom of the dashboard. The query displays the most frequent users. Selecting a user filters the query.  
 
 > [!NOTE]
 > When downloading the Sign-ins logs, choose JSON format to include Conditional Access report-only result data.
@@ -110,7 +110,7 @@ In order to access the workbook, you need the proper Azure AD permissions and Lo
 1. Type `SigninLogs` into the query box and select **Run**.
 1. If the query doesn't return any results, your workspace may not have been configured correctly. 
 
-![Troubleshoot failing queries](./media/howto-conditional-access-insights-reporting/query-troubleshoot-sign-in-logs.png)
+![Screenshot showing how to troubleshoot failing queries.](./media/howto-conditional-access-insights-reporting/query-troubleshoot-sign-in-logs.png)
 
 For more information about how to stream Azure AD sign-in logs to a Log Analytics workspace, see the article [Integrate Azure AD logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
 

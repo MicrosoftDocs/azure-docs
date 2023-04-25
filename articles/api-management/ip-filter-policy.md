@@ -29,14 +29,13 @@ The `ip-filter` policy filters (allows/denies) calls from specific IP addresses 
 
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-| address-range from="address" to="address" | A range of IP addresses to allow or deny access for.                                        | Required when the `address-range` element is used. | N/A     |
-| action    | Specifies whether calls should be allowed (`allow`) or not (`forbid`) for the specified IP addresses and ranges. | Yes                                                | N/A     |
+| action    | Specifies whether calls should be allowed (`allow`) or not (`forbid`) for the specified IP addresses and ranges. Policy expressions are allowed. | Yes                                                | N/A     |
 
 ## Elements
 
 | Element                                      | Description                                         | Required                                                       |
 | ----------------------------------------- | --------------------------------------------------- | -------------------------------------------------------------- |
-| address                                   | Add one or more of these elements to specify a single IP address on which to filter.   | At least one `address` or `address-range` element is required. |
+| address                                   | Add one or more of these elements to specify a single IP address on which to filter. Policy expressions are allowed.  | At least one `address` or `address-range` element is required. |
 | address-range | Add one or more of these elements to specify a range of IP addresses `from` "address" `to` "address" on which to filter. | At least one `address` or `address-range` element is required. |
 
 

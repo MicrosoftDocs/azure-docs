@@ -22,15 +22,15 @@ To learn more, see [Azure Data Factory overview](introduction.md) or [Azure Syna
 
 ## Overview
 
-When you perform data integration and ETL processes in the cloud, your jobs can perform much better and be more effective when you only read the source data that has changed since the last time the pipeline ran, rather than always querying an entire dataset on each run. ADF provides multiple different ways for you to easily get delta data only from the last run.
+When you perform data integration and ETL processes in the cloud, your jobs can perform better and be more effective when you only read the source data that has changed since the last time the pipeline ran, rather than always querying an entire dataset on each run. ADF provides multiple different ways for you to easily get delta data only from the last run.
 
 ### Change Data Capture factory resource
 
-The easiest and quickest way to get started in data factory with CDC is through the factory level Change Data Capture resource. From the main pipeline designer, click on New under Factory Resources to create a new Change Data Capture. The CDC factory resource will provide a configuration walk-through experience where you will point to your sources and destinations, apply optional transformations, and then click start to begin your data capture. With the CDC resource, you will not need to design pipelines or data flow activities and the only billing will be 4 cores of General Purpose data flows while your data in being processed. You set a latency which ADF will use to wake-up and look for changed data. That is the only time you will be billed. The top-level CDC resource is also the ADF method of running your processes continuously. Pipelines in ADF are batch only. But the CDC resource can run continuously.
+The easiest and quickest way to get started in data factory with CDC is through the factory level Change Data Capture resource. From the main pipeline designer, click on **New** under Factory Resources to create a new Change Data Capture. The CDC factory resource provides a configuration walk-through experience where you can select your sources and destinations, apply optional transformations, and then click start to begin your data capture. With the CDC resource, you do not need to design pipelines or data flow activities. You are also only billed for four cores of General Purpose data flows while your data in being processed. You can set a preferred latency, which ADF will use to wake up and look for changed data. That is the only time you will be billed. The top-level CDC resource is also the ADF method of running your processes continuously. Pipelines in ADF are batch only, but the CDC resource can run continuously.
 
 ### Native change data capture in mapping data flow
 
-The changed data including inserted, updated and deleted rows can be automatically detected and extracted by ADF mapping data flow from the source databases.  No timestamp or ID columns are required to identify the changes since it uses the native change data capture technology in the databases.  By simply chaining a source transform and a sink transform reference to a database dataset in a mapping data flow, you will see the changes happened on the source database to be automatically applied to the target database, so that you can easily synchronize data between two tables.  You can also add any transformations in between for any business logic to process the delta data. When defining your sink data destination, you can set insert, update, upsert, and delete operations in your sink without the need of an Alter Row transformation because ADF is able to automatically detect the row makers.
+The changed data including inserted, updated and deleted rows can be automatically detected and extracted by ADF mapping data flow from the source databases.  No timestamp or ID columns are required to identify the changes since it uses the native change data capture technology in the databases.  By simply chaining a source transform and a sink transform reference to a database dataset in a mapping data flow, you can see the changes happened on the source database to be automatically applied to the target database, so that you can easily synchronize data between two tables.  You can also add any transformations in between for any business logic to process the delta data. When defining your sink data destination, you can set insert, update, upsert, and delete operations in your sink without the need of an Alter Row transformation because ADF is able to automatically detect the row makers.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5bkg2]
 
@@ -40,6 +40,7 @@ The changed data including inserted, updated and deleted rows can be automatical
 -   [SQL Server](connector-sql-server.md)
 -   [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md)
 -   [Azure Cosmos DB (SQL API)](connector-azure-cosmos-db.md)
+-   [Azure Cosmos DB analytical store](../cosmos-db/analytical-store-introduction.md)
 
 ### Auto incremental extraction in mapping data flow
 
@@ -71,7 +72,7 @@ You can always build your own delta data extraction pipeline for all ADF support
 
 **Change files capture from file based storages**
 
--   When you want to load data from Azure Blob Storage, Azure Data Lake Storage Gen2 or Azure Data Lake Storage Gen1, mapping data flow provides you the opportunity to get new or updated files only by simple one click. It is the simplest and recommended way for you to achieve delta load from these file based storages in mapping data flow. 
+-   When you want to load data from Azure Blob Storage, Azure Data Lake Storage Gen2 or Azure Data Lake Storage Gen1, mapping data flow provides you with the opportunity to get new or updated files only by simple one click. It is the simplest and recommended way for you to achieve delta load from these file based storages in mapping data flow. 
 -   You can get more [best practices](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/best-practices-of-how-to-use-adf-copy-activity-to-copy-new-files/ba-p/1532484). 
 
 

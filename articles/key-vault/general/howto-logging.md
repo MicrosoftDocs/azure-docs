@@ -176,7 +176,7 @@ But first, download all the blobs. With the Azure CLI, use the [az storage blob 
 az storage blob download --container-name "insights-logs-auditevent" --file <path-to-file> --name "<blob-name>" --account-name "<your-unique-storage-account-name>"
 ```
 
-With Azure PowerShell, use the [Get-AzStorageBlobs](/powershell/module/az.storage/get-azstorageblob) cmdlet to get a list of the blobs. Then pipe that list to the [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent) cmdlet to download the logs to your chosen path.
+With Azure PowerShell, use the [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob) cmdlet to get a list of the blobs. Then pipe that list to the [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent) cmdlet to download the logs to your chosen path.
 
 ```powershell-interactive
 $blobs = Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context | Get-AzStorageBlobContent -Destination "<path-to-file>"
