@@ -14,7 +14,7 @@ ms.date: 04/24/2023
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-In this quickstart, you'll learn how to use the [Azure libraries (SDK) for Python](https://learn.microsoft.com/azure/developer/python/sdk/azure-sdk-overview?view=azure-python) 
+In this quickstart, you'll learn how to use the [Azure libraries (SDK) for Python](/azure/developer/python/sdk/azure-sdk-overview?view=azure-python&preserve-view=true) 
 to create an Azure Database for PostgreSQL - Flexible Server.
 
 Flexible server is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. You can use Python SDK to provision a PostgreSQL Flexible Server, multiple servers or multiple databases on a server.
@@ -101,7 +101,7 @@ You can also customize other parameters like location, storage size, engine vers
 
 > [!NOTE]
 > Note that the DefaultAzureCredential class will try to authenticate using various methods, such as environment variables, managed identities, or the Azure CLI. 
-> Make sure you have one of these methods set up. You can find more information on authentication in the [Azure SDK documentation](https://learn.microsoft.com/python/api/overview/azure/identity-readme?view=azure-python#defaultazurecredential).
+> Make sure you have one of these methods set up. You can find more information on authentication in the [Azure SDK documentation](/python/api/overview/azure/identity-readme?view=azure-python#defaultazurecredential&preserve-view=true).
 
 ## Review deployed resources
 
@@ -109,7 +109,7 @@ You can use the Python SDK, Azure portal, Azure CLI, Azure PowerShell, and vario
 
 
 # [Python SDK](#tab/PythonSDK)
-Add the `check_server_created` function to your existing script to use the servers attribute of the [`PostgreSQLManagementClient`](https://learn.microsoft.com/en-us/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.postgresql_flexibleservers.postgresqlmanagementclient?view=azure-python) instance to check if the PostgreSQL Flexible Server was created:
+Add the `check_server_created` function to your existing script to use the servers attribute of the [`PostgreSQLManagementClient`](/python/api/azure-mgmt-rdbms/azure.mgmt.rdbms.postgresql_flexibleservers.postgresqlmanagementclient?view=azure-python&preserve-view=true) instance to check if the PostgreSQL Flexible Server was created:
 
 ```python
 def check_server_created(subscription_id, resource_group, server_name):
