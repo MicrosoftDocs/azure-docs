@@ -29,6 +29,8 @@ Microsoft Purview classifies data by using [RegEx](https://wikipedia.org/wiki/Re
 The City and Country classifier identifies the data based on their full names as well as short codes.
 
 #### Keywords
+
+##### Keywords for City
 - burg
 - city
 - cities
@@ -38,6 +40,14 @@ The City and Country classifier identifies the data based on their full names as
 - municipality
 - place
 - town
+
+##### Keywords for Country
+- country
+- countries
+- country names
+- nation
+- nationality
+
 -------------------------------------
 
 ## Machine Learning based classifications

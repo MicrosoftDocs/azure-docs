@@ -85,12 +85,22 @@
               href: /security/benchmark/azure/baselines/api-management-security-baseline?toc=/azure/api-management/&bc=/azure/api-management/breadcrumb/toc.json
             - name: Authentication and authorization options
               href: authentication-authorization-overview.md
+            - name: API security
+              items:
+              - name: Defender for APIs (preview)
+                href: protect-with-defender-for-apis.md              
+              - name: Mitigate OWASP API threats
+                href: mitigate-owasp-api-threats.md
+                displayName: OWASP top 10, vulnerability, vulnerabilities
       - name: API authorizations
         href: authorizations-overview.md
         displayName: OAuth
       - name: Observability
         href: observability.md
         displayName: monitoring
+      - name: Compute platform
+        href: compute-infrastructure.md
+        displayName: stv1, stv2
       - name: DevOps and CI/CD
         href: devops-api-development-templates.md  
       - name: APIs
@@ -152,6 +162,8 @@
             - name: Recover a deleted instance
               displayName: soft delete
               href: soft-delete.md
+            - name: Migrate to stv2 platform
+              href: migrate-stv1-to-stv2.md
             - name: Configure networking
               items:
                 - name: Connect to a virtual network
@@ -293,10 +305,7 @@
               href: api-management-howto-manage-protocols-ciphers.md
             - name: Defend against DDoS attacks
               href: protect-with-ddos-protection.md
-            - name: Mitigate OWASP API threats
-              href: mitigate-owasp-api-threats.md
-              displayName: OWASP top 10, vulnerability, vulnerabilities
-          - name: Configure API authorizations for OAuth 2.0 backends
+          - name: Manage API authorizations
             items:
             - name: Configure common authorization providers
               href: authorizations-configure-common-providers.md
@@ -574,6 +583,8 @@
               href: breaking-changes/overview.md
             - name: Virtual network changes (March 2023)
               href: breaking-changes/rp-source-ip-address-change-mar-2023.md
+            - name: Metrics retirements (August 2023)
+              href: breaking-changes/metrics-retirement-aug-2023.md
             - name: Virtual network changes (September 2023)
               href: breaking-changes/rp-source-ip-address-change-sep-2023.md
             - name: API version retirements (September 2023)
