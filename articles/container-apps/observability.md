@@ -2,12 +2,12 @@
 title: Observability in Azure Container Apps
 description: Monitor your running app in Azure Container Apps
 services: container-apps
-author: cebundy
+author: lanceleonard
 ms.service: container-apps
 ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 07/29/2022
-ms.author: v-bcatherine
+ms.author: v-laleonard
 ---
 
 # Observability in Azure Container Apps

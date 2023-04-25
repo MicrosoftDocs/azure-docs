@@ -206,7 +206,7 @@ There are some limitations for sharing your gallery to the community:
 
 **Q: Is it safe to use images shared to the community?**
 
-**A**: Users should exercise caution while using images from non-verified sources, since these images aren't subject to Azure certification.  
+**A**: Users should exercise caution while using images from non-verified sources, since these images aren't subject to certification and not scanned for malware/vulnerabilities and publisher details are not verified.
 
 **Q: If an image that is shared to the community doesn’t work, who do I contact for support?**
 
