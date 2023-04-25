@@ -180,13 +180,13 @@ To authenticate the request, add an `Authorization` header with a valid bearer t
 
 ---
 
-## Get job execution status
+## Get job execution history
 
 Each Container Apps job maintains a history of recent job executions.
 
 # [Azure CLI](#tab/azure-cli)
 
-To get the status of a job execution using the Azure CLI, use the `az containerapp job executionhistory` command. The following example gets the status of the most recent execution of a job named `my-job` in a resource group named `my-resource-group`:
+To get the statuses of job executions using the Azure CLI, use the `az containerapp job executionhistory` command. The following example gets the status of the most recent execution of a job named `my-job` in a resource group named `my-resource-group`:
 
 ```azurecli
 az containerapp job executionhistory --name my-job --resource-group my-resource-group
@@ -194,7 +194,7 @@ az containerapp job executionhistory --name my-job --resource-group my-resource-
 
 # [Azure Resource Manager](#tab/azure-resource-manager)
 
-To get the status of a job execution using the ARM REST API, make a *GET* request to the job's `executions` operation. The following example gets the status of the most recent execution of a job named `my-job` in a resource group named `my-resource-group`:
+To get the statuses of job executions using the ARM REST API, make a *GET* request to the job's `executions` operation. The following example gets the status of the most recent execution of a job named `my-job` in a resource group named `my-resource-group`:
 
 ```http
 GET https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/my-resource-group/providers/Microsoft.App/jobs/my-job/executions?api-version=2022-11-01-preview
