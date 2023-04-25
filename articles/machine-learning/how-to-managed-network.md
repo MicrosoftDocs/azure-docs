@@ -552,106 +552,106 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
 * Configure an outbound private endpoint for the workspace's default storage account.
 * After you configure the managed VNet, provision it and flag it to allow spark jobs.
 
-### 1. Configure an outbound private endpoint
+1. Configure an outbound private endpoint
 
-# [Azure CLI](#tab/azure-cli)
+    # [Azure CLI](#tab/azure-cli)
 
-Use a YAML file to define the managed VNet configuration and add a private endpoint for the Azure Machine Learning workspace's default storage account. Also set `spark_enabled: true`:
+    Use a YAML file to define the managed VNet configuration and add a private endpoint for the Azure Machine Learning workspace's default storage account. Also set `spark_enabled: true`:
 
-> [!TIP]
-> This example is for a managed VNet configured to allow internet traffic. If you want to allow only approved outbound traffic, set `isolation_mode: allow_only_approved_outbound` instead.
+    > [!TIP]
+    > This example is for a managed VNet configured to allow internet traffic. If you want to allow only approved outbound traffic, set `isolation_mode: allow_only_approved_outbound` instead.
 
-```yml
-type: workspace
-name: myworkspace
-managed_network:
-isolation_mode: allow_internet_outbound
-outbound_rules:
-- name: added-perule
-  destination:
-    service_resource_id: /subscriptions/{subscription ID}/resourceGroups/{resource group name}/providers/Microsoft.Storage/storageAccounts/{storage account name}
-    spark_enabled: true
-    subresource_target: blob
-  type: private_endpoint
-```
+    ```yml
+    type: workspace
+    name: myworkspace
+    managed_network:
+    isolation_mode: allow_internet_outbound
+    outbound_rules:
+    - name: added-perule
+    destination:
+        service_resource_id: /subscriptions/{subscription ID}/resourceGroups/{resource group name}/providers/Microsoft.Storage/storageAccounts/{storage account name}
+        spark_enabled: true
+        subresource_target: blob
+    type: private_endpoint
+    ```
 
-You can use a YAML configuration file with either the `az ml workspace create` or `az ml workspace update` commands by specifying the `--file` parameter and the name of the YAML file. For example, the following command updates an existing workspace using a YAML file named `workspace_pe.yml`:
+    You can use a YAML configuration file with either the `az ml workspace create` or `az ml workspace update` commands by specifying the `--file` parameter and the name of the YAML file. For example, the following command updates an existing workspace using a YAML file named `workspace_pe.yml`:
 
-```azurecli
-az ml workspace update --file workspace_pe.yml --resource_group rg
-```
+    ```azurecli
+    az ml workspace update --file workspace_pe.yml --resource_group rg
+    ```
 
-# [Python](#tab/python)
+    # [Python](#tab/python)
 
-The following example demonstrates how to create a managed VNet for an existing Azure Machine Learning workspace named `myworkspace`. It also adds a private endpoint for the storage account and sets `spark_enabled=true`:
+    The following example demonstrates how to create a managed VNet for an existing Azure Machine Learning workspace named `myworkspace`. It also adds a private endpoint for the storage account and sets `spark_enabled=true`:
 
-> [!TIP]
-> The following example is for a managed VNet configured to allow internet traffic. If you want to allow only approved outbound traffic, use `IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND` instead.
-    
-```python
-# Get the existing workspace
-ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, "myworkspace")
-ws = ml_client.workspaces.get()
+    > [!TIP]
+    > The following example is for a managed VNet configured to allow internet traffic. If you want to allow only approved outbound traffic, use `IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND` instead.
+        
+    ```python
+    # Get the existing workspace
+    ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, "myworkspace")
+    ws = ml_client.workspaces.get()
 
-# Basic managed network configuration
-ws.managed_network = ManagedNetwork(IsolationMode.ALLOW_INTERNET_OUTBOUND)
+    # Basic managed network configuration
+    ws.managed_network = ManagedNetwork(IsolationMode.ALLOW_INTERNET_OUTBOUND)
 
-# Example private endpoint outbound to a blob
-rule_name = "myrule"
-service_resource_id = "/subscriptions/{subscription ID}/resourceGroups/{resource group name}/providers/Microsoft.Storage/storageAccounts/{storage account name}"
-subresource_target = "blob"
-spark_enabled = true
+    # Example private endpoint outbound to a blob
+    rule_name = "myrule"
+    service_resource_id = "/subscriptions/{subscription ID}/resourceGroups/{resource group name}/providers/Microsoft.Storage/storageAccounts/{storage account name}"
+    subresource_target = "blob"
+    spark_enabled = true
 
-# Add the outbound 
-ws.managed_network.outbound_rules = [PrivateEndpointDestination(
-    name=rule_name, 
-    service_resource_id=service_resource_id, 
-    subresource_target=subresource_target, 
-    spark_enabled=spark_enabled)]
+    # Add the outbound 
+    ws.managed_network.outbound_rules = [PrivateEndpointDestination(
+        name=rule_name, 
+        service_resource_id=service_resource_id, 
+        subresource_target=subresource_target, 
+        spark_enabled=spark_enabled)]
 
-# Create the workspace
-ml_client.workspaces.begin_update(ws)
-```
+    # Create the workspace
+    ml_client.workspaces.begin_update(ws)
+    ```
 
-# [Studio](#tab/azure-studio)
+    # [Studio](#tab/azure-studio)
 
-TBD
+    TBD
 
----
+    ---
 
-### 2. Provision the managed VNet 
+1. Provision the managed VNet 
 
-# [Azure CLI](#tab/azure-cli)
+    # [Azure CLI](#tab/azure-cli)
 
-The following example shows how to provision a managed VNet for serverless spark jobs by using the `--include-spark` parameter.
+    The following example shows how to provision a managed VNet for serverless spark jobs by using the `--include-spark` parameter.
 
-```azurecli
-az ml workspace provision-network -g my_resource_group -n my_workspace_name --include-spark
-```
+    ```azurecli
+    az ml workspace provision-network -g my_resource_group -n my_workspace_name --include-spark
+    ```
 
-# [Python](#tab/python)
+    # [Python](#tab/python)
 
-The following example shows how to provision a managed VNet for serverless spark jobs:
+    The following example shows how to provision a managed VNet for serverless spark jobs:
 
-```python
-# Connect to a workspace named "myworkspace"
-ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace_name="myworkspace")
+    ```python
+    # Connect to a workspace named "myworkspace"
+    ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace_name="myworkspace")
 
-# whether to provision spark vnet as well
-include_spark = True
+    # whether to provision spark vnet as well
+    include_spark = True
 
-provision_network_result = ml_client.workspaces.begin_provision_network(ws_name, include_spark).result()
-```
+    provision_network_result = ml_client.workspaces.begin_provision_network(ws_name, include_spark).result()
+    ```
 
-# [Studio](#tab/azure-studio)
+    # [Studio](#tab/azure-studio)
 
-1. Sign in to the [Azure portal](https://ms.azure.com), and choose your Azure Machine Learning workspace.
-1. Go to the networking blade and managed network tab.
-1. Check the box: Use serverless spark compute.
+    1. Sign in to the [Azure portal](https://ms.azure.com), and choose your Azure Machine Learning workspace.
+    1. Go to the networking blade and managed network tab.
+    1. Check the box: Use serverless spark compute.
 
-    <!-- :::image type="content" source="TBU" alt-text="" lightbox=""::: -->
+        <!-- :::image type="content" source="TBU" alt-text="" lightbox=""::: -->
 
----
+    ---
 
 ## Manage outbound rules
 
