@@ -245,7 +245,6 @@ items:
         href: quickstarts/voice-video-calling/get-started-video-effects.md
     - name: Diagnostics
       items:
-      displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
       - name: Diagnose your network
         href: concepts/developer-tools/network-diagnostic.md 
         displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
@@ -266,15 +265,16 @@ items:
         displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
       - name: Get users ready for their call with UI Library
         items:
-        displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
         - name: Call readiness overview
           href: tutorials/call-readiness/call-readiness-overview.md
+          displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
         - name: 1. Ensure user is on a supported browser
           href: tutorials/call-readiness/call-readiness-tutorial-part-1-browser-support.md
         - name: 2. Request camera and microphone permissions
           href: tutorials/call-readiness/call-readiness-tutorial-part-2-requesting-device-access.md
         - name: 3. Microphone and camera setup before a call
           href: tutorials/call-readiness/call-readiness-tutorial-part-3-camera-microphone-setup.md
+          displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
     - name: Mobile integrations
       items:
       - name: Integrate with CallKit in iOS
@@ -583,11 +583,12 @@ items:
         href: ../event-grid/communication-services-voice-video-events.md
     - name: Networking
       items:
-      displayName: best, practices, before, you, start, diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
       - name: Network recommendations
         href: concepts/voice-video-calling/network-requirements.md
+        displayName: best, practices, before, you, start, diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
       - name: Web best practices
         href: concepts/best-practices.md
+        displayName: best, practices, before, you, start, diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
       - name: Call networking internals
         href: concepts/call-flows.md
       - name: Call flow topologies
