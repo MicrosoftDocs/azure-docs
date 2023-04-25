@@ -19,7 +19,7 @@ recommendations: false
 
 # Form Recognizer SDK (public preview)
 
-**This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
+**This article applies to:** ![Form Recognizer checkmark](media/yes-icon.png) **Form Recognizer version 2023-02-28-preview**.
 
 > [!IMPORTANT]
 >
