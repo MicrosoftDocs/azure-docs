@@ -994,6 +994,7 @@
   ".openpublishing.redirection.app-service.json",
   ".openpublishing.redirection.azure-arc-data.json",
   ".openpublishing.redirection.azure-attestation.json",
+  ".openpublishing.redirection.azure-app-configuration.json",
   ".openpublishing.redirection.azure-australia.json",
   ".openpublishing.redirection.azure-databricks.json",
   ".openpublishing.redirection.azure-hpc.json",
