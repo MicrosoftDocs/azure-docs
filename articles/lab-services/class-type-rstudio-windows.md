@@ -151,9 +151,9 @@ See the [list of packages by task](https://cran.r-project.org/web/views/) or [al
 
 ## Cost
 
-This section provides a cost estimate for running this class for 25 users. There are 20 hours of scheduled class time. Also, each user gets 10 hours quota for homework or assignments outside scheduled class time. The virtual machine size we chose was **Small GPU (Compute)**, which is 139 lab units.
+This section provides a cost estimate for running this class for 25 lab users. There are 20 hours of scheduled class time. Also, each user gets 10 hours quota for homework or assignments outside scheduled class time. The virtual machine size we chose was **Small GPU (Compute)**, which is 139 lab units.
 
-- 25 students &times; (20 scheduled hours + 10 quota hours) &times; 139 lab units
+- 25 lab users &times; (20 scheduled hours + 10 quota hours) &times; 139 lab units
 
 > [!IMPORTANT]
 > The cost estimate is for example purposes only.  For current pricing information, see [Azure Lab Services pricing](https://azure.microsoft.com/pricing/details/lab-services/).

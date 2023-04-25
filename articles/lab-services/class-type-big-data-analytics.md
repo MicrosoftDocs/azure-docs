@@ -110,7 +110,7 @@ Use Windows Task Scheduler to automatically run this script when a lab user logs
 
 ## Cost estimate
 
-This section provides a cost estimate for running this class for 25 users. There are 20 hours of scheduled class time. Also, each user gets 10 hours quota for homework or assignments outside scheduled class time. The virtual machine size we chose was **Medium (Nested Virtualization)**, which is 55 lab units.
+This section provides a cost estimate for running this class for 25 lab users. There are 20 hours of scheduled class time. Also, each user gets 10 hours quota for homework or assignments outside scheduled class time. The virtual machine size we chose was **Medium (Nested Virtualization)**, which is 55 lab units.
 
 - 25 lab users &times; (20 scheduled hours + 10 quota hours) &times; 55 lab units
 
