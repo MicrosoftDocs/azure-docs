@@ -200,10 +200,6 @@ Follow these steps:
 
 The disk type conversion is instantaneous. You can start your VM after the conversion.
 
-# [Portal](#tab/azure-portal)
-
-Use either PowerShell or CLI.
-
 ---
 
 ## Migrate to Premium SSD v2 or Ultra Disk
