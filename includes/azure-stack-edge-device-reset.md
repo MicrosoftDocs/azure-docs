@@ -21,7 +21,10 @@ The reset erases the data off the device data disks. Depending on the amount of 
 
 In addition to resetting your device, complete the following steps to remove Azure resources associated with the device.
 
-- Delete the Azure Stack Edge resource (name of the service) associated with the Azure Stack Edge device. This step also removes the managed identity associated with the Azure Stack Edge resource. For more information, see [Delete Azure Stack Edge resource](../articles/databox-online/azure-stack-edge-return-device.md?branch=main&tabs=azure-portal).
+- Delete the Azure Stack Edge resource (name of the service) associated with the Azure Stack Edge device. This step also removes the managed identity associated with the Azure Stack Edge resource. To delete the Azure Stack Edge resource:
+   1. In Azure portal, go to your resource and then to **Overview**. From the command bar, select **Delete**.
+In the Delete device blade, type the name of the device you want to delete and select Delete.
+   1. For more information, see [Delete Azure Stack Edge resource](../articles/databox-online/azure-stack-edge-return-device.md?branch=main&tabs=azure-portal).
    - When deleting the Azure Stack Edge resource, you'll also be prompted to remove the associated key vault. The key vault name starts with the service name and is appended with a GUID. Proceed with the confirmation.
 
 - Delete the storage account used by the key vault. You'll need to look for a Zone redundant storage account starting with the same name as that of the key vault and in the same scope as the Azure Stack Edge resource. You'll need to manually delete this storage account.
