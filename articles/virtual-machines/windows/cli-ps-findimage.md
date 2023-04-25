@@ -30,7 +30,7 @@ A Marketplace image in Azure has the following attributes:
 
 These values can be passed individually or as an image *URN*, combining the values separated by the colon (:). For example: *Publisher*:*Offer*:*Sku*:*Version*. You can replace the version number in the URN with `latest` to use the latest version of the image. 
 
-If the image publisher provides additional license and purchase terms, then you must accept those before you can use the image.  For more information, see [Accept purchase plan terms](#accept-purchase-plan-terms).
+If the image publisher provides other license and purchase terms, then you must accept those before you can use the image. For more information, see [Accept purchase plan terms](#accept-purchase-plan-terms).
 
 ## Default Images
 
@@ -81,7 +81,7 @@ Win2012Datacenter       x64             WindowsServer                 MicrosoftW
 
 ## List images
 
-You can use PowerShell to narrow down a list of images if you want to use a specific image that is not provided above. Replace the values of the below variables to meet your needs.
+You can use PowerShell to narrow down a list of images if you want to use a specific image that is not provided by default. Replace the values of the below variables to meet your needs.
 
 1. List the image publishers using [Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher).
     
@@ -112,12 +112,12 @@ You can use PowerShell to narrow down a list of images if you want to use a spec
 
 Now you can combine the selected publisher, offer, SKU, and version into a URN (values separated by :). Pass this URN with the `-Image` parameter when you create a VM with the [New-AzVM](/powershell/module/az.compute/new-azvm) cmdlet. You can also replace the version number in the URN with `latest` to get the latest version of the image.
 
-If you deploy a VM with a Resource Manager template, then you'll set the image parameters individually in the `imageReference` properties. See the [template reference](/azure/templates/microsoft.compute/virtualmachines).
+If you deploy a VM with a Resource Manager template, then you must set the image parameters individually in the `imageReference` properties. See the [template reference](/azure/templates/microsoft.compute/virtualmachines).
 
 
 ## View purchase plan properties
 
-Some VM images in the Azure Marketplace have additional license and purchase terms that you must accept before you can deploy them programmatically. You'll need to accept the image's terms once per subscription.
+Some VM images in the Azure Marketplace have other license and purchase terms that you must accept before you can deploy them programmatically. You need to accept the image's terms once per subscription.
 
 To view an image's purchase plan information, run the `Get-AzVMImage` cmdlet. If the `PurchasePlan` property in the output is not `null`, the image has terms you need to accept before programmatic deployment.  
 
@@ -128,7 +128,7 @@ $version = "2016.127.20170406"
 Get-AzVMImage -Location $locName -PublisherName $pubName -Offer $offerName -Skus $skuName -Version $version
 ```
 
-The output will look similar to the following:
+The output looks similar to the following output:
 
 ```output
 Id               : /Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/Versions/2019.0.20190115
@@ -153,7 +153,7 @@ The example below shows a similar command for the *Data Science Virtual Machine 
 Get-AzVMImage -Location "westus" -PublisherName "microsoft-ads" -Offer "windows-data-science-vm" -Skus "windows2016" -Version "0.2.02"
 ```
 
-The output will look similar to the following:
+The output looks similar to the following output:
 
 ```
 Id               : /Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/microsoft-ads/ArtifactTypes/VMImage/Offers/windows-data-science-vm/Skus/windows2016/Versions/19.01.14
@@ -263,7 +263,7 @@ $vm = Get-azvm `
 $vm.Plan
 ```
 
-If you didn't get the plan information before the original VM was deleted, you can file a [support request](https://portal.azure.com/#create/Microsoft.Support). They will need the VM name, subscription ID and the time stamp of the delete operation.
+If you didn't get the plan information before the original VM was deleted, you can file a [support request](https://portal.azure.com/#create/Microsoft.Support). The support request needs at minimum the VM name, subscription ID and the time stamp of the delete operation.
 
 To create a VM using a VHD, refer to this article [Create a VM from a specialized VHD](create-vm-specialized.md) and add in a line to add the plan information to the VM configuration using [Set-AzVMPlan](/powershell/module/az.compute/set-azvmplan) similar to the following:
 
