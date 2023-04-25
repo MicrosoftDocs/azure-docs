@@ -98,8 +98,8 @@ landingContent:
             url: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
       - linkListType: whats-new
         links:
-          - text: AMD SEV-SNP Confidential VM's with customizable firmware - Private preview 
-            url: https://aka.ms/dlbcvm
+          - text: DCesv5 and ECesv5 Confidential VMs with Intel TDX
+            url: https://aka.ms/tdx-blog/
 
   # Card
   - title: Container compute
