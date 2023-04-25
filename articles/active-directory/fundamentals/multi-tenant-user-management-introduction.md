@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 ---
 # Multi-tenant user management introduction
 
-This article is the first in a series of articles that provide guidance for configuring and providing user lifecycle management in Azure Active Directory (Azure AD) multi-tenant environments. Reference the following articles in the series for more information.
+This article is the first in a series of articles that provide guidance for configuring and providing user lifecycle management in Azure Active Directory (Azure AD) multi-tenant environments. The following articles in the series provide more information as described.
 
 - [Multi-tenant user management scenarios](multi-tenant-user-management-scenarios.md) describes three scenarios for which you can use multi-tenant user management features: end user-initiated, scripted, and automated.
 - [Common considerations for multi-tenant user management](multi-tenant-common-considerations.md) provides guidance for these considerations: cross-tenant synchronization, directory object, Azure AD Conditional Access, additional access control, and Office 365. 
@@ -47,31 +47,35 @@ For the **UserType** property on users, B2B supports flipping the bit from inter
 
 You can change an internal user from member user to guest user. For example, you can have an unlicensed internal guest user with guest-level permissions in the tenant, which is useful when you provide a user account and credentials to a person that isn't an employee of your organization.
 
-You can change an external user from guest user to member user, giving member-level permissions to the external user. Making this change is useful when you manage multiple tenants for your organization and need to give member-level permissions to a user across all tenants. This need may occur regardless of whether the user is internal or external in any given tenant. Member users require more licenses (see [licensing considerations](../external-identities/external-identities-pricing.md)).
+You can change an external user from guest user to member user, giving member-level permissions to the external user. Making this change is useful when you manage multiple tenants for your organization and need to give member-level permissions to a user across all tenants. This need may occur regardless of whether the user is internal or external in any given tenant. Member users may require more [licenses](../external-identities/external-identities-pricing.md).
 
 Most documentation for B2B refers to an external user as a guest user. It conflates the **UserType** property in a way that assumes all guest users are external. When documentation calls out a guest user, it assumes that it's an external guest user. This article specifically and intentionally refers to external versus internal and member user versus guest user.
 
 ## Cross-tenant synchronization
 
-[Cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-overview.md) enables multi-tenant organizations to provide seamless access and collaboration experiences to end users. Microsoft doesn't currently support cross-tenant synchronization across Microsoft sovereign clouds (such as Microsoft 365 US Government GCC High, DOD or Office 365 in China). See [Common considerations for multi-tenant user management](multi-tenant-common-considerations.md#cross-tenant-synchronization) for help with automated and custom cross-tenant synchronization scenarios.
+[Cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-overview.md) enables multi-tenant organizations to provide seamless access and collaboration experiences to end users, leveraging existing B2B external collaboration capabilities. The feature doesn't allow cross-tenant synchronization across Microsoft sovereign clouds (such as Microsoft 365 US Government GCC High, DOD or Office 365 in China). See [Common considerations for multi-tenant user management](multi-tenant-common-considerations.md#cross-tenant-synchronization) for help with automated and custom cross-tenant synchronization scenarios.
 
-Reference the following conceptual and how-to articles for information about Azure AD B2B collaboration and cross-tenant synchronization.
+Watch John Savill talk about the cross-tenant sync capability in Azure AD (embedded below).
+
+> [!VIDEO https://www.youtube.com/embed/z0J5kteqUVQ]
+
+The following conceptual and how-to articles provide information about Azure AD B2B collaboration and cross-tenant synchronization.
 
 ### Conceptual articles
 
-- [B2B best practices](../external-identities/b2b-fundamentals.md): Recommendations for providing the smoothest experience for users and administrators.
-- [B2B and Office 365 external sharing](../external-identities/o365-external-user.md): Explains the similarities and differences among sharing resources through B2B, Office 365, and SharePoint/OneDrive.
-- [Properties on an Azure AD B2B collaboration user](../external-identities/user-properties.md): Describes the properties and states of the external user object in Azure AD. The description provides details before and after invitation redemption.
-- [B2B user tokens](../external-identities/user-token.md): Provides examples of the bearer tokens for B2B for an external user.
-- [Conditional access for B2B](../external-identities/authentication-conditional-access.md): Describes how conditional access and MFA work for external users.
-- [Cross-tenant access settings](../external-identities/cross-tenant-access-overview.md): Provides granular control over how external Azure AD organizations collaborate with you (inbound access) and how your users collaborate with external Azure AD organizations (outbound access).
-- [Seamless application access and lifecycle management for multi-tenant Azure AD organizations](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/seamless-application-access-and-lifecycle-management-for-multi/ba-p/3728752): Enables a closely-related tenant that is part of a single multi-tenant organization to automatically synchronize users and map attributes to users in another closely-related tenant.
+- [B2B best practices](../external-identities/b2b-fundamentals.md) features recommendations for providing the smoothest experience for users and administrators.
+- [B2B and Office 365 external sharing](../external-identities/o365-external-user.md) explains the similarities and differences among sharing resources through B2B, Office 365, and SharePoint/OneDrive.
+- [Properties on an Azure AD B2B collaboration user](../external-identities/user-properties.md) describes the properties and states of the external user object in Azure AD. The description provides details before and after invitation redemption.
+- [B2B user tokens](../external-identities/user-token.md) provides examples of the bearer tokens for B2B for an external user.
+- [Conditional access for B2B](../external-identities/authentication-conditional-access.md) describes how conditional access and MFA work for external users.
+- [Cross-tenant access settings](../external-identities/cross-tenant-access-overview.md) provides granular control over how external Azure AD organizations collaborate with you (inbound access) and how your users collaborate with external Azure AD organizations (outbound access).
+- [Cross-tenant synchronization overview](../multi-tenant-organizations/cross-tenant-synchronization-overview) explains how to automate creating, updating, and deleting Azure AD B2B collaboration users across tenants in an organization.
 
 ### How-to articles
 
-- [Use PowerShell to bulk invite Azure AD B2B collaboration users](../external-identities/bulk-invite-powershell.md): Learn how to use PowerShell to send bulk invitations to external users.
-- [Enforce multifactor authentication for B2B guest users](../external-identities/b2b-tutorial-require-mfa.md): Use conditional access and MFA policies to enforce tenant, app, or individual external user authentication levels.
-- [Email one-time passcode authentication](../external-identities/one-time-passcode.md): The Email one-time passcode feature authenticates external users when they can't authenticate through other means like Azure AD, a Microsoft account (MSA), or Google Federation.
+- [Use PowerShell to bulk invite Azure AD B2B collaboration users](../external-identities/bulk-invite-powershell.md) describes how to use PowerShell to send bulk invitations to external users.
+- [Enforce multifactor authentication for B2B guest users](../external-identities/b2b-tutorial-require-mfa.md) explains how you can use conditional access and MFA policies to enforce tenant, app, or individual external user authentication levels.
+- [Email one-time passcode authentication](../external-identities/one-time-passcode.md) describes how the Email one-time passcode feature authenticates external users when they can't authenticate through other means like Azure AD, a Microsoft account (MSA), or Google Federation.
 
 ## Terminology
 
@@ -102,10 +106,10 @@ Organizations initially focus on requirements that they want in place for immedi
 ### Communications requirements
 
 - **Unified global address list:** Each user can see all other users in the GAL in their home tenant.
-- **Free/busy information:** Enable users to discover each other's availability. You can do so with [Organization relationships in Exchange Online](https://learn.microsoft.com/exchange/sharing/organization-relationships/create-an-organization-relationship).
-- **Chat and presence:** Enable users to determine others' presence and initiate instant messaging. Configure through [external access in Microsoft Teams](https://learn.microsoft.com/microsoftteams/trusted-organizations-external-meetings-chat).
+- **Free/busy information:** Enable users to discover each other's availability. You can do so with [Organization relationships in Exchange Online](/exchange/sharing/organization-relationships/create-an-organization-relationship).
+- **Chat and presence:** Enable users to determine others' presence and initiate instant messaging. Configure through [external access in Microsoft Teams](/microsoftteams/trusted-organizations-external-meetings-chat).
 - **Book resources such as meeting rooms:** Enable users to book conference rooms or other resources across the organization. Cross-tenant conference room booking isn't currently available.
-- **Single email domain:** Enable all users to send and receive mail from a single email domain (for example, `users@contoso.com`). Sending requires a third-party address rewrite solution.
+- **Single email domain:** Enable all users to send and receive mail from a single email domain (for example, `users@contoso.com`). Sending requires an email address rewrite solution.
 
 ### Access requirements
 
@@ -128,4 +132,4 @@ Microsoft mechanisms for creating and managing the lifecycle of your external us
 - [Multi-tenant user management scenarios](multi-tenant-user-management-scenarios.md) describes three scenarios for which you can use multi-tenant user management features: end user-initiated, scripted, and automated.
 - [Common considerations for multi-tenant user management](multi-tenant-common-considerations.md) provides guidance for these considerations: cross-tenant synchronization, directory object, Azure AD Conditional Access, additional access control, and Office 365. 
 - [Common solutions for multi-tenant user management](multi-tenant-common-solutions.md) when single tenancy doesn't work for your scenario, this article provides guidance for these challenges:  automatic user lifecycle management and resource allocation across tenants, sharing on-premises apps across tenants.
-- [Multi-tenant synchronization from Active Directory](/hybrid/plan-connect-topologies) describes various on-premises and Azure Active Directory (Azure AD) topologies that use Azure AD Connect sync as the key integration solution.
+- [Multi-tenant synchronization from Active Directory](../hybrid/plan-connect-topologies) describes various on-premises and Azure Active Directory (Azure AD) topologies that use Azure AD Connect sync as the key integration solution.
