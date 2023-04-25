@@ -18,11 +18,11 @@ This diagram shows you how alerts work.
 
 :::image type="content" source="media/alerts-overview/alerts.png"  alt-text="Diagram that explains Azure Monitor alerts." lightbox="media/alerts-overview/alerts.png":::
 
-An *alert rule* monitors your telemetry and captures a signal that indicates something is happening on the specified resource. The alert rule captures the signal and checks to see if the signal meets the criteria of the condition. If the conditions are met, an alert is triggered, which initiates the associated action group and updates the state of the alert.
+An *alert rule* monitors your data and captures a signal that indicates something is happening on the specified resource. The alert rule captures the signal and checks to see if the signal meets the criteria of the condition. If the conditions are met, an alert is triggered, which initiates the associated action group and updates the state of the alert.
 
 An alert rule combines:
  - The resources to be monitored.
- - The signal or telemetry from the resource.
+ - The signal or data from the resource.
  - Conditions.
 
 If you're monitoring more than one resource, the condition is evaluated separately for each of the resources. Alerts are fired for each resource separately.
@@ -63,7 +63,7 @@ If you don't have alert rules defined for the selected resource, you can [enable
 The system compiles a list of recommended alert rules based on:
 
 - The resource provider’s knowledge of important signals and thresholds for monitoring the resource.
-- Telemetry that tells us what customers commonly alert on for this resource.
+- Data that tells us what customers commonly alert on for this resource.
 
 > [!NOTE]
 > Recommended alert rules is enabled for:
