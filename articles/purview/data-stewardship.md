@@ -28,7 +28,7 @@ Before getting started with Microsoft Purview Data Estate Insights, make sure th
 
 * Set up and completed a scan your storage source.
 
-* [Enable and scheduled your data estate insights reports](how-to-schedule-data-estate-insights.md).
+* [Enable and schedule your data estate insights reports](how-to-schedule-data-estate-insights.md).
 
 For more information to create and complete a scan, see [the manage data sources in Microsoft Purview article](manage-data-sources.md).
 
@@ -130,5 +130,5 @@ This graph shows how the assets and key metrics have been trending over:
 
 ## Next steps
 
-Learn more about Microsoft Purview Data estate insights through:
+Learn more about Microsoft Purview Data Estate Insights through:
 * [Data Estate Insights Concepts](concept-insights.md)
