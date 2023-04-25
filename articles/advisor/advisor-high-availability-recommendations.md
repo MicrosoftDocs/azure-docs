@@ -22,7 +22,7 @@ You can get reliability recommendations on the **Reliability** tab on the Adviso
 
 ## Reliability workbook
 
-You can evaluate the reliability of posture of your applications, assess risks and plan improvements using the new Reliability workbook template which is availble in Azure Advisor.
+You can evaluate the reliability of posture of your applications, assess risks and plan improvements using the new Reliability workbook template, which is available in Azure Advisor.
 
 1. Sign in to the [**Azure portal**](https://portal.azure.com).
 
