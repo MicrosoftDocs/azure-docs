@@ -1,6 +1,6 @@
 ---
-title: Securoty baseline for Azure Monitor for SAP solutions
-description: Learn about securoty bseline for Azure Monitor for SAP solutions
+title: Security baseline for Azure Monitor for SAP solutions
+description: Learn about security baseline for Azure Monitor for SAP solutions
 author: sakhare
 ms.service: sap-on-azure
 ms.subservice: sap-monitor
@@ -17,16 +17,16 @@ This security baseline applies guidance from the Microsoft cloud security benchm
 
 You can monitor this security baseline and its recommendations using Microsoft Defender for Cloud. Azure Policy definitions will be listed in the Regulatory Compliance section of the Microsoft Defender for Cloud dashboard.
 
-When a feature has relevant Azure Policy Definitions, they are listed in this baseline to help you measure compliance to the Microsoft cloud security benchmark controls and recommendations. Some recommendations may require a paid Microsoft Defender plan to enable certain security scenarios.
+When a feature has relevant Azure Policy Definitions, they are listed in this baseline to help you measure compliance with the Microsoft cloud security benchmark controls and recommendations. Some recommendations may require a paid Microsoft Defender plan to enable certain security scenarios.
 
-When Azure Monitor for SAP solutions is deployed, a managed resource group is deplpoyed with it. 
+When Azure Monitor for SAP solutions is deployed, a managed resource group is deployed with it. 
 This managed resource group contains services such as Azure Log Analytics, Azure Functions, Azure Storage and Azure Key Vault. 
 Security baseline for all these services are as follows:
 
-[Azure Log Anlytics](https://learn.microsoft.com/security/benchmark/azure/baselines/azure-monitor-security-baseline)
-[Azure Functions](https://learn.microsoft.com/security/benchmark/azure/baselines/functions-security-baseline)
-[Azure Storage](https://learn.microsoft.com/security/benchmark/azure/baselines/storage-security-baseline)
-[Azure Key Vault](https://learn.microsoft.com/security/benchmark/azure/baselines/key-vault-security-baseline)
+- [Azure Log Analytics](https://learn.microsoft.com/security/benchmark/azure/baselines/azure-monitor-security-baseline)
+- [Azure Functions](https://learn.microsoft.com/security/benchmark/azure/baselines/functions-security-baseline)
+- [Azure Storage](https://learn.microsoft.com/security/benchmark/azure/baselines/storage-security-baseline)
+- [Azure Key Vault](https://learn.microsoft.com/security/benchmark/azure/baselines/key-vault-security-baseline)
 
 
 ## Next steps
