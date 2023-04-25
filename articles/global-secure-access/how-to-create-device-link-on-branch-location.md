@@ -5,7 +5,7 @@ author: kenwith
 ms.author: kenwith
 manager: amycolannino
 ms.topic: how-to
-ms.date: 04/13/2023
+ms.date: 04/25/2023
 ms.service: network-access
 ms.custom: 
 ---
@@ -15,10 +15,10 @@ ms.custom:
 Learn how to create a device link on an office branch location for Global Secure Access.
 
 ## Pre-requisites 
-- Global Secure Access license for your Microsoft Entra Identity tenant.  
+- Microsoft Entra Internet Access premium license for your Microsoft Entra Identity tenant.  
 - Entra Network Access Administrator role in Microsoft Entra Identity.
-- Microsoft Graph module when using PowerShell.
-- Admin consent when using Graph explorer for Microsoft Graph API. 
+- The *Microsoft Graph* module must be installed to use PowerShell.
+- Admin consent is required when using Graph explorer for the Microsoft Graph API. 
 
 ## Create a device link at a branch location with IKEv2 and default IPsec policy
 
