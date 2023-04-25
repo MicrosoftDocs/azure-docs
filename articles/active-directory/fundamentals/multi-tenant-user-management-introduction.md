@@ -69,7 +69,7 @@ The following conceptual and how-to articles provide information about Azure AD 
 - [B2B user tokens](../external-identities/user-token.md) provides examples of the bearer tokens for B2B for an external user.
 - [Conditional access for B2B](../external-identities/authentication-conditional-access.md) describes how conditional access and MFA work for external users.
 - [Cross-tenant access settings](../external-identities/cross-tenant-access-overview.md) provides granular control over how external Azure AD organizations collaborate with you (inbound access) and how your users collaborate with external Azure AD organizations (outbound access).
-- [Cross-tenant synchronization overview](../multi-tenant-organizations/cross-tenant-synchronization-overview) explains how to automate creating, updating, and deleting Azure AD B2B collaboration users across tenants in an organization.
+- [Cross-tenant synchronization overview](../multi-tenant-organizations/cross-tenant-synchronization-overview.md) explains how to automate creating, updating, and deleting Azure AD B2B collaboration users across tenants in an organization.
 
 ### How-to articles
 
@@ -132,4 +132,4 @@ Microsoft mechanisms for creating and managing the lifecycle of your external us
 - [Multi-tenant user management scenarios](multi-tenant-user-management-scenarios.md) describes three scenarios for which you can use multi-tenant user management features: end user-initiated, scripted, and automated.
 - [Common considerations for multi-tenant user management](multi-tenant-common-considerations.md) provides guidance for these considerations: cross-tenant synchronization, directory object, Azure AD Conditional Access, additional access control, and Office 365. 
 - [Common solutions for multi-tenant user management](multi-tenant-common-solutions.md) when single tenancy doesn't work for your scenario, this article provides guidance for these challenges:  automatic user lifecycle management and resource allocation across tenants, sharing on-premises apps across tenants.
-- [Multi-tenant synchronization from Active Directory](../../hybrid/plan-connect-topologies) describes various on-premises and Azure Active Directory (Azure AD) topologies that use Azure AD Connect sync as the key integration solution.
+- [Multi-tenant synchronization from Active Directory](../hybrid/plan-connect-topologies.md) describes various on-premises and Azure Active Directory (Azure AD) topologies that use Azure AD Connect sync as the key integration solution.
