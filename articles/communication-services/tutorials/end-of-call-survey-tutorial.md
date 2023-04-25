@@ -35,7 +35,7 @@ This tutorial shows you how to use the Azure Communication Services End of Call 
 -	[Node.js](https://nodejs.org/) active Long Term Support(LTS) versions are recommended.
 
 -	An active Communication Services resource. [Create a Communication Services resource](../quickstarts/create-communication-resource.md). Survey results are tied to single Communication Services resources.
--	An active Log Analytics Workspace, also known as Azure Monitor Logs, to ensure you do not lose your survey results. [Enable logging in Diagnostic Settings](../concepts/analytics/enable-logging.md).
+-	An active Log Analytics Workspace, also known as Azure Monitor Logs, to ensure you don't lose your survey results. [Enable logging in Diagnostic Settings](../concepts/analytics/enable-logging.md).
 
 
 > [!IMPORTANT]
@@ -43,19 +43,13 @@ This tutorial shows you how to use the Azure Communication Services End of Call 
 
 ## Sample of API usage
 
-Call Survey feature should be used after the call ends. Users can rate any kind of call, 1:1, group, meeting, outgoing and incoming. Once the call ends the application can present a UI to a user, where they can choose a rating score and if needed, pick issues they’ve encountered during the call from pre-defined list.
 
-The code snip below shows an example of one-to-one call. After the end of the call, application can show a survey UI and once user choose rating, application should call feature API to submit survey with the input based on the user choices. Show the survey option.
-We encourage you to use the default rating scale. However, you have the option to submit a survey with custom rating scale. You can check out the sample application for the sample API usage.  
+The End of Call Survey feature should be used after the call ends. Users can rate any kind of VoIP call, 1:1, group, meeting, outgoing and incoming. Once a user's call ends, your application can show a UI to the end user allowing them to choose a rating score, and if needed, pick issues they’ve encountered during the call from our predefined list.
 
+The following code snips show an example of one-to-one call. After the end of the call, your application can show a survey UI and once the user chooses a rating, your application should call the feature API to submit the survey with the user choices.
 
+We encourage you to use the default rating scale. However, you can submit a survey with custom rating scale. You can check out the [sample application](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/blob/main/Project/src/MakeCall/CallSurvey.js) for the sample API usage.  
 
-We encourage you to use the default rating scale. However, you have the option to submit a survey with custom rating scale. You can check out the [sample application](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/blob/main/Project/src/MakeCall/CallSurvey.js) for the complete API usage.  You will need the call object to submit the call survey. You will have the call object when you start or receive a call. The code snip below shows an example of one-to-one call. After the end of the call, show the survey option.
-
-
-
-
-When the participant submits the survey, then call the submit survey API with survey data.
 
 ### Rate call only - no custom scale
 
@@ -84,7 +78,7 @@ call.feature(Features.CallSurvey).submitSurvey({
 }).then(() => console.log('survey submitted successfully'));
 ```
 
-### Rate overall, audio / video call with sample issue
+### Rate overall, audio, and video with a sample issue
 
 ``` javascript
 call.feature(Features.CallSurvey).submitSurvey({
@@ -94,7 +88,7 @@ call.feature(Features.CallSurvey).submitSurvey({
 }).then(() => console.log('survey submitted successfully'))
 ```
 
-### Handle Errors that SDK can throw
+### Handle errors the SDK can send
  ``` javascript 
 call.feature(Features.CallSurvey).submitSurvey({
     overallRating: { score: 3 }
@@ -113,7 +107,7 @@ API will return the error messages when data validation failed or unable to subm
 - overallRating.score
 - 	audioRating.score
 - videoRating.score
-- screenshareRating.score
+- ScreenshareRating.score
 -	${propertyName}: ${rating.score} should be between ${rating.scale?.lowerBound} and ${rating.scale?.upperBound}. ;
 -	${propertyName}: ${rating.scale?.lowScoreThreshold} should be between ${rating.scale?.lowerBound} and ${rating.scale?.upperBound}. ;
 -	${propertyName} lowerBound: ${rating.scale?.lowerBound} and upperBound: ${rating.scale?.upperBound} should be between 0 and 100. ;
@@ -125,13 +119,18 @@ API will return the error messages when data validation failed or unable to subm
 
 | API Rating Categories | Cutoff Value* | Input Range | Comments |
 | ----------- | ----------- | -------- | -------- | 
-| Overall Call | 2 | 1 - 5 | Surveys a calling participant’s overall quality experience on a scale of 1-5 where 1 indicates an imperfect call experience and 5 indicates a perfect call. The cutoff value of 2 means that a customer response of 1 or 2 indicates a less than perfect call experience.  |
+| Overall Call | 2 | 1 - 5 | Surveys a calling participant’s overall quality experience on a scale of 1-5. A response of 1 indicates an imperfect call experience and 5 indicates a perfect call. The cutoff value of 2 means that a customer response of 1 or 2 indicates a less than perfect call experience.  |
 | Audio |   2 | 1 - 5  | A response of 1 indicates an imperfect audio experience and 5 indicates no audio issues were experienced.  |
 | Video |   2 | 1 - 5 |  A response of 1 indicates an imperfect video experience and 5 indicates no video issues were experienced. |
 | Screenshare | 2 | 1 - 5   |  A response of 1 indicates an imperfect screen share experience and 5 indicates no screen share issues were experienced. |
 
 
-### Additional survey tags
+
+> [!NOTE] 
+>A question’s indicated cutoff value in the API is the threshold that Microsoft uses when analyzing your survey data. When you customize the cutoff value or Input Range, Microsoft analyzes your survey data according to your customization.
+
+
+### More survey tags
 | Rating Categories | Optional Tags |
 | ----------- | ----------- |
 |  Overall Call  |    `CallCannotJoin` `CallCannotInvite` `HadToRejoin` `CallEndedUnexpectedly`  `OtherIssues`    |
@@ -142,6 +141,17 @@ API will return the error messages when data validation failed or unable to subm
 
 ### Customization options
 
+You can choose to collect each of the four API values or only the ones
+you find most important. For example, you can choose to only ask
+customers about their overall call experience instead of asking them
+about their audio, video, and screen share experience. You can also
+customize input ranges to suit your needs. The default input range is 1
+to 5 for Overall Call, Audio, Video, and
+Screenshare. However, each API value can be customized from a minimum of
+0 to maximum of 100. 
+
+### Customization examples
+
 
 | API Rating Categories | Cutoff Value* | Input Range |
 | ----------- | ----------- | -------- |  
@@ -150,7 +160,8 @@ API will return the error messages when data validation failed or unable to subm
 |  Video  |    0 - 100   |   0 - 100    |     
 |  Screenshare  |   0 - 100    |   0 - 100    |     
 
--	***Note**: A question’s indicated cutoff value in the API is the threshold that Microsoft uses when analyzing your survey data. When you customize the cutoff value or Input Range, Microsoft analyzes your survey data according to your customization.
+   > [!NOTE]
+   > A question’s indicated cutoff value in the API is the threshold that Microsoft uses when analyzing your survey data. When you customize the cutoff value or Input Range, Microsoft analyzes your survey data according to your customization.
 
 <!-- 
 ## Collect survey data
@@ -188,10 +199,9 @@ Surveying Guidelines
 -	Consider using surveys for separate ACS Resources in controlled experiments to identify release impacts.  
 
 
-<!-- ## Next Steps
+## Next Steps
 
 -	Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](../../../articles/azure-monitor/logs/log-analytics-tutorial.md)
 
--	Create your own queries in Log Analytics, see: [Get Started Queries](../../../articles/azure-monitor/logs/get-started-queries.md) -->
-
+-	Create your own queries in Log Analytics, see: [Get Started Queries](../../../articles/azure-monitor/logs/get-started-queries.md)
 
