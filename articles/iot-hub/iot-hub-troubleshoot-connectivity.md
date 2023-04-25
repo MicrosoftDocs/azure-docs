@@ -2,12 +2,11 @@
 title: Monitor and troubleshoot device connectivity to Azure IoT Hub
 description: Learn to monitor and troubleshoot common errors with device connectivity for Azure IoT Hub 
 author: kgremban
-manager: briz
-ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
-ms.date: 11/06/2020
+
 ms.author: kgremban
+ms.service: iot-hub
+ms.topic: troubleshooting
+ms.date: 11/06/2020
 ms.custom: [mqtt, 'Role: Cloud Development', 'Role: IoT Device', 'Role: Technical Support', fasttrack-edit, iot]
 
 #Customer intent: As an operator for Azure IoT Hub, I need to know how to find out when devices are disconnecting unexpectedly and troubleshoot resolve those issues right away.
@@ -196,4 +195,4 @@ To help improve the documentation for everyone, leave a comment in the feedback 
 
 * To learn more about resolving transient issues, see [Transient fault handling](/azure/architecture/best-practices/transient-faults).
 
-* To learn more about the Azure IoT device SDKs and managing retries, see [Retry patterns](../iot-develop/how-to-use-reliability-features-in-sdks.md#retry-patterns).
+* To learn more about the Azure IoT device SDKs and managing retries, see [Retry patterns](../iot-develop/concepts-manage-device-reconnections.md#retry-patterns).

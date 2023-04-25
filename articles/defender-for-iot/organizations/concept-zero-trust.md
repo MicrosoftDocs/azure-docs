@@ -9,13 +9,7 @@ ms.collection:
 
 # Zero Trust and your OT networks
 
-[Zero Trust](/security/zero-trust/zero-trust-overview) is a security strategy for designing and implementing the following sets of security principles:
-
-|Verify explicitly  |Use least privilege access  |Assume breach  |
-|---------|---------|---------|
-|Always authenticate and authorize based on all available data points.     | Limit user access with Just-In-Time and Just-Enough-Access (JIT/JEA), risk-based adaptive policies, and data protection.        | Minimize blast radius and segment access. Verify end-to-end encryption and use analytics to get visibility, drive threat detection, and improve defenses. 
-
-<!--add include file here after publishing-->
+[!INCLUDE [zero-trust-principles](../../../includes/security/zero-trust-principles.md)]
 
 Implement Zero Trust principles across your operational technology (OT) networks to help you with challenges, such as:
 
@@ -70,7 +64,7 @@ Assign each OT sensor to a specific site and zone to ensure that each OT sensor 
 
 Make sure to assign [site-based access policies](manage-users-portal.md#manage-site-based-access-control-public-preview) so that you can provide least-privileged access to Defender for IoT data and activities.
 
-For example, if your growing company has factories and offices in Paris, Lagos, Dubai, and Tianjin, you might use segment your network as follows:
+For example, if your growing company has factories and offices in Paris, Lagos, Dubai, and Tianjin, you might segment your network as follows:
 
 |Site  |Zones  |
 |---------|---------|

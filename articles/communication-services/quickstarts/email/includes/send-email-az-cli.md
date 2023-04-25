@@ -123,5 +123,5 @@ az communication email status get --message-id "\<messageId\>"
 
 - Replace "\<messageId\>" with the messageId from the response of the send request.
 
-[!INCLUDE [Email Message Status](./email-message-status.md)]
+[!INCLUDE [Email Message Status](./email-operation-status.md)]
 

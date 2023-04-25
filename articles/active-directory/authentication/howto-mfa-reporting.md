@@ -1,5 +1,5 @@
 ---
-title: Sign-in event details for Azure AD Multi-Factor Authentication - Azure Active Directory
+title: Sign-in event details for Azure AD Multi-Factor Authentication
 description: Learn how to view sign-in activity for Azure AD Multi-Factor Authentication events and status messages.
 
 services: multi-factor-authentication

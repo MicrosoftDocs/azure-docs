@@ -4,7 +4,7 @@ description: Application Insights SDK tutorial to monitor ASP.NET Core web appli
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 11/15/2022
+ms.date: 04/24/2023
 ms.reviewer: casocha
 ---
 
@@ -349,7 +349,7 @@ public class ValuesController : ControllerBase
     public ActionResult<IEnumerable<string>> Get()
     {
         //Info level traces are not captured by default
-        _logger.LogInfo("An example of an Info trace..")
+        _logger.LogInformation("An example of an Info trace..");
         _logger.LogWarning("An example of a Warning trace..");
         _logger.LogError("An example of an Error level message");
 

@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect and federation | Microsoft Docs
+title: Azure AD Connect and federation
 description: This page is the central location for all documentation regarding AD FS operations that use Azure AD Connect.
 services: active-directory
 documentationcenter: ''

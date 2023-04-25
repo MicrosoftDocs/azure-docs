@@ -3,9 +3,7 @@ title: Kubernetes on Azure tutorial - Update an application
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to update an existing application deployment to AKS with a new version of the application code.
 ms.topic: tutorial
 ms.date: 12/20/2021
-
-ms.custom: mvc, devx-track-azurepowershell
-
+ms.custom: mvc
 #Customer intent: As a developer, I want to learn how to update an existing application deployment in an Azure Kubernetes Service (AKS) cluster so that I can maintain the application lifecycle.
 ---
 

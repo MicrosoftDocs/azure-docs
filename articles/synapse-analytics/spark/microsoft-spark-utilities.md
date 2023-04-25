@@ -610,7 +610,7 @@ After the run finished, you will see a snapshot link named '**View notebook run:
 ### Exit a notebook
 Exits a notebook with a value. You can run nesting function calls in a notebook interactively or in a pipeline.
 
-- When you call an `exit()` function a notebook interactively, Azure Synapse will throw an exception, skip running subsequence cells, and keep Spark session alive.
+- When you call an *exit()* function from a notebook interactively, Azure Synapse will throw an exception, skip running subsequence cells, and keep the Spark session alive.
 
 - When you orchestrate a notebook that calls an `exit()` function in a Synapse pipeline, Azure Synapse will return an exit value, complete the pipeline run, and stop the Spark session.
 
@@ -856,11 +856,10 @@ mssparkutils.credentials.help()
 ```
 
 ::: zone-end
-
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-Credentials.Help()
+Not supported.
 ```
 
 ::: zone-end
@@ -874,8 +873,9 @@ mssparkutils.credentials.help()
 ::: zone-end
 
 Get result:
+:::zone pivot = "programming-language-python"
 
-```
+```python
 getToken(audience, name): returns AAD token for a given audience, name (optional)
 isValidToken(token): returns true if token hasn't expired
 getConnectionStringOrCreds(linkedService): returns connection string or credentials for linked service
@@ -887,6 +887,62 @@ putSecret(akvName, secretName, secretValue, linkedService): puts AKV secret for 
 putSecret(akvName, secretName, secretValue): puts AKV secret for a given akvName, secretName
 putSecretWithLS(linkedService, secretName, secretValue): puts AKV secret for a given linked service, secretName
 ```
+::: zone-end
+
+:::zone pivot = "programming-language-scala"
+
+```scala
+getToken(audience, name): returns AAD token for a given audience, name (optional)
+isValidToken(token): returns true if token hasn't expired
+getConnectionStringOrCreds(linkedService): returns connection string or credentials for linked service
+getFullConnectionString(linkedService): returns full connection string with credentials
+getPropertiesAll(linkedService): returns all the properties of a linked servicegetSecret(akvName, secret, linkedService): returns AKV secret for a given AKV linked service, akvName, secret key
+getSecret(akvName, secret): returns AKV secret for a given akvName, secret key
+getSecretWithLS(linkedService, secret): returns AKV secret for a given linked service, secret key
+putSecret(akvName, secretName, secretValue, linkedService): puts AKV secret for a given akvName, secretName
+putSecret(akvName, secretName, secretValue): puts AKV secret for a given akvName, secretName
+putSecretWithLS(linkedService, secretName, secretValue): puts AKV secret for a given linked service, secretName
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-csharp"
+
+```csharp
+getToken(audience, name): returns AAD token for a given audience, name (optional)
+isValidToken(token): returns true if token hasn't expired
+getConnectionStringOrCreds(linkedService): returns connection string or credentials for linked service
+getFullConnectionString(linkedService): returns full connection string with credentials
+getPropertiesAll(linkedService): returns all the properties of a linked servicegetSecret(akvName, secret, linkedService): returns AKV secret for a given AKV linked service, akvName, secret key
+getSecret(akvName, secret): returns AKV secret for a given akvName, secret key
+putSecret(akvName, secretName, secretValue, linkedService): puts AKV secret for a given akvName, secretName
+putSecret(akvName, secretName, secretValue): puts AKV secret for a given akvName, secretName
+putSecretWithLS(linkedService, secretName, secretValue): puts AKV secret for a given linked service, secretName
+```
+
+
+> [!NOTE]
+> Currently getSecretWithLS(linkedService, secret) is not supported in C#.
+
+::: zone-end
+
+:::zone pivot = "programming-language-r"
+
+```r
+getToken(audience, name): returns AAD token for a given audience, name (optional)
+isValidToken(token): returns true if token hasn't expired
+getConnectionStringOrCreds(linkedService): returns connection string or credentials for linked service
+getFullConnectionString(linkedService): returns full connection string with credentials
+getPropertiesAll(linkedService): returns all the properties of a linked servicegetSecret(akvName, secret, linkedService): returns AKV secret for a given AKV linked service, akvName, secret key
+getSecret(akvName, secret): returns AKV secret for a given akvName, secret key
+getSecretWithLS(linkedService, secret): returns AKV secret for a given linked service, secret key
+putSecret(akvName, secretName, secretValue, linkedService): puts AKV secret for a given akvName, secretName
+putSecret(akvName, secretName, secretValue): puts AKV secret for a given akvName, secretName
+putSecretWithLS(linkedService, secretName, secretValue): puts AKV secret for a given linked service, secretName
+```
+
+::: zone-end
+
 
 ### Get token
 

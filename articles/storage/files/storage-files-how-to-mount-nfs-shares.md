@@ -47,6 +47,9 @@ Azure file shares can be mounted in Linux distributions using either the Server 
 
 ## Mount an NFS share using the Azure portal
 
+> [!NOTE]
+> You can use the `nconnect` Linux mount option to improve performance for NFS Azure file shares at scale. For more information, see [Improve NFS Azure file share performance with nconnect](nfs-nconnect-performance.md).
+
 1. Once the file share is created, select the share and select **Connect from Linux**.
 1. Enter the mount path you'd like to use, then copy the script.
 1. Connect to your client and use the provided mounting script.

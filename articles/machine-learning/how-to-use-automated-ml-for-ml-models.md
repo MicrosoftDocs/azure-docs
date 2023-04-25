@@ -115,7 +115,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
 
     1. For **classification**, you can also enable deep learning.
     
-        If deep learning is enabled, validation is limited to _train_validation split_. [Learn more about validation options](how-to-configure-cross-validation-data-splits.md).
+        If deep learning is enabled, validation is limited to _train_validation split_. [Learn more about validation options (SDK v1)](./v1/how-to-configure-cross-validation-data-splits.md).
 
     1. For **forecasting** you can, 
     
@@ -142,7 +142,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
 
 1. The **[Optional] Validate and test** form allows you to do the following. 
 
-    1. Specify the type of validation to be used for your training job. [Learn more about cross validation](how-to-configure-cross-validation-data-splits.md#prerequisites). 
+    1. Specify the type of validation to be used for your training job. [Learn more about cross validation (SDK v1)](./v1/how-to-configure-cross-validation-data-splits.md#prerequisites). 
     
         1. Forecasting tasks only supports k-fold cross validation.
     

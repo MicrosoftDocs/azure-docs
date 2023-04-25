@@ -109,7 +109,7 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
     # [Azure CLI](#tab/cli)
     
     ```azurecli
-    DATASET_ID=$(az ml data show -n heart-dataset-unlabeled --label latest --query id)
+    DATASET_ID=$(az ml data show -n heart-dataset-unlabeled --label latest | jq -r .id)
     ```
 
     # [Python](#tab/sdk)

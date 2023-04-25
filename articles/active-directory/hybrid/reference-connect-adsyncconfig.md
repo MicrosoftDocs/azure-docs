@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: ADSyncConfig PowerShell Reference | Microsoft Docs'
+title: 'Azure AD Connect: ADSyncConfig PowerShell Reference'
 description: This document provides reference information for the ADSyncConfig.psm1 PowerShell module.
 author: billmath
 manager: amycolannino

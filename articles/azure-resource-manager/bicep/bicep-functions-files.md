@@ -2,6 +2,7 @@
 title: Bicep functions - files
 description: Describes the functions to use in a Bicep file to load content from a file.
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 10/10/2022
 ---
 

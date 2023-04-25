@@ -1,10 +1,10 @@
 ---
-title: Understand Device Update for IoT Hub network security | Microsoft Docs
+title: Understand Device Update for IoT Hub network security
 description: This article describes how to use service tags and private endpoints with Device Update for IoT Hub.
 author: darkoa-msft
 ms.author: darkoa
 ms.date: 06/26/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: iot-hub-device-update
 ---
 

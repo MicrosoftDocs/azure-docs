@@ -1,5 +1,5 @@
 ---
-title: 'What is password hash synchronization with Azure AD? | Microsoft Docs'
+title: 'What is password hash synchronization with Azure AD?'
 description: Describes password hash synchronization.
 author: billmath
 manager: amycolannino

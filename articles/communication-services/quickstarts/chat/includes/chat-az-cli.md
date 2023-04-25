@@ -8,7 +8,7 @@ ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 08/19/2022
 ms.topic: include
-ms.custom: include file
+ms.custom: include file, devx-track-azurecli
 ms.author: mayssamm
 ---
 
@@ -18,13 +18,13 @@ ms.author: mayssamm
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md?#access-your-connection-strings-and-service-endpoints-using-azure-cli).
 - Install [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli).
 - Note your Communication Services resource endpoint. You can get the endpoint from the Azure portal. Alternatively, you can find the endpoint url in the connection string. It's the url that comes after `endpoint=` and starts with `https://`.
-- A [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the user_id string**. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+- A [User Access Token](../../identity/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the user_id string**. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
 
   ```azurecli-interactive
   az communication identity token issue --scope chat --connection-string "yourConnectionString"
   ```
 
-  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../access-tokens.md?pivots=platform-azcli).
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../identity/access-tokens.md?pivots=platform-azcli).
 
 ## Setting up
 ### Add the extension

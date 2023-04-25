@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Prisma Cloud SSO | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Prisma Cloud SSO'
 description: Learn how to configure single sign-on between Azure Active Directory and Prisma Cloud SSO.
 services: active-directory
 author: jeevansd

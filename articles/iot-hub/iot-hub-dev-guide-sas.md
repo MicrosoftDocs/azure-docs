@@ -1,12 +1,11 @@
 ---
-title: Control access to IoT Hub using SAS tokens | Microsoft Docs
+title: Control access to IoT Hub using SAS tokens
 description: How to control access to IoT Hub for device apps and back-end apps using shared access signature tokens.
 author: kgremban
 
 ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/28/2022
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', 'Role: Operations', devx-track-js, devx-track-csharp]
 ---
@@ -152,7 +151,7 @@ using System.Net.Http;
 using System.Security.Cryptography;
 using System.Text;
 
-public static string generateSasToken(string resourceUri, string key, string policyName, int expiryInSeconds = 3600)
+public static string GenerateSasToken(string resourceUri, string key, string policyName, int expiryInSeconds = 3600)
 {
     TimeSpan fromEpochStart = DateTime.UtcNow - new DateTime(1970, 1, 1);
     string expiry = Convert.ToString((int)fromEpochStart.TotalSeconds + expiryInSeconds);
@@ -223,7 +222,7 @@ HTTPS implements authentication by including a valid token in the **Authorizatio
 For example, Username (DeviceId is case-sensitive):
 `iothubname.azure-devices.net/DeviceId`
 
-Password (You can generate a SAS token with the CLI extension command [az iot hub generate-sas-token](/cli/azure/iot/hub#az-iot-hub-generate-sas-token), or the [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)):
+Password (You can generate a SAS token with the CLI extension command [az iot hub generate-sas-token](/cli/azure/iot/hub#az-iot-hub-generate-sas-token), or the [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)):
 
 `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
@@ -315,7 +314,7 @@ The result, which grants access to all functionality for device1, would be:
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> It's possible to generate a SAS token with the CLI extension command [az iot hub generate-sas-token](/cli/azure/iot/hub#az-iot-hub-generate-sas-token), or the [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
+> It's possible to generate a SAS token with the CLI extension command [az iot hub generate-sas-token](/cli/azure/iot/hub#az-iot-hub-generate-sas-token), or the [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
 #### Use a shared access policy to access on behalf of a device
 
@@ -409,5 +408,5 @@ Now that you have learned how to control access IoT Hub, you may be interested i
 If you would like to try out some of the concepts described in this article, see the following IoT Hub tutorials:
 
 * [Get started with Azure IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs)
-* [How to send cloud-to-device messages with IoT Hub](iot-hub-csharp-csharp-c2d.md)
+* [How to send cloud-to-device messages with IoT Hub](c2d-messaging-dotnet.md)
 * [How to process IoT Hub device-to-cloud messages](tutorial-routing.md)

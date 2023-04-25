@@ -6,7 +6,7 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 01/25/2022
+ms.date: 03/23/2023
 ---
 
 # How to bulk edit assets
@@ -20,19 +20,19 @@ This article describes how you can update assets in bulk to add glossary terms, 
 
 1. Use Microsoft Purview search or browse to discover assets you wish to edit.
 
-1. In the search results, if you focus on an asset a checkbox appears.
+1. In the search results, each data asset has a checkbox you can select to add the asset to the selection list.
 
    :::image type="content" source="media/how-to-bulk-edit-assets/asset-checkbox.png" alt-text="Screenshot of the bulk edit checkbox.":::
 
-1. You can add an asset to the bulk edit list from the asset detail page. Select **Select for bulk edit** to add the asset to the bulk edit list.
+1. You can also add an asset to the bulk edit list from the asset detail page. Select **Select for bulk edit** to add the asset to the bulk edit list.
 
-   :::image type="content" source="media/how-to-bulk-edit-assets/asset-list.png" alt-text="Screenshot of the asset.":::
+   :::image type="content" source="media/how-to-bulk-edit-assets/asset-list.png" alt-text="Screenshot of the asset page with the bulk edit box highlighted.":::
 
-1. Select the checkbox to add it to the bulk edit list. You can see the selected assets by clicking **View selected**.
+1. Select the checkbox to add it to the bulk edit list. You can see the selected assets by selecting the **View selected** button.
 
-   :::image type="content" source="media/how-to-bulk-edit-assets/selected-list.png" alt-text="Screenshot of the list.":::\
+   :::image type="content" source="media/how-to-bulk-edit-assets/selected-list.png" alt-text="Screenshot of the asset list with the View Selected button highlighted.":::
 
-## How to bulk edit assets
+## Bulk edit assets
 
 1. When all assets have been chosen, select **View selected** to pull up the selected assets.
 
@@ -50,13 +50,17 @@ This article describes how you can update assets in bulk to add glossary terms, 
     1. **Add** will append a new annotation to the selected data assets.
     1. **Replace with** will replace all of the annotations for the selected data assets with the annotation selected.
     1. **Remove** will remove all annotations for selected data assets.
-   
+
+    You can edit multiple assets at once by selecting **Select a new attribute**.
+
     :::image type="content" source="media/how-to-bulk-edit-assets/add-list.png" alt-text="Screenshot of the add.":::
+
+1. When you have made all your updates, select **Apply**.
 
 1. Once complete, close the bulk edit blade by selecting **Close** or **Remove all and close**. Close won't remove the selected assets whereas remove all and close will remove all the selected assets.
     :::image type="content" source="media/how-to-bulk-edit-assets/close-list.png" alt-text="Screenshot of the close.":::
 
-> [!Important]
+> [!IMPORTANT]
 > The recommended number of assets for bulk edit are 25. Selecting more than 25 might cause performance issues.
 > The **View Selected** box will be visible only if there is at least one asset selected.
 

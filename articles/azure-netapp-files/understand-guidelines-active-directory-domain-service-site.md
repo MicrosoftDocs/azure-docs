@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/25/2023
+ms.date: 02/21/2023
 ms.author: anfdocs
 ---
 # Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files
@@ -20,6 +20,8 @@ ms.author: anfdocs
 Proper Active Directory Domain Services (AD DS) design and planning are key to solution architectures that use Azure NetApp Files volumes. Azure NetApp Files features such as [SMB volumes](azure-netapp-files-create-volumes-smb.md), [dual-protocol volumes](create-volumes-dual-protocol.md), and [NFSv4.1 Kerberos volumes](configure-kerberos-encryption.md) are designed to be used with AD DS.  
 
 This article provides recommendations to help you develop an AD DS deployment strategy for Azure NetApp Files. Before reading this article, you need to have a good understanding about how AD DS works on a functional level.  
+
+[!INCLUDE [April 2023 Netlogon notice](includes/netlogon-april-2023.md)]
 
 ## <a name="ad-ds-requirements"></a> Identify AD DS requirements for Azure NetApp Files
 
@@ -71,7 +73,7 @@ Ensure that you meet the following requirements about the DNS configurations:
 * Ensure that [the SRV records registered by the AD DS Net Logon service](https://social.technet.microsoft.com/wiki/contents/articles/7608.srv-records-registered-by-net-logon.aspx) have been created on the DNS servers.
 * Ensure that the PTR records for the AD DS domain controllers used by Azure NetApp Files have been created on the DNS servers.
 * Azure NetApp Files supports standard and secure dynamic DNS updates. If you require secure dynamic DNS updates, ensure that secure updates are configured on the DNS servers.
-* If dynamic DNS updates are not used, you need to manually create an A record and a PTR record for the AD DS computer account(s) created in the AD DS **Organizational Unit** (specified in the Azure NetApp Files AD connection) to support Azure NetApp FIles LDAP Signing, LDAP over TLS, SMB, dual-protocol, or Kerberos NFSv4.1 volumes.
+* If dynamic DNS updates are not used, you need to manually create an A record and a PTR record for the AD DS computer account(s) created in the AD DS **Organizational Unit** (specified in the Azure NetApp Files AD connection) to support Azure NetApp Files LDAP Signing, LDAP over TLS, SMB, dual-protocol, or Kerberos NFSv4.1 volumes.
 * For complex or large AD DS topologies, [DNS Policies or DNS subnet prioritization may be required to support LDAP enabled NFS volumes](#ad-ds-ldap-discover).  
 
 ### Time source requirements 
@@ -152,8 +154,12 @@ Ensure that stale DNS records associated with the retired AD DS domain controlle
 
 A separate discovery process for AD DS LDAP servers occurs when LDAP is enabled for an Azure NetApp Files NFS volume. When the LDAP client is created on Azure NetApp Files, Azure NetApp Files queries the AD DS domain service (SRV) resource record for a list of all AD DS LDAP servers in the domain and not the AD DS LDAP servers assigned to the AD DS site specified in the AD connection.
 
+In large or complex AD DS topologies, you might need to implement [DNS Policies](/windows-server/networking/dns/deploy/dns-policies-overview) or [DNS subnet prioritization](/previous-versions/windows/it-pro/windows-2000-server/cc961422(v=technet.10)?redirectedfrom=MSDN) to ensure that the AD DS LDAP servers assigned to the AD DS site specified in the AD connection are returned.
+
+Alternatively, the AD DS LDAP server discovery process can be overridden by specifying up to two [preferred AD servers for the LDAP client](create-active-directory-connections.md#preferred-server-ldap). 
+
 > [!IMPORTANT]
-> If Azure NetApp Files cannot reach a discovered AD DS LDAP server during the creation of the Azure NetApp Files LDAP client, the creation of the LDAP enabled volume will fail. In large or complex AD DS topologies, you might need to implement [DNS Policies](/windows-server/networking/dns/deploy/dns-policies-overview) or [DNS subnet prioritization](/previous-versions/windows/it-pro/windows-2000-server/cc961422(v=technet.10)?redirectedfrom=MSDN) to ensure that the AD DS LDAP servers assigned to the AD DS site specified in the AD connection are returned. Contact your Microsoft CSA for guidance on how to best configure your DNS to support LDAP-enabled NFS volumes.
+> If Azure NetApp Files cannot reach a discovered AD DS LDAP server during the creation of the Azure NetApp Files LDAP client, the creation of the LDAP enabled volume will fail.
 
 ### Consequences of incorrect or incomplete AD Site Name configuration
 
@@ -219,7 +225,7 @@ Azure NetApp Files SMB, dual-protocol, and NFSv4.1 Kerberos volumes support cros
 ## Next steps 
 * [Create and manage Active Directory connections](create-active-directory-connections.md)
 * [Modify Active Directory connections](modify-active-directory-connections.md)
-* [Enable ADDS LDAP authentication for NFS volumes](configure-ldap-over-tls.md)
+* [Enable AD DS LDAP authentication for NFS volumes](configure-ldap-over-tls.md)
 * [Create an SMB volume](azure-netapp-files-create-volumes-smb.md)
 * [Create a dual-protocol volume](create-volumes-dual-protocol.md)
 * [Errors for SMB and dual-protocol volumes](troubleshoot-volumes.md#errors-for-smb-and-dual-protocol-volumes)

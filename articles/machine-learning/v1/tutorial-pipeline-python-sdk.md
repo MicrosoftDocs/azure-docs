@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 01/28/2022
-ms.custom: devx-track-python, sdkv1, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, devx-track-python, sdkv1, event-tier1-build-2022, ignite-2022
 ---
 
 # Tutorial: Build an Azure Machine Learning pipeline for image classification
@@ -42,7 +42,7 @@ If you don't have an Azure subscription, create a free account before you begin.
 
 ## Prerequisites
 
-* Complete the [Quickstart: Get started with Azure Machine Learning](../quickstart-create-resources.md) if you don't already have an Azure Machine Learning workspace.
+* Complete [Create resources to get started](../quickstart-create-resources.md) if you don't already have an Azure Machine Learning workspace.
 * A Python environment in which you've installed both the `azureml-core` and `azureml-pipeline` packages. This environment is for defining and controlling your Azure Machine Learning resources and is separate from the environment used at runtime for training.
 
 > [!Important]

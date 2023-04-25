@@ -1,8 +1,8 @@
 ---
 title: Integrate Azure Web PubSub with service connector
 description: Integrate Azure Web PubSub into your application with Service Connector
-author: maud-lv
-ms.author: malev
+author: mcleanbyron
+ms.author: mcleans
 ms.service: service-connector
 ms.topic: how-to
 ms.date: 08/11/2022

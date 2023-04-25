@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Plan and manage costs for Azure Machine Learning with cost analysis in Azure portal. Learn further cost-saving tips to lower your cost when building ML models.  
 author: sdgilley
 ms.author: sgilley
-ms.custom: subject-cost-optimization, devx-track-azurecli, sdkv1, event-tier1-build-2022
+ms.custom: subject-cost-optimization, sdkv1, event-tier1-build-2022
 ms.reviewer: nigup
 ms.service: machine-learning
 ms.subservice: mlops
@@ -61,7 +61,7 @@ When you create resources for an Azure Machine Learning workspace, resources for
 * [Application Insights](https://azure.microsoft.com/pricing/details/monitor?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 When you create a [compute instance](concept-compute-instance.md), the VM stays on so it is available for your work.  
-* [Enable idle shutdown (preview)](how-to-create-manage-compute-instance.md#enable-idle-shutdown-preview) to save on cost when the VM has been idle for a specified time period.
+* [Enable idle shutdown (preview)](how-to-create-manage-compute-instance.md#enable-idle-shutdown) to save on cost when the VM has been idle for a specified time period.
 * Or [set up a schedule](how-to-create-manage-compute-instance.md#schedule-automatic-start-and-stop) to automatically start and stop the compute instance (preview) to save cost when you aren't planning to use it.
 
  
@@ -74,7 +74,9 @@ Before you delete an Azure Machine Learning workspace in the Azure portal or wit
 * Virtual Network
 * Bandwidth
 
-Each VM is billed per hour it is running. Cost depends on VM specifications. VMs that are running but not actively working on a dataset will still be charged via the load balancer. For each compute instance, one load balancer will be billed per day. Every 50 nodes of a compute cluster will have one standard load balancer billed. Each load balancer is billed around $0.33/day. To avoid load balancer costs on stopped compute instances and compute clusters, delete the compute resource. One virtual network will be billed per subscription and per region. Virtual networks cannot span regions or subscriptions. Setting up private endpoints in vNet setups may also incur charges. Bandwidth is charged by usage; the more data transferred, the more you are charged.
+Each VM is billed per hour it is running. Cost depends on VM specifications. VMs that are running but not actively working on a dataset will still be charged via the load balancer. For each compute instance, one load balancer will be billed per day. Every 50 nodes of a compute cluster will have one standard load balancer billed. Each load balancer is billed around $0.33/day. To avoid load balancer costs on stopped compute instances and compute clusters, delete the compute resource. 
+
+Compute instances also incure P10 disk costs even in stopped state. This is because any user content saved there is persisted across the stopped state similar to Azure VMs. We are working on making the OS disk size/ type configurable to better control costs. For virtual networks, one virtual network will be billed per subscription and per region. Virtual networks cannot span regions or subscriptions. Setting up private endpoints in vNet setups may also incur charges. Bandwidth is charged by usage; the more data transferred, the more you are charged. 
 
 ### Costs might accrue after resource deletion
 

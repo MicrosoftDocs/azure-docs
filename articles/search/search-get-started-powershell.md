@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 01/27/2023
-ms.custom: devx-track-azurepowershell, mode-api
+ms.custom: mode-api
 ---
 # Quickstart: Create an Azure Cognitive Search index in PowerShell using REST APIs
 > [!div class="op_single_selector"]

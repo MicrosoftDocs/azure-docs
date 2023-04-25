@@ -5,6 +5,7 @@ keywords: app service, azure app service, monitoring, diagnostic settings, suppo
 ms.topic: article
 ms.date: 02/25/2022
 ms.author: msangapu
+ms.custom: UpdateFrequency3
 ---
 # Azure App Service monitoring overview
 

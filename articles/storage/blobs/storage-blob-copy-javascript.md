@@ -18,27 +18,30 @@ ms.custom: devx-track-js, devguide-js
 This article shows how to copy a blob in a storage account using the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob). It also shows how to abort an asynchronous copy operation.
 
 > [!NOTE]
-> The examples in this article assume that you've created a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object by using the guidance in the [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md) article. Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. To learn how to create a container, see [Create a container in Azure Storage with JavaScript](storage-blob-container-create.md). 
+> The examples in this article assume that you've created a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object by using the guidance in the [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md) article. Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. To learn how to create a container, see [Create a container in Azure Storage with JavaScript](storage-blob-container-create-javascript.md). 
 
 ## About copying blobs
 
-When you copy a blob within the same storage account, it's a synchronous operation. When you copy across accounts it's an asynchronous operation.
-
-The source blob for a copy operation may be a block blob, an append blob, a page blob, or a snapshot. If the destination blob already exists, it must be of the same blob type as the source blob. An existing destination blob will be overwritten.
-
-The destination blob can't be modified while a copy operation is in progress. A destination blob can only have one outstanding copy operation. In other words, a blob can't be the destination for multiple pending copy operations.
-
-The entire source blob or file is always copied. Copying a range of bytes or set of blocks is not supported.
-
-When a blob is copied, its system properties are copied to the destination blob with the same values.
-
-A copy operation can take any of the following forms:
+A copy operation can perform any of the following actions:
 
 - Copy a source blob to a destination blob with a different name. The destination blob can be an existing blob of the same blob type (block, append, or page), or can be a new blob created by the copy operation.
 - Copy a source blob to a destination blob with the same name, effectively replacing the destination blob. Such a copy operation removes any uncommitted blocks and overwrites the destination blob's metadata.
-- Copy a source file in the Azure File service to a destination blob. The destination blob can be an existing block blob, or can be a new block blob created by the copy operation. Copying from files to page blobs or append blobs is not supported.
+- Copy a source file in the Azure File service to a destination blob. The destination blob can be an existing block blob, or can be a new block blob created by the copy operation. Copying from files to page blobs or append blobs isn't supported.
 - Copy a snapshot over its base blob. By promoting a snapshot to the position of the base blob, you can restore an earlier version of a blob.
 - Copy a snapshot to a destination blob with a different name. The resulting destination blob is a writeable blob and not a snapshot.
+
+The source blob for a copy operation may be one of the following types:
+- Block blob
+- Append blob
+- Page blob
+- Blob snapshot
+- Blob version
+
+If the destination blob already exists, it must be of the same blob type as the source blob. An existing destination blob will be overwritten.
+
+The destination blob can't be modified while a copy operation is in progress. A destination blob can only have one outstanding copy operation. One way to enforce this requirement is to use a blob lease, as shown in the code example.
+
+The entire source blob or file is always copied. Copying a range of bytes or set of blocks isn't supported. When a blob is copied, its system properties are copied to the destination blob with the same values.
 
 ## Copy a blob
 

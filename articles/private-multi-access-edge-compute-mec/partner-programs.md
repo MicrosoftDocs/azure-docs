@@ -83,7 +83,6 @@ Our application ISV partners include:
 - [Cognitiwe](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cognitiweaio1670399502095.cognitiwe_hse_v1?exp=ubp8&tab=Overview)
 - [iLink Systems](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/ilinksystems.samplemidasvm?exp=ubp8&tab=Overview)
 - [Ipsotek](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/atosinternationalsas.ipsotek_vi_suite_bundles?exp=ubp8&tab=Overview)
-- [Neal Analytics](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/neal_analytics.bonsai?exp=ubp8&tab=Overview)
 - [Red Viking](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/redviking1587070336894.rv_argonaut_on_mec?exp=ubp8&tab=Overview)
 - [Sensing Feeling](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/sensingfeelinglimited1671143541932.001?exp=ubp8)
 - [Weavix](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/pksolutionsllc1654260389042.smart_radio_36_ms?exp=ubp8&tab=Overview)

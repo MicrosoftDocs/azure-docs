@@ -1,5 +1,5 @@
 ---
-title: Certificate user IDs for Azure AD certificate-based authentication - Azure Active Directory 
+title: Certificate user IDs for Azure AD certificate-based authentication 
 description: Learn about certificate user IDs for Azure AD certificate-based authentication without federation
 
 services: active-directory
@@ -45,7 +45,7 @@ For sync'd users, AD users with role **Hybrid Identity Administrator** can write
  
 Tenant admins can use the following steps Azure portal to update certificate user IDs for a user account:
 
-1. In the Azure AD portal, click **All users (preview)**. 
+1. In the Azure portal, click **All users (preview)**. 
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/user.png" alt-text="Screenshot of test user account.":::
 
@@ -91,13 +91,21 @@ To update certificate user IDs for federated users, configure Azure AD Connect t
 
 ### Synchronize X509:\<PN>PrincipalNameValue
  
-To synchronize X509:\<PN>PrincipalNameValue, create an outbound synchronization rule, and choose **Expression** in the flow type. Choose the target attribute as \<certificateUserIds>, and in the source field, add the expression <"X509:\<PN>"&[userPrincipalName]>. If your source attribute isn't userPrincipalName, you can change the expression accordingly.
+To synchronize X509:\<PN>PrincipalNameValue, create an outbound synchronization rule, and choose **Expression** in the flow type. Choose the target attribute as **certificateUserIds**, and in the source field, add the following expression. If your source attribute isn't userPrincipalName, you can change the expression accordingly.
+
+```
+"X509:\<PN>"&[userPrincipalName]
+```
  
 :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/pnexpression.png" alt-text="Screenshot of how to sync x509.":::
  
 ### Synchronize X509:\<RFC822>RFC822Name
 
-To synchronize X509:\<RFC822>RFC822Name, create an outbound synchronization rule, choose **Expression** in the flow type. Choose the target attribute as \<certificateUserIds>, and in the source field, add the expression <"X509:\<RFC822>"&[userPrincipalName]>. If your source attribute isn't userPrincipalName, you can change the expression accordingly.  
+To synchronize X509:\<RFC822>RFC822Name, create an outbound synchronization rule, choose **Expression** in the flow type. Choose the target attribute as **certificateUserIds**, and in the source field, add the following expression. If your source attribute isn't userPrincipalName, you can change the expression accordingly.  
+
+```
+"X509:\<RFC822>"&[userPrincipalName]
+```
 
 :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/rfc822expression.png" alt-text="Screenshot of how to sync RFC822Name.":::
 
@@ -122,10 +130,32 @@ AlternativeSecurityId isn't part of the default attributes. An administrator nee
 
 1. Create an inbound synchronization rule to transform from altSecurityIdentities to alternateSecurityId attribute.
 
+   In the inbound rule, use the following options.
+  
+   |Option | Value |
+   |-------|-------|
+   |Name | Descriptive name of the rule, such as: In from AD - altSecurityIdentities |
+   |Connected System | Your on-premises AD domain |
+   |Connected System Object Type | user |
+   |Metaverse Object Type | person |
+   |Precedence | Choose a random high number not currently used |
+  
+   Then proceed to the Transformations tab and do a direct mapping of the target attribute of **alternativeSecurityId** to **altSecurityIdentities** as shown below.
+
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/alt-security-identity-inbound.png" alt-text="Screenshot of how to transform from altSecurityIdentities to alternateSecurityId attribute":::
 
 1. Create an outbound synchronization rule to transform from alternateSecurityId attribute to certificateUserIds
 alt-security-identity-add.
+
+   |Option | Value |
+   |-------|-------|
+   |Name | Descriptive name of the rule, such as: Out to AAD - certificateUserIds |
+   |Connected System | Your Azure AD doamin |
+   |Connected System Object Type | user |
+   |Metaverse Object Type | person |
+   |Precedence | Choose a random high number not currently used |
+    
+   Then proceed to the Transformations tab and change your FlowType option to *Expression*, the target attribute to **certificateUserIds** and then input the below expression in to the Source field.
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/alt-security-identity-outbound.png" alt-text="Screenshot of outbound synchronization rule to transform from alternateSecurityId attribute to certificateUserIds":::
 
@@ -141,34 +171,28 @@ IIF(IsPresent([alternativeSecurityId]),
 
 ## Look up certificateUserIds using Microsoft Graph queries
 
-Tenant admins can run MS Graph queries to find all the users with a given certificateUserId value.
+Authorized callers can run Microsoft Graph queries to find all the users with a given certificateUserId value. On the Microsoft Graph [user](/graph/api/resources/user) object, the collection of certificateUserIds are stored in the **authorizationInfo** property.
           
-GET all user objects that have the value 'bob@contoso.com' value in certificateUserIds:
+To retrieve all user objects that have the value 'bob@contoso.com' in certificateUserIds:
 
-```http
-GET  https://graph.microsoft.com/v1.0/users?$filter=certificateUserIds/any(x:x eq 'bob@contoso.com')
-```
- 
-```http
-GET https://graph.microsoft.com/v1.0/users?$filter=startswith(certificateUserIds, 'bob@contoso.com')
+```msgraph-interactive
+GET https://graph.microsoft.com/v1.0/users?$filter=authorizationInfo/certificateUserIds/any(x:x eq 'bob@contoso.com')&$count=true
+ConsistencyLevel: eventual
 ```
 
-```http
-GET https://graph.microsoft.com/v1.0/users?$filter=certificateUserIds eq 'bob@contoso.com'
-```
+You can also use the `not` and `startsWith` operators to match the filter condition. To filter against the certificateUserIds object, the request must include the `$count=true` query string and the **ConsistencyLevel** header set to `eventual`.
             
-## Update certificate user IDs using Microsoft Graph queries
-PATCH the user object certificateUserIds value for a given userId
+## Update certificateUserIds using Microsoft Graph queries
+
+Run a PATCH request to update the certificateUserIds for a given user.
 
 #### Request body:
 
 ```http
-PATCH https://graph.microsoft.us/v1.0/users/{id}
+PATCH https://graph.microsoft.com/v1.0/users/{id}
 Content-Type: application/json
-{
 
-    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users(authorizationInfo,department)/$entity",
-    "department": "Accounting",
+{
     "authorizationInfo": {
         "certificateUserIds": [
             "X509:<PN>123456789098765@mil"

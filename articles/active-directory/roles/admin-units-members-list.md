@@ -1,5 +1,5 @@
 ---
-title: List users, groups, or devices in an administrative unit - Azure Active Directory
+title: List users, groups, or devices in an administrative unit
 description: List users, groups, or devices in an administrative unit in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -36,7 +36,7 @@ You can list the users, groups, or devices in administrative units using the Azu
 
 ### List the administrative units for a single user, group, or device
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory**.
 
@@ -54,7 +54,7 @@ You can list the users, groups, or devices in administrative units using the Azu
 
 ### List the users, groups, or devices for a single administrative unit
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory**.
 
@@ -70,7 +70,7 @@ You can list the users, groups, or devices in administrative units using the Azu
 
 ### List the devices for an administrative unit by using the All devices page
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory**.
 

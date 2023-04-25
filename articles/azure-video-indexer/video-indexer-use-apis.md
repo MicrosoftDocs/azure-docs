@@ -120,7 +120,7 @@ When you're uploading videos by using the API, you have the following options:
 The following C# code snippet demonstrates the usage of all the Azure Video Indexer APIs together.
 
 > [!NOTE]
-> The following sample is intended for classic accounts only and not compatible with ARM-based accounts. For an updated sample for ARM (recommended), see [this ARM sample repo](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/ApiUsage/ArmBased/Program.cs).
+> The following sample is intended for classic accounts only and not compatible with ARM-based accounts. For an updated sample for ARM (recommended), see [this ARM sample repo](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/API-Samples/C%23/ArmBased/Program.cs).
 
 ```csharp
 var apiUrl = "https://api.videoindexer.ai";

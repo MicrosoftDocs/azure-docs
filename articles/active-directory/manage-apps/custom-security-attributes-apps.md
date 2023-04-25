@@ -1,5 +1,5 @@
 ---
-title: Manage custom security attributes for an application (Preview) - Azure Active Directory
+title: Manage custom security attributes for an application (Preview)
 description: Assign, update, list, or remove custom security attributes for an application that has been registered with your Azure Active Directory (Azure AD) tenant.
 services: active-directory
 author: omondiatieno
@@ -44,7 +44,7 @@ Learn how to work with custom attributes for applications in Azure AD.
 
 Undertake the following steps to assign custom security attributes through the Azure portal.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory**, then select **Enterprise applications**. 
 
@@ -70,7 +70,7 @@ Undertake the following steps to assign custom security attributes through the A
 
 ### Update custom security attribute assignment values for an application
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory**, then select **Enterprise applications**.
 
@@ -90,7 +90,7 @@ Undertake the following steps to assign custom security attributes through the A
 
 You can filter the list of custom security attributes assigned to applications on the **All applications** page.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory**, then select **Enterprise applications**.
 
@@ -112,7 +112,7 @@ You can filter the list of custom security attributes assigned to applications o
 
 ### Remove custom security attribute assignments from applications
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory**, then select **Enterprise applications**.
 

@@ -19,10 +19,10 @@ Customers using Azure Firewall manager to set up policies for public and private
 
 Routing Intent and Routing policies allow you to specify how the Virtual WAN hub forwards Internet-bound and Private (Point-to-site, Site-to-site, ExpressRoute, Network Virtual Appliances inside the Virtual WAN Hub and Virtual Network) Traffic. There are two types of Routing Policies: Internet Traffic and Private Traffic Routing Policies. Each Virtual WAN Hub may have at most one Internet Traffic Routing Policy and one Private Traffic Routing Policy, each with a single Next Hop resource.
 
-While Private Traffic  includes both branch and Virtual Network address prefixes, Routing Policies considers them as one entity within the Routing Intent Concepts.
+While Private Traffic includes both branch and Virtual Network address prefixes, Routing Policies considers them as one entity within the Routing Intent Concepts.
 
 >[!NOTE]
-> Inter-region traffic **cannot** be inspected by Azure Firewall or NVA. Additionally, configuring both private and internet routing policies is currently **not** supported in most Azure regions. Doing so will put Gateways (ExpressRoute, Site-to-site VPN and Point-to-sive VPN) in a failed state and break connectivity from on-premises branches to Azure. Please ensure you only have one type of routing policy on each Virtual WAN hub. For more information, please contact previewinterhub@microsoft.com.
+> Inter-region traffic **cannot** be inspected by Azure Firewall or NVA. Additionally, configuring both private and internet routing policies is currently **not** supported in most Azure regions. Doing so will put Gateways (ExpressRoute, Site-to-site VPN and Point-to-site VPN) in a failed state and break connectivity from on-premises branches to Azure. Please ensure you only have one type of routing policy on each Virtual WAN hub. For more information, please contact previewinterhub@microsoft.com.
 
 
 * **Internet Traffic Routing Policy**:  When an Internet Traffic Routing Policy is configured on a Virtual WAN hub, all branch (User VPN (Point-to-site VPN), Site-to-site VPN, and ExpressRoute) and Virtual Network connections to that Virtual WAN Hub will forward Internet-bound traffic to the Azure Firewall resource, Third-Party Security provider or **Network Virtual Appliance** specified as part of the Routing Policy.
@@ -31,7 +31,7 @@ While Private Traffic  includes both branch and Virtual Network address prefixes
  
 * **Private Traffic Routing Policy**: When a Private Traffic Routing Policy is configured on a Virtual WAN hub, **all** branch and Virtual Network traffic in and out of the Virtual WAN Hub including inter-hub traffic will be forwarded to the Next Hop Azure Firewall resource or Network Virtual Appliance resource that was specified in the Private Traffic Routing Policy. 
 
-    In other words, when a Private Traffic Routing Policy is configured on the Virtual WAN Hub,  all branch-to-branch, branch-to-virtual network, virtual network-to-branch and inter-hub traffic will be sent via Azure Firewall or a Network Virtual Appliance deployed in the Virtual WAN Hub. 
+    In other words, when a Private Traffic Routing Policy is configured on the Virtual WAN Hub, all branch-to-branch, branch-to-virtual network, virtual network-to-branch and inter-hub traffic will be sent via Azure Firewall or a Network Virtual Appliance deployed in the Virtual WAN Hub. 
 
 ## Preview notes
 

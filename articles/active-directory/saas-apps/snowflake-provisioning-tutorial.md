@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Snowflake for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Snowflake for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and deprovision user accounts to Snowflake.
 services: active-directory
 author: twimmers

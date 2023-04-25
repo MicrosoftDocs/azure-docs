@@ -5,7 +5,7 @@ keywords: app service, azure app service, diagnostics, support, web app, trouble
 
 ms.topic: article
 ms.date: 10/18/2019
-ms.custom: seodec18
+ms.custom: UpdateFrequency3
 
 ---
 # Azure App Service diagnostics overview

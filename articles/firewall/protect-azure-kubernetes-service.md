@@ -3,6 +3,7 @@ title: Use Azure Firewall to protect Azure Kubernetes Service (AKS) clusters
 description: Learn how to use Azure Firewall to protect Azure Kubernetes Service (AKS) clusters
 author: vhorne
 ms.service: firewall
+ms.custom: devx-track-azurecli
 services: firewall
 ms.topic: how-to
 ms.date: 10/27/2022
@@ -172,7 +173,8 @@ See [virtual network route table documentation](../virtual-network/virtual-netwo
 
 
 Below are three network rules you can use to configure on your firewall, you may need to adapt these rules based on your deployment. The first rule allows access to port 9000 via TCP. The second rule allows access to port 1194 and 123 via UDP. Both these rules will only allow traffic destined to the Azure Region CIDR that we're using, in this case East US. 
-Finally, we'll add a third network rule opening port 123 to `ntp.ubuntu.com` FQDN via UDP (adding an FQDN as a network rule is one of the specific features of Azure Firewall, and you'll need to adapt it when using your own options).
+
+Finally, we'll add a third network rule opening port 123 to an Internet time server FQDN (for example:`ntp.ubuntu.com`)  via UDP. Adding an FQDN as a network rule is one of the specific features of Azure Firewall, and you'll need to adapt it when using your own options.
 
 After setting the network rules, we'll also add an application rule using the `AzureKubernetesService` that covers all needed FQDNs accessible through TCP port 443 and port 80.
 

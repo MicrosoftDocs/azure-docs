@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with GetThere | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with GetThere'
 description: Learn how to configure single sign-on between Azure Active Directory and GetThere.
 services: active-directory
 author: jeevansd

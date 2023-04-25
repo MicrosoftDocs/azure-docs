@@ -3,7 +3,7 @@ title: "Quickstart: Create your first C# function in Azure using Visual Studio"
 description: "In this quickstart, you learn how to use Visual Studio to create and publish a C# HTTP triggered function to Azure Functions."
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
-ms.date: 01/05/2023
+ms.date: 02/28/2023
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f, contperf-fy21q3-portal, mode-ui
 ---
@@ -42,14 +42,14 @@ The Azure Functions project template in Visual Studio creates a C# class library
 
 1. In **Additional information** choose from one of the following options for **Functions worker**:
 
-    | .NET runtime | Process model | Description |
-    | --- | --- |  --- |
-    | **.NET 6.0 (Long Term Support)** | [In-process](functions-dotnet-class-library.md) | _In-process_ C# functions are only supported on [Long Term Support (LTS)](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core) .NET versions. Function code runs in the same process as the Functions host.  |
-    | **.NET 6.0 Isolated (Long Term Support)** |  [Isolated worker process](dotnet-isolated-process-guide.md) | Functions run on .NET 6, but in a separate process from the Functions host. |
-    | **.NET 7.0 Isolated** | [Isolated worker process](dotnet-isolated-process-guide.md) | Because .NET 7 isn't an LTS version of .NET, your functions must run in an isolated process on .NET 7. |
-    | **.NET Framework Isolated v4** | [Isolated worker process](dotnet-isolated-process-guide.md) | Choose this option when your functions need to use libraries only supported on the .NET Framework. |
-    | **.NET Core 3.1 (Long Term Support)** | [In-process](functions-dotnet-class-library.md) | .NET Core 3.1 is no longer a supported version of .NET and isn't supported by Functions version 4.x. Use .NET 6.0 instead.  |
-    | **.NET Framework v1** | [In-process](functions-dotnet-class-library.md) | Choose this option when your functions need to use libraries only supported on older versions of .NET Framework. Requires version 1.x of the Functions runtime. |
+    | Option | .NET version | Process model | Description |
+    | --- | --- | --- |  --- |
+    | **.NET 6.0 (Long Term Support)** | .NET 6 | [In-process](functions-dotnet-class-library.md) | _In-process_ C# functions are only supported on [Long Term Support (LTS)](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core) .NET versions. Function code runs in the same process as the Functions host.  |
+    | **.NET 6.0 Isolated (Long Term Support)** | .NET 6 | [Isolated worker process](dotnet-isolated-process-guide.md) | Functions run on .NET 6, but in a separate process from the Functions host. |
+    | **.NET 7.0 Isolated** | .NET 7 | [Isolated worker process](dotnet-isolated-process-guide.md) | Because .NET 7 isn't an LTS version of .NET, your functions must run in an isolated process on .NET 7. |
+    | **.NET Framework Isolated v4** |  .NET Framework 4.8 | [Isolated worker process](dotnet-isolated-process-guide.md) | Choose this option when your functions need to use libraries only supported on the .NET Framework. |
+    | **.NET Core 3.1 (Long Term Support)** |  .NET Core 3.1 | [In-process](functions-dotnet-class-library.md) | .NET Core 3.1 is no longer a supported version of .NET and isn't supported by Functions version 4.x. Use .NET 6.0 instead.  |
+    | **.NET Framework v1** | .NET Framework | [In-process](functions-dotnet-class-library.md) | Choose this option when your functions need to use libraries only supported on older versions of .NET Framework. Requires version 1.x of the Functions runtime. |
 
     The two process models use different APIs, and each process model uses a different template when generating the function project code. If you don't see options for .NET 6.0 and later .NET runtime versions, you may need to [update your Azure Functions tools installation](https://developercommunity.visualstudio.com/t/Sometimes-the-Visual-Studio-functions-wo/10224478?).
 

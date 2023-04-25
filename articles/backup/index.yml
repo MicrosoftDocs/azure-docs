@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page 
   author: jyothisuri
   ms.author: jsuri 
-  ms.date: 12/28/2022
+  ms.date: 03/14/2023
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -30,6 +30,8 @@ landingContent:
             url: backup-support-matrix.md
           - text: Azure Backup architecture
             url: backup-architecture.md
+          - text: Azure Backup security
+            url: security-overview.md
 
   # Card (optional)
   - title: Get started with Azure Backup
@@ -59,12 +61,8 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
-          - text: Backup Azure Database for PostgreSQL
-            url: backup-azure-database-postgresql.md
           - text: Selective disk backup and restore for Azure VMs
             url: selective-disk-backup-restore.md
-          - text: Support for backup of VM with up to 32 disks
-            url: backup-support-matrix-iaas.md#vm-storage-support
           - text: Soft Delete for Azure Backup
             url: backup-azure-security-feature-cloud.md
           - text: Enhanced soft delete for Azure Backup (preview)
@@ -73,8 +71,16 @@ landingContent:
             url: ./multi-user-authorization-concept.md?tabs=recovery-services-vault
           - text: Multi-user authorization (MUA) for Backup vault
             url: ./multi-user-authorization-concept.md?tabs=backup-vault
-          - text: Immutable vault (preview)
+          - text: Immutable vault
             url: backup-azure-immutable-vault-concept.md
+          - text: Multiple backups per day for Azure VMs
+            url: backup-azure-vms-enhanced-policy.md
+          - text: Azure Kubernetes Service backup (preview)
+            url: azure-kubernetes-service-backup-overview.md
+          - text: Azure Blob vaulted backups (preview)
+            url: blob-backup-overview.md
+          - text: Selective Disk backup with Enhanced policy for Azure VM (preview)
+            url: selective-disk-backup-restore.md
   # Card
   - title: Back up Azure VMs
     linkLists:

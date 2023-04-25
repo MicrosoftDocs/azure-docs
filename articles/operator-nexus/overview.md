@@ -5,7 +5,7 @@ author: scottsteinbrueck
 ms.author: ssteinbrueck
 ms.date: 02/26/2023
 ms.topic: overview
-ms.service: azure
+ms.service: azure-operator-nexus
 ---
 
 # What is Azure Operator Nexus?
@@ -35,11 +35,11 @@ These NFs are tested for deployment and lifecycle management on Operator Nexus b
 * **Access to key Azure services** – Operator Nexus being connected to Azure, operators can seamlessly access most Azure services through the same connection as the on-premises network.
 Operators can monitor logs and metrics via Azure Monitor, and analyze telemetry data using Log Analytics or Azure AI/Machine Learning framework.
 * **Unified governance and compliance** – Operator Nexus extends Azure management and services to operator's premises.
-Operators can unify data governance and enforce security and compliance policies by [Azure Role based Access Control](/azure/role-based-access-control/overview) and [Azure Policy](/azure/governance/policy/overview).
+Operators can unify data governance and enforce security and compliance policies by [Azure Role based Access Control](../role-based-access-control/overview.md) and [Azure Policy](../governance/policy/overview.md).
 
 ## How Operator Nexus works
 
-Operator Nexus utilizes a curated and certified hardware Bill of Materials (BOM). It is composed of commercially available off-the-shelf servers, network switches, and storage arrays. The infrastructure is deployed in operator's on-premises data center. Operators or System Integrators must make sure they [meet the prerequisites and follow the guidance](quickstarts-platform-deployment.md). 
+Operator Nexus utilizes a curated and certified hardware Bill of Materials (BOM). It is composed of commercially available off-the-shelf servers, network switches, and storage arrays. The infrastructure is deployed in operator's on-premises data center. Operators or System Integrators must make sure they [meet the prerequisites and follow the guidance](./howto-azure-operator-nexus-prerequisites.md). 
 
 The service that manages the Operator Nexus infrastructure is hosted in Azure. Operators can choose an Azure region that supports Operator Nexus for any on-premises Operator Nexus instance.  The diagram illustrates the architecture of the Operator Nexus service.
 
@@ -110,4 +110,4 @@ Log Analytics has a rich analytical tool-set that operators can use for troubles
 ## Next steps
 
 * Learn more about Operator Nexus [resource models](./concepts-resource-types.md)
-* Review [Operator Nexus deployment prerequisites and steps](./quickstarts-platform-prerequisites.md)
+* Review [Operator Nexus deployment prerequisites and steps](./howto-azure-operator-nexus-prerequisites.md)

@@ -22,8 +22,8 @@ A sample C# solution with code to accompany this article is available on [GitHub
 
 - [Visual Studio 2017 or later](https://www.visualstudio.com/vs)
 - [Batch account and linked storage account](batch-account-create-portal.md)
-- [Application Insights resource](../azure-monitor/app/create-new-resource.md). Use the Azure portal to create an Application Insights *resource*. Select the *General* **Application type**.
-- Copy the [instrumentation key](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key) from the Azure portal. You'll need this value later.
+- [Application Insights resource](/previous-versions/azure/azure-monitor/app/create-new-resource). Use the Azure portal to create an Application Insights *resource*. Select the *General* **Application type**.
+- Copy the [instrumentation key](/previous-versions/azure/azure-monitor/app/create-new-resource#copy-the-instrumentation-key) from the Azure portal. You'll need this value later.
   
   > [!NOTE]
   > You may be [charged](https://azure.microsoft.com/pricing/details/application-insights/) for data stored in Application Insights. This includes the diagnostic and monitoring data discussed in this article.

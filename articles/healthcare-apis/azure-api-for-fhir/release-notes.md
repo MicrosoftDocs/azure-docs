@@ -15,6 +15,9 @@ ms.author: kavitagaddam
 
 Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
+> [!Note]
+> Azure Health Data services is the evolved version of Azure API for FHIR enabling customers to manage FHIR, DICOM, and MedTech services with integrations into other Azure Services. To learn about Azure Health Data Services [click here](https://azure.microsoft.com/products/health-data-services/).
+
 ## **November 2022**
 
 **Fixed the Error generated when resource is updated using if-match header and PATCH**

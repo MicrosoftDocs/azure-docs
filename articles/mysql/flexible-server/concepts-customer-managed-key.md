@@ -1,6 +1,6 @@
 ---
 title: Data encryption with customer managed keys – Azure Database for MySQL – Flexible Server
-description: Learn how data encryption with customer-managed keys for Azure Database for MySQL flexible server enables you to bring your own key (BYOK) for data protection at rest
+description: Learn how data encryption with customer-managed keys for Azure Database for MySQL - Flexible Server enables you to bring your own key (BYOK) for data protection at rest
 author: vivgk
 ms.author: vivgk
 ms.reviewer: maghan
@@ -18,7 +18,7 @@ With data encryption with customer-managed keys for Azure Database for MySQL - F
 
 ## Benefits
 
-Data encryption with customer-managed keys for Azure Database for MySQL Flexible server provides the following benefits:
+Data encryption with customer-managed keys for Azure Database for MySQL - Flexible Server provides the following benefits:
 
 - You fully control data access by the ability to remove the key and make the database inaccessible
 - Full control over the key lifecycle, including rotation of the key to aligning with corporate policies
@@ -27,7 +27,7 @@ Data encryption with customer-managed keys for Azure Database for MySQL Flexible
 -
 ## How does data encryption with a customer-managed key work?
 
-Managed identities in Azure Active Directory (Azure AD) provide Azure services an alternative to storing credentials in the code by provisioning an automatically assigned identity that can be used to authenticate to any service supporting Azure AD authentication, such as Azure Key Vault (AKV). Azure Database for MySQL Flexible server currently supports only User-assigned Managed Identity (UMI). For more information, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) in Azure.
+Managed identities in Azure Active Directory (Azure AD) provide Azure services an alternative to storing credentials in the code by provisioning an automatically assigned identity that can be used to authenticate to any service supporting Azure AD authentication, such as Azure Key Vault (AKV). Azure Database for MySQL - Flexible Server currently supports only User-assigned Managed Identity (UMI). For more information, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) in Azure.
 
 To configure the CMK for an Azure Database for MySQL flexible server, you need to link the UMI to the server and specify the Azure Key vault and key to use.
 
@@ -35,8 +35,8 @@ The UMI must have the following access to the key vault:
 
 - **Get**: For retrieving the public part and properties of the key in the key vault.
 - **List**: List the versions of the key stored in a Key Vault.
-- **Wrap Key**: To be able to encrypt the DEK. The encrypted DEK is stored in the Azure Database for MySQL Flexible server.
-- **Unwrap Key**: To be able to decrypt the DEK. Azure Database for MySQL Flexible server needs the decrypted DEK to encrypt/decrypt the data
+- **Wrap Key**: To be able to encrypt the DEK. The encrypted DEK is stored in the Azure Database for MySQL - Flexible Server.
+- **Unwrap Key**: To be able to decrypt the DEK. Azure Database for MySQL - Flexible Server needs the decrypted DEK to encrypt/decrypt the data
 
 ### Terminology and description
 
@@ -57,12 +57,12 @@ After logging is enabled, auditors can use Azure Monitor to review Key Vault aud
 > [!NOTE]  
 > Permission changes can take up to 10 minutes to impact the key vault. This includes revoking access permissions to the TDE protector in AKV, and users within this time frame may still have access permissions.
 
-## Requirements for configuring data encryption for Azure Database for MySQL Flexible server
+## Requirements for configuring data encryption for Azure Database for MySQL - Flexible Server
 
 Before you attempt to configure Key Vault, be sure to address the following requirements.
 
-- The Key Vault and Azure Database for MySQL flexible server must belong to the same Azure Active Directory (Azure AD) tenant. Cross-tenant Key Vault and flexible server interactions need to be supported. You'll need to reconfigure data encryption if you move Key Vault resources after performing the configuration.
-- The Key Vault and Azure Database for MySQL flexible server must reside in the same region.
+- The Key Vault and Azure Database for MySQL - Flexible Server must belong to the same Azure Active Directory (Azure AD) tenant. Cross-tenant Key Vault and flexible server interactions need to be supported. You'll need to reconfigure data encryption if you move Key Vault resources after performing the configuration.
+- The Key Vault and Azure Database for MySQL - Flexible Server must reside in the same region.
 - Enable the [soft-delete](../../key-vault/general/soft-delete-overview.md) feature on the key vault with a retention period set to 90 days to protect from data loss should an accidental key (or Key Vault) deletion occur. The recover and purge actions have their own permissions in a Key Vault access policy. The soft-delete feature is off by default, but you can enable it through the Azure portal or by using PowerShell or the Azure CLI.
 - Enable the [Purge Protection](../../key-vault/general/soft-delete-overview.md#purge-protection) feature on the key vault and set the retention period to 90 days. When purge protection is on, a vault or an object in the deleted state can't be purged until the retention period has passed. You can enable this feature using PowerShell or the Azure CLI, and only after you've enabled soft-delete.
 
@@ -94,9 +94,9 @@ As you configure Key Vault to use data encryption using a customer-managed key, 
 
 When you configure data encryption with a CMK in Key Vault, continuous access to this key is required for the server to stay online. If the flexible server loses access to the customer-managed key in Key Vault, the server begins denying all connections within 10 minutes. The flexible server issues a corresponding error message and changes the server state to Inaccessible. The server can reach this state for various reasons.
 
-- If you delete the KeyVault, the Azure Database for MySQL Flexible server will be unable to access the key and will move to _Inaccessible_ state. Recover the [Key Vault](../../key-vault/general/key-vault-recovery.md) and revalidate the data encryption to make the Flexible server _Available_.
-- If we delete the key from the KeyVault, the Azure Database for MySQL Flexible server will be unable to access the key and will move to _Inaccessible_ state. Recover the [Key](../../key-vault/general/key-vault-recovery.md) and revalidate the data encryption to make the Flexible server _Available_.
-- If the key stored in the Azure KeyVault expires, the key will become invalid, and the Azure Database for MySQL Flexible server will transition into _Inaccessible_ state. Extend the key expiry date using [CLI](/cli/azure/keyvault/key#az-keyvault-key-set-attributes) and then revalidate the data encryption to make the Flexible server _Available_.
+- If you delete the KeyVault, the Azure Database for MySQL - Flexible Server will be unable to access the key and will move to _Inaccessible_ state. Recover the [Key Vault](../../key-vault/general/key-vault-recovery.md) and revalidate the data encryption to make the Flexible server _Available_.
+- If we delete the key from the KeyVault, the Azure Database for MySQL - Flexible Server will be unable to access the key and will move to _Inaccessible_ state. Recover the [Key](../../key-vault/general/key-vault-recovery.md) and revalidate the data encryption to make the Flexible server _Available_.
+- If the key stored in the Azure KeyVault expires, the key will become invalid, and the Azure Database for MySQL - Flexible Server will transition into _Inaccessible_ state. Extend the key expiry date using [CLI](/cli/azure/keyvault/key#az-keyvault-key-set-attributes) and then revalidate the data encryption to make the Flexible server _Available_.
 
 ## Accidental key access revocation from Key Vault
 
@@ -117,7 +117,7 @@ To monitor the database state, and to enable alerting for the loss of transparen
 
 ## Replica with a customer managed key in Key Vault
 
-Once Azure Database for MySQL flexible server is encrypted with a customer's managed key stored in Key Vault, any newly created copy of the server is also encrypted. When trying to encrypt Azure Database for MySQL flexible server with a customer managed key that already has a replica(s), we recommend configuring the replica(s) by adding the managed identity and key. Suppose the flexible server is configured with geo-redundancy backup. In that case, the replica must be configured with the managed identity and key to which the identity has access and which resides in the server's geo-paired region.
+Once Azure Database for MySQL - Flexible Server is encrypted with a customer's managed key stored in Key Vault, any newly created copy of the server is also encrypted. When trying to encrypt Azure Database for MySQL - Flexible Server with a customer managed key that already has a replica(s), we recommend configuring the replica(s) by adding the managed identity and key. Suppose the flexible server is configured with geo-redundancy backup. In that case, the replica must be configured with the managed identity and key to which the identity has access and which resides in the server's geo-paired region.
 
 ## Restore with a customer managed key in Key Vault
 
@@ -125,7 +125,7 @@ When attempting to restore an Azure Database for MySQL flexible server, you can 
 
 To avoid issues while setting up customer-managed data encryption during restore or read replica creation, it's essential to follow these steps on the source and restored/replica servers:
 
-- Initiate the restore or read replica creation process from the source Azure Database for MySQL Flexible server.
+- Initiate the restore or read replica creation process from the source Azure Database for MySQL - Flexible Server.
 - On the restored/replica server, revalidate the customer-managed key in the data encryption settings to ensure that the User managed identity is given _Get, List, Wrap key_ and _Unwrap key_ permissions to the key stored in Key Vault.
 
 > [!NOTE]  
@@ -133,7 +133,7 @@ To avoid issues while setting up customer-managed data encryption during restore
 
 ## Limitations
 
-For Azure Database for MySQL flexible server, the support for encryption of data at rest using customers managed key (CMK) has a limitation -
+For Azure Database for MySQL - Flexible Server, the support for encryption of data at rest using customers managed key (CMK) has a limitation -
 
 * This feature is only supported for key vaults, which allow public access from all networks.
 

@@ -1,30 +1,48 @@
 ---
 title: Increase the resilience of authentication and authorization in client applications you develop
-description: Guidance for increasing resiliency of authentication and authorization in client application using the Microsoft identity platform 
+description: Learn to increasing resiliency of authentication and authorization in client application using the Microsoft identity platform 
 services: active-directory 
 ms.service: active-directory
 ms.subservice: fundamentals 
 ms.workload: identity
 ms.topic: how-to
-author: janicericketts
+author: jricketts
 ms.author: jricketts
 manager: martinco
-ms.date: 11/23/2020
+ms.date: 03/02/2023
 ---
 
 # Increase the resilience of authentication and authorization in client applications you develop
 
-This section provides guidance on building resilience into client applications that use the Microsoft identity platform and Azure Active Directory to sign in users and perform actions on behalf of those users.
+Learn to build resilience into client applications that use the Microsoft identity platform and Azure Active Directory (Azure AD) to sign in users, and perform actions on behalf of those users.
 
 ## Use the Microsoft Authentication Library (MSAL)
 
-The [Microsoft Authentication Library (MSAL)](../develop/msal-overview.md) is a key part of the [Microsoft identity platform](../develop/index.yml). It simplifies and manages acquiring, managing, caching, and refreshing tokens, and uses best practices for resilience. MSAL is designed to enable a secure solution without developers having to worry about the implementation details.
+The Microsoft Authentication Library (MSAL) is part of the Microsoft identity platform. MSAL acquires, manages, caches, and refreshes tokens; it uses best practices for resilience. MSAL helps developers create secure solutions.
 
-MSAL caches tokens and uses a silent token acquisition pattern. It also automatically serializes the token cache on platforms that natively provide secure storage like Windows UWP, iOS and Android. Developers can customize the serialization behavior when using [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization), [MSAL.NET](../develop/msal-net-token-cache-serialization.md), [MSAL for Java](../develop/msal-java-token-cache-serialization.md), and [MSAL for Python](../develop/msal-python-token-cache-serialization.md).
+Learn more:
 
-![Image of device with and application using MSAL to call Microsoft Identity](media/resilience-client-app/resilience-with-microsoft-authentication-library.png)
+* [Overview of the Microsoft Authentication Library](../develop/msal-overview.md)
+* [What is the Microsoft identity platform?](../develop/v2-overview.md)
+* [Microsoft identity platform documentation](../develop/index.yml)
 
-When using MSAL, token caching, refreshing, and silent acquisition is supported automatically. You can use simple patterns to acquire the tokens necessary for modern authentication. We support many languages, and you can find a sample that matches your language and scenario on our [Samples](../develop/sample-v2-code.md) page.
+MSAL caches tokens and uses a silent token acquisition pattern. MSAL serializes the token cache on operating systems that natively provide secure storage like Universal Windows Platform (UWP), iOS, and Android. Customize the serialization behavior when you're using: 
+
+* Microsoft.Identity.Web
+* MSAL.NET
+* MSAL for Java
+* MSAL for Python
+
+Learn more:
+
+* [Token cache serialization](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization)
+* [Token cache serialization in MSAL.NET](../develop/msal-net-token-cache-serialization.md)
+* [Custom token cache serialization in MSAL for Java](../develop/msal-java-token-cache-serialization.md)
+* [Custom token cache serialization in MSAL for Python](../develop/msal-python-token-cache-serialization.md).
+
+   ![Diagram of a device and and application using MSAL to call Microsoft Identity](media/resilience-client-app/resilience-with-microsoft-authentication-library.png)
+
+When you're using MSAL, token caching, refreshing, and silent acquisition is supported. Use simple patterns to acquire the tokens for authentication. There's support for many languages. Find code sample on, [Microsoft identity platform code samples](../develop/sample-v2-code.md).
 
 ## [C#](#tab/csharp)
 
@@ -61,120 +79,148 @@ return myMSALObj.acquireTokenSilent(request).catch(error => {
 
 ---
 
-MSAL can in some cases proactively refresh tokens. When Microsoft Identity issues a long-lived token, it can send information to the client for the optimal time to refresh the token ("refresh\_in"). MSAL will proactively refresh the token based on this information. The app will continue to run while the old token is valid but will have a longer timeframe during which to make another successful token acquisition.
+MSAL is able to refresh tokens. When the Microsoft identity platform issues a long-lived token, it can send information to the client to refresh the token (refresh\_in). The app runs while the old token is valid, but it takes longer for another token acquisition.
 
-### Stay up to date
+### MSAL releases
 
-Developers should have a process for updating to the latest MSAL release. Authentication is part of your app security and your app needs to stay current with the security improvements contained in new MSAL releases. This is generally good practice for libraries under continuous development and doing so will ensure you have the most up to date code with respect to app resilience. As Microsoft Identity continues to innovate on ways for applications to be more resilient, apps that use the latest MSAL will be the most prepared to build on these innovations.
+We recommend developers build a process to use the latest MSAL release because authentication is part of app security. Use this practice for libraries under development and improve app resilience. 
 
-[Check the latest MSAL.js version and release notes](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases)
+Find the latest version and release notes:
 
-[Check the latest MSAL .NET version and release notes](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/releases)
+* [microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases)
+* [microsoft-authentication-library-for-dotnet](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/releases)
+* [microsoft-authentication-library-for-python](https://github.com/AzureAD/microsoft-authentication-library-for-python/releases)
+* [microsoft-authentication-library-for-java](https://github.com/AzureAD/microsoft-authentication-library-for-java/releases)
+* [microsoft-authentication-library-for-objc](https://github.com/AzureAD/microsoft-authentication-library-for-objc/releases)
+* [microsoft-authentication-library-for-android](https://github.com/AzureAD/microsoft-authentication-library-for-android/releases)
+* [microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases)
+* [microsoft-identity-web](https://github.com/AzureAD/microsoft-identity-web/releases)
 
-[Check the latest MSAL Python version and release notes](https://github.com/AzureAD/microsoft-authentication-library-for-python/releases)
+## Resilient patterns for token handling
 
-[Check the latest MSAL Java version and release notes](https://github.com/AzureAD/microsoft-authentication-library-for-java/releases)
+If you don't use MSAL, use resilient patterns for token handling. The MSAL library implements best practices. 
 
-[Check the latest MSAL iOS and macOS version and release notes](https://github.com/AzureAD/microsoft-authentication-library-for-objc/releases)
-
-[Check the latest MSAL Android version and release notes](https://github.com/AzureAD/microsoft-authentication-library-for-android/releases)
-
-[Check the latest MSAL Angular version and release notes](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases)
-
-[Check the latest Microsoft.Identity.Web version and release notes](https://github.com/AzureAD/microsoft-identity-web/releases)
-
-## Use resilient patterns for token handling
-
-If you are not using MSAL, you can use these resilient patterns for token handling. These best practices are implemented automatically by the MSAL library. 
-
-In general, an application that uses modern authentication will call an endpoint to retrieve tokens that authenticate the user or authorize the application to call protected APIs. MSAL is meant to handle the details of authentication and implements several patterns to improve resilience of this process. Use the guidance in this section to implement best practices if you choose to use a library other than MSAL. If you use MSAL, you get all of these best-practices for free, as MSAL implements them automatically.
+Generally, applications using modern authentication call an endpoint to retrieve tokens that authenticate the user, or authorize the application to call protected APIs. MSAL handles authentication and implements patterns to improve resilience. If you don't use MSAL, use the guidance in this section for best practices. Otherwise, MSAL implements best practices automatically.
 
 ### Cache tokens
 
-Apps should properly cache tokens received from Microsoft Identity. When your app receives tokens, the HTTP response that contains the tokens also contains an "expires_in" property that tells the application how long to cache, and reuse, the token. It is important that applications use the "expires_in" property to determine the lifespan of the token. Application must never attempt to decode an API access token.
+Ensure apps cache tokens accurately from the Microsoft identity platform. After your app receives tokens, the HTTP response with tokens has an `expires_in` property that indicates the duration to cache, and when to reuse it. Confirm application don't attempt to decode an API access token.
 
-![An application making a call to Microsoft identity, but the call goes through a token cache on the device running the application](media/resilience-client-app/token-cache.png)
+   ![Diagram of an app calling to Microsoft identity platform, through a token cache on the device running the application.](media/resilience-client-app/token-cache.png)
 
-Using the cached token prevents unnecessary traffic between your app and Microsoft Identity, and makes your app less susceptible to token acquisition failures by reducing the number of token acquisition calls. Cached tokens also improve your application's performance as the app needs to block on acquiring tokens less. Your user can stay signed-in to your application for the length of that token's lifetime.
+Cached tokens prevent unnecessary traffic between an app and the Microsoft identity platform. This scenario makes the app less susceptible to token acquisition failures by reducing token acquisition calls. Cached tokens improve application performance, because the app blocks acquiring tokens less frequently. Users remain signed in to your application for the token lifetime.
 
 ### Serialize and persist tokens
 
-Apps should securely serialize their token cache to persist the tokens between instances of the app. Tokens can be reused as long as they are within their valid lifetime. [Refresh tokens](../develop/v2-oauth2-auth-code-flow.md#refresh-the-access-token), and, increasingly, [access tokens](../develop/access-tokens.md), are issued for many hours. This valid time can span a user starting your application many times. When your app starts, it should check to see if there is a valid access or refresh token that can be used. This will increase the app's resilience and performance as it avoids any unnecessary calls to Microsoft Identity.
+Ensure apps serialize their token cache securely to persist the tokens between app instances. Reuse tokens during their lifetime. Refresh tokens and access tokens are issued for many hours. During this time, users might start your application several times. When an app starts, confirm it looks for valid access, or a refresh token. This increases app resilience and performance.
 
-![An application making a call to Microsoft identity, but the call goes through a token cache as well as a token store on the device running the application](media/resilience-client-app/token-store.png)
+Learn more:
 
-The persistent token storage should be access controlled and encrypted to the owning user or process identity. On platforms like mobile, Windows and Mac, the developer should take advantage of built-in capabilities for storing credentials.
+* [Refresh the access tokens](../develop/v2-oauth2-auth-code-flow.md#refresh-the-access-token)
+* [Microsoft identity platform access tokens](../develop/access-tokens.md)
+
+   ![Diagram of an app calling to Microsoft identity platform, through a token cache and token store on the device running the application.](media/resilience-client-app/token-store.png)
+
+Ensure persistent token storage has access control and encryption, in relation to the user-owner, or process identity. On various operating systems, there are credential storage features.
 
 ### Acquire tokens silently
 
-The process of authenticating a user or retrieving authorization to call an API can require multiple steps in Microsoft Identity. For example, when the user signs in for the first time they may need to enter credentials and perform a multi-factor authentication via a text message. Each step adds a dependency on the resource that provides that service. The best experience for the user, and the one with the least dependencies, is to attempt to acquire a token silently to avoid these extra steps before requesting user interaction.
+Authenticating a user or retrieving authorization to call an API entails multiple steps in Microsoft identity platform. For example, users signing in for the first time enter credentials and perform a multi-factor authentication. Each step affects the resource that provides the service. The best user experience with the least dependencies is silent token acquisition.
 
-![Diagram showing the various services within Microsoft Identity that may need to run to complete the process of authenticating or authorizing a user](media/resilience-client-app/external-dependencies.png)
+  ![Diagram of Microsoft identity platform services that help complete user authentication or authorization.](media/resilience-client-app/external-dependencies.png)
 
-Acquiring a token silently starts with using a valid token from the app's token cache. If there is no valid token available, the app should attempt to acquire a token using a refresh token, if available, and the token endpoint. If neither of these options is available, the app should acquire a token using the "prompt=none" parameter. This will use the authorization endpoint, but not show any UI to the user. If the Microsoft Identity can provide a token to the app without interacting with the user, it will. If none of these methods result in a token, then a user will need to re-authenticate interactively.
+Silent token acquisition starts with a valid token from the app token cache. If there's no valid token, the app attempts to acquire a token using an available refresh token, and the token endpoint. If neither option is available, the app acquires a token using the `prompt=none` parameter. This action uses the authorization endpoint, but no UI appears for the user. If possible, the Microsoft identity platform provides a token to the app without user interaction. If no method results in a token, then the user manually reauthenticates.
 
 > [!NOTE]
-> In general, apps should avoid using prompts like "login" and "consent" as they will force user interaction even when no interaction is required.
+> In general, ensure apps don't use prompts like 'login' and 'consent'. These prompts force user interaction, when no interaction is required.
 
-## Handle service responses properly
+## Response code handling
 
-While applications should handle all error responses, there are some responses that can impact resilience. If your application receives an HTTP 429 response code, Too Many Requests, Microsoft Identity is throttling your requests. If your app continues to make too many requests, it will continue to be throttled preventing your app from receiving tokens. Your application should not attempt to acquire a token again until after the time, in seconds, in the Retry-After response field has passed. Receiving a 429 response is often an indication that the application is not caching and reusing tokens correctly. Developers should review how tokens are cached and reused in the application.
+Use the following sections to learn about response codes.
 
-When an application receives an HTTP 5xx response code the app must not enter a fast retry loop. When present, the application should honor the same Retry-After handling as it does for a 429 response. If no Retry-After header is provided by the response, we recommend implementing an exponential back-off retry with the first retry at least 5 seconds after the response.
+### HTTP 429 response code
 
-When a request times out applications should not retry immediately. Implement an exponential back-off retry with the first retry at least 5 seconds after the response.
+There are error responses that affect resilience. If your application receives an HTTP 429 response code, Too Many Requests, Microsoft identity platform is throttling your requests. If an app makes too many requests, it's throttled to prevent the app from receiving tokens. Don't allow an app to attempt token acquisition, before the **Retry-After** response field time is complete. Often, a 429 response indicates the application isn't caching and reusing tokens correctly. Confirm how tokens are cached and reused in the application.
 
-## Evaluate options for retrieving authorization related information
+### HTTP 5x response code
 
-Many applications and APIs need specific information about the user to make authorization decisions. There are a few ways for an application to get this information. Each method has its advantages and disadvantages. Developers should weigh these to determine which strategy is best for resilience in their app.
+If an application receives an HTTP 5x response code, the app must not enter a fast retry loop. Use the same handling for a 429 response. If no Retry-After header appears, implement an exponential back-off retry with the first retry, at least 5 seconds after the response.
+
+When a request times out, immediate retries are discouraged. Implement an exponential back-off retry, with the first retry, at least 5 seconds after the response.
+
+## Retrieving authorization related information
+
+Many applications and APIs need user information to authorize. Available methods have advantages and disadvantages. 
 
 ### Tokens
 
-Identity (ID) tokens and access tokens contain standard claims that provide information about the subject. These are documented in [Microsoft identity platform ID tokens](../develop/id-tokens.md) and [Microsoft identity platform access tokens](../develop/access-tokens.md). If the information your app needs is already in the token, then the most efficient technique for retrieving that data is to use token claims as that will save the overheard of an additional network call to retrieve information separately. Fewer network calls mean higher overall resilience for the application.
+Identity (ID) tokens and access tokens have standard claims that provide information. If needed information is in the token, the most efficient technique is token claims, because that prevents another network call. Fewer network calls equate better resilience.
+
+Learn more:
+
+* [Microsoft identity platform ID tokens](../develop/id-tokens.md)
+* [Microsoft identity platform access tokens](../develop/access-tokens.md)
 
 > [!NOTE]
-> Some applications call the UserInfo endpoint to retrieve claims about the user that authenticated. The information available in the ID token that your app can receive is a superset of the information it can get from the UserInfo endpoint. Your app should use the ID token to get information about the user instead of calling the UserInfo endpoint.
+> Some applications call the UserInfo endpoint to retrieve claims about the authenticated user. The information in the ID token is a superset of information from the UserInfo endpoint. Enable apps to use the ID token instead of calling the UserInfo endpoint.
 
-An app developer can augment standard token claims with [optional claims](../develop/active-directory-optional-claims.md). One common optional claim is [groups](../develop/active-directory-optional-claims.md#configuring-groups-optional-claims). There are several ways to add group claims. The "Application Group" option only includes groups assigned to the application. The "All" or "Security groups" options include groups from all apps in the same tenant, which can add many groups to the token. It is important to evaluate the effect in your case, as it can potentially negate the efficiency gained by requesting groups in the token by causing token bloat and even requiring additional calls to get the full list of groups.
+Augment standard token claims with optional claims, such as groups. The **Application Group** option includes groups assigned to the application. The **All** or **Security groups** options include groups from apps in the same tenant, which can add groups to the token. Evaluate the effect, because it can negate the efficiency of requesting groups in the token by causing token bloat, and requiring more calls to get the groups.
 
-Instead of using groups in your token you can instead use and include app roles. Developers can define [app roles](../develop/howto-add-app-roles-in-azure-ad-apps.md) for their apps and APIs which the customer can manage from their directory using the portal or APIs. IT Pros can then assign roles to different users and groups to control who has access to what content and functionality. When a token is issued for the application or API, the roles assigned to the user will be available in the roles claim in the token. Getting this information directly in a token can save additional APIs calls.
+Learn more: 
 
-Finally, IT Admins can also add claims based on specific information in a tenant. For example, an enterprise can have an extension to have an enterprise specific User ID.
+* [Provide optional claims to your app](../develop/active-directory-optional-claims.md)
+* [Configuring groups optional claims](../develop/active-directory-optional-claims.md#configuring-groups-optional-claims)
 
-In all cases, adding information from the directory directly to a token can be efficient and increase the apps resilience by reducing the number of dependencies the app has. On the other hand, it does not address any resilience issues from being unable to acquire a token. You should only add optional claims for the main scenarios of your application. If the app requires information only for the admin functionality, then it is best for the application to obtain that information only as needed.
+We recommend you use and include app roles, which customers manage by using the portal or APIs. Assign roles to users and groups to control access. When a token is issued, the assigned roles are in the token roles claim. Information derived from a token prevents more APIs calls.
+
+See, [Add app roles to your application and receive them in the token](../develop/howto-add-app-roles-in-azure-ad-apps.md)
+
+Add claims based on tenant information. For example, an extension has an enterprise-specific User ID.
+
+Adding information from the directory to a token is efficient and increases resiliency by reducing dependencies. It doesn't address resilience issues due to an inability to acquire a token. Add optional claims for the application's primary scenarios. If the app requires information for administrative functionality, the application can obtain that information, as needed.
 
 ### Microsoft Graph
 
-Microsoft Graph provides a unified API endpoint to access the Microsoft 365 data that describes the patterns of productivity, identity and security in an organization. Applications that use Microsoft Graph can potentially use any of the information across Microsoft 365 for authorization decisions.
+Microsoft Graph has a unified API endpoint to access Microsoft 365 data about productivity patterns, identity, and security. Applications using Microsoft Graph can use Microsoft 365 information for authorization.
 
-Apps require just a single token to access all of Microsoft 365. This is more resilient than using the older APIs that are specific to Microsoft 365 components like Microsoft Exchange or Microsoft SharePoint where multiple tokens are required.
+Apps require one token to access Microsoft 365, which is more resilient than previous APIs for Microsoft 365 components like Microsoft Exchange or Microsoft SharePoint that required multiple tokens.
 
-When using Microsoft Graph APIs, we suggest your use a [Microsoft Graph SDK](/graph/sdks/sdks-overview). The Microsoft Graph SDKs are designed to simplify building high-quality, efficient, and resilient applications that access Microsoft Graph.
+When using Microsoft Graph APIs, use a Microsoft Graph SDK that simplifies building resilient applications that access Microsoft Graph.
 
-For authorization decisions, developers should consider when to use the claims available in a token as an alternative to some Microsoft Graph calls. As mentioned above, developers could request groups, app roles, and optional claims in their tokens. In terms of resilience, using Microsoft Graph for authorization requires additional network calls that rely on Microsoft Identity (to get the token to access Microsoft Graph) as well as Microsoft Graph itself. However, if your application already relies on Microsoft Graph as its data layer, then relying on the Graph for authorization is not an additional risk to take.
+See, [Microsoft Graph SDK overview](/graph/sdks/sdks-overview)
+
+For authorization, consider using token claims instead of some Microsoft Graph calls. Request groups, app roles, and optional claims in tokens. Microsoft Graph for authorization requires more network calls that rely on the Microsoft identity platform and Microsoft Graph. However, if your application relies on Microsoft Graph as its data layer, then Microsoft Graph for authorization isn't more risk.
 
 ## Use broker authentication on mobile devices
 
-On mobile devices, using an authentication broker like Microsoft Authenticator will improve resilience. The broker adds benefits above what is available with other options such as the system browser or an embedded WebView. The authentication broker can utilize a [primary refresh token](../devices/concept-primary-refresh-token.md) (PRT) that contains claims about the user and the device and can be used to get authentication tokens to access other applications from the device. When a PRT is used to request access to an application, its device and MFA claims are trusted by Azure AD. This increases resilience by avoiding additional steps to authenticate the device again. Users won't be challenged with multiple MFA prompts on the same device, therefore increasing resilience by reducing dependencies on external services and improving the user experience.
+On mobile devices, an authentication broker like Microsoft Authenticator improves resilience. The authentication broker uses a primary refresh token (PRT) with claims about the user and device. Use PRT for authentication tokens to access other applications from the device. When a PRT requests application access, Azure Active Directory (Azure AD) trusts its device and MFA claims. This increases resilience by reducing steps to authenticate the device. Users aren't challenged with multiple MFA prompts on the same device.
 
-![An application making a call to Microsoft identity, but the call goes through a token cache as well as a token store and an Authentication Broker on the device running the application](media/resilience-client-app/authentication-broker.png)
+See, [What is a Primary Refresh Token?](../devices/concept-primary-refresh-token.md)
 
-Broker authentication is automatically supported by MSAL. You can find more information on using brokered authentication on the following pages:
+  ![Diagram of an app calling Microsoft identity platform, through a token cache and token store, and authentication broker on the device running the application.](media/resilience-client-app/authentication-broker.png)
 
-- [Configure SSO on macOS and iOS](../develop/single-sign-on-macos-ios.md#sso-through-authentication-broker-on-ios)
-- [How to enable cross-app SSO on Android using MSAL](../develop/msal-android-single-sign-on.md)
+MSAL supports broker authentication. Learn more:
 
-## Adopt Continuous Access Evaluation
+* [SSO through Authentication broker on iOS](../develop/single-sign-on-macos-ios.md#sso-through-authentication-broker-on-ios)
+* [Enable cross-app SSO on Android using MSAL](../develop/msal-android-single-sign-on.md)
 
-[Continuous Access Evaluation (CAE)](../conditional-access/concept-continuous-access-evaluation.md) is a recent development that can increase application security and resilience with long-lived tokens. CAE is an emerging industry standard being developed in the Shared Signals and Events Working Group of the OpenID Foundation. With CAE, an access token can be revoked based on [critical events](../conditional-access/concept-continuous-access-evaluation.md#critical-event-evaluation) and [policy evaluation](../conditional-access/concept-continuous-access-evaluation.md#conditional-access-policy-evaluation), rather than relying on a short token lifetime. For some resource APIs, because risk and policy are evaluated in real time, CAE can substantially increase token lifetime up to 28 hours. As resource APIs and applications adopt CAE, Microsoft Identity will be able to issue access tokens that are revocable and are valid for extended periods of time. These long-lived tokens will be proactively refreshed by MSAL.
+## Continuous Access Evaluation
 
-While CAE is in early phases, it is possible to [develop client applications today that will benefit from CAE](../develop/app-resilience-continuous-access-evaluation.md) when the resources (APIs) the application uses adopt CAE. As more resources adopt CAE, your application will be able to acquire CAE enabled tokens for those resources as well. The Microsoft Graph API, and [Microsoft Graph SDKs](/graph/sdks/sdks-overview), will preview CAE capability early 2021. If you would like to participate in the public preview of Microsoft Graph with CAE, you can let us know you are interested here: [https://aka.ms/GraphCAEPreview](https://aka.ms/GraphCAEPreview).
+Continuous Access Evaluation (CAE) increases application security and resilience with long-lived tokens. With CAE, an access token is revoked based on critical events and policy evaluation, rather than short token lifetimes. For some resource APIs, because risk and policy are evaluated in real time, CAE increases token lifetime up to 28 hours. MSAL refreshes long-lived tokens.
 
-If you develop resource APIs, we encourage you to participate in the [Shared Signals and Events WG](https://openid.net/wg/sse/). We are working with this group to enable the sharing of security events between Microsoft Identity and resource providers.
+Learn more:
+
+* [Continuous Access Evaluation](../conditional-access/concept-continuous-access-evaluation.md)
+* [Securing applications with Continuous Access Evaluation](/security/zero-trust/develop/secure-with-cae)
+* [Critical event evaluation](../conditional-access/concept-continuous-access-evaluation.md#critical-event-evaluation)
+* [Conditional Access policy evaluation](../conditional-access/concept-continuous-access-evaluation.md#conditional-access-policy-evaluation)
+* [How to use CAE enabled APIs in your applications](../develop/app-resilience-continuous-access-evaluation.md)
+
+If you develop resource APIs, go to openid.net for [Shared Signals – A Secure Webhooks Framework](https://openid.net/wg/sse/).
 
 ## Next steps
 
-- [How to use Continuous Access Evaluation enabled APIs in your applications](../develop/app-resilience-continuous-access-evaluation.md)
-- [Build resilience into daemon applications](resilience-daemon-app.md)
-- [Build resilience in your identity and access management infrastructure](resilience-in-infrastructure.md)
-- [Build resilience in your CIAM systems](resilience-b2c.md)
+* [How to use CAE enabled APIs in your applications](../develop/app-resilience-continuous-access-evaluation.md)
+* [Increase the resilience of authentication and authorization in daemon applications you develop](resilience-daemon-app.md)
+* [Build resilience in your identity and access management infrastructure](resilience-in-infrastructure.md)
+* [Build resilience in your customer identity and access management with Azure AD B2C](resilience-b2c.md)

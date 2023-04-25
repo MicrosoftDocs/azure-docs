@@ -4,8 +4,8 @@ description: Learn how to deploy virtual machine extensions with Azure Resource 
 author: mumian
 ms.date: 03/26/2021
 ms.topic: tutorial
+ms.custom: devx-track-arm-template
 ms.author: jgao
-ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Deploy virtual machine extensions with ARM templates

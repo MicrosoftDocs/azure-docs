@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/14/2022
+ms.date: 03/07/2023
 ms.custom: devx-track-js
 ---
 
 # Create and run code from workflows in Azure Logic Apps using Azure Functions
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 When you want to run code that performs a specific job in your logic app workflow, you can create a function by using [Azure Functions](../azure-functions/functions-overview.md). This service helps you create Node.js, C#, and F# functions so you don't have to build a complete app or infrastructure to run code. Azure Functions provides serverless computing in the cloud and is useful for performing certain tasks, for example:
 
@@ -19,11 +19,15 @@ When you want to run code that performs a specific job in your logic app workflo
 * Perform calculations in your logic app workflow.
 * Apply advanced formatting or compute fields in your logic app workflows.
 
-> [!NOTE]
-> Azure Logic Apps doesn't support using Azure Functions with deployment slots enabled. Although this scenario might sometimes work, 
-> this behavior is unpredictable and might result in authorization problems when your workflow tries call the Azure function.
+This how-to guide shows how to call an Azure function from a logic app workflow. To run code snippets without using Azure Functions, review [Add and run inline code](logic-apps-add-run-inline-code.md). To call and trigger a logic app workflow from inside a function, the workflow must start with a trigger that provides a callable endpoint. For example, you can start the workflow with the **HTTP**, **Request**, **Azure Queues**, or **Event Grid** trigger. Inside your function, send an HTTP POST request to the trigger's URL and include the payload you want that workflow to process. For more information, review [Call, trigger, or nest logic app workflows](logic-apps-http-endpoint.md).
 
-This article shows how to call an Azure function from a logic app workflow. To run code snippets without using Azure Functions, review [Add and run inline code](logic-apps-add-run-inline-code.md). To call and trigger a logic app workflow from inside a function, the workflow must start with a trigger that provides a callable endpoint. For example, you can start the workflow with the **HTTP**, **Request**, **Azure Queues**, or **Event Grid** trigger. Inside your function, send an HTTP POST request to the trigger's URL and include the payload you want that workflow to process. For more information, review [Call, trigger, or nest logic app workflows](logic-apps-http-endpoint.md).
+## Limitations
+
+* You can create a function directly from inside a Consumption logic app workflow, but not from a Standard logic app workflow. However, you can create functions in other ways. For more information, see [Create functions from inside logic app workflows](#create-function-designer).
+
+* Only Consumption workflows support authenticating Azure function calls using a managed identity with Azure Active Directory (Azure AD) authentication. Standard workflows aren't currently supported in the section about [how to enable authentication for function calls](#enable-authentication-functions).
+
+* Azure Logic Apps doesn't support using Azure Functions with deployment slots enabled. Although this scenario might sometimes work, this behavior is unpredictable and might result in authorization problems when your workflow tries call the Azure function.
 
 ## Prerequisites
 
@@ -31,7 +35,7 @@ This article shows how to call an Azure function from a logic app workflow. To r
 
 * An Azure function app resource, which is a container for a function that you can create using Azure Functions, along with the function that you want to use.
 
-  If you don't have a function app, [create your function app first](../azure-functions/functions-get-started.md). You can then create your function either outside your logic app in the Azure portal or [from inside your logic app](#create-function-designer) in the workflow designer.
+  If you don't have a function app, [create your function app first](../azure-functions/functions-get-started.md). You can then create your function either outside your logic app workflow by using Azure Functions in the Azure portal or [from inside your logic app workflow](#create-function-designer) in the designer.
 
 * When you work with logic app resources, the same requirements apply to both function apps and functions, existing or new:
 
@@ -47,9 +51,7 @@ This article shows how to call an Azure function from a logic app workflow. To r
 
   * If you have an OpenAPI definition for your function, the workflow designer gives you a richer experience when your work with function parameters. Before your logic app workflow can find and access functions that have OpenAPI definitions, [set up your function app by following these later steps](#function-swagger).
 
-* Either a [Consumption or Standard](logic-apps-overview.md#resource-environment-differences) logic app resource and workflow where you want to use the function.
-
-  Before you can add an action that runs a function in your workflow, the workflow must start with a trigger as the first step. If you're new to logic app workflows, review [What is Azure Logic Apps](logic-apps-overview.md) and [Quickstart: Create your first logic app workflow](quickstart-create-first-logic-app-workflow.md).
+* To follow the example in this how-to guide, you'll need a [Consumption logic app resource](logic-apps-overview.md#resource-environment-differences) and workflow that has a trigger as the first step. Although you can use any trigger for your scenario, this example uses the Office 365 Outlook trigger named **When a new email arrives**.
 
 <a name="function-swagger"></a>
 
@@ -100,16 +102,18 @@ Now that you've created your function in Azure, follow the steps to [add functio
 
 <a name="create-function-designer"></a>
 
-## Create functions from inside logic app workflows
+## Create functions from inside logic app workflows (Consumption workflows only)
 
-You can create functions directly from your logic app's workflow by using the built-in Azure Functions action in the workflow designer, but you can use this method only for functions written in JavaScript. For other languages, you can create functions through the Azure Functions experience in the Azure portal. However, before you can create your function in Azure, you must already have a function app resource, which is a container for your functions. If you don't have a function app, create that function app first. For more information, review [Create your first function in the Azure portal](../azure-functions/functions-get-started.md).
+You can create functions directly from inside your Consumption workflow by using the built-in Azure Functions action in the workflow designer, but you can use this method only for functions written in JavaScript. For other languages, you can create functions through the Azure Functions experience in the Azure portal. However, before you can create your function in Azure, you must already have a function app resource, which is a container for your functions. If you don't have a function app, create that function app first. For more information, review [Create your first function in the Azure portal](../azure-functions/functions-get-started.md).
 
-> [!NOTE]
-> Currently, you can only create a function directly from a Consumption logic app workflow, not a Standard logic app workflow. 
-> However, you can create the function in other ways using the [Azure portal](../azure-functions/functions-create-function-app-portal.md), 
-> [Visual Studio](../azure-functions/functions-create-your-first-function-visual-studio.md), [Visual Studio Code](../azure-functions/create-first-function-vs-code-csharp.md), 
-> [Azure CLI](/cli/azure/functionapp/app), [Azure PowerShell](/powershell/module/az.functions), or [ARM template](/azure/templates/microsoft.web/sites/functions). 
-> You can then call that function from your Standard logic app workflow using the Azure Functions operation named **Call an Azure function**.
+Standard workflows currently don't support this option for creating a function from within a workflow, but you can create the function in the following ways and then [call that function from your Standard logic app workflow using the Azure Functions operation named **Call an Azure function**](#add-function-logic-app).
+
+  * [Azure portal](../azure-functions/functions-create-function-app-portal.md)
+  * [Visual Studio](../azure-functions/functions-create-your-first-function-visual-studio.md)
+  * [Visual Studio Code](../azure-functions/create-first-function-vs-code-csharp.md)
+  * [Azure CLI](/cli/azure/functionapp/app)
+  * [Azure PowerShell](/powershell/module/az.functions)
+  * [ARM template](/azure/templates/microsoft.web/sites/functions)
 
 1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app workflow in the designer.
 
@@ -163,7 +167,7 @@ You can create functions directly from your logic app's workflow by using the bu
 
 <a name="add-function-logic-app"></a>
 
-## Add existing functions to logic app workflows
+## Add existing functions to logic app workflows (Consumption + Standard workflows)
 
 To call existing functions from your logic app workflow, you can add functions like any other action in the workflow designer.
 
@@ -173,7 +177,9 @@ To call existing functions from your logic app workflow, you can add functions l
 
 1. Under the step where you want to add the function, select **New step**.
 
-1. Under **Choose an action**, in the search box, enter `azure functions`. From the actions list, select the action named **Choose an Azure function**, for example:
+1. Under the **Choose an operation** search box, select **All**. In the search box, enter **azure functions**.
+
+1. From the actions list, select the action named **Choose an Azure function**, for example:
 
    ![Screenshot showing Azure portal for Consumption logic app workflow and designer with the search box to find Azure functions.](./media/logic-apps-azure-functions/find-azure-functions-action-consumption.png)
 
@@ -203,9 +209,9 @@ To call existing functions from your logic app workflow, you can add functions l
 
 1. On the designer, either under the last step or between existing steps in your workflow, select the plus (**+**) sign for **Insert a new step**, and then select **Add an action**.
 
-1. Under the **Choose an operation** search box, select **Built-in** if not selected.
+1. Under the **Choose an operation** search box, select **Built-in**. In the **Choose an operation** search box, enter **azure function**.
 
-1. In the **Choose an operation** search box, enter `azure function`. From the actions list, select the action named **Call an Azure function**, for example:
+1. From the actions list, select the action named **Call an Azure function**, for example:
 
    ![Screenshot showing the Azure portal for Standard logic app workflow and the designer with the search box to find Azure functions.](./media/logic-apps-azure-functions/find-azure-functions-action-standard.png)
 
@@ -229,16 +235,20 @@ To call existing functions from your logic app workflow, you can add functions l
 
 <a name="enable-authentication-functions"></a>
 
-## Enable authentication for function calls
+## Enable authentication for function calls (Consumption workflows only)
 
-To authenticate access to resources protected by Azure Active Directory (Azure AD), your logic app can use a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity or MSI). This managed identity can authenticate access without having to sign in and provide credentials or secrets. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. You can set up the system-assigned identity or a manually created, user-assigned identity on your logic app. The function that's called from your workflow can use the same identity for authentication.
+Your Consumption workflow can authenticate function calls and access to resources protected by Azure Active Directory (Azure AD) by using a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity or MSI). This managed identity can authenticate access without having to sign in and provide credentials or secrets. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. You can set up the system-assigned identity or a manually created, user-assigned identity at the logic app resource level. The function that's called from your workflow can use the same identity for authentication.
+
+> [!NOTE]
+> 
+> Currently, only Consumption workflows support authentication for Azure function calls using a managed identity and Azure Active Directory (Azure AD) authentication. Standard workflows currently don't include this support when using the Azure Functions connector.
 
 For more information, review the following documentation:
 
 * [Authenticate access with managed identities](create-managed-service-identity.md)
 * [Add authentication to outbound calls](logic-apps-securing-a-logic-app.md#add-authentication-outbound)
 
-To set up your function app and function so they can use your logic app's managed identity, follow these high-level steps:
+To set up your function app and function so they can use your Consumption logic app's managed identity, follow these high-level steps:
 
 1. [Enable and set up your logic app's managed identity](create-managed-service-identity.md).
 
@@ -250,9 +260,9 @@ To set up your function app and function so they can use your logic app's manage
 
 <a name="set-authentication-function-app"></a>
 
-## Set up your function for anonymous authentication
+### Set up your function for anonymous authentication (Consumption workflows only)
 
-For your function to use your logic app's managed identity, you must set your function's authentication level to anonymous. Otherwise, your logic app workflow throws a **BadRequest** error.
+For your function to use your Consumption logic app's managed identity, you must set your function's authentication level to anonymous. Otherwise, your workflow throws a **BadRequest** error.
 
 1. In the [Azure portal](https://portal.azure.com), find and select your function app.
 
@@ -284,7 +294,7 @@ For your function to use your logic app's managed identity, you must set your fu
 
 <a name="find-required-values"></a>
 
-## Find the required values to set up Azure AD authentication
+### Find the required values to set up Azure AD authentication (Consumption workflows only)
 
 Before you can set up your function app to use Azure AD authentication, you need to find and save the following values by following the steps in this section.
 
@@ -293,13 +303,9 @@ Before you can set up your function app to use Azure AD authentication, you need
 
 <a name="find-object-id"></a>
 
-### Find the object ID for your logic app's managed identity
+#### Find the object ID for your logic app's managed identity
 
-Based on the whether you have a Consumption or Standard logic app resource, follow the respective steps:
-
-#### [Consumption](#tab/consumption)
-
-1. After your logic app has its managed identity enabled, on the logic app menu, under **Settings**, select **Identity**, and then select either **System assigned** or **User assigned**.
+1. After your Consumption logic app has its managed identity enabled, on the logic app menu, under **Settings**, select **Identity**, and then select either **System assigned** or **User assigned**.
 
    * **System assigned**
 
@@ -317,33 +323,11 @@ Based on the whether you have a Consumption or Standard logic app resource, foll
 
         ![Screenshot showing the user-assigned identity's "Overview" pane with the object ID selected.](./media/logic-apps-azure-functions/user-identity-object-id.png)
 
-#### [Standard](#tab/standard)
-
-1. After your logic app has its managed identity enabled, on the logic app menu, under **Settings**, select **Identity**, and then select either **System assigned** or **User assigned**.
-
-   * **System assigned**
-
-     For the system-assigned identity, copy the identity's object ID, for example:
-
-     ![Screenshot showing the Standard logic app "Identity" pane with the "System assigned" tab selected.](./media/logic-apps-azure-functions/system-identity-standard.png)
-
-   * **User assigned**
-
-     1. For the user-assigned identity, select the identity to find the object ID, for example:
-
-        ![Screenshot showing the Standard logic app "Identity" pane with the "User assigned" tab selected.](./media/logic-apps-azure-functions/user-identity-standard.png)
-
-     1. On the managed identity's **Overview** pane, you can find the identity's object ID, for example:
-
-        ![Screenshot showing the user-assigned managed identity's "Overview" pane with the object ID selected.](./media/logic-apps-azure-functions/user-identity-object-id.png)
-
----
-
 <a name="find-tenant-id"></a>
 
-### Find the tenant ID for your Azure AD
+#### Find the tenant ID for your Azure AD
 
-To find your Azure AD tenant ID, either run the PowerShell command named [**Get-AzureAccount**](/powershell/module/servicemanagement/azure.service/get-azureaccount), or in the Azure portal, follow these steps:
+To find your Azure AD tenant ID, either run the PowerShell command named [**Get-AzureAccount**](/powershell/module/servicemanagement/azure/get-azureaccount), or in the Azure portal, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), open your Azure AD tenant. These steps use **Fabrikam** as the example tenant.
 
@@ -355,9 +339,9 @@ To find your Azure AD tenant ID, either run the PowerShell command named [**Get-
 
 <a name="create-app-registration"></a>
 
-## Create app registration for your function app
+### Create app registration for your function app (Consumption workflows only)
 
-After you find the object ID for your logic app's managed identity and tenant ID for your Azure AD, you can set up your function app to use Azure AD authentication by creating an app registration. For more information, review [Configure your App Service or Azure Functions app to use Azure AD login](../app-service/configure-authentication-provider-aad.md#-step-2-enable-azure-active-directory-in-your-app-service-app).
+After you find the object ID for your Consumption logic app's managed identity and tenant ID for your Azure AD, you can set up your function app to use Azure AD authentication by creating an app registration. For more information, review [Configure your App Service or Azure Functions app to use Azure AD login](../app-service/configure-authentication-provider-aad.md#-step-2-enable-azure-active-directory-in-your-app-service-app).
 
 1. In the [Azure portal](https://portal.azure.com), open your function app.
 

@@ -11,7 +11,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/07/2022
+ms.date: 04/06/2023
 ms.author: radeltch
 
 ---
@@ -35,6 +35,7 @@ ms.author: radeltch
 [2455582]:https://launchpad.support.sap.com/#/notes/2455582
 [2002167]:https://launchpad.support.sap.com/#/notes/2002167
 [2009879]:https://launchpad.support.sap.com/#/notes/2009879
+[3108302]:https://launchpad.support.sap.com/#/notes/3108302
 
 [sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
 [template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
@@ -56,6 +57,7 @@ Read the following SAP Notes and papers first:
 * SAP Note [2015553] lists prerequisites for SAP-supported SAP software deployments in Azure.
 * SAP Note [2002167] has recommended OS settings for Red Hat Enterprise Linux
 * SAP Note [2009879] has SAP HANA Guidelines for Red Hat Enterprise Linux
+* SAP Note [3108302] has SAP HANA Guidelines for Red Hat Enterprise Linux 9.x
 * SAP Note [2178632] has detailed information about all monitoring metrics reported for SAP in Azure.
 * SAP Note [2191498] has the required SAP Host Agent version for Linux in Azure.
 * SAP Note [2243692] has information about SAP licensing on Linux in Azure.
@@ -69,6 +71,7 @@ Read the following SAP Notes and papers first:
   * [High Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
   * [High Availability Add-On Administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
   * [High Availability Add-On Reference](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+  * [HANA scale-up system replication with RHEL HA add-on](https://access.redhat.com/articles/3004101)
 * Azure specific RHEL documentation:
   * [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341)
   * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491)
@@ -611,6 +614,9 @@ sudo pcs resource group add g_ip_<b>HN1</b>_<b>03</b> nc_<b>HN1</b>_<b>03</b> vi
 sudo pcs constraint order SAPHanaTopology_<b>HN1</b>_<b>03</b>-clone then SAPHana_<b>HN1</b>_<b>03</b>-master symmetrical=false
 sudo pcs constraint colocation add g_ip_<b>HN1</b>_<b>03</b> with master SAPHana_<b>HN1</b>_<b>03</b>-master 4000
 
+sudo pcs resource defaults resource-stickiness=1000
+sudo pcs resource defaults migration-threshold=5000
+
 sudo pcs property set maintenance-mode=false
 </code></pre>
 
@@ -631,6 +637,9 @@ sudo pcs resource group add g_ip_<b>HN1</b>_<b>03</b> nc_<b>HN1</b>_<b>03</b> vi
 
 sudo pcs constraint order SAPHanaTopology_<b>HN1</b>_<b>03</b>-clone then SAPHana_<b>HN1</b>_<b>03</b>-clone symmetrical=false
 sudo pcs constraint colocation add g_ip_<b>HN1</b>_<b>03</b> with master SAPHana_<b>HN1</b>_<b>03</b>-clone 4000
+
+sudo pcs resource defaults update resource-stickiness=1000
+sudo pcs resource defaults update migration-threshold=5000
 
 sudo pcs property set maintenance-mode=false
 </code></pre>

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Cornerstone OnDemand for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Cornerstone OnDemand for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and deprovision user accounts to Cornerstone OnDemand.
 services: active-directory
 author: zhchia

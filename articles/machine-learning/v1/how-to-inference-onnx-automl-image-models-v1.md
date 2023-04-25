@@ -8,7 +8,7 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.date: 10/18/2021
-ms.custom: sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
 ---
 
 # Make predictions with ONNX on computer vision models from AutoML (v1)
@@ -17,7 +17,7 @@ ms.custom: sdkv1, event-tier1-build-2022
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"] 
 > * [v1](how-to-inference-onnx-automl-image-models-v1.md) 
-> * [v2 (current version)](../how-to-inference-onnx-automl-image-models.md) 
+> * [v2 (current version)](../how-to-inference-onnx-automl-image-models.md?view=azureml-api-2&preserve-view=true) 
 
   
 
@@ -1438,4 +1438,4 @@ display_detections(img, boxes.copy(), labels, scores, masks.copy(),
 
 ## Next steps
 * [Learn more about computer vision tasks in AutoML](how-to-auto-train-image-models-v1.md)
-* [Troubleshoot AutoML experiments](../how-to-troubleshoot-auto-ml.md)
+* [Troubleshoot AutoML experiments](how-to-troubleshoot-auto-ml.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect sync: Understanding Users, Groups, and Contacts | Microsoft Docs'
+title: 'Azure AD Connect sync: Understanding Users, Groups, and Contacts'
 description: Explains users, groups, and contacts in Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''

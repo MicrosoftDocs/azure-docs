@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 02/28/2023
+ms.date: 04/6/2023
 ---
 # SMB FAQs for Azure NetApp Files
 
@@ -31,6 +31,16 @@ However, you can map multiple NetApp accounts that are under the same subscripti
 Both [Azure Active Directory Domain Services (Azure AD DS)](../active-directory-domain-services/overview.md) and [Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) are supported. You can use existing Active Directory domain controllers with Azure NetApp Files. Domain controllers can reside in Azure as virtual machines, or on premises via ExpressRoute or S2S VPN. Azure NetApp Files doesn't support AD join for [Azure Active Directory (Azure AD)](../active-directory/fundamentals/index.yml) at this time.
 
 If you're using Azure NetApp Files with Azure Active Directory Domain Services, the organizational unit path is `OU=AADDC Computers` when you configure Active Directory for your NetApp account.
+
+## How do the Netlogon protocol changes in the April 2023 Windows Update affect Azure NetApp Files? 
+
+The Windows April 2023 update will include a patch for Netlogon protocol changes, however these changes are not enforced at this time.
+ 
+You should not modify the `RequireSeal` value to 2 at this time. Azure NetApp Files adds support for setting `RequireSeal` to 2 in May 2023.
+
+The enforcement of setting `RequireSeal` value to 2 will occur by default with the June 2023 Azure update.
+
+For more information, see [KB5021130: How to manage the Netlogon protocol changes related to CVE-2022-38023](https://support.microsoft.com/topic/kb5021130-how-to-manage-the-netlogon-protocol-changes-related-to-cve-2022-38023-46ea3067-3989-4d40-963c-680fd9e8ee25#timing5021130).
 
 ## What versions of Windows Server Active Directory are supported?
 
@@ -103,6 +113,11 @@ https://support.microsoft.com/topic/april-12-2022-kb5012670-monthly-rollup-cae43
 ## Does Azure NetApp Files support Alternate Data Streams (ADS)?
 
 Yes, Azure NetApp Files supports [Alternate Data Streams (ADS)](/openspecs/windows_protocols/ms-fscc/e2b19412-a925-4360-b009-86e3b8a020c8) by default on [SMB volumes](azure-netapp-files-create-volumes-smb.md) and [dual-protocol volumes configured with NTFS security style](create-volumes-dual-protocol.md#considerations) when accessed via SMB.
+
+## What are SMB/CIFS `oplocks` and are they enabled on Azure NetApp Files volumes?
+
+SMB/CIFS oplocks (opportunistic locks) enable the redirector on a SMB/CIFS client in certain file-sharing scenarios to perform client-side caching of read-ahead, write-behind, and lock information. A client can then work with a file (read or write it) without regularly reminding the server that it needs access to the file. This improves performance by reducing network traffic. SMB/CIFS oplocks are enabled on Azure NetApp Files SMB and dual-protocol volumes.
+
 
 ## Next steps  
 

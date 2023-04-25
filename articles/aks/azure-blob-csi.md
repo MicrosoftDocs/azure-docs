@@ -2,7 +2,7 @@
 title: Use Container Storage Interface (CSI) driver for Azure Blob storage on Azure Kubernetes Service (AKS)
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Blob storage in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.date: 01/18/2023
+ms.date: 04/13/2023
 
 ---
 
@@ -19,9 +19,6 @@ When you mount Azure Blob storage as a file system into a container or pod, it e
 * Disaster recovery data
 
 The data on the object storage can be accessed by applications using BlobFuse or Network File System (NFS) 3.0 protocol. Before the introduction of the Azure Blob storage CSI driver, the only option was to manually install an unsupported driver to access Blob storage from your application running on AKS. When the Azure Blob storage CSI driver is enabled on AKS, there are two built-in storage classes: *azureblob-fuse-premium* and *azureblob-nfs-premium*.
-
-> [!NOTE]
-> Azure Blob CSI driver only supports NFS 3.0 protocol for Kubernetes versions 1.25 on AKS.
 
 To create an AKS cluster with CSI drivers support, see [CSI drivers on AKS][csi-drivers-aks]. To learn more about the differences in access between each of the Azure storage types using the NFS protocol, see [Compare access to Azure Files, Blob Storage, and Azure NetApp Files with NFS][compare-access-with-nfs].
 
@@ -107,6 +104,10 @@ To have a storage volume persist for your workload, you can use a StatefulSet. T
 
 # [NFS](#tab/NFS)
 
+### Prerequisites
+
+- Your AKS cluster *Control plane* identity (that is, your AKS cluster name) is added to the [Contributor](../role-based-access-control/built-in-roles.md#contributor) role on the VNet and network security group.
+
 1. Create a file named `azure-blob-nfs-ss.yaml` and copy in the following YAML.
 
     ```yml
@@ -140,9 +141,8 @@ To have a storage volume persist for your workload, you can use a StatefulSet. T
       volumeClaimTemplates:
         - metadata:
             name: persistent-storage
-            annotations:
-              volume.beta.kubernetes.io/storage-class: azureblob-nfs-premium
           spec:
+            storageClassName: azureblob-nfs-premium
             accessModes: ["ReadWriteMany"]
             resources:
               requests:
@@ -190,9 +190,8 @@ To have a storage volume persist for your workload, you can use a StatefulSet. T
       volumeClaimTemplates:
         - metadata:
             name: persistent-storage
-            annotations:
-              volume.beta.kubernetes.io/storage-class: azureblob-fuse-premium
           spec:
+            storageClassName: azureblob-fuse-premium
             accessModes: ["ReadWriteMany"]
             resources:
               requests:

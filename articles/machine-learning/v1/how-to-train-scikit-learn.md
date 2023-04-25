@@ -10,7 +10,7 @@ author: balapv
 ms.reviewer: mopeakande
 ms.date: 11/04/2022
 ms.topic: how-to
-ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, sdkv1, event-tier1-build-2022
 #Customer intent: As a Python scikit-learn developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my machine learning models at scale.
 ---
 
@@ -19,7 +19,7 @@ ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
 > * [v1](how-to-train-scikit-learn.md)
-> * [v2 (current version)](../how-to-train-scikit-learn.md)
+> * [v2 (current version)](../how-to-train-scikit-learn.md?view=azureml-api-2&preserve-view=true)
 
 In this article, learn how to run your scikit-learn training scripts with Azure Machine Learning.
 
@@ -185,6 +185,8 @@ The model you just registered can be deployed the exact same way as any other re
 contains a section on registering models, but you can skip directly to [creating a compute targethow-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
 
 ### (Preview) No-code model deployment
+
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 Instead of the traditional deployment route, you can also use the no-code deployment feature (preview) for scikit-learn. No-code model deployment is supported for all built-in scikit-learn model types. By registering your model as shown above with the `model_framework`, `model_framework_version`, and `resource_configuration` parameters, you can simply use the [`deploy()`](/python/api/azureml-core/azureml.core.model%28class%29#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) static function to deploy your model.
 

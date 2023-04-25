@@ -1,25 +1,24 @@
 ---
 title: "Azure Operator Nexus: Install CLI extensions"
 description: Learn to install the needed Azure CLI extensions for Operator Nexus
-author: Travisivart #Required
-ms.author: travisneely #Required
-ms.service: azure #Required
+author: Travisivart
+ms.author: travisneely
+ms.service: azure-operator-nexus
+ms.custom: devx-track-azurecli
 ms.topic: include
-ms.date: 01/27/2023
-# ms.custom: template-include #Required;
+ms.date: 03/06/2023
+# ms.custom: template-include
 ---
 
-# Install Azure CLI extensions
+# Prepare to install Azure CLI extensions
+This how-to guide explains the steps for installing the required az CLI and extensions required to interact with Operator Nexus.
 
-Install the following CLI extensions:
+Installation of the following CLI extensions are required:
+`networkcloud` (for Microsoft.NetworkCloud APIs), `managednetworkfabric` (for Microsoft.ManagedNetworkFabric APIs) and `hybridaks` (for AKS-Hybrid APIs).
 
-- `networkcloud` (for Microsoft.NetworkCloud APIs)
-- `managednetworkfabric` (for Microsoft.ManagedNetworkFabric APIs)
-- `hybridaks` (for AKS-Hybrid APIs)
+If you haven't already installed Azure CLI: [Install Azure CLI][installation-instruction]. The aka.ms links download the latest available version of the extension.
 
-- If you haven't already installed Azure CLI: [Install Azure CLI][installation-instruction]. The aka.ms links download the latest available version of the extension.
-
-- Install `networkcloud` CLI extension
+## Install `networkcloud` CLI extension
 
 - Remove any previously installed version of the extension
 
@@ -50,7 +49,7 @@ Install the following CLI extensions:
     az networkcloud --help
     ```
 
-- Install `managednetworkfabric` CLI extension
+## Install `managednetworkfabric` CLI extension
 
 - Remove any previously installed version of the extension
 
@@ -81,7 +80,7 @@ Install the following CLI extensions:
     az nf --help
     ```
 
-- Install AKS-Hybrid (`hybridaks`) CLI extension
+## Install AKS-Hybrid (`hybridaks`) CLI extension
 
 - Remove any previously installed version of the extension
 
@@ -112,7 +111,7 @@ Install the following CLI extensions:
     az hybridaks --help
     ```
 
-- Install other needed extensions
+## Install other Azure extensions
 
    ```azurecli
    az extension add --yes --upgrade --name customlocation
@@ -150,10 +149,6 @@ customlocation           0.1.3
 hybridaks                0.1.6
 ssh                      1.1.3
 ```
-
-<!-- LINKS - Internal -->
-[howto-configure-network fabric]: ./howto-configure-network fabric.md
-[quickstarts-tenant-workload-deployment]: ./quickstarts-tenant-workload-deployment.md
 
 <!-- LINKS - External -->
 [installation-instruction]: https://aka.ms/azcli

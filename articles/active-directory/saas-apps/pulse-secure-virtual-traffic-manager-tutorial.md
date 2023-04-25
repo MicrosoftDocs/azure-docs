@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Pulse Secure Virtual Traffic Manager | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Pulse Secure Virtual Traffic Manager'
 description: Learn how to configure single sign-on between Azure Active Directory and Pulse Secure Virtual Traffic Manager.
 services: active-directory
 author: jeevansd

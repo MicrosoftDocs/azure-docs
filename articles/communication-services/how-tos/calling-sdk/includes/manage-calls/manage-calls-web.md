@@ -15,7 +15,7 @@ Call creation and start are synchronous. The `call` instance allows you to subsc
 
 ### Place a 1:n call to a user or PSTN
 
-To call another Communication Services user, use the `startCall` method on `callAgent` and pass the recipient's `CommunicationUserIdentifier` that you [created with the Communication Services administration library](../../../../quickstarts/access-tokens.md).
+To call another Communication Services user, use the `startCall` method on `callAgent` and pass the recipient's `CommunicationUserIdentifier` that you [created with the Communication Services administration library](../../../../quickstarts/identity/access-tokens.md).
 
 For a 1:1 call to a user, use the following code:
 

@@ -22,6 +22,9 @@ This article shows how to configure encryption with customer-managed keys for an
 
 To learn how to configure customer-managed keys for a new storage account, see [Configure cross-tenant customer-managed keys for a new storage account](customer-managed-keys-configure-cross-tenant-new-account.md).
 
+> [!NOTE]
+> Azure Key Vault and Azure Key Vault Managed HSM support the same APIs and management interfaces for configuration of customer-managed keys. Any action that is supported for Azure Key Vault is also supported for Azure Key Vault Managed HSM.
+
 [!INCLUDE [active-directory-msi-cross-tenant-cmk-overview](../../../includes/active-directory-msi-cross-tenant-cmk-overview.md)]
 
 [!INCLUDE [active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault](../../../includes/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault.md)]
@@ -44,7 +47,7 @@ When you configure encryption with customer-managed keys for an existing storage
 To configure cross-tenant customer-managed keys for an existing storage account in the Azure portal, follow these steps:
 
 1. Navigate to your storage account.
-1. On the **Settings** blade for the storage account, select **Encryption**. By default, key management is set to **Microsoft-managed keys**, as shown in the following image.
+1. On the Under Security + networking, select Encryption. By default, key management is set to Microsoft-managed keys, as shown in the following image.
 
     :::image type="content" source="media/customer-managed-keys-configure-existing-account/portal-configure-encryption-keys.png" alt-text="Screenshot showing encryption options in Azure portal." lightbox="media/customer-managed-keys-configure-existing-account/portal-configure-encryption-keys.png":::
 

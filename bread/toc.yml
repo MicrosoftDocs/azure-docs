@@ -237,12 +237,9 @@
     tocHref: /power-bi
     topicHref: /azure/azure-portal/index
   - name: Internet of Things
-    tocHref: /azure/iot-fundamentals/
-    topicHref: /azure/iot-fundamentals/
+    tocHref: /azure/iot/
+    topicHref: /azure/iot/
     items:
-      - name: Azure Percept
-        tocHref: /azure/azure-percept/
-        topicHref: /azure/azure-percept/
       - name: Device Development
         tocHref: /azure/iot-develop/
         topicHref: /azure/iot-develop/
@@ -529,6 +526,10 @@
     - name: MongoDB
       tocHref: /azure/cosmos-db/mongodb/
       topicHref: /azure/cosmos-db/mongodb/
+      items:
+        - name: vCore
+          tocHref: /azure/cosmos-db/mongodb/vcore/
+          topicHref: /azure/cosmos-db/mongodb/vcore/
     - name: MongoDB
       tocHref: /azure/cosmos-db/mongodb/cli-samples
       topicHref: /azure/cosmos-db/mongodb/cli-samples
@@ -599,9 +600,12 @@
   - name: Dedicated HSM
     tocHref: /azure/dedicated-hsm/
     topicHref: /azure/dedicated-hsm/
-  - name: Microsoft Energy Data Services
+  - name: Azure Data Manager for Energy
     tocHref: /azure/energy-data-services
     topicHref: /azure/energy-data-services
+  - name: Data Manager for Agriculture
+    tocHref: /azure/data-manager-for-agri
+    topicHref: /azure/data-manager-for-agri
   - name: Azure DevTest Labs
     tocHref: /azure/devtest-labs/
     topicHref: /azure/devtest-labs/
@@ -685,12 +689,12 @@
         tocHref: /azure/industry
         topicHref: /azure/industry
 #  - name: Internet of Things
-#    tocHref: /azure/iot-fundamentals/
-#    topicHref: /azure/iot-fundamentals/
+#    tocHref: /azure/iot/
+#    topicHref: /azure/iot/
 #    items:
 #    - name: IoT Fundamentals
-#      tocHref: /azure/iot-fundamentals/
-#      topicHref: /azure/iot-fundamentals/
+#      tocHref: /azure/iot/
+#      topicHref: /azure/iot/
 #    - name: IoT Edge
 #      tocHref: /azure/iot-edge/
 #      topicHref: /azure/iot-edge/
@@ -968,6 +972,9 @@
       - name: Confidential Ledger
         tocHref: /azure/confidential-ledger/
         topicHref: /azure/confidential-ledger/
+      - name: Microsoft Defender External Attack Surface Management
+        tocHref: /azure/external-attack-surface-management/
+        topicHref: /azure/external-attack-surface-management/
   - name: Service Fabric
     tocHref: /azure/service-fabric/
     topicHref: /azure/service-fabric/

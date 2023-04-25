@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on integration with F5 | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on integration with F5'
 description: In this article, learn the steps you need to perform to integrate F5 with Azure Active Directory (Azure AD).
 services: active-directory
 author: jeevansd
@@ -332,7 +332,7 @@ When you click the F5 tile in the Access Panel, you should be automatically sign
 
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
-- [Try F5 with Azure AD](https://aad.portal.azure.com/)
+
 
 - [Configure F5 single sign-on for Header Based application](headerf5-tutorial.md)
 

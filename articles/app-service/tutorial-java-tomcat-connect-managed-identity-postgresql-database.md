@@ -6,7 +6,7 @@ ms.topic: tutorial
 ms.date: 09/26/2022
 author: KarlErickson
 ms.author: karler
-ms.custom: passwordless-java, service-connector
+ms.custom: passwordless-java, service-connector, devx-track-azurecli
 ---
 
 # Tutorial: Connect to a PostgreSQL Database from Java Tomcat App Service without secrets using a managed identity
@@ -74,7 +74,7 @@ Follow these steps to create an Azure Database for Postgres in your subscription
        --location $LOCATION \
        --admin-user $POSTGRESQL_ADMIN_USER \
        --admin-password $POSTGRESQL_ADMIN_PASSWORD \
-       --public-network-access 0.0.0.0 \
+       --public-access 0.0.0.0 \
        --sku-name Standard_D2s_v3 
    ```
 
