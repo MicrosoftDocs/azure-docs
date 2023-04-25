@@ -22559,7 +22559,7 @@
           "redirect_document_id": true
         },
         {
-          "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-cast-access-required.md",
+          "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-cast-access-request.md",
           "redirect_url": "/azure/healthcare-apis/dicom/dicom-cast-overview",
           "redirect_document_id": false
         }
