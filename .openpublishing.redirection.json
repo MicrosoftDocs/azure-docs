@@ -966,6 +966,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/aks/managed-aad.md",
+            "redirect_url": "/azure/aks/managed-azure-ad",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/germany/germany-developer-guide.md",
             "redirect_url": "/previous-versions/azure/germany/germany-developer-guide",
             "redirect_document_id": false
