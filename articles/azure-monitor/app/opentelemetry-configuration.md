@@ -203,7 +203,7 @@ for i in range(100):
 The following libraries are validated to work with the current release.
 
 > [!WARNING]
-> Instrumentation libraries are based on experimental OpenTelemetry specifications, which impacts languages in [preview status](#opentelemetry-release-status). Microsoft's *preview* support commitment is to ensure that the following libraries emit data to Azure Monitor Application Insights, but it's possible that breaking changes or experimental mapping will block some data elements.
+> Instrumentation libraries are based on experimental OpenTelemetry specifications, which impacts languages in [preview status](opentelemetry-enable.md#opentelemetry-release-status). Microsoft's *preview* support commitment is to ensure that the following libraries emit data to Azure Monitor Application Insights, but it's possible that breaking changes or experimental mapping will block some data elements.
 
 ### Distributed Tracing
 
@@ -400,7 +400,7 @@ Autocollected metrics
 ---
 
 > [!TIP]
-> The OpenTelemetry-based offerings currently emit all metrics as [Custom Metrics](#add-custom-metrics) and [Performance Counters](standard-metrics.md#performance-counters) in Metrics Explorer. For .NET, Node.js, and Python, whatever you set as the meter name becomes the metrics namespace.
+> The OpenTelemetry-based offerings currently emit all metrics as [Custom Metrics](opentelemetry-enable.md#add-custom-metrics) and [Performance Counters](standard-metrics.md#performance-counters) in Metrics Explorer. For .NET, Node.js, and Python, whatever you set as the meter name becomes the metrics namespace.
 
 ### Logs
 

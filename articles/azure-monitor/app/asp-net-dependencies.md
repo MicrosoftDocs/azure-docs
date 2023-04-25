@@ -256,7 +256,7 @@ Below is the currently supported list of dependency calls that are automatically
 ### Java
 
 See the list of Application Insights Java's
-[autocollected dependencies](opentelemetry-enable.md?tabs=java#distributed-tracing).
+[autocollected dependencies](opentelemetry-configuration.md?tabs=java#distributed-tracing).
 
 ### Node.js
 
