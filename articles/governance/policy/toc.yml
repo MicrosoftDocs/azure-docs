@@ -236,6 +236,9 @@
       href: /security/benchmark/azure/baselines/azure-policy-security-baseline?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
 - name: How-to guides
   items:
+  - name: Safe deployment of Azure Policy assignments
+    displayName: policy, assignments, sdp
+    href: ./how-to/policy-safe-deployment-practices.md
   - name: Azure Policy extension for VS Code
     displayName: visual studio code
     href: ./how-to/extension-for-vscode.md

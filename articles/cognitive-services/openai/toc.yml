@@ -25,8 +25,10 @@ items:
       displayName: ChatGPT, chatgpt
 - name: Concepts
   items:
-    - name: Prompt engineering
+    - name: Intro to prompt engineering
       href: ./concepts/prompt-engineering.md
+    - name: Prompt engineering techniques
+      href: ./concepts/advanced-prompt-engineering.md
     - name: Content filtering
       href: ./concepts/content-filter.md
     - name: Embeddings

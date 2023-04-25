@@ -83,11 +83,11 @@ If the custom properties are not set in the Alert rule, this field will be null.
             "metricValue": 7.727
           }
         ]
+      }
       },
       "customProperties":{
         "Key1": "Value1",
         "Key2": "Value2"
-      }
     }
   }
 }

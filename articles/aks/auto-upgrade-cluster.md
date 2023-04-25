@@ -38,7 +38,7 @@ If using the `node-image` cluster auto-upgrade channel or the `NodeImage` node i
 
 ## Using cluster auto-upgrade
 
-Automatically completed upgrades are functionally the same as manual upgrades. The timing of upgrades is determined by the selected channel. When making changes to auto-upgrade, allow 24 hours for the changes to take effect.
+Automatically completed upgrades are functionally the same as manual upgrades. The timing of upgrades is determined by the [selected auto-upgrade channel][planned-maintenance]. When making changes to auto-upgrade, allow 24 hours for the changes to take effect.
 
 The following upgrade channels are available:
 
