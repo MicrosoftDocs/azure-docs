@@ -31,11 +31,6 @@ Some organizations have advanced network requirements and configurations that th
     > [!IMPORTANT]
     > The virtual network and the lab plan must be in the same Azure region.
 
-
-1. [Create a network security group (NSG)](../virtual-network/manage-network-security-group.md).
-1. [Create an inbound rule to allow traffic from SSH and RDP ports](../virtual-network/manage-network-security-group.md).
-1. [Associate the NSG to the delegated subnet](#associate-delegated-subnet-with-nsg).
-
 ## Delegate the virtual network subnet to lab plans
 
 To use your virtual network subnet for VNET injection with Azure Lab Services, you need to [delegate the subnet](../virtual-network/subnet-delegation-overview.md) to Azure Lab Services lab plans.
