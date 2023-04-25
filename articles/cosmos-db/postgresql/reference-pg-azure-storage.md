@@ -33,7 +33,7 @@ Syntax and options supported remains likewise to Postgres Native [COPY](https://
 > a.	FREEZE [ boolean ]
 > b.	HEADER [ MATCH ]
 
-> [!NOTE] 
+> [!NOTE]
 > `COPY TO` syntax is yet not supported.
 
 ### Arguments
@@ -102,8 +102,8 @@ This hash is used to verify the integrity of the blob during transport. When thi
 ### Return Type
 Table
 
-> [!NOTE] 
-> **Permissions** 
+> [!NOTE]
+> **Permissions**
 Now you can list containers set to Private and Blob access levels for that storage but only as the `citus user`, which has the `azure_storage_admin` role granted to it. If you create a new user named support, it won't be allowed to access container contents by default.
 
 ### Syntax (blob_get)
@@ -154,8 +154,8 @@ for handling custom headers, custom separators, escape characters etc., `COPY` c
 ### Return Type
 Set of Records
 
-> [!NOTE] 
-**Permissions** 
+> [!NOTE]
+**Permissions**
 Now you can list containers set to Private and Blob access levels for that storage but only as the `citus user`, which has the `azure_storage_admin` role granted to it. If you create a new user named support, it won't be allowed to access container contents by default.
 
 
