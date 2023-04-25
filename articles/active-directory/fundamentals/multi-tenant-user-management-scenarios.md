@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 
 # Multi-tenant user management scenarios
 
-This article is the second in a series of articles that provide guidance for configuring and providing user lifecycle management in Azure Active Directory (Azure AD) multi-tenant environments. Reference the following articles in the series for more information.
+This article is the second in a series of articles that provide guidance for configuring and providing user lifecycle management in Azure Active Directory (Azure AD) multi-tenant environments. The following articles in the series provide more information as described.
 
 - [Multi-tenant user management introduction](multi-tenant-user-management-introduction.md) is the first in the series of articles that provide guidance for configuring and providing user lifecycle management in Azure Active Directory (Azure AD) multi-tenant environments.
 - [Common considerations for multi-tenant user management](multi-tenant-common-considerations.md) provides guidance for these considerations: cross-tenant synchronization, directory object, Azure AD Conditional Access, additional access control, and Office 365. 
@@ -91,7 +91,7 @@ You can configure more attributes on external user objects to facilitate differe
 
 You might set these attributes to add external users to the global address list (GAL) and to people search (such as SharePoint People Picker). Other scenarios may require different attributes (such as setting entitlements and permissions for Access Packages, Dynamic Group Membership, and SAML Claims).
 
-By default, the GAL hides invited external users. Set external user attributes to be unhidden to include them in the unified GAL. For more information, see the [Microsoft Exchange Online](multi-tenant-common-considerations.md#microsoft-exchange-online) documentation.
+By default, the GAL hides invited external users. Set external user attributes to be unhidden to include them in the unified GAL. The Microsoft Exchange Online section of [Common considerations for multi-tenant user management](multi-tenant-common-considerations.md) describes how you can lessen limits by creating external member users instead of external guest users.
 
 ### Deprovisioning accounts
 
@@ -240,7 +240,7 @@ In a mesh topology, every user in each home tenant synchronizes to each of the o
 - You can share any resource within a tenant with external users.
 - Each organization can see all users in the conglomerate. In the above diagram, there are four unified GALs, each of which contains the home users and the external users from the other three tenants.
 
-Reference [Common considerations for multi-tenant user management](multi-tenant-common-considerations.md) for additional information on provisioning, managing, and deprovisioning users in this scenario.
+[Common considerations for multi-tenant user management](multi-tenant-common-considerations.md) provides information on provisioning, managing, and deprovisioning users in this scenario.
 
 #### Mesh topology for cross-cloud
 
@@ -269,7 +269,7 @@ This solution detects and syncs attribute changes from source tenant users to re
 
 Automation detects object deletion in the source environment and deletes the associated external user object in the target environment.
 
-For additional information on provisioning, managing, and deprovisioning users in this scenario, reference the [Common considerations for multi-tenant user management](multi-tenant-common-considerations.md) article.
+[Common considerations for multi-tenant user management](multi-tenant-common-considerations.md) provides additional information on provisioning, managing, and deprovisioning users in this scenario.
 
 ## Next steps
 
