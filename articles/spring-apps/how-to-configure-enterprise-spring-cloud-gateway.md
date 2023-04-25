@@ -297,7 +297,7 @@ Before configuring TLS, you need to have a TLS-enabled application and a TLS cer
 
 After you have a TLS-enabled application running in Azure Spring Apps, upload the certificate to Azure Spring Apps. For more information, see [Import a certificate](how-to-use-tls-certificate.md#import-a-certificate).
 
-With the certificate updated to Azure Spring Apps, you can now configure the TLS certificate for the gateway and enable certificate verification. You can configure the certification in the Azure portal or by using Azure CLI.
+With the certificate updated to Azure Spring Apps, you can now configure the TLS certificate for the gateway and enable certificate verification. You can configure the certification in the Azure portal or by using the Azure CLI.
 
 #### [Azure portal](#tab/Azure-portal)
 
@@ -313,11 +313,11 @@ Updating the configuration can take a few minutes. You should get a notification
 
 #### [Azure CLI](#tab/Azure-CLI)
 
-Use the following command to enable (true) or disable (false) a certificate using Azure CLI:
+Use the following command to enable or disable certificate verification using the Azure CLI. Be sure to replace the *`<value>`* placeholder with *true* to enable or *false* to disable verification.
 
 ```azurecli
 az spring gateway update \
-    --enable-cert-verify <true-false> \
+    --enable-cert-verify <value> \
     --certificate-names <certificate-name-in-Azure-Spring-Apps>
 ```
 
@@ -327,7 +327,7 @@ az spring gateway update \
 
 You must specify the protocol as HTTPS in the route configuration. The following JSON object instructs the gateway to use the HTTPS protocol for all traffic between the gateway and the app.
 
-1. Create a file named `test-tls-route.json` with the following content.
+1. Create a file named *test-tls-route.json* with the following content.
 
    ```json
    {
@@ -347,14 +347,14 @@ You must specify the protocol as HTTPS in the route configuration. The following
 1. Use the following command to apply the rule to the application:
 
    ```azurecli
-       az spring gateway route-config create \
+   az spring gateway route-config create \
        --name test-tls-app \
        --routes-file test-tls-route.json
    ```
 
 You can now test whether the application is TLS enabled with the endpoint of the gateway. For more information, see the [Configure routes](how-to-use-enterprise-spring-cloud-gateway.md#configure-routes) section of [Use Spring Cloud Gateway](how-to-use-enterprise-spring-cloud-gateway.md).
 
-### Certificate rotation
+### Rotate certificates
 
 As certificates expire, new ones need to be generated and synchronized (rotation). You can use the Azure portal or Azure CLI to synchronize certificates.
 
@@ -363,12 +363,12 @@ As certificates expire, new ones need to be generated and synchronized (rotation
 Use the following steps to rotate and synchronize certificates.
 
 1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** in the navigation pane.
-1. On the **Spring Cloud Gateway** page, **Certificate management**.
+1. On the **Spring Cloud Gateway** page, select **Certificate management**.
 1. Select the new certificate in **Certificates**.
 1. Select **sync certificate**.
 1. Select **Save**.
 
-  :::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sync-certificate.png" alt-text="Screenshot of Azure portal showing the Spring Cloud Gateway page for an Azure Spring Apps instance with Certificate Management selected and the prompt to sync the certificate highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sync-certificate.png":::
+   :::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sync-certificate.png" alt-text="Screenshot of the Azure portal showing the Spring Cloud Gateway page for an Azure Spring Apps instance with Certificate Management selected and the prompt to sync the certificate highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sync-certificate.png":::
 
 #### [Azure CLI](#tab/Azure-CLI) 
 
