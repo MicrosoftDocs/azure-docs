@@ -1,13 +1,12 @@
 ---
 title: DPDK in an Azure Linux VM
+titleSuffix: Azure Virtual Network
 description: Learn the benefits of the Data Plane Development Kit (DPDK) and how to set up the DPDK on a Linux virtual machine.
 services: virtual-network
 author: asudbring
-manager: gedegrac
 ms.service: virtual-network
 ms.topic: how-to
-ms.workload: infrastructure-services
-ms.date: 05/12/2020
+ms.date: 04/24/2023
 ms.author: allensu
 ---
 
@@ -24,7 +23,6 @@ DPDK can run on Azure virtual machines that are supporting multiple operating sy
 ## Benefit
 
 **Higher packets per second (PPS)**: Bypassing the kernel and taking control of packets in the user space reduces the cycle count by eliminating context switches. It also improves the rate of packets that are processed per second in Azure Linux virtual machines.
-
 
 ## Supported operating systems minimum versions
 
@@ -56,6 +54,20 @@ On virtual machines that are using InfiniBand, ensure the appropriate `mlx4_ib` 
 
 ## Install DPDK via system package (recommended)
 
+# [RHEL, CentOS](#tab/redhat)
+
+```bash
+sudo yum install -y dpdk
+```
+
+# [openSUSE, SLES](#tab/suse)
+
+```bash
+sudo zypper install -y dpdk
+```
+
+# [Ubuntu, Debian](#tab/ubuntu)
+
 ### Ubuntu 18.04
 
 ```bash
@@ -64,41 +76,19 @@ sudo apt-get update
 sudo apt-get install -y dpdk
 ```
 
-### Ubuntu 20.04 and newer
+### Ubuntu 20.04/Debian 10 and newer
 
 ```bash
 sudo apt-get install -y dpdk
 ```
 
-### Debian 10 and newer
-
-```bash
-sudo apt-get install -y dpdk
-```
+---
 
 ## Install DPDK manually (not recommended)
 
 ### Install build dependencies
 
-#### Ubuntu 18.04
-
-```bash
-sudo add-apt-repository ppa:canonical-server/server-backports -y
-sudo apt-get update
-sudo apt-get install -y build-essential librdmacm-dev libnuma-dev libmnl-dev meson
-```
-
-#### Ubuntu 20.04 and newer
-
-```bash
-sudo apt-get install -y build-essential librdmacm-dev libnuma-dev libmnl-dev meson
-```
-
-#### Debian 10 and newer
-
-```bash
-sudo apt-get install -y build-essential librdmacm-dev libnuma-dev libmnl-dev meson
-```
+# [RHEL, CentOS](#tab/redhat)
 
 #### RHEL7.5/CentOS 7.5
 
@@ -107,6 +97,8 @@ yum -y groupinstall "Infiniband Support"
 sudo dracut --add-drivers "mlx4_en mlx4_ib mlx5_ib" -f
 yum install -y gcc kernel-devel-`uname -r` numactl-devel.x86_64 librdmacm-devel libmnl-devel meson
 ```
+
+# [openSUSE, SLES](#tab/suse)
 
 #### SLES 15 SP1
 
@@ -128,11 +120,31 @@ zypper \
   --gpg-auto-import-keys install kernel-default-devel gcc make libnuma-devel numactl librdmacm1 rdma-core-devel meson
 ```
 
+# [Ubuntu, Debian](#tab/ubuntu)
+
+#### Ubuntu 18.04
+
+```bash
+sudo add-apt-repository ppa:canonical-server/server-backports -y
+sudo apt-get update
+sudo apt-get install -y build-essential librdmacm-dev libnuma-dev libmnl-dev meson
+```
+
+#### Ubuntu 20.04/Debian 10 and newer
+
+```bash
+sudo apt-get install -y build-essential librdmacm-dev libnuma-dev libmnl-dev meson
+```
+
+---
 ### Compile and install DPDK manually
 
 1. [Download the latest DPDK](https://core.dpdk.org/download). Version 19.11 LTS or newer is required for Azure.
+
 2. Build the default config with `meson builddir`.
+
 3. Compile with `ninja -C builddir`.
+
 4. Install with `DESTDIR=<output folder> ninja -C builddir install`.
 
 ## Configure the runtime environment
@@ -141,17 +153,19 @@ After restarting, run the following commands once:
 
 1. Hugepages
 
-   * Configure hugepage by running the following command, once for each numa node:
+    * Configure hugepage by running the following command, once for each numa node:
 
-     ```bash
+    ```bash
      echo 1024 | sudo tee /sys/devices/system/node/node*/hugepages/hugepages-2048kB/nr_hugepages
-     ```
+    ```
 
-   * Create a directory for mounting with `mkdir /mnt/huge`.
-   * Mount hugepages with `mount -t hugetlbfs nodev /mnt/huge`.
-   * Check that hugepages are reserved with `grep Huge /proc/meminfo`.
+    * Create a directory for mounting with `mkdir /mnt/huge`.
+   
+    * Mount hugepages with `mount -t hugetlbfs nodev /mnt/huge`.
+   
+    * Check that hugepages are reserved with `grep Huge /proc/meminfo`.
 
-     > [NOTE]
+     > [!NOTE]
      > There is a way to modify the grub file so that hugepages are reserved on boot by following the [instructions](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) for the DPDK. The instructions are at the bottom of the page. When you're using an Azure Linux virtual machine, modify files under **/etc/config/grub.d** instead, to reserve hugepages across reboots.
 
 2. MAC & IP addresses: Use `ifconfig –a` to view the MAC and IP address of the network interfaces. The *VF* network interface and *NETVSC* network interface have the same MAC address, but only the *NETVSC* network interface has an IP address. *VF* interfaces are running as subordinate interfaces of *NETVSC* interfaces.
@@ -159,6 +173,7 @@ After restarting, run the following commands once:
 3. PCI addresses
 
    * Use `ethtool -i <vf interface name>` to find out which PCI address to use for *VF*.
+   
    * If *eth0* has accelerated networking enabled, make sure that testpmd doesn’t accidentally take over the *VF* pci device for *eth0*. If the DPDK application accidentally takes over the management network interface and causes you to lose your SSH connection, use the serial console to stop the DPDK application. You can also use the serial console to stop or start the virtual machine.
 
 4. Load *ibuverbs* on each reboot with `modprobe -a ib_uverbs`. For SLES 15 only, also load *mlx4_ib* with `modprobe -a mlx4_ib`.
@@ -197,6 +212,7 @@ To run testpmd in root mode, use `sudo` before the *testpmd* command.
    If you're running testpmd with more than two NICs, the `--vdev` argument follows this pattern: `net_vdev_netvsc<id>,iface=<vf’s pairing eth>`.
 
 3.  After it's started, run `show port info all` to check port information. You should see one or two DPDK ports that are net_failsafe (not *net_mlx4*).
+
 4.  Use `start <port> /stop <port>` to start traffic.
 
 The previous commands start *testpmd* in interactive mode, which is recommended for trying out  testpmd commands.
@@ -276,5 +292,7 @@ When you're running the previous commands on a virtual machine, change *IP_SRC_A
 ## References
 
 * [EAL options](https://dpdk.org/doc/guides/testpmd_app_ug/run_app.html#eal-command-line-options)
+
 * [Testpmd commands](https://dpdk.org/doc/guides/testpmd_app_ug/run_app.html#testpmd-command-line-options)
+
 * [Packet dump commands](https://doc.dpdk.org/guides/tools/pdump.html#pdump-tool)
