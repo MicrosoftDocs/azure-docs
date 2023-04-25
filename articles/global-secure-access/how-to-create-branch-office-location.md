@@ -1,6 +1,6 @@
 ---
 title: How to create branch office locations
-description: Learn how to create branch office locations for Global Secure Access.
+description: Learn how to create branch office location for Global Secure Access.
 author: kenwith
 ms.author: kenwith
 manager: amycolannino
@@ -10,7 +10,7 @@ ms.service: network-access
 ms.custom: 
 ---
 
-# Learn how to create a branch office locations for Global Secure Access
+# Learn how to create a branch office location for Global Secure Access
 
 Learn how to create a branch office location for Global Secure Access.
 
@@ -33,7 +33,7 @@ There are multiple ways to connect a branch location to the Microsoft network. I
 1. Select **Branch**.
 1. Select the link to open a form. The form is used to onboard your Microsoft Entra Identity tenant. You can also find the form at https://aka.ms/ztnaonboard.
 1. Fill out the form with the required information and then select **Submit**.
-    You cannot continue to the next step until your tenant has completed the onboard process. It takes up to 7 days for your tenant to go through the onboard process. 
+    You cannot continue to the next step until your tenant has completed the onboard process. It takes up to seven days for your tenant to go through the onboard process. 
 1. Select **Create branch office** and enter:
     - Name: `ContosoBranch` 
     - Region: `EastUS` 
@@ -64,7 +64,7 @@ There are multiple ways to connect a branch location to the Microsoft network. I
     - SA lifetime (seconds): `300` 
 1. Select **Next**.
 1. Under the **Security** tab, enter the details: 
-    - Pre-shared key (PSK): `<Enter the secret key. The same secret key must be used on your CPE.>` 
+    - Pre shared key (PSK): `<Enter the secret key. The same secret key must be used on your CPE.>` 
 1. Select **Add link**. 
 1. Select **Next: Forwarding profiles**.
 1. Select **M365 traffic profile: All M365 traffic**. 
