@@ -1,13 +1,13 @@
 ---
 title: Image templates in the Azure Maps Web SDK | Microsoft Azure Maps
 description: Learn how to add image icons and pattern-filled polygons to maps by using the Azure Maps Web SDK. View available image and fill pattern templates.
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 8/6/2019
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-ms.custom: codepen, devx-track-js
+ms.custom: devx-track-js
 ---
 
 # How to use image templates
@@ -35,12 +35,12 @@ The following code shows how to create an image from one of the built-in templat
 ```javascript
 map.imageSprite.createFromTemplate('myTemplatedIcon', 'marker-flat', 'teal', '#fff').then(function () {
 
-	//Add a symbol layer that uses the custom created icon.
-	map.layers.add(new atlas.layer.SymbolLayer(datasource, null, {
-		iconOptions: {
-			image: 'myTemplatedIcon'
-		}
-	}));
+   //Add a symbol layer that uses the custom created icon.
+   map.layers.add(new atlas.layer.SymbolLayer(datasource, null, {
+      iconOptions: {
+         image: 'myTemplatedIcon'
+      }
+   }));
 });
 ```
 
