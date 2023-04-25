@@ -80,7 +80,7 @@ You can install any provider package by editing the airflow environment from the
 
 ## Limitations
 
-* Managed Airflow in other regions are available by GA.
+* Managed Airflow in other regions is available by GA.
 * Data Sources connecting through airflow should be publicly accessible. 
 * Blob Storage behind VNet is not supported during the public preview.
 * DAGs that are inside a Blob Storage in VNet/behind Firewall is currently not supported.
