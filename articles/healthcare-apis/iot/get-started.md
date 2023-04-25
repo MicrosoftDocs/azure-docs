@@ -1,11 +1,11 @@
 ---
 title: Get started with the MedTech service - Azure Health Data Services
-description: This article describes how to get started with the MedTech service.
+description: This article describes the basic steps for deploying the MedTech service.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 04/21/2023
+ms.date: 04/25/2023
 ms.author: jasteppe
 ms.custom: mode-api
 ---
@@ -15,7 +15,7 @@ ms.custom: mode-api
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-This article and diagram outlines the basic steps to get started with the MedTech service in the [Azure Health Data Services](../healthcare-apis-overview.md). These basic steps may help you analyze the MedTech service deployment options and determine which deployment method is best for you.
+This article and diagram outlines the basic steps to get started with the MedTech service in the [Azure Health Data Services](../healthcare-apis-overview.md). These steps may help you analyze the MedTech service deployment options and determine which deployment method is best for you.
 
 As a prerequisite, you need an Azure subscription and have been granted proper permissions to deploy Azure resource groups and resources. You can follow all the steps, or skip some if you have an existing environment. Also, you can combine all the steps and complete them in Azure PowerShell, Azure CLI, and REST API scripts.
 
