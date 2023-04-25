@@ -13,9 +13,6 @@ services: azure-maps
 
 The Azure Maps iOS SDK allows you to render indoor maps created in Azure Maps Creator services.
 
-> [!NOTE]
-> The iOS SDK will support *dynamic styling* in a future release, coming soon!
-
 ## Prerequisites
 
 1. Complete the steps in the [Quickstart: Create an iOS app]. Code blocks in this article can be inserted into the `viewDidLoad` function of `ViewController`.
