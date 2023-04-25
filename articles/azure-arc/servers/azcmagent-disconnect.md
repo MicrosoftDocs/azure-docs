@@ -7,7 +7,7 @@ ms.date: 04/20/2023
 
 # azcmagent disconnect
 
-Deletes the Azure Arc-enabled server resource in the cloud and resets the configuration of the local agent. For detailed information on removing extensions, disconnecting and uninstalling the agent, see [uninstall the agent](manage-agent.md#uninstall-the-agent).
+Deletes the Azure Arc-enabled server resource in the cloud and resets the configuration of the local agent. For detailed information on removing extensions and disconnecting and uninstalling the agent, see [uninstall the agent](manage-agent.md#uninstall-the-agent).
 
 ## Usage
 
