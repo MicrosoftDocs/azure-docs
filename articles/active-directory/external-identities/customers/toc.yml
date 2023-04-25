@@ -17,7 +17,7 @@ items:
   expanded: true
   items: 
     - name: Samples by app type and language
-      href: quickstart-app-samples-all.md
+      href: samples-ciam-all.md
 - name: Concepts
   expanded: true
   items: 
@@ -27,20 +27,18 @@ items:
       href: concept-supported-features-customers.md
     - name: Customizing the sign-in look and feel
       href: concept-branding-customers.md
-    - name: Building your own customizations
-      items:
-        - name: Custom authentication extensions
-          href: ../../develop/custom-extension-overview.md?context=/azure/active-directory/external-identities/customers/context/customers-context
-        - name: Adding claims from external systems
-          href: ../../develop/custom-claims-provider-overview.md?context=/azure/active-directory/external-identities/customers/context/customers-context
-    - name: Designing the flow of sign-in steps
-      href: concept-user-flows-customers.md
     - name: Collecting info from users
       href: concept-customize-claims-customers.md
     - name: Authentication methods and identity providers
       href: concept-authentication-methods-customers.md
     - name: Security and governance
       href: concept-security-customers.md  	  	  
+    - name: Building your own customizations
+      items:
+        - name: Custom authentication extensions
+          href: ../../develop/custom-extension-overview.md?context=/azure/active-directory/external-identities/customers/context/customers-context
+        - name: Adding claims from external systems
+          href: ../../develop/custom-claims-provider-overview.md?context=/azure/active-directory/external-identities/customers/context/customers-context
 - name: How-to guides
   expanded: true
   items:
@@ -168,6 +166,7 @@ items:
                 - name: .NET MAUI - Sign in users
                   href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-ios
     - name: Authenticate and authorize
+      expanded: true
       items:
       - name: Add your app
         items:
@@ -186,6 +185,7 @@ items:
           - name: Facebook federation
             href: how-to-facebook-federation-customers.md
     - name: Customize
+      expanded: true
       items:
         - name: Customize branding
           items:
