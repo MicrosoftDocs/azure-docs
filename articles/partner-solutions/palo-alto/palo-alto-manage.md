@@ -38,7 +38,7 @@ From the Resource menu, select your Cloud NGFW by Palo Alto Networks deployment.
 
 1. Select **Rulestack** in the Resource menu.
 
-1. For the **Managed by**, select either **Azure Portal** or **"Palo Alto Networks Panaroma** to determine the mechanism for managing Rulestack. You must have Palo Alto Networks Panorama set up in order to select it.
+1. For the **Managed by**, select either **Azure Portal** or **"Palo Alto Networks Panorama** to determine the mechanism for managing Rulestack. You must have Palo Alto Networks Panorama set up in order to select it.
 
 1. For the **Local Rulestack**, select an existing Rulestack from the dropdown.
 
@@ -76,11 +76,11 @@ To delete a Cloud NGFW by Palo Alto Networks resource
 
 1. Select **Delete**.
 
-After the account is deleted, logs are no longer sent to Cloud NGFW by Palo Alto Networks, and all billing stops for Cloud NGFW by Palo Alto Networks through Azure Marketplace.
+After the account is deleted, logs are no longer sent to Cloud NGFW by Palo Alto Networks. Also, all billing stops for Cloud NGFW by Palo Alto Networks through Azure Marketplace.
 
 > [!NOTE]
 > The delete button on the main account is only activated if all the sub-accounts mapped to the main account are already deleted. Refer to section for deleting sub-accounts here.
 
 ## Next steps
 
-For help with troubleshooting, see [Troubleshooting Palo Alto integration with Azure](palo-alto-troubleshoot.md).
+- For help with troubleshooting, see [Troubleshooting Palo Alto integration with Azure](palo-alto-troubleshoot.md).

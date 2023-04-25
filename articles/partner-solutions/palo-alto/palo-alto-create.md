@@ -1,6 +1,6 @@
 ---
-title: Create an Palo Alto Networks deployment
-description: This article describes how to use the Azure portal to create an instance of Palo Alto.
+title: Create a Cloud NGFW by Palo Alto Networks Preview resource
+description: This article describes how to use the Azure portal to create a Cloud NGFW by Palo Alto Networks Preview resource.
 
 ms.topic: quickstart
 ms.date: 04/25/2023
@@ -9,13 +9,13 @@ ms.date: 04/25/2023
 
 # QuickStart: Get started with Cloud NGFW by Palo Alto Networks Preview
 
-In this quickstart, you'll use the Azure Marketplace to find and create an instance of  **Cloud NGFW by Palo Alto Networks Preview**.
+In this quickstart, you use the Azure Marketplace to find and create an instance of  **Cloud NGFW by Palo Alto Networks Preview**.
 
 ## Create a new Cloud NGFW by Palo Alto Networks resource
 
 ### Basics
 
-1. In the Azure portal, create an Palo Alto Networks resource using the Marketplace.  Use search to find _Cloud NGFW by Palo Alto Networks_ . Then, select **Subscribe**. Then, select **Create**.
+1. In the Azure portal, create a Cloud NGFW by Palo Alto Networks resource using the Marketplace. Use search to find _Cloud NGFW by Palo Alto Networks_. Then, select **Subscribe**. Then, select **Create**.
 
 1. Set the following values in the Basics tab.
 
@@ -37,7 +37,7 @@ In this quickstart, you'll use the Azure Marketplace to find and create an insta
 
 ### Networking
 
-1. After completing the Basics tap, select the **Next: Networking** to see the **Networking** tab. 1. Select either **Virtual Network** or **Virtual Wan Hub**. 
+1. After completing the Basics tap, select the **Next: Networking** to see the **Networking** tab. 1. Select either **Virtual Network** or **Virtual Wan Hub**.
 
 1. Use the dropdowns to set the **Virtual Network**, **Private Subnet**, and Public **Public Subnet** associated with the Palo Alto Networks deployment.
 
@@ -53,7 +53,7 @@ In this quickstart, you'll use the Azure Marketplace to find and create an insta
 
   :::image type="content" source="media/palo-alto-create/palo-alto-rulestack.png" alt-text="Screenshot of the Rulestack in the Palo Alto Networks create experience.":::
 
-1. Select checkbox **Managed By** to indicate either **Azure Portal** or **Palo Alto Networks Panaroma**.
+1. Select checkbox **Managed By** to indicate either **Azure Portal** or **Palo Alto Networks Panorama**.
 
 1. For **Choose Local Rulestack**, select either **Create New** or **Use Existing** options.
 
@@ -98,7 +98,7 @@ Next, you must accept the Terms of Use for the new Palo Alto Networks resource.
 
    :::image type="content" source="media/palo-alto-create/palo-alto-review-create.png" alt-text="screenshot of review and create palo-alto resource":::
 
-1. Once you've reviewed all the information select **Create**. Azure now deploys the Cloud NGFW by Palo Alto Networks.
+1. When you've reviewed all the information, select **Create**. Azure now deploys the Cloud NGFW by Palo Alto Networks.
 
    :::image type="content" source="media/palo-alto-create/palo-alto-deploying.png" alt-text="Screenshot showing Palo Alto Networks deployment in process.":::
 

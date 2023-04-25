@@ -27,4 +27,4 @@ Only users who have Owner access can setup a Palo Alto resource on the Azure sub
 
 ## Next steps
 
-Learn about [managing your instance](palo-alto-manage.md) of Palo Alto.
+- Learn about [managing your instance](palo-alto-manage.md) of Palo Alto.
