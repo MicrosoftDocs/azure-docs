@@ -128,3 +128,5 @@ You can also view a graph depicting a specific performance issue's impact and th
 Get started with Code Optimizer by enabling the following features on your application:
 - [Application Insights](../app/create-workspace-resource.md)
 - [Application Insights Profiler](../profiler/profiler-overview.md)
+
+Running into issues? Check the [Troubleshooting guide](/troubleshoot/azure/azure-monitor/app-insights/code-optimizations-troubleshooting)
