@@ -5,7 +5,7 @@ author: kenwith
 ms.author: kenwith
 manager: amycolannino
 ms.topic: how-to
-ms.date: 04/13/2023
+ms.date: 04/25/2023
 ms.service: network-access
 ms.custom: 
 ---
@@ -15,10 +15,10 @@ ms.custom:
 Learn how to create a branch office location for Global Secure Access.
 
 ## Pre-requisites 
-- Global Secure Access license for your Microsoft Entra Identity tenant.  
+- Microsoft Entra Internet Access premium license for your Microsoft Entra Identity tenant.  
 - Entra Network Access Administrator role in Microsoft Entra Identity.
-- Microsoft Graph module when using PowerShell.
-- Admin consent when using Graph explorer for Microsoft Graph API. 
+- The *Microsoft Graph* module must be installed to use PowerShell.
+- Admin consent is required when using Graph explorer for the Microsoft Graph API. 
 
 ## Create a branch location
 Global Secure Access provides branch connectivity so you can connect a branch office to the Microsoft network. Once a branch is connected to the Microsoft network you can set up network security policies. These policies are applied on all outbound traffic. Alternatively, you can set up clients on individual devices to connect to the Microsoft network regardless of the device location and Internet connection. To learn more about the client for Global Secure Access, see [How to install the Windows client](how-to-install-windows-client.md).
@@ -29,98 +29,79 @@ There are multiple ways to connect a branch location to the Microsoft network. I
 
 1. Navigate to the Microsoft Entra admin center at `https://entra.microsoft.com` and login with administrator credentials.
 1. In the left hand navigation choose **Global Secure Access**.
-1. Select **Add branch location**.
-1. Select **Add a link**.
-1. Enter the following details: 
-    * Link name: `CPE Link 1` 
-    * Device type: `Other`
-    * IP address: `20.125.118.219` 
-    * Link BGP address: `172.16.11.5` 
-    * Link ASN: `65530`
-1. Click **Next**. 
-1. Select **IKEv2** for protocol.
-1. Select **Default** for IPSec/IKI policy. 
-    > [!NOTE]
-    > For custom policies, use the values:
-    > * IKE Phase 1 -> Encryption: `AES128`
-    > * IKE Phase 1 -> IKEv2 integrity: `SHA256`
-    > * IKE Phase 1 -> DH group: `DHGroup14`
-    > * IKE Phase 2 -> IPSec encryption: `GCMAES128`
-    > * IKE Phase 2 -> IPSec integrity: `GCMAES128`
-    > * IKE Phase 2 -> PFS group: `PFS1`
-    > * IKE Phase 2 -> SA lifetime (seconds): `2700`
-1. Click **Next**. 
-1. Enter Pre-shared key (PSK): `key-value`
-1. Click **Save**.
-1. Click **Next: Forwarding Profiles** and select **M365 traffic profile All M365 traffic**.
-1. Select **Review + add**.
-1. Select **Add branch office**. 
+1. Select **Connect**.
+1. Select **Branch**.
+1. Select the link to open a form. The form is used to onboard your Microsoft Entra Identity tenant. You can also find the form at https://aka.ms/ztnaonboard.
+1. Fill out the form with the required information and then select **Submit**.
+    You cannot continue to the next step until your tenant has completed the onboard process. It takes up to 7 days for your tenant to go through the onboard process. 
+1. Select **Create branch office** and enter:
+    - Name: `ContosoBranch` 
+    - Region: `EastUS` 
+1. Select **Add link**. 
+1. Under the **General** tab, enter the details: 
+    - Link name: `CPE link 1` 
+    - Device type: `Other` 
+    - IP address: `<public IP address of your device>` 
+    - Local BGP address: `<Specify the address of the local end of a BGP session>` 
+    - Peer BGP address: `<Specify the address of the peer end of a BGP session>` 
+    - Link ASN: `<specify the ASN` 
+    - Redundancy: `No redundancy` 
+    - Per tunnel bandwidth (Mbps): `500 Mbps` 
+1. Select **Next**.
+1. Under the **Details** tab, enter the details: 
+    - Protocol: `IKEv2` 
+    - IPSec/IKE policy: `Default` 
 
-### Create a branch location using the API
+    Alternatively, you can select **IPSec/IKE** policy = `Custom` in above step. In this case, enter the details:
+    - IKE Phase 1 
+    - Encryption: `GCMAES128` 
+    - IKEv2 integrity: `GCMAES128` 
+    - DH Group: `14` 
+    - IKE Phase 2 
+    - IPSec encryption: `GCMAES128` 
+    - IPSec integrity: `GCMAES128` 
+    - PFS group: `PFS1` 
+    - SA lifetime (seconds): `300` 
+1. Select **Next**.
+1. Under the **Security** tab, enter the details: 
+    - Pre-shared key (PSK): `<Enter the secret key. The same secret key must be used on your CPE.>` 
+1. Select **Add link**. 
+1. Select **Next: Forwarding profiles**.
+1. Select **M365 traffic profile: All M365 traffic**. 
+1. Select **Review + Create**.
 
-Enter the basic details of your branch and call this API. 
 
-```
-POST https://canary.graph.microsoft.com/testprodbetaZTNA-UI-integration/networkaccess/branches 
-{ 
-    "name": "EnterYourDesiredBranchName", 
-    "country": "United States", 
-    "region": "East US", 
-    "bandwidthCapacity": 1000 
-}
-```
-
-You can create a branch location with device link using the same API.
-
-```
-POST https://canary.graph.microsoft.com/testprodbetaZTNA-UI-integration/networkaccess/branches 
-{ 
-    "name": " EnterYourDesiredBranchName ", 
-    "country": "United States ", 
-    "region": "East US", 
-    "bandwidthCapacity": 1000 
-    "deviceLinks": [ { 
-          "name": "CPE2", 
-          "ipAddress": "20.125.118.219", 
-          "version": "1.0.0", 
-          "deviceVendor": "checkPoint", 
-          "bgpConfiguration": { 
-               "ipAddress": "172.16.11.5", 
-               "asn": 65530 
-          }, 
-          "tunnelConfiguration": { 
-                "@odata.type": "#microsoft.graph.networkaccess.tunnelConfigurationIKEv2Default", 
-                   "preSharedKey": "key-value" 
-          } 
-       } 
-    ] 
-}  
-```
-
-To get the config details of all branches in the tenant:
-
-```
-GET https://canary.graph.microsoft.com/testprodbetaZTNA-UI-integration/networkaccess/branches 
-```
-
-To get the config details of a specific branch:
-
-```
-GET https://canary.graph.microsoft.com/testprodbetaZTNA-UI-integration/networkaccess/branches/72647a2c-d264-4469-a0fb-ab8d99b33bd2  
-```
-
-## Known issues
-
-### Custom IPsec policy will not work properly if salifetimeinseconds is lower than 300 
-* Validations are not happening at the control plane, so you may get an HTTP status response 200 / OK but it doesn’t mean it will work. 
-* Ensure your `salifetimeinseconds` setting is higher than 300. 
-* If the tunnel is not working within 2-5 minutes, delete your branch and recreate the device link using a `Default IPsec` policy.
-
-### API GET for forwarding profiles works at a tenant level but doesn’t work at branch level 
-* This works: `GET https://canary.graph.microsoft.com/testprodbetaZTNA-UI-integration/networkaccess/forwardingProfiles`
-* This does not work: `GET https://canary.graph.microsoft.com/testprodbetaZTNA-UI-integration/networkaccess/branches/72647a2c-d264-4469-a0fb-ab8d99b33bd2/forwardingProfiles`
+### Create a branch location using the Microsoft Graph API
+1. Sign in to the Graph Explorer. 
+1. Select POST as the HTTP method from the dropdown. 
+1. Select the API version to beta. 
+1. Add the following query to use Create Branches API (add hyperlink to the Graph API) 
+    ```
+    POST https://graph.microsoft.com/beta/networkaccess/branches 
+    { 
+        "name": "ContosoBranch", 
+        "country": "United States ", //must be removed 
+        "region": "East US", 
+        "bandwidthCapacity": 1000, //must be removed. This goes under deviceLink. 
+        "deviceLinks": [ 
+        { 
+            "name": "CPE Link 1", 
+            "ipAddress": "20.125.118.219", 
+            "version": "1.0.0", 
+            "deviceVendor": "Other", 
+            "bgpConfiguration": { 
+                "ipAddress": "172.16.11.5", 
+                "asn": 8888 
+              }, 
+              "tunnelConfiguration": { 
+                  "@odata.type": "#microsoft.graph.networkaccess.tunnelConfigurationIKEv2Default", 
+                  "preSharedKey": "Detective5OutgrowDiligence" 
+              } 
+        }] 
+    }  
+    ```
+1. Select **Run query** to create a branch.
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
-- [Create applications](how-to-create-applications.md)
-
+- [Update branch location](how-to-edit-branch-office-location.md)
