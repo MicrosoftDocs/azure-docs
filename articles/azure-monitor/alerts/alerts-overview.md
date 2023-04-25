@@ -27,8 +27,8 @@ An alert rule combines:
 
 If you're monitoring more than one resource, the condition is evaluated separately for each of the resources. Alerts are fired for each resource separately.
 
-After an alert is triggered, the alert is made up of:
- - **Alert processing rules**: You can use these rules to apply processing on fired alerts. Alert processing rules modify the fired alerts as they're being fired. You can use alert processing rules to add or suppress action groups, apply filters, or have the rule processed on a predefined schedule.
+The alert payload structure is based the [common alert schema](alerts-common-schema.md), or the and is made up of these components: 
+
  - **Action groups**: These groups can trigger notifications or an automated workflow to let users know that an alert has been triggered. Action groups can include:
      - Notification methods, such as email, SMS, and push notifications.
      - Automation runbooks.
@@ -40,6 +40,7 @@ After an alert is triggered, the alert is made up of:
      - Event hubs.
 - **Alert conditions**: These conditions are set by the system. When an alert fires, the alert's monitor condition is set to **fired**. After the underlying condition that caused the alert to fire clears, the monitor condition is set to **resolved**.
 - **User response**: The response is set by the user and doesn't change until the user changes it.
+- **Alert processing rules**: You can use alert processing rules to make modifications to triggered alerts as they're being fired. You can use alert processing rules to add or suppress action groups, apply filters, or have the rule processed on a predefined schedule.
 
 You can see all alert instances in all your Azure resources generated in the last 30 days on the [Alerts page](alerts-page.md) in the Azure portal.
 
