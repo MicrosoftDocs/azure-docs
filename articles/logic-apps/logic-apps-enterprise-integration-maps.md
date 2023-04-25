@@ -157,7 +157,9 @@ The following example shows a map that references an assembly named `XslUtilitie
 
 <a name="add-assembly"></a>
 
-## Add referenced assemblies (Consumption workflows only)
+## Add referenced assemblies
+
+### [Consumption](#tab/consumption)
 
 1. In the [Azure portal](https://portal.azure.com), sign in with your Azure account credentials.
 
@@ -176,7 +178,7 @@ Based on your assembly file's size, follow the steps for uploading an assembly t
 
 <a name="smaller-assembly"></a>
 
-### Add assemblies up to 2 MB
+#### Add assemblies up to 2 MB
 
 1. Under **Add Assembly**, enter a name for your assembly. Keep **Small file** selected. Next to the **Assembly** box, select the folder icon. Find and select the assembly you're uploading.
 
@@ -188,7 +190,7 @@ Based on your assembly file's size, follow the steps for uploading an assembly t
 
 <a name="larger-assembly"></a>
 
-### Add assemblies more than 2 MB
+#### Add assemblies more than 2 MB
 
 To add larger assemblies, you can upload your assembly to an Azure blob container in your Azure storage account. Your steps for adding assemblies differ based whether your blob container has public read access. So first, check whether or not your blob container has public read access by following these steps: [Set public access level for blob container](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
 
@@ -210,7 +212,7 @@ To add larger assemblies, you can upload your assembly to an Azure blob containe
 
 <a name="public-access-assemblies"></a>
 
-#### Upload to containers with public access
+##### Upload to containers with public access
 
 1. Upload the assembly to your storage account. In the right-side window, select **Upload**.
 
@@ -226,7 +228,7 @@ To add larger assemblies, you can upload your assembly to an Azure blob containe
 
 <a name="no-public-access-assemblies"></a>
 
-#### Upload to containers without public access
+##### Upload to containers without public access
 
 1. Upload the assembly to your storage account. In the right-side window, select **Upload**.
 
@@ -241,6 +243,12 @@ To add larger assemblies, you can upload your assembly to an Azure blob containe
 1. In the **Content URI** box, paste the SAS URI that you previously generated. Finish adding your assembly.
 
 After your assembly finishes uploading, the assembly appears in the **Assemblies** list. On your integration account's **Overview** page, under **Artifacts**, your uploaded assembly also appears.
+
+### [Standard](#tab/standard)
+
+To configure support for external assemblies, see [.NET Framework assembly support for XSLT transformations added to Azure Logic Apps (Standard)](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/net-framework-assembly-support-added-to-azure-logic-apps/ba-p/3669120).
+
+---
 
 <a name="add-map"></a>
 
