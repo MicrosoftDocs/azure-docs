@@ -16,7 +16,7 @@ ms.date: 03/16/2023
 The pg_azure_storage extension provides extensibility, to seamlessly manipulate and load data in different file formats, to your Azure Cosmos DB for PostgreSQL cluster directly from Azure Blob Storage. Containers with access level “Private” or “Blob” requires adding private access key.
 
 You can create the extension from psql by running: <br />
-``CREATE EXTENSION azure_storage;``
+`CREATE EXTENSION azure_storage;`
 
 ### Syntax
 
@@ -29,11 +29,12 @@ FROM { 'filename' | PROGRAM 'command' | STDIN | Azure_blob_url}
     [ WHERE condition ]
 ```
 > [!IMPORTANT]
-Syntax and options supported remains likewise to Postgres Native <span style="color:blue;">[COPY](https://www.postgresql.org/docs/current/sql-copy.html)</span>  <br />command, with following exceptions:<br />
+Syntax and options supported remains likewise to Postgres Native [COPY](https://www.postgresql.org/docs/current/sql-copy.html)command, with following exceptions:
 > a.	FREEZE [ boolean ]
 > b.	HEADER [ MATCH ]
 
-> [!NOTE] `COPY TO` syntax is yet not supported.
+> [!NOTE] 
+> `COPY TO` syntax is yet not supported.
 
 ### Arguments
 ##### Azure_blob_url
@@ -101,7 +102,8 @@ This hash is used to verify the integrity of the blob during transport. When thi
 ### Return Type
 Table
 
-> [!NOTE] <span style="color:brown;">Permissions</span>  <br />
+> [!NOTE] 
+> **Permissions** 
 Now you can list containers set to Private and Blob access levels for that storage but only as the `citus user`, which has the `azure_storage_admin` role granted to it. If you create a new user named support, it won't be allowed to access container contents by default.
 
 ### Syntax (blob_get)
@@ -152,7 +154,8 @@ for handling custom headers, custom separators, escape characters etc., `COPY` c
 ### Return Type
 Set of Records
 
-> [!NOTE] <span style="color:brown;">Permissions</span>  <br />
+> [!NOTE] 
+**Permissions** 
 Now you can list containers set to Private and Blob access levels for that storage but only as the `citus user`, which has the `azure_storage_admin` role granted to it. If you create a new user named support, it won't be allowed to access container contents by default.
 
 
@@ -199,7 +202,7 @@ The example illustrates adding of access key for the storage account to get acce
 ```sql
 SELECT azure_storage.account_add('pgquickstart', 'SECRET_ACCESS_KEY');
 ```
-> [!TIP] `base 64 encoded account key` can be obtained by navigating to Storage account > Access keys
+> [!TIP] `base 64 encoded account key` can be obtained by navigating to **Storage account** > **Access keys**
 :::image type="content" source="media/howto-ingestion/azure-blob-storage-account-key.png" alt-text="Screenshot of Security + networking > Access keys section of an Azure Blob Storage page in the Azure portal." border="true":::
 
 #### B.	Removing access key of storage account
@@ -221,7 +224,7 @@ The following example illustrates accessing the available files within the priva
 SELECT * FROM azure_storage.blob_list('pgquickstart','privatecontainer');
 ```
 
-#### E.	List the objects with specific string initials within Azure Storage
+#### E.	List the objects with specific string initials within public container
 The following example illustrates listing all the available files starting with a string initial.
 
 ```sql
@@ -233,7 +236,7 @@ Alternatively
 SELECT * FROM azure_storage.blob_list('pgquickstart','publiccontainer','e') WHERE path LIKE 'e%';
 ```
 
-#### F.	Read content from file in container
+#### F.	Read content from an object in a container
 The `blob_get` function retrieves a file from blob storage. In order for blob_get to know how to parse the data you can either pass a value (NULL::table_name), which has same format as the file.
 
 ```sql
@@ -275,7 +278,7 @@ SELECT * FROM azure_storage.blob_get
 LIMIT 5;
 ```
 
-#### I.	Import filtered content & modify before loading from csv format file
+#### I.	Import filtered content & modify before loading from csv format object
 The example illustrates the possibility to filter & modify the content being imported from object in container before loading that into a SQL table.
 
 ```sql
