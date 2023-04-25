@@ -46,7 +46,7 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
     | **Name** | Provide a unique name for your new Device Provisioning Service instance. If the name you enter is available, a green check mark appears. |
     | **Region** | Select a location that's close to your devices. For resiliency and reliability, we recommend deploying to one of the regions that support [Availability Zones](iot-dps-ha-dr.md). |
 
-    :::image type="content" source="./media/quick-setup-auto-provision/create-iot-dps-portal.png" alt-text="Screenshot showing the Basics tab of the IoT Hub device provisioning serviceEnter basic information about your Device Provisioning Service instance in the portal blade":::
+    :::image type="content" source="./media/quick-setup-auto-provision/create-iot-dps-portal.png" alt-text="Screenshot showing the Basics tab of the IoT Hub device provisioning service. Enter basic information about your Device Provisioning Service instance in the portal blade.":::
 
 1. Select **Review + create** to validate your provisioning service.
 
