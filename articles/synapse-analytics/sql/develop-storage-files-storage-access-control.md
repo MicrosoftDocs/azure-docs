@@ -236,25 +236,39 @@ To query a file located in Azure Storage, your serverless SQL pool end point nee
 - Server-level CREDENTIAL is used for ad-hoc queries executed using `OPENROWSET` function. Credential name must match the storage URL.
 - DATABASE SCOPED CREDENTIAL is used for external tables. External table references `DATA SOURCE` with the credential that should be used to access storage.
 
-To allow a user to create or drop a credential, admin can GRANT/DENY ALTER ANY CREDENTIAL permission to a user:
+To allow a user to create or drop a server-level credential, admin can GRANT ALTER ANY CREDENTIAL permission to the user:
 
 ```sql
 GRANT ALTER ANY CREDENTIAL TO [user_name];
 ```
+To allow a user to create or drop a database scoped credential, admin can GRANT CONTROL permission on the database to the user:
+
+```sql
+GRANT CONTROL ON DATABASE::[database_name] TO [user_name];
+```
+
 
 Database users who access external storage must have permission to use credentials.
 
 ### Grant permissions to use credential
 
-To use the credential, a user must have `REFERENCES` permission on a specific credential. To grant a `REFERENCES` permission ON a storage_credential for a specific_user, execute:
+To use the credential, a user must have `REFERENCES` permission on a specific credential. 
+
+To grant a `REFERENCES` permission ON a server-level credential for a specific_user, execute:
 
 ```sql
-GRANT REFERENCES ON CREDENTIAL::[storage_credential] TO [specific_user];
+GRANT REFERENCES ON CREDENTIAL::[server-level_credential] TO [specific_user];
 ```
 
-## Server-scoped credential
+To grant a `REFERENCES` permission ON a DATABASE SCOPED CREDENTIAL for a specific_user, execute:
 
-Server-scoped credentials are used when SQL login calls `OPENROWSET` function without `DATA_SOURCE` to read files on some storage account. The name of server-scoped credential **must** match the base URL of Azure storage (optionally followed by a container name). A credential is added by running [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true). You'll need to provide a CREDENTIAL NAME argument.
+```sql
+GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[database-scoped_credential] TO [specific_user];
+```
+
+## Server-level credential
+
+Server-level credentials are used when SQL login calls `OPENROWSET` function without `DATA_SOURCE` to read files on some storage account. The name of server-level credential **must** match the base URL of Azure storage (optionally followed by a container name). A credential is added by running [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true). You'll need to provide a CREDENTIAL NAME argument.
 
 > [!NOTE]
 > The `FOR CRYPTOGRAPHIC PROVIDER` argument is not supported.
@@ -267,7 +281,7 @@ Server-level CREDENTIAL name must match the full path to the storage account (an
 | Azure Data Lake Storage Gen1 | https  | <storage_account>.azuredatalakestore.net/webhdfs/v1 |
 | Azure Data Lake Storage Gen2 | https  | <storage_account>.dfs.core.windows.net              |
 
-Server-scoped credentials enable access to Azure storage using the following authentication types:
+Server-level credentials enable access to Azure storage using the following authentication types:
 
 ### [User Identity](#tab/user-identity)
 
@@ -314,7 +328,7 @@ Optionally, you can use just the base URL of the storage account, without contai
 
 ### [Public access](#tab/public-access)
 
-Database scoped credential isn't required to allow access to publicly available files. Create [data source without database scoped credential](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source) to access publicly available files on Azure storage.
+Server-level credential isn't required to allow access to publicly available files. Create [data source without credential](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source) to access publicly available files on Azure storage.
 
 ---
 
@@ -392,7 +406,7 @@ The database scoped credential doesn't need to match the name of storage account
 
 ### [Public access](#tab/public-access)
 
-Database scoped credential isn't required to allow access to publicly available files. Create [data source without database scoped credential](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source) to access publicly available files on Azure storage.
+Database scoped credential isn't required to allow access to publicly available files. Create [data source without credential](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source) to access publicly available files on Azure storage.
 
 ```sql
 CREATE EXTERNAL DATA SOURCE mysample
@@ -421,7 +435,7 @@ CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat]
        WITH ( FORMAT_TYPE = PARQUET)
 GO
 CREATE EXTERNAL DATA SOURCE publicData
-WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<public_container>/<path>' )
+WITH ( LOCATION = 'https://<storage_account>.dfs.core.windows.net/<public_container>/<path>' )
 GO
 
 CREATE EXTERNAL TABLE dbo.userPublicData ( [id] int, [first_name] varchar(8000), [last_name] varchar(8000) )
@@ -468,7 +482,7 @@ CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] WITH ( FORMAT_TYPE = PARQUET)
 GO
 
 CREATE EXTERNAL DATA SOURCE mysample
-WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>'
+WITH ( LOCATION = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>'
 -- Uncomment one of these options depending on authentication method that you want to use to access data source:
 --,CREDENTIAL = WorkspaceIdentity 
 --,CREDENTIAL = SasCredential 

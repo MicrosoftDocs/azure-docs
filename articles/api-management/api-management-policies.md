@@ -4,7 +4,7 @@ description: Reference index for all Azure API Management policies and settings.
 services: api-management
 author: dlepow
 ms.service: api-management
-ms.topic: reference
+ms.topic: article
 ms.date: 12/01/2022
 ms.author: danlep
 ---
