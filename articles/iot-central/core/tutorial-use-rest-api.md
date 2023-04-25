@@ -48,7 +48,7 @@ The tutorial uses a predefined Postman collection that includes some scripts to 
 
 ## Import the Postman collection
 
-To import the collection, open Postman and select **Import**. In the **Import** dialog, select **Link** and paste in the following [URL](https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/main/postman-collection/IoT%20Central.postman_collection.json), <!-- TODO: Add link here --> Select **Continue**.
+To import the collection, open Postman and select **Import**. In the **Import** dialog, select **Link** and paste in the following [URL](https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/main/postman-collection/IoT%20Central%20REST%20tutorial.postman_collection.json), select **Continue**.
 
 Your workspace now contains the **IoT Central REST tutorial** collection. This collection includes all the APIs you use in the tutorial.
 
