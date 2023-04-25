@@ -16,9 +16,11 @@ ms.author: goblackw
 
 **Applies to:** :heavy_check_mark: Linux VMs 
 
-Azure CLI is used to create and manage Azure resources from the command line or in scripts. This article describes how to use Azure CLI to deploy an Oracle Database 19c Release 3 database from the Azure Marketplace image. This article then shows you, step by step, how to install and configure Data Guard on an Azure virtual machine (VM).  To secure the environment, no ports will be publicly accessible and a Bastion instance will be included to provide access to the Oracle VMs.
+This article demonstrates, step by step, how to deploy Oracle on an Azure virtual machine.  You will then install and configure Data Guard to replicate a database to a secondary (backup) database on a second Oracle instance.  Azure CLI will be used to create and manage all required Azure resources.  To secure the environment, no ports will be publicly accessible and a Bastion instance will be included to provide access to the Oracle VMs.
 
-Before you start, make sure that Azure CLI is installed. For more information, see the [Azure CLI installation guide](/cli/azure/install-azure-cli).
+**Important**
+
+Before you start, verify that Azure CLI is installed. For more information, see the [Azure CLI installation guide](/cli/azure/install-azure-cli).
 
 ## Prepare the environment
 ### Assumptions
@@ -179,19 +181,19 @@ https://portal.azure.com
 
 In the search textbox at the top of the window, search for OracleVM1 and click it from the list to launch.
 
-   ![Screenshot of the search window.](./media/oracle-dataguard/search-oraclevm1.png)
+![Screenshot of the search window.](./media/oracle-dataguard/search-oraclevm1.png)
 
 At the top of the screen, click Connect and select Bastion.
     
-   ![Screenshot of connect via Bastion.](./media/oracle-dataguard/connect-bastion.png)
+![Screenshot of connect via Bastion.](./media/oracle-dataguard/connect-bastion.png)
 
 Enter the Username and Password and click the Connect button.
       
-   ![Screenshot of connect via Bastion with credentials.](./media/oracle-dataguard/connect-bastion-credentials.png)
+![Screenshot of connect via Bastion with credentials.](./media/oracle-dataguard/connect-bastion-credentials.png)
 
 This will open a new tab with a secure connection to your virtual machine where the Oracle software is already installed from an Azure Marketplace image.
 
-   ![Screenshot of connect via Bastion on browse.r](./media/oracle-dataguard/connect-bastion-browser-tab.png)
+![Screenshot of connect via Bastion on browse.r](./media/oracle-dataguard/connect-bastion-browser-tab.png)
    
 ### Configure OracleVM1 (primary)
 ```bash
@@ -412,11 +414,11 @@ Return to the tab with the Azure portal.  Search for OracleVM2 and click it.
 
 At the top of the screen, click Connect and select Bastion.
 
-   ![Screenshot of connecting to VM via Bastion.](./media/oracle-dataguard/connect-bastion.png)
+![Screenshot of connecting to VM via Bastion.](./media/oracle-dataguard/connect-bastion.png)
 
 Enter the Username and Password and click the Connect button.
       
-   ![Screenshot of connecting via Bastion with credentials.](./media/oracle-dataguard/connect-bastion-credentials.png)
+![Screenshot of connecting via Bastion with credentials.](./media/oracle-dataguard/connect-bastion-credentials.png)
       
 ### Disable the Firewall on OracleVM2 (standby)
 ```bash
@@ -505,8 +507,8 @@ ADR_BASE_LISTENER = /u01/app/oracle
 Start the listener:
 
 ```bash
- lsnrctl stop
- lsnrctl start
+lsnrctl stop
+lsnrctl start
 ```
 
 
