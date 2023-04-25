@@ -85,7 +85,7 @@ It covers which servers are ideal for cloud, servers that can be decommissioned 
     - **Idle servers**: These servers were on but didn't deliver business value by having their CPU and memory utilization below 5% and network utilization below 2%.
 - **Decommission**: These servers were expected to deliver business value, but didn't and can be decommissioned on-premises and recommended to not migrate to Azure:
     - **Zombie**: The CPU, memory and network utilization were 0% with no performance data collection issues.
-- These servers were on but do not have adequate metrics available:
+- These servers were on but don't have adequate metrics available:
     - **Unknown**: Many servers can land in this section if the discovery is still ongoing or has some unaddressed discovery issues.
 
 ## What comprises a business case?
@@ -103,17 +103,17 @@ There are four major reports that you need to review:
 
 ## What's in a business case?
 
-Here's what's included in a Business case:
+Here's what's included in a business case:
 
 ### Total cost of ownership (steady state)
 
 #### On-premises cost
 
-Cost components for running on-premises servers. For TCO calculations, a one year cost is computed for following heads:
+Cost components for running on-premises servers. For TCO calculations, an annual cost is computed for the following heads:
 
  **Cost heads** | **Category** | **Component** | **Logic** |
  --- | --- | --- | --- |
-| Compute | Hardware | Server Hardware (Host machines) | Total hardware acquisition cost is calculated using a cost per core linear regression formula : Cost per core = 16.232*(Hyperthreaded core: memory in GB ratio) + 113.87. Hyperthreaded cores = 2*(cores) 
+| Compute | Hardware | Server Hardware (Host machines) | Total hardware acquisition cost is calculated using a cost per core linear regression formula: Cost per core = 16.232*(Hyperthreaded core: memory in GB ratio) + 113.87. Hyperthreaded cores = 2*(cores) 
 |     | Software - SQL Server licensing | License cost | Calculated per two core pack license pricing of 2019 Enterprise or Standard. |
 |     |     | Software Assurance | Calculated per year as in settings. |
 |     | Software - Windows Server licensing | License cost | Calculated per two corepack license pricing of Windows Server. |
