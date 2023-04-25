@@ -179,7 +179,7 @@ Input/Output Operations Per Second (IOPS) and throughput limits for Azure Premiu
 The following example updates the disk IOPS read/write to **5000** and Mbps to **200**. For `--resource-group`, the value must be the second resource group automatically created to store the AKS worker nodes with the naming convention *MC_resourcegroupname_clustername_location*. The value for the `--name` parameter is the name of the volume created using the StorageClass, and it starts with `pvc-`. To identify the disk name, you can run `kubectl get pvc` or navigate to the secondary resource group in the portal to find it. See [manage resources from the Azure portal][manage-resources-azure-portal] to learn more.
 
 ```azurecli
-az disk update --subscription $subscription --resource-group myResourceGroup --name $diskName --disk-iops-read-write=5000 --disk-mbps-read-write=200  
+az disk update --subscription subscriptionName --resource-group myResourceGroup --name diskName --disk-iops-read-write=5000 --disk-mbps-read-write=200  
 ```
 
 ## Using Azure tags
