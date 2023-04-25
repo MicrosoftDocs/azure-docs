@@ -39,6 +39,8 @@
       href: revisions.md
     - name: Application lifecycle management
       href: application-lifecycle-management.md
+    - name: Jobs
+      href: jobs.md
     - name: Microservices
       href: microservices.md
     - name: Networking and ingress

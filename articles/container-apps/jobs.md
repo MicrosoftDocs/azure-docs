@@ -163,7 +163,7 @@ For any job type, you can start a job execution on demand.
 To start a job execution using the Azure CLI, use the `az containerapp job start` command. The following example starts an execution of a job named `my-job` in a resource group named `my-resource-group`:
 
 ```azurecli
-az containerapp job start --name my-job --resource-group my-resource-group
+az containerapp job start --name "my-job" --resource-group "my-resource-group"
 ```
 
 # [Azure Resource Manager](#tab/azure-resource-manager)
@@ -208,11 +208,110 @@ To authenticate the request, add an `Authorization` header with a valid bearer t
 
 To list all executions of a job or to get detailed output from a job, query the logs provider configured for your Container Apps environment.
 
+## Advanced job configuration
 
+Container Apps jobs support advanced configuration options such as container settings, retries, timeouts, and parallelism.
 
+### Container settings
 
+Container settings define the containers to run in each replica of a job execution. They include environment variables, secrets, and resource limits. For more information, see [Containers](containers.md).
+
+### Job settings
+
+The following table includes the job settings that you can configure:
+
+| Setting | ARM property | CLI parameter| Description |
+|---|---|---|---|
+| Job type | `triggerType` | `--trigger-type` | The type of job. (`Manual` or `Schedule`) |
+| Parallelism | `parallelism` | `--parallelism` | The number of replicas to run per execution. |
+| Replica completion count | `replicaCompletionCount` | `--replica-count` | The number of replicas to complete successfully for the execution to succeed. |
+| Replica timeout | `replicaTimeout` | `--replica-timeout` | The maximum time in seconds to wait for a replica to complete. |
+| Replica retry limit | `replicaRetryLimit` | `--replica-retry-limit` | The maximum number of times to retry a failed replica. |
+
+### <a name="advanced-example"></a>Example
+
+# [Azure CLI](#tab/azure-cli)
+
+The following example creates a job with advanced configuration options:
+
+```azurecli
+az containerapp job create \
+    --name "my-job" --resource-group "my-resource-group"  --environment "my-environment" \
+    --trigger-type Schedule \
+    --replica-timeout 1800 --replica-retry-limit 3 --replica-count 5 --parallelism 5 \
+    --image "myregistry.azurecr.io/quickstart-jobs:latest" \
+    --cpu "0.25" --memory "0.5Gi" \
+    --command "/startup.sh" \
+    --env-vars "MY_ENV_VAR=my-value" \
+    --cron-expression "0 0 * * *"  \
+    --registry-server "myregistry.azurecr.io" \
+    --registry-username "myregistry" \
+    --registry-password "myregistrypassword"
+```
+
+# [Azure Resource Manager](#tab/azure-resource-manager)
+
+The following example ARM template creates a job with advanced configuration options:
+
+```json
+{
+    "location": "East US 2 EUAP",
+    "name": "my-job",
+    "properties": {
+        "configuration": {
+            "scheduleTriggerConfig": {
+                "cronExpression": "0 0 * * *",
+                "parallelism": 5,
+                "replicaCompletionCount": 5
+            },
+            "replicaRetryLimit": 3,
+            "replicaTimeout": 1800,
+            "triggerType": "Schedule",
+            "secrets": [
+                {
+                    "name": "registry-password",
+                    "value": "myregistrypassword"
+                }
+            ]
+            "registries": [
+                {
+                    "server": "myregistry.azurecr.io",
+                    "username": "myregistry",
+                    "passwordSecretRef": "registry-password"
+                }
+            ]
+        },
+        "environmentId": "/subscriptions/<subscription_id>/resourceGroups/my-resource-group/providers/Microsoft.App/managedEnvironments/my-environment",
+        "template": {
+            "containers": [
+                {
+                    "command": [
+                        "/startup.sh"
+                    ],
+                    "cpu": 0.25,
+                    "envVars": [
+                        {
+                            "name": "MY_ENV_VAR",
+                            "value": "my-value"
+                        }
+                    ],
+                    "image": "myregistry.azurecr.io/quickstart-jobs:latest",
+                    "memory": "0.5Gi",
+                    "name": "main",
+                    "resources": {
+                        "cpu": 0.25,
+                        "memory": "0.5Gi"
+                    }
+                }
+            ]
+        }
+    }
+}
+```
+
+---
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [TBD](overview.md)
+> [Create a job with Azure Container Apps](jobs-get-started-cli.md)

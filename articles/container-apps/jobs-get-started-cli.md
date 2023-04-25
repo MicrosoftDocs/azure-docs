@@ -232,4 +232,4 @@ az group delete --name "$RESOURCE_GROUP"
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Container Apps environment](environment.md)
+> [Container Apps jobs](jobs.md)
