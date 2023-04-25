@@ -48,14 +48,14 @@ To update a branch using the Microsoft Graph API in Graph Explorer.
 1. Select PATCH as the HTTP method from the dropdown. 
 1. Enter the query:
     ```
-    PATCH https://graph.microsoft.com/beta/networkaccess/branches/d2b05c5-1e2e-4f1d-ba5a-1a678382ef16/forwardingProfiles
-    {
-        "@odata.context": "#$delta",
-        "value": [
-        {
-            "ID": "1adaf535-1e31-4e14-983f-2270408162bf"
-        }]
-    }
+        PATCH https://graph.microsoft.com/beta/networkaccess/branches/d2b05c5-1e2e-4f1d-ba5a-1a678382ef16/forwardingProfiles
+        {
+            "@odata.context": "#$delta",
+            "value":
+            [{
+                "ID": "1adaf535-1e31-4e14-983f-2270408162bf"
+            }]
+        }
     ```
 1. Select **Run query** to update the branch. 
 
