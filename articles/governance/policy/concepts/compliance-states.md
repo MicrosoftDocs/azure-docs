@@ -40,6 +40,10 @@ Policy assignments with `manual` effects are considered compliant under two circ
 1. The policy definition has a default compliance state of compliant and there is no active [attestation](./attestation-structure.md) for the applicable resource stating otherwise.
 1. The resource has been attested as compliant. 
 
+### Error
+
+The error compliance state is given to policy assignments that generate a system error, such as template or evaluation error.
+
 ### Conflicting
 
 A policy assignment is considered conflicting when there are two or more policy assignments existing in the same scope with contradicting or conflicting rules. For example, two definitions that append the same tag with different values.
@@ -105,7 +109,8 @@ There are several ways to view aggregated compliance results in the portal:
 So how is the aggregate compliance state determined if multiple resources or policies have different compliance states themselves? Azure Policy ranks each compliance state so that one "wins" over another in this situation. The rank order is:
 1. Non-compliant
 1. Compliant
-1. Conflict
+1. Error
+1. Conflicting
 1. Exempted
 1. Unknown (preview)
 
