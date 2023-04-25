@@ -2,7 +2,11 @@
 title: Enable Azure Monitor OpenTelemetry for .NET, Java, Node.js, and Python applications
 description: This article provides guidance on how to enable Azure Monitor on applications by using OpenTelemetry.
 ms.topic: conceptual
+<<<<<<< HEAD
+ms.date: 05/10/2023
+=======
 ms.date: 04/21/2023
+>>>>>>> 10884332d1c6cdb4c8f430a2d41a0f02dd41be96
 ms.devlang: csharp, javascript, typescript, python
 ms.reviewer: mmcc
 ---
@@ -44,9 +48,13 @@ Follow the steps in this section to instrument your application with OpenTelemet
 
 - Application using an officially supported version of [.NET Core](https://dotnet.microsoft.com/download/dotnet) or [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) that's at least .NET Framework 4.6.2
 
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 ### [Java](#tab/java)
 
 - A Java application using Java 8+
+
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
 
 ### [Node.js](#tab/nodejs)
 
@@ -54,9 +62,13 @@ Follow the steps in this section to instrument your application with OpenTelemet
   - [OpenTelemetry supported runtimes](https://github.com/open-telemetry/opentelemetry-js#supported-runtimes)
   - [Azure Monitor OpenTelemetry Exporter supported runtimes](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter#currently-supported-environments)
 
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 ### [Python](#tab/python)
 
 - Python Application using Python 3.7+
+
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
 
 ---
 
@@ -77,6 +89,8 @@ If you get an error like "There are no versions available for the package Azure.
 dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter -s https://api.nuget.org/v3/index.json
 ```
 
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 #### [Java](#tab/java)
 
 Download the [applicationinsights-agent-3.4.12.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.4.12/applicationinsights-agent-3.4.12.jar) file.
@@ -89,6 +103,8 @@ Download the [applicationinsights-agent-3.4.12.jar](https://github.com/microsoft
 > [3.2.0](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0), and
 > [3.1.0](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.0)
 > for more details.
+
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
 
 #### [Node.js](#tab/nodejs)
 
@@ -120,6 +136,8 @@ npm install @opentelemetry/semantic-conventions
 npm install @opentelemetry/instrumentation-http
 ```
 
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 #### [Python](#tab/python)
 
 Install the latest [azure-monitor-opentelemetry](https://pypi.org/project/azure-monitor-opentelemetry/) PyPI package:
@@ -127,6 +145,8 @@ Install the latest [azure-monitor-opentelemetry](https://pypi.org/project/azure-
 ```sh
 pip install azure-monitor-opentelemetry --pre
 ```
+
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
 
 ---
 
@@ -177,6 +197,8 @@ public class Program
 > [!NOTE]
 > The `Activity` and `ActivitySource` classes from the `System.Diagnostics` namespace represent the OpenTelemetry concepts of `Span` and `Tracer`, respectively. You create `ActivitySource` directly by using its constructor instead of by using `TracerProvider`. Each [`ActivitySource`](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/trace/customizing-the-sdk#activity-source) class must be explicitly connected to `TracerProvider` by using `AddSource()`. That's because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. To learn more, see [Introduction to OpenTelemetry .NET Tracing API](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
 
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 ##### [Java](#tab/java)
 
 Java auto-instrumentation is enabled through configuration changes; no code changes are required.
@@ -188,6 +210,8 @@ Point the JVM to the jar file by adding `-javaagent:"path/to/applicationinsights
 
 > [!TIP]
 > If you develop a Spring Boot application, you can optionally replace the JVM argument by a programmatic configuration. For more information, see [Using Azure Monitor Application Insights with Spring Boot](./java-spring-boot.md).
+
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
 
 ##### [Node.js](#tab/nodejs)
 
@@ -253,6 +277,8 @@ function doWork(parent) {
 
 ```
 
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 ##### [Python](#tab/python)
 
 The following code demonstrates how to enable OpenTelemetry in a simple Python application:
@@ -274,12 +300,16 @@ input()
 
 ```
 
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 ---
 
 > [!TIP]
 > For .NET, Node.js, and Python, you'll need to manually add [instrumentation libraries](#instrumentation-libraries) to autocollect telemetry across popular frameworks and libraries. For Java, these instrumentation libraries are already included and no additional steps are required.
 
 #### Set the Application Insights connection string
+
+You can set the connection string either programatically or by setting the environment variable `APPLICATIONINSIGHTS_CONNECTION_STRING`. In the event that both have been set, the programatic connection string will take precedence.
 
 You can find your connection string in the Overview Pane of your Application Insights Resource.
 
@@ -290,6 +320,8 @@ Here's how you set the connection string.
 #### [.NET](#tab/net)
 
 Replace the `<Your Connection String>` in the preceding code with the connection string from *your* Application Insights resource.
+
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
 
 #### [Java](#tab/java)
 
@@ -309,6 +341,8 @@ Use one of the following two ways to point the jar file to your Application Insi
    }
    ```
 
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 #### [Node.js](#tab/nodejs)
 
 Replace the `<Your Connection String>` in the preceding code with the connection string from *your* Application Insights resource.
@@ -317,14 +351,13 @@ Replace the `<Your Connection String>` in the preceding code with the connection
 
 Replace the `<Your Connection String>` in the preceding code with the connection string from *your* Application Insights resource.
 
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 ---
 
 #### Confirm data is flowing
 
 Run your application and open your **Application Insights Resource** tab in the Azure portal. It might take a few minutes for data to show up in the portal.
-
-> [!NOTE]
-> If you can't run the application or you aren't getting data as expected, see [Troubleshooting](#troubleshooting).
 
 :::image type="content" source="media/opentelemetry/server-requests.png" alt-text="Screenshot of the Application Insights Overview tab with server requests and server response time highlighted.":::
 
@@ -333,409 +366,6 @@ Run your application and open your **Application Insights Resource** tab in the 
 
 As part of using Application Insights instrumentation, we collect and send diagnostic data to Microsoft. This data helps us run and improve Application Insights. To learn more, see [Statsbeat in Azure Application Insights](./statsbeat.md).
 
-## Set the Cloud Role Name and the Cloud Role Instance
-
-You might want to update the [Cloud Role Name](app-map.md#understand-the-cloud-role-name-within-the-context-of-an-application-map) and the Cloud Role Instance from the default values to something that makes sense to your team. They'll appear on the Application Map as the name underneath a node.
-
-### [.NET](#tab/net)
-
-Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes. Cloud Role Name uses `service.namespace` and `service.name` attributes, although it falls back to `service.name` if `service.namespace` isn't set. Cloud Role Instance uses the `service.instance.id` attribute value. For information on standard attributes for resources, see [Resource Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/semantic_conventions/README.md).
-
-```csharp
-// Setting role name and role instance
-var resourceAttributes = new Dictionary<string, object> {
-    { "service.name", "my-service" },
-    { "service.namespace", "my-namespace" },
-    { "service.instance.id", "my-instance" }};
-var resourceBuilder = ResourceBuilder.CreateDefault().AddAttributes(resourceAttributes);
-// Done setting role name and role instance
-
-// Set ResourceBuilder on the provider.
-var tracerProvider = Sdk.CreateTracerProviderBuilder()
-    .SetResourceBuilder(resourceBuilder)
-    .AddSource("OTel.AzureMonitor.Demo")
-    .AddAzureMonitorTraceExporter(o =>
-    {
-        o.ConnectionString = "<Your Connection String>";
-    })
-    .Build();
-```
-
-### [Java](#tab/java)
-
-To set the cloud role name, see [cloud role name](java-standalone-config.md#cloud-role-name).
-
-To set the cloud role instance, see [cloud role instance](java-standalone-config.md#cloud-role-instance).
-
-### [Node.js](#tab/nodejs)
-
-Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes. Cloud Role Name uses `service.namespace` and `service.name` attributes, although it falls back to `service.name` if `service.namespace` isn't set. Cloud Role Instance uses the `service.instance.id` attribute value. For information on standard attributes for resources, see [Resource Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/semantic_conventions/README.md).
-
-```javascript
-...
-const { Resource } = require("@opentelemetry/resources");
-const { SemanticResourceAttributes } = require("@opentelemetry/semantic-conventions");
-const { NodeTracerProvider } = require("@opentelemetry/sdk-trace-node");
-const { MeterProvider } = require("@opentelemetry/sdk-metrics")
-
-// ----------------------------------------
-// Setting role name and role instance
-// ----------------------------------------
-const testResource = new Resource({
-    [SemanticResourceAttributes.SERVICE_NAME]: "my-helloworld-service",
-    [SemanticResourceAttributes.SERVICE_NAMESPACE]: "my-namespace",
-    [SemanticResourceAttributes.SERVICE_INSTANCE_ID]: "my-instance",
-});
-
-// ----------------------------------------
-// Done setting role name and role instance
-// ----------------------------------------
-const tracerProvider = new NodeTracerProvider({
-	resource: testResource
-});
-
-const meterProvider = new MeterProvider({
-	resource: testResource
-});
-```
-
-### [Python](#tab/python)
-
-Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes. Cloud Role Name uses `service.namespace` and `service.name` attributes, although it falls back to `service.name` if `service.namespace` isn't set. Cloud Role Instance uses the `service.instance.id` attribute value. For information on standard attributes for resources, see [Resource Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/semantic_conventions/README.md).
-
-```python
-...
-from azure.monitor.opentelemetry import configure_azure_monitor
-from opentelemetry.sdk.resources import Resource, ResourceAttributes
-
-configure_azure_monitor(
-    connection_string="<your-connection-string>",
-    resource=Resource.create(
-        {
-            ResourceAttributes.SERVICE_NAME: "my-helloworld-service",
-# ----------------------------------------
-# Setting role name and role instance
-# ----------------------------------------
-            ResourceAttributes.SERVICE_NAMESPACE: "my-namespace",
-            ResourceAttributes.SERVICE_INSTANCE_ID: "my-instance",
-# ----------------------------------------------
-# Done setting role name and role instance
-# ----------------------------------------------
-        }
-    )
-)
-...
-```
-
----
-
-## Enable Sampling
-
-You may want to enable sampling to reduce your data ingestion volume, which reduces your cost. Azure Monitor provides a custom *fixed-rate* sampler that populates events with a "sampling ratio", which Application Insights converts to "ItemCount". The *fixed-rate* sampler ensures accurate experiences and event counts. The sampler is designed to preserve your traces across services, and it's interoperable with older Application Insights SDKs. For more information, see [Learn More about sampling](sampling.md#brief-summary).
-
-> [!NOTE] 
-> Metrics are unaffected by sampling.
-
-#### [.NET](#tab/net)
-
-The sampler expects a sample rate of between 0 and 1 inclusive. A rate of 0.1 means approximately 10% of your traces will be sent.
-
-In this example, we utilize the `ApplicationInsightsSampler`, which offers compatibility with Application Insights SDKs.
-
-```dotnetcli
-dotnet add package --prerelease OpenTelemetry.Extensions.AzureMonitor
-```
-
-```csharp
-var tracerProvider = Sdk.CreateTracerProviderBuilder()
-    .AddSource("OTel.AzureMonitor.Demo")
-    .SetSampler(new ApplicationInsightsSampler(0.1F))
-    .AddAzureMonitorTraceExporter(o =>
-    {
-     o.ConnectionString = "<Your Connection String>";
-    })
-    .Build();
-```
-
-#### [Java](#tab/java)
-
-Starting from 3.4.0, rate-limited sampling is available and is now the default. See [sampling]( java-standalone-config.md#sampling) for more information.
-
-#### [Node.js](#tab/nodejs)
-
-```javascript
-const { BasicTracerProvider, SimpleSpanProcessor } = require("@opentelemetry/sdk-trace-base");
-const { ApplicationInsightsSampler, AzureMonitorTraceExporter } = require("@azure/monitor-opentelemetry-exporter");
-
-// Sampler expects a sample rate of between 0 and 1 inclusive
-// A rate of 0.1 means approximately 10% of your traces are sent
-const aiSampler = new ApplicationInsightsSampler(0.75);
-
-const provider = new BasicTracerProvider({
-  sampler: aiSampler
-});
-
-const exporter = new AzureMonitorTraceExporter({
-  connectionString: "<Your Connection String>"
-});
-
-provider.addSpanProcessor(new SimpleSpanProcessor(exporter));
-provider.register();
-```
-
-#### [Python](#tab/python)
-
-The `configure_azure_monitor()` function will automatically utilize
-ApplicationInsightsSampler for compatibility with Application Insights SDKs and
-to sample your telemetry. The `sampling_ratio` parameter can be used to specify
-the sampling rate, with a valid range of 0 to 1, where 0 is 0% and 1 is 100%.
-For example, a value of 0.1 means 10% of your traces will be sent.
-
-```python
-from azure.monitor.opentelemetry import configure_azure_monitor
-from opentelemetry import trace
-
-configure_azure_monitor(
-    # connection_string="<your-connection-string>",
-    # Sampling ratio of between 0 and 1 inclusive
-    # 0.1 means approximately 10% of your traces are sent
-    sampling_ratio=0.1,
-)
-
-tracer = trace.get_tracer(__name__)
-
-for i in range(100):
-    # Approximately 90% of these spans should be sampled out
-    with tracer.start_as_current_span("hello"):
-        print("Hello, World!")
-```
-
----
-
-> [!TIP]
-> When using fixed-rate/percentage sampling and you aren't sure what to set the sampling rate as, start at 5% (i.e., 0.05 sampling ratio) and adjust the rate based on the accuracy of the operations shown in the failures and performance blades. A higher rate generally results in higher accuracy. However, ANY sampling will affect accuracy so we recommend alerting on [OpenTelemetry metrics](#metrics), which are unaffected by sampling.
-
-## Instrumentation libraries
-
-The following libraries are validated to work with the current release.
-
-> [!WARNING]
-> Instrumentation libraries are based on experimental OpenTelemetry specifications, which impacts languages in [preview status](#opentelemetry-release-status). Microsoft's *preview* support commitment is to ensure that the following libraries emit data to Azure Monitor Application Insights, but it's possible that breaking changes or experimental mapping will block some data elements.
-
-### Distributed Tracing
-
-#### [.NET](#tab/net)
-
-Requests
-- [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.AspNet-1.0.0-rc9.6/src/OpenTelemetry.Instrumentation.AspNet/README.md) <sup>[1](#FOOTNOTEONE)</sup> version:
-  [1.0.0-rc9.6](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNet/1.0.0-rc9.6)
-- [ASP.NET
-  Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.AspNetCore/README.md) <sup>[1](#FOOTNOTEONE)</sup> version:
-  [1.0.0-rc9.7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNetCore/1.0.0-rc9.7)
-
-Dependencies
-- [HTTP
-  clients](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.Http/README.md) <sup>[1](#FOOTNOTEONE)</sup> version:
-  [1.0.0-rc9.7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Http/1.0.0-rc9.7)
-- [SQL
-  client](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.SqlClient/README.md) <sup>[1](#FOOTNOTEONE)</sup> version:
-  [1.0.0-rc9.7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.SqlClient/1.0.0-rc9.7)
-
-#### [Java](#tab/java)
-
-Java 3.x includes the following auto-instrumentation.
-
-Autocollected requests:
-
-* JMS consumers
-* Kafka consumers
-* Netty
-* Quartz
-* Servlets
-* Spring scheduling
-
-  > [!NOTE]
-  > Servlet and Netty auto-instrumentation covers the majority of Java HTTP services, including Java EE, Jakarta EE, Spring Boot, Quarkus, and Micronaut.
-
-Autocollected dependencies (plus downstream distributed trace propagation):
-
-* Apache HttpClient
-* Apache HttpAsyncClient
-* AsyncHttpClient
-* Google HttpClient
-* gRPC
-* java.net.HttpURLConnection
-* Java 11 HttpClient
-* JAX-RS client
-* Jetty HttpClient
-* JMS
-* Kafka
-* Netty client
-* OkHttp
-
-Autocollected dependencies (without downstream distributed trace propagation):
-
-* Cassandra
-* JDBC
-* MongoDB (async and sync)
-* Redis (Lettuce and Jedis)
-
-Telemetry emitted by these Azure SDKs is automatically collected by default:
-
-* [Azure App Configuration](/java/api/overview/azure/data-appconfiguration-readme) 1.1.10+
-* [Azure Cognitive Search](/java/api/overview/azure/search-documents-readme) 11.3.0+
-* [Azure Communication Chat](/java/api/overview/azure/communication-chat-readme) 1.0.0+
-* [Azure Communication Common](/java/api/overview/azure/communication-common-readme) 1.0.0+
-* [Azure Communication Identity](/java/api/overview/azure/communication-identity-readme) 1.0.0+
-* [Azure Communication Phone Numbers](/java/api/overview/azure/communication-phonenumbers-readme) 1.0.0+
-* [Azure Communication SMS](/java/api/overview/azure/communication-sms-readme) 1.0.0+
-* [Azure Cosmos DB](/java/api/overview/azure/cosmos-readme) 4.22.0+
-* [Azure Digital Twins - Core](/java/api/overview/azure/digitaltwins-core-readme) 1.1.0+
-* [Azure Event Grid](/java/api/overview/azure/messaging-eventgrid-readme) 4.0.0+
-* [Azure Event Hubs](/java/api/overview/azure/messaging-eventhubs-readme) 5.6.0+
-* [Azure Event Hubs - Azure Blob Storage Checkpoint Store](/java/api/overview/azure/messaging-eventhubs-checkpointstore-blob-readme) 1.5.1+
-* [Azure Form Recognizer](/java/api/overview/azure/ai-formrecognizer-readme) 3.0.6+
-* [Azure Identity](/java/api/overview/azure/identity-readme) 1.2.4+
-* [Azure Key Vault - Certificates](/java/api/overview/azure/security-keyvault-certificates-readme) 4.1.6+
-* [Azure Key Vault - Keys](/java/api/overview/azure/security-keyvault-keys-readme) 4.2.6+
-* [Azure Key Vault - Secrets](/java/api/overview/azure/security-keyvault-secrets-readme) 4.2.6+
-* [Azure Service Bus](/java/api/overview/azure/messaging-servicebus-readme) 7.1.0+
-* [Azure Storage - Blobs](/java/api/overview/azure/storage-blob-readme) 12.11.0+
-* [Azure Storage - Blobs Batch](/java/api/overview/azure/storage-blob-batch-readme) 12.9.0+
-* [Azure Storage - Blobs Cryptography](/java/api/overview/azure/storage-blob-cryptography-readme) 12.11.0+
-* [Azure Storage - Common](/java/api/overview/azure/storage-common-readme) 12.11.0+
-* [Azure Storage - Files Data Lake](/java/api/overview/azure/storage-file-datalake-readme) 12.5.0+
-* [Azure Storage - Files Shares](/java/api/overview/azure/storage-file-share-readme) 12.9.0+
-* [Azure Storage - Queues](/java/api/overview/azure/storage-queue-readme) 12.9.0+
-* [Azure Text Analytics](/java/api/overview/azure/ai-textanalytics-readme) 5.0.4+
-
-[//]: # "Azure Cosmos DB 4.22.0+ due to https://github.com/Azure/azure-sdk-for-java/pull/25571"
-
-[//]: # "the remaining above names and links scraped from https://azure.github.io/azure-sdk/releases/latest/java.html"
-[//]: # "and version synched manually against the oldest version in maven central built on azure-core 1.14.0"
-[//]: # ""
-[//]: # "var table = document.querySelector('#tg-sb-content > div > table')"
-[//]: # "var str = ''"
-[//]: # "for (var i = 1, row; row = table.rows[i]; i++) {"
-[//]: # "  var name = row.cells[0].getElementsByTagName('div')[0].textContent.trim()"
-[//]: # "  var stableRow = row.cells[1]"
-[//]: # "  var versionBadge = stableRow.querySelector('.badge')"
-[//]: # "  if (!versionBadge) {"
-[//]: # "    continue"
-[//]: # "  }"
-[//]: # "  var version = versionBadge.textContent.trim()"
-[//]: # "  var link = stableRow.querySelectorAll('a')[2].href"
-[//]: # "  str += '* [' + name + '](' + link + ') ' + version + '\n'"
-[//]: # "}"
-[//]: # "console.log(str)"
-
-#### [Node.js](#tab/nodejs)
-
-Requests/Dependencies
-- [http/https](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http/README.md) version:
-  [0.33.0](https://www.npmjs.com/package/@opentelemetry/instrumentation-http/v/0.33.0)
-  
-Dependencies
-- [mysql](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-mysql) version:
-  [0.25.0](https://www.npmjs.com/package/@opentelemetry/instrumentation-mysql/v/0.25.0)
-
-#### [Python](#tab/python)
-
-Requests
-- [Django](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-django) <sup>[1](#FOOTNOTEONE)</sup> version:
-  [0.36b0](https://pypi.org/project/opentelemetry-instrumentation-django/0.36b0/)
-- [FastApi](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-fastapi) <sup>[1](#FOOTNOTEONE)</sup> version:
-  [0.36b0](https://pypi.org/project/opentelemetry-instrumentation-fastapi/0.36b0/)
-- [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) <sup>[1](#FOOTNOTEONE)</sup> version:
-  [0.36b0](https://pypi.org/project/opentelemetry-instrumentation-flask/0.36b0/)
-
-Dependencies
-- [Psycopg2](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-psycopg2) version:
-  [0.36b0](https://pypi.org/project/opentelemetry-instrumentation-psycopg2/0.36b0/)
-- [Requests](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-requests) <sup>[1](#FOOTNOTEONE)</sup> version:
-  [0.36b0](https://pypi.org/project/opentelemetry-instrumentation-requests/0.36b0/)
-- [Urllib](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-urllib) <sup>[1](#FOOTNOTEONE)</sup> version:
-  [0.36b0](https://pypi.org/project/opentelemetry-instrumentation-urllib/0.36b0/)
-- [Urllib3](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-urllib3) <sup>[1](#FOOTNOTEONE)</sup> version:
-  [0.36b0](https://pypi.org/project/opentelemetry-instrumentation-urllib3/0.36b0/)
-
----
-
-### Metrics
-
-#### [.NET](#tab/net)
-
-- [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.AspNet-1.0.0-rc9.6/src/OpenTelemetry.Instrumentation.AspNet/README.md) version:
-  [1.0.0-rc9.6](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNet/1.0.0-rc9.6)
-- [ASP.NET
-  Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.AspNetCore/README.md) version:
-  [1.0.0-rc9.7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNetCore/1.0.0-rc9.7)
-- [HTTP
-  clients](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.Http/README.md) version:
-  [1.0.0-rc9.7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Http/1.0.0-rc9.7)
-- [Runtime](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.Runtime-1.0.0/src/OpenTelemetry.Instrumentation.Runtime/README.md) version: [1.0.0](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Runtime/1.0.0)
-
-#### [Java](#tab/java)
-
-Autocollected metrics
-
-* Micrometer Metrics, including Spring Boot Actuator metrics
-* JMX Metrics
-
-#### [Node.js](#tab/nodejs)
-
-- [http/https](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http/README.md) version:
-  [0.33.0](https://www.npmjs.com/package/@opentelemetry/instrumentation-http/v/0.33.0)
-
-#### [Python](#tab/python)
-
-Autocollected metrics
-
-- [Django](https://pypi.org/project/Django/)
-- [FastApi](https://pypi.org/project/requests/)
-- [Flask](https://pypi.org/project/Flask/)
-- [Requests](https://pypi.org/project/requests/)
-- [Urllib](https://docs.python.org/3/library/urllib.html)
-- [Urllib3](https://pypi.org/project/urllib3/)
-
----
-
-> [!TIP]
-> The OpenTelemetry-based offerings currently emit all metrics as [Custom Metrics](#add-custom-metrics) and [Performance Counters](standard-metrics.md#performance-counters) in Metrics Explorer. For .NET, Node.js, and Python, whatever you set as the meter name becomes the metrics namespace.
-
-### Logs
-
-#### [.NET](#tab/net)
-
-Coming soon.
-
-#### [Java](#tab/java)
-
-Autocollected logs
-
-* Logback <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup> (including MDC properties)
-* Log4j <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup> (including MDC/Thread Context properties)
-* JBoss Logging <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup> (including MDC properties)
-* java.util.logging <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
-
-#### [Node.js](#tab/nodejs)
-
-Coming soon.
-
-#### [Python](#tab/python)
-
-Autocollected logs
-
-* [Python logging library](https://docs.python.org/3/howto/logging.html) <sup>[3](#FOOTNOTETHREE)</sup>
-
-See [this](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry/samples/logging) for examples of using the Python logging library.
-
----
-
-**Footnotes**
-- <a name="FOOTNOTEONE">1</a>: Supports automatic reporting of unhandled exceptions
-- <a name="FOOTNOTETWO">2</a>: By default, logging is only collected when that logging is performed at the INFO level or higher. To change this level, see the [configuration options](./java-standalone-config.md#auto-collected-logging).
-- <a name="FOOTNOTETHREE">3</a>: By default, logging is only collected when that logging is performed at the WARNING level or higher. To change this level, see the [configuration options](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry#usage) and specify `logging_level`.
 
 ## Collect custom telemetry
 
@@ -749,7 +379,7 @@ Depending on your language and signal type, there are different ways to collect 
  
 The following table represents the currently supported custom telemetry types:
 
-|    Custom Telemetry Types                 | Custom Events | Custom Metrics | Dependencies | Exceptions | Page Views | Requests | Traces |
+| Language                                  | Custom Events | Custom Metrics | Dependencies | Exceptions | Page Views | Requests | Traces |
 |-------------------------------------------|---------------|----------------|--------------|------------|------------|----------|--------|
 | **.NET**                                  |               |                |              |            |            |          |        |
 | &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               |                | Yes          | Yes        |            | Yes      |        |
@@ -843,6 +473,8 @@ public class Program
 }
 ```
 
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 #### [Java](#tab/java)
 
 ```java
@@ -861,6 +493,8 @@ public class Program {
     }
 }
 ```
+
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
 
 #### [Node.js](#tab/nodejs)
 
@@ -892,6 +526,8 @@ public class Program {
     histogram.record(100, { testKey2: "testValue" });
 ```
 
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 #### [Python](#tab/python)
 
 ```python
@@ -910,6 +546,8 @@ histogram.record(30.0, {"test_key": "test_value2"})
 
 input()
 ```
+
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
 
 ---
 
@@ -952,6 +590,8 @@ public class Program
 }
 ```
 
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 #### [Java](#tab/java)
 
 ```Java
@@ -980,6 +620,8 @@ public class Program {
 }
 ```
 
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 #### [Node.js](#tab/nodejs)
 
 ```javascript
@@ -1004,6 +646,8 @@ public class Program {
     counter.add(3, { "testKey": "testValue2" });
 ```
 
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 #### [Python](#tab/python)
 
 ```python
@@ -1022,6 +666,8 @@ counter.add(3.0, {"test_key": "test_value2"})
 
 input()
 ```
+
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
 
 ---
 
@@ -1067,6 +713,8 @@ public class Program
 }
 ```
 
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 #### [Java](#tab/java)
 
 ```Java
@@ -1089,6 +737,8 @@ public class Program {
     }
 }
 ```
+
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
 
 #### [Node.js](#tab/nodejs)
 
@@ -1115,6 +765,8 @@ public class Program {
         observableResult.observe(randomNumber, {"testKey": "testValue"});
     });
 ```
+
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
 
 #### [Python](#tab/python)
 
@@ -1147,6 +799,8 @@ gauge2 = meter.create_observable_gauge("gauge2", [observable_gauge_sequence])
 input()
 ```
 
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 ---
 
 ### Add Custom Exceptions
@@ -1173,6 +827,8 @@ using (var activity = activitySource.StartActivity("ExceptionExample"))
 }
 ```
 
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 #### [Java](#tab/java)
 
 You can use `opentelemetry-api` to update the status of a span and record exceptions.
@@ -1198,6 +854,8 @@ You can use `opentelemetry-api` to update the status of a span and record except
     span.recordException(e);
    ```
 
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 #### [Node.js](#tab/nodejs)
 
 ```javascript
@@ -1220,6 +878,8 @@ catch(error){
     span.recordException(error);
 }
 ```
+
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
 
 #### [Python](#tab/python)
 
@@ -1259,6 +919,8 @@ with tracer.start_as_current_span("hello", record_exception=False) as span:
 
 ```
 
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 ---
 
 ### Add Custom Spans
@@ -1268,7 +930,9 @@ You may want to add a custom span when there's a dependency request that's not a
 #### [.NET](#tab/net)
   
 Coming soon.
-  
+
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 #### [Java](#tab/java)
   
 #### Use the OpenTelemetry annotation
@@ -1340,10 +1004,14 @@ you can add your spans by using the OpenTelemetry API.
     }
    ```
 
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 #### [Node.js](#tab/nodejs)
 
 Coming soon.
-  
+
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 #### [Python](#tab/python)
 
 #### Use the OpenTelemetry API
@@ -1386,6 +1054,8 @@ tracer = trace.get_tracer(__name__)
 with tracer.start_as_current_span("my request span", kind=SpanKind.SERVER) as span:
 ...
 ```
+
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
 
 ---
 
@@ -1445,6 +1115,8 @@ We recommend you use the OpenTelemetry APIs whenever possible, but there may be 
 #### [.NET](#tab/net)
   
 This is not available in .NET.
+
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
 
 #### [Java](#tab/java)
 
@@ -1511,13 +1183,19 @@ This is not available in .NET.
     }
     ```
 
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 #### [Node.js](#tab/nodejs)
   
 Coming soon.
- 
+
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 #### [Python](#tab/python)
   
 This is not available in Python.
+
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
 
 ---
 
@@ -1583,6 +1261,8 @@ public class ActivityEnrichingProcessor : BaseProcessor<Activity>
 }
 ```
 
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 ##### [Java](#tab/java)
 
 You can use `opentelemetry-api` to add attributes to spans.
@@ -1608,6 +1288,8 @@ Adding one or more span attributes populates the `customDimensions` field in the
     AttributeKey attributeKey = AttributeKey.stringKey("mycustomdimension");
     Span.current().setAttribute(attributeKey, "myvalue1");
    ```
+
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
 
 ##### [Node.js](#tab/nodejs)
 
@@ -1644,6 +1326,8 @@ provider.addSpanProcessor(new SpanEnrichingProcessor());
 provider.addSpanProcessor(new SimpleSpanProcessor(azureExporter));
 ```
 
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 ##### [Python](#tab/python)
 
 Use a custom processor:
@@ -1674,6 +1358,9 @@ class SpanEnrichingProcessor(SpanProcessor):
         span._attributes["CustomDimension1"] = "Value1"
         span._attributes["CustomDimension2"] = "Value2"
 ```
+
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 ---
 
 #### Set the user IP
@@ -1689,9 +1376,13 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
 activity.SetTag("http.client_ip", "<IP Address>");
 ```
 
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 ##### [Java](#tab/java)
 
 Java automatically populates this field.
+
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
 
 ##### [Node.js](#tab/nodejs)
 
@@ -1710,6 +1401,8 @@ class SpanEnrichingProcessor {
 }
 ```
 
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 ##### [Python](#tab/python)
 
 Use the add [custom property example](#add-a-custom-property-to-a-span), but replace the following lines of code in `SpanEnrichingProcessor.py`:
@@ -1717,6 +1410,8 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
 ```python
 span._attributes["http.client_ip"] = "<IP Address>"
 ```
+
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
 
 ---
 
@@ -1730,6 +1425,8 @@ You can populate the _user_Id_ or _user_AuthenticatedId_ field for requests by u
 ##### [.NET](#tab/net)
 
 Coming soon.
+
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
 
 ##### [Java](#tab/java)
 
@@ -1753,6 +1450,8 @@ Populate the `user ID` field in the `requests`, `dependencies`, or `exceptions` 
    Span.current().setAttribute("enduser.id", "myuser");
    ```
 
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 #### [Node.js](#tab/nodejs)
 
 Use the add [custom property example](#add-a-custom-property-to-a-span), but replace the following lines of code:
@@ -1770,6 +1469,8 @@ class SpanEnrichingProcessor implements SpanProcessor{
 }
 ```
 
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 ##### [Python](#tab/python)
 
 Use the add [custom property example](#add-a-custom-property-to-a-span), but replace the following lines of code:
@@ -1777,6 +1478,8 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
 ```python
 span._attributes["enduser.id"] = "<User ID>"
 ```
+
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
 
 ---
 
@@ -1786,18 +1489,23 @@ span._attributes["enduser.id"] = "<User ID>"
   
 Coming soon.
 
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 #### [Java](#tab/java)
 
 Logback, Log4j, and java.util.logging are [auto-instrumented](#logs). Attaching custom dimensions to your logs can be accomplished in these ways:
 
-* [Logback MDC](http://logback.qos.ch/manual/mdc.html)
 * [Log4j 2 MapMessage](https://logging.apache.org/log4j/2.x/log4j-api/apidocs/org/apache/logging/log4j/message/MapMessage.html) (a `MapMessage` key of `"message"` will be captured as the log message)
 * [Log4j 2 Thread Context](https://logging.apache.org/log4j/2.x/manual/thread-context.html)
 * [Log4j 1.2 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html)
 
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 #### [Node.js](#tab/nodejs)
   
 Coming soon.
+
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
 
 #### [Python](#tab/python)
   
@@ -1809,6 +1517,8 @@ logger.warning("WARNING: Warning log with properties", extra={"key1": "value1"})
 ...
 
 ```
+
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
 
 ---
 
@@ -1857,6 +1567,8 @@ You might use the following ways to filter out telemetry before it leaves your a
     ```
 
 1. If a particular source isn't explicitly added by using `AddSource("ActivitySourceName")`, then none of the activities created by using that source will be exported.
+
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
 
 #### [Java](#tab/java)
 
@@ -1918,6 +1630,8 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
     }
     ```
  
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 #### [Python](#tab/python)
 
 1. Exclude the URL option provided by many HTTP instrumentation libraries.
@@ -1982,6 +1696,8 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
     
     ```
 
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 ---
     
 <!-- For more information, see [GitHub Repo](link). -->
@@ -1993,6 +1709,8 @@ You might want to get the trace ID or span ID. If you have logs that are sent to
 #### [.NET](#tab/net)
 
 Coming soon.
+
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
 
 #### [Java](#tab/java)
 
@@ -2018,9 +1736,13 @@ You can use `opentelemetry-api` to get the trace ID or span ID.
    String spanId = span.getSpanContext().getSpanId();
    ```
 
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 #### [Node.js](#tab/nodejs)
 
 Coming soon.
+
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
 
 #### [Python](#tab/python)
 
@@ -2032,6 +1754,8 @@ Get the request trace ID and the span ID in your code:
    trace_id = trace.get_current_span().get_span_context().trace_id
    span_id = trace.get_current_span().get_span_context().span_id
    ```
+
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
 
 ---
 
@@ -2060,9 +1784,13 @@ You might want to enable the OpenTelemetry Protocol (OTLP) Exporter alongside yo
             .Build();
     ```
 
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+
 #### [Java](#tab/java)
 
 Coming soon.
+
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
 
 #### [Node.js](#tab/nodejs)
 
@@ -2089,6 +1817,8 @@ Coming soon.
     provider.addSpanProcessor(new SimpleSpanProcessor(otlpExporter));
     provider.register();
     ```
+
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
 
 #### [Python](#tab/python)
 
@@ -2117,186 +1847,11 @@ Coming soon.
         print("Hello world!")
     ```
 
----
-
-## Configuration
-
-### Offline Storage and Automatic Retries
-
-To improve reliability and resiliency, Azure Monitor OpenTelemetry-based offerings write to offline/local storage by default when an application loses its connection with Application Insights. It saves the application telemetry to disk and periodically tries to send it again for up to 48 hours. In addition to exceeding the allowable time, telemetry will occasionally be dropped in high-load applications when the maximum file size is exceeded or the SDK doesn't have an opportunity to clear out the file. If we need to choose, the product will save more recent events over old ones. [Learn More](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage)
-
-#### [.NET](#tab/net)
-
-By default, the AzureMonitorExporter uses one of the following locations for offline storage (listed in order of precedence):
-
-- Windows
-  - %LOCALAPPDATA%\Microsoft\AzureMonitor
-  - %TEMP%\Microsoft\AzureMonitor
-- Non-Windows
-  - %TMPDIR%/Microsoft/AzureMonitor
-  - /var/tmp/Microsoft/AzureMonitor
-  - /tmp/Microsoft/AzureMonitor
-
-To override the default directory, you should set `AzureMonitorExporterOptions.StorageDirectory`.
-
-For example:
-```csharp
-var tracerProvider = Sdk.CreateTracerProviderBuilder()
-    .AddAzureMonitorTraceExporter(o => {
-        o.ConnectionString = "<Your Connection String>";
-        o.StorageDirectory = "C:\\SomeDirectory";
-    })
-    .Build();
-```
-
-To disable this feature, you should set `AzureMonitorExporterOptions.DisableOfflineStorage = true`.
-
-#### [Java](#tab/java)
-
-Configuring Offline Storage and Automatic Retries is not available in Java.
-
-For a full list of available configurations, see [Configuration options](./java-standalone-config.md).
-
-#### [Node.js](#tab/nodejs)
-
-By default, the AzureMonitorExporter uses one of the following locations for offline storage.
-
-- Windows
-  - %TEMP%\Microsoft\AzureMonitor
-- Non-Windows
-  - %TMPDIR%/Microsoft/AzureMonitor
-  - /var/tmp/Microsoft/AzureMonitor
-
-To override the default directory, you should set `storageDirectory`.
-
-For example:
-```javascript
-const exporter = new AzureMonitorTraceExporter({
-    connectionString: "<Your Connection String>",
-    storageDirectory: "C:\\SomeDirectory",
-    disableOfflineStorage: false
-});
-```
-
-To disable this feature, you should set `disableOfflineStorage = true`.
-
-#### [Python](#tab/python)
-
-By default, the Azure Monitor exporters will use the following path:
-
-`<tempfile.gettempdir()>/Microsoft/AzureMonitor/opentelemetry-python-<your-instrumentation-key>`
-
-To override the default directory, you should set `storage_directory` to the directory you want.
-
-For example:
-```python
-...
-configure_azure_monitor(
-    connection_string="your-connection-string",
-    storage_directory="C:\\SomeDirectory",
-)
-...
-
-```
-
-To disable this feature, you should set `disable_offline_storage` to `True`. Defaults to `False`.
-
-For example:
-```python
-...
-configure_azure_monitor(
-    connection_string="your-connection-string",
-    disable_offline_storage=True,
-)
-...
-
-```
+<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
 
 ---
-
-## Troubleshooting
-
-This section provides help with troubleshooting.
-
-### Enable diagnostic logging
-
-#### [.NET](#tab/net)
-
-The Azure Monitor Exporter uses EventSource for its own internal logging. The exporter logs are available to any EventListener by opting into the source named OpenTelemetry-AzureMonitor-Exporter. For troubleshooting steps, see [OpenTelemetry Troubleshooting](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/src/OpenTelemetry#troubleshooting).
-
-#### [Java](#tab/java)
-
-Diagnostic logging is enabled by default. For more information, see the dedicated [troubleshooting article](java-standalone-troubleshoot.md).
-
-#### [Node.js](#tab/nodejs)
-
-Azure Monitor Exporter uses the OpenTelemetry API Logger for internal logs. To enable it, use the following code:
-
-```javascript
-const { diag, DiagConsoleLogger, DiagLogLevel } = require("@opentelemetry/api");
-const { NodeTracerProvider } = require("@opentelemetry/sdk-trace-node");
-
-const provider = new NodeTracerProvider();
-diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.ALL);
-provider.register();
-```
-
-#### [Python](#tab/python)
-
-The Azure Monitor Exporter uses the Python standard logging [library](https://docs.python.org/3/library/logging.html) for its own internal logging. OpenTelemetry API and Azure Monitor Exporter logs are logged at the severity level of WARNING or ERROR for irregular activity. The INFO severity level is used for regular or successful activity. By default, the Python logging library sets the severity level to WARNING, so you must change the severity level to see logs under this severity setting. The following example shows how to output logs of *all* severity levels to the console *and* a file:
-
-```python
-...
-import logging
-
-logging.basicConfig(format="%(asctime)s:%(levelname)s:%(message)s", level=logging.DEBUG)
-
-logger = logging.getLogger(__name__)
-file = logging.FileHandler("example.log")
-stream = logging.StreamHandler()
-logger.addHandler(file)
-logger.addHandler(stream)
-...
-
-```
-
----
-
-### Known issues
-
-Known issues for the Azure Monitor OpenTelemetry Exporters include:
-
-#### [.NET](#tab/net)
-
-- Operation name is missing on dependency telemetry, which adversely affects failures and performance tab experience.
-- Device model is missing on request and dependency telemetry, which adversely affects device cohort analysis.
-- Database server name is left out of dependency name, which incorrectly aggregates tables with the same name on different servers.
-
-#### [Java](#tab/java)
-
-No known issues.
-
-#### [Node.js](#tab/nodejs)
-
-- Operation name is missing on dependency telemetry, which adversely affects failures and performance tab experience.
-- Device model is missing on request and dependency telemetry, which adversely affects device cohort analysis.
-- Database server name is left out of dependency name, which incorrectly aggregates tables with the same name on different servers.
-
-#### [Python](#tab/python)
-
-- Operation name is missing on dependency telemetry, which adversely affects failures and performance tab experience.
-- Device model is missing on request and dependency telemetry, which adversely affects device cohort analysis.
-- Database server name is left out of dependency name, which incorrectly aggregates tables with the same name on different servers.
-
----
-
-[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Support
-
-To get support:
-- Review troubleshooting steps in this article.
-- For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
 
 ### [.NET](#tab/net)
 

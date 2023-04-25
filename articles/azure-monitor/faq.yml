@@ -895,7 +895,7 @@ sections:
           | [Custom metrics](app/opentelemetry-enable.md#add-custom-metrics)                                        | :warning: | :warning: | :warning: | :white_check_mark: |
           | [Standard metrics](app/standard-metrics.md) (accuracy currently affected by sampling)                   | :warning: | :warning: | :warning: | :white_check_mark: |
           | [Fixed-rate sampling](app/sampling.md)                                                                  | :warning: | :warning: | :warning: | :white_check_mark: |
-          | [Offline storage and automatic retries](app/opentelemetry-enable.md#offline-storage-and-automatic-retries)| :warning: | :warning: | :warning: | :white_check_mark: |
+          | [Offline storage and automatic retries](app/opentelemetry-configuration.md#offline-storage-and-automatic-retries)| :warning: | :warning: | :warning: | :white_check_mark: |
           | [Exception reporting](app/asp-net-exceptions.md)                                                       | :warning: | :warning: | :warning: | :white_check_mark: |
           | [Logs collection](app/asp-net-trace-logs.md)                                                            | :x:       | :x:       | :x:       | :white_check_mark: |
           | [Azure Active Directory authentication](app/azure-ad-authentication.md)                           | :x:       | :x:       | :x:       | :white_check_mark: |

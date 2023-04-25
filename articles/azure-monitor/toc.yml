@@ -727,6 +727,12 @@ items:
           href: app/opentelemetry-overview.md
         - name: Get started (.NET, Node.js, Python and Java)
           href: app/opentelemetry-enable.md
+        - name: OpenTelemetry configuration
+          href: app/opentelemetry-configuration.md
+        - name: .NET (supplemental)
+          items:
+          - name: .NET OpenTelemetry exporter
+            href: app/opentelemetry-dotnet-exporter.md
         - name: Java (supplemental)
           items:
           - name: Spring Boot
@@ -751,6 +757,10 @@ items:
                   href: app/java-standalone-telemetry-processors-examples.md
           - name: Upgrade from 2.x
             href: app/java-standalone-upgrade-from-2x.md
+        - name: Node.js (supplemental)
+          items:
+          - name: Node.js OpenTelemetry exporter
+            href: app/opentelemetry-nodejs-exporter.md
         - name: FAQ
           href: /azure/azure-monitor/faq#opentelemetry
       - name: Upgrade from classic resources and iKey
