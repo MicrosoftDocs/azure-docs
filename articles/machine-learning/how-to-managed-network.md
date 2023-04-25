@@ -125,7 +125,7 @@ managed_network:
   isolation_mode: allow_internet_outbound
 ```
 
-You can also define _outbound rules_ to other Azure services that the workspace relies on. These rules define _private endpoints_ that allow an Azure resource to securely communicate with the managed VNet. The following rule demonstrates adding a private endpoint to an Azure Blob resource.:
+You can also define _outbound rules_ to other Azure services that the workspace relies on. These rules define _private endpoints_ that allow an Azure resource to securely communicate with the managed VNet. The following rule demonstrates adding a private endpoint to an Azure Blob resource.
 
 ```yml
 managed_network:
@@ -246,7 +246,7 @@ To configure a managed VNet that allows internet outbound communications, use th
     > [!WARNING]
     > Before updating an existing workspace to use a managed virtual network, you must delete all computing resources for the workspace. This includes compute instance, compute cluster, serverless, serverless spark, and managed online endpoints.
 
-    The following example demonstrates how to create a managed VNet for an existing Azure Machine Learning workspace named "myworkspace":
+    The following example demonstrates how to create a managed VNet for an existing Azure Machine Learning workspace named `myworkspace`:
     
     ```python
     # Get the existing workspace
@@ -462,7 +462,7 @@ To configure a managed VNet that allows only approved outbound communications, u
     > [!WARNING]
     > Before updating an existing workspace to use a managed virtual network, you must delete all computing resources for the workspace. This includes compute instance, compute cluster, serverless, serverless spark, and managed online endpoints.
 
-    The following example demonstrates how to create a managed VNet for an existing Azure Machine Learning workspace named "myworkspace". The example also adds several outbound rules for the managed VNet:
+    The following example demonstrates how to create a managed VNet for an existing Azure Machine Learning workspace named `myworkspace`. The example also adds several outbound rules for the managed VNet:
 
     * `myrule` - Adds a private endpoint for an Azure Blob store.
     * `pytorch` - Adds an FQDN rule to communicate with `*.pytorch.org`.
@@ -550,13 +550,13 @@ To configure a managed VNet that allows only approved outbound communications, u
 To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the managed VNet, you must perform the following actions:
 
 * Configure an outbound private endpoint for the workspace's default storage account.
-* After configuring the managed VNet, provision it and flag it to allow spark jobs.
+* After you configure the managed VNet, provision it and flag it to allow spark jobs.
 
 ### 1. Configure an outbound private endpoint
 
 # [Azure CLI](#tab/azure-cli)
 
-Use a YAML file to define the managed VNet configuration and add a private endpoint for the Azure Machine Learning workspace's default storage account. Also set `spark_enabled: true`. The following is an example YAML configuration file:
+Use a YAML file to define the managed VNet configuration and add a private endpoint for the Azure Machine Learning workspace's default storage account. Also set `spark_enabled: true`:
 
 > [!TIP]
 > This example is for a managed VNet configured to allow internet traffic. If you want to allow only approved outbound traffic, set `isolation_mode: allow_only_approved_outbound` instead.
@@ -583,7 +583,10 @@ az ml workspace update --file workspace_pe.yml --resource_group rg
 
 # [Python](#tab/python)
 
-The following example demonstrates how to create a managed VNet for an existing Azure Machine Learning workspace named "myworkspace". It also adds a private endpoint for the storage account and sets `spark_enabled=true`:
+The following example demonstrates how to create a managed VNet for an existing Azure Machine Learning workspace named `myworkspace`. It also adds a private endpoint for the storage account and sets `spark_enabled=true`:
+
+> [!TIP]
+> The following example is for a managed VNet configured to allow internet traffic. If you want to allow only approved outbound traffic, use `IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND` instead.
     
 ```python
 # Get the existing workspace
@@ -674,7 +677,7 @@ az ml workspace outbound-rule remove --rule rule-name --workspace-name ws --reso
 
 # [Python](#tab/python)
 
-The following example demonstrates how to manage outbound rules for a workspace named "myworkspace":
+The following example demonstrates how to manage outbound rules for a workspace named `myworkspace`:
 
 ```python
 # Connect to the workspace
