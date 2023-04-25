@@ -4,7 +4,7 @@ description: Understanding your domains is critical for effective data governanc
 author: evangelinew
 ms.author: evwhite
 ms.service: purview
-ms.topic: conceptual - best practices for governing domains of data in Purview
+ms.topic: conceptual
 ms.date: 04/24/2023
 ms.custom: template-concept
 ---
