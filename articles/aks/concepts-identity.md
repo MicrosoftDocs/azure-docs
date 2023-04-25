@@ -162,7 +162,7 @@ As shown in the graphic above, the API server calls the AKS webhook server and p
 10. Once authorized, the API server returns a response to `kubectl`.
 11. `kubectl` provides feedback to the user.
 
-Learn how to integrate AKS with Azure AD with our [AKS-managed Azure AD integration how-to guide](managed-aad.md).
+Learn how to integrate AKS with Azure AD with our [AKS-managed Azure AD integration how-to guide](managed-azure-ad.md).
 
 ## AKS service permissions
 
@@ -282,7 +282,7 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [openid-connect]: ../active-directory/develop/v2-protocols-oidc.md
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [azure-rbac]: ../role-based-access-control/overview.md
-[aks-aad]: managed-aad.md
+[aks-aad]: managed-azure-ad.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-security]: concepts-security.md
 [aks-concepts-scale]: concepts-scale.md

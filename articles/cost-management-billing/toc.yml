@@ -329,6 +329,8 @@
         href: manage/ea-portal-administration.md
       - name: EA billing administration
         href: manage/direct-ea-administration.md
+      - name: Azure portal administration for partners
+        href: manage/ea-billing-administration-partners.md
       - name: Azure EA portal administration for partners
         href: manage/ea-partner-portal-administration.md
       - name: EA tasks in Microsoft Customer Agreement
