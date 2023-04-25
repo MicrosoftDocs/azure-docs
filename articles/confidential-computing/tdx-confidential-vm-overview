@@ -27,10 +27,9 @@ Some of the benefits of Confidential VMs with Intel TDX include:
 - Ability for organizations to retrieve raw hardware evidence and submit for judgment for attestation, including open-sourcing our client application.
 - Support for [Microsoft Azure Attestation](https://learn.microsoft.com/en-us/azure/attestation/) (coming soon) backed by high availability zonal capabilities and disaster recovery capabilities.
 - Support for operator-independent remote attestation with [Intel Project Amber](http://projectamber.intel.com/).
-- Support for Ubuntu 22.04, SUSE Linux Enterprise Server 15 SP5 and SUSE Linux Enterprise Server for SAP 15 SP5
+- Support for Ubuntu 22.04, SUSE Linux Enterprise Server 15 SP5 and SUSE Linux Enterprise Server for SAP 15 SP5.
 
 ## Further Reading
 
 - [Read our product announcement](https://aka.ms/tdx-blog)
 - [Try Ubuntu confidential VMs with Intel TDX today: limited preview now available on Azure](https://canonical.com/blog/ubuntu-confidential-vms-intel-tdx-microsoft-azure-confidential-computing)
-
