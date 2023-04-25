@@ -18,9 +18,9 @@ ms.author: goblackw
 
 This article demonstrates, step by step, how to deploy Oracle on an Azure virtual machine.  You will then install and configure Data Guard to replicate a database to a secondary (backup) database on a second Oracle instance.  Azure CLI will be used to create and manage all required Azure resources.  To secure the environment, no ports will be publicly accessible and a Bastion instance will be included to provide access to the Oracle VMs.
 
-**Important**
-
-Before you start, verify that Azure CLI is installed. For more information, see the [Azure CLI installation guide](/cli/azure/install-azure-cli).
+> [!Important]
+> 
+> Before you start, verify that Azure CLI is installed. For more information, see the [Azure CLI installation guide](/cli/azure/install-azure-cli).
 
 ## Prepare the environment
 ### Assumptions
