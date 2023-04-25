@@ -76,7 +76,7 @@ For tutorials on how to authenticate to Key Vault in applications, see:
 
 ## Manage keys, certificates, and secrets
 > !Note]
-> SDKs for .NET, Python, Java, JavaScript, PowerShell and Azure CLI are part of Key Vault feature release process through Public Preview and GA with Key Vault service team support. Other SDK clients for Key Vault are available, but they are built and supported by individual SDK teams and released in their schedules.
+> SDKs for .NET, Python, Java, JavaScript, PowerShell and Azure CLI are part of Key Vault feature release process through Public Preview and GA with Key Vault service team support. Other SDK clients for Key Vault are available, but they are built and supported by individual SDK teams over GitHub and released in their teams schedule.
 
 The data plane controls access to keys, certificates, and secrets. You can use local vault access policies or Azure RBAC for access control through the data plane.
 
