@@ -14,7 +14,7 @@ ms.custom:
 
 Learn how to list all branch office locations for Global Secure Access.
 
-## Pre-requisites 
+## Prerequisites 
 - Global Secure Access license for your Microsoft Entra Identity tenant.  
 - Entra Network Access Administrator role in Microsoft Entra Identity.
 - Microsoft Graph module when using PowerShell.
@@ -25,7 +25,7 @@ List all branch locations in your tenant.
 
 ### List all branches using the Microsoft Entra admin center
 1. Navigate to the Microsoft Entra admin center at [https://entra.microsoft.com](https://entra.microsoft.com) and login with administrator credentials.
-1. In the left hand navigation choose **Global Secure Access**. 
+1. In the left hand navigation, choose **Global Secure Access**. 
 1. Select **Connect** in the left-hand side navigation menu. 
 1. Select **Branch**.
 
