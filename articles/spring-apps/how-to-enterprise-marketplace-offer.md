@@ -24,7 +24,7 @@ The Azure Spring Apps Enterprise tier is optimized for the needs of enterprise S
 
 Because the Enterprise tier provides feature parity with the Standard tier, it provides a rich set of features that include app lifecycle management, monitoring, and troubleshooting.
 
-The Enterprise tier provides the following managed VMware Tanzu components that empower enterprises to ship faster:
+The Enterprise tier provides the following managed [VMware Tanzu components](./VMware-Tanzu-components.md) that empower enterprises to ship faster:
 
 - Tanzu Build Service
 - Application Configuration Service for Tanzu
