@@ -22,69 +22,61 @@ Once your Palo Alto resource is created in the Azure portal, you might need to g
 
 ## Configure Networking and NAT
 
-Add a new User Assigned Managed Identity.
+Select the **Type** by checking the **Virtual Network** or **Virtual VWAN** options.
 
-1. From the Resource menu, select your Palo Alto deployment.
+1. Enter **Virtual Network** , **Private Subnet** and **Public Subnet** details.
 
-1. From **Settings** in the Resource menu, select **Identity**.
+ <!-- :::image type="content" source="media/palo-alto-manage/palo-alto-SNAT.png" alt-text="Screenshot showing NEtworking section."::: -->
 
-    <!-- :::image type="content" source="media/palo-alto-manage/palo-alto-identity.png" alt-text="Screenshot showing how to add a managed identity to Palo Alto resource."::: -->
+1. From **Source Network Address Translation (SNAT)** select the **Enable Source NAT**.
 
-1. To add a User Assigned identity, select **Add** in the working pane. You see a new pane for adding **User assigned managed identities** on the right that are part of the subscription. Select an identity and select **Add**.
+    <!-- :::image type="content" source="media/palo-alto-manage/palo-alto-identity.png" alt-text="Screenshot showing the Source NAT details."::: -->
 
-    <!-- :::image type="content" source="media/palo-alto-manage/palo-alto-user-assigned.png" alt-text="Screenshot after user assigned managed identity is added."::: -->
+1. From **Destination Network Address Translation (DNAT)** select the **Enable Source NAT**.
 
-## Configure Rulestack
+    <!-- :::image type="content" source="media/palo-alto-manage/palo-alto-dnat.png" alt-text="Screenshot showing the Destination NAT details."::: -->
 
-1. From the Resource menu, select your Palo Alto deployment.
 
-1. Select **Palo Alto configuration** in the Resource menu.
+## Rulestack
 
-    <!-- :::image type="content" source="media/palo-alto-manage/palo-alto-configuration.png" alt-text="Screenshot resources for Palo Alto configuration settings."::: -->
+1. For the **Managed by** Select **Azure Portal** or **"Palo Alto Networks Panaroma** to determine the mechanism for managing Rulestack .
 
-1. To upload an existing **Palo Alto config package**, type the appropriate `.conf file` in **File path** in the working paned and select the **+** button and for config package.
+    <!-- :::image type="content" source="media/palo-alto-manage/palo-alto-managedby.png" alt-text="Screenshot resources for Palo Alto Rulestack Management option."::: -->
 
-    <!-- :::image type="content" source="media/palo-alto-manage/palo-alto-config-path.png" alt-text="Screenshot of config (. C O N F) file for uploading."::: -->
+1. For the **Local Rulestack** Select an existing Rulestack from the dropdown.
 
-1. You see the contents of the file in the working pane. Select **Confirm** if correct.
+    <!-- :::image type="content" source="media/palo-alto-manage/palo-alto-localrulestacklist.png" alt-text="Screenshot resources for Palo Alto Rulestack list."::: -->
 
-    <!-- :::image type="content" source="media/palo-alto-manage/palo-alto-config-upload.png" alt-text="Screenshot of upload confirmation for config file."::: -->
 
-1. To edit the config file within the Editor, select the pencil icon. When you're done editing, select **Submit**.
+## Log settings
 
-    <!-- :::image type="content" source="media/palo-alto-manage/palo-alto-config-editor.png" alt-text="Screenshot of editor for config file with Intellisense displayed."::: -->
+Click on **edit** to enable **Log Settings**.
 
-## Enable Log settings
+1. Check the **Enable Log Settings** checkbox.
 
-You can add a certificate by uploading it to Azure Key vault, and then associating the certificate with your deployment.
+1. Select **Log Setting** from the dropdown list.
 
-1. From the Resource menu, select your Palo Alto deployment.
+    <!-- :::image type="content" source="media/palo-alto-manage/palo-alto-logsettings.png" alt-text="Screenshot of Palo Alto Log Settings List."::: -->
 
-1. Select **Palo Alto certificates** in **Settings** in the Resource menu.
-
-    <!-- :::image type="content" source="media/palo-alto-manage/palo-alto-certificates.png" alt-text="Screenshot of Palo Alto certificate uploading."::: -->
-
-1. Select **Add certificate**. You see an **Add certificate** in the working pane. Add the appropriate information
-
-    <!-- :::image type="content" source="media/palo-alto-manage/palo-alto-add-certificate.png" alt-text="Screenshot of the add certificate pane."::: -->
-
-1. When you've added the needed information, select **Save**.
 
 ## Enable DNS Proxy
 
-1. From the Resource menu, select your Palo Alto deployment.
 
-1. Select **Palo Alto Monitoring** under the **Settings** in the Resource menu.
+1. Select **Disabled** or **Enabled** checkbox under the **DNS Proxy** .
 
-    <!-- :::image type="content" source="media/palo-alto-manage/palo-alto-monitoring.png" alt-text="Screenshot of Palo Alto monitoring in Azure metrics."::: -->
+    <!-- :::image type="content" source="media/palo-alto-manage/palo-alto-dnsproxy.png" alt-text="Screenshot of Palo Alto DNS Proxy setting ."::: -->
 
-1. Select **Send metrics to Azure Monitor** to enable metrics and select **Save**.
+1. Select **Save** to enable DNS Proxy.
 
-    <!-- :::image type="content" source="media/palo-alto-manage/palo-alto-send-to-monitor.png" alt-text="screenshot of palo-alto sent to monitoring"::: -->
+    
 
-## Configure Rules
+## Rules
 
-Enable CI/CD deployments via GitHub Actions integrations.
+
+1. Search for  the Local rules under the **Search** option.
+
+    <!-- :::image type="content" source="media/palo-alto-manage/palo-alto-localruleslist.png" alt-text="Screenshot of Palo Alto Local rules list."::: -->
+
 
 ## Delete an Palo Alto deployment
 
