@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/06/2023
+ms.date: 04/20/2023
 ms.author: jeedes
 
 ---
@@ -69,25 +69,34 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 	c. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Basic SAML Configuration section.
 
-	d. If you wish to configure the application in **SP** initiated mode, then perform the following step:
-
-    In the **Sign on URL** textbox, type the URL:
-    `https://paadt.360factors.com/predict360/login.do`.
-
+	d. Enter the customer code/key provided by 360factors in **Relay State** textbox. Make sure the code is entered in lowercase. This is required for **IDP** initiated mode.
+	
 	> [!Note]
 	> You will get the **Service Provider metadata file** from the [Predict360 SSO support team](mailto:support@360factors.com). If the **Identifier** and **Reply URL** values do not get auto populated, then fill in the values manually according to your requirement.
+
+	e. If you wish to configure the application in **SP** initiated mode, then perform the following step:
+
+    In the **Sign on URL** textbox, type your customer specific URL using the following pattern:  
+    `https://<customer-key>.360factors.com/predict360/login.do`
+
+	> [!Note]
+	> This URL is shared by 360factors team. `<customer-key>` is replaced with your customer key, which is also provide by 360factors team.
 
 1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
     ![Screenshot shows the Certificate download link.](common/metadataxml.png "Certificate")
 
+1. Find **Certificate (Raw)** in the **SAML Signing Certificate** section, and select **Download** to download the certificate and save it on your computer.
+
+	![Screenshot shows the Certificate Raw download link.](common/certificateraw.png " Raw Certificate")
+
 1. On the **Set up Predict360 SSO** section, copy the appropriate URL(s) based on your requirement.
 
 	![Screenshot shows to copy configuration appropriate URL.](common/copy-configuration-urls.png "Metadata")
 
-## Configure Predict360 SSO SSO
+## Configure Predict360 SSO
 
-To configure single sign-on on **Predict360 SSO** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Predict360 SSO support team](mailto:support@360factors.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Predict360 SSO** side, you need to send the downloaded **Federation Metadata XML**, **Certificate (Raw)** and appropriate copied URLs from Azure portal to [Predict360 SSO support team](mailto:support@360factors.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Predict360 SSO test user
 

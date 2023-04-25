@@ -2,7 +2,7 @@
 title: Azure Backup - Archive tier overview 
 description: Learn about Archive tier support for Azure Backup.
 ms.topic: overview
-ms.date: 04/15/2023
+ms.date: 04/25/2023
 ms.custom: references_regions
 ms.service: backup
 author: jyothisuri
@@ -106,10 +106,6 @@ When you restore from recovery point in Archive tier in primary region, the reco
 ### I can see eligible recovery points for my Virtual Machine, but I can't seeing any recommendation. What can be the reason?
 
 The recovery points for Virtual Machines meet the eligibility criteria. So, there are archivable recovery points. However, the churn in the Virtual Machine may be low, thus there are no recommendations. In this scenario, though you can move the archivable recovery points to archive tier, but it may increase the overall backup storage costs.
-
-### I have stopped protection and retained data for my workload. Can I move the recovery points to archive tier?
-
-No. Once protection is stopped for a particular workload, the corresponding recovery points can't be moved to the archive tier. To move recovery points to archive tier, you need to resume the protection on the data source.
 
 ### How do I ensure that all recovery points are moved to Archive tier, if moved via Azure portal?
 
