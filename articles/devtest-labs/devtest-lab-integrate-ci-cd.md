@@ -126,7 +126,7 @@ The next step creates a golden image VM to use for future deployments. This step
    - **Template**: Browse to and select the template file you checked in to your project repository.
    - **Parameters File**: If you checked a parameters file into your repository, browse to and select it.
    - **Parameter Overrides**: Enter `-newVMName '$(vmName)' -userName '$(userName)' -password '$(password)'`.
-   - Drop down **Output Variables**, and under **Reference name**, enter the variable for the created lab VM ID. Let's enter *vm* for **Reference name** for simplicity. **labVmId** will be an attribute of this variable and will be referred later as *$vm.labVmId*. If you use any other name, then remember to use it accordingly in the subsequent tasks.
+   - Drop down **Output Variables**, and under **Reference name**, enter the variable for the created lab VM ID. Let's enter *vm* for **Reference name** for simplicity. **labVmId** will be an attribute of this variable and will be referred to later as *$vm.labVmId*. If you use any other name, then remember to use it accordingly in the subsequent tasks.
 
      Lab VM ID will be in the following form: `/subscriptions/{subscription Id}/resourceGroups/{resource group Name}/providers/Microsoft.DevTestLab/labs/{lab name}/virtualMachines/{vmName}`.
 
