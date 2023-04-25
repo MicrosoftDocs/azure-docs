@@ -1,5 +1,5 @@
 ---
-title: Sign in users in a sample Vanilla JS SPA by using Microsoft Entra
+title: Sign in users in a sample vanilla JavaScript single-page application by using Microsoft Entra
 description: Learn how to configure a sample SPA to sign in and sign out users by using Microsoft Entra.
 services: active-directory
 author: OwenRichards1
@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 04/17/2023
 ms.custom: developer
 
-#Customer intent: As a dev, devops, I want to learn about how to configure a sample Vanilla JS SPA to sign in and sign out users with my Azure Active Directory (Azure AD) for customers tenant
+#Customer intent: As a dev, devops, I want to learn about how to configure a sample vanilla JS SPA to sign in and sign out users with my Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Sign in users in a sample Vanilla JS SPA by using Microsoft Entra
+# Sign in users in a sample vanilla JavaScript single-page application by using Microsoft Entra
 
-This how-to guide uses a sample Vanilla JS Single Page Application (SPA) to demonstrate how to configure an application to sign in and sign out users by using Microsoft Entra. The sample web application uses the [Microsoft Authentication Library for JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) to handle authentication.
+This how-to guide uses a sample vanilla JavaScript Single Page Application (SPA) to demonstrate how to add authentication to a SPA by using Microsoft Entra. The SPA enables users to sign in and sign out by using their own Azure AD for customers tenant. The sample uses the [Microsoft Authentication Library for JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) to handle authentication.
 
 In this article:
 
@@ -32,7 +32,7 @@ In this article:
 
 ## Prerequisites
 
-* Although any IDE that supports Vanilla JS applications can be used, **Visual Studio Code** is used for this guide. It can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
+* Although any IDE that supports vanilla JS applications can be used, **Visual Studio Code** is used for this guide. It can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
 * [Node.js](https://nodejs.org/en/download/).
 * Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-hub-free-trial).
 
@@ -40,10 +40,6 @@ In this article:
 
 [!INCLUDE [active-directory-b2c-register-app](./customers/includes/register-app/register-client-app-common.md)]
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./customers/includes/register-app/add-platform-redirect-url-vanilla-js.md)]
-
-## Add app client secret
-
-[!INCLUDE [active-directory-b2c-add-client-secret](./customers/includes/register-app/add-app-client-secret.md)]
 
 ## Grant API permissions
 
@@ -87,7 +83,7 @@ If you choose to download the `.zip` file, extract the sample app file to a fold
 
 ## Configure the sample SPA
 
-1. Open the `config.js`.
+1. Open `authConfig.js`.
 1. Replace the following values with the values from the Admin center.
     * `clientId` - The identifier of the application, also referred to as the client. Replace `Enter_the_Application_Id_Here` with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
     * `authority` - This is composed of two parts:

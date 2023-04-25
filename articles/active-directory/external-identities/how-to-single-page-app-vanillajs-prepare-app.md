@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/17/2023
+ms.date: 04/25/2023
 ms.custom: developer
 
 #Customer intent: As a developer, I want to learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with my CIAM tenant.
@@ -18,7 +18,7 @@ ms.custom: developer
 
 # Prepare a Single-page application for authentication
 
-After registration is complete, a vanilla JavaScript (JS) single-page application (SPA) can be created using an integrated development environment (IDE). This article describes how to create a single-page application (SPA) using `npm` and create a server file to host the application.
+After registering an application and creating a user flow in a CIAM tenant, a vanilla JavaScript (JS) single-page application (SPA) can be created using an integrated development environment (IDE) or a code editor. In this article, you'll create a vanilla JS SPA and a server to host it.
 
 In this article:
 
@@ -30,14 +30,13 @@ In this article:
 
 ## Prerequisites
 
-* Completion of the prerequisites and steps in [Prepare your tenant](how-to-single-page-app-vanillajs-prepare-tenant.md).
-* Although any IDE that supports Vanilla JS applications can be used, **Visual Studio Code** is used for this guide. It can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
-* [Node.js](https://nodejs.org/en/download/).
+- Completion of the prerequisites and steps in [Sign in users to a vanilla JS Single-page application using Microsoft Entra](how-to-single-page-app-vanillajs-prepare-tenant.md).
+- Although any IDE that supports Vanilla JS applications can be used, **Visual Studio Code** is used for this guide. It can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
+- [Node.js](https://nodejs.org/en/download/).
 
 ## Create a new Vanilla JS project and install dependencies
 
-1. Open Visual Studio Code, select **File** > **Open Folder...**. Navigate to and select the location in which to create your project.
-1. Open a new terminal by selecting **Terminal** > **New Terminal**.
+1. Open a terminal in your IDE and navigate to the location in which to create your project.
 1. Run the following command to create a new vanilla JS project
 
     ```powershell
@@ -52,7 +51,7 @@ In this article:
 
 ## Create the server file
 
-**Express** is a web application framework for Node.js. It's used to create a server that hosts the application. **Morgan** is the middleware that logs HTTP requests to the console. The server file is used to configure the application and host it.
+**Express** is a web application framework for Node.js. It's used to create a server that hosts the application. **Morgan** is the middleware that logs HTTP requests to the console. The server file is used to host these dependencies and contains the routes for the application.
 
 1. Right-click the project folder and select **New File**. Name the file *server.js*.
 1. Add the following code snippet to the *server.js* file:
