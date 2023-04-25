@@ -126,7 +126,7 @@ items:
   - name: Enterprise Tier in Azure Marketplace
     href: how-to-enterprise-marketplace-offer.md
   - name: VMware Tanzu components
-    href: VMware Tanzu Components.md
+    href: VMware-Tanzu-components.md
 - name: Security
   items:
   - name: Security controls
