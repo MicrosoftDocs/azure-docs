@@ -24,7 +24,7 @@ When you create a rule, you choose between [*basic* and *path-based*](./applicat
 
 For the v1 and v2 SKU, pattern matching of incoming requests is processed in the order that the paths are listed in the URL path map of the path-based rule. If a request matches the pattern in two or more paths in the path map, the path that's listed first is matched. And the request is forwarded to the back end that's associated with that path.
 
-If you have multiple listeners, it is even more important that rules are processed in the correct order so that client traffic is received by the correct listener. For more information about rules evaluation order, see [Request Routing rules evaluation order](multiple-site-overview.md#request-routing-rules-evaluation-order).
+If you have multiple listeners, it's even more important that rules are processed in the correct order so that client traffic is received by the correct listener. For more information about rules evaluation order, see [Request Routing rules evaluation order](multiple-site-overview.md#request-routing-rules-evaluation-order).
 
 ## Associated listener
 
