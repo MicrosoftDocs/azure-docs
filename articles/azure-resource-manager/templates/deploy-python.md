@@ -21,7 +21,6 @@ This article explains how to use Python with Azure Resource Manager templates (A
 * The following Azure library packages for Python installed in your virtual environment. To install any of the packages, use `pip install {package-name}`
   * azure-identity
   * azure-mgmt-resource
-  * azure-mgmt-storage
 
   If you have older versions of these packages already installed in your virtual environment, you may need to update them with `pip install --upgrade {package-name}`
 
@@ -98,7 +97,7 @@ subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
 resource_client = ResourceManagementClient(credential, subscription_id)
 
 rg_result = resource_client.resource_groups.create_or_update(
-    "ExampleGroup",
+    "exampleGroup",
     {
         "location": "Central US"
     }
@@ -160,7 +159,7 @@ subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
 resource_client = ResourceManagementClient(credential, subscription_id)
 
 rg_result = resource_client.resource_groups.create_or_update(
-    "ExampleGroup",
+    "exampleGroup",
     {
         "location": "Central US"
     }
@@ -205,9 +204,7 @@ rg_deployment_result = resource_client.deployments.begin_create_or_update(
 )
 ```
 
-The preceding example requires a publicly accessible URI for the template, which works for most scenarios because your template shouldn't include sensitive data. If you need to specify sensitive data (like an admin password), pass that value as a secure parameter. However, if you want to manage access to the template, consider using [template specs](#deploy-template-spec).
-
-To deploy a protected, remote template, add a SAS token.
+The preceding example requires a publicly accessible URI for the template, which works for most scenarios because your template shouldn't include sensitive data. If you need to specify sensitive data (like an admin password), pass that value as a secure parameter. If you keep your templates in a storage account that doesn't allow anonymous access, you need to provide a SAS token.
 
 ```python
 import os
@@ -248,7 +245,7 @@ For more information, see [Use relative path for linked templates](./linked-temp
 
 ## Deploy template spec
 
-Instead of deploying a local or remote template, you can create a [template spec](template-specs.md). The template spec is a resource in your Azure subscription that contains an ARM template. It makes it easy to securely share the template with users in your organization. You use Azure role-based access control (Azure RBAC) to grant access to the template spec. This feature is currently in preview.
+Instead of deploying a local or remote template, you can create a [template spec](template-specs.md). The template spec is a resource in your Azure subscription that contains an ARM template. It makes it easy to securely share the template with users in your organization. You use Azure role-based access control (Azure RBAC) to grant access to the template spec.
 
 The following examples show how to create and deploy a template spec.
 
@@ -277,7 +274,7 @@ template_specs_client.template_specs.create_or_update(
     template_spec
 )
 
-with open("c:/bicep/storage.json", "r") as template_file:
+with open("storage.json", "r") as template_file:
     template_body = json.load(template_file)
 
 version = TemplateSpecVersion(
