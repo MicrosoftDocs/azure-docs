@@ -32,7 +32,7 @@ landingContent:
         links:   
         - text: Create resources 
           url: quickstart-create-resources.md
-        - text: Get started with Azure Machine Learning"
+        - text: Get started with Azure Machine Learning
           url: tutorial-azure-ml-in-a-day.md
   # Card
   - title: "Start with the basics"
