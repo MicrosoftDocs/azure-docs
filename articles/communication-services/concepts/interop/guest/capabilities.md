@@ -169,7 +169,11 @@ When Teams external users leave the meeting, or the meeting ends, they can no lo
 
 *Azure Communication Services provides developers tools to integrate Microsoft Teams Data Loss Prevention that is compatible with Microsoft Teams. For more information, go to [how to implement Data Loss Prevention (DLP)](../../../how-tos/chat-sdk/data-loss-prevention.md)
 
-**Inline images are images that are copied and pasted directly into to the box at the bottom of the chat in the Teams client. We currently do not support image upload functionality via "Upload from this device" menu or via drag-and-drop (such as dragging images directly to the box at the bottom of the chat) in the Teams client. To copy an image, the Teams user can either use their operating system's context menu to copy the image file then paste it into the box at the bottom of the chat in their Teams client, or use keyboard shortcuts instead.
+**Microsoft Teams allows users to share images by:
+1. Copying & paste into the chat box - inline images.
+1. Drag & drop into the chat area.
+1. Upload an image as a file via the "Upload from this device" button.
+Azure Communication Services currently support only option one for copying and pasting the image. Users can achieve it using keyboard shortcuts or the operating system's context menu options for copy and paste.
 
 **Inline image support is currently in public preview and is available in the Chat SDK for JavaScript only. Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, review [Supplemental Terms of Use for Microsoft Azure Previews.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
