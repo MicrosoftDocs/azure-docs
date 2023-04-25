@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 ---
 # Common solutions for multi-tenant user management
 
-This article is the fourth in a series of articles that provide guidance for configuring and providing user lifecycle management in Azure Active Directory (Azure AD) multi-tenant environments. Reference the following articles in the series for more information.
+This article is the fourth in a series of articles that provide guidance for configuring and providing user lifecycle management in Azure Active Directory (Azure AD) multi-tenant environments. The following articles in the series provide more information as described.
 
 - [Multi-tenant user management introduction](multi-tenant-user-management-introduction.md) is the first in the series.
 - [Multi-tenant user management scenarios](multi-tenant-user-management-scenarios.md) describes three scenarios for which you can use multi-tenant user management features: end user-initiated, scripted, and automated.
@@ -102,10 +102,10 @@ Admins in tenant A perform the following steps to enable their external users to
 1. [Configure access to other applications](../external-identities/hybrid-cloud-to-on-premises.md#access-to-iwa-and-kcd-apps).
 1. Create on-premises users through [MIM](../external-identities/hybrid-cloud-to-on-premises.md#create-b2b-guest-user-objects-through-mim) or [PowerShell](https://www.microsoft.com/download/details.aspx?id=51495).
 
-For more information about B2B collaboration, reference the following articles.
+The following articles provide additional information about B2B collaboration.
 
-- [Grant B2B users in Azure AD access to your on-premises resources](../external-identities/hybrid-cloud-to-on-premises.md)
-- [Azure Active Directory B2B collaboration for hybrid organizations](../external-identities/hybrid-organizations.md)
+- [Grant B2B users in Azure AD access to your on-premises resources](../external-identities/hybrid-cloud-to-on-premises.md) describes how you can provide B2B users access to on-premises apps.
+- [Azure Active Directory B2B collaboration for hybrid organizations](../external-identities/hybrid-organizations.md) describes how you can give your external partners access to apps and resources in your organization.
 
 ## Next steps
 
