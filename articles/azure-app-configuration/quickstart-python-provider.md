@@ -33,8 +33,9 @@ Add the following key-values to the App Configuration store. For more informatio
 | *test.message* | *Hello test*      | Leave empty | Leave empty        |
 | *my_json*      | *{"key":"value"}* | Leave empty | *application/json* |
 
-## Set up the Python app
+## Console Applications
 
+### Connect to App Configuration
 1. Create a new directory for the project named *app-configuration-quickstart*.
 
     ```console
@@ -87,11 +88,11 @@ Add the following key-values to the App Configuration store. For more informatio
     print("test.message found: " + str("test.message" in config))
     ```
 
-## Configure your App Configuration connection string
+### Run the application
 
 1. Set an environment variable named **AZURE_APPCONFIG_CONNECTION_STRING**, and set it to the connection string of your App Configuration store. At the command line, run the following command:
 
-    ### [Windows command prompt](#tab/windowscommandprompt)
+    #### [Windows command prompt](#tab/windowscommandprompt)
 
     To build and run the app locally using the Windows command prompt, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
 
@@ -99,7 +100,7 @@ Add the following key-values to the App Configuration store. For more informatio
     setx AZURE_APPCONFIG_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
     ```
 
-    ### [PowerShell](#tab/powershell)
+    #### [PowerShell](#tab/powershell)
 
     If you use Windows PowerShell, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
 
@@ -107,7 +108,7 @@ Add the following key-values to the App Configuration store. For more informatio
     $Env:AZURE_APPCONFIG_CONNECTION_STRING = "<app-configuration-store-connection-string>"
     ```
 
-    ### [macOS](#tab/unix)
+    #### [macOS](#tab/unix)
 
     If you use macOS, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
 
@@ -115,7 +116,7 @@ Add the following key-values to the App Configuration store. For more informatio
     export AZURE_APPCONFIG_CONNECTION_STRING='<app-configuration-store-connection-string>'
     ```
 
-    ### [Linux](#tab/linux)
+    #### [Linux](#tab/linux)
 
     If you use Linux, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
 
@@ -125,7 +126,7 @@ Add the following key-values to the App Configuration store. For more informatio
 
 1. Restart the command prompt to allow the change to take effect. Print out the value of the environment variable to validate that it is set properly with the command below.
 
-    ### [Windows command prompt](#tab/windowscommandprompt)
+    #### [Windows command prompt](#tab/windowscommandprompt)
 
     Using the Windows command prompt, run the following command:
 
@@ -133,7 +134,7 @@ Add the following key-values to the App Configuration store. For more informatio
     printenv AZURE_APPCONFIG_CONNECTION_STRING
     ```
 
-    ### [PowerShell](#tab/powershell)
+    #### [PowerShell](#tab/powershell)
 
     If you use Windows PowerShell, run the following command:
 
@@ -141,7 +142,7 @@ Add the following key-values to the App Configuration store. For more informatio
     $Env:AZURE_APPCONFIG_CONNECTION_STRING
     ```
 
-    ### [macOS](#tab/unix)
+    #### [macOS](#tab/unix)
 
     If you use macOS, run the following command:
 
@@ -149,7 +150,7 @@ Add the following key-values to the App Configuration store. For more informatio
     echo "$AZURE_APPCONFIG_CONNECTION_STRING"
     ```
 
-    ### [Linux](#tab/linux)
+    #### [Linux](#tab/linux)
 
     If you use Linux, run the following command:
 
