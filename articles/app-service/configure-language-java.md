@@ -1111,13 +1111,13 @@ Microsoft and Adoptium builds of OpenJDK are provided and supported on App Servi
 
 | Java Version | Linux            | Windows              |
 |--------------|------------------|----------------------|
-| Java 8       | 1.8.0_312 (Zulu) * | 1.8.0_312 (Adoptium) |
-| Java 11      | 11.0.13 (MSFT)   | 11.0.13 (MSFT)       |
-| Java 17      | 17.0.1 (MSFT)    | 17.0.1 (MSFT)        |
+| Java 8       | 1.8.0_312 (Adoptium) * | 1.8.0_312 (Adoptium) |
+| Java 11      | 11.0.13 (Microsoft)   | 11.0.13 (Microsoft)       |
+| Java 17      | 17.0.1 (Microsoft)    | 17.0.1 (Microsoft)        |
 
 \* In following releases, Java 8 on Linux will be distributed from Adoptium builds of the OpenJDK.
 
-If you are [pinned](#choosing-a-java-runtime-version) to an older minor version of Java your site may be using the [Zulu for Azure](https://www.azul.com/downloads/azure-only/zulu/) binaries provided through [Azul Systems](https://www.azul.com/). You can continue to use these binaries for your site, but any security patches or improvements will only be available in new versions of the OpenJDK, so we recommend that you periodically update your Web Apps to a later version of Java.
+If you are [pinned](#choosing-a-java-runtime-version) to an older minor version of Java, your site may be using the deprecated [Azul Zulu for Azure](https://devblogs.microsoft.com/java/end-of-updates-support-and-availability-of-zulu-for-azure/) binaries provided through [Azul Systems](https://www.azul.com/). You can continue to use these binaries for your site, but any security patches or improvements will only be available in new versions of the OpenJDK, so we recommend that you periodically update your Web Apps to a later version of Java.
 
 Major version updates will be provided through new runtime options in Azure App Service. Customers update to these newer versions of Java by configuring their App Service deployment and are responsible for testing and ensuring the major update meets their needs.
 
@@ -1140,7 +1140,7 @@ If a supported Java runtime will be retired, Azure developers using the affected
 
 ### Local development
 
-Developers can download the Production Edition of Azul Zulu Enterprise JDK for local development from [Azul's download site](https://www.azul.com/downloads/azure-only/zulu/).
+Developers can download the Microsoft Build of OpenJDK for local development from [our download site](/java/openjdk/download).
 
 ### Development support
 
