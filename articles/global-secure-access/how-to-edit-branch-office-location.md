@@ -14,7 +14,7 @@ ms.custom:
 
 Learn how to edit a branch office location for Global Secure Access.
 
-## Pre-requisites 
+## Prerequisites 
 - Global Secure Access license for your Microsoft Entra Identity tenant.  
 - Entra Network Access Administrator role in Microsoft Entra Identity.
 - Microsoft Graph module when using PowerShell.
@@ -49,4 +49,3 @@ To update a branch using the Microsoft Graph API in Graph Explorer.
 
 ## Next steps
 - [List office branch locations](how-to-list-branch-locations.md)
-
