@@ -6,7 +6,7 @@ ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 12/16/2022
+ms.date: 04/24/2023
 ms.author: banders
 ms.custom: contperf-fy21q1
 ---
@@ -176,11 +176,12 @@ The following sections describe the limitations and capabilities of each role.
 |Add or remove Department Administrators|✔|✘|✘|✔|✘|✘|✘|
 |View Accounts in the enrollment |✔|✔|✔|✔⁵|✔⁵|✘|✔|
 |Add Accounts to the enrollment and change Account Owner|✔|✘|✘|✔⁵|✘|✘|✘|
-|Purchase reservations|✔|✘|✔|✘|✘|✘|✘|
+|Purchase reservations|✔|✘⁶|✔|✘|✘|✘|✘|
 |Create and manage subscriptions and subscription permissions|✘|✘|✘|✘|✘|✔|✘|
 
 - ⁴ Notification contacts are sent email communications about the Azure Enterprise Agreement.
 - ⁵ Task is limited to accounts in your department.
+- ⁶ The Enterprise Administrator (read only) role doesn't allow reservation purchases. However, if the EA Admin (read only) is also a subscription owner or subscription reservation purchaser, they can purchase a reservation.
 
 ## Add a new enterprise administrator
 
@@ -205,11 +206,11 @@ Direct EA admins can add department admins in the Azure portal. For more informa
 |View department spending quotas|✔|✔|✔|✘|✘|✘|✔|
 |Set department spending quotas|✔|✘|✘|✘|✘|✘|✘|
 |View organization's EA price sheet|✔|✔|✔|✘|✘|✘|✔|
-|View usage and cost details|✔|✔|✔|✔⁶|✔⁶|✔⁷|✔|
+|View usage and cost details|✔|✔|✔|✔⁷|✔⁷|✔⁸|✔|
 |Manage resources in Azure portal|✘|✘|✘|✘|✘|✔|✘|
 
-- ⁶ Requires that the Enterprise Administrator enable **DA view charges** policy in the Enterprise portal. The Department Administrator can then see cost details for the department.
-- ⁷ Requires that the Enterprise Administrator enable **AO view charges** policy in the Enterprise portal. The Account Owner can then see cost details for the account.
+- ⁷ Requires that the Enterprise Administrator enable **DA view charges** policy in the Enterprise portal. The Department Administrator can then see cost details for the department.
+- ⁸ Requires that the Enterprise Administrator enable **AO view charges** policy in the Enterprise portal. The Account Owner can then see cost details for the account.
 
 ## See pricing for different user roles
 

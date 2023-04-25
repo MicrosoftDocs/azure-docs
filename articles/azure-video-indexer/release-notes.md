@@ -13,17 +13,16 @@ ms.author: juliako
 
 To stay up-to-date with the most recent Azure Video Indexer developments, this article provides you with information about:
 
-* [Important notice](#important-notice) about planned changes
 * The latest releases
 * Known issues
 * Bug fixes
 * Deprecated functionality
 
-## Important notice
-
-[!INCLUDE [announcement](./includes/deprecation-announcement.md)]
-
 ## April 2023
+
+### The animation character recognition model has been retired
+
+The **animation character recognition** model has been retired on March 1st, 2023. For any related issues, [open a support ticket via the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 ### Excluding sensitive AI models
 
