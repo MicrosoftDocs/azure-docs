@@ -88,8 +88,8 @@ Communication Services offers the following types of logs that you can enable:
 |`ScreenshareUpperBound`|This field represents the maximum value of the ScreenshareRatingScore scale |
 |`ScreenshareRatingThreshold`|This field indicates the value above which the ScreenshareRatingScore indicates better quality|
 
-## Samples logs
-### Sample for the overall call 
+## Examples logs
+### Example for the overall call 
 ```json
 [
 {
@@ -114,7 +114,7 @@ Communication Services offers the following types of logs that you can enable:
 }
 ]
 ```
-### Sample for the Audio quality 
+### Example for the Audio quality 
 ```json
 [
 {
@@ -140,7 +140,7 @@ Communication Services offers the following types of logs that you can enable:
 }
 ]
 ```
-### Sample for the video quality
+### Example for the video quality
 ```json
 [
 {
@@ -166,7 +166,7 @@ Communication Services offers the following types of logs that you can enable:
 }
 ]
 ```
-### Sample for the screen share
+### Example for the screen share
 ```json
 [
 {
