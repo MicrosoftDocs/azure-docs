@@ -22,7 +22,7 @@ recommendations: false
 [!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
 > [!IMPORTANT]
-> For more information on the latest public preview version (**2023-02-28-preview**) *see*, [Form Recognizer SDK (preview)](sdk-overview-preview.md)
+> For more information on the latest public preview version (**2023-02-28-preview**), *see* [Form Recognizer SDK (preview)](sdk-preview.md)
 
 Azure Cognitive Services Form Recognizer is a cloud service that uses machine learning to analyze text and structured data from documents. The Form Recognizer software development kit (SDK) is a set of libraries and tools that enable you to easily integrate Form Recognizer models and capabilities into your applications. Form Recognizer SDK is available across platforms in C#/.NET, Java, JavaScript, and Python programming languages.
 
@@ -311,7 +311,7 @@ For more information, *see* [Authenticate the client](https://github.com/Azure/a
 
 ### 4. Build your application
 
-You'll create a client object to interact with the Form Recognizer SDK, and then call methods on that client object to interact with the service. The SDKs provide both synchronous and asynchronous methods. For more insight, try a [quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) in a language of your choice.
+Create a client object to interact with the Form Recognizer SDK, and then call methods on that client object to interact with the service. The SDKs provide both synchronous and asynchronous methods. For more insight, try a [quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) in a language of your choice.
 
 ## Help options
 
