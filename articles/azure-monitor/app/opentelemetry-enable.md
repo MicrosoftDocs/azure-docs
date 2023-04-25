@@ -301,7 +301,7 @@ input()
 ---
 
 > [!TIP]
-> For .NET, Node.js, and Python, you'll need to manually add [instrumentation libraries](opentelemetry-configuration.md#install-the-client-library) to autocollect telemetry across popular frameworks and libraries. For Java, these instrumentation libraries are already included and no additional steps are required.
+> For .NET, Node.js, and Python, you'll need to manually add [instrumentation libraries](#install-the-client-library) to autocollect telemetry across popular frameworks and libraries. For Java, these instrumentation libraries are already included and no additional steps are required.
 
 #### Paste your unique Application Insights connection string
 
@@ -634,7 +634,7 @@ The following table represents the currently supported custom telemetry types:
 > [!NOTE]
 > Custom Metrics are under preview in Azure Monitor Application Insights. Custom metrics without dimensions are available by default. To view and alert on dimensions, you need to [opt-in](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
-You may want to collect metrics beyond what is collected by [instrumentation libraries](opentelemetry-configuration.md#install-the-client-library).
+You may want to collect metrics beyond what is collected by [instrumentation libraries](#install-the-client-library).
 
 The OpenTelemetry API offers six metric "instruments" to cover various metric scenarios and you'll need to pick the correct "Aggregation Type" when visualizing metrics in Metrics Explorer. This requirement is true when using the OpenTelemetry Metric API to send metrics and when using an instrumentation library.
 
@@ -1440,7 +1440,7 @@ Any [attributes](#add-span-attributes) you add to spans are exported as custom p
 
 To add span attributes, use either of the following two ways:
 
-* Use options provided by [instrumentation libraries](opentelemetry-configuration.md#install-the-client-library).
+* Use options provided by [instrumentation libraries](#install-the-client-library).
 * Add a custom span processor.
 
 > [!TIP]
