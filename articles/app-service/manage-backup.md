@@ -21,6 +21,8 @@ Backup and restore are supported in **Basic**, **Standard**, **Premium**, and **
 > - Custom backups can be restored to a target app in another ASE, such as from a V2 ASE to a V3 ASE.
 > - Backups can be restored to target app of the same OS platform as the source app.
 
+[!INCLUDE [backup-restore-vs-disaster-recovery](./includes/backup-restore-disaster-recovery.md)]
+
 ## Automatic vs custom backups
 
 There are two types of backups in App Service. Automatic backups made for your app regularly as long as it's in a supported pricing tier. Custom backups require initial configuration, and can be made on-demand or on a schedule. The following table shows the differences between the two types.
