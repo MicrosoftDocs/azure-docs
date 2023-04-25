@@ -169,6 +169,12 @@ items:
                   href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-ios
     - name: Authenticate and authorize
       items:
+      - name: Create a customer tenant
+        items:
+          - name: Create a customer tenant in the admin center
+            href: how-to-create-customer-tenant-portal.md
+          - name: Create a customer tenant with Microsoft Graph
+            href: how-to-create-customer-tenant-graph.md
       - name: Add your app
         items:
           - name: Register an app
