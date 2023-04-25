@@ -427,7 +427,9 @@
               href: coredns-custom.md
         - name: Egress
           items:
-            - name: Restrict and control cluster egress traffic
+            - name: Outbound network and FQDN rules for AKS clusters
+              href: outbound-rules-control-egress.md
+            - name: Control cluster egress traffic using Azure Firewall
               href: limit-egress-traffic.md
             - name: Configure outbound type for AKS
               href: egress-outboundtype.md
