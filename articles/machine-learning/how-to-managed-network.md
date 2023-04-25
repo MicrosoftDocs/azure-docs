@@ -565,14 +565,14 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
     type: workspace
     name: myworkspace
     managed_network:
-    isolation_mode: allow_internet_outbound
-    outbound_rules:
-    - name: added-perule
-    destination:
+      isolation_mode: allow_internet_outbound
+      outbound_rules:
+      - name: added-perule
+      destination:
         service_resource_id: /subscriptions/{subscription ID}/resourceGroups/{resource group name}/providers/Microsoft.Storage/storageAccounts/{storage account name}
         spark_enabled: true
         subresource_target: blob
-    type: private_endpoint
+      type: private_endpoint
     ```
 
     You can use a YAML configuration file with either the `az ml workspace create` or `az ml workspace update` commands by specifying the `--file` parameter and the name of the YAML file. For example, the following command updates an existing workspace using a YAML file named `workspace_pe.yml`:
