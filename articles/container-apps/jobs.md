@@ -45,7 +45,7 @@ To create a manual job using the Azure CLI, use the `az containerapp job create`
 az containerapp job create \
     --name "my-job" --resource-group "my-resource-group"  --environment "my-environment" \
     --trigger-type "Manual" \
-    --replica-timeout 60 --replica-retry-limit 1 --replica-count 1 --parallelism 1 \
+    --replica-timeout 60 --replica-retry-limit 1 --replica-completion-count 1 --parallelism 1 \
     --image "mcr.microsoft.com/k8se/quickstart-jobs:latest" \
     --cpu "0.25" --memory "0.5Gi"
 ```
@@ -112,7 +112,7 @@ To create a manual job using the Azure CLI, use the `az containerapp job create`
 az containerapp job create \
     --name "my-job" --resource-group "my-resource-group"  --environment "my-environment" \
     --trigger-type "Schedule" \
-    --replica-timeout 60 --replica-retry-limit 1 --replica-count 1 --parallelism 1 \
+    --replica-timeout 60 --replica-retry-limit 1 --replica-completion-count 1 --parallelism 1 \
     --image "mcr.microsoft.com/k8se/quickstart-jobs:latest" \
     --cpu "0.25" --memory "0.5Gi" \
     --cron-expression "0 0 * * *"
@@ -230,7 +230,7 @@ The following table includes the job settings that you can configure:
 |---|---|---|---|
 | Job type | `triggerType` | `--trigger-type` | The type of job. (`Manual` or `Schedule`) |
 | Parallelism | `parallelism` | `--parallelism` | The number of replicas to run per execution. |
-| Replica completion count | `replicaCompletionCount` | `--replica-count` | The number of replicas to complete successfully for the execution to succeed. |
+| Replica completion count | `replicaCompletionCount` | `--replica-completion-count` | The number of replicas to complete successfully for the execution to succeed. |
 | Replica timeout | `replicaTimeout` | `--replica-timeout` | The maximum time in seconds to wait for a replica to complete. |
 | Replica retry limit | `replicaRetryLimit` | `--replica-retry-limit` | The maximum number of times to retry a failed replica. |
 
@@ -244,7 +244,7 @@ The following example creates a job with advanced configuration options:
 az containerapp job create \
     --name "my-job" --resource-group "my-resource-group"  --environment "my-environment" \
     --trigger-type "Schedule" \
-    --replica-timeout 1800 --replica-retry-limit 3 --replica-count 5 --parallelism 5 \
+    --replica-timeout 1800 --replica-retry-limit 3 --replica-completion-count 5 --parallelism 5 \
     --image "myregistry.azurecr.io/quickstart-jobs:latest" \
     --cpu "0.25" --memory "0.5Gi" \
     --command "/startup.sh" \
