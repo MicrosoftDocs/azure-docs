@@ -186,13 +186,7 @@
     - name: Protocol support
       items:
         - name: MQTT support
-          href: iot-hub-mqtt-support.md
-        - name: MQTT 5 support (preview)
-          items:
-            - name: MQTT 5 overview
-              href: iot-hub-mqtt-5.md
-            - name: MQTT 5 API reference
-              href: iot-hub-mqtt-5-reference.md
+          href: ../iot/iot-mqtt-connect-to-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
         - name: AMQP support
           href: iot-hub-amqp-support.md
         - name: Supporting additional protocols
