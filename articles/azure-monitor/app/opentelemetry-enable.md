@@ -301,7 +301,7 @@ input()
 ---
 
 > [!TIP]
-> For .NET, Node.js, and Python, you'll need to manually add [instrumentation libraries](#instrumentation-libraries) to autocollect telemetry across popular frameworks and libraries. For Java, these instrumentation libraries are already included and no additional steps are required.
+> For .NET, Node.js, and Python, you'll need to manually add [instrumentation libraries](opentelemetry-configuration.md#instrumentation-libraries) to autocollect telemetry across popular frameworks and libraries. For Java, these instrumentation libraries are already included and no additional steps are required.
 
 #### Set the Application Insights connection string
 
@@ -358,7 +358,7 @@ Run your application and open your **Application Insights Resource** tab in the 
 :::image type="content" source="media/opentelemetry/server-requests.png" alt-text="Screenshot of the Application Insights Overview tab with server requests and server response time highlighted.":::
 
 > [!IMPORTANT]
-> If you have two or more services that emit telemetry to the same Application Insights resource, you're required to [set Cloud Role Names](#set-the-cloud-role-name-and-the-cloud-role-instance) to represent them properly on the Application Map.
+> If you have two or more services that emit telemetry to the same Application Insights resource, you're required to [set Cloud Role Names](opentelemetry-configuration.md#set-the-cloud-role-name-and-the-cloud-role-instance) to represent them properly on the Application Map.
 
 As part of using Application Insights instrumentation, we collect and send diagnostic data to Microsoft. This data helps us run and improve Application Insights. To learn more, see [Statsbeat in Azure Application Insights](./statsbeat.md).
 
@@ -405,7 +405,7 @@ The following table represents the currently supported custom telemetry types:
 > [!NOTE]
 > Custom Metrics are under preview in Azure Monitor Application Insights. Custom metrics without dimensions are available by default. To view and alert on dimensions, you need to [opt-in](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
-You may want to collect metrics beyond what is collected by [instrumentation libraries](#instrumentation-libraries).
+You may want to collect metrics beyond what is collected by [instrumentation libraries](opentelemetry-configuration.md#instrumentation-libraries).
 
 The OpenTelemetry API offers six metric "instruments" to cover various metric scenarios and you'll need to pick the correct "Aggregation Type" when visualizing metrics in Metrics Explorer. This requirement is true when using the OpenTelemetry Metric API to send metrics and when using an instrumentation library.
 
@@ -1211,7 +1211,7 @@ Any [attributes](#add-span-attributes) you add to spans are exported as custom p
 
 To add span attributes, use either of the following two ways:
 
-* Use options provided by [instrumentation libraries](#instrumentation-libraries).
+* Use options provided by [instrumentation libraries](opentelemetry-configuration.md#instrumentation-libraries).
 * Add a custom span processor.
 
 > [!TIP]
