@@ -48,7 +48,7 @@ The following tutorial uses [OpenSSL](https://www.openssl.org/) and the [OpenSSL
 
 ## Create a root CA
 
-You must first create an internal root certificate authority (CA) and a self-signed root CA certificate, to serve as a trust anchor from which you can create other certificates for testing. The files used to create and maintain your internal root CA are stored in a folder structure and initialized as part of this process. Perform the following steps to:
+You must first create an internal root certificate authority (CA) and a self-signed root CA certificate to serve as a trust anchor from which you can create other certificates for testing. The files used to create and maintain your internal root CA are stored in a folder structure and initialized as part of this process. Perform the following steps to:
 
 - Create and initialize the folders and files used by your root CA
 - Create a configuration file used by OpenSSL to configure your root CA and certificates created with your root CA
