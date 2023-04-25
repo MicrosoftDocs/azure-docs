@@ -27,7 +27,7 @@ The jobs preview has the following limitations:
 - Only supported in the East US 2 EUAP (`eastus2euap`) region
 - Only supported in the Azure CLI using a preview version of the Azure Container Apps extension
 - Only supported in the Consumption plan
-- Logs are not currently supported for scheduled jobs
+- Logs aren't currently supported for scheduled jobs
 
 ## Setup
 
@@ -115,7 +115,7 @@ To use manual jobs, you first create a job with trigger type `Manual` and then s
         --cpu "0.25" --memory "0.5Gi"
     ```
 
-    Manual jobs do not execute automatically. You must start an execution of the job.
+    Manual jobs don't execute automatically. You must start an execution of the job.
 
 1. Start an execution of the job using the following command.
 
@@ -165,7 +165,7 @@ az containerapp job executionhistory \
 ```
 
 ::: zone pivot="container-apps-job-scheduled"
-Executions of scheduled jobs appear in the list when they are started by the schedule.
+Executions of scheduled jobs appear in the list when they're started by the schedule.
 ::: zone-end
 
 ::: zone pivot="container-apps-job-manual"
