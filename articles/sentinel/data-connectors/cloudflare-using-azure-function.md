@@ -37,7 +37,7 @@ Cloudflare_CL
 To integrate with Cloudflare (Preview) (using Azure Functions) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
-- **Azure Blob Storage connection string and container name**: Azure Blob Storage connection string and container name where the logs are pushed to by Cloudflare Logpush. [See the documentation to learn more about creating Azure Blob Storage container.](https://learn.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
+- **Azure Blob Storage connection string and container name**: Azure Blob Storage connection string and container name where the logs are pushed to by Cloudflare Logpush. [See the documentation to learn more about creating Azure Blob Storage container.](/azure/storage/blobs/storage-quickstart-blobs-portal)
 
 
 ## Vendor installation instructions
@@ -84,7 +84,7 @@ Use the following step-by-step instructions to deploy the Cloudflare data connec
 
 **1. Deploy a Function App**
 
-> **NOTE:** You will need to [prepare VS code](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-python) for Azure function development.
+> **NOTE:** You will need to [prepare VS code](/azure/azure-functions/create-first-function-vs-code-python) for Azure function development.
 
 1. Download the [Azure Function App](https://aka.ms/sentinel-CloudflareDataConnector-functionapp) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.
