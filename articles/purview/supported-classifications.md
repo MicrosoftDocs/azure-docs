@@ -6,7 +6,7 @@ ms.author: ankitgup
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: reference
-ms.date: 04/10/2023
+ms.date: 04/25/2023
 #Customer intent: As a data steward or catalog administrator, I need to understand what's supported under classifications.
 ---
 
@@ -6251,6 +6251,25 @@ Complex pattern that accounts for formatted IPv6 numbers (which include colons)
 
 #### Pattern
 
+##### Microsoft.Miscellaneous.IPAddress
+(Display name: IP Address)
+- 000.00.000.00
+- 000.000.00.00
+- 00.000.000.00
+- 000.000.000.00
+- 000.000.000.000
+- 0000:0000:00a0:0:00a:0b00:0a0a:0ea
+- 0000:0000:0000::00:00:000:0
+- 0a0a:a000:00a::
+- 0000:0000:0000:00::0
+- 0a00:00a0:a000:0000:a00a:a00a:00a:aaa0
+
+##### Microsoft.Personal.IPAddress
+(Display name: Personal IP Address)
+
+000.000.000.000
+
+
 #### Checksum
 
 No
@@ -6276,6 +6295,23 @@ Complex pattern that accounts for formatted (periods) and unformatted (no period
 
 #### Pattern
 
+##### Microsoft.Miscellaneous.IPAddress
+(Display name: IP Address)
+- 000.00.000.00
+- 000.000.00.00
+- 00.000.000.00
+- 000.000.000.00
+- 000.000.000.000
+- 0000:0000:00a0:0:00a:0b00:0a0a:0ea
+- 0000:0000:0000::00:00:000:0
+- 0a0a:a000:00a::
+- 0000:0000:0000:00::0
+- 0a00:00a0:a000:0000:a00a:a00a:00a:aaa0
+
+##### Microsoft.Personal.IPAddress
+(Display name: Personal IP Address)
+
+000.000.000.000
 
 #### Checksum
 
@@ -6302,6 +6338,23 @@ Complex pattern that accounts for formatted IPv6 numbers (which include colons)
 
 #### Pattern
 
+##### Microsoft.Miscellaneous.IPAddress
+(Display name: IP Address)
+- 000.00.000.00
+- 000.000.00.00
+- 00.000.000.00
+- 000.000.000.00
+- 000.000.000.000
+- 0000:0000:00a0:0:00a:0b00:0a0a:0ea
+- 0000:0000:0000::00:00:000:0
+- 0a0a:a000:00a::
+- 0000:0000:0000:00::0
+- 0a00:00a0:a000:0000:a00a:a00a:00a:aaa0
+
+##### Microsoft.Personal.IPAddress
+(Display name: Personal IP Address)
+
+000.000.000.000
 
 #### Checksum
 
