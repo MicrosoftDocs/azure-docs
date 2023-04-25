@@ -18,7 +18,7 @@ ms.custom: it-pro
 
 Get started with Azure AD for customers (Preview) that lets you create secure, customized sign-in experiences for your customer-facing apps and services. With these built-in customer tenant features, MS Entra can serve as the identity provider and access management service for your customers.
 
-This article gives you an overview how to set up your customer tenant free trial. The free trial gives you a 30 days access to all product features with few exceptions. See the following table for comparison.
+This article gives you an overview how to set up your customer tenant free trial. The free trial gives you a 30 days access to all product features with few exceptions. See the following table for comparison:
 
 |  Features | Microsoft Entra External Identities for Customers Trial (without credit card) | Azure Active Directory account includes Partners (needs credit card)  | 
 |----------|-----------|------------|
@@ -79,12 +79,12 @@ Follow the steps below, to download and run the sample app.
 
 ## Explore Azure AD for customers
 
-You can register and configure app in your customer tenant. To learn more about app configuration steps, follow the [Register an app in CIAM](register-ciam-app.md) article.
+You can register and configure app in your customer tenant. To learn more about app configuration steps, follow the [Register an app in CIAM](how-to-register-ciam-app.md) article.
 You can also fully customize the end-user authentication experience. You can add your own background images, colors, company logos, and text to customize the sign-up and sign-in experiences across your apps. To learn more about customizable branding, follow the [Customize user experience for your customers](how-to-customize-branding-customers.md) article.  
 
 You can edit and create user flows to customize the sign-up and sign-in experience for your customers. A user flow can be associated with one or more of your applications. First you'll enable self-service sign-up for your tenant. Then you can configure the identity providers you want to allow external users to use for sign-in. Then you'll create and customize the sign-up user flow and assign your applications to it. To learn more about how to create a sign-up and sign-in user flow for customers, follow the  [Create a sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md)  article.
 
 ## Next steps
- - [Register an app in CIAM](register-ciam-app.md)
+ - [Register an app in CIAM](how-to-register-ciam-app.md)
  - [Customize user experience for your customers](how-to-customize-branding-customers.md)
  - [Create a sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md)
