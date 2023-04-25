@@ -62,12 +62,12 @@ Install the [Azure Linux VM](../virtual-machines/extensions/agent-linux.md) agen
     - For Ubuntu/Debian:
 
      ```bash
-        systemctl enable --now walinuxagent.service
+        sudo systemctl enable --now walinuxagent.service
      ```
     - For other distributions: 
     
     ```bash
-       systemctl enable --now waagent.service
+       sudo systemctl enable --now waagent.service
     ```
 
 
