@@ -1317,6 +1317,21 @@
       "source_path_from_root": "/articles/iot-hub/quickstart-control-device-android.md",
       "redirect_url": "/azure/iot-develop/about-iot-sdks",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-mqtt-5-reference.md",
+      "redirect_url": "/azure/iot/iot-mqtt-5-preview-reference",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-mqtt-5.md",
+      "redirect_url": "/azure/iot/iot-mqtt-5-preview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-mqtt-support.md",
+      "redirect_url": "/azure/iot/iot-mqtt-connect-to-iot-hub",
+      "redirect_document_id": true
     }
   ]
 }
