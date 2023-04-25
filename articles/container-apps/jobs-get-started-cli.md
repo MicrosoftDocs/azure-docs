@@ -12,7 +12,7 @@ zone_pivot_groups: container-apps-job-types
 
 # Create a job with Azure Container Apps (preview)
 
-Azure Container Apps jobs enable you to run containerized workloads that execute for a finite duration and then terminate successfully. Jobs can be triggered manually or on a schedule. You can use jobs to perform tasks such as data processing, machine learning, and more.
+Azure Container Apps [jobs](jobs.md) enable you to run containerized workloads that execute for a finite duration and then terminate successfully. Jobs can be triggered manually or on a schedule. You can use jobs to perform tasks such as data processing, machine learning, and more.
 
 ## Prerequisites
 
