@@ -40,9 +40,6 @@ The implementation of end-of-call survey logs represents an augmented functional
 
 
 
-
-
-
 The End of Call Survey is a valuable tool that allows you to gather insights into how end-users perceive the quality and reliability of your JavaScript/Web SDK calling solution. The accompanying logs contain crucial data that helps assess end-users' experience, including:
 
 Overall Call: Responses indicate how a call participant perceived their overall call quality.
