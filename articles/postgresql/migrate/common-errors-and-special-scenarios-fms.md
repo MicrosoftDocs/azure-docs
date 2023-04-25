@@ -6,7 +6,7 @@ author: harmeet-singh
 ms.author: hasingh
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/25/2023 
+ms.date: 04/25/2023
 ms.custom:
 ---
 
