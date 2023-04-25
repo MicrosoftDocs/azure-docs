@@ -202,6 +202,9 @@ items:
       href: tutorials/virtual-visits/sample-builder.md
     - name: Proxy your calling traffic
       href: tutorials/proxy-calling-support-tutorial.md
+    - name: Survey users
+      href: tutorials/end-of-call-survey-tutorial.md
+      displayName: diagnostics, Survey, feedback, quality, reliability, users, end, call, quick
     - name: Call management
       items:
       - name: Manage calls
@@ -577,9 +580,10 @@ items:
       - name: Call flow topologies
         href: concepts/detailed-call-flows.md
     - name: Mobile integrations
+    - name: Quality and Reliability
       items:
-      - name: Push notifications
-        href: concepts/notifications.md
+      - name: End of Call Survey
+        href: concepts/voice-video-calling/end-of-call-survey-concept.md
     - name: Analytics
       items:
       - name: Call logs

@@ -37,6 +37,8 @@ landingContent:
             url: confidential-computing-solutions.md
           - text: Deploying confidential computing solutions
             url: confidential-computing-deployment-models.md
+          - text: Cleanroom solutions on confidential computing
+            url: multi-party-data.md
       - linkListType: concept
         links:
           - text: Microsoft Azure Attestation
@@ -49,6 +51,8 @@ landingContent:
             url: ../virtual-machines/trusted-launch.md
           - text: Azure Key Vault Managed HSM
             url: ../key-vault/managed-hsm/index.yml
+          - text: Azure SQL Always Encrypted in secure enclaves
+            url: https://learn.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves
           - text: Azure IoT Edge
             url: ../iot-edge/deploy-confidential-applications.md
       - linkListType: whats-new
