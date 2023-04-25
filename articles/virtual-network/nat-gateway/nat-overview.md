@@ -84,7 +84,7 @@ Virtual appliance UDR / ExpressRoute >> NAT gateway >> Instance-level public IP 
 
   * Public IP addresses and prefixes derived from custom IP prefixes (BYOIP), to learn more, see [Custom IP address prefix (BYOIP)](../ip-services/custom-ip-address-prefix.md).
 
-* NAT gateway can’t be associated to an IPv6 public IP address or IPv6 public IP prefix. It can be associated to a dual stack subnet, but will only be able to direct outbound traffic with an IPv4 address.
+* NAT gateway can’t be associated to an IPv6 public IP address or IPv6 public IP prefix. It can be associated to a dual stack subnet, but will only be able to direct outbound traffic with an IPv4 address. To set up a dual stack outbound configuration, see [dual stack outbound connectivity with NAT gateway and Load balancer](/azure/virtual-network/nat-gateway/tutorial-dual-stack-outbound-nat-load-balancer?tabs=dual-stack-outbound-portal).
 
 * NAT gateway can be associated to an Azure Firewall subnet in a hub virtual network and provide outbound connectivity from spoke virtual networks peered to the hub. To learn more, see [Azure Firewall integration with NAT gateway](../../firewall/integrate-with-nat-gateway.md).
 
