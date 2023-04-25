@@ -169,6 +169,9 @@ You can configure a managed VNet using either the `az ml workspace create` or `a
 
 * __Update an existing workspace__:
 
+    > [!WARNING]
+    > Before updating an existing workspace to use a managed virtual network, you must delete all computing resources for the workspace. This includes compute instance, compute cluster, serverless, serverless spark, and managed online endpoints.
+
     The following example updates an existing workspace. The `--managed-network allow_internet_outbound` parameter configures a managed VNet for the workspace:
 
     ```azurecli
@@ -239,6 +242,9 @@ To configure a managed VNet that allows internet outbound communications, use th
     ```
 
 * __Update an existing workspace__:
+
+    > [!WARNING]
+    > Before updating an existing workspace to use a managed virtual network, you must delete all computing resources for the workspace. This includes compute instance, compute cluster, serverless, serverless spark, and managed online endpoints.
 
     The following example demonstrates how to create a managed VNet for an existing Azure Machine Learning workspace named "myworkspace":
     
