@@ -49,11 +49,8 @@ List all branches in your tenant using PowerShell.
 1. Use the List Branches API to get the list of branches. 
     ```
     $response = $null  
-
     $uri = "https://graph.microsoft.com/beta/networkaccess/branches"  
-
     $method = 'GET'  
-
     $response = (Invoke-MgGraphRequest -Uri $uri -Headers $headers -Method $method -Body $null).value 
     ```
 
