@@ -150,17 +150,17 @@ When you find interesting results or important rows of data, add those results t
 
 
 ## View bookmarks
-Navigate to your hunt's bookmark tab to view your bookmarks with previously created details.
+1. Navigate to your hunt's bookmark tab to view your bookmarks with previously created details.
 
-:::image type="content" source="media/organize-hunts/view-bookmark.png" alt-text="Screenshot showing a bookmark with all its details and the hunts action menu open." lightbox="media/organize-hunts/view-bookmark.png":::
+    :::image type="content" source="media/organize-hunts/view-bookmark.png" alt-text="Screenshot showing a bookmark with all its details and the hunts action menu open." lightbox="media/organize-hunts/view-bookmark.png":::
 
-From here select a desired bookmark and perform the following actions:
-- Select entity links to view the corresponding UEBA entity page.
-- View raw results, tags, and notes.
-- Select **View source query** to see the source query in Log Analytics.
-- Select **View bookmark logs** to see the bookmark contents in the Log Analytics hunting bookmark table.
-- Select **Investigate** button to view the bookmark and related entities in the investigation graph. 
-- Select the **Edit** button to update the tags, MITRE tactics and techniques, and notes.
+1. Select a desired bookmark and perform the following actions:
+    - Select entity links to view the corresponding UEBA entity page.
+    - View raw results, tags, and notes.
+    - Select **View source query** to see the source query in Log Analytics.
+    - Select **View bookmark logs** to see the bookmark contents in the Log Analytics hunting bookmark table.
+    - Select **Investigate** button to view the bookmark and related entities in the investigation graph. 
+    - Select the **Edit** button to update the tags, MITRE tactics and techniques, and notes.
 
 ## Interact with entities
 1. Navigate to your hunt's **Entities** tab to view, search, and filter the entities contained in your hunt. This list is generated from the list of entities in the bookmarks. The Entities tab automatically resolves duplicated entries. 
@@ -199,7 +199,7 @@ Option 2: Use the hunts **Actions**.
 
     :::image type="content" source="media/organize-hunts/create-incident-actions-menu.png" alt-text="Screenshot showing hunts actions menu from the bookmarks window.":::
 
-1. During the **Add bookmarks** step use the **Add bookmark** action to choose additional bookmarks from the hunt to add to the incident. You're limited to bookmarks that haven't already been assigned to an incident.
+1. During the **Add bookmarks** step, use the **Add bookmark** action to choose bookmarks from the hunt to add to the incident. You're limited to bookmarks that haven't already been assigned to an incident.
 
 
 ## Update status
