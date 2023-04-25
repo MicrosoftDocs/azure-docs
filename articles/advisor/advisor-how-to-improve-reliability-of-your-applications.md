@@ -8,7 +8,7 @@ ms.date: 04/25/2023
 
 # Improve the reliability of your business-critical applications using Azure Advisor
 
-Azure Advisor helps you assess and improve the relibility of your business-critical applications. 
+Azure Advisor helps you assess and improve the reliability of your business-critical applications. 
 
 ## Reliability recommendations
 
