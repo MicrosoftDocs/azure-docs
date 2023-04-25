@@ -859,7 +859,7 @@ items:
           href: profiler/profiler-trackrequests.md
         - name: Troubleshooting
           href: profiler/profiler-troubleshooting.md
-      - name: AI Code Optimizer
+      - name: Code Optimizer
         displayName: opt insights, optimization insights, code optimization, perflens
         items:
         - name: Overview
