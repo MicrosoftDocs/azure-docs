@@ -184,7 +184,7 @@ To configure health checks:
 
 See the following example:
 
-![Endpoint health checks](./media/traffic-manager-monitoring/health-checks.png)
+[ ![Screenshot of endpoint health checks. ](./media/traffic-manager-monitoring/health-checks.png) ](./media/traffic-manager-monitoring/health-checks.png#lightbox)
 
 > [!NOTE]
 > - Health checks can't be disabled on nested Traffic Manager profiles.
