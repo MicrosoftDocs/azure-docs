@@ -3,15 +3,15 @@ title: Create an Palo Alto Networks deployment
 description: This article describes how to use the Azure portal to create an instance of Palo Alto.
 
 ms.topic: quickstart
-ms.date: 04/24/2023
+ms.date: 04/25/2023
 
 ---
 
-# QuickStart: Get started with Palo Alto Networks
+# QuickStart: Get started with Cloud NGFW by Palo Alto Networks Preview
 
-In this quickstart, you'll use the Azure Marketplace to find and create an instance of  **Cloud NGFW by Palo Alto Networks**.
+In this quickstart, you'll use the Azure Marketplace to find and create an instance of  **Cloud NGFW by Palo Alto Networks Preview**.
 
-## Create a new Palo Alto Networks resource
+## Create a new Cloud NGFW by Palo Alto Networks resource
 
 ### Basics
 
@@ -21,13 +21,13 @@ In this quickstart, you'll use the Azure Marketplace to find and create an insta
 
   :::image type="content" source="media/palo-alto-create/palo-alto-basics.png" alt-text="Screenshot of basics pane of the Palo Alto NetworksNetworks create experience.":::
 
-    | Property  | Description |
-    |---------|---------|
-    | **Subscription**  | From the drop-down, select your Azure subscription where you have owner access. |
-    | **Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see Azure Resource Group overview. |
-    | **Name**  | Put the name for the Palo Alto Networks account you want to create. |
-    | **Region** | Select West Central US. West Central US is the only Azure region supported by Palo Alto Networks during preview. |
-    | **Pricing Plan**     | Specified based on the selected Palo Alto Networks plan. |
+   | Property  | Description |
+   |---------|---------|
+   | **Subscription**  | From the drop-down, select your Azure subscription where you have owner access. |
+   | **Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see Azure Resource Group overview. |
+   | **Name**  | Put the name for the Palo Alto Networks account you want to create. |
+   | **Region** | Select West Central US. West Central US is the only Azure region supported by Palo Alto Networks during preview. |
+   | **Pricing Plan**     | Specified based on the selected Palo Alto Networks plan. |
 
 > [!NOTE]
 > West Central US is the only Azure region supported by Palo Alto Networks during preview.
@@ -37,31 +37,33 @@ In this quickstart, you'll use the Azure Marketplace to find and create an insta
 
 ### Networking
 
-1. After completing the Basics tap, select the **Next: Networking** to see the **Networking** tab. Select either Virtual Network or Virtual Wan Hub. Use the dropdowns to set the **Virtual Network**, **Private Subnet**, and Public **Public Subnet** that is associated with the Palo Alto Networks deployment.  
+1. After completing the Basics tap, select the **Next: Networking** to see the **Networking** tab. 1. Select either **Virtual Network** or **Virtual Wan Hub**. 
 
-  :::image type="content" source="media/palo-alto-create/palo-alto-networking.png" alt-text="Screenshot of the networking pane in the Palo Alto Networks create experience.":::
+1. Use the dropdowns to set the **Virtual Network**, **Private Subnet**, and Public **Public Subnet** associated with the Palo Alto Networks deployment.
 
-1. Select either Public End points for the IP address selection by selecting either Create New or Use Existing.
+   :::image type="content" source="media/palo-alto-create/palo-alto-networking.png" alt-text="Screenshot of the networking pane in the Palo Alto Networks create experience.":::
 
-1. Select the checkbox **Enable Source NAT** to indicate NAT settings.
+1. For **Public IP Address Configuration**,  select either **Create New** or **Use Existing** and type in a name for **Public IP Address Name(s)**.
 
-### Rulestack
+1. Select the checkbox **Enable Source NAT** to indicate your preferred NAT settings.
 
-1. After setting the DNS values, select the **Next: Rulestack** to see the **Rulestack** tab. You can set the rules for the firewall using this tab.
+### Security Policy
+
+1. After setting the DNS values, select the **Next: Security Policy** to see the **Security Policies** tab. You can set the policies for the firewall using this tab.
 
   :::image type="content" source="media/palo-alto-create/palo-alto-rulestack.png" alt-text="Screenshot of the Rulestack in the Palo Alto Networks create experience.":::
 
-1. Select checkbox **Managed By** to indicate either Azure Portal or Palo Alto Networks Panaroma.
+1. Select checkbox **Managed By** to indicate either **Azure Portal** or **Palo Alto Networks Panaroma**.
 
-1. Select the checkbox **Choose a Local Rulestack** to indicate Create New or Use Existing options.
+1. For **Choose Local Rulestack**, select either **Create New** or **Use Existing** options.
 
-1. Input an exisiting rulestack in the **Choose a Local Rulestack** option.
+1. Input an existing rulestack in the **Local Rulestack** option.
 
 1. Select the checkbox **Best practice rule** to indicate Firewall mode or IDS mode options.
 
 ### DNS Proxy
 
-1. After completing the Rulestack values, select the **Next: DNS Proxy** to see the **DNS Proxy** screen.
+1. After completing the **Security Policies** values, select the **Next: DNS Proxy** to see the **DNS Proxy** screen.
 
 :::image type="content" source="media/palo-alto-create/palo-alto-dns-proxy.png" alt-text="Screenshot of the DNS Proxy in the Palo Alto Networks create experience.":::
 
@@ -75,10 +77,10 @@ You can specify custom tags for the new Palo Alto Networks resource in Azure by 
 
     :::image type="content" source="media/palo-alto-create/palo-alto-tags.png" alt-text="Screenshot showing the tags pane in the Palo Alto Networks create experience.":::
 
-    | Property | Description |
-    |----------| -------------|
-    |**Name** | Name of the tag corresponding to the Azure Palo Alto Networks resource. |
-    | **Value** | Value of the tag corresponding to the Azure Palo Alto Networks resource. |
+   | Property | Description |
+   |----------| -------------|
+   |**Name** | Name of the tag corresponding to the Azure Palo Alto Networks resource. |
+   | **Value** | Value of the tag corresponding to the Azure Palo Alto Networks resource. |
 
 ### Terms
 
@@ -96,13 +98,13 @@ Next, you must accept the Terms of Use for the new Palo Alto Networks resource.
 
    :::image type="content" source="media/palo-alto-create/palo-alto-review-create.png" alt-text="screenshot of review and create palo-alto resource":::
 
-1. Once you've reviewed all the information select **Create**. Azure now deploys the Palo AltoaaS resource.
+1. Once you've reviewed all the information select **Create**. Azure now deploys the Cloud NGFW by Palo Alto Networks.
 
    :::image type="content" source="media/palo-alto-create/palo-alto-deploying.png" alt-text="Screenshot showing Palo Alto Networks deployment in process.":::
 
 ## Deployment completed
 
-1. Once the create process is completed, select **Go to Resource** to navigate to the specific Palo Alto Networks resource.
+1. Once the create process is completed, select **Go to Resource** to navigate to the specific Cloud NGFW by Palo Alto Networks resource.
 
    :::image type="content" source="media/palo-alto-create/palo-alto-deploy-complete.png" alt-text="Screenshot of a completed Palo Alto Networks deployment.":::
 
