@@ -10,7 +10,7 @@ ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.date: 04/24/2023
+ms.date: 04/25/2023
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
 
@@ -1367,17 +1367,7 @@ There are two potential actions for reading existing blobs. To make this conditi
 
 The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs below to view the examples for your preferred portal editor.
 
-# [Visual editor](#tab/visual-editor)
-
-Select the **Portal** tab below to see how to add this condition using the visual condition editor in the Azure portal.
-
-# [Code editor](#tab/code-editor)
-
-Select the **Portal** tab below to see how to add this condition using the code condition editor in the Azure portal.
-
----
-
-# [Portal](#tab/portal/visual-editor)
+# [Portal: Visual editor](#tab/portal-visual-editor)
 
 #### Add action
 
@@ -1411,7 +1401,7 @@ The following image shows the condition after the settings have been entered int
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-utcnow-containers-read-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access allowed after a specific date and time." lightbox="./media/storage-auth-abac-examples/environ-utcnow-containers-read-portal.png":::
 
-# [Portal](#tab/portal/code-editor)
+# [Portal: Code editor](#tab/portal-code-editor)
 
 To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
 
@@ -1483,17 +1473,7 @@ There are five potential actions for read, write, add and delete access to exist
 
 The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs below to view the examples for your preferred portal editor.
 
-# [Visual editor](#tab/visual-editor)
-
-Select the **Portal** tab below to see how to add this condition using the visual condition editor in the Azure portal.
-
-# [Code editor](#tab/code-editor)
-
-Select the **Portal** tab below to see how to add this condition using the code condition editor in the Azure portal.
-
----
-
-# [Portal](#tab/portal/visual-editor)
+# [Portal: Visual editor](#tab/portal-visual-editor)
 
 #### Add action
 
@@ -1530,7 +1510,7 @@ The following image shows the condition after the settings have been entered int
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-subnet-containers-read-write-delete-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access to specific containers allowed from a specific subnet." lightbox="./media/storage-auth-abac-examples/environ-subnet-containers-read-write-delete-portal.png":::
 
-# [Portal](#tab/portal/code-editor)
+# [Portal: Code editor](#tab/portal-code-editor)
 
 To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
 
@@ -1621,17 +1601,7 @@ There are two potential actions for reading existing blobs. To make this conditi
 
 The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs below to view the examples for your preferred portal editor.
 
-# [Visual editor](#tab/visual-editor)
-
-Select the **Portal** tab below to see how to add this condition using the visual condition editor in the Azure portal.
-
-# [Code editor](#tab/code-editor)
-
-Select the **Portal** tab below to see how to add this condition using the code condition editor in the Azure portal.
-
----
-
-# [Portal](#tab/portal/visual-editor)
+# [Portal: Visual editor](#tab/portal-visual-editor)
 
 Here are the settings to add this condition using the visual condition editor in the Azure portal.
 
@@ -1676,7 +1646,7 @@ The following image shows the condition after the settings have been entered int
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access requiring any private link for sensitive data." lightbox="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png":::
 
-# [Portal](#tab/portal/code-editor)
+# [Portal: Code editor](#tab/portal-code-editor)
 
 To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
 
@@ -1754,17 +1724,7 @@ There are five potential actions for read, write and delete of existing blobs. T
 
 The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs below to view the examples for your preferred portal editor.
 
-# [Visual editor](#tab/visual-editor)
-
-Select the **Portal** tab below to see how to add this condition using the visual condition editor in the Azure portal.
-
-# [Code editor](#tab/code-editor)
-
-Select the **Portal** tab below to see how to add this condition using the code condition editor in the Azure portal.
-
----
-
-# [Portal](#tab/portal/visual-editor)
+# [Portal: Visual editor](#tab/portal-visual-editor)
 
 Here are the settings to add this condition using the visual condition editor in the Azure portal.
 
@@ -1810,7 +1770,7 @@ The following image shows the condition after the settings have been entered int
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-private-endpoint-containers-read-write-delete-portal.png" alt-text="Screenshot of condition editor in Azure portal showing read, write, or delete blobs in named containers with private endpoint environment attribute." lightbox="./media/storage-auth-abac-examples/environ-private-endpoint-containers-read-write-delete-portal.png":::
 
-# [Portal](#tab/portal/code-editor)
+# [Portal: Code editor](#tab/portal-code-editor)
 
 To add the condition using the code editor, choose one of the condition code samples below, depending on the role associated with the assignment.
 
@@ -1929,17 +1889,7 @@ There are two potential actions for reading existing blobs. To make this conditi
 
 The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs below to view the examples for your preferred portal editor.
 
-# [Visual editor](#tab/visual-editor)
-
-Select the **Portal** tab below to see how to add this condition using the visual condition editor in the Azure portal.
-
-# [Code editor](#tab/code-editor)
-
-Select the **Portal** tab below to see how to add this condition using the code condition editor in the Azure portal.
-
----
-
-# [Portal](#tab/portal/visual-editor)
+# [Portal: Visual editor](#tab/portal-visual-editor)
 
 Here are the settings to add this condition using the visual condition editor in the Azure portal.
 
@@ -1987,7 +1937,7 @@ The following image shows the condition after the settings have been entered int
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-specific-private-link-sensitive-read-tagged-users-portal.png" alt-text="Screenshot of condition editor in Azure portal showing read access allowed over a specific private endpoint for tagged users." lightbox="./media/storage-auth-abac-examples/environ-specific-private-link-sensitive-read-tagged-users-portal.png":::
 
-# [Portal](#tab/portal/code-editor)
+# [Portal: Code editor](#tab/portal-code-editor)
 
 To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
 
