@@ -1,11 +1,11 @@
 ---
 title: Associate peer ASN to Azure subscription - PowerShell
-description: Associate peer ASN to Azure subscription using PowerShell.
+description: Learn how to associate peer ASN to Azure subscription using PowerShell.
 services: internet-peering
 author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 01/23/2023
+ms.date: 04/24/2023
 ms.author: halkazwini 
 ms.custom: template-how-to, devx-track-azurepowershell, engagement-fy23
 ---
@@ -48,12 +48,8 @@ Get-AzResourceProvider -ProviderNamespace Microsoft.Peering
 Below is an example to update peer information.
 
 ```powershell
-New-AzPeerAsn `
-    -Name "Contoso_1234" `
-    -PeerName "Contoso" `
-    -PeerAsn 1234 `
-    -Email noc@contoso.com, support@contoso.com `
-    -Phone "+1 (555) 555-5555"
+$contactDetails = New-AzPeerAsnContactDetail -Role Noc -Email "noc@contoso.com" -Phone "+1 (555) 555-5555"
+New-AzPeerAsn -Name "Contoso_1234" -PeerName "Contoso" -PeerAsn 1234 -ContactDetail $contactDetails
 ```
 
 > [!NOTE]
