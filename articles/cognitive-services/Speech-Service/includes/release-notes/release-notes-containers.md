@@ -7,11 +7,10 @@ ms.author: eur
 ---
 
 ### 2023-April release
-	
-Add support for the latest model versions:
-- Custom speech-to-text 3.13.0
-- Speech-to-text 3.13.0
-- Neural text-to-speech 2.12.0
+
+Security Updates
+
+Fix vulnerability issues
 
 ### 2023-March release
 	
