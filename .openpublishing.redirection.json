@@ -966,6 +966,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/aks/managed-aad.md",
+            "redirect_url": "/azure/aks/managed-azure-ad",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/germany/germany-developer-guide.md",
             "redirect_url": "/previous-versions/azure/germany/germany-developer-guide",
             "redirect_document_id": false
@@ -22536,6 +22541,11 @@
         {
             "source_path_from_root": "/articles/communication-services/concepts/bring-your-own-storage.md",
             "redirect_url": "/azure/communication-services/concepts/call-automation/call-recording/bring-your-own-storage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/openshift/howto-configure-ovn-kubernetes.md",
+            "redirect_url": "/azure/openshift/concepts-ovn-kubernetes",
             "redirect_document_id": false
         },
         {
