@@ -20,7 +20,7 @@ In this article, you add sign in, then acquire an access token to the web app pr
 
 ## Create MSAL configuration object
 
-In your code editor, open `authConfig.js` file, then add the following code:
+In your code editor, open *authConfig.js* file, then add the following code:
 
 ```javascript
        
@@ -93,7 +93,7 @@ The Express routes provide the endpoints that enable us the execute operations s
 
 ### App entry point 
 
-In your code editor, open `routes/index.js` file, then add the following code:
+In your code editor, open *routes/index.js* file, then add the following code:
 
 ```javascript
     const express = require('express');
@@ -113,13 +113,13 @@ The `/` route is the entry point to the application. It renders the `views/index
 
 ### Sign-in and sign-out 
 
-1. In your code editor, open `routes/auth.js` file, then add the code from [auth.js](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/blob/main/2-Authorization/4-call-api-express/App/routes/auth.js) to it.
+1. In your code editor, open *routes/auth.js* file, then add the code from [auth.js](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/blob/main/2-Authorization/4-call-api-express/App/routes/auth.js) to it.
 
 1. In your code editor, open `controller/authController.js` file, then add the code from [authController.js](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/blob/main/2-Authorization/4-call-api-express/App/controller/authController.js) to it.
 
-1. In your code editor, open `auth/AuthProvider.js` file, then add the code from [AuthProvider.js](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/blob/main/2-Authorization/4-call-api-express/App/auth/AuthProvider.js) to it.
+1. In your code editor, open *auth/AuthProvider.js* file, then add the code from [AuthProvider.js](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/blob/main/2-Authorization/4-call-api-express/App/auth/AuthProvider.js) to it.
 
-The `/signin`, `/signout` and `/redirect` routes are defined in the `routes/auth.js` file, but their logic live in `auth/AuthProvider.js` file.
+The `/signin`, `/signout` and `/redirect` routes are defined in the *routes/auth.js* file, but their logic live in *auth/AuthProvider.js* file.
 
 - `getMsalInstance` method: 
 
@@ -240,7 +240,7 @@ The `/signin`, `/signout` and `/redirect` routes are defined in the `routes/auth
         //...
     ```
 ### View ID token claims
-In your code editor, open `routes/users.js` file, then add the following code:
+In your code editor, open *routes/users.js* file, then add the following code:
 ```javascript
         const express = require('express');
         const router = express.Router();
@@ -335,13 +335,13 @@ The `getToken` method in the `AuthProvider` class shows how to request for an ac
 
     const tokenResponse = await msalInstance.acquireTokenSilent(silentRequest);
     ```
-- If acquiring token silently succeeds, store the token in a session. You retrieve the token from the session when you call an API.
+- If you successfully acquire a token silently, store it in a session. You retrieve the token from the session when you call an API.
 
     ```javascript
     req.session.accessToken = tokenResponse.accessToken;
     ```
 
-- If acquiring token silently fails (such as with `InteractionRequiredAuthError` exception), request an access token afresh.
+- If you fail to acquire the token silently (such as with `InteractionRequiredAuthError` exception), request an access token afresh.
 
 
 ## Next steps

@@ -144,10 +144,10 @@ To use your app registration in the web API sample:
 
 1. Run the web app client by using the following commands:
 
-```powershell
-    cd 2-Authorization\4-call-api-express\App
-    npm start
-```
+    ```powershell
+        cd 2-Authorization\4-call-api-express\App
+        npm start
+    ```
 
 1. Open your browser, then go to http://localhost:3000. 
 
@@ -169,17 +169,19 @@ To use your app registration in the web API sample:
 
 1. Manipulate the to-do list by creating and removing items.
 
+### How it works
+
 You trigger an API call each time you view, add or remove a task. Each time you trigger an API call, the client web app acquires an access token with the required permissions (scopes) to call an API endpoint. For example, to read a task, the client web app must acquire an access token with `Todolist.Read` permission/scope.
 
 On the web API side, the endpoint must validate that the permissions/scopes present in the access token that the client app presents are valid. If the access token is valid, the endpoint responds to the HTTP request, otherwise, it responds with a `401 Unauthorized` HTTP error. 
 
-If you want to build a web app and web API similar to the sample you've run, complete the steps in [Sign in users and call an API in your own Node.js web application by using Microsoft Entra](how-to-web-app-node-sign-in-call-api-overview.md) article. 
+
 
 ## Next steps
 
 Learn how to: 
 
-- [Sign in users and call an API in your own Node.js web application by using Microsoft Entra](how-to-web-app-node-sign-in-call-api-overview.md).
+- [Sign in users and call an API in your own Node.js web application by using Microsoft Entra](how-to-web-app-node-sign-in-call-api-overview.md). By completing these steps, you build a web app and web API similar to the sample you've run. 
 
 - [Enable password reset](how-to-enable-password-reset-customers.md).
 
