@@ -233,7 +233,7 @@ For critical SAP components, you have achieved the following so far:
 
 * High availability of SAP application servers
 
-    SAP application server instances are redundant components. Each SAP application server instance is deployed on its own VM, which is running in a different Azure fault and upgrade domain. For more information, see the [Fault domains](./planning-guide.md#fault-domains) and [Updade domains](./planning-guide.md#update-domains) sections. 
+    SAP application server instances are redundant components. Each SAP application server instance is deployed on its own VM, which is running in a different Azure fault and upgrade domain. For more information, see the [Fault domains](./planning-guide.md#fault-domains) and [Update domains](./planning-guide.md#update-domains) sections. 
 
     You can ensure this configuration by using Azure availability sets. For more information, see the [Azure availability sets](./planning-guide.md#availability-sets) section. 
 
