@@ -18,7 +18,7 @@ ms.custom: developer
 
 # Prepare a Single-page application for authentication
 
-After registering an application and creating a user flow in a CIAM tenant, a vanilla JavaScript (JS) single-page application (SPA) can be created using an integrated development environment (IDE) or a code editor. In this article, you'll create a vanilla JS SPA and a server to host it.
+After registering an application and creating a user flow in a CIAM tenant, a vanilla JavaScript (JS) single-page application (SPA) can be created using an integrated development environment (IDE) or a code editor. In this article, you'll create a vanilla JS SPA and a server to host the application
 
 In this article:
 
@@ -51,9 +51,9 @@ In this article:
 
 ## Create the server file
 
-**Express** is a web application framework for Node.js. It's used to create a server that hosts the application. **Morgan** is the middleware that logs HTTP requests to the console. The server file is used to host these dependencies and contains the routes for the application.
+**Express** is a web application framework for **Node.js**. It's used to create a server that hosts the application. **Morgan** is the middleware that logs HTTP requests to the console. The server file is used to host these dependencies and contains the routes for the application.
 
-1. Right-click the project folder and select **New File**. Name the file *server.js*.
+1. In your IDE, create a new file and call it *server.js*.
 1. Add the following code snippet to the *server.js* file:
 
     ```javascript

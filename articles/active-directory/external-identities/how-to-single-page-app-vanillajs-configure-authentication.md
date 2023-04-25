@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/19/2023
+ms.date: 04/25/2023
 ms.custom: developer
 
 #Customer intent: As a developer, I want to learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with my CIAM tenant.
@@ -35,8 +35,8 @@ In this article:
 
 ## Creating the authentication configuration file
 
-1. In the **Explorer** pane, right-click the project folder and select **New Folder**. Name the folder **public**.
-1. Right-click the **public** folder and select **New File**. Name the file *authConfig.js*.
+1. In your IDE, create a new folder and name it **public**
+1. In the *public* folder, create a new file and name it *authConfig.js*.
 1. Open *authConfig.js* and add the following code snippet:
 
     ```javascript

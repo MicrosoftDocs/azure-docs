@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/19/2023
+ms.date: 04/25/2023
 ms.custom: developer
 
 #Customer intent: As a developer, I want to learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with my CIAM tenant.
@@ -18,7 +18,7 @@ ms.custom: developer
 
 # Configure a Single-page application User Interface and Sign-In
 
-When the application has been created, the user interface for the application can be created to allow users to sign in and sign out when the project is run. To build the user interface (UI) for the application, you'll use [Bootstrap](https://getbootstrap.com/). Next, you'll run the project and test the sign-in and sign-out functionality.
+When authorization has been configured, the user interface can be created to allow users to sign in and sign out when the project is run. To build the user interface (UI) for the application, you'll use [Bootstrap](https://getbootstrap.com/) to create a responsive UI that contains a **Sign-In** button and a **Sign-Out** button. Next, you'll run the project and test the sign-in and sign-out functionality.
 
 > [!div class="checklist"]
 >
@@ -32,9 +32,9 @@ When the application has been created, the user interface for the application ca
 
 ## Create the *index.html* file
 
-The main page of the application, *index.html* is the first page that is loaded when the application is started. It's also the page that is loaded when the user select the **Sign Out** button.
+The main page of the application, *index.html*, is the first page that is loaded when the application is started. It's also the page that is loaded when the user selects the **Sign Out** button.
 
-1. Right-click the project folder and select **New File**. Name the file *index.html*.
+1. In your project folder, create a new file named *index.html*. This file will contain the HTML for the main page of the application.
 1. Open *index.html* and add the following code snippet:
 
    ```html
@@ -107,7 +107,7 @@ The main page of the application, *index.html* is the first page that is loaded 
 
 ## Create the *signout.html* file
 
-1. Right-click the project folder and select **New File**. Name the file *signout.html*.
+1. In your project folder, create a new file named *signout.html*. This file will contain the HTML for the sign-out page of the application.
 1. Open *signout.html* and add the following code snippet:
 
     ```html
@@ -136,7 +136,7 @@ The main page of the application, *index.html* is the first page that is loaded 
 
 ## Create the *ui.js* file
 
-1. Right-click the project folder and select **New File**. Name the file *ui.js*.
+1. In your project folder, create a new file named *ui.js*. This file will contain the JavaScript code for the UI of the application.
 1. Open *ui.js* and add the following code snippet:
 
     ```javascript
@@ -177,7 +177,7 @@ The main page of the application, *index.html* is the first page that is loaded 
 
 ## Create the styles.css file
 
-1. Right-click the project folder and select **New File**. Name the file *styles.css*.
+1. In your project folder, create a new file named *styles.css*. This file will contain the CSS code for the UI of the application.
 1. Open *styles.css* and add the following code snippet:
 
     ```css
@@ -206,37 +206,21 @@ Now that all the required code snippets have been added, the application can be 
     ```
 
 1. Open a web browser and navigate to the port specified in [Prepare a Single-page application for authentication](how-to-single-page-app-vanillajs-sign-in-sign-out.md). For example, `http://localhost:3000/`.
-
-<!-- SCREENSHOT -->
-
-1. When signing in, for the purposes of this how-to guide, choose the **Sign in using Popup** option.
-
-<!-- SCREENSHOT -->
-
-1. After the popup window appears with the sign-in options, select the account with which to sign-in.
-
-<!-- SCREENSHOT -->
-
-1. A second window may appear indicating that a code will be sent to your email address. If this happens, select Send code. Open the email from the sender Microsoft account team, and enter the 7-digit single-use code. Once entered, select Sign in.
-
-<!-- SCREENSHOT -->
-
-1. For Stay signed in, you can select either **Yes** or **No**.
-
-<!-- SCREENSHOT -->
-
-1. The app will now ask for permission to sign-in and access data. Select **Accept** to continue.
-
-<!-- SCREENSHOT -->
-
+1. Select **No account? Create one**, which starts the sign-up flow.
+1. In the **Create account** window, enter the email address registered to your CIAM tenant which will start the sign-up flow as a user for your application.
+1. After entering a one-time passcode from the CIAM tenant, enter a new password and more account details, this sign-up flow is completed.
+    1. If a window appears prompting you to **Stay signed in**, choose either **Yes** or **No**.
 1. The SPA will now display a button saying **Request Profile Information**. Select it to display profile data.
 
 <!-- SCREENSHOT -->
 
-1. To sign out of the application, select the **Sign Out** button.
+## Sign out of the application
 
-<!-- SCREENSHOT -->
+1. To sign out of the application, select **Sign out** in the navigation bar.
+1. A window appears asking which account to sign out of.
+1. Upon successful sign out, a final window will appear advising you to close all browser windows.
 
 ## Next steps
 
-Learn how to use the Microsoft Authentication Library (MSAL) for JavaScript to sign in users and acquire tokens to call Microsoft Graph.
+> [!div class="nextstepaction"]
+> [Enable self-service password reset](./how-to-enable-password-reset-customers.md)
