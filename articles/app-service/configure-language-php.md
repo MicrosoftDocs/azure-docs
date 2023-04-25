@@ -262,24 +262,6 @@ By default, Azure App Service points the root virtual application path (*/*) to 
 
 ::: zone-end
 
-::: zone pivot="platform-linux"
-
-The web framework of your choice may use a subdirectory as the site root. For example, [Laravel](https://laravel.com/), uses the `public/` subdirectory as the site root.
-
-The default PHP image for App Service uses Apache, and it doesn't let you customize the site root for your app. To work around this limitation, add an *.htaccess* file to your repository root with the following content:
-
-```
-<IfModule mod_rewrite.c>
-    RewriteEngine on
-    RewriteCond %{REQUEST_URI} ^(.*)
-    RewriteRule ^(.*)$ /public/$1 [NC,L,QSA]
-</IfModule>
-```
-
-If you would rather not use *.htaccess* rewrite, you can deploy your Laravel application with a [custom Docker image](quickstart-custom-container.md) instead.
-
-::: zone-end
-
 ## Detect HTTPS session
 
 In App Service, [TLS/SSL termination](https://wikipedia.org/wiki/TLS_termination_proxy) happens at the network load balancers, so all HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to check if the user requests are encrypted or not, inspect the `X-Forwarded-Proto` header.
