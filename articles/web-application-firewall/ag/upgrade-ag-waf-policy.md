@@ -10,7 +10,7 @@ ms.author: lunowak
 ms.custom: devx-track-azurepowershell
 ---
 
-# Migrate Web Application Firewall policies using Azure PowerShell
+# Upgrade to Azure Application Gateway WAF policy
 
 Azure Web Application Firewall (WAF) provides centralized protection of your web applications from common exploits and vulnerabilities. Web Application Firewall Policies contain all the WAF settings and configurations. This includes exclusions, custom rules, managed rules, and so on. These policies are then associated with an application gateway (global), a listener (per-site), or a path-based rule (per-URI) for them to take effect.
 

@@ -117,7 +117,7 @@
      - name: Upgrade WAF
        items:
        - name: Upgrade to WAF policy
-         href: ./ag/upgrade-af-waf-policy.md
+         href: ./ag/upgrade-ag-waf-policy.md
        - name: Migrate using PowerShell
          href: ./ag/migrate-policy.md
      - name: Per-site policies
