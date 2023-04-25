@@ -183,7 +183,7 @@ When you deploy multiple virtual machines as part of one SAP system, you can inf
 
 Update domains represent a logical unit that helps to determine how a VM within an SAP system that consists of SAP instances running on multiple VMs is updated. When a platform update occurs, Azure goes through the process of updating these update domains one by one. By spreading VMs at deployment time over different update domains, you can protect your SAP system party from potential downtime. Similar to Fault Domains, an Azure scale unit is divided into multiple update domains. In order to direct the Azure fabric controller to deploy a set of VMs over different update domains, you need to assign an Azure Availability Set to the VMs at deployment time. For more information on Azure availability sets, see chapter [Azure availability sets](#availability-sets) below.
 
-![Update and failure domains](./media/virtual-machines-shared-sap-planning-guide/3000-sap-ha-on-azure.png)
+[ ![Diagram of update and failure domains.](./media/virtual-machines-shared-sap-planning-guide/3000-sap-ha-on-azure.png) ](./media/virtual-machines-shared-sap-planning-guide/3000-sap-ha-on-azure.png#lightbox) 
 
 ### Availability sets
 
