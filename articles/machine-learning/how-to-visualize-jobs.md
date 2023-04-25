@@ -10,7 +10,6 @@ author: amibp
 ms.reviewer: sgilley
 ms.date: 04/22/2023
 ms.topic: how-to
-ms.custom: devx-track-python, event-tier1-build-2022
 ---
 
 # Visualize training results in studio (preview)
@@ -53,6 +52,7 @@ You'll need the following items:
 To get started, we will need to enable the feature via the preview panel.
 
 ## Explore the dashboard view
+
 Next, let's view your jobs in the studio:
 
 - Navigate to the Jobs tab.
@@ -75,6 +75,7 @@ By pinning columns, you can simplify your list view to only show columns you pin
 For sweep and automl jobs, you can easily identify the best trial and best model with the **Best** label positioned next to the appropriate job display name. This will simplify comparisons across these
 
 ### Sections
+
 The dashboard is made up of sections that can be used to organize different tiles and information. 
 
 By default, you can find all of your logged training metrics in Custom metrics section and resource usage in Resource metrics section. 
@@ -88,6 +89,7 @@ Hide/Show Tiles and Order Tiles in Section
 :::image type="content" source="media/how-to-visualize-jobs/sections-in-dashboard-view.gif" alt-text="Screenshot of how to organize sections in dashboard view.":::
 
 ### Tiles
+
 Tiles are various forms of content such as line chart, bar chart, scatter plot, and markdown that can be added to a section to build a dashboard. 
 
 By default, the Custom metrics and Resource metrics section will generate chart tiles for each of the metrics. 
@@ -134,7 +136,7 @@ You can perform these actions for an individual chart as well by clicking on the
 
 :::image type="content" source="media/how-to-visualize-jobs/edit-line-chart-style.gif" alt-text="Screenshot of how to change line chart styles.":::
 
- ## Compare your training jobs using Compare Tile 
+## Compare your training jobs using Compare Tile 
 
 You can compare the logged metrics, parameters, and tags between your visualized jobs side-by-side in this comparison table. By default, there will be baseline set by the system to easily view the delta between metric values across jobs.  
 

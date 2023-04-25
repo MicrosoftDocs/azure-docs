@@ -10,7 +10,6 @@ author: amibp
 ms.reviewer: sgilley
 ms.date: 04/22/2023
 ms.topic: how-to
-ms.custom: devx-track-python, event-tier1-build-2022
 ---
 
 # Organize & track training jobs (preview)
@@ -45,15 +44,13 @@ This article shows how to do the following tasks:
 You'll need the following items:
 
 * To use Azure Machine Learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
-* You must have an Azure Machine Learning workspace. A workspace is created in [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
+* You must have an Azure Machine Learning workspace. A workspace is created in [Install, set up, and use the CLI (v2)](how-to-configure-cli.md). 
 
 ## Job display name 
 
 The job display name is an optional and customizable name that you can provide for your job. You can edit this directly in your jobs list view by clicking on the pencil icon. 
 
-
 This will help you organize and label your training jobs easily. 
-
 
 ## Select and pin columns 
 
@@ -70,8 +67,6 @@ You can now sort your jobs list by your metric values (i.e. accuracy, loss, f-1 
 To sort by multiple columns, hold the shift key and click column headers that you want to sort. This will help you rank your training results according to your criteria. 
  
 At any point you can manage your sorting preferences for your table in column options under Columns to add or remove columns and change sorting order. 
-
-
 
 ## Filter jobs 
 
