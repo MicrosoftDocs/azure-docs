@@ -423,25 +423,35 @@ To configure a managed VNet that allows only approved outbound communications, u
     service_resource_id = "/subscriptions/{subscription ID}/resourceGroups/{resource group name}/providers/Microsoft.Storage/storageAccounts/{storage account name}"
     subresource_target = "blob"
     spark_enabled = true
-    ws.managed_network.outbound_rules.append(PrivateEndpointDestination(name=rule_name, 
-                                                                        service_resource_id=service_resource_id, 
-                                                                        subresource_target=subresource_target, 
-                                                                        spark_enabled=spark_enabled))
+    ws.managed_network.outbound_rules.append(
+        PrivateEndpointDestination(
+            name=rule_name, 
+            service_resource_id=service_resource_id, 
+            subresource_target=subresource_target, 
+            spark_enabled=spark_enabled
+        )
+    )
 
     # Example FQDN rule
     rule_name = "pytorch"
     destination = "*.pytorch.org"
-    ws.managed_network.outbound_rules.append(FqdnDestination(name=rule_name, destination=destination))
+    ws.managed_network.outbound_rules.append(
+        FqdnDestination(name=rule_name, destination=destination)
+    )
 
     # Example service tag rule
     rule_name = "datafactory"
     service_tag = "DataFactory"
     protocol = "TCP"
     port_ranges = "80, 8080-8089"
-    ws.managed_network.outbound_rules.append(ServiceTagDestination(name=rule_name, 
-                                                                   service_tag=service_tag, 
-                                                                   protocol=protocol, 
-                                                                   port_ranges=port_ranges))
+    ws.managed_network.outbound_rules.append(
+        ServiceTagDestination(
+            name=rule_name, 
+            service_tag=service_tag, 
+            protocol=protocol, 
+            port_ranges=port_ranges
+        )
+    )
 
     # Create the workspace
     ws = ml_client.workspaces.begin_create(ws).result()
@@ -476,25 +486,35 @@ To configure a managed VNet that allows only approved outbound communications, u
     service_resource_id = "/subscriptions/{subscription ID}/resourceGroups/{resource group name}/providers/Microsoft.Storage/storageAccounts/{storage account name}"
     subresource_target = "blob"
     spark_enabled = true
-    ws.managed_network.outbound_rules.append(PrivateEndpointDestination(name=rule_name, 
-                                                                        service_resource_id=service_resource_id, 
-                                                                        subresource_target=subresource_target, 
-                                                                        spark_enabled=spark_enabled))
+    ws.managed_network.outbound_rules.append(
+        PrivateEndpointDestination(
+            name=rule_name, 
+            service_resource_id=service_resource_id, 
+            subresource_target=subresource_target, 
+            spark_enabled=spark_enabled
+        )
+    )
 
     # Example FQDN rule
     rule_name = "pytorch"
     destination = "*.pytorch.org"
-    ws.managed_network.outbound_rules.append(FqdnDestination(name=rule_name, destination=destination))
+    ws.managed_network.outbound_rules.append(
+        FqdnDestination(name=rule_name, destination=destination)
+    )
 
     # Example service tag rule
     rule_name = "datafactory"
     service_tag = "DataFactory"
     protocol = "TCP"
     port_ranges = "80, 8080-8089"
-    ws.managed_network.outbound_rules.append(ServiceTagDestination(name=rule_name, 
-                                                                   service_tag=service_tag, 
-                                                                   protocol=protocol, 
-                                                                   port_ranges=port_ranges))
+    ws.managed_network.outbound_rules.append(
+        ServiceTagDestination(
+            name=rule_name, 
+            service_tag=service_tag, 
+            protocol=protocol, 
+            port_ranges=port_ranges
+        )
+    )
 
     # Update the workspace
     ml_client.workspaces.begin_update(ws)
