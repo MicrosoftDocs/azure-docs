@@ -26,5 +26,4 @@ To create a device link at a branch location with IKEv2 and the default IPSec po
 1. In the left hand navigation, choose **Global Secure Access**. 
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-- [Create applications](how-to-create-applications.md)
+- [List office branch locations](how-to-list-branch-locations.md)

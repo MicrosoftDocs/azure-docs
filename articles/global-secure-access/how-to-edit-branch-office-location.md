@@ -23,31 +23,30 @@ Learn how to edit a branch office location for Global Secure Access.
 ## Edit top-level branch settings
 
 ### Edit a top-level branch setting using the Entra portal
-Not yet available in the UI.
+1. Navigate to the Microsoft Entra admin center at [https://entra.microsoft.com](https://entra.microsoft.com) and login with administrator credentials.
+1. In the left hand navigation, choose **Global Secure Access**. 
+1. Select **Connect**. 
+1. Select **Branch**.
+1. Select a desired branch. 
+1. Under the **Basics** tab, select the pencil icon to edit the name or region. 
+1. Select **Save**.
+1. Under the **Links** tab, select **Add a link to add new device**. Follow the steps listed to add a device link.
 
 ### Edit a top-level branch setting using the API
-You can change the name of your branch location by doing this - 
-
-```
-PATCH https://canary.graph.microsoft.com/testprodbetaZTNA-UI-integration/networkaccess/branches/8d04ae1d-952c-4dd9-9e27-e5c42a92620e  
-{ 
-    "@odata.context": "#$delta", 
-      "name": "modified name of the branch location" 
-} 
-```
-
-## Known issues
-
-### Custom IPsec policy will not work properly if salifetimeinseconds is lower than 300 
-* Validations are not happening at the control plane, so you may get an HTTP status response 200 / OK but it doesn’t mean it will work. 
-* Ensure your `salifetimeinseconds` setting is higher than 300. 
-* If the tunnel is not working within 2-5 minutes, delete your branch and recreate the device link using a `Default IPsec` policy.
-
-### API GET for forwarding profiles works at a tenant level but doesn’t work at branch level 
-* This works: `GET https://canary.graph.microsoft.com/testprodbetaZTNA-UI-integration/networkaccess/forwardingProfiles`
-* This does not work: `GET https://canary.graph.microsoft.com/testprodbetaZTNA-UI-integration/networkaccess/branches/72647a2c-d264-4469-a0fb-ab8d99b33bd2/forwardingProfiles`
+To update a branch using the Microsoft Graph API in Graph Explorer. 
+1. Open a web browser and navigate to the Graph Explorer at https://aka.ms/ge.
+1. Select **PATCH** as the HTTP method from the dropdown. 
+1. Select the API version to **beta**. 
+1. Enter the query:
+    ```
+    PATCH https://graph.microsoft.com/beta/networkaccess/branches/8d2b05c5-1e2e-4f1d-ba5a-1a678382ef16 
+    { 
+        "@odata.context": "#$delta", 
+        "name": "ContosoBranch2" 
+    }
+    ``` 
+1. Select **Run query** to update the branch. 
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-- [Create applications](how-to-create-applications.md)
+- [List office branch locations](how-to-list-branch-locations.md)
 
