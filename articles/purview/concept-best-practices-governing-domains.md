@@ -37,9 +37,9 @@ For example, a ‘marketing domain’ includes:
 Scanning and categorizing data is just the beginning of data governance. Governing a domain of data means describing the data, its meaning, its use in real-world business activities, and how it flows through your technology systems. This helps you identify which data is most critical to your business and which data requires special governance, quality, or compliance considerations.
 
 In the next sections, we'll walk through how to:
-1.	Analyze a business domain.
-2.	Define responsibilities for the domain.
-3.	Implement a domain-driven governance approach in Purview. 
+1. Analyze a business domain.
+1. Define responsibilities for the domain.
+1. Implement a domain-driven governance approach in Purview. 
 
 ## Analyzing a domain
 When you establish an approach to data governance, a domain model can help create a shared understanding of the domain between technical and business experts. A domain model is a description of the real-world concepts and activities inside the business domain you want to govern. You’ll start by sketching an abstract view of your problem space, then refine it as you work toward the solution you implement in Purview. Don’t be afraid of change. You’ll learn and improve your approach as you tackle new domains. 
@@ -56,7 +56,7 @@ Both teams agree they’d like to get better at governing the data used for crit
 
 To begin their work, they sketch a rough view of how order management works at Contoso. 
 
-![Initial domain model for order management](media/concept-best-practices-domains/01-domain-sketch.png)
+![Image shows a sketch of a high-level conceptual domain model for order management with boundaries around supply chain responsibilities and uses of data vs. finance department responsibilities and uses of data.](media/concept-best-practices-domains/01-domain-sketch.png)
 
 Their sketch includes:
 
@@ -71,20 +71,20 @@ Their sketch includes:
 ## Purview implementation
 In the next section, we’ll walk through an implementation in Purview. We will:
 
-1.	Use collections to establish a domain structure, segregate governance roles and responsibilities, and manage access to metadata
-2.	Use the glossary to define key terms and data elements, as well as when it might be helpful to separate glossaries for different business areas 
-3.	Use business assets to model the real-world concepts and activities within these domains
-4.	Scan metadata into our collections so it can be managed by the right people.
-5.	Contextualize your data by linking business and technical information in Purview
+1. Use collections to establish a domain structure, segregate governance roles and responsibilities, and manage access to metadata
+1. Use the glossary to define key terms and data elements, as well as when it might be helpful to separate glossaries for different business areas 
+1. Use business assets to model the real-world concepts and activities within these domains
+1. Scan metadata into our collections so it can be managed by the right people.
+1. Contextualize your data by linking business and technical information in Purview
 
 ### Step 1: Establish a domain structure and assign responsibilities using collections: 
 In the previous diagram, the team identified 2 areas of responsibilities: Supply chain and finance, so we’ll create separate collections for the supply chain and finance department:
 
-![Collection structure]!(media/concept-best-practices-domains/02-collection-structure.png)
+![Screenshot of Purview sources page shows a root collection called Contoso with 3 sub-collections named Finance domain, Supply chain domain, and Attic for separating assets.](media/concept-best-practices-domains/02-collection-structure.png)
 
 Next, we’ll grant our finance curators data curator access to the finance collection. This will ensure they can annotate and manage metadata for finance assets. Our supply chain analysts are consumers of finance data and information, so we’ll add them as data readers. They won’t be able to curate finance assets, but they’ll be able to discover them in Purview, and suggest edits via workflows. We’ll keep permissions manageable by assigning groups to these roles instead of individual users.
 
-![Permissions structure]!(media/concept-best-practices-domains/03-collection-permissions.png)
+![Screenshot from Purview Collections page shows the role assignments for the Finance collection. A group called Finance curators is assigned to the data curators role and a group called supply chain analysts is assigned to the data readers role.](media/concept-best-practices-domains/03-collection-permissions.png)
 
 ### Step 2. Define key terms in the business glossary
 
@@ -94,13 +94,13 @@ Now we can define key terms for these domains. It’s important for everyone at 
 
 Let’s make sure to assign stewards and experts for these terms as well. Experts are people who understand the full context of an asset or glossary term and can help answer questions, provide context, and disambiguate differences between terms when used in different contexts. Stewards are responsible for governance¬—ensuring a term is reviewed, standardized, and approved for use.
 
-![Glossary contacts](media/concept-best-practices-domains/05-glossary-contacts.png)
+![Screenshot from Purview glossary page showing two terms, 'account' and 'order' in the 'Contoso Enterprise Glossary'.](media/concept-best-practices-domains/04-key-terms.png)
 
 ### Step 3: Use assets and asset types to model your domain
 
 When we sketched our domain model, we captured the activities and technology systems that operate in the supply chain and finance domains as well. Let’s take a second look at our sketch and add more context by defining the activities and systems in our domain as well as the relationships between them. 
 
-![Domain model](media/concept-best-practices-domains/06-domain-model.png)
+![Image shows a sketch of a conceptual domain model for order management with boundaries around supply chain responsibilities and uses of data vs. finance department responsibilities and uses of data. Order fulfillment, order placement, shipping, ledger management, invoicing, and payments are highlighted in blue, designating them as business processes. General ledger system and billing system are highlighted in purple, designating them as systems.](media/concept-best-practices-domains/06-domain-model.png)
 
 We’ll add this context to Purview in two steps:
 1. First, we’ll define asset types and their relations
@@ -113,7 +113,7 @@ In this step, we create a blueprint for the context we want to show in Purview. 
 - Business process uses dataset
 - System supports business process
 
-![Asset type structure](media/concept-best-practices-domains/07-asset-model.png)
+![Sreenshot of Purview asset types screen showing the 'new relatioship' panel. The relationship head is business process, the tail is dataset, the relationship label is set to 'uses', the relationship category is association, and the cardinality is 'many to many.'](media/concept-best-practices-domains/07-asset-model.png)
 
 Adding these relationship definitions means we’ll now be able to link datasets to business process assets in Purview. This will help us contextualize data for both business and technology stakeholders.
 
