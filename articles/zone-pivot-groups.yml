@@ -1954,7 +1954,7 @@ groups:
 # Owner: cshoe
 - id: container-apps-job-types
   title: Job types
-  prompt: Select the type of container apps job you want run
+  prompt: Select the type of Container Apps job you want run
   pivots:
   - id: container-apps-job-manual
     title: Manual (on demand)
