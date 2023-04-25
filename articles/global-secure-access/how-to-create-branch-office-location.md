@@ -21,9 +21,9 @@ Learn how to create a branch office location for Global Secure Access.
 - Admin consent is required when using Graph explorer for the Microsoft Graph API. 
 
 ## Create a branch location
-Global Secure Access provides branch connectivity so you can connect a branch office to the Microsoft network. Once a branch is connected to the Microsoft network you can set up network security policies. These policies are applied on all outbound traffic. Alternatively, you can set up clients on individual devices to connect to the Microsoft network regardless of the device location and Internet connection. To learn more about the client for Global Secure Access, see [How to install the Windows client](how-to-install-windows-client.md).
+Global Secure Access provides branch connectivity so you can connect a branch office to the Microsoft network. Once a branch is connected to the Microsoft network, you can set up network security policies. These policies are applied on all outbound traffic. Alternatively, you can set up clients on individual devices to connect to the Microsoft network regardless of the device location and Internet connection. To learn more about the client for Global Secure Access, see [How to install the Windows client](how-to-install-windows-client.md).
 
-There are multiple ways to connect a branch location to the Microsoft network. In a nutshell, you are creating an IPSec tunnel between a core router at your branch location and the nearest Microsoft VPN service. The network traffic is routed by the core router at the branch location and thus a client is not required to be installed on individual devices.
+There are multiple ways to connect a branch location to the Microsoft network. In a nutshell, you are creating an IPSec tunnel between a core router at your branch location and the nearest Microsoft VPN service. The network traffic is routed with the core router at the branch location and thus installation of a client is not required on individual devices.
 
 ### Create a branch location using the Microsoft Entra admin center
 
