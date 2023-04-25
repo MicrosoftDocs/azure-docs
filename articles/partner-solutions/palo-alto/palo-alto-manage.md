@@ -21,15 +21,21 @@ Once your Cloud NGFW by Palo Alto Networks Preview resource is created in the Az
 
 ## Configure Networking and NAT
 
-Add a new User Assigned Managed Identity.
+Select the **Type** by checking the **Virtual Network** or **Virtual VWAN** options.
 
 1. From the Resource menu, select your Cloud NGFW by Palo Alto Networks deployment.
+1. Enter **Virtual Network** , **Private Subnet** and **Public Subnet** details.
 
-1. From **Settings** in the Resource menu, select **Identity**.
+ <!-- :::image type="content" source="media/palo-alto-manage/palo-alto-SNAT.png" alt-text="Screenshot showing NEtworking section."::: -->
 
 1. To add a User Assigned identity, select **Add** in the working pane. You see a new pane for adding **User assigned managed identities** on the right that are part of the subscription. Select an identity. Then, select **Add**.
+1. From **Source Network Address Translation (SNAT)** select the **Enable Source NAT**.
 
-## Configure Rulestack
+    <!-- :::image type="content" source="media/palo-alto-manage/palo-alto-identity.png" alt-text="Screenshot showing the Source NAT details."::: -->
+
+1. From **Destination Network Address Translation (DNAT)** select the **Enable Source NAT**.
+
+    <!-- :::image type="content" source="media/palo-alto-manage/palo-alto-dnat.png" alt-text="Screenshot showing the Destination NAT details."::: -->
 
 1. From the Resource menu, select your Cloud NGFW by Palo Alto Networks resource.
 
@@ -37,13 +43,27 @@ Add a new User Assigned Managed Identity.
 
 1. To upload an existing **Palo Alto config package**, type the appropriate `.conf file` in **File path** in the working pane and select the **+** button and for config package.
 
-1. You see the contents of the file in the working pane. Select **Confirm** if correct.
+## Rulestack
+
+1. For the **Managed by** Select **Azure Portal** or **"Palo Alto Networks Panaroma** to determine the mechanism for managing Rulestack .
+
+    <!-- :::image type="content" source="media/palo-alto-manage/palo-alto-managedby.png" alt-text="Screenshot resources for Palo Alto Rulestack Management option."::: -->
+
+1. For the **Local Rulestack** Select an existing Rulestack from the dropdown.
+
+    <!-- :::image type="content" source="media/palo-alto-manage/palo-alto-localrulestacklist.png" alt-text="Screenshot resources for Palo Alto Rulestack list."::: -->
 
 1. To edit the config file within the Editor, select the pencil icon. When you're done editing, select **Submit**.
 
 ## Enable Log settings
 
-You can add a certificate by uploading it to Azure Key vault, and then associating the certificate with your deployment.
+## Log settings
+
+Click on **edit** to enable **Log Settings**.
+
+1. Check the **Enable Log Settings** checkbox.
+
+1. Select **Log Setting** from the dropdown list.
 
 1. From the Resource menu, select your Cloud NGFW by Palo Alto Networks resource.
 
@@ -60,6 +80,29 @@ You can add a certificate by uploading it to Azure Key vault, and then associati
 1. Select either **Enable** or **Disable**.
 
 ## Delete an Cloud NGFW by Palo Alto Networks
+    <!-- :::image type="content" source="media/palo-alto-manage/palo-alto-logsettings.png" alt-text="Screenshot of Palo Alto Log Settings List."::: -->
+
+
+## Enable DNS Proxy
+
+
+1. Select **Disabled** or **Enabled** checkbox under the **DNS Proxy** .
+
+    <!-- :::image type="content" source="media/palo-alto-manage/palo-alto-dnsproxy.png" alt-text="Screenshot of Palo Alto DNS Proxy setting ."::: -->
+
+1. Select **Save** to enable DNS Proxy.
+
+    
+
+## Rules
+
+
+1. Search for  the Local rules under the **Search** option.
+
+    <!-- :::image type="content" source="media/palo-alto-manage/palo-alto-localruleslist.png" alt-text="Screenshot of Palo Alto Local rules list."::: -->
+
+
+## Delete an Palo Alto deployment
 
 To delete a deployment of Palo Alto:
 
