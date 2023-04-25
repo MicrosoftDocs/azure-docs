@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 04/18/2023
+ms.date: 04/25/2023
 ---
 
 # Add maps for transformations in workflows with Azure Logic Apps
@@ -62,7 +62,7 @@ This article shows how to add a map to your integration account. If you're worki
 
   * Standard workflows
 
-    * References to external assemblies from maps are currently in preview. To configure support for external assemblies, see [.NET Framework assembly support for XSLT transformations added to Azure Logic Apps (Standard)](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/net-framework-assembly-support-added-to-azure-logic-apps/ba-p/3669120).
+    * To configure support for external assemblies, see [.NET Framework assembly support for XSLT transformations added to Azure Logic Apps (Standard)](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/net-framework-assembly-support-added-to-azure-logic-apps/ba-p/3669120).
 
     * No limits apply to map file sizes.
 
