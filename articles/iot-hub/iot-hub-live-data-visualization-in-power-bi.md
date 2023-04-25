@@ -95,8 +95,6 @@ Configure the Stream Analytics job to collect data from your IoT hub.
 
    Leave all other fields at their defaults.
 
-   :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/add-input-to-stream-analytics-job.png" alt-text="Add an input to a Stream Analytics job in Azure":::
-
 5. Select **Save**.
 
 ### Add an output to the Stream Analytics job
