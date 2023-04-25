@@ -243,6 +243,10 @@
           href: concept-onnx.md
         - name: Prebuilt docker images for inference
           href: concept-prebuilt-docker-images-inference.md
+    - name: Monitor models
+      items:
+        - name: Model data collection
+          href: concept-data-collection.md
     - name: MLflow
       items:
         - name: MLflow and Azure Machine Learning
