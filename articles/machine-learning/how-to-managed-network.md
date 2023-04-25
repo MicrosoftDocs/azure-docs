@@ -549,14 +549,48 @@ To configure a managed VNet that allows only approved outbound communications, u
 
 To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the managed VNet, you must perform the following actions:
 
-* Configure an outbound private endpoint for the workspace's default storage account.
 * After you configure the managed VNet, provision it and flag it to allow spark jobs.
+* Configure an outbound private endpoint for the Azure Storage Account.
 
-1. Configure an outbound private endpoint
+1. Provision the managed VNet.
 
     # [Azure CLI](#tab/azure-cli)
 
-    Use a YAML file to define the managed VNet configuration and add a private endpoint for the Azure Machine Learning workspace's default storage account. Also set `spark_enabled: true`:
+    The following example shows how to provision a managed VNet for serverless spark jobs by using the `--include-spark` parameter.
+
+    ```azurecli
+    az ml workspace provision-network -g my_resource_group -n my_workspace_name --include-spark
+    ```
+
+    # [Python](#tab/python)
+
+    The following example shows how to provision a managed VNet for serverless spark jobs:
+
+    ```python
+    # Connect to a workspace named "myworkspace"
+    ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace_name="myworkspace")
+
+    # whether to provision spark vnet as well
+    include_spark = True
+
+    provision_network_result = ml_client.workspaces.begin_provision_network(ws_name, include_spark).result()
+    ```
+
+    # [Studio](#tab/azure-studio)
+
+    1. Sign in to the [Azure portal](https://ms.azure.com), and choose your Azure Machine Learning workspace.
+    1. Go to the networking blade and managed network tab.
+    1. Check the box: Use serverless spark compute.
+
+        <!-- :::image type="content" source="TBU" alt-text="" lightbox=""::: -->
+
+    ---
+
+1. Configure an outbound private endpoint.
+
+    # [Azure CLI](#tab/azure-cli)
+
+    Use a YAML file to define the managed VNet configuration and add a private endpoint for the Azure Storage Account. Also set `spark_enabled: true`:
 
     > [!TIP]
     > This example is for a managed VNet configured to allow internet traffic. If you want to allow only approved outbound traffic, set `isolation_mode: allow_only_approved_outbound` instead.
@@ -575,7 +609,7 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
       type: private_endpoint
     ```
 
-    You can use a YAML configuration file with either the `az ml workspace create` or `az ml workspace update` commands by specifying the `--file` parameter and the name of the YAML file. For example, the following command updates an existing workspace using a YAML file named `workspace_pe.yml`:
+    You can use a YAML configuration file with the `az ml workspace update` command by specifying the `--file` parameter and the name of the YAML file. For example, the following command updates an existing workspace using a YAML file named `workspace_pe.yml`:
 
     ```azurecli
     az ml workspace update --file workspace_pe.yml --resource_group rg
@@ -583,7 +617,7 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
 
     # [Python](#tab/python)
 
-    The following example demonstrates how to create a managed VNet for an existing Azure Machine Learning workspace named `myworkspace`. It also adds a private endpoint for the storage account and sets `spark_enabled=true`:
+    The following example demonstrates how to create a managed VNet for an existing Azure Machine Learning workspace named `myworkspace`. It also adds a private endpoint for the Azure Storage Account and sets `spark_enabled=true`:
 
     > [!TIP]
     > The following example is for a managed VNet configured to allow internet traffic. If you want to allow only approved outbound traffic, use `IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND` instead.
@@ -616,40 +650,6 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
     # [Studio](#tab/azure-studio)
 
     TBD
-
-    ---
-
-1. Provision the managed VNet 
-
-    # [Azure CLI](#tab/azure-cli)
-
-    The following example shows how to provision a managed VNet for serverless spark jobs by using the `--include-spark` parameter.
-
-    ```azurecli
-    az ml workspace provision-network -g my_resource_group -n my_workspace_name --include-spark
-    ```
-
-    # [Python](#tab/python)
-
-    The following example shows how to provision a managed VNet for serverless spark jobs:
-
-    ```python
-    # Connect to a workspace named "myworkspace"
-    ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace_name="myworkspace")
-
-    # whether to provision spark vnet as well
-    include_spark = True
-
-    provision_network_result = ml_client.workspaces.begin_provision_network(ws_name, include_spark).result()
-    ```
-
-    # [Studio](#tab/azure-studio)
-
-    1. Sign in to the [Azure portal](https://ms.azure.com), and choose your Azure Machine Learning workspace.
-    1. Go to the networking blade and managed network tab.
-    1. Check the box: Use serverless spark compute.
-
-        <!-- :::image type="content" source="TBU" alt-text="" lightbox=""::: -->
 
     ---
 
