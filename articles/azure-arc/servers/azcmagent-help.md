@@ -17,7 +17,7 @@ azcmagent help [flags]
 
 ## Examples
 
-Show all available commands for the command line interface
+Show all available commands for the command line interface.
 
 ```
 azcmagent help

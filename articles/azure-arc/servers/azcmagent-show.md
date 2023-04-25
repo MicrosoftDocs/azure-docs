@@ -17,13 +17,13 @@ azcmagent show [flags]
 
 ## Examples
 
-Check the status of the agent
+Check the status of the agent.
 
 ```
 azcmagent show
 ```
 
-Check the status of the agent and save it in a JSON file in the current directory
+Check the status of the agent and save it in a JSON file in the current directory.
 
 ```
 azcmagent show -j > "agent-status.json"
@@ -33,6 +33,6 @@ azcmagent show -j > "agent-status.json"
 
 `--os`
 
-Outputs additional information about the operating system
+Outputs additional information about the operating system.
 
 [!INCLUDE [common-flags](includes/azcmagent-common-flags.md)]

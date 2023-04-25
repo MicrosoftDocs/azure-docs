@@ -17,7 +17,7 @@ azcmagent version [flags]
 
 ## Examples
 
-Show the agent version
+Show the agent version.
 
 ```
 azcmagent version

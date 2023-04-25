@@ -31,7 +31,7 @@ azcmagent config clear [property] [flags]
 
 ### Examples
 
-Clear the proxy server URL property
+Clear the proxy server URL property.
 
 ```
 azcmagent config clear proxy.url
@@ -53,7 +53,7 @@ azcmagent config get [property] [flags]
 
 ### Examples
 
-Get the agent mode
+Get the agent mode.
 
 ```
 azcmagent config get config.mode
@@ -75,13 +75,13 @@ azcmagent config info [property] [flags]
 
 ### Examples
 
-Describe all available configuration properties and supported values
+Describe all available configuration properties and supported values.
 
 ```
 azcmagent config info
 ```
 
-Learn more about the extensions allowlist property and its supported values
+Learn more about the extensions allowlist property and its supported values.
 
 ```
 azcmagent config info extensions.allowlist
@@ -125,7 +125,7 @@ azcmagent config set [property] [value] [flags]
 
 ### Examples
 
-Configure the agent to use a proxy server
+Configure the agent to use a proxy server.
 
 ```
 azcmagent config set proxy.url "http://proxy.contoso.corp:8080"

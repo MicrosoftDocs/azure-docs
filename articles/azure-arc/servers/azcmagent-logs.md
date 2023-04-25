@@ -23,7 +23,7 @@ Collect the most recent log files and store them in a ZIP archive in the current
 azcmagent logs
 ```
 
-Collect all log files and store them in a specific location
+Collect all log files and store them in a specific location.
 
 ```
 azcmagent logs --full --output "/tmp/azcmagent-logs.zip"

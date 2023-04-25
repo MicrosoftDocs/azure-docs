@@ -17,18 +17,19 @@ azcmagent disconnect [authentication] [flags]
 
 ## Examples
 
-Disconnect a server using the default login method (interactive browser or device code)
+Disconnect a server using the default login method (interactive browser or device code).
 
 ```
 azcmagent disconnect
 ```
 
-Disconnect a server using a service principal
+Disconnect a server using a service principal.
+
 ```
 azcmagent disconnect --service-principal-id "ID" --service-principal-secret "SECRET"
 ```
 
-Disconnect a server if the corresponding resource in Azure has already been deleted
+Disconnect a server if the corresponding resource in Azure has already been deleted.
 
 ```
 azcmagent disconnect --force-local-only

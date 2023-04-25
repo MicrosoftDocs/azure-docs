@@ -17,7 +17,7 @@ azcmagent license [flags]
 
 ## Examples
 
-Show the license agreement
+Show the license agreement.
 
 ```
 azcmagent license
