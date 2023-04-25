@@ -3,7 +3,7 @@ title: Quickstart - Provision a simulated symmetric key device to Microsoft Azur
 description: Learn how to provision a device that authenticates with a symmetric key in the Azure IoT Hub Device Provisioning Service (DPS)
 author: kgremban
 ms.author: kgremban
-ms.date: 09/29/2021
+ms.date: 04/06/2023
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
@@ -444,18 +444,13 @@ To update and run the provisioning sample with your device information:
 7. You should now see something similar to the following output. A "Hello World" string is sent to the hub as a test message.
 
      ```output
-    D:\azure-iot-samples-csharp\provisioning\Samples\device\SymmetricKeySample>dotnet run --s 0ne00000A0A --i symm-key-csharp-device-01 --p sbDDeEzRuEuGKag+kQKV+T1QGakRtHpsERLP0yPjwR93TrpEgEh/Y07CXstfha6dhIPWvdD1nRxK5T0KGKA+nQ==
-
-    Initializing the device provisioning client...
-    Initialized for registration Id symm-key-csharp-device-01.
-    Registering with the device provisioning service...
-    Registration status: Assigned.
-    Device csharp-device-01 registered to ExampleIoTHub.azure-devices.net.
-    Creating symmetric key authentication for IoT Hub...
-    Testing the provisioned device with IoT Hub...
-    Sending a telemetry message...
-    Finished.
-    Enter any key to exit.
+    D:\azure-iot-samples-csharp\provisioning\device\samples>node register_symkey.js
+    registration succeeded
+    assigned hub=ExampleIoTHub.azure-devices.net
+    deviceId=nodejs-device-01
+    payload=undefined
+    Client connected
+    send status: MessageEnqueued
     ```
 
 ::: zone-end

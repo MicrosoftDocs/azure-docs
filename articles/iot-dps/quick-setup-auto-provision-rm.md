@@ -3,7 +3,7 @@ title: Quickstart - Create an Azure IoT Hub Device Provisioning Service (DPS) us
 description: Azure quickstart - Learn how to create an Azure IoT Hub Device Provisioning Service (DPS) using Azure Resource Manager template (ARM template).
 author: kgremban
 ms.author: kgremban
-ms.date: 01/27/2021
+ms.date: 04/06/2023    
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
@@ -37,8 +37,8 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 Two Azure resources are defined in the template above:
 
-* [**Microsoft.Devices/iothubs**](/azure/templates/microsoft.devices/iothubs): Creates a new Azure IoT Hub.
-* [**Microsoft.Devices/provisioningservices**](/azure/templates/microsoft.devices/provisioningservices): Creates a new Azure IoT Hub Device Provisioning Service with the new IoT Hub already linked to it.
+* [**Microsoft.Devices/IotHubs**](/azure/templates/microsoft.devices/iothubs): Creates a new Azure IoT hub.
+* [**Microsoft.Devices/provisioningServices**](/azure/templates/microsoft.devices/provisioningservices): Creates a new Azure IoT Hub Device Provisioning Service with the new IoT hub already linked to it.
 
 ## Deploy the template
 
@@ -95,10 +95,10 @@ Sign in to your Azure account and select your subscription.
     az account set --subscription {your subscription name or id}
     ```
 
-3. Copy and paste the following commands into your CLI prompt. Then execute the commands by pressing **ENTER**.
+3. Copy and paste the following commands into your CLI prompt. Then execute the commands by selecting the Enter key.
    
     > [!TIP]
-    > The commands will prompt for a resource group location. 
+    > The commands prompt for a resource group location. 
     > You can view a list of available locations by first running the command:
     >
     > `az account list-locations -o table`
@@ -116,16 +116,16 @@ Sign in to your Azure account and select your subscription.
     read
     ```
 
-4. The commands will prompt you for the following information. Provide each value and press **ENTER**.
+4. The commands prompt you for the following information. Provide each value and select the Enter key.
 
     | Parameter | Description |
     | :-------- | :---------- |
-    | **Project name** | The value of this parameter will be used to create a resource group to hold all resources. The string `rg` will be added to the end of the value for your resource group name. |
+    | **Project name** | The value of this parameter is used to create a resource group to hold all resources. The string `rg` is added to the end of the value for your resource group name. |
     | **location** | This value is the region where all resources will reside. |
     | **iotHubName** | Enter a name for the IoT Hub that must be globally unique within the *.azure-devices.net* namespace. You need the hub name in the next section when you validate the deployment. |
     | **provisioningServiceName** | Enter a name for the new Device Provisioning Service (DPS) resource. The name must be globally unique within the *.azure-devices-provisioning.net* namespace. You need the DPS name in the next section when you validate the deployment. |
 
-    The AzureCLI is used to deploy the template. In addition to the Azure CLI, you can also use the Azure PowerShell, Azure portal, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
+    The Azure CLI is used to deploy the template. In addition to the Azure CLI, you can also use the Azure PowerShell, Azure portal, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
 
 
 ## Review deployed resources
@@ -143,7 +143,6 @@ Sign in to your Azure account and select your subscription.
     ```
 
     Notice the hubs that are linked on the `iotHubs` member.
-
 
 ## Clean up resources
 
