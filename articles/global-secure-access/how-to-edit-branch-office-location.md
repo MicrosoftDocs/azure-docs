@@ -5,16 +5,10 @@ author: kenwith
 ms.author: kenwith
 manager: amycolannino
 ms.topic: how-to
-ms.date: 04/13/2023
+ms.date: 04/25/2023
 ms.service: network-access
 ms.custom: 
 ---
-
-
-<!-- 1. H1
-Required. Set expectations for what the content covers, so customers know the 
-content meets their needs. H1 format is # What is <product/service>?
--->
 
 # Learn how to edit a branch office location for Global Secure Access
 
