@@ -258,7 +258,9 @@ Starting with runtime version 2.x, [Functions triggers and bindings](functions-t
 
 To improve the development experience for non-C# projects, Functions lets you reference a versioned extension bundle in your host.json project file. [Extension bundles](functions-bindings-register.md#extension-bundles) makes all extensions available to your app and removes the chance of having package compatibility issues between extensions. Extension bundles also removes the requirement of installing the .NET Core 3.1 SDK and having to deal with the extensions.csproj file. 
 
-Extension bundles is the recommended approach for functions projects other than C# complied projects like Java, JavaScript, PowerShell, Python, C# script. For these projects, the extension bundle setting is generated in the _host.json_ file during initialization. If bundles aren't enabled, you need to update the project's host.json file.
+Use extension bundles for Java, JavaScript, PowerShell, Python, and C# script functions projects. For these projects, the extension bundle setting is generated in the _host.json_ file during initialization. If bundles aren't enabled, you need to update the project's host.json file. 
+
+For C# class library projects, you just add NuGet references to required extension packages in the standard way.
 
 [!INCLUDE [Register extensions](../../includes/functions-extension-bundles.md)]
 
