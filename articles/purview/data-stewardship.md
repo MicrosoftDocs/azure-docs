@@ -62,15 +62,15 @@ Data estate health is a scorecard view that helps management and governance focu
 :::image type="content" source="./media/data-stewardship/data-estate-health-small.png" alt-text="Screenshot of the data stewardship data estate health table in the middle of the dashboard." lightbox="media/data-stewardship/data-estate-health-large.png":::
 
 You can view the following metrics:
-* **Total asset**: Count of assets by collection drill-down
+* **Assets**: Count of assets by collection drill-down
 * **With sensitive classifications**: Count of assets with any system classification applied
 * **Fully curated assets**: Count of assets that have a data owner, at least one classification and a description.
-* **Owners assigned**: Count of assets with data owner assigned on them
+* **Owner assigned**: Count of assets with data owner assigned on them
 * **No classifications**: Count of assets with no classification tag
 * **Out of date**: Percentage of assets that have not been updated in over 365 days.
 * **New**: Count of new assets pushed in the Data Map in the last 30 days
 * **Updated**: Count of assets updated in the Data Map in the last 30 days
-* **Deleted assets**: Count of deleted assets from the Data Map in the last 30 days
+* **Deleted**: Count of deleted assets from the Data Map in the last 30 days
 
 You can also drill down by collection paths. As you hover on each column name, it provides description of the column, provides recommended percentage ranges, and takes you to the detailed graph for further drill-down.
 
@@ -80,23 +80,23 @@ You can also drill down by collection paths. As you hover on each column name, i
 
 ### Asset curation
 
-All data assets are categorized into three buckets - ***"Fully curated"***, ***"Partially curated"*** and ***"Not curated"***, based on whether assets have been given certain attributes. 
+All data assets are categorized into three buckets - ***Fully curated***, ***Partially curated*** and ***Not curated***, based on whether assets have been given certain attributes.
 
 :::image type="content" source="./media/data-stewardship/asset-curation-small.png" alt-text="Screenshot of the data stewardship insights health dashboard, with the asset curation bar chart highlighted." lightbox="media/data-stewardship/asset-curation-large.png":::
 
-An asset is ***"Fully curated"*** if it has at least one classification tag, an assigned data owner, and a description. 
+An asset is ***Fully curated*** if it has at least one classification tag, an assigned data owner, and a description.
 
-If any of these attributes is missing, but not all, then the asset is categorized as ***"Partially curated"***. If all of them are missing, then it's listed as ***"Not curated"***. 
+If any of these attributes is missing, but not all, then the asset is categorized as ***Partially curated***. If all of them are missing, then it's listed as ***Not curated***.
 
 You can drill down by collection hierarchy.
 
 :::image type="content" source="./media/data-stewardship/asset-curation-collection-filter.png" alt-text="Screenshot of the data stewardship asset curation chart, with the collection filter opened to show all available collections.":::
 
-For further information about which assets aren't fully curated, you can select ***"View details"*** link that will take you into the deeper view.
+For further information about which assets aren't fully curated, you can select **View details** link that will take you into the deeper view.
 
 :::image type="content" source="./media/data-stewardship/asset-curation-view-details.png" alt-text="Screenshot of the data stewardship asset curation chart, with the view details button highlighted below the chart.":::
 
-In the ***"View details"*** page, if you select a specific collection, it will list all assets with attribute values or blanks, that make up the ***"fully curated"*** assets.
+In the **View details** page, if you select a specific collection, it will list all assets with attribute values or blanks, that make up the ***fully curated*** assets.
 
 :::image type="content" source="./media/data-stewardship/asset-curation-select-collection.png" alt-text="Screenshot of the asset curation detailed view, shown after selecting View Details beneath the asset curation chart.":::
 
@@ -106,6 +106,7 @@ First, it tells you what was the ***classification source***, if the asset is cl
 
 Second, if an asset is unclassified, it tells us why it's not classified, in the column ***Reasons for unclassified***.
 Currently, Data estate insights can tell one of the following reasons:
+
 * No match found
 * Low confidence score
 * Not applicable
