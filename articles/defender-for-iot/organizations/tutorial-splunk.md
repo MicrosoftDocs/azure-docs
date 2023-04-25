@@ -8,7 +8,7 @@ ms.custom: how-to
 
 # Integrate Splunk with Microsoft Defender for IoT
 
-This tutorial helps you learn how to integrate, and use Splunk with Microsoft Defender for IoT.
+This article helps you learn how to integrate, and use Splunk with Microsoft Defender for IoT.
 
 Defender for IoT mitigates IIoT, ICS, and SCADA risk with patented, ICS-aware self-learning engines that deliver immediate insights about ICS devices, vulnerabilities, and threats in less than an image hour and without relying on agents, rules or signatures, specialized skills, or prior knowledge of the environment.
 
@@ -19,9 +19,9 @@ The application provides SOC analysts with multidimensional visibility into the 
 The Splunk application can be installed locally ('Splunk Enterprise') or run on a cloud ('Splunk Cloud'). The Splunk integration along with Defender for IoT supports 'Splunk Enterprise' only.
 
 > [!NOTE]
-> References to CyberX refer to Microsoft Defender for IoT.
+> Microsoft Defender for IoT was formally known as [CyberX](https://blogs.microsoft.com/blog/2020/06/22/microsoft-acquires-cyberx-to-accelerate-and-secure-customers-iot-deployments/). References to CyberX refer to Defender for IoT.
 
-In this tutorial, you learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
 >
@@ -116,13 +116,8 @@ Forwarding alert rules run only on alerts triggered after the forwarding rule is
 
 1. Select **Save**.
 
-## Clean up resources
-
-There are no resources to clean up.
-
 ## Next steps
 
-In this tutorial, you learned how to get started with the Splunk integration. Continue on to learn how to [Integrate ServiceNow with Microsoft Defender for IoT](tutorial-servicenow.md).
-
+For more information, see:
 > [!div class="nextstepaction"]
-> [Integrate ServiceNow with Microsoft Defender for IoT](tutorial-servicenow.md)
+> [Integrations with Microsoft and partner services](integrate-overview.md)

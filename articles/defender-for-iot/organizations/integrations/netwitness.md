@@ -56,5 +56,5 @@ For more information, see [Forward alert information](../how-to-forward-alert-in
 For more information, see:
 
 - [CyberX Platform - RSA NetWitness CEF Parser Implementation Guide](https://community.netwitness.com//t5/netwitness-platform-integrations/cyberx-platform-rsa-netwitness-cef-parser-implementation-guide/ta-p/554364)
-- [Integrations with partner services](../integrate-overview.md)
+- [Integrations with Microsoft and partner services](integrate-overview.md)
 - [Forward alert information](../how-to-forward-alert-information-to-partners.md)

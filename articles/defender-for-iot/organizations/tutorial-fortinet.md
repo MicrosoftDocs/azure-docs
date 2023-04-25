@@ -8,7 +8,7 @@ ms.custom: how-to
 
 # Integrate Fortinet with Microsoft Defender for IoT
 
-This tutorial helps you learn how to integrate and use Fortinet with Microsoft Defender for IoT.
+This article helps you learn how to integrate and use Fortinet with Microsoft Defender for IoT.
 
 Microsoft Defender for IoT mitigates IIoT, ICS, and SCADA risk with ICS-aware self-learning engines that deliver immediate insights about ICS devices, vulnerabilities, and threats.  Defender for IoT accomplishes this without relying on agents, rules, signatures, specialized skills, or prior knowledge of the environment.
 
@@ -34,7 +34,7 @@ FortiSIEM and Fortinet’s multivendor security incident and events management s
 
 Using a Business Services view, the complexity of managing network and security operations is reduced, freeing resources and improving breach detection. FortiSIEM provides cross correlation, while applying machine learning and UEBA, to improve the response in order to stop breaches before they occur.
 
-In this tutorial, you learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
 >
@@ -249,10 +249,8 @@ For example, the following alert can block the malicious source:
     | **Service** | The protocol, or specific ports for the traffic. |
     | **Action** | The action that the firewall will perform. |
 
-## Clean up resources
-
-There are no resources to clean up.
-
 ## Next steps
 
-In this article, you learned how to get started with the Fortinet integration. Continue on to learn about our [Palo Alto integration](./tutorial-palo-alto.md)
+For more information, see:
+> [!div class="nextstepaction"]
+> [Integrations with Microsoft and partner services](integrate-overview.md)

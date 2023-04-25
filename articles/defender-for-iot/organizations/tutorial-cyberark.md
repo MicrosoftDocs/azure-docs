@@ -8,7 +8,7 @@ ms.custom: how-to
 
 # Integrate CyberArk with Microsoft Defender for IoT
 
-This tutorial helps you learn how to integrate and use CyberArk with Microsoft Defender for IoT.
+This article helps you learn how to integrate and use CyberArk with Microsoft Defender for IoT.
 
 Defender for IoT delivers ICS and IIoT cybersecurity platforms with ICS-aware threat analytics and machine learning.
 
@@ -26,9 +26,9 @@ The Defender for IoT appliance is connected to the OT network via a SPAN port (m
 
 A dedicated network interface is also provided in the Defender for IoT appliance for centralized management and API access. This interface is also used for communicating with the CyberArk PSM solution that is deployed in the data center of the organization to manage privileged users and secure remote access connections.
 
-:::image type="content" source="media/tutorial-cyberark/architecture.png" alt-text="The CyberArk PSM solution deployment":::
+:::image type="content" source="media/tutorial-cyberark/architecture.png" alt-text="The CyberArk PSM solution deployment" border="false":::
 
-In this tutorial, you learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
 
@@ -41,7 +41,7 @@ In this tutorial, you learn how to:
 
 - CyberARK version 2.0.
 
-- Verify that you have CLI access to all Defender for IoT appliances in your enterprise.
+- Verify that you have [CLI](references-work-with-defender-for-iot-cli-commands.md) access to all Defender for IoT appliances in your enterprise.
 
 - An Azure account. If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
 
@@ -140,10 +140,8 @@ At any point in time, you can stop the integration from communicating.
 
     :::image type="content" source="media/tutorial-cyberark/toggle.png" alt-text="A view of th Server status.":::
 
-## Clean up resources
-
-There are no resources to clean up.
-
 ## Next steps
 
-In this article, you learned how to get started with the CyberArk integration. Continue on to learn about our [Forescout integration](./tutorial-forescout.md).
+For more information, see:
+> [!div class="nextstepaction"]
+> [Integrations with Microsoft and partner services](integrate-overview.md)

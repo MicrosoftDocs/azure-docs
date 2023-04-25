@@ -7,7 +7,7 @@ ms.topic: tutorial
 
 # Integrate Palo-Alto with Microsoft Defender for IoT
 
-This tutorial helps you learn how to integrate and use Palo Alto with Microsoft Defender for IoT.
+This article helps you learn how to integrate and use Palo Alto with Microsoft Defender for IoT.
 
 Defender for IoT has integrated its continuous ICS threat monitoring platform with Palo Alto’s next-generation firewalls to enable blocking of critical threats, faster and more efficiently.
 
@@ -17,7 +17,7 @@ The following integration types are available:
 
 - Send recommendations for blocking to the central management system: Defender for IoT to Panorama integration.
 
-In this tutorial, you learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
 >
@@ -47,7 +47,7 @@ When Defender for IoT identifies a critical threat, it sends an alert that inclu
 
 1. In the **Add forwarding rule** pane, define the rule parameters:
 
-    :::image type="content" source="media/tutorial-palo-alto/forwarding-rule.png" alt-text="Screenshot of creating the rules for your forwarding rule." lightbox="media/tutorial-palo-alto/forwarding-rule.png":::
+    :::image type="content" source="media/tutorial-palo-alto/forwarding-rule.png" alt-text="Screenshot of creating the rules for your forwarding rule." border="false" lightbox="media/tutorial-palo-alto/forwarding-rule.png":::
 
     | Parameter | Description |
     |--|--|
@@ -86,7 +86,7 @@ You'll then need to block any suspicious source.
 
 1. To automatically block the suspicious source, select **Block Source**. The **Please Confirm** dialog box appears.
 
-    :::image type="content" source="media/tutorial-palo-alto/unauthorized.png" alt-text="Screenshot of the Block Source button, to block the unauthorized source.":::
+    :::image type="content" source="media/tutorial-palo-alto/unauthorized.png" alt-text="Screenshot of the Block Source button, to block the unauthorized source." border="false":::
 
 1. Select **OK**.
 
@@ -106,7 +106,7 @@ This table shows which incidents this integration is intended for:
 |**Industrial malware found in the ICS network** | Malware that manipulates ICS devices using their native protocols, such as TRITON and Industroyer. Defender for IoT also detects IT malware that has moved laterally into the ICS, and SCADA environment. For example, Conficker, WannaCry, and NotPetya. |
 |**Scanning malware** | Reconnaissance tools that collect data about system configuration in a pre-attack phase. For example, the Havex Trojan scans industrial networks for devices using OPC, which is a standard protocol used by Windows-based SCADA systems to communicate with ICS devices. |
 
-When Defender for IoT detects a pre-configured use case, the **Block Source** button is added to the alert. Then, when the CyberX user selects the **Block Source** button, Defender for IoT creates policies on Panorama by sending the predefined forwarding rule.
+When Defender for IoT detects a pre-configured use case, the **Block Source** button is added to the alert. Then, when the Defender for IoT user selects the **Block Source** button, Defender for IoT creates policies on Panorama by sending the predefined forwarding rule.
 
 The policy is applied only when the Panorama administrator pushes it to the relevant NGFW in the network.
 
@@ -114,7 +114,7 @@ In IT networks, there may be dynamic IP addresses. Therefore, for those subnets,
 
 In addition, Defender for IoT sends an email to the relevant Panorama user to notify that a new policy created by Defender for IoT is waiting for the approval. The figure below presents the Defender for IoT-Panorama Integration Architecture.
 
-:::image type="content" source="media/tutorial-palo-alto/structure.png" alt-text="Screenshot of the CyberX-Panorama Integration Architecture.":::
+:::image type="content" source="media/tutorial-palo-alto/structure.png" alt-text="Screenshot of the Defender for IoT-Panorama Integration Architecture." border="false":::
 
 The first step in creating Panorama blocking policies in Defender for IoT is to configure DNS lookup.
 
@@ -165,13 +165,13 @@ Forwarding alert rules run only on alerts triggered after the forwarding rule is
     | **Email** | Set the email address for the policy notification email. | 
     | **Execute a DNS lookup upon alert detection (Checkbox)** | When the FQDN, or IP Address option is set in the Report Address. <br> This checkbox is selected by default. <br> If only the IP address is set, this option is disabled. |
     | **Configure** | Set up the following options to allow blocking of the suspicious sources by the Palo Alto Panorama: <br><br> - **Block illegal function codes**: Protocol violations - Illegal field value violating ICS, protocol specification (potential exploit). <br> - **Block unauthorized PLC programming/firmware updates**: Unauthorized PLC changes. <br> - **Block unauthorized PLC stop**: PLC stop (downtime). <br> - **Block malware-related alerts**: Blocking of industrial malware attempts (TRITON, NotPetya, etc.). <br> You can select the option of **Automatic blocking**. <br> In that case, the blocking is executed automatically and immediately. <br> - **Block unauthorized scanning**: Unauthorized scanning (potential reconnaissance).
-    
+
     > [!NOTE]
     > Make sure you have configured a Mail Server in the Defender for IoT. If no email address is entered, Defender for IoT does not send a notification email.
 
     For example:
-    
-    :::image type="content" source="media/tutorial-palo-alto/edit.png" alt-text="Screenshot of the Select action screen.":::
+
+    :::image type="content" source="media/tutorial-palo-alto/edit.png" alt-text="Screenshot of the Select action screen." border="false":::
 
 1. Select **Submit**.
 
@@ -181,16 +181,14 @@ You'll then need to block the suspicious source.
 
 1. In the **Alerts** pane, select the alert related to Palo Alto integration. The **Alert’s Details** dialog box appears.
 
-  :::image type="content" source="media/tutorial-palo-alto/unauthorized.png" alt-text="Screenshot of the alert screen, select the one related to Palo Alto, and then select block source.":::
+  :::image type="content" source="media/tutorial-palo-alto/unauthorized.png" alt-text="Screenshot of the alert screen, select the one related to Palo Alto, and then select block source." border="false":::
 
 1. To automatically block the suspicious source, select **Block Source**.
 
 1. Select **OK.**
 
-## Clean up resources
-
-There are no resources to clean up.
-
 ## Next step
 
-In this article, you learned how to get started with the [Palo Alto integration](./tutorial-splunk.md).
+For more information, see:
+> [!div class="nextstepaction"]
+> [Integrations with Microsoft and partner services](integrate-overview.md)

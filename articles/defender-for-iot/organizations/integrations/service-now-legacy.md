@@ -25,7 +25,7 @@ The Defender for IoT integration with ServiceNow provides centralized visibility
 
 The ServiceNow Configuration Management Database (CMDB) is enriched, and supplemented with a rich set of device attributes that are pushed by the Defender for IoT platform. This ensures a comprehensive, and continuous visibility into the device landscape. This visibility lets you monitor, and respond from a single-pane-of-glass.
 
-In this tutorial, you learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
 >
@@ -223,10 +223,8 @@ To view connected devices:
 
 1. In the **Device Details** dialog box, select **Connected Devices**.
 
-## Clean up resources
-
-There are no resources to clean up.
-
 ## Next steps
 
-In this article, you learned how to get started with the ServiceNow integration. Continue on to learn about our [Cisco integration](../tutorial-forescout.md).
+For more information, see:
+> [!div class="nextstepaction"]
+> [Integrations with Microsoft and partner services](integrate-overview.md)

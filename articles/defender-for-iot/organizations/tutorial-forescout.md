@@ -9,9 +9,9 @@ ms.custom: how-to
 # Integrate Forescout with Microsoft Defender for IoT
 
 > [!NOTE]
-> References to CyberX refer to Microsoft Defender for IoT.
+> Microsoft Defender for IoT was formally known as [CyberX](https://blogs.microsoft.com/blog/2020/06/22/microsoft-acquires-cyberx-to-accelerate-and-secure-customers-iot-deployments/). References to CyberX refer to Defender for IoT.
 
-This tutorial helps you learn how to integrate Forescout with Microsoft Defender for IoT.
+This article helps you learn how to integrate Forescout with Microsoft Defender for IoT.
 
 Microsoft Defender for IoT delivers an ICS and IoT cybersecurity platform. Defender for IoT is the only platform with ICS aware threat analytics and machine learning. Defender for IoT provides:
 
@@ -31,7 +31,7 @@ The Forescout integration helps reduce the time required for industrial and crit
 
 The Defender for IoT integration with the Forescout platform provides centralized visibility, monitoring, and control for the IoT and OT landscape. These bridged platforms enable automated device visibility, management to ICS devices, and siloed workflows. The integration provides SOC analysts with multilevel visibility into OT protocols deployed in industrial environments. Information becomes available, such as firmware, device types, operating systems, and risk analysis scores, based on proprietary Microsoft Defender for IoT technologies.
 
-In this tutorial, you learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
 
@@ -191,10 +191,8 @@ You can create custom policies in Forescout using Defender for IoT conditional p
 
     :::image type="content" source="media/tutorial-forescout/forescout-property-tree.png" alt-text="Screenshot of available properties":::
 
-## Clean up resources
-
-There are no resources to clean up.
-
 ## Next steps
 
-In this article, you learned how to get started with the Forescout integration. Continue on to learn about our [Palo Alto integration](./tutorial-palo-alto.md).
+For more information, see:
+> [!div class="nextstepaction"]
+> [Integrations with Microsoft and partner services](integrate-overview.md)

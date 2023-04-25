@@ -62,6 +62,6 @@ For more information, see [Forward alert information](../how-to-forward-alert-in
 
 For more information, see:
 
-- [Integrations with partner services](../integrate-overview.md)
+- [Integrations with Microsoft and partner services](integrate-overview.md)
 - [Forward alert information](../how-to-forward-alert-information-to-partners.md)
 - [Manage individual sensors](../how-to-manage-individual-sensors.md)

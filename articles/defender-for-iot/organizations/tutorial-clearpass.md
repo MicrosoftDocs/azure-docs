@@ -8,7 +8,7 @@ ms.custom: how-to
 
 # Integrate ClearPass with Microsoft Defender for IoT
 
-This tutorial helps you learn how to integrate ClearPass Policy Manager (CPPM) with Microsoft Defender for IoT.
+This article helps you learn how to integrate ClearPass Policy Manager (CPPM) with Microsoft Defender for IoT.
 
 The Defender for IoT platform delivers continuous ICS threat monitoring and device discovery, combining a deep embedded understanding of industrial protocols, devices, and applications with ICS-specific behavioral anomaly detection, threat intelligence, risk analytics, and automated threat modeling.
 
@@ -22,7 +22,7 @@ The integration allows for the following:
 
 - Viewing device inventory information discovered by the Defender for IoT sensor. The sensor delivers centralized visibility of all network devices and endpoints across the IT and OT infrastructure. From here, a centralized endpoint and edge security policy can be defined and administered in the ClearPass system.
 
-In this tutorial, you learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
 >
@@ -93,10 +93,6 @@ In order to secure access to the REST API for the API Client, create a restricte
     |--|--|
     | **API Services** | Set to **Allow Access** |
     | **Policy Manager** | Set the following: <br />- **Dictionaries**: **Attributes** set to **Read, Write, Delete**<br />- **Dictionaries**: **Fingerprints** set to **Read, Write, Delete**<br />- **Identity**: **Endpoints** set to **Read, Write, Delete** |
-
-:::image type="content" source="media/tutorial-clearpass/api-profile.png" alt-text="Screenshot of the edit operator profile.":::
-
-:::image type="content" source="media/tutorial-clearpass/policy.png" alt-text="Screenshot of the options from the Policy Manager screen.":::
 
 ## Create a ClearPass OAuth API client
 
@@ -211,10 +207,8 @@ For example, API logs between Defender for IoT and ClearPass:
 
 :::image type="content" source="media/tutorial-clearpass/log.png" alt-text="Screenshot of API logs between Defender for IoT and ClearPass.":::
 
-## Clean up resources
-
-There are no resources to clean up.
-
 ## Next steps
 
-In this article, you learned how to get started with the ClearPass integration. Continue on to learn about our [CyberArk integration](./tutorial-cyberark.md).
+For more information, see:
+> [!div class="nextstepaction"]
+> [Integrations with Microsoft and partner services](integrate-overview.md)

@@ -176,7 +176,6 @@ For example:
 
 ## Next steps
 
-In this tutorial, you learned how to get started with the QRadar integration. Continue on to learn how to [Integrate ServiceNow with Microsoft Defender for IoT](tutorial-servicenow.md).
-
+For more information, see:
 > [!div class="nextstepaction"]
-> [Integrate ServiceNow with Microsoft Defender for IoT](tutorial-servicenow.md)
+> [Integrations with Microsoft and partner services](integrate-overview.md)
