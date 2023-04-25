@@ -22,7 +22,7 @@ We also review how to apply several Purview features to data governance. We show
 Let's dive into the world of domains and discover how Purview can help improve your data governance practices.
 
 >[!NOTE]
->The goal of this article is to help you understand Purview’s capabilities, so we’ve described a simple domain where boundaries are clear, and knowledge, applications, processes, data, and people are well-aligned. This often isn't the case, especially if you have large, legacy data platforms. For example, a complex CRM system is often shared between multiple business departments. For deeper guidance on deconstructing your domains and what to do when boundaries overlap, see the [Domain modeling recommendations from the Microsoft Cloud Adoption Framework.](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-domains#domain-modeling-recommendations)
+>The goal of this article is to help you understand Purview’s capabilities, so we’ve described a simple domain where boundaries are clear, and knowledge, applications, processes, data, and people are well-aligned. This often isn't the case, especially if you have large, legacy data platforms. For example, a complex CRM system is often shared between multiple business departments. For deeper guidance on deconstructing your domains and what to do when boundaries overlap, see the [Domain modeling recommendations from the Microsoft Cloud Adoption Framework.](/azure/cloud-adoption-framework/scenarios/cloud-scale-analytics/architectures/data-domains#domain-modeling-recommendations)
 
 ## Understanding your domains
 Domains are problem spaces you want to address. They're areas where knowledge, behavior, laws, and activities come together. People within a domain collaborate on shared business objectives, so a shared vocabulary of terms and concepts ensures teams can communicate and work efficiently. 
@@ -134,7 +134,7 @@ Analytical data sources often centralize data that’s shared by multiple depart
 
 ![Screenshot from Purview sources page showing that an Azure SQL database has been registered to the root collection.](media/concept-best-practices-domains/10-source-registration.png)
 
-Then we’ll set up scoped scans to divide the data between areas of responsibility. When you set up a [scoped scan](concept-scans-and-ingestion#scope-your-scan.md), you can choose specific folders or tables that apply to each area of responsibility so you can scan the right data into a collection.
+Then we’ll set up scoped scans to divide the data between areas of responsibility. When you set up a [scoped scan](concept-scans-and-ingestion.md#scope-your-scan), you can choose specific folders or tables that apply to each area of responsibility so you can scan the right data into a collection.
 
 ![Screenshot of Purview scan settings showing that data will be scanned into the Finance domain collection next to a screen shot showing the Purview 'scope your scan' panel with individual tables selected for scanning under the main database.](media/concept-best-practices-domains/11-scope-scan.png)
 
