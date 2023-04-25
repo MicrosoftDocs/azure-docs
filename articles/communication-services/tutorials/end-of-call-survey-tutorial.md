@@ -15,7 +15,7 @@ ms.subservice: calling
 
 
 
-# Tutorial: Use End of Call Survey to collect user feedback
+# Use the End of Call Survey to collect user feedback
 
 
 [!INCLUDE [Public Preview](../includes/public-preview-include-document.md)]
@@ -35,8 +35,10 @@ This tutorial shows you how to use the Azure Communication Services End of Call 
 -	[Node.js](https://nodejs.org/) active Long Term Support(LTS) versions are recommended.
 
 -	An active Communication Services resource. [Create a Communication Services resource](../quickstarts/create-communication-resource.md). Survey results are tied to single Communication Services resources.
--	An active Log Analytics Workspace, also known as Azure Monitor Logs, to ensure you don't lose your survey results. [Enable logging in Diagnostic Settings](../concepts/analytics/enable-logging.md).
+-	An active Log Analytics Workspace, also known as Azure Monitor Logs. [Enable logging in Diagnostic Settings](../concepts/analytics/enable-logging.md).
 
+
+<!-- -	An active Log Analytics Workspace, also known as Azure Monitor Logs, to ensure you don't lose your survey results. [Enable logging in Diagnostic Settings](../concepts/analytics/enable-logging.md). -->
 
 > [!IMPORTANT]
 > End of Call Survey is available starting on the version [1.13.0-beta.4](https://www.npmjs.com/package/@azure/communication-calling/v/1.13.0-beta.4) of the Calling SDK. Make sure to use that version or later when trying the instructions.
@@ -196,12 +198,14 @@ If a survey participant responded to Question 1 with a score at or below the cut
 Surveying Guidelines
 -	Avoid survey burnout, don’t survey all call participants.
 -	The order of your questions matters. We recommend you randomize the sequence of optional tags in Question 2 in case respondents focus most of their feedback on the first prompt they visually see.
--	Consider using surveys for separate Azure Communication Services Resources in controlled experiments to identify release impacts.  
+<!-- -	Consider using surveys for separate Azure Communication Services Resources in controlled experiments to identify release impacts.   -->
 
 
 ## Next steps
 
--	Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](../../../articles/azure-monitor/logs/log-analytics-tutorial.md)
+- Learn more about the End of Call Survey, see: [End of Call Survey overview](../concepts/voice-video-calling/end-of-call-survey-concept.md)
 
--	Create your own queries in Log Analytics, see: [Get Started Queries](../../../articles/azure-monitor/logs/get-started-queries.md)
+<!-- -	Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](../../../articles/azure-monitor/logs/log-analytics-tutorial.md)
+
+-	Create your own queries in Log Analytics, see: [Get Started Queries](../../../articles/azure-monitor/logs/get-started-queries.md) -->
 
