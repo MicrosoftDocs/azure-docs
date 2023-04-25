@@ -35,7 +35,7 @@ Platform metrics and the activity log are collected and stored automatically, bu
 
 Resource Logs aren't collected and stored until you create a diagnostic setting and route them to one or more locations.
 
-See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure Event Grid are listed in [Azure Event Grid monitoring data reference](monitor-pull-pubhs-reference.md#resource-logs).
+See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure Event Grid are listed in [Azure Event Grid monitoring data reference](monitor-pull-push-reference.md#resource-logs).
 
 > [!NOTE]
 > Azure Monitor doesn't include dimensions in the exported metrics data, that's sent to a destination like Azure Storage, Azure Event Hubs, Log Analytics, etc.
@@ -69,7 +69,6 @@ For reference, you can see a list of [all resource metrics supported in Azure Mo
 ### Filter and split
 For metrics that support dimensions, you can apply filters using a dimension value. For example, add a filter with `EntityName` set to the name of an event hub. You can also split a metric by dimension to visualize how different segments of the metric compare with each other. For more information of filtering and splitting, see [Advanced features of Azure Monitor](../azure-monitor/essentials/metrics-charts.md).
 
-:::image type="content" source="./media/monitor-event-hubs/metrics-filter-split.png" alt-text="Image showing filtering and splitting metrics":::
 
 ## Analyze logs
 Using Azure Monitor Log Analytics requires you to create a diagnostic configuration and enable __Send information to Log Analytics__. For more information, see the [Collection and routing](#collection-and-routing) section. Data in Azure Monitor Logs is stored in tables, with each table having its own set of unique properties. Azure Event Hubs stores data in the following tables: **AzureDiagnostics** and **AzureMetrics**.
@@ -135,8 +134,6 @@ AzureDiagnostics
 | where ResourceProvider == "MICROSOFT.EVENTGRID"
 | where Category == "RuntimeAuditLogs"
 ```
-Up on the execution of the query you should be able to obtain corresponding audit logs in the following format. 
-:::image type="content" source="./media/monitor-event-hubs/runtime-audit-logs.png" alt-text="Image showing the result of a sample query to analyze runtime audit logs." lightbox="./media/monitor-event-hubs/runtime-audit-logs.png":::
 
 By analyzing these logs, you should be able to audit how each client application interacts with Event Grid. Fields associated with runtime audit logs are defined in [runtime audit logs reference](../event-hubs/monitor-event-hubs-reference.md#runtime-audit-logs). 
 

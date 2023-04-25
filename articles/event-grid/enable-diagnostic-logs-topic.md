@@ -14,7 +14,7 @@ This article provides step-by-step instructions for enabling diagnostic settings
 | ------------- |  --------- | ----------- | ----------- | ----------- |
 | [DeliveryFailures](monitor-pull-push-reference.md#schema-for-publishdelivery-failure-logs)  | Yes | Yes | Yes | No |
 | [PublishFailures](monitor-pull-push-reference.md#schema-for-publishdelivery-failure-logs)  | Yes | No | Yes | Yes |
-| [DataPlaneRequests](monitor-pull-push-reference.md#schema-for-data-plane-requests) | Yes | No | Yes | Yes |
+| [DataPlaneRequests](monitor-pull-push-reference.md#schema-for-data-plane-operations-logs) | Yes | No | Yes | Yes |
 
 > [!IMPORTANT]
 > For schemas of delivery failures, publish failures, and data plane requests, see [Diagnostic logs](monitor-pull-push-reference.md). 
