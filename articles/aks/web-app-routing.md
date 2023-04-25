@@ -69,6 +69,14 @@ Import the SSL certificate into Azure Key Vault.
 az keyvault certificate import --vault-name <KeyVaultName> -n <KeyVaultCertificateName> -f aks-ingress-tls.pfx
 ```
 
+### Import certificate to Azure Key Vault with password if specified while exporting the SSL cert 
+
+Import the SSL certificate into Azure Key Vault with password
+
+```azurecli-interactive
+az keyvault certificate import --vault-name <KeyVaultName> -n <KeyVaultCertificateName> -f aks-ingress-tls.pfx --password <Password>
+```
+
 ### Create an Azure DNS zone
 
 If you want the add-on to automatically manage creating hostnames via Azure DNS, you need to [create an Azure DNS zone](../dns/dns-getstarted-cli.md) if you don't have one already.
