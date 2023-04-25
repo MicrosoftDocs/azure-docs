@@ -27,7 +27,7 @@ The jobs preview has the following limitations:
 - Only supported in the East US 2 EUAP (`eastus2euap`) region
 - Only supported in the Azure CLI using a preview version of the Azure Container Apps extension
 - Only supported in the Consumption plan
-- Logs aren't currently supported for scheduled jobs
+- Logs are currently unavailable for scheduled jobs
 
 ## Setup
 
@@ -93,8 +93,8 @@ The Azure Container Apps environment acts as a secure boundary that allows conta
 
     ```azurecli
     az containerapp env create \
-        --name $ENVIRONMENT \
-        --resource-group $RESOURCE_GROUP \
+        --name "$ENVIRONMENT" \
+        --resource-group "$RESOURCE_GROUP" \
         --location "$LOCATION"
     ```
 
@@ -109,7 +109,7 @@ To use manual jobs, you first create a job with trigger type `Manual` and then s
     ```azurecli
     az containerapp job create \
         --name "$JOB_NAME" --resource-group "$RESOURCE_GROUP"  --environment "$ENVIRONMENT" \
-        --trigger-type Manual \
+        --trigger-type "Manual" \
         --replica-timeout 60 --replica-retry-limit 1 --replica-count 1 --parallelism 1 \
         --image "mcr.microsoft.com/k8se/quickstart-jobs:latest" \
         --cpu "0.25" --memory "0.5Gi"
@@ -140,7 +140,7 @@ Create a job in the Container Apps environment that starts every minute using th
 ```azurecli
 az containerapp job create \
     --name "$JOB_NAME" --resource-group "$RESOURCE_GROUP"  --environment "$ENVIRONMENT" \
-    --trigger-type Schedule \
+    --trigger-type "Schedule" \
     --replica-timeout 60 --replica-retry-limit 1 --replica-count 1 --parallelism 1 \
     --image "mcr.microsoft.com/k8se/quickstart-jobs:latest" \
     --cpu "0.25" --memory "0.5Gi" \

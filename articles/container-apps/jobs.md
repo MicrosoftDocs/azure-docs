@@ -44,7 +44,7 @@ To create a manual job using the Azure CLI, use the `az containerapp job create`
 ```azurecli
 az containerapp job create \
     --name "my-job" --resource-group "my-resource-group"  --environment "my-environment" \
-    --trigger-type Manual \
+    --trigger-type "Manual" \
     --replica-timeout 60 --replica-retry-limit 1 --replica-count 1 --parallelism 1 \
     --image "mcr.microsoft.com/k8se/quickstart-jobs:latest" \
     --cpu "0.25" --memory "0.5Gi"
@@ -111,7 +111,7 @@ To create a manual job using the Azure CLI, use the `az containerapp job create`
 ```azurecli
 az containerapp job create \
     --name "my-job" --resource-group "my-resource-group"  --environment "my-environment" \
-    --trigger-type Schedule \
+    --trigger-type "Schedule" \
     --replica-timeout 60 --replica-retry-limit 1 --replica-count 1 --parallelism 1 \
     --image "mcr.microsoft.com/k8se/quickstart-jobs:latest" \
     --cpu "0.25" --memory "0.5Gi" \
@@ -195,7 +195,7 @@ Each Container Apps job maintains a history of recent job executions.
 To get the statuses of job executions using the Azure CLI, use the `az containerapp job executionhistory` command. The following example gets the status of the most recent execution of a job named `my-job` in a resource group named `my-resource-group`:
 
 ```azurecli
-az containerapp job executionhistory --name my-job --resource-group my-resource-group
+az containerapp job executionhistory --name "my-job" --resource-group "my-resource-group"
 ```
 
 # [Azure Resource Manager](#tab/azure-resource-manager)
@@ -243,7 +243,7 @@ The following example creates a job with advanced configuration options:
 ```azurecli
 az containerapp job create \
     --name "my-job" --resource-group "my-resource-group"  --environment "my-environment" \
-    --trigger-type Schedule \
+    --trigger-type "Schedule" \
     --replica-timeout 1800 --replica-retry-limit 3 --replica-count 5 --parallelism 5 \
     --image "myregistry.azurecr.io/quickstart-jobs:latest" \
     --cpu "0.25" --memory "0.5Gi" \
