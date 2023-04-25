@@ -35,7 +35,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.devices/iothub-device-provisioning/azuredeploy.json":::
 
-Two Azure resources are defined in the template above:
+Two Azure resources are defined in the previous template:
 
 * [**Microsoft.Devices/IotHubs**](/azure/templates/microsoft.devices/iothubs): Creates a new Azure IoT hub.
 * [**Microsoft.Devices/provisioningServices**](/azure/templates/microsoft.devices/provisioningservices): Creates a new Azure IoT Hub Device Provisioning Service with the new IoT hub already linked to it.
@@ -52,7 +52,7 @@ Two Azure resources are defined in the template above:
 
     ![ARM template deployment parameters on the portal](./media/quick-setup-auto-provision-rm/arm-template-deployment-parameters-portal.png)    
 
-    Unless it's specified below, use the default value to create the Iot Hub and DPS resource.
+    Unless otherwise specified for the following fields, use the default value to create the Iot Hub and DPS resource.
 
     | Field | Description |
     | :---- | :---------- |

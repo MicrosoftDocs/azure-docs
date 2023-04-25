@@ -798,7 +798,7 @@ In this section, you use both your Windows command prompt and your Git Bash prom
         "-----END CERTIFICATE-----";        
         ```
 
-        Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command generates the syntax for the `leafPublicPem` string constant value and write it to the output.
+        Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command generates the syntax for the `leafPublicPem` string constant value and writes it to the output.
 
         ```Bash
         sed 's/^/"/;$ !s/$/\\n" +/;$ s/$/"/' device-cert.pem
@@ -818,7 +818,7 @@ In this section, you use both your Windows command prompt and your Git Bash prom
         "-----END PRIVATE KEY-----";
         ```
 
-        Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command generates the syntax for the `leafPrivateKey` string constant value and write it to the output.
+        Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command generates the syntax for the `leafPrivateKey` string constant value and writes it to the output.
 
         ```Bash
         sed 's/^/"/;$ !s/$/\\n" +/;$ s/$/"/' unencrypted-device-key.pem
