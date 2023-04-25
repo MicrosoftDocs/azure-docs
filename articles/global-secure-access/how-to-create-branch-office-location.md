@@ -28,7 +28,7 @@ There are multiple ways to connect a branch location to the Microsoft network. I
 ### Create a branch location using the Microsoft Entra admin center
 
 1. Navigate to the Microsoft Entra admin center at `https://entra.microsoft.com` and login with administrator credentials.
-1. In the left hand navigation choose **Global Secure Access**.
+1. In the left hand navigation, choose **Global Secure Access**.
 1. Select **Connect**.
 1. Select **Branch**.
 1. Select the link to open a form. The form is used to onboard your Microsoft Entra Identity tenant. You can also find the form at https://aka.ms/ztnaonboard.
@@ -52,7 +52,7 @@ There are multiple ways to connect a branch location to the Microsoft network. I
     - Protocol: `IKEv2` 
     - IPSec/IKE policy: `Default` 
 
-    Alternatively, you can select **IPSec/IKE** policy = `Custom` in above step. In this case, enter the details:
+    Alternatively, you can select **IPSec/IKE** policy = `Custom`. In this case, enter the details:
     - IKE Phase 1 
     - Encryption: `GCMAES128` 
     - IKEv2 integrity: `GCMAES128` 
