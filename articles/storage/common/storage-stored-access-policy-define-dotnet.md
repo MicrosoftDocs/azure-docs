@@ -39,8 +39,6 @@ The underlying REST operation to create a stored access policy is [Set Container
 
 The following code examples create a stored access policy on a container. You can use the access policy to specify constraints for a service SAS on the container or its blobs.
 
-# [.NET v12 SDK](#tab/dotnet)
-
 To create a stored access policy on a container with version 12 of the .NET client library for Azure Storage, call one of the following methods:
 
 - [BlobContainerClient.SetAccessPolicy](/dotnet/api/azure.storage.blobs.blobcontainerclient.setaccesspolicy)
@@ -90,41 +88,12 @@ async static Task CreateStoredAccessPolicyAsync(string containerName)
 }
 ```
 
-# [.NET v11 SDK](#tab/dotnet11)
-
-To create a stored access policy on a container with version 12 of the .NET client library for Azure Storage, call one of the following methods:
-
-- [CloudBlobContainer.SetPermissions](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setpermissions)
-- [CloudBlobContainer.SetPermissionsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setpermissionsasync)
-
-The following example creates a stored access policy that is in effect for one day and that grants read, write, and list permissions:
-
-```csharp
-private static async Task CreateStoredAccessPolicyAsync(CloudBlobContainer container, string policyName)
-{
-    // Create a new stored access policy and define its constraints.
-    // The access policy provides create, write, read, list, and delete permissions.
-    SharedAccessBlobPolicy sharedPolicy = new SharedAccessBlobPolicy()
-    {
-        // When the start time for the SAS is omitted, the start time is assumed to be the time when Azure Storage receives the request.
-        SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
-        Permissions = SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.List |
-            SharedAccessBlobPermissions.Write
-    };
-
-    // Get the container's existing permissions.
-    BlobContainerPermissions permissions = await container.GetPermissionsAsync();
-
-    // Add the new policy to the container's permissions, and set the container's permissions.
-    permissions.SharedAccessPolicies.Add(policyName, sharedPolicy);
-    await container.SetPermissionsAsync(permissions);
-}
-```
-
----
-
 ## See also
 
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md)
 - [Create a stored access policy](/rest/api/storageservices/define-stored-access-policy)
 - [Configure Azure Storage connection strings](storage-configure-connection-string.md)
+
+## Resources
+
+For related code samples using deprecated .NET version 11.x SDKs, see [Code samples using .NET version 11.x](../blobs/blob-v11-samples-dotnet.md#create-a-stored-access-policy).

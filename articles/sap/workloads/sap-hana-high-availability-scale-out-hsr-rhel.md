@@ -10,7 +10,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/14/2022
+ms.date: 04/06/2022
 ms.author: radeltch
 
 ---
@@ -39,6 +39,7 @@ ms.author: radeltch
 [2455582]:https://launchpad.support.sap.com/#/notes/2455582
 [2593824]:https://launchpad.support.sap.com/#/notes/2593824
 [2009879]:https://launchpad.support.sap.com/#/notes/2009879
+[3108302]:https://launchpad.support.sap.com/#/notes/3108302
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
 
@@ -61,6 +62,7 @@ Some readers will benefit from consulting a variety of SAP notes and resources b
 * SAP note [2015553]: Lists prerequisites for SAP-supported SAP software deployments in Azure.
 * SAP note [2002167]: Has recommended operating system settings for RHEL.
 * SAP note [2009879]: Has SAP HANA guidelines for RHEL.
+* SAP Note [3108302] has SAP HANA Guidelines for Red Hat Enterprise Linux 9.x.
 * SAP note [2178632]: Contains detailed information about all monitoring metrics reported for SAP in Azure.
 * SAP note [2191498]: Contains the required SAP host agent version for Linux in Azure.
 * SAP note [2243692]: Contains information about SAP licensing on Linux in Azure.

@@ -7,7 +7,7 @@ author: mumian
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ms.date: 09/28/2022
 ms.topic: tutorial
 ms.author: jgao

@@ -14,5 +14,6 @@ ms.date: 03/21/23
 > The following are supported storage account configurations:
 >
 > - Azure regions: Canada Central, Canada East, UK South, UK West, Australia East, Japan East, Korea South, and South Africa North 
+> - Additional Azure Regions: East US, East US2, North Europe, Southcentral US, West Central US, West Europe, West US, West US2
 > - Performance: Standard
 > - Redundancy options: LRS, GRS, RA-GRS

@@ -26,7 +26,7 @@ net localgroup "Performance Monitor Users" /add "IIS APPPOOL\NameOfYourPool"
 
 The **Metrics** pane shows the default set of performance counters.
 
-![Screenshot that shows performance counters reported in Application Insights.](./media/performance-counters/performance-counters.png)
+:::image type="content" source="./media/performance-counters/performance-counters.png" lightbox="./media/performance-counters/performance-counters.png" alt-text="Screenshot that shows performance counters reported in Application Insights.":::
 
 Current default counters for ASP.NET web applications:
 
@@ -161,17 +161,17 @@ You can search and display performance counter reports in [Log Analytics](../log
 
 The **performanceCounters** schema exposes the `category`, `counter` name, and `instance` name of each performance counter. In the telemetry for each application, you'll see only the counters for that application. For example, to see what counters are available:
 
-![Screenshot that shows performance counters in Application Insights analytics.](./media/performance-counters/analytics-performance-counters.png)
+:::image type="content" source="./media/performance-counters/analytics-performance-counters.png" lightbox="./media/performance-counters/analytics-performance-counters.png" alt-text="Screenshot that shows performance counters in Application Insights analytics.":::
 
 Here, `Instance` refers to the performance counter instance, not the role or server machine instance. The performance counter instance name typically segments counters, such as processor time, by the name of the process or application.
 
 To get a chart of available memory over the recent period:
 
-![Screenshot that shows a memory time chart in Application Insights analytics.](./media/performance-counters/analytics-available-memory.png)
+:::image type="content" source="./media/performance-counters/analytics-available-memory.png" lightbox="./media/performance-counters/analytics-available-memory.png" alt-text="Screenshot that shows a memory time chart in Application Insights analytics.":::
 
 Like other telemetry, **performanceCounters** also has a column `cloud_RoleInstance` that indicates the identity of the host server instance on which your app is running. For example, to compare the performance of your app on the different machines:
 
-![Screenshot that shows performance segmented by role instance in Application Insights analytics.](./media/performance-counters/analytics-metrics-role-instance.png)
+:::image type="content" source="./media/performance-counters/analytics-metrics-role-instance.png" lightbox="./media/performance-counters/analytics-metrics-role-instance.png" alt-text="Screenshot that shows performance segmented by role instance in Application Insights analytics.":::
 
 ## ASP.NET and Application Insights counts
 

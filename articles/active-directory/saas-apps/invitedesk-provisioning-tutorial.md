@@ -3,7 +3,7 @@ title: 'Tutorial: Configure InviteDesk for automatic user provisioning with Azur
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to InviteDesk.
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: d3291257-0dc0-4ed7-ae21-29249ce664df
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
