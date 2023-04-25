@@ -14,7 +14,7 @@ ms.author: allensu
 
 Data Plane Development Kit (DPDK) on Azure offers a faster user-space packet processing framework for performance-intensive applications. This framework bypasses the virtual machine’s kernel network stack.
 
-In typical packet processing that uses the kernel network stack, the process is interrupt-driven. When the network interface receives incoming packets, there is a kernel interrupt to process the packet and a context switch from the kernel space to the user space. DPDK eliminates context switching and the interrupt-driven method in favor of a user-space implementation that uses poll mode drivers for fast packet processing.
+In typical packet processing that uses the kernel network stack, the process is interrupt-driven. When the network interface receives incoming packets, there's a kernel interrupt to process the packet and a context switch from the kernel space to the user space. DPDK eliminates context switching and the interrupt-driven method in favor of a user-space implementation that uses poll mode drivers for fast packet processing.
 
 DPDK consists of sets of user-space libraries that provide access to lower-level resources. These resources can include hardware, logical cores, memory management, and poll mode drivers for network interface cards.
 
@@ -48,7 +48,7 @@ All Azure regions support DPDK.
 
 ## Prerequisites
 
-Accelerated networking must be enabled on a Linux virtual machine. The virtual machine should have at least two network interfaces, with one interface for management. Enabling Accelerated networking on management interface is not recommended. Learn how to [create a Linux virtual machine with accelerated networking enabled](create-vm-accelerated-networking-cli.md).
+Accelerated networking must be enabled on a Linux virtual machine. The virtual machine should have at least two network interfaces, with one interface for management. Enabling Accelerated networking on management interface isn't recommended. Learn how to [create a Linux virtual machine with accelerated networking enabled](create-vm-accelerated-networking-cli.md).
 
 On virtual machines that are using InfiniBand, ensure the appropriate `mlx4_ib` or `mlx5_ib` drivers are loaded, see [Enable InfiniBand](../virtual-machines/workloads/hpc/enable-infiniband.md).
 
@@ -254,6 +254,7 @@ The following commands periodically print the packets per second statistics:
 When you're running the previous commands on a virtual machine, change *IP_SRC_ADDR* and *IP_DST_ADDR* in `app/test-pmd/txonly.c` to match the actual IP address of the virtual machines before you compile. Otherwise, the packets are dropped before reaching the receiver.
 
 ### Advanced: Single sender/single forwarder
+
 The following commands periodically print the packets per second statistics:
 
 1. On the TX side, run the following command:
@@ -287,7 +288,7 @@ The following commands periodically print the packets per second statistics:
      --stats-period <display interval in seconds>
     ```
 
-When you're running the previous commands on a virtual machine, change *IP_SRC_ADDR* and *IP_DST_ADDR* in `app/test-pmd/txonly.c` to match the actual IP address of the virtual machines before you compile. Otherwise, the packets are dropped before reaching the forwarder. You won’t be able to have a third machine receive forwarded traffic, because the *testpmd* forwarder doesn’t modify the layer-3 addresses, unless you make some code changes.
+When you're running the previous commands on a virtual machine, change *IP_SRC_ADDR* and *IP_DST_ADDR* in `app/test-pmd/txonly.c` to match the actual IP address of the virtual machines before you compile. Otherwise, the packets are dropped before reaching the forwarder. You can't have a third machine receive forwarded traffic, because the *testpmd* forwarder doesn’t modify the layer-3 addresses, unless you make some code changes.
 
 ## References
 
