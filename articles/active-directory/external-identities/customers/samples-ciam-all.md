@@ -145,6 +145,6 @@ These samples and how-to guides demonstrate how to write a public client mobile 
 > [!div class="mx-tdCol2BreakAll"]
 > | App type | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
-> | Desktop | &#8226; [Sign in users](how-to-desktop-app-electron-sample-sign-in)<br/>&#8226; [Call an API against a customer tenant](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)|  [Electron desktop app](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)  |
+> | Desktop | &#8226; [Sign in users](how-to-desktop-app-electron-sample-sign-in.md)<br/>&#8226; [Call an API against a customer tenant](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)|  [Electron desktop app](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)  |
 
 ---
