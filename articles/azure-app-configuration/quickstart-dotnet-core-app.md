@@ -62,7 +62,7 @@ You use the [.NET Core command-line interface (CLI)](/dotnet/core/tools/) to cre
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-4. Use App Configuration by calling the `builder.AddAzureAppConfiguration()` method.
+4. Update the code to use App Configuration by calling the `builder.AddAzureAppConfiguration()` method.
 
     #### [.NET 6.x](#tab/core6x)
 
@@ -75,8 +75,6 @@ You use the [.NET Core command-line interface (CLI)](/dotnet/core/tools/) to cre
     ```
 
     #### [.NET Core 3.x](#tab/core3x)
-
-    Update the `Main` method.
 
     ```csharp
     static void Main(string[] args)
