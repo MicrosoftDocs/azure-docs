@@ -7,7 +7,7 @@ ms.reviewer: jagummersall
 ms.custom: references_regions
 
 ---
-# Create and manage action groups in the Azure portal
+# Action groups
 
 When Azure Monitor data indicates that there might be a problem with your infrastructure or application, an alert is triggered. Azure Monitor, Azure Service Health, and Azure Advisor then use *action groups* to notify users about the alert and take an action. An action group is a collection of notification preferences that are defined by the owner of an Azure subscription.
 
@@ -23,27 +23,28 @@ For information about how to use Azure Resource Manager templates to configure a
 
 An action group is a *global* service, so there's no dependency on a specific Azure region. Requests from clients can be processed by action group services in any region. For instance, if one region of the action group service is down, the traffic is automatically routed and processed by other regions. As a global service, an action group helps provide a disaster recovery solution.
 
-## Create an action group by using the Azure portal
+## Rate limiting
+
+Azure Monitor uses rate limiting to suspend notifications when too many notifications are sent to a particular phone number, email address or device. Rate limiting ensures that alerts are manageable and actionable. Rate limiting applies to SMS, voice, and email notifications. All other notification actions are not rate limited. FOr information about rate limits, see [Azure Monitor service limits](../service-limits.md).
+
+A phone number or email can be included in action groups in many subscriptions. Rate limiting applies across all subscriptions and is applied as soon as the threshold is reached, even if messages are sent from multiple subscriptions.
+
+When an email address is rate limited, a notification is sent to communicate that rate limiting was applied and when the rate limiting expires.
+## Create an action group in the Azure portal
 
 1. Go to the [Azure portal](https://portal.azure.com).
-
 1. Search for and select **Monitor**. The **Monitor** pane consolidates all your monitoring settings and data in one view.
-
 1. Select **Alerts**, and then select **Action groups**.
 
-   :::image type="content" source="./media/action-groups/manage-action-groups.png" alt-text="Screenshot that shows the Alerts page in the Azure portal. The Action groups button is called out.":::
+   :::image type="content" source="./media/action-groups/manage-action-groups.png" alt-text="Screenshot of the Alerts page in the Azure portal with the action groups button highlighter.":::
 
 1. Select **Create**.
 
    :::image type="content" source="./media/action-groups/create-action-group.png" alt-text="Screenshot that shows the Action groups page in the Azure portal. The Create button is called out.":::
 
-1. Enter information as explained in the following sections.
-
-### Configure basic action group settings
-
-1. Under **Project details**, select:
-   - Values for **Subscription** and **Resource group**.
-   - The region.
+1. Configure basic action group settings. In the **Project details** section:
+   - Select values for **Subscription** and **Resource group**.
+   - Select the region.
 
       | Option | Behavior |
       | ------ | -------- |
@@ -52,20 +53,19 @@ An action group is a *global* service, so there's no dependency on a specific Az
    
    The action group is saved in the subscription, region, and resource group that you select.
 
-1. Under **Instance details**, enter values for **Action group name** and **Display name**. The display name is used in place of a full action group name when the group is used to send notifications.
+1. In the **Instance details** section, enter values for **Action group name** and **Display name**. The display name is used in place of a full action group name when the group is used to send notifications.
 
    :::image type="content" source="./media/action-groups/action-group-1-basics.png" alt-text="Screenshot that shows the Create action group dialog. Values are visible in the Subscription, Resource group, Action group name, and Display name boxes.":::
 
-### Configure notifications
-
-1. To open the **Notifications** tab, select **Next: Notifications**. Alternately, at the top of the page, select the **Notifications** tab.
-
+1. Configure notifications. Select **Next: Notifications**, or select the **Notifications** tab at the top of the page.
 1. Define a list of notifications to send when an alert is triggered. Provide the following information for each notification:
 
    - **Notification type**: Select the type of notification that you want to send. The available options are:
 
      - **Email Azure Resource Manager Role**: Send an email to users who are assigned to certain subscription-level Azure Resource Manager roles.
      - **Email/SMS message/Push/Voice**: Send various notification types to specific recipients.
+
+  To enable push notifications to the Azure mobile app, provide the email address that you use as your account ID when you configure the Azure mobile app. For more information about the Azure mobile app, see [Get the Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/).
 
    - **Name**: Enter a unique name for the notification.
    - **Details**: Based on the selected notification type, enter an email address, phone number, or other information.
@@ -74,11 +74,7 @@ An action group is a *global* service, so there's no dependency on a specific Az
    :::image type="content" source="./media/action-groups/action-group-2-notifications.png" alt-text="Screenshot that shows the Notifications tab of the Create action group dialog. Configuration information for an email notification is visible.":::
 
 1. Select **OK**.
-
-### Configure actions
-
-1. To open the **Actions** tab, select **Next: Actions**. Alternately, at the top of the page, select the **Actions** tab.
-
+1. Configure actions. Select **Next: Actions**. or select the **Actions** tab at the top of the page.
 1. Define a list of actions to trigger when an alert is triggered. Provide the following information for each action:
 
    - **Action type**: Select from the following types of actions:
@@ -96,14 +92,11 @@ An action group is a *global* service, so there's no dependency on a specific Az
    - **Common alert schema**: You can choose to turn on the common alert schema, which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor. For more information about this schema, see [Common alert schema](./alerts-common-schema.md).
 
    :::image type="content" source="./media/action-groups/action-group-3-actions.png" alt-text="Screenshot that shows the Actions tab of the Create action group dialog. Several options are visible in the Action type list.":::
-
-### Create the action group
-
-1. To assign a key-value pair to the action group, select **Next: Tags**. Alternately, at the top of the page, select the **Tags** tab. Otherwise, skip this step. By using tags, you can categorize your Azure resources. Tags are available for all Azure resources, resource groups, and subscriptions.
+1. (Optional.) If you'd like to assign a key-value pair to the action group to categorize your Azure resources, select **Next: Tags** or the **Tags** tab. Otherwise, skip this step. 
 
    :::image type="content" source="./media/action-groups/action-group-4-tags.png" alt-text="Screenshot that shows the Tags tab of the Create action group dialog. Values are visible in the Name and Value boxes.":::
 
-1. To review your settings, select **Review + create**. This step quickly checks your inputs to make sure you've entered all required information. If there are issues, they're reported here. After you've reviewed the settings, select **Create** to create the action group.
+1. Create the action group. Select **Review + create** to review your settings. This step quickly checks your inputs to make sure you've entered all required information. If there are issues, they're reported here. After you've reviewed the settings, select **Create** to create the action group.
 
    :::image type="content" source="./media/action-groups/action-group-5-review.png" alt-text="Screenshot that shows the Review + create tab of the Create action group dialog. All configured values are visible.":::
 
@@ -115,13 +108,12 @@ An action group is a *global* service, so there's no dependency on a specific Az
 
 When you create or update an action group in the Azure portal, you can test the action group.
 
-1. Define an action, as described in the previous few sections. Then select **Review + create**.
+1.  [Create an action group in the Azure portal](#create-an-action-group-in-the-azure-portal). 
 
     > [!NOTE]
-    >
-    > If you're editing an already existing action group, you must save changes to the action group before you begin testing.
+    > If you're editing an existing action group, save the changes to the action group before testing.
 
-1. On the page that lists the information you entered, select **Test action group**.
+1. On the action group page, select **Test action group**.
 
    :::image type="content" source="./media/action-groups/test-action-group.png" alt-text="Screenshot that shows the test action group page with the Test option.":::
 
@@ -141,7 +133,7 @@ You can use the information in the **Error details** section to understand the i
 
 When you run a test and select a notification type, you get a message with "Test" in the subject. The tests provide a way to check that your action group works as expected before you enable it in a production environment. All the details and links in test email notifications are from a sample reference set.
 
-#### Azure Resource Manager role membership requirements
+#### Role requirements for test action groups
 
 The following table describes the role membership requirements that are needed for the *test actions* functionality:
 
@@ -153,14 +145,11 @@ The following table describes the role membership requirements that are needed f
 | Azure Monitor contributor | Supported | Supported | Not applicable |
 | Custom role | Supported | Supported | Not applicable |
 
-> [!NOTE]
->
-> You can run a limited number of tests per time period. To check which limits apply to your situation, see [Rate limiting for voice, SMS, emails, Azure App Service push notifications, and webhook posts](./alerts-rate-limiting.md).
->
-> When you configure an action group in the portal, you can opt in or out of the common alert schema:
->
-> - To find common schema samples for all sample types, see [Alert payload samples](./alerts-payload-samples.md).
-> - To find non-common schema alert definitions, see [Non-common alert schema definitions for Test Action Group](./alerts-non-common-schema-definitions.md).
+ > [!NOTE]
+  > - You can run a limited number of tests per time period. To check which limits apply to your situation, see [Azure Monitor service limits](../service-limits.md).
+  > - When you configure an action group in the portal, you can opt in or out of the common alert schema.
+  >     - To find common schema samples for all sample types, see [Common alert schema definitions for Test Action Group](./alerts-common-schema-test-action-definitions.md).
+  >     - To find non-common schema alert definitions, see [Non-common alert schema definitions for Test Action Group](./alerts-non-common-schema-definitions.md).
 
 ## Create an action group with a Resource Manager template
 You can use an [Azure Resource Manager template](../../azure-resource-manager/templates/syntax.md) to configure action groups. Using templates, you can automatically set up action groups that can be reused in certain types of alerts. These action groups ensure that all the correct parties are notified when an alert is triggered.
@@ -168,10 +157,9 @@ You can use an [Azure Resource Manager template](../../azure-resource-manager/te
 The basic steps are:
 
 1. Create a template as a JSON file that describes how to create the action group.
-
 2. Deploy the template by using [any deployment method](../../azure-resource-manager/templates/deploy-powershell.md).
 
-### Resource Manager templates for an action group
+### Action group Resource Manager templates
 
 To create an action group by using a Resource Manager template, you create a resource of the type `Microsoft.Insights/actionGroups`. Then you fill in all related properties. Here are two sample templates that create an action group.
 
@@ -336,54 +324,62 @@ The first template describes how to create a Resource Manager template for an ac
 }
 ```
 
-## Manage your action groups
+## Manage action groups
 
 After you create an action group, you can view it in the portal:
 
-1. On the **Monitor** page, select **Alerts**.
-1. Select **Manage actions**.
+1. Go to the [Azure portal](https://portal.azure.com).
+1. From the **Monitor** page, select **Alerts**.
+1. Select **Action groups**.
 1. Select the action group that you want to manage. You can:
 
    - Add, edit, or remove actions.
    - Delete the action group.
 
-## Action-specific information
+## Notification types
 
-The following sections provide information about the various actions and notifications that you can configure in an action group.
+The following table provides information about the notifications types you can include in an action group. For information about limits on each type of notification, see [Azure Monitor service limits](../service-limits.md).
 
-> [!NOTE]
->
-> To check numeric limits on each type of action or notification, see [Subscription service limits for monitoring](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-monitor-limits).
 
-### Automation runbook
+|Notiification type|Details  |
+|---------|---------|
+|Email Azure Resource Manager role|Send an email to the subscription members, based on their role.<br>The email is only sent to Azure Active Directory **user** members of the selected role, not to Azure AD groups or service principals.<br>A notification email is sent only to the primary email address configured for the Azure AD user.|
+|Email     |         |
+|SMS     |         |
+|Push notificaitons|      |
+|Voice     |         |
 
-To check limits on Automation runbook payloads, see [Automation limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).
+## Action types
 
-You might have a limited number of runbook actions per action group.
+|Action type     |Details  |
+|---------|---------|
+|Automation Runbook|You may have a limited number of runbook actions per action group.<br>For information about limits on Automation runbook payloads, see [Automation limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits). |
+|Event hubs     |An Event Hubs action publishes notifications to Event Hubs. For more information about Event Hubs, see [Azure Event Hubs—A big data streaming platform and event ingestion service](../../event-hubs/event-hubs-about.md). You can subscribe to the alert notification stream from your event receiver.         |
+|Functions |         |
+|ITSM  |         |
+|Logic apps     |         |
+|Secure webhook|         |
+|Webhook|        |
 
-### Azure App Service push notifications
 
-To enable push notifications to the Azure mobile app, provide the email address that you use as your account ID when you configure the Azure mobile app. For more information about the Azure mobile app, see [Get the Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/).
+### Azure app push notifications
+- You may have a limited number of Azure app actions per action group.
 
-You might have a limited number of Azure app actions per action group.
 
 ### Email
 
-Ensure that your email filtering and any malware/spam prevention services are configured appropriately. Emails are sent from the following email addresses:
-
-- azure-noreply@microsoft.com
-- azureemail-noreply@microsoft.com
-- alerts-noreply@mail.windowsazure.com
-
-You might have a limited number of email actions per action group. For information about rate limits, see [Rate limiting for voice, SMS, emails, Azure App Service push notifications, and webhook posts](./alerts-rate-limiting.md).
-
+- You may have a limited number of email actions per action group. For more information, see [Azure Monitor service limits](../service-limits.md).
+- Ensure that your email filtering and any malware/spam prevention services are configured appropriately. Emails are sent from the following email addresses:
+    - azure-noreply@microsoft.com
+    - azureemail-noreply@microsoft.com
+    - alerts-noreply@mail.windowsazure.com
 ### Email Azure Resource Manager role
 
 When you use this type of notification, you can send email to the members of a subscription's role. Email is only sent to Azure Active Directory (Azure AD) **user** members of the role. Email isn't sent to Azure AD groups or service principals.
 
-A notification email is sent only to the *primary email* address.
+A notification email is sent only to the primary email address.
 
-If your primary email doesn't receive notifications:
+If your primary email doesn't receive notifications, take the following steps
 
 1. In the Azure portal, go to **Active Directory**.
 1. On the left, select **All users**. On the right, a list of users appears.
@@ -399,7 +395,7 @@ If your primary email doesn't receive notifications:
 
    :::image type="content" source="media/action-groups/active-directory-add-primary-email.png" alt-text="Screenshot that shows a user profile page in the Azure portal. The Edit button and the Email box are called out." border="true":::
 
-You might have a limited number of email actions per action group. To check which limits apply to your situation, see [Rate limiting for voice, SMS, emails, Azure App Service push notifications, and webhook posts](./alerts-rate-limiting.md).
+You may have a limited number of email actions per action group. To check which limits apply to your situation, see [Azure Monitor service limits](../service-limits.md).
 
 When you set up the Resource Manager role:
 
@@ -411,9 +407,6 @@ When you set up the Resource Manager role:
 >
 > It can take up to 24 hours for a customer to start receiving notifications after they add a new Azure Resource Manager role to their subscription.
 
-### Event Hubs
-
-An Event Hubs action publishes notifications to Event Hubs. For more information about Event Hubs, see [Azure Event Hubs—A big data streaming platform and event ingestion service](../../event-hubs/event-hubs-about.md). You can subscribe to the alert notification stream from your event receiver.
 
 ### Functions
 
@@ -550,13 +543,32 @@ Write-Host $myApp.AppRoles
 
 ### SMS
 
-For information about rate limits, see [Rate limiting for voice, SMS, emails, Azure App Service push notifications, and webhook posts](./alerts-rate-limiting.md).
+Action groups enable you to configure a list of actions. These groups are used when defining alerts; ensuring that a particular action group is notified when the alert is triggered. One of the actions supported is SMS; SMS notifications support bi-directional communication. A user may respond to an SMS to:
 
-For important information about using SMS notifications in action groups, see [SMS alert behavior in action groups](./alerts-sms-behavior.md).
+- **Unsubscribe from alerts:** A user may unsubscribe from all SMS alerts for all action groups, or a single action group.
+- **Resubscribe to alerts:** A user may resubscribe to all SMS alerts for all action groups, or a single action group.  
+- **Request help:** A user may ask for more information on the SMS. They are redirected to this article.
 
-You might have a limited number of SMS actions per action group.
+This article covers the behavior of the SMS alerts and the response actions the user can take based on the locale of the user:
 
-> [!NOTE]
+## Receiving an SMS Alert
+An SMS receiver configured as part of an action group receives an SMS when an alert is triggered. The SMS contains the following information:
+* Shortname of the action group this alert was sent to
+* Title of the alert
+
+| REPLY | Description |
+| ----- | ----------- |
+| DISABLE `<Action Group Short name>` | Disables further SMS from the Action Group |
+| ENABLE `<Action Group Short name>` | Re-enables SMS from the Action Group |
+| STOP | Disables further SMS from all Action Groups |
+| START | Re-enables SMS from ALL Action Groups |
+| HELP | A response is sent to the user with a link to this article. |
+
+
+>[!NOTE]
+>If a user has unsubscribed from SMS alerts, but is then added to a new action group; they WILL receive SMS alerts for that new action group, but remain unsubscribed from all previous action groups.
+
+>[!NOTE]
 >
 > If you can't select your country/region code in the Azure portal, SMS isn't supported for your country/region. If your country/region code isn't available, you can vote to have your country/region added at [Share your ideas](https://feedback.azure.com/d365community/idea/e527eaa6-2025-ec11-b6e6-000d3a4f09d0). In the meantime, as a workaround, configure your action group to call a webhook to a third-party SMS provider that offers support in your country/region.
 
@@ -605,7 +617,7 @@ You might have a limited number of SMS actions per action group.
 
 ### Voice
 
-For important information about rate limits, see [Rate limiting for voice, SMS, emails, Azure App Service push notifications, and webhook posts](./alerts-rate-limiting.md).
+For important information about rate limits, see [Azure Monitor service limits](../service-limits.md).
 
 You might have a limited number of voice actions per action group.
 

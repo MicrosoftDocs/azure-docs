@@ -5,7 +5,7 @@ services: azure-monitor
 author: rboucher
 tags: azure-service-management
 ms.topic: "include"
-ms.date: 2/14/2021
+ms.date: 04/25/2023
 ms.author: dukek
 ms.custom: "include file"
 ---
@@ -13,14 +13,14 @@ You can have an unlimited number of action groups in a subscription.
 
 | Resource | Default limit | Maximum limit |
 | --- | --- | --- |
-| Azure app push | 10 Azure app actions per action group. | Same as default |
-| Email | 1,000 email actions in an action group.<br>No more than 100 emails in an hour.<br>Also see the [rate limiting information](../articles/azure-monitor/alerts/alerts-rate-limiting.md). | Same as default |
-| Email Azure Resource Manager role | 10 email Resource Manager role actions per action group. | Same as default |
-| Event hub | 10 event hub actions per action group. | Same as default |
-| IT Service Management (ITSM) | 10 ITSM actions in an action group. | Same as default | 
-| Logic app | 10 logic app actions in an action group. | Same as default |
-| Runbook | 10 runbook actions in an action group. | Same as default |
-| Secure Webhook | 10 Secure Webhook actions in an action group. Maximum number of webhook calls is 1,500 per minute per subscription. Other limits are available at [action-specific information](../articles/azure-monitor/alerts/action-groups.md#action-specific-information). | Same as default |
-| SMS | 10 SMS actions in an action group.<br>No more than one SMS message every 5 minutes.<br>Also see the [rate limiting information](../articles/azure-monitor/alerts/alerts-rate-limiting.md). | Same as default |
-| Voice | 10 voice actions in an action group.<br>No more than one voice call every 5 minutes.<br>Also see the [rate limiting information](../articles/azure-monitor/alerts/alerts-rate-limiting.md). | Same as default |
-| Webhook | 10 webhook actions in an action group. Maximum number of webhook calls is 1,500 per minute per subscription. Other limits are available at [action-specific information](../articles/azure-monitor/alerts/action-groups.md#action-specific-information). | Same as default |
+| Azure app push | 10 Azure app actions per action group. | Same as Default |
+| Email | 1,000 email actions in an action group.<br>No more than 100 emails in an hour.<br>Also see the [rate limiting information](../articles/azure-monitor/alerts/alerts-rate-limiting.md). | Same as Default |
+| Email ARM role |10 Email ARM role actions per action group.<br>In production: No more than 100 emails in an hour.<br>In a test action group: No more than 2 emails in every 1 minute. | Same as Default |
+| Event Hub | 10 Event Hub actions per action group. | Same as Default |
+| ITSM | 10 ITSM actions in an action group. | Same as Default | 
+| Logic app | 10 logic app actions in an action group. | Same as Default |
+| Runbook | 10 runbook actions in an action group. | Same as Default |
+| Secure Webhook | 10 secure webhook actions in an action group.  Maximum number of webhook calls is 1500 per minute per subscription. Other limits are available at [action-specific information](../articles/azure-monitor/alerts/action-groups.md#action-specific-information).  | Same as Default |
+| SMS | 10 SMS actions in an action group.<br>In production: No more than 1 SMS message every 5 minutes.<br>In a test action group: No more than 1 SMS every 1 minute.| Same as Default |
+| Voice | 10 voice actions in an action group.<br>In production: No more than 1 voice call every 5 minutes.<br>In a test action group: No more than 1 voice call every 1 minute.| Same as Default |
+| Webhook | 10 webhook actions in an action group.  Maximum number of webhook calls is 1500 per minute per subscription. Other limits are available at [action-specific information](../articles/azure-monitor/alerts/action-groups.md#action-specific-information).  | Same as Default |
