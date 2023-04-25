@@ -5,12 +5,13 @@ author: roygara
 ms.service: storage
 ms.collection: linux
 ms.topic: how-to
-ms.date: 01/18/2023
+ms.date: 02/09/2023
 ms.author: albecker
 ms.subservice: disks
+ms.custom: devx-track-azurecli
 ---
 
-# Convert Azure managed disks storage from Standard to Premium or Premium to Standard
+# Change the disk type of an Azure managed disk - CLI
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 

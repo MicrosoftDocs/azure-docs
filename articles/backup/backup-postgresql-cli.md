@@ -4,9 +4,9 @@ description: Learn how to back up Azure Database for PostgreSQL using Azure CLI.
 ms.topic: conceptual
 ms.date: 02/25/2022
 ms.custom: devx-track-azurecli
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up Azure PostgreSQL databases using Azure CLI

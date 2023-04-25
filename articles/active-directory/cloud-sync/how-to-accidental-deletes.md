@@ -32,16 +32,17 @@ For more information and an example, see the following video.
 To use the new feature, follow the steps below.
 
 
-1.  In the Azure portal, select **Azure Active Directory**.
-2.  Select **Azure AD Connect**.
-3.  Select **Manage cloud sync**.
+ 1.  In the Azure portal, select **Azure Active Directory**.
+ 2.  On the left, select **Azure AD Connect**.
+ 3.  On the left, select **Cloud sync**.
 4. Under **Configuration**, select your configuration.
-5. Under **Settings** fill in the following information.
+5. Select **View default properties**.
+6. Click the pencil next to **Basics**
+5. On the right, fill in the following information.
 	- **Notification email** - email used for notifications
 	- **Prevent accidental deletions** - check this box to enable the feature
 	- **Accidental deletion threshold** - enter the number of objects to stop synchronization and send a notification
 
-![Accidental deletes](media/how-to-accidental-deletes/accident-1.png)
 
 ## Recovering from an accidental delete instance
 If you encounter an accidental delete you'll see this on the status of your provisioning agent configuration.  It will say **Delete threshold exceeded**.

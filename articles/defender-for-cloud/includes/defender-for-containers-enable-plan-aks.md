@@ -145,12 +145,6 @@ Request body parameters:
     > [!IMPORTANT]
     > Ensure that you use the same subscription ID for ``<your-subscription-id>`` as the one associated with your AKS cluster.
 
-1. Enable the feature flag in the CLI:
-
-    ```azurecli
-    az feature register --namespace Microsoft.ContainerService --name AKS-AzureDefender
-    ```
-
 1. Enable the Defender profile on your containers:
 
     - Run the following command to create a new cluster with the Defender profile enabled:

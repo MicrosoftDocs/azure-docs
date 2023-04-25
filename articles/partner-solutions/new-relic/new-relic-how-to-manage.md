@@ -3,7 +3,7 @@ title: Manage Azure Native New Relic Service Preview
 description: Learn how to manage your Azure Native New Relic Service settings.
 ms.topic: how-to
 
-ms.date: 01/16/2023
+ms.date: 04/04/2023
 
 ---
 
@@ -47,6 +47,10 @@ The columns in the table denote valuable information for your resource:
 | **Logs to New Relic**        |    Count of logs for the resource type       |
 | **Metrics to New Relic**         |   Count of resources that are sending metrics to New Relic through the integration      |
 
+If you are currently billed by New Relic and want to change to Azure Marketplace billing to consume your Azure commitment, you should work with New Relic to align on timeline as per the current contract tenure. Then, switch your billing using the **Bill via Marketplace**  from the working pane of the Overview page or your New Relic resource.
+
+:::image type="content" source="media/new-relic-how-to-manage/new-relic-bill-marketplace.png" alt-text="Screenshot with 'Bill via Azure Marketplace' selection highlighted.":::
+
 ## Reconfigure rules for logs or metrics
 
 To change the configuration rules for logs or metrics, select **Metrics and Logs** in the Resource menu.
@@ -59,13 +63,13 @@ For more information, see [Configure metrics and logs](new-relic-how-to-configur
 
 To see the list of resources that are sending metrics and logs to New Relic, select **Monitored resources** on the left pane.
 
-:::image type="content" source="media/new-relic-how-to-manage/new-relic-monitored-resources.png" alt-text="Screenshot that shows monitored resources for a New Relic resource.":::
+:::image type="content" source="media/new-relic-how-to-manage/new-relic-monitoring.png" alt-text="Screenshot that shows monitored resources for a New Relic resource.":::
 
 You can filter the list of resources by resource type, resource group name, region, and whether the resource is sending metrics and logs.
 
 The column **Logs to New Relic** indicates whether the resource is sending logs to New Relic. If the resource isn't sending logs, the reasons could be:
 
-- **Resource does not support sending logs**: Only resource types with monitoring log categories can be configured to send logs. See [Supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
+- **Resource does not support sending logs**: Only resource types with monitoring log categories can be configured to send logs. See [Supported categories](../../azure-monitor/essentials/resource-logs-categories.md).
 - **Limit of five diagnostic settings reached**: Each Azure resource can have a maximum of five diagnostic settings. For more information, see [Diagnostic settings](/cli/azure/monitor/diagnostic-settings).
 - **Error**: The resource is configured to send logs to New Relic but is blocked by an error.
 - **Logs not configured**: Only Azure resources that have the appropriate resource tags are configured to send logs to New Relic.

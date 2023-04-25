@@ -15,7 +15,7 @@ Call creation and start are synchronous. The `call` instance allows you to subsc
 
 ### Place a 1:n call to a user or PSTN
 
-To call another Communication Services user, use the `startCall` method on `callAgent` and pass the recipient's `CommunicationUserIdentifier` that you [created with the Communication Services administration library](../../../../quickstarts/access-tokens.md).
+To call another Communication Services user, use the `startCall` method on `callAgent` and pass the recipient's `CommunicationUserIdentifier` that you [created with the Communication Services administration library](../../../../quickstarts/identity/access-tokens.md).
 
 For a 1:1 call to a user, use the following code:
 
@@ -111,7 +111,28 @@ callAgentInstance.on('incomingCall', incomingCallHandler);
 
 The `incomingCall` event includes an `incomingCall` instance that you can accept or reject.
 
-When starting/joining/accepting a call with video on, if the specified video camera device is being used by another process or if it is disabled in the system, the call will start with video off, and a cameraStartFailed: true call diagnostic will be raised.
+When starting/joining/accepting a call with video on, if the specified video camera device is being used by another process or if it's disabled in the system, the call starts with video off, and a cameraStartFailed: true call diagnostic will be raised.
+
+## Hold and resume call
+
+> [!NOTE]
+> At any given moment of time, there should be only 1 active call ( in `Connected` state, with active media ). All other calls should be put on hold by a user, or programatically by application. This is common in scenarios like contact centers, where a user may need to handle multiple outbound and inbound calls, all inactive calls should be put on hold, and user should interact with others only in active call
+
+To hold or resume the call, you can use the `hold` and `resume` asynchronous APIs:
+
+To hold the call
+```js
+await call.hold();
+```
+When `hold` API will resolve, call state will be set to 'LocalHold' , if this is a 1:1 call, other participant will be also put on hold, and state of the call from the perspective of that participant will be set to 'RemoteHold', That participant may further put its call on hold, which would result in state change to 'LocalHold'
+If this is a group call - hold is just a local operation, it won't hold the call for other participants of that call.
+To fully resume that call all users who initiated hold must resume it.
+
+To resume call from hold:
+```
+await call.resume();
+```
+When `resume` API will resolve, call state will be set again to 'Connected'
 
 ## Mute and unmute
 
@@ -215,7 +236,7 @@ The state can be:
     ```
     Note: 
     - This property is only set when adding a remote participant via the Call.addParticipant() API, and the remote participant declines for example.
-    - In the scenario where for example, UserB kicks UserC, from UserA's perspective, UserA will not see this flag get set for UserC. In other words UserA will not see UserC's callEndReason property get set at all.  
+    - In the scenario, where for example, UserB kicks UserC, from UserA's perspective, UserA will not see this flag get set for UserC. In other words UserA will not see UserC's callEndReason property get set at all.  
 
 - `isMuted` status: To find out if a remote participant is muted, check the `isMuted` property. It returns `Boolean`.
 

@@ -4,6 +4,7 @@ description: Troubleshoot connectivity issues in Azure VM disaster recovery
 author: ankitaduttaMSFT
 manager: rochakm
 ms.topic: how-to
+ms.service: site-recovery
 ms.date: 04/06/2020
 ---
 

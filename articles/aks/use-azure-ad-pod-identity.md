@@ -1,10 +1,9 @@
 ---
 title: Use Azure Active Directory pod-managed identities in Azure Kubernetes Service (Preview)
 description: Learn how to use Azure AD pod-managed identities in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: article
-ms.date: 11/01/2022
-
+ms.custom: devx-track-azurecli
+ms.date: 03/23/2023
 ---
 
 # Use Azure Active Directory pod-managed identities in Azure Kubernetes Service (Preview)
@@ -12,7 +11,7 @@ ms.date: 11/01/2022
 Azure Active Directory (Azure AD) pod-managed identities use Kubernetes primitives to associate [managed identities for Azure resources][az-managed-identities] and identities in Azure AD with pods. Administrators create identities and bindings as Kubernetes primitives that allow pods to access Azure resources that rely on Azure AD as an identity provider.
 
 > [!NOTE]
-> We recommend you review [Azure AD workload identity][workload-identity-overview] (preview).
+> We recommend you review [Azure AD workload identity][workload-identity-overview].
 > This authentication method replaces pod-managed identity (preview), which integrates with the
 > Kubernetes native capabilities to federate with any external identity providers on behalf of the
 > application.
@@ -182,8 +181,13 @@ The managed identity that will be assigned to the pod needs to be granted permis
 To run the demo, the *IDENTITY_CLIENT_ID* managed identity must have Virtual Machine Contributor permissions in the resource group that contains the Virtual Machine Scale Set of your AKS cluster.
 
 ```azurecli-interactive
+# Obtain the name of the resource group containing the Virtual Machine Scale set of your AKS cluster, commonly called the node resource group
 NODE_GROUP=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
+
+# Obtain the id of the node resource group 
 NODES_RESOURCE_ID=$(az group show -n $NODE_GROUP -o tsv --query "id")
+
+# Create a role assignment granting your managed identity permissions on the node resource group
 az role assignment create --role "Virtual Machine Contributor" --assignee "$IDENTITY_CLIENT_ID" --scope $NODES_RESOURCE_ID
 ```
 

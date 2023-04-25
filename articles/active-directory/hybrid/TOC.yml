@@ -10,13 +10,13 @@
 - name: Tutorials
   expanded: true
   items:
-  - name: Integrate a single AD forest AD environment to the cloud with PHS
+  - name: Use password hash sync for hybrid identity in Active Directory
     href: tutorial-password-hash-sync.md
-  - name: Integrate a single AD forest AD environment to the cloud with PTA
+  - name: Use pass-through authentication for hybrid identity in Active Directory
     href: tutorial-passthrough-authentication.md
-  - name: Federate a single AD forest environment to the cloud
+  - name: Use federation for hybrid identity in Active Directory
     href: tutorial-federation.md
-  - name: Set up PHS as backup for AD FS in Azure AD Connect 
+  - name: Set password hash sync as backup for AD FS 
     href: tutorial-phs-backup.md
 - name: Concepts
   items:
@@ -68,11 +68,11 @@
        href: how-to-connect-fed-compatibility.md
    - name: Single sign-on
      items:
-     - name: What is Single Sign-On?
+     - name: What is single sign-on?
        href: how-to-connect-sso.md
-     - name: How Single Sign-On works
+     - name: How single sign-on works
        href: how-to-connect-sso-how-it-works.md
-     - name: Single Sign-On and user privacy
+     - name: Single sign-on and user privacy
        href: how-to-connect-sso-user-privacy.md
    - name: Azure AD Connect Sync
      items:
@@ -105,19 +105,19 @@
     items:
     - name: Installation Roadmap
       href: how-to-connect-install-roadmap.md
-    - name: Installation Prerequisites
+    - name: Installation prerequisites
       href: how-to-connect-install-prerequisites.md
     - name: Choose the installation type
       href: how-to-connect-install-select-installation.md
-    - name: Install Azure AD Connect with Express settings (Password Hash Synch)
+    - name: Install Azure AD Connect with Express settings (password hash sync)
       href:  how-to-connect-install-express.md
-    - name: Install Azure AD Connect Federation or other Custom settings
+    - name: Install Azure AD Connect federation or other Custom settings
       href:  how-to-connect-install-custom.md
     - name: Import and export configuration settings
       href:  how-to-connect-import-export-config.md
-    - name: Install Azure AD Connect with Pass-through Authentication (PTA)
+    - name: Install Azure AD Connect with pass-through authentication
       href:  how-to-connect-pta-quick-start.md 
-    - name: Install Azure AD Connect Health
+    - name: Install Azure AD Connect Health agents
       href:  how-to-connect-health-agent-install.md
     - name: Automatic upgrade
       href: how-to-connect-install-automatic-upgrade.md
@@ -151,7 +151,7 @@
       href: plan-connect-topologies.md
     - name: Factors influencing the performance of Azure AD Connect
       href: plan-connect-performance-factors.md
-    - name: How will users sign-in
+    - name: How will users sign in
       href: plan-connect-user-signin.md
     - name: Azure AD UserPrincipalName population
       href: plan-connect-userprincipalname.md
@@ -259,10 +259,10 @@
   - name: Manage single sign-on 
     items:
 
-    - name: Get started with Single Sign-On
+    - name: Get started with Seamless single sign-on
       href: how-to-connect-sso-quick-start.md
 
-    - name: Single Sign-On FAQ
+    - name: Single sign-on FAQ
       href: how-to-connect-sso-faq.yml
   - name: Manage Azure AD Connect Health
     items:

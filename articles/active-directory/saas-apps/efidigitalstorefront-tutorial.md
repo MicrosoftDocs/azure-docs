@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with EFI Digital StoreFront | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with EFI Digital StoreFront'
 description: Learn how to configure single sign-on between Azure Active Directory and EFI Digital StoreFront.
 services: active-directory
 author: jeevansd

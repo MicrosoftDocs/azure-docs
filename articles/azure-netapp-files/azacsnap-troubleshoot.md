@@ -37,17 +37,35 @@ This naming convention allows for multiple configuration files, one per database
 
 ### Result files and syslog
 
-For the `-c backup` command, AzAcSnap writes to a *\*.result* file.  The purpose of the *\*.result* file is to provide high-level confirmation of success/failure.  If the *\*.result* file is empty, then assume failure.  Any output written to the *\*.result* file is also output to the system log (for example, `/var/log/messages`) by using the `logger` command. The *\*.result* filename has the same base name as the log file to allow for matching the result file with the configuration file and the backup log file.  The *\*.result* file goes into the same location as the other log files and is a simple one line output file, such as the following example:
+For the `-c backup` command, AzAcSnap writes to a *\*.result* file.  The purpose of the *\*.result* file is to provide high-level confirmation of success/failure.  If the *\*.result* file is empty, then assume failure.  Any output written to the *\*.result* file is also output to the system log (for example, `/var/log/messages`) by using the `logger` command. The *\*.result* filename has the same base name as the log file to allow for matching the result file with the configuration file and the backup log file.  The *\*.result* file goes into the same location as the other log files and is a simple one line output file.
 
-```output
-Database # 1 (PR1) : completed ok
-```
+1. Example for successful completion:
 
-Here's example output from `/var/log/messages`:
+   1. Output to *\*.result* file:
+   
+      ```output
+      Database # 1 (PR1) : completed ok
+      ```
 
-```output
-Dec 17 09:01:13 azacsnap-rhel azacsnap: Database # 1 (PR1) : completed ok
-```
+   1. Output to `/var/log/messages`:
+
+      ```output
+      Dec 17 09:01:13 azacsnap-rhel azacsnap: Database # 1 (PR1) : completed ok
+      ```
+
+1. Example output where a failure has occured and AzAcSnap captured the failure:
+
+   1. Output to *\*.result* file:
+   
+      ```output
+      Database # 1 (PR1) : failed
+      ```
+
+   1. Output to `/var/log/messages`:
+
+      ```output
+      Dec 19 09:00:30 azacsnap-rhel azacsnap: Database # 1 (PR1) : failed
+      ```
 
 ## Troubleshoot failed 'test storage' command
 

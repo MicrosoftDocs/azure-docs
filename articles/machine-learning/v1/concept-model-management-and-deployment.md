@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: dem108
 ms.author:  sehan
 ms.reviewer: mopeakande
-ms.custom: seodec18, mktng-kw-nov2021, event-tier1-build-2022
+ms.custom: UpdateFrequency5, seodec18, mktng-kw-nov2021, event-tier1-build-2022
 ms.date: 01/04/2023
 ---
 
@@ -19,9 +19,14 @@ ms.date: 01/04/2023
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning developer platform you are using:"]
 > * [v1](concept-model-management-and-deployment.md)
-> * [v2 (current version)](../concept-model-management-and-deployment.md)
+> * [v2 (current version)](../concept-model-management-and-deployment.md?view=azureml-api-2&preserve-view=true)
 
 In this article, learn how to apply Machine Learning Operations (MLOps) practices in Azure Machine Learning for the purpose of managing the lifecycle of your models. Applying MLOps practices can improve the quality and consistency of your machine learning solutions. 
+
+> [!IMPORTANT]
+> Items in this article marked as "preview" are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## What is MLOps?
 
@@ -144,13 +149,13 @@ Microsoft Power BI supports using machine learning models for data analytics. Fo
 
 ## Capture the governance data required for MLOps
 
-Azure ML gives you the capability to track the end-to-end audit trail of all of your ML assets by using metadata.
+Azure Machine Learning gives you the capability to track the end-to-end audit trail of all of your ML assets by using metadata.
 
-- Azure ML [integrates with Git](../concept-train-model-git-integration.md) to track information on which repository / branch / commit your code came from.
-- [Azure ML Datasets](how-to-create-register-datasets.md) help you track, profile, and version data.
+- Azure Machine Learning [integrates with Git](../concept-train-model-git-integration.md) to track information on which repository / branch / commit your code came from.
+- [Azure Machine Learning Datasets](how-to-create-register-datasets.md) help you track, profile, and version data.
 - [Interpretability](../how-to-machine-learning-interpretability.md) allows you to explain your models, meet regulatory compliance, and understand how models arrive at a result for given input.
-- Azure ML Run history stores a snapshot of the code, data, and computes used to train a model.
-- The Azure ML Model Registry captures all of the metadata associated with your model (which experiment trained it, where it is being deployed, if its deployments are healthy).
+- Azure Machine Learning Run history stores a snapshot of the code, data, and computes used to train a model.
+- The Azure Machine Learning Model Registry captures all of the metadata associated with your model (which experiment trained it, where it is being deployed, if its deployments are healthy).
 - [Integration with Azure](../how-to-use-event-grid.md)  allows you to act on events in the ML lifecycle. For example, model registration, deployment, data drift, and training (run) events.
 
 > [!TIP]
@@ -160,7 +165,7 @@ Azure ML gives you the capability to track the end-to-end audit trail of all of 
 
 
 ## Notify, automate, and alert on events in the ML lifecycle
-Azure ML publishes key events to Azure Event Grid, which can be used to notify and automate on events in the ML lifecycle. For more information, please see [this document](../how-to-use-event-grid.md).
+Azure Machine Learning publishes key events to Azure Event Grid, which can be used to notify and automate on events in the ML lifecycle. For more information, please see [this document](../how-to-use-event-grid.md).
 
 
 ## Monitor for operational & ML issues
@@ -175,7 +180,7 @@ For more information, see [How to enable model data collection](how-to-enable-da
 
 Often, you'll want to validate your model, update it, or even retrain it from scratch, as you receive new information. Sometimes, receiving new data is an expected part of the domain. Other times, as discussed in [Detect data drift (preview) on datasets](how-to-monitor-datasets.md), model performance can degrade in the face of such things as changes to a particular sensor, natural data changes such as seasonal effects, or features shifting in their relation to other features. 
 
-There is no universal answer to "How do I know if I should retrain?" but Azure ML event and monitoring tools previously discussed are good starting points for automation. Once you have decided to retrain, you should: 
+There is no universal answer to "How do I know if I should retrain?" but Azure Machine Learning event and monitoring tools previously discussed are good starting points for automation. Once you have decided to retrain, you should: 
 
 - Preprocess your data using a repeatable, automated process
 - Train your new model

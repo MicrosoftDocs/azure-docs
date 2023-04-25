@@ -139,10 +139,10 @@ The **OutputClaims** element contains a list of claims returned by the SAML iden
 
 In the example above, *Contoso-SAML2* includes the claims returned by a SAML identity provider:
 
-* The **issuerUserId** claim is mapped to the **assertionSubjectName** claim.
+* The **assertionSubjectName** claim is mapped to the **issuerUserId** claim.
 * The **first_name** claim is mapped to the **givenName** claim.
 * The **last_name** claim is mapped to the **surname** claim.
-* The **displayName** claim is mapped to the `http://schemas.microsoft.com/identity/claims/displayname` claim.
+* The `http://schemas.microsoft.com/identity/claims/displayname` claim is mapped to the **displayName** claim.
 * The **email** claim without name mapping.
 
 The technical profile also returns claims that aren't returned by the identity provider:

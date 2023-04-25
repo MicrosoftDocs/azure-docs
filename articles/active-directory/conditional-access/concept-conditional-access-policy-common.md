@@ -1,5 +1,5 @@
 ---
-title: Conditional Access templates - Azure Active Directory
+title: Conditional Access templates
 description: Deploy commonly used Conditional Access policies with templates
 
 services: active-directory
@@ -60,7 +60,7 @@ Organizations can select individual policy templates and:
 - [Require approved client apps or app protection](howto-policy-approved-app-or-app-protection.md)
 - [Require compliant or hybrid Azure AD joined device or multifactor authentication for all users](howto-conditional-access-policy-compliant-device.md)
 - [Require compliant or Hybrid Azure AD joined device for administrators](howto-conditional-access-policy-compliant-device-admin.md)
-- [Require multi-factor authentication for risky sign-in](howto-conditional-access-policy-risk.md) **Requires Azure AD Premium P2**
+- [Require multifactor authentication for risky sign-in](howto-conditional-access-policy-risk.md) **Requires Azure AD Premium P2**
 - [Require multifactor authentication for guest access](howto-policy-guest-mfa.md)
 - [Require password change for high-risk users](howto-conditional-access-policy-risk-user.md) **Requires Azure AD Premium P2**
 - [Securing security info registration](howto-conditional-access-policy-registration.md)
@@ -71,6 +71,7 @@ Organizations can select individual policy templates and:
 - [Block access by location](howto-conditional-access-policy-location.md)
 - [Block access except specific apps](howto-conditional-access-policy-block-access.md)
 
+## User exclusions
 [!INCLUDE [active-directory-policy-exclusions](../../../includes/active-directory-policy-exclude-user.md)]
 
 ## Next steps

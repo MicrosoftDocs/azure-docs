@@ -12,6 +12,9 @@ ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell
 ---
 # Modify a Virtual Machine Scale Set
 
+> [!NOTE]
+> Many of the steps listed in this document apply to Virtual Machine Scale Sets using Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for Virtual Machine Scale Sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
+
 Throughout the lifecycle of your applications, you may need to modify or update your Virtual Machine Scale Set. These updates may include how to update the configuration of the scale set, or change the application configuration. This article describes how to modify an existing scale set with the REST APIs, Azure PowerShell, or Azure CLI.
 
 ## Fundamental concepts
@@ -301,6 +304,9 @@ To update existing VMs, you must do a "manual upgrade" of each existing VM. You 
     az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
     ```
 
+   > [!NOTE]
+   > The `az vmss update-instances` command will manually upgrade the selected instance to the latest model. While upgrading, the instance may be restarted.
+
 - You can also use the language-specific [Azure SDKs](https://azure.microsoft.com/downloads/).
 
 >[!NOTE]
@@ -326,8 +332,10 @@ There is one type of modification to global scale set properties that does not f
     az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
     ```
 
-- You can also use the language-specific [Azure SDKs](https://azure.microsoft.com/downloads/).
+   > [!NOTE]
+   > The `az vmss reimage` command will reimage the selected instance, restoring it to the initial state. The instance may be restarted, and any local data will be lost.
 
+- You can also use the language-specific [Azure SDKs](https://azure.microsoft.com/downloads/).
 
 ## Properties with restrictions on modification
 

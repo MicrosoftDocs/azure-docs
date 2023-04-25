@@ -41,14 +41,16 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 - Dv5-series, Dsv5-series
 - Ddv5-series, Ddsv5-series
 - Dasv5-series, Dadsv5-series
+- Esv3-series, Ev4-series, Esv4-series
+- Edv4-series, Edsv4-series
+- Eav4-series, Easv4-series
 - Ev5-series, Esv5-series
 - Edv5-series, Edsv5-series
 - Easv5-series, Eadsv5-series
-- Eav4-series, Easv4-series
-- Ev4-series, Esv4-series, Esv3-series
-- Edv4-series, Edsv4-series
 - Fsv2-series
+- FX-series
 - Lsv2-series
+- Lsv3-series, Lasv3-series
 - NCasT4_v3-series
 - NVadsA10 v5-series
 
@@ -74,18 +76,16 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 
 **Regions**:
 - All public regions
-- All Fairfax regions
+- All Azure Government regions
 
 **Pricing**:
 No additional cost to existing VM pricing.
 
 **The following features are not supported**:
-- Azure Site Recovery
-- Shared disk
-- Ultra disk
+- Azure Site Recovery (coming soon)
+- Ultra disk (coming soon)
 - Managed image
-- Nested Virtualization
-- Azure Automanage
+- Nested Virtualization (most v5 VM sizes supported; other sizes coming soon)
 
 ## Secure boot
 
@@ -110,7 +110,7 @@ With trusted launch and VBS you can enable Windows Defender Credential Guard. Th
 
 Trusted launch is integrated with Microsoft Defender for Cloud to ensure your VMs are properly configured. Microsoft Defender for Cloud will continually assess compatible VMs and issue relevant recommendations.
 
-- **Recommendation to enable Secure Boot** - This Recommendation only applies for VMs that support trusted launch. Mirosoft Defender for Cloud will identify VMs that can enable Secure Boot, but have it disabled. It will issue a low severity recommendation to enable it.
+- **Recommendation to enable Secure Boot** - This Recommendation only applies for VMs that support trusted launch. Microsoft Defender for Cloud will identify VMs that can enable Secure Boot, but have it disabled. It will issue a low severity recommendation to enable it.
 - **Recommendation to enable vTPM** - If your VM has vTPM enabled, Microsoft Defender for Cloud can use it to perform Guest Attestation and identify advanced threat patterns. If Microsoft Defender for Cloud identifies VMs that support trusted launch and have vTPM disabled, it will issue a low severity recommendation to enable it.
 - **Recommendation to install guest attestation extension** - If your VM has secure boot and vTPM enabled but it doesn't have the guest attestation extension installed, Microsoft Defender for Cloud will issue a low severity recommendation to install the guest attestation extension on it. This extension allows Microsoft Defender for Cloud to proactively attest and monitor the boot integrity of your VMs. Boot integrity is attested via remote attestation.
 - **Attestation health assessment or Boot Integrity Monitoring** - If your VM has Secure Boot and vTPM enabled and attestation extension installed, Microsoft Defender for Cloud can remotely validate that your VM booted in a healthy way. This is known as boot integrity monitoring. Microsoft Defender for Cloud issues an assessment, indicating the status of remote attestation.
@@ -148,19 +148,19 @@ In secure boot chain, each step in the boot process checks a cryptographic signa
 
 ### What happens when an integrity fault is detected?
 
-Trusted launch for Azure virtual machines is monitored for advanced threats. If such threats are detected, an alert will be triggered. Alerts are only available if [Defender for Cloud's enhanced security features](../security-center/enable-enhanced-security.md) are enabled.
+Trusted launch for Azure virtual machines is monitored for advanced threats. If such threats are detected, an alert is triggered. Alerts are only available if [Defender for Cloud's enhanced security features](../security-center/enable-enhanced-security.md) are enabled.
 
-Defender for Cloud periodically performs attestation. If the attestation fails, a medium severity alert will be triggered. Trusted launch attestation can fail for the following reasons:
+Defender for Cloud periodically performs attestation. If the attestation fails, a medium severity alert is triggered. Trusted launch attestation can fail for the following reasons:
 
-Trusted launch for Azure virtual machines is monitored for advanced threats. If such threats are detected, an alert will be triggered. Alerts are only available in the [Standard Tier](../security-center/security-center-pricing.md) of Microsoft Defender for Cloud.
-Microsoft Defender for Cloud periodically performs attestation. If the attestation fails, a medium severity alert will be triggered. Trusted launch attestation can fail for the following reasons:
+Trusted launch for Azure virtual machines is monitored for advanced threats. If such threats are detected, an alert is triggered. Alerts are only available in the [Standard Tier](../security-center/security-center-pricing.md) of Microsoft Defender for Cloud.
+Microsoft Defender for Cloud periodically performs attestation. If the attestation fails, a medium severity alert is triggered. Trusted launch attestation can fail for the following reasons:
 - The attested information, which includes a log of the Trusted Computing Base (TCB), deviates from a trusted baseline (like when Secure Boot is enabled). This can indicate that untrusted modules have been loaded and the OS may be compromised.
 - The attestation quote could not be verified to originate from the vTPM of the attested VM. This can indicate that malware is present and may be intercepting traffic to the TPM.
 - The attestation extension on the VM is not responding. This can indicate a denial-of-service attack by malware, or an OS admin.
 
 ### How does trusted launch compare to Hyper-V Shielded VM?
 
-Hyper-V Shielded VM is currently available on Hyper-V only. [Hyper-V Shielded VM](/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms) is typically deployed in conjunction with Guarded Fabric. A Guarded Fabric consists of a Host Guardian Service (HGS), one or more guarded hosts, and a set of Shielded VMs. Hyper-V Shielded VMs are intended for use in fabrics where the data and state of the virtual machine must be protected from both fabric administrators and untrusted software that might be running on the Hyper-V hosts. Trusted launch on the other hand can be deployed as a standalone virtual machine or virtual machine scale sets on Azure without additional deployment and management of HGS. All of the trusted launch features can be enabled with a simple change in deployment code or a checkbox on the Azure portal.
+Hyper-V Shielded VM is currently available on Hyper-V only. [Hyper-V Shielded VM](/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms) is typically deployed in conjunction with Guarded Fabric. A Guarded Fabric consists of a Host Guardian Service (HGS), one or more guarded hosts, and a set of Shielded VMs. Hyper-V Shielded VMs are intended for use in fabrics where the data and state of the virtual machine must be protected from both fabric administrators and untrusted software that might be running on the Hyper-V hosts. Trusted launch on the other hand can be deployed as a standalone virtual machine or Virtual Machine Scale Sets on Azure without additional deployment and management of HGS. All of the trusted launch features can be enabled with a simple change in deployment code or a checkbox on the Azure portal.
 
 ### Does trusted launch support Azure Compute Gallery?
 
@@ -197,7 +197,7 @@ $vmSize = "Standard_M64"
 (Get-AzComputeResourceSku | where {$_.Locations.Contains($region) -and ($_.Name -eq $vmSize) })[0].Capabilities
 ```
 
-The response will be similar to the following form. `TrustedLaunchDisabled   True` in the output indicates that the Generation 2 VM size does not support Trusted launch. If it's a Generation 2 VM size and `TrustedLaunchDisabled` is not part of the output, it implies that Trusted launch is supported for that VM size.
+The response is similar to the following form. `TrustedLaunchDisabled   True` in the output indicates that the Generation 2 VM size does not support Trusted launch. If it's a Generation 2 VM size and `TrustedLaunchDisabled` is not part of the output, it implies that Trusted launch is supported for that VM size.
 
 ```
 Name                                         Value

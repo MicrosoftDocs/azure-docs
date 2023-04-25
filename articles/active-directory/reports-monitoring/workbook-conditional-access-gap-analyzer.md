@@ -1,6 +1,6 @@
 ---
 
-title: Conditional access gap analyzer workbook in  Azure AD | Microsoft Docs
+title: Conditional access gap analyzer workbook in  Azure AD
 description: Learn how to use the conditional access gap analyzer workbook.
 services: active-directory
 author: shlipsey3

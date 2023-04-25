@@ -10,7 +10,7 @@ ms.custom: devdivchpfy22
 
 [!INCLUDE [preview focused article](./includes/lab-services-new-update-focused-article.md)]
 
-This article provides information about connecting a [lab plan](tutorial-setup-lab-plan.md) to your virtual network.
+This article provides information about connecting a lab plan to your virtual network.
 
 Some organizations have advanced network requirements and configurations that they want to apply to labs. For example, network requirements can include a network traffic control, ports management, access to resources in an internal network, etc.  Certain on-premises networks are connected to Azure Virtual Network either through [ExpressRoute](../expressroute/expressroute-introduction.md) or [Virtual Network Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). These services must be set up outside of Azure Lab Services. To learn more about connecting an on-premises network to Azure using ExpressRoute, see [ExpressRoute overview](../expressroute/expressroute-introduction.md). For on-premises connectivity using a Virtual Network Gateway, the gateway, specified virtual network, network security group, and the lab plan all must be in the same region.
 
@@ -92,7 +92,7 @@ For connectivity to lab VMs, it's required to associate an NSG with the subnet d
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
 1. Search for **lab plan**.  (**Lab plan** can also be found under the **DevOps** category.)
-1. Enter required information on the **Basics** tab of the **Create a lab plan** page.  For more information, see [Tutorial: Create a lab plan with Azure Lab Services](tutorial-setup-lab-plan.md).
+1. Enter required information on the **Basics** tab of the **Create a lab plan** page.  For more information, see [Create a lab plan with Azure Lab Services](quick-create-resources.md).
 1. From the **Basics** tab of the **Create a lab plan** page, select **Next: Networking** at the bottom of the page.
 1. Select **Enable advanced networking**.
 

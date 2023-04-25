@@ -1,11 +1,11 @@
 ---
-title: Understand the Azure IoT Hub built-in endpoint | Microsoft Docs
+title: Understand the Azure IoT Hub built-in endpoint
 description: This article describes how to use the built-in, Event Hub-compatible endpoint to read device-to-cloud messages.
 author: kgremban
+
 ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/19/2022
 ms.custom: [amqp, 'Role: Cloud Development']
 ---
@@ -94,7 +94,6 @@ You can use the Event Hubs SDKs to read from the built-in endpoint in environmen
 | Language | Sample |
 | -------- | ------ |
 | .NET | [ReadD2cMessages .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/service/samples/getting%20started/ReadD2cMessages) |
-| Java | [read-d2c-messages Java](https://github.com/Azure/azure-iot-sdk-java/tree/main/service/iot-service-samples/read-d2c-messages) |
 | Node.js | [read-d2c-messages Node.js](https://github.com/Azure-Samples/azure-iot-samples-node/tree/master/iot-hub/Quickstarts/read-d2c-messages) |
 | Python | [read-dec-messages Python](https://github.com/Azure-Samples/azure-iot-samples-python/tree/master/iot-hub/Quickstarts/read-d2c-messages) |
 
@@ -106,4 +105,4 @@ You can use the Event Hubs SDKs to read from the built-in endpoint in environmen
 
 For more information, see the [Process IoT Hub device-to-cloud messages using routes](tutorial-routing.md) tutorial.
 
-* If you want to route your device-to-cloud messages to custom endpoints, see [Use message routes and custom endpoints for device-to-cloud messages](iot-hub-devguide-messages-read-custom.md).
+* If you want to route your device-to-cloud messages to custom endpoints, see [Use message routes and custom endpoints for device-to-cloud messages](iot-hub-devguide-messages-d2c.md).

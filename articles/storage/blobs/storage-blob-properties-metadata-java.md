@@ -24,7 +24,7 @@ In addition to the data they contain, blobs support system properties and user-d
 
 - **User-defined metadata**: User-defined metadata consists of one or more name-value pairs that you specify for a Blob storage resource. You can use metadata to store additional values with the resource. Metadata values are for your own purposes only, and don't affect how the resource behaves.
 
-- **Metadata names**: Metadata name/value pairs are valid HTTP headers and should adhere to all restrictions governing HTTP headers. For more information about metadata naming requirements, see [Metadata names](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#metadata-names).
+    Metadata name/value pairs are valid HTTP headers and should adhere to all restrictions governing HTTP headers. For more information about metadata naming requirements, see [Metadata names](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#metadata-names).
 
 > [!NOTE]
 > Blob index tags also provide the ability to store arbitrary user-defined key/value attributes alongside an Azure Blob storage resource. While similar to metadata, only blob index tags are automatically indexed and made searchable by the native blob service. Metadata cannot be indexed and queried unless you utilize a separate service such as Azure Search.
@@ -67,10 +67,21 @@ The following code example reads metadata on a blob and prints each key/value pa
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobPropertiesMetadataTags.java" id="Snippet_ReadBlobMetadata":::
 
-## See also
+## Resources
 
-- [View code sample in GitHub](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobPropertiesMetadataTags.java)
+To learn more about how to manage system properties and user-defined metadata using the Azure Blob Storage client library for Java, see the following resources.
+
+### REST API operations
+
+The Azure SDK for Java contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Java paradigms. The client library methods for managing system properties and user-defined metadata use the following REST API operations:
+
 - [Set Blob Properties](/rest/api/storageservices/set-blob-properties) (REST API)
 - [Get Blob Properties](/rest/api/storageservices/get-blob-properties) (REST API)
 - [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata) (REST API)
 - [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata) (REST API)
+
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobPropertiesMetadataTags.java)
+
+[!INCLUDE [storage-dev-guide-resources-java](../../../includes/storage-dev-guides/storage-dev-guide-resources-java.md)]

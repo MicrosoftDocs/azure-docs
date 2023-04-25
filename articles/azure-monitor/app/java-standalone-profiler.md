@@ -62,6 +62,9 @@ The ApplicationInsights Java Agent monitors CPU and memory consumption and if it
 
 Within the profiler user interface (see [profiler settings](../profiler/profiler-settings.md)) there's a **Profile now** button. Selecting this button will immediately request a profile in all agents that are attached to the Application Insights instance.
 
+> [!WARNING]
+> Invoking Profile now will enable the profiler feature, and Application Insights will apply default CPU and memory SLA triggers. When your application breaches those SLAs, Application Insights will gather Java profiles. If you wish to disable profiling later on, you can do so within the trigger menu shown in [Installation](#installation).
+
 #### CPU
 
 CPU threshold is a percentage of the usage of all available cores on the system.
@@ -100,21 +103,6 @@ The following steps will guide you through enabling the profiling component on t
     
     3. Configure the required CPU and Memory thresholds and select Apply.
        :::image type="content" source="./media/java-standalone-profiler/cpu-memory-trigger-settings.png" alt-text="Screenshot of trigger settings pane for CPU and Memory triggers.":::
-       
-1. Inside the `applicationinsights.json` configuration of your process, enable profiler with the `preview.profiler.enabled` setting:
-   ```json
-      {
-         "connectionString" : "...",
-         "preview" : {
-            "profiler" : {
-               "enabled" : true
-            }
-         }
-      }
-   ```
-   Alternatively, set the `APPLICATIONINSIGHTS_PREVIEW_PROFILER_ENABLED` environment variable to true.
-   
-1. Restart your process with the updated configuration.
 
 > [!WARNING]
 > The Java profiler does not support the "Sampling" trigger. Configuring this will have no effect.
@@ -138,8 +126,8 @@ Profiles can be generated/edited in the JDK Mission Control (JMC) user interface
 
 ### Environment variables
 
-- `APPLICATIONINSIGHTS_PREVIEW_PROFILER_ENABLED`: boolean (default: `false`)
-    Enables/disables the profiling feature.
+- `APPLICATIONINSIGHTS_PREVIEW_PROFILER_ENABLED`: boolean (default: `true`)
+    Enables/disables the profiling feature. By default the feature is enabled within the agent (since agent 3.4.9). However, even though this feature is enabled within the agent, profiles will not be gathered unless enabled within the Portal as described in [Installation](#installation).
 
 ### Configuration file
 
@@ -189,7 +177,7 @@ Azure Monitor Application Insights Java profiler uses Java Flight Recorder (JFR)
 Java Flight Recorder is a tool for collecting profiling data of a running Java application. It's integrated into the Java Virtual Machine (JVM) and is used for troubleshooting performance issues. Learn more about [Java SE JFR Runtime](https://docs.oracle.com/javacomponents/jmc-5-4/jfr-runtime-guide/about.htm#JFRUH170).
 
 ### What is the price and/or licensing fee implications for enabling App Insights Java Profiling?
-Java Profiling enablement is a free feature with Application Insights. [Azure Monitor Application Insights pricing](https://azure.microsoft.com/pricing/details/monitor/) is based on ingestion cost.
+Java Profiling is a free feature with Application Insights. [Azure Monitor Application Insights pricing](https://azure.microsoft.com/pricing/details/monitor/) is based on ingestion cost.
 
 ### Which Java profiling information is collected? 
 Profiling data collected by the JFR includes: method and execution profiling data, garbage collection data, and lock profiles. 

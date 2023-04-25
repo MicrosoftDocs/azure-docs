@@ -38,6 +38,7 @@ The data in the following Synapse components is encrypted with the customer-mana
 * SQL pools
  * Dedicated SQL pools
  * Serverless SQL pools
+* Data Explorer pools
 * Apache Spark pools
 * Azure Data Factory integration runtimes, pipelines, datasets.
 

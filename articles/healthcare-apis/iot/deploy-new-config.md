@@ -5,11 +5,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 1/5/2023
+ms.date: 04/14/2023
 ms.author: jasteppe
 ---
 
 # Quickstart: Part 2: Configure the MedTech service for manual deployment using the Azure portal
+
+> [!NOTE]
+> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 Before you can manually deploy the MedTech service, you must complete the following configuration tasks:
 
@@ -94,13 +97,13 @@ To begin configuring the device mapping tab, go to the Create MedTech service pa
 
 For more information regarding device mappings, see the relevant GitHub open source documentation at [Device Content Mapping](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md#device-content-mapping).
 
-For Azure docs information about device mapping, see [How to configure device mappings](how-to-configure-device-mappings.md).
+For Azure docs information about the device mapping, see [How to configure the MedTech service device mapping](how-to-configure-device-mappings.md).
 
 ## Configure the Destination tab
 
-In order to configure the destination mapping tab, you can use the IoMT Connector Data Mapper tool to visualize, edit, and test the destination mapping. This open source tool is available from [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper). You need to configure destination mapping so that your instance of MedTech service can send and receive data to and from the FHIR service.
+In order to configure the **Destination** tab, you can use the [Mapping debugger](how-to-use-mapping-debugger.md) tool to create, edit, and test the FHIR destination mapping. You need to configure FHIR destination mapping so that your instance of MedTech service can send transformed device data to the FHIR service.
 
-To begin configuring destination mapping, go to the Create MedTech service page and select the **Destination mapping** tab. There are two parts of the tab you must fill out:
+To begin configuring FHIR destination mapping, go to the **Create** MedTech service page and select the **Destination mapping** tab. There are two parts of the tab you must fill out:
 
  1. Destination properties
  2. JSON template request
@@ -109,7 +112,7 @@ To begin configuring destination mapping, go to the Create MedTech service page 
 
 Under the **Destination** tab, use these values to enter the destination properties for your MedTech service instance:
 
-- First, enter the name of your **Fast Healthcare Interoperability Resources (FHIR&#174;) server** using the following four steps:
+- First, enter the name of your **FHIR server** using the following four steps:
 
   1. The **FHIR Server** name (also known as the **FHIR service**) can be located by using the **Search** bar at the top of the screen. 
   1. To connect to your FHIR service instance, enter the name of the FHIR service you used in the manual deploy configuration article at [Deploy the FHIR service](deploy-new-manual.md#deploy-the-fhir-service).
@@ -138,13 +141,13 @@ Under the **Destination** tab, use these values to enter the destination propert
 
 For more information regarding destination mapping, see the FHIR service GitHub documentation at [FHIR mapping](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md#fhir-mapping).
 
-For Azure docs information about destination mapping, see [How to use FHIR destination mappings](how-to-configure-fhir-mappings.md).
+For Azure docs information about the FHIR destination mapping, see [Overview of the FHIR destination mapping](overview-of-fhir-destination-mapping.md).
 
 ### JSON template request
 
 Before you can complete the FHIR destination mapping, you must get a FHIR destination mapping code. Follow these four steps:
 
-1. Go to the [IoMT Connector Data Mapper Tool](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) and get the JSON template for your FHIR destination. 
+1. Go to the [Mapping debugger](how-to-use-mapping-debugger.md) and get the JSON template for your FHIR destination. 
 1. Go back to the Destination tab of the Create MedTech service page. 
 1. Go to the large box below the boxes for FHIR server name, Destination name, and Resolution type. Enter the JSON template request in that box.
 1. You'll then receive the FHIR Destination mapping code, which will be saved as part of your configuration.
@@ -189,7 +192,7 @@ If your MedTech service didn't validate, review the validation failure message, 
 
 ## Continue on to Part 3: Deployment and post-deployment
 
-After your configuration is successfully completed, you can go on to Part 3: Deployment and post deployment. See **Next steps** below.
+After your configuration is successfully completed, you can go on to Part 3: Deployment and post deployment. See **Next steps**.
 
 ## Next steps
 

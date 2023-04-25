@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Chart showing the limits of the Azure Digital Twins service.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/25/2022
+ms.date: 02/14/2023
 ms.topic: article
 ms.service: digital-twins
 

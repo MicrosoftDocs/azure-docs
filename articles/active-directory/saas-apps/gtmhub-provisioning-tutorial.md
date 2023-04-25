@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Gtmhub for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Gtmhub for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Gtmhub.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: 10b68d00-a544-480b-9bd6-f6ac291a90d0
 ms.service: active-directory

@@ -44,7 +44,7 @@ The following table lists the available unifying parsers:
 
 | Schema | Unifying parser | 
 | ------ | ------------------------- |
-| Audit Event | imAuditEvent |
+| Audit Event | _Im_AuditEvent |
 | Authentication | imAuthentication | 
 | Dns | _Im_Dns |
 | File Event | imFileEvent |
@@ -62,9 +62,9 @@ When invoking the parser, always use available filtering parameters by adding on
 
 Each schema has a standard set of filtering parameters documented in the relevant schema documentation. Filtering parameters are entirely optional. The following schemas support filtering parameters:
 - [Audit Event](normalization-schema-audit.md)
-- [Authentication](authentication-normalization-schema.md)
+- [Authentication](normalization-schema-authentication.md)
 - [DNS](normalization-schema-dns.md#filtering-parser-parameters)
-- [Network Session](network-normalization-schema.md#filtering-parser-parameters)
+- [Network Session](normalization-schema-network.md#filtering-parser-parameters)
 - [Web Session](normalization-schema-web.md#filtering-parser-parameters)
 
 Every schema that supports filtering parameters supports at least the `starttime` and `endtime` parameters and using them is often critical for optimizing performance.

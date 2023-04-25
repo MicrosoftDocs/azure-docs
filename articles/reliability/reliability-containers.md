@@ -7,13 +7,10 @@ ms.topic: overview
 ms.custom: subject-reliability
 ms.service: container-instances
 ms.date: 11/29/2022
+#Customer intent: I want to understand reliability support in Azure Container Instances so that I can respond to and/or avoid failures in order to minimize downtime and data loss.
 ---
 
-<!--#Customer intent:  I want to understand reliability support in Azure Container Instances so that I can respond to and/or avoid failures in order to minimize downtime and data loss. -->
-
-
-# What is reliability in Azure Container Instances?
-
+# Reliability in Azure Container Instances
 
 > [!IMPORTANT]
 > This feature is currently in preview. Previews are made available to you on the condition that you agree to the supplemental terms of use.
@@ -22,7 +19,7 @@ This article describes reliability support in Azure Container Instances (ACI) an
 
 ## Availability zone support
 
-Azure availability zones are at least three physically separate groups of datacenters within each Azure region. Datacenters within each zone are equipped with independent power, cooling, and networking infrastructure. In the case of a local zone failure, availability zones are designed so that if one zone is affected, regional services, capacity, and high availability are supported by the remaining two zones.  Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved with redundancy and logical isolation of Azure services. For more detailed information on availability zones in Azure, see [Availability zone service and regional support](availability-zones-service-support.md).
+Azure availability zones are at least three physically separate groups of datacenters within each Azure region. Datacenters within each zone are equipped with independent power, cooling, and networking infrastructure. Availability zones are designed to ensure high availability in the case of a local zone failure.  When one zone experiences a failure, the remaining two zones support all regional services, capacity, and high availability. Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved with redundancy and logical isolation of Azure services. For more detailed information on availability zones in Azure, see [Availability zone service and regional support](availability-zones-service-support.md).
 
 There are three types of Azure services that support availability zones: zonal, zone-redundant, and always-available services. You can learn more about these types of services and how they promote resiliency in the [Azure services with availability zone support](availability-zones-service-support.md#azure-services-with-availability-zone-support).
 
@@ -34,7 +31,8 @@ Azure Container Instances supports *zonal* container group deployments, meaning 
 > [!IMPORTANT]
 > This feature is currently not available for Azure portal.
 
-- Zonal container group deployments are supported in most regions where ACI is available for Linux and Windows Server 2019 container groups. For details, see [Regions and resource availability][container-regions].
+- Zonal container group deployments are supported in most regions where ACI is available for Linux and Windows Server 2019 container groups. For details, see [Regions and resource availability](../container-instances/container-instances-region-availability.md).
+
 - Availability zone support is only available on ACI API version 09-01-2021 or later. 
 - For Azure CLI, version 2.30.0 or later must be installed.
 - For PowerShell, version 2.1.1-preview or later must be installed.
@@ -54,8 +52,12 @@ To change your container group's availability zone, you must delete the containe
 
 ### Create a resource with availability zone enabled
 
+To create a Container Instance resource with availability zone enabled, you'll need to deploy a container group using an Azure Resource Manager (ARM) template.
 
-#### Deploy a container group using an Azure Resource Manager (ARM) template
+>[!NOTE]
+>Examples in this article are formatted for the Bash shell. If you prefer another shell, adjust the line continuation characters accordingly.
+
+**To deploy a container with ARM:**
 
 1. Copy-paste the following JSON into a new file named `azuredeploy.json`. This example template deploys a container group with a single container into availability zone 1 in East US.
 
@@ -193,14 +195,11 @@ To change your container group's availability zone, you must delete the containe
       --resource-group myResourceGroup \
       --template-file azuredeploy.json
     ```
-
-## Get container group details
-
-To verify the container group deployed successfully into an availability zone, view the container group details with the [az container show][az-container-show] command:
-
-```azurecli
-az containershow --name acilinuxcontainergroup --resource-group myResourceGroup
-```
+4. To verify the container group deployed successfully into an availability zone, view the container group details with the [az container show][az-container-show] command:
+    
+    ```azurecli
+    az containershow --name acilinuxcontainergroup --resource-group myResourceGroup
+    ```
 
 ### Zonal failover support
 
@@ -218,7 +217,7 @@ When an entire Azure region or datacenter experiences downtime, your mission-cri
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure Cache for Redis Premium service tiers](../container-instances/availability-zones.md#next-steps)
+[Azure Architecture Center's guide on availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability).
 
 > [!div class="nextstepaction"]
 > [Reliability in Azure](./overview.md)

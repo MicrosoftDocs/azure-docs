@@ -5,10 +5,12 @@ description: Learn about how to create a custom IPv6 address prefix using Azure 
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 03/31/2022
 ms.author: allensu
 ---
+
 # Create a custom IPv6 address prefix using Azure PowerShell
 
 A custom IPv6 address prefix enables you to bring your own IPv6 ranges to Microsoft and associate it to your Azure subscription. The range would continue to be owned by you, though Microsoft would be permitted to advertise it to the Internet. A custom IP address prefix functions as a regional resource that represents a contiguous block of customer owned IP addresses.
@@ -82,7 +84,7 @@ $prefix =@{
     AuthorizationMessage = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|2a05:f500:2::/48|yyyymmdd'
     SignedMessage = $byoipauthsigned
 }
-$myCustomIpPrefix = New-AzCustomIPPrefix @prefix
+$myCustomIPv6GlobalPrefix = New-AzCustomIPPrefix @prefix
 ```
 
 ### Provision a regional custom IPv6 address prefix
@@ -96,7 +98,7 @@ $prefix =@{
     Location = 'EastUS2'
     CIDR = '2a05:f500:2:1::/64'
 }
-$myCustomIpPrefix = New-AzCustomIPPrefix @prefix -Zone 1,2,3
+$myCustomIPv6RegionalPrefix = New-AzCustomIPPrefix @prefix -Zone 1,2,3
 ```
 Similar to IPv4 custom IP prefixes, after the regional custom IP prefix is in a **Provisioned** state, public IP prefixes can be derived from the regional custom IP prefix.  These public IP prefixes and any public IP addresses derived from them can be attached to networking resources, though they are not yet being advertised.
 

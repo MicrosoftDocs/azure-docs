@@ -1,5 +1,5 @@
 ---
-title: Require MFA for all users with Conditional Access - Azure Active Directory
+title: Require MFA for all users with Conditional Access
 description: Create a custom Conditional Access policy to require all users do multifactor authentication
 
 services: active-directory
@@ -23,6 +23,7 @@ As Alex Weinert, the Directory of Identity Security at Microsoft, mentions in hi
 
 The guidance in this article will help your organization create an MFA policy for your environment.
 
+## User exclusions
 [!INCLUDE [active-directory-policy-exclusions](../../../includes/active-directory-policy-exclude-user.md)]
 
 ## Application exclusions

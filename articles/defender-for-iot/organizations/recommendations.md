@@ -3,6 +3,7 @@ title: Enhance security posture with security recommendations - Microsoft Defend
 description: Learn about how to find security recommendations for devices detected by Microsoft Defender for IoT.
 ms.date: 12/12/2022
 ms.topic: how-to
+ms.custom: enterprise-iot
 ---
 
 # Enhance security posture with security recommendations

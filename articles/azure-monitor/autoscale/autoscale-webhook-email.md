@@ -9,24 +9,25 @@ ms.subservice: autoscale
 ms.reviewer: akkumari
 ---
 # Use autoscale actions to send email and webhook alert notifications in Azure Monitor
-This article shows you how set up triggers so that you can call specific web URLs or send emails based on autoscale actions in Azure.  
+This article shows you how to set up triggers so that you can call specific web URLs or send emails based on autoscale actions in Azure.
 
 ## Webhooks
-Webhooks allow you to route the Azure alert notifications to other systems for post-processing or custom notifications. For example, routing the alert to services that can handle an incoming web request to send SMS, log bugs, notify a team using chat or messaging services, etc. The webhook URI must be a valid HTTP or HTTPS endpoint.
+Webhooks allow you to route Azure alert notifications to other systems for post-processing or custom notifications. Examples include routing the alert to services that can handle an incoming web request to send an SMS, log bugs, or notify a team by using chat or messaging services. The webhook URI must be a valid HTTP or HTTPS endpoint.
 
 ## Email
-Email can be sent to any valid email address. Administrators and co-administrators of the subscription where the rule is running will also be notified.
+You can send email to any valid email address. Administrators and co-administrators of the subscription where the rule is running are also notified.
 
-## Cloud Services and App Services
-You can opt-in from the Azure portal for Cloud Services and Server Farms (App Services).
+## Cloud Services and App Service
+You can opt in from the Azure portal for Azure Cloud Services and server farms (Azure App Service).
 
 * Choose the **scale by** metric.
 
-![scale by](./media/autoscale-webhook-email/insights-autoscale-notify.png)
+   ![Screenshot that shows the Autoscale setting pane.](./media/autoscale-webhook-email/insights-autoscale-notify.png)
 
-## Virtual Machine scale sets
-For newer Virtual Machines created with Resource Manager (Virtual Machine scale sets), you can configure this using REST API, Resource Manager templates, PowerShell, and CLI. A portal interface is not yet available.
-When using the REST API or Resource Manager template, include the notifications element in your [autoscalesettings](/azure/templates/microsoft.insights/2015-04-01/autoscalesettings) with the following options.
+## Virtual machine scale sets
+For newer virtual machines created with Azure Resource Manager (virtual machine scale sets), you can use the REST API, Resource Manager templates, PowerShell, and the Azure CLI for configuration. An Azure portal interface isn't yet available.
+
+When you use the REST API or Resource Manager templates, include the notifications element in your [autoscale settings](/azure/templates/microsoft.insights/2015-04-01/autoscalesettings) with the following options:
 
 ```
 "notifications": [
@@ -53,18 +54,18 @@ When using the REST API or Resource Manager template, include the notifications 
     ]
 ```
 
-| Field | Mandatory? | Description |
+| Field | Mandatory | Description |
 | --- | --- | --- |
-| operation |yes |value must be "Scale" |
-| sendToSubscriptionAdministrator |yes |value must be "true" or "false" |
-| sendToSubscriptionCoAdministrators |yes |value must be "true" or "false" |
-| customEmails |yes |value can be null [] or string array of emails |
-| webhooks |yes |value can be null or valid Uri |
-| serviceUri |yes |a valid https Uri |
-| properties |yes |value must be empty {} or can contain key-value pairs |
+| operation |Yes |Value must be "Scale." |
+| sendToSubscriptionAdministrator |Yes |Value must be "true" or "false." |
+| sendToSubscriptionCoAdministrators |Yes |Value must be "true" or "false." |
+| customEmails |Yes |Value can be null [] or a string array of emails. |
+| webhooks |Yes |Value can be null or valid URI. |
+| serviceUri |Yes |Valid HTTPS URI. |
+| properties |Yes |Value must be empty {} or can contain key-value pairs. |
 
 ## Authentication in webhooks
-The webhook can authenticate using token-based authentication, where you save the webhook URI with a token ID as a query parameter. For example, https:\//mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
+The webhook can authenticate by using token-based authentication, where you save the webhook URI with a token ID as a query parameter. An example is https:\//mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue.
 
 ## Autoscale notification webhook payload schema
 When the autoscale notification is generated, the following metadata is included in the webhook payload:
@@ -95,22 +96,21 @@ When the autoscale notification is generated, the following metadata is included
 }
 ```
 
-
-| Field | Mandatory? | Description |
+| Field | Mandatory | Description |
 | --- | --- | --- |
-| status |yes |The status that indicates that an autoscale action was generated |
-| operation |yes |For an increase of instances, it will be "Scale Out" and for a decrease in instances, it will be "Scale In" |
-| context |yes |The autoscale action context |
-| timestamp |yes |Time stamp when the autoscale action was triggered |
-| id |Yes |Resource Manager ID of the autoscale setting |
-| name |Yes |The name of the autoscale setting |
-| details |Yes |Explanation of the action that the autoscale service took and the change in the instance count |
-| subscriptionId |Yes |Subscription ID of the target resource that is being scaled |
-| resourceGroupName |Yes |Resource Group name of the target resource that is being scaled |
-| resourceName |Yes |Name of the target resource that is being scaled |
-| resourceType |Yes |The three supported values: "microsoft.classiccompute/domainnames/slots/roles" - Cloud Service roles, "microsoft.compute/virtualmachinescalesets" - Virtual Machine Scale Sets,  and "Microsoft.Web/serverfarms" - Web App |
-| resourceId |Yes |Resource Manager ID of the target resource that is being scaled |
-| portalLink |Yes |Azure portal link to the summary page of the target resource |
-| oldCapacity |Yes |The current (old) instance count when Autoscale took a scale action |
-| newCapacity |Yes |The new instance count that Autoscale scaled the resource to |
-| properties |No |Optional. Set of <Key, Value> pairs (for example,  Dictionary <String, String>). The properties field is optional. In a custom user interface  or Logic app based workflow, you can enter keys and values that can be passed using the payload. An alternate way to pass custom properties back to the outgoing webhook call is to use the webhook URI itself (as query parameters) |
+| status |Yes |Status that indicates that an autoscale action was generated. |
+| operation |Yes |For an increase of instances, it's' "Scale Out." For a decrease in instances, it's' "Scale In." |
+| context |Yes |Autoscale action context. |
+| timestamp |Yes |Time stamp when the autoscale action was triggered. |
+| id |Yes |Resource Manager ID of the autoscale setting. |
+| name |Yes |Name of the autoscale setting. |
+| details |Yes |Explanation of the action that the autoscale service took and the change in the instance count. |
+| subscriptionId |Yes |Subscription ID of the target resource that's being scaled. |
+| resourceGroupName |Yes |Resource group name of the target resource that's being scaled. |
+| resourceName |Yes |Name of the target resource that's being scaled. |
+| resourceType |Yes |Three supported values: "microsoft.classiccompute/domainnames/slots/roles" - Azure Cloud Services roles, "microsoft.compute/virtualmachinescalesets" - Azure Virtual Machine Scale Sets, and "Microsoft.Web/serverfarms" - Web App feature of Azure Monitor. |
+| resourceId |Yes |Resource Manager ID of the target resource that's being scaled. |
+| portalLink |Yes |Azure portal link to the summary page of the target resource. |
+| oldCapacity |Yes |Current (old) instance count when autoscale took a scale action. |
+| newCapacity |Yes |New instance count to which autoscale scaled the resource. |
+| properties |No |Optional. Set of <Key, Value> pairs (for example, Dictionary <String, String>). The properties field is optional. In a custom user interface or logic app-based workflow, you can enter keys and values that can be passed by using the payload. An alternate way to pass custom properties back to the outgoing webhook call is to use the webhook URI itself (as query parameters). |

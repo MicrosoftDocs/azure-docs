@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Monitor network communication with virtual machine scale set - Azure portal'
 titleSuffix: Azure Network Watcher
-description: In this tutorial, you'll learn how to monitor network communication between two virtual machine scale sets with Azure Network Watcher connection monitor using the Azure portal.
+description: In this tutorial, you'll learn how to use Azure Network Watcher connection monitor tool to monitor network communication with a virtual machine scale set using the Azure portal.
 services: network-watcher
 author: halkazwini
 tags: azure-resource-manager
@@ -11,7 +11,7 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2023
 ms.author: halkazwini
 ms.custom: template-tutorial, mvc, engagement-fy23
-# Customer intent: I need to monitor communication between a virtual machine scale set and another VM. If the communication fails, I need to know why, so that I can resolve the problem. 
+# Customer intent: I need to monitor communication between a virtual machine scale set and a virtual machine. If the communication fails, I need to know why, so that I can resolve the problem.
 ---
 
 # Tutorial: Monitor network communication with a virtual machine scale set using the Azure portal
@@ -197,7 +197,7 @@ In the Azure portal, to create a test group in a connection monitor, do the foll
 
    * To choose on-premises agents, select the **Non–Azure endpoints** tab. By default, agents are grouped into workspaces by region. All these workspaces have the Network Performance Monitor configured. 
  
- 1. If you need to add Network Performance Monitor to your workspace, get it from [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/solarwinds.solarwinds-orion-network-performance-monitor?tab=Overview). For information about how to add Network Performance Monitor, see [Monitoring solutions in Azure Monitor](../azure-monitor/insights/solutions.md). For information about how to configure agents for on-premises machines, see [Agents for on-premises machines](connection-monitor-overview.md#agents-for-on-premises-machines).
+ 1. If you need to add Network Performance Monitor to your workspace, get it from [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/solarwinds.solarwinds-orion-network-performance-monitor?tab=Overview). For information about how to add Network Performance Monitor, see [Monitoring solutions in Azure Monitor](/previous-versions/azure/azure-monitor/insights/solutions). For information about how to configure agents for on-premises machines, see [Agents for on-premises machines](connection-monitor-overview.md#agents-for-on-premises-machines).
  
  1. Under **Create Connection Monitor**, on the **Basics** pane, the default region is selected. If you change the region, you can choose agents from workspaces in the new region. You can select one or more agents or subnets. In the **Subnet** view, you can select specific IPs for monitoring. If you add multiple subnets, a custom on-premises network named **OnPremises_Network_1** will be created. You can also change the **Group by** selector to group by agents.
 
@@ -223,7 +223,7 @@ In the Azure portal, to create a test group in a connection monitor, do the foll
  
    * To choose non-Azure agents as destinations, select the **Non-Azure endpoints** tab. By default, agents are grouped into workspaces by region. All these workspaces have Network Performance Monitor configured. 
  
-     If you need to add Network Performance Monitor to your workspace, get it from Azure Marketplace. For information about how to add Network Performance Monitor, see [Monitoring solutions in Azure Monitor](../azure-monitor/insights/solutions.md). For information about how to configure agents for on-premises machines, see [Agents for on-premises machines](connection-monitor-overview.md#agents-for-on-premises-machines).
+     If you need to add Network Performance Monitor to your workspace, get it from Azure Marketplace. For information about how to add Network Performance Monitor, see [Monitoring solutions in Azure Monitor](/previous-versions/azure/azure-monitor/insights/solutions). For information about how to configure agents for on-premises machines, see [Agents for on-premises machines](connection-monitor-overview.md#agents-for-on-premises-machines).
 
      Under **Create Connection Monitor**, on the **Basics** pane, the default region is selected. If you change the region, you can choose agents from workspaces in the new region. You can select one or more agents or subnets. In the **Subnet** view, you can select specific IPs for monitoring. If you add multiple subnets, a custom on-premises network named **OnPremises_Network_1** will be created. 
 
@@ -327,3 +327,4 @@ To learn about all the different responses a connection monitor can return, see 
 
 > [!div class="nextstepaction"]
 > [Diagnose communication problems between networks](diagnose-communication-problem-between-networks.md)
+

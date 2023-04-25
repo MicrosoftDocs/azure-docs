@@ -133,7 +133,7 @@ az sig image-version create \
 > [!NOTE]
 > You need to wait for the image version to completely finish being built and replicated before you can use the same managed image to create another image version.
 >
-> You can also store your image in Premiun storage by a adding `--storage-account-type  premium_lrs`, or [Zone Redundant Storage](../../storage/common/storage-redundancy.md) by adding `--storage-account-type  standard_zrs` when you create the image version.
+> You can also store your image in Premium storage by a adding `--storage-account-type  premium_lrs`, or [Zone Redundant Storage](../../storage/common/storage-redundancy.md) by adding `--storage-account-type  standard_zrs` when you create the image version.
 >
 
  
@@ -192,7 +192,7 @@ In this tutorial, you created a custom VM image. You learned how to:
 > * Create a VM from an image 
 > * Share a gallery
 
-Advance to the next tutorial to learn about highly available virtual machines.
+Advance to the next tutorial to learn about Virtual Machine Scale Sets.
 
 > [!div class="nextstepaction"]
-> [Create highly available VMs](tutorial-availability-sets.md)
+> [Create a virtual machine scale set](tutorial-create-vmss.md)

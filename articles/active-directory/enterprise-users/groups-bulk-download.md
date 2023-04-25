@@ -1,6 +1,6 @@
 ---
 
-title: Download a list of groups in the Azure Active Directory portal | Microsoft Docs
+title: Download a list of groups in the Azure portal
 description: Download group properties in bulk in the Azure admin center in Azure Active Directory. 
 services: active-directory 
 author: barclayn

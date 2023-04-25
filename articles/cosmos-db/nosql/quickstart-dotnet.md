@@ -8,7 +8,7 @@ ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 11/07/2022
-ms.custom: devx-track-csharp, ignite-2022, devguide-csharp, cosmos-db-dev-journey, passwordless-dotnet
+ms.custom: devx-track-csharp, ignite-2022, devguide-csharp, cosmos-db-dev-journey, passwordless-dotnet, devx-track-azurecli
 ---
 
 # Quickstart: Azure Cosmos DB for NoSQL client library for .NET
@@ -115,7 +115,7 @@ For this sample code, the container will use the category as a logical partition
 
 [!INCLUDE [passwordless-overview](../../../includes/passwordless/passwordless-overview.md)]
 
-## [Passwordless](#tab/passwordless)
+## [Passwordless (Recommended)](#tab/passwordless)
 
 [!INCLUDE [dotnet-default-azure-credential-overview](../../../includes/passwordless/dotnet-default-azure-credential-overview.md)]
 
@@ -159,7 +159,7 @@ For more information on different ways to create a ``CosmosClient`` instance, se
 
 Next you'll create a database and container to store products, and perform queries to insert and read those items.
 
-## [Passwordless](#tab/passwordless)
+## [Passwordless (Recommended)](#tab/passwordless)
 
 The `Microsoft.Azure.Cosmos` client libraries enable you to perform *data* operations using [Azure RBAC](../role-based-access-control.md). However, to authenticate *management* operations such as creating and deleting databases you must use RBAC through one of the following options:
 
@@ -199,6 +199,27 @@ The [``Database.GetContainer``](/dotnet/api/microsoft.azure.cosmos.database.getc
 
 :::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/002-quickstart-passwordless/Program.cs" id="new_container" highlight="2,4":::
 
+## [Connection String](#tab/connection-string)
+
+### Create a database
+
+Use the [``CosmosClient.CreateDatabaseIfNotExistsAsync``](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseifnotexistsasync) method to create a new database if it doesn't already exist. This method will return a reference to the existing or newly created database.
+
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/002-quickstart-passwordless/Program.cs" id="new_database" highlight="3":::
+
+For more information on creating a database, see [Create a database in Azure Cosmos DB for NoSQL using .NET](how-to-dotnet-create-database.md).
+
+
+### Create a container
+
+The [``Database.CreateContainerIfNotExistsAsync``](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync) will create a new container if it doesn't already exist. This method will also return a reference to the container.
+
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/001-quickstart/Program.cs" id="new_container" highlight="3-5":::
+
+For more information on creating a container, see [Create a container in Azure Cosmos DB for NoSQL using .NET](how-to-dotnet-create-container.md).
+
+---
+
 ### Create an item
 
 The easiest way to create a new item in a container is to first build a C# [class](/dotnet/csharp/language-reference/keywords/class) or [record](/dotnet/csharp/language-reference/builtin-types/record) type with all of the members you want to serialize into JSON. In this example, the C# record has a unique identifier, a *categoryId* field for the partition key, and extra *categoryName*, *name*, *quantity*, and *sale* fields.
@@ -224,52 +245,6 @@ For more information about reading items and parsing the response, see [Read an 
 After you insert an item, you can run a query to get all items that match a specific filter. This example runs the SQL query: ``SELECT * FROM products p WHERE p.categoryId = "61dba35b-4f02-45c5-b648-c6badc0cbd79"``. This example uses the **QueryDefinition** type and a parameterized query expression for the partition key filter. Once the query is defined, call [``Container.GetItemQueryIterator<>``](/dotnet/api/microsoft.azure.cosmos.container.getitemqueryiterator) to get a result iterator that will manage the pages of results. Then, use a combination of ``while`` and ``foreach`` loops to retrieve pages of results and then iterate over the individual items.
 
 :::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/002-quickstart-passwordless/Program.cs" id="query_items" highlight="3,5,16":::
-
-## [Connection String](#tab/connection-string)
-
-### Create a database
-
-Use the [``CosmosClient.CreateDatabaseIfNotExistsAsync``](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseifnotexistsasync) method to create a new database if it doesn't already exist. This method will return a reference to the existing or newly created database.
-
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/002-quickstart-passwordless/Program.cs" id="new_database" highlight="3":::
-
-For more information on creating a database, see [Create a database in Azure Cosmos DB for NoSQL using .NET](how-to-dotnet-create-database.md).
-
-### Create a container
-
-The [``Database.CreateContainerIfNotExistsAsync``](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync) will create a new container if it doesn't already exist. This method will also return a reference to the container.
-
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/001-quickstart/Program.cs" id="new_container" highlight="3-5":::
-
-For more information on creating a container, see [Create a container in Azure Cosmos DB for NoSQL using .NET](how-to-dotnet-create-container.md).
-
-### Create an item
-
-The easiest way to create a new item in a container is to first build a C# [class](/dotnet/csharp/language-reference/keywords/class) or [record](/dotnet/csharp/language-reference/builtin-types/record) type with all of the members you want to serialize into JSON. In this example, the C# record has a unique identifier, a *categoryId* field for the partition key, and extra *categoryName*, *name*, *quantity*, and *sale* fields.
-
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/001-quickstart/Product.cs" id="entity" highlight="3-4":::
-
-Create an item in the container by calling [``Container.CreateItemAsync``](/dotnet/api/microsoft.azure.cosmos.container.createitemasync).
-
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/001-quickstart/Program.cs" id="new_item" highlight="3-4,12":::
-
-For more information on creating, upserting, or replacing items, see [Create an item in Azure Cosmos DB for NoSQL using .NET](how-to-dotnet-create-item.md).
-
-### Get an item
-
-In Azure Cosmos DB, you can perform a point read operation by using both the unique identifier (``id``) and partition key fields. In the SDK, call [``Container.ReadItemAsync<>``](/dotnet/api/microsoft.azure.cosmos.container.readitemasync) passing in both values to return a deserialized instance of your C# type.
-
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/001-quickstart/Program.cs" id="read_item" highlight="3-4":::
-
-For more information about reading items and parsing the response, see [Read an item in Azure Cosmos DB for NoSQL using .NET](how-to-dotnet-read-item.md).
-
-### Query items
-
-After you insert an item, you can run a query to get all items that match a specific filter. This example runs the SQL query: ``SELECT * FROM products p WHERE p.categoryId = "61dba35b-4f02-45c5-b648-c6badc0cbd79"``. This example uses the **QueryDefinition** type and a parameterized query expression for the partition key filter. Once the query is defined, call [``Container.GetItemQueryIterator<>``](/dotnet/api/microsoft.azure.cosmos.container.getitemqueryiterator) to get a result iterator that will manage the pages of results. Then, use a combination of ``while`` and ``foreach`` loops to retrieve pages of results and then iterate over the individual items.
-
-:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/001-quickstart/Program.cs" id="query_items" highlight="3,5,16":::
-
----
 
 ## Run the code
 

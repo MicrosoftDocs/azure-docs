@@ -49,7 +49,7 @@ classification a name and a description. It's good practice to use a name-spacin
 
 The Microsoft system classifications are grouped under the reserved `MICROSOFT.` namespace. An example is **MICROSOFT.GOVERNMENT.US.SOCIAL\_SECURITY\_NUMBER**.
 
-The name of your classification must start with a letter followed by a sequence of letters, numbers, and period (.) or underscore characters. No spaces are allowed. As you type, the UX automatically generates a friendly name. This friendly name is what users see when you apply it to an asset in the catalog.
+The name of your classification must start with a letter followed by a sequence of letters, numbers, and period (.) or underscore characters. As you type, the UX automatically generates a friendly name. This friendly name is what users see when you apply it to an asset in the catalog.
 
 To keep the name short, the system creates the friendly name based on
 the following logic:

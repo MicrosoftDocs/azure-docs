@@ -38,7 +38,7 @@ You also need the [JavaScript SDK](sdk-nodejs.md).
 
 ## Database examples
 
-The [DatabaseManagement](https://github.com/Azure/azure-cosmos-js/blob/master/samples/DatabaseManagement.ts) file shows how to perform the CRUD operations on the database. To learn about the Azure Cosmos DB databases before running the following samples, see [Working with databases, containers, and items](../account-databases-containers-items.md) conceptual article.
+The [DatabaseManagement](https://github.com/Azure/azure-cosmos-js/blob/master/samples/DatabaseManagement.ts) file shows how to perform the CRUD operations on the database. To learn about the Azure Cosmos DB databases before running the following samples, see [Working with databases, containers, and items](../resource-model.md) conceptual article.
 
 | Task | API reference |
 | --- | --- |
@@ -49,7 +49,7 @@ The [DatabaseManagement](https://github.com/Azure/azure-cosmos-js/blob/master/sa
 
 ## Container examples
 
-The [ContainerManagement](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ContainerManagement.ts) file shows how to perform the CRUD operations on the container. To learn about the Azure Cosmos DB collections before running the following samples, see [Working with databases, containers, and items](../account-databases-containers-items.md) conceptual article.
+The [ContainerManagement](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ContainerManagement.ts) file shows how to perform the CRUD operations on the container. To learn about the Azure Cosmos DB collections before running the following samples, see [Working with databases, containers, and items](../resource-model.md) conceptual article.
 
 | Task | API reference |
 | --- | --- |
@@ -60,7 +60,7 @@ The [ContainerManagement](https://github.com/Azure/azure-cosmos-js/blob/master/s
 
 ## Item examples
 
-The [ItemManagement](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ItemManagement.ts) file shows how to perform the CRUD operations on the item. To learn about the Azure Cosmos DB documents before running the following samples, see [Working with databases, containers, and items](../account-databases-containers-items.md) conceptual article.
+The [ItemManagement](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ItemManagement.ts) file shows how to perform the CRUD operations on the item. To learn about the Azure Cosmos DB documents before running the following samples, see [Working with databases, containers, and items](../resource-model.md) conceptual article.
 
 | Task | API reference |
 | --- | --- |
@@ -75,7 +75,7 @@ The [ItemManagement](https://github.com/Azure/azure-cosmos-js/blob/master/sample
 
 ## Indexing examples
 
-The [IndexManagement](https://github.com/Azure/azure-cosmos-js/blob/master/samples/IndexManagement.ts) file shows how to manage indexing. To learn about indexing in Azure Cosmos DB before running the following samples, see [indexing policies](../index-policy.md), [indexing types](../index-overview.md#index-types), and [indexing paths](../index-policy.md#include-exclude-paths) conceptual articles.
+The [IndexManagement](https://github.com/Azure/azure-cosmos-js/blob/master/samples/IndexManagement.ts) file shows how to manage indexing. To learn about indexing in Azure Cosmos DB before running the following samples, see [indexing policies](../index-policy.md), [indexing types](../index-overview.md#types-of-indexes), and [indexing paths](../index-policy.md#include-exclude-paths) conceptual articles.
 
 | Task | API reference |
 | --- | --- |

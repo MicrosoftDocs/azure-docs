@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 01/06/2023
+ms.date: 01/31/2023
 ---
 
 ## Latest client versions
@@ -11,8 +11,20 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.8.0         | [Mac App Store](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) |
+| Public  | 10.8.1         | [Mac App Store](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) |
 | Beta    | 10.8.1         | [Microsoft AppCenter](https://aka.ms/rdmacbeta) |
+
+## Updates for Version 10.8.1
+
+*Date published: January 25, 2023*
+
+In this release, we've made the following changes:
+
+- Bug fixes and feature updates.
+- Teams redirection for Azure Virtual Desktop now supports Noise Cancellation and Give/Take Control.
+- Fixed connection blocking issues that affected a small number of users.
+- Updated Azure Virtual Desktop diagnostics to address a reporting error.
+- New clipboard redirection options including bidirectional clipboard syncing, local to remote, or remote to local.
 
 ## Updates for Version 10.8.0
 

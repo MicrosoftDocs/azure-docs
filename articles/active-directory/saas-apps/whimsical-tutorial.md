@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Whimsical | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Whimsical'
 description: Learn how to configure single sign-on between Azure Active Directory and Whimsical.
 services: active-directory
 author: jeevansd

@@ -3,9 +3,9 @@ title: Restore System State to a Windows Server
 description: Step-by-step explanation for restoring Windows Server System State from a backup in Azure.
 ms.topic: conceptual
 ms.date: 12/09/2022
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Restore System State to Windows Server
 

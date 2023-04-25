@@ -2,7 +2,7 @@
 title: Azure Service Bus - messaging exceptions | Microsoft Docs
 description: This article provides a list of Azure Service Bus messaging exceptions and suggested actions to taken when the exception occurs.
 ms.topic: article
-ms.date: 03/21/2022
+ms.date: 02/17/2023
 ---
 
 # Service Bus messaging exceptions
@@ -19,7 +19,8 @@ The messaging APIs generate exceptions that can fall into the following categori
 4. Other exceptions ([System.Transactions.TransactionException](/dotnet/api/system.transactions.transactionexception), [System.TimeoutException](/dotnet/api/system.timeoutexception), [Microsoft.ServiceBus.Messaging.MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception), [Microsoft.ServiceBus.Messaging.SessionLockLostException](/dotnet/api/microsoft.azure.servicebus.sessionlocklostexception)). General action: specific to the exception type; refer to the table in the following section:
 
 > [!IMPORTANT]
-> Azure Service Bus doesn't retry an operation in case of an exception when the operation is in a transaction scope.
+> - Azure Service Bus doesn't retry an operation in case of an exception when the operation is in a transaction scope.
+> - For retry guidance specific to Azure Service Bus, see [Retry guidance for Service Bus](/azure/architecture/best-practices/retry-service-specific#service-bus).
 
 
 ## Exception types
@@ -52,7 +53,10 @@ The following table lists messaging exception types, and their causes, and notes
 
 ## QuotaExceededException
 
-[QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) indicates that a quota for a specific entity has been exceeded.
+[QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) indicates that a quota for a specific entity has been exceeded. 
+
+> [!NOTE]
+> For Service Bus quotas, see [Quotas](service-bus-quotas.md).
 
 ### Queues and topics
 

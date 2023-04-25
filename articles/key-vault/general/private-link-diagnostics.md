@@ -76,7 +76,7 @@ An important notion is that the private links feature only *gives* access to you
 1. Open the Azure portal and open your key vault resource.
 2. In the left menu, select **Networking**.
 3. Make sure the **Firewalls and virtual networks** tab is selected on top.
-4. Make sure the option **Private endpoint and selected networks** is selected. If you find **All networks** select, that explains why external clients are still able to access the key vault.
+4. If you find **Allow public access from all networks** selected, that explains why external clients are still able to access the key vault. If you would like the Key Vault to be accessible only over Private Link, select **Disable Public Access**.
 
 The following statements also apply to firewall settings:
 

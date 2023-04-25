@@ -37,6 +37,9 @@ Writing stored procedures, triggers, and user-defined functions (UDFs) in JavaSc
 > [!TIP]
 > Stored procedures are best suited for operations that are write-heavy and require a transaction across a partition key value. When deciding whether to use stored procedures, optimize around encapsulating the maximum amount of writes possible. Generally speaking, stored procedures are not the most efficient means for doing large numbers of read or query operations, so using stored procedures to batch large numbers of reads to return to the client will not yield the desired benefit. For best performance, these read-heavy operations should be done on the client-side, using the Azure Cosmos DB SDK. 
 
+> [!NOTE]
+> Server-side JavaScript features including stored procedures, triggers, and user-defined functions do not support importing modules.
+
 ## Transactions
 
 Transaction in a typical database can be defined as a sequence of operations performed as a single logical unit of work. Each transaction provides **ACID property guarantees**. ACID is a well-known acronym that stands for: **A**tomicity, **C**onsistency, **I**solation, and **D**urability. 
@@ -50,6 +53,9 @@ Transaction in a typical database can be defined as a sequence of operations per
 * Durability ensures that any change that is committed in a database will always be present.
 
 In Azure Cosmos DB, JavaScript runtime is hosted inside the database engine. Hence, requests made within the stored procedures and the triggers execute in the same scope as the database session. This feature enables Azure Cosmos DB to guarantee ACID properties for all operations that are part of a stored procedure or a trigger. For examples, see [how to implement transactions](how-to-write-stored-procedures-triggers-udfs.md#transactions) article.
+
+> [!TIP]
+> For transaction support in Azure Cosmos DB for NoSQL, you can also implement a transactional batch using your preferred client SDK. For more information, see [Transactional batch operations in Azure Cosmos DB for NoSQL](transactional-batch.md).
 
 ### Scope of a transaction
 

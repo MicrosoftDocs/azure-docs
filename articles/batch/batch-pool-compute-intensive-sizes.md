@@ -2,21 +2,21 @@
 title: Use compute-intensive Azure VMs with Batch
 description: How to take advantage of HPC and GPU virtual machine sizes in Azure Batch pools. Learn about OS dependencies and see several scenario examples.
 ms.topic: how-to
-ms.date: 12/17/2018
+ms.date: 03/20/2023
 ---
 # Use RDMA or GPU instances in Batch pools
 
 To run certain Batch jobs, you can take advantage of Azure VM sizes designed for large-scale computation. For example:
 
-* To run multi-instance [MPI workloads](batch-mpi.md), choose H-series or other sizes that have a network interface for Remote Direct Memory Access (RDMA). These sizes connect to an InfiniBand network for inter-node communication, which can accelerate MPI applications. 
+* To run multi-instance [MPI workloads](batch-mpi.md), choose H-series or other sizes that have a network interface for Remote Direct Memory Access (RDMA). These sizes connect to an InfiniBand network for inter-node communication, which can accelerate MPI applications.
 
 * For CUDA applications, choose N-series sizes that include NVIDIA Tesla graphics processing unit (GPU) cards.
 
 This article provides guidance and examples to use some of Azure's specialized sizes in Batch pools. For specs and background, see:
 
-* High performance compute VM sizes ([Linux](../virtual-machines/sizes-hpc.md), [Windows](../virtual-machines/sizes-hpc.md)) 
+* High performance compute VM sizes ([Linux](../virtual-machines/sizes-hpc.md), [Windows](../virtual-machines/sizes-hpc.md))
 
-* GPU-enabled VM sizes ([Linux](../virtual-machines/sizes-gpu.md), [Windows](../virtual-machines/sizes-gpu.md)) 
+* GPU-enabled VM sizes ([Linux](../virtual-machines/sizes-gpu.md), [Windows](../virtual-machines/sizes-gpu.md))
 
 > [!NOTE]
 > Certain VM sizes might not be available in the regions where you create your Batch accounts. To check that a size is available, see [Products available by region](https://azure.microsoft.com/regions/services/) and [Choose a VM size for a Batch pool](batch-pool-vm-sizes.md).
@@ -30,7 +30,7 @@ The RDMA or GPU capabilities of compute-intensive sizes in Batch are supported o
 | Size | Capability | Operating systems | Required software | Pool settings |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS, or<br/>CentOS-based HPC<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Linux RDMA drivers | Enable inter-node communication, disable concurrent task execution |
-| [NC, NCv2, NCv3, NDv2 series](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (varies by series) | Ubuntu 16.04 LTS, or<br/>CentOS 7.3 or 7.4<br/>(Azure Marketplace) | NVIDIA CUDA or CUDA Toolkit drivers | N/A | 
+| [NC, NCv2, NCv3, NDv2 series](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (varies by series) | Ubuntu 16.04 LTS, or<br/>CentOS 7.3 or 7.4<br/>(Azure Marketplace) | NVIDIA CUDA or CUDA Toolkit drivers | N/A |
 | [NV, NVv2 series](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS, or<br/>CentOS 7.3<br/>(Azure Marketplace) | NVIDIA GRID drivers | N/A |
 
 <sup>*</sup>RDMA-capable N-series sizes also include NVIDIA Tesla GPUs
@@ -40,7 +40,7 @@ The RDMA or GPU capabilities of compute-intensive sizes in Batch are supported o
 | Size | Capability | Operating systems | Required software | Pool settings |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Windows Server 2016, 2012 R2, or<br/>2012 (Azure Marketplace) | Microsoft MPI 2012 R2 or later, or<br/> Intel MPI 5<br/><br/>Windows RDMA drivers | Enable inter-node communication, disable concurrent task execution |
-| [NC, NCv2, NCv3, ND, NDv2 series](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (varies by series) | Windows Server 2016 or <br/>2012 R2 (Azure Marketplace) | NVIDIA CUDA or CUDA Toolkit drivers| N/A | 
+| [NC, NCv2, NCv3, ND, NDv2 series](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (varies by series) | Windows Server 2016 or <br/>2012 R2 (Azure Marketplace) | NVIDIA CUDA or CUDA Toolkit drivers| N/A |
 | [NV, NVv2 series](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 or<br/>2012 R2 (Azure Marketplace) | NVIDIA GRID drivers | N/A |
 
 <sup>*</sup>RDMA-capable N-series sizes also include NVIDIA Tesla GPUs
@@ -61,7 +61,7 @@ The RDMA or GPU capabilities of compute-intensive sizes in Batch are supported o
 
 To configure a specialized VM size for your Batch pool, you have several options to install required software or drivers:
 
-* For pools in the virtual machine configuration, choose a preconfigured [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) VM image that has drivers and software preinstalled. Examples: 
+* For pools in the virtual machine configuration, choose a preconfigured [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) VM image that has drivers and software preinstalled. Examples:
 
   * [CentOS-based 7.4 HPC](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview) - includes RDMA drivers and Intel MPI 5.1
 
@@ -73,16 +73,13 @@ To configure a specialized VM size for your Batch pool, you have several options
 
     * [Ubuntu Server (with GPU and RDMA drivers) for Azure Batch container pools](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-batch.ubuntu-server-container-rdma?tab=Overview)
 
-* Create a [custom Windows or Linux VM image](batch-sig-images.md) on which you have installed drivers, software, or other settings required for the VM size. 
+* Create a [custom Windows or Linux VM image](batch-sig-images.md) on which you have installed drivers, software, or other settings required for the VM size.
 
 * Create a Batch [application package](batch-application-packages.md) from a zipped driver or application installer, and configure Batch to deploy the package to pool nodes and install once when each node is created. For example, if the application package is an installer, create a [start task](jobs-and-tasks.md#start-task) command line to silently install the app on all pool nodes. Consider using an application package and a pool start task if your workload depends on a particular driver version.
 
-  > [!NOTE] 
+  > [!NOTE]
   > The start task must run with elevated (admin) permissions, and it must wait for success. Long-running tasks will increase the time to provision a Batch pool.
   >
-
-* [Batch Shipyard](https://github.com/Azure/batch-shipyard) automatically configures the GPU and RDMA drivers to work transparently with containerized workloads on Azure Batch. Batch Shipyard is entirely driven with configuration files. There are many sample recipe configurations available that enable GPU and RDMA workloads such as the [CNTK GPU Recipe](https://github.com/Azure/batch-shipyard/tree/master/recipes/CNTK-GPU-OpenMPI) which preconfigures GPU drivers on N-series VMs and loads Microsoft Cognitive Toolkit software as a Docker image.
-
 
 ## Example: NVIDIA GPU drivers on Windows NC VM pool
 
@@ -94,7 +91,7 @@ To run CUDA applications on a pool of Windows NC nodes, you need to install NVDI
 1. Using the Batch APIs or Azure portal, create a pool in the virtual machine configuration with the desired number of nodes and scale. The following table shows sample settings to install the NVIDIA GPU drivers silently using a start task:
 
 | Setting | Value |
-| ---- | ----- | 
+| ---- | ----- |
 | **Image Type** | Marketplace (Linux/Windows) |
 | **Publisher** | MicrosoftWindowsServer |
 | **Offer** | WindowsServer |
@@ -124,8 +121,8 @@ To run CUDA applications on a pool of Linux NC nodes, you need to install necess
 
 To run Windows MPI applications on a pool of Azure H16r VM nodes, you need to configure the HpcVmDrivers extension and install [Microsoft MPI](/message-passing-interface/microsoft-mpi). Here are sample steps to deploy a custom Windows Server 2016 image with the necessary drivers and software:
 
-1. Deploy an Azure H16r VM running Windows Server 2016. For example, create the VM in the US West region. 
-2. Add the HpcVmDrivers extension to the VM by [running an Azure PowerShell command](../virtual-machines/sizes-hpc.md) from a client computer that connects to your Azure subscription, or using Azure Cloud Shell. 
+1. Deploy an Azure H16r VM running Windows Server 2016. For example, create the VM in the US West region.
+2. Add the HpcVmDrivers extension to the VM by [running an Azure PowerShell command](../virtual-machines/sizes-hpc.md) from a client computer that connects to your Azure subscription, or using Azure Cloud Shell.
 1. Make a Remote Desktop connection to the VM.
 1. Download the [setup package](https://www.microsoft.com/download/details.aspx?id=57467) (MSMpiSetup.exe) for the latest version of Microsoft MPI, and install Microsoft MPI.
 1. Follow the steps to create an [Azure Compute Gallery image](batch-sig-images.md) for Batch.
@@ -159,5 +156,3 @@ Using the Batch APIs or Azure portal, create a pool using this image and with th
 ## Next steps
 
 * To run MPI jobs on an Azure Batch pool, see the [Windows](batch-mpi.md) or [Linux](/archive/blogs/windowshpc/introducing-mpi-support-for-linux-on-azure-batch) examples.
-
-* For examples of GPU workloads on Batch, see the [Batch Shipyard](https://github.com/Azure/batch-shipyard/) recipes.

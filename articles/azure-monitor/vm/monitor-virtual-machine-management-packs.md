@@ -56,8 +56,8 @@ Management packs often make use of synthetic transactions that connect to an app
 
 |Method | Description |
 |:---|:---|
-| [URL test](../app/monitor-web-app-availability.md) | Ensures that HTTP is available and returning a web page |
-| [Multistep test](../app/availability-multistep.md) | Simulates a user session |
+| [URL test](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) | Ensures that HTTP is available and returning a web page |
+| [Multistep test](/previous-versions/azure/azure-monitor/app/availability-multistep) | Simulates a user session |
 
 ## Next steps
 

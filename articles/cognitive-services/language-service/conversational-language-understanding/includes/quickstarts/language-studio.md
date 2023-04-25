@@ -26,9 +26,9 @@ ms.custom: ignite-fall-2021
 
 ## Create a conversational language understanding project
 
-Once you have a Language resource created, create a conversational language understanding project. A project is a work area for building your custom ML models based on your data. Your project can only be accessed by you and others who have access to the Language resource being used.
+Once you have a Language resource selected, create a conversational language understanding project. A project is a work area for building your custom ML models based on your data. Your project can only be accessed by you and others who have access to the Language resource being used.
 
-For this quickstart, you can download [this sample project](https://go.microsoft.com/fwlink/?linkid=2196152) and import it. This project can predict the intended commands from user input, such as: reading emails, deleting emails, and attaching a document to an email. 
+For this quickstart, you can download [this sample project file](https://go.microsoft.com/fwlink/?linkid=2196152) and import it. This project can predict the intended commands from user input, such as: reading emails, deleting emails, and attaching a document to an email. 
 
 [!INCLUDE [Import project](../language-studio/import-project.md)]
 
@@ -56,6 +56,8 @@ Generally after training a model you would review its evaluation details. In thi
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Conversational-language-understanding&Page=quickstart&Section=Deploy-model" target="_target">I ran into an issue</a>
+
+## Test deployed model
 
 [!INCLUDE [Test model](../language-studio/test-model.md)]
 

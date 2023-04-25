@@ -171,7 +171,7 @@ authenticationContext.acquireTokenWithAuthorizationCode(
 );
 ```
 
-The v2.0 endpoint employs a *scope-centric* model to access resources. Thus, when you request an access token for a resource, you also need to specify the scope for that resource:
+MSAL Node supports only the **v2.0** endpoint. The v2.0 endpoint employs a *scope-centric* model to access resources. Thus, when you request an access token for a resource, you also need to specify the scope for that resource:
 
 ```javascript
 const tokenRequest = {

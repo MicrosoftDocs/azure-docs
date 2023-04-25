@@ -44,7 +44,7 @@ In the following diagram, the node hosting the `azure-sql-edge` container has fa
 ## Prerequisites
 
 * **Kubernetes cluster**
-   - The tutorial requires a Kubernetes cluster. The steps use [kubectl](https://kubernetes.io/docs/user-guide/kubectl/) to manage the cluster. 
+   - The tutorial requires a Kubernetes cluster. The steps use [kubectl](https://kubernetes.io/docs/reference/kubectl/) to manage the cluster. 
 
    - For the purpose of this tutorial, we will be using Azure Kubernetes Service to deploy Azure SQL Edge. See [Deploy an Azure Kubernetes Service (AKS) cluster](../aks/tutorial-kubernetes-deploy-cluster.md) to create and connect to a single-node Kubernetes cluster in AKS with `kubectl`. 
 

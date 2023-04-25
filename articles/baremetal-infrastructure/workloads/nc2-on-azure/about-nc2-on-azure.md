@@ -4,7 +4,7 @@ description: Learn about Nutanix Cloud Clusters on Azure and the benefits it off
 ms.topic: overview
 ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
-ms.date: 10/13/2022
+ms.date: 04/01/2023
 ---
 
 # About Nutanix Cloud Clusters on Azure
@@ -13,9 +13,9 @@ The articles in this section are intended for the professionals participating in
 
  To provide input, email [NC2-on-Azure Docs](mailto:AzNutanixPM@microsoft.com).
 
-:::image type="content" source="media/nc2-on-azure.png#lightbox" alt-text="Illustration of NC2 on Azure features." border="false" lightbox="media/nc2-on-azure-large.png":::
+:::image type="content" source="media/nc2-on-azure.png#lightbox" alt-text="Illustration of NC2 on Azure features." border="false":::
 
-In particular, this article highlights NC2 features. 
+In particular, this article highlights NC2 features.
 
 ## Unlock the benefits of Azure
 

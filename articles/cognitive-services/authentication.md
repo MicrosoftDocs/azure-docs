@@ -6,6 +6,7 @@ services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 09/01/2022
 ms.author: pafarley

@@ -2,7 +2,7 @@
 title: Enable double encryption at rest - Azure CLI - managed disks
 description: Enable double encryption at rest for your managed disk data using the Azure CLI.
 author: roygara
-ms.date: 01/20/2023
+ms.date: 02/06/2023
 ms.topic: how-to
 ms.author: rogarana
 ms.service: storage
@@ -15,6 +15,10 @@ ms.custom: references_regions, devx-track-azurecli
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 Azure Disk Storage supports double encryption at rest for managed disks. For conceptual information on double encryption at rest, and other managed disk encryption types, see the [Double encryption at rest](../disk-encryption.md#double-encryption-at-rest) section of our disk encryption article.
+
+## Restrictions
+
+Double encryption at rest isn't currently supported with either Ultra Disks or Premium SSD v2 disks.
 
 ## Prerequisites
 

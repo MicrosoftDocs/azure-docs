@@ -85,11 +85,11 @@ The Azure Storage provider is the default storage provider and doesn't require a
 The `connectionName` property in host.json is a reference to environment configuration which specifies how the app should connect to Azure Storage. It may specify:
 
 - The name of an application setting containing a connection string. To obtain a connection string, follow the steps shown at [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md).
-- The name of a shared prefix for multiple application settings, together defining an [identity-based connection](#identity-based-connections-preview).
+- The name of a shared prefix for multiple application settings, together defining an [identity-based connection](#identity-based-connections).
 
 If the configured value is both an exact match for a single setting and a prefix match for other settings, the exact match is used. If no value is specified in host.json, the default value is "AzureWebJobsStorage".
 
-##### Identity-based connections (preview)
+##### Identity-based connections 
 
 If you are using [version 2.7.0 or higher of the extension](https://github.com/Azure/azure-functions-durable-extension/releases/tag/v2.7.0) and the Azure storage provider, instead of using a connection string with a secret, you can have the app use an [Azure Active Directory identity](../../active-directory/fundamentals/active-directory-whatis.md). To do this, you would define settings under a common prefix which maps to the `connectionName` property in the trigger and binding configuration.
 
@@ -109,7 +109,9 @@ Additional properties may be set to customize the connection. See [Common proper
 
 ### Configuring the Netherite storage provider
 
-To use the Netherite storage provider, you must first add a reference to the [Microsoft.Azure.DurableTask.Netherite.AzureFunctions](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions) NuGet package in your **csproj** file (.NET apps) or your **extensions.proj** file (JavaScript, Python, and PowerShell apps).
+Enabling the Netherite storage provider requires a configuration change in your `host.json`. For C# users, it also requires an additional installation step.
+
+#### `host.json` Configuration
 
 The following host.json example shows the minimum configuration required to enable the Netherite storage provider.
 
@@ -130,9 +132,22 @@ The following host.json example shows the minimum configuration required to enab
 
 For more detailed setup instructions, see the [Netherite getting started documentation](https://microsoft.github.io/durabletask-netherite/#/?id=getting-started).
 
+#### Install the Netherite extension (.NET only)
+
+> [!NOTE]
+> If your app uses [Extension Bundles](../functions-bindings-register.md#extension-bundles), you should ignore this section as Extension Bundles removes the need for manual Extension management.
+
+You'll need to install the latest version of the Netherite Extension on NuGet. This usually means including a reference to it in your `.csproj` file and building the project.
+
+The Extension package to install depends on the .NET worker you are using:
+- For the _in-process_ .NET worker, install [`Microsoft.Azure.DurableTask.Netherite.AzureFunctions`](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions).
+- For the _isolated_ .NET worker, install [`Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite`](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite).
+
 ### Configuring the MSSQL storage provider
 
-To use the MSSQL storage provider, you must first add a reference to the [Microsoft.DurableTask.SqlServer.AzureFunctions](https://www.nuget.org/packages/Microsoft.DurableTask.SqlServer.AzureFunctions) NuGet package in your **csproj** file (.NET apps) or your **extensions.proj** file (JavaScript, Python, and PowerShell apps).
+Enabling the MSSQL storage provider requires a configuration change in your `host.json`. For C# users, it also requires an additional installation step.
+
+#### `host.json` Configuration
 
 The following example shows the minimum configuration required to enable the MSSQL storage provider.
 
@@ -151,6 +166,17 @@ The following example shows the minimum configuration required to enable the MSS
 ```
 
 For more detailed setup instructions, see the [MSSQL provider's getting started documentation](https://microsoft.github.io/durabletask-mssql/#/quickstart).
+
+#### Install the Durable Task MSSQL extension (.NET only)
+
+> [!NOTE]
+> If your app uses [Extension Bundles](../functions-bindings-register.md#extension-bundles), you should ignore this section as Extension Bundles removes the need for manual Extension management.
+
+You'll need to install the latest version of the MSSQL storage provider Extension on NuGet. This usually means including a reference to it in your `.csproj` file and building the project.
+
+The Extension package to install depends on the .NET worker you are using:
+- For the _in-process_ .NET worker, install [`Microsoft.DurableTask.SqlServer.AzureFunctions`](https://www.nuget.org/packages/Microsoft.DurableTask.SqlServer.AzureFunctions).
+- For the _isolated_ .NET worker, install [`Microsoft.Azure.Functions.Worker.Extensions.DurableTask.SqlServer`](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.SqlServer).
 
 ## Comparing storage providers
 

@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Configure AD DS Connector Account Permissions  | Microsoft Docs'
+title: 'Azure AD Connect: Configure AD DS Connector Account Permissions '
 description: This document details how to configure the AD DS Connector account with the new ADSyncConfig PowerShell module
 services: active-directory
 author: billmath
@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/05/2022
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 

@@ -45,7 +45,6 @@ As you review your list, you may find you need to either assign an owner for tas
 #### Owners recommended reading
 
 - [Assigning administrator roles in Azure Active Directory](../roles/permissions-reference.md)
-- [Governance in Azure](../../governance/index.yml)
 
 ## Hybrid management
 
@@ -86,7 +85,7 @@ Some identity and access management services require on-premises agents to enabl
 #### On-premises agents logs recommended reading
 
 - [Troubleshoot Application Proxy](../app-proxy/application-proxy-troubleshoot.md)
-- [Self-service password reset troubleshooting- Azure Active Directory](../authentication/troubleshoot-sspr.md)
+- [Self-service password reset troubleshooting](../authentication/troubleshoot-sspr.md)
 - [Understand Azure AD Application Proxy connectors](../app-proxy/application-proxy-connectors.md)
 - [Azure AD Connect: Troubleshoot Pass-through Authentication](../hybrid/tshoot-connect-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs)
 - [Troubleshoot error codes for the Azure AD MFA NPS extension](../authentication/howto-mfa-nps-extension-errors.md)
@@ -120,7 +119,7 @@ If your organization currently has no program in place to monitor changes in Ide
 
 ### Notifications
 
-Microsoft sends email communications to administrators to notify various changes in the service, configuration updates that are needed, and errors that require admin intervention. It is important that customers set the notification email addresses so that notifications are sent to the proper team members who can acknowledge and act upon all notifications. We recommend you add multiple recipients to the [Message Center](/office365/admin/manage/message-center) and request that notifications (including Azure AD Connect Health notifications) be sent to a distribution list or shared mailbox. If you only have one global admin account with an email address, be sure to configure at least two email-capable accounts.
+Microsoft sends email communications to administrators to notify various changes in the service, configuration updates that are needed, and errors that require admin intervention. It is important that customers set the notification email addresses so that notifications are sent to the proper team members who can acknowledge and act upon all notifications. We recommend you add multiple recipients to the [Message Center](/office365/admin/manage/message-center) and request that notifications (including Azure AD Connect Health notifications) be sent to a distribution list or shared mailbox. If you only have one Global Administrator account with an email address, be sure to configure at least two email-capable accounts.
 
 There are two "From" addresses used by Azure AD: <o365mc@email2.microsoft.com>, which sends Message Center notifications; and <azure-noreply@microsoft.com>, which sends notifications related to:
 

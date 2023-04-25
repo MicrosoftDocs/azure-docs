@@ -1,10 +1,10 @@
 ---
 title: Custom certificate authority (CA) in Azure Kubernetes Service (AKS) (preview)
 description: Learn how to use a custom certificate authority (CA) in an Azure Kubernetes Service (AKS) cluster.
-services: container-service
 author: rayoef
 ms.author: rayoflores
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 4/12/2022
 ---
 

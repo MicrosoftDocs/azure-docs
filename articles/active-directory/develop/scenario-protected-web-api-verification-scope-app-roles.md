@@ -2,14 +2,15 @@
 title: Verify scopes and app roles protected web API
 description: Verify that the API is only called by applications on behalf of users who have the right scopes and by daemon apps that have the right application roles.
 services: active-directory
-author: jmprieur
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.date: 05/12/2022
-ms.author: jmprieur
+ms.author: cwerner
+ms.reviewer: jmprieur
 #Customer intent: As an application developer, I want to learn how to write a protected web API using the Microsoft identity platform for developers.
 ---
 
@@ -190,7 +191,7 @@ Like on action, you can also declare these required scopes in the configuration,
 using Microsoft.Identity.Web
 
 [Authorize]
-[RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")
+[RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
 public class TodoListController : Controller
 {
     // GET: api/values

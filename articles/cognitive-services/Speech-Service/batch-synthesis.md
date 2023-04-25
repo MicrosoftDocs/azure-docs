@@ -19,7 +19,7 @@ The Batch synthesis API (Preview) can synthesize a large volume of text input (l
 > [!IMPORTANT]
 > The Batch synthesis API is currently in public preview. Once it's generally available, the Long Audio API will be deprecated. For more information, see [Migrate to batch synthesis API](migrate-to-batch-synthesis.md).
 
-The batch synthesis API is asynchronous and doesn't return synthesized audio in real time. You submit text files to be synthesized, poll for the status, and download the audio output when the status indicates success. The text inputs must be plain text or [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) text.
+The batch synthesis API is asynchronous and doesn't return synthesized audio in real-time. You submit text files to be synthesized, poll for the status, and download the audio output when the status indicates success. The text inputs must be plain text or [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) text.
 
 This diagram provides a high-level overview of the workflow.
 
@@ -392,7 +392,7 @@ Here are examples that can result in the 400 error:
 - The `top` query parameter exceeded the limit of 100.
 - You tried to use an invalid deployment ID or a custom voice that isn't successfully deployed. Make sure the Speech resource has access to the custom voice, and the custom voice is successfully deployed. You must also ensure that the mapping of `{"your-custom-voice-name": "your-deployment-ID"}` is correct in your batch synthesis request.
 - You tried to delete a batch synthesis job that hasn't started or hasn't completed running. You can only delete batch synthesis jobs that have a status of "Succeeded" or "Failed".
-- You tried to use a `F0` Speech resource, but the region only supports the `S0` (standard) Speech resource pricing tier. 
+- You tried to use a *F0* Speech resource, but the region only supports the *Standard* Speech resource pricing tier. 
 - You tried to create a new batch synthesis job that would exceed the limit of 200 active jobs. Each Speech resource can have up to 200 batch synthesis jobs that don't have a status of "Succeeded" or "Failed".
 
 ### HTTP 404 error

@@ -216,7 +216,7 @@ To remove the artifact from your registry, use the `oras manifest delete` comman
 
 <!-- LINKS - internal -->
 [acr-landing]:              https://aka.ms/acr
-[acr-authentication]:       /azure/container-registry/container-registry-authentication?tabs=azure-cli
-[az-acr-create]:            /azure/container-registry/container-registry-get-started-azure-cli
+[acr-authentication]:       ./container-registry-authentication.md?tabs=azure-cli
+[az-acr-create]:            ./container-registry-get-started-azure-cli.md
 [az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
 [azure-cli-install]:        /cli/azure/install-azure-cli

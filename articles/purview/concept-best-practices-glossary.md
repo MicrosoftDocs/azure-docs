@@ -6,13 +6,13 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 12/15/2021
+ms.date: 02/15/2023
 ---
 
 # Microsoft Purview glossary best practices
 
 The business glossary is a definition of terms specific to a domain of knowledge that is commonly used, communicated, and shared in organizations as they're conducting business. 
-A common business glossary (for example, business language) is significant as it's critical in improving an organizations overall business productivity and performance. You'll observe in most organizations that their business language is being codified based on business dealings associated with:  
+A common business glossary (for example, business language) is significant as it's critical in improving an organizations overall business productivity and performance. You observe in most organizations that their business language is being codified based on business dealings associated with:  
 
 - Business Meetings
 - Stand-Ups, Projects, and Systems (ERP, CRM, SharePoint, etc.). 

@@ -1,5 +1,5 @@
 ---
-title: Resilient interfaces with external processes using Azure AD B2C | Microsoft Docs
+title: Resilient interfaces with external processes using Azure AD B2C
 description: Methods to build resilient interfaces with external processes
 services: active-directory 
 ms.service: active-directory

@@ -35,6 +35,9 @@ to keep nodes healthy:
    * 300 for 0-3 vCores
    * 500 for 4-15 vCores
    * 1000 for 16+ vCores
+* Maximum connections per node with burstable compute
+   * 20 for 1 vCore burstable
+   * 40 for 2 vCores burstable
 
 The connection limits above are for *user* connections (`max_connections` minus
 `superuser_reserved_connections`). We reserve extra connections for
@@ -59,9 +62,8 @@ be scaled down (decreased).
 
 ### Storage size
 
-Up to 2 TiB of storage is supported on coordinator and worker nodes. See the
-available storage options and IOPS calculation [above](resources-compute.md)
-for node and cluster sizes.
+Up to 16 TiB of storage is supported on coordinator and worker nodes in multi-node configuration. Up to 2 TiB of storage is supported for single node configurations. See [the available storage options and IOPS calculation](resources-compute.md)
+for various node and cluster sizes.
 
 ## Compute
 
@@ -73,6 +75,20 @@ worker nodes. The default quota should be more than enough to experiment with
 Azure Cosmos DB for PostgreSQL. If you do need more vCores for a region in your
 subscription, see how to [adjust compute
 quotas](howto-compute-quota.md).
+
+### Burstable compute
+
+In Azure Cosmos DB for PostgreSQL clusters with [burstable
+compute](concepts-burstable-compute.md) enabled, the following features are
+currently **not supported**:
+
+* Accelerated networking
+* Local caching
+* PostgreSQL and Citus version upgrades
+* PostgreSQL 11 support
+* Read replicas
+* High availability
+* The [azure_storage](howto-ingest-azure-blob-storage.md) extension
 
 ## PostgreSQL
 
