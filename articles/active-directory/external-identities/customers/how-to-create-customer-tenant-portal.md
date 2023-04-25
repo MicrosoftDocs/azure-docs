@@ -17,7 +17,7 @@ ms.custom: it-pro
 
 # Create a customer identity and access management (CIAM) tenant
 
-Microsoft Entra offers a customer identity access management (CIAM) solution that lets you create secure, customized sign-in experiences for your customer-facing apps and services. With these built-in CIAM features, Microsoft Entra can serve as the identity provider and access management service for your customer scenarios. You will need to create a customer tenant in the Microsoft Entra admin center to get started. Once the customer tenant is created you can access it in both the Microsoft Entra admin center and the Azure portal.
+Microsoft Entra offers a customer identity access management (CIAM) solution that lets you create secure, customized sign-in experiences for your customer-facing apps and services. With these built-in CIAM features, Microsoft Entra can serve as the identity provider and access management service for your customer scenarios. You'll need to create a customer tenant in the Microsoft Entra admin center to get started. Once the customer tenant is created, you can access it in both the Microsoft Entra admin center and the Azure portal.
 
 In this article, you learn how to:
 
@@ -32,7 +32,7 @@ In this article, you learn how to:
 
 ## Register the private preview feature <!--  Do we need this step in the tech preview? --> 
 
-Before you can create the new customer tenant in the Microsoft Entra admin center, please register the preview feature in Azure portal. To register, run the following commands from [Azure Cloud Shell](https://learn.microsoft.com/azure/cloud-shell/overview) 
+Before you can create the new customer tenant in the Microsoft Entra admin center, register the preview feature in Azure portal. To register, run the following commands from [Azure Cloud Shell](https://learn.microsoft.com/azure/cloud-shell/overview) 
 
 - Ensure you're using the right subscription by running the below command first:
     
@@ -59,34 +59,49 @@ Before you can create the new customer tenant in the Microsoft Entra admin cente
 
     :::image type="content" source="media/how-to-create-customer-tenant-portal/create-tenant.png" alt-text="Screenshot of the create tenant option.":::
 
-1. Select **Customer**, and then **Continue**. If you filter the list of tenants by **Tenant type**: **Customer** in the previous step, this step will be skipped.
+1. Select **Customer**, and then **Continue**. If you filtered the list of tenants by **Tenant type**: **Customer** in the previous step, this step will be skipped.
 
     :::image type="content" source="media/how-to-create-customer-tenant-portal/select-tenant-type.png" alt-text="Screenshot of the select tenant type screen.":::
 
-1. On the Basics tab, select the type of tenant you want to create, either **Azure Active Directory** or **Azure Active Directory (B2C)**.
+1. On the **Basics** tab, in the **Create a tenant for customers** page, enter the following information:
 
-1. Select **Next: Configuration** to move on to the Configuration tab.
+    :::image type="content" source="media/how-to-create-customer-tenant-portal/add-basics-to-customer-tenant.png" alt-text="Screenshot of the Basics tab.":::
 
-1.  On the Configuration tab, enter the following information:
+    - Type your desired **Tenant Name** (for example *Contoso Customers*).
 
-    ![Azure Active Directory - Create a tenant page - configuration tab ](media/active-directory-access-create-new-tenant/azure-ad-create-new-tenant.png)
+    - Type your desired **Domain Name** (for example *Contosocustomers*).
 
-    - Type your desired Organization name (for example _Contoso Organization_) into the **Organization name** box.
+    - Select your desired **Location**. This selection can't be changed later.
 
-    - Type your desired Initial domain name (for example _Contosoorg_) into the **Initial domain name** box.
+1. Select **Next: Add a subscription**.  
 
-    - Select your desired Country/Region or leave the _United States_ option in the **Country or region** box.
+1. On the **Add a subscription** tab, enter the following information:
 
-1. Select **Next: Review + Create**. Review the information you entered and if the information is correct, select **create**.
+   - Next to **Subscription**, select your subscription from the menu.
 
-Your new tenant is created with the domain contoso.onmicrosoft.com.
+   - Next to **Resource group**, select a resource group from the menu. If there are no available resource groups, select **Create new**, type a **Name**, and then select **OK**.
 
-## 3 - [Doing the next thing]
-TODO: Add introduction sentence(s)
-TODO: Add ordered list of procedure steps
+   - If **Resource group location** appears, select the geographic location of the resource group from the menu.
 
-## [N - Doing the last thing]
-TODO: Add introduction sentence(s)
-TODO: Add ordered list of procedure steps
+    :::image type="content" source="media/how-to-create-customer-tenant-portal/add-subscription.png" alt-text="Screenshot that shows the subscription settings.":::
+
+1. Select **Next: Review + Create**. Review the information you entered and if the information is correct, select **Create**. The tenant creation process can take up to 30 minutes. You can monitor the progress of the tenant creation process in the **Notifications** pane. Once the customer tenant is created, you can access it in both the Microsoft Entra admin center and the Azure portal.
+
+## Find the customer tenant details
+
+If you're not sure which directory contains your customer tenant, you can find the tenant name and ID both in the Microsoft Entra admin center and in the Azure portal.
+
+1. To make sure you're using the directory that contains your Azure AD for customers tenant, select the **Directories + subscriptions** icon in the toolbar.
+
+    :::image type="content" source="media/how-to-create-customer-tenant-portal/directories-subscription.png" alt-text="Screenshot of the Directories + subscriptions icon.":::
+
+1. On the **Portal settings | Directories + subscriptions** page, find your customer directory under the **All Directories** tab in the **Directory name** list, and then select **Switch**.
+1. On the tenant's home page, select the **Overview** tab. You can find the tenant **Name**, **Tenant ID** and **Primary domain** under **Basic information**.
+
+    :::image type="content" source="media/how-to-create-customer-tenant-portal/tenant-overview.png" alt-text="Screenshot of the tenant details.":::
+
+If you're sure that you are in the right directory, go to **Azure Active Directory** in both the Microsoft Entra admin center and the Azure portal. On the **Azure Active Directory** page, you can find the tenant **Name**, **Tenant ID** and **Primary domain** under **Overview** > **Basic information**.
 
 ## Next steps
+- [Register an app](how-to-register-ciam-app.md)
+- [Create user flows](how-to-user-flow-sign-up-sign-in-customers.md)
