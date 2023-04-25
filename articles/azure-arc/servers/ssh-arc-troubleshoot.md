@@ -17,7 +17,7 @@ These issues are due to errors that occur on the machine that the user is connec
 If you receive an error "Authorization Error" or a "Resource Not Found" error for the target resource, check that the correct active subscription is setup using: `az account set -s` for Azure CLI or `Set-AzContext -Subscription` for Azure PowerShell.
 
 ### Unable to locate client binaries
-This issue occurs when the client side SSH binaries required to connect cannot be found.
+This issue occurs when the client side SSH binaries required to connect can't be found.
 Error:
  - "Failed to create ssh key file with error: \<ERROR\>."
  - "Failed to run ssh command with error: \<ERROR\>."
@@ -29,7 +29,7 @@ Resolution:
  - Provide the path to the folder that contains the SSH client executables by using the ```--ssh-client-folder``` parameter.
 
 ## Server-side issues
-### SSH traffic is not allowed on the server
+### SSH traffic isn't allowed on the server
 This issue occurs when SSHD isn't running on the server, or SSH traffic isn't allowed on the server.
 Possible errors:
  - {"level":"fatal","msg":"sshproxy: error copying information from the connection: read tcp 192.168.1.180:60887-\u003e40.122.115.96:443: wsarecv: An existing connection was forcibly closed by the remote host.","time":"2022-02-24T13:50:40-05:00"}
@@ -51,7 +51,7 @@ Resolution:
 ## Azure permissions issues
 
 ### Incorrect role assignments
-This issue occurs when the current user does not have the proper role assignment on the target resource, specifically a lack of "read" permissions.
+This issue occurs when the current user doesn't have the proper role assignment on the target resource, specifically a lack of "read" permissions.
 Possible errors:
  - "Unable to determine the target machine type as Azure VM or Arc Server"
  - "Unable to determine that the target machine is an Arc Server"
@@ -60,10 +60,10 @@ Possible errors:
  - "Request for Azure Relay Information Failed: (AuthorizationFailed) The client '\<user name\>' with object id '\<ID\>' does not have authorization to perform action 'Microsoft.HybridConnectivity/endpoints/listCredentials/action' over scope '/subscriptions/\<Subscription ID\>/resourceGroups/\<Resource Group\>/providers/Microsoft.HybridCompute/machines/\<Machine Name\>/providers/Microsoft.HybridConnectivity/endpoints/default' or the scope is invalid. If access was recently granted, please refresh your credentials."
 
 Resolution:
- - Ensure that you have Contributor or Owner permissions on the resource you are connecting to.
+ - Ensure that you have Contributor or Owner permissions on the resource you're connecting to.
  - If using Azure AD login, ensure you have the Virtual Machine User Login or the Virtual Machine Administrator Login roles
 
-### HybridConnectivity RP was not registered
+### HybridConnectivity RP wasn't registered
 This issue occurs when the HybridConnectivity RP has not been registered for the subscription.
 Error:
  - Request for Azure Relay Information Failed: (NoRegisteredProviderFound) Code: NoRegisteredProviderFound
