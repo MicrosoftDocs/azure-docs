@@ -123,7 +123,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Insights and curated visualizations
-            url: insights/insights-overview
+            url: insights/insights-overview.md
           - text: Workbooks 
             url: visualize/workbooks-overview.md
           - text: Dashboards
