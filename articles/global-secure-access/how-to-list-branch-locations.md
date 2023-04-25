@@ -42,7 +42,7 @@ List all branch locations in your tenant.
 ## List all branches using PowerShell 
 List all branches in your tenant using PowerShell.
 
-1. Install the *Microsoft.Graph* module using the `Install-module` command. 
+1. Install the `Microsoft.Graph` module using the `Install-module` command. 
     `Install-module -name Microsoft.Graph`
 1. In a PowerShell window, use the `Connect-MgGraph` command to sign into and use Microsoft Graph PowerShell cmdlets.
     `Connect-MgGraph`
