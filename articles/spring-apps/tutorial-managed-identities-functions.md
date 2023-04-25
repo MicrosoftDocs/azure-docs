@@ -89,7 +89,7 @@ After you add the settings, the Function app restarts and all subsequent request
 
 You need the Application ID and the Application ID URI for later use. In the Azure portal, navigate to the Function app you created.
 
-- To get the Application ID, in the navigation pane select **Authentication** and then  copy **App (client) ID** for the identity provider that includes the name of the Function app.
+- To get the Application ID, in the navigation pane select **Authentication** and then  copy **App (client) ID** of the identity provider that includes the name of the Function app.
 
   :::image type="content" source="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-3.png" alt-text="Screenshot of the Azure portal showing the Authentication page for a Function app, with the Function app name highlighted in the Identity provider." lightbox="media/spring-cloud-tutorial-managed-identities-functions/function-auth-config-3.png":::
 
