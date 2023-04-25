@@ -2,8 +2,8 @@
 title: AKS release tracker
 description: Learn how to determine which Azure regions have the weekly AKS release deployments rolled out in real time. 
 ms.topic: overview
-ms.date: 05/24/2022
-ms.author: nickoman
+ms.date: 04/25/2023
+ms.author: yudian
 author: nickomang
 
 ms.custom: mvc
@@ -25,11 +25,11 @@ AKS node image and addons releases are decoupled from the main AKS service relea
 
 The top half of the tracker shows the latest and 3 previously available release versions for each region, and links to the corresponding release notes entry. This view is helpful when you want to track the available versions by region.
 
-:::image type="content" source="./media/release-tracker/regional-status.png" alt-text="Screenshot of the A K S release tracker's regional status table displayed in a web browser.":::
+![Screenshot of the A K S release tracker's regional status table displayed in a web browser.](./media/release-tracker/regional-status.png)
 
 The bottom half of the tracker shows the SDP process. The table has two views: one shows the latest version and status update for each grouping of regions and the other shows the status and region availability of each currently supported version.
 
-:::image type="content" source="./media/release-tracker/sdp-process.png" alt-text="Screenshot of the A K S release tracker's S D P process table displayed in a web browser.":::
+![Screenshot of the A K S release tracker's S D P process table displayed in a web browser.](./media/release-tracker/sdp-process.png)
 
 At the AKS addon release page, customer can select specific addon name to track the release notes and SDP process of the addon.
 
