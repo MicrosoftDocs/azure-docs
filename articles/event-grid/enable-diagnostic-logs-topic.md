@@ -89,7 +89,7 @@ You can also enable collection of all **metrics** for the system topic.
 1. Once you enable a storage account as a capture destination, Event Grid starts emitting diagnostic logs. You should see new containers named **insights-logs-deliveryfailures** and **insights-logs-publishfailures** in the storage account.
 
     ![Storage - containers for diagnostic logs](./media/enable-diagnostic-logs-topic/storage-containers.png)
-2. As you navigate through one of the containers, you'll end up at a blob in JSON format. The file contains log entries for either a delivery failure or a publish failure. The navigation path represents the **ResourceId** of the event grid topic and the timestamp (minute level) as to when the log entries were emitted. The blob/JSON file, which is downloadable, in the end adheres to the schema described in the next section.
+2. As you navigate through one of the containers, you'll end up at a blob in JSON format. The file contains log entries for either a delivery failure or a publish failure. The navigation path represents the **ResourceId** of the Event Grid topic and the timestamp (minute level) as to when the log entries were emitted. The blob/JSON file, which is downloadable, in the end adheres to the schema described in the next section.
 
     ![JSON file in the storage](./media/enable-diagnostic-logs-topic/select-json.png)
 3. You should see content in the JSON file similar to the following example:
@@ -107,9 +107,9 @@ You can also enable collection of all **metrics** for the system topic.
 
 ## Use Azure Resource Manager template
 
-Here's a sample Azure Resource Manager template to enable diagnostic settings for an event grid topic. When you deploy this sample template, the following resources are created.
+Here's a sample Azure Resource Manager template to enable diagnostic settings for an Event Grid topic. When you deploy this sample template, the following resources are created.
 
-- An event grid topic
+- An Event Grid topic
 - A Log Analytics workspace
 
 Then, it creates a diagnostic setting on the topic to send diagnostic information to the Log Analytics workspace.
