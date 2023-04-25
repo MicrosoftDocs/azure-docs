@@ -134,7 +134,7 @@ Analytical data sources often centralize data that’s shared by multiple depart
 
 ![Screenshot from Purview sources page showing that an Azure SQL database has been registered to the root collection.](media/concept-best-practices-domains/10-source-registration.png)
 
-Then we’ll set up scoped scans to divide the data between areas of responsibility. When you set up a [scoped scan](concept-scans-and-ingestion#scope-your-scan.md), you can choose specific folders or tables that apply to each area of responsibility so you can scan the right data into a collection.
+Then we’ll set up scoped scans to divide the data between areas of responsibility. When you set up a [scoped scan](concept-scans-and-ingestion.md#scope-your-scan), you can choose specific folders or tables that apply to each area of responsibility so you can scan the right data into a collection.
 
 ![Screenshot of Purview scan settings showing that data will be scanned into the Finance domain collection next to a screen shot showing the Purview 'scope your scan' panel with individual tables selected for scanning under the main database.](media/concept-best-practices-domains/11-scope-scan.png)
 
