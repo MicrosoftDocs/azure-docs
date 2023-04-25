@@ -51,7 +51,7 @@ az iot hub create --name my-sample-hub --resource-group my-sample-resource-group
 
 Create a Device Provisioning Service instance with the [az iot dps create](/cli/azure/iot/dps#az-iot-dps-create) command.
 
-The following example creates a Device Provisioning Service instance named *my-sample-dps* in the *westus* location. You'll also choose a globally unique name for your own instance. Make sure it follows proper naming conventions for an IoT Hub Device Provisioning Service: it should be 3-64 characters in length and can contain only upper or lower case alphanumeric characters or hyphens ('-').
+The following example creates a Device Provisioning Service instance named *my-sample-dps* in the *westus* location. You must also choose a globally unique name for your own instance. Make sure it follows proper naming conventions for an IoT Hub Device Provisioning Service: it should be 3-64 characters in length and can contain only upper or lower case alphanumeric characters or hyphens ('-').
 
 ```azurecli-interactive
 az iot dps create --name my-sample-dps --resource-group my-sample-resource-group --location westus
@@ -64,7 +64,7 @@ az iot dps create --name my-sample-dps --resource-group my-sample-resource-group
 
 ## Get the connection string for the IoT hub
 
-You need your IoT hub's connection string to link it with the Device Provisioning Service. Use the [az iot hub show-connection-string](/cli/azure/iot/hub#az-iot-hub-show-connection-string) command to get the connection string and use its output to set a variable that you'll use when you link the two resources. 
+You need your IoT hub's connection string to link it with the Device Provisioning Service. Use the [az iot hub show-connection-string](/cli/azure/iot/hub#az-iot-hub-show-connection-string) command to get the connection string and use its output to set a variable that's used later, when you link the two resources. 
 
 The following example sets the *hubConnectionString* variable to the value of the connection string for the primary key of the hub's *iothubowner* policy (the `--policy-name` parameter can be used to specify a different policy). Trade out *my-sample-hub* for the unique IoT hub name you chose earlier. The command uses the Azure CLI [query](/cli/azure/query-azure-cli) and [output](/cli/azure/format-output-azure-cli#tsv-output-format) options to extract the connection string from the command output.
 
@@ -114,7 +114,7 @@ The linked IoT hub is shown in the *properties.iotHubs* collection.
 
 ## Clean up resources
 
-Other quickstarts in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts or with the tutorials, don't clean up the resources created in this quickstart. If you don't plan to continue, you can use the following commands to delete the provisioning service, the IoT hub or the resource group and all of its resources. Replace the names of the resources written below with the names of your own resources.
+Other quickstarts in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts or with the tutorials, don't clean up the resources created in this quickstart. If you don't plan to continue, you can use the following commands to delete the provisioning service, the IoT hub or the resource group and all of its resources. Replace the names of the resources included in the following commands with the names of your own resources.
 
 To delete the provisioning service, run the [az iot dps delete](/cli/azure/iot/dps#az-iot-dps-delete) command:
 

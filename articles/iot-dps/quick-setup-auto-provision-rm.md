@@ -16,9 +16,9 @@ You can use an [Azure Resource Manager](../azure-resource-manager/management/ove
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-This quickstart uses [Azure portal](../azure-resource-manager/templates/deploy-portal.md), and the [Azure CLI](../azure-resource-manager/templates/deploy-cli.md) to perform the programmatic steps necessary to create a resource group and deploy the template, but you can easily use the [PowerShell](../azure-resource-manager/templates/deploy-powershell.md), .NET, Ruby, or other programming languages to perform these steps and deploy your template. 
+This quickstart uses [Azure portal](../azure-resource-manager/templates/deploy-portal.md) and the [Azure CLI](../azure-resource-manager/templates/deploy-cli.md) to perform the programmatic steps necessary to create a resource group and deploy the template. However, you can also use [PowerShell](../azure-resource-manager/templates/deploy-powershell.md), .NET, Ruby, or other programming languages to perform these steps and deploy your template. 
 
-If your environment meets the prerequisites, and you're already familiar with using ARM templates, selecting the **Deploy to Azure** button below will open the template for deployment in the Azure portal.
+If your environment meets the prerequisites, and you're already familiar with using ARM templates, selecting the **Deploy to Azure** button opens the template for deployment in the Azure portal.
 
 [![Deploy to Azure in overview](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2Fquickstarts%2Fmicrosoft.devices%2Fiothub-device-provisioning%2fazuredeploy.json)
 
@@ -44,7 +44,7 @@ Two Azure resources are defined in the template above:
 
 #### Deploy with the Portal
 
-1. Select the following image to sign in to Azure and open the template for deployment. The template creates a new Iot Hub and DPS resource. The hub will be linked in the DPS resource.
+1. Select the following image to sign in to Azure and open the template for deployment. The template creates a new Iot hub and DPS resource. The new IoT hub is linked to the DPS resource.
 
     [![Deploy to Azure in Portal Steps](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2Fquickstarts%2Fmicrosoft.devices%2Fiothub-device-provisioning%2fazuredeploy.json)
 
@@ -64,7 +64,7 @@ Two Azure resources are defined in the template above:
 
 3. On the next screen, read the terms. If you agree to all terms, select **Create**. 
 
-    The deployment will take a few moments to complete. 
+    The deployment takes a few moments to complete. 
 
     In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
 
@@ -121,7 +121,7 @@ Sign in to your Azure account and select your subscription.
     | Parameter | Description |
     | :-------- | :---------- |
     | **Project name** | The value of this parameter is used to create a resource group to hold all resources. The string `rg` is added to the end of the value for your resource group name. |
-    | **location** | This value is the region where all resources will reside. |
+    | **location** | This value is the region where all resources are created. |
     | **iotHubName** | Enter a name for the IoT Hub that must be globally unique within the *.azure-devices.net* namespace. You need the hub name in the next section when you validate the deployment. |
     | **provisioningServiceName** | Enter a name for the new Device Provisioning Service (DPS) resource. The name must be globally unique within the *.azure-devices-provisioning.net* namespace. You need the DPS name in the next section when you validate the deployment. |
 
@@ -156,7 +156,12 @@ To delete the resource group deployed using the Azure CLI:
 az group delete --name "${projectName}rg"
 ```
 
-You can also delete resource groups and individual resources using the Azure portal, PowerShell, or REST APIs, as well as with supported platform SDKs published for Azure Resource Manager or IoT Hub Device Provisioning Service.
+You can also delete resource groups and individual resources using any of the following options:
+
+- Azure portal
+- PowerShell
+- REST APIs
+- Supported platform SDKs published for Azure Resource Manager or IoT Hub Device Provisioning Service
 
 ## Next steps
 

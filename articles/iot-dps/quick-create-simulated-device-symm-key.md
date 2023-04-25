@@ -10,16 +10,16 @@ services: iot-dps
 manager: lizross
 ms.custom: mvc, mode-other
 zone_pivot_groups: iot-dps-set1
-#Customer intent: As a new IoT developer, I want to connect a device to an IoT Hub using the SDK, to learn how secure provisioning works with symmetric keys.
+#Customer intent: As a new IoT developer, I want to connect a device to an IoT hub using the SDK, to learn how secure provisioning works with symmetric keys.
 ---
 
 # Quickstart: Provision a simulated symmetric key device
 
-In this quickstart, you'll create a simulated device on your Windows machine. The simulated device will be configured to use the [symmetric key attestation](concepts-symmetric-key-attestation.md) mechanism for authentication. After you've configured your device, you'll then provision it to your IoT hub using the Azure IoT Hub Device Provisioning Service.
+In this quickstart, you create a simulated device on your Windows machine. The simulated device is configured to use the [symmetric key attestation](concepts-symmetric-key-attestation.md) mechanism for authentication. After you've configured your device, you then provision it to your IoT hub using the Azure IoT Hub Device Provisioning Service.
 
 If you're unfamiliar with the process of provisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview.
 
-This quickstart demonstrates a solution for a Windows-based workstation. However, you can also perform the procedures on Linux. For a Linux example, see [Tutorial: provision for geolatency](how-to-provision-multitenant.md).
+This quickstart demonstrates a solution for a Windows-based workstation. However, you can also perform the procedures on Linux. For a Linux example, see [Tutorial: provision for geo latency](how-to-provision-multitenant.md).
 
 ## Prerequisites
 
@@ -253,7 +253,7 @@ To update and run the provisioning sample with your device information:
     static const char* id_scope = "0ne00002193";
     ```
 
-6. Find the definition for the `main()` function in the same file. Make sure the `hsm_type` variable is set to `SECURE_DEVICE_TYPE_SYMMETRIC_KEY` as shown below:
+6. Find the definition for the `main()` function in the same file. Make sure the `hsm_type` variable is set to `SECURE_DEVICE_TYPE_SYMMETRIC_KEY` as shown in the following example:
 
     ```c
     SECURE_DEVICE_TYPE hsm_type;
@@ -327,7 +327,7 @@ To update and run the provisioning sample with your device information:
     cd '.\azure-iot-sdk-csharp\provisioning\device\samples\how to guides\SymmetricKeySample\'
     ```
 
-4. In the *SymmetricKeySample* folder, open *Parameters.cs* in a text editor. This file shows the parameters that are supported by the sample. Only the first three required parameters are used in this article when running the sample. Review the code in this file. No changes are needed.
+4. In the *SymmetricKeySample* folder, open *Parameters.cs* in a text editor. This file shows the available parameters for the sample. Only the first three required parameters are used in this article when running the sample. Review the code in this file. No changes are needed.
 
     | Parameter                         | Required | Description     |
     | :-------------------------------- | :------- | :-------------- |
@@ -402,7 +402,7 @@ To update and run the provisioning sample with your device information:
     provisioningClient.setProvisioningPayload({a: 'b'});
     ```
 
-    You may comment out this code, as it is not needed with for this quick start. A custom payload would be required you wanted to use a custom allocation function to assign your device to an IoT Hub. For more information, see [Tutorial: Use custom allocation policies](tutorial-custom-allocation-policies.md).
+    You may comment out this code, as it's not needed with for this quickstart. A custom payload would be required you wanted to use a custom allocation function to assign your device to an IoT hub. For more information, see [Tutorial: Use custom allocation policies](tutorial-custom-allocation-policies.md).
 
      The `provisioningClient.register()` method attempts the registration of your device.
 
@@ -573,7 +573,7 @@ To update and run the provisioning sample with your device information:
 
 1. In the main menu of your Device Provisioning Service, select **Overview**.
 
-2. Copy the **ID Scope** and **Global device endpoint** values. These are your `SCOPE_ID` and `GLOBAL_ENDPOINT` respectively.
+2. Copy the **ID Scope** and **Global device endpoint** values. These values are your `SCOPE_ID` and `GLOBAL_ENDPOINT` parameters, respectively.
 
     :::image type="content" source="./media/quick-create-simulated-device-symm-key/copy-id-scope-and-global-device-endpoint.png" alt-text="Extract Device Provisioning Service endpoint information":::
 
