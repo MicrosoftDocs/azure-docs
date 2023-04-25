@@ -1,5 +1,5 @@
 ---
-title: Create VM image using source images from Azure Marketplace or images from your Azure Storage account.
+title: Create a VM image using source images from Azure Marketplace or images from your Azure Storage account.
 description: Learn how to create a VM image using source images from Azure Marketplace or from your Azure Storage account.
 services: databox
 author: alkohli
@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/24/2023
+ms.date: 04/25/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to create VM images using source images from Azure Marketplace or images from an Azure Storage account.
 ---
@@ -15,7 +15,7 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-sku](../../includes/azure-stack-edge-applies-to-gpu-sku.md)]
 
-This article describes how to create a VM image using source images from Azure Marketplace or images from an Azure Storage account. These VM images can then be used to create a VM on your Azure Stack Edge.
+This article describes how to create a VM image using source images from Azure Marketplace or images from an Azure Storage account. These VM images can then be used to create a VM on your Azure Stack Edge device.
 
 The audience for this guide is IT administrators familiar with existing Azure Stack Edge solutions. 
 
@@ -24,7 +24,7 @@ The audience for this guide is IT administrators familiar with existing Azure St
 The following scenarios are described in this article:
 
 - Add a VM image from an image in Azure Marketplace via Azure portal.  
-- Add a VM image from a VHD/VHDX loaded in Azure Storage account via Azure portal. 
+- Add a VM image from a VHD/VHDX loaded in an Azure Storage account via Azure portal. 
 - View VM image properties. 
 - Delete a VM image in Azure portal. 
 - Add a VM. 
@@ -36,13 +36,13 @@ Before you begin, make sure that:
 1. You have a Microsoft account with credentials to access Azure portal.
 1. Your Azure Stack Edge subscription is enabled for this feature.
 1. You have access to an Azure Stack Edge device that is deployed, registered, and connected to Azure.
-1. You go to the **Overview** page for your Azure Stack Edge device. **Deployed edge services** should show **Virtual machines** as **Running**.
-
-   To enable your VM, use the steps in [Deploy VMs on your Azure Stack Edge device](azure-stack-edge-gpu-deploy-virtual-machine-portal.md#add-a-vm-image). 
+1. Your Azure Stack Edge device is running version 2307 or later.
+1. Verify that, if you're using custom images, you have a VHD loaded in your Azure Storage account. For detailed steps, see [Upload a VHD image in your Azure Storage account](azure-stack-edge-gpu-create-virtual-machine-image.md?tabs=windows#copy-vhd-to-storage-account-using-azcopy).
+1. Verify that your VMs are running. Go to the **Overview** page for your Azure Stack Edge device. **Deployed edge services** must show **Virtual machines** as **Running**.
 
     [![Screenshot showing the Deployed edge services page for an Azure Stack Edge device. The page shows VMs running as expected.](./media/azure-stack-edge-create-vm-from-azure-marketplace/azure-stack-edge-deployed-edge-services-vm-running-01.png)](./media/azure-stack-edge-create-vm-from-azure-marketplace/azure-stack-edge-deployed-edge-services-vm-running-01.png#lightbox)
 
-   If you're using custom images, you should have a VHD loaded in your Azure Storage account. For detailed steps, see [Upload a VHD image in your Azure Storage account](azure-stack-edge-gpu-create-virtual-machine-image.md?tabs=windows#copy-vhd-to-storage-account-using-azcopy).
+   To enable your VM, use the steps in [Deploy VMs on your Azure Stack Edge device](azure-stack-edge-gpu-deploy-virtual-machine-portal.md#add-a-vm-image). 
 
 ## Add a VM image from Azure Marketplace
 
@@ -58,7 +58,7 @@ Use the following steps to create a VM image starting from an Azure Marketplace 
 
 3.	On the **Create an Image** dialog, review VM details and then select **Create**.
 
-4.	When the image download is complete, the VM image shows up in the list of images and **Status** shows **Downloaded**. You will also see a notification that the operation completed successfully.
+4.	When the image download is complete, the VM image shows up in the list of images,, and **Status** shows **Downloaded**. You'll also see a notification that the operation completed successfully.
 
     [![Screenshot showing successful download of a new VM image for an Azure Stack Edge device in Azure portal](./media/azure-stack-edge-create-vm-from-azure-marketplace/azure-stack-edge-downloaded-marketplace-image-04.png)](./media/azure-stack-edge-create-vm-from-azure-marketplace/azure-stack-edge-downloaded-marketplace-image-04.png#lightbox)
 
@@ -89,7 +89,7 @@ In your Azure Stack Edge cluster resource, perform the following steps:
 
     You can track the image deployment on the VM image grid. You can see the list of VM images that are already downloaded and the ones that are being downloaded on the cluster.
 
-5.	When the image download is complete, the VM image shows up in the list of images and the **Status** will show as **Downloaded**. To view more details about any image, select the VM image name from the list of VM images.
+5.	When the image download is complete, the VM image shows up in the list of images, and the **Status** shows as **Downloaded**. To view more details about any image, select the VM image name from the list of VM images.
 
 ## View VM image properties
 
@@ -99,13 +99,13 @@ You may want to view the properties of VM images before you use the image to cre
 
     [![Screenshot showing a list view of VM image names on the Virtual machines page of an Azure Stack Edge device in Azure portal](./media/azure-stack-edge-create-vm-from-azure-marketplace/azure-stack-edge-vm-image-list-view-07.png)](./media/azure-stack-edge-create-vm-from-azure-marketplace/azure-stack-edge-vm-image-list-view-07.png#lightbox)
 
-2. View VM image properties in the blade at right.
+2. View VM image properties at right.
 
     [![Screenshot showing VM image properties on the Virtual machines page of an Azure Stack Edge device in Azure portal](./media/azure-stack-edge-create-vm-from-azure-marketplace/azure-stack-edge-vm-image-properties-08.png)](./media/azure-stack-edge-create-vm-from-azure-marketplace/azure-stack-edge-vm-image-properties-08.png#lightbox)
 
 ## Delete a VM image
 
-You may want to delete a VM image if it is no longer needed. To delete a VM from your Azure Stack Edge resource, perform the following steps:
+You may want to delete a VM image if it's no longer needed. To delete a VM from your Azure Stack Edge resource, perform the following steps:
 
 1.	Select **Images**.
 
@@ -133,9 +133,9 @@ To add a VM to your Azure Stack Edge resource, perform the following steps:
 
 3.	In the **Add a virtual machine** wizard, on the **Basics** tab, specify the following parameters:
     1. **Virtual machine name** – Specify a name for your VM. The name must follow naming conventions for Azure virtual machines.
-    1. **Edge resource group** – Create a new or choose an existing resource group where you will deploy the resources associated with your VM.
+    1. **Edge resource group** – Create a new or choose an existing resource group where you'll deploy the resources associated with your VM.
     1. **Image** – Use the dropdown menu to select the Azure Marketplace or customer managed image to create the VM image.
-    1. **Size** – Select a VM size appropriate for the workloads you will deploy.
+    1. **Size** – Select a VM size appropriate for the workloads you'll deploy.
     1. **Administrator account** – Specify administrator authentication type, username, and SSH public key.
 4. To continue, select **Review + create**.
 
@@ -143,7 +143,7 @@ To add a VM to your Azure Stack Edge resource, perform the following steps:
  
 5. Review the details for the VM you intend to create. To start the VM creation job, select **Create**.
 
-6. VM creation will take several minutes. Once the VM is created, go to **Virtual machines** > **Virtual machines**. The newly created VM will be included in the list of VMs.
+6. VM creation takes several minutes. Once the VM is created, go to **Virtual machines** > **Virtual machines**. The newly created VM is included in the list of VMs.
 
 ## Next steps
 
