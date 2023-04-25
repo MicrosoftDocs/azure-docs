@@ -121,23 +121,22 @@ Adding these relationship definitions means we’ll now be able to link datasets
 
 Now let’s add the business processes (ledger management, order placement, etc.) and two systems (Contoso billing, General ledger) from our diagram. 
 
-![Adding business assets](media/concept-best-practices-domains/08-business-assets.png)
+![Screenshot from Purview business assets page shows a list of business assets including 6 business process assets for 'ledger management', 'order placement', and others along with 2 systems assets called 'Contoso billing' and 'General legder.'](media/concept-best-practices-domains/08-business-assets.png)
 
 We’ll create data domain assets for 'account' and 'order' as well because these are not only important terms but key entity concepts in these business areas. This will help us show business context for key data entities.
 
-![Account asset detail](media/concept-best-practices-domains/09-account-entity.png)
-
+![Screenshot from Purview asset detail page for the Account data domain asset.](media/concept-best-practices-domains/09-account-data-entity.png)
 ### Step 4: Scan data from your domains
 
 Finally, we’re ready to register and scan the Azure SQL instance that supports both our Finance and Supply Chain domains. 
 
 Analytical data sources often centralize data that’s shared by multiple departments. For example, a single Azure SQL Server may have a database that supports Supply Chain, and another database that supports the Finance team. To make sure we can sort these assets from this same source into different collections, we’ll register the source at the root collection and create two scoped scans—one for the finance collection and one for the supply chain collection. 
 
-![Collection structure for scan](media/concept-best-practices-domains/10-source-registration.png)
+![Screenshot from Purview sources page showing that an Azure SQL database has been registered to the root collection.](media/concept-best-practices-domains/10-source-registration.png)
 
 Then we’ll set up scoped scans to divide the data between areas of responsibility. When you set up a [scoped scan](concept-scans-and-ingestion#scope-your-scan.md), you can choose specific folders or tables that apply to each area of responsibility so you can scan the right data into a collection.
 
-![Scoped scan](media/concept-best-practices-domains/11-scope-scan.png)
+![Screenshot of Purview scan settings showing that data will be scanned into the Finance domain collection next to a screen shot showing the Purview 'scope your scan' panel with individual tables selected for scanning under the main database.](media/concept-best-practices-domains/11-scope-scan.png)
 
 ### Step 5: Contextualize your data
 
@@ -145,11 +144,11 @@ Now that we’ve creating our building blocks, we’re ready to link the informa
 
 We’ll go to our logical data domain for account, assign the business term account, link account to the physical table called customer account, link its source system, Contoso billing, and establish relationships the 5 business processes that use account information.
 
-![Editing relationships](media/concept-best-practices-domains/12-edit-relationships.png)
+![Screenshot of Purview asset detail page for account data domain with the 'related' tab open, which shows relationships available for editing.](media/concept-best-practices-domains/12-edit-relationships.png)
 
 The result helps us visualize how physical data is related to its business use and context.
 
-![Visualize data context](media/concept-best-practices-domains/13-business-context.png)
+![Screenshot of related tab after edits have been completed. The account data domain is connected to a business term called 'account', an Azure SQL table called 'customer account', and 5 business processes: 'order fulfillment', 'order shipping', 'invoicing', 'payments management', and 'order placement,'](media/concept-best-practices-domains/13-business-context.png)
 
 Now, when people search the catalog for account data, they not only find the data but find its business context including how it’s originated, which source system provides the data, its business meaning, as well as how its used to drive value in critical business domains.
 
