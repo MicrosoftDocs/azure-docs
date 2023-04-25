@@ -227,16 +227,16 @@ To apply custom configuration changes, use the following steps as a ROOT user:
 
 1. Run the following command to untar the binary.
 
-	```bash
-	   sudo tar -xvf latestlinuxmobsvc.tar.gz
-        ```
+    ```bash
+       sudo tar -xvf latestlinuxmobsvc.tar.gz
+    ```
     ![Screenshot of the command to run](./media/vmware-azure-install-linux-master-target/image16.png)
 
 2. Run the following command to give permission.
 
-	```bash
-	   sudo chmod 755 ./ApplyCustomChanges.sh
-        ```
+    ```bash
+       sudo chmod 755 ./ApplyCustomChanges.sh
+    ```
 
 3. Run the following command to run the script.
 	
@@ -292,31 +292,31 @@ Use the following steps to create a retention disk:
 1. Run the following command to install the master target.
 
     ```bash
-    ./install -q -d /usr/local/ASR -r MT -v VmWare
+    sudo ./install -q -d /usr/local/ASR -r MT -v VmWare
     ```
 
 2. Copy the passphrase from **C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase** on the configuration server. Then save it as **passphrase.txt** in the same local directory by running the following command:
 
 	```bash
-	   echo <passphrase> >passphrase.txt
+	   sudo echo <passphrase> >passphrase.txt
 	```
 
     Example: 
 
     ```bash
-       echo itUx70I47uxDuUVY >passphrase.txt`
+       sudo echo itUx70I47uxDuUVY >passphrase.txt`
     ```
 
 3. Note down the configuration server's IP address. Run the following command to register the server with the configuration server.
 
     ```bash
-	/usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
+	sudo /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
     ```
 
 	Example: 
 	
     ```bash
-	/usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
+	sudo /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
     ```
 
 Wait until the script finishes. If the master target registers successfully, the master target is listed on the **Site Recovery Infrastructure** page of the portal.
@@ -327,7 +327,7 @@ Wait until the script finishes. If the master target registers successfully, the
 1. Run the following command to install the master target. For the agent role, choose **master target**.
 
     ```bash
-	./install
+	sudo ./install
     ```
 
 2. Choose the default location for installation, and then select **Enter** to continue.
@@ -341,7 +341,7 @@ After the installation has finished, register the configuration server by using 
 2. Run the following command to register the server with the configuration server.
 
     ```bash
-	/usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh
+	sudo /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh
     ```
 
      Wait until the script finishes. If the master target is registered successfully, the master target is listed on the **Site Recovery Infrastructure** page of the portal.
@@ -365,7 +365,7 @@ Running the installer will automatically detect that the agent is installed on t
 After the setup has been completed, check the version of the master target installed by using the following command:
 
 ```bash
-   sudo cat /usr/local/.vx_version`
+   sudo cat /usr/local/.vx_version
 ```
 
 You will see that the **Version** field gives the version number of the master target.
@@ -394,7 +394,7 @@ From 9.42 version, ASR supports Linux master target server on Ubuntu 20.04. To u
     Restart the networking service using the following command: <br>
 
 ```bash
-   sudo systemctl restart networking`
+   sudo systemctl restart networking
 ```
 
 ## Next steps
