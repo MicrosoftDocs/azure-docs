@@ -31,7 +31,8 @@ landingContent:
             url: storage-files-introduction.md
           - text: Identity-based authentication
             url: storage-files-active-directory-overview.md
-
+          - text: Videos
+            url: ../common/videos-azure-files-and-file-sync.md
 
   # Card (optional)
   - title: Get started

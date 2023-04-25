@@ -202,7 +202,7 @@ Now that the Network Group is created, and has the correct VNets, create a mesh 
 
 ## Deploy the connectivity configuration
 
-To have your configurations applied to your environment, you need to commit the configuration by deployment. You need to deploy the configuration to the **West US** region where the virtual networks are deployed.
+To have your configurations applied to your environment, you need to commit the configuration by deployment. You need to deploy the configuration to the **East US** region where the virtual networks are deployed.
 
 1. Select **Deployments** under **Settings**, then select **Deploy configurations**.
 

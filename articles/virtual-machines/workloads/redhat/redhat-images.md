@@ -9,7 +9,6 @@ ms.topic: article
 ms.date: 04/07/2023
 ms.author: mathapli
 ms.reviewer: cynthn
-
 ---
 
 # Overview of Red Hat Enterprise Linux images
@@ -22,6 +21,7 @@ For information on Red Hat support policies for all versions of RHEL, see [Red H
 
 > [!IMPORTANT]
 > RHEL images currently available in Azure Marketplace support either bring your own subscription (BYOS) or pay-as-you-go licensing models. You can dynamically switch between BYOS and pay-as-you-go licensing through [Azure Hybrid Benefit](../../linux/azure-hybrid-benefit-linux.md).
+> Note: BYOS images are based on private plans and currently not supported in CSP subscriptions (see [https://learn.microsoft.com/en-us/partner-center/marketplace/private-plans#unlock-enterprise-deals-with-private-plans](/partner-center/marketplace/private-plans))
 
 >[!NOTE]
 > For any problem related to RHEL images in Azure Marketplace, file a support ticket with Microsoft.
@@ -209,3 +209,5 @@ Current policy is to keep all previously published images. We reserve the right 
 - To learn more about the Azure Red Hat Update Infrastructure, see [Red Hat Update Infrastructure for on-demand RHEL VMs in Azure](./redhat-rhui.md).
 - To learn more about the RHEL BYOS offer, see [Red Hat Enterprise Linux bring-your-own-subscription Gold Images in Azure](./byos.md).
 - For information on Red Hat support policies for all versions of RHEL, see [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata).
+
+

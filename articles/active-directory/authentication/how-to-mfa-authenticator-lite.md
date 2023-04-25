@@ -41,9 +41,6 @@ Users receive a notification in Outlook mobile to approve or deny sign-in, or th
 
 ## Enable Authenticator Lite
 
->[!NOTE]
->Rollout has not yet completed across Outlook applications. If this feature is enabled in your tenant, your users may not yet be prompted for the experience. To minimize user disruption, we recommend enabling this feature when the rollout completes.
-
 By default, Authenticator Lite is [Microsoft managed](concept-authentication-default-enablement.md#microsoft-managed-settings) and disabled during preview. After general availability, the Microsoft managed state default value will change to enable Authenticator Lite. 
 
 ### Enablement Authenticator Lite in Azure portal UX
@@ -138,7 +135,7 @@ If enabled for Authenticator Lite, users are prompted to register their account 
 GET auditLogs/signIns
 ```
 
-If the sign-in was done by phone app notification, under **authenticationAppDeivceDetails** the **clientApp** field returns **microsoftAuthenticator** or **Outlook**.
+If the sign-in was done by phone app notification, under **authenticationAppDeviceDetails** the **clientApp** field returns **microsoftAuthenticator** or **Outlook**.
 
 If a user has registered Authenticator Lite, the user’s registered authentication methods include **Microsoft Authenticator (in Outlook)**. 
 

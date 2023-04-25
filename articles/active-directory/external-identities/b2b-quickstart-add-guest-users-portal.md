@@ -5,7 +5,7 @@ services: active-directory
 ms.author: cmulligan
 author: csmulligan
 manager: celestedg
-ms.date: 02/16/2023
+ms.date: 04/21/2023
 ms.topic: quickstart
 ms.service: active-directory
 ms.subservice: B2B
@@ -22,46 +22,53 @@ In this quickstart, you'll learn how to add a new guest user to your Azure AD di
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+The updated experience for creating new users covered in this article is available as an Azure AD preview feature. This feature is enabled by default, but you can opt out by going to **Azure AD** > **Preview features** and disabling the **Create user experience** feature. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Instructions for the legacy create user process can be found in the [Add or delete users](../fundamentals/add-users-azure-active-directory.md) article.
+
 ## Prerequisites
 
 To complete the scenario in this quickstart, you need:
 
-- A role that allows you to create users in your tenant directory, such as the Global Administrator role or a limited administrator directory role (for example, Guest inviter or User administrator).
+- A role that allows you to create users in your tenant directory, such as the Global Administrator role or a limited administrator directory role such as Guest Inviter or User Administrator.
 
 - Access to a valid email address outside of your Azure AD tenant, such as a separate work, school, or social email address. You'll use this email to create the guest account in your tenant directory and access the invitation.
 
-## Add a new guest user in Azure AD
+## Invite an external guest user
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with an account that's been assigned the Global administrator, Guest, inviter, or User administrator role.
+This quickstart guide provides the basic steps to invite an external user. To learn about all of the properties and settings that you can include when you invite an external user, see [How to create and delete a user](../fundamentals/how-to-create-delete-users.md).
 
-1. Under **Azure services**, select **Azure Active Directory** (or use the search box to find and select **Azure Active Directory**).
+1. Sign in to the [Azure portal](https://portal.azure.com/) using one of the roles listed in the Prerequisites.
 
-    :::image type="content" source="media/quickstart-add-users-portal/azure-active-directory-service.png" alt-text="Screenshot showing where to select the Azure Active Directory service.":::
+1. Navigate to **Azure Active Directory** > **Users**.
 
-1. Under **Manage**, select **Users**.
+1. Select **Invite external user** from the menu. 
 
-    :::image type="content" source="media/quickstart-add-users-portal/quickstart-users-portal-user.png" alt-text="Screenshot showing where to select the Users option.":::
+    ![Screenshot of the invite external user menu option.](media/quickstart-add-users-portal/invite-external-user-menu.png)
 
-1. Under **New user** select **Invite external user**.
+### Basics for external users
 
-    :::image type="content" source="media/quickstart-add-users-portal/new-guest-user.png" alt-text="Screenshot showing where to select the New guest user option.":::
+In this section, you're inviting the guest to your tenant using *their email address*. For this quickstart, enter an email address that you can access.
 
-1. On the **New user** page, select **Invite user** and then add the guest user's information.
+- **Email**: Enter the email address for the guest user you're inviting.
 
-   - **Name.** The first and last name of the guest user.
-   - **Email address (required)**. The email address of the guest user.
-   - **Personal message (optional)** Include a personal welcome message to the guest user.
-   - **Groups**: You can add the guest user to one or more existing groups, or you can do it later.
-   - **Roles**: If you require Azure AD administrative permissions for the user, you can add them to an Azure AD role.
+- **Display name**: Provide the display name.
 
-    :::image type="content" source="media/quickstart-add-users-portal/invite-user.png" alt-text="Screenshot showing the new user page.":::
+-  **Invitation message**: Select the **Send invite message** checkbox to customize a brief message to preview how the invitation message appears.
 
-1. Select **Invite** to automatically send the invitation to the guest user. A notification appears in the upper right with the message **Successfully invited user**.
+![Screenshot of the invite external user Basics tab.](media/quickstart-add-users-portal/invite-external-user-basics-tab.png)
+
+Select the **Review and invite** button to finalize the process.
+
+### Review and invite
+
+The final tab captures several key details from the user creation process. Review the details and select the **Invite** button if everything looks good.
+
+An email invitation is sent automatically. 
 
 1. After you send the invitation, the user account is automatically added to the directory as a guest.
 
     :::image type="content" source="media/quickstart-add-users-portal/new-guest-user-directory.png" alt-text="Screenshot showing the new guest user in the directory.":::
-
 
 ## Accept the invitation
 
@@ -72,7 +79,6 @@ Now sign in as the guest user to see the invitation.
 1. In your inbox, open the email from "Microsoft Invitations on behalf of Contoso."
 
     :::image type="content" source="media/quickstart-add-users-portal/quickstart-users-portal-email-small.png" alt-text="Screenshot showing the B2B invitation email.":::
-
 
 1. In the email body, select **Accept invitation**. A **Review permissions** page opens in the browser.
 

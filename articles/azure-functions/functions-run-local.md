@@ -492,6 +492,8 @@ curl --request POST -H "Content-Type:application/json" --data "{'input':'sample 
 ```
 ---
 
+The administrator endpoint also provides a list of all (HTTP triggered and non-HTTP triggered) functions on `http://localhost:{port}/admin/functions/`.
+
 When you call an administrator endpoint on your function app in Azure, you must provide an access key. To learn more, see [Function access keys](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
 ## <a name="publish"></a>Publish to Azure
