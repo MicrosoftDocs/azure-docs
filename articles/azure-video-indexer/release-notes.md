@@ -3,7 +3,7 @@ title: Azure Video Indexer release notes | Microsoft Docs
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Indexer.
 ms.topic: article
 ms.custom: references_regions
-ms.date: 04/17/2023
+ms.date: 04/25/2023
 ms.author: juliako
 ---
 
@@ -19,6 +19,10 @@ To stay up-to-date with the most recent Azure Video Indexer developments, this a
 * Deprecated functionality
 
 ## April 2023
+
+### Resource Health support
+
+Azure Video Indexer is now integrated with Azure Resource Health enabling you to see the health and availability of each of your Video Indexer resources and if needed, help with diagnosing and solving problems. You can also set alerts to be notified when your resources are affected. For more information, see [Azure Resource Health overview](../service-health/resource-health-overview.md).
 
 ### The animation character recognition model has been retired
 
