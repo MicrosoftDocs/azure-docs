@@ -7,7 +7,7 @@ ms.author: rosemalcolm
 ms.service: deployment-environments
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 02/28/2023
+ms.date: 04/25/2023
 ---
 
 # Manage your deployment environment
