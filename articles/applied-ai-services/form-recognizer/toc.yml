@@ -12,10 +12,10 @@ items:
     href: form-recognizer-studio-overview.md
   - name: Form Recognizer SDK
     items:
-      - name: Form Recognizer GA release
+      - name: Form Recognizer GA
         displayName: get started, installation, downloads, documentAnalysisClient, document analysis client, Azure AD, Azure Active Directory, identity, changelog, preview, beta, package, version,AzureKeyCredential, Azure key credential, key, endpoint
         href: sdk-overview.md
-      - name: Form Recognizer public preview release
+      - name: Form Recognizer public preview
         displayName: get started, installation, downloads, documentAnalysisClient, document analysis client, Azure AD, Azure Active Directory, identity, package, version,AzureKeyCredential, Azure key credential, key, endpoint
         href: sdk-preview.md
       - name: Changelog and release history

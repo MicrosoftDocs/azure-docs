@@ -19,7 +19,7 @@ recommendations: false
 
 # Form Recognizer SDKs (preview)
 
-[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
+**This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
 
 > [!IMPORTANT]
 >

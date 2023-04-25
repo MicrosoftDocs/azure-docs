@@ -72,7 +72,7 @@ This release includes the following updates:
 * **Targets 2023-02-28-preview by default**
 * **No breaking changes**
 
-[**Package (PyPi**](https://pypi.org/project/azure-ai-formrecognizer/3.3.0b1/)
+[**Package (PyPi)**](https://pypi.org/project/azure-ai-formrecognizer/3.3.0b1/)
 
 [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.3.0b1/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#330b1-2023-04-13)
 
