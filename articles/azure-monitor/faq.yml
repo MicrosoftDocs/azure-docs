@@ -954,7 +954,7 @@ sections:
       - question: |
           Is running Application Insights alongside competitor agents like AppDynamics, DataDog, and NewRelic supported?
         answer: |
-          No. This practice isn't something we plan to test or support, although our OpenTelemetry-based offerings allow you to [export to an OTLP endpoint](app/opentelemetry-enable.md#enable-the-otlp-exporter) alongside Azure Monitor simultaneously.
+          No. This practice isn't something we plan to test or support, although our OpenTelemetry-based offerings allow you to [export to an OTLP endpoint](app/opentelemetry-configuration.md#enable-the-otlp-exporter) alongside Azure Monitor simultaneously.
 
       - question: |
           Can I use preview builds in production environments?
