@@ -1,7 +1,7 @@
 ---
 title: Publish modules to private module registry
 description: Publish Bicep modules to private module registry and use the modules.
-ms.date: 04/01/2022
+ms.date: 04/18/2023
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-bicep
 #Customer intent: As a developer new to Azure deployment, I want to learn how to publish Bicep modules to private module registry.
@@ -85,13 +85,13 @@ Use the following syntax to publish a Bicep file as a module to a private module
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az bicep publish --file storage.bicep --target br:exampleregistry.azurecr.io/bicep/modules/storage:v1
+az bicep publish --file storage.bicep --target br:exampleregistry.azurecr.io/bicep/modules/storage:v1 --documentationUri https://www.contoso.com/exampleregistry.html
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Publish-AzBicepModule -FilePath ./storage.bicep -Target br:exampleregistry.azurecr.io/bicep/modules/storage:v1
+Publish-AzBicepModule -FilePath ./storage.bicep -Target br:exampleregistry.azurecr.io/bicep/modules/storage:v1 -DocumentationUri https://www.contoso.com/exampleregistry.html
 ```
 
 ---

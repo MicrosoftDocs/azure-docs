@@ -84,7 +84,7 @@ For a command with multiple arguments, provide as a list to `arguments` paramete
 These commands can be long running so the recommendation is to set `--limit-time-seconds` to at least 600 seconds (10 minutes). Running multiple extracts might take longer that 10 minutes.
 
 This command runs synchronously. If you wish to skip waiting for the command to complete, specify the `--no-wait --debug` options. For more information, see [how to track asynchronous operations](howto-track-async-operations-cli.md).
-/home/priya/azure-docs-pr-pshet/articles/import-export
+
 When an optional argument `--output-directory` is provided, the output result is downloaded and extracted to the local directory.
 
 ### This example executes the `hostname` command and a `ping` command.
@@ -104,7 +104,7 @@ In the response, an HTTP status code of 202 is returned as the operation is perf
 
 Sample output looks something as below. It prints the top 4K characters of the result to the screen for convenience and provides a short-lived link to the storage blob containing the command execution result. You can use the link to download the zipped output file (tar.gz).
 
-```azurecli
+```output
   ====Action Command Output====
   + hostname
   rack1compute01

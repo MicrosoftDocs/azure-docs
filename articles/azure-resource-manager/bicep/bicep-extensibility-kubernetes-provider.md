@@ -3,7 +3,7 @@ title: Bicep extensibility Kubernetes provider
 description: Learn how to Bicep Kubernetes provider  to deploy .NET applications to Azure Kubernetes Service clusters.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 02/21/2023
+ms.date: 04/18/2023
 ---
 
 # Bicep extensibility Kubernetes provider (Preview)
@@ -36,7 +36,7 @@ param kubeConfig string
 import 'kubernetes@1.0.0' with {
   namespace: 'default'
   kubeConfig: kubeConfig
-}
+} as k8s
 ```
 
 - **namespace**: Specify the namespace of the provider.
