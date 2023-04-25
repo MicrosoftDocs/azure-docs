@@ -1,13 +1,14 @@
 ---
 title: VMware Tanzu components
-description: Learn about what's Tanzu component
-author: 
+description: Learn about what are Tanzu components in enterprise tier
+author: taoxu0903
 ms.author: taoxu0903
 ms.service: spring-apps
 ms.topic: concept
 ms.date: 04/25/2023
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022, engagement-fy23, references_regions
 ---
+
 # VMware Tanzu components
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
@@ -54,6 +55,7 @@ Application Configuration Service provides runtime configuration to Spring Boot 
 You can learn more about it at  [https://learn.microsoft.com/en-us/azure/spring-apps/how-to-enterprise-application-configuration-service](https://learn.microsoft.com/en-us/azure/spring-apps/how-to-enterprise-application-configuration-service?tabs=Portal).
 
 ## Tanzu Service Registry
+
 Tanzu Service Registry provides service registry and discovery capabilities for microservices-based applications and is fully compatible with Eureka server.
 
 You can learn more about it at  [https://learn.microsoft.com/en-us/azure/spring-apps/how-to-enterprise-service-registry](https://learn.microsoft.com/en-us/azure/spring-apps/how-to-enterprise-service-registry?tabs=Portal).
