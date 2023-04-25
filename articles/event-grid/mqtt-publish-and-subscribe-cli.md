@@ -30,7 +30,7 @@ In this article, you use the Azure CLI to do the following tasks:
 - This article requires version 2.17.1 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 > [!IMPORTANT]
-> The Azure [CLI Event Grid extension](/cli/azure/eventgrid?view=azure-cli-latest) does not yet support namespaces and any of the resources it contains. We will use [Azure CLI resource](/cli/azure/resource?view=azure-cli-latest) to create Event Grid resources.
+> The Azure [CLI Event Grid extension](/cli/azure/eventgrid) does not yet support namespaces and any of the resources it contains. We will use [Azure CLI resource](/cli/azure/resource) to create Event Grid resources.
 
 ## Create a Namespace
 An Event Grid Namespace serves as an application container that can house resources such as clients, topic spaces.  It gives you a unique FQDN.
@@ -220,3 +220,7 @@ while (true)
 ```
 
 You can replicate and modify the same code for multiple clients to perform publish / subscribe among the clients.
+
+## Next steps
+
+- [Route MQTT messages to Event Hubs](mqtt-routing-to-eventhubs-cli.md)

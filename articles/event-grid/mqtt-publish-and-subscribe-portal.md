@@ -9,218 +9,148 @@ ms.author: veyaddan
 
 # Quickstart: Publish and subscribe to MQTT messages on Event Grid Namespace with Azure portal
 
-Azure Event Grid supports messaging using the MQTT protocol.  Clients (both devices and cloud applications) can publish and subscribe MQTT messages over flexible hierarchical topics for scenarios such as high scale broadcast, and command & control.
+In this article, you use the Azure portal to do the following tasks:
 
-In this article, you use the Azure CLI to do the following tasks:
-1. Create an Event Grid Namespace and enable MQTT
-2. Create subresources such as clients, topic spaces
+1. Create an Event Grid Namespace with MQTT
+2. Create subresources such as Clients, TopicSpaces
 3. Grant clients access to publish and subscribe to topic spaces
 4. Publish and receive messages between clients
 
 ## Prerequisites
-- If you don't have an [Azure subscription](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
-- If you're new to Azure Event Grid, read through [Event Grid overview](/azure/event-grid/overview) before starting this tutorial.
+
+- If you don't have an Azure subscription, create an Azure free account before you begin.
+- If you're new to Azure Event Grid, read through Event Grid overview before starting this tutorial.
 - Make sure that port 8883 is open in your firewall. The sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments.
 - You need an X.509 client certificate to generate the thumbprint and authenticate the client connection.
-- Use the Bash environment in [Azure Cloud Shell](/azure/cloud-shell/overview). For more information, see [Quickstart for Bash in Azure Cloud Shell](/azure/cloud-shell/quickstart).
-- If you prefer to run CLI reference commands locally, [install](/cli/azure/install-azure-cli) the Azure CLI. If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
-- If you're using a local installation, sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
-- When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
-- Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
-- This article requires version 2.17.1 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
-
-
-> [!IMPORTANT]
-> The Azure [CLI Event Grid extension](/cli/azure/eventgrid?view=azure-cli-latest) does not yet support namespaces and any of the resources it contains. We will use [Azure CLI resource](/cli/azure/resource?view=azure-cli-latest) to create Event Grid resources.
-
 
 ## Create a Namespace
+
 An Event Grid Namespace serves as an application container that can house resources such as clients, topic spaces.  It gives you a unique FQDN.
 
-Save the Namespace object in namespace.json file in resources folder.
+1. Sign in to [Azure portal](https://portal.azure.com/).
+2. In the search bar, type Event Grid Namespaces, and then select **Event Grid Namespaces** from the drop-down list.
 
-```json
-{
-    "properties": {
-        "inputSchema": "CloudEventSchemaV1_0",
-        "topicSpacesConfiguration": {
-            "state": "Enabled",
-        }
-    },
-    "location": "<region name>"
-}
-```
+:::image type="content" source="./media/mqtt-publish-and-subscribe-portal/search-event-grid-namespace.png" alt-text="Screenshot of searching for Event Grid namespace on Azure portal.":::
 
-Use the az resource command to create a namespace.  Update the command with your subscription ID, Resource group ID, and a Namespace name.
+3. On the Event Grid Namespaces page, select **+ Create** on the toolbar.
+4. On the Create namespace page, follow these steps:
 
-```azurecli-interactive
-az resource create --resource-type Microsoft.EventGrid/namespaces --id /subscriptions/<Subscription ID>/resourceGroups/<Resource Group>/providers/Microsoft.EventGrid/namespaces/<Namespace Name> --is-full-object --api-version 2023-06-01-preview --properties @./resources/namespace.json
-```
+- Select your Azure subscription.
+- Select an existing resource group or select Create new and enter a name for the resource group.
+- Provide a unique name for the namespace.  The namespace name must be unique per region because it represents a DNS entry.  Don't use the name shown in the image. Instead, create your own name - it must be between 3-50 characters and contain only values a-z, A-Z, 0-9, and "-".
+- Select a location for the Event Grid namespace.  Currently, Event Grid namespace is available only in select regions.
+
+:::image type="content" source="./media/mqtt-publish-and-subscribe-portal/create-event-grid-namespace-basics.png" alt-text="Screenshot showing Event Grid namespace create flow basics tab.":::
+
+- Select **Review + create** at the bottom of the page.
+- On the Review + create tab of the Create namespace page, select **Create**.
 
 > [!NOTE]
-> To keep the QuickStart simple, you'll be creating a namespace with minimal properties. For detailed steps about configuring network, security, and other settings on other pages of the wizard, see Create a Namespace.
+> To keep the QuickStart simple, you'll be using only the Basics page to create a namespace. For detailed steps about configuring network, security, and other settings on other pages of the wizard, see Create a Namespace.
+
+5. After the deployment succeeds, select **Go to resource** to navigate to the Event Grid Namespace Overview page for your namespace.  In the Overview page, you see that the MQTT is in Disabled state.  To enable MQTT, select the **Disabled** link, it will redirect you to Configuration page.
+6. On Configuration page, check the Enable MQTT option, and Apply the settings.
 
 ## Create clients
 
-Store the object in client1.json file
+1. Go to Clients page under MQTT section.
+2. On the Clients page, select **+ Client** on the toolbar.
+3. Provide a name for the client.  Client names must be unique in a namespace.
+4. Client authentication name is defaulted to client name.  You may change it if you want.  You need to include this name as Username in CONNECT packet.
+5. We use Thumbprint based authentication for this exercise.  Include the Client certificate’s thumbprint in the Primary Thumbprint.
 
-```json
-{
-    "properties": {
-        "state": "Enabled",
-        "authenticationName": “client1-authnID", 
-        "clientCertificateAuthentication": {
-            "allowedThumbprints": [
-"8E7968B9C434EAA8139BE58A21F2E7FB15D94C344B3B2ED8F8BC02E4C5FEB7E7"
-            ]
-         }
-    }
-}
-```
+:::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqtt-client1-metadata.png" alt-text="Screenshot of client 1 configuration.":::
 
-Use the az resource command to create the first client.  Update the command with your subscription ID, Resource group ID, and a Namespace name.
+6. Select **Create** to create the client.
+7. Repeat the above steps to create another client called “client2”.  
 
-```azurecli-interactive
-az resource create --resource-type Microsoft.EventGrid/namespaces/clients --id /subscriptions/<Subscription ID>/resourceGroups/<Resource Group>/providers/Microsoft.EventGrid/namespaces/<Namespace Name>/clients/<Client Name> --is-full-object --api-version 2023-06-01-preview --properties @./resources/client1.json
-```
-
-Store the below object in client2.json file.  
-
-```json
-{
-    "properties": {
-        "state": "Enabled",
-        "authenticationName": “client2-authn-ID", 
-        "clientCertificateAuthentication": {
-            "allowedThumbprints": [
-"8E7968B9C434EAA8139BE58A21F2E7FB15D94C344B3B2ED8F8BC02E4C5FEB7E7"
-            ]
-         }
-    }
-}
-```
-
-Use the az resource command to create the second client.  Update the command with your subscription ID, Resource group ID, namespace and a client name.
-
-```azurecli-interactive
-az resource create --resource-type Microsoft.EventGrid/namespaces/clients --id /subscriptions/<Subscription ID>/resourceGroups/<Resource Group>/providers/Microsoft.EventGrid/namespaces/<Namespace Name>/clients/<Client Name> --is-full-object --api-version 2023-06-01-preview --properties @./resources/client2.json
-```
+:::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqtt-client2-metadata.png" alt-text="Screenshot of client 2 configuration.":::
 
 > [!NOTE]
-> For QuickStart, we use Thumbprint match for authentication.  For detailed steps on using X.509 CA certificate chain for client authentication, see [Client Authentication](./mqtt-client-authentication.md).
-
-Also, we use the default $all client group, which includes all the clients in the namespace for this exercise.  To learn more about creating custom client groups using client attributes, see client groups.
+> To keep the QuickStart simple, you'll be using Thumbprint match for authentication.  For detailed steps on using X.509 CA certificate chain for client authentication, see [client authentication using certificate chain](./mqtt-certificate-chain-client-authentication.md).
+> Also, we use the default $all client group, which includes all the clients in the namespace for this exercise.  To learn more about creating custom client groups using client attributes, see client groups.
 
 ## Create topic spaces
 
-Store the below object in topicspace.json file.
+1. Go to Topic spaces page under MQTT section.
+2. On the Topic spaces page, select **+ Topic space** on the toolbar.
+3. Provide a name for the topic space.  
+4. Select + Add topic template to add the topic template contosotopics/topic1.
 
-```json
-{ 
-    "properties": {
-        "topicTemplates": [
-            "contosotopics/topic1"
-        ]
-    }
-}
-```
+:::image type="content" source="./media/mqtt-publish-and-subscribe-portal/create-topic-space.png" alt-text="Screenshot of topic space configuration.":::
 
-Use the az resource command to create the topic space.  Update the command with your subscription ID, Resource group ID, namespace name, and a topic space name.
+5. Select **Create** to create the topic space.
 
-```azurecli-interactive
-az resource create --resource-type Microsoft.EventGrid/namespaces/topicSpaces --id /subscriptions/<Subscription ID>/resourceGroups/<Resource Group>/providers/Microsoft.EventGrid/namespaces/<Namespace Name>/topicSpaces/<Topic Space Name> --is-full-object --api-version 2023-06-01-preview --properties @./resources/topicspace.json
-```
+## Configuring access control using permission bindings
 
-## Create PermissionBindings
+1. Go to Permission bindings page under MQTT section.
+2. On the Permission bindings page, select **+ Permission binding** on the toolbar.
+3. Provide a name for the permission binding.  Select the client group name as $all.  Topic space name as Topicspace1.  Give Publisher permission to the client group on the topic space.
 
-Store the first permission binding object in permissionbinding1.json file.  Replace the topic space name with your topic space name.  This permission binding is for publisher.
+:::image type="content" source="./media/mqtt-publish-and-subscribe-portal/create-permission-binding-1.png" alt-text="Screenshot showing creation of first permission binding.":::
 
-```json
-{
-    "properties": {
-        "clientGroupName": "$all",
-        "permission": "Publisher”,
-        "topicSpaceName": "<topicspace name>"
-    }
-}
-```
+4. Select **Create** to create the permission binding.
+5. Create one more permission binding by selecting **+ Permission binding** on the toolbar.
+6. Provide a name and give $all client group Subscriber access to the Topicspace1 as shown.
 
-Use the az resource command to create the first permission binding.  Update the command with your subscription ID, Resource group ID, namespace name, and a permission binding name.
+:::image type="content" source="./media/mqtt-publish-and-subscribe-portal/create-permission-binding-2.png" alt-text="Screenshot showing creation of second permission binding.":::
 
-```azurecli-interactive
-az resource create --resource-type Microsoft.EventGrid/namespaces/permissionBindings --id /subscriptions/<Subscription ID>/resourceGroups/<Resource Group>/providers/Microsoft.EventGrid/namespaces/<Namespace Name>/permissionBindings/<Permission Binding Name> --api-version 2023-06-01-preview --properties @./resources/permissionbinding1.json
-```
+7. Select **Create** to create the permission binding.
 
-Store the second permission binding object in permissionbinding2.json file.  Replace the topic space name with your topic space name.  This permission binding is for subscriber.
+## Connecting the clients to the EG Namespace using MQTTX app
 
-```json
-{
-    "properties": {
-        "clientGroupName": "$all",
-        "permission": "Subscriber”,
-        "topicSpaceName": "<topicspace name>"
-    }
-}
-```
+1. For publish / subscribe MQTT messages, you can use any of your favorite tools.  For demonstration purpose, publish / subscribe is shown using MQTTX app, which can be downloaded from https://mqttx.app/.
 
-Use the az resource command to create the second permission binding.  Update the command with your subscription ID, Resource group ID, namespace name and a permission binding name.
+:::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-add-client.png" alt-text="Screenshot showing MQTTX app left rail to add new client.":::
 
-```azurecli-interactive
-az resource create --resource-type Microsoft.EventGrid/namespaces/permissionBindings --id /subscriptions/<Subscription ID>/resourceGroups/<Resource Group>/providers/Microsoft.EventGrid/namespaces/<Namespace Name>/permissionBindings/<Permission Binding Name> --api-version 2023-06-01-preview --properties @./resources/permissionbinding2.json
-```
+2. Configure client1 with  
+    - Name as clientname1 (this value can be anything)
+    - Client ID as client1-sessionID1 (Client ID in CONNECT packet is used to identify the session ID for the client connection)
+    - Username as client1-authnID (Username must match the client authentication name in client metadata)
+3. Update the host name to MQTT hostname from the Overview page of the namespace.
 
-## Connect the client and publish / subscribe MQTT messages
+:::image type="content" source="./media/mqtt-publish-and-subscribe-portal/event-grid-namespace-overview.png" alt-text="Screenshot showing Event Grid namespace overview page, which has MQTT hostname.":::
 
-The following sample code is a simple .NET publisher that attempts to connect, and publish to a namespace, and subscribes to the topic.  You can use the code to modify per your requirement and run the below code in Visual Studio or any of your favorite tools.  
+4. Toggle SSL/TLS to ON.
+5. You can leave the SSL Secure ON.
+6. Select Certificate as Self signed.
+7. Provide the path to client.cer.pem file for Client Certificate File.
+8. Provide the path to client.key.pem file for Client key file.
+9. Rest of the settings can be left with predefined default values.
 
-You need to install the MQTTnet package (version 4.1.4.563) from NuGet to run the code.  
-(In Visual Studio, right click on the project name in Solution Explorer, go to Manage NuGet packages, search for MQTTnet.  Select MQTTnet package and install.)
+:::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-client1-configuration-1.png" alt-text="Screenshot showing client 1 configuration part 1 on MQTTX app.":::
 
+:::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-client1-configuration-2.png" alt-text="Screenshot showing client 1 configuration part 2 on MQTTX app.":::
 
-> [!NOTE]
->The following sample code is only for demonstration purposes and is not intended for production use.
+10. Select Connect to connect the client to the Event Grid MQTT service.
+11. Repeat the above steps to connect the second client “client2”, with corresponding authentication information as shown.
 
-**Sample C# code to connect a client, publish/subscribe MQTT message on a topic**
+:::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-client2-configuration-1.png" alt-text="Screenshot showing client 2 configuration part 1 on MQTTX app.":::
 
-```csharp
-using MQTTnet.Client;
-using MQTTnet;
-using System.Security.Cryptography.X509Certificates;
+:::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-client2-configuration-2.png" alt-text="Screenshot showing client 2 configuration part 1 on MQTTX app.":::
 
-string hostname = "contosoegnamespace.eastus2-1.ts.eventgrid.azure.net";
-string clientId = "client3-session1";  //client ID can be the session identifier.  A client can have multiple sessions using username and clientId.
-string x509_pem = @" client certificate cer.pem file path\client.cer.pem";  //Provide your client certificate .cer.pem file path
-string x509_key = @"client certificate key.pem file path\client.key.pem";  //Provide your client certificate .key.pem file path
+## Publish/subscribe using MQTTX app
 
-var certificate = new X509Certificate2(X509Certificate2.CreateFromPemFile(x509_pem, x509_key).Export(X509ContentType.Pkcs12));
+1. After connecting the clients, for client2, select the + New Subscription button.
+2. Add contosotopics/topic1 as Topic and select Confirm.  You can leave the other fields with existing default values.
 
-var mqttClient = new MqttFactory().CreateMqttClient();
+:::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-add-subscription-topic.png" alt-text="Screenshot showing subscription topic configuration on MQTTX app.":::
 
-var connAck = await mqttClient!.ConnectAsync(new MqttClientOptionsBuilder()
-    .WithTcpServer(hostname, 8883)
-    .WithClientId(clientId).WithCredentials(“client3-authnid”, "")  //use client authentication name in the username
-    .WithTls(new MqttClientOptionsBuilderTlsParameters()
-    {
-        UseTls = true,
-        Certificates = new X509Certificate2Collection(certificate)
-    })
+3. Select client1 in left rail.
+4. In client1, on top of the message compose box, add contosotopics/topic1 as the Topic to publish on.
 
-    .Build());
+:::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-publish-topic.png" alt-text="Screenshot showing message publishing on the topic in MQTTX app.":::
 
-Console.WriteLine($"Client Connected: {mqttClient.IsConnected} with CONNACK: {connAck.ResultCode}");
+5. Compose a message.  You can use any format or a JSON as shown.
+6. Select the send button.
+7. The message should be seen as Published in client 1.
 
-mqttClient.ApplicationMessageReceivedAsync += async m => await Console.Out.WriteAsync($"Received message on topic: '{m.ApplicationMessage.Topic}' with content: '{m.ApplicationMessage.ConvertPayloadToString()}'\n\n");
+:::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-publish-message.png" alt-text="Screenshot showing message published on the topic in MQTTX app.":::
 
-var suback = await mqttClient.SubscribeAsync("contosotopics/topic1");
-suback.Items.ToList().ForEach(s => Console.WriteLine($"subscribed to '{s.TopicFilter.Topic}' with '{s.ResultCode}'"));
+8. The message should be received by the client2
 
-while (true)
-{
-    var puback = await mqttClient.PublishStringAsync("contosotopics/topic1", "hello world!");
-    Console.WriteLine(puback.ReasonString);
-    await Task.Delay(1000);
-}
+:::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-subscribe-message.png" alt-text="Screenshot showing the message received by the subscribing client on MQTTX app.":::
 
-```
+## Next steps
 
-You can replicate and modify the code for multiple clients to perform publish / subscribe among the clients.
+- [Route MQTT messages to Event Hubs](mqtt-routing-to-eventhubs-portal.md)

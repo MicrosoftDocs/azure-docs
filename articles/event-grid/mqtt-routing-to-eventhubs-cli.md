@@ -29,6 +29,9 @@ In this article, you perform the following tasks:
     - Creating an Event Hubs:  [Quickstart - Create an event hub using Azure CLI](/azure/event-hubs/event-hubs-quickstart-cli).
     - You can view the Event Hubs data using Stream Analytics:  [Process data from Event Hubs Azure using Stream Analytics](/azure/event-hubs/process-data-azure-stream-analytics).
 
+> [!IMPORTANT]
+> The Azure [CLI Event Grid extension](/cli/azure/eventgrid) does not yet support namespaces and any of the resources it contains. We will use [Azure CLI resource](/cli/azure/resource) to create Event Grid resources.
+
 ## Create Event Grid topic
 1. Create Event Grid Custom Topic with your EG custom topic name, region name and resource group name.
 
