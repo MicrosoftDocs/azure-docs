@@ -111,6 +111,7 @@ For Visual Studio for Mac, use the [manual guidance](#enable-application-insight
     {
         // The following line enables Application Insights telemetry collection.
         services.AddApplicationInsightsTelemetry();
+
         // This code adds other services for your application.
         services.AddMvc();
     }
@@ -390,6 +391,7 @@ public void ConfigureServices(IServiceCollection services)
     {
         services.Remove(tiToRemove);
     }
+
     // Remove all initializers
     // This requires importing namespace by using Microsoft.Extensions.DependencyInjection.Extensions;
     services.RemoveAll(typeof(ITelemetryInitializer));
