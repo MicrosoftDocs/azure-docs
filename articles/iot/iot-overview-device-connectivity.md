@@ -92,7 +92,7 @@ An IoT device can use one of several network protocols when it connects to an Io
 To learn more about how to choose a protocol for your devices to connect to the cloud, see:
 
 - [Protocol support in Azure IoT Hub](../iot-hub/iot-hub-devguide-protocols.md)
-- [Communicate with DPS using the MQTT protocol](../iot-dps/iot-dps-mqtt-support.md)
+- [Communicate with DPS using the MQTT protocol](iot-mqtt-connect-to-iot-dps.md)
 - [Communicate with DPS using the HTTPS protocol (symmetric keys)](../iot-dps/iot-dps-https-sym-key-support.md)
 - [Communicate with DPS using the HTTPS protocol (X.509)](../iot-dps/iot-dps-https-x509-support.md)
 

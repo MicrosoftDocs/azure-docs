@@ -391,7 +391,7 @@ Other reference topics in the IoT Hub developer guide include:
 
 * [IoT Hub query language](iot-hub-devguide-query-language.md) describes the query language you can use to retrieve information from IoT Hub about your device twins and jobs.
 
-* [IoT Hub MQTT support](iot-hub-mqtt-support.md) provides more information about IoT Hub support for the MQTT protocol.
+* [IoT Hub MQTT support](../iot/iot-mqtt-connect-to-iot-hub.md) provides more information about IoT Hub support for the MQTT protocol.
 
 * [RFC 5246 - The Transport Layer Security (TLS) Protocol Version 1.2](https://www.rfc-editor.org/rfc/rfc5246) provides more information about TLS authentication.
 
