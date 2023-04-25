@@ -170,16 +170,10 @@ In this quickstart, you created a:
 
 The virtual machine is deployed to a virtual network subnet associated with the NAT gateway.
 
-<<<<<<< HEAD
-To learn more about Virtual Network NAT and Azure Resource Manager, continue to the following articles.
-
-* Read an [Overview of Virtual Network NAT](nat-overview.md)
-
-=======
-To learn more about Azure NAT Gateway and Azure Resource Manager, continue to the articles below.
+To learn more about Azure NAT Gateway and Azure Resource Manager, continue to the following articles.
 
 * Read an [Overview of Azure NAT Gateway](nat-overview.md)
->>>>>>> 67fb7ba70817acfaf13b24ec96952506af6b7049
+
 * Read about the [NAT Gateway resource](nat-gateway-resource.md)
 
 * Learn more about [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
