@@ -19,15 +19,15 @@ In this article, you perform the following tasks:
 
 ## Prerequisites
 
-- If you don't have an [Azure subscription](~/en-us/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
-- If you're new to Azure Event Grid, read through [Event Grid overview](~/en-us/azure/event-grid/overview) before starting this tutorial.
-- Register the Event Grid resource provider as per [Register the Event Grid resource provider](~/en-us/azure/event-grid/custom-event-quickstart-portal#register-the-event-grid-resource-provider).
+- If you don't have an [Azure subscription](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+- If you're new to Azure Event Grid, read through [Event Grid overview](/azure/event-grid/overview) before starting this tutorial.
+- Register the Event Grid resource provider as per [Register the Event Grid resource provider](/azure/event-grid/custom-event-quickstart-portal#register-the-event-grid-resource-provider).
 - Make sure that port 8883 is open in your firewall. The sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments.
 - An Event Grid Namespace in your Azure subscription. If you don't have a namespace yet, you can follow the steps in [Publish and subscribe on a MQTT topic](./mqtt-publish-and-subscribe-cli.md).
 - This tutorial uses Event Hubs, Event Grid Custom Topics, and Event Subscriptions.  You can find more information here:
-    - Creating an Event Grid topic:  [Create a custom topic using CLI](~/en-us/azure/event-grid/custom-event-quickstart).  While creating the Event Grid topic, ensure to create with Event Schema as Cloud Event Schema v1.0 in the Advanced tab.
-    - Creating an Event Hubs:  [Quickstart - Create an event hub using Azure CLI](~/en-us/azure/event-hubs/event-hubs-quickstart-cli).
-    - You can view the Event Hubs data using Stream Analytics:  [Process data from Event Hubs Azure using Stream Analytics](~/en-us/azure/event-hubs/process-data-azure-stream-analytics).
+    - Creating an Event Grid topic:  [Create a custom topic using CLI](/azure/event-grid/custom-event-quickstart).  While creating the Event Grid topic, ensure to create with Event Schema as Cloud Event Schema v1.0 in the Advanced tab.
+    - Creating an Event Hubs:  [Quickstart - Create an event hub using Azure CLI](/azure/event-hubs/event-hubs-quickstart-cli).
+    - You can view the Event Hubs data using Stream Analytics:  [Process data from Event Hubs Azure using Stream Analytics](/azure/event-hubs/process-data-azure-stream-analytics).
 
 ## Create Event Grid topic
 1. Create Event Grid Custom Topic with your EG custom topic name, region name and resource group name.
@@ -77,6 +77,6 @@ az resource create --resource-type Microsoft.EventGrid/namespaces --id /subscrip
 
 5. After configuring the routing for the namespace, publish MQTT messages among the clients (as described in the article [Publish and subscribe on an MQTT topic](./mqtt-publish-and-subscribe-cli.md).)
 
-6. Navigate to the Event Hubs instance within your Event Subscription on Azure portal.  Process data from your event hub using Azure Stream Analytics.  ([Process data from Event Hubs Azure using Stream Analytics - Azure Event Hubs | Microsoft Learn](~/en-us/azure/event-hubs/process-data-azure-stream-analytics))  You can see the MQTT messages in the query.
+6. Navigate to the Event Hubs instance within your Event Subscription on Azure portal.  Process data from your event hub using Azure Stream Analytics.  ([Process data from Event Hubs Azure using Stream Analytics - Azure Event Hubs | Microsoft Learn](/azure/event-hubs/process-data-azure-stream-analytics))  You can see the MQTT messages in the query.
 
 :::image type="content" source="./media/mqtt-routing-to-eventhubs-cli/View-data-in-Event-Hub-instance-using-ASA-query.png" alt-text="Screenshot showing the MQTT messages data in Event Hubs using Azure Stream Analytics query tool.":::
