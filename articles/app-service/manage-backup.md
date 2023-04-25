@@ -1,14 +1,12 @@
 ---
-title: Back up an app
+title: Backup an app
 description: Learn how to restore backups of your apps in Azure App Service or configure custom backups. Customize backups by including the linked database.
 ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
-ms.date: 10/24/2022 
-ms.custom: seodec18
-
+ms.date: 04/25/2023
 ---
 
-# Back up and restore your app in Azure App Service
+# backup and restore your app in Azure App Service
 
 In [Azure App Service](overview.md), you can easily restore app backups. You can also make on-demand custom backups or configure scheduled custom backups. You can restore a backup by overwriting an existing app by restoring to a new app or slot. This article shows you how to restore a backup and make custom backups.
 
@@ -126,7 +124,7 @@ There are two types of backups in App Service. Automatic backups made for your a
 
 1. In **Storage account**, select an existing storage account (in the same subscription) or select **Create new**. Do the same with **Container**.
 
-    To back up the linked database(s), select **Next: Advanced** > **Include database**, and select the database(s) to back up.
+    To backup the linked database(s), select **Next: Advanced** > **Include database**, and select the database(s) to backup.
 
     > [!NOTE]
     > For a supported database to appear in this list, its connection string must exist in the **Connection strings** section of the **Configuration** page for your app. 
@@ -153,7 +151,7 @@ There are two types of backups in App Service. Automatic backups made for your a
 
 1. Configure the backup schedule as desired and select **Configure**.
 
-#### Back up and restore a linked database
+#### backup and restore a linked database
 
 Custom backups can include linked databases. To make sure your backup includes a linked database, do the following:
 
@@ -172,11 +170,11 @@ For troubleshooting information, see [Why is my linked database not backed up](#
 
 ## Configure partial backups
 
-Partial backups are supported for custom backups (not for automatic backups). Sometimes you don't want to back up everything on your app. Here are a few examples:
+Partial backups are supported for custom backups (not for automatic backups). Sometimes you don't want to backup everything on your app. Here are a few examples:
 
 * You [set up weekly backups](#configure-custom-scheduled-backups) of your app that contains static content that never changes, such as old blog posts or images.
-* Your app has over 10 GB of content (that's the max amount you can back up at a time).
-* You don't want to back up the log files.
+* Your app has over 10 GB of content (that's the max amount you can backup at a time).
+* You don't want to backup the log files.
 
 To exclude folders and files from being stored in your future backups, create a `_backup.filter` file in the [`%HOME%\site\wwwroot` folder](operating-system-functionality.md#network-drives-unc-shares) of your app. Specify the list of files and folders you want to exclude in this file.
 
