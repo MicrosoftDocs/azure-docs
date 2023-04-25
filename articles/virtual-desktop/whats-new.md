@@ -2,7 +2,7 @@
 title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
-ms.topic: overview
+ms.topic: release-notes
 ms.date: 04/11/2023
 ms.author: helohr
 ms.reviewer: thhickli; darank
@@ -38,11 +38,11 @@ Windows 10 and 11 22H2 Enterprise and Enterprise multi-session images are now vi
 
 ### Uniform Resource Identifier Schemes in public preview
 
-Uniform Resource Identifier (URI) schemes with the Remote Desktop client for Azure Virtual Desktop is now in public preview. This new feature lets you subscribe to a workspace or connect to a particular desktop or Remote App using URI schemes. URI schemes also provide fast and efficient end-user connection to Azure Virtual Desktop resources. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-the-public-preview-of-uniform-resource-identifier/ba-p/3763075). 
+Uniform Resource Identifier (URI) schemes with the Remote Desktop client for Azure Virtual Desktop is now in public preview. This new feature lets you subscribe to a workspace or connect to a particular desktop or Remote App using URI schemes. URI schemes also provide fast and efficient end-user connection to Azure Virtual Desktop resources. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-the-public-preview-of-uniform-resource-identifier/ba-p/3763075) and [URI schemes with the Remote Desktop client for Azure Virtual Desktop (preview)](uri-scheme.md). 
 
 ### Azure Virtual Desktop Insights at Scale now generally available
 
-Azure Virtual Desktop Insights at Scale is now generally available. This feature gives you the ability to review performance and diagnostic information in multiple host pools at the same time in a single view. If you're an existing Azure Virtual Desktop Insights user, you get this feature without having to do any extra configuration or setup. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-the-general-availability-of-azure-virtual-desktop/ba-p/3738624). 
+Azure Virtual Desktop Insights at Scale is now generally available. This feature gives you the ability to review performance and diagnostic information in multiple host pools at the same time in a single view. If you're an existing Azure Virtual Desktop Insights user, you get this feature without having to do any extra configuration or setup. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-the-general-availability-of-azure-virtual-desktop/ba-p/3738624) and [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md). 
 
 ## February 2023
 
@@ -425,7 +425,7 @@ Here's what changed in September 2021.
 
 You can now use Azure Resource Manager templates for any update you want to apply to your session hosts after deployment. You can access this feature by selecting the **Virtual machines** tab while creating a host pool.
 
-You can also now set host pool, app group, and workspace diagnostic settings while creating host pools instead of afterwards. Configuring these settings during the host pool creation process also automatically sets up reporting data for Azure Virtual Desktop Insights.
+You can also now set host pool, application group, and workspace diagnostic settings while creating host pools instead of afterwards. Configuring these settings during the host pool creation process also automatically sets up reporting data for Azure Virtual Desktop Insights.
 
 ### Azure Active Directory domain join
 

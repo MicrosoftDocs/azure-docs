@@ -276,7 +276,7 @@ This step is required for internal only container app environments as it allows 
 
     | Setting | Action |
     |---|---|
-    | Name | Enter **my-agw-private-link. |
+    | Name | Enter **my-agw-private-link**. |
     | Private link subnet | Select the subnet you wish to create the private link with. |
     | Frontend IP Configuration | Select the frontend IP for your Application Gateway. |
 

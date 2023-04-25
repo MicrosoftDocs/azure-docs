@@ -2,8 +2,8 @@
 title: 'Quickstart: Create an Azure Cognitive Search service using Terraform'
 description: 'In this article, you create an Azure Cognitive Search service using Terraform'
 ms.topic: quickstart
-ms.date: 3/28/2023
-ms.custom: devx-track-terraform
+ms.date: 4/14/2023
+ms.custom: devx-track-terraform, ai-gen-docs
 author: TomArcherMsft
 ms.author: tarcher
 ms.service: cognitive-search

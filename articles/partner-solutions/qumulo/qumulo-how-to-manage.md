@@ -1,5 +1,5 @@
 ---
-title: Manage Azure Native Qumulo Scalable File Service Preview
+title: Manage Azure Native Qumulo Scalable File Service
 description: This article describes how to manage Azure Native Qumulo Scalable File Service in the Azure portal. 
 
 ms.topic: how-to 
@@ -8,9 +8,9 @@ ms.date: 01/18/2023
 ---
 
 
-# Manage Azure Native Qumulo Scalable File Service Preview
+# Manage Azure Native Qumulo Scalable File Service
 
-This article describes how to manage your instance of Azure Native Qumulo Scalable File Service Preview.
+This article describes how to manage your instance of Azure Native Qumulo Scalable File Service.
 
 ## Manage the Qumulo resource 
 

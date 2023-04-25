@@ -4,7 +4,7 @@ description: Quickstart showing how to an Azure Cosmos DB database and a contain
 author: ginsiucheng
 ms.author: gicheng
 tags: azure-resource-manager, terraform
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-terraform
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: quickstart
