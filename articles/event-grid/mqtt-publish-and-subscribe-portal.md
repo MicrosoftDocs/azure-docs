@@ -127,7 +127,7 @@ An Event Grid Namespace serves as an application container that can house resour
 
 :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-client2-configuration-1.png" alt-text="Screenshot showing client 2 configuration part 1 on MQTTX app.":::
 
-:::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-client2-configuration-2.png" alt-text="Screenshot showing client 2 configuration part 1 on MQTTX app.":::
+:::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-client2-configuration-2.png" alt-text="Screenshot showing client 2 configuration part 2 on MQTTX app.":::
 
 ## Publish/subscribe using MQTTX app
 
