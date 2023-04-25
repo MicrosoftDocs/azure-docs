@@ -33,7 +33,7 @@ Add the following key-values to the App Configuration store. For more informatio
 | *test.message* | *Hello test*      | Leave empty | Leave empty        |
 | *my_json*      | *{"key":"value"}* | Leave empty | *application/json* |
 
-## Console Applications
+## Console applications
 
 ### Connect to App Configuration
 1. Create a new directory for the project named *app-configuration-quickstart*.
@@ -173,10 +173,10 @@ Add the following key-values to the App Configuration store. For more informatio
     test.message found: False
     ```
 
-## Web Applications
+## Web applications
 
 ### [Flask](#tab/flask)
-You can use Azure App Configuration in your existing Flask web apps by updating its in-built configuration. You can do this by passing your App Configuration Provider object to the `update` function of your flask app instance in `app.py`:
+You can use Azure App Configuration in your existing Flask web apps by updating its in-built configuration. You can do this by passing your App Configuration provider object to the `update` function of your Flask app instance in `app.py`:
 
 ```python
 azure_app_config = load(connection_string=os.environ.get("AZURE_APPCONFIG_CONNECTION_STRING"))
@@ -184,7 +184,7 @@ azure_app_config = load(connection_string=os.environ.get("AZURE_APPCONFIG_CONNEC
 # NOTE: This will override all existing configuration settings with the same key name.
 app.config.update(azure_app_config)
 
-# Access a configuration setting directly from within flask configuration
+# Access a configuration setting directly from within Flask configuration
 message = app.config.get("message")
 ```
 
@@ -195,7 +195,7 @@ You can use Azure App Configuration in your existing Django web apps by adding t
 CONFIG = load(connection_string=os.environ.get("AZURE_APPCONFIG_CONNECTION_STRING"))
 ```
 
-To access individual configuration settings in the Django views, you can reference them from the provider object in Django settings. For example, in `views.py`:
+To access individual configuration settings in the Django views, you can reference them from the provider object created in Django settings. For example, in `views.py`:
 ```python
 # Import Django settings
 from django.conf import settings
@@ -205,7 +205,7 @@ MESSAGE = settings.CONFIG.get("message")
 ```
 ---
 
-Full code samples on how to use Azure App Configuration in Python web applications can be found in the [Azure App Configuration](https://github.com/Azure/AppConfiguration/tree/main/examples/Python) repo.
+Full code samples on how to use Azure App Configuration in Python web applications can be found in the [Azure App Configuration](https://github.com/Azure/AppConfiguration/tree/main/examples/Python) GitHub repo.
 
 ## Clean up resources
 
