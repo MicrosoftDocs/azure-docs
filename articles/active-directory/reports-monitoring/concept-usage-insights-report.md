@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/24/2023
+ms.date: 04/25/2023
 ms.author: sarahlipsey
 ms.reviewer: besiler
 ---
@@ -39,7 +39,16 @@ The **Usage & insights** reports are also available from the **Enterprise applic
 
 ## View the Usage & insights reports
 
-The Usage & insights reports use sign-in data to provide helpful information an application usage and authentication methods.
+The Usage & insights reports use sign-in data to provide helpful information an application usage and authentication methods. You can view these reports in the Azure portal. Go to **Azure Active Directory** and select **Usage and insights** from the **Monitoring** menu.
+
+You can also work with these reports using Microsoft Graph in Graph Explorer. The reports can be viewed and managed using Microsoft Graph on the `/beta` endpoint.
+
+1. Sign in to [Graph Explorer](https://aka.ms/ge).
+1. Select **GET** as the HTTP method from the dropdown.
+1. Set the API version to **beta**.
+
+Refer to the section on each report in this article for the specific objects and parameters to include. For more information, see the [Microsoft Graph documentation for Identity and access reports](/graph/api/resources/report-identity-access).
+
 
 ### Azure AD application activity (preview)
 
@@ -55,9 +64,35 @@ Select a day in the application usage graph to see a detailed list of the sign-i
 
 ![Screenshot of the sign-in activity details for a selected application.](./media/concept-usage-insights-report/application-activity-sign-in-detail.png)
 
+You can view the `applicationSignInSummary` or `applicationSignInDetailedSummary` of Azure AD application activity with Microsoft Graph. 
+
+Add the following query to view the **sign-in summary**, then select the **Run query** button.
+
+   ```http
+   GET https://graph.microsoft.com/beta/reports/getAzureADApplicationSignInSummary(period='{period}')
+   ```
+
+Add the following query to view the **sign-in details**, then select the **Run query** button.
+
+   ```http
+   GET https://graph.microsoft.com/beta/reports/applicationSignInDetailedSummary/{id}
+   ```
+
+For more information, see [Application sign-in in Microsoft Graph](/graph/api/resources/applicationsigninsummary?view=graph-rest-beta&preserve-view=true).
+
 ### AD FS application activity
 
 The **AD FS application activity** report in Usage & insights lists all Active Directory Federated Services (AD FS) applications in your organization that have had an active user login to authenticate in the last 30 days. These applications have not been migrated to Azure AD for authentication.
+
+Viewing the AD FS application activity using Microsoft Graph retrieves a list of the `relyingPartyDetailedSummary` objects, which identifies the relying party to a particular Federation Service.
+
+Add the following query, then select the **Run query** button.
+
+   ```http
+   GET https://graph.microsoft.com/beta/reports/getRelyingPartyDetailedSummary
+   ```
+
+For more information, see [AD FS application activity in Microsoft Graph](/graph/api/resources/relyingpartydetailedsummary?view=graph-rest-beta&preserve-view=true).
 
 ### Authentication methods activity
 
@@ -73,11 +108,36 @@ Looking for the status of an authentication registration or reset event of a use
 
 ### Service principal sign-in activity (preview)
 
-The Service principal sign-in activity (preview) report provides the last service principal sign-in activity for your applications. You can see the last month's service principal sign-in activity. 
+The Service principal sign-in activity (preview) report provides the last service principal sign-in activity for an application. Service principal activities for the last month are provided in this report.
+
+The `servicePrincipalSignInActivity` reports can be viewed using Microsoft Graph in Graph Explorer.
+
+Add the following query to retrieve the service principal sign-in activity, then select the **Run query** button.
+
+    ```http
+    GET https://graph.microsoft.com/beta/reports/servicePrincipalSignInActivities/{id}
+    ```
+
+For more information, see [Service principal activity in Microsoft Graph](/graph/api/resources/serviceprincipalsigninactivity?view=graph-rest-beta&preserve-view=true).
 
 ### Application credential activity (preview)
 
+The Application credential activity (preview) report helps ensure your application credentials are current. The report provides the credential type (certificate or client secret), the last used date, and the expiration date. With this report you can view the expiration dates of all your applications in one place.
 
+Application credential activity can be viewed and managed using Microsoft Graph on the `/beta` endpoint. You can get the application credential sign-in activity by entity `id`, `keyId`, and `appId` .
+
+To get started, follow these instructions to work with `appCredentialSignInActivity` using Microsoft Graph in Graph Explorer.
+
+1. Sign in to [Graph Explorer](https://aka.ms/ge).
+1. Select **GET** as the HTTP method from the dropdown.
+1. Set the API version to **beta**.
+1. Add the following query to retrieve recommendations, then select the **Run query** button.
+
+    ```http
+    GET https://graph.microsoft.com/beta/reports/appCredentialSignInActivities/{id}
+    ```
+
+For more information, see [Application credential activity in Microsoft Graph](/graph/api/resources/appcredentialsigninactivity?view=graph-rest-beta&preserve-view=true).
 
 ## Next steps
 
