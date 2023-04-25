@@ -39,7 +39,7 @@ Students connect to their virtual machine through a load balancer.  No student v
 
 Inbound rules on the load balancer forward the connection, depending on the operating system, to either port 22 (SSH) or port 3389 (RDP) of the appropriate virtual machine. An NSG prevents outside traffic on any other ports.
 
-If the lab is using [advanced networking](how-to-connect-vnet-injection.md), then each lab is using the same subnet that has been delegated to Azure Lab Services and connected to the lab plan. You'll also be responsible for creating an [NSG with an inbound security rule to allow RDP and SSH traffic](how-to-connect-vnet-injection.md#associate-delegated-subnet-with-nsg) so students can connect to their VMs.
+If the lab is using [advanced networking](how-to-connect-vnet-injection.md), then each lab is using the same subnet that has been delegated to Azure Lab Services and connected to the lab plan. You'll also be responsible for creating an [NSG with an inbound security rule to allow RDP and SSH traffic](how-to-connect-vnet-injection.md#associate-the-subnet-with-the-network-security-group) so students can connect to their VMs.
 
 ## Access control to the virtual machines
 
