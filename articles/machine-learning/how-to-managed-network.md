@@ -125,7 +125,7 @@ managed_network:
   isolation_mode: allow_internet_outbound
 ```
 
-You can also define _outbound rules_ to other Azure services that the workspace relies on. These rules define _private endpoints_ that allow an Azure resource to securely communicate with the managed VNet. The following rule demonstrates adding a private endpoint to an Azure Blob resource:
+You can also define _outbound rules_ to other Azure services that the workspace relies on. These rules define _private endpoints_ that allow an Azure resource to securely communicate with the managed VNet. The following rule demonstrates adding a private endpoint to an Azure Blob resource.:
 
 ```yml
 managed_network:
@@ -547,7 +547,76 @@ To configure a managed VNet that allows only approved outbound communications, u
 
 ## Configure for serverless spark jobs
 
-To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the managed VNet, you must provision the network after configuring it and flag it to allow spark jobs.
+To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the managed VNet, you must perform the following actions:
+
+* Configure an outbound private endpoint for the workspace's default storage account.
+* After configuring the managed VNet, provision it and flag it to allow spark jobs.
+
+### 1. Configure an outbound private endpoint
+
+# [Azure CLI](#tab/azure-cli)
+
+Use a YAML file to define the managed VNet configuration and add a private endpoint for the Azure Machine Learning workspace's default storage account. Also set `spark_enabled: true`. The following is an example YAML configuration file:
+
+> [!TIP]
+> This example is for a managed VNet configured to allow internet traffic. If you want to allow only approved outbound traffic, set `isolation_mode: allow_only_approved_outbound` instead.
+
+```yml
+type: workspace
+name: myworkspace
+managed_network:
+isolation_mode: allow_internet_outbound
+outbound_rules:
+- name: added-perule
+  destination:
+    service_resource_id: /subscriptions/{subscription ID}/resourceGroups/{resource group name}/providers/Microsoft.Storage/storageAccounts/{storage account name}
+    spark_enabled: true
+    subresource_target: blob
+  type: private_endpoint
+```
+
+You can use a YAML configuration file with either the `az ml workspace create` or `az ml workspace update` commands by specifying the `--file` parameter and the name of the YAML file. For example, the following command updates an existing workspace using a YAML file named `workspace_pe.yml`:
+
+```azurecli
+az ml workspace update --file workspace_pe.yml --resource_group rg
+```
+
+# [Python](#tab/python)
+
+The following example demonstrates how to create a managed VNet for an existing Azure Machine Learning workspace named "myworkspace". It also adds a private endpoint for the storage account and sets `spark_enabled=true`:
+    
+```python
+# Get the existing workspace
+ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, "myworkspace")
+ws = ml_client.workspaces.get()
+
+# Basic managed network configuration
+ws.managed_network = ManagedNetwork(IsolationMode.ALLOW_INTERNET_OUTBOUND)
+
+# Example private endpoint outbound to a blob
+rule_name = "myrule"
+service_resource_id = "/subscriptions/{subscription ID}/resourceGroups/{resource group name}/providers/Microsoft.Storage/storageAccounts/{storage account name}"
+subresource_target = "blob"
+spark_enabled = true
+
+# Add the outbound 
+ws.managed_network.outbound_rules = [PrivateEndpointDestination(
+    name=rule_name, 
+    service_resource_id=service_resource_id, 
+    subresource_target=subresource_target, 
+    spark_enabled=spark_enabled)]
+
+# Create the workspace
+ml_client.workspaces.begin_update(ws)
+```
+
+# [Studio](#tab/azure-studio)
+
+TBD
+
+---
+
+### 2. Provision the managed VNet 
 
 # [Azure CLI](#tab/azure-cli)
 
