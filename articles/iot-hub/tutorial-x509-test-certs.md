@@ -96,7 +96,7 @@ You must first create an internal root certificate authority (CA) and a self-sig
     - Certificate requests created by the root CA
     - X.509 extensions applied to root CA certificates, subordinate CA certificates, and client certificates issued by the root CA
     
-    For more information about the syntax of OpenSSL configuration files, see the [config](https://www.openssl.org/docs/manmaster/man5/config.html) master manual page in OpenSSL documentation.
+    For more information about the syntax of OpenSSL configuration files, see the [config](https://www.openssl.org/docs/manmaster/man5/config.html) manual page in OpenSSL documentation.
 
     ```bash
     [default]
