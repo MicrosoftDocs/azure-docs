@@ -3,7 +3,7 @@ title: Frequently asked questions (FAQ) for Azure Container Storage
 description: Get answers to Azure Container Storage frequently asked questions.
 author: khdownie
 ms.service: storage
-ms.date: 04/03/2023
+ms.date: 04/25/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ms.topic: conceptual
@@ -24,7 +24,15 @@ Azure Container Storage is a cloud-based volume management offering built native
 
 * <a id="azure-container-storage-preview-limitations"></a>
   **Which other Azure services does Azure Container Storage support?**  
-  During public preview, Azure Container Storage supports only Azure Kubernetes Service (AKS).
+  During public preview, Azure Container Storage supports only Azure Kubernetes Service (AKS) with storage pools provided by Azure Disks, Ephemeral OS Disk, or Azure Elastic SAN Preview.
+
+* <a id="azure-container-storage-delete-aks-resource-group"></a>
+  **I've created an Elastic SAN storage pool, and I'm trying to delete my resource group where my AKS cluster is located and it's not working. Why?**  
+  Sign into the [Azure portal](https://portal.azure.com?azure-portal=true) and select **Resource groups**. Locate the resource group that AKS created (the resource group name starts with **MC_**). Select the SAN resource object within that resource group. Manually remove all volumes and volume groups. Then retry deleting the resource group that includes your AKS cluster.
+
+* <a id="azure-container-storage-autoupgrade"></a>
+  **Is there any performance impact when upgrading to a new version of Azure Container Storage?**  
+  If you leave autoupgrade turned on (recommended), you might experience temporary I/O latency during the upgrade process. If you turn off autoupgrade and install the new version manually, there won't be any impact; however, you won't get the benefit of automatic upgrades and instant access to new features.
 
 ## Billing and pricing
 
