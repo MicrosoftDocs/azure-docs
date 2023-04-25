@@ -10,7 +10,7 @@ ms.author: alkuchar
 ms.date: 04/24/2023
 ---
 
-# Quickstart: Use a Azure libraries (SDK) for Python to create an Azure Database for PostgreSQL - Flexible Server
+# Quickstart: Use an Azure libraries (SDK) for Python to create an Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
@@ -90,7 +90,7 @@ if __name__ == '__main__':
 
 Replace the following parameters with your data:
 
-- **subscription_id**: Your own [subscription id](../../azure-portal/get-subscription-tenant-id.md#find-your-azure-subscription).
+- **subscription_id**: Your own [subscription ID](../../azure-portal/get-subscription-tenant-id.md#find-your-azure-subscription).
 - **resource_group**: The name of the resource group you want to use. The script will create a new resource group if it doesn't exist.   
 - **server_name**: A unique name that identifies your Azure Database for PostgreSQL server. The domain name `postgres.database.azure.com` is appended to the server name you provide. The server name must be at least 3 characters and at most 63 characters, and can only contain lowercase letters, numbers, and hyphens.
 - **administrator_login**: The primary administrator username for the server. You can create additional users after the server has been created.
