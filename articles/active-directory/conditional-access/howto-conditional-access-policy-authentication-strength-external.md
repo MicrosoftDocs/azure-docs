@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 04/03/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -65,7 +65,7 @@ Use the following steps to create a Conditional Access policy that applies an au
 
    <!---![Screenshot showing where to select guest and external user types.](media/howto-conditional-access-policy-authentication-strength-external/assignments-external-user-types.png)--->
 
-1. Select the types of [guest or external users](../external-identities/authentication-conditional-access.md#assigning-conditional-access-policies-to-external-user-types-preview) you want to apply the policy to.
+1. Select the types of [guest or external users](../external-identities/authentication-conditional-access.md#assigning-conditional-access-policies-to-external-user-types) you want to apply the policy to.
 
 1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts.
 1. Under **Cloud apps or actions**, under **Include** or **Exclude**, select any applications you want to include in or exclude from the authentication strength requirements.

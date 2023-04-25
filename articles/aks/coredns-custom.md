@@ -44,7 +44,7 @@ You can customize CoreDNS with AKS to perform on-the-fly DNS name rewrites.
        name: coredns-custom
        namespace: kube-system
      data:
-       test.override: |
+       test.server: |
          <domain to be rewritten>.com:53 {
          log
          errors

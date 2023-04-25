@@ -6,6 +6,7 @@ ms.author: sidontha
 ms.service: purview
 ms.subservice: purview-data-share
 ms.topic: how-to
+ms.custom: references_regions
 ms.date: 02/16/2023
 ---
 # Receive Azure Storage in-place share with Microsoft Purview Data Sharing (preview)
@@ -36,7 +37,8 @@ Microsoft Purview Data Sharing supports in-place data sharing from Azure Data La
     1. From the left menu, select **Preview features** under *Settings*.
     1. Select **AllowDataSharing** and *Register*. 
     1. Refresh the *Preview features* screen to verify the *State* is **Registered**. It could take 15 minutes to 1 hour for registration to complete.
-
+    1. In addition, to use data share for storage accounts in East US, East US2, North Europe, Southcentral US, West Central US, West Europe, West US, West US2: Select AllowDataSharingInHeroRegion and Register
+    
     For more information, see [the register preview feature article](../azure-resource-manager/management/preview-features.md?tabs=azure-portal#register-preview-feature).
 
     # [PowerShell](#tab/powershell)
@@ -44,24 +46,27 @@ Microsoft Purview Data Sharing supports in-place data sharing from Azure Data La
     Set-AzContext -SubscriptionId [Your Azure subscription ID]
     ```
     ```azurepowershell
-    Register-AzProviderFeature -FeatureName "AllowDataSharing" -ProviderNamespace "Microsoft.Storage"​
+    Register-AzProviderFeature -FeatureName "AllowDataSharing" -ProviderNamespace "Microsoft.Storage"
     ```
     ```azurepowershell
     Get-AzProviderFeature -FeatureName "AllowDataSharing" -ProviderNamespace "Microsoft.Storage"   
     ```
-    The *RegistrationState* should be **Registered**. It could take 15 minutes to 1 hour for registration to complete. For more information, see the [register preview feature article](../azure-resource-manager/management/preview-features.md?tabs=azure-portal#register-preview-feature).
+     In addition, to use data share for storage accounts in East US, East US2, North Europe, Southcentral US, West Central US, West Europe, West US, West US2: 
+
+    ```azurepowershell
+    Register-AzProviderFeature -FeatureName "AllowDataSharingInHeroRegion" -ProviderNamespace "Microsoft.Storage"
+    ```
+    ```azurepowershell
+    Get-AzProviderFeature -FeatureName "AllowDataSharingInHeroRegion" -ProviderNamespace "Microsoft.Storage"   
+    ```
+The *RegistrationState* should be **Registered**. It could take 15 minutes to 1 hour for registration to complete. For more information, see the [register preview feature article](../azure-resource-manager/management/preview-features.md?tabs=azure-portal#register-preview-feature).
+
+[!INCLUDE [share-storage-configuration](includes/share-storage-configuration.md)]
 
 * A target storage account **created after** the registration step is completed. **The target storage account must be in the same Azure region as the source storage account.** If you don't know the Azure region of the source storage account, you can find out during the share attaching step later in the process. Target storage account can be in a different Azure region from your Microsoft Purview account.
 
     > [!IMPORTANT]
     > The target storage account must be in the same Azure region as the source storage account.
-
-    > [!NOTE]
-    > The following are supported storage account configurations:
-    >
-    > - Azure regions: Canada Central, Canada East, UK South, UK West, Australia East, Japan East, Korea South, and South Africa North 
-    > - Performance: Standard
-    > - Redundancy options: LRS, GRS, RA-GRS
  
 * You need the **Contributor** or **Owner** or **Storage Blob Data Owner** or **Storage Blob Data Contributor** role on the target storage account. You can find more details on the [ADLS Gen2](register-scan-adls-gen2.md#data-sharing) or [Blob storage](register-scan-azure-blob-storage-source.md#data-sharing) data source pages.
 * If the target storage account is in a different Azure subscription than the one for Microsoft Purview account, the Microsoft.Purview resource provider needs to be registered in the Azure subscription where the Storage account is located. It's automatically registered at the time of share consumer attaching the share and if the user has permission to do the `/register/action` operation and therefore, Contributor or Owner roles to the subscription where the Storage account is located. 
@@ -71,7 +76,12 @@ This registration is only needed the first time when sharing or receiving data i
 
 ## Receive share
 
-1. You can view your share invitations in any Microsoft Purview account. In the [Azure portal](https://portal.azure.com), search for and select the Microsoft Purview account you want to use to receive the share. Open [the Microsoft Purview governance portal](https://web.purview.azure.com/). Select the **Data Map** icon from the left navigation. Then select **Share invites**. If you received an email invitation, you can also select the **View share invite** link in the email to select a Microsoft Purview account.
+1. You can view your share invitations in any Microsoft Purview account. Open the Microsoft Purview governance portal by:
+
+    * Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+    * Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Select the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
+
+1. Select the **Data Map** icon from the left navigation. Then select **Share invites**. If you received an email invitation, you can also select the **View share invite** link in the email to select a Microsoft Purview account.
 
     If you're a guest user of a tenant, you'll be asked to verify your email address for the tenant before viewing share invitation for the first time. [You can see our guide below for steps.](#guest-user-verification) Once verified, it's valid for 12 months.
 

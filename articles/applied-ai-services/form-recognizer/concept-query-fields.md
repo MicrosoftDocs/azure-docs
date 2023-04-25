@@ -14,7 +14,7 @@ recommendations: false
 ---
 <!-- markdownlint-disable MD033 -->
 
-# Azure Form Recognizer query field extraction
+# Azure Form Recognizer query field extraction (preview)
 
 **This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
 

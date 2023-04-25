@@ -22,9 +22,9 @@ You can also browse available images and offers using the [Azure Marketplace](ht
 
 A Marketplace image in Azure has the following attributes:
 
-* **Publisher**: The organization that created the image. Examples: Canonical, MicrosoftWindowsServer
-* **Offer**: The name of a group of related images created by a publisher. Examples: UbuntuServer, WindowsServer
-* **SKU**: An instance of an offer, such as a major release of a distribution. Examples: 18.04-LTS, 2019-Datacenter
+* **Publisher**: The organization that created the image. Examples: Canonical, RedHat, SUSE
+* **Offer**: The name of a group of related images created by a publisher. Examples: UbuntuServer, RHEL, sles-12-sp5
+* **SKU**: An instance of an offer, such as a major release of a distribution. Examples: 18.04-LTS, 7_9,  gen2
 * **Version**: The version number of an image SKU. 
 
 These values can be passed individually or as an image *URN*, combining the values separated by the colon (:). For example: *Publisher*:*Offer*:*Sku*:*Version*. You can replace the version number in the URN with `latest` to use the latest version of the image.
@@ -53,13 +53,7 @@ x64             opensuse-leap-15-3            SUSE                    gen2      
 x64             RHEL                          RedHat                  7-LVM                               RedHat:RHEL:7-LVM:latest                                                        RHEL                     latest
 x64             sles-15-sp3                   SUSE                    gen2                                SUSE:sles-15-sp3:gen2:latest                                                    SLES                     latest
 x64             UbuntuServer                  Canonical               18.04-LTS                           Canonical:UbuntuServer:18.04-LTS:latest                                         UbuntuLTS                latest
-x64             WindowsServer                 MicrosoftWindowsServer  2022-Datacenter                     MicrosoftWindowsServer:WindowsServer:2022-Datacenter:latest                     Win2022Datacenter        latest
-x64             WindowsServer                 MicrosoftWindowsServer  2022-datacenter-azure-edition-core  MicrosoftWindowsServer:WindowsServer:2022-datacenter-azure-edition-core:latest  Win2022AzureEditionCore  latest
-x64             WindowsServer                 MicrosoftWindowsServer  2019-Datacenter                     MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest                     Win2019Datacenter        latest
-x64             WindowsServer                 MicrosoftWindowsServer  2016-Datacenter                     MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest                     Win2016Datacenter        latest
-x64             WindowsServer                 MicrosoftWindowsServer  2012-R2-Datacenter                  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest                  Win2012R2Datacenter      latest
-x64             WindowsServer                 MicrosoftWindowsServer  2012-Datacenter                     MicrosoftWindowsServer:WindowsServer:2012-Datacenter:latest                     Win2012Datacenter        latest
-x64             WindowsServer                 MicrosoftWindowsServer  2008-R2-SP1                         MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:latest                         Win2008R2SP1             latest
+[...]
 ```
 
 ## Find specific images
@@ -68,7 +62,7 @@ You can filter the list of images by `--publisher` or another parameter to limit
 
 For example, the following command displays all Debian offers:
 
-```azurecli
+```azurecli-interactive
 az vm image list --offer Debian --all --output table 
 ```
 
@@ -79,18 +73,18 @@ Another way to find an image in a location is to run the [az vm image list-publi
 
 1. List the image publishers for a location. In this example, we're looking at the *West US* region.
     
-    ```azurecli
+    ```azurecli-interactive
     az vm image list-publishers --location westus --output table
     ```
 
 1. For a given publisher, list their offers. In this example, we add *RedHat* as the publisher.
     
-    ```azurecli
+    ```azurecli-interactive
     az vm image list-offers --location westus --publisher RedHat --output table
     ```
 
 1. For a given offer, list their SKUs. In this example, we add *RHEL* as the offer.
-    ```azurecli
+    ```azurecli-interactive
     az vm image list-skus --location westus --publisher RedHat --offer RHEL --output table
     ```
 
@@ -100,7 +94,7 @@ Another way to find an image in a location is to run the [az vm image list-publi
 
 1. For a given publisher, offer, and SKU, show all of the versions of the image. In this example, we add *9_1* as the SKU.
 
-    ```azurecli
+    ```azurecli-interactive
     az vm image list \
         --location westus \
         --publisher RedHat \
@@ -124,7 +118,7 @@ To view an image's purchase plan information, run the [az vm image show](/cli/az
 
 For example, the Canonical Ubuntu Server 18.04 LTS image doesn't have extra terms, because the `plan` information is `null`:
 
-```azurecli
+```azurecli-interactive
 az vm image show --location westus --urn Canonical:UbuntuServer:18.04-LTS:latest
 ```
 
@@ -146,7 +140,7 @@ Output:
 
 Running a similar command for the RabbitMQ Certified by Bitnami image shows the following `plan` properties: `name`, `product`, and `publisher`. (Some images also have a `promotion code` property.) 
 
-```azurecli
+```azurecli-interactive
 az vm image show --location westus --urn bitnami:rabbitmq:rabbitmq:latest
 ```
 Output:
@@ -175,7 +169,7 @@ To deploy this image, you need to accept the terms and provide the purchase plan
 
 To view and accept the license terms, use the [az vm image terms](/cli/azure/vm/image/terms) command. When you accept the terms, you enable programmatic deployment in your subscription. You only need to accept terms once per subscription for the image. For example:
 
-```azurecli
+```azurecli-interactive
 az vm image terms show --urn bitnami:rabbitmq:rabbitmq:latest
 ``` 
 
@@ -200,7 +194,7 @@ The output includes a `licenseTextLink` to the license terms, and indicates that
 
 To accept the terms, type:
 
-```azurecli
+```azurecli-interactive
 az vm image terms accept --urn bitnami:rabbitmq:rabbitmq:latest
 ``` 
 
@@ -223,7 +217,7 @@ az vm create \
 
 For an image with purchase plan parameters, like the RabbitMQ Certified by Bitnami image, you pass the URN for `--image` and also provide the purchase plan parameters:
 
-```azurecli
+```azurecli-interactive
 az group create --name myPurchasePlanRG --location westus
 
 az vm create \

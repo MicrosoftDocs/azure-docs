@@ -50,6 +50,9 @@ In this example, we'll assume the project is being created in a folder called **
 
 Follow the instructions on how to [add the Azure Remote Rendering and OpenXR packages](../../../how-tos/unity/install-remote-rendering-unity-package.md) to your Unity Project.
 
+> [!NOTE]
+> If Unity displays a warning dialog after importing the OpenXR package asking whether to enable the native platform backends for the new input system, click **No** for now. You will enable it in a later step.
+
 ## Configure the camera
 
 1. Select the **Main Camera** node.
@@ -593,7 +596,6 @@ public async void InitializeSessionService()
     }
     catch (ArgumentException argumentException)
     {
-        NotificationBar.Message("InitializeSessionService failed: SessionConfiguration is invalid.");
         Debug.LogError(argumentException.Message);
         CurrentCoordinatorState = RemoteRenderingState.NotAuthorized;
         return;

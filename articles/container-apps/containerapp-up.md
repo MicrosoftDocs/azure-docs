@@ -2,11 +2,11 @@
 title: Deploy Azure Container Apps with the az containerapp up command
 description: How to deploy a container app with the az containerapp up command
 services: container-apps
-author: cebundy
+author: lanceleonard
 ms.service: container-apps
 ms.topic: how-to
 ms.date: 11/08/2022
-ms.author: v-bcatherine
+ms.author: v-laleonard
 ---
 
 # Deploy Azure Container Apps with the az containerapp up command
@@ -34,7 +34,7 @@ The command can build and push a container image to an Azure Container Registry 
 
  If you need to customize the Container Apps environment, first create the environment using the `az containerapp env create` command.  If you don't provide an existing environment, the `up` command looks for one in your resource group and, if found, uses that environment.  If not found, it creates an environment with a Log Analytics workspace.
 
-To learn more about the `az containerapp up` command and its options, see [`az containerapp up`](/cli/azure/containerapp#az_containerapp_up).
+To learn more about the `az containerapp up` command and its options, see [`az containerapp up`](/cli/azure/containerapp#az-containerapp-up).
 
 ## Prerequisites
 

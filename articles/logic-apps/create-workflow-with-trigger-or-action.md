@@ -32,6 +32,8 @@ The following steps use the Azure portal, but you can also use the following too
 
   - Standard workflows: [Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md)
 
+<a name="add-trigger"></a>
+
 ## Add a trigger to start your workflow
 
 ### [Consumption](#tab/consumption)
@@ -139,6 +141,8 @@ The following steps use the Azure portal, but you can also use the following too
 1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
 ---
+
+<a name="add-action"></a>
 
 ## Add an action to run a task
 

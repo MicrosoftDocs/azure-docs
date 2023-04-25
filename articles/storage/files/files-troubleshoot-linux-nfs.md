@@ -36,7 +36,10 @@ Even if you correctly disable idmapping, it can be automatically re-enabled in s
 Make sure you've disabled idmapping and that nothing is re-enabling it. Then perform the following steps:
 
 - Unmount the share
-- Disable idmapping with `# echo Y > /sys/module/nfs/parameters/nfs4_disable_idmapping`
+- Disable idmapping with 
+```bash
+sudo echo Y > /sys/module/nfs/parameters/nfs4_disable_idmapping
+```
 - Mount the share back
 - If running rsync, run rsync with the "—numeric-ids" argument from a directory that doesn't have a bad dir/file name.
 
@@ -90,31 +93,66 @@ Disable **secure transfer required** in your storage account's configuration bla
 
 :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/disable-secure-transfer.png" alt-text="Screenshot of storage account configuration blade, disabling secure transfer required.":::
 
-### Cause 3: nfs-common package isn't installed
-Before running the `mount` command, install the nfs-common package.
+### Cause 3: nfs-utils, nfs-client or nfs-common package isn't installed
+Before running the `mount` command, install the nfs-utils, nfs-client or the nfs-common package.
 
-To check if the NFS package is installed, run: `rpm qa | grep nfs-utils`
+To check if the NFS package is installed, run:
+
+# [RHEL](#tab/RHEL) 
+
+Same commands on this section apply for CentOS and Oracle Linux.
+
+```bash
+sudo rpm -qa | grep nfs-utils
+``` 
+# [SLES](#tab/SLES) 
+
+```bash
+sudo rpm -qa | grep nfs-client
+``` 
+# [Ubuntu](#tab/Ubuntu)
+
+Same commands on this section apply for Debian.
+ 
+```bash
+sudo dpkg -l | grep nfs-common
+``` 
+---
 
 #### Solution
 
 If the package isn't installed, install the package using your distro-specific command.
 
-##### Ubuntu or Debian
+# [RHEL](#tab/RHEL) 
 
+Same commands on this section apply for CentOS and Oracle Linux.
+
+Os Version 7.X
+
+```bash
+sudo yum install nfs-utils
 ```
+OS Version 8.X or 9.X
+
+```bash
+sudo dnf install nfs-utils
+```
+
+# [SLES](#tab/SLES)
+
+```bash
+sudo zypper install nfs-client
+```
+
+# [Ubuntu](#tab/Ubuntu)
+
+Same commands on this section apply for Debian.
+
+```bash
 sudo apt update
 sudo apt install nfs-common
 ```
-
-##### Fedora, Red Hat Enterprise Linux 8+, CentOS 8+
-
-Use the dnf package manager: `sudo dnf install nfs-utils`.
-
-Older versions of Red Hat Enterprise Linux and CentOS use the yum package manager: `sudo yum install nfs-common`.
-
-##### openSUSE
-
-Use the zypper package manager: `sudo zypper install-nfscommon`.
+---
 
 ### Cause 4: Firewall blocking port 2049
 
@@ -122,7 +160,11 @@ The NFS protocol communicates to its server over port 2049. Make sure that this 
 
 #### Solution
 
-Verify that port 2049 is open on your client by running the following command: `telnet <storageaccountnamehere>.file.core.windows.net 2049`. If the port isn't open, open it.
+Verify that port 2049 is open on your client by running the following command. If the port isn't open, open it.
+
+```bash
+sudo nc -zv <storageaccountnamehere>.file.core.windows.net 2049
+```
 
 ## ls hangs for large directory enumeration on some kernels
 

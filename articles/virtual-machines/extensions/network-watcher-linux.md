@@ -7,8 +7,8 @@ ms.subservice: extensions
 ms.author: gabsta
 author: GabstaMSFT
 ms.collection: linux
-ms.date: 02/15/2023
-ms.custom: template-concept, engagement-fy23
+ms.date: 04/20/2023
+ms.custom: template-concept, engagement-fy23, devx-track-azurecli
 ---
 
 # Network Watcher Agent virtual machine extension for Linux
@@ -27,15 +27,18 @@ The Network Watcher Agent extension can be configured for the following Linux di
 
 | Distribution | Version |
 |---|---|
-| Ubuntu | 12+ |
+| Ubuntu | 16+ |
 | Debian | 7 and 8 |
-| Red Hat | 6, 7, 8.6 |
-| Oracle Linux | 6.8+, 7 and 8+ |
-| SUSE Linux Enterprise Server | 11, 12 and 15 |
+| Red Hat | 6.10, 7 and 8+ |
+| Oracle Linux | 6.10, 7 and 8+ |
+| SUSE Linux Enterprise Server | 12 and 15 |
 | OpenSUSE Leap | 42.3+ |
-| CentOS | 6.5+ and 7 |
-| CoreOS | 899.17.0+ |
+| CentOS | 6.10 and 7 |
 
+> [!NOTE]
+> Red Hat Enterprise Linux 6.X and Oracle Linux 6.x have reached their end-of-life (EOL). 
+> RHEL 6.10 has available [ELS support](https://www.redhat.com/en/resources/els-datasheet) through [June 30, 2024]( https://access.redhat.com/product-life-cycles/?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204).
+> Oracle Linux version 6.10 has available [ELS support](https://www.oracle.com/a/ocom/docs/linux/oracle-linux-extended-support-ds.pdf) through [July 1, 2024](https://www.oracle.com/a/ocom/docs/elsp-lifetime-069338.pdf).
 
 ### Internet connectivity
 

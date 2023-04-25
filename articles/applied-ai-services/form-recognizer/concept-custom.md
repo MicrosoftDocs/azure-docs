@@ -24,7 +24,7 @@ recommendations: false
 
 Form Recognizer uses advanced machine learning technology to identify documents, detect and extract information from forms and documents, and return the extracted data in a structured JSON output. With Form Recognizer, you can use document analysis models, pre-built/pre-trained, or your trained standalone custom models.
 
-Custom models now include [custom classifier models](./concept-custom-classifier.md) for scenarios where you need to identify the document type prior to invoking the extraction model. Classifier models are available starting with the ```2023-02-28-preview``` API. A classifier model can be paired with a custom extraction model to analyze and extract fields from forms and documents specific to your business to create a document processing solution. Standalone custom extraction models can be combined to create [composed models](concept-composed-models.md).
+Custom models now include [custom classification models](./concept-custom-classifier.md) for scenarios where you need to identify the document type prior to invoking the extraction model. Classifier models are available starting with the ```2023-02-28-preview``` API. A classification model can be paired with a custom extraction model to analyze and extract fields from forms and documents specific to your business to create a document processing solution. Standalone custom extraction models can be combined to create [composed models](concept-composed-models.md).
 
 ::: moniker range="form-recog-3.0.0"
 
@@ -81,9 +81,9 @@ The following table compares custom template and custom neural features:
 |Document variations | Requires a model per each variation | Uses a single model for all variations |
 |Language support | Multiple [language support](language-support.md#read-layout-and-custom-form-template-model)  | English, with preview support for Spanish, French, German, Italian and Dutch [language support](language-support.md#custom-neural-model) |
 
-### Custom classifier model
+### Custom classification model
 
- Document classification is a new scenario supported by Form Recognizer with the ```2023-02-28-preview``` API. Document classifier supports classification and splitting scenarios. Train a classifier model to identify the different types of documents your application supports. The input file for the classifier model can contain multiple documents and classifies each document within an associated page range. See [custom classification](concept-custom-classifier.md) models to learn more.
+ Document classification is a new scenario supported by Form Recognizer with the ```2023-02-28-preview``` API. the document classifier API supports classification and splitting scenarios. Train a classification model to identify the different types of documents your application supports. The input file for the classification model can contain multiple documents and classifies each document within an associated page range. See [custom classification](concept-custom-classifier.md) models to learn more.
 
 ## Custom model tools
 
@@ -184,7 +184,7 @@ Extract data from your specific or unique documents using custom models. You nee
 
 1. Review and create your project.
 
-1. Label your documents to build and test your custom classifier model.
+1. Label your documents to build and test your custom classification model.
 
     > [!div class="nextstepaction"]
     > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/document-classifier/projects)

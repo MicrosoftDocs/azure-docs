@@ -2,7 +2,7 @@
 title: Azure Kubernetes Service (AKS) backup support matrix
 description: This article provides a summary of support settings and limitations of Azure Kubernetes Service (AKS) backup.
 ms.topic: conceptual
-ms.date: 03/03/2023
+ms.date: 03/27/2023
 ms.custom: references_regions
 ms.service: backup
 author: jyothisuri
@@ -15,7 +15,7 @@ You can use [Azure Backup](./backup-overview.md) to protect Azure Kubernetes Ser
 
 ## Supported regions
 
-AKS backup is available in all the Azure public cloud regions.
+AKS backup is available in all the Azure public cloud regions, East US, North Europe, West Europe, South East Asia, West US 2, East US 2, West US, North Central US, Central US, France Central, Korea Central, Australia East, UK South, East Asia, West Central US, Japan East, South Central US, West US3, Canada Central, Canada East, Australia South East, Central India, Norway East, Germany West Central, Switzerland North, Sweden Central, Japan West, UK West, Korea South, South Africa North, South India, France South, Brazil South, UAE North.
 
 ## Limitations
 
@@ -40,6 +40,8 @@ AKS backup is available in all the Azure public cloud regions.
 - Azure Backup provides operational (snapshot) tier backup of AKS clusters with the support for multiple backups per day. The backups aren't copied to the backup vault.
 
 - Currently, the modification of backup policy and the modification of snapshot resource group (assigned to a backup instance during configuration of the AKS cluster backup) aren't supported.
+
+- AKS cluster and Backup Extension pods should be in running state for any backup and restore operations to be performed. This includes deletion of expired recovery points.
 
 - For successful backup and restore operations, role assignments are required by the Backup vault's managed identity. If you don't have the required permissions, you may see permission issues during backup configuration or restore operations soon after assigning roles because the role assignments take a few minutes to take effect. Learn about the [role definitions](azure-kubernetes-service-cluster-backup-concept.md#required-roles-and-permissions).
 

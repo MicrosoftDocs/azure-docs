@@ -202,7 +202,7 @@ The App Service certificate was renewed, but the app that uses the App Service c
 
 #### Cause
 
-App Service automatically syncs your certificate within 48 hours. When you rotate or update a certificate, sometimes the application is still retrieving the old certificate and not the newly updated certificate. The reason is that the job to sync the certificate resource hasn't run yet. To resolve this problem, sync the certificate, which automatically updates the hostname bindings for the certificate in App Service without causing any downtime to your apps.
+App Service automatically syncs your certificate within 24 hours. When you rotate or update a certificate, sometimes the application is still retrieving the old certificate and not the newly updated certificate. The reason is that the job to sync the certificate resource hasn't run yet. To resolve this problem, sync the certificate, which automatically updates the hostname bindings for the certificate in App Service without causing any downtime to your apps.
 
 #### Solution
 

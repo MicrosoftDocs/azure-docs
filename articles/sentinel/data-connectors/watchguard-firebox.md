@@ -3,7 +3,7 @@ title: "WatchGuard Firebox connector for Microsoft Sentinel"
 description: "Learn how to install the connector WatchGuard Firebox to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 03/25/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -19,7 +19,7 @@ WatchGuard Firebox (https://www.watchguard.com/wgrd-products/firewall-appliances
 | **Kusto function alias** | WatchGuardFirebox |
 | **Kusto function url** | https://aka.ms/sentinel-watchguardfirebox-parser |
 | **Log Analytics table(s)** | Syslog (WatchGuardFirebox)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
+| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
 | **Supported by** | [WatchGuard](https://www.watchguard.com/wgrd-support/contact-support) |
 
 ## Query samples

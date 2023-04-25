@@ -1,97 +1,66 @@
 ---
-title: Install the Microsoft Dev Box Preview Azure CLI extension
-titleSuffix: Microsoft Dev Box Preview
-description: Learn how to install the Azure CLI and the Microsoft Dev Box Preview CLI extension so you can create Dev Box resources from the command line.
+title: Install the Microsoft Dev Box Azure CLI extension
+titleSuffix: Microsoft Dev Box
+description: Learn how to install the Azure CLI and the Microsoft Dev Box CLI extension so you can create Dev Box resources from the command line.
 services: dev-box
 ms.service: dev-box
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 10/12/2022
+ms.date: 04/25/2023
 Customer intent: As a dev infra admin, I want to install the Dev Box CLI extension so that I can create Dev Box resources from the command line.
 ---
 
-# Microsoft Dev Box Preview CLI
+# Configure Microsoft Dev Box from the command-line with the Azure CLI extension
 
-In addition to the Azure admin portal and the Dev Box user portal, you can use Dev Box's Azure CLI Extension to create resources.
+In addition to the Azure admin portal and the developer portal, you can use the Dev Box Azure CLI extension to create resources. Microsoft Dev Box and Azure Deployment Environments use the same Azure CLI extension, which is called `devcenter`.
 
 ## Install the Dev Box CLI extension 
 
+To install the Dev Box Azure CLI extension, you first need to install the Azure CLI. The following steps show you how to install the Azure CLI, then the Dev Box CLI extension.
+
 1. Download and install the [Azure CLI](/cli/azure/install-azure-cli).
 
-1. Install the Dev Box Azure CLI extension:
-    #### [Install by using a PowerShell script](#tab/Option1/)
- 
-    Using <https://aka.ms/DevCenter/Install-DevCenterCli.ps1> uninstalls any existing Dev Box CLI extension and installs the latest version.
+1. Install the Dev Box CLI extension
+``` azurecli
+az extension add --name devcenter
+```
+1. Check that the `devcenter` extension is installed 
+``` azurecli
+az extension list
+```
+### Update the Dev Box CLI extension
+You can update the Dev Box CLI extension if you already have it installed.
 
-    ```azurepowershell
-    write-host "Setting Up DevCenter CLI"
-    
-    # Get latest version
-    $indexResponse = Invoke-WebRequest -Method Get -Uri "https://fidalgosetup.blob.core.windows.net/cli-extensions/index.json" -UseBasicParsing
-    $index = $indexResponse.Content | ConvertFrom-Json
-    $versions = $index.extensions.devcenter
-    $latestVersion = $versions[0]
-    if ($latestVersion -eq $null) {
-        throw "Could not find a valid version of the CLI."
-    }
-    
-    # remove existing
-    write-host "Attempting to remove existing CLI version (if any)"
-    az extension remove -n devcenter
-    
-    # Install new version
-    $downloadUrl = $latestVersion.downloadUrl
-    write-host "Installing from url " $downloadUrl
-    az extension add --source=$downloadUrl -y
-    ```
+To update a version of the extension that's  installed
+``` azurecli
+az extension update --name devcenter
+```
+### Remove the Dev Box CLI extension
 
-    To execute the script directly in PowerShell:
+To remove the extension, use the following command
+```azurecli
+az extension remove --name devcenter
+```
 
-   ```azurecli
-   iex "& { $(irm https://aka.ms/DevCenter/Install-DevCenterCli.ps1 ) }"
-   ```
+## Get started with the Dev Box CLI extension
 
-    The final line of the script enables you to specify the location of the source file to download. If you want to access the file from a different location, update 'source' in the script to point to the downloaded file in the new location.
+You might find the following commands useful as you work with the Dev Box CLI extension.
 
-    #### [Install manually](#tab/Option2/)
-  
-   Remove existing extension if one exists:
-    
-    ```azurecli
-    az extension remove --name devcenter
-    ```
-
-    Manually run this command in the CLI:
-
-    ```azurecli
-    az extension add --source https://fidalgosetup.blob.core.windows.net/cli-extensions/devcenter-0.1.0-py3-none-any.whl
-    ```
-    ---
-1. Verify that the Dev Box CLI extension installed successfully by using the following command:
-
-    ```azurecli
-    az extension list 
-    ```
-
-   You will see the devcenter extension listed:
-   :::image type="content" source="media/how-to-install-dev-box-cli/dev-box-cli-installed.png" alt-text="Screenshot showing the dev box extension listed.":::
-
-## Configure your Dev Box CLI
-
-1. Log in to Azure CLI with your work account.
+1. Sign in to Azure CLI with your work account.
 
     ```azurecli
     az login
     ```
 
-1. Set your default subscription to the sub where you'll be creating your specific Dev Box resources
+1. Set your default subscription to the subscription where you're creating your specific Dev Box resources.
 
     ```azurecli
     az account set --subscription {subscriptionId}
     ```
 
-1. Set default resource group (which means no need to pass into each command)
+1. Set default resource group. Setting a default resource group means you don't need to specify the resource group for each command.
 
     ```azurecli
     az configure --defaults group={resourceGroupName}
@@ -105,6 +74,4 @@ In addition to the Azure admin portal and the Dev Box user portal, you can use D
 
 ## Next steps
 
-Discover the Dev Box commands you can use at:
-
-- [Microsoft Dev Box Preview Azure CLI reference](./cli-reference-subset.md)
+For complete command listings, refer to the [Microsoft Dev Box and Azure Deployment Environments Azure CLI documentation](https://aka.ms/CLI-reference).

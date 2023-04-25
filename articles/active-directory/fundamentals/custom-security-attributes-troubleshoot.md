@@ -3,6 +3,7 @@ title: Troubleshoot custom security attributes in Azure AD (Preview)
 description: Learn how to troubleshoot custom security attributes in Azure Active Directory.
 services: active-directory
 author: rolyon
+manager: amycolannino
 ms.author: rolyon
 ms.service: active-directory
 ms.subservice: fundamentals

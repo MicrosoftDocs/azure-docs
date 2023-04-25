@@ -2,8 +2,8 @@
 title: Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
 description: Learn about and deploy Pod Sandboxing (preview), also referred to as Kernel Isolation, on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.date: 03/01/2023
-
+ms.custom: devx-track-azurecli
+ms.date: 03/07/2023
 ---
 
 # Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
@@ -151,7 +151,7 @@ Use the following command to enable Pod Sandboxing (preview) by creating a node 
 
 ## Deploy a trusted application
 
-To demonstrate the isolation of an application on the AKS cluster, perform the following steps.
+To demonstrate deployment of a trusted application on the shared kernel in the AKS cluster, perform the following steps.
 
 1. Create a file named *trusted-app.yaml* to describe a trusted pod, and then paste the following manifest.
 
@@ -181,7 +181,7 @@ To demonstrate the isolation of an application on the AKS cluster, perform the f
 
 ## Deploy an untrusted application
 
-To demonstrate the deployed application on the AKS cluster isn't isolated and is on the untrusted shim, perform the following steps.
+To demonstrate the deployment of an untrusted application into the pod sandbox on the AKS cluster, perform the following steps.
 
 1. Create a file named *untrusted-app.yaml* to describe an untrusted pod, and then paste the following manifest.
 
@@ -234,7 +234,7 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
 
     ```output
     root@untrusted:/# uname -r
-    5.15.80.mshv2-hvl1.m2
+    5.15.48.1-8.cm2
     ```
 
 3. Start a shell session to the container of the *trusted* pod to verify the kernel output:
@@ -252,7 +252,8 @@ To demonstrate the deployed application on the AKS cluster isn't isolated and is
    The following example resembles output from the VM that is running the *trusted* pod, which is a different kernel than the *untrusted* pod running within the pod sandbox:
 
     ```output
-    5.15.48.1-8.cm2
+    5.15.80.mshv2-hvl1.m2
+    ```
 
 ## Cleanup
 

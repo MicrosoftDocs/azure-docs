@@ -26,8 +26,8 @@ The `cache-remove-value` deletes a cached item identified by its key. The key ca
 
 | Attribute         | Description                                            | Required | Default |
 |---|--|--|--|
-| caching-type | Choose between the following values of the attribute:<br />- `internal` to use the [built-in API Management cache](api-management-howto-cache.md),<br />- `external` to use the external cache as described in [Use an external Azure Cache for Redis in Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` to use external cache if configured or internal cache otherwise. | No       | `prefer-external` |
-| key              | The key of the previously cached value to be removed from the cache.                                                                                                                                                                                                                                                                                        | Yes      | N/A               |
+| caching-type | Choose between the following values of the attribute:<br />- `internal` to use the [built-in API Management cache](api-management-howto-cache.md),<br />- `external` to use the external cache as described in [Use an external Azure Cache for Redis in Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` to use external cache if configured or internal cache otherwise. <br/><br/>Policy expressions aren't allowed.    | No       | `prefer-external` |
+| key              | The key of the previously cached value to be removed from the cache. Policy expressions are allowed.                                                                                                                                                                                                                                                                                      | Yes      | N/A               |
 ## Usage
 
 
