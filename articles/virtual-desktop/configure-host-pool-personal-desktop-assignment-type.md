@@ -3,7 +3,7 @@ title: Azure Virtual Desktop assign personal desktops - Azure
 description: How to configure automatic or direct assignment for an Azure Virtual Desktop personal desktop host pool.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/20/2023
+ms.date: 04/26/2023
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
 manager: femila
@@ -54,7 +54,23 @@ To automatically assign users, first assign them to the personal desktop host po
 
 #### [Azure portal](#tab/azure)
 
-Automatic assignment is currently unavailable in the Azure portal. In order to automatically assign users, you'll need to use PowerShell instead.
+To configure automatic assignment in the Azure portal:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Enter **Azure Virtual Desktop** into the search bar.
+
+1. Under **Services**, select **Azure Virtual Desktop**.
+
+1. At the Azure Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
+
+1. Select the host pool you want to assign users to.
+
+1. Next, go to the menu on the left side of the window and select **Properties**.
+
+1. In the **Basics** tab, go to the **Assignment** drop-down menu and select **Automatic**.
+
+1. Select **Save**.
 
 #### [PowerShell](#tab/powershell)
 
@@ -69,7 +85,7 @@ To assign a user to the personal desktop host pool, run the following PowerShell
 ```powershell
 New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <appgroupname> -ResourceGroupName $resourceGroupName -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
 ```
-===
+---
 
 ## Configure direct assignment
 
@@ -77,7 +93,23 @@ Unlike automatic assignment, when you use direct assignment, you must assign the
 
 #### [Azure portal](#tab/azure)
 
-Direct assignment is currently unavailable in the Azure portal. In order to automatically assign users, you'll need to use PowerShell instead.
+To configure direct assignment in the Azure portal:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Enter **Azure Virtual Desktop** into the search bar.
+
+1. Under **Services**, select **Azure Virtual Desktop**.
+
+1. At the Azure Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
+
+1. Select the host pool you want to assign users to.
+
+1. Next, go to the menu on the left side of the window and select **Properties**.
+
+1. In the **Basics** tab, go to the **Assignment** drop-down menu and select **Direct**.
+
+1. Select **Save**.
 
 #### [PowerShell](#tab/powershell)
 
@@ -163,7 +195,19 @@ To unassign a personal desktop in the Azure portal:
 
 #### [PowerShell](#tab/powershell)
 
-The current version of Azure Virtual Desktop doesn't support unassigning desktops in PowerShell. We recommend using the Azure portal instead.
+To unassign a personal desktop in PowerShell, run the following command:
+
+```powershell
+$unassignDesktopParams = @{
+  Path = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DesktopVirtualization/hostPools/$hostPoolName/sessionHosts/$($sessionHostName)?api-version=2022-02-10-preview&force=true"
+  Payload = @{
+    properties = @{
+      assignedUser = ''
+    }} | ConvertTo-Json
+  Method = 'PATCH'
+}
+Invoke-AzRestMethod @unassignDesktopParams
+```
 ---
 
 ## Reassign a personal desktop
@@ -197,7 +241,25 @@ To reassign a personal desktop in the Azure portal:
 
 #### [PowerShell](#tab/powershell)
 
-The current version of Azure Virtual Desktop doesn't support unassigning desktops in PowerShell. We recommend using the Azure portal instead.
+Before you start, first define the `$reassignUserUpn` variable by running the following command:
+
+```powershell
+$reassignUserUpn = <UPN of user you are reassigning the desktop to>
+```
+
+To reassign a personal desktop, run this command:
+
+```powershell
+$reassignDesktopParams = @{
+  Path = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DesktopVirtualization/hostPools/$hostPoolName/sessionHosts/$($sessionHostName)?api-version=2022-02-10-preview&force=true"
+  Payload = @{
+    properties = @{
+      assigneduser = $reassignUserUpn
+    }} | ConvertTo-Json
+  Method = 'PATCH'
+}
+Invoke-AzRestMethod @reassignDesktopParams
+```
 
 ---
 
@@ -211,7 +273,21 @@ You can configure a friendly name by using a [REST API](/rest/api/desktopvirtual
 
 #### [Azure portal](#tab/azure)
 
-The Azure portal doesn't currently support this feature. We recommend using PowerShell instead.
+To view the session host friendly name in the Azure portal:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Enter **Azure Virtual Desktop** into the search bar.
+
+1. Under **Services**, select **Azure Virtual Desktop**.
+
+1. At the Azure Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
+
+1. Select the host pool you want to view.
+
+1. Next, go to the menu on the left side of the window and select **Properties**.
+
+1. In the **Basics** tab, you should see a field that says **Friendly name**. If the host pool has a friendly name, you'll be able to see it in the field.
 
 #### [PowerShell](#tab/powershell)
 
