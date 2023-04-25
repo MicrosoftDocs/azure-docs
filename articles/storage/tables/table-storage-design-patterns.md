@@ -658,11 +658,9 @@ using System.Linq;
 using Azure.Data.Tables
 ```
 
-The employeeTable is a CloudTable object that implements a CreateQuery\<ITableEntity>() method, which returns a TableQuery\<ITableEntity>. Objects of this type implement an IQueryable and allow using both LINQ Query Expressions and dot notation syntax.
+Retrieving multiple entities can be achieved by specifying a query with a **filter** clause. To avoid a table scan, you should always include the **PartitionKey** value in the filter clause, and if possible the **RowKey** value to avoid table and partition scans. The table service supports a limited set of comparison operators (greater than, greater than or equal, less than, less than or equal, equal, and not equal) to use in the filter clause.
 
-Retrieving multiple entities and be achieved by specifying a query with a **filter** clause. To avoid a table scan, you should always include the **PartitionKey** value in the filter clause, and if possible the **RowKey** value to avoid table and partition scans. The table service supports a limited set of comparison operators (greater than, greater than or equal, less than, less than or equal, equal, and not equal) to use in the filter clause.
-
-The following C# code snippet finds all the employees whose last name starts with "B" (assuming that the **RowKey** stores the last name) in the sales department (assuming the **PartitionKey** stores the department name):  
+In the following example, `employeeTable` is a [TableClient](/dotnet/api/azure.data.tables.tableclient) object. This example finds all the employees whose last name starts with "B" (assuming that the **RowKey** stores the last name) in the sales department (assuming the **PartitionKey** stores the department name):  
 
 ```csharp
 var employees = employeeTable.Query<EmployeeEntity>(e => (e.PartitionKey == "Sales" && e.RowKey.CompareTo("B") >= 0 && e.RowKey.CompareTo("C") < 0));  
@@ -700,20 +698,50 @@ foreach (var emp in employees)
 }  
 ```
 
-The following C# code handles continuation tokens explicitly:  
+You can also specify the maximum number of entities that are returned per page. The following example shows how to query entities with `maxPerPage`:
 
 ```csharp
-TableContinuationToken continuationToken = null;
-do
+var employees = employeeTable.Query<EmployeeEntity>(maxPerPage: 10);
+
+// Iterate the Pageable object by page
+foreach (var page in employees.AsPages())
 {
-    var employees = employeeTable.Query<EmployeeEntity>("PartitionKey eq 'Sales'");
-    foreach (var emp in employees.AsPages())
+    // Iterate the entities returned for this page
+    foreach (var emp in page.Values)
     {
         // ...
-        continuationToken = emp.ContinuationToken;
     }
-    
-} while (continuationToken != null);  
+}
+```
+
+In more advanced scenarios, you may want to store the continuation token returned from the service so that your code controls exactly when the next pages is fetched. The following example shows a basic scenario of how the token can be fetched and applied to paginated results:  
+
+```csharp
+string continuationToken = null;
+bool moreResultsAvailable = true;
+while (moreResultsAvailable)
+{
+    var page = employeeTable
+        .Query<EmployeeEntity>()
+        .AsPages(continuationToken, pageSizeHint: 10)
+        .FirstOrDefault(); // pageSizeHint limits the number of results in a single page, so we only enumerate the first page
+
+    if (page == null)
+        break;
+
+    // Get the continuation token from the page
+    // Note: This value can be stored so that the next page query can be executed later
+    continuationToken = page.ContinuationToken;
+
+    var pageResults = page.Values;
+    moreResultsAvailable = pageResults.Any() && continuationToken != null;
+
+    // Iterate the results for this page
+    foreach (var result in pageResults)
+    {
+        // ...
+    }
+} 
 ```
 
 By using continuation tokens explicitly, you can control when your application retrieves the next segment of data. For example, if your client application enables users to page through the entities stored in a table, a user may decide not to page through all the entities retrieved by the query so your application would only use a continuation token to retrieve the next segment when the user had finished paging through all the entities in the current segment. This approach has several benefits:  
