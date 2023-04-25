@@ -18,7 +18,7 @@ This overview introduces the key concepts around developing devices that connect
 
 The following diagram shows a high-level view of the components in a typical IoT solution. This article focuses on the devices and gateway shown in the diagram.
 
-:::image type="content" source="media/iot-overview-device-development/iot-architecture.svg" lightbox="media/iot-overview-device-development/iot-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting device connectivity areas." border="false":::
+:::image type="content" source="media/iot-overview-device-development/iot-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting device connectivity areas." border="false":::
 
 In Azure IoT, a device developer writes the code to run on the devices in the solution. This code typically:
 

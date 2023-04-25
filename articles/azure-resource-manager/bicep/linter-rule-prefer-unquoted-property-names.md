@@ -2,6 +2,7 @@
 title: Linter rule - prefer unquoted property names
 description: Linter rule - prefer unquoted property names
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 02/10/2023
 ---
 

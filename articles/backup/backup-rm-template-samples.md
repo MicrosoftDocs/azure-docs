@@ -3,7 +3,7 @@ title: Azure Resource Manager and Bicep templates
 description: Azure Resource Manager and Bicep templates for use with Recovery Services vaults and Azure Backup features
 ms.topic: sample
 ms.date: 09/05/2022
-ms.custom: mvc
+ms.custom: mvc, devx-track-bicep, devx-track-arm-template
 ms.service: backup
 author: jyothisuri
 ms.author: jsuri

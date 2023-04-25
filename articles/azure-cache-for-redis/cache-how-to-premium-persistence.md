@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/24/2023
+ms.date: 04/10/2023
 
 
 ---
@@ -349,7 +349,7 @@ With the Premium tier, you can't use Append-only File (AOF) persistence with mul
 
 ### How do I check if soft delete is enabled on my storage account?
 
-Select the storage account that your cache is using for persistence. Select **Data Protection** from the Resource menu. In the working pane, check the state of *Enable soft delete for blobs*.
+Select the storage account that your cache is using for persistence. Select **Data Protection** from the Resource menu. In the working pane, check the state of *Enable soft delete for blobs*. For more information on soft delete in Azure storage accounts, see [Enable soft delete for blobs](/azure/storage/blobs/soft-delete-blob-enable?tabs=azure-portal).
 
 ## Next steps
 

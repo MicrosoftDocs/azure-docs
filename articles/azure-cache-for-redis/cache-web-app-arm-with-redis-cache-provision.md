@@ -5,6 +5,7 @@ services: app-service
 author: flang-msft
 
 ms.service: app-service
+ms.custom: devx-track-arm-template
 ms.topic: conceptual
 ms.date: 01/06/2017
 ms.author: franlanglois 

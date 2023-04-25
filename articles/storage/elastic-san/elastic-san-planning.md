@@ -57,9 +57,7 @@ Data in an Azure Elastic SAN is encrypted and decrypted transparently using 256-
 
 For more information about the cryptographic modules underlying SSE, see [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal).
 
-## Protocol compatibility
-
-### iSCSI support
+## iSCSI support
 
 Elastic SAN supports the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI) protocol. The following iSCSI commands are currently supported:
 
