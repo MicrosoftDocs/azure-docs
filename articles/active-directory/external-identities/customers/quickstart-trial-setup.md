@@ -55,7 +55,7 @@ If you prefer, you can add your company logo, change the background color or adj
 1. Select the **Run it now** button. You see a progress bar first to show it's loading, and then a new tab opens with the sign-in experience. 
 1. After the configuration is finished, a live sign-in box will appear in a new browser tab that can be used to create and sign in users. Select **No account? Create one** to create a new user in the new customer tenant.
 1. Add your new user's email address and select **Next**.
-1. Create a password and select **Next**. Typically, once the user has signed in, they're redirected back to your app. However, in the customer tenant free trial, you'll be redirected to JWT.ms at his step.There, you can view the contents of the token issued during the sign-in process.
+1. Create a password and select **Next**. Typically, once the user has signed in, they're redirected back to your app. However, in the customer tenant free trial, you'll be redirected to JWT.ms at his step. There, you can view the contents of the token issued during the sign-in process.
 1. Go back to the guide tab. At this stage, you can either exit the guide and go to the admin center and  explore the full range of configuration options for your tenant. Or you can **Continue** by setting up a sample app. We recommend setting up the sample app and run it, to see the sign-in experience with your latest configuration changes before exiting the guide. This way, you can ensure that everything is working as expected.
 
     :::image type="content" source="media/quickstart-trial-setup/successful-trial-setup.png" alt-text="Screenshot that shows the successful creation of the sign-up experience.":::
