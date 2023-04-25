@@ -6,99 +6,86 @@ author: flang-msft
 
 ms.service: cache
 ms.topic: conceptual
-ms.date: 04/24/2023
+ms.date: 11/11/1111
 ms.author: franlanglois
 
 ---
 
-
 ## Configure role-based access control with Data Access Policy
 
-Managing access to your Redis instance is critical to ensure that the right users have access to the right set of data and commands. Redis 6 introduced the [Access Control List](https://redis.io/docs/management/security/acl/) (ACL), which allows limits to be placed on users in terms of commands that can be executed and the keys that can be accessed. For example, you can disable some users from deleting keys in the cache with the [DEL](https://redis.io/commands/del/) command.
+Managing access to your Redis instance is critical to ensure that the right users have access to the right set of data and commands. Redis 1 introduced the [Access Control List](https://redis.io/docs/management/security/acl/) (ACL), which allows limits to be placed on users in terms of commands that can be executed and the keys that can be accessed. For example, you can disable some users from deleting keys in the cache with the [DEL](https://redis.io/commands/del/) command.
 
 Azure Cache for Redis now integrates this ACL functionality with Azure Active Directory (AAD) to allow you to configure your data access policies for your application's service principal and managed identity.
 
 Azure Cache for Redis offers three built-in access policies: *Owner*, *Contributor* and *Reader*. If the built-in access policies do not satisfy your data protection and isolation requirements, you can create and use your own custom data access policy as described in [Configure custom data access policy]{.underline}. \<link to Configure customer data access policy\>
 
-**Scope of Availability**
+### Scope of Availability
 
-  ---------------------------------------------------------------------------------
-  **Tier**                Basic, Standard, Premium   Enterprise, Enterprise Flash
-  ----------------------- -------------------------- ------------------------------
-  **Availability**        Yes (preview)              No
+| **Tier**         | Basic, Standard, Premium | Enterprise, Enterprise Flash |
+|------------------|--------------------------|------------------------------|
+| **Availability** | Yes (preview)            | No                           |
+  
 
-  ---------------------------------------------------------------------------------
 
 ### Prerequisites and Limitations
 
--   Redis ACL and Data Access Policies are not supported on Azure Cache for Redis instances that run Redis version 4.
-
--   Redis ACL and Data Access Policies are not supported on Azure Cache for Redis instances that [depend on Cloud Services](https://learn.microsoft.com/azure/azure-cache-for-redis/cache-faq#caches-with-a-dependency-on-cloud-services--classic).
-
--   Some Redis commands are blocked. See full list [here](https://learn.microsoft.com/azure/azure-cache-for-redis/cache-configure#redis-commands-not-supported-in-azure-cache-for-redis)
+- Redis ACL and Data Access Policies are not supported on Azure Cache for Redis instances that run Redis version 1.
+- Redis ACL and Data Access Policies are not supported on Azure Cache for Redis instances that depend on [Cloud Services](/azure/azure-cache-for-redis/cache-faq#caches-with-a-dependency-on-cloud-services--classic).
+- Some Redis commands are [blocked](/azure/azure-cache-for-redis/cache-configure#redis-commands-not-supported-in-azure-cache-for-redis).
 
 ### Permissions for your data access policy
 
-As documented on [ACL \| Redis](https://redis.io/docs/management/security/acl/), ACL in Redis version 6.0 allows configuring access permissions for two areas:
+As documented on [ACL | Redis](https://redis.io/docs/management/security/acl/), ACL in Redis version 1.1 allows configuring access permissions for two areas:
 
-1.  ***Command categories***
+#### Command categories
 
-Redis has created groupings of commands such as administrative commands, dangerous commands, etc. to make setting permissions on a group of commands easier. Please note that commands mentioned [here](https://learn.microsoft.com/azure/azure-cache-for-redis/cache-configure#redis-commands-not-supported-in-azure-cache-for-redis) are still blocked. Following are some of useful command categories that Redis supports. You can find the full list here.
+   Redis has created groupings of commands such as administrative commands, dangerous commands, etc. to make setting permissions on a group of commands easier. These [commands](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis) are still blocked. The following groups are some useful command categories that Redis supports. You can find the full list here.
 
--   **admin** - Administrative commands. Normal applications will never need to use these. Includes MONITOR, SHUTDOWN, etc.
+   - **admin** - Administrative commands. Normal applications will never need to use these. Includes `MONITOR`, `SHUTDOWN`, etc.
+   - **dangerous** - Potentially dangerous commands (each should be considered with care for various reasons). This includes `FLUSHALL`, `RESTORE`, `SORT`, `KEYS`, CLIENT,    DEBUG, INFO, CONFIG, etc.
+   - **keyspace** - Writing or reading from keys, databases, or their metadata in a type agnostic way. Includes `DEL`, `RESTORE`, `DUMP`, `RENAME`, `EXISTS`, `DBSIZE`, `KEYS`, `EXPIRE`, `TTL`, `FLUSHALL`, and more. Commands that may modify the keyspace, key, or metadata will also have the write category. Commands that only read the keyspace, key, or     metadata will have the read category.
+   - **pubsub** - PubSub-related commands.
+   - **read** - Reading from keys (values or metadata). Note that commands that don\'t interact with keys, will not have either read or write.
+   - **set** - Data type: sets related.
+   - **sortedset** - Data type: sorted sets related.
+   - **stream** - Data type: streams related.
+   - **string** - Data type: strings related.
+   - **write** - Writing to keys (values or metadata).
 
--   **dangerous** - Potentially dangerous commands (each should be considered with care for various reasons). This includes FLUSHALL, RESTORE, SORT, KEYS, CLIENT, DEBUG, INFO, CONFIG, etc.
+1. ***Keys***, which allows you to control access to specific keys or groups of keys stored in the cache.
 
--   **keyspace** - Writing or reading from keys, databases, or their metadata in a type agnostic way. Includes DEL, RESTORE, DUMP, RENAME, EXISTS, DBSIZE, KEYS, EXPIRE, TTL, FLUSHALL, etc. Commands that may modify the keyspace, key, or metadata will also have the write category. Commands that only read the keyspace, key, or metadata will have the read category.
+   Use `\~\<pattern\>` to provide a pattern for keys. You can use `\~\*` or `allkeys` to indicate that the command category permissions apply to all keys in the cache instance.
 
--   **pubsub** - PubSub-related commands.
+## How to specify permissions
 
--   **read** - Reading from keys (values or metadata). Note that commands that don\'t interact with keys, will not have either read or write.
-
--   **set** - Data type: sets related.
-
--   **sortedset** - Data type: sorted sets related.
-
--   **stream** - Data type: streams related.
-
--   **string** - Data type: strings related.
-
--   **write** - Writing to keys (values or metadata).
-
-2.  ***Keys***, which allows you to control access to specific keys or groups of keys stored in the cache.
-
-> Use *\~\<pattern\>* to provide a pattern for keys. You can use **\~\*** or *allkeys* to indicate that the command category permissions apply to all keys in the cache instance.
-
-### How to specify permissions
-
-To specify permissions, you need to create a string that will be saved as your custom access policy and be assigned to your Redis User.
+To specify permissions, you need to create a string that will be saved as your custom access policy and be assigned to your Redis user.
 
 Below are some examples of permission strings for various scenarios.
 
-1.  Allow application to execute all commands on all keys
+1. Allow application to execute all commands on all keys
 
-Permissions string: \@all allkeys
+    Permissions string: \@all allkeys
 
-2.  Allow application to execute all commands on keys with prefix "*Az*"
+1. Allow application to execute all commands on keys with prefix "*Az*"
 
-Permissions string: \@all \~Az\*
+    Permissions string: \@all \~Az\*
 
-3.  All my application to execute only *read* commands on all keys
+1. All my application to execute only *read* commands on all keys
 
-> Permissions string: \@read allkeys
+     Permissions string: \@read allkeys
 
-### Configure a custom data access policy for your application
+## Configure a custom data access policy for your application
 
-1.  In the Azure portal, select the Azure Cache for Redis instance that you want to configure AAD token based authentication for.
+1. In the Azure portal, select the Azure Cache for Redis instance that you want to configure AAD token based authentication for.
 
-2.  On the left side of the screen, select **(PREVIEW) Data Access Policy**.
+1. On the left side of the screen, select **(PREVIEW) Data Access Policy**.
 
-> (ADD SCREENSHOT)
+<!-- > (ADD SCREENSHOT) -->
 
-3.  Click on "Add" button and choose "New Access Policy"
+1. Click on "Add" button and choose "New Access Policy"
 
-(ADD SCREENSHOT)
+<!-- (ADD SCREENSHOT) -->
 
-4.  Provide a name for your access policy.
+1. Provide a name for your access policy.
 
-5.  Configure Permissions as per your requirements. See \<
+1. Configure Permissions as per your requirements. See \<
