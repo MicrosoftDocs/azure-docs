@@ -1,12 +1,4 @@
 ---
-title: Add an NSX-T network segment using Azure VMware Solution
-description: Steps to add an NSX-T network segment for Azure VMware Solution in the Azure portal.
-ms.topic: include
-ms.service: azure-vmware
-ms.date: 07/16/2021
-author: suzizuber
-ms.author: v-szuber
----
 title: Add an NSX-T Data Center network segment using Azure VMware Solution
 description: Steps to add an NSX-T Data Center network segment for Azure VMware Solution in the Azure portal.
 ms.topic: include
@@ -20,7 +12,7 @@ ms.author: v-szuber
 
 
 >[!NOTE]
->If you plan to use DHCP, you'll need to [configure a DHCP server or DHCP relay](../configure-dhcp-azure-vmware-solution.md) before you can configure an NSX-T network segment. 
+>If you plan to use DHCP, you'll need to [configure a DHCP server or DHCP relay](../configure-dhcp-azure-vmware-solution.md) before you can configure an NSX-T Data Center network segment. 
 
 1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **Segments** > **Add**. 
 
