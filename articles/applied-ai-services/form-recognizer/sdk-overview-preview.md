@@ -96,7 +96,7 @@ pip install azure-ai-formrecognizer==3.3.0b1
 ```
 
 ---
-TODO
+
 ### 2. Import the SDK client library into your application
 
 ### [C#/.NET](#tab/csharp)
@@ -317,3 +317,12 @@ For more information, *see* [Authenticate the client](https://github.com/Azure/a
 ### 4. Build your application
 
 You'll create a client object to interact with the Form Recognizer SDK, and then call methods on that client object to interact with the service. The SDKs provide both synchronous and asynchronous methods. For more insight, try a [quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) in a language of your choice.
+
+## Help options
+
+The [Microsoft Q&A](/answers/topics/azure-form-recognizer.html) and [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-form-recognizer) forums are available for the developer community to ask and answer questions about Azure Form Recognizer and other services. Microsoft monitors the forums and replies to questions that the community has yet to answer. To make sure that we see your question, tag it with **`azure-form-recognizer`**.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [**Explore Form Recognizer REST API 2023-02-28-preview**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument)

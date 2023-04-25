@@ -12,9 +12,75 @@ ms.author: lajanuar
 recommendations: false
 ---
 
+<!-- markdownlint-disable MD001 -->
+<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD051 -->
+
 # Changelog and release history
 
 This reference article provides a version-based description of Form Recognizer feature and capability releases, changes, updates, and enhancements.
+
+#### Form Recognizer SDK April 2023 preview release
+
+This release includes the following updates:
+
+### [**C#**](#tab/csharp)
+
+* **Version 4.1.0-beta.1 (2023-04-13**)
+* **Targets 2023-02-28-preview by default**
+* **No breaking changes**
+
+[**Package (NuGet)**](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.1.0-beta.1)
+
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#410-beta1-2023-04-13)
+
+[**ReadMe**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/README.md)
+
+[**Samples**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
+
+### [**Java**](#tab/java)
+
+* **Version 4.1.0-beta.1 (2023-04-12**)
+* **Targets 2023-02-28-preview by default**
+* **No breaking changes**
+
+[**Package (MVN)**](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/4.1.0-beta.1)
+
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_4.1.0-beta.1/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#410-beta1-2023-04-12)
+
+[**ReadMe**](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_4.1.0-beta.1/sdk/formrecognizer/azure-ai-formrecognizer/README.md)
+
+[**Samples**](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples#readme)
+
+### [**JavaScript**](#tab/javascript)
+
+* **Version 4.1.0-beta.1 (2023-04-11**)
+* **Targets 2023-02-28-preview by default**
+* **No breaking changes**
+
+[**Package (npm)**](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.1.0-beta.1)
+
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-js/blob/a162daee4be05eadff0be1caa7fb2071960bbf44/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md#410-beta1-2023-04-11)
+
+[**ReadMe**](https://github.com/Azure/azure-sdk-for-js/blob/a162daee4be05eadff0be1caa7fb2071960bbf44/sdk/formrecognizer/ai-form-recognizer/README.md)
+
+[**Samples**](https://github.com/Azure/azure-sdk-for-js/tree/a162daee4be05eadff0be1caa7fb2071960bbf44/sdk/formrecognizer/ai-form-recognizer/samples/v4-beta)
+
+### [**Python**](#tab/python)
+
+* **Version 3.3.0b1 (2023-04-13**)
+* **Targets 2023-02-28-preview by default**
+* **No breaking changes**
+
+[**Package (PyPi**](https://pypi.org/project/azure-ai-formrecognizer/3.3.0b1/)
+
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.3.0b1/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#330b1-2023-04-13)
+
+[**ReadMe**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.3.0b1/sdk/formrecognizer/azure-ai-formrecognizer/README.md)
+
+[**Samples**](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.3.0b1/sdk/formrecognizer/azure-ai-formrecognizer/samples)
+
+---
 
 #### Form Recognizer SDK September 2022 GA release
 
@@ -68,7 +134,7 @@ This release includes the following updates:
 
 [**Samples**](https://github.com/witemple-msft/azure-sdk-for-js/blob/7e3196f7e529212a6bc329f5f06b0831bf4cc174/sdk/formrecognizer/ai-form-recognizer/samples/v4/javascript/README.md)
 
-### [Python](#tab/python)
+### [**Python**](#tab/python)
 
 > [!NOTE]
 > Python 3.7 or later is required to use this package.
@@ -125,7 +191,7 @@ This release includes the following updates:
 
  [**SDK reference documentation**](/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-preview&preserve-view=true)
 
-### [Python](#tab/python)
+### [**Python**](#tab/python)
 
 > [!IMPORTANT]
 > Python 3.6 is no longer supported in this release. Use Python 3.7 or later.
@@ -175,7 +241,7 @@ This release includes the following updates:
 
  [**SDK reference documentation**](/javascript/api/@azure/ai-form-recognizer/?view=azure-node-preview&preserve-view=true)
 
-### [Python](#tab/python)
+### [**Python**](#tab/python)
 
 **Version 3.2.0b5 (2022-06-07**
 
