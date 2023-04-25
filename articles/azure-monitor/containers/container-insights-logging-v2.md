@@ -72,8 +72,8 @@ This applies to the scenario where you have already enabled container insights f
 >* The restart is a rolling restart for all ama-logs pods. It won't restart all of them at the same time.
 
 ## Multi-line logging in Container Insights 
-Azure Monitor - Container insights now supports multiline logging. With this feature enabled, previously split container logs will be stitched together and sent as single entries to the ContainerLogV2 table. Customers will be able see container log lines upto to 64KB (up from the existing 16Kb limit). If the stitched log line is larger than 64KB, it will get truncated due to Log Analytics limits. 
-Additionally, the feature also adds support for .NET and Go stack traces which will appear as single entries instead of being split into multiple entries in ContainerLogV2 table. 
+Azure Monitor - Container insights now supports multiline logging. With this feature enabled, previously split container logs are stitched together and sent as single entries to the ContainerLogV2 table. Customers are able see container log lines upto to 64 KB (up from the existing 16 KB limit). If the stitched log line is larger than 64 KB, it gets truncated due to Log Analytics limits. 
+Additionally, the feature also adds support for .NET and Go stack traces, which appear as single entries instead of being split into multiple entries in ContainerLogV2 table. 
 
 ### Pre-requisites 
 Customers must enable *ContainerLogV2* for multi-line logging to work.  Go here to [enable ContainerLogV2](/containers/container-insights-logging-v2#enable-the-containerlogv2-schema) in Container Insights. 
