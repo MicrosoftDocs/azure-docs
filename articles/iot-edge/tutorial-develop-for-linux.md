@@ -1,10 +1,10 @@
 ---
-title: Develop module for Linux devices using Azure IoT Edge tutorial
-description: This tutorial walks through setting up your development machine and cloud resources to develop IoT Edge modules using Linux containers for Linux devices
+title: Develop Azure IoT Edge modules using Visual Studio Code tutorial
+description: This tutorial walks through setting up your development machine and cloud resources to develop IoT Edge modules
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 03/31/2023
+ms.date: 04/25/2023
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -12,13 +12,18 @@ ms.custom: mvc
 zone_pivot_groups: iotedge-dev
 ---
 
-# Tutorial: Develop IoT Edge modules with Linux containers
+# Tutorial: Develop IoT Edge modules using Visual Studio Code
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 This tutorial walks through developing and deploying your own code to an IoT Edge device. You can use Azure IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. In the [Deploy code to a Linux device](quickstart-linux.md) quickstart, you created an IoT Edge device and deployed a module from the Azure Marketplace.
 
-You can choose either the **Azure IoT Edge Dev Tool** command-line tool (CLI) or the **Azure IoT Edge tools for Visual Studio Code** extension as your IoT Edge development tool. Use the tool selector button at the beginning to choose your tool option for this article.
+This article includes steps for two IoT Edge development tools.
+
+ * **Azure IoT Edge Dev Tool** command-line tool (CLI). This is the preferred tool for development.
+ * **Azure IoT Edge tools for Visual Studio Code** extension. The extension is in [maintenence mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
+
+Use the tool selector button at the beginning of this article to select the tool version.
 
 In this tutorial, you learn how to:
 
@@ -38,7 +43,6 @@ A development machine:
 * Use your own computer or a virtual machine.
 * Your development machine must support [nested virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) for running a container engine.
 * Most operating systems that can run a container engine can be used to develop IoT Edge modules for Linux devices. This tutorial uses a Windows computer, but points out known differences on macOS or Linux.
-* Install [Git](https://git-scm.com/), to pull module template packages later in this tutorial.
 * Install [Visual Studio Code](https://code.visualstudio.com/)
 * Install the [Azure CLI](/cli/azure/install-azure-cli).
 
@@ -249,7 +253,7 @@ Use Visual Studio Code and the [Azure IoT Edge](https://marketplace.visualstudio
 1. Enter a name for your module. Choose a name that's unique within your container registry.
 1. Provide the name of the module's image repository. Visual Studio Code autopopulates the module name with **localhost:5000/<your module name\>**. Replace it with your own registry information. Use **localhost** if you use a local Docker registry for testing. If you use Azure Container Registry, then use **Login server** from your registry's settings. The sign-in server looks like **_\<registry name\>_.azurecr.io**. Only replace the **localhost:5000** part of the string so that the final result looks like **\<*registry name*\>.azurecr.io/_\<your module name\>_**.
 
-   :::image type="content" source="./media/how-to-develop-csharp-module/repository.png" alt-text="Screenshot of how to provide a Docker image repository." lightbox="./media/how-to-develop-csharp-module/repository.png":::
+   :::image type="content" source="./media/tutorial-develop-for-linux/repository.png" alt-text="Screenshot of how to provide a Docker image repository." lightbox="./media/tutorial-develop-for-linux/repository.png":::
 
 Visual Studio Code takes the information you provided, creates an IoT Edge solution, and then loads it in a new window.
 

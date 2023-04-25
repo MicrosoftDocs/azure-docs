@@ -1,23 +1,28 @@
 ---
-title: Develop and debug modules Azure IoT Edge modules using Visual Studio Code
-description: Use Visual Studio Code to develop, build, and debug a module for Azure IoT Edge using C#, Python, Node.js, Java, or C
+title: Debug Azure IoT Edge modules using Visual Studio Code
+description: Use Visual Studio Code to debug an Azure IoT Edge custom module written in supported development languages.
 services: iot-edge
 author: PatAltimore
 ms.author: patricka
-ms.date: 3/2/2023
+ms.date: 04/25/2023
 ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-js
 zone_pivot_groups: iotedge-dev
 ---
 
-# Use Visual Studio Code to develop and debug modules for Azure IoT Edge
+# Debug Azure IoT Edge modules using Visual Studio Code
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-This article shows you how to use Visual Studio Code to develop and debug IoT Edge modules in multiple languages and multiple architectures. On your development computer, you can use Visual Studio Code to attach and debug your module in a local or remote module container.
+This article shows you how to use Visual Studio Code to debug IoT Edge modules in multiple languages. On your development computer, you can use Visual Studio Code to attach and debug your module in a local or remote module container.
 
-You can choose either the **Azure IoT Edge Dev Tool** command-line tool (CLI) or the **Azure IoT Edge tools for Visual Studio Code** extension as your IoT Edge development tool. Use the tool selector button at the beginning to choose your tool option for this article.
+This article includes steps for two IoT Edge development tools.
+
+ * **Azure IoT Edge Dev Tool** command-line tool (CLI). This is the preferred tool for development.
+ * **Azure IoT Edge tools for Visual Studio Code** extension. The extension is in [maintenence mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
+
+Use the tool selector button at the beginning of this article to select the tool version.
 
 Visual Studio Code supports writing IoT Edge modules in the following programming languages:
 
@@ -49,388 +54,32 @@ If you aren't familiar with the debugging capabilities of Visual Studio Code, se
 
 You can use a computer or a virtual machine running Windows, macOS, or Linux as your development machine. On Windows computers, you can develop either Windows or Linux modules. To develop Linux modules, use a Windows computer that meets the [requirements for Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
 
-Install [Visual Studio Code](https://code.visualstudio.com/) first and then add the following extensions:
+To install the required tools for development and debugging, complete the [Develop IoT Edge modules using Visual Studio Code](tutorial-develop-for-linux.md) tutorial.
 
-- [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
+Install [Visual Studio Code](https://code.visualstudio.com/) 
 
 ::: zone pivot="iotedge-dev-ext"
+
+Add the following extensions:
 
 - [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) extension.
 - [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extension.
 
 ::: zone-end
 
-To build and deploy your module image, you need Docker to build the module image and a container registry to hold the module image:
-
-- Download and install a [Docker compatible container management system](support.md#container-engines) on your development machine to build and run your module images. For example, install [Docker Community Edition](https://docs.docker.com/install/).
-- Create an [Azure Container Registry](../container-registry/index.yml) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) to store your module images.
-
-    > [!TIP]
-    > You can use a local Docker registry for prototype and testing purposes instead of a cloud registry.
-
-- Install the [Azure CLI](/cli/azure/install-azure-cli).
-
-::: zone pivot="iotedge-dev-cli"
-
-- Install the Python-based [Azure IoT Edge Dev Tool](https://pypi.org/project/iotedgedev/) with the following command to enable you to debug, run, and test your IoT Edge solution. [Python (3.6 or 3.7)](https://www.python.org/downloads/) and [Pip3](https://pip.pypa.io/en/stable/installation/) are required.
-
-    ```bash
-    pip3 install iotedgedev
-    ```
-    
-    > [!NOTE]
-    >
-    > If you have multiple Python versions, including pre-installed Python 2.7 (for example, on Ubuntu or macOS), make sure you use `pip3` to install *IoT Edge Dev Tool (iotedgedev)*.
-    >
-    > For more information setting up your development machine, see [iotedgedev development setup](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/manual-dev-machine-setup.md).
-
-   To stay current on the testing environment for IoT Edge, see the [test-coverage](https://github.com/Azure/iotedgedev/blob/main/docs/test-coverage.md) list.
-
-::: zone-end
-
-Install prerequisites specific to the language you're developing in:
-
-# [C\# / Azure Functions](#tab/csharp+azfunctions)
-
-- Install [.NET Core SDK](https://dotnet.microsoft.com/download)
-- Install [C# Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
-
-# [C](#tab/c)
-
-- Install [C/C++ Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
-
-# [Java](#tab/java)
-
-- Install [Java SE Development Kit 10](/azure/developer/java/fundamentals/java-support-on-azure) and [Maven](https://maven.apache.org/). You need to [set the `JAVA_HOME` environment variable](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) to point to your JDK installation.
-- Install [Java Extension Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
-
-# [Node.js](#tab/node)
-
-- Install [Node.js](https://nodejs.org). Install [Yeoman](https://www.npmjs.com/package/yo) and the [Azure IoT Edge Node.js Module Generator](https://www.npmjs.com/package/generator-azure-iot-edge-module).
-
-# [Python](#tab/python)
-::: zone pivot="iotedge-dev-ext"
-
-Install [Python](https://www.python.org/downloads/) and [Pip](https://pip.pypa.io/en/stable/installation/).
-
-::: zone-end
-
-Install the [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
-
----
-
-To test your module on a device, you need:
+To debug your module on a device, you need:
 
 - An active IoT Hub with at least one IoT Edge device.
-- A physical IoT Edge device or a virtual device. To create a virtual device in Azure, follow the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows](quickstart.md).
-
-## Create IoT Edge module
-
-The following steps show you how to create an IoT Edge module in your preferred development language. You start by creating a solution, and then generating the first module in that solution. Each solution can contain multiple modules.
-
-::: zone pivot="iotedge-dev-cli"
-
-The [IoT Edge Dev Tool](https://github.com/Azure/iotedgedev) simplifies Azure IoT Edge development to simple commands driven by environment variables. It gets you started with IoT Edge development with the IoT Edge Dev Container and IoT Edge solution scaffolding that contains a default module and all the required configuration files.
-
-1. Create a directory for your solution with the filepath of your choice. Change into your `iotedgesolution` directory.
-
-    ```bash
-    mkdir c:\dev\iotedgesolution
-    ```
-
-1. Use the **iotedgedev solution init** command to create a solution and set up your Azure IoT Hub in the development language of your choice.
-
-    # [C\#](#tab/csharp)
-    
-    ```bash
-    iotedgedev solution init --template csharp
-    ```
-    
-    The solution includes a default C# module named *filtermodule*.
-    
-    # [Azure Functions](#tab/azfunctions)
-    
-    ```bash
-    iotedgedev solution init --template csharpfunction
-    ```
-
-    # [C](#tab/c)
-    
-    ```bash
-    iotedgedev solution init --template c
-    ```
-
-    # [Java](#tab/java)
-    
-    ```bash
-    iotedgedev solution init --template java
-    ```
-
-    # [Node.js](#tab/node)
-
-    ```bash
-    iotedgedev solution init --template nodejs
-    ```
-
-    # [Python](#tab/python)
-
-    ```bash
-    iotedgedev solution init --template python
-    ```
-
-    ---
-
-The *iotedgedev solution init* script prompts you to complete several steps including:
-
-* Authenticate to Azure
-* Choose an Azure subscription
-* Choose or create a resource group
-* Choose or create an Azure IoT Hub
-* Choose or create an Azure IoT Edge device
-
-After solution creation, these main files are in the solution:
-
-- A **.vscode** folder contains configuration file launch.json.
-- A **modules** folder that has subfolders for each module. Within the subfolder for each module, the module.json file controls how modules are built and deployed.
-- An **.env** file lists your environment variables. The environment variable for the container registry is *localhost:5000* by default. If Azure Container Registry is your registry, set an Azure Container Registry username and password. Get these values from your container registry's **Settings** > **Access keys** menu in the Azure portal. The **CONTAINER_REGISTRY_SERVER** is the **Login server** of your registry.
-
-   For example:
-
-    ```env
-    CONTAINER_REGISTRY_SERVER="myacr.azurecr.io"
-    CONTAINER_REGISTRY_USERNAME="myacr"
-    CONTAINER_REGISTRY_PASSWORD="<registry_password>"
-    ```
-
-   In production scenarios, you should use service principals to provide access to your container registry instead of the *.env* file. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
-
-    > [!NOTE]
-    > The environment file is only created if you provide an image repository for the module. If you accepted the localhost defaults to test and debug locally, then you don't need to declare environment variables.
-
-- Two module deployment files named **deployment.template.json** and **deployment.debug.template.json** list the modules to deploy to your device. By default, the list includes the IoT Edge system modules (edgeAgent and edgeHub) and sample modules such as:
-    - **filtermodule** is a sample module that implements a simple filter function.
-    - **SimulatedTemperatureSensor** module that simulates data you can use for testing. For more information about how deployment manifests work, see [Learn how to use deployment manifests to deploy modules and establish routes](module-composition.md). For more information on how the simulated temperature module works, see the [SimulatedTemperatureSensor.csproj source code](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor).
-   
-   > [!NOTE]
-   > The exact modules installed may depend on your language of choice.
-
-::: zone-end
-
-::: zone pivot="iotedge-dev-ext"
-
-Use Visual Studio Code and the [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) extension. You start by creating a solution, and then generating the first module in that solution. Each solution can contain multiple modules.
-
-1. Select **View** > **Command Palette**.
-1. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge Solution**.
-
-   :::image type="content" source="./media/how-to-develop-csharp-module/new-solution.png" alt-text="Screenshot of how to run a new IoT Edge solution." lightbox="./media/how-to-develop-csharp-module/new-solution.png":::
-
-1. Browse to the folder where you want to create the new solution and then select **Select folder**.
-1. Enter a name for your solution.
-1. Select a module template for your preferred development language to be the first module in the solution.
-1. Enter a name for your module. Choose a name that's unique within your container registry.
-1. Provide the name of the module's image repository. Visual Studio Code autopopulates the module name with **localhost:5000/<your module name\>**. Replace it with your own registry information. Use **localhost** if you use a local Docker registry for testing. If you use Azure Container Registry, then use **Login server** from your registry's settings. The sign-in server looks like **_\<registry name\>_.azurecr.io**. Only replace the **localhost:5000** part of the string so that the final result looks like **\<*registry name*\>.azurecr.io/_\<your module name\>_**.
-
-   :::image type="content" source="./media/how-to-develop-csharp-module/repository.png" alt-text="Screenshot of how to provide a Docker image repository." lightbox="./media/how-to-develop-csharp-module/repository.png":::
-
-Visual Studio Code takes the information you provided, creates an IoT Edge solution, and then loads it in a new window.
-
-There are four items within the solution:
-
-- A **.vscode** folder contains debug configurations.
-- A **modules** folder has subfolders for each module. Within the folder for each module, there's a file called **module.json** that controls how modules are built and deployed. You need to modify this file to change the module deployment container registry from a localhost to a remote registry. At this point, you only have one module. But you can add more if needed.
-- An **.env** file lists your environment variables. The environment variable for the container registry is *localhost* by default. If Azure Container Registry is your registry, set an Azure Container Registry username and password. Get these values from your container registry's **Settings** > **Access keys** menu in the Azure portal. The **CONTAINER_REGISTRY_SERVER** is the **Login server** of your registry.
-
-For example:
-
-  ```env
-  CONTAINER_REGISTRY_SERVER="myacr.azurecr.io"
-  CONTAINER_REGISTRY_USERNAME="myacr"
-  CONTAINER_REGISTRY_PASSWORD="<my_acr_password>"
-  ```
-
-  In production scenarios, you should use service principals to provide access to your container registry instead of the *.env* file. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
-
-  > [!NOTE]
-  > The environment file is only created if you provide an image repository for the module. If you accepted the localhost defaults to test and debug locally, then you don't need to declare environment variables.
-
-- Two module deployment files named **deployment.template.json** and **deployment.debug.template** list the modules to deploy to your device. By default, the list includes the IoT Edge system modules and sample modules including the **SimulatedTemperatureSensor** module that simulates data you can use for testing. 
-
-   For more information about deployment manifests, see [Learn how to use deployment manifests to deploy modules and establish routes](module-composition.md). For more information about the simulated temperature module, see the [SimulatedTemperatureSensor.csproj source code](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor).
-
-::: zone-end
-
-::: zone pivot="iotedge-dev-cli"
-
-### Set IoT Edge runtime version
-
-The latest stable IoT Edge system module version is 1.4. Set your system modules to version 1.4.
-
-1. In Visual Studio Code, open *deployment.debug.template.json* deployment manifest file. The [deployment manifest](module-deployment-monitoring.md#deployment-manifest) is a JSON document that describes the modules to be configured on the targeted IoT Edge device.
-1. Change the runtime version for the system runtime module images *edgeAgent* and *edgeHub*. For example, if you want to use the IoT Edge runtime version 1.4, change the following lines in the deployment manifest file:
-
-    ```json
-    ...
-    "systemModules": {
-        "edgeAgent": {
-        ...
-            "image": "mcr.microsoft.com/azureiotedge-agent:1.4",
-        ...
-        "edgeHub": {
-        ...
-            "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
-        ...
-    ```
-
-::: zone-end
-
-## Add more modules
-
-To add more modules to your solution, change to the *modules* directory and add them there.
-
-```bash
-cd modules
-```
-
-::: zone pivot="iotedge-dev-ext"
-
-Run the command **Azure IoT Edge: Add IoT Edge Module** from the command palette. You can also right-click the **modules** folder or the `deployment.debug.template.json` file in the Visual Studio Code Explorer view and then select **Add IoT Edge Module**.
-
-::: zone-end
-<!--vscode end-->
-
-::: zone pivot="iotedge-dev-cli"
-
-Install the modules using your language of choice.
-
-# [C\#](#tab/csharp)
-
-1. Install the [.NET IoT Edge C# template](https://github.com/azure/dotnet-template-azure-iot-edge-module/).
-
-    ```dotnetcli
-    dotnet new -i Microsoft.Azure.IoT.Edge.Module
-    ```
-
-1. Create a new directory folder in the *modules* folder and change directory to the new folder. For example, `mkdir SampleModule` then `cd SampleModule`.
-1. Use the IoT Edge .NET template to add a new C# module. For example, the following command adds a new module named *SampleModule* and configures *module.json* to use *myacr.azurecr.io/samplemodule* as the image repository.
-
-    ```dotnetcli
-    dotnet new aziotedgemodule --name SampleModule --repository myacr.azurecr.io/samplemodule
-    ```
-
-    The command creates the module in the current directory and configures the *module.json* file with the repository information.
-
-# [Azure Functions](#tab/azfunctions)
-
-1. Install the [.NET IoT Edge Azure Function template](https://github.com/azure/dotnet-template-azure-iot-edge-function/).
-
-    ```dotnetcli
-    dotnet new -i Microsoft.Azure.IoT.Edge.Function
-    ```
-
-1. Create a new directory folder in the *modules* folder and change directory to the new folder. For example, `mkdir SampleFuncModule` then `cd SampleFuncModule`.
-1. Use the IoT Edge Azure Function .NET template to add a new Azure Function module. For example, the following command adds a new module named *SampleFuncModule* and configures *module.json* to use the *myacr.azurecr.io/samplefuncmodule* as the image repository.
-
-    ```dotnetcli
-    dotnet new aziotedgefunction --name SampleFuncModule --repository myacr.azurecr.io/samplefuncmodule
-    ```
-
-    The command creates the module in the current directory and configures the *module.json* file with the repository information.
-
-# [C](#tab/c)
-
-1. Create a new directory folder in the *modules* folder and change directory to the new folder. For example, `mkdir cmodule` then `cd cmodule`.
-1. Download a ZIP of the contents of the [C sample module](https://github.com/azure/azure-iot-edge-c-module) from GitHub.
-1. Extract the contents of the ZIP file into the new module directory.
-1. Update *module.json* file with correct repository. For example, if you want to use the repository defined in your environment variables, use `${CONTAINER_REGISTRY_SERVER}/cmodule`.
-
-# [Java](#tab/java)
-
-1. Create a new directory folder in the *modules* folder and change directory to the new folder. For example, `mkdir JavaModule` then `cd JavaModule`.
-1. Use Maven to add a new Java module. For example, the following command adds a new module named *JavaModule* and configures *module.json to use *myacr.azurecr.io/javamodule* as the image repository.
-
-    ```java
-    mvn archetype:generate -DarchetypeGroupId="com.microsoft.azure" -DarchetypeArtifactId="azure-iot-edge-archetype" -DgroupId="com.edgemodule" -DartifactId="JavaModule" -Dversion="1.0.0-SNAPSHOT" -Dpackage="com.edgemodule" -Drepository="myacr.azurecr.io/javamodule" -B
-    ```
-
-    The command creates the module in the current directory and configures the *module.json* file with the repository information.
-
-# [Node.js](#tab/node)
-
-1. Install the [Azure IoT Edge Node.js Module Generator](https://github.com/Azure/generator-azure-iot-edge-module) and [Yeoman](https://yeoman.io/).
-
-    ```nodejs
-    npm i -g generator-azure-iot-edge-module 
-    npm i -g yo
-    ```
-
-1. Create a new directory folder in the *modules* folder and change directory to the new folder. For example, `mkdir NodeModule` then `cd NodeModule`.
-1. Use the Azure IoT Edge Node.js Module Generator to add a new Node.js module. For example, the following command adds a new module named *NodeModule* and configures *module.json* to use the *myacr.azurecr.io/nodemodule* as the image repository.
-
-    ```nodejs
-    yo azure-iot-edge-module -n NodeModule -r myacr.azurecr.io/nodemodule
-    ```
-
-    The command creates the module in the current directory and configures the *module.json* file with the repository information.
-
-# [Python](#tab/python)
-
-1. Create a new directory folder in the *modules* folder and change directory to the new folder. For example, `mkdir pythonmodule` then `cd pythonmodule`.
-1. Get the `cookiecutter-azure-iot-edge-module` from GitHub, using one of these methods:
-   * From another Bash terminal instance, clone the repository to your desktop with the command:
-      ```URL
-      git clone https://github.com/Azure/cookiecutter-azure-iot-edge-module.git
-      ```
-   * Download a ZIP and extract the contents of the [Cookiecutter Template for Azure IoT Edge Python Module](https://github.com/azure/cookiecutter-azure-iot-edge-module).
-1. Copy the contents in the `{{cookiecutter.module_name}}` folder then add these files into your new module directory. In this tutorial, we call this new directory **pythonmodule**.
-
-   :::image type="content" source="media/how-to-vs-code-develop-module/modules-folder-structure.png" alt-text="Screenshot of the expected folder structure for your I o T Edge solution.":::
-
-1. Update the *module.json* file with the correct repository. For example, if you want to use the repository defined in your environment variables, use `${CONTAINER_REGISTRY_SERVER}/cmodule`, instead of `{{cookiecutter.image_repository}}`.
-
----
-
-::: zone-end
-<!--iotedgedev end-->
-
-## Develop your module
-
-The default module code that comes with the solution is located at the following location:
-
-# [C\#](#tab/csharp)
-
-modules/*&lt;your module name&gt;*/**ModuleBackgroundService.cs**
-
-# [Azure Functions](#tab/azfunctions)
-
-modules/*&lt;your module name&gt;*/***&lt;your module name&gt;*.cs**
-
-# [C](#tab/c)
-
-modules/*&lt;your module name&gt;*/**main.c**
-
-# [Java](#tab/java)
-
-modules/*&lt;your module name&gt;*/ src/main/java/com/edgemodule/**App.java**
-
-# [Node.js](#tab/node)
-
-modules/*&lt;your module name&gt;*/**app.js**
-
-# [Python](#tab/python)
-modules/*&lt;your module name&gt;*/**main.py**
-
-:::image type="content" source="media/how-to-vs-code-develop-module/main-file-location.png" alt-text="Screenshot of the location of your main.py file.":::
-
----
-
-The sample modules allow you to build the solution, push to your container registry, and deploy to a device. This process lets you start testing without modifying any code. The sample module takes input from a source (in this case, the *SimulatedTemperatureSensor* module that simulates data) and pipes it to IoT Hub.
-
-When you're ready to customize the template with your own code, use the [Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md) to build modules that address the key needs for IoT solutions such as security, device management, and reliability.
+- A physical IoT Edge device or a virtual device. To create a virtual device in Azure, follow the steps in the quickstart for [Linux](quickstart-linux.md).
+- A custom IoT Edge module. To create a custom module, follow the steps in the [Develop IoT Edge modules using Visual Studio Code](tutorial-develop-for-linux.md) tutorial.
 
 ::: zone pivot="iotedge-dev-ext"
 
 ## Debug without a container using IoT Edge simulator
+
+The IoT Edge Simulator is a tool that runs on your development computer and simulates the behavior of a single IoT Edge device. You can use the IoT Edge Simulator to develop and test your IoT Edge modules without a physical device or a full IoT Edge device runtime.
+
+The following debugging steps assume you have already created a custom module. If you haven't created a custom module, follow the steps in the [Develop IoT Edge modules using Visual Studio Code](tutorial-develop-for-linux.md) tutorial.
 
 # [C / Python](#tab/c+python)
 
@@ -446,7 +95,7 @@ In the Visual Studio Code integrated terminal, change the directory to the ***&l
 dotnet build
 ```
 
-Open the file `ModuleBackgroundService.cs` and add a breakpoint.
+If using the tutorial sample module, open the file `ModuleBackgroundService.cs` and add a breakpoint.
 
 Navigate to the Visual Studio Code Debug view by selecting the debug icon from the menu on the left or by typing `Ctrl+Shift+D`. Select the debug configuration ***&lt;your module name&gt;* Local Debug (.NET Core)** from the dropdown.
 
