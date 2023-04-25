@@ -17,7 +17,7 @@ ms.custom: [mvc, 'Role: Cloud Development']
 
 You can use X.509 certificates to authenticate devices to your IoT hub. For production environments, we recommend that you purchase an X.509 CA certificate from a professional certificate services vendor. You can then issue certificates within your organization from an internal, self-managed certificate authority (CA) chained to the purchased CA certificate as part of a comprehensive public key infrastructure (PKI) strategy. For more information about getting an X.509 CA certificate from a professional certificate services vendor, see the [Get an X.509 CA certificate](iot-hub-x509ca-overview.md#get-an-x509-ca-certificate) section of [Authenticate devices using X.509 CA certificates](iot-hub-x509ca-overview.md).
 
-However, creating your own self-managed, private CA that uses an internal root CA as the trust anchor is adequate for testing environments. A self-managed private CA with at least one subordinate CA chained to your internal root CA, with client certificates for your devices that are signed by your subordinate CAs, allows you to more closely simulate a recommended production environment.
+However, creating your own self-managed, private CA that uses an internal root CA as the trust anchor is adequate for testing environments. A self-managed private CA with at least one subordinate CA chained to your internal root CA, with client certificates for your devices that are signed by your subordinate CAs, allows you to simulate a recommended production environment.
 
 >[!NOTE]
 >We do not recommend the use of self-signed certificates for production environments. This tutorial is presented for demonstration purposes only.
