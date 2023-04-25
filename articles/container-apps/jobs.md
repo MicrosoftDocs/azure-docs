@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Jobs in Azure Container Apps (preview)
 
-Azure Container Apps jobs enable you to run containerized workloads that execute for a finite duration and then terminate successfully. You can use jobs to perform tasks such as data processing, machine learning, and more.
+Azure Container Apps [jobs](jobs.md) enable you to run containerized workloads that execute for a finite duration and then terminate successfully. You can use jobs to perform tasks such as data processing, machine learning, and more.
 
 ## Compare container apps and jobs
 
