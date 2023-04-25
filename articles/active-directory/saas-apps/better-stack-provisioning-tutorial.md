@@ -41,7 +41,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Determine what data to [map between Azure AD and Better Stack](../app-provisioning/customize-application-attributes.md).
 
 ## Step 2. Configure Better Stack to support provisioning with Azure AD
-Contact Better Stack support to configure Better Stack to support provisioning with Azure AD.
+You can configure the Azure AD provisioning in the Single Sign-on settings inside the Better Stack dashboard. Once enabled, you'll see the **Tenant ID** and the **Secret token** you can use in the Provisioning settings below. If you need any help, feel free to contact [Better Stack Support](mailto:hello@betterstack.com).
 
 ## Step 3. Add Better Stack from the Azure AD application gallery
 

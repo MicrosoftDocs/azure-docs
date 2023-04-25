@@ -104,8 +104,8 @@ The following table lists the route definitions. All the properties are optional
 | uri         | The full URI, which will override the name of app that the requests route to.                                                                                                          |
 | ssoEnabled  | A value that indicates whether to enable SSO validation. See [Configure single sign-on](./how-to-configure-enterprise-spring-cloud-gateway.md#configure-single-sign-on-sso).           |
 | tokenRelay  | Passes the currently authenticated user's identity token to the application.                                                                                                           |
-| predicates  | A list of predicates. See [Available Predicates](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-configuring-routes.html#available-predicates). |
-| filters     | A list of filters. See [Available Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-configuring-routes.html#available-filters).          |
+| predicates  | A list of predicates. See [Available Predicates](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.2/scg-k8s/GUID-configuring-routes.html#available-predicates). |
+| filters     | A list of filters. See [Available Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.2/scg-k8s/GUID-configuring-routes.html#available-filters).          |
 | order       | The route processing order. A lower order is processed with higher precedence, as in [Spring Cloud Gateway](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/). |
 | tags        | Classification tags that will be applied to methods in the generated OpenAPI documentation.                                                                                            |
 
@@ -208,9 +208,9 @@ You can use Spring Cloud Gateway OSS filters in Spring Cloud Gateway for Kuberne
 
 ### Use commercial filters
 
-For more examples of commercial filters, see [Commercial Route Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-route-filters.html#filters-added-in-spring-cloud-gateway-for-kubernetes) in the VMware Spring Cloud Gateway documentation. These examples are written using Kubernetes resource definitions.
+For more examples of commercial filters, see [Commercial Route Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.2/scg-k8s/GUID-route-filters.html#filters-added-in-spring-cloud-gateway-for-kubernetes) in the VMware Spring Cloud Gateway documentation. These examples are written using Kubernetes resource definitions.
 
-The following example shows how to use the [AddRequestHeadersIfNotPresent](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.0/scg-k8s/GUID-route-filters.html#add-request-headers-if-not-present) filter by converting the Kubernetes resource definition.
+The following example shows how to use the [AddRequestHeadersIfNotPresent](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.2/scg-k8s/GUID-route-filters.html#add-request-headers-if-not-present) filter by converting the Kubernetes resource definition.
 
 Start with the following resource definition in YAML:
 

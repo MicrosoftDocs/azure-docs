@@ -14,7 +14,6 @@ Troubleshooting Azure Kubernetes Service (AKS) cluster issues plays an important
 * Helps you identify and resolve problems in your cluster. 
 * Requires no extra configuration or billing cost.
  
-
 ## Open AKS Diagnose and Solve Problems
 
 To access AKS Diagnose and Solve Problems:
@@ -37,7 +36,7 @@ To initiate the tool and retrieve the results in a seamless manner, click on the
 * Recommended actions
 * Links to helpful docs
 * Related-metrics
-* Logging data 
+* Logging data
 
 Based on the outcome, you may follow the detailed instructions or peruse the documentation links to effectively resolve the issue at hand. 
 

@@ -719,6 +719,15 @@ groups:
     title: Python
   - id: programming-language-swift
     title: Swift
+- id: programming-languages-csharp-python
+# Owner: eur
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-speech-sdk-cli
 # Owner: eur
   title: Programming languages
@@ -1152,7 +1161,7 @@ groups:
     title: Android
   - id: programming-language-power-platform
     title: Power Platform
-- id: acs-azcli-js-csharp-java-python-power-platform
+- id: acs-azcli-js-csharp-java-python-logic-apps
   title: Programming languages
   prompt: Choose a programming language
   pivots:
@@ -1559,6 +1568,15 @@ groups:
     title: Chat Completion
   - id: programming-language-chat-ml
     title: ChatML
+#Owner: mbullwin
+- id: openai-prompt
+  title: API Options
+  prompt: API options
+  pivots:
+  - id: programming-language-chat-completions
+    title: Chat Completion
+  - id: programming-language-completions
+    title: Completion
 # Owner: mbullwin
 - id: openai-create-resource
   title: Programming languages
@@ -1916,6 +1934,15 @@ groups:
   - id: aca-arm
     title: Azure Resource Manager (ARM) template
 # Owner: cshoe
+- id: container-apps-vnet-types
+  title: Virtual network
+  prompt: Select a virtual network configuration
+  pivots:
+  - id: aca-vnet-managed
+    title: Managed
+  - id: aca-vnet-custom
+    title: Custom
+# Owner: cshoe
 - id: container-apps-registry-types
   title: Registry types
   prompt: Select the type of container registry
@@ -2245,6 +2272,32 @@ groups:
     title: ASE Pro 2
   - id: ase-pro-gpu
     title: ASE Pro
+# Owner: barclayn, rolyon
+## Zone pivot with Azure portal, Azure AD PowerShell, Microsoft Graph PowerShell, Microsoft Graph
+- id: identity-pivot-portal-aadpowershell-mspowershell-msgraph
+  title: Manage identity
+  prompt: Choose an option
+  pivots:
+  - id: portal
+    title: Azure portal
+  - id: aad-powershell
+    title: Azure AD PowerShell
+  - id: ms-powershell
+    title: Microsoft Graph PowerShell
+  - id: ms-graph
+    title: Microsoft Graph
+# Owner: barclayn, rolyon
+## Zone pivot with Azure portal, Microsoft Graph PowerShell, Microsoft Graph
+- id: identity-pivot-portal-mspowershell-msgraph
+  title: Manage identity
+  prompt: Choose an option
+  pivots:
+  - id: portal
+    title: Azure portal
+  - id: ms-powershell
+    title: Microsoft Graph PowerShell
+  - id: ms-graph
+    title: Microsoft Graph
 # Owner: rolyon
 - id: app-provisioning-cross-tenant-synchronization
   title: Application provisioning or cross-tenant synchronization
@@ -2281,3 +2334,14 @@ groups:
     title: Automated host pool
   - id: host-pool-standard
     title: Standard host pool
+# Owner: kevinguo-ed
+- id: azure-web-pubsub-create-resource-methods
+  title: Create a resource using any one of the methods
+  prompt: Choose an option
+  pivots: 
+  - id: method-azure-portal
+    title: Azure portal
+  - id: method-azure-cli
+    title: Azure CLI
+  - id: method-bicep
+    title: Bicep template

@@ -63,7 +63,7 @@ Defender for IoT network sensors analyze ingested data using built-in analytics 
 
 Analytics engines provide machine learning and profile analytics, risk analysis, a device database and set of insights, threat intelligence, and behavioral analytics.
 
-For example, the **policy violation detection** engine models industry control system (ICS) networks and alerts users of any deviation from baseline behavior. Deviations might include unauthorized use of specific function codes, access to specific objects, or changes to device configuration.
+As an example, the **policy violation detection engine** models industrial control systems (ICS) networks in order to detect deviations from the expected "baseline" behavior-by utilizing Behavioral Anomaly Detection (BAD) as outlined in NISTIR 8219. This baseline is developed by understanding the regular activities that take place on the network, such as normal traffic patterns, user actions, and accesses to the ICS network. The BAD system then monitors the network for any deviation from the expected behavior and flags any policy violations. Examples of baseline deviations include the unauthorized use of function codes, access to specific objects, or changes to the configuration of a device.
 
 Since many detection algorithms were built for IT, rather than OT networks, the extra baseline for ICS networks helps to shorten the system's learning curve for new detections.
 
