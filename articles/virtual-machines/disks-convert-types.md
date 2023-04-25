@@ -5,7 +5,7 @@ author: roygara
 ms.service: storage
 ms.subservice: disks
 ms.topic: how-to
-ms.date: 04/24/2023
+ms.date: 04/25/2023
 ms.author: rogarana
 ---
 
@@ -269,11 +269,11 @@ Follow these steps:
 1. In the pane for the VM, select **Disks** from the menu.
 1. Select the disk that you want to convert.
 1. Select the search bar at the top. Search for and select Disks.
-1. Select Add New.
-1. Select either **Premium SSD v2** or **Ultra Disk** for the disk type
-1. Select snapshot for source type
-1. Select the snapshot of the disk you just took.
-1. Select save.
+1. Select **+Create** and fill in the details.
+1. For **Source Type** select **Snapshot**.
+1. Select the snapshot you just created.
+1. Select **Change size** and select either **Premium SSD v2** or **Ultra Disk** for the **Storage Type**.
+1. Select **Review+Create** and then **Create**.
 ---
 
 ## Next steps
