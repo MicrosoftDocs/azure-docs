@@ -46,7 +46,7 @@ See [Configure WAF policies using Azure Firewall Manager](../shared/manage-polic
 
 # [PowerShell](#tab/powershell)
 
-See [Migrate Web Application Firewall policies using Azure PowerShell](migrate-policy.md)
+See [Migrate Web Application Firewall policies using Azure PowerShell](migrate-policy.md).
 
 ---
 
