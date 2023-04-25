@@ -175,7 +175,7 @@ The App Service app pulls from the container registry every time it starts. If y
 > [Use Private Endpoints for App Service apps](../../networking/private-endpoint.md)
 
 > [!div class="nextstepaction"]
-> [Azure Monitor overview](/azure-monitor/overview.md)
+> [Azure Monitor overview](/azure/azure-monitor/overview)
 
 > [!div class="nextstepaction"]
 > [Application monitoring for Azure App Service overview](/azure/azure-monitor/app/azure-web-apps)
