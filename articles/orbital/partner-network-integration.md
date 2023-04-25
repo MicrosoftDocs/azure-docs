@@ -27,7 +27,7 @@ This article describes how to integrate partner network ground stations for cust
 
 ## Obtain licencses
 
-Obtain the proper spacecraft license(s) for a private spacecraft. Additionally, work with the partner network to obtain a ground station license for each partner network site you intend to use with your spacecraft. 
+Obtain the proper **spacecraft license(s)** for a private spacecraft. Additionally, work with the partner network to obtain a **ground station license** for each partner network site you intend to use with your spacecraft.
 
  > [!NOTE]
  > Public spacecraft do not require licensing for authorization. The Azure Orbital Ground Station service supports several public satellites including Aqua, Suomi NPP, JPSS-1/NOAA-20, and Terra.
@@ -68,7 +68,7 @@ Create a registered spacecraft object on the Orbital portal by following the [sp
    > [!NOTE]
    > A [Basic Support Plan](https://azure.microsoft.com/support/plans/) or higher is required for a spacecraft authorization request.
 
-After the authorization request is generated, our regulatory team will investigate the request and validate the licensing material. Once verified, we will enable your spacecraft to communicate with the partner network ground stations outlined in the request.
+After the authorization request is generated, our regulatory team will investigate the request and validate the material. The partner network must inform Microsoft of the ground station license approval(s) to complete the spacecraft authorization. Once verified, we will enable your spacecraft to communicate with the partner network ground stations outlined in the request.
 
 ## Confirm spacecraft is authorized
 
