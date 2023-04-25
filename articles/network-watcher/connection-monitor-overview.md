@@ -81,6 +81,9 @@ If you wish to escape the installation process for enabling the Network Watcher 
 
 ### Agents for on-premises machines
 
+> [!Note]
+> Connection Monitor now supports the Azure Monitor Agent extension. This support eliminates any dependency on the legacy Log Analytics agent. 
+
 To make Connection Monitor recognize your on-premises machines as sources for monitoring, install the Log Analytics agent on the machines. Then, enable the [Network Performance Monitor solution](../network-watcher/connection-monitor-overview.md#enable-the-network-performance-monitor-solution-for-on-premises-machines). These agents are linked to Log Analytics workspaces, so you need to set up the workspace ID and primary key before the agents can start monitoring.
 
 To install the Log Analytics agent for Windows machines, see [Install Log Analytics agent on Windows](../azure-monitor/agents/agent-windows.md).
