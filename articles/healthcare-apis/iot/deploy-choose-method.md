@@ -15,24 +15,25 @@ ms.author: jasteppe
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-The MedTech service provides multiple methods for deployment into Azure. Each deployment method has different advantages allow you to customize your deployment to suit your needs and use cases.
+The MedTech service provides multiple methods for deployment into Azure. Each deployment method has different advantages that allow you to customize your deployment to suit your needs and use cases.
 
 In this quickstart, learn about these deployment methods:
 
 * Azure Resource Manager template (ARM template) including an Azure Iot Hub using the **Deploy to Azure** button. 
 * ARM template using the **Deploy to Azure** button.
 * ARM template using Azure PowerShell or the Azure CLI.
+* Bicep file using Azure PowerShell or the Azure CLI.
 * Manually in the Azure portal. 
 
 ## Deployment overview
 
-The following diagram outlines the basic steps of the MedTech service deployment. These basic steps may help you analyze the deployment options and determine which deployment method is best for you.
+The following diagram outlines the basic steps of the MedTech service deployment. These steps may help you analyze the deployment options and determine which deployment method is best for you.
 
 :::image type="content" source="media/get-started/get-started-with-medtech-service.png" alt-text="Diagram showing MedTech service deployment overview." lightbox="media/get-started/get-started-with-medtech-service.png":::
 
 ## ARM template including an Azure Iot Hub using the Deploy to Azure button
 
- Using an ARM template with the **Deploy to Azure** button is an easy and fast deployment method because it automates the deployment, most configuration steps, and uses the Azure portal. The deployed MedTech service and Azure IoT Hub are fully functional including conforming and valid device and FHIR destination mappings. Use the Azure IoT Hub to create devices and send device messages to the MedTech service.
+Using an ARM template with the **Deploy to Azure** button is an easy and fast deployment method because it automates the deployment, most configuration steps, and uses the Azure portal. The deployed MedTech service and Azure IoT Hub are fully functional including conforming and valid device and FHIR destination mappings. Use the Azure IoT Hub to create devices and send device messages to the MedTech service.
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthcareapis%2Fworkspaces%2Fiotconnectors-with-iothub%2Fazuredeploy.json)
 
@@ -42,7 +43,7 @@ To learn more about deploying the MedTech service including an Azure IoT Hub usi
 
 Using an ARM template with the **Deploy to Azure** button is an easy and fast deployment method because it automates the deployment, most configuration steps, and uses the Azure portal. The deployed MedTech service requires conforming and valid device and FHIR destination mappings to be fully functional.
 
- [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthcareapis%2Fworkspaces%2Fiotconnectors%2Fazuredeploy.json).
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthcareapis%2Fworkspaces%2Fiotconnectors%2Fazuredeploy.json).
 
 To learn more about deploying the MedTech service using an ARM template and the **Deploy to Azure** button, see [Deploy the MedTech service using an Azure Resource Manager template](deploy-arm-template.md).
 
@@ -71,9 +72,9 @@ To learn more about deploying the MedTech service manually using the Azure porta
 >
 > Examples:
 >
-> - Two MedTech services accessing the same device message event hub.
+> * Two MedTech services accessing the same device message event hub.
 >
-> - A MedTech service and a storage writer application accessing the same device message event hub.
+> * A MedTech service and a storage writer application accessing the same device message event hub.
 
 ## Next steps
 
