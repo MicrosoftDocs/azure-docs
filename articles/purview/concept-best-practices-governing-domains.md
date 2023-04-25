@@ -3,7 +3,7 @@ title: Govern your domains with Microsoft Purview. Best practices for using coll
 description: Understanding your domains is critical for effective data governance. In this article, we'll explore how to analyze a business area, define responsibilities, and implement a domain-driven governance approach in Purview.
 author: evangelinew
 ms.author: evwhite
-ms.service: Microsoft Purview
+ms.service: purview
 ms.topic: conceptual - best practices for governing domains of data in Purview
 ms.date: 04/24/2023
 ms.custom: template-concept
