@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 04/24/2023
+ms.date: 04/25/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -17,7 +17,7 @@ recommendations: false
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD051 -->
 
-# Form Recognizer SDKs (preview)
+# Form Recognizer SDK (preview)
 
 **This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
 
