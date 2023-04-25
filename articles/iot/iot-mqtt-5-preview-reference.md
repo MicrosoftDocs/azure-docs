@@ -1,15 +1,16 @@
 ---
  title: Azure IoT Hub MQTT 5 API reference (preview)
- description: Learn about IoT Hub's MQTT 5 API reference
- services: iot-hub
+ description: Learn about the IoT Hub MQTT 5 preview API
+ services: iot
+ ms.service: iot
  author: kgremban
- ms.service: iot-hub
- ms.topic: reference
- ms.date: 11/19/2020
  ms.author: kgremban
+ ms.topic: reference
+ ms.date: 04/24/2023
+
 ---
 
-# IoT Hub data plane MQTT 5 API reference
+# IoT Hub data plane MQTT 5 API reference (preview) 
 
 This document defines operations available in version 2.0 (api-version: `2020-10-01-preview`) of IoT Hub data plane API.
 
@@ -39,9 +40,9 @@ Get Twin state
 
 | Status | Name | Description |
 | :----- | :--- | :---------- |
-| 0100 |  Bad Request | Operation message is malformed and cannot be processed. |
-| 0101 |  Not Authorized | Client is not authorized to perform the operation. |
-| 0102 |  Not Allowed | Operation is not allowed. |
+| 0100 |  Bad Request | Operation message is malformed and can't be processed. |
+| 0101 |  Not Authorized | Client isn't authorized to perform the operation. |
+| 0102 |  Not Allowed | Operation isn't allowed. |
 | 0501 |  Throttled | request rate is too high per SKU |
 | 0502 |  Quota Exceeded | daily quota per current SKU is exceeded |
 | 0601 |  Server Error | internal server error |
@@ -91,10 +92,10 @@ Patch Twin's reported state
 
 | Status | Name | Description |
 | :----- | :--- | :---------- |
-| 0104 |  Precondition Failed | precondition was not met resulting in request being canceled |
-| 0100 |  Bad Request | Operation message is malformed and cannot be processed. |
-| 0101 |  Not Authorized | Client is not authorized to perform the operation. |
-| 0102 |  Not Allowed | Operation is not allowed. |
+| 0104 |  Precondition Failed | precondition wasn't met resulting in request being canceled |
+| 0100 |  Bad Request | Operation message is malformed and can't be processed. |
+| 0101 |  Not Authorized | Client isn't authorized to perform the operation. |
+| 0102 |  Not Allowed | Operation isn't allowed. |
 | 0501 |  Throttled | request rate is too high per SKU |
 | 0502 |  Quota Exceeded | daily quota per current SKU is exceeded |
 | 0601 |  Server Error | internal server error |
@@ -152,8 +153,8 @@ Indicates command was accepted for handling by the client
 
 | Reason Code | Status | Name | Description |
 | :---------- | :----- | :--- | :---------- |
-| 131 | 0603 | Abandon | Indicates command will not be processed at this time and should be redelivered in the future. |
-| 131 | 0100 | Reject | Indicates command is rejected by the client and should not be attempted again. |
+| 131 | 0603 | Abandon | Indicates command won't be processed at this time and should be redelivered in the future. |
+| 131 | 0100 | Reject | Indicates the client rejected the command and it shouldn't be attempted again. |
 
 #### Pseudo-code Sample
 
@@ -199,7 +200,7 @@ Receive and handle Direct Method calls
 
 | Status | Name | Description |
 | :----- | :--- | :---------- |
-| 06A0 |  Unavailable | Indicates that client is not reachable through this connection. |
+| 06A0 |  Unavailable | Indicates that client isn't reachable through this connection. |
 
 #### Pseudo-code Sample
 
@@ -251,7 +252,7 @@ Receive updates to Twin's desired state
 
 ### Send Telemetry
 
-Post message to telemetry channel - EventHubs by default or other endpoint via routing configuration.
+Post message to telemetry channel - Event Hubs by default or other endpoint via routing configuration.
 
 #### Message
 
@@ -286,9 +287,9 @@ Message has been successfully posted to telemetry channel
 
 | Reason Code | Status | Name | Description |
 | :---------- | :----- | :--- | :---------- |
-| 131 | 0100 | Bad Request | Operation message is malformed and cannot be processed. |
-| 135 | 0101 | Not Authorized | Client is not authorized to perform the operation. |
-| 131 | 0102 | Not Allowed | Operation is not allowed. |
+| 131 | 0100 | Bad Request | Operation message is malformed and can't be processed. |
+| 135 | 0101 | Not Authorized | Client isn't authorized to perform the operation. |
+| 131 | 0102 | Not Allowed | Operation isn't allowed. |
 | 131 | 0601 | Server Error | internal server error |
 | 151 | 0501 | Throttled | request rate is too high per SKU |
 | 151 | 0502 | Quota Exceeded | daily quota per current SKU is exceeded |
@@ -316,7 +317,7 @@ Message has been successfully posted to telemetry channel
 
 ### Bad Request
 
-Operation message is malformed and cannot be processed.
+Operation message is malformed and can't be processed.
 
 **Reason Code:** `131`
 
@@ -326,7 +327,7 @@ Operation message is malformed and cannot be processed.
 
 | Name | Type | Required | Description |
 | :--- | :--- | :------- | :---------- |
-| reason | string | no | contains information on what specifically is not valid about the message |
+| reason | string | no | contains information on what specifically isn't valid about the message |
 
 **Payload**: empty
 
@@ -342,14 +343,14 @@ Operation is in conflict with another ongoing operation.
 
 | Name | Type | Required | Description |
 | :--- | :--- | :------- | :---------- |
-| trace-id | string | no | trace ID for correlation with additional diagnostics for the error |
-| reason | string | no | contains information on what specifically is not valid about the message |
+| trace-id | string | no | trace ID for correlation with other diagnostics for the error |
+| reason | string | no | contains information on what specifically isn't valid about the message |
 
 **Payload**: empty
 
 ### Not Allowed
 
-Operation is not allowed.
+Operation isn't allowed.
 
 **Reason Code:** `131`
 
@@ -359,13 +360,13 @@ Operation is not allowed.
 
 | Name | Type | Required | Description |
 | :--- | :--- | :------- | :---------- |
-| reason | string | no | contains information on what specifically is not valid about the message |
+| reason | string | no | contains information on what specifically isn't valid about the message |
 
 **Payload**: empty
 
 ### Not Authorized
 
-Client is not authorized to perform the operation.
+Client isn't authorized to perform the operation.
 
 **Reason Code:** `135`
 
@@ -375,13 +376,13 @@ Client is not authorized to perform the operation.
 
 | Name | Type | Required | Description |
 | :--- | :--- | :------- | :---------- |
-| trace-id | string | no | trace ID for correlation with additional diagnostics for the error |
+| trace-id | string | no | trace ID for correlation with other diagnostics for the error |
 
 **Payload**: empty
 
 ### Not Found
 
-requested resource does not exist
+requested resource doesn't exist
 
 **Reason Code:** `131`
 
@@ -391,13 +392,13 @@ requested resource does not exist
 
 | Name | Type | Required | Description |
 | :--- | :--- | :------- | :---------- |
-| reason | string | no | contains information on what specifically is not valid about the message |
+| reason | string | no | contains information on what specifically isn't valid about the message |
 
 **Payload**: empty
 
 ### Not Modified
 
-Resource was not modified based on provided precondition.
+Resource wasn't modified based on provided precondition.
 
 **Reason Code:** `0`
 
@@ -410,7 +411,7 @@ Resource was not modified based on provided precondition.
 
 ### Precondition Failed
 
-Precondition was not met resulting in request being canceled
+Precondition wasn't met resulting in request being canceled
 
 **Reason Code:** `131`
 
@@ -446,7 +447,7 @@ resource has no capacity to complete the operation
 
 | Name | Type | Required | Description |
 | :--- | :--- | :------- | :---------- |
-| reason | string | no | contains information on what specifically is not valid about the message |
+| reason | string | no | contains information on what specifically isn't valid about the message |
 
 **Payload**: empty
 
@@ -462,7 +463,7 @@ server busy
 
 | Name | Type | Required | Description |
 | :--- | :--- | :------- | :---------- |
-| trace-id | string | no | trace ID for correlation with additional diagnostics for the error |
+| trace-id | string | no | trace ID for correlation with other diagnostics for the error |
 
 **Payload**: empty
 
@@ -478,7 +479,7 @@ internal server error
 
 | Name | Type | Required | Description |
 | :--- | :--- | :------- | :---------- |
-| trace-id | string | no | trace ID for correlation with additional diagnostics for the error |
+| trace-id | string | no | trace ID for correlation with other diagnostics for the error |
 
 **Payload**: empty
 
@@ -494,7 +495,7 @@ Target responded but the response was invalid or malformed
 
 | Name | Type | Required | Description |
 | :--- | :--- | :------- | :---------- |
-| reason | string | no | contains information on what specifically is not valid about the message |
+| reason | string | no | contains information on what specifically isn't valid about the message |
 
 **Payload**: empty
 
@@ -510,8 +511,8 @@ timed out waiting for target to complete the request
 
 | Name | Type | Required | Description |
 | :--- | :--- | :------- | :---------- |
-| trace-id | string | no | trace ID for correlation with additional diagnostics for the error |
-| reason | string | no | contains information on what specifically is not valid about the message |
+| trace-id | string | no | trace ID for correlation with other diagnostics for the error |
+| reason | string | no | contains information on what specifically isn't valid about the message |
 
 **Payload**: empty
 
@@ -553,7 +554,7 @@ operation timed out before it could be completed
 
 | Name | Type | Required | Description |
 | :--- | :--- | :------- | :---------- |
-| trace-id | string | no | trace ID for correlation with additional diagnostics for the error |
+| trace-id | string | no | trace ID for correlation with other diagnostics for the error |
 
 **Payload**: empty
 
