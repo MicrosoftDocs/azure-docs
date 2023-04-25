@@ -68,7 +68,7 @@ Follow the steps in this section to instrument your application with OpenTelemet
 
 ---
 
-### Install the client libraries
+### Install the client library
 
 #### [.NET](#tab/net)
 
@@ -150,7 +150,7 @@ pip install azure-monitor-opentelemetry --pre
 
 This section provides guidance that shows how to enable OpenTelemetry.
 
-#### Instrument with OpenTelemetry
+#### Configure the Application Insights connection string
 
 
 ##### [.NET](#tab/net)
@@ -303,15 +303,21 @@ input()
 > [!TIP]
 > For .NET, Node.js, and Python, you'll need to manually add [instrumentation libraries](opentelemetry-configuration.md#instrumentation-libraries) to autocollect telemetry across popular frameworks and libraries. For Java, these instrumentation libraries are already included and no additional steps are required.
 
-#### Set the Application Insights connection string
+#### Paste your unique Application Insights connection string
 
 You can set the connection string either programatically or by setting the environment variable `APPLICATIONINSIGHTS_CONNECTION_STRING`. In the event that both have been set, the programatic connection string will take precedence.
 
-You can find your connection string in the Overview Pane of your Application Insights Resource.
+:::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot that shows Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
 
-:::image type="content" source="media/opentelemetry/connection-string.png" alt-text="Screenshot of the Application Insights connection string.":::
+1. Go to the **Overview** pane of your Application Insights resource.
 
-Here's how you set the connection string.
+1. Find your **Connection String** displayed on the right.
+
+1. Hover over the connection string and select the **Copy to clipboard** icon.
+
+1. Configure the Application Insights SDK by following [How to set connection strings](sdk-connection-string.md#set-a-connection-string).
+
+The following instructions detail where to paste your unique connection string.
 
 #### [.NET](#tab/net)
 
@@ -362,6 +368,229 @@ Run your application and open your **Application Insights Resource** tab in the 
 
 As part of using Application Insights instrumentation, we collect and send diagnostic data to Microsoft. This data helps us run and improve Application Insights. To learn more, see [Statsbeat in Azure Application Insights](./statsbeat.md).
 
+## Instrumentation libraries
+
+The following libraries are validated to work with the current release.
+
+> [!WARNING]
+> Instrumentation libraries are based on experimental OpenTelemetry specifications, which impacts languages in [preview status](opentelemetry-enable.md#opentelemetry-release-status). Microsoft's *preview* support commitment is to ensure that the following libraries emit data to Azure Monitor Application Insights, but it's possible that breaking changes or experimental mapping will block some data elements.
+
+### Distributed Tracing
+
+#### [.NET](#tab/net)
+
+Requests
+- [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.AspNet-1.0.0-rc9.6/src/OpenTelemetry.Instrumentation.AspNet/README.md) <sup>[1](#FOOTNOTEONE)</sup> version:
+  [1.0.0-rc9.6](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNet/1.0.0-rc9.6)
+- [ASP.NET
+  Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.AspNetCore/README.md) <sup>[1](#FOOTNOTEONE)</sup> version:
+  [1.0.0-rc9.7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNetCore/1.0.0-rc9.7)
+
+Dependencies
+- [HTTP
+  clients](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.Http/README.md) <sup>[1](#FOOTNOTEONE)</sup> version:
+  [1.0.0-rc9.7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Http/1.0.0-rc9.7)
+- [SQL
+  client](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.SqlClient/README.md) <sup>[1](#FOOTNOTEONE)</sup> version:
+  [1.0.0-rc9.7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.SqlClient/1.0.0-rc9.7)
+
+
+
+#### [Java](#tab/java)
+
+Java 3.x includes the following auto-instrumentation.
+
+Autocollected requests:
+
+* JMS consumers
+* Kafka consumers
+* Netty
+* Quartz
+* Servlets
+* Spring scheduling
+
+  > [!NOTE]
+  > Servlet and Netty auto-instrumentation covers the majority of Java HTTP services, including Java EE, Jakarta EE, Spring Boot, Quarkus, and Micronaut.
+
+Autocollected dependencies (plus downstream distributed trace propagation):
+
+* Apache HttpClient
+* Apache HttpAsyncClient
+* AsyncHttpClient
+* Google HttpClient
+* gRPC
+* java.net.HttpURLConnection
+* Java 11 HttpClient
+* JAX-RS client
+* Jetty HttpClient
+* JMS
+* Kafka
+* Netty client
+* OkHttp
+
+Autocollected dependencies (without downstream distributed trace propagation):
+
+* Cassandra
+* JDBC
+* MongoDB (async and sync)
+* Redis (Lettuce and Jedis)
+
+Telemetry emitted by these Azure SDKs is automatically collected by default:
+
+* [Azure App Configuration](/java/api/overview/azure/data-appconfiguration-readme) 1.1.10+
+* [Azure Cognitive Search](/java/api/overview/azure/search-documents-readme) 11.3.0+
+* [Azure Communication Chat](/java/api/overview/azure/communication-chat-readme) 1.0.0+
+* [Azure Communication Common](/java/api/overview/azure/communication-common-readme) 1.0.0+
+* [Azure Communication Identity](/java/api/overview/azure/communication-identity-readme) 1.0.0+
+* [Azure Communication Phone Numbers](/java/api/overview/azure/communication-phonenumbers-readme) 1.0.0+
+* [Azure Communication SMS](/java/api/overview/azure/communication-sms-readme) 1.0.0+
+* [Azure Cosmos DB](/java/api/overview/azure/cosmos-readme) 4.22.0+
+* [Azure Digital Twins - Core](/java/api/overview/azure/digitaltwins-core-readme) 1.1.0+
+* [Azure Event Grid](/java/api/overview/azure/messaging-eventgrid-readme) 4.0.0+
+* [Azure Event Hubs](/java/api/overview/azure/messaging-eventhubs-readme) 5.6.0+
+* [Azure Event Hubs - Azure Blob Storage Checkpoint Store](/java/api/overview/azure/messaging-eventhubs-checkpointstore-blob-readme) 1.5.1+
+* [Azure Form Recognizer](/java/api/overview/azure/ai-formrecognizer-readme) 3.0.6+
+* [Azure Identity](/java/api/overview/azure/identity-readme) 1.2.4+
+* [Azure Key Vault - Certificates](/java/api/overview/azure/security-keyvault-certificates-readme) 4.1.6+
+* [Azure Key Vault - Keys](/java/api/overview/azure/security-keyvault-keys-readme) 4.2.6+
+* [Azure Key Vault - Secrets](/java/api/overview/azure/security-keyvault-secrets-readme) 4.2.6+
+* [Azure Service Bus](/java/api/overview/azure/messaging-servicebus-readme) 7.1.0+
+* [Azure Storage - Blobs](/java/api/overview/azure/storage-blob-readme) 12.11.0+
+* [Azure Storage - Blobs Batch](/java/api/overview/azure/storage-blob-batch-readme) 12.9.0+
+* [Azure Storage - Blobs Cryptography](/java/api/overview/azure/storage-blob-cryptography-readme) 12.11.0+
+* [Azure Storage - Common](/java/api/overview/azure/storage-common-readme) 12.11.0+
+* [Azure Storage - Files Data Lake](/java/api/overview/azure/storage-file-datalake-readme) 12.5.0+
+* [Azure Storage - Files Shares](/java/api/overview/azure/storage-file-share-readme) 12.9.0+
+* [Azure Storage - Queues](/java/api/overview/azure/storage-queue-readme) 12.9.0+
+* [Azure Text Analytics](/java/api/overview/azure/ai-textanalytics-readme) 5.0.4+
+
+[//]: # "Azure Cosmos DB 4.22.0+ due to https://github.com/Azure/azure-sdk-for-java/pull/25571"
+
+[//]: # "the remaining above names and links scraped from https://azure.github.io/azure-sdk/releases/latest/java.html"
+[//]: # "and version synched manually against the oldest version in maven central built on azure-core 1.14.0"
+[//]: # ""
+[//]: # "var table = document.querySelector('#tg-sb-content > div > table')"
+[//]: # "var str = ''"
+[//]: # "for (var i = 1, row; row = table.rows[i]; i++) {"
+[//]: # "  var name = row.cells[0].getElementsByTagName('div')[0].textContent.trim()"
+[//]: # "  var stableRow = row.cells[1]"
+[//]: # "  var versionBadge = stableRow.querySelector('.badge')"
+[//]: # "  if (!versionBadge) {"
+[//]: # "    continue"
+[//]: # "  }"
+[//]: # "  var version = versionBadge.textContent.trim()"
+[//]: # "  var link = stableRow.querySelectorAll('a')[2].href"
+[//]: # "  str += '* [' + name + '](' + link + ') ' + version + '\n'"
+[//]: # "}"
+[//]: # "console.log(str)"
+
+#### [Node.js](#tab/nodejs)
+
+Requests/Dependencies
+- [http/https](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http/README.md) version:
+  [0.33.0](https://www.npmjs.com/package/@opentelemetry/instrumentation-http/v/0.33.0)
+  
+Dependencies
+- [mysql](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-mysql) version:
+  [0.25.0](https://www.npmjs.com/package/@opentelemetry/instrumentation-mysql/v/0.25.0)
+
+#### [Python](#tab/python)
+
+Requests
+- [Django](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-django) <sup>[1](#FOOTNOTEONE)</sup> version:
+  [0.36b0](https://pypi.org/project/opentelemetry-instrumentation-django/0.36b0/)
+- [FastApi](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-fastapi) <sup>[1](#FOOTNOTEONE)</sup> version:
+  [0.36b0](https://pypi.org/project/opentelemetry-instrumentation-fastapi/0.36b0/)
+- [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) <sup>[1](#FOOTNOTEONE)</sup> version:
+  [0.36b0](https://pypi.org/project/opentelemetry-instrumentation-flask/0.36b0/)
+
+Dependencies
+- [Psycopg2](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-psycopg2) version:
+  [0.36b0](https://pypi.org/project/opentelemetry-instrumentation-psycopg2/0.36b0/)
+- [Requests](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-requests) <sup>[1](#FOOTNOTEONE)</sup> version:
+  [0.36b0](https://pypi.org/project/opentelemetry-instrumentation-requests/0.36b0/)
+- [Urllib](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-urllib) <sup>[1](#FOOTNOTEONE)</sup> version:
+  [0.36b0](https://pypi.org/project/opentelemetry-instrumentation-urllib/0.36b0/)
+- [Urllib3](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-urllib3) <sup>[1](#FOOTNOTEONE)</sup> version:
+  [0.36b0](https://pypi.org/project/opentelemetry-instrumentation-urllib3/0.36b0/)
+
+---
+
+### Metrics
+
+#### [.NET](#tab/net)
+
+- [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.AspNet-1.0.0-rc9.6/src/OpenTelemetry.Instrumentation.AspNet/README.md) version:
+  [1.0.0-rc9.6](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNet/1.0.0-rc9.6)
+- [ASP.NET
+  Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.AspNetCore/README.md) version:
+  [1.0.0-rc9.7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNetCore/1.0.0-rc9.7)
+- [HTTP
+  clients](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.Http/README.md) version:
+  [1.0.0-rc9.7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Http/1.0.0-rc9.7)
+- [Runtime](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.Runtime-1.0.0/src/OpenTelemetry.Instrumentation.Runtime/README.md) version: [1.0.0](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Runtime/1.0.0)
+
+#### [Java](#tab/java)
+
+Autocollected metrics
+
+* Micrometer Metrics, including Spring Boot Actuator metrics
+* JMX Metrics
+
+#### [Node.js](#tab/nodejs)
+
+- [http/https](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http/README.md) version:
+  [0.33.0](https://www.npmjs.com/package/@opentelemetry/instrumentation-http/v/0.33.0)
+
+#### [Python](#tab/python)
+
+Autocollected metrics
+
+- [Django](https://pypi.org/project/Django/)
+- [FastApi](https://pypi.org/project/requests/)
+- [Flask](https://pypi.org/project/Flask/)
+- [Requests](https://pypi.org/project/requests/)
+- [Urllib](https://docs.python.org/3/library/urllib.html)
+- [Urllib3](https://pypi.org/project/urllib3/)
+
+---
+
+> [!TIP]
+> The OpenTelemetry-based offerings currently emit all metrics as [Custom Metrics](opentelemetry-enable.md#add-custom-metrics) and [Performance Counters](standard-metrics.md#performance-counters) in Metrics Explorer. For .NET, Node.js, and Python, whatever you set as the meter name becomes the metrics namespace.
+
+### Logs
+
+#### [.NET](#tab/net)
+
+Coming soon.
+
+#### [Java](#tab/java)
+
+Autocollected logs
+
+* Logback (including MDC properties) [1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
+* Log4j (including MDC/Thread Context properties) [1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
+* JBoss Logging (including MDC properties) [1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
+* java.util.logging [1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
+
+#### [Node.js](#tab/nodejs)
+
+Coming soon.
+
+#### [Python](#tab/python)
+
+Autocollected logs
+
+* [Python logging library](https://docs.python.org/3/howto/logging.html) <sup>[3](#FOOTNOTETHREE)</sup>
+
+See [this](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry/samples/logging) for examples of using the Python logging library.
+
+---
+
+**Footnotes**
+- <a name="FOOTNOTEONE">1</a>: Supports automatic reporting of unhandled exceptions
+- <a name="FOOTNOTETWO">2</a>: By default, logging is only collected when that logging is performed at the INFO level or higher. To change this level, see the [configuration options](./java-standalone-config.md#auto-collected-logging).
+- <a name="FOOTNOTETHREE">3</a>: By default, logging is only collected when that logging is performed at the WARNING level or higher. To change this level, see the [configuration options](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry#usage) and specify `logging_level`.
 
 ## Collect custom telemetry
 
@@ -1750,98 +1979,6 @@ Get the request trace ID and the span ID in your code:
    trace_id = trace.get_current_span().get_span_context().trace_id
    span_id = trace.get_current_span().get_span_context().span_id
    ```
-
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
-
----
-
-## Enable the OTLP Exporter
-
-You might want to enable the OpenTelemetry Protocol (OTLP) Exporter alongside your Azure Monitor Exporter to send your telemetry to two locations.
-
-> [!NOTE]
-> The OTLP Exporter is shown for convenience only. We don't officially support the OTLP Exporter or any components or third-party experiences downstream of it.
-
-#### [.NET](#tab/net)
-
-1. Install the [OpenTelemetry.Exporter.OpenTelemetryProtocol](https://www.nuget.org/packages/OpenTelemetry.Exporter.OpenTelemetryProtocol/) package along with [Azure.Monitor.OpenTelemetry.Exporter](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) in your project.
-
-1. Add the following code snippet. This example assumes you have an OpenTelemetry Collector with an OTLP receiver running. For details, see the [example on GitHub](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/examples/Console/TestOtlpExporter.cs).
-    
-    ```csharp
-    // Sends data to Application Insights as well as OTLP
-    using var tracerProvider = Sdk.CreateTracerProviderBuilder()
-            .AddSource("OTel.AzureMonitor.Demo")
-            .AddAzureMonitorTraceExporter(o =>
-            {
-                o.ConnectionString = "<Your Connection String>"
-            })
-            .AddOtlpExporter()
-            .Build();
-    ```
-
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
-
-#### [Java](#tab/java)
-
-Coming soon.
-
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
-
-#### [Node.js](#tab/nodejs)
-
-1. Install the [OpenTelemetry Collector Exporter](https://www.npmjs.com/package/@opentelemetry/exporter-otlp-http) package along with the [Azure Monitor OpenTelemetry Exporter](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter) in your project.
-
-    ```sh
-        npm install @opentelemetry/exporter-otlp-http
-        npm install @azure/monitor-opentelemetry-exporter
-    ```
-
-2. Add the following code snippet. This example assumes you have an OpenTelemetry Collector with an OTLP receiver running. For details, see the [example on GitHub](https://github.com/open-telemetry/opentelemetry-js/tree/main/examples/otlp-exporter-node).
-
-    ```javascript
-    const { BasicTracerProvider, SimpleSpanProcessor } = require('@opentelemetry/sdk-trace-base');
-    const { OTLPTraceExporter } = require('@opentelemetry/exporter-otlp-http');
-    const { AzureMonitorTraceExporter } = require("@azure/monitor-opentelemetry-exporter");
-    
-    const provider = new BasicTracerProvider();
-    const azureMonitorExporter = new AzureMonitorTraceExporter({
-      connectionString: "<Your Connection String>",
-    });
-    const otlpExporter = new OTLPTraceExporter();
-    provider.addSpanProcessor(new SimpleSpanProcessor(azureMonitorExporter));
-    provider.addSpanProcessor(new SimpleSpanProcessor(otlpExporter));
-    provider.register();
-    ```
-
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
-
-#### [Python](#tab/python)
-
-1. Install the [azure-monitor-opentelemetry-exporter](https://pypi.org/project/azure-monitor-opentelemetry-exporter/) and [opentelemetry-exporter-otlp](https://pypi.org/project/opentelemetry-exporter-otlp/) packages.
-
-1. Add the following code snippet. This example assumes you have an OpenTelemetry Collector with an OTLP receiver running. For details, see this [README](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor/azure-monitor-opentelemetry-exporter/samples/traces#collector).
-    
-    ```python
-    from azure.monitor.opentelemetry import configure_azure_monitor
-    from opentelemetry import trace
-    from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
-    from opentelemetry.sdk.trace import TracerProvider
-    from opentelemetry.sdk.trace.export import BatchSpanProcessor
-
-    configure_azure_monitor(
-        connection_string="<your-connection-string>",
-    )
-    tracer = trace.get_tracer(__name__) 
-    
-    exporter = AzureMonitorTraceExporter(connection_string="<your-connection-string>")
-    otlp_exporter = OTLPSpanExporter(endpoint="http://localhost:4317")
-    span_processor = BatchSpanProcessor(otlp_exporter) 
-    trace.get_tracer_provider().add_span_processor(span_processor)
-    
-    with tracer.start_as_current_span("test"):
-        print("Hello world!")
-    ```
 
 <!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
 
