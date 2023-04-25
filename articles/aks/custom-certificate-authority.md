@@ -75,19 +75,17 @@ This article shows you how to create custom CAs and apply them to your AKS clust
 
 ### Install CAs on AKS node pools
 
-If your environment requires your custom CAs to be added to node trust store for correct provisioning, you need to pass a text file containing up to 10 blank line separated certificates during [`az aks create`][az-aks-create] or [`az aks update`][az-aks-update] operations.
+* If your environment requires your custom CAs to be added to node trust store for correct provisioning, you need to pass a text file containing up to 10 blank line separated certificates during [`az aks create`][az-aks-create] or [`az aks update`][az-aks-update] operations. Example text file:
 
-Example text file:
+    ```txt
+    -----BEGIN CERTIFICATE-----
+    cert1
+    -----END CERTIFICATE-----
 
-```txt
------BEGIN CERTIFICATE-----
-cert1
------END CERTIFICATE-----
-
------BEGIN CERTIFICATE-----
-cert2
------END CERTIFICATE-----
-```
+    -----BEGIN CERTIFICATE-----
+    cert2
+    -----END CERTIFICATE-----
+    ```
 
 #### Install CAs during node pool creation
 
