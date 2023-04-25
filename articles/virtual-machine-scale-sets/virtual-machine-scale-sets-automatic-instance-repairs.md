@@ -139,7 +139,7 @@ az group create --name <myResourceGroup> --location <VMSSLocation>
 az vmss create \
   --resource-group <myResourceGroup> \
   --name <myVMScaleSet> \
-  --image UbuntuLTS \
+  --image RHEL \
   --admin-username <azureuser> \
   --generate-ssh-keys \
   --load-balancer <existingLoadBalancer> \
