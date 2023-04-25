@@ -158,7 +158,7 @@ additionalContent:
               - text: Azure
                 url: https://azure.microsoft.com/
               - text: Azure Cognitive Services 
-                url: ./cognitive-services.md
+                url: /azure/cognitive-services
               - text: Dynamics 365
                 url: https://dynamics.microsoft.com/
 
