@@ -43,7 +43,7 @@ These samples and how-to guides demonstrate how to write a web application that 
 > [!div class="mx-tdCol2BreakAll"]
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
-> | JavaScript, Node/Express | &#8226; [Sign in users](how-to-web-app-node-sample-sign-in.md)<br/> &#8226; [Call an API against a customer tenant](https://github.com/Azure-Samples/active-directory-b2c-msal-node-sign-in-sign-out-webapp)  |  [Node/Express web app](how-to-web-app-node-sign-in-overview)  |
+> | JavaScript, Node/Express | &#8226; [Sign in users](how-to-web-app-node-sample-sign-in.md)<br/> &#8226; [Call an API against a customer tenant](https://github.com/Azure-Samples/active-directory-b2c-msal-node-sign-in-sign-out-webapp)  |  [Node/Express web app](how-to-web-app-node-sign-in-overview.md)  |
 > | ASP.NET Core | &#8226; [Sign in users](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C) <br/> &#8226; [Call an API against a customer tenant](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C)  | [ASP.NET Core web app](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C)   |
 
 ### Web API
@@ -138,7 +138,7 @@ These samples and how-to guides demonstrate how to write a public client mobile 
 > [!div class="mx-tdCol2BreakAll"]
 > | App type | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
-> | Web app |&#8226; [Sign in users](how-to-web-app-node-sample-sign-in)<br/> &#8226; [Call an API against a customer tenant](https://github.com/Azure-Samples/active-directory-b2c-msal-node-sign-in-sign-out-webapp)  | [Node/Express web app](how-to-web-app-node-sign-in-overview)   |
+> | Web app |&#8226; [Sign in users](how-to-web-app-node-sample-sign-in.md)<br/> &#8226; [Call an API against a customer tenant](https://github.com/Azure-Samples/active-directory-b2c-msal-node-sign-in-sign-out-webapp)  | [Node/Express web app](how-to-web-app-node-sign-in-overview.md)   |
 
 ### JavaScript, Electron
 
