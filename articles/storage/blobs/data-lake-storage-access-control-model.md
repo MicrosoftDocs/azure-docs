@@ -66,7 +66,7 @@ During security principal-based authorization, permissions are evaluated as show
     - If not, the ACLs (4) are evaluated next.
 1. Azure determines whether any ABAC role assignment conditions exist.
     - If no conditions exist, access is granted.
-    - If conditions exist, they are checked to see if they match the request (3).
+    - If conditions exist, they are evaluated to see if they match the request (3).
 1. Azure determines whether all of the ABAC role assignment conditions match the attributes of the request.
     - If all of them match, access is granted.
     - If at least one of them does not match, the ACLs (4) are evaluated next.
