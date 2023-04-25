@@ -33,8 +33,8 @@ In this how to guide, we use Visual Studio Code and .NET 7.0. If you're using Vi
 1. Run the following commands:
 
    ```dotnetcli
-   dotnet new webapi -o TodoListApi
-   cd TodoListApi
+   dotnet new webapi -o ToDoListAPI
+   cd ToDoListAPI
    ```
 
 1. When a dialog box asks if you want to add required assets to the project, select **Yes**.
@@ -53,7 +53,7 @@ Install the following packages:
 
 ## Configure app registration details
 
-To protect your web API, you need to have the Application (Client) ID, Directory / Tenant ID and the secret value that you generated during registration on the Microsoft Entra admin center. If you haven't registered your web API yet, kindly follow the [web API registration instructions](how-to-register-ciam-app.md?tabs=webapi) before proceeding.
+To protect your web API, you need to have the Application (Client) ID, Directory / Tenant ID and Directory / Tenant name that you have obtained during registration on the Microsoft Entra admin center. If you haven't registered your web API yet, kindly follow the [web API registration instructions](how-to-register-ciam-app.md?tabs=webapi) before proceeding.
 
 Open the *appsettings.json* file in your app folder and add in the app registration details.
 
@@ -111,7 +111,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 ## Create your models
 
-Create a folder called *Models* in the root folder of your project. Navigate to the folder and create a file called *TodoItem.cs* and add the following code. This code creates a model called *TodoItem*.
+Create a folder called *Models* in the root folder of your project. Navigate to the folder and create a file called *ToDo.cs* and add the following code. This code creates a model called *ToDo*.
 
 ```csharp
 using System;
@@ -130,7 +130,7 @@ public class ToDo
 
 The database context is the main class that coordinates Entity Framework functionality for a data model. This class is created by deriving from the [*Microsoft.EntityFrameworkCore.DbContext*](/dotnet/api/microsoft.entityframeworkcore.dbcontext) class. In this article, we use an in-memory database for testing purposes.
 
-Create a folder called *DbContext* in the root folder of the project. Navigate into that folder and create a file called *TodoContext.cs*. Add the following contents to that file:
+Create a folder called *DbContext* in the root folder of the project. Navigate into that folder and create a file called *ToDoContext.cs*. Add the following contents to that file:
 
 ```csharp
 using Microsoft.EntityFrameworkCore;

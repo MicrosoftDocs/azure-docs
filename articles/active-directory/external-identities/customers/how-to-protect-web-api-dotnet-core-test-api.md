@@ -36,7 +36,7 @@ Before going through this article, ensure you have a [protected web API](how-to-
 1. In the app registration window of your API, select *Expose an API* in the *Manage* section.
 1. Under *Authorized client applications*, select *Add a client application*.
 1. In the Client ID box, paste the Application ID of the daemon app.
-1. In the *Authorized scopes8 section, select the scope that allows you to at least read user data. In our case, we select the `api://<ApplicationID>/ToDoList.ReadWrite.All` and  `api://<ApplicationID>/ToDoList.Read.All` scopes.
+1. In the *Authorized scopes section, select the scope that allows you to at least read user data. In our case, we select the `api://<ApplicationID>/ToDoList.ReadWrite.All` and  `api://<ApplicationID>/ToDoList.Read.All` scopes.
 1. Select *Add application*.
 
 ## Write code

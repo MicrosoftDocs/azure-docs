@@ -18,7 +18,7 @@ ms.custom: developer
 
 # Secure an ASP.NET web API by using Microsoft Entra - secure web API endpoints
 
-Controllers handle requests that come in through the API endpoints. Controllers are made of Action methods. To protect our resources, we protect the API endpoints by adding security features to our controllers. Create a folder called *Controllers* in the project root folder. Navigate into this folder and create a file called *TodoItemsController.cs*.
+Controllers handle requests that come in through the API endpoints. Controllers are made of Action methods. To protect our resources, we protect the API endpoints by adding security features to our controllers. Create a folder called *Controllers* in the project root folder. Navigate into this folder and create a file called *ToDoListController.cs*.
 
 ## Prerequisites
 
@@ -120,7 +120,7 @@ In this section, we go through the code to see we protect our API by adding code
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class TodoItemsController : ControllerBase{...}
+    public class ToDoListController: ControllerBase{...}
     ```
 
     Here, we add permissions to the GET all endpoint and the POST endpoint. We do this by using the [*RequiredScopeOrAppPermission*](/dotnet/api/microsoft.identity.web.resource.requiredscopeorapppermissionattribute) method that is part of the *Microsoft.Identity.Web.Resource* namespace. We then pass our scopes and permissions to this method via the *RequiredScopesConfigurationKey* and *RequiredAppPermissionsConfigurationKey* attributes.
