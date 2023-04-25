@@ -115,6 +115,7 @@ using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
 using System;
 using System.Threading.Tasks;
+
 namespace LiveMetricsDemo
 {
     internal class Program
@@ -132,16 +133,20 @@ namespace LiveMetricsDemo
                     return quickPulseProcessor;
                 })
                 .Build();
+
             var quickPulseModule = new QuickPulseTelemetryModule();
+
             // Secure the control channel.
             // This is optional, but recommended.
             quickPulseModule.AuthenticationApiKey = "YOUR-API-KEY-HERE";
             quickPulseModule.Initialize(config);
             quickPulseModule.RegisterTelemetryProcessor(quickPulseProcessor);
+
             // Create a TelemetryClient instance. It is important
             // to use the same TelemetryConfiguration here as the one
             // used to set up Live Metrics.
             TelemetryClient client = new TelemetryClient(config);
+
             // This sample runs indefinitely. Replace with actual application logic.
             while (true)
             {

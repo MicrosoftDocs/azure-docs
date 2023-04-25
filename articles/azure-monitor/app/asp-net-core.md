@@ -253,6 +253,7 @@ aiOptions.EnableQuickPulseMetricStream = false;
 builder.Services.AddApplicationInsightsTelemetry(aiOptions);
 var app = builder.Build();
 ```
+
 ### [ASP.NET Core 5 and earlier](#tab/netcoreold)
 
 ```csharp
@@ -262,6 +263,7 @@ public void ConfigureServices(IServiceCollection services)
                 = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
     // Disables adaptive sampling.
     aiOptions.EnableAdaptiveSampling = false;
+
     // Disables QuickPulse (Live Metrics stream).
     aiOptions.EnableQuickPulseMetricStream = false;
     services.AddApplicationInsightsTelemetry(aiOptions);
@@ -373,12 +375,14 @@ builder.Services.RemoveAll(typeof(ITelemetryInitializer));
 
 var app = builder.Build();
 ```
+
 ### [ASP.NET Core 5 and earlier](#tab/netcoreold)
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddApplicationInsightsTelemetry();
+
     // Remove a specific built-in telemetry initializer
     var tiToRemove = services.FirstOrDefault<ServiceDescriptor>
                         (t => t.ImplementationType == typeof(AspNetCoreEnvironmentTelemetryInitializer));
@@ -424,6 +428,7 @@ public void ConfigureServices(IServiceCollection services)
     // ...
     services.AddApplicationInsightsTelemetry();
     services.AddApplicationInsightsTelemetryProcessor<MyFirstCustomTelemetryProcessor>();
+
     // If you have more processors:
     services.AddApplicationInsightsTelemetryProcessor<MySecondCustomTelemetryProcessor>();
 }
@@ -483,20 +488,24 @@ if (performanceCounterService != null)
 
 var app = builder.Build();
 ```
+
 ### [ASP.NET Core 5 and earlier](#tab/netcoreold)
 
 ```csharp
 using Microsoft.ApplicationInsights.DependencyCollector;
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
+
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddApplicationInsightsTelemetry();
+
     // The following configures DependencyTrackingTelemetryModule.
     // Similarly, any other default modules can be configured.
     services.ConfigureTelemetryModule<DependencyTrackingTelemetryModule>((module, o) =>
             {
                 module.EnableW3CHeadersInjection = true;
             });
+
     // The following removes all default counters from EventCounterCollectionModule, and adds a single one.
     services.ConfigureTelemetryModule<EventCounterCollectionModule>(
             (module, o) =>
@@ -504,6 +513,7 @@ public void ConfigureServices(IServiceCollection services)
                 module.Counters.Add(new EventCounterCollectionRequest("System.Runtime", "gen-0-size"));
             }
         );
+
     // The following removes PerformanceCollectorModule to disable perf-counter collection.
     // Similarly, any other default modules can be removed.
     var performanceCounterService = services.FirstOrDefault<ServiceDescriptor>(t => t.ImplementationType == typeof(PerformanceCollectorModule));
@@ -545,11 +555,13 @@ var app = builder.Build();
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
+
 public void ConfigureServices(IServiceCollection services)
 {
     // Use the following to replace the default channel with InMemoryChannel.
     // This can also be applied to ServerTelemetryChannel.
     services.AddSingleton(typeof(ITelemetryChannel), new InMemoryChannel() {MaxTelemetryBufferCapacity = 19898 });
+
     services.AddApplicationInsightsTelemetry();
 }
 ```
@@ -586,6 +598,7 @@ public void ConfigureServices(IServiceCollection services)
 {
     services.AddApplicationInsightsTelemetry();
 }
+
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, TelemetryConfiguration configuration)
 {
     configuration.DisableTelemetry = true;
@@ -730,6 +743,7 @@ var app = builder.Build();
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
 using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
+
 public void ConfigureServices(IServiceCollection services)
 {
     // The following will configure the channel to use the given folder to temporarily
