@@ -178,6 +178,7 @@ The following IDs are used for a content definition having an ID of `api.localac
 | `alert_message` | Are you sure that you want to cancel entering your details? |
 | `ver_intro_msg` | Verification is necessary. Please click Send button. |
 | `ver_input` | Verification code |
+| `required_field_descriptive` | {0} is required |
 
 ### Sign-up and self-asserted pages disclaimer links
 
@@ -240,6 +241,7 @@ The following example shows the use of some of the user interface elements in th
     <LocalizedString ElementType="UxElement" StringId="initial_intro">Please provide the following details.</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="preloader_alt">Please wait</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="required_field">This information is required.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="required_field_descriptive">{0} is required</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="ver_but_edit">Change e-mail</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="ver_but_resend">Send new code</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="ver_but_send">Send verification code</LocalizedString>
