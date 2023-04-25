@@ -39,6 +39,24 @@ List all branch locations in your tenant.
     ```
 1. Select **Run query** to list the branches.  
 
+## List all branches using PowerShell 
+List all branches in your tenant using PowerShell.
+
+1. Install the *Microsoft.Graph* module using the `Install-module` command. 
+    `Install-module -name Microsoft.Graph`
+1. In a PowerShell window, use the `Connect-MgGraph` command to sign into and use Microsoft Graph PowerShell cmdlets.
+    `Connect-MgGraph`
+1. Use the List Branches API to get the list of branches. 
+    ```
+    $response = $null  
+
+    $uri = "https://graph.microsoft.com/beta/networkaccess/branches"  
+
+    $method = 'GET'  
+
+    $response = (Invoke-MgGraphRequest -Uri $uri -Headers $headers -Method $method -Body $null).value 
+    ```
+
 ## Known issues
 
 ### Custom IPsec policy will not work properly if salifetimeinseconds is lower than 300 
