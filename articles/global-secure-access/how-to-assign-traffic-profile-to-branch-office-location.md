@@ -5,7 +5,7 @@ author: kenwith
 ms.author: kenwith
 manager: amycolannino
 ms.topic: how-to
-ms.date: 04/13/2023
+ms.date: 04/25/2023
 ms.service: network-access
 ms.custom: 
 ---
@@ -14,7 +14,7 @@ ms.custom:
 
 Learn how to assign a traffic profile to a branch office location for Global Secure Access.
 
-## Pre-requisites 
+## Prerequisites 
 - Global Secure Access license for your Microsoft Entra Identity tenant.  
 - Entra Network Access Administrator role in Microsoft Entra Identity.
 - Microsoft Graph module when using PowerShell.
@@ -23,49 +23,41 @@ Learn how to assign a traffic profile to a branch office location for Global Sec
 ## Assign a Microsoft 365 traffic profile to a branch location
 
 ### Assign a traffic profile to a branch location using the Entra portal
-1. Navigate to the Microsoft Entra portal at `https://entra.microsoft.com` and login with administrator credentials.
-1. In the left hand navigation choose **Global Secure Access*.
-1. Select **Traffic profile**. 
-1. Select **Add/edit assignments** under M365 traffic profile. 
-1. Select **Add assignments**.
-1. Select desired branch location
-1. Select **Add**. 
+1. Navigate to the Microsoft Entra admin center at [https://entra.microsoft.com](https://entra.microsoft.com) and login with administrator credentials.
+1. In the left hand navigation, choose **Global Secure Access**. 
+1. Select **Connect**. 
+1. Select **Branch**.
+1. Select a desired branch. 
+1. On the left hand side navigation, select **Forwarding profiles**. 
+1. Select (or unselect) the checkbox for **Microsoft 365 traffic forwarding profile**. 
+1. Select **Save**.
 
 ### Assign a traffic profile to a branch location using the API
-Traffic profiles (aka forwarding profiles) determine what traffic will be routed to the Microsoft network. Associating a traffic profile to your branch location is 2-step process. First, get the ID of the traffic profile. This is important as this ID is different for all tenants. Second, associate this traffic profile with your desired branch location.
+Traffic profiles, also known as forwarding profiles, determine what traffic is routed to the Microsoft network. Associating a traffic profile to your branch location is two step process. First, get the ID of the traffic profile. The ID is important because it's different for all tenants. Second, associate the traffic profile with your desired branch location.
 
-To get all traffic profiles in your tenant:
-
-```
-GET https://canary.graph.microsoft.com/testprodbetaZTNA-UI-integration/networkaccess/forwardingProfiles 
-```
-
-To associate a profile with a branch location:
- 
-```
-PATCH https://canary.graph.microsoft.com/testprodbetaZTNA-UI-integration/networkaccess/branches/8d04ae1d-952c-4dd9-9e27-e5c42a92620e/forwardingProfiles 
-{ 
-    "@odata.context": "#$delta", 
-    "value": [ 
-    { 
-      "id": "a8046459-4cfe-4dbe-ae89-650876b6ea28" 
-    } 
-  ] 
-} 
-```
-
-## Known issues
-
-### Custom IPsec policy will not work properly if salifetimeinseconds is lower than 300 
-* Validations are not happening at the control plane, so you may get an HTTP status response 200 / OK but it doesn’t mean it will work. 
-* Ensure your `salifetimeinseconds` setting is higher than 300. 
-* If the tunnel is not working within 2-5 minutes, delete your branch and recreate the device link using a `Default IPsec` policy.
-
-### API GET for forwarding profiles works at a tenant level but doesn’t work at branch level 
-* This works: `GET https://canary.graph.microsoft.com/testprodbetaZTNA-UI-integration/networkaccess/forwardingProfiles`
-* This does not work: `GET https://canary.graph.microsoft.com/testprodbetaZTNA-UI-integration/networkaccess/branches/72647a2c-d264-4469-a0fb-ab8d99b33bd2/forwardingProfiles`
+To update a branch using the Microsoft Graph API in Graph Explorer. 
+1. Open a web browser and navigate to the Graph Explorer at https://aka.ms/ge.
+1. Select **PATCH** as the HTTP method from the dropdown. 
+1. Select the API version to **beta**. 
+1. Enter the query:
+    ```
+    GET https://graph.microsoft.com/beta/networkaccess/forwardingprofiles 
+    ```
+1. Select **Run query**. 
+1. Find the ID of the desired traffic forwarding profile. 
+1. Select PATCH as the HTTP method from the dropdown. 
+1. Enter the query:
+    ```
+        PATCH https://graph.microsoft.com/beta/networkaccess/branches/d2b05c5-1e2e-4f1d-ba5a-1a678382ef16/forwardingProfiles
+        {
+            "@odata.context": "#$delta",
+            "value":
+            [{
+                "ID": "1adaf535-1e31-4e14-983f-2270408162bf"
+            }]
+        }
+    ```
+1. Select **Run query** to update the branch. 
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-- [Create applications](how-to-create-applications.md)
-
+- [List office branch locations](how-to-list-branch-locations.md)
