@@ -73,7 +73,7 @@ To create a custom image using the Azure portal:
    | Template name | Enter a name for the custom image template. |
    | Import from existing template | Select **Yes** if you have an existing custom image template that you want to use as the basis of the new template.  |
    | Subscription | Select the subscription you want to use from the list. |
-   | Resource group | Select the resource group you assigned the Managed Identity to. |
+   | Resource group | Select an existing resource group. |
    | Location | Select a region from the list where the custom image template will be created. |
    | Managed Identity | Select the Managed Identity to use for creating the custom image template. |
 
