@@ -184,7 +184,7 @@ Job executions output logs to the logging provider that you configured for the C
         --output tsv`
     ```
     
-1. Save the name of the job execution to a variable.
+1. Save the name of the most recent job execution to a variable.
 
     ```azurecli
     JOB_EXECUTION_NAME=`az containerapp job executionhistory \
