@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: tutorial
-ms.date: 10/22/2021
+ms.date: 04/12/2023
 ---
 
 # Tutorial: Build your first Azure data factory using Data Factory REST API

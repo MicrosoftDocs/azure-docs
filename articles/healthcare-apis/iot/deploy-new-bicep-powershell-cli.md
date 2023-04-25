@@ -4,8 +4,9 @@ description: In this article, you'll learn how to deploy the MedTech service usi
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
+ms.custom: devx-track-bicep, devx-track-azurepowershell, devx-track-azurecli
 ms.topic: quickstart
-ms.date: 03/10/2023
+ms.date: 04/14/2023
 ms.author: jasteppe
 ---
 
@@ -189,9 +190,9 @@ When deployment is completed, the following resources and access roles are creat
 
 After you've successfully deployed an instance of the MedTech service, you'll still need to provide conforming and valid device and FHIR destination mappings.
 
-- To learn about the device mapping, see [How to configure the device mapping](how-to-configure-device-mappings.md).
+- To learn about the device mapping, see [Overview of the device mapping](overview-of-device-mapping.md).
 
-- To learn about the FHIR destination mapping, see [How to configure the FHIR destination mapping](how-to-configure-fhir-mappings.md).
+- To learn about the FHIR destination mapping, see [Overview of the FHIR destination mapping](overview-of-fhir-destination-mapping.md).
 
 ## Clean up Azure PowerShell deployed resources
 

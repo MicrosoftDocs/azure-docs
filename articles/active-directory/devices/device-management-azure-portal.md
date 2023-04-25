@@ -90,13 +90,13 @@ If a device is managed by another management authority, like Microsoft Intune, b
 
 You can use a device ID to verify the device ID details on the device or to troubleshoot via PowerShell. To access the copy option, select the device.
 
-![Screenshot that shows a device ID and the copy button.](./media/device-management-azure-portal/35.png)
+![Screenshot that shows a device ID and the copy button.](./media/device-management-azure-portal/device-details.png)
   
 ## View or copy BitLocker keys
 
 You can view and copy BitLocker keys to allow users to recover encrypted drives. These keys are available only for Windows devices that are encrypted and store their keys in Azure AD. You can find these keys when you view a device's details by selecting **Show Recovery Key**. Selecting **Show Recovery Key** will generate an audit log, which you can find in the `KeyManagement` category.
 
-![Screenshot that shows how to view BitLocker keys.](./media/device-management-azure-portal/device-details-show-bitlocker-key.png)
+![Screenshot that shows how to view BitLocker keys.](./media/device-management-azure-portal/show-bitlocker-key.png)
 
 To view or copy BitLocker keys, you need to be the owner of the device or have one of these roles:
 
@@ -115,7 +115,7 @@ In this preview, you have the ability to infinitely scroll, reorder columns, and
 - Compliant state
 - Join type (Azure AD joined, Hybrid Azure AD joined, Azure AD registered)
 - Activity timestamp
-- OS
+- OS Type and Version
 - Device type (printer, secure VM, shared device, registered device)
 - MDM
 - Autopilot

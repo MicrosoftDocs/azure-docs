@@ -3,7 +3,7 @@ title: Azure Service Bus trigger for Azure Functions
 description: Learn to run an Azure Function when as Azure Service Bus messages are created.
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
-ms.date: 03/06/2023
+ms.date: 04/04/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -15,6 +15,8 @@ Use the Service Bus trigger to respond to messages from a Service Bus queue or t
 Starting with extension version 3.1.0, you can trigger on a session-enabled queue or topic.
 
 For information on setup and configuration details, see the [overview](functions-bindings-service-bus.md).
+
+Service Bus scaling decisions for the Consumption and Premium plans are made based on target-based scaling. For more information, see [Target-based scaling](functions-target-based-scaling.md).
 
 ::: zone pivot="programming-language-python"
 Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.

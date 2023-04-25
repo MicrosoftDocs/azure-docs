@@ -4,6 +4,7 @@ description: Use Azure Resource Manager and Azure Cloud Shell to deploy resource
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
+ms.custom: devx-track-bicep, devx-track-arm-template
 ms.date: 06/01/2021
 ---
 

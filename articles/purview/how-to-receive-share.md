@@ -76,7 +76,12 @@ This registration is only needed the first time when sharing or receiving data i
 
 ## Receive share
 
-1. You can view your share invitations in any Microsoft Purview account. In the [Azure portal](https://portal.azure.com), search for and select the Microsoft Purview account you want to use to receive the share. Open [the Microsoft Purview governance portal](https://web.purview.azure.com/). Select the **Data Map** icon from the left navigation. Then select **Share invites**. If you received an email invitation, you can also select the **View share invite** link in the email to select a Microsoft Purview account.
+1. You can view your share invitations in any Microsoft Purview account. Open the Microsoft Purview governance portal by:
+
+    * Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
+    * Opening the [Azure portal](https://portal.azure.com), searching for and selecting the Microsoft Purview account. Select the [**the Microsoft Purview governance portal**](https://web.purview.azure.com/) button.
+
+1. Select the **Data Map** icon from the left navigation. Then select **Share invites**. If you received an email invitation, you can also select the **View share invite** link in the email to select a Microsoft Purview account.
 
     If you're a guest user of a tenant, you'll be asked to verify your email address for the tenant before viewing share invitation for the first time. [You can see our guide below for steps.](#guest-user-verification) Once verified, it's valid for 12 months.
 

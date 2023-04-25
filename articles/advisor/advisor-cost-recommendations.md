@@ -27,7 +27,7 @@ Advisor uses machine-learning algorithms to identify low utilization and to iden
 Advisor identifies resources that haven't been used at all over the last 7 days and makes a recommendation to shut them down. 
 
 -	Recommendation criteria include **CPU** and **Outbound Network utilization** metrics. **Memory** isn't considered since we've found that **CPU** and **Outbound Network utilization** are sufficient.
-- The last 7 days of utilization data are analyzed
+- The last 7 days of utilization data are analyzed. Note that you can change your lookback period in the configurations.
 - Metrics are sampled every 30 seconds, aggregated to 1 min and then further aggregated to 30 mins (we take the max of average values while aggregating to 30 mins). On virtual machine scale sets, the metrics from individual virtual machines are aggregated using the average of the metrics across instances.
 - A shutdown recommendation is created if: 
   - P95th of the maximum value of CPU utilization summed across all cores is less than 3%.
@@ -39,7 +39,7 @@ Advisor identifies resources that haven't been used at all over the last 7 days 
 Advisor recommends resizing virtual machines when it's possible to fit the current load on a more appropriate SKU, which is less expensive (based on retail rates). On virtual machine scale sets, Advisor recommends resizing when it's possible to fit the current load on a more appropriate cheaper SKU, or a lower number of instances of the same SKU.
 
 -	Recommendation criteria include **CPU**, **Memory** and **Outbound Network utilization**. 
-- The last 7 days of utilization data are analyzed
+- The last 7 days of utilization data are analyzed. Note that you can change your lookback period in the configurations.
 - Metrics are sampled every 30 seconds, aggregated to 1 minute and then further aggregated to 30 minutes (taking the max of average values while aggregating to 30 minutes). On virtual machine scale sets, the metrics from individual virtual machines are aggregated using the average of the metrics for instance count recommendations, and aggregated using the max of the metrics for SKU change recommendations. 
 - An appropriate SKU (for virtual machines) or instance count (for virtual machine scale set resources) is determined based on the following criteria:
   - Performance of the workloads on the new SKU shouldn't be impacted. 
@@ -66,7 +66,7 @@ A burstable SKU recommendation is made if:
 - The average **CPU utilization** is less than a burstable SKUs' baseline performance
   - If the P95 of CPU is less than two times the burstable SKUs' baseline performance
   - If the current SKU doesn't have accelerated networking enabled, since burstable SKUs don't support accelerated networking yet
-  - If we determine that the Burstable SKU credits are sufficient to support the average CPU utilization over 7 days
+  - If we determine that the Burstable SKU credits are sufficient to support the average CPU utilization over 7 days.  Note that you can change your lookback period in the configurations.
 
 The resulting recommendation suggests that a user should resize their current virtual machine or virtual machine scale set to a burstable SKU with the same number of cores. This suggestion is made so a user can take advantage of lower cost and also the fact that the workload has low average utilization but high spikes in cases, which can be best served by the B-series SKU.
  

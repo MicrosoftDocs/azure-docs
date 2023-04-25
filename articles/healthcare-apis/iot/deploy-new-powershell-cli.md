@@ -4,8 +4,9 @@ description: In this article, you'll learn how to deploy the MedTech service usi
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
+ms.custom: devx-track-arm-template, devx-track-azurepowershell, devx-track-azurecli
 ms.topic: quickstart
-ms.date: 03/10/2023
+ms.date: 04/14/2023
 ms.author: jasteppe
 ---
 
@@ -16,7 +17,7 @@ ms.author: jasteppe
 
 To implement infrastructure as code for your Azure solutions, use Azure Resource Manager templates (ARM templates). The template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. In the template, you specify the resources to deploy and the properties for those resources. 
 
-In this quickstart, you'll learn how use Azure PowerShell or the Azure CLI to deploy an instance of the MedTech service using an Azure Resource Manager template (ARM template).
+In this quickstart, you'll learn how to use Azure PowerShell or the Azure CLI to deploy an instance of the MedTech service using an Azure Resource Manager template (ARM template).
 
 > [!TIP]
 > To learn more about ARM templates, see [What are ARM templates?](./../../azure-resource-manager/templates/overview.md)
@@ -184,9 +185,9 @@ When deployment is completed, the following resources and access roles are creat
 
 After you've successfully deployed an instance of the MedTech service, you'll still need to provide conforming and valid device and FHIR destination mappings.
 
- - To learn about the device mapping, see [How to configure the device mapping](how-to-configure-device-mappings.md).
+ - To learn about the device mapping, see [Overview of the MedTech service device mapping](overview-of-device-mapping.md).
 
- - To learn about the FHIR destination mapping, see [How to configure the FHIR destination mapping](how-to-configure-fhir-mappings.md).
+ - To learn about the FHIR destination mapping, see [Overview of the FHIR destination mapping](overview-of-fhir-destination-mapping.md).
 
 ## Clean up Azure PowerShell resources
 

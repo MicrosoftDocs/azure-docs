@@ -7,7 +7,7 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: quickstart
 ms.date: 08/26/2022
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm, devx-track-azurecli
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm, devx-track-azurecli, devx-track-bicep
 ---
 
 # Quickstart: Create a budget with Bicep
