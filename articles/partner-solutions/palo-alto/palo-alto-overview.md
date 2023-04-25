@@ -29,15 +29,21 @@ Here are the key capabilities provided by the Palo Alto integration:
 
 The Cloud NGFW by Palo Alto Networks resource can only be set up by users who have Owner access on the Azure subscription. Ensure you have the appropriate Owner access before starting to set up this integration.
 
-## Find Palo Alto in the Azure Marketplace
+## Find the Palo Alto Network offerings in the Azure Marketplace
 
 1. Navigate to the Azure Marketplace page.
 
-   :::image type="content" source="media/palo-alto-overview/palo-alto-marketplace.png" alt-text="Screenshot of":::
+1. Search for _Palo Alto_ listed. Select **Cloud Next-Generation Firewall by Palo Alto**.
 
-1. Search for _Palo Alto_ listed.
+1. In the Marketplace you see the offer for **Cloud Next-Generation Firewall by Palo Alto Networks - an Azure Native ISV Service**. Select, **Subscribe**.
 
-1. In the plan overview pane, select the **Subscribe**. The **Create Palo Alto** form opens in the working pane.  
+   :::image type="content" source="media/palo-alto-overview/palo-alto-marketplace.png" alt-text="Screenshot of Cloud NGFW by Palo Alto Networks in the Azure marketplace.":::
+
+1. In the working pane, you see the options from Palo Alto Networks. Select **Cloud NGFW by Palo Alto Networks**.
+
+   :::image type="content" source="media/palo-alto-overview/palo-alto-offerings.png" alt-text="Screenshot showing the two offerings from Palo Alto Networks":::
+
+1. The **Create Palo Alto** form opens in the working pane.
 
 ## Next steps
 
