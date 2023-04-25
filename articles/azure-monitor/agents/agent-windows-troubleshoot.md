@@ -147,14 +147,14 @@ As part of an ongoing security effort across various Azure services, Azure Log A
 You may have received the breaking change notification even if you have not personally installed the Microsoft Monitoring Agent. That is because various Azure products leverage the Microsoft Monitoring Agent. If you’re using one of these products, you may be affected as they leverage the Windows Log Analytics Agent. For those products with links below there may be specific instructions that will require you to upgrade to the latest agent.
 
 -	VM Insights
--	[System Center Operations Manager (SCOM)](https://learn.microsoft.com/en-us/system-center/scom/deploy-upgrade-agents?view=sc-om-2022)
--	[System Center Service Manager (SCSM)](https://learn.microsoft.com/en-us/system-center/scsm/upgrade-service-manager?view=sc-sm-2022)
--	[Microsoft Defender for Server](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/update-agent-mma-windows?view=o365-worldwide)
--	[Microsoft Defender for Endpoint](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/update-agent-mma-windows?view=o365-worldwide)
+-	[System Center Operations Manager (SCOM)](/system-center/scom/deploy-upgrade-agents)
+-	[System Center Service Manager (SCSM)](/system-center/scsm/upgrade-service-manager)
+-	[Microsoft Defender for Server](/microsoft-365/security/defender-endpoint/update-agent-mma-windows?view=o365-worldwide)
+-	[Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/update-agent-mma-windows?view=o365-worldwide)
 -	Azure Sentinel
--	[Azure Automation Agent-based Hybrid Worker](https://learn.microsoft.com/en-us/azure/automation/automation-windows-hrw-install#update-log-analytics-agent-to-latest-version)
--	[Azure Automation Change Tracking and Inventory](https://learn.microsoft.com/en-us/azure/automation/change-tracking/overview?tabs=python-2#update-log-analytics-agent-to-latest-version)
--	[Azure Automation Update Management](https://learn.microsoft.com/en-us/azure/automation/update-management/overview#update-windows-log-analytics-agent-to-latest-version)
+-	[Azure Automation Agent-based Hybrid Worker](../../automation/automation-windows-hrw-install.md#update-log-analytics-agent-to-latest-version)
+-	[Azure Automation Change Tracking and Inventory](../../automation/change-tracking/overview?tabs=python-2.md#update-log-analytics-agent-to-latest-version)
+-	[Azure Automation Update Management](../../automation/update-management/overview.md#update-windows-log-analytics-agent-to-latest-version)
 
 
 *Identifying and Remidiating Breaking Agents*
@@ -171,7 +171,7 @@ This script will use the .CSV file generated in UpdateMMA.ps1 to upgrade all bre
 
 Both of these scripts may take a while to complete.
 
-# [PowerShell](#tab/PowerShellWindows)
+# [UpdateMMA](#tab/UpdateMMA)
 
 ```powershell
 # UpdateMMA.ps1
@@ -187,10 +187,10 @@ Both of these scripts may take a while to complete.
 
 
 # This version of the script requires Powershell version >= 7 in order to improve performance via ForEach-Object -Parallel
-# https://docs.microsoft.com/en-us/powershell/scripting/whats-new/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7.1
+# https://docs.microsoft.com/powershell/scripting/whats-new/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7.1
 if ($PSVersionTable.PSVersion.Major -lt 7) 
 {
-    Write-Host "This script requires Powershell version 7 or newer to run. Please see https://docs.microsoft.com/en-us/powershell/scripting/whats-new/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7.1."
+    Write-Host "This script requires Powershell version 7 or newer to run. Please see https://docs.microsoft.com/powershell/scripting/whats-new/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7.1."
     exit 1
 }
 
@@ -411,7 +411,7 @@ switch ($args.Count)
 }
 ```
 
-# [PowerShell](#tab/PowerShellWindows)
+# [UpgradeMMA](#tab/UpgradeMMA)
 
 ```powershell
 #UpgradeMMA.ps1
