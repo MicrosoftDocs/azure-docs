@@ -241,7 +241,7 @@ If the application has custom signing keys as a result of using the [claims-mapp
 
 ### Claims based authorization
 
-For more information about validating the claims in a token to ensure security, see [Secure tokens by validating claims](claims-validation.md) 
+For more information about validating the claims in a token to ensure security, see [Secure applications and APIs by validating claims](claims-validation.md) 
 
 ## Token revocation
 
