@@ -26,7 +26,7 @@ The following scenarios are described in this article:
 - Add a VM image from an image in Azure Marketplace via Azure portal.  
 - Add a VM image from a VHD/VHDX loaded in an Azure Storage account via Azure portal. 
 - View VM image properties. 
-- Delete a VM image in Azure portal. 
+- Delete a VM. 
 - Add a VM. 
 
 ## Review the prerequisites  
