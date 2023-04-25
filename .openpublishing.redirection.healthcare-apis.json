@@ -581,6 +581,10 @@
           "redirect_url": "/azure/healthcare-apis/iot/deploy-bicep-powershell-cli",
           "redirect_document_id": false
       },
+      {   "source_path_from_root": "/articles/healthcare-apis/iot/deploy-new-bicep-powershell-cli.md",
+          "redirect_url": "/azure/healthcare-apis/iot/deploy-bicep-powershell-cli",
+          "redirect_document_id": false
+      },
       {   "source_path_from_root": "/articles/healthcare-apis/iot/deploy-new-choose.md",
           "redirect_url": "/azure/healthcare-apis/iot/deploy-choose-method",
           "redirect_document_id": false
