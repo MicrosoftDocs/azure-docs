@@ -17,7 +17,7 @@ Get started with Virtual Network NAT by using an Azure Resource Manager template
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
 
 [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fnat-gateway-1-vm%2Fazuredeploy.json)
 
@@ -169,7 +169,7 @@ In this quickstart, you created a:
 
 The virtual machine is deployed to a virtual network subnet associated with the NAT gateway.
 
-To learn more about Virtual Network NAT and Azure Resource Manager, continue to the articles below.
+To learn more about Virtual Network NAT and Azure Resource Manager, continue to the following articles.
 
 * Read an [Overview of Virtual Network NAT](nat-overview.md)
 
