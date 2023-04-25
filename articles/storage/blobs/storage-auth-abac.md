@@ -6,7 +6,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/11/2023
+ms.date: 04/21/2023
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
@@ -70,12 +70,12 @@ See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.m
 
 The table below shows the current status of ABAC by storage account performance tier, storage resource type, and attribute type. Exceptions for specific attributes are also shown.
 
-| Performance tier | Resource types | Attribute types | Specific attributes | Availability |
+| Performance tier | Resource types | Attribute types    | Attributes                | Availability |
 |--|--|--|--|--|
-| Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | request<br/>resource               | all except for the snapshot resource attribute for Data Lake Storage Gen2 | GA |
-| Standard | Data Lake Storage Gen2                      | resource                           | snapshot | Preview |
-| Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | environment<br/>principal          | all      | Preview |
-| Premium  | Blobs<br/>Data Lake Storage Gen2<br/>Queues | environment<br/>principal<br/>request<br/>resource | all      | Preview |
+| Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | request<br/>resource      | all attributes except for the snapshot resource attribute for Data Lake Storage Gen2 | GA |
+| Standard | Data Lake Storage Gen2                      | resource                  | snapshot       | Preview |
+| Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | environment<br/>principal | all attributes | Preview |
+| Premium  | Blobs<br/>Data Lake Storage Gen2<br/>Queues | environment<br/>principal<br/>request<br/>resource | all attributes | Preview |
 
 ## Next steps
 
