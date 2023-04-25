@@ -14,7 +14,7 @@
 **Version:** 2.0
 **api-version:** 2020-10-01-preview
 
-This document defines IoT Hub data plane API over MQTT version 5.0 protocol. See [API Reference](iot-hub-mqtt-5-reference.md) for complete definitions in this API.
+This document defines IoT Hub data plane API over MQTT version 5.0 protocol. See [API Reference]() for complete definitions in this API.
 
 ## Prerequisites
 
@@ -184,7 +184,7 @@ All functionalities in this API are expressed as operations. Here's an example o
     Reason_Code: 0
 ```
 
-For complete specification of operations in this API, see [API Reference](iot-hub-mqtt-5-reference.md).
+For complete specification of operations in this API, see [API Reference]().
 
 > [!NOTE]
 > All the samples in this specification are shown from client's perspective. Sign `->` means client sending packet, `<-` - receiving.
@@ -580,5 +580,5 @@ Response:
 ```
 ## Next steps
 
-- To review the MQTT 5 preview API reference, see [IoT Hub data plane MQTT 5 API reference](iot-hub-mqtt-5-reference.md).
+- To review the MQTT 5 preview API reference, see [IoT Hub data plane MQTT 5 API reference]().
 - To follow a C# sample, see [GitHub sample repository](https://github.com/Azure-Samples/iot-hub-mqtt-5-preview-samples-csharp).
