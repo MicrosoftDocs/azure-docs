@@ -6,7 +6,7 @@ ms.service: virtual-network
 ms.subservice: nat
 ms.custom: ignite-2022
 ms.topic: troubleshooting
-ms.date: 08/29/2022
+ms.date: 04/24/2023
 ms.author: allensu
 ---
 
