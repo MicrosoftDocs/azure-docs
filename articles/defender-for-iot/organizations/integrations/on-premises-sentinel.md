@@ -49,4 +49,4 @@ Select **Save** when you're done. Make sure to test the rule to make sure that i
 
 For more information, see:
 > [!div class="nextstepaction"]
-> [Integrations with Microsoft and partner services](integrate-overview.md)
+> [Integrations with Microsoft and partner services](../integrate-overview.md)

@@ -227,4 +227,4 @@ To view connected devices:
 
 For more information, see:
 > [!div class="nextstepaction"]
-> [Integrations with Microsoft and partner services](integrate-overview.md)
+> [Integrations with Microsoft and partner services](../integrate-overview.md)
