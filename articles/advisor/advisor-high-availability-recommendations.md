@@ -32,7 +32,8 @@ You can evaluate the reliability of posture of your applications, assess risks a
 
 1. Open **Reliability** workbook template. 
 
-
+    [![Screenshot of the Azure Advisor relibility workbook template](./media/advisor-reliability-workbook.png)](./advisor-reliability-workbook.png#lightbox)
+ 
 
 
 ## Next steps
