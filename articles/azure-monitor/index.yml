@@ -123,15 +123,15 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Insights and curated visualizations
-            url: /azure/azure-monitor/insights/insights-overview
+            url: insights/insights-overview
           - text: Workbooks 
-            url: /azure/azure-monitor/visualize/workbooks-overview
+            url: visualize/workbooks-overview.md
           - text: Dashboards
-            url: /azure/azure-monitor/visualize/tutorial-logs-dashboards
+            url: visualize/tutorial-logs-dashboards.md
           - text: Power BI
-            url: /azure/azure-monitor/logs/log-powerbi
+            url: logs/log-powerbi.md
           - text: Grafana
-            url: /azure/azure-monitor/visualize/grafana-plugin
+            url: visualize/grafana-plugin.md
 
  # Card
   - title: Respond to issues
@@ -139,9 +139,9 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Alerts 
-            url: /azure/azure-monitor/alerts/alerts-overview
+            url: alerts/alerts-overview.md
           - text: Autoscale
-            url: /azure/azure-monitor/autoscale/autoscale-overview
+            url: autoscale/autoscale-overview.md
 
   # Card
   - title: Reference
