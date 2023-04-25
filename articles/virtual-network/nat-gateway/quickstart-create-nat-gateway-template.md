@@ -4,7 +4,7 @@ titleSuffix: Azure NAT Gateway
 description: This quickstart shows how to create a NAT gateway by using the Azure Resource Manager template (ARM template).
 author: asudbring
 ms.service: virtual-network
-ms.subservice: nat-gateway
+ms.subservice: nat
 ms.topic: how-to
 ms.date: 04/24/2023
 ms.author: allensu
