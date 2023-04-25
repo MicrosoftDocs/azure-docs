@@ -23,7 +23,7 @@ Learn how to create a branch office location for Global Secure Access.
 ## Create a branch location
 Global Secure Access provides branch connectivity so you can connect a branch office to the Microsoft network. Once a branch is connected to the Microsoft network, you can set up network security policies. These policies are applied on all outbound traffic. Alternatively, you can set up clients on individual devices to connect to the Microsoft network regardless of the device location and Internet connection. To learn more about the client for Global Secure Access, see [How to install the Windows client](how-to-install-windows-client.md).
 
-There are multiple ways to connect a branch location to the Microsoft network. In a nutshell, you are creating an IPSec tunnel between a core router at your branch location and the nearest Microsoft VPN service. The network traffic is routed with the core router at the branch location and thus installation of a client is not required on individual devices.
+There are multiple ways to connect a branch location to the Microsoft network. In a nutshell, you're creating an IPSec tunnel between a core router at your branch location and the nearest Microsoft VPN service. The network traffic is routed with the core router at the branch location and thus installation of a client isn't required on individual devices.
 
 ### Create a branch location using the Microsoft Entra admin center
 
@@ -33,7 +33,7 @@ There are multiple ways to connect a branch location to the Microsoft network. I
 1. Select **Branch**.
 1. Select the link to open a form. The form is used to onboard your Microsoft Entra Identity tenant. You can also find the form at https://aka.ms/ztnaonboard.
 1. Fill out the form with the required information and then select **Submit**.
-    You cannot continue to the next step until your tenant has completed the onboard process. It takes up to seven days for your tenant to go through the onboard process. 
+    You can't continue to the next step until your tenant has completed the onboard process. It takes up to seven days for your tenant to go through the onboard process. 
 1. Select **Create branch office** and enter:
     - Name: `ContosoBranch` 
     - Region: `EastUS` 
