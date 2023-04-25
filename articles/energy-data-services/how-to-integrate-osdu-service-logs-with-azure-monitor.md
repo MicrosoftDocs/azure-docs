@@ -16,19 +16,22 @@ In this article, you'll learn how to integrate OSDU service logs with Azure Moni
 ## Prerequisites
 
 * An existing **Log Analytics Workspace**.
-    This workspace will be used to query the OSDU service logs using the Kusto Query Language (KQL) query editor in the Log Analytics Workspace. Useful Resource: [Create a log analytics workspace in Azure portal](../azure-monitor/logs/quick-create-workspace.md).
+    This workspace will be used to query the OSDU service logs using the Kusto Query Language (KQL) query editor in the Log Analytics workspace. Useful Resource: [Create a log analytics workspace in Azure portal](../azure-monitor/logs/quick-create-workspace.md).
 
 * An existing **storage account**:
     It will be used to store JSON dumps of OSDU service logs. The storage account doesn’t have to be in the same subscription as your Log Analytics workspace.
 
 ## Enabling diagnostic settings for OSDU service logs integration
 
-1. Open Microsoft Azure Data Manager for Energy Preview' *Overview* page.
-2. Select *Diagnostic Settings* from the left panel.
-3. Select *Add diagnostic setting*.
-4. Under the Logs section, you can choose one or multiple OSDU services for which you want to create a diagnostic setting.
-5. Select *Archive to a storage account* and/or *Send to Log Analytics workspace* as desired.
-6. Verify the subscription, storage account, and Log Analytics workspace to which you want to archive the logs or integrate with.
+1. Open Microsoft Azure Data Manager for Energy Preview *Overview* page.
+1. Select *Diagnostic Settings* from the left panel.
+    
+    :::image type="content" source="media/how-to-integrate-osdu-service-logs-with-azure-monitor/diagnostic-setting-overview-page-service-logs" alt-text="The list of OSDU services currently available is visible on the diagnostic settings overview page."::: 
+
+1. Select *Add diagnostic setting*.
+1. Under the Logs section, you can choose one or multiple OSDU services for which you want to create a diagnostic setting.
+1. Select *Archive to a storage account* and/or *Send to Log Analytics workspace* as desired.
+1. Verify the subscription, storage account, and Log Analytics workspace to which you want to archive the logs or integrate with.
 
 ## Working with OSDU service logs in Log Analytics Workspace
 
@@ -39,7 +42,10 @@ Use Kusto Query Language (KQL) to retrieve desired data on collected OSDU servic
 Having access to OSDU service logs enables users to perform various troubleshooting scenarios:
 
 * Identify errors and issues related to specific services and APIs.
+     Examine logs for services like the Workflow Service, Partition Service, or Entitlements Service to quickly identify and resolve any issues in the API calls or service functionality.
+
 * Monitor the performance of individual services.
+
 * Analyze the root cause of failed requests.
 * Track user activity and usage patterns for OSDU services.
 
