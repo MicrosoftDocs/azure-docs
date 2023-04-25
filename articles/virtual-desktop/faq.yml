@@ -45,7 +45,7 @@ sections:
         answer: |
           Users must be in the same Azure Active Directory (Azure AD) tenant as their assigned workspace, host pool, and app group. Having everything in the same tenant lets you assign users to proper role-based access control (RBAC) roles so they can access their resources.
 
-          However, there's one exception to this requirement: you can deploy virtual machines (VMs) in a different Azure AD tenant if they're joined to either the same AD as the user or an AD that has a trust relationship with the user's AD.
+          However, you can deploy virtual machines (VMs) in a different Azure AD tenant if they're joined to either the same AD as the user or an AD that has a trust relationship with the user's AD.
           
       - question: |
          What are location restrictions?
