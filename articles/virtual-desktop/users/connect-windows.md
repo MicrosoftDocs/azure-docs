@@ -63,7 +63,7 @@ Once you've downloaded the Remote Desktop client, you'll need to install it by f
 1. If you left the box for **Launch Remote Desktop when setup exits** selected, the Remote Desktop client will automatically open. Alternatively to launch the client after installation, use the Start menu to search for and select **Remote Desktop**.
 
 > [!IMPORTANT]
-> If you have the Remote Desktop client for Windows and the [Azure Virtual Desktop app](connect-windows-azure-virtual-desktop-app.md) installed on the same device, you may see the message **A version of this application called Azure Virtual Desktop was installed from the Microsoft Store. Using both versions of this application at the same time can lead to issues**. We recommend using only one version of the app at a time.
+> If you have the Remote Desktop client for Windows and the [Azure Virtual Desktop app](connect-windows-azure-virtual-desktop-app.md) installed on the same device, you may see the message that begins **A version of this application called Azure Virtual Desktop was installed from the Microsoft Store**. Both apps are supported, and you have the option to choose **Continue anyway**, however it could be confusing to use the same remote resource across both apps. We recommend using only one version of the app at a time.
 
 ## Subscribe to a workspace
 
