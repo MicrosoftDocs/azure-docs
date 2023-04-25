@@ -8,7 +8,7 @@ ms.date: 04/25/2023
 
 # Use Azure Premium SSD v2 disks on Azure Kubernetes Service
 
-[Azure Premium SSD v2 disks][azure-premium-v2-disk-overview] offer IO-intense enterprise workloads a consistent sub-millisecond disk latency and high IOPS and throughput. The performance (capacity, throughput, and IOPS) of Premium SSD v2 disks can be independently configured at any time, making it easier for more scenarios to be cost efficient while meeting performance needs.
+[Azure Premium SSD v2 disks][azure-premium-v2-disk-overview] offer IO-intense enterprise workloads a consistent submillisecond disk latency and high IOPS and throughput. The performance (capacity, throughput, and IOPS) of Premium SSD v2 disks can be independently configured at any time, making it easier for more scenarios to be cost efficient while meeting performance needs.
 
 This article describes how to configure a new or existing AKS cluster to use Azure Premium SSD v2 disks.
 
@@ -16,7 +16,7 @@ This article describes how to configure a new or existing AKS cluster to use Azu
 
 Before creating or upgrading an AKS cluster that is able to use Azure Premium SSD v2 disks, you need to [create a Premium SSD v2 disk][create-premium-v2-disk] in an availability zone following their deployment steps. Then create an AKS cluster in the same region and availability zone that supports Premium Storage and attach the disks following the steps below.
 
-For an existing AKS cluster, you can enable Premium SSD v2 disks on existing clusters that supports them by adding a new node pool to your cluster, and then attach the disks following the steps below.
+For an existing AKS cluster, you can enable Premium SSD v2 disks by adding a new node pool to your cluster, and then attach the disks following the steps below.
 
 > [!IMPORTANT]
 > Azure Premium SSD v2 disks require node pools deployed in regions that support these disks. For a list of supported regions, see [Premium SSD v2 disk supported regions][premium-v2-regions].
@@ -174,7 +174,7 @@ Events:
 
 ## Set IOPS and throughput limits
 
-Input/Output Operations Per Second (IOPS) and throughput limits for Azure Premium v2 SSD disk is currently not supported through AKS, as Kubernetes doesn't support this. To adjust performance, you can use the Azure CLI command [az disk update][az-disk-update] and including the `--disk-iops-read-write` and `--disk-mbps-read-write` parameters.
+Input/Output Operations Per Second (IOPS) and throughput limits for Azure Premium v2 SSD disk is currently not supported through AKS. To adjust performance, you can use the Azure CLI command [az disk update][az-disk-update] and including the `--disk-iops-read-write` and `--disk-mbps-read-write` parameters.
 
 The following example updates the disk IOPS read/write to **5000** and Mbps to **200**. For `--resource-group`, the value must be the second resource group automatically created to store the AKS worker nodes with the naming convention *MC_resourcegroupname_clustername_location*. The value for the `--name` parameter is the name of the volume created using the StorageClass, and it starts with `pvc-`. To identify the disk name, you can run `kubectl get pvc` or navigate to the secondary resource group in the portal to find it. See [manage resources from the Azure portal][manage-resources-azure-portal] to learn more.
 
