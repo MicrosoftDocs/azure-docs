@@ -26,11 +26,18 @@ In this article, you'll learn how to integrate OSDU service logs with Azure Moni
 1. Open Microsoft Azure Data Manager for Energy Preview *Overview* page.
 1. Select *Diagnostic Settings* from the left panel.
     
-    :::image type="content" source="media/how-to-integrate-osdu-service-logs-with-azure-monitor/diagnostic-setting-overview-page-service-logs" alt-text="The list of OSDU services currently available is visible on the diagnostic settings overview page."::: 
+    [![The list of OSDU services currently available is visible on the diagnostic settings overview page.](media/how-to-integrate-osdu-service-logs-with-azure-monitor/diagnostic-settings-overview-page.png)](media/how-to-integrate-osdu-service-logs-with-azure-monitor/diagnostic-settings-overview-page.png#lightbox)
+    
+1. Select *Add diagnostic setting*. Choose a for your diagnostic setting and select the services under Categories that you want to send to your chosen destination. 
 
-1. Select *Add diagnostic setting*.
-1. Under the Logs section, you can choose one or multiple OSDU services for which you want to create a diagnostic setting.
-1. Select *Archive to a storage account* and/or *Send to Log Analytics workspace* as desired.
+
+    [![The list of OSDU services currently available is visible on the diagnostic settings overview page.](media/how-to-integrate-osdu-service-logs-with-azure-monitor/diagnostic-settings-creation-page.png)](media/how-to-integrate-osdu-service-logs-with-azure-monitor/diagnostic-settings-creation-page.png#lightbox)
+    
+
+1. Under the Logs section, you can choose one or multiple OSDU services for which you want to create a diagnostic setting. Select *Archive to a storage account* and/or *Send to Log Analytics workspace* as desired.
+
+     [![The list of OSDU services currently available is visible on the diagnostic settings overview page.](media/how-to-integrate-osdu-service-logs-with-azure-monitor/diagnostic-settings-configuration.png)](media/how-to-integrate-osdu-service-logs-with-azure-monitor/diagnostic-settings-configuration.png#lightbox)
+ 
 1. Verify the subscription, storage account, and Log Analytics workspace to which you want to archive the logs or integrate with.
 
 ## Working with OSDU service logs in Log Analytics Workspace
