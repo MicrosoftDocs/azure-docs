@@ -20,7 +20,7 @@ You can create the extension from psql by running: <br />
 
 ### Syntax
 
-`COPY FROM` copies data from a file, hosted on a file system or within `Azure blob storage`, to a sql table (appending the data to whatever is in the table already). The command is helpful in dealing with large datasets, significantly reducing the time and resources required for data transfer.
+`COPY FROM` copies data from a file, hosted on a file system or within `Azure blob storage`, to an SQL table (appending the data to whatever is in the table already). The command is helpful in dealing with large datasets, significantly reducing the time and resources required for data transfer.
 
 ```sql
 COPY table_name [ ( column_name [, ...] ) ]
@@ -38,7 +38,12 @@ Syntax and options supported remains likewise to Postgres Native [COPY](https://
 
 ### Arguments
 ##### Azure_blob_url
-Allows unstructured data to be stored and accessed at a massive scale in block blobs. Objects in blob storage can be accessed from anywhere in the world via HTTP or HTTPS. User or client applications can access blobs via URLs, the Azure Storage REST API, Azure PowerShell, Azure CLI, or an Azure storage client library. The storage client libraries are available for multiple languages, including .NET, Java, Node.js, Python, PHP, and Ruby.
+Allows unstructured data to be stored and accessed at a massive scale in block blobs. Objects in blob storage can be accessed from anywhere in the world via HTTP or HTTPS. The storage client libraries are available for multiple languages, including .NET, Java, Node.js, Python, PHP, and Ruby. User or client applications can access blobs via following methods
+1. URLs
+1. The Azure Storage REST API
+1. Azure PowerShell
+1. Azure CLI
+1. An Azure storage client library
 
 ### Option
 ##### format
@@ -91,7 +96,7 @@ size of file object in bytes.
 ##### last_modified (output)
 when was the file content last modified.
 ##### etag (output)
-An ETag property is used for optimistic concurrency during updates. It isn't a timestamp as there's another property called Timestamp that stores the last time a record was updated. For example, if you load an entity and want to update it, the ETag must match what is currently stored. This is important b/c if you have multiple users editing the same item, you don't want them overwriting each other's changes.
+An ETag property is used for optimistic concurrency during updates. It isn't a timestamp as there's another property called Timestamp that stores the last time a record was updated. For example, if you load an entity and want to update it, the ETag must match what is currently stored. Setting the appropriate ETag is important because if you have multiple users editing the same item, you don't want them overwriting each other's changes.
 ##### content_type (output)
 The Blob object represents a blob, which is a file-like object of immutable, raw data. They can be read as text or binary data, or converted into a ReadableStream so its methods can be used for processing the data. Blobs can represent data that isn't necessarily in a JavaScript-native format.
 ##### content_encoding (output)
@@ -131,7 +136,7 @@ A container name must be a valid DNS name, as it forms part of the unique URI us
 Blob name existing in the container.
 ##### dest_table_structure
 structure of destination table
-NULL:: table_name  -> returns data file from blob as per the schema of table.
+`NULL::table_name`  -> returns data file from blob as per the schema of table.
 
 ##### decoder
 specify the blob format
