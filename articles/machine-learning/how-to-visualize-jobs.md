@@ -140,8 +140,6 @@ You can compare the logged metrics, parameters, and tags between your visualized
 
 You can change the baseline by hovering over the display name and clicking on the “baseline” icon. Show differences only will reduce the rows in the table to only surface rows that have different values so you can easily spot what factors contributed to the results.  
 
-:::image type="content" source="media/how-to-visualize-jobs/preview-panel.gif" alt-text="Screenshot of how to enable feature in preview panel.":::
-
 ## Monitor your resources across jobs 
 
 Navigate to the Resource metrics section to view your resource usage across jobs. This view provides insights on your job's resources on a 30 day rolling basis. 
