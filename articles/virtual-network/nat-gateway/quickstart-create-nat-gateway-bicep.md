@@ -2,13 +2,11 @@
 title: 'Create a NAT gateway - Bicep'
 titleSuffix: Azure NAT Gateway
 description: This quickstart shows how to create a NAT gateway using Bicep.
-services: nat-gateway
 author: asudbring
 ms.service: virtual-network
 ms.subservice: nat
 ms.topic: how-to
-ms.workload: infrastructure-services
-ms.date: 04/08/2022
+ms.date: 04/24/2023
 ms.author: allensu
 ms.custom: subject-armqs, devx-track-bicep
 # Customer intent: I want to create a NAT gateway using Bicep so that I can provide outbound connectivity for my virtual machines.
@@ -31,7 +29,9 @@ The Bicep file used in this quickstart is from [Azure Quickstart Templates](http
 This Bicep file is configured to create a:
 
 * Virtual network
+
 * NAT gateway resource
+
 * Ubuntu virtual machine
 
 The Ubuntu VM is deployed to a subnet that's associated with the NAT gateway resource.
@@ -41,18 +41,27 @@ The Ubuntu VM is deployed to a subnet that's associated with the NAT gateway res
 Nine Azure resources are defined in the Bicep file:
 
 * **[Microsoft.Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups)**: Creates a network security group.
+
 * **[Microsoft.Network/networkSecurityGroups/securityRules](/azure/templates/microsoft.network/networksecuritygroups/securityrules)**: Creates a security rule.
+
 * **[Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)**: Creates a public IP address.
+
 * **[Microsoft.Network/publicIPPrefixes](/azure/templates/microsoft.network/publicipprefixes)**: Creates a public IP prefix.
+
 * **[Microsoft.Compute/virtualMachines](/azure/templates/Microsoft.Compute/virtualMachines)**: Creates a virtual machine.
+
 * **[Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)**: Creates a virtual network.
+
 * **[Microsoft.Network/natGateways](/azure/templates/microsoft.network/natgateways)**: Creates a NAT gateway resource.
+
 * **[Microsoft.Network/virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets)**: Creates a virtual network subnet.
+
 * **[Microsoft.Network/networkinterfaces](/azure/templates/microsoft.network/networkinterfaces)**: Creates a network interface.
 
 ## Deploy the Bicep file
 
 1. Save the Bicep file as **main.bicep** to your local computer.
+
 1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
 
     # [CLI](#tab/CLI)
@@ -117,13 +126,17 @@ Remove-AzResourceGroup -Name exampleRG
 In this quickstart, you created a:
 
 * NAT gateway resource
+
 * Virtual network
+
 * Ubuntu virtual machine
 
 The virtual machine is deployed to a virtual network subnet associated with the NAT gateway.
 
-To learn more about Azure NAT Gateway and Bicep, continue to the articles below.
+To learn more about Azure NAT Gateway and Bicep, continue to the following articles.
 
 * Read an [Overview of Azure NAT Gateway](nat-overview.md)
+
 * Read about the [NAT Gateway resource](nat-gateway-resource.md)
+
 * Learn more about [Bicep](../../azure-resource-manager/bicep/overview.md)
