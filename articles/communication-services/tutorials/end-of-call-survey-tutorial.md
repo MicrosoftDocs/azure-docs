@@ -177,7 +177,7 @@ You need to enable a Log Analytics Workspace to both store the log data of your 
 -	You can also integrate your Log Analytics workspace with Power BI, see: [Integrate Log Analytics with Power BI](../../../articles/azure-monitor/logs/log-powerbi.md)
  -->
 
-## Best Practices
+## Best practices
 Here are our recommended survey flows and suggested question prompts for consideration. Your development can use our recommendation or use customized question prompts and flows for your visual interface.
 
 **Question 1:** How did the users perceive their overall call quality experience?
@@ -196,10 +196,10 @@ If a survey participant responded to Question 1 with a score at or below the cut
 Surveying Guidelines
 -	Avoid survey burnout, don’t survey all call participants.
 -	The order of your questions matters. We recommend you randomize the sequence of optional tags in Question 2 in case respondents focus most of their feedback on the first prompt they visually see.
--	Consider using surveys for separate ACS Resources in controlled experiments to identify release impacts.  
+-	Consider using surveys for separate Azure Communication Services Resources in controlled experiments to identify release impacts.  
 
 
-## Next Steps
+## Next steps
 
 -	Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](../../../articles/azure-monitor/logs/log-analytics-tutorial.md)
 
