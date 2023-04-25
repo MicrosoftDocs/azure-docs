@@ -14,7 +14,7 @@ ms.custom:
 
 Learn how to create a device link on an office branch location for Global Secure Access.
 
-## Pre-requisites 
+## Prerequisites 
 - Microsoft Entra Internet Access premium license for your Microsoft Entra Identity tenant.  
 - Entra Network Access Administrator role in Microsoft Entra Identity.
 - The *Microsoft Graph* module must be installed to use PowerShell.
