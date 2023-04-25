@@ -180,7 +180,7 @@ This article compares several ISV solutions that provide files services in Azure
 - Byte Level Locking (multiple simultaneous R/W opens)
 
 **Qumulo**
-- [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qumulo1584033880660.qumulo-saas?tab=Overview)
+- [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qumulo1584033880660.qumulo-saas-mpp)
 - Support for REST, and FTP
 
 **Tiger Technology**

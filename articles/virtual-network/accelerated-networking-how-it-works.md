@@ -1,15 +1,12 @@
 ---
 title: How Accelerated Networking works in Linux and FreeBSD VMs
 description: How Accelerated Networking Works in Linux and FreeBSD VMs
-services: virtual-network
 author: asudbring
-manager: gedegrac
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/15/2022
+ms.date: 04/18/2023
 ms.author: allensu
 ---
 
@@ -19,9 +16,9 @@ When a VM is created in Azure, a synthetic network interface is created for each
 
 If the VM is configured with Accelerated Networking, a second network interface is created for each virtual NIC that is configured. The second interface is an SR-IOV Virtual Function (VF) offered by the physical network NIC in the Azure host. The VF interface shows up in the Linux guest as a PCI device, and uses the Mellanox “mlx4” or “mlx5” driver in Linux, since Azure hosts use physical NICs from Mellanox. Most network packets go directly between the Linux guest and the physical NIC without traversing the virtual switch or any other software that runs on the host. Because of the direct access to the hardware, network latency is lower and less CPU time is used to process network packets when compared with the synthetic interface. 
 
-Different Azure hosts use different models of Mellanox physical NIC, so Linux automatically determines whether to use the “mlx4” or “mlx5” driver. Placement of the VM on an Azure host is controlled by the Azure infrastructure. With no customer option to specify which physical NIC that a VM deployment uses, the VMs must include both drivers. If a VM is stopped/deallocated and then restarted, it might be redeployed on hardware with a different model of Mellanox physical NIC. Therefore, it might use the other Mellanox driver. 
+Different Azure hosts use different models of Mellanox physical NIC. Linux automatically determines whether to use the “mlx4” or “mlx5” driver. The Azure infrastructure controls the placement of the VM on the Azure host. With no customer option to specify which physical NIC that a VM deployment uses, the VMs must include both drivers. If a VM is stopped/deallocated and then restarted, it might be redeployed on hardware with a different model of Mellanox physical NIC. Therefore, it might use the other Mellanox driver. 
 
-If a VM image doesn't include a driver for the Mellanox physical NIC, networking capabilities will continue to work at the slower speeds of the virtual NIC, even though the portal, Azure CLI, and Azure PowerShell will still show the Accelerated Networking feature as _enabled_.
+If a VM image doesn't include a driver for the Mellanox physical NIC, networking capabilities continue to work at the slower speeds of the virtual NIC. The portal, Azure CLI, and Azure PowerShell display the Accelerated Networking feature as _enabled_.
 
 FreeBSD provides the same support for Accelerated Networking as Linux when running in Azure. The remainder of this article describes Linux and uses Linux examples, but the same functionality is available in FreeBSD.
 
@@ -30,11 +27,11 @@ FreeBSD provides the same support for Accelerated Networking as Linux when runni
 
 ## Bonding
 
-The synthetic network interface and VF interface are automatically paired and act as a single interface in most aspects that are seen by applications. The bonding is done by the netvsc driver. Depending on the Linux distro, udev rules and scripts might help in naming the VF interface and in network configuration. If the VM is configured with multiple virtual NICs, the Azure host provides a unique serial number for each one. It's used to allow Linux to do the proper pairing of synthetic and VF interfaces for each virtual NIC. 
+The synthetic network interface and VF interface are automatically paired and act as a single interface in most aspects used by applications. The bonding is done by the netvsc driver. Depending on the Linux distro, udev rules and scripts might help in naming the VF interface and in network configuration. If the VM is configured with multiple virtual NICs, the Azure host provides a unique serial number for each one. It's used to allow Linux to do the proper pairing of synthetic and VF interfaces for each virtual NIC. 
  
 The synthetic and VF interfaces both have the same MAC address. Together they constitute a single NIC from the standpoint of other network entities that exchange packets with the virtual NIC in the VM. Other entities don't take any special action because of the existence of both the synthetic interface and the VF interface. 
 
-Both interfaces are visible via the “ifconfig” or “ip addr” command in Linux.  Here's example “ifconfig” output in Ubuntu 18.04: 
+Both interfaces are visible via the `ifconfig` or `ip addr` command in Linux. Here's an example `ifconfig` output: 
 
 ```output
 U1804:~$ ifconfig 
@@ -55,7 +52,7 @@ TX packets 9103233  bytes 2183731687 (2.1 GB)
 TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0 
 ```
 
-The synthetic interface always has a name of the form “eth\<n\>”. Depending on the Linux distro, the VF interface might have a name of the form “eth\<n\>”, or a name of a different form because of a udev rule that does renaming.   
+The synthetic interface always has a name of the form `eth\<n\>`. Depending on the Linux distro, the VF interface might have a name of the form `eth\<n\>`, or a name of a different form because of a `udev` rule that does renaming.   
  
 Whether a particular interface is the synthetic interface or the VF interface can be determined with the shell command line that shows the device driver used by the interface: 
 
@@ -63,13 +60,13 @@ Whether a particular interface is the synthetic interface or the VF interface ca
 $ ethtool -i <interface name> | grep driver 
 ```
 
-If the driver is “hv_netvsc”, it's the synthetic interface. The VF interface has a driver name that contains “mlx”. The VF interface is also identifiable because its flags field includes “SLAVE.” This flag indicates that it's under the control of the synthetic interface that has the same MAC address. Finally, IP addresses are assigned only to the synthetic interface, and the output of ‘ifconfig’ or ‘ip addr’ shows this distinction as well. 
+If the driver is `hv_netvsc`, it's the synthetic interface. The VF interface has a driver name that contains “mlx”. The VF interface is also identifiable because its flags field includes `SLAVE`. This flag indicates that it's under the control of the synthetic interface that has the same MAC address. Finally, IP addresses are assigned only to the synthetic interface, and the output of `ifconfig` or `ip addr` shows this distinction as well. 
 
 ## Application Usage
 
-Applications should interact only with the synthetic interface, just like in any other networking environment. Outgoing network packets are passed from the netvsc driver to the VF driver and then transmitted through the VF interface. Incoming packets are received and processed on the VF interface before being passed to the synthetic interface. Exceptions are incoming TCP SYN packets and broadcast/multicast packets that are processed by the synthetic interface only. 
+Applications should interact only with the synthetic interface, just like in any other networking environment. Outgoing network packets are passed from the netvsc driver to the VF driver and then transmitted through the VF interface. Incoming packets are received and processed on the VF interface before being passed to the synthetic interface. Exceptions are incoming TCP SYN packets and broadcast/multicast packets processed by the synthetic interface only. 
  
-You can verify that packets are flowing over the VF interface from the output of “ethtool -S eth\<n\>”. The output lines that contain “vf” show the traffic over the VF interface. For example: 
+You can verify that packets are flowing over the VF interface from the output of `ethtool -S eth\<n\>`. The output lines that contain `vf` show the traffic over the VF interface. For example: 
 
 ```output
 U1804:~# ethtool -S eth0 | grep ' vf_' 
@@ -82,7 +79,7 @@ U1804:~# ethtool -S eth0 | grep ' vf_'
 
 If these counters are incrementing on successive execution of the “ethtool” command, then network traffic is flowing over the VF interface. 
  
-The existence of the VF interface as a PCI device can be seen with the “lspci” command. For example, on the Generation 1 VM, you might see output similar to this (Generation 2 VMs don’t have the legacy PCI devices): 
+The existence of the VF interface as a PCI device can be seen with the `lspci` command. For example, on the Generation 1 VM, you might see output similar to the following output (Generation 2 VMs don’t have the legacy PCI devices): 
 
 ```output
 U1804:~# lspci 
@@ -151,7 +148,7 @@ The corresponding synthetic interface that is using the netvsc driver has detect
 [    7.480651] mlx5_core cf63:00:02.0 enP53091s1np0: renamed from eth1 
 ```
 
-The VF interface initially was named “eth1” by the Linux kernel. A udev rule renamed it to avoid confusion with the names given to the synthetic interfaces. 
+The VF interface initially was named “eth1” by the Linux kernel. An udev rule renamed it to avoid confusion with the names given to the synthetic interfaces. 
 
 ```output
 [    8.087962] mlx5_core cf63:00:02.0 enP53091s1np0: Link up 
@@ -180,9 +177,9 @@ The final message indicates that the data path has switched to using the VF inte
 
 ## Azure Host Servicing
 
-When Azure host servicing is performed, all VF interfaces might be temporarily removed from the VM during the servicing. When the servicing is complete, the VF interfaces are added back to the VM and normal operation continues. While the VM is operating without the VF interfaces, network traffic continues to flow through the synthetic interface without any disruption to applications.  In this context, Azure host servicing might include updating the various components of the Azure network infrastructure or a full upgrade of the Azure host hypervisor software. Such servicing events occur at time intervals depending on the operational needs of the Azure infrastructure. These events typically can be expected several times over the course of a year. If applications interact only with the synthetic interface, the automatic switching between the VF interface and the synthetic interface ensures that workloads aren't disturbed by such servicing events. Latencies and CPU load might be higher during the periods because of the use of the synthetic interface. The duration of such periods is typically on the order of 30 seconds, but sometimes might be as long as a few minutes. 
+When Azure host servicing is performed, all VF interfaces might be temporarily removed from the VM during the servicing. When the servicing is complete, the VF interfaces are added back to the VM. Normal operation continues. While the VM is operating without the VF interfaces, network traffic continues to flow through the synthetic interface without any disruption to applications.  In this context, Azure host servicing might include updating the various components of the Azure network infrastructure or a full upgrade of the Azure host hypervisor software. Such servicing events occur at time intervals depending on the operational needs of the Azure infrastructure. These events typically can be expected several times over the course of a year. The automatic switching between the VF interface and the synthetic interface ensures that servicing events don't disturb workloads if applications interact only with the synthetic interface. Latencies and CPU load might be higher during the periods because of the use of the synthetic interface. The duration of such periods is typically on the order of 30 seconds, but sometimes might be as long as a few minutes. 
  
-The removal and re-add of the VF interface during a servicing event is visible in the “dmesg” output in the VM.  Here's typical output: 
+The removal and readd of the VF interface during a servicing event is visible in the “dmesg” output in the VM.  Here's typical output: 
 
 ```output
 [   8160.911509] hv_netvsc 000d3af5-76bd-000d-3af5-76bd000d3af5 eth0: Data path switched from VF: enP53091s1np0 
@@ -204,7 +201,7 @@ The data path has been switched away from the VF interface, and the VF interface
 [   8225.667978] pci cf63:00:02.0: BAR 0: assigned [mem 0xfe0000000-0xfe00fffff 64bit pref] 
 ```
 
-When the VF interface is re-added after servicing is complete, a new PCI device with the specified GUID is detected. It's assigned the same PCI domain ID (0xcf63) as before. The handling of the re-add VF interface is like during the initial boot. 
+When the VF interface is readded after servicing is complete, a new PCI device with the specified GUID is detected. It's assigned the same PCI domain ID (0xcf63) as before. The handling of the readd VF interface is like during the initial boot. 
 
 ```output
 [   8225.679672] mlx5_core cf63:00:02.0: firmware version: 14.25.8362 
@@ -225,17 +222,17 @@ The mlx5 driver initializes the VF interface, and the interface is now functiona
 
 The data path has been switched back to the VF interface. 
 
-## Disable/Enable Accelerated Networking in a non-running VM 
+## Disable/Enable Accelerated Networking in a nonrunning VM 
 
-Accelerated Networking can be toggled on a virtual NIC in a non-running VM with Azure CLI. For example: 
+Accelerated Networking can be toggled on a virtual NIC in a nonrunning VM with Azure CLI. For example: 
 
 ```output
 $ az network nic update --name u1804895 --resource-group testrg --accelerated-network false 
 ```
 
-Disabling Accelerated Networking that is enabled in the guest VM produces a “dmesg” output. It's the same as when the VF interface is removed for Azure host servicing. Enabling Accelerated Networking produces the same “dmesg” output as when the VF interface is readded after Azure host servicing. These Azure CLI commands can be used to simulate Azure host servicing. With them you can verify that your applications do not incorrectly depend on direct interaction with the VF interface.
+Disabling Accelerated Networking that is enabled in the guest VM produces a “dmesg” output. It's the same as when the VF interface is removed for Azure host servicing. Enabling Accelerated Networking produces the same “dmesg” output as when the VF interface is readded after Azure host servicing. These Azure CLI commands can be used to simulate Azure host servicing. With them, you can verify that your applications don't incorrectly depend on direct interaction with the VF interface.
 
 ## Next steps
 * Learn how to [create a VM with Accelerated Networking in PowerShell](../virtual-network/create-vm-accelerated-networking-powershell.md)
-* Learn how to [create a VM with Accerelated Networking using Azure CLI](../virtual-network/create-vm-accelerated-networking-cli.md)
+* Learn how to [create a VM with Accelerated Networking using Azure CLI](../virtual-network/create-vm-accelerated-networking-cli.md)
 * Improve latency with an [Azure proximity placement group](../virtual-machines/co-location.md)

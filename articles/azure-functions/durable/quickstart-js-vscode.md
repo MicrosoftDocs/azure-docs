@@ -37,7 +37,7 @@ To complete this tutorial:
 * Make sure you have the latest version of the [Azure Functions Core Tools](../functions-run-local.md).
 ::: zone-end
 ::: zone pivot="nodejs-model-v4"
-* Make sure you have [Azure Functions Core Tools](../functions-run-local.md) version `v4.0.5085` or above.
+* Make sure you have [Azure Functions Core Tools](../functions-run-local.md) version `v4.0.5095` or above.
 ::: zone-end
 
 * Durable Functions require an Azure storage account. You need an Azure subscription.

@@ -4,7 +4,7 @@ description: Monitoring .NET Core/.NET Framework non-HTTP apps with Azure Monito
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 01/24/2023
+ms.date: 04/24/2023
 ms.reviewer: cithomas
 ---
 
@@ -569,7 +569,7 @@ This section provides answers to common questions.
 
 | .NET Core app scenario | Package  |
 |---------|---------|
-| Without HostedServices                              | AspNetCore                     |
+| Without HostedServices                              | WorkerService                     |
 | With HostedServices                                 | AspNetCore (not WorkerService) |
 | With HostedServices, monitoring only HostedServices | WorkerService (rare scenario)  |
 

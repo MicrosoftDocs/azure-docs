@@ -23,11 +23,11 @@ Version 4 was designed with the following goals in mind:
 
 Version 4 of the Node.js programming model requires the following minimum versions:
 
-- [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package v4.0.0-alpha.8+
+- [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package v4.0.0-alpha.9+
 - [Node.js](https://nodejs.org/en/download/releases/) v18+
 - [TypeScript](https://www.typescriptlang.org/) v4+
 - [Azure Functions Runtime](./functions-versions.md) v4.16+
-- [Azure Functions Core Tools](./functions-run-local.md) v4.0.4915+ (if running locally)
+- [Azure Functions Core Tools](./functions-run-local.md) v4.0.5095+ (if running locally)
 
 ## Enable v4 programming model
 
@@ -364,3 +364,10 @@ The http request and response types are now a subset of the [fetch standard](htt
 If you see the following error, make sure you [set the `EnableWorkerIndexing` flag](#enable-v4-programming-model) and you're using the minimum version of all [requirements](#requirements):
 
 > No job functions found. Try making your job classes and methods public. If you're using binding extensions (e.g. Azure Storage, ServiceBus, Timers, etc.) make sure you've called the registration method for the extension(s) in your startup code (e.g. builder.AddAzureStorage(), builder.AddServiceBus(), builder.AddTimers(), etc.).
+
+If you see the following error, make sure you're using Node.js version 18.x:
+
+> System.Private.CoreLib: Exception while executing function: Functions.httpTrigger1. System.Private.CoreLib: Result: Failure
+> Exception: undici_1.Request is not a constructor
+
+For any other issues or feedback, feel free to file an issue on our [GitHub repo](https://github.com/Azure/azure-functions-nodejs-library/issues).
