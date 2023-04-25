@@ -27,7 +27,7 @@ An alert rule combines:
 
 If you're monitoring more than one resource, the condition is evaluated separately for each of the resources. Alerts are fired for each resource separately.
 
-The alert payload structure is based the [common alert schema](alerts-common-schema.md), or the and is made up of these components: 
+The alert payload structure is based the [common alert schema](alerts-common-schema.md), and is made up of these components: 
 
  - **Action groups**: These groups can trigger notifications or an automated workflow to let users know that an alert has been triggered. Action groups can include:
      - Notification methods, such as email, SMS, and push notifications.
