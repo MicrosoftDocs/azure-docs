@@ -9,7 +9,7 @@ ms.author: veyaddan
 
 # Client Authentication
 
-We support authentication of clients using X.509 certificates.  X.509 certificate will provide the credentials to associate a particular client with the tenant.  In this model, authentication generally happens once during session establishment.  Then, all future operations using the same session are assumed to come from that identity.  
+We support authentication of clients using X.509 certificates.  X.509 certificate provides the credentials to associate a particular client with the tenant.  In this model, authentication generally happens once during session establishment.  Then, all future operations using the same session are assumed to come from that identity.  
 
 ## Supported authentication credential types
 
@@ -17,20 +17,25 @@ We support authentication of clients using X.509 certificates.  X.509 certificat
 - Certificate thumbprint
 
 **CA signed certificates:**
-In this method, a root or intermediate X.509 certificate is registered with the service. Essentially, the root or intermediary certificate that is used to sign the client certificate, must be registered with the service first. Later, clients are authenticated if they have a valid leaf certificate that's signed by the root or intermediate certificate that was supplied to the service. While registering the clients, the subject common name of the leaf certificate needs to be supplied for authentication. Service will validate the subject values match the subject values from the client certificate and also validate the client certificate is signed the root or intermediary certificate that was registered earlier.
+In this method, a root or intermediate X.509 certificate is registered with the service. Essentially, the root or intermediary certificate that is used to sign the client certificate, must be registered with the service first.
+
+While registering the clients, you need to identify the certificate field used to hold the client authentication name.  Service matches the authentication name from certificate with the client's authentication name in client metadata to validate the client. Service also validates  the client certificate by verifying whether it's signed by the previously registered root or intermediary certificate.
 
 **Certificate Thumbprint:**
-Clients are onboarded to the service using the certificate thumbprint alongside the identity record. In this method of authentication, the client registry will store the exact ID of the certificate that the client is going to use to authenticate.
-Client Authentication Name: For the client, you can provide a unique identifier which is not restricted by Azure Resource Manager naming constraints. It is a mandatory field and if not explicitly provided, it will be defaulted to the Client Name.
+Clients are onboarded to the service using the certificate thumbprint alongside the identity record. In this method of authentication, the client registry stores the exact thumbprint of the certificate that the client is going to use to authenticate.  When client tries to connect to the service, service validates the client by comparing the thumbprint presented in the client certificate with the thumbprint stored in client metadata.
+
+## Key terms of client metadata
+
+**Client Authentication Name:**  You can provide a unique identifier for the client without Azure Resource Manager naming constraints. It's a mandatory field and if not explicitly provided, it's defaulted to the Client Name.
 
 No two clients can have same authentication name within a Namespace. While authenticating a client, we treat Client authentication name as case insensitive.
 
 We preserve the original case of client authentication name that you configure in the client. We use the original client authentication name (case sensitive) that was provided when client was created, in routing enrichments, topic space matching, etc.
 
 **Client Certificate Authentication Validation Scheme:**
-To use CA certificate for authentication, you can choose from one of following options to specify the location of the client identity in the client certificate. When the client tries to connect to the service, service will find the client identify from this certificate field and matches it with the client authentication name to authenciate the client.
+To use CA certificate for authentication, you can choose from one of following options to specify the location of the client identity in the client certificate. When the client tries to connect to the service, service finds the client identify from this certificate field and matches it with the client authentication name to authenticate the client.
 
-We support 5 certificate fields, you can find more information in below table. 
+We support five certificate fields:
 - Subject Matches Authentication Name
 - Dns Matches Authentication Name
 - Uri Matches Authentication Name
@@ -39,7 +44,7 @@ We support 5 certificate fields, you can find more information in below table.
 
 Use the "Thumbprint Match" option while using the client certificate thumbprint to authenticate the client.
 
-## Client authentication source options
+### Client authentication source options
 
 | Authentication Source Option | Certificate field | Description |
 | ------------ | ------------ | ------------ |
@@ -49,7 +54,7 @@ Use the "Thumbprint Match" option while using the client certificate thumbprint 
 | Certificate Ip | tls_client_auth_san_ip | The IPv4 or IPv6 address present in the iPAddress SAN entry in the certificate. |
 | Certificate Email | tls_client_auth_san_email | The rfc822Name SAN entry in the certificate. |
 
-## Flow to establish mTLS connection
+## High level flow of how mTLS connection is established
 
 - The client initiates the handshake with Event Grid MQTT service.  It sends a hello packet with supported TLS version, cipher suites.
 - Service presents its certificate to the client.  
