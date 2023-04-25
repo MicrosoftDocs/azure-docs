@@ -20,26 +20,21 @@ This page provides a single place for the tutorials to the various entra identit
 
 ## Featured integrations
 
-| Logo | Category | Application tutorial for user provisioning |
-| :--- | :--- | :--- |
-| | HR | [SuccessFactors - User Provisioning](https://learn.microsoft.com/azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial) |
-| | HR| [Workday - User Provisioning](https://learn.microsoft.com/azure/active-directory/saas-apps/workday-inbound-cloud-only-tutorial)|
-|| [LDAP](https://learn.microsoft.com/azure/active-directory/app-provisioning/on-premises-ldap-connector-configure)| OpenLDAP<br>Microsoft Active Directory Lightweight Directory Services<br>389 Directory Server<br>Apache Directory Server<br>IBM Tivoli DS<br>Isode Directory<br>NetIQ eDirectory<br>Novell eDirectory<br>Open DJ<br>Open DS<br>Oracle (previously Sun ONE) Directory Server Enterprise Edition<br>RadiantOne Virtual Directory Server (VDS) |
-| | [SQL](https://learn.microsoft.com/azure/active-directory/app-provisioning/tutorial-ecma-sql-connector)| Microsoft SQL Server and Azure SQL<br>IBM DB2 10.x<br>IBM DB2 9.x<br>Oracle 10g and 11g<br>Oracle 12c and 18c<br>MySQL 5.x|
-| | Cloud platform| [Amazon Web Services (AWS) Console - Role Provisioning](amazon-web-service-tutorial.md#configure-azure-ad-sso) |
-| | Cloud platform| [Google Cloud Platform - User Provisioning](g-suite-provisioning-tutorial.md) |
-| | Cloud platform|[SAP Cloud Identity Platform - Provisioning](./sap-cloud-platform-identity-authentication-provisioning-tutorial.md) |
-| | CRM| [Salesforce - User Provisioning](salesforce-provisioning-tutorial.md) |
-| |ITSM| [ServiceNow](8x8virtualoffice-tutorial.md)|
+| Category | Application tutorial for user provisioning |
+| :--- | :--- |
+| HR | [SuccessFactors - User Provisioning](https://learn.microsoft.com/azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial) |
+| HR| [Workday - User Provisioning](https://learn.microsoft.com/azure/active-directory/saas-apps/workday-inbound-cloud-only-tutorial)|
+|[LDAP](https://learn.microsoft.com/azure/active-directory/app-provisioning/on-premises-ldap-connector-configure)| OpenLDAP<br>Microsoft Active Directory Lightweight Directory Services<br>389 Directory Server<br>Apache Directory Server<br>IBM Tivoli DS<br>Isode Directory<br>NetIQ eDirectory<br>Novell eDirectory<br>Open DJ<br>Open DS<br>Oracle (previously Sun ONE) Directory Server Enterprise Edition<br>RadiantOne Virtual Directory Server (VDS) |
+| [SQL](https://learn.microsoft.com/azure/active-directory/app-provisioning/tutorial-ecma-sql-connector)| Microsoft SQL Server and Azure SQL<br>IBM DB2 10.x<br>IBM DB2 9.x<br>Oracle 10g and 11g<br>Oracle 12c and 18c<br>MySQL 5.x|
+| Cloud platform| [Amazon Web Services (AWS) Console - Role Provisioning](amazon-web-service-tutorial.md#configure-azure-ad-sso) |
+| Cloud platform| [Google Cloud Platform - User Provisioning](g-suite-provisioning-tutorial.md) |
+| Cloud platform|[SAP Cloud Identity Platform - Provisioning](./sap-cloud-platform-identity-authentication-provisioning-tutorial.md) |
+| CRM| [Salesforce - User Provisioning](salesforce-provisioning-tutorial.md) |
+| ITSM| [ServiceNow](8x8virtualoffice-tutorial.md)|
 
-## Partner driven integrations
-Checkout the integrations [partners](https://learn.microsoft.com/azure/active-directory/app-provisioning/partner-driven-integrations) have built on top of Entra IGA.
-* Epic
-* Cerner
-* IBM RACF
 
 ## Full list of provisioning integrations
-| Application | User provisioning | SSO|
+| Application | Automated provisioning | Single Sign On (SSO)|
 | :--- | :---  | :--- |
 | [4me](https://learn.microsoft.com/azure/active-directory/saas-apps/4me-provisioning-tutorial) | ● | ● | 
 | [8x8](https://learn.microsoft.com/azure/active-directory/saas-apps/8x8-provisioning-tutorial) | ● | ● |
@@ -75,6 +70,12 @@ Checkout the integrations [partners](https://learn.microsoft.com/azure/active-di
 | [BLDNG APP](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
 | [Open LDAP](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● |  |
 | [Novell eDirectory](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● |  |
+
+## Partner driven integrations
+Checkout the integrations [partners](https://learn.microsoft.com/azure/active-directory/app-provisioning/partner-driven-integrations) have built on top of Entra IGA.
+* Epic
+* Cerner
+* IBM RACF
 
 ## Next steps
 
