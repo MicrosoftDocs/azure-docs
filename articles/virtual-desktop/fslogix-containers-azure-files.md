@@ -70,10 +70,6 @@ On November 19, 2018, [Microsoft acquired FSLogix](https://blogs.microsoft.com/b
 
 Since the acquisition, Microsoft started replacing existing user profile solutions, like UPD, with FSLogix profile containers.
 
-## Azure Files integration with Azure Active Directory Domain Service
-
-FSLogix profile containers' performance and features take advantage of the cloud. On August 7th, 2019, Microsoft Azure Files announced the general availability of [Azure Files authentication with Azure Active Directory Domain Service (Azure AD DS)](../storage/files/storage-files-active-directory-overview.md). By addressing both cost and administrative overhead, Azure Files with Azure AD DS Authentication is a premium solution for user profiles in the Azure Virtual Desktop service.
-
 ## Best practices for Azure Virtual Desktop
 
 Azure Virtual Desktop offers full control over size, type, and count of VMs that are being used by customers. For more information, see [What is Azure Virtual Desktop?](overview.md).
@@ -89,4 +85,7 @@ To ensure your Azure Virtual Desktop environment follows best practices:
 
 ## Next steps
 
-To learn more about storage options for FSLogix profile containers, see [Storage options for FSLogix profile containers in Azure Virtual Desktop](store-fslogix-profile.md).
+- Learn more about storage options for FSLogix profile containers, see [Storage options for FSLogix profile containers in Azure Virtual Desktop](store-fslogix-profile.md).
+- [Set up FSLogix Profile Container with Azure Files and Active Directory](fslogix-profile-container-configure-azure-files-active-directory.md)
+- [Set up FSLogix Profile Container with Azure Files and Azure Active Directory](create-profile-container-azure-ad.md)
+- [Set up FSLogix Profile Container with Azure NetApp Files](create-fslogix-profile-container.md)
