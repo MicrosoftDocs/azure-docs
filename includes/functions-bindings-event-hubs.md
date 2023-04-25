@@ -165,7 +165,7 @@ The [host.json](../articles/azure-functions/functions-host-json.md#eventhub) fil
 | clientRetryOptions/maximumDelay | 00:00:01 | The maximum delay to allow between retry attempts. |
 | clientRetryOptions/maximumRetries | 3 | The maximum number of retry attempts before considering the associated operation to have failed.|
 
-<sup>1</sup> Support for a minimum batch size and scale thresholds begins with [v5.3.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/5.3.0) of the `Microsoft.Azure.WebJobs.Extensions.EventHubs` package.
+<sup>1</sup> Using `minEventBatchSize` and `maxWaitTime` requires [v5.3.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/5.3.0) of the `Microsoft.Azure.WebJobs.Extensions.EventHubs` package, or a later version.
 
 The `clientRetryOptions` are used to retry operations between the Functions host and Event Hubs (such as fetching events and sending events).  Refer to guidance on [Azure Functions error handling and retries](../articles/azure-functions/functions-bindings-error-pages.md#retries) for information on applying retry policies to individual functions.
 
