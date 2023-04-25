@@ -861,7 +861,11 @@ items:
           href: profiler/profiler-troubleshooting.md
       - name: AI Code Optimizer
         displayName: opt insights, optimization insights, code optimization, perflens
-        href: insights/ai-code-optimizer-overview.md
+        items:
+        - name: Overview
+          href: insights/ai-code-optimizer-overview.md
+        - name: Troubleshooting
+          href: /troubleshoot/azure/azure-monitor/app-insights/code-optimizations-troubleshooting
       - name: Snapshot Debugger
         items:
         - name: Overview
