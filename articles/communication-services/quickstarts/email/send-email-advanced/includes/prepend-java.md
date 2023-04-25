@@ -149,4 +149,6 @@ EmailClient emailClient = new EmailClientBuilder()
     .buildClient();
 ```
 
+---
+
 For simplicity, this quickstart uses connection strings, but in production environments, we recommend using [service principals](../../../../quickstarts/identity/service-principal.md).

@@ -153,6 +153,8 @@ var endpoint = new Uri("<your-endpoint-uri>");
 var emailClient = new EmailClient(endpoint, key);
 ```
 
+---
+
 ## Basic email sending 
 
 ### Construct your email message

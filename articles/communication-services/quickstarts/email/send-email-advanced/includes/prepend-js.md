@@ -147,4 +147,6 @@ var endpoint = "<your-endpoint-uri>";
 const emailClient = new EmailClient(endpoint, key);
 ```
 
+---
+
 For simplicity, this quickstart uses connection strings, but in production environments, we recommend using [service principals](../../../../quickstarts/identity/service-principal.md).

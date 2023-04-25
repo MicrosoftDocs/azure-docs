@@ -152,3 +152,5 @@ var endpoint = new Uri("<your-endpoint-uri>");
 
 var emailClient = new EmailClient(endpoint, key);
 ```
+
+---
