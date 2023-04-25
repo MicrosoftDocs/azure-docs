@@ -57,7 +57,7 @@ Typically, you should install the agent on a different computer from the one on 
 
 2. Configure the logs to be collected
 
-Follow the configuration steps below to get vCenter server logs into Microsoft Sentinel. Refer to the [Azure Monitor Documentation](https://learn.microsoft.com/azure/azure-monitor/agents/data-sources-json) for more details on these steps.
+Follow the configuration steps below to get vCenter server logs into Microsoft Sentinel. Refer to the [Azure Monitor Documentation](/azure/azure-monitor/agents/data-sources-json) for more details on these steps.
  For vCenter Server logs, we have issues while parsing the data by OMS agent data using default settings. 
 So we advice to capture the logs into custom table **vCenter_CL** using below instructions. 
 1. Login to the server where you have installed OMS agent.

@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 03/31/2023
 ms.author: govindk
 ms.reviewer: mjbrown
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022, devx-track-arm-template
 ---
 
 # Restore an Azure Cosmos DB account that uses continuous backup mode
@@ -121,7 +121,7 @@ Before restoring the account, install the [latest version of Azure PowerShell](/
 
 ### <a id="trigger-restore-ps"></a>Trigger a restore operation for API for NoSQL account
 
-The following cmdlet is an example to trigger a restore operation with the restore command by using the target account, source account, location, resource group, and timestamp:
+The following cmdlet is an example to trigger a restore operation with the restore command by using the target account, source account, location, resource group, PublicNetworkAccess and timestamp:
 
 ```azurepowershell
 
@@ -131,6 +131,7 @@ Restore-AzCosmosDBAccount `
   -SourceDatabaseAccountName "SourceDatabaseAccountName" `
   -RestoreTimestampInUtc "UTCTime" `
   -Location "AzureRegionName"
+  -PublicNetworkAccess Disabled
 
 ```
 
@@ -144,9 +145,14 @@ Restore-AzCosmosDBAccount `
   -SourceDatabaseAccountName "source-sql" `
   -RestoreTimestampInUtc "2021-01-05T22:06:00" `
   -Location "West US"
+  -PublicNetworkAccess Disabled
 
 ```
+If `PublicNetworkAccess` is not set, restored account is accessible from public network, please ensure to pass Disabled to the `PublicNetworkAccess` option to disable public network access for restored account.
 
+ [NOTE]
+> For restoring with public network access disabled, you'll need to install the preview of powershell module of CosmosDB by executing `Install-Module -Name Az.CosmosDB -AllowPrerelease`. You would also require version 5.1 of the Powershell.
+> 
 **Example 2:** Restoring specific collections and databases. This example restores the collections *MyCol1*, *MyCol2* from *MyDB1* and the entire database *MyDB2*, which, includes all the containers under it.
 
 ```azurepowershell
@@ -412,8 +418,14 @@ The simplest way to trigger a restore is by issuing the restore command with nam
     --restore-timestamp 2020-07-13T16:03:41+0000 \
     --resource-group MyResourceGroup \
     --location "West US"
+    --public-network-access Disabled
 
    ```
+If `public-network-access` is not set, restored account is accessible from public network, please ensure to pass Disabled to the `public-network-access` option to disable public network access for restored account.
+
+> [NOTE]
+> For restoring with public network access disabled, you'll need to install the cosmosdb-preview 0.23.0 of CLI extension   by executing `az extension update --name cosmosdb-preview `. You would also require version 2.17.1 of the CLI.
+
 
 #### Create a new Azure Cosmos DB account by restoring only selected databases and containers from an existing database account
 
