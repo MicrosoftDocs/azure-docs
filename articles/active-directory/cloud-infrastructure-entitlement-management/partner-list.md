@@ -20,12 +20,12 @@ Microsoft verified partners can help you onboard Microsoft Entra Permissions Man
 
 * **Product Expertise**
 
-    Our partners will help you navigate Permissions Management, letting you in on best 
+    Our partners help you navigate Permissions Management, letting you in on best 
     practices and guidance to enhance your security strategy.
 
 * **Risk Assessment**
 
-    Partners will guide you through the Entra Permissions Management risk assessment and 
+    Partners guide you through the Entra Permissions Management risk assessment and 
     help you identify top permission risks across your multicloud infrastructure.
 
 * **Onboarding and Deployment Support**
@@ -49,6 +49,7 @@ If you're a partner and would like to be considered for the Entra Permissions Ma
 | ![Screenshot of Ascent Solutions logo.](media/partner-list/partner-ascent-solutions.png) | [Ascent Solutions Microsoft Entra Permissions Management Rapid Risk Assessment](https://www.meetascent.com/resources/microsoft-entra-permissions-rapid-risk-assessment)
 | ![Screenshot of Synergy Advisors logo.](media/partner-list/partner-synergy-advisors.png) | [Synergy Advisors Identity Optimization](https://synergyadvisors.biz/solutions-item/identity-optimization/)
 | ![Screenshot of BDO Digital logo.](media/partner-list/partner-bdo-digital.png) | [BDO Digital Managing Permissions Across Multicloud](https://www.bdodigital.com/services/security-compliance/cybersecurity/entra-permissions-management)
+| ![Screenshot of Mazzy Technologies logo.](media/partner-list/partner-mazzy-technologies.png) | [Mazzy Technologies Identity](https://mazzytechnologies.com/identity%3A-microsoft-entra)
 ## Next steps
 
 * For an overview of Permissions Management, see [What's Permissions Management?](overview.md)
