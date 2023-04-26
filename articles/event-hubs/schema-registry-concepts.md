@@ -14,7 +14,7 @@ Schema Registry in Azure Event Hubs provides you with a repository to use and ma
 
 An Event Hubs namespace can host schema groups alongside event hubs (or Kafka topics). It hosts a schema registry and can have multiple schema groups. In spite of being hosted in Azure Event Hubs, the schema registry can be used universally with all Azure messaging services and any other message or events broker. Each of these schema groups is a separately securable repository for a set of schemas. Groups can be aligned with a particular application or an organizational unit. 
 
-:::image type="content" source="./media/schema-registry-overview/elements.png" alt-text="Image showing the Schema Registry elements." border="false":::
+:::image type="content" source="./media/schema-registry-overview/elements.png" alt-text="Image showing the components of Schema Registry in Azure Event Hubs." border="false":::
 
 ### Schema groups
 Schema group is a logical group of similar schemas based on your business criteria. A schema group can hold multiple versions of a schema. The compatibility enforcement setting on a schema group can help ensure that newer schema versions are backwards compatible.
