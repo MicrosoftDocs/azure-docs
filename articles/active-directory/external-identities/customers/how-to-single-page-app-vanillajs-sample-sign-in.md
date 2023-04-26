@@ -43,7 +43,7 @@ In this article:
 
 ## Grant API permissions
 
-[!INCLUDE [active-directory-b2c-grant-delegated-permissions](/includes/register-app/grant-api-permission-sign-in.md)]
+[!INCLUDE [active-directory-b2c-grant-delegated-permissions](./includes/register-app/grant-api-permission-sign-in.md)]
 
 ## Create a user flow
 
@@ -51,7 +51,7 @@ In this article:
 
 ## Associate the SPA with the user flow
 
-[!INCLUDE [active-directory-b2c-app-integration-add-user-flow](.s/includes/configure-user-flow/add-app-user-flow.md)]
+[!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/configure-user-flow/add-app-user-flow.md)]
 
 ## Clone or download sample SPA
 
@@ -86,9 +86,8 @@ If you choose to download the `.zip` file, extract the sample app file to a fold
 1. Open `authConfig.js`.
 1. Replace the following values with the values from the Admin center.
     * `clientId` - The identifier of the application, also referred to as the client. Replace `Enter_the_Application_Id_Here` with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
-    * `authority` - This is composed of two parts:
-        * The *Instance* is endpoint of the cloud provider. Check with the different available endpoints in [National clouds](../develop\authentication-national-cloud.md#azure-ad-authentication-endpoints).
-        * The *Tenant ID* is the identifier of the tenant where the application is registered. Replace the `_Enter_the_Tenant_Info_Here` with the **Directory (tenant) ID** value that was recorded earlier from the overview page of the registered application.
+    * `authority` - The identity provider instance and sign-in audience for the app. Replace `Enter_the_Tenant_Name_Here` with the name of your CIAM tenant.
+    * The *Tenant ID* is the identifier of the tenant where the application is registered. Replace the `_Enter_the_Tenant_Info_Here` with the **Directory (tenant) ID** value that was recorded earlier from the overview page of the registered application.
 1. Save the file.
 
 ## Run your project and sign in
