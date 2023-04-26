@@ -14,6 +14,8 @@ zone_pivot_groups: container-apps-job-types
 
 Azure Container Apps [jobs](jobs.md) enable you to run containerized workloads that execute for a finite duration and exit. Jobs can be triggered manually or on a schedule. You can use jobs to perform tasks such as data processing, machine learning, and more.
 
+In this quickstart, you'll create a manual or scheduled job.
+
 ## Prerequisites
 
 - An Azure account with an active subscription.
@@ -47,7 +49,7 @@ The jobs preview has the following limitations:
 
     ```azurecli
     az extension remove --name containerapp
-    az extension add --upgrade --source https://containerappextension.blob.core.windows.net/containerappcliext/containerapp-private_preview_jobs_1.0.4-py2.py3-none-any.whl --yes
+    az extension add --upgrade --source https://containerappextension.blob.core.windows.net/containerappcliext/containerapp-private_preview_jobs_1.0.5-py2.py3-none-any.whl --yes
     ```
 
     > [!NOTE]
