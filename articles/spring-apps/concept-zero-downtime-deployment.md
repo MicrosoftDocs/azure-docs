@@ -45,7 +45,7 @@ When you deploy a new version to an existing deployment, or restart a deployment
 > [!NOTE]
 > To gracefully start or shutdown your application, you need to configure proper [health probes](./how-to-configure-health-probes-graceful-termination.md) for your deployments. Kubernetes will check these probes during the rolling update process, and Nginx ingress controller routes traffic to instances with succeeded readiness probe.
 
-Also, When scale in your application instances, Azure Spring Apps underlyingly use K8S's [preStop](https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/) to gracefully shutdown the pods. In the hook, the following operations are performed for a shutting down application container:
+Also, when scale in your application instances, Azure Spring Apps underlyingly use K8S's [preStop hook](https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/) to gracefully shutdown the pods. In the hook, the following operations are performed for a shutting down application container:
 1. Override the instance's eureka registry status to **OUT_OF_SERVICE**, if eureka client is enabled
 2. Wait some seconds to continue serve traffic (from Nginx or other apps if any) before K8S kills the application container 
 
