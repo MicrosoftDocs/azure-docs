@@ -22,10 +22,14 @@ In this article, you add sign in and sign out to the web app project that you pr
 
 ## Create MSAL configuration object
 
-In your code editor, open `authConfig.js` file, then add the following code:
+In your code editor, open *authConfig.js* file, then add the following code:
 
 ```javascript
     require('dotenv').config();
+    
+    const TENANT_NAME = process.env.TENANT_NAME || 'Enter_the_Tenant_Name_Here';
+    const REDIRECT_URI = process.env.REDIRECT_URI || 'http://localhost:3000/auth/redirect';
+    const POST_LOGOUT_REDIRECT_URI = process.env.POST_LOGOUT_REDIRECT_URI || 'http://localhost:3000';
     
     /**
      * Configuration object to be passed to MSAL instance on creation.
@@ -34,9 +38,9 @@ In your code editor, open `authConfig.js` file, then add the following code:
      */
     const msalConfig = {
         auth: {
-            clientId: process.env.CLIENT_ID || "Enter_the_Application_Id_Here", // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
-            authority: "https://login.microsoftonline.com/" + (process.env.TENANT_ID || "Enter_the_Tenant_Info_Here"), // Full directory URL, in the form of https://login.microsoftonline.com/<tenant>
-            clientSecret: process.env.CLIENT_SECRET || "Enter_the_Client_Secret_Here" // Client secret generated from the app registration in Azure portal
+            clientId: process.env.CLIENT_ID || 'Enter_the_Application_Id_Here', // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
+            authority: process.env.AUTHORITY || `https://${TENANT_NAME}.ciamlogin.com/`, // replace "Enter_the_Tenant_Name_Here" with your tenant name
+            clientSecret: process.env.CLIENT_SECRET || 'Enter_the_Client_Secret_Here', // Client secret generated from the app registration in Azure portal
         },
         system: {
             loggerOptions: {
@@ -44,48 +48,46 @@ In your code editor, open `authConfig.js` file, then add the following code:
                     console.log(message);
                 },
                 piiLoggingEnabled: false,
-                logLevel: "Info",
-            }
-        }
-    }
-    
-    const REDIRECT_URI = process.env.REDIRECT_URI || "http://localhost:3000/auth/redirect";
-    const POST_LOGOUT_REDIRECT_URI = process.env.POST_LOGOUT_REDIRECT_URI || "http://localhost:3000";
+                logLevel: 'Info',
+            },
+        },
+    };
     
     module.exports = {
         msalConfig,
         REDIRECT_URI,
         POST_LOGOUT_REDIRECT_URI,
+        TENANT_NAME
     };
 ```
 
 The `msalConfig` object contains a set of configuration options that you use to customize the behavior of your authentication flows. 
 
-In your `authConfig.js` file, replace: 
+In your *authConfig.js* file, replace: 
 
 - `Enter_the_Application_Id_Here` with the Application (client) ID of the app you registered earlier.
 
-- `Enter_the_Tenant_Info_Here` with the Directory (tenant) ID you copied earlier.
+- `Enter_the_Tenant_Name_Here` with the Directory (tenant) name you copied earlier.
  
 - `Enter_the_Client_Secret_Here` with the app secret value you copied earlier.
 
-If you use the `.env` file to store your configuration information:
+If you use the *.env* file to store your configuration information:
 
-1. In your project folder such as `ciam-sign-in-node-express-web-app`, create a `.env` file. 
+1. In your project folder such as `ciam-sign-in-node-express-web-app`, create a *.env* file. 
 
-1. In your code editor, open `.env` file, then add the following code. 
+1. In your code editor, open *.env* file, then add the following code. 
 
     ```
         CLIENT_ID=Enter_the_Application_Id_Here
-        TENANT_ID=Enter_the_Tenant_Info_Here
+        TENANT_NAME=Enter_the_Tenant_Name_Here
         CLIENT_SECRET=Enter_the_Client_Secret_Here
         REDIRECT_URI=http://localhost:3000/auth/redirect
         POST_LOGOUT_REDIRECT_URI=http://localhost:3000
     ```
 
-1. Replace the `Enter_the_Application_Id_Here`, `Enter_the_Tenant_Info_Here` and `Enter_the_Client_Secret_Here` placeholders as explained earlier. 
+1. Replace the `Enter_the_Application_Id_Here`, `Enter_the_Tenant_Name_Here` and `Enter_the_Client_Secret_Here` placeholders as explained earlier. 
 
-You export `msalConfig`, `REDIRECT_URI`, and `POST_LOGOUT_REDIRECT_URI` variables in the `authConfig.js` file. This makes them accessible wherever you require the file.
+You export `msalConfig`, `REDIRECT_URI`, `TENANT_NAME` and `POST_LOGOUT_REDIRECT_URI` variables in the *authConfig.js* file. This makes them accessible wherever you require the file.
 
 ## Add express routes
 
@@ -93,7 +95,7 @@ The Express routes provide the endpoints that enable us the execute operations s
 
 ### App entry point 
 
-In your code editor, open `routes/index.js` file, then add the following code:
+In your code editor, open *routes/index.js* file, then add the following code:
 
 ```javascript
     const express = require('express');
@@ -103,18 +105,197 @@ In your code editor, open `routes/index.js` file, then add the following code:
         res.render('index', {
             title: 'MSAL Node & Express Web App',
             isAuthenticated: req.session.isAuthenticated,
-            username: req.session.account?.username,
+            username: req.session.account?.username !== '' ? req.session.account?.username : req.session.account?.name,
         });
     });
     
     module.exports = router;
 ```
 
-The `/` route is the entry point to the application. It renders the `views/index.hbs` that you created earlier in [Build app UI components](how-to-web-app-node-sign-in-prepare-app.md#build-app-ui-components). `isAuthenticated` is a boolean variable that determines what you see in the view.   
+The `/` route is the entry point to the application. It renders the *views/index.hbs* view that you created earlier in [Build app UI components](how-to-web-app-node-sign-in-prepare-app.md#build-app-ui-components). `isAuthenticated` is a boolean variable that determines what you see in the view.   
 
 ### Sign in and sign out
 
-In your code editor, open `routes/auth.js` file, then add the code from [authConfig.js](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/blob/main/1-Authentication/5-sign-in-express/App/routes/auth.js) to it.
+In your code editor, open `routes/auth.js` file, then add the following code:
+
+```javascript
+    const express = require('express');
+    const msal = require('@azure/msal-node');
+    const axios = require('axios');
+    
+    const {
+        msalConfig,
+        REDIRECT_URI,
+        POST_LOGOUT_REDIRECT_URI
+    } = require('../authConfig');
+    
+    const router = express.Router();
+    const cryptoProvider = new msal.CryptoProvider();
+    
+    router.get('/signin', async function (req, res, next) {
+    
+        // create a GUID for crsf
+        req.session.csrfToken = cryptoProvider.createNewGuid();
+    
+        /**
+         * The MSAL Node library allows you to pass your custom state as state parameter in the Request object.
+         * The state parameter can also be used to encode information of the app's state before redirect.
+         * You can pass the user's state in the app, such as the page or view they were on, as input to this parameter.
+         */
+        const state = cryptoProvider.base64Encode(
+            JSON.stringify({
+                csrfToken: req.session.csrfToken,
+                redirectTo: '/'
+            })
+        );
+    
+        const authCodeUrlRequestParams = {
+            state: state,
+
+            /**
+             * By default, MSAL Node will add OIDC scopes to the auth code url request. For more information, visit:
+             * https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#openid-connect-scopes
+             */
+            scopes: [],
+            extraQueryParameters: {
+                dc: 'ESTS-PUB-EUS-AZ1-FD000-TEST1', // STS CIAM test slice
+            },
+        };
+    
+        const authCodeRequestParams = {
+            state: state,
+    
+            /**
+             * By default, MSAL Node will add OIDC scopes to the auth code request. For more information, visit:
+             * https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#openid-connect-scopes
+             */
+            scopes: [],
+        };
+    
+        /**
+         * If the current msal configuration does not have cloudDiscoveryMetadata or authorityMetadata, we will
+         * make a request to the relevant endpoints to retrieve the metadata. This allows MSAL to avoid making
+         * metadata discovery calls, thereby improving performance of token acquisition process.
+         */
+        if (!this.config.msalConfig.auth.authorityMetadata) {
+            const authorityMetadata = await this.getAuthorityMetadata();
+            this.config.msalConfig.auth.authorityMetadata = JSON.stringify(authorityMetadata);
+        }
+    
+        const msalInstance = getMsalInstance(msalConfig);
+    
+        // trigger the first leg of auth code flow
+        return redirectToAuthCodeUrl(req, res, next, msalInstance, authCodeUrlRequestParams, authCodeRequestParams)
+    });
+    
+    router.post('/redirect', async function (req, res, next) {
+        const authCodeRequest = {
+            ...req.session.authCodeRequest,
+            code: req.body.code, // authZ code
+            codeVerifier: req.session.pkceCodes.verifier // PKCE Code Verifier
+        };
+    
+        try {
+            const msalInstance = getMsalInstance(msalConfig);
+            msalInstance.getTokenCache().deserialize(req.session.tokenCache);
+    
+            const tokenResponse = await msalInstance.acquireTokenByCode(authCodeRequest, req.body);
+    
+            req.session.tokenCache = msalInstance.getTokenCache().serialize();
+            req.session.idToken = tokenResponse.idToken;
+            req.session.account = tokenResponse.account;
+            req.session.isAuthenticated = true;
+    
+            const state = JSON.parse(cryptoProvider.base64Decode(req.body.state));
+            res.redirect(state.redirectTo);
+        } catch (error) {
+            next(error);
+        }
+    });
+    
+    router.get('/signout', function (req, res) {
+        /**
+         * Construct a logout URI and redirect the user to end the
+         * session with Azure AD. For more information, visit:
+         * https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc#send-a-sign-out-request
+         */
+        const logoutUri = `${this.config.msalConfig.auth.authority}${TENANT_NAME}.onmicrosoft.com/oauth2/v2.0/logout?post_logout_redirect_uri=${this.config.postLogoutRedirectUri}`;
+    
+        req.session.destroy(() => {
+            res.redirect(logoutUri);
+        });
+    });
+    
+    /**
+     * Instantiates a new CCA given configuration
+     * @param msalConfig 
+     * @returns 
+     */
+    function getMsalInstance(msalConfig) {
+        return new msal.ConfidentialClientApplication(msalConfig);
+    };
+    
+    async getAuthorityMetadata() {
+        const endpoint = `${this.config.msalConfig.auth.authority}${TENANT_NAME}.onmicrosoft.com/v2.0/.well-known/openid-configuration`;
+        try {
+            const response = await axios.get(endpoint);
+            return await response.data;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    
+    /**
+     * Prepares the auth code request parameters and initiates the first leg of auth code flow
+     * @param req: Express request object
+     * @param res: Express response object
+     * @param next: Express next function
+     * @param authCodeUrlRequestParams: parameters for requesting an auth code url
+     * @param authCodeRequestParams: parameters for requesting tokens using auth code
+     */
+    async function redirectToAuthCodeUrl(req, res, next, msalInstance, authCodeUrlRequestParams, authCodeRequestParams) {
+    
+        // Generate PKCE Codes before starting the authorization flow
+        const { verifier, challenge } = await cryptoProvider.generatePkceCodes();
+    
+        // Set generated PKCE codes and method as session vars
+        req.session.pkceCodes = {
+            challengeMethod: 'S256',
+            verifier: verifier,
+            challenge: challenge,
+        };
+    
+        /**
+         * By manipulating the request objects below before each request, we can obtain
+         * auth artifacts with desired claims. For more information, visit:
+         * https://azuread.github.io/microsoft-authentication-library-for-js/ref/modules/_azure_msal_node.html#authorizationurlrequest
+         * https://azuread.github.io/microsoft-authentication-library-for-js/ref/modules/_azure_msal_node.html#authorizationcoderequest
+         **/
+    
+        req.session.authCodeUrlRequest = {
+            ...authCodeUrlRequestParams,
+            redirectUri: REDIRECT_URI,
+            responseMode: 'form_post', // recommended for confidential clients
+            codeChallenge: req.session.pkceCodes.challenge,
+            codeChallengeMethod: req.session.pkceCodes.challengeMethod,
+        };
+    
+        req.session.authCodeRequest = {
+            ...authCodeRequestParams,
+            redirectUri: REDIRECT_URI,
+            code: "",
+        };
+    
+        // Get url to sign user in and consent to scopes needed for application
+        try {
+            const authCodeUrlResponse = await msalInstance.getAuthCodeUrl(req.session.authCodeUrlRequest);
+            res.redirect(authCodeUrlResponse);
+        } catch (error) {
+            next(error);
+        }
+    };
+    module.exports = router;
+```
 
 This file has the following routes: 
 
@@ -135,51 +316,7 @@ This file has the following routes:
                 return new msal.ConfidentialClientApplication(msalConfig);
             };
         ```
-    - The first leg of auth code flow generates an authorization code request URL, then redirects to that URL to obtain the authorization code. This first leg is implemented in the `redirectToAuthCodeUrl` method:
-    
-        ```javascript
-            async function redirectToAuthCodeUrl(req, res, next, msalInstance, authCodeUrlRequestParams, authCodeRequestParams) {
-            
-                    // Generate PKCE Codes before starting the authorization flow
-                    const { verifier, challenge } = await cryptoProvider.generatePkceCodes();
-                
-                    // Set generated PKCE codes and method as session vars
-                    req.session.pkceCodes = {
-                        challengeMethod: 'S256',
-                        verifier: verifier,
-                        challenge: challenge,
-                    };
-                
-                    /**
-                     * By manipulating the request objects below before each request, we can obtain
-                        * auth artifacts with desired claims. 
-                        **/
-                
-                    req.session.authCodeUrlRequest = {
-                        ...authCodeUrlRequestParams,
-                        redirectUri: REDIRECT_URI,
-                        responseMode: 'form_post', // recommended for confidential clients
-                        codeChallenge: req.session.pkceCodes.challenge,
-                        codeChallengeMethod: req.session.pkceCodes.challengeMethod,
-                    };
-                
-                        req.session.authCodeRequest = {
-                            ...authCodeRequestParams,
-                            redirectUri: REDIRECT_URI,
-                        code: "",
-                    };
-                
-                    // Get url to sign user in and consent to scopes needed for application
-                try {
-                    const authCodeUrlResponse = await msalInstance.getAuthCodeUrl(req.session.authCodeUrlRequest);
-                    res.redirect(authCodeUrlResponse);
-                } catch (error) {
-                    next(error);
-                }
-            };  
-        ```
-
-        Notice how we use MSALs [getAuthCodeUrl](/javascript/api/@azure/msal-node/confidentialclientapplication#@azure-msal-node-confidentialclientapplication-getauthcodeurl) method to generate authorization code URL:
+    - The first leg of auth code flow generates an authorization code request URL, then redirects to that URL to obtain the authorization code. This first leg is implemented in the `redirectToAuthCodeUrl` method. Notice how we use MSALs [getAuthCodeUrl](/javascript/api/@azure/msal-node/confidentialclientapplication#@azure-msal-node-confidentialclientapplication-getauthcodeurl) method to generate authorization code URL:
 
         ```javascript
             //...
@@ -222,21 +359,12 @@ This file has the following routes:
     
     - It initiates sign out process. 
     
-    - When you want to sign the user out of the application, it isn't enough to end the user's session. You must redirect the user to the *logout URI*. Otherwise, the user might be able to reauthenticate to your applications without reentering their credentials. If the name of your tenant is *contoso*, then the *logout URI* looks similar to `https://contoso.ciamlogin.com/oauth2/v2.0/logout?post_logout_redirect_uri=http://localhost:3000`.
+    - When you want to sign the user out of the application, it isn't enough to end the user's session. You must redirect the user to the *logout URI*. Otherwise, the user might be able to reauthenticate to your applications without reentering their credentials. If the name of your tenant is *contoso*, then the *logout URI* looks similar to `https://contoso.ciamlogin.com/contoso.onmicrosoft.com/oauth2/v2.0/logout?post_logout_redirect_uri=http://localhost:3000`.
     
-    ```javascript
-        //...
-        const logoutUri = `${msalConfig.auth.authority}/oauth2/v2.0/logout?post_logout_redirect_uri=${POST_LOGOUT_REDIRECT_URI}`;
-        req.session.destroy(() => {
-            //on successfully destroying a user's session, redirect to the logout URI 
-            res.redirect(logoutUri);
-        });
-        //...
-    ```
     
 ### View ID token claims
 
-In your code editor, open `routes/users.js` file, then add the following code:
+In your code editor, open *routes/users.js* file, then add the following code:
 
 ```javascript
         const express = require('express');
@@ -261,7 +389,7 @@ In your code editor, open `routes/users.js` file, then add the following code:
         module.exports = router;
 ```
 
-If the user is authenticated, the `/id` route displays ID token claims by using the `views/id.hbs` view. You added this view earlier in [Build app UI components](how-to-web-app-node-sign-in-prepare-app.md#build-app-ui-components).
+If the user is authenticated, the `/id` route displays ID token claims by using the *views/id.hbs* view. You added this view earlier in [Build app UI components](how-to-web-app-node-sign-in-prepare-app.md#build-app-ui-components).
 
 To extract a specific ID token claim, such as *given name*: 
 
@@ -271,21 +399,17 @@ To extract a specific ID token claim, such as *given name*:
 
 ## Finalize your web app 
 
-1. In your code editor, open `app.js` file, then add the code from [app.js](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/blob/main/1-Authentication/5-sign-in-express/App/app.js) to it.
+1. In your code editor, open *app.js* file, then add the code from [app.js](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/blob/main/1-Authentication/5-sign-in-express/App/app.js) to it.
 
-1. In your code editor, open `server.js` file, then add the code from [server.js](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/blob/main/1-Authentication/5-sign-in-express/App/server.js) to it.
+1. In your code editor, open *server.js* file, then add the code from [server.js](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/blob/main/1-Authentication/5-sign-in-express/App/server.js) to it.
 
-1. In your code editor, open `package.json` file, then:
-    
-    1. Update the `script` property to:
+1. In your code editor, open *package.json* file, then update the `script` property to:
     
     ```json
       "scripts": {
         "start": "node server.js"
       }
     ```
-    
-    1. Remove the `main` property.
 
 ## Run and test the web app
 

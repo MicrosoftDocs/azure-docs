@@ -114,13 +114,13 @@ To use your app registration in the client web app sample:
 
 1. Find the placeholder:
 
-    1. `Enter_the_Application_Id_Here` and replace it with the Application (client) ID of the app you registered earlier.
+    - `Enter_the_Application_Id_Here` and replace it with the Application (client) ID of the app you registered earlier.
     
-    1. `Enter_the_Tenant_Info_Here` and replace it with the Directory (tenant) ID you copied earlier.
+    - `Enter_the_Tenant_Name_Here` and replace it with the Directory (tenant) name. If you don't have your tenant name, learn how to [read tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
     
-    1. `Enter_the_Client_Secret_Here` and replace it with the app secret value you copied earlier.
+    - `Enter_the_Client_Secret_Here` and replace it with the app secret value you copied earlier.
     
-    1. `Enter_the_Web_Api_Application_Id_Here` and replace it with the Application (client) ID of the web API you copied earlier.
+    - `Enter_the_Web_Api_Application_Id_Here` and replace it with the Application (client) ID of the web API you copied earlier.
 
 To use your app registration in the web API sample: 
 
@@ -128,9 +128,11 @@ To use your app registration in the web API sample:
 
 1. Find the placeholder:
     
-    1. `Enter the Client ID (aka 'Application ID')` and replace it with the Application (client) ID of the web API you copied. 
+    - `Enter_the_Application_Id_Here` and replace it with the Application (client) ID of the web API you copied. 
     
-    1. `Enter the tenant ID` and replace it with the Directory (tenant) ID you copied earlier.
+    - `Enter_the_Tenant_Id_Here` and replace it with the Directory (tenant) ID you copied earlier.
+    
+    - `Enter_the_Tenant_Name_Here` and replace it with the Directory (tenant) name. If you don't have your tenant name, learn how to [read tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
 
 
 ##  Run and test sample web app and API 
@@ -174,8 +176,6 @@ To use your app registration in the web API sample:
 You trigger an API call each time you view, add or remove a task. Each time you trigger an API call, the client web app acquires an access token with the required permissions (scopes) to call an API endpoint. For example, to read a task, the client web app must acquire an access token with `Todolist.Read` permission/scope.
 
 On the web API side, the endpoint must validate that the permissions/scopes present in the access token that the client app presents are valid. If the access token is valid, the endpoint responds to the HTTP request, otherwise, it responds with a `401 Unauthorized` HTTP error. 
-
-
 
 ## Next steps
 

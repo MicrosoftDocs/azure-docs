@@ -79,7 +79,7 @@ n your terminal, install `axios`, `cookie-parser`, `dotenv`, `express`, `express
 ### Build app UI components
 
 
-1. In your code editor, open `views/index.hbs` file, then add the following code:
+1. In your code editor, open *views/index.hbs* file, then add the following code:
 
     ```html
         <h1>{{title}}</h1>
@@ -116,7 +116,7 @@ n your terminal, install `axios`, `cookie-parser`, `dotenv`, `express`, `express
     ```
     We use this view to display ID token claims that Azure AD for customers returns to this app after a user successfully signs in.  
 
-1. In your code editor, open `views/error.hbs` file, then add the following code:
+1. In your code editor, open *views/error.hbs* file, then add the following code:
 
     ```html
         <h1>{{message}}</h1>
@@ -126,7 +126,7 @@ n your terminal, install `axios`, `cookie-parser`, `dotenv`, `express`, `express
 
     We use this view to display any errors that occur when the app runs.
 
-1. In your code editor, open `views/layout.hbs` file, then add the following code:
+1. In your code editor, open *views/layout.hbs* file, then add the following code:
 
     ```html
         <!DOCTYPE html>
@@ -142,7 +142,7 @@ n your terminal, install `axios`, `cookie-parser`, `dotenv`, `express`, `express
     ```
     The `layout.hbs` file is in the layout file. It contains the HTML code that we require throughout the application view. 
 
-1. In your code editor, open `views/todos.hbs` file, then add the following code:
+1. In your code editor, open *views/todos.hbs* file, then add the following code:
 
     ```html
         <h1>Todolist</h1>
@@ -171,7 +171,7 @@ n your terminal, install `axios`, `cookie-parser`, `dotenv`, `express`, `express
 
     This view allows the user to perform tasks that initiate an API call. For instance, after a user signs in, and the app acquires an access token, the user can create a resource (task) in the API app by submitting a form.
 
-1. In your code editor, open `public/stylesheets/style.css`, file, then add the following code:
+1. In your code editor, open *public/stylesheets/style.css*, file, then add the following code:
 
     ```css
         body {

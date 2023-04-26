@@ -58,7 +58,7 @@ In your terminal, install `axios`, `cookie-parser`, `dotenv`, `express`, `expres
 
 ## Build app UI components
 
-1. In your code editor, open `views/index.hbs` file, then add the following code:
+1. In your code editor, open *views/index.hbs* file, then add the following code:
 
     ```html
         <h1>{{title}}</h1>
@@ -74,7 +74,7 @@ In your terminal, install `axios`, `cookie-parser`, `dotenv`, `express`, `expres
     ```
     In this view, if the user is authenticated, we show their username and links to visit `/auth/signout` and `/users/id` endpoints, otherwise, user needs to visit the `/auth/signin` endpoint to sign in. We define the express routes for these endpoints later in this article.
 
-1. In your code editor, open `views/id.hbs` file, then add the following code:
+1. In your code editor, open *views/id.hbs* file, then add the following code:
 
     ```html
         <h1>Azure AD for customers</h1>
@@ -93,7 +93,7 @@ In your terminal, install `axios`, `cookie-parser`, `dotenv`, `express`, `expres
     ```
     We use this view to display ID token claims that Azure AD for customers returns to this app after a user successfully signs in.  
 
-1. In your code editor, open `views/error.hbs` file, then add the following code:
+1. In your code editor, open *views/error.hbs* file, then add the following code:
 
     ```html
         <h1>{{message}}</h1>
@@ -103,7 +103,7 @@ In your terminal, install `axios`, `cookie-parser`, `dotenv`, `express`, `expres
 
     We use this view to display any errors that occur when the app runs.
 
-1. In your code editor, open `views/layout.hbs` file, then add the following code:
+1. In your code editor, open *views/layout.hbs* file, then add the following code:
 
     ```html
         <!DOCTYPE html>
@@ -120,7 +120,7 @@ In your terminal, install `axios`, `cookie-parser`, `dotenv`, `express`, `expres
     
     The `layout.hbs` file is in the layout file. It contains the HTML code that we require throughout the application view.    
 
-1. In your code editor, open `public/stylesheets/style.css`, file, then add the following code:
+1. In your code editor, open *public/stylesheets/style.css*, file, then add the following code:
 
     ```css
         body {

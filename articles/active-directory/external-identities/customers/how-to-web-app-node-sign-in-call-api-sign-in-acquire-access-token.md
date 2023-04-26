@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/30/2023
+ms.date: 05/05/2023
 ms.custom: developer
 ---
 
@@ -23,8 +23,11 @@ In this article, you add sign in, then acquire an access token to the web app pr
 In your code editor, open *authConfig.js* file, then add the following code:
 
 ```javascript
-       
     require('dotenv').config();
+    
+    const TENANT_NAME = process.env.TENANT_NAME || 'Enter_the_Tenant_Name_Here';
+    const REDIRECT_URI = process.env.REDIRECT_URI || 'http://localhost:3000/auth/redirect';
+    const POST_LOGOUT_REDIRECT_URI = process.env.POST_LOGOUT_REDIRECT_URI || 'http://localhost:3000';
     
     /**
      * Configuration object to be passed to MSAL instance on creation.
@@ -34,7 +37,7 @@ In your code editor, open *authConfig.js* file, then add the following code:
     const msalConfig = {
         auth: {
             clientId: process.env.CLIENT_ID || 'Enter_the_Application_Id_Here', // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
-            authority: 'https://login.microsoftonline.com/' + (process.env.TENANT_ID || 'Enter_the_Tenant_Info_Here'), // Full directory URL, in the form of https://login.microsoftonline.com/<tenant>
+            authority: process.env.AUTHORITY || `https://${TENANT_NAME}.ciamlogin.com/`, 
             clientSecret: process.env.CLIENT_SECRET || 'Enter_the_Client_Secret_Here', // Client secret generated from the app registration in Azure portal
         },
         system: {
@@ -48,27 +51,24 @@ In your code editor, open *authConfig.js* file, then add the following code:
         },
     };
     
-    const REDIRECT_URI = process.env.REDIRECT_URI || 'http://localhost:3000/auth/redirect';
-    const POST_LOGOUT_REDIRECT_URI = process.env.POST_LOGOUT_REDIRECT_URI || 'http://localhost:3000';
-    const todolistReadScope = process.env.TODOLIST_READ || 'api://Enter_the_Web_Api_Application_Id_Here/Todolist.Read';
-    const todolistReadWriteScope = process.env.TODOLIST_READWRITE || 'api://Enter_the_Web_Api_Application_Id_Here/Todolist.ReadWrite';
+    const toDoListReadScope = process.env.TODOLIST_READ || 'api://Enter_the_Web_Api_Application_Id_Here/ToDoList.Read';
+    const toDoListReadWriteScope = process.env.TODOLIST_READWRITE || 'api://Enter_the_Web_Api_Application_Id_Here/ToDoList.ReadWrite';
     
     const protectedResources = {
-        apiTodoList: {
-            callingPageRoute: "/todos",
+        toDoListAPI: {
             endpoint: 'https://localhost:44351/api/todolist',
             scopes: {
-                read: [todolistReadScope],
-                write: [todolistReadWriteScope],
+                read: [toDoListReadScope],
+                write: [toDoListReadWriteScope],
             },
         },
-    };
-    
+    };    
     module.exports = {
         msalConfig,
+        protectedResources,
+        TENANT_NAME,
         REDIRECT_URI,
         POST_LOGOUT_REDIRECT_URI,
-        protectedResources,
     };
 ```
 
@@ -78,7 +78,7 @@ In your `authConfig.js` file, replace:
 
 - `Enter_the_Application_Id_Here` with the Application (client) ID of the client web app that you registered earlier.
 
-- `Enter_the_Tenant_Info_Here` with the Directory (tenant) ID that you copied earlier.
+- `Enter_the_Tenant_Name_Here` and replace it with the Directory (tenant) name. If you don't have your tenant name, learn how to [read tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
 
 - `Enter_the_Client_Secret_Here` with the client web app secret value that you copied earlier.
 
@@ -115,15 +115,11 @@ The `/` route is the entry point to the application. It renders the `views/index
 
 1. In your code editor, open *routes/auth.js* file, then add the code from [auth.js](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/blob/main/2-Authorization/4-call-api-express/App/routes/auth.js) to it.
 
-1. In your code editor, open `controller/authController.js` file, then add the code from [authController.js](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/blob/main/2-Authorization/4-call-api-express/App/controller/authController.js) to it.
+1. In your code editor, open *controller/authController.js* file, then add the code from [authController.js](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/blob/main/2-Authorization/4-call-api-express/App/controller/authController.js) to it.
 
 1. In your code editor, open *auth/AuthProvider.js* file, then add the code from [AuthProvider.js](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/blob/main/2-Authorization/4-call-api-express/App/auth/AuthProvider.js) to it.
 
 The `/signin`, `/signout` and `/redirect` routes are defined in the *routes/auth.js* file, but their logic live in *auth/AuthProvider.js* file.
-
-- `getMsalInstance` method: 
-
-    - ss 
 
 - `login` method handles`/signin` route:
     
@@ -204,7 +200,7 @@ The `/signin`, `/signout` and `/redirect` routes are defined in the *routes/auth
 
 - `handleRedirect` method handles `/redirect` route:
     
-    - You set this route as Redirect URI for the web app in the Microsoft Entra admin center earlier in [Register the web app](how-to-web-app-node-sample-sign-in.md#register-the-web-app).
+    - You set this route as Redirect URI for the web app in the Microsoft Entra admin center earlier in [Register the web app](how-to-web-app-node-sample-sign-in-call-api.md#register-the-web-app).
     
     - This endpoint implements the second leg of auth code flow uses. It uses the authorization code to request an ID token by using MSAL's [acquireTokenByCode](/javascript/api/@azure/msal-node/confidentialclientapplication#@azure-msal-node-confidentialclientapplication-acquiretokenbycode) method.
     
@@ -228,11 +224,11 @@ The `/signin`, `/signout` and `/redirect` routes are defined in the *routes/auth
     
     - It initiates sign out process. 
     
-    - When you want to sign the user out of the application, it isn't enough to end the user's session. You must redirect the user to the *logout URI*. Otherwise, the user might be able to reauthenticate to your applications without reentering their credentials. If the name of your tenant is *contoso*, then the *logout URI* looks similar to `https://contoso.ciamlogin.com/oauth2/v2.0/logout?post_logout_redirect_uri=http://localhost:3000`.
+    - When you want to sign the user out of the application, it isn't enough to end the user's session. You must redirect the user to the *logout URI*. Otherwise, the user might be able to reauthenticate to your applications without reentering their credentials. If the name of your tenant is *contoso*, then the *logout URI* looks similar to `https://contoso.ciamlogin.com/contoso.onmicrosoft.com/oauth2/v2.0/logout?post_logout_redirect_uri=http://localhost:3000`.
     
     ```javascript
         //...
-        const logoutUri = `${msalConfig.auth.authority}/oauth2/v2.0/logout?post_logout_redirect_uri=${POST_LOGOUT_REDIRECT_URI}`;
+         const logoutUri = `${this.config.msalConfig.auth.authority}${TENANT_NAME}.onmicrosoft.com/oauth2/v2.0/logout?post_logout_redirect_uri=${POST_LOGOUT_REDIRECT_URI}`;
 
         req.session.destroy(() => {
             res.redirect(logoutUri);
@@ -300,6 +296,7 @@ The `getToken` method in the `AuthProvider` class shows how to request for an ac
                             csrfToken: req.session.csrfToken,
                         })
                     );
+                    
                     const authCodeUrlRequestParams = {
                         state: state,
                         scopes: scopes,
@@ -309,6 +306,7 @@ The `getToken` method in the `AuthProvider` class shows how to request for an ac
                         state: state,
                         scopes: scopes,
                     };
+
                     authProvider.redirectToAuthCodeUrl(
                         req,
                         res,
@@ -342,7 +340,6 @@ The `getToken` method in the `AuthProvider` class shows how to request for an ac
     ```
 
 - If you fail to acquire the token silently (such as with `InteractionRequiredAuthError` exception), request an access token afresh.
-
 
 ## Next steps
 

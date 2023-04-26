@@ -73,7 +73,7 @@ To get the web app sample code, you can do either of the following tasks:
     ```console
         git clone https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial.git
     ```
-If you choose to download the `.zip` file, extract the sample app file to a folder where the total length of the path is 260 or fewer characters.
+If you choose to download the *.zip* file, extract the sample app file to a folder where the total length of the path is 260 or fewer characters.
 
 ## Install project dependencies 
 
@@ -90,13 +90,13 @@ If you choose to download the `.zip` file, extract the sample app file to a fold
 
 ## Configure the sample web app
 
-1. In your code editor, open `App\authConfig.js` file. 
+1. In your code editor, open *App\authConfig.js* file. 
 
 1. Find the placeholder: 
     
     1. `Enter_the_Application_Id_Here` and replace it with the Application (client) ID of the app you registered earlier.
-    
-    1. `Enter_the_Tenant_Info_Here` and replace it with the Directory (tenant) ID you copied earlier.
+     
+    1. `Enter_the_Tenant_Name_Here` and replace it with the Directory (tenant) name. If you don't have your tenant name, learn how to [read tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
      
     1. `Enter_the_Client_Secret_Here` and replace it with the app secret value you copied earlier.
 
@@ -116,7 +116,7 @@ You can now test the sample Node.js web app. You need to start the Node.js serve
 
 1. After the page completes loading, select **Sign in** link. You're prompted to sign in.
 
-1. On the sign-in page, type your **Email address**, select **Next**, type your **Password**, then select **Sign in**. If you don't have an account, select **sNo account? Create one** link, which starts the sign-up flow.
+1. On the sign-in page, type your **Email address**, select **Next**, type your **Password**, then select **Sign in**. If you don't have an account, select **No account? Create one** link, which starts the sign-up flow.
 
 1. If you choose the sign-up option, after filling in your email, one-time passcode, new password and more account details, you complete the whole sign-up flow. You see a page similar to the following screenshot. You see a similar page if you choose the sign-in option.
 

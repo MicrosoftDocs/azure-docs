@@ -44,8 +44,7 @@ You add code in *routes/todos.js*, *controller/todolistController.js* and  *fetc
         // isAuthenticated checks if user is authenticated
         router.get('/',isAuthenticated, authProvider.getToken(protectedResources.toDoListAPI.scopes.read),toDoListController.getToDos);
         
-        router.delete(
-            '/', isAuthenticated,authProvider.getToken(protectedResources.toDoListAPI.scopes.write),toDoListController.deleteToDo);
+        router.delete('/', isAuthenticated,authProvider.getToken(protectedResources.toDoListAPI.scopes.write),toDoListController.deleteToDo);
         
         router.post('/',isAuthenticated,authProvider.getToken(protectedResources.toDoListAPI.scopes.write),toDoListController.postToDo);
         
@@ -58,7 +57,7 @@ You add code in *routes/todos.js*, *controller/todolistController.js* and  *fetc
     
     - `getToken` requests an access token. You defined this function earlier in [Acquire access token](how-to-web-app-node-sign-in-call-api-sign-in-acquire-access-token.md#acquire-access-token). For example, the create resource route (POST request) requests an access token with read and write permissions.
     
-    - Finally, the `postToDo` or `deleteToDo` `getToDos` handles the actual logic for manipulating the resource. These functions are defined in *controller/todolistController.js* file.
+    - Finally, the `postToDo` or `deleteToDo` `getToDos` methods handles the actual logic for manipulating the resource. These functions are defined in *controller/todolistController.js* file.
 
 1. In your code editor, open *controller/todolistController.js* file, then add the following code:
 
@@ -116,7 +115,7 @@ You add code in *routes/todos.js*, *controller/todolistController.js* and  *fetc
         };
     ```
 
-    Each of these functions collects all the information required to call an API. It then delegates the work to the `callEndpointWithToken` function and waits for a response. The `callEndpointWithToken` function is defined in the *fetch.js* file. For example, to create a resource in the API, the `postToDo` function passes an endpoint, an access token, an HTTP method and a request body to the `callEndpointWithToken` function and waits for a response. It then redirects the user to the *todo.hbs* view to show all tasks. 
+    Each of these functions collect all the information required to call an API. It then delegates the work to the `callEndpointWithToken` function and waits for a response. The `callEndpointWithToken` function is defined in the *fetch.js* file. For example, to create a resource in the API, the `postToDo` function passes an endpoint, an access token, an HTTP method and a request body to the `callEndpointWithToken` function and waits for a response. It then redirects the user to the *todo.hbs* view to show all tasks. 
 
  1. In your code editor, open *fetch.js* file, then add the following code:
  
@@ -185,7 +184,7 @@ At this point, you're ready to test your client web app and web API.
 
 1. Use the steps you learnt in [Secure an ASP.NET web API by using Microsoft Entra](how-to-protect-web-api-dotnet-core-overview.md) article to start your web API. Your web API is now ready to serve client requests.
 
-1. In your terminal, make sure you're in the project folder such as `ciam-sign-in-node-express-web-app`, then run the following command:
+1. In your terminal, make sure you're in the project folder such as `ciam-sign-in-call-api-node-express-web-app`, then run the following command:
 
     ```console
     npm start
