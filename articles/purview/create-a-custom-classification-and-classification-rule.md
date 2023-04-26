@@ -215,7 +215,7 @@ To delete a custom classification:
 1. After opening the **Data map**, and then **Classification rules**, select the **Custom** tab.
 1. Select the classification rule you want to delete, and then select the **Delete** button.
 
-    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/select-delete-rule.png" alt-text="Screenshot of the custom classification rule page, showing a classification selected rule and the delete button highlighted." border="true":::
+    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/select-delete-rule.png" alt-text="Screenshot of the custom classification rule page, showing a classification rule selected and the delete button highlighted." border="true":::
 
 ## Next steps
 
