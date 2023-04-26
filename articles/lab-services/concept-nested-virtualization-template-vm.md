@@ -56,7 +56,7 @@ To enable nested virtualization on a template VM, you first connect to the templ
     >[!NOTE]
     >The NAT network created on the Lab Services VM will allow a Hyper-V VM to access the internet and other Hyper-V VMs on the same Lab Services VM.  The Hyper-V VM won't be able to access Azure resources, such as DNS servers, on an Azure virtual network.
 
-You can accomplish the tasks listed previously by using a script, or by using Windows tools. Learn how you can [enable nested virtualization on a template VM with scripting](./how-to-enable-nested-virtualization-template-vm-using-script.md).
+You can accomplish the tasks listed previously by using a script, or by using Windows tools. Follow these steps to [enable nested virtualization on a template VM](./how-to-enable-nested-virtualization-template-vm-using-script.md).
 
 ## Processor compatibility
 
