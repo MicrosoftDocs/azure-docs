@@ -5,6 +5,7 @@ description: Learn about how to create a custom IP address prefix using the Azur
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 03/31/2022
 ms.author: allensu
@@ -67,6 +68,9 @@ To utilize the Azure BYOIP feature, you must perform the following steps prior t
 > [!NOTE]
 > It is also recommended to create a ROA for any existing ASN that is advertising the range to avoid any issues during migration.
 
+> [!IMPORTANT]
+> While Microsoft will not stop advertising the range after the specified date,  it is strongly recommended to independently create a follow-up ROA if the original expiration date has passed to avoid external carriers from not accepting the advertisement.
+
 ### Certificate readiness
 
 To authorize Microsoft to associate a prefix with a customer subscription, a public certificate must be compared against a signed message. 
@@ -109,7 +113,7 @@ The following steps show the steps required to prepare sample customer range (1.
     Use the following command to create a signed message that will be passed to Microsoft for verification.  
    
     > [!NOTE]
-    > If the Validity End date was not included in the original ROA, pick a date that corresponds to the time you intend to have the prefix advertised by Azure.
+    > If the Validity End date was not included in the original ROA, pick a date that corresponds to the time you intend to have the prefix advertised by Azure.  Also note that Microsoft will not stop advertising the range after the specified date, but it is recommended to independently create a follow-up ROA if the original expiration date has passed.
  
     ```powershell
     $byoipauth="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|1.2.3.0/24|yyyymmdd"

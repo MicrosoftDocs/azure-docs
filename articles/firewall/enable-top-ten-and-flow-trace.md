@@ -1,6 +1,6 @@
 ---
-title: Enable Top 10 flows and Flow trace logs in Azure Firewall 
-description: Learn how to enable the Top 10 flows and Flow trace logs in Azure Firewall
+title: Enable Top flows and Flow trace logs in Azure Firewall 
+description: Learn how to enable the Top flows and Flow trace logs in Azure Firewall
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -9,16 +9,16 @@ ms.date: 03/27/2023
 ms.author: victorh 
 ---
 
-# Enable Top 10 flows (preview) and Flow trace logs (preview) in Azure Firewall
+# Enable Top flows (preview) and Flow trace logs (preview) in Azure Firewall
 
 Azure Firewall has two new diagnostics logs you can use to help monitor your firewall:
 
-- Top 10 flows
+- Top flows
 - Flow trace
 
-## Top 10 flows
+## Top flows
 
-The Top 10 flows log (known in the industry as Fat Flows), shows the top connections that are contributing to the highest throughput through the firewall.
+The Top flows log (known in the industry as Fat Flows), shows the top connections that are contributing to the highest throughput through the firewall.
 
 ### Prerequisites
 
@@ -31,7 +31,7 @@ Enable the log using the following Azure PowerShell commands:
 
 ```azurepowershell
 Set-AzContext -SubscriptionName <SubscriptionName>
-$firewall = Get-AzFirewall- ResourceGroupName <ResourceGroupName> -Name <FirewallName>
+$firewall = Get-AzFirewall -ResourceGroupName <ResourceGroupName> -Name <FirewallName>
 $firewall.EnableFatFlowLogging = $true
 Set-AzFirewall -AzureFirewall $firewall
 ```
@@ -57,7 +57,7 @@ There are a few ways to verify the update was successful, but you can navigate t
 2. Select **Queries**, then load **Azure Firewall Top Flow Logs** by hovering over the option and selecting **Load to editor**.
 3. When the query loads, select **Run**.
 
-   :::image type="content" source="media/enable-top-ten-and-flow-trace/top-ten-flow-log.png" alt-text="Screenshot showing the Top 10 flow log." lightbox="media/enable-top-ten-and-flow-trace/top-ten-flow-log.png":::
+   :::image type="content" source="media/enable-top-ten-and-flow-trace/top-ten-flow-log.png" alt-text="Screenshot showing the Top flow log." lightbox="media/enable-top-ten-and-flow-trace/top-ten-flow-log.png":::
 
 ## Flow trace
 

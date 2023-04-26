@@ -168,27 +168,27 @@ You need to consent to the following permissions:
 
 Run the following queries to review delegated permissions granted to an application.
 
-1. Get Service Principal using objectID
+1. Get service principal using the object ID.
 
     ```http
-    GET /servicePrincipals/{id}
+    GET https://graph.microsoft.com/v1.0/servicePrincipals/{id}
     ```
  
    Example:
 
     ```http
-    GET /servicePrincipals/57443554-98f5-4435-9002-852986eea510
+    GET https://graph.microsoft.com/v1.0/servicePrincipals/00063ffc-54e9-405d-b8f3-56124728e051
     ```
 
 1. Get all delegated permissions for the service principal
 
     ```http
-    GET /servicePrincipals/{id}/oauth2PermissionGrants
+    GET https://graph.microsoft.com/v1.0/servicePrincipals/{id}/oauth2PermissionGrants
     ```
 1. Remove delegated permissions using oAuth2PermissionGrants ID.
 
     ```http
-    DELETE /oAuth2PermissionGrants/{id}
+    DELETE https://graph.microsoft.com/v1.0/oAuth2PermissionGrants/{id}
     ```
 
 ### Application permissions
@@ -198,12 +198,12 @@ Run the following queries to review application permissions granted to an applic
 1. Get all application permissions for the service principal
 
     ```http
-    GET /servicePrincipals/{servicePrincipal-id}/appRoleAssignments
+    GET https://graph.microsoft.com/v1.0/servicePrincipals/{servicePrincipal-id}/appRoleAssignments
     ```
 1. Remove application permissions using appRoleAssignment ID
 
     ```http
-    DELETE /servicePrincipals/{resource-servicePrincipal-id}/appRoleAssignedTo/{appRoleAssignment-id}
+    DELETE https://graph.microsoft.com/v1.0/servicePrincipals/{resource-servicePrincipal-id}/appRoleAssignedTo/{appRoleAssignment-id}
     ```
 
 ## Invalidate the refresh tokens
@@ -213,22 +213,22 @@ Run the following queries to remove appRoleAssignments of users or groups to the
 1. Get Service Principal using objectID.
 
     ```http
-    GET /servicePrincipals/{id}
+    GET https://graph.microsoft.com/v1.0/servicePrincipals/{id}
     ```
    Example:
 
     ```http
-    GET /servicePrincipals/57443554-98f5-4435-9002-852986eea510
+    GET https://graph.microsoft.com/v1.0/servicePrincipals/57443554-98f5-4435-9002-852986eea510
     ```
 1. Get Azure AD App role assignments using objectID of the Service Principal.
 
     ```http
-    GET /servicePrincipals/{servicePrincipal-id}/appRoleAssignedTo
+    GET https://graph.microsoft.com/v1.0/servicePrincipals/{servicePrincipal-id}/appRoleAssignedTo
     ```
 1. Revoke refresh token for users and groups assigned to the application using appRoleAssignment ID.
 
     ```http
-    DELETE /servicePrincipals/{servicePrincipal-id}/appRoleAssignedTo/{appRoleAssignment-id}
+    DELETE https://graph.microsoft.com/v1.0/servicePrincipals/{servicePrincipal-id}/appRoleAssignedTo/{appRoleAssignment-id}
     ```
 :::zone-end
 

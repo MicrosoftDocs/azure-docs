@@ -35,8 +35,7 @@ An Azure PowerShell script is available that does the following:
 * [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
 * To  migrate a TLS/SSL configuration, you must specify all the TLS/SSL certs used in your v1 gateway.
 * If you have FIPS mode enabled for your V1 gateway, it won't be migrated to your new v2 gateway. FIPS mode isn't supported in v2.
-* v2 doesn't support IPv6, so IPv6 enabled v1 gateways aren't migrated. If you run the script, it may not complete.
-* If the v1 gateway has only a private IP address, the script creates a public IP address and a private IP address for the new v2 gateway. v2 gateways currently don't support only private IP addresses.
+* In case of Private IP only V1 gateway, the script will generate a private and public IP address for the new V2 gateway. The Private IP only V2 gateway is currently in public preview. Once it becomes generally available, customers can utilize the script to transfer their private IP only V1 gateway to a private IP only V2 gateway.
 * Headers with names containing anything other than letters, digits, and hyphens are not passed to your application. This only applies to header names, not header values. This is a breaking change from v1.
 * NTLM and Kerberos authentication is not supported by Application Gateway v2. The script is unable to detect if the gateway is serving this type of traffic and may pose as a breaking change from v1 to v2 gateways if run.
 
@@ -56,16 +55,16 @@ To determine if you have the Azure Az modules installed, run `Get-InstalledModul
 ### Install using the Install-Script method
 
 To use this option, you must not have the Azure Az modules installed on your computer. If they're installed, the following command displays an error. You can either uninstall the Azure Az modules, or use the other option to download the script manually and run it.
-  
+
 Run the script with the following command to get the latest version:
 
 `Install-Script -Name AzureAppGWMigration -Force`
 
-This command also installs the required Az modules.  
+This command also installs the required Az modules.
 
 ### Install using the script directly
 
-If you do have some Azure Az modules installed and can't uninstall them (or don't want to uninstall them), you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw nupkg file. To install the script from this nupkg file, see [Manual Package Download](/powershell/scripting/gallery/how-to/working-with-packages/manual-download).
+If you do have some Azure Az modules installed and can't uninstall them (or don't want to uninstall them), you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw nupkg file. To install the script from this nupkg file, see [Manual Package Download](/powershell/gallery/how-to/working-with-packages/manual-download).
 
 To run the script:
 
@@ -94,7 +93,7 @@ To run the script:
      You can also run the following Azure PowerShell commands to get the Resource ID:
 
      ```azurepowershell
-     $appgw = Get-AzApplicationGateway -Name <v1 gateway name> -ResourceGroupName <resource group Name> 
+     $appgw = Get-AzApplicationGateway -Name <v1 gateway name> -ResourceGroupName <resource group Name>
      $appgw.Id
      ```
 
@@ -105,11 +104,11 @@ To run the script:
 
      This parameter is only optional if you don't have HTTPS listeners configured for your v1 gateway or WAF. If you have at least one HTTPS listener setup, you must specify this parameter.
 
-      ```azurepowershell  
+      ```azurepowershell
       $password = ConvertTo-SecureString <cert-password> -AsPlainText -Force
       $mySslCert1 = New-AzApplicationGatewaySslCertificate -Name "Cert01" `
         -CertificateFile <Cert-File-Path-1> `
-        -Password $password 
+        -Password $password
       $mySslCert2 = New-AzApplicationGatewaySslCertificate -Name "Cert02" `
         -CertificateFile <Cert-File-Path-2> `
         -Password $password
@@ -117,7 +116,7 @@ To run the script:
 
      You can pass in `$mySslCert1, $mySslCert2` (comma-separated) in the previous example as values for this parameter in the script.
    * **trustedRootCertificates: [PSApplicationGatewayTrustedRootCertificate]: Optional**. A comma-separated list of PSApplicationGatewayTrustedRootCertificate objects that you create to represent the [Trusted Root certificates](ssl-overview.md) for authentication of your backend instances from your v2 gateway.
-   
+
       ```azurepowershell
       $certFilePath = ".\rootCA.cer"
       $trustedCert = New-AzApplicationGatewayTrustedRootCertificate -Name "trustedCert1" -CertificateFile $certFilePath
@@ -151,7 +150,7 @@ To run the script:
 First, double check that the script successfully created a new v2 gateway with the exact configuration migrated over from your v1 gateway. You can verify this from the Azure portal.
 
 Also, send a small amount of traffic through the v2 gateway as a manual test.
-  
+
 Here are a few scenarios where your current application gateway (Standard) may receive client traffic, and our recommendations for each one:
 
 * **A custom DNS zone (for example, contoso.com) that points to the frontend IP address (using an A record) associated with your Standard v1 or WAF v1 gateway**.
@@ -169,13 +168,17 @@ Here are a few scenarios where your current application gateway (Standard) may r
 
    Update your clients to use the IP address(es) associated with the newly created v2 application gateway. We recommend that you don't use IP addresses directly. Consider using the DNS name label (for example, yourgateway.eastus.cloudapp.azure.com) associated with your application gateway that you can CNAME to your own custom DNS zone (for example, contoso.com).
 
+## ApplicationGateway V2 pricing
+
+The pricing models are different for the Application Gateway v1 and v2 SKUs. Please review the pricing at [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/) page before migrating from V1 to V2.
+
 ## Common questions
 
 ### Are there any limitations with the Azure PowerShell script to migrate the configuration from v1 to v2?
 
 Yes. See [Caveats/Limitations](#caveatslimitations).
 
-### Is this article and the Azure PowerShell script applicable for Application Gateway WAF product as well? 
+### Is this article and the Azure PowerShell script applicable for Application Gateway WAF product as well?
 
 Yes.
 
@@ -196,7 +199,7 @@ No. The script doesn't  replicate this configuration for v2. You must add the lo
 No. Currently the script doesn't support certificates in KeyVault. However, this is being considered for a future version.
 
 ### I ran into some issues with using this script. How can I get help?
-  
+
 You can contact Azure Support under the topic "Configuration and Setup/Migrate to V2 SKU". Learn more about [Azure support here](https://azure.microsoft.com/support/options/).
 
 ## Next steps

@@ -7,7 +7,7 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/24/2023
+ms.date: 04/10/2023
 ms.custom: subject-reliability, references_regions
 ---
 
@@ -99,7 +99,10 @@ The goal of a geo-distributed set of search services is to have two or more inde
 
    ![Cross-tab of services by region][1]
 
-You can implement this architecture by creating multiple services and designing a strategy for data synchronization. Optionally, you can include a resource like Azure Traffic Manager for routing requests. For more information, see [Create a search service](search-create-service-portal.md).
+You can implement this architecture by creating multiple services and designing a strategy for data synchronization. Optionally, you can include a resource like Azure Traffic Manager for routing requests. 
+
+> [!TIP]
+> For help in deploying multiple search services across multiple regions, see this [Bicep sample on GitHub](https://github.com/Azure-Samples/azure-search-multiple-regions) that deploys a fully configured, multi-regional search solution. The sample gives you two options for index synchronization, and request redirection using Traffic Manager.
 
 <a name="data-sync"></a>
 

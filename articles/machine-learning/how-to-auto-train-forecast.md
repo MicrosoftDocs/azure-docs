@@ -19,7 +19,7 @@ show_latex: true
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of the Azure Machine Learning SDK you are using:"]
-> * [v1](./v1/how-to-auto-train-forecast-v1.md)
+> * [v1](./v1/how-to-auto-train-forecast-v1.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](how-to-auto-train-forecast.md)
 
 In this article, you'll learn how to set up AutoML training for time-series forecasting models with Azure Machine Learning automated ML in the [Azure Machine Learning Python SDK](/python/api/overview/azure/ai-ml-readme).
@@ -85,6 +85,7 @@ Learn more about how AutoML applies cross validation to [prevent over fitting](c
 AutoML uses Azure Machine Learning Compute, which is a fully managed compute resource, to run the training job. In the following example, a compute cluster named `cpu-compute` is created:
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/configuration.ipynb?name=create-cpu-compute)]
+
 
 ## Configure experiment
 

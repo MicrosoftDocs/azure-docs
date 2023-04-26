@@ -42,11 +42,11 @@ The following tables provide information about what kind of traffic information 
 |----------------|:---------:|:----:|
 | Australia      |     ✓     |  ✓  |
 | Brunei         |     ✓     |  ✓  |
-| Hong Kong      |     ✓     |  ✓  |
+| Hong Kong SAR  |     ✓     |  ✓  |
 | India          |     ✓     |  ✓  |
 | Indonesia      |     ✓     |  ✓  |
 | Kazakhstan     |     ✓     |  ✓  |
-| Macao          |     ✓     |  ✓  |
+| Macao SAR      |     ✓     |  ✓  |
 | Malaysia       |     ✓     |  ✓  |
 | New Zealand    |     ✓     |  ✓  |
 | Philippines    |     ✓     |  ✓  |

@@ -4,7 +4,7 @@ description: Learn how to set up disaster recovery for virtual machines on Azure
 author: v-pgaddala
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/14/2022
+ms.date: 04/18/2023
 ms.author: v-pgaddala
 ---
 

@@ -5,15 +5,15 @@ summary: Learn how to use Event Hubs to ingest millions of events per second fro
 
 metadata:
   title: Azure Event Hubs documentation
-  description: Learn how to use Event Hubs to ingest millions of events per second from connected devices and applications. # Required; article description that is displayed in search results. < 160 chars.
+  description: Learn how to use Event Hubs to ingest millions of events per second from connected devices and applications.
   services: event-hubs
-  ms.service: event-hubs #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.service: event-hubs
   ms.subservice: 
-  ms.topic: landing-page # Required
+  ms.topic: landing-page
   ms.collection: collection
-  author: spelluru #Required; your GitHub user alias, with correct capitalization.
-  ms.author: spelluru #Required; microsoft alias of author; optional team alias.
-  ms.date: 01/12/2023 #Required; mm/dd/yyyy format.
+  author: spelluru
+  ms.author: spelluru
+  ms.date: 01/12/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
