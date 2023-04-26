@@ -54,6 +54,9 @@ By default, the new resource specific tables are disabled.
 
 Run the following Azure PowerShell commands to enable Azure Firewall Structured logs:
 
+> [!NOTE]
+> It can take several minutes for this to take effect. Consider performing an update on Azure Firewall for the change to take effect immediately.
+
 ```azurepowershell
 Connect-AzAccount 
 Select-AzSubscription -Subscription "subscription_id or subscription_name" 
