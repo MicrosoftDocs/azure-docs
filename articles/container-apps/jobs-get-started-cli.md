@@ -7,7 +7,6 @@ ms.service: container-apps
 ms.topic: quickstart
 ms.date: 04/12/2023
 ms.author: cshoe
-zone_pivot_groups: container-apps-job-types
 ---
 
 # Create a job with Azure Container Apps (preview)
@@ -92,7 +91,7 @@ The Azure Container Apps environment acts as a secure boundary that allows conta
         --location "$LOCATION"
     ```
 
-::: zone pivot="container-apps-job-manual"
+# [Manual job](#tab/manual)
 
 ## Create and run a manual job
 
@@ -121,9 +120,7 @@ To use manual jobs, you first create a job with trigger type `Manual` and then s
 
     The command returns details of the job execution, including its name.
 
-::: zone-end
-
-::: zone pivot="container-apps-job-scheduled"
+# [Scheduled job](#tab/scheduled)
 
 ## Create and run a scheduled job
 
@@ -145,7 +142,7 @@ Job executions start automatically based on the schedule.
 
 Container Apps jobs use cron expressions to define schedules. It supports the standard [cron](https://en.wikipedia.org/wiki/Cron) expression format with five fields for minute, hour, day of month, month, and day of week.
 
-::: zone-end
+---
 
 ## List recent job execution history
 
@@ -158,15 +155,13 @@ az containerapp job executionhistory \
     --output json
 ```
 
-::: zone pivot="container-apps-job-scheduled"
 Executions of scheduled jobs appear in the list when they're started by the schedule.
-::: zone-end
-
-::: zone pivot="container-apps-job-manual"
 
 ## Query job execution logs
 
 Job executions output logs to the logging provider that you configured for the Container Apps environment. By default, logs are stored in Azure Log Analytics.
+
+# [Manual job](#tab/manual)
 
 1. Save the Log Analytics workspace ID for the Container Apps environment to a variable.
 
@@ -207,7 +202,11 @@ Job executions output logs to the logging provider that you configured for the C
     ]
     ```
 
-::: zone-end
+# [Scheduled job](#tab/scheduled)
+
+Logs are currently unavailable for scheduled jobs.
+
+---
 
 ## Clean up resources
 
