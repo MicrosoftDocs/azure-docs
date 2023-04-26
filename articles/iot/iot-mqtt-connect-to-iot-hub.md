@@ -26,9 +26,9 @@ All device communication with IoT Hub must be secured using TLS/SSL. Therefore, 
 
 ## Connecting to IoT Hub
 
-A device can use the MQTT protocol to connect to an IoT hub using any of the following options:
+A device can use the MQTT protocol to connect to an IoT hub using one of the following options:
 
-* Libraries in the [Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks).
+* The [Azure IoT SDKs](iot-sdks.md).
 * The MQTT protocol directly.
 
 The MQTT port (TCP port 8883) is blocked in many corporate and educational networking environments. If you can't open port 8883 in your firewall, we recommend using MQTT over WebSockets. MQTT over WebSockets communicates over port 443, which is almost always open in networking environments. To learn how to specify the MQTT and MQTT over WebSockets protocols when using the Azure IoT SDKs, see [Using the device SDKs](#using-the-device-sdks).
@@ -98,7 +98,9 @@ When doing so, make sure to check the following items:
 
 ## Using the MQTT protocol directly (as a device)
 
-If a device can't use the device SDKs, it can still connect to the public device endpoints using the MQTT protocol on port 8883. In the **CONNECT** packet, the device should use the following values:
+If a device can't use the device SDKs, it can still connect to the public device endpoints using the MQTT protocol on port 8883. 
+
+In the **CONNECT** packet, the device should use the following values:
 
 * For the **ClientId** field, use the **deviceId**.
 
@@ -115,11 +117,13 @@ If a device can't use the device SDKs, it can still connect to the public device
   `SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`
 
   > [!NOTE]
-  > If you use X.509 certificate authentication, SAS token passwords are not required. For more information, see [Set up X.509 security in your Azure IoT Hub](../iot-hub/tutorial-x509-prove-possession.md) and follow code instructions in the [TLS/SSL configuration section](#tlsssl-configuration).
+  > If you use X.509 certificate authentication, SAS token passwords are not required. For more information, see [Tutorial: Create and upload certificates for testing](../iot-hub/tutorial-x509-test-certs.md) and follow code instructions in the [TLS/SSL configuration section](#tlsssl-configuration).
 
   For more information about how to generate SAS tokens, see the [Use SAS tokens as a device](../iot-hub/iot-hub-dev-guide-sas.md#use-sas-tokens-as-a-device) section of [Control access to IoT Hub using Shared Access Signatures](../iot-hub/iot-hub-dev-guide-sas.md).
 
   You can also use the cross-platform [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) or the CLI extension command [az iot hub generate-sas-token](/cli/azure/iot/hub#az-iot-hub-generate-sas-token) to quickly generate a SAS token. You can then copy and paste the SAS token into your own code for testing purposes.
+
+For a tutorial on using MQTT directly, see [Use MQTT to develop an IoT device client without using a device SDK](../iot-develop/tutorial-use-mqtt.md).
 
 ### Using the Azure IoT Hub extension for Visual Studio Code
   
@@ -417,7 +421,13 @@ For more information, see [Understand and invoke direct methods from IoT Hub](..
 
 ## Next steps
 
-To learn more about the MQTT protocol, see the [MQTT documentation](https://mqtt.org/).
+To learn more about using MQTT, see: 
+
+* [MQTT documentation](https://mqtt.org/)
+* [Use MQTT to develop an IoT device client without using a device SDK](../iot-develop/tutorial-use-mqtt.md)
+
+To learn more about using IoT device SDKS, see:
+* [Azure IoT SDKs](iot-sdks.md)
 
 To learn more about planning your IoT Hub deployment, see:
 
@@ -426,7 +436,3 @@ To learn more about planning your IoT Hub deployment, see:
 * [Connecting IoT Devices to Azure: IoT Hub and Event Hubs](../iot-hub/iot-hub-compare-event-hubs.md)
 * [Choose the right IoT Hub tier for your solution](../iot-hub/iot-hub-scaling.md)
 
-To further explore the capabilities of IoT Hub, see:
-
-* [Azure IoT Hub concepts overview](../iot-hub/iot-hub-devguide.md)
-* [Quickstart: Deploy your first IoT Edge module to a virtual Linux device](../iot-edge/quickstart-linux.md)
