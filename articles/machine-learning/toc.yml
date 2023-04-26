@@ -898,15 +898,15 @@
           displayName: github gitlab
           href: concept-train-model-git-integration.md
     - name: Model Deployment
-    - items:
+      items:
         - name: How to share assets across workspaces using registries
-          - items:
-              - name: Share models, components, and environments
-                displayName: collaborate share
-                href: how-to-share-models-pipelines-across-workspaces-with-registries.md
-              - name: Share data assets
-                displayName: collaborate share
-                href: how-to-share-data-across-workspaces-with-registries.md
+          items:
+            - name: Share models, components, and environments
+              displayName: collaborate share
+              href: how-to-share-models-pipelines-across-workspaces-with-registries.md
+            - name: Share data assets
+              displayName: collaborate share
+              href: how-to-share-data-across-workspaces-with-registries.md
         - name: Endpoints
           href: concept-endpoints.md
     - name: Automation
