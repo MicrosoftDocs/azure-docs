@@ -119,7 +119,7 @@ Organizations initially focus on requirements that they want in place for immedi
 - **Single Sign On:** Enable users to access resources across the organization without the need to enter more credentials.
 ### Patterns for account creation 
 
-Microsoft mechanisms for creating and managing the lifecycle of your external user accounts follow three common patterns. You can use these patterns to help define and implement your requirements. Choose the pattern that best aligns with your scenario and then focus on the pattern details.
+Microsoft mechanisms for creating and managing the lifecycle of your external user accounts follow three common patterns. You can use these patterns to help define and implement your requirements. Choose the pattern that best aligns with your scenario and then focus on the pattern details.  
 
 | Mechanism |  Description | Best when |
 | - | - | - |
