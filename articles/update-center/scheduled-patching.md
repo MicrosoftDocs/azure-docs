@@ -2,7 +2,7 @@
 title: Scheduling recurring updates in Update management center (preview)
 description: The article details how to use update management center (preview) in Azure to set update schedules that install recurring updates on your machines.
 ms.service: update-management-center
-ms.date: 04/11/2023
+ms.date: 04/26/2023
 ms.topic: conceptual
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -11,6 +11,10 @@ ms.author: sudhirsneha
 # Schedule recurring updates for machines using Azure portal and Azure Policy
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
+
+> [!IMPORTANT]
+> - For a seamless scheduled patching experience, we recommend that for all Azure VMs, you update the patch mode to *Azure orchestrated with user managed schedules (preview)* before **May 19, 2023**. If you fail to update the patch mode before **May 19, 2023**, you can experience a disruption in business continuity because the schedules will fail to patch the VMs.[Learn more](prerequsite-for-schedule-patching.md).
+> - To update the patch mode, go to **Update management center (Preview)** home page > **Update Settings**. In **Change update settings**, add the machines and under **Patch orchestration**, select *Azure-orchestrated-safe deployment*.
 
 You can use update management center (preview) in Azure to create and save recurring deployment schedules. You can create a schedule on a daily, weekly or hourly cadence, specify the machines that must be updated as part of the schedule, and the updates to be installed. This schedule will then automatically install the updates as per the created schedule for single VM and at scale.
 
@@ -22,7 +26,7 @@ Update management center (preview) uses maintenance control schedule instead of 
 1. Patch orchestration of the Azure machines should be set to **Azure Orchestrated (Automatic By Platform)**. For Azure Arc-enabled machines, it isn't a requirement.
 
 	> [!Note]
-	> If you set the patch orchestration mode to Azure orchestrated (Automatic By Platform) but don't attach a maintenance configuration to an Azure machine, it is treated as [Automatic Guest patching](../virtual-machines/automatic-vm-guest-patching.md) enabled machine and Azure platform will automatically install updates as per its own schedule.
+	> If you set the patch orchestration mode to Azure orchestrated (AutomaticByPlatform) but don't attach a maintenance configuration to an Azure machine, it is treated as [Automatic Guest patching](../virtual-machines/automatic-vm-guest-patching.md) enabled machine and Azure platform will automatically install updates as per its own schedule.
 
 
 ## Schedule recurring updates on single VM

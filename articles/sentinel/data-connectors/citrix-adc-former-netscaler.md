@@ -61,7 +61,7 @@ Install the Microsoft Monitoring Agent on your Linux machine and configure the m
 
    Run the following command to install and apply the CEF collector:
 
-   sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py {0} {1}
+   sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py python cef_installer.py {0} {1}
 
 2. Configure Citrix ADC to use CEF logging
 
@@ -95,7 +95,7 @@ If the logs are not received, run the following connectivity validation script:
 
    Run the following command to validate your connectivity:
 
-   sudo wget -O cef_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py  {0}
+   sudo wget -O cef_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py python cef_troubleshoot.py  {0}
 
 5. Secure your machine 
 
