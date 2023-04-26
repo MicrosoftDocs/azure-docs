@@ -25,12 +25,14 @@ If you want to set up a custom domain using your own certificate, see [Custom do
 
 Azure Container Apps provides a free managed certificate for your custom domain. Without any action required from you, this TLS/SSL server certificate is automatically renewed as long as your app continues to meet the requirements for managed certificates.
 
-For successful issuance and subsequent automatic renewal of managed certificates, the following requirements must be met:
+The requirements are:
 
 - Your container app has HTTP ingress enabled and is publicly accessible.
 - For apex domains, you must have an A record pointing to your Container Apps environment's IP address.
 - For subdomains, you must have a CNAME record mapped directly to the container app's automatically generated domain name. Mapping to an intermediate CNAME value blocks certificate issuance and renewal.
 
+> [!NOTE]
+> To ensure the certificate issuance and subsequent renewals proceed successfully, all requirements must be met at all times when the managed certificate is assigned.
 ## Add a custom domain and managed certificate
 
 ::: zone pivot="azure-portal"
@@ -46,7 +48,7 @@ For successful issuance and subsequent automatic renewal of managed certificates
  
 1. Under the *Settings* section, select **Custom domains**.
 
-1. Select the **Add custom domain** button.
+1. Select **Add custom domain**.
 
 1. In the *Add custom domain and certificate* window, in *TLS/SSL certificate*, select **Managed certificate**.
 
@@ -59,7 +61,7 @@ For successful issuance and subsequent automatic renewal of managed certificates
     | Apex domain | A record | An apex domain is a domain at the root level of your domain. For example, if your DNS zone is `contoso.com`, then `contoso.com` is the apex domain. |
     | Subdomain | CNAME | A subdomain is a domain that is part of another domain. For example, if your DNS zone is `contoso.com`, then `www.contoso.com` is an example of a subdomain that can be configured in the zone. |
 
-1. Using the DNS provider that is hosting your domain, create DNS records based on the *Hostname record type* you selected using the values shown in the *Domain validation* section. The records point the domain to your container app and verify that you own it.
+1. Using the DNS provider that is hosting your domain, create DNS records based on the *Hostname record type* you selected using the values shown in the *Domain validation* section. The records point the domain to your container app and verify that you are the owner.
 
     - If you selected *A record*, create the following DNS records:
 
@@ -75,9 +77,9 @@ For successful issuance and subsequent automatic renewal of managed certificates
         | CNAME | The subdomain (for example, `www`) | The automatically generated domain of your container app |
         | TXT | `asuid.` followed by the subdomain (for example, `asuid.www`) | The domain verification code |
 
-1. Select the **Validate** button.
+1. Select **Validate**.
 
-1. Once validation succeeds, select the **Add** button.
+1. Once validation succeeds, select *Add**.
 
     It may take several minutes to issue the certificate and add the domain to your container app.
 

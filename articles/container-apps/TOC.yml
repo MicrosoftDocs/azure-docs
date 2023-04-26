@@ -106,9 +106,9 @@
         displayName: Sticky sessions
     - name: Custom domains and certificates
       items:
-      - name: Set up custom domain with free certificate
+      - name: Set up custom domain with a free certificate
         href: custom-domains-managed-certificates.md
-        displayName: Set up custom domain with managed certificate
+        displayName: Set up custom domain with a managed certificate
       - name: Set up custom domain with existing certificate
         href: custom-domains-certificates.md
       - name: Set up environment custom DNS suffix
