@@ -3,7 +3,7 @@ author: kengaderdus
 ms.service: active-directory
 ms.subservice: ciam
 ms.topic: include
-ms.date: 03/30/2023
+ms.date: 05/05/2023
 ms.author: kengaderdus
 ---
 
@@ -22,4 +22,4 @@ Create a client secret for the registered application. The application uses the 
 1. Record the secret's **Value**. You'll use this value for configuration in a later step.
 
 > [!NOTE] 
-> The secret value won't be displayed again, and is not retrievable by any means, after you navigate away from the certificates and secrets page, so make sure you record it. <br> For enhanced security, consider using **certificates** instead of client secrets. Learn [how to use certificates instead of secrets](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/blob/main/1-Authentication/5-sign-in-express/README-use-certificate.md).
+> The secret value won't be displayed again, and is not retrievable by any means, after you navigate away from the certificates and secrets page, so make sure you record it. <br> For enhanced security, consider using **certificates** instead of client secrets.
