@@ -35,7 +35,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 For this tutorial, you need a Spark table. The following notebook creates one:
 
-1. Download the notebook [Create-Spark-Table-NYCTaxi- Data.ipynb](https://go.microsoft.com/fwlink/?linkid=2149229).
+1. Download the notebook [Create-Spark-Table-NYCTaxi- Data.ipynb](https://github.com/Azure-Samples/Synapse/blob/main/MachineLearning/Create Spark Table with NYC Taxi Data.ipynb).
 
 1. Import the notebook to Synapse Studio.
 
