@@ -103,22 +103,6 @@ New-AzVmss `
   -LoadBalancerName "myLoadBalancer" `
   -UpgradePolicyMode "Automatic"
 ```
-
-### [Template](#tab/template)
-When using an ARM template, add the upgradePolicy to the properties section: 
-
-```ARM
-"properties": {
-    "singlePlacementGroup": false,
-        "upgradePolicy": {
-            "mode": "Rolling",
-            "rollingUpgradePolicy": {
-            "maxBatchInstancePercent": 20,
-            "maxUnhealthyInstancePercent": 20,
-            "maxUnhealthyUpgradedInstancePercent": 20,
-            "pauseTimeBetweenBatches": "PT2S",
-	        "MaxSurge": "true"
-```
 ---
 
 ## Changing the Upgrade Policy
@@ -155,23 +139,6 @@ Set-AzVmssRollingUpgradePolicy `
 
 Update-Azvmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMachineScaleSet $vmss
 ```
-
-### [Template](#tab/template)
-
-Update the properties section of your ARM template as follows: 
-
-```ARM
-"properties": {
-    "singlePlacementGroup": false,
-        "upgradePolicy": {
-            "mode": "Rolling",
-            "rollingUpgradePolicy": {
-            "maxBatchInstancePercent": 20,
-            "maxUnhealthyInstancePercent": 20,
-            "maxUnhealthyUpgradedInstancePercent": 20,
-            "pauseTimeBetweenBatches": "PT2S",
-	        "MaxSurge": "true"
-```
 ---
 
 ## Performing Manual Upgrades
@@ -197,19 +164,19 @@ Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "mySc
 
 ## Exceptions to Upgrade Policies
 
-Changes to the scale set OS, data disk Profile (such as admin username and password) and [Custom Data](../virtual-machines/custom-data.md) only apply to VMs created after the change in the scale set model. To bring existing VMs up-to-date, you must do a "reimage" of each existing VM. You can do this reimage using:
+Changes to the scale set OS, data disk Profile (such as admin username and password) and [Custom Data](../virtual-machines/custom-data.md) only apply to VMs created after the change in the scale set model. To bring existing VMs up-to-date, you must do a "reimage" of each existing VM. 
 
 > [!NOTE]
-> The Reimage flag will reimage the selected instance, restoring it to the initial state. The instance may be restarted, and any local data will be lost.
+> When using reimage, the selected instance will be restored its initial state. The instance may be restarted, and any local data will be lost.
 
-### [CLI](#tab/cli-1)
+### [CLI](#tab/cli)
 Reimage a Virtual Machine Scale Set instance using [az vmss reimage](/cli/azure/vmss#az-vmss-reimage).
 
 ```azurecli-interactive
 az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
 ```
 
-### [PowerShell](#tab/powershell-1)
+### [PowerShell](#tab/powershell)
 Reimage a Virtual Machine Scale Set instance using [Set-AzVmssVM](/powershell/module/az.compute/set-azvmssvm).
 
 ```azurepowershell-interactive
