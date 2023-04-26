@@ -36,7 +36,7 @@ This article requires the latest Azure PowerShell modules. Run `Get-Module -List
 First, set up some variables to use in the deployment. Replace the values with your own.
 
 > [!TIP]
-> You can use Azure Active Directory to find you user principal name. For more information, see [Find your user principal name](/active-directory/fundamentals/add-users-azure-active-directory#find-your-user-principal-name-upn).
+> You can use Azure Active Directory to find you user principal name.
 
 ```azurepowershell
 $rg = "<resource-group-name>"
