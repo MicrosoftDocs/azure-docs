@@ -24,7 +24,7 @@ sections:
       - question: |
           Does Cognitive Search support vector search?
         answer: |
-          No. Currently, the stable and public preview versions of Cognitive Search don't provide vector search.
+          No. Currently there is no support for vector search in Azure Cognitive Search.
 
       - question: |
           How do I work with Cognitive Search?
