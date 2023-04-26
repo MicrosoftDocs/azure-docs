@@ -116,7 +116,7 @@ Creating new client connections to MySQL takes time and once established, these 
 
 ### innodb_strict_mode
 
-If you receive an error similar to "Row size too large (> 8126)", you may want to turn OFF the parameter **innodb_strict_mode**. The server parameter **innodb_strict_mode** isn't allowed to be modified globally at the server level because if row data size is larger than 8k, the data is truncated without an error, which can lead to potential data loss. We recommend modifying the schema to fit the page size limit.
+If you receive an error similar to "Row size too large (> 8126)", you may want to turn OFF the parameter **innodb_strict_mode**. The server parameter **innodb_strict_mode** can't be modified globally at the server level because if row data size is larger than 8k, the data is truncated without an error, which can lead to potential data loss. We recommend modifying the schema to fit the page size limit.
 
 This parameter can be set at a session level using `init_connect`. To set **innodb_strict_mode** at session level, refer to [setting parameter not listed](./how-to-configure-server-parameters-portal.md#setting-non-modifiable-server-parameters).
 
@@ -131,7 +131,7 @@ Upon initial deployment, an Azure for MySQL Flexible Server includes system tabl
 
 In Azure Database for MySQL this parameter specifies the number of seconds the service waits before purging the binary log file.
 
-The binary log contains “events” that describe database changes such as table creation operations or changes to table data. It also contains events for statements that potentially could have made changes. The binary log is used mainly for two purposes, replication and data recovery operations.  Usually, the binary logs are purged as soon as the handle is free from service, backup or the replica set. If there are multiple replicas, the binary logs wait for the slowest replica to read the changes before it's been purged. If you want to persist binary logs for a more duration of time, you can configure the parameter binlog_expire_logs_seconds. If the binlog_expire_logs_seconds is set to 0, which is the default value, it purges as soon as the handle to the binary log is freed. If binlog_expire_logs_seconds > 0,  then it would wait until the seconds configured before it purges. For Azure database for MySQL, managed features like backup and read replica purging of binary files are handled internally. When you replicate the data-out from the Azure Database for MySQL service, this parameter needs to be set in primary to avoid purging of binary logs before the replica reads from the changes from the primary. If you set the binlog_expire_logs_seconds to a higher value, then the binary logs won't get purged soon enough and can lead to increase in the storage billing.
+The binary log contains “events” that describe database changes such as table creation operations or changes to table data. It also contains events for statements that potentially could have made changes. The binary log is used mainly for two purposes, replication and data recovery operations.  Usually, the binary logs are purged as soon as the handle is free from service, backup or the replica set. If there are multiple replicas, the binary logs wait for the slowest replica to read the changes before it's been purged. If you want to persist binary logs for a more duration of time, you can configure the parameter binlog_expire_logs_seconds. If the binlog_expire_logs_seconds is set to 0, which is the default value, it purges as soon as the handle to the binary log is freed. If binlog_expire_logs_seconds > 0,  then it would wait until the seconds configured before it purges. For Azure database for MySQL, managed features like backup and read replica purging of binary files are handled internally. When you replicate the data-out from the Azure Database for MySQL service, this parameter needs to be set in primary to avoid purging of binary logs before the replica reads from the changes from the primary. If you set the binlog_expire_logs_seconds to a higher value, then the binary logs won't be purged soon enough and can lead to increase in the storage billing.
 
 ### event_scheduler
 
@@ -193,7 +193,7 @@ To configure the `event_scheduler` server parameter in Azure Database for MySQL,
 
 4. To view the Event Scheduler Details, run the following SQL statement:
 
-    ```slq
+    ```sql
     SHOW EVENTS;
     ```
 
@@ -201,7 +201,91 @@ To configure the `event_scheduler` server parameter in Azure Database for MySQL,
 
     ```azurecli
     mysql> show events;
-    +-----+---------------+-------------+-----------+-----------+------------+----------------+----------------+--------------------
+    +-----+---------------+-------------+-----------+-----------+------------+----------------+----------------+---------------------+---------------------+---------+------------+----------------------+----------------------+--------------------+
+    | Db  | Name          | Definer     | Time zone | Type      | Execute at | Interval value | Interval field | Starts              | Ends                | Status  | Originator | character_set_client | collation_connection | Database Collation |
+    +-----+---------------+-------------+-----------+-----------+------------+----------------+----------------+---------------------+---------------------+---------+------------+----------------------+----------------------+--------------------+
+    | db1 | test_event_01 | azureuser@% | SYSTEM    | RECURRING | NULL       | 1              | MINUTE         | 2023-04-05 14:47:04 | 2023-04-05 15:47:04 | ENABLED | 3221153808 | latin1               | latin1_swedish_ci    | latin1_swedish_ci  |
+    +-----+---------------+-------------+-----------+-----------+------------+----------------+----------------+---------------------+---------------------+---------+------------+----------------------+----------------------+--------------------+
+    1 row in set (0.23 sec)
+    ```
+
+5. After few minutes, query the rows from the table to begin viewing the rows inserted every minute as per the `event_scheduler` parameter you configured:
+
+    ```azurecli
+    mysql> select * from tab1;
+    +----+---------------------+-------------+
+    | id | CreatedAt           | CreatedBy   |
+    +----+---------------------+-------------+
+    |  1 | 2023-04-05 14:47:04 | azureuser@% |
+    |  2 | 2023-04-05 14:48:04 | azureuser@% |
+    |  3 | 2023-04-05 14:49:04 | azureuser@% |
+    |  4 | 2023-04-05 14:50:04 | azureuser@% |
+    +----+---------------------+-------------+
+    4 rows in set (0.23 sec)
+    ```
+
+6. After an hour, run a Select statement on the table to view the complete result of the values inserted into table every minute for an hour as the `event_scheduler` is configured in our case.
+
+    ```azurecli
+    mysql> select * from tab1;
+    +----+---------------------+-------------+
+    | id | CreatedAt           | CreatedBy   |
+    +----+---------------------+-------------+
+    |  1 | 2023-04-05 14:47:04 | azureuser@% |
+    |  2 | 2023-04-05 14:48:04 | azureuser@% |
+    |  3 | 2023-04-05 14:49:04 | azureuser@% |
+    |  4 | 2023-04-05 14:50:04 | azureuser@% |
+    |  5 | 2023-04-05 14:51:04 | azureuser@% |
+    |  6 | 2023-04-05 14:52:04 | azureuser@% |
+    ..< 50 lines trimmed to compact output >..
+    | 56 | 2023-04-05 15:42:04 | azureuser@% |
+    | 57 | 2023-04-05 15:43:04 | azureuser@% |
+    | 58 | 2023-04-05 15:44:04 | azureuser@% |
+    | 59 | 2023-04-05 15:45:04 | azureuser@% |
+    | 60 | 2023-04-05 15:46:04 | azureuser@% |
+    | 61 | 2023-04-05 15:47:04 | azureuser@% |
+    +----+---------------------+-------------+
+    61 rows in set (0.23 sec)
+    ```
+
+#### Other scenarios
+
+You can set up an event based on the requirements of your specific scenario. A few similar examples of scheduling SQL statements to run at different time intervals follow.
+
+**Run a SQL statement now and repeat one time per day with no end**
+
+```sql
+CREATE EVENT <event name>
+ON SCHEDULE
+EVERY 1 DAY
+STARTS (TIMESTAMP(CURRENT_DATE) + INTERVAL 1 DAY + INTERVAL 1 HOUR)
+COMMENT 'Comment'
+DO
+<your statement>;
+```
+
+**Run a SQL statement every hour with no end**
+
+```sql
+CREATE EVENT <event name>
+ON SCHEDULE
+EVERY 1 HOUR
+COMMENT 'Comment'
+DO
+<your statement>;
+```
+
+**Run a SQL statement every day with no end**
+
+```sql
+CREATE EVENT <event name>
+ON SCHEDULE 
+EVERY 1 DAY
+STARTS str_to_date( date_format(now(), '%Y%m%d 0200'), '%Y%m%d %H%i' ) + INTERVAL 1 DAY
+COMMENT 'Comment'
+DO
+<your statement>;
+```
 
 #### Limitations
 
