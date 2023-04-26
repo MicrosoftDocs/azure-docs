@@ -30,29 +30,8 @@ In this article, you learn how to:
 - An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - An Azure account that's been assigned at least the [Contributor](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#contributor) role within the subscription or a resource group within the subscription is required.
 
-## Register the private preview feature <!--  Do we need this step in the tech preview? --> 
-
-Before you can create the new customer tenant in the Microsoft Entra admin center, register the preview feature in Azure portal. To register, run the following commands from [Azure Cloud Shell](https://learn.microsoft.com/azure/cloud-shell/overview) 
-
-- Ensure you're using the right subscription by running the below command first:
-    
-    `Select-AzSubscription -SubscriptionName "SubscriptionName"`
-
-- To use your own subscription you have to register to use the feature. The feature flag name is *CIAMApiBeta*. To register your subscription, run the following command:
-    
-    `Register-AzProviderFeature -FeatureName CIAMApiBeta -ProviderNamespace Microsoft.AzureActiveDirectory`
-
-   It can take anywhere from 15 minutes to 1 hour for changes to reflect the "registered state". Check state by running:
-    
-    `Get-AzProviderFeature -FeatureName CIAMApiBeta -ProviderNamespace Microsoft.AzureActiveDirectory`
-
-   Once the registration of the *CIAMApiBeta* feature is complete, you might need to register the subscription to detect the new resource that was enabled by the feature flag. It may take a few minutes for the changes to propagate. To register the subscription, run the following command:
-   
-    `Register-AzResourceProvider -ProviderNamespace Microsoft.AzureActiveDirectory`
-
 ## Create a new customer tenant  <!--  The link https://aka.ms/ciam/create brings me to the correct manage tenants page, but in the Azure portal and not in the MS Entra admin center, even if I'm logged in to the MS Entra admin center. I manually have to copy tht URL to the admin center if I want to see this page there. (https://entra.microsoft.com/?enableNewTenantCreationUX=true&Microsoft_AAD_B2CAdmin_dc=CPIMEUSSU001-PPE-BL6P&Microsoft_AAD_B2CAdmin_slice=001-001#view/Microsoft_AAD_IAM/SelectTenantType.ReactView) -->
 1. Sign in to your organization's [Microsoft Entra admin center](https://entra.microsoft.com/).
-
 1. From the left menu, select **Azure Active Directory** > **Overview**.
 1. On the overview page, select **Manage tenants**
 1. Select **Create**.
@@ -88,7 +67,6 @@ Before you can create the new customer tenant in the Microsoft Entra admin cente
 1. Select **Next: Review + Create**. Review the information you entered and if the information is correct, select **Create**. The tenant creation process can take up to 30 minutes. You can monitor the progress of the tenant creation process in the **Notifications** pane. Once the customer tenant is created, you can access it in both the Microsoft Entra admin center and the Azure portal.
 
 ## Get the customer tenant details <!--  Check with Derdus - he is using how-to-create-customer-tenant-portal.md#get-tenant-name --> 
-
 If you're not sure which directory contains your customer tenant, you can find the tenant name and ID both in the Microsoft Entra admin center and in the Azure portal.
 
 1. To make sure you're using the directory that contains your Azure AD for customers tenant, select the **Directories + subscriptions** icon in the toolbar.
