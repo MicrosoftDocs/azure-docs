@@ -76,7 +76,7 @@ To assign a user to the personal desktop host pool:
 
 1. In the host pool you want to edit, select **Session hosts**.
 
-1. 
+<!---How do I automatically assign things? Is there a process for it like the PowerShell side?--->
 
 #### [PowerShell](#tab/powershell)
 
@@ -266,6 +266,8 @@ $reassignDesktopParams = @{
 }
 Invoke-AzRestMethod @reassignDesktopParams
 ```
+
+<!--Do the instructions here still apply or do I need to remove them?-->
 
 ---
 
