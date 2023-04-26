@@ -16,16 +16,14 @@ ms.topic: how-to
 
 You can use the jobs list view in [Azure Machine Learning studio](https://ml.azure.com) to organize and track your jobs. By selecting a job, you can view and analyze its details, such as metrics, parameters, logs, and outputs. This way, you can keep track of your ML job history and ensure a transparent and reproducible ML development process.
 
-
 This article shows how to do the following tasks:
 
-* Edit job display name. 
-* Select and pin columns. 
-* Sort jobs 
+* Edit job display name.
+* Select and pin columns.
+* Sort jobs
 * Filter jobs
 * Perform batch actions on jobs
 * Tag jobs.
- 
 
 > [!TIP]
 > * If you're looking for information on using the Azure Machine Learning SDK v1 or CLI v1, see [How to track, monitor, and analyze jobs (v1)](./v1/how-to-track-monitor-analyze-runs.md).
@@ -42,55 +40,61 @@ This article shows how to do the following tasks:
 
 You'll need the following items:
 
-* To use Azure Machine Learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
-* You must have an Azure Machine Learning workspace. A workspace is created in [Install, set up, and use the CLI (v2)](how-to-configure-cli.md). 
+* [!INCLUDE [prereq-workspace](includes/prereq-workspace.md)]
 
-## Job display name 
+* Run one or more jobs in your workspace to have results available in the dashboard. Complete [Tutorial: Train a model in Azure Machine Learning](tutorial-train-model.md) if you don't have any jobs yet.
 
-The job display name is an optional and customizable name that you can provide for your job. You can edit this directly in your jobs list view by clicking on the pencil icon. 
+* Enable this preview feature via the preview panel.
 
-This will help you organize and label your training jobs easily. 
+    :::image type="content" source="media/how-to-visualize-jobs/enable-preview.png" alt-text="Screenshot shows enabling the preview feature.":::
 
-## Select and pin columns 
+## View jobs list
 
-You can add, remove, reorder, and pin columns to customize your jobs list by selecting Columns to open the column options pane. 
+* Select **Jobs** on the left side navigation panel.
+* Select either **All experiments** to view all the jobs in an experiment or select **All jobs** to view all the jobs submitted in the workspace.
+* Select **List view** at the top to switch into **List view**.
 
-Configure your columns in your job list by selecting Columns. 
+## Job display name
 
-In column options, you can select columns to add or remove from the table. Drag columns to reorder how they appear in the table and pin any column to the left of the table, so you can continue viewing your important column information (i.e. display name, metric value) while scrolling horizontally.  
+The job display name is an optional and customizable name that you can provide for your job. You can edit this directly in your jobs list view by selecting the pencil icon when you move your mouse over a job name.
 
-## Sort jobs 
+Customizing the name may help you organize and label your training jobs easily.
 
-You can now sort your jobs list by your metric values (i.e. accuracy, loss, f-1 score) to identify the best performing job that meets your criteria. 
+## Select and pin columns
 
-To sort by multiple columns, hold the shift key and click column headers that you want to sort. This will help you rank your training results according to your criteria. 
+Add, remove, reorder, and pin columns to customize your jobs list.  Select **Columns** to open the column options pane.
+
+In column options, select columns to add or remove from the table. Drag columns to reorder how they appear in the table and pin any column to the left of the table, so you can view your important column information (i.e. display name, metric value) while scrolling horizontally.  
+
+## Sort jobs
+
+Sort your jobs list by your metric values (i.e. accuracy, loss, f-1 score) to identify the best performing job that meets your criteria.
+
+To sort by multiple columns, hold the shift key and click column headers that you want to sort. Multiple sorts will help you rank your training results according to your criteria. 
  
-At any point you can manage your sorting preferences for your table in column options under Columns to add or remove columns and change sorting order. 
+At any point, manage your sorting preferences for your table in column options under **Columns** to add or remove columns and change sorting order. 
 
-## Filter jobs 
+## Filter jobs
 
-You can filter your jobs list by selecting Filters where you can leverage quick filters for Status and Created by as well as add specific filters to any column including metrics. 
+Filter your jobs list by selecting **Filters**. Use quick filters for **Status** and **Created** by as well as add specific filters to any column including metrics. 
 
-Simply, select Add filter to search or select a column of your preference. 
+Select **Add filter** to search or select a column of your preference.
 
-Upon choosing your column, you can choose what type of filter you want and the value. Apply changes and see the jobs list page update accordingly. 
+Upon choosing your column, select what type of filter you want and the value. Apply changes and see the jobs list page update accordingly.
 
+You can remove the filter you just applied from the job list if you no longer want it.  To edit your filters, simply navigate back to **Filters** to do so.  
 
-You can remove the filter you just applied from the job list or if you’re interested in editing your filters, simply navigate back to Filters to do so.  
+## Perform actions on multiple jobs
 
+Select multiple jobs in your jobs list and perform an action, such as cancel or delete, on them together.  
 
-## Perform batch actions on jobs / Bulk actions (cancel, delete, etc.) 
+## Tag jobs
 
-You can now select multiple jobs in your jobs list and perform an action, such as cancel or delete, on them together.  
+Tag your experiments with custom labels that will help you group and filter them later. To add tags to multiple jobs, select the jobs and then select the "Add tags" button at the top of the table.
 
-## Tag jobs 
+## Custom View
 
-You can now tag your experiments with custom labels that will help you group and filter them later. You can add tags to multiple jobs by selecting them and clicking on the "Add tags" button at the top of the table. 
-
-
-## Custom View 
-    
-To view your jobs in the studio: 
+To view your jobs in the studio:
 
 1. Navigate to the **Jobs** tab.
 
