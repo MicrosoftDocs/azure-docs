@@ -61,7 +61,7 @@ items:
         href: hana-vm-ultra-disk.md
       - name: SAP HANA with Azure NetApp Files
         href: hana-vm-operations-netapp.md
-      - name: Azure Premium Files NFS and SMB for SAP
+      - name: Azure Files NFS/SMB for SAP
         href: planning-guide-storage-azure-files.md
     - name: High availability (HA)
       items:
