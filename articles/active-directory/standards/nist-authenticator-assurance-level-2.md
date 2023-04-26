@@ -33,13 +33,13 @@ The following table has authenticator types permitted for AAL2:
 | Azure AD authentication method| NIST authenticator type |
 | - | - |
 | **Recommended methods** |   |
-| Microsoft Authenticator app (passwordless) <br> Multi-factor Software Certificate (PIN Protected) <br> Windows Hello for Business with software Trusted Platform Module (TPM) | Multi-factor crypto software |
+| Multi-factor Software Certificate (PIN Protected) <br> Windows Hello for Business with software Trusted Platform Module (TPM)<br> Microsoft Authenticator app (passwordless) | Multi-factor crypto software |
 | Hardware protected certificate (smartcard/security key/TPM) <br> FIDO 2 security key <br> Windows Hello for Business with hardware TPM | Multi-factor crypto hardware |
 | **Additional methods** |  |
-| Password **AND** Microsoft Authenticator app (Notification) <br> Password and phone (SMS) | Memorized secret **AND** out-of-band |
-| Password <br> **AND** <br>&nbsp;&nbsp;&nbsp;&nbsp;OATH hardware tokens (preview) <br>&nbsp;&nbsp;&nbsp;&nbsp;**OR**<br>&nbsp;&nbsp;&nbsp;&nbsp;Microsoft Authenticator app (OTP)<br>&nbsp;&nbsp;&nbsp;&nbsp;**OR**<br>&nbsp;&nbsp;&nbsp;&nbsp;OATH software tokens | Memorized secret **AND** single-factor OTP|
-| Password **AND** single-factor software certificate <br> Password **AND** managed device (Hybrid Azure AD Joined or compliant device) with software TPM | Memorized secret **AND** single-factor crypto software |
-| Password **AND** managed device (Hybrid Azure AD Joined or compliant device) with TPM/TEE | Memorized secret **AND** single-factor crypto hardware |
+| Password <br> **AND** <br>&nbsp;&nbsp;&nbsp;&nbsp;Microsoft Authenticator app (Push Notification) <br>&nbsp;&nbsp;&nbsp;&nbsp;**OR** <br>&nbsp;&nbsp;&nbsp;&nbsp;Phone (SMS) | Memorized secret <br>**AND**<br> Single-factor out-of-band |
+| Password <br> **AND** <br>&nbsp;&nbsp;&nbsp;&nbsp;OATH hardware tokens (preview) <br>&nbsp;&nbsp;&nbsp;&nbsp;**OR**<br>&nbsp;&nbsp;&nbsp;&nbsp;Microsoft Authenticator app (OTP)<br>&nbsp;&nbsp;&nbsp;&nbsp;**OR**<br>&nbsp;&nbsp;&nbsp;&nbsp;OATH software tokens | Memorized secret <br>**AND** <br>Single-factor OTP|
+| Password <br>**AND** <br>&nbsp;&nbsp;&nbsp;&nbsp;Single-factor software certificate <br>&nbsp;&nbsp;&nbsp;&nbsp;**OR**<br>&nbsp;&nbsp;&nbsp;&nbsp;Hybrid Azure AD Joined or compliant device with software TPM | Memorized secret <br>**AND**<br> Single-factor crypto software |
+| Password <br>**AND**<br> Hybrid Azure AD Joined or compliant device with TPM/TEE | Memorized secret <br>**AND**<br>Single-factor crypto hardware |
 
 > [!NOTE]
 > Today, Microsoft Authenticator by itself is not phishing resistant. To gain protection from external phishing threats when using Microsoft Authenticator you must additionally configure conditional access policy requiring a managed device.
@@ -72,10 +72,9 @@ Government agency cryptographic authenticators are validated for FIPS 140 Level 
 
 * Certificate stored in software or hardware (smartcard/security key/TPM)
 
-Microsoft Authenticator app (notification/OTP/passwordless) on iOS uses FIPS 140 level 1 validated cryptographic module and is FIPS 140 compliant. While Microsoft Authenticator app on Android (notification/OTP/passwordless) uses FIPS 140 approved cryptography, it is not FIPS compliant.
+Microsoft Authenticator app (Push Notification/OTP/passwordless) on iOS uses FIPS 140 level 1 validated cryptographic module and is FIPS 140 compliant. While Microsoft Authenticator app on Android (Push Notification/OTP/passwordless) uses FIPS 140 approved cryptography, it is not FIPS compliant.
 
 For OATH hardware tokens and smartcards we recommend you consult with your provider for current FIPS validation status.
-
 
 FIDO 2 security key providers are in various stages of FIPS certification. We recommend you review the list of [supported FIDO 2 key vendors](../authentication/concept-authentication-passwordless.md#fido2-security-key-providers). Consult with your provider for current FIPS validation status.
 
