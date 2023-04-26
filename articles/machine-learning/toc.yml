@@ -1266,19 +1266,21 @@
               href: reference-yaml-job-pipeline.md
             - name: Parallel
               href: reference-yaml-job-parallel.md
-            - name: AutoML Image Classification
+            - name: Automated ML Forecasting command job YAML schema
+              href: reference-automated-ml-forecasting.md
+            - name: Automated ML Image Classification
               href: reference-automl-images-cli-classification.md
-            - name: AutoML Image Instance Segmentation
+            - name: Automated ML Image Instance Segmentation
               href: reference-automl-images-cli-instance-segmentation.md
-            - name: AutoML Image Multilabel Classification
+            - name: Automated ML Image Multilabel Classification
               href: reference-automl-images-cli-multilabel-classification.md
-            - name: AutoML Image Object Detection
+            - name: Automated ML Image Object Detection
               href: reference-automl-images-cli-object-detection.md
-            - name: AutoML NLP Text Classification
+            - name: Automated ML NLP Text Classification
               href: reference-automl-nlp-cli-text-classification.md
-            - name: AutoML NLP Multilabel Classification
+            - name: Automated ML NLP Multilabel Classification
               href: reference-automl-nlp-cli-multilabel-classification.md
-            - name: AutoML NLP NER
+            - name: Automated ML NLP NER
               href: reference-automl-nlp-cli-ner.md
         - name: Datastore
           items:
@@ -1318,8 +1320,6 @@
     - name: Hyperparameters for AutoML computer vision tasks
       displayName: automl, yolo-5, image, image model
       href: reference-automl-images-hyperparameters.md
-    - name: Automated ML Forecasting command job YAML schema
-      href: reference-automated-ml-forecasting.md
     - name: Kubernetes cluster configuration
       href: reference-kubernetes.md
     - name: Designer component reference

@@ -22,7 +22,7 @@ As a prerequisite, you need an Azure subscription and have been granted the prop
 :::image type="content" source="media/get-started/get-started-with-medtech-service.png" alt-text="Diagram showing the MedTech service deployment overview." lightbox="media/get-started/get-started-with-medtech-service.png":::
 
 > [!TIP]
-> See the MedTech service article, [Quickstart: Choose a deployment method for the MedTech service](deploy-new-choose.md), for a description of the different deployment methods that can help to simply and automate the deployment of the MedTech service. 
+> See the MedTech service article, [Choose a deployment method for the MedTech service](deploy-choose-method.md), for a description of the different deployment methods that can help to simply and automate the deployment of the MedTech service. 
 
 ## Deploy resources
 
@@ -43,7 +43,7 @@ Deploy a [resource group](../../azure-resource-manager/management/manage-resourc
 
 ### Deploy an Event Hubs namespace and event hub
 
-Deploy an Event Hubs namespace into the resource group. Event Hubs namespaces are logical containers for event hubs. Once the namespace is deployed, you can deploy an event hub, which the MedTech service reads from. For information about deploying Event Hubs namespaces and event hubs, see [Quickstart: Create an event hub using Azure portal](../../event-hubs/event-hubs-create.md).
+Deploy an Event Hubs namespace into the resource group. Event Hubs namespaces are logical containers for event hubs. Once the namespace is deployed, you can deploy an event hub, which the MedTech service reads from. For information about deploying Event Hubs namespaces and event hubs, see [Create an event hub using Azure portal](../../event-hubs/event-hubs-create.md).
 
 ### Deploy a workspace
 
@@ -55,7 +55,7 @@ Deploy a [FHIR service](../fhir/fhir-portal-quickstart.md) into your resource gr
 
 ### Deploy a MedTech service
 
-If you have successfully deployed the prerequisite resources, you're now ready to deploy a [MedTech service](deploy-new-manual.md) using your workspace.
+If you have successfully deployed the prerequisite resources, you're now ready to deploy a [MedTech service](deploy-manual-prerequisites.md) using your workspace.
 
 ## Next steps
 
