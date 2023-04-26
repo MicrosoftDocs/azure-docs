@@ -47,13 +47,13 @@ The main page of the application, *index.html*, is the first page that is loaded
         <title>Microsoft identity platform</title>
         <link rel="SHORTCUT ICON" href="./favicon.svg" type="image/x-icon">
         <link rel="stylesheet" href="./styles.css">
-        <!-- msal.min.js can be used in the place of msal.js; included msal.js to make debug easy -->
-        <script id="load-msal" src="https://alcdn.msauth.net/browser/2.31.0/js/msal-browser.js"
-            integrity="sha384-BO4qQ2RTxj2akCJc7t6IdU9aRg6do4LGIkVVa01Hm33jxM+v2G+4q+vZjmOCywYq"
-            crossorigin="anonymous"></script>
+        
         <!-- adding Bootstrap 5 for UI components  -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    
+        <!-- msal.min.js can be used in the place of msal.js -->
+        <script src="/msal-browser.min.js"></script>
     </head>
     
     <body>
@@ -92,6 +92,7 @@ The main page of the application, *index.html*, is the first page that is loaded
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
             crossorigin="anonymous"></script>
+            
         <!-- importing app scripts (load order is important) -->
         <script type="text/javascript" src="./authConfig.js"></script>
         <script type="text/javascript" src="./ui.js"></script>
@@ -100,7 +101,8 @@ The main page of the application, *index.html*, is the first page that is loaded
         <!-- uncomment the above line and comment the line below if you would like to use the redirect flow -->
         <script type="text/javascript" src="./authPopup.js"></script>
     </body>
-    </html>
+    
+</html>
     ```
 
 1. Save the file.
@@ -112,24 +114,24 @@ The main page of the application, *index.html*, is the first page that is loaded
 
     ```html
     <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Azure AD | Vanilla JavaScript SPA</title>
-            <link rel="SHORTCUT ICON" href="./favicon.svg" type="image/x-icon">
-        
-            <!-- adding Bootstrap 4 for UI components  -->
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        </head>
-        <body>
-            <div class="jumbotron" style="margin: 10%">
-                <h1>Goodbye!</h1>
-                <p>You have signed out and your cache has been cleared.</p>
-                <a class="btn btn-primary" href="/" role="button">Take me back</a>
-            </div>
-        </body>
-        </html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Azure AD | Vanilla JavaScript SPA</title>
+        <link rel="SHORTCUT ICON" href="./favicon.svg" type="image/x-icon">
+    
+        <!-- adding Bootstrap 4 for UI components  -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="jumbotron" style="margin: 10%">
+            <h1>Goodbye!</h1>
+            <p>You have signed out and your cache has been cleared.</p>
+            <a class="btn btn-primary" href="/" role="button">Take me back</a>
+        </div>
+    </body>
+    </html>
     ```
 
 1. Save the file.
