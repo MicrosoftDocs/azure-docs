@@ -31,7 +31,7 @@ The last sign-in provides potential insights into a user's continued need for ac
 ## Detect inactive user accounts with Microsoft Graph
 <a name="how-to-detect-inactive-user-accounts"></a>
 
-You can detect inactive accounts by evaluating the `lastSignInDateTime` property exposed by the `signInActivity` resource type of the **Microsoft Graph API**. The `lastSignInDateTime` property shows the last time attempted to make an interactive sign-in attempt in Azure AD. Using this property, you can implement a solution for the following scenarios:
+You can detect inactive accounts by evaluating the `lastSignInDateTime` property exposed by the `signInActivity` resource type of the **Microsoft Graph API**. The `lastSignInDateTime` property shows the last time a user attempted to make an interactive sign-in attempt in Azure AD. Using this property, you can implement a solution for the following scenarios:
 
 - **Last sign-in date and time for all users**: In this scenario, you need to generate a report of the last sign-in date of all users. You request a list of all users, and the last `lastSignInDateTime` for each respective user:
     - `https://graph.microsoft.com/v1.0/users?$select=displayName,signInActivity` 
