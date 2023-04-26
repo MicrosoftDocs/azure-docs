@@ -1,6 +1,6 @@
 ---
 title: Integrate OSDU Service Logs with Azure Monitor - Microsoft Azure Data Manager for Energy Preview
-description: This how-to article helps you integrate OSDU service logs with Azure Monitor. This feature helps you better troubleshoot, debug, & monitor the OSDU services.
+description: This how-to article shows you how to integrate OSDU service logs with Azure Monitor. This feature helps you better troubleshoot, debug, & monitor the OSDU services.
 author: nitinnms
 ms.author: nitindwivedi
 ms.service: energy-data-services
@@ -16,7 +16,7 @@ Azure Data Manager for Energy Preview supports exporting OSDU Service Logs to Az
 ## Prerequisites
 
 * An existing **Log Analytics Workspace**.
-    This workspace is used to query the OSDU service logs using the Kusto Query Language (KQL) query editor in the Log Analytics workspace. Useful Resource: [Create a log analytics workspace in Azure portal](../azure-monitor/logs/quick-create-workspace.md).
+    This workspace is used to query OSDU service logs using the Kusto Query Language (KQL) query editor in the Log Analytics workspace. Useful Resource: [Create a log analytics workspace in Azure portal](../azure-monitor/logs/quick-create-workspace.md).
 
 * An existing **storage account**:
     It's used to store JSON dumps of OSDU service logs. The storage account doesn’t have to be in the same subscription as your Log Analytics workspace.
@@ -28,7 +28,7 @@ Azure Data Manager for Energy Preview supports exporting OSDU Service Logs to Az
     
     [![Screenshot shows that the list of OSDU services currently supported is visible on the diagnostic settings overview page.](media/how-to-integrate-osdu-service-logs-with-azure-monitor/diagnostic-settings-overview-page.png)](media/how-to-integrate-osdu-service-logs-with-azure-monitor/diagnostic-settings-overview-page.png#lightbox)
     
-1. Select *Add diagnostic setting*. Choose a diagnostic setting name and select the services under Categories whose logs you want to send to your chosen destination. 
+1. Select *Add diagnostic setting*. Choose a diagnostic setting name and select the services under *Categories* for which you want to send logs to your chosen destination.
 
 
     [![Screenshot to show that users can select all or a few log categories while creating a diagnostic setting.](media/how-to-integrate-osdu-service-logs-with-azure-monitor/diagnostic-settings-creation-page.png)](media/how-to-integrate-osdu-service-logs-with-azure-monitor/diagnostic-settings-creation-page.png#lightbox)
@@ -44,7 +44,7 @@ Azure Data Manager for Energy Preview supports exporting OSDU Service Logs to Az
 
 1. Navigate to the *Logs* tab in the left panel. 
 1. Expand the list of tables under Log Management category. The OSDU service logs exported using a diagnostic setting show up in the *OEPDataplaneLogs* table. 
-1. Move to the editor pane. Here you can write Kusto Query Language (KQL) queries to filter your OSDU service logs to only look for the relevant ones. 
+1. Move to the editor pane. Here, you can write Kusto Query Language (KQL) queries to filter your OSDU service logs and display only the relevant ones.
 
      [![Screenshot shows the different parts of a Log Analytics workspace interface.](media/how-to-integrate-osdu-service-logs-with-azure-monitor/log-analytics-workspace.png)](media/how-to-integrate-osdu-service-logs-with-azure-monitor/log-analytics-workspace.png#lightbox)
 
