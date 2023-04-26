@@ -361,9 +361,9 @@ You must specify the protocol as HTTPS in the route configuration. The following
 
    ```azurecli
    az spring gateway route-config create \
-       --name test-tls-app \
        --resource-group <resource-group-name> \
        --service <Azure-Spring-Apps-instance-name> \
+       --name test-tls-app \
        --routes-file test-tls-route.json
    ```
 
@@ -373,9 +373,9 @@ You can now test whether the application is TLS enabled with the endpoint of the
 
 As certificates expire, you need to rotate certificates in Spring Cloud Gateway by using the following steps:
 
-- Generate new certificates from a trusted CA.
-- Import the certificates into Azure Spring Apps. For more information, see the [Import a certificate](how-to-use-tls-certificate.md#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md).
-- Synchronize the certificates, using the Azure portal or the Azure CLI.
+1. Generate new certificates from a trusted CA.
+1. Import the certificates into Azure Spring Apps. For more information, see the [Import a certificate](how-to-use-tls-certificate.md#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md).
+1. Synchronize the certificates, using the Azure portal or the Azure CLI.
 
 The gateway restarts accordingly to ensure that the gateway uses the new certificate for all connections.
 
@@ -388,7 +388,7 @@ Use the following steps to synchronize certificates.
 1. Select the certificate you imported in **Certificates**.
 1. Select **sync certificate**, and confirm the operation.
 
-   :::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sync-certificate.png" alt-text="Screenshot of the Azure portal showing the Spring Cloud Gateway page for an Azure Spring Apps instance, with Certificate Management selected and the prompt to sync the certificate highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sync-certificate.png":::
+   :::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sync-certificate.png" alt-text="Screenshot of the Azure portal showing the Spring Cloud Gateway page for Certificate Management with the sync certificate prompt highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sync-certificate.png":::
 
 #### [Azure CLI](#tab/Azure-CLI) 
 
