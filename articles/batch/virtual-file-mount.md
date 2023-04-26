@@ -145,7 +145,7 @@ You can mount an Azure file share on a Batch pool using [Azure PowerShell](/powe
 
 When you mount an Azure file share to a Batch pool with PowerShell or Cloud Shell, you might receive the following error:
 
-```text
+```output
 Mount Configuration Error | An error was encountered while configuring specified mount(s)
 Message: System error (out of memory, cannot fork, no more loop devices)
 MountConfigurationPath: S
@@ -165,7 +165,7 @@ net use S: \\<storage-account-name>.file.core.windows.net\<fileshare> /u:AZURE\<
 
 1. Review the error messages. For example:
 
-    ```text
+    ```output
     CMDKEY: Credential added successfully.
     
     System error 86 has occurred.
@@ -213,7 +213,7 @@ If you can't use RDP or SSH to check the log files on the node, check the Batch 
 
 1. Review the error messages. For example: 
 
-    ```text
+    ```output
     ..20210322T113107.448Z.00000000-0000-0000-0000-000000000000.ERROR.agent.mount.filesystems.basefilesystem.basefilesystem.py.run_cmd_persist_output_async.59.2912.MainThread.3580.Mount command failed with exit code: 2, output:
     
     CMDKEY: Credential added successfully.
