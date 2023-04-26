@@ -54,6 +54,15 @@ The Azure Machine Learning plugin for MLflow supports several authentication mec
 If you'd rather use a certificate instead of a secret, you can configure the environment variables `AZURE_CLIENT_CERTIFICATE_PATH` to the path to a `PEM` or `PKCS12` certificate file (including private key) and 
 `AZURE_CLIENT_CERTIFICATE_PASSWORD` with the password of the certificate file, if any.
 
+### Configure authorization and permission levels
+
+Permission levels like `Contributor` or `Data Scientist` are already configured to permform MLflow operations in an Azure Machine Learning workspace. On custom roles, you need the following permissions:
+
+* **To use MLflow tracking:** `Microsoft.MachineLearningServices/workspaces/experiments/*` and `Microsoft.MachineLearningServices/workspaces/jobs/*`.
+* **To use MLflow model registry:** `Microsoft.MachineLearningServices/workspaces/models/*/*`
+
+Grant these permissions either to your user or the service principal using the service.
+
 ### Troubleshooting authentication
 
 MLflow will try to authenticate to Azure Machine Learning on the first operation interacting with the service, like `mlflow.set_experiment()` or `mlflow.start_run()`. If you find issues or unexpected authentication prompts during the process, you can increase the logging level to get more details about the error:
