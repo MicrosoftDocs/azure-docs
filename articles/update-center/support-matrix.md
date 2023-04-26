@@ -130,7 +130,9 @@ The table lists the operating systems supported on [Azure Arc-enabled servers](.
    | Linux | Debian 10 and 11|
    | Linux | Rocky Linux 8|        
 
-# [Unsupported Operating systems](#tab/unsupport-os)
+---
+
+## Unsupported Operating systems
 
 The following table lists the operating systems that aren't supported:
 
@@ -140,7 +142,6 @@ The following table lists the operating systems that aren't supported:
    | Virtual machine scale sets| We recommend that you use [Automatic upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) to patch the virtual machine scale sets.|
    | Azure Kubernetes Nodes| We recommend the patching described in [Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)](https://learn.microsoft.com/azure/aks/node-updates-kured).|
 
----
 
 As the Update management center (preview) depends on your machine's OS package manager or update service, ensure that the Linux package manager or Windows Update client are enabled and can connect with an update source or repository. If you're running a Windows Server OS on your machine, see [configure Windows Update settings](configure-wu-agent.md).
  
