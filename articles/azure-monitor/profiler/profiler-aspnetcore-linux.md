@@ -81,7 +81,7 @@ In this article, you:
 
 ## Create the Linux web app to host your project
 
-1. In the Azure portal, create a web app environment by using App Service on Linux:
+1. In the Azure portal, create a web app environment by using App Service on Linux.
 
    :::image type="content" source="./media/profiler-aspnetcore-linux/create-web-app.png" alt-text="Screenshot that shows creating the Linux web app.":::
 
@@ -95,7 +95,7 @@ In this article, you:
 
    :::image type="content" source="./media/profiler-aspnetcore-linux/deployment-options.png" alt-text="Screenshot that shows view deployment options in a dropdown.":::    
 
-1. Select **Save** to create a Git repository with a Git Clone Uri. 
+1. Select **Save** to create a Git repository with a Git clone URI.
 
    :::image type="content" source="./media/profiler-aspnetcore-linux/local-git-repo.png" alt-text="Screenshot that shows setting up the local Git repository.":::    
 
