@@ -132,7 +132,7 @@ If the query returns results, you need to determine if a particular data type is
     |10102 and 10103 |Health Service Modules |Workflow couldn't resolve the data source. |This issue can occur if the specified performance counter or instance doesn't exist on the computer or is incorrectly defined in the workspace data settings. If this is a user-specified [performance counter](data-sources-performance-counters.md#configure-performance-counters), verify the information specified follows the correct format and exists on the target computers. |
     |26002 |Health Service Modules |Workflow couldn't resolve the data source. |This issue can occur if the specified Windows event log doesn't exist on the computer. This error can be safely ignored if the computer isn't expected to have this event log registered. Otherwise, if this is a user-specified [event log](data-sources-windows-events.md#configure-windows-event-logs), verify the information specified is correct. |
     
-## Pinned Certifciate Issues with Older Microsoft Monitoring Agents - Breaking Change
+## Pinned Certificate Issues with Older Microsoft Monitoring Agents - Breaking Change
 
 *Root CA Change Overview*
 
@@ -159,12 +159,12 @@ You may have received the breaking change notification even if you have not pers
 
 *Identifying and Remidiating Breaking Agents*
 
-For deployments with a limited amount of agents, we highly recommend you upgrading your agent per node via [these management instructions](https://aka.ms/MMA-Upgrade).
+For deployments with a limited number of agents, we highly recommend you upgrading your agent per node via [these management instructions](https://aka.ms/MMA-Upgrade).
 
-For deployments with multiple nodes we've written a script that will detect any affected breaking MMA's per subscription and than subsequently upgrade them to the latest version. These scripts need to be run sequentially, starting with UpdateMMA.ps1 than UpgradeMMA.ps1. Depending on the machine, the script may take a while. Powershell 7 or greater is needed to run to avoid a timeout.
+For deployments with multiple nodes, we've written a script that will detect any affected breaking MMAs per subscription and then subsequently upgrade them to the latest version. These scripts need to be run sequentially, starting with UpdateMMA.ps1 then UpgradeMMA.ps1. Depending on the machine, the script may take a while. PowerShell 7 or greater is needed to run to avoid a timeout.
 
 *UpdateMMA.ps1*
-This script will go through VMs in your subscriptions, check for existing MMA's installed and than generate a .csv file of agents that need to be upgraded.
+This script will go through VMs in your subscriptions, check for existing MMAs installed and then generate a .csv file of agents that need to be upgraded.
 
 *UpgradeMMA.ps1*
 This script will use the .CSV file generated in UpdateMMA.ps1 to upgrade all breaking MMAs.
