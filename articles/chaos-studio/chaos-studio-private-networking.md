@@ -22,12 +22,17 @@ Currently, you can only enable certain resource types for Chaos Studio VNet inje
 ## Enabling VNet injection
 To use Chaos Studio with VNet injection, you need to meet the following requirements. 
 1. The `Microsoft.ContainerInstance` and `Microsoft.Relay` resource providers must be registered with your subscription.
-1. The VNet where Chaos Studio resources will be injected needs to have two subnets, named `ChaosStudioContainerSubnet` and `ChaosStudioRelaySubnet`. Other subnet names can't be used.
+1. The VNet where Chaos Studio resources will be injected must have two subnets that meet the following requirements.
     1. Both subnets need at least `/28` in address space. For example, an address prefix of `10.0.0.0/28` or `10.0.0.0/24`.
-    1. `ChaosStudioContainerSubnet` must be delegated to `Microsoft.ContainerInstance/containerGroups`.
-1. When enabling the desired resource as a target so you can use it in Chaos Studio  experiments, the following properties must be set:
-    1. Set `properties.subnets.containerSubnetId` to the ID for `ChaosStudioContainerSubnet`.
-    1. Set `properties.subnets.relaySubnetId` to the ID for `ChaosStudioRelaySubnet`.
+    1. The container subnet must be delegated to `Microsoft.ContainerInstance/containerGroups`.
+1. When enabling the desired resource as a target so you can use it in Chaos Studio experiments, the following properties must be set:
+    1. Set `properties.subnets.containerSubnetId` to the ID for the container subnet.
+    1. Set `properties.subnets.relaySubnetId` to the ID for the relay subnet.
+
+
+If you're using the Azure portal to enable a private resource as a Chaos Studio target, Chaos Studio currently only recognizes subnets named `ChaosStudioContainerSubnet` and `ChaosStudioRelaySubnet`. If these subnets don't exist, the portal workflow can create them automatically.
+
+If you're using the CLI, the container and relay subnets can have any name (subject to the resource naming guidelines). You just need to specify the appropriate IDs when enabling the resource as a target.
 
 ## Example: Use Chaos Studio with a private AKS cluster
 

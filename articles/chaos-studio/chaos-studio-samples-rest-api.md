@@ -22,7 +22,7 @@ The Chaos Studio API provides support for starting experiments programmatically.
 
 ## REST APIs
 
-The Squall REST APIs can be used to start and stop experiments, query target status, query experiment status, and query and delete subscription configurations. The `AZ CLI` utility can be used to perform these actions from the command line.
+The Chaos Studio REST APIs can be used to start and stop experiments, query target status, query experiment status, and query and delete subscription configurations. The `AZ CLI` utility can be used to perform these actions from the command line.
 
 > [!TIP]
 > To get more verbose output with the AZ CLI, append **--verbose** to the end of each command. This will return more metadata when commands execute, including **x-ms-correlation-request-id** which aids in debugging.
