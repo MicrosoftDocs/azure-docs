@@ -161,7 +161,7 @@
       items:
         - name: Partitioning overview
           href: ../partitioning-overview.md
-        - name: Hierarchical partition keys (preview)
+        - name: Hierarchical partition keys
           items:
             - name: Hierarchical partition keys overview
               href: ../hierarchical-partition-keys.md
