@@ -70,6 +70,22 @@ The rate of container copy job progress is determined by these factors:
     > [!IMPORTANT]
     > The default SKU offers two 4-vCPU 16-GB server-side instances per account.
 
+## Limitations
+
+### Preview eligibility criteria
+
+Container copy jobs don't work with accounts having following capabilities enabled. You will need to disable these features before running the container copy jobs.
+
+- [Disable local auth](https://learn.microsoft.com/azure/cosmos-db/how-to-setup-rbac#use-azure-resource-manager-templates)
+- [Private endpoint / IP Firewall enabled](https://learn.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-global-azure-datacenters-or-other-sources-within-azure). You will need to provide access to connections within public Azure datacenters to run container copy jobs.
+- [Merge partition](https://learn.microsoft.com/azure/cosmos-db/merge).
+
+
+### Account Configurations
+
+- The time-to-live (TTL) setting is not adjusted in the destination container. As a result, if a document has not expired in the source container, it will start its countdown anew in the destination container.
+
+
 ## FAQs
 
 ### Is there an SLA for the container copy jobs?
@@ -92,11 +108,6 @@ The container copy job runs in the write region. If there are accounts configure
 
 The account's write region may change in the rare scenario of a region outage or due to manual failover. In such a scenario, incomplete container copy jobs created within the account would fail. You would need to recreate these failed jobs. Recreated jobs would then run in the new (current) write region.
 
-### Why is a new database *__datatransferstate* created in the account when I run container copy jobs? Am I being charged for this database?
-
-* *__datatransferstate* is a database that is created while running container copy jobs. This database is used by the platform to store the state and progress of the copy job.
-* The database uses manual provisioned throughput of 800 RUs. You are charged for this database.
-* Deleting this database removes the container copy job history from the account. It can be safely deleted once all the jobs in the account have completed, if you no longer need the job history. The platform doesn't clean up the *__datatransferstate* database automatically.
 
 ## Supported regions
 
@@ -126,17 +137,8 @@ Currently, container copy is supported in the following regions:
     Make sure the target container is created before running the job as specified in the [overview section.](#overview-of-steps-needed-to-do-container-copy)
 
     ```output
-    "code": "500",
+    "code": "404",
     "message": "Response status code does not indicate success: NotFound (404); Substatus: 1003; ActivityId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx; Reason: (Message: {\"Errors\":[\"Owner resource does not exist\"]
-    ```
-
-* Error - Shared throughput database creation isn't supported for serverless accounts
-
-    Job creation on serverless accounts may fail with the error *"Shared throughput database creation isn't supported for serverless accounts"*.
-    As a work-around, create a database called *__datatransferstate* manually within the account and try creating the container copy job again.
-
-    ```output
-    ERROR: (BadRequest) Response status code does not indicate success: BadRequest (400); Substatus: 0; ActivityId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx; Reason: (Shared throughput database creation is not supported for serverless accounts.
     ```
 
 * Error - (Request) is blocked by your Cosmos DB account firewall settings.
@@ -147,6 +149,17 @@ Currently, container copy is supported in the following regions:
     InternalServerError Request originated from IP xxx.xxx.xxx.xxx through public internet. This is blocked by your Cosmos DB account firewall settings. More info: https://aka.ms/cosmosdb-tsg-forbidden
     ActivityId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
     ```
+* Error - Error while getting resources for job.
+
+    This error can occur due to internal server issues. To resolve this issue, contact Microsoft support by raising a **New Support Request** from the Azure portal. Set the Problem Type as **'Data Migration'** and Problem subtype as **'Intra-account container copy'**.
+
+    ```output
+    "code": "500"
+    "message": "Error while getting resources for job, StatusCode: 500, SubStatusCode: 0, OperationId:  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, ActivityId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    ``` 
+	
+
+
 
 ## Next steps
 
