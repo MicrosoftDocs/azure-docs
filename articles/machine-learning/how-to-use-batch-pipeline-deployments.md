@@ -85,7 +85,7 @@ hello_batch_registered = ml_client.components.create(hello_batch)
     # [Python](#tab/python)
 
     ```python
-    endpoint_name="hello-batch-component"
+    endpoint_name="hello-batch"
     ```
 
 1. Configure the endpoint:

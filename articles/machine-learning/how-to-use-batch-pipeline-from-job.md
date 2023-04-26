@@ -52,7 +52,7 @@ hello_batch = load_component(source="hello-component/hello.yml")
 pipeline_job = hello_batch()
 ```
 
-Now, we'll configure some run settings to run the test:
+Now, we'll configure some run settings to run the test. This tutorial assumes you have a compute cluster named `batch-cluster`. You can replace it with the name of yours.
 
 ```python
 pipeline_job.settings.default_compute = "batch-cluster"
@@ -91,7 +91,7 @@ Now, let being with the deployment of the pipeline job. First, we need to deploy
     # [Python](#tab/python)
 
     ```python
-    endpoint_name="hello-batch-component"
+    endpoint_name="hello-batch"
     ```
 
 1. Configure the endpoint:
@@ -156,7 +156,7 @@ To deploy the pipeline component, we have to create a batch deployment from the 
     print(job.name)
     ```
 
-1. Configure the deployment:
+1. Configure the deployment.
 
     # [Azure CLI](#tab/cli)
     
@@ -182,6 +182,11 @@ To deploy the pipeline component, we have to create a batch deployment from the 
         }
     )
     ```
+
+    ---
+
+    > [!TIP]
+    > This configuration assumes you have a compute cluster named `batch-cluster`. You can replace this value with the name of your cluster.
     
 1. Create the deployment:
 
@@ -245,7 +250,7 @@ ml_client.jobs.get(name=job.name)
 To wait for the job to finish, run the following code:
 
 ```python
-ml_client.jobs.get(name=job.name).stream()
+ml_client.jobs.get(name=job.name).stream()1
 ```
 ---
 
@@ -268,21 +273,9 @@ ml_client.batch_endpoints.begin_delete(endpoint.name).result()
 ```
 ---
 
-(Optional) Delete compute, unless you plan to reuse your compute cluster with later deployments.
-
-# [Azure CLI](#tab/cli)
-
-```azurecli
-az ml compute delete -n batch-cluster
-```
-
-# [Python](#tab/python)
-
-```python
-ml_client.compute.begin_delete(name="batch-cluster")
-```
----
-
-
-
 ## Next steps
+
+- [How to deploy a training pipeline with batch endpoints (preview)](how-to-use-batch-training-pipeline.md)
+- [How to deploy a pipeline to perform batch scoring with preprocessing (preview)](how-to-use-batch-scoring-pipeline.md)
+- [Access data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md)
+- [Troubleshooting batch endpoints](how-to-troubleshoot-batch-endpoints.md)
