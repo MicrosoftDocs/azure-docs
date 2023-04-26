@@ -224,5 +224,5 @@ Now that all the required code snippets have been added, the application can be 
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Enable self-service password reset](./how-to-enable-password-reset-customers.md)
+<!-- > [!div class="nextstepaction"] -->
+<!-- > [Enable self-service password reset](./how-to-enable-password-reset-customers.md) -->
