@@ -215,7 +215,7 @@ sections:
 
           Seeing code 429 errors when you use autoscale  doesn't necessarily indicate an issue with your database or container. Generally for a production workload, if between 1 percent and 5 percent of requests have code 429 errors and your end-to-end latency is acceptable, the errors are a healthy sign that the RU/s is being fully utilized. No action is required.
           
-          Learn more about how to [interpret and debug code 429 rate limiting errors](sql/troubleshoot-request-rate-too-large.md).
+          Learn how to [interpret and debug code 429 rate limiting errors](sql/troubleshoot-request-rate-too-large.md).
 
       - question: Can normalized RU/s consumption be 100 percent if autoscale doesn't scale to the maximum RU/s?
         answer: |
