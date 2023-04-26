@@ -38,26 +38,28 @@ If you already have a script, you can skip to [Create a load test](#create-a-loa
 
 You can also use the [Apache JMeter test script recorder](https://jmeter.apache.org/usermanual/jmeter_proxy_step_by_step.html) to record the requests while navigating the application in a browser. Alternatively, [import cURL commands](https://jmeter.apache.org/usermanual/curl.html) to generate the requests in the JMeter test script.
 
-To create a sample JMeter test script: 
+To get started with a sample JMeter script:
 
-1. Create a *SampleTest.jmx* file on your local machine:
+1. [Clone or download the samples project from GitHub](https://github.com/Azure-Samples/azure-load-testing-samples/tree/main/jmeter-basic-endpoint)
 
-    ```powershell
-    touch SampleTest.jmx
-    ```
-
-1. Open *SampleTest.jmx* in a text editor and paste the following code snippet in the file:
+1. Open the *SampleTest.jmx* file in a text editor.
 
     This script simulates a load test of five virtual users that simultaneously access a web endpoint, and takes 2 minutes to complete.
 
-    :::code language="xml" source="~/azure-load-testing-samples/jmeter-basic-endpoint/sample.jmx" highlight="33,37":::
+1. Set the value of the `HTTPSampler.domain` node to the host name of your endpoint.
 
-1. In the file, set the value of the `HTTPSampler.domain` node to the host name of your endpoint. For example, if you want to test the endpoint `https://www.contoso.com/app/products`, the host name is `www.contoso.com`.
+    For example, if you want to test the endpoint `https://www.contoso.com/app/products`, the host name is `www.contoso.com`.
 
-    > [!IMPORTANT]
+    > [!CAUTION]
     > Don't include `https` or `http` in the endpoint URL.
 
-1. In the file, set the value of the `HTTPSampler.path` node to the path of your endpoint. For example, the path for the URL `https://www.contoso.com/app/products` is `/app/products`.
+    :::code language="xml" source="~/azure-load-testing-samples/jmeter-basic-endpoint/sample.jmx" range="29-46" highlight="5":::
+
+1. Set the value of the `HTTPSampler.path` node to the path of your endpoint.
+
+    For example, the path for the URL `https://www.contoso.com/app/products` would be `/app/products`.
+
+    :::code language="xml" source="~/azure-load-testing-samples/jmeter-basic-endpoint/sample.jmx" range="29-46" highlight="9":::
 
 1. Save and close the file.
 
