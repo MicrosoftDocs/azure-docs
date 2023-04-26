@@ -31,7 +31,8 @@ To identify the list of VMs with the associated schedules for which you have to 
 1. In **Patch orchestration** filter, select **Azure-orchestrated safe deployment**.
 1. Use the **Select all** option to select the machines and then select **Export to CSV**.
 1. Open the CSV file and in the column **Associated schedules**,  select the rows that have an entry. 
-   In the corresponding **Name** column, you can view the list the VMs to which you would need to enable the **ByPassPlatformSafetyChecksOnUserSchedule** flag.
+   
+    In the corresponding **Name** column, you can view the list the VMs to which you would need to enable the **ByPassPlatformSafetyChecksOnUserSchedule** flag.
 
 
 ## Enable schedule patching on Azure VMs
@@ -79,7 +80,9 @@ To update the patch mode, follow these steps:
 1. In **Select resources**, select your VMs and then select **Add**.
 1. In **Change update settings**, under **Patch orchestration**, select *Customer managed schedules* and then select **Save**.
 
-Attach a schedule after you complete the above steps.To check if the **BypassPlatformSafetyChecksOnUserSchedule** is enabled, go to **Virtual machine** home page > **Overview** tab > **JSON View**.
+Attach a schedule after you complete the above steps.
+
+To check if the **BypassPlatformSafetyChecksOnUserSchedule** is enabled, go to **Virtual machine** home page > **Overview** tab > **JSON View**.
 
 # [REST API](#tab/new-prereq-rest-api)
 
