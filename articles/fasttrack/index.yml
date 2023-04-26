@@ -23,7 +23,7 @@ productDirectory:
       url: https://developer.microsoft.com/reactor/?search=fasttrack
     # Card
     - title: Learn Live on YouTube
-      imageSrc: ./media/azure-loud.png
+      imageSrc: ./media/azure-cloud.png
       summary: Watch upcoming live webcasts with Azure engineers on technical topics
       url: https://developer.microsoft.com/reactor/?search=learn+live+%23fasttrack-azure
     # Card
