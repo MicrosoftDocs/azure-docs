@@ -77,21 +77,25 @@ For more information, see the following articles:
 
 ## Network security and isolation
 
-To restrict network access to Azure Machine Learning resources, you can use [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md). VNets allow you to create network environments that are partially, or fully, isolated from the public internet. This reduces the attack surface for your solution, as well as the chances of data exfiltration.
+To restrict network access to Azure Machine Learning resources, you can use [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md) or [Azure Machine Learning managed virtual network (preview)](how-to-managed-network.md). Using either option reduces the attack surface for your solution, as well as the chances of data exfiltration. 
 
-You might use a virtual private network (VPN) gateway to connect individual clients, or your own network, to the VNet
+* Azure Machine Learning managed virtual network provides a fully managed solution that enables network isolation for your workspace and managed compute resources. You can use private endpoints to secure communication with other Azure services, and can restrict outbound communications.
 
-The Azure Machine Learning workspace can use [Azure Private Link](../private-link/private-link-overview.md) to create a private endpoint behind the VNet. This provides a set of private IP addresses that can be used to access the workspace from within the VNet. Some of the services that Azure Machine Learning relies on can also use Azure Private Link, but some rely on network security groups or user-defined routing.
+    [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-For more information, see the following documents:
+    For more information, see [Azure Machine Learning managed virtual network (preview)](how-to-managed-network.md).
 
-* [Virtual network isolation and privacy overview](how-to-network-security-overview.md)
-* [Secure workspace resources](how-to-secure-workspace-vnet.md)
-* [Secure training environment](how-to-secure-training-vnet.md)
-* [Secure inference environment](./how-to-secure-inferencing-vnet.md)
-* [Use studio in a secured virtual network](how-to-enable-studio-virtual-network.md)
-* [Use custom DNS](how-to-custom-dns.md)
-* [Configure firewall](how-to-access-azureml-behind-firewall.md)
+* Azure Virtual Networks allow you to create more complex network configurations, such as joining the VNet to your local network through virtual private network (VPN) gateways. While you can also use private endpoints to secure communication with other Azure services, you may need to use network security groups, user-defined routing, or a firewall to restrict outbound communication.
+
+    For more information, see the following documents:
+
+    * [Virtual network isolation and privacy overview](how-to-network-security-overview.md)
+    * [Secure workspace resources](how-to-secure-workspace-vnet.md)
+    * [Secure training environment](how-to-secure-training-vnet.md)
+    * [Secure inference environment](./how-to-secure-inferencing-vnet.md)
+    * [Use studio in a secured virtual network](how-to-enable-studio-virtual-network.md)
+    * [Use custom DNS](how-to-custom-dns.md)
+    * [Configure firewall](how-to-access-azureml-behind-firewall.md)
 
 <a id="encryption-at-rest"></a><a id="azure-blob-storage"></a>
 
