@@ -2,15 +2,15 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: radubulboaca
-manager: mariusu
+author: mrayyan
+manager: alexokun
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 09/08/2022
+ms.date: 04/25/2023
 ms.topic: include
 ms.custom: include file
-ms.author: antonsamson
+ms.author: mrayyan
 ---
 
 ## Prerequisites
@@ -105,13 +105,13 @@ OffsetDateTime validUntil = validFrom.plusDays(30);
 
 List<RoomParticipant> roomParticipants = new ArrayList<RoomParticipant>();
 
-roomParticipants.add(new RoomParticipant(new CommunicationUserIdentifier("<ACS User MRI identity 1>"))); // Default role is ATTENDEE
-roomParticipants.add(new RoomParticipant(new CommunicationUserIdentifier("<ACS User MRI identity 2>"), ParticipantRole.CONSUMER));
+roomParticipants.add(new RoomParticipant(new CommunicationUserIdentifier(USER_ID_1)).setRole(ParticipantRole.ATTENDEE));
+roomParticipants.add(new RoomParticipant(new CommunicationUserIdentifier(USER_ID_2)).setRole(ParticipantRole.CONSUMER));
 
 CreateRoomOptions roomOptions = new CreateRoomOptions()
-            .setValidFrom(validFrom)
-            .setValidUntil(validUntil)
-            .setParticipants(participants);
+    .setValidFrom(validFrom)
+    .setValidUntil(validUntil)
+    .setParticipants(roomParticipants);
 
 return roomsClient.createRoom(roomOptions);
 ```
@@ -135,37 +135,26 @@ OffsetDateTime validFrom = OffsetDateTime.now().plusDays(1);
 OffsetDateTime validUntil = validFrom.plusDays(1);
 
 UpdateRoomOptions updateRoomOptions = new UpdateRoomOptions()
-            .setValidFrom(validFrom)
-            .setValidUntil(validUntil);
+    .setValidFrom(validFrom)
+    .setValidUntil(validUntil);
 
 CommunicationRoom roomResult = roomsClient.updateRoom(roomId, updateRoomOptions);
 ```
 
-### Add new participants
+### Add or Update new participants
 
-To add new participants to a `room`, use the `upsertParticipants` method exposed on the client.
+To add new participants or update exisiting participant to a `room`, use the `addOrUpdateParticipants` method exposed on the client.
 
 ```java
- List<RoomParticipant> participantsToUpsert = new ArrayList<>();
+List<RoomParticipant> participantsToAddOrUpdate = new ArrayList<>();
 
-    // New participant to add
-    RoomParticipant participantToAdd = new RoomParticipant(new CommunicationUserIdentifier("<ACS User MRI identity 3>"), ParticipantRole.ATTENDEE);
+// New participant to add
+participantsToAddOrUpdate.add(new RoomParticipant(new CommunicationUserIdentifier(USER_ID_3)).setRole(ParticipantRole.PRESENTER));
 
-    // Existing participant to update, assume participant2 is part of the room as a
-    // consumer
-    participant2 = new RoomParticipant(new CommunicationUserIdentifier("<ACS User MRI identity 2>"), ParticipantRole.ATTENDEE);
+// Existing participant to update from Consumer -> Attendee
+participantsToAddOrUpdate.add(new RoomParticipant(new CommunicationUserIdentifier(USER_ID_2)).setRole(ParticipantRole.ATTENDEE));
 
-    participantsToUpsert.add(participantToAdd); // Adding new participant to room
-    participantsToUpsert.add(participant2); // Update participant from Consumer -> Attendee
-
-    RoomsClient roomsClient = createRoomsClientWithConnectionString();
-
-    try {
-        UpsertParticipantsResult upsertResult = roomsClient.upsertParticipants("<Room Id>", participantsToUpsert);
-
-
-RoomParticipant newParticipant = new RoomParticipant().setCommunicationIdentifier(new CommunicationUserIdentifier(USER_ID_3)).setRole(RoleType.CONSUMER);
-ParticipantsCollection updatedParticipants = roomsClient.addParticipants(roomId, List.of(newParticipant));
+AddOrUpdateParticipantsResult addOrUpdateResult = roomsClient.addOrUpdateParticipants(roomId, participantsToAddOrUpdate);  
 ```
 
 Participants that have been added to a `room` become eligible to join calls.
@@ -176,8 +165,10 @@ Retrieve the list of participants for an existing `room` by referencing the `roo
 
 ```java
 try {
-     ParticipantsCollection participants = roomsClient.getParticipants(roomId);
-     System.out.println("Participants: \n" + listParticipantsAsString(participants.getParticipants()));
+     PagedIterable<RoomParticipant> participants = roomsClient.listParticipants(roomId);
+      for (RoomParticipant participant : participants) {
+         System.out.println(participant.getCommunicationIdentifier().getRawId() + " (" + participant.getRole() + ")");
+     }
 } catch (Exception ex) {
     System.out.println(ex);
 }
@@ -188,8 +179,13 @@ try {
 To remove a participant from a `room` and revoke their access, use the `removeParticipants` method.
 
 ```java
-RoomParticipant existingParticipant = new RoomParticipant().setCommunicationIdentifier(new CommunicationUserIdentifier(USER_ID_1));
-ParticipantsCollection updatedParticipants = roomsClient.removeParticipants(roomId, List.of(existingParticipant));
+
+List<CommunicationIdentifier> participantsToRemove = new ArrayList<>();
+
+participantsToRemove.add(participant1.getCommunicationIdentifier());
+participantsToRemove.add(participant2.getCommunicationIdentifier());
+
+RemoveParticipantsResult removeResult = roomsClient.removeParticipants(roomId, participantsToRemove);
 ```
 
 ### Delete room
