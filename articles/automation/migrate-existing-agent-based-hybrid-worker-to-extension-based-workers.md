@@ -913,11 +913,11 @@ New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Locati
 
 Run the following commands on agent-based Linux Hybrid Worker:
 
-1. ```python
+1. ```bash
       sudo bash
    ```
 
-1. ```python
+1. ```bash
       rm -r /home/nxautomation
    ```
 1. Under **Process Automation**, select **Hybrid worker groups** and then your hybrid worker group to go to the **Hybrid Worker Group** page.
