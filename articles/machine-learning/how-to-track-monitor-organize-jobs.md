@@ -44,10 +44,15 @@ You'll need the following items:
 
 * Run one or more jobs in your workspace to have results available in the dashboard. Complete [Tutorial: Train a model in Azure Machine Learning](tutorial-train-model.md) if you don't have any jobs yet.
 
-## View your job
+* Enable this preview feature via the preview panel.
+
+    :::image type="content" source="media/how-to-visualize-jobs/enable-preview.png" alt-text="Screenshot shows enabling the preview feature.":::
+
+## View jobs list
 
 * Select **Jobs** on the left side navigation panel.
 * Select either **All experiments** to view all the jobs in an experiment or select **All jobs** to view all the jobs submitted in the workspace.
+* Select **List view** at the top to switch into **List view**.
 
 ## Job display name
 
@@ -61,7 +66,7 @@ Add, remove, reorder, and pin columns to customize your jobs list.  Select **Col
 
 In column options, select columns to add or remove from the table. Drag columns to reorder how they appear in the table and pin any column to the left of the table, so you can view your important column information (i.e. display name, metric value) while scrolling horizontally.  
 
-## Sort jobs 
+## Sort jobs
 
 Sort your jobs list by your metric values (i.e. accuracy, loss, f-1 score) to identify the best performing job that meets your criteria.
 
@@ -69,7 +74,7 @@ To sort by multiple columns, hold the shift key and click column headers that yo
  
 At any point, manage your sorting preferences for your table in column options under **Columns** to add or remove columns and change sorting order. 
 
-## Filter jobs 
+## Filter jobs
 
 Filter your jobs list by selecting **Filters**. Use quick filters for **Status** and **Created** by as well as add specific filters to any column including metrics. 
 
@@ -79,18 +84,17 @@ Upon choosing your column, select what type of filter you want and the value. Ap
 
 You can remove the filter you just applied from the job list if you no longer want it.  To edit your filters, simply navigate back to **Filters** to do so.  
 
-
-## Perform batch actions on jobs / Bulk actions (cancel, delete, etc.) 
+## Perform actions on multiple jobs
 
 Select multiple jobs in your jobs list and perform an action, such as cancel or delete, on them together.  
 
-## Tag jobs 
+## Tag jobs
 
 Tag your experiments with custom labels that will help you group and filter them later. To add tags to multiple jobs, select the jobs and then select the "Add tags" button at the top of the table.
 
-## Custom View 
+## Custom View
 
-To view your jobs in the studio: 
+To view your jobs in the studio:
 
 1. Navigate to the **Jobs** tab.
 
