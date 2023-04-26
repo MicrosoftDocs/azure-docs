@@ -36,7 +36,7 @@ Test the expression by searching for a user or providing values and selecting **
 When you're satisfied with the expression, move it to an attribute mapping. Copy and paste it into the expression box for the attribute mapping you're working on.
 
 ## Known limitations
-* Extension attributes are not available for selection in the expression builder. However, extension attributes can be used in the attribute mapping expression. 
+* Extension attributes aren't available for selection in the expression builder. However, extension attributes can be used in the attribute mapping expression. 
 
 ## Next steps
 
