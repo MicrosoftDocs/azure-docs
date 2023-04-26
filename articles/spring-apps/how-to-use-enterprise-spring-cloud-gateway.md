@@ -56,6 +56,8 @@ Use the following command to create a route config. The `--app-name` value shoul
 ```azurecli
 az spring gateway route-config create \
     --name <route-config-name> \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
     --app-name <app-name> \
     --routes-file <routes-file.json>
 ```
@@ -119,10 +121,13 @@ The following table lists the route definitions. All the properties are optional
 
 Use the following steps to create a sample application using Spring Cloud Gateway.
 
-1. Create a test application in Azure Spring Apps by using the following command:
+1. Use the following command to create a test application named *test-app* in Azure Spring Apps:
 
    ```azurecli
-   az spring app create test-app
+   az spring app create \
+       name test-app \
+       resource-group <resource-group-name> \
+       service <Azure-Spring-Apps-instance-name>
    ```
 
 1. Assign a public endpoint to the gateway to access it.
@@ -133,10 +138,13 @@ Use the following steps to create a sample application using Spring Cloud Gatewa
 
    :::image type="content" source="media/how-to-use-enterprise-spring-cloud-gateway/gateway-overview.png" alt-text="Screenshot of Azure portal Azure Spring Apps overview page with 'Assign endpoint' highlighted." lightbox="media/how-to-use-enterprise-spring-cloud-gateway/gateway-overview.png":::
 
-   You can also use Azure CLI to assign the endpoint, as shown in the following command:
+   You can also use Azure CLI to assign the endpoint. Use the following command to assign the endpoint. Specify `true` to assign the endpoint, otherwise `false`.
 
    ```azurecli
-   az spring gateway update --assign-endpoint
+   az spring gateway update \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
+       --assign-endpoint true
    ```
 
 1. Create a rule to access the health check endpoint of the test app through Spring Cloud Gateway.
@@ -171,6 +179,8 @@ Use the following steps to create a sample application using Spring Cloud Gatewa
    ```azurecli
    az spring gateway route-config create \
        --name test-api-routes \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
        --app-name test-app \
        --routes-file test-api.json
    ```
@@ -188,7 +198,7 @@ Use the following steps to create a sample application using Spring Cloud Gatewa
 1. Use the following commands to query the routing rules:
 
    ```azurecli
-   az configure --defaults group=<resource group name> spring=<service name>
+   az configure --defaults group=<resource-group-name> spring=<Azure-Spring-Apps-instance-name>
 
    az spring gateway route-config show \
        --name test-api-routes \
@@ -249,8 +259,10 @@ Then, apply the route definition using the following Azure CLI command:
 
 ```azurecli
 az spring gateway route-config create \
-    --name my-gateway-routes \
-    --app myapp
+    --name <route-config-name> \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --app <app-name>
     --routes-file <json-file-with-routes>
 ```
 
@@ -280,7 +292,7 @@ az spring spring-cloud-gateway create \
 ```azurecli
 az spring spring-cloud-gateway delete \
     --resource-group <resource-group-name> \
-    --service <Azure-Spring-Apps-service-instance-name>
+    --service <Azure-Spring-Apps-instance-name>
 ```
 
 ---

@@ -142,7 +142,7 @@ To edit SSO properties in the Azure portal, use the following steps:
 1. Specify values for the properties listed for **SSO**.
 1. Select **Save**.
 
-:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sso-configuration.png" alt-text="Screenshot of Azure portal showing the Spring Cloud Gateway configuration page for an Azure Spring Apps instance with the Single Sign On section highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sso-configuration.png":::
+:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sso-configuration.png" alt-text="Screenshot of Azure portal showing the Spring Cloud Gateway configuration page for an Azure Spring Apps instance, with the Single Sign On section highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sso-configuration.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
@@ -371,7 +371,7 @@ You can now test whether the application is TLS enabled with the endpoint of the
 
 ### Rotate certificates
 
-As certificates expire, you need to rotate certificates in Spring Cloud Gateway using the following procedure:
+As certificates expire, you need to rotate certificates in Spring Cloud Gateway by using the following procedure:
 
 - Generate new certificates from a trusted CA.
 - Import the certificates into Azure Spring Apps. For more information, see the [Import a certificate](how-to-use-tls-certificate.md#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md).
