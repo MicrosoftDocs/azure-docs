@@ -65,7 +65,7 @@ The following table lists the gateway IP addresses of the Azure Database for MyS
 |  Germany North East    |  51.5.144.179                                              |                  |                                               |
 |  Germany West Central  |  51.116.152.0                                              |             |                                               |
 |  India Central         |  20.192.96.33                                            |  104.211.96.159                    |                                               |
-|  India South           |  104.211.224.146                                           |                     |                                               |
+|  India South           |  40.78.192.32                                           |  104.211.224.146                   |                                               |
 |  India West            |  104.211.160.80                                            |           |                                               |
 |  Japan East            |  40.79.192.23, 40.79.184.8                                 |  13.78.61.196           |                                               |
 |  Japan West            |  191.238.68.11, 40.74.96.6,   40.74.96.7                   |  104.214.148.156                |                                               |
