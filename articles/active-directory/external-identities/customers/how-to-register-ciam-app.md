@@ -79,7 +79,7 @@ This API needs to expose permissions, which a client needs to acquire to call it
 
 ### If you want to add app roles follow the steps below (optional):
 
-App roles enables the client app to obtain an access token as themselves. This is common when the client app aren't signing-in a user:
+App roles enable the client app to obtain an access token as themselves. This is common when the client app isn't signing-in a user:
 [!INCLUDE [configure app roles](../customers/includes/register-app/add-app-role.md)]
 
 # [Desktop or Mobile app](#tab/desktopmobileapp)
