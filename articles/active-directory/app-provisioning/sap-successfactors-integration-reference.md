@@ -379,7 +379,7 @@ The SuccessFactors connector supports expansion of the position object. To expan
 | positionNameDE | $.employmentNav.results[0].jobInfoNav.results[0].positionNav.externalName_de_DE |
 
 ### Provisioning users in the Onboarding module
-Inbound user provisioning from SAP SuccessFactors to on-premises Active Directory and Azure AD now supports advance provisioning of prehires present in the SAP SuccessFactors Onboarding 2.0 module. When the Azure AD provisioning services encounters a new hire profile with a future start date, it queries SAP SuccessFactors to get new hires with one of the following status codes: `active`, `inactive`, `active_external_suite`. The status code `active_external_suite` corresponds to pre-hires present in the SAP SuccessFactors Onboarding 2.0 module. For a description of these status codes, refer to [SAP support note 2736579](https://launchpad.support.sap.com/#/notes/0002736579).
+Inbound user provisioning from SAP SuccessFactors to on premises Active Directory and Azure AD now supports advance provisioning of prehires present in the SAP SuccessFactors Onboarding 2.0 module. When the Azure AD provisioning service encounters a new hire profile with a future start date, it queries SAP SuccessFactors to get new hires with one of the following status codes: `active`, `inactive`, `active_external_suite`. The status code `active_external_suite` corresponds to pre-hires present in the SAP SuccessFactors Onboarding 2.0 module. For a description of these status codes, refer to [SAP support note 2736579](https://launchpad.support.sap.com/#/notes/0002736579).
 
 The default behavior of the provisioning service is to process pre-hires in the Onboarding module. 
 
