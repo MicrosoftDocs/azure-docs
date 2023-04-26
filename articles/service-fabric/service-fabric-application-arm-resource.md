@@ -250,9 +250,27 @@ The following snippet shows the different kinds of resources that can be managed
 ## Remove Service Fabric Resource Provider Application resource
 The following will trigger the app package to be un-provisioned from the cluster, and this will clean up the disk space used:
 ```powershell
-Get-AzureRmResource -ResourceId /subscriptions/{sid}/resourceGroups/{rg}/providers/Microsoft.ServiceFabric/clusters/{cluster}/applicationTypes/{apptType}/versions/{version} -ApiVersion "2019-03-01" | Remove-AzureRmResource -Force -ApiVersion "2017-07-01-preview"
+$resourceGroup = 'sftestcluster'
+$cluster = $resourceGroup
+$applicationType = 'VotingType'
+$application = 'Voting'
+$applicationVersion = '1.0.0'
+
+$sf = Get-AzResource -ResourceGroupName $resourceGroup -ResourceName $cluster
+$app = Get-AzResource -ResourceId "$($sf.Id)/applications/$application"
+$appType = Get-AzResource -ResourceId "$($sf.Id)/applicationTypes/$applicationType"
+$appTypeVersion = Get-AzResource -ResourceId "$($appType.Id)/versions/$applicationVersion"
+
+# remove application
+Remove-AzResource -ResourceId $app.Id
+
+# remove application type version
+Remove-AzResource -ResourceId $appTypeVersion.Id
+
+# remove application type 
+# Remove-AzResource -ResourceId $appType.Id
 ```
-Simply removing Microsoft.ServiceFabric/clusters/application from your ARM template will not unprovision the Application
+Simply removing Microsoft.ServiceFabric/clusters/application from your ARM template will not unprovision the Application. PowerShell command Remove-AzResource as shown above or performing a REST DELETE [Application Type Versions - Delete](https://learn.microsoft.com/rest/api/servicefabric/application/application-type-versions/delete) directly are two options that can be used.
 
 >[!NOTE]
 > Once the removal is complete you should not see the package version in SFX or ARM anymore. You cannot delete the application type version resource that the application is running with; ARM/SFRP will prevent this. If you try to unprovision the running package, SF runtime will prevent it.
