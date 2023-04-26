@@ -273,6 +273,9 @@ Follow these steps:
 1. For **Source Type** select **Snapshot**.
 1. Select the snapshot you just created.
 1. Select **Change size** and select either **Premium SSD v2** or **Ultra Disk** for the **Storage Type**.
+1. Select the size, IOPS, and throughput you'd like, then select **OK**.
+1. Make any remaining selections in the process, until the **Advanced** tab.
+1. Select the logical sector size of the disk.
 1. Select **Review+Create** and then **Create**.
 ---
 
