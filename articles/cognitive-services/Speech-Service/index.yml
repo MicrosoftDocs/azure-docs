@@ -148,9 +148,6 @@ conceptualContent:
         - itemType: how-to-guide
           text: Speech service containers on Azure Container Instances
           url: ../containers/azure-container-instance-recipe.md
-      footerLink:
-        text: More
-        url: index-hosting.yml 
     - title: Migration
       links:
         - itemType: how-to-guide

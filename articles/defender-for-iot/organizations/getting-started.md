@@ -19,10 +19,6 @@ Before you start, make sure that you have:
 
 - Access to the Azure portal as a [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner). For more information, see [Azure user roles for OT and Enterprise IoT monitoring with Defender for IoT](roles-azure.md).
 
-- A plan for your Defender for IoT deployment, such as any system requirements, [traffic mirroring](best-practices/traffic-mirroring-methods.md), any [SSL/TLS certificates](ot-deploy/create-ssl-certificates.md), and so on. For more information, see [Plan your OT monitoring system](best-practices/plan-corporate-monitoring.md).
-
-    If you want to use on-premises sensors, make sure that you have the [hardware appliances](ot-appliance-sizing.md) for those sensors and any administrative user permissions.
-
 ## Add a trial plan
 
 This procedure describes how to add a trial Defender for IoT plan for OT networks to an Azure subscription.

@@ -1,6 +1,6 @@
 ---
-title: How to create a storage mover resource #Required; page title is displayed in search results. Include the brand.
-description: Learn how to create a top-level Azure Storage Mover resource #Required; article description that is displayed in search results. 
+title: How to create a storage mover resource
+description: Learn how to create a top-level Azure Storage Mover resource
 author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover

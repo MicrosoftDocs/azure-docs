@@ -28,6 +28,9 @@ After you create the appliance, check if the appliance can connect to Azure Migr
 
 To set up the appliance by using an OVA template, you'll complete these steps, which are described in detail in this section:
 
+> [!NOTE]
+> OVA templates are not available for soverign clouds.
+
 1. Provide an appliance name and generate a project key in the portal.
 1. Download an OVA template file, and import it to vCenter Server. Verify that the OVA is secure.
 1. Create the appliance from the OVA file. Verify that the appliance can connect to Azure Migrate.
