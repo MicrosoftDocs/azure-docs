@@ -128,7 +128,7 @@ https://[SuccessFactorsAPIEndpoint]/odata/v2/PerPerson/$count?$format=json&$filt
 
 When Azure AD provisioning service queries SuccessFactors, it retrieves a JSON result set. The JSON result set includes many attributes stored in Employee Central. By default, the provisioning schema is configured to retrieve only a subset of those attributes. 
 
-To retrieve additional attributes, follow the steps listed:
+To retrieve more attributes, follow the steps listed:
     
 1. Browse to **Enterprise Applications** -> **SuccessFactors App** -> **Provisioning** -> **Edit Provisioning** -> **attribute-mapping page**.
 1. Scroll down and click **Show advanced options**.
@@ -153,7 +153,7 @@ JSONPath is a query language for JSON that is similar to XPath for XML. Like XPa
 By using JSONPath transformation, you can customize the behavior of the Azure AD provisioning app to retrieve custom attributes and handle scenarios such as rehire, worker conversion and global assignment. 
 
 This section covers how you can customize the provisioning app for the following HR scenarios: 
-* [Retrieving additional attributes](#retrieving-additional-attributes)
+* [Retrieving more attributes](#retrieving-more-attributes)
 * [Retrieving custom attributes](#retrieving-custom-attributes)
 * [Mapping employment status to account status](#mapping-employment-status-to-account-status)
 * [Handling worker conversion and rehire scenario](#handling-worker-conversion-and-rehire-scenario)
@@ -164,7 +164,7 @@ This section covers how you can customize the provisioning app for the following
 * [Provisioning users in the Onboarding module](#provisioning-users-in-the-onboarding-module)
 * [Enabling OData API Audit logs in SuccessFactors](#enabling-odata-api-audit-logs-in-successfactors)
 
-### Retrieving additional attributes
+### Retrieving more attributes
 
 The default Azure AD SuccessFactors provisioning app schema ships with [90+ pre-defined attributes](sap-successfactors-attribute-reference.md). 
 To add more SuccessFactors attributes to the provisioning schema, use the steps listed: 
