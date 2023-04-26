@@ -55,9 +55,9 @@ Most documentation for B2B refers to an external user as a guest user. It confla
 
 [Cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-overview.md) enables multi-tenant organizations to provide seamless access and collaboration experiences to end users, leveraging existing B2B external collaboration capabilities. The feature doesn't allow cross-tenant synchronization across Microsoft sovereign clouds (such as Microsoft 365 US Government GCC High, DOD or Office 365 in China). See [Common considerations for multi-tenant user management](multi-tenant-common-considerations.md#cross-tenant-synchronization) for help with automated and custom cross-tenant synchronization scenarios.
 
-Watch John Savill talk about the cross-tenant sync capability in Azure AD (embedded below).
+Watch Arvind Harinder talk about the cross-tenant sync capability in Azure AD (embedded below).
 
-> [!VIDEO https://www.youtube.com/embed/z0J5kteqUVQ]
+> [!VIDEO https://www.youtube.com/embed/7B-PQwNfGBc]
 
 The following conceptual and how-to articles provide information about Azure AD B2B collaboration and cross-tenant synchronization.
 
@@ -119,7 +119,7 @@ Organizations initially focus on requirements that they want in place for immedi
 - **Single Sign On:** Enable users to access resources across the organization without the need to enter more credentials.
 ### Patterns for account creation 
 
-Microsoft mechanisms for creating and managing the lifecycle of your external user accounts follow three common patterns. You can use these patterns to help define and implement your requirements. Choose the pattern that best aligns with your scenario and then focus on the pattern details.
+Microsoft mechanisms for creating and managing the lifecycle of your external user accounts follow three common patterns. You can use these patterns to help define and implement your requirements. Choose the pattern that best aligns with your scenario and then focus on the pattern details.  
 
 | Mechanism |  Description | Best when |
 | - | - | - |
