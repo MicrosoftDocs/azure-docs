@@ -207,7 +207,9 @@ The example illustrates adding of access key for the storage account to get acce
 ```sql
 SELECT azure_storage.account_add('pgquickstart', 'SECRET_ACCESS_KEY');
 ```
-> [!TIP] `base 64 encoded account key` can be obtained by navigating to **Storage account** > **Access keys**
+> [!TIP]
+In your storage account, open **Access keys**. Copy the **Storage account name** and copy the **Key** from **key1** section (you have to select **Show** next to the key first).
+
 :::image type="content" source="media/howto-ingestion/azure-blob-storage-account-key.png" alt-text="Screenshot of Security + networking > Access keys section of an Azure Blob Storage page in the Azure portal." border="true":::
 
 #### B.	Removing access key of storage account
@@ -323,5 +325,6 @@ LIMIT 5;
 ### Next Steps
 
 Learn more about analyzing the dataset, along with alternative options.
+
 > [!div class="nextstepaction"]
 > [How to ingest data using pg_azure_storage](include/howto-ingest-azure-blob-storage.md)

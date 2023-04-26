@@ -242,7 +242,7 @@
     - name: Bicep
       href: /azure/templates/microsoft.dbforpostgresql/servergroupsv2?pivots=deployment-language-bicep
     - name: Pg_azure_storage
-      href: pg_azure_storage.md
+      href: reference-pg-azure-storage.md
 - name: Resources
   items:
     - name: Pricing
