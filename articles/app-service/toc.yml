@@ -37,6 +37,8 @@
       href: app-service-web-tutorial-rest-api.md
     - name: Configure common settings
       href: configure-common.md
+    - name: Use settings from App Configuration
+      href: app-service-configuration-references.md
     - name: Configure specific languages
       items:
         - name: Configure ASP.NET
@@ -53,8 +55,6 @@
           href: configure-language-java.md
         - name: Configure Ruby
           href: configure-language-ruby.md
-    - name: Configure Azure Storage
-      href: configure-connect-to-azure-storage.md
     - name: Deploy an app
       items:
         - name: Use ZIP or WAR
@@ -81,6 +81,8 @@
       href: deploy-configure-credentials.md
     - name: Create staging environments
       href: deploy-staging-slots.md
+    - name: Mount Azure Storage
+      href: configure-connect-to-azure-storage.md
     - name: Automate provisioning
       items:
         - name: Use ARM template
@@ -104,18 +106,18 @@
       href: configure-linux-open-ssh-session.md
     - name: Monitor with Azure Monitor
       items:
-        - name: Monitor App Service with Azure Monitor
-          href: monitor-app-service.md
         - name: Azure Monitor tutorial
           href: tutorial-troubleshoot-monitor.md
+        - name: About Azure Monitor logs
+          href: monitor-app-service.md
+        - name: Azure Monitor logs reference
+          href: monitor-app-service-reference.md
     - name: Monitor instance health
       href: monitor-instances-health-check.md
     - name: About App Service diagnostics tool
       href: overview-diagnostics.md
     - name: About Quotas & alerts
       href: web-sites-monitor.md
-    - name: Azure Monitor logs reference
-      href: monitor-app-service-reference.md
 - name: Domains and certificates
   items:
     - name: Domain and cert quickstart
@@ -142,7 +144,9 @@
           href: app-service-web-configure-tls-mutual-auth.md
 - name: Database and service connection
   items:
-    - name: Database connection tutorials
+    - name: Connectivity scenarios overview
+      href: tutorial-connect-overview.md
+    - name: Connect to database (tutorials)
       items:
         - name: ASP.NET Core with SQL DB
           href: tutorial-dotnetcore-sqldb-app.md
@@ -160,25 +164,21 @@
           href: tutorial-java-spring-cosmosdb.md
         - name: Quarkus with Postgres
           href: tutorial-java-quarkus-postgresql-app.md
-    - name: Connectivity scenarios
-      href: tutorial-connect-overview.md
     - name: Connect by using secrets
       items:
         - name: Use secrets in app settings
           href: configure-common.md?tabs=portal
-        - name: Use settings from App Configuration
-          href: app-service-configuration-references.md
         - name: Use secrets from Key Vault
           href: app-service-key-vault-references.md
         - name: End-to-end tutorials
           items:
             - name: Connect to Cognitive Services with secrets in Key Vault
               items: 
-              - name: .NET
+              - name: Use .NET
                 href: tutorial-connect-msi-key-vault.md
-              - name: JavaScript
+              - name: Use JavaScript
                 href: tutorial-connect-msi-key-vault-javascript.md    
-              - name: PHP
+              - name: Use PHP
                 href: tutorial-connect-msi-key-vault-php.md
             - name: Connect to Logic Apps
               href: tutorial-send-email.md
@@ -297,7 +297,7 @@
       items:
         - name: Networking features overview
           href: networking-features.md
-        - name: About Inbound and outbound IPs
+        - name: Find inbound and outbound IPs
           href: overview-inbound-outbound-ips.md
         - name: Access restriction
           items:
