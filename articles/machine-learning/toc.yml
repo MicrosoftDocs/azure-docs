@@ -757,18 +757,23 @@
             # end v1
         - name: Track & monitor training
           items:
-            - name: Monitor training jobs
-              displayName: cancel, fail, status, child run
-              href: how-to-track-monitor-analyze-runs.md
-            - name: Log metrics, parameters and files
-              displayName: troubleshoot, log, files, tracing, metrics
-              href: how-to-log-view-metrics.md
-            - name: Log MLflow models
-              href: how-to-log-mlflow-models.md
-            - name: Query & compare experiments and runs
+            - name: Log metrics and models with MLflow
+              items:
+                - name: Log metrics, parameters and files
+                  displayName: troubleshoot, log, files, tracing, metrics
+                  href: how-to-log-view-metrics.md
+                - name: Log MLflow models
+                  href: how-to-log-mlflow-models.md
+                - name: Migrate from SDK v1 logging to MLflow
+                  href: reference-migrate-sdk-v1-mlflow-tracking.md
+            - name: Query & compare experiments and runs with MLflow
               href: how-to-track-experiments-mlflow.md
-            - name: Migrate from SDK v1 logging to MLflow
-              href: reference-migrate-sdk-v1-mlflow-tracking.md
+            - name: Organize & manage training jobs (preview)
+              href: how-to-track-monitor-organize-jobs.md
+            - name: Visualize training results (preview)
+              href: how-to-visualize-jobs.md
+            - name: Monitor training jobs
+              href: how-to-track-monitor-analyze-runs.md
         - name: Automated machine learning
           displayName: automl, auto ml
           items:
