@@ -87,7 +87,7 @@ A set of rules, defined by the Traffic Controller adminsitrator, will evaluate h
 
 
 ### Modifications to the request
-Traffic Controller inserts two additional headers to all requests before requests are initiated to the backend:
+Traffic Controller inserts two additional headers to all requests before requests are initiated from Traffic Controller to a backend target:
 - x-forwarded-proto
 - x-request-id
 
