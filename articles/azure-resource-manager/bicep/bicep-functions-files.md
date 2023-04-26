@@ -100,7 +100,7 @@ Use this function when you have YAML content or minified YAML content that is st
 
 In VS Code, the properties of the loaded object are available intellisense. For example, you can create a file with values to share across many Bicep files. An example is shown in this article.
 
-This function requires **Bicep version 0.16.3 or later**.
+This function requires **Bicep version >0.16.2**.
 
 The maximum allowed size of the file is **1,048,576 characters**, including line endings.
 
