@@ -33,10 +33,14 @@ Use Microsoft authentication methods to meet required NIST authenticator types.
 | Azure AD authentication methods| NIST authenticator type |
 | - | -|
 | **Recommended methods**|    |
-| FIDO 2 security key, or <br> Smart card (Active Directory Federation Services), or <br> Windows Hello for Business with hardware TPM| Multi-factor cryptographic hardware |
-| **Additional methods**|   |
-| Password and <br> Hybrid Azure AD joined with hardware TPM or, <br> Azure AD joined with hardware TPM)| Memorized secret and <br> single-factor cryptographic hardware |
-| Password and <br> single-factor one-time password OTP hardware, from an OTP manufacturer and <br> Hybrid Azure AD joined with software TPM or <br> Azure AD joined with software TPM or <br> [Compliant managed device](/mem/intune/protect/device-compliance-get-started))| Memorized secret and <br> single-factor OTP hardware and <br> single-factor cryptographic software |
+| FIDO 2 security key<br> Hardware protected certificate (smartcard/security key/TPM) <br> Windows Hello for Business with hardware TPM| Multi-factor cryptographic hardware |
+| **Additional methods**||
+|Password <br>**AND**<br>Managed device (Hybrid Azure AD Joined or [compliant](/mem/intune/protect/device-compliance-get-started.md) device) with hardware protection* |Memorized secret <br>**AND**<br>single-factor cryptographic hardware|
+|Password <br>**AND**<br> OATH hardware tokens (Preview) <br>**AND**<br>Managed device (Hybrid Azure AD Joined or [compliant](/mem/intune/protect/device-compliance-get-started.md) device) with software protection**|Memorized secret<br>**AND**<br>single-factor OTP hardware <br>**AND**<br>single-factor cryptographic software|
+
+*Hardware protection can be achieved by either an embedded processor or execution enviornment such as trusted platform module (TPM) or trusted execution enviornment (TEE).
+
+**Software Protection can be achieved with an embedded processor such as a software TPM
 
 ### Recommendations 
 
