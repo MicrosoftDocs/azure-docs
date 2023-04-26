@@ -922,7 +922,7 @@
           displayName: event grid
           href: how-to-use-event-grid.md
     - name: End-to-end examples for setting up MLOps
-    - items:
+      items:
       - name: Set up MLOps with Azure DevOps
         href: how-to-setup-mlops-azureml.md
       - name: Set up MLOps with Github Actions
