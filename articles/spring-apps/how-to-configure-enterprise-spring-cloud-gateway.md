@@ -60,10 +60,13 @@ After a few minutes, **URL** shows the configured endpoint URL. Save the URL to 
 
 #### [Azure CLI](#tab/Azure-CLI)
 
-Use the following command to assign the endpoint.
+Use the following command to assign the endpoint. Specify `true` to assign the endpoint, otherwise `false`.
 
 ```azurecli
-az spring gateway update --assign-endpoint
+az spring gateway update \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --assign-endpoint true
 ```
 
 ---
@@ -89,7 +92,7 @@ You can use the Azure portal and the Azure CLI to edit metadata properties.
 
 #### [Azure portal](#tab/Azure-portal)
 
-To edit metadata in the Azure portal, do these steps:
+To edit metadata in the Azure portal, use the following steps:
 
 1. Open your Azure Spring Apps instance.
 1. Select **Spring Cloud Gateway** in the navigation pane, and then select **Configuration**.
@@ -104,6 +107,8 @@ Use the following command to configure VMware Spring Cloud Gateway metadata prop
 
 ```azurecli
 az spring gateway update \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
     --api-description "<api-description>" \
     --api-title "<api-title>" \
     --api-version "v0.1" \
@@ -145,6 +150,8 @@ Use the following command to configure SSO properties for VMware Spring Cloud Ga
 
 ```azurecli
 az spring gateway update \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
     --client-id <client-id> \
     --client-secret <client-secret> \
     --issuer-uri <issuer-uri> \
@@ -266,6 +273,8 @@ Use the following command to set up APM using Azure CLI:
 
 ```azurecli
 az spring gateway update \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
     --apm-types <APM-type> \
     --properties <key=value> \
     --secrets <key=value>
@@ -275,6 +284,8 @@ The allowed values for `--apm-types` are `ApplicationInsights`, `AppDynamics`, `
 
 ```azurecli
 az spring gateway update \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
     --apm-types ApplicationInsights \
     --properties APPLICATIONINSIGHTS_CONNECTION_STRING=<THE CONNECTION STRING OF YOUR APPINSIGHTS> APPLICATIONINSIGHTS_SAMPLE_RATE=10
 ```
@@ -295,7 +306,7 @@ To enhance security and protect sensitive information from interception by unaut
 
 Before configuring TLS, you need to have a TLS-enabled application and a TLS certificate. To prepare a TLS certificate, generate a certificate from a trusted certificate authority (CA). The certificate verifies the identity of the server and establishes a secure connection.
 
-After you have a TLS-enabled application running in Azure Spring Apps, upload the certificate to Azure Spring Apps. For more information, see [Import a certificate](how-to-use-tls-certificate.md#import-a-certificate).
+After you have a TLS-enabled application running in Azure Spring Apps, upload the certificate to Azure Spring Apps. For more information, see the [Import a certificate](how-to-use-tls-certificate.md#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md).
 
 With the certificate updated to Azure Spring Apps, you can now configure the TLS certificate for the gateway and enable certificate verification. You can configure the certification in the Azure portal or by using the Azure CLI.
 
@@ -317,6 +328,8 @@ Use the following command to enable or disable certificate verification using th
 
 ```azurecli
 az spring gateway update \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
     --enable-cert-verify <value> \
     --certificate-names <certificate-name-in-Azure-Spring-Apps>
 ```
@@ -349,6 +362,8 @@ You must specify the protocol as HTTPS in the route configuration. The following
    ```azurecli
    az spring gateway route-config create \
        --name test-tls-app \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
        --routes-file test-tls-route.json
    ```
 
@@ -362,7 +377,7 @@ As certificates expire, you need to rotate certificates in Spring Cloud Gateway 
 - Import the certificates into Azure Spring Apps. For more information, see the [Import a certificate](how-to-use-tls-certificate.md#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md).
 - Synchronize the certificates, using the Azure portal or the Azure CLI.
 
-The gateway automatically restarts to ensure that the gateway uses the new certificate for all connections.
+The gateway restarts accordingly sto ensure that the gateway uses the new certificate for all connections.
 
 #### [Azure portal](#tab/Azure-portal)
 
@@ -381,14 +396,12 @@ Use the following steps to synchronize certificates.
 Use the following command to synchronize a certificate for Spring Cloud Gateway.
 
 ```azurecli
-az spring gateway sync-cert
-    --resrouce-group <resource-group-name>
+az spring gateway sync-cert \
+    --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-instance-name>
 ```
 
 ---
-
-The gateway will restart after synchronization to ensure that gateway uses the new certificate for all future connections.
 
 ## Next steps
 
