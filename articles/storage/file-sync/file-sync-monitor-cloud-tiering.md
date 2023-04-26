@@ -14,7 +14,7 @@ There are two ways you can monitor your cloud tiering policy: the server endpoin
 
 ## Monitoring via server endpoint
 
-Sign in to the [Azure portal](https://portal.azure.com/) and search for **Storage Sync Services**. Select the appropriate storage sync service and sync group. Then select the server endpoint you'd like to monitor. Under **Properties**, you'll see the following.
+Sign in to the [Azure portal](https://portal.azure.com/) and search for **Storage Sync Services**. Select the appropriate Storage Sync Service and Sync Group. Then select the server endpoint you'd like to monitor. Under **Properties**, you'll see the following.
 
 :::image type="content" source="media/file-sync-monitor-cloud-tiering/cloud-tiering-settings.png" alt-text="Screenshot showing cloud tiering status and settings summary.":::
 
