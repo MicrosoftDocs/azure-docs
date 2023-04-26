@@ -2,7 +2,7 @@
 title: Troubleshoot extension-based Hybrid Runbook Worker issues in Azure Automation 
 description: This article tells how to troubleshoot and resolve issues that arise with Azure Automation extension-based Hybrid Runbook Workers.
 services: automation
-ms.date: 04/26/2024
+ms.date: 04/26/2023
 ms.topic: troubleshooting 
 ms.custom: devx-track-azurepowershell
 ---
@@ -44,7 +44,8 @@ To help troubleshoot issues with extension-based Hybrid Runbook Workers:
 
 #### Issue
 Job fails to start on a Hybrid Worker and you see the following error:
-*Failed to start, as hybrid worker was not available when scheduled job started, the hybrid worker was last active at mm/dd/yyyy*
+
+*Failed to start, as hybrid worker was not available when scheduled job started, the hybrid worker was last active at mm/dd/yyyy*.
 
 #### Cause
 This error can occur due to the following reasons:
@@ -54,12 +55,14 @@ This error can occur due to the following reasons:
 - The Hybrid Runbook Worker extension has been uninstalled from the machine.
 
 #### Resolution
-Ensure that the machine exists, and Hybrid Runbook Worker extension is installed on it. The Hybrid Worker should be healthy and should give a heartbeat. Troubleshoot any network issues by checking the Microsoft-SMA event logs on the Workers in the Hybrid Runbook Worker Group that tried to run this job. You can also monitor [HybridWorkerPing](../../azure-monitor/essentials/metrics-supported.md#microsoftautomationautomationaccounts) metric that provides the number of pings from a Hybrid Worker and can help to check ping-related issues. 
+- Ensure that the machine exists, and Hybrid Runbook Worker extension is installed on it. The Hybrid Worker should be healthy and should give a heartbeat. Troubleshoot any network issues by checking the Microsoft-SMA event logs on the Workers in the Hybrid Runbook Worker Group that tried to run this job. 
+- You can also monitor [HybridWorkerPing](../../azure-monitor/essentials/metrics-supported.md#microsoftautomationautomationaccounts) metric that provides the number of pings from a Hybrid Worker and can help to check ping-related issues. 
 
 ### Scenario: Job was suspended as it exceeded the job limit for a Hybrid Worker
 
 #### Issue
 Job gets suspended with the following error message:
+
 *Job was suspended as it exceeded the job limit for a Hybrid Worker. Add more Hybrid Workers to the Hybrid Worker group to overcome this issue.*
 
 #### Cause
