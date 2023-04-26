@@ -11,12 +11,23 @@ ms.reviewer: lagayhar
 author: lgayhardt
 ms.date: 08/03/2022
 ms.custom: designer, training
-monikerRange: 'azureml-api-1 || azureml-api-2'
+monikerRange: 'azureml-api-1 |'
 ---
 
 # What is Azure Machine Learning designer? 
 
 Azure Machine Learning designer is a drag-and-drop interface used to train and deploy models in Azure Machine Learning. This article describes the tasks you can do in the designer.
+
+>[!Note]
+> Designer supports two types of components, classic prebuilt components（v1） and custom components(v2). These two types of components are NOT compatible. 
+>
+>Classic prebuilt components provide prebuilt components majorly for data processing and traditional machine learning tasks like regression and classification. This type of component continues to be supported but will not have any new components added. 
+>
+>Custom components allow you to wrap your own code as a component. It supports sharing components across workspaces and seamless authoring across Studio, CLI v2, and SDK v2 interfaces. 
+>
+>For new projects, we highly suggest you use custom component, which is compatible with AzureML V2 and will keep receiving new updates. 
+>
+>This article applies to classic prebuilt components and not compatible with CLI v2 and SDK v2.
 
  - To get started with the designer, see [Tutorial: Train a no-code regression model](tutorial-designer-automobile-price-train-score.md). 
  - To learn about the components available in the designer, see the [Algorithm and component reference](./algorithm-module-reference/module-reference.md).

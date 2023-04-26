@@ -17,6 +17,17 @@ ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4, event-tier1-build-202
 
 Use the designer to deploy a machine learning model to predict the price of cars. This tutorial is part two of a two-part series.
 
+>[!Note]
+> Designer supports two types of components, classic prebuilt components（v1） and custom components(v2). These two types of components are NOT compatible. 
+>
+>Classic prebuilt components provide prebuilt components majorly for data processing and traditional machine learning tasks like regression and classification. This type of component continues to be supported but will not have any new components added. 
+>
+>Custom components allow you to wrap your own code as a component. It supports sharing components across workspaces and seamless authoring across Studio, CLI v2, and SDK v2 interfaces. 
+>
+>For new projects, we highly suggest you use custom component, which is compatible with AzureML V2 and will keep receiving new updates. 
+>
+>This article applies to classic prebuilt components and not compatible with CLI v2 and SDK v2.
+
 In [part one of the tutorial](tutorial-designer-automobile-price-train-score.md) you trained a linear regression model on car prices. In part two, you deploy the model to give others a chance to use it. In this tutorial, you:
 
 > [!div class="checklist"]
