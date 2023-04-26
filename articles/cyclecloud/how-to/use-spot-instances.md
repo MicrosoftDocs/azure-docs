@@ -115,7 +115,7 @@ See [Spot Eviction Policy](/azure/virtual-machines/windows/spot-vms#eviction-pol
 
 **Q.** Can I change the [Spot Eviction Policy](/azure/virtual-machines/windows/spot-vms#eviction-policy) for CycleCloud nodearrays?
 
-**A.** Yes.  You can set the `EvictionPolicy` attribute directly on the nodearray to change the policy to either `Delete` or `Deallocate` (default: `Delete`).  *However*, this is currently only useful for custom autoscalers which handle deallocations appropriately.  The current Azure CycleCloud autoscalers expect Spot instances to be deleted upon eviction.
+**A.** No.  Setting the `EvictionPolicy` attribute will still result in deleted VMs.
 
 ### Scheduler support for Spot eviction in CycleCloud
 
