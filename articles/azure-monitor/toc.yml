@@ -1164,8 +1164,6 @@ items:
        href: visualize/tutorial-logs-dashboards.md
      - name: Dashboard using application data
        href: app/tutorial-app-dashboards.md
-     - name: Upgrading Log Analytics Dashboards
-       href: logs/dashboard-upgrade.md
   - name: Power BI
     href: logs/log-powerbi.md
   - name: Grafana
