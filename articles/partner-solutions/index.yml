@@ -78,5 +78,5 @@ productDirectory:
       imageSrc: ./media/index/palo-alto.svg
       links:
         - url: ./palo-alto/palo-alto-overview.md
-          text: Get a next generation firewall solution integrated with Azure that you can use to  protect your organization.
+          text: Get a next generation firewall solution integrated with Azure that you can use to protect your organization.
 
