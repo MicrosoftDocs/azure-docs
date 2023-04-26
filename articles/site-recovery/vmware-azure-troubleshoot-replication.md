@@ -41,7 +41,7 @@ When you try to select the source machine to enable replication by using Site Re
 * **vCenter not connected**: Check if vCenter is in a connected state. To verify, go to Recovery Services vault > Site Recovery Infrastructure > Configuration Servers > Click on respective configuration server > a blade opens on your right with details of associated servers. Check if vCenter is connected. If it's in a "Not Connected" state, resolve the issue, and then [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server) on the portal. After this, virtual machine is not listed on the portal.
 * **ESXi powered off**: If the ESXi host under which the virtual machine resides is in a powered-off state, then the virtual machine is not listed or is not selectable on the Azure portal. Power on the ESXi host, and [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server) on the portal. After this, virtual machine is listed on the portal.
 * **Pending reboot**: If there is a pending reboot on the virtual machine, then you won't be able to select the machine on the Azure portal. Ensure to complete the pending reboot activities and [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server). After this, virtual machine is listed on the portal.
-* **IP not found or Machine does not have an IP address**: If the virtual machine doesn't have a valid IP address associated with it, then you is not able to select the machine on the Azure portal. Ensure to assign a valid IP address to the virtual machine, and [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server). It could also be caused if the machine does not have a valid IP address associated with one of its NICs. Either assign a valid IP address to all NICs or remove the NIC that's missing the IP. After this, the virtual machine is listed on the portal.
+* **IP not found or Machine does not have an IP address**: If the virtual machine doesn't have a valid IP address associated with it, then you are not able to select the machine on the Azure portal. Ensure to assign a valid IP address to the virtual machine, and [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server). It could also be caused if the machine does not have a valid IP address associated with one of its NICs. Either assign a valid IP address to all NICs or remove the NIC that's missing the IP. After this, the virtual machine is listed on the portal.
 
 ### Troubleshoot protected virtual machines greyed out in the portal
 
@@ -215,7 +215,7 @@ This error occurs when trying to enable replication and the application folders 
 
 
 - *C\ProgramData\Microsoft Azure Site Recovery\private*
-- The installation directory. For example, if the installation directory is F drive, then provide the correct permissions to -
+- The installation directory. For example, if the installation directory is F drive, then provide the correct permissions to:
     - *F:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems*
 - The *\pushinstallsvc* folder in the installation directory. For example, if the installation directory is F drive, provide the correct permissions to -
     - *F:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc*
