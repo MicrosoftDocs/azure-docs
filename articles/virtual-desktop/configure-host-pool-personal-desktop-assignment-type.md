@@ -76,7 +76,7 @@ To assign a user to the personal desktop host pool:
 
 1. In the host pool you want to edit, select **Session hosts**.
 
-<!---How do I automatically assign things? Is there a process for it like the PowerShell side?--->
+<!---How do I automatically assign things? Is there a process for it like the PowerShell side? Should I remove that second PowerShell cmdlet if it's not relevant to the process this section is meant to describe?--->
 
 #### [PowerShell](#tab/powershell)
 
