@@ -52,6 +52,8 @@ In this step, you create the web and the web API application registrations, and 
 
 ### Configure API scopes
 
+This API needs to expose permissions, which a client needs to acquire for calling the API:
+
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/register-app/add-api-scopes.md)]
 
 ### Configure app roles
