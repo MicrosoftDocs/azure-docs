@@ -35,7 +35,7 @@ In this article:
 
 ## Creating the authentication configuration file
 
-The application uses the [Implicit Grant Flow](../develop\v2-oauth2-implicit-grant-flow) to authenticate users. The Implicit Grant Flow is a browser-based flow that does not require a back-end server. The flow redirects the user to the Azure AD CIAM sign-in page, where the user signs in and consents to the permissions that are being requested by the application. The purpose of *authConfig.js* is to configure the authentication flow.
+The application uses the [Implicit Grant Flow](../develop\v2-oauth2-implicit-grant-flow.md) to authenticate users. The Implicit Grant Flow is a browser-based flow that does not require a back-end server. The flow redirects the user to the Azure AD CIAM sign-in page, where the user signs in and consents to the permissions that are being requested by the application. The purpose of *authConfig.js* is to configure the authentication flow.
 
 1. In your IDE, create a new folder and name it **public**
 1. In the *public* folder, create a new file and name it *authConfig.js*.
