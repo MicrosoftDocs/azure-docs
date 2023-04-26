@@ -8,7 +8,7 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: openai
   ms.topic: faq
-  ms.date: 04/04/2023
+  ms.date: 04/26/2023
   ms.author: mbullwin
   author: mrbullwinkle
 title: Azure OpenAI Service frequently asked questions
@@ -40,7 +40,7 @@ sections:
       - question: |
           Do the GPT-4 preview models currently support image input?
         answer: | 
-          No, GPT-4 is designed by OpenAI to be multimodal, but currently only text input and output is supported.
+          No, GPT-4 is designed by OpenAI to be multimodal, but currently only text input and output are supported.
       - question: |
           How do I apply for new use cases?
         answer: |
@@ -49,6 +49,10 @@ sections:
           I am trying to use embeddings and received the error "InvalidRequestError: Too many inputs. The max number of inputs is 1." How do I fix this?
         answer: | 
           This error typically occurs when you try to send a batch of text to embed in a single API request as an array. Currently Azure OpenAI does not support batching with embedding requests. Embeddings API calls should consist of a single string input per request. The string can be up to 8191 tokens in length when using the text-embedding-ada-002 (Version 2) model.
+      - question: |
+          Where can I read about better ways to use Azure OpenAI to get the responses I want from the service?
+        answer: | 
+          Check out our [introduction to prompt engineering](./concepts/prompt-engineering.md) While these models are extremely powerful, their behavior is also very sensitive to the prompts they receive from the user. This makes prompt construction an important skill to develop. After you've mastered the introduction, check out our article on more [advanced prompt engineering techniques](./concepts/advanced-prompt-engineering.md).
   - name: Getting access to Azure OpenAI Service
     questions:
       - question: |

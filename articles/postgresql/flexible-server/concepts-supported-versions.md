@@ -42,6 +42,11 @@ The PostgreSQL project regularly issues minor releases to fix reported bugs. Azu
 
 Automation for major version upgrade isn't yet supported. For example, there's currently no automatic upgrade from PostgreSQL 11 to PostgreSQL 12.<!-- To upgrade to the next major version, create a [database dump and restore](howto-migrate-using-dump-and-restore.md) to a server that was created with the new engine version.-->
 
+## Supportability and retirement policy of the underlying operating system
+
+Azure Database for PostgreSQL - Flexible Server is a fully managed open-source database. The underlying operating system is an integral part of the service. Microsoft continually works to ensure ongoing security updates and maintenance for security compliance and vulnerability mitigation, regardless of whether it is provided by a third-party or an internal vendor. Automatic upgrades during scheduled maintenance keep your managed database secure, stable, and up-to-date.
+
+
 ## Managing PostgreSQL engine defects
 
 Microsoft has a team of committers and contributors who work full time on the open source Postgres project and are long term members of the community. Our contributions include but aren't  limited to features, performance enhancements, bug fixes, security patches among other things. Our open source team also incorporates feedback from our Azure fleet (and customers) when prioritizing work, however please keep in mind that Postgres project has its own independent contribution guidelines, review process and release schedule.

@@ -3,7 +3,7 @@ title: Use Azurite emulator for local Azure Storage development
 description: The Azurite open-source emulator provides a free local environment for testing your Azure storage applications.
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 08/04/2022
+ms.date: 04/26/2023
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
@@ -23,7 +23,7 @@ There are several different ways to install and run Azurite on your local system
 
 ### [Visual Studio](#tab/visual-studio)
 
-Azurite is automatically available with [Visual Studio 2022](https://visualstudio.microsoft.com/vs/). If you're running an earlier version of Visual Studio, you can install Azurite by using either Node Package Manager, DockerHub, or by cloning the Azurite GitHub repository. 
+Azurite is automatically available with [Visual Studio 2022](https://visualstudio.microsoft.com/vs/). The Azurite executable is updated as part of Visual Studio new version releases. If you're running an earlier version of Visual Studio, you can install Azurite by using either Node Package Manager, DockerHub, or by cloning the Azurite GitHub repository. 
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
