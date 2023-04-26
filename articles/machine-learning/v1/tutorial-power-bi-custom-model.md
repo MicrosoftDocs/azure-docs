@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: tutorial
 ms.author: samkemp
 author: samuel100
-ms.reviewer: sdgilley
+ms.reviewer: sgilley
 ms.date: 12/22/2021
 ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
 ---

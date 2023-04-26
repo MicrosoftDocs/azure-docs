@@ -178,8 +178,6 @@
       href: howto-leverage-json-content-type.md
     - name: Use Event Grid for data change notifications
       href: howto-app-configuration-event.md
-    - name: Back up configuration stores automatically
-      href: howto-backup-config-store.md
     - name: Use managed identities to access App Configuration
       href: howto-integrate-azure-managed-service-identity.md
     - name: Update to the New Spring Boot Library
