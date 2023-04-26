@@ -821,7 +821,7 @@
           items:
           - name: Authorization on batch endpoints
             href: how-to-authenticate-batch-endpoint.md
-         -  name: Network isolation in batch endpoints
+          - name: Network isolation in batch endpoints
             href: how-to-secure-batch-endpoint.md
         - name: Cost management
           items:
