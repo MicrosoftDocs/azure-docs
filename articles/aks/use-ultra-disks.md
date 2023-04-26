@@ -183,10 +183,6 @@ Once the persistent volume claim has been created and the disk successfully prov
     [...]
     ```
 
-## Using Azure tags
-
-For more details on using Azure tags, see [Use Azure tags in AKS][use-tags].
-
 ## Next steps
 
 - For more about ultra disks, see [Using Azure ultra disks](../virtual-machines/disks-enable-ultra-ssd.md).

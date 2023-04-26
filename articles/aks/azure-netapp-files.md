@@ -546,10 +546,6 @@ After the PVC is created, a pod can be spun up to access the Azure NetApp Files 
       Normal  Started                 10s   kubelet                  Started container nginx
     ```
 
-## Using Azure tags
-
-For more details on using Azure tags, see [Use Azure tags in Azure Kubernetes Service (AKS)][use-tags].
-
 ## Next steps
 
 Astra Trident supports many features with Azure NetApp Files. For more information, see:

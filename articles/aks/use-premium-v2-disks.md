@@ -184,10 +184,6 @@ The value for the `--name` parameter is the name of the volume created using the
 az disk update --subscription subscriptionName --resource-group myResourceGroup --name diskName --disk-iops-read-write=5000 --disk-mbps-read-write=200  
 ```
 
-## Using Azure tags
-
-For more information on using Azure tags, see [Use Azure tags in Azure Kubernetes Service (AKS)][use-tags].
-
 ## Next steps
 
 - For more about Premium SSD v2 disks, see [Using Azure Premium SSD v2 disks](../virtual-machines/disks-deploy-premium-v2.md).
