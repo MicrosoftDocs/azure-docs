@@ -56,7 +56,7 @@ To assign an endpoint in the Azure portal, use the following steps:
 
 After a few minutes, **URL** shows the configured endpoint URL. Save the URL to use later.
 
-:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-overview.png" alt-text="Screenshot of Azure portal showing the Spring Cloud Gateway overview page for an Azure Spring Apps instance with the Assign endpoint buttons highlighted and the configured endpoint URL displayed." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-overview.png":::
+:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-overview.png" alt-text="Screenshot of Azure portal showing the Spring Cloud Gateway overview page for an Azure Spring Apps instance. The Assign endpoint buttons are highlighted and the configured endpoint URL is displayed." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-overview.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
@@ -96,7 +96,7 @@ To edit metadata in the Azure portal, do these steps:
 1. Specify values for the properties listed for **API**.
 1. Select **Save**.
 
-:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-configuration.png" alt-text="Screenshot of Azure portal showing the Spring Cloud Gateway configuration page for an Azure Spring Apps instance with the API section highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-configuration.png":::
+:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-configuration.png" alt-text="Screenshot of Azure portal showing the Spring Cloud Gateway configuration page for an Azure Spring Apps instance, with the API section highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-configuration.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
@@ -182,7 +182,7 @@ The following steps describe an example of how to implement the function in your
 
 ### Log out just the SSO session
 
-If you send the `GET` request to the `/scg-logout` endpoint using a `XMLHttpRequest` (XHR), then the `302` redirect could be swallowed and not handled in the response handler. In this case, the user would only be logged out of the SSO session on the gateway service instance and would still have a valid IdP session. The behavior typically seen in this case is that if the user attempts to log in again, they're automatically sent back to the gateway as authenticated from IdP.
+If you send the `GET` request to the `/scg-logout` endpoint using a `XMLHttpRequest` (XHR), then the `302` redirect could be swallowed and not handled in the response handler. In this case, the user would only be logged out of the SSO session on the gateway service instance and would still have a valid IdP session. The behavior typically seen is that if the user attempts to log in again, they're automatically sent back to the gateway as authenticated from IdP.
 
 You need to have a route configuration to route the logout request to your application, as shown in the following example. This code makes a gateway-only logout SSO session.
 
@@ -356,26 +356,34 @@ You can now test whether the application is TLS enabled with the endpoint of the
 
 ### Rotate certificates
 
-As certificates expire, new ones need to be generated and synchronized (rotation). You can use the Azure portal or Azure CLI to synchronize certificates.
+As certificates expire, you need to rotate certificates in Spring Cloud Gateway using the following procedure:
+
+- Generate new certificates from a trusted CA.
+- Import the certificates into Azure Spring Apps. For more information, see the [Import a certificate](how-to-use-tls-certificate.md#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md).
+- Synchronize the certificates, using the Azure portal or the Azure CLI.
+
+The gateway automatically restarts to ensure that the gateway uses the new certificate for all connections.
 
 #### [Azure portal](#tab/Azure-portal)
 
-Use the following steps to rotate and synchronize certificates.
+Use the following steps to synchronize certificates.
 
 1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** in the navigation pane.
 1. On the **Spring Cloud Gateway** page, select **Certificate management**.
-1. Select the new certificate in **Certificates**.
+1. Select the certificate you imported in **Certificates**.
 1. Select **sync certificate**.
 1. Select **Save**.
 
-   :::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sync-certificate.png" alt-text="Screenshot of the Azure portal showing the Spring Cloud Gateway page for an Azure Spring Apps instance with Certificate Management selected and the prompt to sync the certificate highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sync-certificate.png":::
+   :::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sync-certificate.png" alt-text="Screenshot of the Azure portal showing the Spring Cloud Gateway page for an Azure Spring Apps instance, with Certificate Management selected and the prompt to sync the certificate highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sync-certificate.png":::
 
 #### [Azure CLI](#tab/Azure-CLI) 
 
-Use the following command to synchronize a certificate.
+Use the following command to synchronize a certificate for Spring Cloud Gateway.
 
 ```azurecli
 az spring gateway sync-cert
+    --resrouce-group <resource-group-name>
+    --service <Azure-Spring-Apps-instance-name>
 ```
 
 ---
