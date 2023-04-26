@@ -40,15 +40,17 @@ If you haven't already created your own Microsoft Entra for Customers Tenant, [c
 ## Register the application and record identifiers
 [!INCLUDE [register-client-app-common](./includes/register-app/register-client-app-common.md)]
 
+## Add a platform redirect URL
+[!INCLUDE [add-platform-redirect-url-react](./includes/register-app/add-platform-redirect-url-react.md)]
+
+## Grant sign-in permissions
+[!INCLUDE [grant-api-permission-sign-in](./includes/register-app/grant-api-permission-sign-in.md)]
+
 ## Create a sign-in and sign-up user flow
 [!INCLUDE [register-client-app-common](./includes/configure-user-flow/create-sign-in-sign-out-user-flow.md)]
 
 ## Associate the application with your user flow
 [!INCLUDE [add-app-user-flow](./includes/configure-user-flow/add-app-user-flow.md)]
-
-## Creating a client secret
-[!INCLUDE [add-app-client-secret](./includes/register-app/add-app-client-secret.md)]
-
 
 ## Next steps
 

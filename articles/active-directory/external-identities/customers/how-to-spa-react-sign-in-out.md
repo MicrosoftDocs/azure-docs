@@ -111,38 +111,6 @@ reactspalocal/
 
 1. Save the file.
 
-### Display profile information
-
-1. Open the *ProfileData.jsx* and add the following code, which creates a component that displays the user's profile information:
-
-   ```javascript
-   import React from "react";
-   /**
-    * Renders information about the user obtained from MS Graph 
-    * @param props
-    */
-   export const ProfileData = (props) => {
-     return (
-       <div id="profile-div">
-         <p>
-           <strong>First Name: </strong> {props.graphData.givenName}
-         </p>
-         <p>
-           <strong>Last Name: </strong> {props.graphData.surname}
-         </p>
-         <p>
-           <strong>Email: </strong> {props.graphData.userPrincipalName}
-         </p>
-         <p>
-           <strong>Id: </strong> {props.graphData.id}
-         </p>
-       </div>
-     );
-   };
-   ```
-
-1. Save the file.
-
 ### Adding the sign in experience
 
 1. Open *SignInButton.jsx* and add the following code, which creates a button that signs in the user using either a pop-up or redirect.
