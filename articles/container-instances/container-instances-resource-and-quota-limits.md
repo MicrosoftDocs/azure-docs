@@ -23,7 +23,7 @@ Values presented are the maximum resources available per deployment of a [contai
 
 All Azure services include certain default limits and quotas for resources and features. This section details the default quotas and limits for Azure Container Instances.  
 
-Use the [List Usage](/rest/api/container-instances/location/listusage) API to review current quota usage in a region for a subscription. 
+Use the [List Usage](/rest/api/container-instances/2022-09-01/location/list-usage) API to review current quota usage in a region for a subscription. 
 
 Certain default limits and quotas can be increased. To request an increase of one or more resources that support such an increase, please submit an [Azure support request][azure-support] (select "Quota" for **Issue type**). 
 
