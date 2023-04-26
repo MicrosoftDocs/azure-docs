@@ -22,8 +22,45 @@ This guide assumes you have successfully followed the steps mentioned in the [qu
 
 * You have <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Computer Vision resource"  target="_blank">created a Computer Vision resource </a> and obtained a key and endpoint URL. 
 * If you are using the client SDK, you have the appropriate SDK package installed and you have a running quickstart application. You will modify this quickstart application based on code examples below.
-* If you are using 4.0 REST API calls directly, you have successfully made a `curl.exe` call to the service. You will modify the `curl.exe` call based on the information below.
+* If you are using 4.0 REST API calls directly, you have successfully made a `curl.exe` call to the service (or used an alternative tool). You will modify the `curl.exe` call based on the examples belows.
 
+## Authenticate against the service
+
+To authenticate against the Image Analysis service, you will need a Computer Vision key and endpoint URL. Alternatively, you can use a short-duration token instead of a key.
+
+> [!TIP]
+> Don't include the key directly in your code, and never post it publicly. See the Cognitive Services [security](/azure/cognitive-services/security-features) article for more authentication options like [Azure Key Vault](/azure/cognitive-services/use-key-vault). 
+
+
+The SDK examples below all assume that you defined the environment variables `VISION_KEY` and `VISION_ENDPOINT` with your key and endpoint.
+
+#### [C#](#tab/csharp)
+
+At the start of your code, use one of the [VisionServiceOptions](/api/azure.ai.vision.core.options.visionserviceoptions) constructors. For example:
+
+[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/1/Program.cs?name=vision_service_options)]
+
+#### [Python](#tab/python)
+
+At the start of your code, use one of the [VisionServiceOptions](/python/api/azure-ai-vision/azure.ai.vision.visionserviceoptions) constructors. For example:
+
+[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/1/Program.cs?name=vision_service_options)]
+
+#### [C++](#tab/cpp)
+
+At the start of your code, use one of the static constructor method [VisionServiceOptions::FromEndpoint](/cpp/cognitive-services/vision/service-visionserviceoptions) to create a *VisionServiceOptions* object. For example:
+
+[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/1/1.cpp?name=vision_service_options)]
+
+Where we used this helper function to read the value of an environment variable:
+
+[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/1/1.cpp?name=get-env-var)]
+
+#### [REST](#tab/rest)
+
+The HTTP request header **Ocp-Apim-Subscription-Key** should be set to your vision key.
+
+---
 
 ## Submit data to the service
 
@@ -58,9 +95,9 @@ Create a new [VisionSource](/cpp/cognitive-services/vision/input-visionsource) o
 
 #### [REST](#tab/rest)
 
-When analyzing a remote image, you specify the image's URL by formatting the request body like this: `{"url":"https://learn.microsoft.com/azure/cognitive-services/computer-vision/images/windows-kitchen.jpg"}`.
+When analyzing a remote image, you specify the image's URL by formatting the request body like this: `{"url":"https://learn.microsoft.com/azure/cognitive-services/computer-vision/images/windows-kitchen.jpg"}`. The **Content-Type** should be `application/json`.
 
-To analyze a local image, you'd put the binary image data in the HTTP request body.
+To analyze a local image, you'd put the binary image data in the HTTP request body. The **Content-Type** should be `application/octet-stream` or `multipart/form-data`.
 
 ---
 
@@ -94,12 +131,22 @@ You can specify which features you want to use by setting the URL query paramete
 
 |URL parameter | Value | Description|
 |---|---|--|
+<<<<<<< HEAD
 |`features`|`Read` | reads the visible text in the image and outputs it as structured JSON data.|
 |`features`|`Caption` | describes the image content with a complete sentence in supported languages.|
 |`features`|`DenseCaption` | generates detailed captions for up to 10 prominent image regions. |
 |`features`|`SmartCrops` | finds the rectangle coordinates that would crop the image to a desired aspect ratio while preserving the area of interest.|
 |`features`|`Objects` | detects various objects within an image, including the approximate location. The Objects argument is only available in English.|
 |`features`|`Tags` | tags the image with a detailed list of words related to the image content.|
+=======
+|`features`|`read` | Reads the visible text in the image and outputs it as structured JSON data.|
+|`features`|`caption` | Describes the image content with a complete sentence in supported languages.|
+|`features`|`denseCaption` | Generates detailed captions for individual regions in the image. |
+|`features`|`smartCrops` | Finds the rectangle coordinates that would crop the image to a desired aspect ratio while preserving the area of interest.|
+|`features`|`objects` | Detects various objects within an image, including the approximate location. The Objects argument is only available in English.|
+|`features`|`tags` | Tags the image with a detailed list of words related to the image content.|
+|`features`|`people` | Detects people appearing in images, including the approximate locations. |
+>>>>>>> 3f19b1f50ad3 (More)
 
 A populated URL might look like this:
 
@@ -143,13 +190,13 @@ The following URL query parameter specifies the language. The default value is `
 
 A populated URL might look like this:
 
-`https://{endpoint}/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=tags,read,caption,denseCaption,smartCrops,objects,people&language=en`
+`https://{endpoint}/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=caption&language=en`
 
 ---
 
 ### Select Gender Neutral Captions
 
-If you're extraction captions, you can ask for gender neutral captions. This is an optional, with the default being gendered captions. For example, in English, when you select gender neutral captions, terms like **woman** or **man** will be replaced with **person**, and **boy** or **girl** will be replaced with **child**. 
+If you're extraction captions or dense captions, you can ask for gender neutral captions. This is an optional, with the default being gendered captions. For example, in English, when you select gender neutral captions, terms like **woman** or **man** will be replaced with **person**, and **boy** or **girl** will be replaced with **child**. 
 
 #### [C#](#tab/csharp)
 
@@ -168,6 +215,12 @@ Call the [SetGenderNeutralCaption](/cpp/cognitive-services/vision/imageanalysis-
 [!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/1/1.cpp?name=gender_neutral_caption)]
 
 #### [REST](#tab/rest)
+
+Add the optional query string `gender-neutral-caption` with values `true` or `false` (the default).
+
+A populated URL might look like this:
+
+`https://{endpoint}/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=caption&gender-neutral-caption=true`
 
 ---
 
@@ -194,6 +247,12 @@ Call the [SetCroppingAspectRatios](/cpp/cognitive-services/vision/imageanalysis-
 [!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/1/1.cpp?name=cropping_aspect_rations)]
 
 #### [REST](#tab/rest)
+
+Add the optional query string `smartcrops-aspect-ratios`, with one or more aspect ratios separated by a comma.
+
+A populated URL might look like this:
+
+`https://{endpoint}/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&features=smartCrops&smartcrops-aspect-ratios=0.8,1.2`
 
 ---
 
@@ -335,6 +394,7 @@ To use a custom model, do not use the features query parameter. Set the model-na
 `https://{endpoint}/computervision/imageanalysis:analyze?api-version=2023-02-01-preview&model-name=MyCustomModelName`
 
 ---
+
 ## Get results from the service using custom model
 
 This section shows you how to make the API call and parse the results.
@@ -398,7 +458,7 @@ In general, if you run into an issue, please first have a look at the [Image Ana
 
 The sample code above for getting analysis results shows how to handle errors and get the [ImageAnalysisErrorDetails](/cpp/cognitive-services/vision/imageanalysis-imageanalysiserrordetails) object that contains the error information. This includes:
 
-* Error reason. See enum [ImageAnalysisErrorReason](TODO).
+* Error reason. See enum [ImageAnalysisErrorReason](/cpp/cognitive-services/vision/azure-ai-vision-imageanalysis-namespace#enum-imageanalysiserrorreason).
 * Error code and error message. Click on the REST tab to see a list of some common error codes and messages.
 
 In addition to those errors, the SDK has a few additional error messages, including:
