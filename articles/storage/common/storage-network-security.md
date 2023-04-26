@@ -138,7 +138,7 @@ Each storage account supports up to 200 virtual network rules. You can combine t
 
 ### Required permissions
 
-To apply a virtual network rule to a storage account, the user must have the appropriate permissions for the subnets that are being added. A [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) or a user who has permission to the *Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action* [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftnetwork) can apply a rule by using a custom Azure role.
+To apply a virtual network rule to a storage account, the user must have the appropriate permissions for the subnets that are being added. A [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) or a user who has permission to the `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftnetwork) can apply a rule by using a custom Azure role.
 
 The storage account and the virtual networks that get access can be in different subscriptions, including subscriptions that are a part of a different Azure AD tenant.
 
@@ -152,7 +152,7 @@ Configuring service endpoints between virtual networks and service instances in 
 
 When you're planning for disaster recovery during a regional outage, you should create the virtual networks in the paired region in advance. Enable service endpoints for Azure Storage, with network rules granting access from these alternative virtual networks. Then apply these rules to your geo-redundant storage accounts.
 
-Local and cross-region service endpoints can't coexist on the same subnet. To replace existing service endpoints with cross-region ones, delete the existing *Microsoft.Storage* endpoints and re-create them as cross-region endpoints (*Microsoft.Storage.Global*).
+Local and cross-region service endpoints can't coexist on the same subnet. To replace existing service endpoints with cross-region ones, delete the existing `Microsoft.Storage` endpoints and re-create them as cross-region endpoints (`Microsoft.Storage.Global`).
 
 ### Managing virtual network rules
 
@@ -203,7 +203,7 @@ If you want to enable access to your storage account from a virtual network or s
     Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -VirtualNetworkResourceId $subnet.Id
     ```
 
-    To add a network rule for a subnet in a virtual network that belongs to another Azure AD tenant, use a fully qualified `VirtualNetworkResourceId` parameter in the form */subscriptions/subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/subnet-name*.
+    To add a network rule for a subnet in a virtual network that belongs to another Azure AD tenant, use a fully qualified `VirtualNetworkResourceId` parameter in the form `/subscriptions/subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/subnet-name`.
 
 5. Remove a network rule for a virtual network and subnet:
 
@@ -235,7 +235,7 @@ If you want to enable access to your storage account from a virtual network or s
     az storage account network-rule add --resource-group "myresourcegroup" --account-name "mystorageaccount" --subnet $subnetid
     ```
 
-    To add a rule for a subnet in a virtual network that belongs to another Azure AD tenant, use a fully qualified subnet ID in the form */subscriptions/\<subscription-ID\>/resourceGroups/\<resourceGroup-Name\>/providers/Microsoft.Network/virtualNetworks/\<vNet-name\>/subnets/\<subnet-name\>*. You can use the `subscription` parameter to retrieve the subnet ID for a virtual network that belongs to another Azure AD tenant.
+    To add a rule for a subnet in a virtual network that belongs to another Azure AD tenant, use a fully qualified subnet ID in the form `/subscriptions/<subscription-ID>/resourceGroups/<resourceGroup-Name>/providers/Microsoft.Network/virtualNetworks/<vNet-name>/subnets/<subnet-name>`. You can use the `subscription` parameter to retrieve the subnet ID for a virtual network that belongs to another Azure AD tenant.
 
 5. Remove a network rule for a virtual network and subnet:
 
@@ -254,11 +254,11 @@ The following restrictions apply to IP address ranges:
 
 - IP network rules are allowed only for *public internet* IP addresses.
 
-  IP address ranges reserved for private networks (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) aren't allowed in IP rules. Private networks include addresses that start with *10*, *172.16* - *172.31*, and *192.168*.
+  IP address ranges reserved for private networks (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) aren't allowed in IP rules. Private networks include addresses that start with 10, 172.16 to 172.31, and 192.168.
 
-- You must provide allowed internet address ranges by using [CIDR notation](https://tools.ietf.org/html/rfc4632) in the form *16.17.18.0/24* or as individual IP addresses like *16.17.18.19*.
+- You must provide allowed internet address ranges by using [CIDR notation](https://tools.ietf.org/html/rfc4632) in the form 16.17.18.0/24 or as individual IP addresses like 16.17.18.19.
 
-- Small address ranges that use */31* or */32* prefix sizes are not supported. Configure these ranges by using individual IP address rules.
+- Small address ranges that use /31 or /32 prefix sizes are not supported. Configure these ranges by using individual IP address rules.
 
 - Only IPv4 addresses are supported for configuration of storage firewall rules.
 
@@ -519,17 +519,17 @@ Resources of some services that are registered in your subscription can access y
 
 | Service                  | Resource provider name     | Allowed operations                 |
 |:------------------------ |:-------------------------- |:---------------------------------- |
-| Azure Backup             | *Microsoft.RecoveryServices* | Run backups and restores of unmanaged disks in infrastructure as a service (IaaS) virtual machines (not required for managed disks). [Learn more](../../backup/backup-overview.md). |
-| Azure Data Box           | *Microsoft.DataBox*          | Import data to Azure. [Learn more](../../databox/data-box-overview.md). |
-| Azure DevTest Labs       | *Microsoft.DevTestLab*       | Create custom images and install artifacts. [Learn more](../../devtest-labs/devtest-lab-overview.md). |
-| Azure Event Grid         | *Microsoft.EventGrid*        | Enable [Azure Blob Storage event publishing](../../event-grid/overview.md#event-sources) and allow [publishing to storage queues](../../event-grid/event-handlers.md). |
-| Azure Event Hubs         | *Microsoft.EventHub*         | Archive data by using Event Hubs Capture. [Learn More](../../event-hubs/event-hubs-capture-overview.md). |
-| Azure File Sync          | *Microsoft.StorageSync*      | Transform your on-premises file server to a cache for Azure file shares. This capability allows multiple-site sync, fast disaster recovery, and cloud-side backup. [Learn more](../file-sync/file-sync-planning.md). |
-| Azure HDInsight          | *Microsoft.HDInsight*        | Provision the initial contents of the default file system for a new HDInsight cluster. [Learn more](../../hdinsight/hdinsight-hadoop-use-blob-storage.md). |
-| Azure Import/Export      | *Microsoft.ImportExport*     | Import data to Azure Storage or export data from Azure Storage. [Learn more](../../import-export/storage-import-export-service.md).  |
-| Azure Monitor            | *Microsoft.Insights*         | Write monitoring data to a secured storage account, including resource logs, Azure AD sign-in and audit logs, and Microsoft Intune logs. [Learn more](../../azure-monitor/roles-permissions-security.md). |
-| Azure networking services         | *Microsoft.Network*          | Store and analyze network traffic logs, including through the Azure Network Watcher and Azure Traffic Manager services. [Learn more](../../network-watcher/network-watcher-nsg-flow-logging-overview.md). |
-| Azure Site Recovery      | *Microsoft.SiteRecovery*     | Enable replication for disaster recovery of Azure IaaS virtual machines when you're using firewall-enabled cache, source, or target storage accounts.  [Learn more](../../site-recovery/azure-to-azure-tutorial-enable-replication.md). |
+| Azure Backup             | `Microsoft.RecoveryServices` | Run backups and restores of unmanaged disks in infrastructure as a service (IaaS) virtual machines (not required for managed disks). [Learn more](../../backup/backup-overview.md). |
+| Azure Data Box           | `Microsoft.DataBox`          | Import data to Azure. [Learn more](../../databox/data-box-overview.md). |
+| Azure DevTest Labs       | `Microsoft.DevTestLab`       | Create custom images and install artifacts. [Learn more](../../devtest-labs/devtest-lab-overview.md). |
+| Azure Event Grid         | `Microsoft.EventGrid`        | Enable [Azure Blob Storage event publishing](../../event-grid/overview.md#event-sources) and allow [publishing to storage queues](../../event-grid/event-handlers.md). |
+| Azure Event Hubs         | `Microsoft.EventHub`         | Archive data by using Event Hubs Capture. [Learn More](../../event-hubs/event-hubs-capture-overview.md). |
+| Azure File Sync          | `Microsoft.StorageSync`      | Transform your on-premises file server to a cache for Azure file shares. This capability allows multiple-site sync, fast disaster recovery, and cloud-side backup. [Learn more](../file-sync/file-sync-planning.md). |
+| Azure HDInsight          | `Microsoft.HDInsight`        | Provision the initial contents of the default file system for a new HDInsight cluster. [Learn more](../../hdinsight/hdinsight-hadoop-use-blob-storage.md). |
+| Azure Import/Export      | `Microsoft.ImportExport`     | Import data to Azure Storage or export data from Azure Storage. [Learn more](../../import-export/storage-import-export-service.md).  |
+| Azure Monitor            | `Microsoft.Insights`         | Write monitoring data to a secured storage account, including resource logs, Azure AD sign-in and audit logs, and Microsoft Intune logs. [Learn more](../../azure-monitor/roles-permissions-security.md). |
+| Azure networking services         | `Microsoft.Network`          | Store and analyze network traffic logs, including through the Azure Network Watcher and Azure Traffic Manager services. [Learn more](../../network-watcher/network-watcher-nsg-flow-logging-overview.md). |
+| Azure Site Recovery      | `Microsoft.SiteRecovery`     | Enable replication for disaster recovery of Azure IaaS virtual machines when you're using firewall-enabled cache, source, or target storage accounts.  [Learn more](../../site-recovery/azure-to-azure-tutorial-enable-replication.md). |
 
 <a id="trusted-access-system-assigned-managed-identity"></a>
 <a id="trusted-access-based-on-system-assigned-managed-identity"></a>
@@ -540,28 +540,28 @@ The following table lists services that can access your storage account data if 
 
 | Service                        | Resource provider name                 | Purpose            |
 | :----------------------------- | :------------------------------------- | :----------------- |
-| Azure API Management           | *Microsoft.ApiManagement/service*        | Enables access to storage accounts behind firewalls via policies. [Learn more](../../api-management/authentication-managed-identity-policy.md#use-managed-identity-in-send-request-policy). |
-| Azure Cache for Redis | *Microsoft.Cache/Redis* | Enables access to storage accounts. [Learn more](../../azure-cache-for-redis/cache-managed-identity.md).| 
-| Azure Cognitive Search         | *Microsoft.Search/searchServices*        | Enables access to storage accounts for indexing, processing, and querying. |
-| Azure Cognitive Services       | *Microsoft.CognitiveService/accounts*    | Enables access to storage accounts. [Learn more](../..//cognitive-services/cognitive-services-virtual-networks.md).|
-| Azure Container Registry | *Microsoft.ContainerRegistry/registries* | Through the ACR Tasks suite of features, enables access to storage accounts when you're building container images. |
-| Azure Data Factory             | *Microsoft.DataFactory/factories*        | Enables access to storage accounts through the Data Factory runtime. |
-| Azure Data Share               | *Microsoft.DataShare/accounts*           | Enables access to storage accounts. |
-| Azure DevTest Labs             | *Microsoft.DevTestLab/labs*              | Enables access to storage accounts. |
-| Azure Event Grid  | *Microsoft.EventGrid/topics* | Enables access to storage accounts. |
-| Azure Healthcare APIs | *Microsoft.HealthcareApis/services* | Enables access to storage accounts. |
-| Azure IoT Central | *Microsoft.IoTCentral/IoTApps* | Enables access to storage accounts. |
-| Azure IoT Hub                  | *Microsoft.Devices/IotHubs*              | Allows data from an IoT hub to be written to Blob Storage. [Learn more](../../iot-hub/virtual-network-support.md#egress-connectivity-from-iot-hub-to-other-azure-resources). |
-| Azure Logic Apps               | *Microsoft.Logic/workflows*              | Enables logic apps to access storage accounts. [Learn more](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
-| Azure Machine Learning | *Microsoft.MachineLearningServices*      | Enables authorized Azure Machine Learning workspaces write experiment output, models, and logs to Blob Storage and read the data. [Learn more](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). |
-| Azure Media Services           | *Microsoft.Media/mediaservices*          | Enables access to storage accounts. |
-| Azure Migrate                  | *Microsoft.Migrate/migrateprojects*      | Enables access to storage accounts. |
-| Microsoft Purview                  | *Microsoft.Purview/accounts*             | Enables access to storage accounts. |
-| Azure Site Recovery            | *Microsoft.RecoveryServices/vaults*      | Enables access to storage accounts. |
-| Azure SQL Database             | *Microsoft.Sql*                          | Allows [writing audit data to storage accounts behind a firewall](/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall). |
-| Azure Synapse Analytics        | *Microsoft.Sql*                          | Allows import and export of data from specific SQL databases via the `COPY` statement or PolyBase (in a dedicated pool), or the `openrowset` function and external tables in a serverless pool. [Learn more](/azure/azure-sql/database/vnet-service-endpoint-rule-overview). |
-| Azure Stream Analytics         | *Microsoft.StreamAnalytics*              | Allows data from a streaming job to be written to Blob Storage. [Learn more](../../stream-analytics/blob-output-managed-identity.md). |
-| Azure Synapse Analytics        | *Microsoft.Synapse/workspaces*           | Enables access to data in Azure Storage. |
+| Azure API Management           | `Microsoft.ApiManagement/service`        | Enables access to storage accounts behind firewalls via policies. [Learn more](../../api-management/authentication-managed-identity-policy.md#use-managed-identity-in-send-request-policy). |
+| Azure Cache for Redis | `Microsoft.Cache/Redis` | Enables access to storage accounts. [Learn more](../../azure-cache-for-redis/cache-managed-identity.md).| 
+| Azure Cognitive Search         | `Microsoft.Search/searchServices`        | Enables access to storage accounts for indexing, processing, and querying. |
+| Azure Cognitive Services       | `Microsoft.CognitiveService/accounts`    | Enables access to storage accounts. [Learn more](../..//cognitive-services/cognitive-services-virtual-networks.md).|
+| Azure Container Registry | `Microsoft.ContainerRegistry/registries` | Through the ACR Tasks suite of features, enables access to storage accounts when you're building container images. |
+| Azure Data Factory             | `Microsoft.DataFactory/factories`        | Enables access to storage accounts through the Data Factory runtime. |
+| Azure Data Share               | `Microsoft.DataShare/accounts`           | Enables access to storage accounts. |
+| Azure DevTest Labs             | `Microsoft.DevTestLab/labs`              | Enables access to storage accounts. |
+| Azure Event Grid  | `Microsoft.EventGrid/topics` | Enables access to storage accounts. |
+| Azure Healthcare APIs | `Microsoft.HealthcareApis/services` | Enables access to storage accounts. |
+| Azure IoT Central | `Microsoft.IoTCentral/IoTApps` | Enables access to storage accounts. |
+| Azure IoT Hub                  | `Microsoft.Devices/IotHubs`              | Allows data from an IoT hub to be written to Blob Storage. [Learn more](../../iot-hub/virtual-network-support.md#egress-connectivity-from-iot-hub-to-other-azure-resources). |
+| Azure Logic Apps               | `Microsoft.Logic/workflows`              | Enables logic apps to access storage accounts. [Learn more](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
+| Azure Machine Learning | `Microsoft.MachineLearningServices`      | Enables authorized Azure Machine Learning workspaces write experiment output, models, and logs to Blob Storage and read the data. [Learn more](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). |
+| Azure Media Services           | `Microsoft.Media/mediaservices`          | Enables access to storage accounts. |
+| Azure Migrate                  | `Microsoft.Migrate/migrateprojects`      | Enables access to storage accounts. |
+| Microsoft Purview                  | `Microsoft.Purview/accounts`             | Enables access to storage accounts. |
+| Azure Site Recovery            | `Microsoft.RecoveryServices/vaults`      | Enables access to storage accounts. |
+| Azure SQL Database             | `Microsoft.Sql`                          | Allows [writing audit data to storage accounts behind a firewall](/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall). |
+| Azure Synapse Analytics        | `Microsoft.Sql`                          | Allows import and export of data from specific SQL databases via the `COPY` statement or PolyBase (in a dedicated pool), or the `openrowset` function and external tables in a serverless pool. [Learn more](/azure/azure-sql/database/vnet-service-endpoint-rule-overview). |
+| Azure Stream Analytics         | `Microsoft.StreamAnalytics`              | Allows data from a streaming job to be written to Blob Storage. [Learn more](../../stream-analytics/blob-output-managed-identity.md). |
+| Azure Synapse Analytics        | `Microsoft.Synapse/workspaces`           | Enables access to data in Azure Storage. |
 
 If your account doesn't have the hierarchical namespace feature enabled on it, you can grant permission by explicitly assigning an Azure role to the [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for each resource instance. In this case, the scope of access for the instance corresponds to the Azure role that's assigned to the managed identity.
 
