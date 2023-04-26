@@ -35,6 +35,10 @@ To configure your VIS in the Azure portal:
 
     :::image type="content" source="media/configure-virtual-instance/select-vis.png" lightbox="media/configure-virtual-instance/select-vis.png" alt-text="Screenshot of Azure portal, showing the VIS page in the Azure Center for SAP solutions service with a table of available VIS resources.":::
 
+> [!Important]
+> Each VIS resource has a unique Managed Resource Group associated with. This Resource Group contains resources like Storage Account, Keyvault etc. which are critical for Azure Center for SAP solutions service to provide capabilities like deployment of infrastructure for a new system, installation of SAP software, registration of existing systems and all other SAP system management functions. Please do not delete this RG or any resources within it. If they are deleted, you will have to re-register the VIS to use any capabilities of ACSS.
+
+
 ## Monitor VIS
 
 To see infrastructure-based metrics for the VIS, [open the VIS in the Azure portal](#open-vis-in-portal). On the **Overview** pane, select the **Monitoring** tab. You can see the following metrics:

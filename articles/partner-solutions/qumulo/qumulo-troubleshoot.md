@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Native Qumulo Scalable File Service Preview
+title: Troubleshoot Azure Native Qumulo Scalable File Service
 description: This article provides information about troubleshooting Azure Native Qumulo Scalable File Service.
 
 ms.topic: conceptual
@@ -7,9 +7,9 @@ ms.date: 01/18/2023
 
 ---
 
-# Troubleshoot Azure Native Qumulo Scalable File Service Preview
+# Troubleshoot Azure Native Qumulo Scalable File Service
 
-This article describes how to fix common problems when you're working with Azure Native Qumulo Scalable File Service Preview.
+This article describes how to fix common problems when you're working with Azure Native Qumulo Scalable File Service.
 
 Try the troubleshooting information in this article first. If that doesn't work, you can use one of the following methods to open a request form for Qumulo support:
 
@@ -42,4 +42,4 @@ For successful creation of a Qumulo service, custom role-based access control (R
 
 ## Next steps
 
-- [Manage Azure Native Qumulo Scalable File Service Preview](qumulo-how-to-manage.md)
+- [Manage Azure Native Qumulo Scalable File Service](qumulo-how-to-manage.md)

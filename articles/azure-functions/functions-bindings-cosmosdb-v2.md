@@ -135,6 +135,102 @@ To learn more, see [Update your extensions].
 
 ::: zone-end
 
+::: zone pivot="programming-language-csharp"
+
+## Binding types
+
+The binding types supported for .NET depend on both the extension version and C# execution mode, which can be one of the following: 
+   
+# [In-process class library](#tab/in-process)
+
+An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
+ 
+# [Isolated process](#tab/isolated-process)
+
+An isolated worker process class library compiled C# function runs in a process isolated from the runtime.  
+   
+# [C# script](#tab/csharp-script)
+
+C# script is used primarily when creating C# functions in the Azure portal.
+
+---
+
+Choose a version to see binding type details for the mode and version. 
+
+# [Extension 4.x and higher](#tab/extensionv4/in-process)
+
+The Azure Cosmos DB extension supports parameter types according to the table below.
+
+| Binding | Parameter types |
+|-|-|-| 
+| Cosmos DB trigger | JSON serializable types<sup>1</sup><br/>`IEnumerable<T>`<sup>2</sup> |
+| Cosmos DB input | JSON serializable types<sup>1</sup><br/>`IEnumerable<T>`<sup>2</sup><br/>[CosmosClient] | 
+| Cosmos DB output | JSON serializable types<sup>1</sup> |
+
+<sup>1</sup> Documents containing JSON data can be deserialized into known plain-old CLR object (POCO) types.
+
+<sup>2</sup> `IEnumerable<T>` provides a collection of documents. Here, `T` is a JSON serializable type. When specified for a trigger, it allows a single invocation to process a batch of documents. When used for an input binding, this allows multiple documents to be returned by the query.
+
+# [Functions 2.x and higher](#tab/functionsv2/in-process)
+
+Earlier versions of the extension exposed types from the now deprecated [Microsoft.Azure.Documents] namespace. Newer types from [Microsoft.Azure.Cosmos] are exclusive to **extension 4.x and higher**.
+
+# [Extension 4.x and higher](#tab/extensionv4/isolated-process)
+
+The isolated worker process supports parameter types according to the table below. Binding to JSON serializeable types is currently the only option that is generally available. Support for binding to types from [Microsoft.Azure.Cosmos] is in preview.
+
+| Binding | Parameter types | Preview parameter types<sup>1</sup> |
+|-|-|-| 
+| Cosmos DB trigger | JSON serializable types<sup>2</sup><br/>`IEnumerable<T>`<sup>3</sup> | *No preview types* |
+| Cosmos DB input | JSON serializable types<sup>2</sup><br/>`IEnumerable<T>`<sup>3</sup> | [CosmosClient]<br/>[Database]<br/>[Container] |
+| Cosmos DB output | JSON serializable types<sup>2</sup> | *No preview types*<sup>4</sup> |
+
+<sup>1</sup> Preview types require use of [Microsoft.Azure.Functions.Worker.Extensions.CosmosDB 4.1.0-preview1 or later][sdk-types-extension-version], [Microsoft.Azure.Functions.Worker 1.12.1-preview1 or later][sdk-types-worker-version], and [Microsoft.Azure.Functions.Worker.Sdk 1.9.0-preview1 or later][sdk-types-worker-sdk-version]. When developing on your local machine, you will need [Azure Functions Core Tools version 4.0.5000 or later](./functions-run-local.md). When using a preview type, [binding expressions](./functions-bindings-expressions-patterns.md) that rely on trigger data are not supported.
+
+[sdk-types-extension-version]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.CosmosDB/4.1.0-preview1
+[sdk-types-worker-version]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/1.12.1-preview1
+[sdk-types-worker-sdk-version]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/1.9.0-preview1
+
+<sup>2</sup> Documents containing JSON data can be deserialized into known plain-old CLR object (POCO) types.
+
+<sup>3</sup> `IEnumerable<T>` provides a collection of documents. Here, `T` is a JSON serializable type. When specified for a trigger, it allows a single invocation to process a batch of documents. When used for an input binding, this allows multiple documents to be returned by the query.
+
+<sup>4</sup> Support for SDK type bindings does not presently extend to output bindings.
+
+# [Functions 2.x and higher](#tab/functionsv2/isolated-process)
+
+Earlier versions of extensions in the isolated worker process only support binding to JSON serializable types. Additional options are available to **extension 4.x and higher**.
+
+# [Extension 4.x and higher](#tab/extensionv4/csharp-script)
+
+The Azure Cosmos DB extension supports parameter types according to the table below.
+
+| Binding | Parameter types |
+|-|-|-| 
+| Cosmos DB trigger | JSON serializable types<sup>1</sup><br/>`IEnumerable<T>`<sup>2</sup> |
+| Cosmos DB input | JSON serializable types<sup>1</sup><br/>`IEnumerable<T>`<sup>2</sup><br/>[CosmosClient] | 
+| Cosmos DB output | JSON serializable types<sup>1</sup> |
+
+<sup>1</sup> Documents containing JSON data can be deserialized into known plain-old CLR object (POCO) types.
+
+<sup>2</sup> `IEnumerable<T>` provides a collection of documents. Here, `T` is a JSON serializable type. When specified for a trigger, it allows a single invocation to process a batch of documents. When used for an input binding, this allows multiple documents to be returned by the query.
+
+# [Functions 2.x and higher](#tab/functionsv2/csharp-script)
+
+Earlier versions of the extension exposed types from the now deprecated [Microsoft.Azure.Documents] namespace. Newer types from [Microsoft.Azure.Cosmos] are exclusive to **extension 4.x and higher**.
+
+---
+
+[Microsoft.Azure.Cosmos]: /dotnet/api/microsoft.azure.cosmos
+[CosmosClient]: /dotnet/api/microsoft.azure.cosmos.cosmosclient
+[Database]: /dotnet/api/microsoft.azure.cosmos.database
+[Container]: /dotnet/api/microsoft.azure.cosmos.container
+
+[Microsoft.Azure.Documents]: /dotnet/api/microsoft.azure.documents
+[DocumentClient]: /dotnet/api/microsoft.azure.documents.client.documentclient
+
+:::zone-end
+
 ## Exceptions and return codes
 
 | Binding | Reference |

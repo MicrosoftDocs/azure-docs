@@ -1,6 +1,6 @@
 ---
 title: "Troubleshoot common Azure Arc-enabled Kubernetes issues"
-ms.date: 03/28/2023
+ms.date: 04/18/2023
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 description: "Learn how to resolve common issues with Azure Arc-enabled Kubernetes clusters and GitOps."
@@ -375,19 +375,19 @@ az k8s-extension create --resource-group <resource-group> --cluster-name <cluste
 
 ### Flux v2 - `microsoft.flux` extension installation CPU and memory limits
 
-The controllers installed in your Kubernetes cluster with the Microsoft Flux extension require the following CPU and memory resource limits to properly schedule on Kubernetes cluster nodes.
+The controllers installed in your Kubernetes cluster with the Microsoft Flux extension require CPU and memory resources to properly schedule on Kubernetes cluster nodes. This table shows the minimum memory and CPU resources that may be requested, along with the maximum limits for potential CPU and memory resource requirements.
 
-| Container Name | CPU limit | Memory limit |
+| Container Name | Minimum CPU | Minimum memory | Maximum CPU | Maximum memory |
 | -------------- | ----------- | -------- |
-| fluxconfig-agent | 50 m | 150 Mi |
-| fluxconfig-controller | 100 m | 150 Mi |
-| fluent-bit | 20 m | 150 Mi |
-| helm-controller | 1000 m | 1 Gi |
-| source-controller | 1000 m | 1 Gi |
-| kustomize-controller | 1000 m | 1 i |
-| notification-controller | 1000 m | 1 Gi |
-| image-automation-controller | 1000 m | 1 Gi |
-| image-reflector-controller | 1000 m | 1 Gi |
+| fluxconfig-agent | 5 m | 30 Mi | 50 m | 150 Mi |
+| fluxconfig-controller | 5 m | 30 Mi | 100 m | 150 Mi |
+| fluent-bit | 5 m | 30 Mi | 20 m | 150 Mi |
+| helm-controller | 100 m | 64 Mi | 1000 m | 1 Gi |
+| source-controller | 50 m | 64 Mi | 1000 m | 1 Gi |
+| kustomize-controller | 100 m | 64 Mi | 1000 m | 1 Gi |
+| notification-controller | 100 m | 64 Mi | 1000 m | 1 Gi |
+| image-automation-controller | 100 m | 64 Mi | 1000 m | 1 Gi |
+| image-reflector-controller | 100 m | 64 Mi | 1000 m | 1 Gi |
 
 If you've enabled a custom or built-in Azure Gatekeeper Policy that limits the resources for containers on Kubernetes clusters, such as `Kubernetes cluster containers CPU and memory resource limits should not exceed the specified limits`, ensure that either the resource limits on the policy are greater than the limits shown above or that the `flux-system` namespace is part of the `excludedNamespaces` parameter in the policy assignment.
 

@@ -69,6 +69,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "ms-identity-docs-code-javascript",
+      "url": "https://github.com/Azure-Samples/ms-identity-docs-code-javascript",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "_themes",
       "url": "https://github.com/Microsoft/templates.docs.msft",
       "branch": "main",
@@ -372,6 +378,12 @@
       "path_to_root": "media-services-video-indexer",
       "url": "https://github.com/Azure-Samples/media-services-video-indexer",
       "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "ms-identity-docs-code-dotnet",
+      "url": "https://github.com/Azure-Samples/ms-identity-docs-code-dotnet",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -699,6 +711,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "ms-identity-javascript-react-docs",
+      "url": "https://github.com/Azure-Samples/ms-identity-javascript-react-docs",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "cognitive-services-quickstart-code",
       "url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code",
       "branch": "master",
@@ -976,6 +994,7 @@
   ".openpublishing.redirection.app-service.json",
   ".openpublishing.redirection.azure-arc-data.json",
   ".openpublishing.redirection.azure-attestation.json",
+  ".openpublishing.redirection.azure-app-configuration.json",
   ".openpublishing.redirection.azure-australia.json",
   ".openpublishing.redirection.azure-databricks.json",
   ".openpublishing.redirection.azure-hpc.json",

@@ -58,8 +58,7 @@ The following table lists the scenarios and recommendations:
 | Azure Files backup | Azure Files backups are stored in the local storage account. So it doesn't require private endpoints for backup and restore. |
 
 >[!Note]
->- Private endpoints are supported with only DPM server 2022 and later.
->- Private endpoints are currently not supported with MABS.
+>Private endpoints are supported with only DPM server 2022, MABS v4, and later.
 
 ## Difference in network connections for private endpoints
 
