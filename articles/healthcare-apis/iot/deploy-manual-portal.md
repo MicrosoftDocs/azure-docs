@@ -117,7 +117,7 @@ Follow these six steps to fill in the **Basics** tab configuration:
 
 The **Basics** tab should now look like this after you've filled it out:
 
-  :::image type="content" source="media\deploy-manual-portal\select-device-mapping-button.png" alt-text="Screenshot of Basics tab filled out correctly." lightbox="media\deploy-manual-portal\select-device-mapping-button.png":::
+:::image type="content" source="media\deploy-manual-portal\completed-basics-tab.png" alt-text="Screenshot of Basics tab filled out correctly." lightbox="media\deploy-manual-portal\completed-basics-tab.png":::
 
 ### Configure the Device mapping tab
 
@@ -149,6 +149,10 @@ Under the **Destination** tab, use these values to enter the destination propert
     If **Lookup** was selected, and device or patient resources are missing, an error occurs, and the data isn't processed. The errors **DeviceNotFoundException** and/or a **PatientNotFoundException** error is generated, depending on the type of resource not found.
 
  * For the **Destination mapping** field, accept the default **Destination mapping**. The FHIR destination mapping is addressed in the [Post-deployment](#post-deployment) section of this quickstart.
+
+The **Destination** tab should now look like this after you've filled it out:
+
+:::image type="content" source="media\deploy-manual-portal\completed-destination-tab.png" alt-text="Screenshot of Destination tab filled out correctly." lightbox="media\deploy-manual-portal\completed-destination-tab.png":::
 
 ### Configure the Tags tab (Optional)
 
