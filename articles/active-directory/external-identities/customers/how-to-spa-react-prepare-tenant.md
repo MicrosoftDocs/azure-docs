@@ -1,6 +1,6 @@
 ---
-title: Prepare your customer tenant for building a React Single Page App (SPA) in Microsoft Entra
-description: Learn how to prepare my customer tenant for building a React Single Page App (SPA) in Microsoft Entra
+title: Prepare your customer tenant for building a React Single Page App (SPA) 
+description: Learn how to prepare my customer tenant for building a React Single Page App (SPA) 
 services: active-directory
 author: godonnell
 manager: celestedg
@@ -14,9 +14,9 @@ ms.custom: it-pro
 
 #Customer intent: As a dev I want to prepare my customer tenant for building a Single Page App with React
 ---
-# Prepare your customer tenant for building a Single Page App (SPA) in Microsoft Entra
+# Prepare your customer tenant for building a Single Page App (SPA)
 
-Before your applications can interact with Microsoft Identity Platform they must be registered in a Microsoft Entra for Customers tenant that you manage and must be associated with a user flow.
+Before your applications can interact with Microsoft Identity Platform they must be registered in a customer tenant that you manage and must be associated with a user flow.
 
 In this article, you learn how to:
 
@@ -34,7 +34,7 @@ This Azure account must have permissions to manage applications. Any of the foll
 * Application developer
 * Cloud application administrator
 
-If you haven't already created your own Microsoft Entra for Customers Tenant, [create one now](https://aka.ms/ciam-hub-free-trial). You can use an existing customer tenant if you have one.
+If you haven't already created your own customer tenant, [create one now](https://aka.ms/ciam-hub-free-trial). You can use an existing customer tenant if you have one.
 
 ## Register the application and record identifiers
 [!INCLUDE [register-client-app-common](./includes/register-app/register-client-app-common.md)]

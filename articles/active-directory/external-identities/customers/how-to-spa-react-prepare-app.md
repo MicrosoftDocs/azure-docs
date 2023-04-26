@@ -1,6 +1,6 @@
 ---
-title: Prepare a React Single Page App (SPA) for authentication in Microsoft Entra
-description: Learn how to prepare a React Single Page App (SPA) for authentication in Microsoft Entra
+title: Prepare a React Single Page App (SPA) for authentication
+description: Learn how to prepare a React Single Page App (SPA) for authentication
 services: active-directory
 author: godonnell
 manager: celestedg
@@ -12,7 +12,7 @@ ms.date: 04/12/2023
 ms.author: godonnell
 ms.custom: it-pro
 
-#Customer intent: As a dev, devops, or IT admin, enable authentication in my own React SPA with Azure Active Directory (Azure AD) for customers tenant
+#Customer intent: As a dev, devops, or IT admin, enable authentication in my own React SPA
 ---
 # Prepare a Single-page application for authentication
 
@@ -27,7 +27,7 @@ In this article, you learn how to:
 > * Add authentication code to the application
 
 ## Prerequisites
-* Completion of the prerequisites and steps in [Prepare your customer tenant for building a React Single Page App (SPA) in Microsoft Entra](./how-to-spa-react-prepare-tenant.md))
+* Completion of the prerequisites and steps in [Prepare your customer tenant for building a React Single Page App (SPA)](./how-to-spa-react-prepare-tenant.md))
 * Although any IDE that supports React applications can be used, Visual Studio Code is used for this guide. This can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads/) page.
 * [Node.js](https://nodejs.org/en/download/)
 
