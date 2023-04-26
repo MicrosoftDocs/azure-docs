@@ -18,7 +18,7 @@ ms.author: wellee
 
 ## Background
 
-[Palo Alto Networks Cloud Next Generation Firewall (NGFW)](https://docs.paloaltonetworks.com/cloud-ngfw/azure/cloud-ngfw-for-azure) is a cloud-native software-as-a-service security offering that can be deployed into the Virtual WAN hub as a bump-in-the-wire solution to inspect network traffic.
+[Palo Alto Networks Cloud Next Generation Firewall (NGFW)](https://aka.ms/pancloudngfwdocs) is a cloud-native software-as-a-service security offering that can be deployed into the Virtual WAN hub as a bump-in-the-wire solution to inspect network traffic.
 
 Palo Alto Networks Cloud NGFW integration with Virtual WAN provides the following benefits to customers:
 
@@ -61,14 +61,14 @@ Virtual WAN also routes traffic between  Virtual Networks and on-premises (Site-
 
 Virtual WAN can be configured to route internet-bound traffic from Virtual Networks or on-premises to Cloud NGFW for inspection and internet breakout. You can selectively choose which Virtual Network(s) or on-premise(s) learn the default route (0.0.0.0/0) and use Palo Alto Cloud NGFW for internet egress. In this use case, Azure automatically NATs the source IP of your internet-bound packet to the public IPs associated with the Cloud NGFW.
 
-For more information on internet-outbound capabilities and available settings, see [Palo Alto Networks documentation](https://docs.paloaltonetworks.com/cloud-ngfw/azure/cloud-ngfw-for-azure). 
+For more information on internet-outbound capabilities and available settings, see [Palo Alto Networks documentation](https://aka.ms/pancloudngfwdocs). 
 
 :::image type="content" source="./media/how-to-palo-alto-cloudngfw/internet-outbound-cloud-ngfw.png" alt-text="Screenshot showing internet-outbound traffic flows with Cloud NGFW." lightbox="./media/how-to-palo-alto-cloudngfw/internet-outbound-cloud-ngfw.png":::
 
 #### Internet ingress (DNAT)
 You can also configure Palo Alto Networks for Destination-NAT (DNAT). Destination NAT allows a user to access and communicate with an application hosted on-premises or in an Azure Virtual Network via the public IPs associated with the Cloud NGFW.  
 
-For more information on internet-inbound (DNAT) capabilities and available settings, see [Palo Alto Networks documentation](https://docs.paloaltonetworks.com/cloud-ngfw/azure/cloud-ngfw-for-azure). 
+For more information on internet-inbound (DNAT) capabilities and available settings, see [Palo Alto Networks documentation](https://aka.ms/pancloudngfwdocs). 
 
 :::image type="content" source="./media/how-to-palo-alto-cloudngfw/internet-inbound-cloud-ngfw.png" alt-text="Screenshot showing internet-inbound traffic flows with Cloud NGFW." lightbox="./media/how-to-palo-alto-cloudngfw/internet-inbound-cloud-ngfw.png":::
 
@@ -113,7 +113,7 @@ The follow steps describe how to deploy a Virtual Hub that can be used with Palo
 1. Click **Create SaaS** and select **Palo Alto Networks Cloud NGFW (preview)**.
 1. Click **Create**.
     :::image type="content" source="./media/how-to-palo-alto-cloudngfw/create-saas.png" alt-text="Screenshot showing SaaS creation page." lightbox="./media/how-to-palo-alto-cloudngfw/create-saas.png":::
-1. Provide a name for your Firewall. Make sure the region of the Firewall is the same as the region of your Virtual Hub. For more information on the available configuration options for Palo Alto Networks Cloud NGFW, see [Palo Alto Networks documentation for Cloud NGFW](https://docs.paloaltonetworks.com/cloud-ngfw/azure/cloud-ngfw-for-azure).
+1. Provide a name for your Firewall. Make sure the region of the Firewall is the same as the region of your Virtual Hub. For more information on the available configuration options for Palo Alto Networks Cloud NGFW, see [Palo Alto Networks documentation for Cloud NGFW](https://aka.ms/pancloudngfwdocs).
 
 ## Configure Routing
 
@@ -133,7 +133,7 @@ The following section describes how you can manage your Palo Alto Networks Cloud
 1. Navigate to your Virtual Hub and click on **SaaS solutions**.
 1. Click on **Click here** under **Manage SaaS**.
     :::image type="content" source="./media/how-to-palo-alto-cloudngfw/manage-saas.png" alt-text="Screenshot showing how to manage your SaaS solution." lightbox="./media/how-to-palo-alto-cloudngfw/manage-saas.png":::
-1. For more information on the available configuration options for Palo Alto Networks Cloud NGFW, see [Palo Alto Networks documentation for Cloud NGFW](https://docs.paloaltonetworks.com/cloud-ngfw/azure/cloud-ngfw-for-azure).
+1. For more information on the available configuration options for Palo Alto Networks Cloud NGFW, see [Palo Alto Networks documentation for Cloud NGFW](https://aka.ms/pancloudngfwdocs).
 
 ## Delete Palo Alto Networks Cloud NGFW
 
@@ -174,7 +174,7 @@ The following section describes common issues seen when using Palo Alto Networks
 
 ### Troubleshooting Palo Alto Networks Cloud NGFW configuration
 
-* Reference [Palo Alto Networks documentation](https://docs.paloaltonetworks.com/cloud-ngfw/azure/cloud-ngfw-for-azure).
+* Reference [Palo Alto Networks documentation](https://aka.ms/pancloudngfwdocs).
 
 ## Next steps
 
