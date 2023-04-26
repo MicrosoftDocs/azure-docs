@@ -460,7 +460,7 @@ You can make GET requests from a browser passing data in the query string. For a
 
 #### Non-HTTP triggered functions
 
-For all functions other than HTTP and Event Grid triggers, you can test your functions locally using REST by calling a special endpoint called an _administration endpoint_. Calling this endpoint with an HTTP POST request on the local server triggers the function. The administrator endpoint provides a list of all (HTTP triggered and non-HTTP triggered) functions on `http://localhost:{port}/admin/functions/`.
+For all functions other than HTTP and Event Grid triggers, you can test your functions locally using REST by calling a special endpoint called an _administration endpoint_. Calling this endpoint with an HTTP POST request on the local server triggers the function. You can call the `functions` administrator endpoint (`http://localhost:{port}/admin/functions/`) to get URLs for all available functions, both HTTP triggered and non-HTTP triggered.
 
 When running locally, authentication and authorization is bypassed. However, when you try to call the same administrator endpoints on your function app in Azure, you must provide an access key. To learn more, see [Function access keys](functions-bindings-http-webhook-trigger.md#authorization-keys). 
 
