@@ -809,23 +809,6 @@ The [Django sample application](https://github.com/Azure-Samples/msdocs-django-p
 
 For more information, see [Production settings for Django apps](configure-language-python.md#production-settings-for-django-apps).
 
-<<<<<<< HEAD
-#### I can't connect to the SSH session
-
-If you can't connect to the SSH session, then the app itself has failed to start. Check the [diagnostic logs](#6-stream-diagnostic-logs) for details. For example, if you see an error like `KeyError: 'DBNAME'`, it may mean that the environment variable is missing (you may have removed the app setting).
-
-#### I get an error when running database migrations
-
-If you encounter any errors related to connecting to the database, check if the app settings (`DBHOST`, `DBNAME`, `DBUSER`, and `DBPASS`) have been changed. Without those settings, the migrate command can't communicate with the database. 
-
-#### How can I migrate data from my local machine to Azure PostgreSQL server?
-
-For simple migration scenarios with one database, small amounts of data, or infrequent migrations, you can use [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) to extract a PostgreSQL database into a dump file. Then use [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) to restore the PostgreSQL database from an archive file created by `pg_dump`. For more information, see [Migrate your PostgreSQL database by using dump and restore](/azure/postgresql/migrate/how-to-migrate-using-dump-and-restore).
-
-For more complex migration scenarios with multiple databases and requiring minimal downtime, use [Azure Database Migration Service](/azure/dms/dms-overview). Azure Database Migration Service is a fully managed Azure service that helps you easily migrate various databases to their corresponding Azure data services. For an example, see [Tutorial: Migrate PostgreSQL to Azure DB for PostgreSQL online using DMS via the Azure portal](/azure/dms/tutorial-postgresql-azure-postgresql-online-portal).
-
-=======
->>>>>>> main
 ## Next steps
 
 Advance to the next tutorial to learn how to secure your app with a custom domain and certificate.
