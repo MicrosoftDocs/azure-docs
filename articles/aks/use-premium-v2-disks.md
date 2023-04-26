@@ -8,13 +8,13 @@ ms.date: 04/25/2023
 
 # Use Azure Premium SSD v2 disks on Azure Kubernetes Service
 
-[Azure Premium SSD v2 disks][azure-premium-v2-disk-overview] offer IO-intense enterprise workloads a consistent submillisecond disk latency and high IOPS and throughput. The performance (capacity, throughput, and IOPS) of Premium SSD v2 disks can be independently configured at any time, making it easier for more scenarios to be cost efficient while meeting performance needs.
+[Azure Premium SSD v2 disks][azure-premium-v2-disk-overview] offer IO-intense enterprise workloads, a consistent submillisecond disk latency, and high IOPS and throughput. The performance (capacity, throughput, and IOPS) of Premium SSD v2 disks can be independently configured at any time, making it easier for more scenarios to be cost efficient while meeting performance needs.
 
 This article describes how to configure a new or existing AKS cluster to use Azure Premium SSD v2 disks.
 
 ## Before you begin
 
-Before creating or upgrading an AKS cluster that is able to use Azure Premium SSD v2 disks, you need to [create a Premium SSD v2 disk][create-premium-v2-disk] in an availability zone following their deployment steps. Then create an AKS cluster in the same region and availability zone that supports Premium Storage and attach the disks following the steps below.
+Before creating or upgrading an AKS cluster that is able to use Azure Premium SSD v2 disks, you need to create an AKS cluster in the same region and availability zone that supports Premium Storage and attach the disks following the steps below.
 
 For an existing AKS cluster, you can enable Premium SSD v2 disks by adding a new node pool to your cluster, and then attach the disks following the steps below.
 
@@ -83,10 +83,10 @@ spec:
       storage: 1000Gi
 ```
 
-Create the persistent volume claim with the [kubectl apply][kubectl-apply] command and specify your *azure-p2-disk-pvc.yaml* file:
+Create the persistent volume claim with the [kubectl apply][kubectl-apply] command and specify your *azure-pv2-disk-pvc.yaml* file:
 
 ```bash
-kubectl apply -f azure-ultra-disk-pvc.yaml
+kubectl apply -f azure-pv2-disk-pvc.yaml
 ```
 
 The output from the command resembles the following example:
@@ -176,7 +176,9 @@ Events:
 
 Input/Output Operations Per Second (IOPS) and throughput limits for Azure Premium v2 SSD disk is currently not supported through AKS. To adjust performance, you can use the Azure CLI command [az disk update][az-disk-update] and including the `--disk-iops-read-write` and `--disk-mbps-read-write` parameters.
 
-The following example updates the disk IOPS read/write to **5000** and Mbps to **200**. For `--resource-group`, the value must be the second resource group automatically created to store the AKS worker nodes with the naming convention *MC_resourcegroupname_clustername_location*. The value for the `--name` parameter is the name of the volume created using the StorageClass, and it starts with `pvc-`. To identify the disk name, you can run `kubectl get pvc` or navigate to the secondary resource group in the portal to find it. See [manage resources from the Azure portal][manage-resources-azure-portal] to learn more.
+The following example updates the disk IOPS read/write to **5000** and Mbps to **200**. For `--resource-group`, the value must be the second resource group automatically created to store the AKS worker nodes with the naming convention *MC_resourcegroupname_clustername_location*. For more information, see [Why are two resource groups created with AKS?][aks-two-resource-groups].
+
+The value for the `--name` parameter is the name of the volume created using the StorageClass, and it starts with `pvc-`. To identify the disk name, you can run `kubectl get pvc` or navigate to the secondary resource group in the portal to find it. See [manage resources from the Azure portal][manage-resources-azure-portal] to learn more.
 
 ```azurecli
 az disk update --subscription subscriptionName --resource-group myResourceGroup --name diskName --disk-iops-read-write=5000 --disk-mbps-read-write=200  
@@ -199,9 +201,9 @@ For more information on using Azure tags, see [Use Azure tags in Azure Kubernete
 [azure-premium-v2-disk-overview]: ../virtual-machines/disks-types.md#premium-ssd-v2
 [premium-v2-regions]: ../virtual-machines/disks-types.md#regional-availability
 [premium-v2-limitations]: ../virtual-machines/disks-types.md#premium-ssd-v2-limitations
-[create-premium-v2-disk]: ../virtual-machines/disks-deploy-premium-v2.md#use-a-premium-ssd-v2
 [azure-disk-volume]: azure-disk-csi.md
 [use-tags]: use-tags.md
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [az-disk-update]: /cli/azure/disk#az-disk-update
 [manage-resources-azure-portal]: ../azure-resource-manager/management/manage-resources-portal.md#open-resources
+[aks-two-resource-groups]: faq.md#why-are-two-resource-groups-created-with-aks
