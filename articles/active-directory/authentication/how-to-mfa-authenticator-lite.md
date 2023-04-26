@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/15/2023
+ms.date: 04/25/2023
 
 ms.author: justinha
 author: sabina-smith
@@ -30,6 +30,10 @@ Users receive a notification in Outlook mobile to approve or deny sign-in, or th
 ## Prerequisites
 
 - Your organization needs to enable Microsoft Authenticator (second factor) push notifications for some users or groups by using the Authentication methods policy. You can edit the Authentication methods policy by using the Azure portal or Microsoft Graph API.
+
+  >[!TIP]
+  >We recommend that you also enable [system-preferred multifactor authentication (MFA)](concept-system-preferred-multifactor-authentication.md) when you enable Authenticator Lite. With system-preferred MFA enabled, users try to sign-in with Authenticator Lite before they try less secure telephony methods like SMS or voice call. 
+
 - If your organization is using the Active Directory Federation Services (AD FS) adapter or Network Policy Server (NPS) extensions, upgrade to the latest versions for a consistent experience.
 - Users enabled for shared device mode on Outlook mobile aren't eligible for Authenticator Lite.
 - Users must run a minimum Outlook mobile version.
