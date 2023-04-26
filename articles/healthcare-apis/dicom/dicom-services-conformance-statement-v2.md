@@ -1,16 +1,19 @@
 ---
-title: DICOM Conformance Statement version 1 for Azure Health Data Services
-description: This document provides details about the DICOM Conformance Statement v1 for Azure Health Data Services. 
+title: DICOM Conformance Statement version 2 for Azure Health Data Services
+description: This document provides details about the DICOM Conformance Statement v2 for Azure Health Data Services. 
 services: healthcare-apis
 author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 10/13/2022
+ms.date: 4/20/2023
 ms.author: mmitrik
 ---
 
-# DICOM Conformance Statement v1
+# DICOM Conformance Statement v2
+
+> [!NOTE]
+> API version 2 is in **Preview** and should be used only for testing.
 
 The Medical Imaging Server for DICOM supports a subset of the DICOMweb™ Standard. Support includes:
 
@@ -36,7 +39,7 @@ The service uses REST API versioning. The version of the REST API must be explic
 
 `https://<service_url>/v<version>/studies`
 
-This version of the conformance statement corresponds to the `v1` version of the REST APIs.  
+This version of the conformance statement corresponds to the `v2` version of the REST APIs.  
 
 For more information on how to specify the version when making requests, see the [API Versioning Documentation](api-versioning-dicom-service.md).
 
@@ -89,20 +92,28 @@ Each file stored must have a unique combination of `StudyInstanceUID`, `SeriesIn
 
 Only transfer syntaxes with explicit Value Representations are accepted.
 
+> [!NOTE]
+> Requests are limited to 2GB. No single DICOM file or combination of files may exceed this limit.
+
+#### Store changes from v1
+In previous versions, a Store request would fail if any of the [required](#store-required-attributes) or [searchable attributes](#searchable-attributes) failed validation. Beginning with V2, the request fails only if **required attributes** fail validation.
+
+Failed validation of attributes not required by the API results in the file being stored with a warning. A warning is given about each failing attribute per instance.
+When a sequence contains an attribute that fails validation, or when there are multiple issues with a single attribute, only the first failing attribute reason is noted.
+
 #### Store response status codes
 
-| Code      | Description |
-| :-------- | :---------- |
-| `200 (OK)`                     | All the SOP instances in the request have been stored. |
-| `202 (Accepted)`               | Some instances in the request have been stored but others have failed. |
-| `204 (No Content)`             | No content was provided in the store transaction request. |
-| `400 (Bad Request)`            | The request was badly formatted. For example, the provided study instance identifier didn't conform to the expected UID format. |
-| `401 (Unauthorized)`           | The client isn't authenticated. |
-| `403 (Forbidden)`              | The user isn't authorized. |
-| `406 (Not Acceptable)`         | The specified `Accept` header isn't supported. |
-| `409 (Conflict)`               | None of the instances in the store transaction request have been stored. |
-| `415 (Unsupported Media Type)` | The provided `Content-Type` isn't supported. |
-| `503 (Service Unavailable)`    | The service is unavailable or busy. Try again later. |
+| Code                         | Description                                                                                                                                                                                                                         |
+| :--------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `200 (OK)`                     | All the SOP instances in the request have been stored.                                                                                                                                                                              |
+| `202 (Accepted)`               | The origin server stored some of the Instances and others have failed or returned warnings. Additional information regarding this error may be found in the response message body. |
+| `204 (No Content)`             | No content was provided in the store transaction request.                                                                                                                                                                           |
+| `400 (Bad Request)`            | The request was badly formatted. For example, the provided study instance identifier didn't conform the expected UID format.                                                                                                       |
+| `401 (Unauthorized)`           | The client isn't authenticated.                                                                                                                                                                                                    |
+| `406 (Not Acceptable)`         | The specified `Accept` header isn't supported.                                                                                                                                                                                     |
+| `409 (Conflict)`               | None of the instances in the store transaction request have been stored.                                                                                                                                                            |
+| `415 (Unsupported Media Type)` | The provided `Content-Type` isn't supported.                                                                                                                                                                                       |
+| `503 (Service Unavailable)`    | The service is unavailable or busy. Try again later.                                                                                                                                                                         |
 
 ### Store response payload
 
@@ -116,22 +127,23 @@ The response payload populates a DICOM dataset with the following elements:
 
 Each dataset in the `FailedSOPSequence` has the following elements (if the DICOM file attempting to be stored could be read):
 
-| Tag          | Name                     | Description |
-| :----------- | :----------------------- | :---------- |
-| (0008, 1150) | `ReferencedSOPClassUID`    | The SOP class unique identifier of the instance that failed to store. |
-| (0008, 1155) | `ReferencedSOPInstanceUID` | The SOP instance unique identifier of the instance that failed to store. |
-| (0008, 1197) | `FailureReason`            | The reason code why this instance failed to store. |
+| Tag          | Name                     | Description                                                                        |
+|:------------ |:------------------------ |:-----------------------------------------------------------------------------------|
+| (0008, 1150) | `ReferencedSOPClassUID`    | The SOP class unique identifier of the instance that failed to store.              |
+| (0008, 1155) | `ReferencedSOPInstanceUID` | The SOP instance unique identifier of the instance that failed to store.           |
+| (0008, 1197) | `FailureReason`            | The reason code why this instance failed to store.                                 |
+| (0008, 1196) | `WarningReason`            | A `WarningReason` indicates validation issues that were detected but weren't severe enough to fail the store operation.        |
 | (0074, 1048) | `FailedAttributesSequence` | The sequence of `ErrorComment` that includes the reason for each failed attribute. |
 
 Each dataset in the `ReferencedSOPSequence` has the following elements:
 
 | Tag          | Name                     | Description |
 | :----------- | :----------------------- | :---------- |
-| (0008, 1150) | `ReferencedSOPClassUID`    | The SOP class unique identifier of the instance that failed to store. |
-| (0008, 1155) | `ReferencedSOPInstanceUID` | The SOP instance unique identifier of the instance that failed to store. |
+| (0008, 1150) | `ReferencedSOPClassUID`    | The SOP class unique identifier of the instance that was stored. |
+| (0008, 1155) | `ReferencedSOPInstanceUID` | The SOP instance unique identifier of the instance that was stored. |
 | (0008, 1190) | `RetrieveURL`              | The retrieve URL of this instance on the DICOM server. |
 
-An example response with `Accept` header `application/dicom+json`:
+An example response with `Accept` header `application/dicom+json` without a FailedAttributesSequence in a ReferencedSOPSequence:
 
 ```json
 {
@@ -186,6 +198,67 @@ An example response with `Accept` header `application/dicom+json`:
 }
 ```
 
+An example response with `Accept` header `application/dicom+json` with a FailedAttributesSequence in a ReferencedSOPSequence:
+
+```json
+{
+  "00081190":
+  {
+    "vr":"UR",
+    "Value":["http://localhost/studies/d09e8215-e1e1-4c7a-8496-b4f6641ed232"]
+  },
+  "00081199":
+  {
+    "vr":"SQ",
+    "Value":
+    [{
+      "00081150":
+      {
+        "vr":"UI",
+        "Value":["d246deb5-18c8-4336-a591-aeb6f8596664"]
+      },
+      "00081155":
+      {
+        "vr":"UI",
+        "Value":["4a858cbb-a71f-4c01-b9b5-85f88b031365"]
+      },
+      "00081190":
+      {
+        "vr":"UR",
+        "Value":["http://localhost/studies/d09e8215-e1e1-4c7a-8496-b4f6641ed232/series/8c4915f5-cc54-4e50-aa1f-9b06f6e58485/instances/4a858cbb-a71f-4c01-b9b5-85f88b031365"]
+      },
+      "00081196": {
+        "vr": "US",
+        "Value": [
+            1
+        ]
+      },
+      "00741048": {
+        "vr": "SQ",
+        "Value": [
+          {
+            "00000902": {
+              "vr": "LO",
+              "Value": [
+                "DICOM100: (0008,0020) - Content \"NotAValidDate\" does not validate VR DA: one of the date values does not match the pattern YYYYMMDD"
+              ]
+            }
+          },
+          {
+            "00000902": {
+              "vr": "LO",
+              "Value": [
+                "DICOM100: (0008,002a) - Content \"NotAValidDate\" does not validate VR DT: value does not mach pattern YYYY[MM[DD[HH[MM[SS[.F{1-6}]]]]]]"
+              ]
+            }
+          }
+        ]
+      }
+    }]
+  }
+}
+```
+
 #### Store failure reason codes
 
 | Code  | Description |
@@ -197,11 +270,13 @@ An example response with `Accept` header `application/dicom+json`:
 | `45071` | A DICOM instance is being created by another process, or the previous attempt to create has failed and the cleanup process hasn't had chance to clean up yet. Delete the instance first before attempting to create again. |
 
 #### Store warning reason codes
-| Code  | Description |
-| :---- | :---------- |
-| `45063` | A DICOM instance Data Set doesn't match SOP Class. The Studies Store Transaction (Section 10.5) observed that the Data Set didn't match the constraints of the SOP Class during storage of the instance. |
 
-### Store Error Codes
+| Code  | Description                                                                                                                                            |
+|:------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `45063` | A DICOM instance Data Set doesn't match SOP Class. The Studies Store Transaction (Section 10.5) observed that the Data Set didn't match the constraints of the SOP Class during storage of the instance. |
+| `1`     | The Studies Store Transaction (Section 10.5) observed that the Data Set has validation warnings.                                                       |
+
+#### Store Error Codes
 
 | Code  | Description |
 | :---- | :---------- |
@@ -209,21 +284,22 @@ An example response with `Accept` header `application/dicom+json`:
 
 ### Retrieve (WADO-RS)
 
-This Retrieve Transaction offers support for retrieving stored studies, series, instances, and frames by reference.
+This Retrieve Transaction offers support for retrieving stored studies, series, instances and frames by reference.
 
-| Method | Path   | Description |
-| :----- | :------| :---------- |
-| GET    | ../studies/{study}    | Retrieves all instances within a study. |
-| GET    | ../studies/{study}/metadata     | Retrieves the metadata for all instances within a study. |
-| GET    | ../studies/{study}/series/{series}    | Retrieves all instances within a series. |
-| GET    | ../studies/{study}/series/{series}/metadata  | Retrieves the metadata for all instances within a series. |
-| GET    | ../studies/{study}/series/{series}/instances/{instance} | Retrieves a single instance. |
-| GET    | ../studies/{study}/series/{series}/instances/{instance}/metadata | Retrieves the metadata for a single instance. |
-| GET    | ../studies/{study}/series/{series}/instances/{instance}/frames/{frames} | Retrieves one or many frames from a single instance. To specify more than one frame, use a comma to separate each frame to return. For example, /studies/1/series/2/instance/3/frames/4,5,6 |
+| Method | Path                                                                    | Description |
+| :----- | :---------------------------------------------------------------------- | :---------- |
+| GET    | ../studies/{study}                                                      | Retrieves all instances within a study. |
+| GET    | ../studies/{study}/metadata                                             | Retrieves the metadata for all instances within a study. |
+| GET    | ../studies/{study}/series/{series}                                      | Retrieves all instances within a series. |
+| GET    | ../studies/{study}/series/{series}/metadata                             | Retrieves the metadata for all instances within a series. |
+| GET    | ../studies/{study}/series/{series}/instances/{instance}                 | Retrieves a single instance. |
+| GET    | ../studies/{study}/series/{series}/instances/{instance}/metadata        | Retrieves the metadata for a single instance. |
+| GET    | ../studies/{study}/series/{series}/instances/{instance}/frames/{frames} | Retrieves one or many frames from a single instance. To specify more than one frame, a comma separate each frame to return. For example, /studies/1/series/2/instance/3/frames/4,5,6 |
 
 #### Retrieve instances within study or series
 
 The following `Accept` header(s) are supported for retrieving instances within a study or a series:
+
 
 * `multipart/related; type="application/dicom"; transfer-syntax=*`
 * `multipart/related; type="application/dicom";` (when transfer-syntax isn't specified, 1.2.840.10008.1.2.1 is used as default)
@@ -246,17 +322,16 @@ The following `Accept` header(s) are supported for retrieving a specific instanc
 #### Retrieve Frames
 
 The following `Accept` headers are supported for retrieving frames:
-
 * `multipart/related; type="application/octet-stream"; transfer-syntax=*`
 * `multipart/related; type="application/octet-stream";` (when transfer-syntax isn't specified, `1.2.840.10008.1.2.1` is used as default)
 * `multipart/related; type="application/octet-stream"; transfer-syntax=1.2.840.10008.1.2.1`
 * `multipart/related; type="image/jp2";` (when transfer-syntax isn't specified, `1.2.840.10008.1.2.4.90` is used as default)
 * `multipart/related; type="image/jp2";transfer-syntax=1.2.840.10008.1.2.4.90`
+* `application/octet-stream; transfer-syntax=*` for single frame retrieval
 
 #### Retrieve transfer syntax
 
-When the requested transfer syntax is different from original file, the original file is transcoded to requested transfer syntax. The original file needs to be one of the following formats for transcoding to succeed, otherwise transcoding may fail:
-
+When the requested transfer syntax is different from original file, the original file is transcoded to requested transfer syntax. The original file needs to be one of the formats below for transcoding to succeed, otherwise transcoding may fail:
 * 1.2.840.10008.1.2 (Little Endian Implicit)
 * 1.2.840.10008.1.2.1 (Little Endian Explicit)
 * 1.2.840.10008.1.2.2 (Explicit VR Big Endian)
@@ -275,7 +350,7 @@ The following `Accept` header is supported for retrieving metadata for a study, 
 
 * `application/dicom+json`
 
-Retrieving metadata doesn't return attributes with the following value representations:
+Retrieving metadata won't return attributes with the following value representations:
 
 | VR Name | Description            |
 | :------ | :--------------------- |
@@ -292,7 +367,7 @@ Retrieving metadata doesn't return attributes with the following value represent
 Cache validation is supported using the `ETag` mechanism. In the response to a metadata request, ETag is returned as one of the headers. This ETag can be cached and added as `If-None-Match` header in the later requests for the same metadata. Two types of responses are possible if the data exists:
 
 * Data hasn't changed since the last request: `HTTP 304 (Not Modified)` response is sent with no response body.
-* Data has changed since the last request: `HTTP 200 (OK)` response is sent with updated ETag. Required data is also returned as part of the body.
+* Data has changed since the last request: `HTTP 200 (OK)` response is sent with updated ETag. Required data is returned as part of the body.
 
 ### Retrieve response status codes
 
@@ -300,7 +375,7 @@ Cache validation is supported using the `ETag` mechanism. In the response to a m
 | :--------------------------- | :---------- |
 | `200 (OK)`                     | All requested data has been retrieved. |
 | `304 (Not Modified)`           | The requested data hasn't been modified since the last request. Content isn't added to the response body in such case. For more information, see the above section **Retrieve Metadata Cache Validation (for Study, Series, or Instance)**. |
-| `400 (Bad Request)` | The request was badly formatted. For example, the provided study instance identifier didn't conform to the expected UID format, or the requested transfer-syntax encoding isn't supported. |
+| `400 (Bad Request)`            | The request was badly formatted. For example, the provided study instance identifier didn't conform to the expected UID format, or the requested transfer-syntax encoding isn't supported. |
 | `401 (Unauthorized)`           | The client isn't authenticated. |
 | `403 (Forbidden)`              | The user isn't authorized. |
 | `404 (Not Found)`              | The specified DICOM resource couldn't be found. |
@@ -311,33 +386,37 @@ Cache validation is supported using the `ETag` mechanism. In the response to a m
 
 Query based on ID for DICOM Objects (QIDO) enables you to search for studies, series, and instances by attributes.
 
-| Method | Path   | Description         |
-| :----- | :----- | :------------------ |
-| *Search for Studies*         |
-| GET    | ../studies?...   | Search for studies   |
-| *Search for Series*     |
-| GET    | ../series?...    | Search for series   |
-| GET    |../studies/{study}/series?...      | Search for series in a study      |
-| *Search for Instances*       |
-| GET    |../instances?...   | Search for instances  |
-| GET    |../studies/{study}/instances?...   | Search for instances in a study   |
+| Method | Path                                            | Description                       |
+| :----- | :---------------------------------------------- | :-------------------------------- |
+| *Search for Studies*                                                                         |
+| GET    | ../studies?...                                  | Search for studies                |
+| *Search for Series*                                                                          |
+| GET    | ../series?...                                   | Search for series                 |
+| GET    |../studies/{study}/series?...                    | Search for series in a study      |
+| *Search for Instances*                                                                       |
+| GET    |../instances?...                                 | Search for instances              |
+| GET    |../studies/{study}/instances?...                 | Search for instances in a study   |
 | GET    |../studies/{study}/series/{series}/instances?... | Search for instances in a series  |
 
 The following `Accept` header(s) are supported for searching:
 
 * `application/dicom+json`
 
+### Search changes from v1
+In the v1 API and continued for v2, if an [extended query tag](dicom-extended-query-tags-overview.md) has any errors, because one or more of the existing instances had a tag value that couldn't be indexed, then subsequent search queries containing the extended query tag will return `erroneous-dicom-attributes` as detailed in the [documentation](dicom-extended-query-tags-overview.md#tag-query-status). However, tags (also known as attributes) with validation warnings from STOW-RS are **not** included in this header. If a store request results in validation warnings on [searchable tags](#searchable-attributes), subsequent searches containing these tags won't consider any DICOM SOP instance that produced a warning. This behavior may result in incomplete search results.
+To correct an attribute, delete the stored instance and upload the corrected data.
+
 ### Supported search parameters
 
 The following parameters for each query are supported:
 
-| Key    | Support Value(s)    | Allowed Count | Description |
-| :----- | :----- | :------------ | :---------- |
-| `{attributeID}=` | `{value}`     | 0...N    | Search for attribute/ value matching in query. |
-| `includefield=`  | `{attributeID}`<br/>`all`   | 0...N   | The additional attributes to return in the response. Both, public and private tags are supported.<br/>When `all` is provided, refer to [Search Response](#search-response) for more information about which attributes are returned for each query type.<br/>If a mixture of `{attributeID}` and `all` is provided, the server defaults to using `all`. |
-| `limit=`  | `{value}`  | 0..1   | Integer value to limit the number of values returned in the response.<br/>Value can be between the range 1 >= x <= 200. Defaulted to 100. |
-| `offset=`     | `{value}`  | 0..1  | Skip `{value}` results.<br/>If an offset is provided larger than the number of search query results, a 204 (no content) response is returned. |
-| `fuzzymatching=` | `true` / `false`  | 0..1    | If true fuzzy matching is applied to PatientName attribute. It does a prefix word match of any name part inside PatientName value. For example, if PatientName is "John^Doe", then "joh", "do", "jo do", "Doe" and "John Doe" all match. However, "ohn" doesn't match. |
+| Key              | Support Value(s)              | Allowed Count | Description |
+| :--------------- | :---------------------------- | :------------ | :---------- |
+| `{attributeID}=` | `{value}`                       | 0...N         | Search for attribute/ value matching in query. |
+| `includefield=`  | `{attributeID}`<br/>`all`   | 0...N         | The additional attributes to return in the response. Both, public and private tags are supported.<br/>When `all` is provided, refer to [Search Response](#search-response) for more information about which attributes are returned for each query type.<br/>If a mixture of `{attributeID}` and `all` is provided, the server defaults to using `all`. |
+| `limit=`         | `{value}`                       | 0..1          | Integer value to limit the number of values returned in the response.<br/>Value can be between the range 1 >= x <= 200. Defaulted to 100. |
+| `offset=`        | `{value}`                       | 0..1          | Skip `{value}` results.<br/>If an offset is provided larger than the number of search query results, a 204 (no content) response is returned. |
+| `fuzzymatching=` | `true` / `false`             | 0..1          | If true fuzzy matching is applied to PatientName attribute. It does a prefix word match of any name part inside PatientName value. For example, if PatientName is "John^Doe", then "joh", "do", "jo do", "Doe" and "John Doe" all match. However "ohn" doesn't match. |
 
 #### Searchable attributes
 
@@ -391,47 +470,29 @@ The response is an array of DICOM datasets. Depending on the resource, by *defau
 
 | Tag          | Attribute Name |
 | :----------- | :------------- |
-| (0008, 0005) | `SpecificCharacterSet` |
 | (0008, 0020) | `StudyDate` |
-| (0008, 0030) | `StudyTime` |
 | (0008, 0050) | `AccessionNumber` |
-| (0008, 0056) | `InstanceAvailability` |
-| (0008, 0090) | `ReferringPhysicianName` |
-| (0008, 0201) | `TimezoneOffsetFromUTC` |
+| (0008, 1030) | `StudyDescription` |
+| (0009, 0090) | `ReferringPhysicianName` |
 | (0010, 0010) | `PatientName` |
 | (0010, 0020) | `PatientID` |
 | (0010, 0030) | `PatientBirthDate` |
-| (0010, 0040) | `PatientSex` |
-| (0020, 0010) | `StudyID` |
 | (0020, 000D) | `StudyInstanceUID` |
 
 #### Default Series tags
 
 | Tag          | Attribute Name |
 | :----------- | :------------- |
-| (0008, 0005) | `SpecificCharacterSet` |
 | (0008, 0060) | `Modality` |
-| (0008, 0201) | `TimezoneOffsetFromUTC` |
-| (0008, 103E) | `SeriesDescription` |
+| (0008, 1090) | `ManufacturerModelName` |
 | (0020, 000E) | `SeriesInstanceUID` |
 | (0040, 0244) | `PerformedProcedureStepStartDate` |
-| (0040, 0245) | `PerformedProcedureStepStartTime` |
-| (0040, 0275) | `RequestAttributesSequence` |
 
 #### Default Instance tags
 
 | Tag          | Attribute Name |
 | :----------- | :------------- |
-| (0008, 0005) | `SpecificCharacterSet` |
-| (0008, 0016) | `SOPClassUID` |
 | (0008, 0018) | `SOPInstanceUID` |
-| (0008, 0056) | `InstanceAvailability` |
-| (0008, 0201) | `TimezoneOffsetFromUTC` |
-| (0020, 0013) | `InstanceNumber` |
-| (0028, 0010) | `Rows` |
-| (0028, 0011) | `Columns` |
-| (0028, 0100) | `BitsAllocated` |
-| (0028, 0008) | `NumberOfFrames` |
 
 If `includefield=all`, the following attributes are included along with default attributes. Along with the default attributes, this is the full list of attributes supported at each resource level.
 
@@ -439,7 +500,10 @@ If `includefield=all`, the following attributes are included along with default 
 
 | Tag          | Attribute Name |
 | :----------- | :------------- |
-| (0008, 1030) | `Study Description` |
+| (0008, 0005) | `SpecificCharacterSet` |
+| (0008, 0030) | `StudyTime` |
+| (0008, 0056) | `InstanceAvailability` |
+| (0008, 0201) | `TimezoneOffsetFromUTC` |
 | (0008, 0063) | `AnatomicRegionsInStudyCodeSequence` |
 | (0008, 1032) | `ProcedureCodeSequence` |
 | (0008, 1060) | `NameOfPhysiciansReadingStudy` |
@@ -450,15 +514,36 @@ If `includefield=all`, the following attributes are included along with default 
 | (0010, 1030) | `PatientWeight` |
 | (0010, 2180) | `Occupation` |
 | (0010, 21B0) | `AdditionalPatientHistory` |
+| (0010, 0040) | `PatientSex` |
+| (0020, 0010) | `StudyID` |
 
 #### Additional Series tags
 
 | Tag          | Attribute Name |
 | :----------- | :------------- |
-| (0020, 0011) | `SeriesNumber` |
-| (0020, 0060) | `Laterality` |
-| (0008, 0021) | `SeriesDate` |
-| (0008, 0031) | `SeriesTime` |
+| (0008, 0005) | SpecificCharacterSet |
+| (0008, 0201) | TimezoneOffsetFromUTC |
+| (0020, 0011) | SeriesNumber |
+| (0020, 0060) | Laterality |
+| (0008, 0021) | SeriesDate |
+| (0008, 0031) | SeriesTime |
+| (0008, 103E) | SeriesDescription |
+| (0040, 0245) | PerformedProcedureStepStartTime |
+| (0040, 0275) | RequestAttributesSequence |
+
+#### Additional Instance tags
+
+| Tag          | Attribute Name |
+| :----------- | :------------- |
+| (0008, 0005) | SpecificCharacterSet |
+| (0008, 0016) | SOPClassUID |
+| (0008, 0056) | InstanceAvailability |
+| (0008, 0201) | TimezoneOffsetFromUTC |
+| (0020, 0013) | InstanceNumber |
+| (0028, 0010) | Rows |
+| (0028, 0011) | Columns |
+| (0028, 0100) | BitsAllocated |
+| (0028, 0008) | NumberOfFrames |
 
 The following attributes are returned:
 
@@ -486,12 +571,13 @@ The query API returns one of the following status codes in the response:
 ### Additional notes
 
 * Querying using the `TimezoneOffsetFromUTC (00080201)` isn't supported.
-* The query API doesn't return `413 (request entity too large)`. If the requested query response limit is outside of the acceptable range, a bad request is returned. Anything requested within the acceptable range will be resolved.
+* The query API doesn't return `413 (request entity too large)`. If the requested query response limit is outside of the acceptable range, a bad request is returned. Anything requested within the acceptable range, will be resolved.
 * When target resource is Study/Series, there's a potential for inconsistent study/series level metadata across multiple instances. For example, two instances could have different patientName. In this case, the latest wins and you can search only on the latest data.
 * Paged results are optimized to return matched _newest_ instance first, this may result in duplicate records in subsequent pages if newer data matching the query was added.
 * Matching is case in-sensitive and accent in-sensitive for PN VR types.
 * Matching is case in-sensitive and accent sensitive for other string VR types.
 * Only the first value is indexed of a single valued data element that incorrectly has multiple values.
+* Using the default attributes or limiting the number of results requested maximizes performance.
 
 ### Delete
 
@@ -598,7 +684,7 @@ There are [four valid Workitem states](https://dicom.nema.org/medical/dicom/curr
 * `CANCELED`
 * `COMPLETED`
 
-This transaction only succeeds against Workitems in the `SCHEDULED` state. Any user can claim ownership of a Workitem by setting its Transaction UID and changing its state to `IN PROGRESS`. From then on, a user can only modify the Workitem by providing the correct Transaction UID. While UPS defines Watch and Event SOP classes that allow cancellation requests and other events to be forwarded, this DICOM service doesn't implement these classes, and so cancellation requests on workitems that are `IN PROGRESS` returns failure. An owned Workitem can be canceled via the [Change Workitem State](#change-workitem-state) transaction.
+This transaction will only succeed against Workitems in the `SCHEDULED` state. Any user can claim ownership of a Workitem by setting its Transaction UID and changing its state to `IN PROGRESS`. From then on, a user can only modify the Workitem by providing the correct Transaction UID. While UPS defines Watch and Event SOP classes that allow cancellation requests and other events to be forwarded, this DICOM service doesn't implement these classes, and so cancellation requests on workitems that are `IN PROGRESS` will return failure. An owned Workitem can be canceled via the [Change Workitem State](#change-workitem-state) transaction.
 
 | Method  | Path                                            | Description                                      |
 | :------ | :---------------------------------------------- | :----------------------------------------------- |
@@ -619,6 +705,7 @@ The request payload may include Action Information as [defined in the DICOM Stan
 | `404 (Not Found)`              | The Target Workitem wasn't found. |
 | `409 (Conflict)`               | The request is inconsistent with the current state of the Target Workitem. For example, the Target Workitem is in the `SCHEDULED` or `COMPLETED` state. |
 | `415 (Unsupported Media Type)` | The provided `Content-Type` isn't supported. |
+| `503 (Service Unavailable)`    | The service is unavailable or busy. Try again later. |
 
 #### Request cancellation response payload
 
@@ -649,6 +736,7 @@ The `Accept` header is required and must have the value `application/dicom+json`
 | 401 (Unauthorized)           	| The client isn't authenticated. |
 | 403 (Forbidden)               | The user isn't authorized. |
 | 404 (Not Found)              	| The Target Workitem wasn't found. |
+| 503 (Service Unavailable)     | The service is unavailable or busy. Try again later. |
 
 #### Retrieve Workitem response payload
 
@@ -670,7 +758,7 @@ To update a Workitem currently in the `SCHEDULED` state, the `Transaction UID` a
 The `Content-Type` header is required, and must have the value `application/dicom+json`.
 
 The request payload contains a dataset with the changes to be applied to the target Workitem. When modifying a sequence, the request must include all Items in the sequence, not just the Items to be modified.
-When multiple Attributes need to be updated as a group, do this as multiple Attributes in a single request, not as multiple requests.
+When multiple Attributes need updated as a group, do this as multiple Attributes in a single request, not as multiple requests.
 
 There are many requirements related to DICOM data attributes in the context of a specific transaction. Attributes may be
 required to be present, required to not be present, required to be empty, or required to not be empty. These requirements can be
@@ -693,6 +781,7 @@ found in [this table](https://dicom.nema.org/medical/dicom/current/output/html/p
 | `404 (Not Found)`            	| The Target Workitem wasn't found. |
 | `409 (Conflict)`             	| The request is inconsistent with the current state of the Target Workitem. |
 | `415 (Unsupported Media Type)` | The provided `Content-Type` isn't supported. |
+| `503 (Service Unavailable)`    | The service is unavailable or busy. Try again later. |
 
 #### Update Workitem transaction response payload
 
@@ -731,6 +820,7 @@ The request payload shall contain the Change UPS State Data Elements. These data
 | `403 (Forbidden)`             | The user isn't authorized. |
 | `404 (Not Found)`             | The Target Workitem wasn't found. |
 | `409 (Conflict)`              | The request is inconsistent with the current state of the Target Workitem. |
+| `503 (Service Unavailable)`   | The service is unavailable or busy. Try again later. |
 
 #### Change Workitem state response payload
 
@@ -757,17 +847,17 @@ The following parameters for each query are supported:
 | Key              | Support Value(s)              | Allowed Count | Description |
 | :--------------- | :---------------------------- | :------------ | :---------- |
 | `{attributeID}=` | `{value}`                     | 0...N         | Search for attribute/ value matching in query. |
-| `includefield=`  | `{attributeID}`<br/>`all`     | 0...N         | The additional attributes to return in the response. Only top-level attributes can be specified to be included - not attributes that are part of sequences. Both public and private tags are supported. When `all` is provided, see [Search Response](#search-response) for more information about which attributes are returned for each query type. If a mixture of `{attributeID}` and `all` is provided, the server defaults to using 'all'. |
+| `includefield=`  | `{attributeID}`<br/>`all`     | 0...N         | The additional attributes to return in the response. Only top-level attributes can be specified to be included - not attributes that are part of sequences. Both public and private tags are supported. When `all` is provided, see [Search Response](#search-response) for more information about which attributes will be returned for each query type. If a mixture of `{attributeID}` and `all` is provided, the server defaults to using 'all'. |
 | `limit=`         | `{value}`                     | 0...1          | Integer value to limit the number of values returned in the response. Value can be between the range `1 >= x <= 200`. Defaulted to `100`. |
 | `offset=`        | `{value}`                     | 0...1          | Skip {value} results. If an offset is provided larger than the number of search query results, a `204 (no content)` response is returned. |
-| `fuzzymatching=` | `true` \| `false`             | 0...1          | If true fuzzy matching is applied to any attributes with the Person Name (PN) Value Representation (VR). It does a prefix word match of any name part inside these attributes. For example, if `PatientName` is `John^Doe`, then `joh`, `do`, `jo do`, `Doe` and `John Doe` all match. However `ohn` does **not** match. |
+| `fuzzymatching=` | `true` \| `false`             | 0...1          | If true fuzzy matching is applied to any attributes with the Person Name (PN) Value Representation (VR). It does a prefix word match of any name part inside these attributes. For example, if `PatientName` is `John^Doe`, then `joh`, `do`, `jo do`, `Doe` and `John Doe` all match. However `ohn` will **not** match. |
 
 ##### Searchable Attributes
 
 We support searching on these attributes:
 
-|Attribute Keyword|
-|:---| 
+| Attribute Keyword |
+| :---------------- |
 |`PatientName`|
 |`PatientID`|
 |`ReferencedRequestSequence.AccessionNumber`|
