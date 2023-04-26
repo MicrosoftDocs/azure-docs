@@ -23,20 +23,22 @@ ms.custom: devx-track-python, references_regions, contperf-fy21q1, contperf-fy21
 > * [SDK/CLI v1](v1/how-to-network-security-overview.md)
 > * [SDK/CLI v2 (current version)](how-to-network-security-overview.md)
 
-Secure Azure Machine Learning workspace resources and compute environments using virtual networks (VNets). This article uses an example scenario to show you how to configure a complete virtual network.
+Secure Azure Machine Learning workspace resources and compute environments using Azure Virtual Networks (VNets). This article uses an example scenario to show you how to configure a complete virtual network.
 
 > [!TIP]
-> This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
->
-> * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
-> * [Secure the training environment](how-to-secure-training-vnet.md)
-> * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
-> * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
-> * [Use custom DNS](how-to-custom-dns.md)
-> * [Use a firewall](how-to-access-azureml-behind-firewall.md)
-> * [API platform network isolation](how-to-configure-network-isolation-with-v2.md)
->
-> For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md) or [Tutorial: Create a secure workspace using a template](tutorial-create-secure-workspace-template.md).
+> Azure Machine Learning also provides **managed virtual networks** (preview). With a managed virtual network, Azure Machine Learning handles the job of network isolation for your workspace and managed computes. You can also add private endpoints for resources needed by the workspace, such as Azure Storage Account. For more information, see [Workspace managed network isolation](how-to-managed-network.md).
+
+This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
+
+* [Secure the workspace resources](how-to-secure-workspace-vnet.md)
+* [Secure the training environment](how-to-secure-training-vnet.md)
+* [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+* [Enable studio functionality](how-to-enable-studio-virtual-network.md)
+* [Use custom DNS](how-to-custom-dns.md)
+* [Use a firewall](how-to-access-azureml-behind-firewall.md)
+* [API platform network isolation](how-to-configure-network-isolation-with-v2.md)
+
+For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md) or [Tutorial: Create a secure workspace using a template](tutorial-create-secure-workspace-template.md).
 
 ## Prerequisites
 
