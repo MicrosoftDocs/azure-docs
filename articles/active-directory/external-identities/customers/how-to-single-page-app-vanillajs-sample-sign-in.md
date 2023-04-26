@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/17/2023
+ms.date: 04/26/2023
 ms.custom: developer
 
 #Customer intent: As a dev, devops, I want to learn about how to configure a sample vanilla JS SPA to sign in and sign out users with my Azure Active Directory (Azure AD) for customers tenant
@@ -38,20 +38,20 @@ In this article:
 
 ## Register the SPA in the Microsoft Entra admin center
 
-[!INCLUDE [active-directory-b2c-register-app](./customers/includes/register-app/register-client-app-common.md)]
-[!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./customers/includes/register-app/add-platform-redirect-url-vanilla-js.md)]
+[!INCLUDE [active-directory-b2c-register-app](./includes/register-app/register-client-app-common.md)]
+[!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/register-app/add-platform-redirect-url-vanilla-js.md)]
 
 ## Grant API permissions
 
-[!INCLUDE [active-directory-b2c-grant-delegated-permissions](./customers/includes/register-app/grant-api-permission-sign-in.md)]
+[!INCLUDE [active-directory-b2c-grant-delegated-permissions](/includes/register-app/grant-api-permission-sign-in.md)]
 
 ## Create a user flow
 
-[!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./customers/includes/configure-user-flow/create-sign-in-sign-out-user-flow.md)]
+[!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/configure-user-flow/create-sign-in-sign-out-user-flow.md)]
 
 ## Associate the SPA with the user flow
 
-[!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./customers/includes/configure-user-flow/add-app-user-flow.md)]
+[!INCLUDE [active-directory-b2c-app-integration-add-user-flow](.s/includes/configure-user-flow/add-app-user-flow.md)]
 
 ## Clone or download sample SPA
 
@@ -91,20 +91,6 @@ If you choose to download the `.zip` file, extract the sample app file to a fold
         * The *Tenant ID* is the identifier of the tenant where the application is registered. Replace the `_Enter_the_Tenant_Info_Here` with the **Directory (tenant) ID** value that was recorded earlier from the overview page of the registered application.
 1. Save the file.
 
-## Run and test sample web app
-
-1. Open a terminal window in the root directory of the sample project:
-
-    ```powershell
-        cd 1-Authentication\0-sign-in-vanillajs\App
-    ```
-
-1. Run the sample web app:
-
-    ```powershell
-        npm start
-    ```
-
 ## Run your project and sign in
 
 All the required code snippets have been added, so the application can now be called and tested in a web browser.
@@ -116,31 +102,13 @@ All the required code snippets have been added, so the application can now be ca
     npm start
     ```
 
-1. Open a web browser and navigate to the port specified in [Prepare a Single-page application for authentication](how-to-single-page-app-vanillajs-prepare-app.md). For example, `http://localhost:3000/ `.
+1. Open a web browser and navigate to `http://localhost:3000/`.
+
+1. Sign-in with an account registered to the CIAM tenant.
+
+1. Once signed in the display name is shown next to the **Sign out** button as shown in the following screenshot.
 
 <!-- SCREENSHOT -->
-
-1. When signing in, for the purposes of this how-to guide, choose the **Sign in using Popup** option..
-
-<!-- SCREENSHOT -->
-
-1. After the popup window appears with the sign-in options, select the account with which to sign-in.
-
-<!-- SCREENSHOT -->
-
-1. A second window may appear indicating that a code will be sent to your email address. If this happens, select Send code. Open the email from the sender Microsoft account team, and enter the 7-digit single-use code. Once entered, select Sign in.
-
-<!-- SCREENSHOT -->
-
-1. To stay signed in, you can select either Yes or No.
-
-<!-- SCREENSHOT -->
-
-1. The app will now ask for permission to sign-in and access data. Select Accept to continue.
-
-<!-- SCREENSHOT -->
-
-1. The SPA will now display a button saying Request Profile Information. Select it to display the Microsoft Graph profile data acquired from the Microsoft Graph API.
 
 ## Next steps
 

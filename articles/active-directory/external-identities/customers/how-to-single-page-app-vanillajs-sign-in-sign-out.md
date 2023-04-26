@@ -101,8 +101,7 @@ The main page of the application, *index.html*, is the first page that is loaded
         <!-- uncomment the above line and comment the line below if you would like to use the redirect flow -->
         <script type="text/javascript" src="./authPopup.js"></script>
     </body>
-    
-</html>
+    </html>
     ```
 
 1. Save the file.
@@ -211,7 +210,7 @@ Now that all the required code snippets have been added, the application can be 
 1. Select **No account? Create one**, which starts the sign-up flow.
 1. In the **Create account** window, enter the email address registered to your CIAM tenant which will start the sign-up flow as a user for your application.
 1. After entering a one-time passcode from the CIAM tenant, enter a new password and more account details, this sign-up flow is completed.
-    1. If a window appears prompting you to **Stay signed in**, choose either **Yes** or **No**.
+1. If a window appears prompting you to **Stay signed in**, choose either **Yes** or **No**.
 1. The SPA will now display a button saying **Request Profile Information**. Select it to display profile data.
 
 <!-- SCREENSHOT -->

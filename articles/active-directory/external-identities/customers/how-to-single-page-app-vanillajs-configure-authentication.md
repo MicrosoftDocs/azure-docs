@@ -35,7 +35,7 @@ In this article:
 
 ## Creating the authentication configuration file
 
-The application uses the [Implicit Grant Flow](../develop\v2-oauth2-implicit-grant-flow.md) to authenticate users. The Implicit Grant Flow is a browser-based flow that does not require a back-end server. The flow redirects the user to the Azure AD CIAM sign-in page, where the user signs in and consents to the permissions that are being requested by the application. The purpose of *authConfig.js* is to configure the authentication flow.
+The application uses the [Implicit Grant Flow](../../develop/v2-oauth2-implicit-grant-flow.md) to authenticate users. The Implicit Grant Flow is a browser-based flow that does not require a back-end server. The flow redirects the user to the Azure AD CIAM sign-in page, where the user signs in and consents to the permissions that are being requested by the application. The purpose of *authConfig.js* is to configure the authentication flow.
 
 1. In your IDE, create a new folder and name it **public**
 1. In the *public* folder, create a new file and name it *authConfig.js*.
@@ -117,9 +117,8 @@ The application uses the [Implicit Grant Flow](../develop\v2-oauth2-implicit-gra
 
 1. Replace the following values with the values from the Admin center.
     * `clientId` - The identifier of the application, also referred to as the client. Replace `Enter_the_Application_Id_Here` with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
-    * `authority` - This is composed of two parts:
-        * The *Instance* is endpoint of the cloud provider. Check with the different available endpoints in [National clouds](../develop\authentication-national-cloud.md#azure-ad-authentication-endpoints).
-        * The *Tenant ID* is the identifier of the tenant where the application is registered. Replace the `_Enter_the_Tenant_Info_Here` with the **Directory (tenant) ID** value that was recorded earlier from the overview page of the registered application.
+    * `authority` - The identity provider instance and sign-in audience for the app. Replace `Enter_the_Tenant_Name_Here` with the name of your CIAM tenant.
+    * The *Tenant ID* is the identifier of the tenant where the application is registered. Replace the `_Enter_the_Tenant_Info_Here` with the **Directory (tenant) ID** value that was recorded earlier from the overview page of the registered application.
 1. Save the file.
 
 ## Creating the redirection file
@@ -231,7 +230,7 @@ A redirection file is required to handle the response from the Azure AD CIAM sig
 
 ## Creating the authPopup.js file
 
-The application uses *authPopup.js* to  handle the authentication flow when the user signs in using the pop-up window. The pop-up window is used when the user is already signed in to Azure AD CIAM and the application needs to get an access token for a different resource. 
+The application uses *authPopup.js* to handle the authentication flow when the user signs in using the pop-up window. The pop-up window is used when the user is already signed in to Azure AD CIAM and the application needs to get an access token for a different resource. 
 
 1. Right-click the **public** folder and select **New File**. Name the file *authPopup.js*.
 1. Open *authPopup.js* and add the following code snippet:
