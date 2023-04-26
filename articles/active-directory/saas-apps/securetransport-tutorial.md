@@ -62,26 +62,26 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Identifier** textbox, type one of the following URLs:
+    a. In the **Identifier** textbox, type one of the following values:
 
-    | User type | URL |
+    | User type | value |
     |----------|----------|
     | Admin | `st.sso.admin`|
-    | Enduser | `st.sso.enduser` |
+    | End-user | `st.sso.enduser` |
 
     b. In the **Reply URL** textbox, type a URL using one of the following patterns:
 
     | User type | URL |
     |----------|----------|
     | Admin | `https://<SecureTransport_Address>:<PORT>/saml2/sso/post/j_security_check`|
-    | Enduser | `https://<SecureTransport_Address>:<PORT>/saml2/sso/post` |
+    | End-user | `https://<SecureTransport_Address>:<PORT>/saml2/sso/post` |
 
     c. In the **Sign on URL** textbox, type a URL using one of the following patterns:
 
     | User type | URL |
     |----------|----------|
     | Admin | `https://<SecureTransport_Address>:<PORT>` |
-    | Enduser | `https://<SecureTransport_Address>:<PORT>` |
+    | End-user | `https://<SecureTransport_Address>:<PORT>` |
     
     > [!NOTE]
     > These values are not real. Update these values with the actual Reply URL and Sign on URL. Contact [SecureTransport Client support team](mailto:support@axway.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
