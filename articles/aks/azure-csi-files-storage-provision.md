@@ -381,6 +381,8 @@ The following example demonstrates how to mount a file share as a persistent vol
     apiVersion: v1
     kind: PersistentVolume
     metadata:
+      annotations:
+        pv.kubernetes.io/provisioned-by: file.csi.azure.com
       name: azurefile
     spec:
       capacity:

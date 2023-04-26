@@ -4,7 +4,7 @@ description: Learn how to create assessment for Azure App Service in Azure Migra
 author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
-ms.date: 06/27/2022
+ms.date: 02/28/2023
 ms.custom: engagement-fy23
 ---
 

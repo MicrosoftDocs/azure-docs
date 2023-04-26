@@ -84,9 +84,9 @@ To learn more about copying blobs using the Azure Blob Storage client library fo
 
 ### REST API operations
 
-The Azure SDK for Python contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Python paradigms. The client library methods for copying blobs use the following REST API operations:
+The Azure SDK for Python contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Python paradigms. The client library methods covered in this article use the following REST API operations:
 
-- [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url) (REST API)
+- [Copy Blob](/rest/api/storageservices/copy-blob) (REST API)
 - [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob) (REST API)
 
 ### Code samples

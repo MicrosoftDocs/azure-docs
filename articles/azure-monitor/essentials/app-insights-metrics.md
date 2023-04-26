@@ -5,7 +5,7 @@ author: vgorbenko
 services: azure-monitor  
 ms.topic: reference
 ms.date: 07/03/2019    
-ms.author: vitalyg
+ms.reviewer: vitalyg
 ---
 
 # Application Insights log-based metrics

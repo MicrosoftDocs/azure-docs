@@ -3,7 +3,7 @@ author: nayenama
 ms.author: nayenama
 ms.service: purview
 ms.topic: include
-ms.date: 2/17/2023
+ms.date: 03/23/2023
 ---
 
 1. To find a data asset, use Microsoft Purview's [search](../how-to-search-catalog.md) or [browse](../how-to-browse-catalog.md) functionality.
@@ -13,7 +13,7 @@ ms.date: 2/17/2023
 1. Select the asset to go to asset details.
 
 1. Select **Request access**.
-    
+
     :::image type="content" source="./media/how-to-self-service-request-access/request-access.png" alt-text="Screenshot of a data asset's overview page, with the Request button highlighted in the mid-page menu.":::
 
     > [!NOTE]

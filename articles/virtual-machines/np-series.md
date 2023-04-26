@@ -5,7 +5,7 @@ author: charest
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 12/20/2022
+ms.date: 03/07/2023
 ms.author: marccharest
 ---
 

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/01/2022
+ms.date: 03/29/2023
 ---
 
 # Add conditions to control workflow actions in Azure Logic Apps
@@ -29,12 +29,11 @@ when the new item includes a specific string.
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have a subscription, 
-[sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 * Basic knowledge about [logic app workflows](../logic-apps/logic-apps-overview.md)
 
-* To follow the example in this article, [create an example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md) with an Outlook.com account or a work or school account.
+* To follow the example in this article, [create an example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md) with either an Outlook.com account or a Microsoft work or school account.
 
 ## Add condition
 
@@ -49,8 +48,7 @@ when the new item includes a specific string.
    ![Add action between steps](./media/logic-apps-control-flow-conditional-statement/add-action.png)
 
    When you want to add a condition at the end of your workflow, 
-   at the bottom of your logic app, 
-   choose  **New step** > **Add an action**.
+   under the last step in your workflow, choose  **New step** > **Add an action**.
 
 1. In the search box, enter "condition" as your filter. 
 Select this action: **Condition - Control**
@@ -96,7 +94,7 @@ This logic app now sends mail only when the new items in the RSS feed meet your 
 
 ## JSON definition
 
-Here's the high-level code definition behind a condition action:
+The following shows the high-level code definition behind the **Condition** action, but for the find full definition, see [If action - Schema reference guide for trigger and action types in Azure Logic Apps](logic-apps-workflow-actions-triggers.md#if-action).
 
 ``` json
 "actions": {

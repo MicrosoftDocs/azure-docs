@@ -111,15 +111,6 @@ IoT Edge uses the Microsoft.Azure.Devices.Client SDK. For more information, see 
 | IoT Edge version | Microsoft.Azure.Devices.Client SDK version |
 |------------------|--------------------------------------------|
 | 1.4              | 1.36.6                                     |
-| 1.3              | 1.36.6                                     |
-| 1.2.0            | 1.33.4-NestedEdge                          |
-| 1.1 (LTS)        | 1.28.0                                     |
-| 1.0.10           | 1.28.0                                     |
-| 1.0.9            | 1.21.1                                     |
-| 1.0.8            | 1.20.3                                     |
-| 1.0.7            | 1.20.1                                     |
-| 1.0.6            | 1.17.1                                     |
-| 1.0.5            | 1.17.1                                     |
 
 ## Virtual Machines
 

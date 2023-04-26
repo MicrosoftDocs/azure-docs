@@ -49,13 +49,14 @@ The following scenarios are supported in Azure Arc-enabled VMware vSphere (previ
 
 You can use Azure Arc-enabled VMware vSphere (preview) in these supported regions:
 
+- Australia East
+- Canada Central
 - East US
-
+- Southeast Asia
+- UK South
 - West Europe
 
-- Australia East
-
-- Canada Central
+For the most up-to-date information about region availability of Azure Arc-enabled VMware vSphere, see [Azure Products by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-arc&regions=all) page
 
 ## Data Residency
 

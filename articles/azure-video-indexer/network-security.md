@@ -2,6 +2,7 @@
 title: How to enable network security
 description: This article gives an overview of the Azure Video Indexer  network security options.
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 12/19/2022
 ms.author: juliako
 ---

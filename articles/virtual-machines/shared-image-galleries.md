@@ -35,7 +35,7 @@ When you use a gallery to store images, multiple resource types are created:
 
 ## Image definitions
 
-Image definitions are a logical grouping for versions of an image. The image definition holds information about why the image was created, what OS it is for, and other information about using the image. An image definition is like a plan for all of the details around creating a specific image. You don't deploy a VM from an image definition, but from the image versions created from the definition.
+Image definitions are a logical grouping for versions of an image. The image definition holds information about why the image was created and also contains Image metadata such as, what OS it is for, features it supports and other information about using the image. An image definition is like a plan for all of the details around creating a specific image. You don't deploy a VM from an image definition, but from the image versions created from the definition.
 
 There are three parameters for each image definition that are used in combination - **Publisher**, **Offer** and **SKU**. These are used to find a specific image definition. You can have image versions that share one or two, but not all three values.  For example, here are three image definitions and their values:
 
@@ -65,6 +65,23 @@ The following are other parameters that can be set on your image definition so t
 - Disallowed disk types - you can provide information about the storage needs for your VM. For example, if the image isn't suited for standard HDD disks, you add them to the disallow list.
 - Purchase plan information for Marketplace images - `-PurchasePlanPublisher`, `-PurchasePlanName`, and `-PurchasePlanProduct`. For more information about purchase plan information, see [Find images in the Azure Marketplace](./windows/cli-ps-findimage.md) and [Supply Azure Marketplace purchase plan information when creating images](marketplace-images.md).
 
+Image definition contains metadata of the image to allow grouping of images that support same features, plan, os state., os type etc. Some of the features, securitytype can be defined 
+
+-Features
+ - Accelerated Networking: Image supports Accelerated Networking
+
+-Architecture
+ - x64 or ARM64 [Architecture](https://learn.microsoft.com/cli/azure/sig/image-definition?&branch=main#az-sig-image-definition-create)
+
+-SecurityType
+ - TrustedLaunch - Image is capable of creating Trusted VMs 
+ - TrustedLaunchSupported - Image capable of creating either a Gen2 VM (or) Trusted Launch VM
+ - [Confidential VM](https://learn.microsoft.com/azure/confidential-computing/create-confidential-vm-from-compute-gallery#confidential-vm-images) - Image capable of creating Confidential VMs
+ - [ConfidentialVMSupported](https://learn.microsoft.com/azure/confidential-computing/create-confidential-vm-from-compute-gallery#confidential-vm-supported-images) - Image capable of creating either a Gen2 VM (or) Confidential VM
+ - TrustedLaunchAndConfidentialVmSupported - Image capable of creating a Gen 2 VM (or) Trusted VM (or) Confidential VM
+
+-Examples
+ - CLI examples for adding [Image Definition features](https://learn.microsoft.com/cli/azure/sig/image-definition?&branch=main#az-sig-image-definition-create)
 
 ## Image versions
 

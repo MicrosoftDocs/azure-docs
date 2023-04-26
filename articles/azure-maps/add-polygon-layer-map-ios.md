@@ -2,8 +2,8 @@
 title: Add a polygon layer to iOS maps
 titleSuffix: Microsoft Azure Maps
 description: Learn how to add polygons or circles to maps. See how to use the Azure Maps iOS SDK to customize geometric shapes and make them easy to update and maintain.
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 11/23/2021
 ms.topic: how-to
 ms.service: azure-maps

@@ -1,99 +1,75 @@
 ---
 title: Manage OT sensors from the on-premises management console
-description: Learn how to manage OT sensors from the on-premises management console, including updating sensor versions, pushing system settings to sensors, managing certificates, and enabling and disabling engines on sensors.
-ms.date: 06/02/2022
+description: Learn how to manage OT sensors from the on-premises management console, such as pushing system settings to OT sensors across your network.
+ms.date: 03/09/2023
 ms.topic: how-to
 ---
 
 # Manage sensors from the on-premises management console
 
-This article describes how to manage OT sensors from an on-premises management console, such as pushing system settings to individual sensors, or enabling or disabling specific engines on your sensors.
+This article describes how you can manage OT sensors from an on-premises management console, such as pushing system settings to OT sensors across your network.
 
-For more information, see [Next steps](#next-steps).
+## Prerequisites
 
-## Push configurations
+To perform the procedures in this article, make sure you have:
 
-You can define various system settings and automatically apply them to sensors that are connected to the management console. This saves time and helps ensure streamlined settings across your enterprise sensors.
+- An on-premises management console [installed](ot-deploy/install-software-on-premises-management-console.md) and [activated](ot-deploy/activate-deploy-management.md)
 
-You can define the following sensor system settings from the management console:
+- One or more OT network sensors [installed](ot-deploy/install-software-ot-sensor.md), [activated](ot-deploy/activate-deploy-sensor.md), and [connected to your on-premises management console](ot-deploy/connect-sensors-to-management.md)
 
-- Mail server
+- Access to the on-premises management console as an **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
-- SNMP MIB monitoring
+## Push system settings to OT sensors
 
-- Active Directory
+If you have an OT sensor already configured with system settings that you want to share across to other OT sensors, push those settings from the on-premises management console. Sharing system settings across OT sensors saves time and streamlines your settings across your system.
 
-- DNS settings
+Supported settings include:
 
-- Subnets
-
+- Mail server settings
+- SNMP MIB monitoring settings
+- Active Directory settings
+- DNS reverse lookup settings
+- Subnet settings
 - Port aliases
 
-**To apply system settings**:
+**To push system settings across OT sensors**:
 
-1. On the console's left pane, select **System Settings**.
+1. Sign into your on-premises management console and select **System settings**.
 
-1. On the **Configure Sensors** pane, select one of the options.
+1. Scroll down to view the **Configure Sensors** area and select the setting you want to push across your OT sensors.
 
-   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/sensor-system-setting-options.png" alt-text="The system setting options for a sensor.":::
+1. In the **Edit ... Configuration** dialog, select the OT sensor you want to share settings *from*. The dialog shows the current settings defined for the selected sensor.
 
-   The following example describes how to define mail server parameters for your enterprise sensors.
+1. Confirm that the current settings are the ones you want to share across your system, and then select **Duplicate**.
 
-1. Select **Mail Server**.
+1. Select **Save** to save your changes.
 
-   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/edit-system-settings-screen.png" alt-text="Select your mail server from the System Settings screen.":::
+The selected settings are applied across all connected OT sensors.
 
-1. Select a sensor on the left.
+## Monitor disconnected OT sensors
 
-1. Set the mail server parameters and select **Duplicate**. Each item in the sensor tree appears with a check box next to it.
+If you're working with locally managed OT network sensors and on-premises management console, we recommend that you forward alerts about OT sensors that are disconnected from the on-premises management console to partner services.
 
-   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/check-off-each-sensor.png" alt-text="Ensure the check boxes are selected for your sensors.":::
+### View OT sensor connection statuses
 
-1. In the sensor tree, select the items to which you want to apply the configuration.
+Sign into the on-premises management console and select **Site Management** to check for any disconnected sensors.
 
-1. Select **Save**.
+For example, you might see one of the following disconnection messages:
 
-## Understand sensor disconnection events
+- **The on-premises management console can’t process data received from the sensor.**
 
-The **Site Manager** window displays disconnection information if sensors disconnect from their assigned on-premises management console. The following sensor disconnection information is available:
+- **Times drift detected. The on-premises management console has been disconnected from sensor.**
 
-- "The on-premises management console can’t process data received from the sensor."
+- **Sensor not communicating with on-premises management console. Check network connectivity or certificate validation.**
 
-- "Times drift detected. The on-premises management console has been disconnected from sensor."
-
-- "Sensor not communicating with on-premises management console. Check network connectivity or certificate validation."
-
-:::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/edit-system-settings-screen.png" alt-text="Screenshot of the zone 1 view.":::
-
-You can send alerts to third parties with information about disconnected sensors. For more information, see [Forward sensor failure alerts](how-to-manage-individual-sensors.md#forward-sensor-failure-alerts).
-
-## Enable or disable sensors
-
-Sensors are protected by Defender for IoT engines. You can enable or disable the engines for connected sensors.
-
-| Engine | Description | Example scenario |
-|--|--|--|
-| Protocol violation engine | A protocol violation occurs when the packet structure or field values don't comply with the protocol specification. | "Illegal MODBUS Operation (Function Code Zero)" alert. This alert indicates that a primary device sent a request with function code 0 to a secondary device. This isn't allowed according to the protocol specification, and the secondary device might not handle the input correctly. |
-| Policy violation engine | A policy violation occurs with a deviation from baseline behavior defined in the learned or configured policy. | "Unauthorized HTTP User Agent" alert. This alert indicates that an application that wasn't learned or approved by the policy is used as an HTTP client on a device. This might be a new web browser or application on that device. |
-| Malware engine | The malware engine detects malicious network activity. | "Suspicion of Malicious Activity (Stuxnet)" alert. This alert indicates that the sensor found suspicious network activity known to be related to the Stuxnet malware, which is an advanced persistent threat aimed at industrial control and SCADA networks. |
-| Anomaly engine | The malware engine detects an anomaly in network behavior. | "Periodic Behavior in Communication Channel." This is a component that inspects network connections and finds periodic or cyclic behavior of data transmission, which is common in industrial networks. |
-| Operational engine | This engine detects operational incidents or malfunctioning entities. | `Device is Suspected to be Disconnected (Unresponsive)` alert. This alert triggered when a device isn't responding to any requests for a predefined period. It might indicate a device shutdown, disconnection, or malfunction.
-
-**To enable or disable engines for connected sensors:**
-
-1. In the console's left pane, select **System Settings**.
-
-1. In the **Sensor Engine Configuration** section, select **Enable** or **Disable** for the engines.
-
-1. Select **SAVE CHANGES**.
-
-   A red exclamation mark appears if there's a mismatch of enabled engines on one of your enterprise sensors. The engine might have been disabled directly from the sensor.
-
-   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/red-exclamation-example.png" alt-text="Mismatch of enabled engines.":::
+> [!TIP]
+> You may want to send alerts about your OT sensor connection status on the on-premises management console to partner services. 
+>
+> To do this, [create a forwarding alert rule](how-to-forward-alert-information-to-partners.md#create-forwarding-rules-on-an-on-premises-management-console) on your on-premises management console. In the **Create Forwarding Rule** dialog box, make sure to select **Report System Notifications**.
 
 ## Retrieve forensics data stored on the sensor
 
-Use Defender for IoT data mining reports on an OT network sensor to retrieve forensic data from that sensor’s storage. The following types of forensic data is stored locally on OT sensors, for devices detected by that sensor:
+Use Defender for IoT data mining reports on an OT network sensor to retrieve forensic data from that sensor’s storage. The following types of forensic data are stored locally on OT sensors, for devices detected by that sensor:
 
 - Device data
 - Alert data
@@ -101,163 +77,33 @@ Use Defender for IoT data mining reports on an OT network sensor to retrieve for
 - Event timeline data
 - Log files
 
-Each type of data has a different retention period and maximum capacity. For more information see [Create data mining queries](how-to-create-data-mining-queries.md) and [Data retention across Microsoft Defender for IoT](references-data-retention.md).
+Each type of data has a different retention period and maximum capacity. For more information, see [Create data mining queries](how-to-create-data-mining-queries.md) and [Data retention across Microsoft Defender for IoT](references-data-retention.md).
 
-## Define sensor backup schedules
+### Turn off learning mode from your on-premises management console
 
-You can schedule sensor backups and perform on-demand sensor backups from the on-premises management console. This helps protect against hard drive failures and data loss.
+A Microsoft Defender for IoT OT network sensor starts monitoring your network automatically after your [first sign-in](ot-deploy/activate-deploy-sensor.md#sign-in-to-your-ot-sensor). Network devices start appearing in your [device inventory](device-inventory.md), and [alerts](alerts.md) are triggered for any security or operational incidents that occur in your network.
 
-- What is backed up: Configurations and data.
+Initially, this activity happens in *learning* mode, which instructs your OT sensor to learn your network's usual activity, including the devices and protocols in your network, and the regular file transfers that occur between specific devices. Any regularly detected activity becomes your network's [baseline traffic](ot-deploy/create-learned-baseline.md).
 
-- What isn't backed up: PCAP files and logs. You can manually back up and restore PCAPs and logs.
+This procedure describes how to turn off learning mode manually for all connected sensors if you feel that the current alerts accurately reflect your network activity.
 
-By default, sensors are automatically backed up at 3:00 AM daily. The backup schedule feature for sensors lets you collect these backups and store them on the on-premises management console or on an external backup server. Copying files from sensors to the on-premises management console happens over an encrypted channel.
+**To turn off learning mode**:
 
-:::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/sensor-backup-schedule-screen.png" alt-text="A view of the sensor backup screen.":::
+1. Sign into your on-premises management console and select **System Settings**.
 
-When the default sensor backup location is changed, the on-premises management console automatically retrieves the files from the new location on the sensor or an external location, provided that the console has permission to access the location.
+1. In the **Sensor Engine Configuration** section, select one or more OT sensors you want to apply settings for, and clear the **Learning Mode** option.
 
-When the sensors aren't registered with the on-premises management console, the **Sensor Backup Schedule** dialog box indicates that no sensors are managed.  
-
-The restore process is the same regardless of where the files are stored. For more information on how to restore a sensor, see [Restore sensors](how-to-manage-individual-sensors.md#restore-sensors).
-
-### Backup storage for sensors
-
-You can use the on-premises management console to maintain up to nine backups for each managed sensor, provided that the backed-up files don't exceed the maximum backup space that's allocated.
-
-The available space is calculated based on the management console model you're working with:
-
-- **Production model**: Default storage is 40 GB; limit is 100 GB.
-
-- **Medium model**: Default storage is 20 GB; limit is 50 GB.
-
-- **Laptop model**: Default storage is 10 GB; limit is 25 GB.
-
-- **Thin model**: Default storage is 2 GB; limit is 4 GB.
-
-- **Rugged model**: Default storage is 10 GB; limit is 25 GB.
-
-The default allocation is displayed in the **Sensor Backup Schedule** dialog box.
-
-:::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/edit-mail-server-configuration.png" alt-text="The Edit Mail Server Configuration screen.":::
-
-There's no storage limit when you're backing up to an external server. You must, however, define an upper allocation limit in the **Sensor Backup Schedule** > **Custom Path** field. The following numbers and characters are supported: `/, a-z, A-Z, 0-9, and _`.
-
-Here's information about exceeding allocation storage limits:
-
-- If you exceed the allocated storage space, the sensor isn't backed up.
-
-- If you're backing up more than one sensor, the management console tries to retrieve sensor files for the managed sensors.  
-
-- If the retrieval from one sensor exceeds the limit, the management console tries to retrieve backup information from the next sensor.
-
-When you exceed the retained number of backups defined, the oldest backed-up file is deleted to accommodate the new one.
-
-Sensor backup files are automatically named in the following format: `<sensor name>-backup-version-<version>-<date>.tar`. For example: `Sensor_1-backup-version-2.6.0.102-2019-06-24_09:24:55.tar`.
-
-**To back up sensors:**
-
-1. Select **Schedule Sensor Backup** from the **System Settings** window. Sensors that your on-premises management console manages appear in the **Sensor Backup Schedule** dialog box.  
-
-1. Enable the **Collect Backups** toggle.  
-
-1. Select a calendar interval, date, and time zone. The time format is based on a 24-hour clock. For example, enter 6:00 PM as **18:00**.
-
-1. In the **Backup Storage Allocation** field, enter the storage that you want to allocate for your backups. You're notified if you exceed the maximum space.
-
-1. In the **Retain Last** field, indicate the number of backups per sensor you want to retain. When the limit is exceeded, the oldest backup is deleted.  
-
-1. Choose a backup location:  
-
-   - To back up to the on-premises management console, disable the **Custom Path** toggle. The default location is `/var/cyberx/sensor-backups`.  
-
-   - To back up to an external server, enable the **Custom Path** toggle and enter a location. The following numbers and characters are supported: `/, a-z, A-Z, 0-9, and, _`.
-
-1. Select **Save**.
-
-**To back up immediately:**
-
-- Select **Back Up Now**. The on-premises management console creates and collects sensor backup files.
-
-### Receiving backup notifications for sensors
-
-The **Sensor Backup Schedule** dialog box and the backup log automatically list information about backup successes and failures.  
-
-:::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/sensor-location.png" alt-text="View your sensors and where they're located and all relevant information.":::
-
-Failures might occur because:
-
-- No backup file is found.
-
-- A file was found but can't be retrieved.  
-
-- There's a network connection failure.
-
-- There's not enough room allocated to the on-premises management console to complete the backup.  
-
-You can send an email notification, syslog updates, and system notifications when a failure occurs. To do this, create a forwarding rule in **Forwarding**.
-
-### Save a sensor backup to an external SMB server
-
-**To set up an SMB server so you can save a sensor backup to an external drive:**
-
-1. Create a shared folder in the external SMB server.
-
-1. Get the folder path, username, and password required to access the SMB server.
-
-1. In Defender for IoT, make a directory for the backups:
-
-    ```bash
-    sudo mkdir /<backup_folder_name_on_server> 
-    
-    sudo chmod 777 /<backup_folder_name_on_server>/
-    ```
-
-1. Edit fstab:  
-
-    ```bash
-    sudo nano /etc/fstab
-
-    add - //<server_IP>/<folder_path> /<backup_folder_name_on_cyberx_server> cifs rw,credentials=/etc/samba/user,vers=3.0,uid=cyberx,gid=cyberx,file_mode=0777,dir_mode=0777 0 0
-    ```
-
-1. Edit or create credentials to share. These are the credentials for the SMB server:
-
-    ```bash
-    sudo nano /etc/samba/user
-    ```
-
-1. Add:  
-
-    ```bash
-    username=<user name>
-
-    password=<password>
-    ```
-
-1. Mount the directory:
-
-    ```bash
-    sudo mount -a
-    ```
-
-1. Configure a backup directory to the shared folder on the Defender for IoT sensor:  
-
-    ```bash
-    sudo nano /var/cyberx/properties/backup.properties 
-    ```
-
-1. Set `Backup.shared_location` to `<backup_folder_name_on_cyberx_server>`.
+1. Select **SAVE CHANGES** to save your changes.
 
 ## Next steps
 
 For more information, see:
 
 - [Manage individual sensors](how-to-manage-individual-sensors.md)
-- [Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md)
 - [Connect your OT sensors to the cloud](connect-sensors.md)
 - [Track sensor activity](how-to-track-sensor-activity.md)
 - [Update OT system software](update-ot-software.md)
+- [Troubleshoot on-premises management console](how-to-troubleshoot-on-premises-management-console.md)
 - [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
-- [Maintain threat intelligence packages on OT network sensors](how-to-work-with-threat-intelligence-packages.md)
-- [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
+- [Manage threat intelligence packages on OT sensors](how-to-work-with-threat-intelligence-packages.md)
+- [Control the OT traffic monitored by Microsoft Defender for IoT](how-to-control-what-traffic-is-monitored.md)

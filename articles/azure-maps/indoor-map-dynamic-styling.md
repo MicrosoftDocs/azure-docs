@@ -136,7 +136,7 @@ Learn more by reading:
 [Feature State service]: /rest/api/maps/v2/feature-state
 [Indoor Web module]: how-to-use-indoor-module.md
 <!--[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[Subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [A Creator resource]: how-to-manage-creator.md
 [Sample Drawing package]: https://github.com/Azure-Samples/am-creator-indoor-data-examples/tree/master/Drawing%20Package%202.0-->
 [How to use the Indoor Map module]: how-to-use-indoor-module.md

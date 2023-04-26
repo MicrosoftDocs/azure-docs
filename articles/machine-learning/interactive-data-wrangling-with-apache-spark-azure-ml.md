@@ -62,6 +62,9 @@ The Notebooks UI also provides options for Spark session configuration, for the 
 
 1. Select **Configure session** at the bottom of the screen.
 1. Select a version of **Apache Spark** from the dropdown menu.
+   > [!IMPORTANT]
+   >
+   > End of life announcement (EOLA) for Azure Synapse Runtime for Apache Spark 3.1 was made on January 26, 2023. In accordance, Apache Spark 3.1 will not be supported after July 31, 2023. We recommend that you use Apache Spark 3.2.
 1. Select **Instance type** from the dropdown menu. The following instance types are currently supported:
     - `Standard_E4s_v3`
     - `Standard_E8s_v3`

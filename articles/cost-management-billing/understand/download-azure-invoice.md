@@ -8,7 +8,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 06/08/2022
+ms.date: 03/24/2023
 ms.author: banders
 ---
 
@@ -162,7 +162,10 @@ You must have an owner, contributor, reader, or an invoice manager role on a bil
 
 ## Get your billing profile's invoice in email
 
-You must have an owner or a contributor role on the billing profile or its billing account to update its email invoice preference. Once you have opted-in, all users with an owner, contributor, readers, and invoice manager roles on a billing profile will get its invoice in email. 
+You must have an owner or a contributor role on the billing profile or its billing account to update its email invoice preference. Once you have opted-in, all users with an owner, contributor, readers, and invoice manager roles on a billing profile will get its invoice in email.
+
+> [!NOTE]
+> The *send by email* and *invoice email preference* invoice functionality isn’t supported for Microsoft Customer Agreements when you work with a Microsoft partner.
 
 1.  Sign in to the [Azure portal](https://portal.azure.com).
 1.  Search for **Cost Management + Billing**.  

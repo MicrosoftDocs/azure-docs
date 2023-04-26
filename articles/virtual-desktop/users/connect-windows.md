@@ -62,6 +62,9 @@ Once you've downloaded the Remote Desktop client, you'll need to install it by f
 
 1. If you left the box for **Launch Remote Desktop when setup exits** selected, the Remote Desktop client will automatically open. Alternatively to launch the client after installation, use the Start menu to search for and select **Remote Desktop**.
 
+> [!IMPORTANT]
+> If you have the Remote Desktop client for Windows and the [Azure Virtual Desktop app](connect-windows-azure-virtual-desktop-app.md) installed on the same device, you may see the message that begins **A version of this application called Azure Virtual Desktop was installed from the Microsoft Store**. Both apps are supported, and you have the option to choose **Continue anyway**, however it could be confusing to use the same remote resource across both apps. We recommend using only one version of the app at a time.
+
 ## Subscribe to a workspace
 
 A workspace combines all the desktops and applications that have been made available to you by your admin. To be able to see these in the Remote Desktop client, you need to subscribe to the workspace by following these steps:
@@ -97,7 +100,7 @@ Once you've subscribed to a workspace, its content will update automatically reg
 
 ## Connect to your desktops and applications
 
-1. Open the **Remote Desktop** app on your device.
+1. Open the **Remote Desktop** client on your device.
 
 1. Double-click one of the icons to launch a session to Azure Virtual Desktop. You may be prompted to enter the password for your user account again, depending on how your admin has configured Azure Virtual Desktop.
 
