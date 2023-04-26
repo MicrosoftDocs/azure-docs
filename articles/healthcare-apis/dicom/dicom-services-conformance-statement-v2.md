@@ -46,7 +46,7 @@ You can find example requests for supported transactions in the [Postman collect
 
 ## Preamble Sanitization
 
-The service ignores the 128-byte File Preamble, and replaces its contents with null characters. This behavior ensures that no files passed through the service are vulnerable to the [malicious preamble vulnerability](https://dicom.nema.org/medical/dicom/current/output/chtml/part10/sect_7.5.html). However, this also means that [preambles used to encode dual format content](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6489422/) such as TIFF can't be used with the service.
+The service ignores the 128-byte File Preamble, and replaces its contents with null characters. This behavior ensures that no files passed through the service are vulnerable to the [malicious preamble vulnerability](https://dicom.nema.org/medical/dicom/current/output/chtml/part10/sect_7.5.html). However, this preamble sanitization also means that [preambles used to encode dual format content](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6489422/) such as TIFF can't be used with the service.
 
 ## Studies Service
 
@@ -91,12 +91,13 @@ Each file stored must have a unique combination of `StudyInstanceUID`, `SeriesIn
 
 Only transfer syntaxes with explicit Value Representations are accepted.
 
+> [!NOTE]
 > Requests are limited to 2GB. No single DICOM file or combination of files may exceed this limit.
 
 #### Store changes from v1
-In previous versions, a Store request would fail if any of the [required](#store-required-attributes) or [searchable attributes](#searchable-attributes) failed validation. Beginning with V2, the request will only fail if **required attributes** fail validation.
+In previous versions, a Store request would fail if any of the [required](#store-required-attributes) or [searchable attributes](#searchable-attributes) failed validation. Beginning with V2, the request fails only if **required attributes** fail validation.
 
-Failed validation of attributes not required by the API results in the file being stored and a warning is given about each failing attribute per instance.
+Failed validation of attributes not required by the API results in the file being stored with a warning. A warning is given about each failing attribute per instance.
 When a sequence contains an attribute that fails validation, or when there are multiple issues with a single attribute, only the first failing attribute reason is noted.
 
 #### Store response status codes
@@ -130,7 +131,7 @@ Each dataset in the `FailedSOPSequence` has the following elements (if the DICOM
 | (0008, 1150) | `ReferencedSOPClassUID`    | The SOP class unique identifier of the instance that failed to store.              |
 | (0008, 1155) | `ReferencedSOPInstanceUID` | The SOP instance unique identifier of the instance that failed to store.           |
 | (0008, 1197) | `FailureReason`            | The reason code why this instance failed to store.                                 |
-| (0008, 1196) | `WarningReason`            | A `WarningReason` indicates validation issues that were detected but were not severe enough to fail the store operation.        |
+| (0008, 1196) | `WarningReason`            | A `WarningReason` indicates validation issues that were detected but weren't severe enough to fail the store operation.        |
 | (0074, 1048) | `FailedAttributesSequence` | The sequence of `ErrorComment` that includes the reason for each failed attribute. |
 
 Each dataset in the `ReferencedSOPSequence` has the following elements:
@@ -348,7 +349,7 @@ The following `Accept` header is supported for retrieving metadata for a study, 
 
 * `application/dicom+json`
 
-Retrieving metadata will not return attributes with the following value representations:
+Retrieving metadata won't return attributes with the following value representations:
 
 | VR Name | Description            |
 | :------ | :--------------------- |
@@ -365,7 +366,7 @@ Retrieving metadata will not return attributes with the following value represen
 Cache validation is supported using the `ETag` mechanism. In the response to a metadata request, ETag is returned as one of the headers. This ETag can be cached and added as `If-None-Match` header in the later requests for the same metadata. Two types of responses are possible if the data exists:
 
 * Data hasn't changed since the last request: `HTTP 304 (Not Modified)` response is sent with no response body.
-* Data has changed since the last request: `HTTP 200 (OK)` response is sent with updated ETag. Required data will also be returned as part of the body.
+* Data has changed since the last request: `HTTP 200 (OK)` response is sent with updated ETag. Required data is returned as part of the body.
 
 ### Retrieve response status codes
 
@@ -401,7 +402,7 @@ The following `Accept` header(s) are supported for searching:
 * `application/dicom+json`
 
 ### Search changes from v1
-In the v1 API and continued for v2, if an [extended query tag](dicom-extended-query-tags-overview.md) has any errors, because one or more of the existing instances had a tag value that could not be indexed, then subsequent search queries containing the extended query tag will return `erroneous-dicom-attributes` as detailed in the [documentation](dicom-extended-query-tags-overview.md#tag-query-status). However, tags (also known as attributes) with validation warnings from STOW-RS are **not** included in this header. If a store request results in validation warnings on [searchable tags](#searchable-attributes), subsequent searches containing these tags will not consider any DICOM SOP instance that produced a warning. This may result in incomplete search results.
+In the v1 API and continued for v2, if an [extended query tag](dicom-extended-query-tags-overview.md) has any errors, because one or more of the existing instances had a tag value that couldn't be indexed, then subsequent search queries containing the extended query tag will return `erroneous-dicom-attributes` as detailed in the [documentation](dicom-extended-query-tags-overview.md#tag-query-status). However, tags (also known as attributes) with validation warnings from STOW-RS are **not** included in this header. If a store request results in validation warnings on [searchable tags](#searchable-attributes), subsequent searches containing these tags won't consider any DICOM SOP instance that produced a warning. This behavior may result in incomplete search results.
 To correct an attribute, delete the stored instance and upload the corrected data.
 
 ### Supported search parameters
@@ -414,7 +415,7 @@ The following parameters for each query are supported:
 | `includefield=`  | `{attributeID}`<br/>`all`   | 0...N         | The additional attributes to return in the response. Both, public and private tags are supported.<br/>When `all` is provided, refer to [Search Response](#search-response) for more information about which attributes are returned for each query type.<br/>If a mixture of `{attributeID}` and `all` is provided, the server defaults to using `all`. |
 | `limit=`         | `{value}`                       | 0..1          | Integer value to limit the number of values returned in the response.<br/>Value can be between the range 1 >= x <= 200. Defaulted to 100. |
 | `offset=`        | `{value}`                       | 0..1          | Skip `{value}` results.<br/>If an offset is provided larger than the number of search query results, a 204 (no content) response is returned. |
-| `fuzzymatching=` | `true` / `false`             | 0..1          | If true fuzzy matching is applied to PatientName attribute. It does a prefix word match of any name part inside PatientName value. For example, if PatientName is "John^Doe", then "joh", "do", "jo do", "Doe" and "John Doe" will all match. However "ohn" won't match. |
+| `fuzzymatching=` | `true` / `false`             | 0..1          | If true fuzzy matching is applied to PatientName attribute. It does a prefix word match of any name part inside PatientName value. For example, if PatientName is "John^Doe", then "joh", "do", "jo do", "Doe" and "John Doe" all match. However "ohn" doesn't match. |
 
 #### Searchable attributes
 
@@ -443,7 +444,7 @@ We support the following matching types.
 
 | Search Type | Supported Attribute | Example |
 | :---------- | :------------------ | :------ |
-| Range Query | `StudyDate`/`PatientBirthDate` | `{attributeID}={value1}-{value2}`. For date/ time values, we support an inclusive range on the tag. This will be mapped to `attributeID >= {value1} AND attributeID <= {value2}`. If `{value1}` isn't specified, all occurrences of dates/times prior to and including `{value2}` will be matched. Likewise, if `{value2}` isn't specified, all occurrences of `{value1}` and subsequent dates/times will be matched. However, one of these values has to be present. `{attributeID}={value1}-` and `{attributeID}=-{value2}` are valid, however, `{attributeID}=-` is invalid. |
+| Range Query | `StudyDate`/`PatientBirthDate` | `{attributeID}={value1}-{value2}`. For date/ time values, we support an inclusive range on the tag. This is mapped to `attributeID >= {value1} AND attributeID <= {value2}`. If `{value1}` isn't specified, all occurrences of dates/times prior to and including `{value2}` are matched. Likewise, if `{value2}` isn't specified, all occurrences of `{value1}` and subsequent dates/times are matched. However, one of these values has to be present. `{attributeID}={value1}-` and `{attributeID}=-{value2}` are valid, however, `{attributeID}=-` is invalid. |
 | Exact Match | All supported attributes | `{attributeID}={value1}` |
 | Fuzzy Match | `PatientName`, `ReferringPhysicianName` | Matches any component of the name that starts with the value. |
 
@@ -647,10 +648,11 @@ There are several requirements related to DICOM data attributes in the context o
 required to be present, required to not be present, required to be empty, or required to not be empty. These requirements can be
 found [in this table](https://dicom.nema.org/medical/dicom/current/output/html/part04.html#table_CC.2.5-3).
 
-Notes on dataset attributes:
+> [!NOTE]
+> Although the reference table above says that SOP Instance UID shouldn't be present, this guidance is specific to the DIMSE protocol and is handled differently in DICOMWeb™. SOP Instance UID should be present in the dataset if not in the URI.
 
-* **SOP Instance UID:** Although the reference table above says that SOP Instance UID shouldn't be present, this guidance is specific to the DIMSE protocol and is handled differently in DICOMWeb™. SOP Instance UID should be present in the dataset if not in the URI.
-* **Conditional requirement codes:** All the conditional requirement codes including 1C and 2C are treated as optional.
+> [!NOTE]
+> All the conditional requirement codes including 1C and 2C are treated as optional.
 
 #### Create response status codes
 
@@ -761,11 +763,11 @@ There are many requirements related to DICOM data attributes in the context of a
 required to be present, required to not be present, required to be empty, or required to not be empty. These requirements can be
 found in [this table](https://dicom.nema.org/medical/dicom/current/output/html/part04.html#table_CC.2.5-3).
 
-Notes on dataset attributes:
+> [!NOTE]
+> All the conditional requirement codes including 1C and 2C are treated as optional.
 
-* **Conditional requirement codes:** All the conditional requirement codes including 1C and 2C are treated as optional.
-
-* The request can't set the value of the Procedure Step State (0074,1000) attribute. Procedure Step State is managed using the Change State transaction, or the Request Cancellation transaction.
+> [!NOTE]
+> The request can't set the value of the Procedure Step State (0074,1000) attribute. Procedure Step State is managed using the Change State transaction, or the Request Cancellation transaction.
 
 #### Update Workitem transaction response status codes
 

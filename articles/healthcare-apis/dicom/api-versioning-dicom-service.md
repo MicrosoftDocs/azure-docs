@@ -52,18 +52,18 @@ We currently only increment the major version whenever there's a breaking change
 
 Below are some examples of breaking changes (Major version is incremented):
 
-1. Renaming or removing endpoints.
-2. Removing parameters or adding mandatory parameters.
-3. Changing status code.
-4. Deleting a property in a response, or altering a response type at all, but it's okay to add properties to the response.
-5. Changing the type of a property.
-6. Behavior when an API changes such as changes in business logic used to do foo, but it now does bar.
+* Renaming or removing endpoints.
+* Removing parameters or adding mandatory parameters.
+* Changing status code.
+* Deleting a property in a response, or altering a response type at all, but it's okay to add properties to the response.
+* Changing the type of a property.
+* Behavior when an API changes such as changes in business logic used to do foo, but it now does bar.
 
 Non-breaking changes (Version isn't incremented):
 
-1. Addition of properties that are nullable or have a default value.
-2. Addition of properties to a response model.
-3. Changing the order of properties.
+* Addition of properties that are nullable or have a default value.
+* Addition of properties to a response model.
+* Changing the order of properties.
 
 ## Header in response
 
