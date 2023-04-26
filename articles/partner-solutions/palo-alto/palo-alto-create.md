@@ -2,6 +2,7 @@
 title: Create a Cloud NGFW by Palo Alto Networks Preview resource
 description: This article describes how to use the Azure portal to create a Cloud NGFW by Palo Alto Networks Preview resource.
 
+ms.custom: references_regions
 ms.topic: quickstart
 ms.date: 04/26/2023
 
