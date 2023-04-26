@@ -56,7 +56,7 @@ To assign an endpoint in the Azure portal, use the following steps:
 
 After a few minutes, **URL** shows the configured endpoint URL. Save the URL to use later.
 
-:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-overview.png" alt-text="Screenshot of Azure portal showing the Spring Cloud Gateway overview page for an Azure Spring Apps instance. The Assign endpoint buttons are highlighted and the configured endpoint URL is displayed." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-overview.png":::
+:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-overview.png" alt-text="Screenshot of the Azure portal showing the Spring Cloud Gateway overview page with Assign endpoint highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-overview.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
