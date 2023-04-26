@@ -2,15 +2,15 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: radubulboaca
-manager: mariusu
+author: mrayyan
+manager: alexokun
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 09/08/2022
+ms.date: 04/25/2023
 ms.topic: include
 ms.custom: include file
-ms.author: antonsamson
+ms.author: mrayyan
 ---
 
 ## Prerequisites
@@ -37,7 +37,7 @@ mvn archetype:generate -DgroupId=com.contoso.app -DartifactId=rooms-quickstart -
 
 ### Include the package
 
-You'll need to use the Azure Communication Rooms client library for Java [version 1.0.0-beta.2](https://search.maven.org/artifact/com.azure/azure-communication-rooms/1.0.0-beta.2/jar) or above. 
+You'll need to use the Azure Communication Rooms client library for Java [version 1.0.0-beta.3](https://search.maven.org/artifact/com.azure/azure-communication-rooms/1.0.0-beta.3/jar) or above. 
 
 #### Include the BOM file
 
@@ -102,19 +102,18 @@ Create a new `room` with default properties using the code snippet below:
 ```java
 OffsetDateTime validFrom = OffsetDateTime.now();
 OffsetDateTime validUntil = validFrom.plusDays(30);
-RoomJoinPolicy roomJoinPolicy = RoomJoinPolicy.INVITE_ONLY;
 
 List<RoomParticipant> roomParticipants = new ArrayList<RoomParticipant>();
 
-roomParticipants.add(new RoomParticipant().setCommunicationIdentifier(new CommunicationUserIdentifier(USER_ID_1)).setRole(RoleType.CONSUMER));
-roomParticipants.add(new RoomParticipant().setCommunicationIdentifier(new CommunicationUserIdentifier(USER_ID_2)).setRole(RoleType.ATTENDEE));
+roomParticipants.add(new RoomParticipant(new CommunicationUserIdentifier(USER_ID_1)).setRole(ParticipantRole.ATTENDEE));
+roomParticipants.add(new RoomParticipant(new CommunicationUserIdentifier(USER_ID_2)).setRole(ParticipantRole.CONSUMER));
 
-return roomsClient.createRoom(
-    validFrom,
-    validUntil,
-    roomJoinPolicy,
-    roomParticipants
-);
+CreateRoomOptions roomOptions = new CreateRoomOptions()
+    .setValidFrom(validFrom)
+    .setValidUntil(validUntil)
+    .setParticipants(roomParticipants);
+
+return roomsClient.createRoom(roomOptions);
 ```
 
 Since `rooms` are server-side entities, you may want to keep track of and persist the `roomId` in the storage medium of choice. You can reference the `roomId` to view or update the properties of a `room` object.
@@ -135,16 +134,27 @@ The lifetime of a `room` can be modified by issuing an update request for the `V
 OffsetDateTime validFrom = OffsetDateTime.now().plusDays(1);
 OffsetDateTime validUntil = validFrom.plusDays(1);
 
-CommunicationRoom roomResult = roomsClient.updateRoom(roomId, validFrom, validUntil);
+UpdateRoomOptions updateRoomOptions = new UpdateRoomOptions()
+    .setValidFrom(validFrom)
+    .setValidUntil(validUntil);
+
+CommunicationRoom roomResult = roomsClient.updateRoom(roomId, updateRoomOptions);
 ```
 
-### Add new participants
+### Add or Update new participants
 
-To add new participants to a `room`, use the `addParticipants` method exposed on the client.
+To add new participants or update exisiting participant to a `room`, use the `addOrUpdateParticipants` method exposed on the client.
 
 ```java
-RoomParticipant newParticipant = new RoomParticipant().setCommunicationIdentifier(new CommunicationUserIdentifier(USER_ID_3)).setRole(RoleType.CONSUMER);
-ParticipantsCollection updatedParticipants = roomsClient.addParticipants(roomId, List.of(newParticipant));
+List<RoomParticipant> participantsToAddOrUpdate = new ArrayList<>();
+
+// New participant to add
+participantsToAddOrUpdate.add(new RoomParticipant(new CommunicationUserIdentifier(USER_ID_3)).setRole(ParticipantRole.PRESENTER));
+
+// Existing participant to update from Consumer -> Attendee
+participantsToAddOrUpdate.add(new RoomParticipant(new CommunicationUserIdentifier(USER_ID_2)).setRole(ParticipantRole.ATTENDEE));
+
+AddOrUpdateParticipantsResult addOrUpdateResult = roomsClient.addOrUpdateParticipants(roomId, participantsToAddOrUpdate);  
 ```
 
 Participants that have been added to a `room` become eligible to join calls.
@@ -155,8 +165,10 @@ Retrieve the list of participants for an existing `room` by referencing the `roo
 
 ```java
 try {
-     ParticipantsCollection participants = roomsClient.getParticipants(roomId);
-     System.out.println("Participants: \n" + listParticipantsAsString(participants.getParticipants()));
+     PagedIterable<RoomParticipant> participants = roomsClient.listParticipants(roomId);
+      for (RoomParticipant participant : participants) {
+         System.out.println(participant.getCommunicationIdentifier().getRawId() + " (" + participant.getRole() + ")");
+     }
 } catch (Exception ex) {
     System.out.println(ex);
 }
@@ -167,8 +179,13 @@ try {
 To remove a participant from a `room` and revoke their access, use the `removeParticipants` method.
 
 ```java
-RoomParticipant existingParticipant = new RoomParticipant().setCommunicationIdentifier(new CommunicationUserIdentifier(USER_ID_1));
-ParticipantsCollection updatedParticipants = roomsClient.removeParticipants(roomId, List.of(existingParticipant));
+
+List<CommunicationIdentifier> participantsToRemove = new ArrayList<>();
+
+participantsToRemove.add(participant1.getCommunicationIdentifier());
+participantsToRemove.add(participant2.getCommunicationIdentifier());
+
+RemoveParticipantsResult removeResult = roomsClient.removeParticipants(roomId, participantsToRemove);
 ```
 
 ### Delete room
