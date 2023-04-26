@@ -16,6 +16,9 @@ Nested virtualization enables you to create a multi-VM environment inside a lab'
 
 This article covers how to set up nested virtualization on a template machine in Azure Lab Services using Windows roles and tools directly.  There are a few things needed to enable a class to use nested virtualization.  The following steps describe how to manually set up an Azure Lab Services machine template with Hyper-V.  Steps are intended for Windows Server 2016 or Windows Server 2019.  
 
+> [!NOTE]
+> Virtualization applications other than Hyper-V are [*not* supported for nested virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization#3rd-party-virtualization-apps). This includes any software that requires hardware virtualization extensions.
+
 > [!IMPORTANT]
 > Select **Large (nested virtualization)** or **Medium (nested virtualization)** for the virtual machine size when creating the lab.  Nested virtualization will not work otherwise.  
 

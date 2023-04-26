@@ -39,6 +39,8 @@ Before setting up a lab with nested virtualization, here are a few things to tak
 
 - Hyper-V client VMs are licensed as independent machines. For information about licensing for Microsoft operation systems and products, see [Microsoft Licensing](https://www.microsoft.com/licensing/default). Check licensing agreements for any other software you use, before installing it on the template VM or client VMs.
 
+- Virtualization applications other than Hyper-V are [*not* supported for nested virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization#3rd-party-virtualization-apps). This includes any software that requires hardware virtualization extensions.
+
 ## Enable nested virtualization on a template VM
 
 To enable nested virtualiztion on a template VM, you first connect to the template VM with a remote desktop client. Then, you make a number of configuration changes inside the VM.
