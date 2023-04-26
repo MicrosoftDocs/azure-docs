@@ -41,7 +41,8 @@ The following steps walk you through how to deploy Bastion from your VM resource
 
 > [!NOTE]
 > The use of Azure Bastion with Azure Private DNS Zones is not supported at this time. Before you begin, please make sure that the virtual network where you plan to deploy your Bastion resource is not linked to a private DNS zone.
->
+>[!NOTE]
+> West Germany is not currently available for Bastion deployments due to capacity restraints. Please deploy your Bastion resource in another region.
 
 ### <a name="values"></a>Example values
 
@@ -57,6 +58,8 @@ You can use the following example values when creating this configuration, or yo
 | Virtual network | VNet1 |
 | Address space | 10.1.0.0/16 |
 | Subnets | FrontEnd: 10.1.0.0/24 |
+
+
 
 **Bastion values:**
 
