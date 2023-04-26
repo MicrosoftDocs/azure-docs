@@ -241,8 +241,8 @@ Use the steps to update your mapping to retrieve these codes.
 
     | Provisioning Job                                     | Account status attribute | Mapping expression       |
     | ---------------------------------------------------- | ------------------------ | ------------------------------------------------------------------------ |
-    | SuccessFactors to Active Directory User Provisioning | accountDisabled          | Switch(\[emplStatus\], "True", "A", "False", "U", "False", "P", "False") |
-    | SuccessFactors to Azure AD User Provisioning         | accountEnabled           | Switch(\[emplStatus\], "False", "A", "True", "U", "True", "P", "True")   |
+    | SuccessFactors to Active Directory User Provisioning | `accountDisabled`          | `Switch(\[emplStatus\], "True", "A", "False", "U", "False", "P", "False")` |
+    | SuccessFactors to Azure AD User Provisioning         | `accountEnabled`           | `Switch(\[emplStatus\], "False", "A", "True", "U", "True", "P", "True")`   |
 
 1. Save the changes.
 1. Test the configuration using [provision on demand](provision-on-demand.md). 
@@ -301,9 +301,9 @@ This section describes how you can update the JSONPath settings to definitely re
 
     | **String to find** | **String to use for replace** | **Purpose**  |
     | ------------------ | ----------------------------- | ------------ |
-    | $.employmentNav.results\[0\].<br>jobInfoNav.results\[0\].emplStatus | $.employmentNav..jobInfoNav..results\[?(@.emplStatusNav.externalCode == 'A' \|\| @.emplStatusNav.externalCode == 'U' \|\| @.emplStatusNav.externalCode == 'P' )\].emplStatusNav.externalCode | With this find-replace, we are adding the ability to expand emplStatusNav OData object.    |
-    | $.employmentNav.results\[0\].<br>jobInfoNav.results\[0\]            | $.employmentNav..jobInfoNav..results\[?(@.emplStatusNav.externalCode == 'A' \|\| @.emplStatusNav.externalCode == 'U' \|\| @.emplStatusNav.externalCode == 'P')\]                             | With this find-replace, we instruct the connector to always retrieve attributes associated with the active SuccessFactors EmpJobInfo record. Attributes associated with terminated/inactive records in SuccessFactors will be ignored. |
-    | $.employmentNav.results\[0\]                                    | $.employmentNav..results\[?(@.jobInfoNav..results\[?(@.emplStatusNav.externalCode == 'A' \|\| @.emplStatusNav.externalCode == 'U' \|\| @.emplStatusNav.externalCode == 'P')\])\]             | With this find-replace, we instruct the connector to always retrieve attributes associated with the active SuccessFactors Employment record. Attributes associated with terminated/inactive records in SuccessFactors will be ignored. |
+    | `$.employmentNav.results\[0\].<br>jobInfoNav.results\[0\].emplStatus` | `$.employmentNav..jobInfoNav..results\[?(@.emplStatusNav.externalCode == 'A' \|\| @.emplStatusNav.externalCode == 'U' \|\| @.emplStatusNav.externalCode == 'P' )\].emplStatusNav.externalCode` | With this find-replace, we are adding the ability to expand emplStatusNav OData object.    |
+    | `$.employmentNav.results\[0\].<br>jobInfoNav.results\[0\]`            | `$.employmentNav..jobInfoNav..results\[?(@.emplStatusNav.externalCode == 'A' \|\| @.emplStatusNav.externalCode == 'U' \|\| @.emplStatusNav.externalCode == 'P')\]`                             | With this find-replace, we instruct the connector to always retrieve attributes associated with the active SuccessFactors EmpJobInfo record. Attributes associated with terminated/inactive records in SuccessFactors will be ignored. |
+    | `$.employmentNav.results\[0\]`                                    | `$.employmentNav..results\[?(@.jobInfoNav..results\[?(@.emplStatusNav.externalCode == 'A' \|\| @.emplStatusNav.externalCode == 'U' \|\| @.emplStatusNav.externalCode == 'P')\])\]`             | With this find-replace, we instruct the connector to always retrieve attributes associated with the active SuccessFactors Employment record. Attributes associated with terminated/inactive records in SuccessFactors will be ignored. |
 
 1. Save the schema.
 1. The above process updates all JSONPath expressions. 
@@ -313,8 +313,8 @@ This section describes how you can update the JSONPath settings to definitely re
  
     | Provisioning Job | Account status attribute | Expression to use if account status is based on "activeEmploymentsCount" | Expression to use if account status is based on "emplStatus" value |
     | ----------------- | ------------------------ | ----------------------------- | ------------------------------------- |
-    | SuccessFactors to Active Directory User Provisioning | accountDisabled          | Switch(\[activeEmploymentsCount\], "False", "0", "True")                 | Switch(\[emplStatus\], "True", "A", "False", "U", "False", "P", "False") |
-    | SuccessFactors to Azure AD User Provisioning         | accountEnabled           | Switch(\[activeEmploymentsCount\], "True", "0", "False")                 | Switch(\[emplStatus\], "False", "A", "True", "U", "True", "P", "True")   |
+    | SuccessFactors to Active Directory User Provisioning | `accountDisabled`          | `Switch(\[activeEmploymentsCount\], "False", "0", "True")`                 | `Switch(\[emplStatus\], "True", "A", "False", "U", "False", "P", "False")` |
+    | SuccessFactors to Azure AD User Provisioning         | `accountEnabled`           | `Switch(\[activeEmploymentsCount\], "True", "0", "False")`                 | `Switch(\[emplStatus\], "False", "A", "True", "U", "True", "P", "True")`   |
 
 1. Save your changes. 1. 
 1. Test the configuration using [provision on demand](provision-on-demand.md). 
