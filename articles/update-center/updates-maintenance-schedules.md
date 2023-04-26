@@ -2,7 +2,7 @@
 title: Updates and maintenance in update management center (preview).
 description: The article describes the updates and maintenance options available in Update management center (preview).
 ms.service: update-management-center
-ms.date: 04/21/2022
+ms.date: 04/26/2023
 ms.topic: conceptual
 author: snehasudhirG
 ms.author: sudhirsneha
@@ -11,6 +11,11 @@ ms.author: sudhirsneha
 # Update options in update management center (preview)
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
+
+> [!IMPORTANT]
+> - For a seamless scheduled patching experience, we recommend that for all Azure VMs, you update the patch mode to *Azure orchestrated with user managed schedules (preview)* before **May 19, 2023**. If you fail to update the patch mode before **May 19, 2023**, you can experience a disruption in business continuity because the schedules will fail to patch the VMs.[Learn more](prerequsite-for-schedule-patching.md).
+> - To update the patch mode, go to **Update management center (Preview)** home page > **Update Settings**. In **Change update settings**, add the machines and under **Patch orchestration**, select *Azure-orchestrated-safe deployment*.
+
 
 This article provides an overview of the various update and maintenance options available by update management center (preview). 
 

@@ -149,9 +149,8 @@ The following diagram shows the relationship between these resources.
 
 Use the following JavaScript classes to interact with these resources:
 
-- [`QueueServiceClient`](/javascript/api/@azure/storage-queue/queueserviceclient): The `QueueServiceClient` allows you to manage the all queues in your storage account.
-- [`QueueClient`](/javascript/api/@azure/storage-queue/queueclient): The `QueueClient` class allows you to manage and manipulate an individual queue and its messages.
-- [`QueueMessage`](/javascript/api/preview-docs/@azure/storage-queue/queuemessage): The `QueueMessage` class represents the individual objects returned when calling [`ReceiveMessages`](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-) on a queue.
+- [`QueueServiceClient`](/javascript/api/@azure/storage-queue/queueserviceclient): A `QueueServiceClient` instance represents a connection to a given storage account in the Azure Storage Queue service. This client allows you to manage the all queues in your storage account.
+- [`QueueClient`](/javascript/api/@azure/storage-queue/queueclient): A `QueueClient` instance represents a single queue in a storage account. This client allows you to manage and manipulate an individual queue and its messages.
 
 ## Code examples
 
@@ -248,7 +247,7 @@ console.log("Queue created, requestId:", createQueueResponse.requestId);
 
 ### Add messages to a queue
 
-The following code snippet adds messages to queue by calling the [`sendMessage`](/javascript/api/@azure/storage-queue/queueclient#sendmessage-string--queuesendmessageoptions-) method. It also saves the [`QueueMessage`](/javascript/api/preview-docs/@azure/storage-queue/queuemessage) returned from the third `sendMessage` call. The returned `sendMessageResponse` is used to update the message content later in the program.
+The following code snippet adds messages to queue by calling the [`sendMessage`](/javascript/api/@azure/storage-queue/queueclient#sendmessage-string--queuesendmessageoptions-) method. It also saves the [`QueueSendMessageResponse`](/javascript/api/@azure/storage-queue/queuesendmessageresponse) returned from the third `sendMessage` call. The returned `sendMessageResponse` is used to update the message content later in the program.
 
 Add this code to the end of the `main` function:
 
