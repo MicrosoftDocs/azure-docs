@@ -363,11 +363,11 @@ The following data types are supported for batch inference when deploying MLflow
 
 | File extension | Type returned as model's input | Signature requirement |
 | :- | :- | :- |
-| `.csv`, `.parquet` | `pd.DataFrame` | `ColSpec`. If not provided, columns typing is not enforced. |
+| `.csv`, `.parquet`, `.pqt` | `pd.DataFrame` | `ColSpec`. If not provided, columns typing is not enforced. |
 | `.png`, `.jpg`, `.jpeg`, `.tiff`, `.bmp`, `.gif` | `np.ndarray` | `TensorSpec`. Input is reshaped to match tensors shape if available. If no signature is available, tensors of type `np.uint8` are inferred. For additional guidance read [Considerations for MLflow models processing images](how-to-image-processing-batch.md#considerations-for-mlflow-models-processing-images). |
 
 > [!WARNING]
-> Be advised that any unsupported file that may be present in the input data will make the job to fail. You will see an error entry as follows: *"ERROR:azureml:Error processing input file: '/mnt/batch/tasks/.../a-given-file.parquet'. File type 'parquet' is not supported."*.
+> Be advised that any unsupported file that may be present in the input data will make the job to fail. You will see an error entry as follows: *"ERROR:azureml:Error processing input file: '/mnt/batch/tasks/.../a-given-file.avro'. File type 'avro' is not supported."*.
 
 > [!TIP]
 > If you like to process a different file type, or execute inference in a different way that batch endpoints do by default you can always create the deploymnet with a scoring script as explained in [Using MLflow models with a scoring script](#customizing-mlflow-models-deployments-with-a-scoring-script).
