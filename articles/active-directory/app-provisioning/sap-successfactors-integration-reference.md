@@ -126,7 +126,7 @@ https://[SuccessFactorsAPIEndpoint]/odata/v2/PerPerson/$count?$format=json&$filt
 
 ## Reading attribute data
 
-When Azure AD provisioning service queries SuccessFactors, it retrieves a JSON result set. The JSON result set includes a number of attributes stored in Employee Central. By default, the provisioning schema is configured to retrieve only a subset of those attributes. 
+When Azure AD provisioning service queries SuccessFactors, it retrieves a JSON result set. The JSON result set includes many attributes stored in Employee Central. By default, the provisioning schema is configured to retrieve only a subset of those attributes. 
 
 To retrieve additional attributes, follow the steps listed:
     
