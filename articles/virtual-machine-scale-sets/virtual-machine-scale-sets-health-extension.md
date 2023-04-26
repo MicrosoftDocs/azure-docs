@@ -284,6 +284,8 @@ POST on `/subscriptions/<subscriptionId>/resourceGroups/<myResourceGroup>/provid
 
 Use the [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) cmdlet to add the Application Health extension to the scale set model definition.
 
+Update extension functionality is currently not available on Powershell. To switch between Binary and Rich Health States, you can update the extension version using Azure CLI or REST API commands. 
+
 The following example adds the Application Health extension to the `extensionProfile` in the scale set model of a Windows-based scale set. The example uses the new Az PowerShell module.
 
 ```azurepowershell-interactive
@@ -408,6 +410,8 @@ POST on `/subscriptions/<subscriptionId>/resourceGroups/<myResourceGroup>/provid
 # [Azure PowerShell](#tab/azure-powershell)
 
 Use the [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) cmdlet to add the Application Health extension to the scale set model definition.
+
+Update extension functionality is currently not available on Powershell. To switch between Binary and Rich Health States, you can update the extension version using Azure CLI or REST API commands. 
 
 The following example adds the **Application Health - Rich States** extension to the `extensionProfile` in the scale set model of a Windows-based scale set. The example uses the new Az PowerShell module.
 
