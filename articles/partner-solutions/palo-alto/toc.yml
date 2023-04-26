@@ -1,18 +1,18 @@
 items:
-- name: Palo Alto documentation
+- name: Cloud NGFW by Palo Alto Networks Preview - Azure Native ISV Service documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is Palo Alto?
+  - name: What is Cloud NGFW by Palo Alto Networks Preview?
     href: palo-alto-overview.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create an Palo Alto deployment
+  - name: Create a Cloud NGFW by Palo Alto Networks resource
     href: palo-alto-create.md
 - name: How to
   items:
-  - name: Manage your Palo Alto resource
+  - name: Manage your Cloud NGFW by Palo Alto Networks resource
     href: palo-alto-manage.md
-  - name: Troubleshoot Palo Alto
+  - name: Troubleshoot Cloud NGFW by Palo Alto Networks 
     href: palo-alto-troubleshoot.md
