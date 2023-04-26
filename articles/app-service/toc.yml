@@ -27,20 +27,16 @@
       href: quickstart-wordpress.md
     - name: Deploy Go (experimental)
       href: quickstart-golang.md
-    - name: Deploy static HTML site - delete
-      href: quickstart-html.md
 - name: Deployment
   items:
     - name: Deployment best practices
       href: deploy-best-practices.md
-    - name: Deploy a RESTful API
+    - name: Deploy a REST API (tutorial)
       href: app-service-web-tutorial-rest-api.md
-    - name: Configuration by language stack
+    - name: Configure common settings
+      href: configure-common.md
+    - name: Configure specific languages
       items:
-        - name: Configure common settings
-          href: configure-common.md
-        - name: Reference settings from App Configuration (preview)
-          href: app-service-configuration-references.md
         - name: Configure ASP.NET
           href: configure-language-dotnet-framework.md
         - name: Configure ASP.NET Core
@@ -55,31 +51,29 @@
           href: configure-language-java.md
         - name: Configure Ruby
           href: configure-language-ruby.md
-        - name: Configure Azure Storage
-          href: configure-connect-to-azure-storage.md
-    - name: Deployment options
+    - name: Configure Azure Storage
+      href: configure-connect-to-azure-storage.md
+    - name: Deploy an app
       items:
-        - name: Deploy ZIP or WAR
+        - name: Use ZIP or WAR
           href: deploy-zip.md
-        - name: Deploy via FTP
+        - name: Use FTP
           href: deploy-ftp.md
         - name: Deploy continuously
           href: deploy-continuous-deployment.md
-        - name: Deploy from local Git
+        - name: Use local Git
           href: deploy-local-git.md
-        - name: Deploy from Azure Pipelines
+        - name: Use Azure Pipelines
           href: deploy-azure-pipelines.md
-        - name: Deploy with GitHub Actions
+        - name: Use GitHub Actions
           items:
-            - name: GitHub Actions reference
-              href: deploy-github-actions.md
-            - name: End-to-end tutorials
+            - name: Deploy with GitHub Actions (tutorial)
               href: app-service-sql-asp-github-actions.md
-        - name: Deploy with template
-          href: deploy-complex-application-predictably.md
+            - name: About GitHub Actions deployment
+              href: deploy-github-actions.md
         - name: Run from package
           href: deploy-run-package.md
-        - name: Deploy via cloud sync
+        - name: Use cloud sync
           href: deploy-content-sync.md
     - name: Set deployment credentials
       href: deploy-configure-credentials.md
@@ -87,19 +81,21 @@
       href: deploy-staging-slots.md
     - name: Automate provisioning
       items:
-        - name: ARM template
+        - name: Use ARM template
           displayName: Resource Manager
           href: quickstart-arm-template.md
-        - name: Resource Manager template guidance - delete
-          href: deploy-resource-manager-template.md
-        - name: Bicep
+        - name: Use Bicep
           href: provision-resource-bicep.md
-        - name: Terraform
+        - name: Use Terraform
           href: provision-resource-terraform.md
+        - name: ARM template reference
+          href: /azure/templates/microsoft.web/allversions
+    - name: App settings reference
+      href: reference-app-settings.md
 - name: Logs and monitoring
   items:
     - name: Monitoring overview
-      href: overview-monitoring.md      
+      href: overview-monitoring.md
     - name: Enable diagnostic logs
       href: troubleshoot-diagnostic-logs.md
     - name: Open SSH session to Linux container
@@ -110,14 +106,14 @@
           href: monitor-app-service.md
         - name: Azure Monitor tutorial
           href: tutorial-troubleshoot-monitor.md
-    - name: App Service diagnostics tool
-      href: overview-diagnostics.md
-    - name: Quotas & alerts
-      href: web-sites-monitor.md
-    - name: Get resource events
-      href: get-resource-events.md
-    - name: Health check
+    - name: Monitor instance health
       href: monitor-instances-health-check.md
+    - name: About App Service diagnostics tool
+      href: overview-diagnostics.md
+    - name: About Quotas & alerts
+      href: web-sites-monitor.md
+    - name: Azure Monitor logs reference
+      href: monitor-app-service-reference.md
 - name: Domains and certificates
   items:
     - name: Domain and cert quickstart
@@ -140,38 +136,40 @@
           href: configure-ssl-certificate.md
         - name: Use TLS/SSL cert in code
           href: configure-ssl-certificate-in-code.md
-    - name: Configure TLS mutual authentication
-      href: app-service-web-configure-tls-mutual-auth.md
+        - name: Configure TLS mutual authentication
+          href: app-service-web-configure-tls-mutual-auth.md
 - name: Database and service connection
   items:
+    - name: Database connection tutorials
+      items:
+        - name: ASP.NET Core with SQL DB
+          href: tutorial-dotnetcore-sqldb-app.md
+        - name: ASP.NET with SQL DB
+          href: app-service-web-tutorial-dotnet-sqldatabase.md
+        - name: PHP with MySQL
+          href: tutorial-php-mysql-app.md
+        - name: Node.js with MongoDB
+          href: tutorial-nodejs-mongodb-app.md
+        - name: Ruby with Postgres
+          href: tutorial-ruby-postgres-app.md
+        - name: Python with Postgres
+          href: tutorial-python-postgresql-app.md
+        - name: Java with Spring Data
+          href: tutorial-java-spring-cosmosdb.md
+        - name: Quarkus with Postgres
+          href: tutorial-java-quarkus-postgresql-app.md
     - name: Connectivity scenarios
       href: tutorial-connect-overview.md
     - name: Connect by using secrets
       items:
-        - name: Configure secrets with app settings
+        - name: Use secrets in app settings
           href: configure-common.md?tabs=portal
-        - name: Reference secrets from Key Vault
+        - name: Use settings from App Configuration
+          href: app-service-configuration-references.md
+        - name: Use secrets from Key Vault
           href: app-service-key-vault-references.md
         - name: End-to-end tutorials
           items:
-            - name: Connect to DB with connection secrets
-              items:
-                - name: ASP.NET Core with SQL DB
-                  href: tutorial-dotnetcore-sqldb-app.md
-                - name: ASP.NET with SQL DB
-                  href: app-service-web-tutorial-dotnet-sqldatabase.md
-                - name: PHP with MySQL
-                  href: tutorial-php-mysql-app.md
-                - name: Node.js with MongoDB
-                  href: tutorial-nodejs-mongodb-app.md
-                - name: Ruby with Postgres
-                  href: tutorial-ruby-postgres-app.md
-                - name: Python with Postgres
-                  href: tutorial-python-postgresql-app.md
-                - name: Java with Spring Data
-                  href: tutorial-java-spring-cosmosdb.md
-                - name: Quarkus with Postgres
-                  href: tutorial-java-quarkus-postgresql-app.md
             - name: Connect to Cognitive Services with secrets in Key Vault
               items: 
               - name: .NET
@@ -186,37 +184,37 @@
       items:
         - name: Managed identity overview
           href: overview-managed-identity.md
+        - name: Connect to databases with managed identity
+          href: tutorial-connect-msi-azure-database.md
         - name: End-to-end tutorials
           items:
             - name: Connect to DB with managed identity
               items: 
-                - name: .NET with SQL DB
+                - name: Connect .NET app to SQL database
                   href: tutorial-connect-msi-sql-database.md
-                - name: Java Tomcat with Postgres
+                - name: Connect Java Tomcat to Postgres
                   href: tutorial-java-tomcat-connect-managed-identity-postgresql-database.md
-                - name: Azure databases
-                  href: tutorial-connect-msi-azure-database.md
             - name: Connect to Microsoft Graph with managed identity
               items: 
-                - name: .NET
+                - name: Use .NET
                   href: scenario-secure-app-access-microsoft-graph-as-app.md
-                - name: JavaScript
+                - name: Use Node.js
                   href: tutorial-connect-app-access-microsoft-graph-as-app-javascript.md
             - name: Connect to other Azure services with managed identity
               items:
-                - name: .NET
+                - name: Use .NET
                   href: scenario-secure-app-access-storage.md
-                - name: JavaScript
+                - name: Use Node.js
                   href: tutorial-connect-app-access-storage-javascript.md
     - name: Connect as authenticated user
       items:
         - name: Connect to Microsoft Graph as user
           items: 
-            - name: .NET
+            - name: Use .NET
               href: scenario-secure-app-access-microsoft-graph-as-user.md
-            - name: JavaScript
+            - name: Use Node.js
               href: tutorial-connect-app-access-microsoft-graph-as-user-javascript.md
-        - name: Connect to SQL DB as user
+        - name: Connect to SQL database as user
           href: tutorial-connect-app-access-sql-database-as-user-dotnet.md
         - name: Connect to another app as user
           href: tutorial-auth-aad.md
@@ -228,35 +226,33 @@
       href: manage-scale-up.md
     - name: Scale out to multiple instances
       href: ../azure-monitor/autoscale/autoscale-get-started.md?toc=/azure/app-service/toc.json
-    - name: High density hosting recommendations
-      href: manage-scale-per-app.md
-    - name: Local cache overview
-      href: overview-local-cache.md
     - name: Add CDN
       href: ../cdn/cdn-add-to-web-app.md?toc=/azure/cdn/toc.json
+    - name: About high density hosting
+      href: manage-scale-per-app.md
+    - name: About local cache
+      href: overview-local-cache.md
 - name: Authentication
   items:
     - name: Authentication overview
       href: overview-authentication-authorization.md
     - name: Enable authentication quickstart
       href: scenario-secure-app-authentication-app-service.md          
-    - name: Enable authentication quickstart (dup)
-      href: scenario-secure-app-authentication-app-service-as-user.md
     - name: Configure identity providers
       items:
-        - name: Azure AD
+        - name: Use Azure AD
           href: configure-authentication-provider-aad.md
-        - name: Facebook
+        - name: Use Facebook
           href: configure-authentication-provider-facebook.md
-        - name: GitHub
+        - name: Use GitHub
           href: configure-authentication-provider-github.md
-        - name: Google
+        - name: Use Google
           href: configure-authentication-provider-google.md
-        - name: Twitter
+        - name: Use Twitter
           href: configure-authentication-provider-twitter.md
-        - name: OpenID Connect
+        - name: Use OpenID Connect
           href: configure-authentication-provider-openid-connect.md
-        - name: Apple sign-in (preview)
+        - name: Use Apple sign-in (preview)
           href: configure-authentication-provider-apple.md
     - name: Customize sign-ins/outs
       href: configure-authentication-customize-sign-in-out.md
@@ -266,32 +262,30 @@
       href: configure-authentication-oauth-tokens.md
     - name: Manage API versions
       href: configure-authentication-api-version.md
-    - name: File-based configuration
+    - name: Use file-based configuration
       href: configure-authentication-file-based.md
 - name: Security and networking
   items:
     - name: Security overview
       href: overview-security.md
-    - name: Recommendations
-      href: security-recommendations.md
-    - name: End-to-end tutorials
-      items:
-        - name: Multi-region app
-          href: tutorial-multi-region-app.md
-        - name: N-tier app
-          href: tutorial-secure-ntier-app.md
-        - name: Isolate network traffic
-          href: tutorial-networking-isolate-vnet.md
+    - name: Deploy a multi-region app (tutorial)
+      href: tutorial-multi-region-app.md
+    - name: Deploy an N-tier app (tutorial)
+      href: tutorial-secure-ntier-app.md
+    - name: Isolate network traffic (tutorial)
+      href: tutorial-networking-isolate-vnet.md
     - name: Security
       items:
-        - name: OS and runtime patching overview
-          href: overview-patch-os-runtime.md
-        - name: Name resolution (DNS) overview
-          href: overview-name-resolution.md
-        - name: Prevent subdomain takeover
-          href: reference-dangling-subdomain-prevention.md
+        - name: Security recommendations
+          href: security-recommendations.md
         - name: Encrypt site data
           href: configure-encrypt-at-rest-using-cmk.md
+        - name: About OS and runtime patching
+          href: overview-patch-os-runtime.md
+        - name: About name resolution (DNS)
+          href: overview-name-resolution.md
+        - name: About subdomain takeover
+          href: reference-dangling-subdomain-prevention.md
         - name: Security baseline reference
           href: /security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json
         - name: Security controls by Azure Policy reference
@@ -301,7 +295,7 @@
       items:
         - name: Networking features overview
           href: networking-features.md
-        - name: Inbound and outbound IPs
+        - name: About Inbound and outbound IPs
           href: overview-inbound-outbound-ips.md
         - name: Access restriction
           items:
@@ -319,10 +313,8 @@
               href: configure-vnet-integration-routing.md
             - name: Configure gateway-required integration
               href: configure-gateway-required-vnet-integration.md
-        - name: App behind private endpoint
+        - name: Deploy app behind private endpoint
           href: networking/private-endpoint.md
-        - name: Hybrid connections feature
-          href: app-service-hybrid-connections.md
         - name: Control outbound traffic with Azure Firewall
           href: network-secure-outbound-traffic-azure-firewall.md
         - name: Integrate with Application Gateway
@@ -331,6 +323,11 @@
           href: networking/nat-gateway-integration.md
         - name: Integrate with Traffic Manager
           href: web-sites-traffic-manager.md
+        - name: About hybrid connections
+          href: app-service-hybrid-connections.md
+    - name: Azure Policy built-ins reference
+      displayName: samples, policies, definitions
+      href: ./policy-reference.md
 - name: Resource management
   items:
     - name: App Service plans overview
@@ -349,37 +346,35 @@
       href: manage-move-across-regions.md
     - name: Move app between subscriptions
       href: ../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/app-service/toc.json#checklist-before-moving-resources
-    - name: Cost management
+    - name: About cost management
       href: overview-manage-costs.md
 - name: Custom containers
   items:
     - name: Custom container quickstart
       href: quickstart-custom-container.md
-    - name: Configure custom container in App Service
+    - name: Configure custom container
       href: configure-custom-container.md
-    - name: CI/CD with custom containers
+    - name: CI/CD to custom container
       href: deploy-ci-cd-custom-container.md
-    - name: GitHub Actions deployment reference
-      href: deploy-container-github-action.md
-    - name: Multi-container app
+    - name: Deploy a multi-container app
       href: quickstart-multi-container.md
+    - name: About GitHub Actions for containers
+      href: deploy-container-github-action.md
     - name: End-to-end tutorials
       items:
         - name: Deploy app with Azure Container Registry
           href: tutorial-custom-container.md
         - name: Deploy with GitHub Actions
           href: app-service-sql-github-actions.md
-        - name: Multi-container WordPress app
+        - name: Deploy a multi-container WordPress app
           href: tutorial-multi-container-app.md
-    - name: Multi-container app
-      items:
 - name: Resiliency
   items:
-  - name: High availability with availability zones
+  - name: About availability zones
     href: ../availability-zones/migrate-app-service.md
-  - name: Disaster recovery
+  - name: About disaster recovery
     href: overview-disaster-recovery.md
-  - name: Restore from downed region
+  - name: About DR backup region
     href: manage-disaster-recovery.md
 - name: Samples
   items:
@@ -443,22 +438,13 @@
       href: samples-bicep.md
 - name: Reference
   items:
-    - name: Monitoring data
-      href: monitor-app-service-reference.md
     - name: Azure CLI
       href: /cli/azure/appservice
     - name: Azure PowerShell
       href: /powershell/module/az.websites/#app_service
     - name: REST API
       href: /rest/api/appservice/
-    - name: Resource Manager template
-      href: /azure/templates/microsoft.web/allversions
-    - name: App settings reference
-      href: reference-app-settings.md
-    - name: Azure Policy built-ins
-      displayName: samples, policies, definitions
-      href: ./policy-reference.md
-- name: Resources
+- name: Additional resources
   items:
     - name: App Service Blog
       href: https://aka.ms/appserviceblog
@@ -579,3 +565,13 @@
         href: ip-address-change-outbound.md
       - name: TLS/SSL address
         href: ip-address-change-ssl.md
+- name: (To delete)
+  items:
+    - name: Deploy static HTML site - delete
+      href: quickstart-html.md
+    - name: Deploy with template
+      href: deploy-complex-application-predictably.md
+        - name: Resource Manager template guidance - delete
+          href: deploy-resource-manager-template.md
+    - name: Enable authentication quickstart (dup)
+      href: scenario-secure-app-authentication-app-service-as-user.md
