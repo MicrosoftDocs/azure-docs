@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/25/2023
+ms.date: 04/26/2023
 ms.custom: developer
 
 #Customer intent: As a developer, I want to learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with my CIAM tenant.
@@ -18,7 +18,7 @@ ms.custom: developer
 
 # Configure a Single-page application User Interface and Sign-In
 
-When authorization has been configured, the user interface can be created to allow users to sign in and sign out when the project is run. To build the user interface (UI) for the application, you'll use [Bootstrap](https://getbootstrap.com/) to create a responsive UI that contains a **Sign-In** button and a **Sign-Out** button. Next, you'll run the project and test the sign-in and sign-out functionality.
+When authorization has been configured, the user interface can be created to allow users to sign in and sign out when the project is run. To build the user interface (UI) for the application, you'll use [Bootstrap](https://getbootstrap.com/) to create a responsive UI that contains a **Sign-In** and **Sign-Out** button. Next, you'll run the project and test the sign-in and sign-out functionality.
 
 > [!div class="checklist"]
 >
@@ -32,7 +32,7 @@ When authorization has been configured, the user interface can be created to all
 
 ## Create the *index.html* file
 
-The main page of the application, *index.html*, is the first page that is loaded when the application is started. It's also the page that is loaded when the user selects the **Sign Out** button.
+The main page of the application, *index.html*, is the first page that is loaded when the application is started. It's also the page that is loaded when the user selects the **Sign Out** button. 
 
 1. In your project folder, create a new file named *index.html*. This file will contain the HTML for the main page of the application.
 1. Open *index.html* and add the following code snippet:

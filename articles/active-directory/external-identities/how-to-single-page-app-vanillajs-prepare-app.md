@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/25/2023
+ms.date: 04/26/2023
 ms.custom: developer
 
 #Customer intent: As a developer, I want to learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with my CIAM tenant.
@@ -69,10 +69,13 @@ In this article:
     // Configure morgan module to log all requests.
     app.use(morgan('dev'));
     
-    // Setup app folders.
+    // serve public assets.
     app.use(express.static('public'));
     
-    // Set up a route for signout.html
+    // serve msal-browser module
+    app.use(express.static(path.join(__dirname, "node_modules/@azure/msal-browser/lib")));
+    
+    // set up a route for signout.html
     app.get('/signout', (req, res) => {
         res.sendFile(path.join(__dirname + '/public/signout.html'));
     });
@@ -82,7 +85,7 @@ In this article:
         res.sendFile(path.join(__dirname + '/public/redirect.html'));
     });
     
-    // Set up a route for index.html
+    // set up a route for index.html
     app.get('/', (req, res) => {
         res.sendFile(path.join(__dirname + '/index.html'));
     });

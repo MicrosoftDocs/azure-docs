@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/25/2023
+ms.date: 04/26/2023
 ms.custom: developer
 
 #Customer intent: As a developer, I want to learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with my CIAM tenant.
@@ -19,7 +19,7 @@ ms.custom: developer
 
 # Create components for authentication and authorization
 
-In the [previous article](./how-to-single-page-app-vanillajs-prepare-app.md), you created a vanilla JavaScript (JS) single-page application (SPA) and a server to host it. In this article, you'll configure the application to authenticate and authorize users to access protected resources. Authentication and authorization are handled by the [Microsoft Authentication Library for JavaScript (MSAL.js)](/javascript/api/overview/). The library is used to authenticate users and acquire access tokens from Azure AD CIAM.
+In the previous article., you created a vanilla JavaScript (JS) single-page application (SPA) and a server to host it. In this article, you'll configure the application to authenticate and authorize users to access protected resources. Authentication and authorization are handled by the [Microsoft Authentication Library for JavaScript (MSAL.js)](/javascript/api/overview/). The library is used to authenticate users and acquire access tokens from Azure AD CIAM.
 
 In this article:
 > [!div class="checklist"]
@@ -35,6 +35,8 @@ In this article:
 
 ## Creating the authentication configuration file
 
+The application uses the [Implicit Grant Flow](../develop\authentication-national-cloud.md#implicit-grant-flow) to authenticate users. The Implicit Grant Flow is a browser-based flow that does not require a back-end server. The flow redirects the user to the Azure AD CIAM sign-in page, where the user signs in and consents to the permissions that are being requested by the application. The purpose of *authConfig.js* is to configure the authentication flow.
+
 1. In your IDE, create a new folder and name it **public**
 1. In the *public* folder, create a new file and name it *authConfig.js*.
 1. Open *authConfig.js* and add the following code snippet:
@@ -48,7 +50,7 @@ In this article:
     const msalConfig = {
         auth: {
             clientId: 'Enter_the_Application_Id_Here', // This is the ONLY mandatory field that you need to supply.
-            authority: 'https://login.microsoftonline.com/Enter_the_Tenant_Id_Here', // Defaults to "https://login.microsoftonline.com/common"
+            authority: 'https://Enter_the_Tenant_Name_Here.ciamlogin.com/', // Replace "Enter_the_Tenant_Name_Here" with your tenant name
             redirectUri: '/', // You must register this URI on Azure Portal/App Registration. Defaults to window.location.href e.g. http://localhost:3000/
             navigateToLoginRequestUrl: true, // If "true", will navigate back to the original request location before processing the auth code response.
         },
@@ -89,15 +91,28 @@ In this article:
      */
     const loginRequest = {
         scopes: [],
+        extraQueryParameters: {
+            dc: "ESTS-PUB-EUS-AZ1-FD000-TEST1"
+        }
     };
-            
+    
+    /**
+     * An optional silentRequest object can be used to achieve silent SSO
+     * between applications by providing a "login_hint" property.
+     */
+    
+    // const silentRequest = {
+    //   scopes: ["openid", "profile"],
+    //   loginHint: "example@domain.net"
+    // };
+    
     // exporting config object for jest
     if (typeof exports !== 'undefined') {
         module.exports = {
             msalConfig: msalConfig,
             loginRequest: loginRequest,
         };
-    }
+}
      ```
 
 1. Replace the following values with the values from the Admin center.
@@ -109,10 +124,10 @@ In this article:
 
 ## Creating the redirection file
 
-The redirection file is used to handle the response from the Azure AD CIAM authorization endpoint.
+A redirection file is required to handle the response from the Azure AD CIAM sign-in page. The redirection file is used to extract the access token from the URL fragment and use it to call the protected API.
 
 1. Right-click the *public* folder and select **New File**. Name the file *authRedirect.js*.
-1. Open *authConfig.js* and add the following code snippet:
+1. Open *authRedirect.js* and add the following code snippet:
 
     ```javascript
     // Create the main myMSALObj instance
@@ -147,9 +162,8 @@ The redirection file is used to handle the response from the Azure AD CIAM autho
             // Add your account choosing logic here
             console.warn("Multiple accounts detected.");
         } else if (currentAccounts.length === 1) {
-            username = currentAccounts[0].username;
-            welcomeUser(username);
-            updateTable();
+            welcomeUser(currentAccounts[0].username);
+            updateTable(currentAccounts[0]);
         }
     }
     
@@ -161,11 +175,27 @@ The redirection file is used to handle the response from the Azure AD CIAM autho
          */
     
         if (response !== null) {
-            username = response.account.username;
-            welcomeUser(username);
-            updateTable();
+            welcomeUser(response.account.username);
+            updateTable(response.account);
         } else {
             selectAccount();
+    
+            /**
+             * If you already have a session that exists with the authentication server, you can use the ssoSilent() API
+             * to make request for tokens without interaction, by providing a "login_hint" property. To try this, comment the 
+             * line above and uncomment the section below.
+             */
+    
+            // myMSALObj.ssoSilent(silentRequest).
+            //     then((response) => {
+            //         welcomeUser(response.account.username);
+            //         updateTable(response.account);
+            //     }).catch(error => {
+            //         console.error("Silent Error: " + error);
+            //         if (error instanceof msal.InteractionRequiredAuthError) {
+            //             signIn();
+            //         }
+            //     });
         }
     }
     
@@ -201,10 +231,10 @@ The redirection file is used to handle the response from the Azure AD CIAM autho
 
 ## Creating the authPopup.js file
 
-The application uses *authRedirect.js* to provide two options for the user to sign in. The user can either sign in using a popup window or redirect to the Azure AD CIAM authorization endpoint.
+The application uses *authPopup.js* to  handle the authentication flow when the user signs in using the pop-up window. The pop-up window is used when the user is already signed in to Azure AD CIAM and the application needs to get an access token for a different resource. 
 
-1. Right-click the **public** folder and select **New File**. Name the file *authRedirect.js*.
-1. Open *authRedirect.js* and add the following code snippet:
+1. Right-click the **public** folder and select **New File**. Name the file *authPopup.js*.
+1. Open *authPopup.js* and add the following code snippet:
 
    ```javascript
     // Create the main myMSALObj instance
