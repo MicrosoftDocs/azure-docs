@@ -77,7 +77,7 @@ Start with these three steps to begin configuring the MedTech service so it's re
 * Basics
 * Device mapping
 * Destination mapping
-* Tags (optional)
+* Tags (Optional)
 * Review + create
 
 ### Configure the Basics tab
@@ -115,7 +115,7 @@ Follow these six steps to fill in the **Basics** tab configuration:
    >
    > * A MedTech service and a storage writer application accessing the same device message event hub.
 
-The **Basics** tab should now look like this after you've filled it out:
+The **Basics** tab should now look something like this after you've filled it out:
 
 :::image type="content" source="media\deploy-manual-portal\completed-basics-tab.png" alt-text="Screenshot of Basics tab filled out correctly." lightbox="media\deploy-manual-portal\completed-basics-tab.png":::
 
@@ -150,7 +150,7 @@ Under the **Destination** tab, use these values to enter the destination propert
 
  * For the **Destination mapping** field, accept the default **Destination mapping**. The FHIR destination mapping is addressed in the [Post-deployment](#post-deployment) section of this quickstart.
 
-The **Destination** tab should now look like this after you've filled it out:
+The **Destination** tab should now look something like this after you've filled it out:
 
 :::image type="content" source="media\deploy-manual-portal\completed-destination-tab.png" alt-text="Screenshot of Destination tab filled out correctly." lightbox="media\deploy-manual-portal\completed-destination-tab.png":::
 
