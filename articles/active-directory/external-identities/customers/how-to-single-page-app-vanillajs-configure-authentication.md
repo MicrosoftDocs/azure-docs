@@ -112,7 +112,7 @@ The application uses the [Implicit Grant Flow](../../develop/v2-oauth2-implicit-
             msalConfig: msalConfig,
             loginRequest: loginRequest,
         };
-}
+    }
      ```
 
 1. Replace the following values with the values from the Admin center.
