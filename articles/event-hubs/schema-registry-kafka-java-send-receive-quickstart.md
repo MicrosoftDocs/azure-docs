@@ -183,7 +183,7 @@ Enter case number:
 2 - consume Avro GenericRecords
   ```
 
-1. Upon successful data consumption and deserialization , you should see the following console logs in your producer application: 
+1. Upon successful data consumption and deserialization, you should see the following console logs in your producer application: 
 
 ```shell
 INFO com.azure.schemaregistry.samples.consumer.KafkaAvroSpecificRecord - Order received: {"id": "ID-0", "amount": 10.0, "description": "Sample order 0"}
