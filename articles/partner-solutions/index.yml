@@ -67,16 +67,16 @@ productDirectory:
       links:
         - url: ./qumulo/qumulo-overview.md
           text: Use a multi-petabyte scale, single namespace, multi-protocol file data platform with the performance, security, and simplicity to meet the most demanding enterprise workloads.
-  # # Card 8
-  #   - title: New Relic Preview
-  #     imageSrc: ./media/index/new-relic.svg
-  #     links:
-  #       - url: ./new-relic/new-relic-overview.md
-  #         text: Get end-to-end cloud observability to analyze and troubleshoot performance of applications, infrastructure, logs, real-user monitoring and more.
+  # Card 8
+    - title: New Relic Preview
+      imageSrc: ./media/index/new-relic.svg
+      links:
+        - url: ./new-relic/new-relic-overview.md
+          text: Get end-to-end cloud observability to analyze and troubleshoot performance of applications, infrastructure, logs, real-user monitoring and more.
   # Card 9
     - title: Cloud NGFW by Palo Alto Networks Preview
       imageSrc: ./media/index/palo-alto.svg
       links:
         - url: ./palo-alto/palo-alto-overview.md
-          text: .
+          text: Get a next generation firewall solution integrated with Azure that you can use to  protect your organization.. 
 
