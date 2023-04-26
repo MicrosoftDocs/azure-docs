@@ -372,7 +372,7 @@ This section walks you through the installation of Astra Trident using the opera
 1. Before creating a backend, you need to update `backend-anf.yaml` to include details about the Azure NetApp Files subscription, such as:
 
     * `subscriptionID` for the Azure subscription where Azure NetApp Files will be enabled.
-    * `tenantID`, `clientID`, and `clientSecret` from an [App Registration][azure-ad-app-registration] in Azure Active Directory (AD) with sufficient permissions for the Azure NetApp Files service. The App Registration include the `Owner` or `Contributor` role that's predefined by Azure.
+    * `tenantID`, `clientID`, and `clientSecret` from an [App Registration][azure-ad-app-registration] in Azure Active Directory (AD) with sufficient permissions for the Azure NetApp Files service. The App Registration includes the `Owner` or `Contributor` role that's predefined by Azure.
     * An Azure location that contains at least one delegated subnet.
 
     In addition, you can choose to provide a different service level. Azure NetApp Files provides three [service levels](../azure-netapp-files/azure-netapp-files-service-levels.md): Standard, Premium, and Ultra.
@@ -413,7 +413,7 @@ A storage class is used to define how a unit of storage is dynamically created w
     kubectl apply -f anf-storageclass.yaml
     ```
 
-   The output of the command resembles the following example::
+   The output of the command resembles the following example:
 
     ```console
     storageclass/azure-netapp-files created
