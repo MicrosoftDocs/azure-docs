@@ -239,7 +239,7 @@ Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName
 Use the [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) and [Update-AzVM](/powershell/module/az.compute/update-azvm) cmdlet to enable automatic VM guest patching on an existing VM.
 
 ```azurepowershell-interactive
-Get-AzVM -VM $VirtualMachine -Windows -ComputerName $ComputerName -Credential $Credential
+$VirtualMachine = Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 Set-AzVMOperatingSystem -VM $VirtualMachine -PatchMode "AutomaticByPlatform"
 Update-AzVM -VM $VirtualMachine
 ```
