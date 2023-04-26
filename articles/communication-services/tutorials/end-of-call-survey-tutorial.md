@@ -20,7 +20,7 @@ ms.subservice: calling
 
 [!INCLUDE [Public Preview](../includes/public-preview-include-document.md)]
 
-teststestse 
+
 
 > [!NOTE] 
 > End of Call Survey is currently supported only for our JavaScript / Web SDK.
