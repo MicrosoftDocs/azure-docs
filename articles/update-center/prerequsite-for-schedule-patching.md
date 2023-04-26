@@ -2,7 +2,7 @@
 title: Configure schedule patching on Azure VMs to ensure business continuity in update management center (preview).
 description: The article describes the new prerequisites to configure scheduled patching to ensure business continuity in Update management center (preview).
 ms.service: update-management-center
-ms.date: 04/24/2023
+ms.date: 04/26/2023
 ms.topic: conceptual
 author: snehasudhirG
 ms.author: sudhirsneha
@@ -16,12 +16,22 @@ This article is an overview on how to configure Schedule patching and Automatic 
 
 Currently, you can enable [Automatic guest VM patching](../virtual-machines/automatic-vm-guest-patching.md) (Autopatch) by setting the patch mode to **Azure-orchestrated**/**AutomaticByPlatform** on Azure portal/REST API respectively, where patches are automatically applied during off-peak hours.
 
-For customizing control over your patch installation, you can use [schedule patching](updates-maintenance-schedules.md#scheduled-patching) to define your maintenance window. You can enable [schedule patching](scheduled-patching.md#schedule-recurring-updates-on-single-vm) by setting the patch mode to **Azure orchestrated**/**AutomaticByPlatform** and attaching a schedule to the Azure VM. To patch your machines, the VM ARM properties to differentiate between **schedule patching** or **Automatic guest VM patching** were the same as the patch mode in both cases is set to *Azure-Orchestrated*. 
+For customizing control over your patch installation, you can use [schedule patching](updates-maintenance-schedules.md#scheduled-patching) to define your maintenance window. You can [enable schedule patching](scheduled-patching.md#schedule-recurring-updates-on-single-vm) by setting the patch mode to **Azure orchestrated**/**AutomaticByPlatform** and attaching a schedule to the Azure VM. So, the VM properties couldn't be differentiated between **schedule patching** or **Automatic guest VM patching** as both had the patch mode set to *Azure-Orchestrated*. 
 
-So, in some instances, when you remove the schedule from a VM, there is a possibility that the VM may be auto patched for critical or security patches and subsequently rebooted. To avoid such accidental or unintentional patching, a new prerequisite has been introduced - **ByPassPlatformSafetyChecksOnUserSchedule**, when set to *true* accurately determines the VMs for scheduled patching and ensures that the VMs with this property set to *true* will no longer be patched as a path of the Automatic VM Guest Patching schedule when the VMs do not have an associated maintenance configuration.
+Additionally, in some instances, when you remove the schedule from a VM, there is a possibility that the VM may be auto patched and rebooted. To overcome the limitations, we have introduced a new prerequisite - **ByPassPlatformSafetyChecksOnUserSchedule**, which can now be set to *true* to identify a VM using schedule patching. It means that VMs with this property set to *true* will no longer be auto patched when the VMs don't have an associated maintenance configuration.
 
 > [!IMPORTANT]
 > For a continued scheduled patching experience, you must ensure that the new VM property, *BypassPlatformSafetyChecksOnUserSchedule*, is enabled on all your Azure VMs (existing or new) that have schedules attached to them **before May 19, 2023**. This setting will ensure machines are patched using your configured schedules and not autopatched. Failing to enable the pre-requisite will give an error that the prerequisites aren't met.
+
+## Find VMs with associated schedules
+
+To identify the list of VMs with the associated schedules for which you have to enable new VM property, follow these steps:
+
+1. Go to **Update management center (Preview)** home page and select **Machines** tab.
+1. In **Patch orchestration** filter, select **Azure-orchestrated safe deployment**.
+1. Use the **Select all** option to select the machines and then select **Export to CSV**.
+1. Open the CSV file and in the column **Associated schedules**,  select the rows that have an entry. 
+   In the corresponding **Name** column, you can view the list the VMs to which you would need to enable the **ByPassPlatformSafetyChecksOnUserSchedule** flag.
 
 
 ## Enable schedule patching on Azure VMs
@@ -69,7 +79,7 @@ To update the patch mode, follow these steps:
 1. In **Select resources**, select your VMs and then select **Add**.
 1. In **Change update settings**, under **Patch orchestration**, select *Customer managed schedules* and then select **Save**.
 
-Attach a schedule after you complete the above steps and to check if the **BypassPlatformSafetyChecksOnUserSchedule** is enabled, go to **JSON View** in the Virtual machine home page.
+Attach a schedule after you complete the above steps.To check if the **BypassPlatformSafetyChecksOnUserSchedule** is enabled, go to **Virtual machine** home page > **Overview** tab > **JSON View**.
 
 # [REST API](#tab/new-prereq-rest-api)
 
