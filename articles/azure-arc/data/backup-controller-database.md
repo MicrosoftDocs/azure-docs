@@ -26,7 +26,7 @@ This article explains how to back up the controller database.
 Following steps are needed in order to back up the `controller` database:
 
 1. Retrieve the credentials for the secret
-1. Decode the credentials from base64
+1. Decode the base64 encoded credentials
 1. Use the decoded credentials to connect to the SQL instance hosting the controller database, and issue the `BACKUP` command
 
 ## Retrieve the credentials for the secret
