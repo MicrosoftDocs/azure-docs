@@ -38,11 +38,11 @@ Here are the key capabilities provided by the Palo Alto integration:
 
 1. In the Marketplace, you see the offer for **Cloud Next-Generation Firewall by Palo Alto Networks - an Azure Native ISV Service**. Select, **Subscribe**.
 
-   :::image type="content" source="media/palo-alto-overview/palo-alto-marketplace.png" alt-text="Screenshot of Cloud NGFW by Palo Alto Networks in the Azure marketplace.":::
+   :::image type="content" source="media/palo-alto-overview/palo-alto-marketplace.png" alt-text="Screenshot of Cloud NGFW by Palo Alto Networks in the Azure Marketplace.":::
 
 1. In the working pane, you see the options from Palo Alto Networks. Select **Create** in Cloud NGFW by Palo Alto Networks.
 
-   :::image type="content" source="media/palo-alto-overview/palo-alto-offerings.png" alt-text="Screenshot showing the two offerings from Palo Alto Networks":::
+   :::image type="content" source="media/palo-alto-overview/palo-alto-offerings.png" alt-text="Screenshot showing the two offerings from Palo Alto Networks.":::
 
 1. The **Create** form opens in the working pane.
 
