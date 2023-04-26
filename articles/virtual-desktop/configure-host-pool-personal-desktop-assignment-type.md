@@ -72,6 +72,12 @@ To configure automatic assignment in the Azure portal:
 
 1. Select **Save**.
 
+To assign a user to the personal desktop host pool:
+
+1. In the host pool you want to edit, select **Session hosts**.
+
+1. 
+
 #### [PowerShell](#tab/powershell)
 
 To configure a host pool to automatically assign users to VMs, run the following PowerShell cmdlet:
