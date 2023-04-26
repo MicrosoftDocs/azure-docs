@@ -141,7 +141,7 @@ False          whl             k8s-extension          C:\Users\somename\.azure\c
 
 #### For Azure Arc-enabled Kubernetes clusters
 
-* An Azure Arc-enabled Kubernetes connected cluster that's up and running.
+* An Azure Arc-enabled Kubernetes connected cluster that's up and running. Starting with [`microsoft.flux` version 1.7.0](extensions-release.md#170-march-2023), ARM64-based clusters are supported.
   
   [Learn how to connect a Kubernetes cluster to  Azure Arc](./quickstart-connect-cluster.md). If you need to connect through an outbound proxy, then assure you [install the Arc agents with proxy settings](./quickstart-connect-cluster.md?tabs=azure-cli#connect-using-an-outbound-proxy-server).
 
