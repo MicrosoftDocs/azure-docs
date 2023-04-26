@@ -929,12 +929,6 @@
         href: how-to-setup-mlops-github-azure-ml.md
 - name: How-to guides
   items:
-    - name: Share components, environments, and models
-      displayName: collaborate share
-      href: how-to-share-models-pipelines-across-workspaces-with-registries.md
-    - name: Share data assets
-      displayName: collaborate share
-      href: how-to-share-data-across-workspaces-with-registries.md
     - name: Understand resources and assets
       href: concept-azure-machine-learning-v2.md
     - name: Search for assets
@@ -998,57 +992,10 @@
         # end v1
     - name: Work with data
       items:
-        - name: Create datastores
-          displayName: Create datastores
-          href: how-to-datastore.md
-        - name: Create data assets
-          displayName: Create data assets
-          href: how-to-create-data-assets.md
-        - name: Create data assets by importing data from external sources
-          items:
-            - name: Create connections to external data sources (preview)
-              displayName: Create connections to external data sources (preview)
-              href: how-to-connection.md
-            - name: Import data (preview)
-              displayName: Import data (preview)
-              href: how-to-import-data-assets.md
-        - name: Access and explore your data
-          items:
-            - name: Access data during interactive development
-              displayName: Access data during interactive development
-              href: how-to-access-data-interactive.md
-            - name: Access data in jobs
-              displayName: Access data in jobs
-              href: how-to-read-write-data-v2.md
-            - name: Working with Tables (mltable)
-              displayName: Working with Tables (mltable)
-              href: how-to-mltable.md
-        - name: Label data
-          items:
-            - name: Set up image labeling
-              displayName: data, dataset
-              href: how-to-create-image-labeling-projects.md
-            - name: Set up text labeling
-              displayName: data, dataset
-              href: how-to-create-text-labeling-projects.md
-            - name: Label images and text
-              displayName: data, dataset, labeling
-              href: how-to-label-data.md
-            - name: Add users
-              displayName: data, dataset, labeling
-              href: how-to-add-users.md
-            - name: Outsource labeling tasks
-              href: how-to-outsource-data-labeling.md
         - name: Prepare data with Apache Spark (preview)
           items:
             - name: Configure Apache Spark jobs 
               href: quickstart-spark-jobs.md
-            - name: Submit Spark jobs in Azure Machine Learning
-              displayName: Submit Spark jobs in Azure Machine Learning
-              href: how-to-submit-spark-jobs.md
-            - name: Interactive Data Wrangling with Apache Spark
-              displayName: Interactive Data Wrangling with Apache Spark
-              href: interactive-data-wrangling-with-apache-spark-azure-ml.md
         - name: Data administration and authentication
           displayName: Data administration and authentication
           href: how-to-administrate-data-authentication.md
@@ -1098,88 +1045,6 @@
         # end v1
     - name: Deploy models
       items:
-        - name: Online endpoints (real-time)
-          items:
-            - name: Deploy an ML model with an online endpoint
-              href: how-to-deploy-online-endpoints.md
-            - name: Safe rollout for online endpoints
-              href: how-to-safely-rollout-online-endpoints.md
-            - name: Deployment scenarios
-              items:
-                - name: Deploy a MLflow model with an online endpoint
-                  displayName: ncd, no code deploy, no-code deployment
-                  href: how-to-deploy-mlflow-models-online-endpoints.md
-                - name: Use a custom container to deploy a model to an online endpoint
-                  href: how-to-deploy-custom-container.md
-                - name: Use online endpoints in studio
-                  href: how-to-use-managed-online-endpoint-studio.md
-                - name: High-performance serving with Triton
-                  href: how-to-deploy-with-triton.md
-                - name: Use REST to deploy a model as an online endpoint
-                  href: how-to-deploy-with-rest.md
-                - name: Deploy an AutoML model with an online endpoint
-                  href: how-to-deploy-automl-endpoint.md
-            - name: Security
-              items:
-                - name: Authenticate to endpoints
-                  href: how-to-authenticate-online-endpoint.md
-                - name: Network isolation with managed online endpoints
-                  displayName: network, vnet, secure
-                  href: how-to-secure-online-endpoint.md
-                - name: Access Azure resources from online endpoints
-                  href: how-to-access-resources-from-endpoints-managed-identities.md
-            - name: Autoscale online endpoints
-              href: how-to-autoscale-endpoints.md
-            - name: Managed online endpoints VM SKU list
-              href: reference-managed-online-endpoints-vm-sku-list.md
-            - name: Viewing managed online endpoint costs
-              href: how-to-view-online-endpoints-costs.md
-            - name: Monitoring online endpoints
-              href: how-to-monitor-online-endpoints.md
-            - name: Debug online endpoints locally VS Code
-              href: how-to-debug-managed-online-endpoints-visual-studio-code.md
-            - name: Debug scoring script with inference HTTP server
-              href: how-to-inference-server-http.md
-            - name: Troubleshoot online endpoints
-              href: how-to-troubleshoot-online-endpoints.md
-        - name: Batch endpoints
-          items:
-            - name: Batch scoring with batch endpoints
-              href: how-to-use-batch-endpoint.md
-            - name: Create jobs and input data for batch endpoints
-              href: how-to-access-data-batch-endpoints-jobs.md
-            - name: Author scoring scripts for batch scoring
-              href: how-to-batch-scoring-script.md
-            - name: Customize outputs in batch jobs
-              href: how-to-deploy-model-custom-output.md
-            - name: Troubleshoot batch endpoints
-              href: how-to-troubleshoot-batch-endpoints.md
-            - name: Security
-              items:
-                - name: Authorization on batch endpoints
-                  href: how-to-authenticate-batch-endpoint.md
-                - name: Network isolation in batch endpoints
-                  href: how-to-secure-batch-endpoint.md
-            - name: Cost management
-              items:
-                - name: Use low priority VMs in batch deployments
-                  href: how-to-use-low-priority-batch.md
-            - name: Scenarios
-              items:
-                - name: Use MLflow models in batch deployments
-                  href: how-to-mlflow-batch.md
-                - name: Image processing with batch deployments
-                  href: how-to-image-processing-batch.md
-                - name: Text processing with batch deployments
-                  href: how-to-nlp-processing-batch.md
-            - name: Integrations
-              items:
-                - name: Run batch endpoints from Azure Data Factory
-                  href: how-to-use-batch-azure-data-factory.md
-                - name: Run batch endpoints from Event Grid events in storage
-                  href: how-to-use-event-grid-batch.md
-                - name: Use REST to deploy a model as batch endpoints
-                  href: how-to-deploy-batch-with-rest.md
         # v1
         - name: Where and how to deploy
           displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
@@ -1266,73 +1131,15 @@
             - name: Train with MLflow Projects
               displayName: log, monitor, metrics, model registry, register
               href: how-to-train-mlflow-projects.md
-            - name: Log metrics, parameters and files
-              displayName: troubleshoot, log, files, tracing, metrics
-              href: how-to-log-view-metrics.md
-            - name: Log MLflow models
-              href: how-to-log-mlflow-models.md
-            - name: Query & compare experiments and runs with MLflow
-              href: how-to-track-experiments-mlflow.md
         - name: Manage
           items:
             - name: Manage models with MLflow
               href: how-to-manage-models-mlflow.md
-            - name: Manage experiments and runs with MLflow
-              href: how-to-track-experiments-mlflow.md
-        - name: Deploy & consume models
-          items:
-            - name: Guidelines for deploying MLflow models
-              displayName: mlflow models deployment plugin
-              href: how-to-deploy-mlflow-models.md
-            - name: Using MLflow models for no-code deployment
-              href: how-to-log-mlflow-models.md
-            - name: Online inference
-              items:
-                - name: Deploy MLflow models to Online Endpoints
-                  href: how-to-deploy-mlflow-models-online-endpoints.md
-                - name: Progressive rollout of MLflow models to Online Endpoints
-                  href: how-to-deploy-mlflow-models-online-progressive.md
-            - name: Batch inference
-              items:
-                - name: Deploy MLflow models to Batch Endpoints
-                  href: how-to-mlflow-batch.md
-                - name: Deploy and run MLflow models in Spark jobs
-                  href: how-to-deploy-mlflow-model-spark-jobs.md
     - name: Manage the ML lifecycle (MLOps)
       items:
-        - name: Set up MLOps with Azure DevOps
-          href: how-to-setup-mlops-azureml.md
-        - name: Setup MLOps with GitHub
-          href: how-to-setup-mlops-github-azure-ml.md
-        - name: Manage models
-          href: how-to-manage-models.md
-        - name: Automation
-          items:
-            - name: Azure Pipelines for CI/CD
-              displayName: continuous, integration, delivery
-              href: how-to-devops-machine-learning.md
-            - name: GitHub Actions for CI/CD
-              href: how-to-github-actions-machine-learning.md
-            - name: Create event-driven workflows
-              displayName: event grid
-              href: how-to-use-event-grid.md
-            - name: Schedule a pipeline job
-              href: how-to-schedule-pipeline-job.md
         - name: Build & use ML pipelines
           displayName: pipelines
           items:
-            - name: Create ML pipelines using components (CLI v2)
-              href: how-to-create-component-pipelines-cli.md
-            - name: Create ML pipelines using components (Python SDK v2)
-              href: how-to-create-component-pipeline-python.md
-            - name: Create ML pipelines using components (UI)
-              href: how-to-create-component-pipelines-ui.md
-            - name: How to use sweep in pipelines (v2)
-              href: how-to-use-sweep-in-pipeline.md
-            - name: Build and debug pipelines (UI)
-              href: how-to-use-pipeline-ui.md
-            - name: How to use parallel job in pipeline
-              href: how-to-use-parallel-job-in-pipeline.md
             # v1
             - name: Create ML pipelines (Python)
               href: ./v1/how-to-create-machine-learning-pipelines.md
@@ -1353,9 +1160,6 @@
                 - name: Transform data
                   displayName: pipeline
                   href: how-to-designer-transform-data.md
-                - name: Use pipeline parameters
-                  displayName: designer, pipeline parameters
-                  href: how-to-use-pipeline-parameter.md
                 - name: Retrain using published pipelines
                   displayName: retrain, designer, published pipeline
                   href: how-to-retrain-designer.md
@@ -1370,15 +1174,6 @@
           displayName: mlops, mlopspython, production
           href: ./v1/how-to-convert-ml-experiment-to-production.md
         # end v1
-        - name: Manage resource quotas
-          displayName: limits
-          href: how-to-manage-quotas.md
-        - name: Manage and optimize cost
-          displayName: cost-management,cost-optimization
-          href: how-to-manage-optimize-cost.md
-        - name: Manage resources VS Code
-          displayName: vscode,resources
-          href: how-to-manage-resources-vscode.md
     - name: Implement Responsible AI in Practice
 
       items:
