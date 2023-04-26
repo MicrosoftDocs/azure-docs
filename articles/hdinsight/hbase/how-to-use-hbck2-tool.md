@@ -212,7 +212,7 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 
 `&emsp;-i,--inputFiles`  take one or more input files of encoded region names and states
   
-**Possible region states: **
+**Possible region states:**
 
 * OFFLINE
 * OPENING
