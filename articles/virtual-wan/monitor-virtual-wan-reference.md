@@ -170,7 +170,7 @@ The following diagnostics are available for Virtual WAN point-to-site VPN gatewa
 
 ### ExpressRoute gateway diagnostics
 
-Diagnostic logs for ExpressRoute gateways in Azure Virtual WAN aren't supported.
+Diagnostic logs for ExpressRoute gateways in Azure Virtual WAN are supported.
 
 ### <a name="view-diagnostic"></a>View diagnostic logs configuration
 

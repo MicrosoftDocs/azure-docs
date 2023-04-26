@@ -5,7 +5,7 @@ services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 04/14/2023
+ms.date: 04/20/2023
 ms.author: jasteppe
 ---
 # Open-source projects
@@ -22,7 +22,7 @@ Check out our open-source projects on GitHub that provide source code and instru
 
 ### FHIR integration
 
-* [microsoft/iomt-fhir](https://github.com/microsoft/iomt-fhir): Open-source version of the Azure Health Data Services MedTech service managed service. Can be used with any FHIR service that supports [FHIR R4&#174;](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=491)
+* [microsoft/iomt-fhir](https://github.com/microsoft/iomt-fhir): Open-source version of the Azure Health Data Services MedTech service managed service. Can be used with any FHIR service that supports [FHIR](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=491)
 
 ### Wearables integration
 

@@ -69,6 +69,8 @@ Header|Value| Condition  |
 
 The core operation of the Translator service is translating text. In this quickstart, you build a request using a programming language of your choice that takes a single source (`from`) and provides two outputs (`to`). Then we review some parameters that can be used to adjust both the request and the response.
 
+For detailed information regarding Azure Translator Service request limits, *see* [**Text translation request limits**](request-limits.md#text-translation).
+
 ### [C#: Visual Studio](#tab/csharp)
 
 ### Set up your Visual Studio project

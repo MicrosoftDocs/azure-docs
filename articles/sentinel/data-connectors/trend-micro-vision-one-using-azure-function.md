@@ -42,7 +42,7 @@ TrendMicro_XDR_WORKBENCH_CL
 
 To integrate with Trend Micro Vision One (using Azure Function) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
 - **Trend Micro Vision One API Token**: A Trend Micro Vision One API Token is required. See the documentation to learn more about the [Trend Micro Vision One API](https://automation.trendmicro.com/xdr/home).
 
 
@@ -53,7 +53,7 @@ To integrate with Trend Micro Vision One (using Azure Function) make sure you ha
    >  This connector uses Azure Functions to connect to the Trend Micro Vision One API to pull its logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
 
 
->**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
+>**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
 
 
 **STEP 1 - Configuration steps for the Trend Micro Vision One API**
@@ -77,7 +77,7 @@ This method provides an automated deployment of the Trend Micro Vision One conne
 2. Select the preferred **Subscription**, **Resource Group** and **Location**. 
 3. Enter a unique **Function Name**, **Workspace ID**, **Workspace Key**, **API Token** and **Region Code**. 
  - Note: Provide the appropriate region code based on where your Trend Micro Vision One instance is deployed: us, eu, au, in, sg, jp  
- - Note: If using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) for further details. 
+ - Note: If using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](/azure/app-service/app-service-key-vault-references) for further details. 
 4. Mark the checkbox labeled **I agree to the terms and conditions stated above**. 
 5. Click **Purchase** to deploy.
 

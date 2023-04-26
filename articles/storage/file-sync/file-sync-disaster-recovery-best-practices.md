@@ -1,10 +1,10 @@
 ---
 title: Best practices for disaster recovery with Azure File Sync
-description: Learn about best practices for disaster recovery with Azure File Sync. Specifically, high availability, data protection, and data redundancy.
+description: Learn about best practices for disaster recovery with Azure File Sync, including high availability, data protection, and data redundancy.
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/24/2022
+ms.date: 04/18/2023
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -18,13 +18,13 @@ In an Azure File Sync deployment, the cloud endpoint always contains a full copy
 Due to its hybrid nature, some traditional server backup and disaster recovery strategies won't work with Azure File Sync. For any registered server, Azure File Sync doesn't support:
 
 > [!WARNING]
-> Taking any of these actions may lead to issues with sync or broken tiered files that result in eventual data loss. If you have taken one of these actions, contact Azure support to ensure your deployment is healthy.
+> Taking any of these actions may lead to issues with sync or broken tiered files that result in eventual data loss. If you've taken one of these actions, contact Azure support to ensure your deployment is healthy.
 
-- Transferring disk drives from one server to another
+- Transferring/cloning disk drives (volume) from one server to another while the server endpoint is still active
 - Restoring from an operating system backup
 - Cloning a server's operating system to another server
 - Reverting to a previous virtual machine checkpoint
-- Restoring files from on-premises backup if cloud tiering is enabled
+- Restoring tiered files from on-premises (third party) backup to the server endpoint
 
 ## High availability
 
@@ -76,7 +76,7 @@ Although you can manually request a failover of your Storage Sync Service to you
 > [!WARNING]
 > You must contact support to request your Storage Sync Service be failed over if you are initiating this process manually. If you attempt to create a new Storage Sync Service using the same server endpoints in the secondary region may result in extra data staying in your storage account since the previous installation of Azure File Sync won't be cleaned up.
 
-Once a failover occurs, server endpoints will switch over to sync with the cloud endpoint in the secondary region automatically. However, the server endpoints must reconcile with the cloud endpoints. This may result in file conflicts as the data in the secondary region may not be caught up to the primary.
+Once a failover occurs, server endpoints will switch over to sync with the cloud endpoint in the secondary region automatically. However, the server endpoints must reconcile with the cloud endpoints. This might result in file conflicts as the data in the secondary region might not be caught up to the primary.
 
 ## Next steps
 

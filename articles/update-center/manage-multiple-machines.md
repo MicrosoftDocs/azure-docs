@@ -2,7 +2,7 @@
 title: Manage multiple machines in update management center (preview)
 description: The article details how to use Update management center (preview) in Azure to manage multiple supported machines and view their compliance state in the Azure portal.
 ms.service: update-management-center
-ms.date: 04/11/2023
+ms.date: 04/26/2023
 ms.topic: conceptual
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -11,6 +11,10 @@ ms.author: sudhirsneha
 # Manage multiple machines with update management center (Preview)
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
+
+> [!IMPORTANT]
+> - For a seamless scheduled patching experience, we recommend that for all Azure VMs, you update the patch mode to *Azure orchestrated with user managed schedules (preview)* before **May 19, 2023**. If you fail to update the patch mode before **May 19, 2023**, you can experience a disruption in business continuity because the schedules will fail to patch the VMs.[Learn more](prerequsite-for-schedule-patching.md).
+> - To update the patch mode, go to **Update management center (Preview)** home page > **Update Settings**. In **Change update settings**, add the machines and under **Patch orchestration**, select *Azure-orchestrated-safe deployment*.
 
 This article describes the various features that update management center (Preview) offers to manage the system updates on your machines. Using the update management center (preview), you can:
 
@@ -46,7 +50,7 @@ Instead of performing these actions from a selected Azure VM or Arc-enabled serv
       - **Reboot Required**—pending a reboot for the updates to take effect.
       - **No updates data**—no assessment data is available for these machines. 
    
-      There following could be the reasons for no assessment data:
+      The following could be the reasons for no assessment data:
       - No assessment has been done over the last seven days
       - The machine has an unsupported OS
       - The machine is in an unsupported region and you can't perform an assessment.

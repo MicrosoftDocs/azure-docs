@@ -4,7 +4,7 @@ description: Learn how the GCP connector works on Microsoft Defender for Cloud.
 titleSuffix: Microsoft Defender for Cloud
 ms.topic: conceptual
 ms.service: defender-for-cloud
-ms.date: 02/09/2023
+ms.date: 04/23/2023
 ---
 
 # Microsoft Defender for Cloud's GCP connector
