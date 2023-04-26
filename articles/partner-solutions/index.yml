@@ -9,7 +9,7 @@ metadata:
   description: Use Azure Native ISV Services to seamlessly provision, manage, and integrate preferred third-party solutions on Azure. 
   author: flang-msft
   ms.topic: hub-page
-  ms.date: 04/25/2023
+  ms.date: 04/26/2023
   ms.author: franlanglois
 
 highlightedContent:
@@ -78,5 +78,5 @@ productDirectory:
       imageSrc: ./media/index/palo-alto.svg
       links:
         - url: ./palo-alto/palo-alto-overview.md
-          text: Get a next generation firewall solution integrated with Azure that you can use to  protect your organization.. 
+          text: Get a next generation firewall solution integrated with Azure that you can use to  protect your organization.
 
