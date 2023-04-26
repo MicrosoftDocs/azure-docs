@@ -134,6 +134,21 @@
       items:
       - name: Security baseline
         href: /security/benchmark/azure/baselines/azure-web-pubsub-security-baseline?toc=/azure/azure-web-pubsub/toc.json
+- name: Samples
+  expanded: false
+  items: 
+    - name: Authenticate
+      href: samples-authenticate.md
+    - name: Connect
+      href: samples-connect.md
+    - name: Applications
+      href: samples-applications.md
+    - name: Platform and frameworks
+      href: samples-platform-and-frameworks.md
+    - name: Deployment
+      href: samples-deployment.md
+    - name: Persist messages
+      href: samples-persist messages.md
 - name: Reference
   items:
     - name: WebSocket subprotocols
