@@ -433,16 +433,18 @@
     items:
     - name: Create Server and Database
       items:
-      - name: Azure portal
-        href: flexible-server/quickstart-create-server-portal.md
-      - name: Azure CLI
-        href: flexible-server/quickstart-create-server-cli.md
-      - name: Bicep
-        displayName: Resource Manager, ARM
-        href: flexible-server/quickstart-create-server-bicep.md
       - name: ARM template
         displayName: Resource Manager
         href: flexible-server/quickstart-create-server-arm-template.md
+      - name: Azure CLI
+        href: flexible-server/quickstart-create-server-cli.md
+      - name: Azure portal
+        href: flexible-server/quickstart-create-server-portal.md
+      - name: Azure SDK for Python
+        href: flexible-server/quickstart-create-server-python-sdk.md
+      - name: Bicep
+        displayName: Resource Manager, ARM
+        href: flexible-server/quickstart-create-server-bicep.md
     - name: Connect and query
       items:
         - name: Connect to a server in VNET
@@ -602,7 +604,7 @@
         href: flexible-server/how-to-create-server-customer-managed-key-cli.md
       - name: Azure portal
         href: flexible-server/how-to-create-server-customer-managed-key-portal.md
-      - name: Azure API
+      - name: Azure REST API
         href: flexible-server/how-to-create-server-customer-managed-key-azure-api.md
     - name: Database deployment
       items:

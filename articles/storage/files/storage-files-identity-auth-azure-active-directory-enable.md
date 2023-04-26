@@ -54,7 +54,7 @@ Azure AD Kerberos authentication only supports using AES-256 encryption.
 
 ## Regional availability
 
-Azure Files authentication with Azure AD Kerberos is available in Azure public cloud in [all Azure regions](https://azure.microsoft.com/global-infrastructure/locations/) except China and Government clouds.
+Azure Files authentication with Azure AD Kerberos is available in Azure public cloud in [all Azure regions](https://azure.microsoft.com/global-infrastructure/locations/).
 
 ## Enable Azure AD Kerberos authentication for hybrid user accounts
 
