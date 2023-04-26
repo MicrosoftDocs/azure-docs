@@ -55,6 +55,8 @@ ENV APPLICATIONINSIGHTS_CONNECTION_STRING="CONNECTION-STRING"
 ENTRYPOINT["java", "-javaagent:applicationinsights-agent-3.4.12.jar", "-jar", "app.jar"]
 ```
 
+In this example we have copied the `applicationinsights-agent-3.4.12.jar` and `applicationinsights.json` files from an `agent` folder (you can choose any folder of your machine). These two files have to be in the same folder in the Docker container.
+
 ### Third-party container images
 
 If you're using a third-party container image that you can't modify, mount the Application Insights Java agent jar into the container from outside. Set the environment variable for the container
