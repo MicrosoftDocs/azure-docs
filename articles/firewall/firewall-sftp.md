@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 # Deploy Azure Firewall to access a storage account container via SFTP
 
-You can use Azure Firewall to access a storage account container via SFTP. Using Azure PowerShell, the firewall is deployed in a virtual network and configured with DNAT rules to translate the SFTP traffic to the storage account container. The storage account container is configured with a private endpoint to allow access from the firewall. To connect to the container, you use the firewall public IP address and the storage account container name.
+You can use Azure Firewall to access a storage account container via SFTP. Using Azure PowerShell, a firewall is deployed in a virtual network and configured with DNAT rules to translate the SFTP traffic to the storage account container. The storage account container is configured with a private endpoint to allow access from the firewall. To connect to the container, you use the firewall public IP address and the storage account container name.
 
 
 In this article, you:
