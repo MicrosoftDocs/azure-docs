@@ -1,13 +1,13 @@
 ---
-title: Form Recognizer SDKs 
+title: Azure Text Translation SDKs 
 titleSuffix: Azure Applied AI Services
-description: Form Recognizer software development kits (SDKs) expose Form Recognizer models, features and capabilities, using C#, Java, JavaScript, and Python programming language.
+description: Azure Text Translation software development kits (SDKs) expose Text Translation features and capabilities, using C#, Java, JavaScript, and Python programming language.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: cognitive-services
+ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 04/25/2023
+ms.date: 04/26/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -17,40 +17,89 @@ recommendations: false
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD051 -->
 
-# Form Recognizer SDK (GA)
+# Azure Text Translation SDK (preview)
 
-[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
-
-> [!IMPORTANT]
-> For more information on the latest public preview version (**2023-02-28-preview**), *see* [Form Recognizer SDK (preview)](sdk-preview.md)
-
-Azure Cognitive Services Form Recognizer is a cloud service that uses machine learning to analyze text and structured data from documents. The Form Recognizer software development kit (SDK) is a set of libraries and tools that enable you to easily integrate Form Recognizer models and capabilities into your applications. Form Recognizer SDK is available across platforms in C#/.NET, Java, JavaScript, and Python programming languages.
+Azure Text Translation is a cloud-based REST API feature of the Azure Translator service. The Text Translation API enables quick and accurate source-to-target text translations in real time. The Text Translation software development kit (SDK) is a set of libraries and tools that enable you to easily integrate Text Translation REST API capabilities into your applications. Text Translation SDK is available across platforms in C#/.NET, Java, JavaScript, and Python programming languages.
 
 ## Supported languages
 
-Form Recognizer SDK supports the following languages and platforms:
+Text Translation SDK supports the following languages and platforms:
 
-| Language → Azure Form Recognizer SDK version | Package| Supported API version| Platform support |
+| Language → SDK version | Package| Supported API version| Platform support |
 |:----------------------:|:----------|:----------| :----------------|
-| [.NET/C# → 4.0.0 (latest GA release)](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0/index.html)|[NuGet](https://www.nuget.org/packages/Azure.AI.FormRecognizer)|[v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br> [v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |[Windows, macOS, Linux, Docker](https://dotnet.microsoft.com/download)|
-|[Java → 4.0.6 (latest GA release)](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0/index.html) |[MVN repository](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/4.0.0-beta.6) |[v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br> [v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |[Windows, macOS, Linux](/java/openjdk/install)|
-|[JavaScript → 4.0.0 (latest GA release)](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0/index.html)| [npm](https://www.npmjs.com/package/@azure/ai-form-recognizer)| [v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br> [v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) | [Browser, Windows, macOS, Linux](https://nodejs.org/en/download/) |
-|[Python → 3.2.0 (latest GA release)](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0/index.html) | [PyPI](https://pypi.org/project/azure-ai-formrecognizer/3.2.0/)| [v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br> [v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)</br>[v2.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) |[Windows, macOS, Linux](/azure/developer/python/configure-local-development-environment?tabs=windows%2Capt%2Ccmd#use-the-azure-cli)
+| [.NET/C# → 1.0.0-beta.1]||||
+|[Java → ]||||
+|[JavaScript → ]||||gnizer-api-v2/operations/AnalyzeLayoutAsync) | [Browser, Windows, macOS, Linux](https://nodejs.org/en/download/) |
+|[Python → ]||||
 
-## Supported Clients
+## Changelog and release history
 
-| Language| SDK version | API version | Supported clients|
-| :------ | :-----------|:---------- | :-----------------|
-|.NET/C#</br> Java</br> JavaScript</br>| 4.0.0 (latest GA release)| v3.0 / 2022-08-31 (default)|  **DocumentAnalysisClient**</br>**DocumentModelAdministrationClient** |
-|.NET/C#</br> Java</br> JavaScript</br>| 3.1.x |  v2.1 (default)</br>v2.0 |  **FormRecognizerClient**</br>**FormTrainingClient** |
-|.NET/C#</br> Java</br> JavaScript</br>| 3.0.x| v2.0 |  **FormRecognizerClient**</br>**FormTrainingClient** |
-| Python| 3.2.x (latest GA release) | v3.0 / 2022-08-31 (default)|  DocumentAnalysisClient</br>DocumentModelAdministrationClient|
-| Python | 3.1.x |  v2.1 (default)</br>v2.0 |**FormRecognizerClient**</br>**FormTrainingClient** |
-| Python | 3.0.0 |  v2.0 |**FormRecognizerClient**</br>**FormTrainingClient** |
+This reference article provides a version-based description of Form Recognizer feature and capability releases, changes, updates, and enhancements.
 
-## Use Form Recognizer SDK in your applications
+#### Translator Text SDK April 2023 preview release
 
-The Form Recognizer SDK enables the use and management of the Form Recognizer service in your application. The SDK builds on the underlying Form Recognizer REST API allowing you to easily use those APIs within your programming language paradigm. Here's how you use the Form Recognizer SDK for your preferred language:
+This release includes the following updates:
+
+### [**C#**](#tab/csharp)
+
+* **Version**
+* **Targets**
+* **Initial release**
+
+[**Package (NuGet)**]()
+
+[**Changelog/Release History**]()
+
+[**ReadMe**]()
+
+[**Samples**]()
+
+### [**Java**](#tab/java)
+
+* **Version**
+* **Targets**
+* **Initial release**
+
+[**Package (NuGet)**]()
+
+[**Changelog/Release History**]()
+
+[**ReadMe**]()
+
+[**Samples**]()
+
+### [**JavaScript**](#tab/javascript)
+
+* **Version**
+* **Targets**
+* **Initial release**
+
+[**Package (NuGet)**]()
+
+[**Changelog/Release History**]()
+
+[**ReadMe**]()
+
+[**Samples**]()
+
+### [**Python**](#tab/python)
+
+* **Version**
+* **Targets**
+* **Initial release**
+
+[**Package (NuGet)**]()
+
+[**Changelog/Release History**]()
+
+[**ReadMe**]()
+
+[**Samples**]()
+---
+
+## Use Text Translation SDK in your applications
+
+The Text Translation SDK enables the use and management of the Text Translation service in your application. The SDK builds on the underlying Text Translation REST API allowing you to easily use those APIs within your programming language paradigm. Here's how you use the Text Translation SDK for your preferred language:
 
 ### 1. Install the SDK client library
 
@@ -130,13 +179,13 @@ from azure.core.credentials import AzureKeyCredential
 
 There are two supported methods for authentication
 
-* Use a [Form Recognizer API key](#use-your-api-key) with AzureKeyCredential from azure.core.credentials.
+* Use a [Text Translation API key](#use-your-api-key) with AzureKeyCredential from azure.core.credentials.
 
 * Use a [token credential from azure-identity](#use-an-azure-active-directory-azure-ad-token-credential) to authenticate with [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md).
 
 #### Use your API key
 
-Here's where to find your Form Recognizer API key in the Azure portal:
+Here's where to find your Text Translation API key in the Azure portal:
 
 :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of the keys and endpoint location in the Azure portal.":::
 
@@ -204,7 +253,7 @@ Here's how to acquire and use the [DefaultAzureCredential](/dotnet/api/azure.ide
 
 1. [Register an Azure AD application and create a new service principal](../../cognitive-services/authentication.md?tabs=powershell#assign-a-role-to-a-service-principal).
 
-1. Grant access to Form Recognizer by assigning the **`Cognitive Services User`** role to your service principal.
+1. Grant access to Text Translation by assigning the **`Cognitive Services User`** role to your service principal.
 
 1. Set the values of the client ID, tenant ID, and client secret in the Azure AD application as environment variables: **`AZURE_CLIENT_ID`**, **`AZURE_TENANT_ID`**, and **`AZURE_CLIENT_SECRET`**, respectively.
 
@@ -233,7 +282,7 @@ Here's how to acquire and use the [DefaultAzureCredential](/java/api/com.azure.i
 
 1. [Register an Azure AD application and create a new service principal](../../cognitive-services/authentication.md?tabs=powershell#assign-a-role-to-a-service-principal).
 
-1. Grant access to Form Recognizer by assigning the **`Cognitive Services User`** role to your service principal.
+1. Grant access to Text Translation by assigning the **`Cognitive Services User`** role to your service principal.
 
 1. Set the values of the client ID, tenant ID, and client secret of the Azure AD application as environment variables: **`AZURE_CLIENT_ID`**, **`AZURE_TENANT_ID`**, and **`AZURE_CLIENT_SECRET`**, respectively.
 
@@ -261,7 +310,7 @@ Here's how to acquire and use the [DefaultAzureCredential](/javascript/api/@azur
 
 1. [Register an Azure AD application and create a new service principal](../../cognitive-services/authentication.md?tabs=powershell#assign-a-role-to-a-service-principal).
 
-1. Grant access to Form Recognizer by assigning the **`Cognitive Services User`** role to your service principal.
+1. Grant access to Text Translation by assigning the **`Cognitive Services User`** role to your service principal.
 
 1. Set the values of the client ID, tenant ID, and client secret of the Azure AD application as environment variables: **`AZURE_CLIENT_ID`**, **`AZURE_TENANT_ID`**, and **`AZURE_CLIENT_SECRET`**, respectively.
 
@@ -288,7 +337,7 @@ Here's how to acquire and use the [DefaultAzureCredential](/python/api/azure-ide
 
 1. [Register an Azure AD application and create a new service principal](../../cognitive-services/authentication.md?tabs=powershell#assign-a-role-to-a-service-principal).
 
-1. Grant access to Form Recognizer by assigning the **`Cognitive Services User`** role to your service principal.
+1. Grant access to Text Translation by assigning the **`Cognitive Services User`** role to your service principal.
 
 1. Set the values of the client ID, tenant ID, and client secret of the Azure AD application as environment variables: **`AZURE_CLIENT_ID`**, **`AZURE_TENANT_ID`**, and **`AZURE_CLIENT_SECRET`**, respectively.
 
@@ -311,16 +360,16 @@ For more information, *see* [Authenticate the client](https://github.com/Azure/a
 
 ### 4. Build your application
 
-Create a client object to interact with the Form Recognizer SDK, and then call methods on that client object to interact with the service. The SDKs provide both synchronous and asynchronous methods. For more insight, try a [quickstart](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true) in a language of your choice.
+Create a client object to interact with the Text Translation SDK, and then call methods on that client object to interact with the service. The SDKs provide both synchronous and asynchronous methods. For more insight, try the Text Translation [quickstart]() in a language of your choice.
 
 ## Help options
 
-The [Microsoft Q&A](/answers/topics/azure-form-recognizer.html) and [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-form-recognizer) forums are available for the developer community to ask and answer questions about Azure Form Recognizer and other services. Microsoft monitors the forums and replies to questions that the community has yet to answer. To make sure that we see your question, tag it with **`azure-form-recognizer`**.
+The [Microsoft Q&A](/answers/tags/132/azure-translator) and [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-text-translation) forums are available for the developer community to ask and answer questions about Azure Text Translation and other services. Microsoft monitors the forums and replies to questions that the community has yet to answer. To make sure that we see your question, tag it with **`azure-form-recognizer`**.
 
 ## Next steps
 
 >[!div class="nextstepaction"]
-> [**Explore Form Recognizer REST API v3.0**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)
+> [**Text Translation v3.0 reference guide**](/reference/rest-api-guide.md)
 
-> [!div class="nextstepaction"]
-> [**Try a Form Recognizer quickstart**](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
+>[!div class="nextstepaction"]
+> [**Text Translation v3.0 REST APIs**](/reference/rest-api-guide.md)
