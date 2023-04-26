@@ -198,8 +198,6 @@ Use the following steps to create a sample application using Spring Cloud Gatewa
 1. Use the following commands to query the routing rules:
 
    ```azurecli
-   az configure --defaults group=<resource-group-name> spring=<Azure-Spring-Apps-instance-name>
-
    az spring gateway route-config show \
        --name test-api-routes \
        --query '{appResourceId:properties.appResourceId, routes:properties.routes}'
