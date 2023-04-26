@@ -62,8 +62,9 @@ In MSAL for Python, exceptions are rare because most errors are handled by retur
 MSAL makes HTTP calls to the Azure AD service, and occasionally failures can occur.
 For example the network can go down or the server is overloaded.
 
-You may either programmatically implement your own retry policies when calling MSAL,
-or choose to surface the error thus implicitly let the end user decide whether to retry.
+MSAL Python 1.11+ automatically performs one retry attempt for you.
+You may customize this behavior by following
+[this instruction](https://msal-python.readthedocs.io/en/latest/#msal.ConfidentialClientApplication.params.http_client).
 
 ### HTTP 429
 
