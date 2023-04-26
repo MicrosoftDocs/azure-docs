@@ -1,5 +1,6 @@
 ---
 title: "Event-driven work using Dapr Bindings"
+titleSuffix: "Azure Container Apps"
 description: Deploy a sample Dapr Bindings application to Azure Container Apps.
 author: hhunter-ms
 ms.author: hannahhunter
