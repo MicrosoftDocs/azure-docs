@@ -38,10 +38,11 @@ May 2023 test release is now available.
 
 ### Release notes
 
-- Arc Data Services | Arc SQL MI | az CLI | Direct Mode for Failover Groups | GA
-- Arc Data Services | Arc SQL MI | Schedule ha-orchestrator pods across different nodes
+- Arc SQL MI GP | Customer-Managed TDE | Preview
+- Arc SQL MI | Configuration Manager | sp_configure support
+- Arc SQL MI | Service-Managed Credential Rotation
+- Arc Data Services | Upgrade to OpenSearch | GA
 - Arc Data Services | Arc Data Controller | az CLI | Improved Arc data controller upgrade reliability
-- Arc PostgreSQL | Upload metrics/logs to Azure Monitor
-- Arc PostgreSQL | Ensure PostgreSQL extensions work per database/role.
-- Arc SQL Server | Backups | Configure Automatic Backups for Arc SQL Server with a default schedule
-- Arc SQL Server | Azure Policy to enable best practices assessment at scale
+- Arc SQL Server | Database Watcher | Private Preview (BYOC)
+- Arc SQL Server | Database Watcher - Reporting Layer | Preview
+
