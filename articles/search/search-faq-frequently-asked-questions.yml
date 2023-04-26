@@ -9,7 +9,7 @@ metadata:
   ms.author: heidist
   ms.service: cognitive-search
   ms.topic: faq
-  ms.date: 02/08/2023
+  ms.date: 04/26/2023
 title: Cognitive Search Frequently Asked Questions
 summary:  Find answers to commonly asked questions about Azure Cognitive Search.
 
@@ -24,7 +24,7 @@ sections:
       - question: |
           Does Cognitive Search support vector search?
         answer: |
-          No. Currently, Cognitive Search runs on a version of Apache Lucene that doesn't support vector search.
+          No. Currently, the stable and public preview versions of Cognitive Search don't provide vector search.
 
       - question: |
           How do I work with Cognitive Search?
