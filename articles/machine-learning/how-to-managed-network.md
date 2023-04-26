@@ -51,9 +51,9 @@ The managed virtual network is preconfigured with [required default outbound rul
 
 |Scenarios|Supported in preview|To be supported|
 |---|---|---|
-|Isolation Mode|Allow internet outbound<br>Allow only approved outbound||
-|Compute|Compute Instance<br>Compute Cluster<br>Serverless<br>Serverless spark|New managed online endpoint creation<br>Migration of existing managed online endpoint<br>No Public IP option of Compute Instance, Compute Cluster and Serverless|
-|Outbound|Private Endpoint<br>Service Tag|FQDN|
+|Isolation Mode| &#x2022; Allow internet outbound<br>&#x2022; Allow only approved outbound||
+|Compute|&#x2022; Compute Instance<br>&#x2022; Compute Cluster<br>&#x2022; Serverless<br>&#x2022; Serverless spark|&#x2022; New managed online endpoint creation<br>&#x2022; Migration of existing managed online endpoint<br>&#x2022; No Public IP option of Compute Instance, Compute Cluster and Serverless|
+|Outbound|&#x2022; Private Endpoint<br>&#x2022; Service Tag|&#x2022; FQDN|
 
 ## Prerequisites
 

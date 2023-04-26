@@ -38,7 +38,9 @@ The following table contains the differences between these configurations:
 
 You can also use Azure Databricks or HDInsight to train models in a virtual network.
 
-> [!TIP]
+[!INCLUDE [managed-vnet-note](../includes/managed-vnet-note.md)]
+
+> [!NOTE]
 > For information on using the Azure Machine Learning __studio__ and the Python SDK __v2__, see [Secure training environment (v2)](../how-to-secure-training-vnet.md).
 >
 > For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace in Azure portal](../tutorial-create-secure-workspace.md) or [Tutorial: Create a secure workspace using a template](../tutorial-create-secure-workspace-template.md).

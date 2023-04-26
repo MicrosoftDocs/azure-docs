@@ -23,8 +23,7 @@ ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security, cliv2, s
 
 In this article, you learn how to secure an Azure Machine Learning workspace and its associated resources in an Azure Virtual Network.
 
-> [!TIP]
-> Azure Machine Learning also provides **managed virtual networks** (preview). With a managed virtual network, Azure Machine Learning handles the job of network isolation for your workspace and managed computes. You can also add private endpoints for resources needed by the workspace, such as Azure Storage Account. For more information, see [Workspace managed network isolation](how-to-managed-network.md).
+[!INCLUDE [managed-vnet-note](includes/managed-vnet-note.md)]
 
 This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 
