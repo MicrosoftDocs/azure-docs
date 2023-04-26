@@ -12,7 +12,7 @@ ms.author: kindrasiri
 This tutorial walks you through a scenario where you use JSON Schemas to serialize and deserialize event using Azure Schema Registry in Event Hubs.
 
 In this use case a Kafka producer application uses JSON schema stored in Azure Schema Registry to, serialize the event and publish them to a Kafka topic/event hub in Azure Event Hubs. The Kafka consumer deserializes the events that it consumes from Event Hubs. For that it uses schema ID of the event and JSON schema, which is stored in Azure Schema Registry. 
-:::image type="content" source="./media/schema-registry-overview/kafka-json-schema.png" alt-text="Schema serialization/de-serialization for Kafka applications using JSON schema." border="false":::
+:::image type="content" source="./media/schema-registry-overview/kafka-json-schema.png" alt-text="Diagram showing the schema serialization/de-serialization for Kafka applications using JSON schema." border="false":::
 
 ## Prerequisites
 If you're new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md) before you do this quickstart. 
@@ -103,88 +103,89 @@ To update the Kafka Producer configuration, navigate to *azure-schema-registry-f
     client.secret=<>
 1. Follow the same instructions and update the *azure-schema-registry-for-kafka/tree/master/java/avro/samples/kafka-consumer* configuration as well. 
 1. For both Kafka producer and consumer applications, following JSON schema is used: 
-```json
-{
-  "$id": "https://example.com/person.schema.json",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "CustomerInvoice",
-  "type": "object",
-  "properties": {
-    "invoiceId": {
-      "type": "string"
-    },
-    "merchantId": {
-      "type": "string"
-    },
-    "transactionValueUsd": {
-      "type": "integer"
-    },
-    "userId": {
-      "type": "string"
-    }
-  }
-}
-```
+      
+   ```json
+   {
+     "$id": "https://example.com/person.schema.json",
+     "$schema": "https://json-schema.org/draft/2020-12/schema",
+     "title": "CustomerInvoice",
+     "type": "object",
+     "properties": {
+       "invoiceId": {
+         "type": "string"
+       },
+       "merchantId": {
+         "type": "string"
+       },
+       "transactionValueUsd": {
+         "type": "integer"
+       },
+       "userId": {
+         "type": "string"
+       }
+     }
+   }
+   ```
 
 
 ## Using Kafka producer with JSON schema validation 
 To run the Kafka producer application, navigate to *azure-schema-registry-for-kafka/tree/master/java/avro/samples/kafka-producer*.
 
 1. You can run the producer application so that it can produce Avro specific records or generic records. For specific records mode you need to first generate the classes against either the producer schema using the following maven command: 
-```shell
-mvn generate-sources
-```
+   ```shell
+   mvn generate-sources
+   ```
 
 1. Then you can run the producer application using the following commands. 
 
-```shell
-mvn clean package
-mvn -e clean compile exec:java -Dexec.mainClass="com.azure.schemaregistry.samples.producer.App"
-```
+   ```shell
+   mvn clean package
+   mvn -e clean compile exec:java -Dexec.mainClass="com.azure.schemaregistry.samples.producer.App"
+   ```
 
 1. Upon successful execution of the producer application, it prompts you to choose the producer scenario. For this quickstart, you can choose option *1 - produce SpecificRecords*. 
 
-```shell
-Enter case number:
-1 - produce SpecificRecords
-```
+   ```shell
+   Enter case number:
+   1 - produce SpecificRecords
+   ```
 
 1. Upon successful data serialization and publishing, you should see the following console logs in your producer application: 
 
-```shell 
-INFO com.azure.schemaregistry.samples.producer.KafkaJsonSpecificRecord - Sent Order Invoice 0
-INFO com.azure.schemaregistry.samples.producer.KafkaJsonSpecificRecord - Sent Order Invoice 1
-INFO com.azure.schemaregistry.samples.producer.KafkaJsonSpecificRecord - Sent Order Invoice 2
-```
+   ```shell 
+   INFO com.azure.schemaregistry.samples.producer.KafkaJsonSpecificRecord - Sent Order Invoice 0
+   INFO com.azure.schemaregistry.samples.producer.KafkaJsonSpecificRecord - Sent Order Invoice 1
+   INFO com.azure.schemaregistry.samples.producer.KafkaJsonSpecificRecord - Sent Order Invoice 2
+   ```
 
 ## Using Kafka consumer with JSON schema validation 
 To run the Kafka consumer application, navigate to *azure-schema-registry-for-kafka/tree/master/java/avro/samples/kafka-consumer*.
 
 1. You can run the consumer application so that it can consume Avro specific records or generic records. For specific records mode you need to first generate the classes against either the producer schema using the following maven command: 
-```shell
-mvn generate-sources
-```
+   ```shell
+   mvn generate-sources
+   ```
 
 1. Then you can run the consumer application using the following command. 
-```shell
-mvn clean package
-mvn -e clean compile exec:java -Dexec.mainClass="com.azure.schemaregistry.samples.consumer.App"
-```
+   ```shell
+   mvn clean package
+   mvn -e clean compile exec:java -Dexec.mainClass="com.azure.schemaregistry.samples.consumer.App"
+   ```
 1. Upon successful execution of the consumer application, it prompts you to choose the producer scenario. For this quickstart, you can choose option *1 - consume Avro SpecificRecords*. 
 
-```shell
-Enter case number:
-1 - consume SpecificRecords
-  ```
+   ```shell
+   Enter case number:
+   1 - consume SpecificRecords
+     ```
 
 1. Upon successful data consumption and deserialization, you should see the following console logs in your producer application: 
 
-```shell
-INFO com.azure.schemaregistry.samples.consumer.KafkaJsonSpecificRecord - Invoice received: {invoiceId=Invoice 0, merchantId=Merchant Id 0, transactionValueUsd=0, userId=User Id 0}
-INFO com.azure.schemaregistry.samples.consumer.KafkaJsonSpecificRecord - Invoice received: {invoiceId=Invoice 1, merchantId=Merchant Id 1, transactionValueUsd=1, userId=User Id 1}
-INFO com.azure.schemaregistry.samples.consumer.KafkaJsonSpecificRecord - Invoice received: {invoiceId=Invoice 2, merchantId=Merchant Id 2, transactionValueUsd=2, userId=User Id 2}
+   ```shell
+   INFO com.azure.schemaregistry.samples.consumer.KafkaJsonSpecificRecord - Invoice received: {invoiceId=Invoice 0, merchantId=Merchant Id 0, transactionValueUsd=0, userId=User Id 0}
+   INFO com.azure.schemaregistry.samples.consumer.KafkaJsonSpecificRecord - Invoice received: {invoiceId=Invoice 1, merchantId=Merchant Id 1, transactionValueUsd=1, userId=User Id 1}
+   INFO com.azure.schemaregistry.samples.consumer.KafkaJsonSpecificRecord - Invoice received: {invoiceId=Invoice 2, merchantId=Merchant Id 2, transactionValueUsd=2, userId=User Id 2}
 
-```
+   ```
 
 ## Clean up resources
 Delete the Event Hubs namespace or delete the resource group that contains the namespace. 
