@@ -41,6 +41,8 @@ Traffic Controller supports the following features for traffic management:
 - Mutual Authentication (mTLS) to backend target
 - Health checks: Traffic Controller determines the health of a backend before it registers it as healthy and capable of handling traffic
 - Automatic retries
+- Autoscaling
+- Availability zone resiliency
 
 ### Implementation of Gateway API
 
