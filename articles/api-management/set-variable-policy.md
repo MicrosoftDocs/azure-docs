@@ -26,8 +26,8 @@ The `set-variable` policy declares a [context](api-management-policy-expressions
 
 | Attribute | Description                                                              | Required |
 | --------- | ------------------------------------------------------------------------ | -------- |
-| name      | The name of the variable.                                                | Yes      |
-| value     | The value of the variable. This can be an expression or a literal value. | Yes      |
+| name      | The name of the variable.  Policy expressions aren't allowed.                                               | Yes      |
+| value     | The value of the variable. This can be an expression or a literal value. Policy expressions are allowed.  | Yes      |
 
 ## Usage
 

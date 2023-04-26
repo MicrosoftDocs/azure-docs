@@ -17,7 +17,7 @@ To get to the list of recommendations:
     - In the Defender for Cloud overview, select **Security posture** and then select **View recommendations** for the environment you want to improve.
     - Go to **Recommendations** in the Defender for Cloud menu.
 
-You can search for specific recommendations by name. Use the search box and filters above the list of recommendations to find specific recommendations. Look at the [details of the recommendation](security-policy-concept.md#security-recommendation-details) to decide whether to [remediate it](implement-security-recommendations.md), [exempt resources](exempt-resource.md), or [disable the recommendation](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations).
+You can search for specific recommendations by name. Use the search box and filters above the list of recommendations to find specific recommendations. Look at the [details of the recommendation](security-policy-concept.md#security-recommendation-details) to decide whether to [remediate it](implement-security-recommendations.md), [exempt resources](exempt-resource.md), or [disable the recommendation](tutorial-security-policy.md#disable-a-security-recommendation).
 
 You can learn more by watching this video from the Defender for Cloud in the Field video series:
 - [Security posture management improvements](episode-four.md)
@@ -67,7 +67,7 @@ To change the owner of resources and set the ETA for remediation of recommendati
 
 The due date for the recommendation doesn't change, but the security team can see that you plan to update the resources by the specified ETA date.
 
-## Review recommendation data in Azure Resource Graph Explorer (ARG)
+## Review recommendation data in Azure Resource Graph (ARG)
 
 You can review recommendations in ARG both on the Recommendations page or on an individual recommendation.
 

@@ -40,7 +40,7 @@ Your keyword will be highlighted in the return results, so you can see where the
 
 The Microsoft Purview relevance engine sorts through all the matches and ranks them based on what it believes their usefulness is to a user. For example, a data consumer is likely more interested in a table curated by a data steward that matches on multiple keywords than an unannotated folder. Many factors determine an asset’s relevance score and the Microsoft Purview search team is constantly tuning the relevance engine to ensure the top search results have value to you.
 
-## Filtering results
+## Refine results
 
 If the top results don’t include the assets you're looking for, there are two ways you can filter results:
 
@@ -55,7 +55,7 @@ Then select any facet you would like to narrow your results by.
 
 :::image type="content" source="./media/how-to-search-catalog/facet-menu.png" alt-text="Screenshot showing the search menu on the left side with Folder and Report selected." border="true":::
 
-For certain annotations, you can select the ellipses to choose between an AND condition or an OR condition. 
+For certain annotations, you can select the ellipses to choose between an AND condition or an OR condition.
 
 :::image type="content" source="./media/how-to-search-catalog/search-and-or-choice.png" alt-text="Screenshot showing how to choose between and AND or OR condition." border="true":::
 
@@ -63,6 +63,18 @@ For certain annotations, you can select the ellipses to choose between an AND co
 >The *Filter by keyword* option at the top of the facet menu is to filter facets by keyword, not the search results.
 >
 > :::image type="content" source="./media/how-to-search-catalog/filter-facets.png" alt-text="Screenshot showing the facet filter at the top of the menu, with a search parameter entered, and the facets filtered below." border="true":::
+
+#### Available facets
+
+- **Assigned term** - refines your search to assets with the selected terms applied.
+- **Classification** - refines your search to assets with certain classifications.
+- **Collection** - refines your search by assets in a specific collection.
+- **Contact** - refines your search to assets that have selected users listed as a contact.
+- **Data** - refines your search to specific data types. For example: pipelines, data shares, tables, or reports.
+- **Endorsement** - refines your search to assets with specified endorsements, like **Certified** or **Promoted**.
+- **Label** - refines your search to assets with specific security labels.
+- **Metamodel facets** - if you've created a [metamodel](concept-metamodel.md) in your Microsoft Purview Data Map, you can also refine your search to metamodel assets like Business or Organization.
+- **Rating** - refines your search to only data assets with a specified rating.
 
 ### Use the filters
 
@@ -81,6 +93,13 @@ Then, select your attribute, enter your operator and value, and your search resu
 To remove any filters, select the **x** in the filter button, or clear all filters by selecting **Clear all filters**.
 
 :::image type="content" source="./media/how-to-search-catalog/remove-filters.png" alt-text="Screenshot showing the remove filter buttons in the top menu." border="true":::
+
+#### Available filters
+
+- **Activity** - allows you refine your search to attributes created or updated within a certain timeframe.
+- **Managed attributes** - refines your search to assets with specified [managed attributes](how-to-managed-attributes.md). Attributes will be listed under their attribute group, and use operators to help search for specific values. For example: Contains any, or Doesn't contain.
+- **Source type** - refines your search to assets from specified source types. For example: Azure Blob Storage or Power BI.
+- **Tags** - refines your search to assets with selected tags.
 
 ## View assets
 

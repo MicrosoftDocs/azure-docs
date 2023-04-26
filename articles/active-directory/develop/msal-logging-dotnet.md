@@ -80,7 +80,7 @@ Example:
     {
         public EventLogLevel MinLogLevel { get; }
 
-        public TestIdentityLogger()
+        public MyIdentityLogger()
         {
             //Try to pull the log level from an environment variable
             var msalEnvLogLevel = Environment.GetEnvironmentVariable("MSAL_LOG_LEVEL");

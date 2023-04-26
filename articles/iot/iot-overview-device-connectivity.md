@@ -20,7 +20,7 @@ IoT Central applications use the IoT Hub and the Device Provisioning Service (DP
 
 The following diagram shows a high-level view of the components in a typical IoT solution. This article focuses on the connectivity between the devices and the IoT cloud services, including gateways and bridges, shown in the diagram.
 
-:::image type="content" source="media/iot-overview-device-connectivity/iot-architecture.svg" lightbox="media/iot-overview-device-connectivity/iot-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting device connectivity areas." border="false":::
+:::image type="content" source="media/iot-overview-device-connectivity/iot-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting device connectivity areas." border="false":::
 
 ## Primitives
 
@@ -51,6 +51,8 @@ A device can establish a secure connection to an IoT hub:
 - Indirectly by using DPS, in which case the device connects to a well-known DPS endpoint to retrieve the connection string for the IoT hub it's assigned to.
 
 The advantage of using DPS is that you don't need to configure all of your devices with connection-strings that are specific to your IoT hub. Instead, you configure your devices to connect to a well-known, common DPS endpoint where they discover their connection details. To learn more, see [Device Provisioning Service](../iot-dps/about-iot-dps.md).
+
+To learn more about implementing automatic reconnections to endpoints, see [Manage device reconnections to create resilient applications](../iot-develop/concepts-manage-device-reconnections.md).
 
 ## Device connection strings
 
@@ -90,7 +92,7 @@ An IoT device can use one of several network protocols when it connects to an Io
 To learn more about how to choose a protocol for your devices to connect to the cloud, see:
 
 - [Protocol support in Azure IoT Hub](../iot-hub/iot-hub-devguide-protocols.md)
-- [Communicate with DPS using the MQTT protocol](../iot-dps/iot-dps-mqtt-support.md)
+- [Communicate with DPS using the MQTT protocol](iot-mqtt-connect-to-iot-dps.md)
 - [Communicate with DPS using the HTTPS protocol (symmetric keys)](../iot-dps/iot-dps-https-sym-key-support.md)
 - [Communicate with DPS using the HTTPS protocol (X.509)](../iot-dps/iot-dps-https-x509-support.md)
 
@@ -131,5 +133,5 @@ The open source IoT Central Device Bridge acts as a translator that forwards tel
 
 Now that you've seen an overview of device connectivity in Azure IoT solutions, some suggested next steps include
 
-- [IoT device development](iot-overview-device-development.md)
 - [Device management and control in IoT solutions](iot-overview-device-management.md)
+- [Process and route messages](iot-overview-message-processing.md)

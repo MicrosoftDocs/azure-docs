@@ -6,7 +6,7 @@ ms.author: kutelang
 ms.service: public-multi-access-edge-compute-mec
 ms.topic: quickstart
 ms.date: 11/22/2022
-ms.custom: template-quickstart, devx-track-azurecli
+ms.custom: template-quickstart, devx-track-azurecli, devx-track-arm-template
 ---
 
 # Quickstart: Deploy a virtual machine in Azure public MEC using an ARM template

@@ -10,7 +10,7 @@ metadata:
   ms.subservice: app-mgmt
   ms.workload: identity
   ms.topic: landing-page
-  ms.date: 07/08/2021
+  ms.date: 04/17/2023
   author: CelesteDG
   ms.author: CelesteDG
 
@@ -89,6 +89,8 @@ landingContent:
         links:
           - text: Identity governance
             url: ../governance/identity-governance-overview.md
+          - text: User and admin consent
+            url: user-admin-consent-overview.md
       - linkListType: how-to-guide
         links:
           - text: Assign roles
@@ -139,6 +141,8 @@ landingContent:
             url: ../reports-monitoring/howto-download-logs.md
           - text: Set up access reviews
             url: ../governance/deploy-access-reviews.md
+          - text: Assign owners
+            url: assign-app-owners.md
   - title: Remote access to on-premises apps
     linkLists:
       - linkListType: concept
@@ -147,7 +151,7 @@ landingContent:
             url: ../app-proxy/application-proxy.md
       - linkListType: how-to-guide
         links:
-          - text: Application Proxy deployment
+          - text: Plan application Proxy deployment
             url: ../app-proxy/application-proxy-deployment-plan.md
           - text: Set up connectors
             url: ../app-proxy/application-proxy-connectors.md

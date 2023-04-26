@@ -44,7 +44,10 @@ Settings relevant to the Azure Container Apps environment API resource.
 
 ## Billing
 
-Billing is relevant only to individual container apps and their resource usage. There are no base charges associated with the Container Apps environment.
+Azure Container Apps has two different pricing structures.
+
+- If you're using the Consumption only plan, or only the Consumption workload profile in the Consumption + Dedicated plan structure then billing is relevant only to individual container apps and their resource usage. There's no cost associated with the Container Apps environment.
+- If you're using any Dedicated workload profiles in the Consumption + Dedicated plan structure, there's a fixed cost for the Dedicated plan management. This cost is for the entire environment regardless of how many Dedicated workload profiles you're using.
 
 ## Next steps
 

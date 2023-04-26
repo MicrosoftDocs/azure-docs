@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/04/2020
+ms.date: 03/30/2023
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -79,6 +79,31 @@ Tips when creating and using custom roles for delegating application management:
 - App registrations the user has access to using role assignments only show up in the ‘All applications’ tab on the App registration page. They do not show up in the ‘Owned applications’ tab.
 
 For more information on the basics of custom roles, see the [custom roles overview](custom-overview.md), as well as how to [create a custom role](custom-create.md) and how to [assign a role](custom-assign-powershell.md).
+
+## Troubleshoot
+
+### Symptom - Access denied when you try to register an application
+
+When you try to register an application in Azure AD, you get a message similar to the following:
+
+```
+Access denied
+You do not have access
+You don't have permission to register applications in the <directoryName> directory. To request access, contact your administrator.
+```
+
+:::image type="content" source="media/delegate-app-roles/app-registrations-access-denied.png" alt-text="Screenshot of access denied message when trying to create a new app registration." lightbox="media/delegate-app-roles/app-registrations-access-denied.png":::
+
+**Cause**
+
+You can't register the application in the directory because your directory administrator has [restricted who can create applications](#restrict-who-can-create-applications).
+
+**Solution**
+
+Contact your administrator to do one of the following:
+
+- Grant you permissions to create and consent to applications by [assigning you the Application Developer role](#grant-individual-permissions-to-create-and-consent-to-applications-when-the-default-ability-is-disabled).
+- Create the application registration for you and [assign you as the application owner](#assign-application-owners).
 
 ## Next steps
 
