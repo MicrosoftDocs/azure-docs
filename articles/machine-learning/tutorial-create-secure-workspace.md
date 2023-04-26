@@ -17,6 +17,8 @@ monikerRange: 'azureml-api-2 || azureml-api-1'
 
 In this article, learn how to create and connect to a secure Azure Machine Learning workspace. A secure workspace uses Azure Virtual Network to create a security boundary around resources used by Azure Machine Learning. 
 
+[!INCLUDE [managed-vnet-note](includes/managed-vnet-note.md)]
+
 In this tutorial, you accomplish the following tasks:
 
 > [!div class="checklist"]
