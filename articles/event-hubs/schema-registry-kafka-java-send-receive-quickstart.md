@@ -1,14 +1,14 @@
 ---
 title: 'Validate events from Apache Kafka apps using Avro (Java)'
 description: In this quickstart, you create Kafka application,  which is based on Java that sends/receives events to/from Azure Event Hubs with schema validation using Schema Registry.
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 04/26/2023
 ms.devlang: java
 author: kasun04
 ms.author: kindrasiri
 ---
 
-# Quickstart: Validate schemas for Apache Kafka applications using Avro (Java)
+# Validate schemas for Apache Kafka applications using Avro (Java)
 In this quickstart guide, we explore how to validate event from Apache Kafka applications using Azure Schema Registry for Event Hubs.
 
 In this use case a Kafka producer application uses Avro schema stored in Azure Schema Registry to, serialize the event and publish them to a Kafka topic/event hub in Azure Event Hubs. The Kafka consumer deserializes the events that it consumes from Event Hubs. For that it uses schema ID of the event and the Avro schema, which is stored in Azure Schema Registry. 
