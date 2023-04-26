@@ -181,25 +181,19 @@ If you have the Upgrade Policy set to manual, you need to trigger manual upgrade
 > [!NOTE]
 > While performing upgrades, the instances may be restarted.
 
-### CLI
+### [CLI](#tab/cli)
 Update Virtual Machine Scale Set instances using [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances).
 
 ```azurecli-interactive
 az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
 ```
-### PowerShell
+### [PowerShell](#tab/powershell)
 Update Virtual Machine Scale Set instances using [Update-AzVmssInstance](/powershell/module/az.compute/update-azvmssinstance).
     
 ```azurepowershell-interactive
 Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
 ```
-
-### REST API
-Update Virtual Machine Scale Set instances using [update instances](/rest/api/compute/virtualmachinescalesets/updateinstances).
-
-```rest
-POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/manualupgrade?api-version={apiVersion}
-```
+---
 
 ## Exceptions to Upgrade Policies
 
@@ -208,20 +202,20 @@ Changes to the scale set OS, data disk Profile (such as admin username and passw
 > [!NOTE]
 > The Reimage flag will reimage the selected instance, restoring it to the initial state. The instance may be restarted, and any local data will be lost.
 
-### CLI
+### [CLI](#tab/cli)
 Reimage a Virtual Machine Scale Set instance using [az vmss reimage](/cli/azure/vmss#az-vmss-reimage).
 
 ```azurecli-interactive
 az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
 ```
 
-### PowerShell
+### [PowerShell](#tab/powershell)
 Reimage a Virtual Machine Scale Set instance using [Set-AzVmssVM](/powershell/module/az.compute/set-azvmssvm).
 
 ```azurepowershell-interactive
 Set-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
 ```
-
+---
 
 ## Next steps
 You can also perform common management tasks on Virtual Machine Scale Sets using the [Azure CLI](virtual-machine-scale-sets-manage-cli.md) or [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).
