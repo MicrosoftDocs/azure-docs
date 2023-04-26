@@ -84,7 +84,7 @@ Open PowerShell ISE and copy the following script and update the parameters to m
         remove-item .\configureDevOps.ps1
     }
     
-    Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/sap-automation/main/deploy/scripts/setup_devops.ps1 -OutFile .\configureDevOps.ps1 ; .\configureDevOps.ps1
+    Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/sap-automation/main/deploy/scripts/New-SDAFDevopsProject.ps1 -OutFile .\New-SDAFDevopsProject.ps1 ; .\New-SDAFDevopsProject.ps1
     
 ```
 
@@ -97,6 +97,11 @@ Validate that the project has been created by navigating to the Azure DevOps por
 
 > [!IMPORTANT]
 > Run the following steps on your local workstation, also ensure that you have the latest Azure CLI installed by running the 'az upgrade' command.
+
+### Configure Azure DevOps Services artifacts for a new Workload zone.
+
+You can use the following script to deploy the artifacts needed to support a new workload zone.
+
 
 ### Create a sample Control Plane configuration
 
