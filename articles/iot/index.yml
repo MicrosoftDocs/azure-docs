@@ -77,7 +77,7 @@ conceptualContent:
         - url: ./iot-overview-device-connectivity.md
           itemType: overview
           text: Introduction to device infrastructure and connectivity
-        - url: ../iot-hub/iot-hub-mqtt-support.md
+        - url: ../iot/iot-mqtt-connect-to-iot-hub.md
           itemType: concept
           text: MQTT support in Azure IoT Hub
         - url: ../iot-edge/iot-edge-as-gateway.md
