@@ -34,6 +34,7 @@ Add the following key-values to the App Configuration store. For more informatio
 | *my_json*      | *{"key":"value"}* | Leave empty | *application/json* |
 
 ## Console applications
+In this section, you will create a console application and load data from your App Configuration store.
 
 ### Connect to App Configuration
 1. Create a new directory for the project named *app-configuration-quickstart*.
@@ -174,6 +175,7 @@ Add the following key-values to the App Configuration store. For more informatio
     ```
 
 ## Web applications
+The App Configuration provider loads data into a `Mapping` object, accessible as a dictionary, which can be used in combination with the existing configuration of various Python frameworks. This section shows how to use the App Configuration provider in popular web frameworks like Flask and Django.
 
 ### [Flask](#tab/flask)
 You can use Azure App Configuration in your existing Flask web apps by updating its in-built configuration. You can do this by passing your App Configuration provider object to the `update` function of your Flask app instance in `app.py`:
