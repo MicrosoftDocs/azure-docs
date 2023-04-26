@@ -50,7 +50,7 @@ Instead of performing these actions from a selected Azure VM or Arc-enabled serv
       - **Reboot Required**—pending a reboot for the updates to take effect.
       - **No updates data**—no assessment data is available for these machines. 
    
-      There following could be the reasons for no assessment data:
+      The following could be the reasons for no assessment data:
       - No assessment has been done over the last seven days
       - The machine has an unsupported OS
       - The machine is in an unsupported region and you can't perform an assessment.
