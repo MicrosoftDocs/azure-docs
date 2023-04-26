@@ -44,6 +44,11 @@ Traffic Controller supports the following features for traffic management:
 - Autoscaling
 - Availability zone resiliency
 
+### Supported Regions
+Traffic Controller is currently offfered in the following regions:
+- North Central US
+- North Europe
+
 ### Implementation of Gateway API
 
 LB Controller implements version [v1beta1](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1) of the [Gateway API](https://gateway-api.sigs.k8s.io/)
