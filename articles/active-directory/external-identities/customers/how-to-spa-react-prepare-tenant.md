@@ -24,7 +24,6 @@ In this article, you learn how to:
 > * Register your application and record identifiers.
 > * Create a user flow to allow sign-up and sign-in.
 > * Associate the user flow with your application.
-> * Create a client secret for your application.
 
 ## Prerequisites
 
