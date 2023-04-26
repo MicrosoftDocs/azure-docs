@@ -153,4 +153,4 @@ An Event Grid Namespace serves as an application container that can house resour
 
 ## Next steps
 
-- [Route MQTT messages to Event Hubs](mqtt-routing-to-eventhubs-portal.md)
+- [Route MQTT messages to Event Hubs](mqtt-routing-to-event-hubs-portal.md)
