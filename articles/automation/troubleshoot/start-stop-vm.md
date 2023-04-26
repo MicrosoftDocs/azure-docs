@@ -3,7 +3,7 @@ title: Troubleshoot Azure Automation Start/Stop VMs during off-hours issues
 description: This article tells how to troubleshoot and resolve issues arising during the use of the Start/Stop VMs during off-hours feature.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/29/2022
+ms.date: 03/16/2023
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell, engagement-fy23
 ---
@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell, engagement-fy23
 # Troubleshoot Start/Stop VMs during off-hours issues
 
 > [!NOTE]
-> Start/Stop VM during off-hours, version 1 is deprecated and unavailable in the marketplace now. We recommend that you start using [version 2](../../azure-functions/start-stop-vms/overview.md), which is now generally available. The new version offers all existing capabilities and provides new features, such as multi-subscription support from a single Start/Stop instance. If you have the version 1 solution already deployed, you can still use the feature, and we will provide support until further announcement. 
+> Start/Stop VM during off-hours version 1 is unavailable in the marketplace now as it will retire by 30 September 2023. We recommend you start using [version 2](../../azure-functions/start-stop-vms/overview.md), which is now generally available. The new version offers all existing capabilities and provides new features, such as multi-subscription support from a single Start/Stop instance. If you have the version 1 solution already deployed, you can still use the feature, and we will provide support until 30 September 2023. The details of the announcement will be shared soon. 
 
 This article provides information on troubleshooting and resolving issues that arise when you deploy the Azure Automation Start/Stop VMs during off-hours feature on your VMs. 
 

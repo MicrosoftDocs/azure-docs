@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Pass-through Authentication - Current limitations | Microsoft Docs'
+title: 'Azure AD Connect: Pass-through Authentication - Current limitations'
 description: This article describes the current limitations of Azure Active Directory (Azure AD) Pass-through Authentication
 services: active-directory
 keywords: Azure AD Connect Pass-through Authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on

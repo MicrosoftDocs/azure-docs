@@ -83,8 +83,11 @@ To view and configure a notification template in the portal:
 
 ## Configure email settings
 
-You can modify general email settings for notifications that are sent from your API Management instance. You can change the administrator email address, the name of the organization sending notifications, and the originating email address.
+You can modify general email settings for notifications that are sent from your API Management instance. You can change the administrator email address, the name of the organization sending notifications, and the originating email address. 
 
+> [!IMPORTANT]
+> Changing the originating email address may affect recipients' ability to receive email. See the [considerations](#considerations-for-changing-the-originating-email-address) in the following section.
+> 
 To modify email settings:
 
 1. In the left menu, select **Notification templates**.
@@ -93,11 +96,22 @@ To modify email settings:
     * **Administrator email** - the email address to receive all system notifications and other configured notifications
     * **Organization name** - the name of your organization for use in the developer portal and notifications 
     * **Originating email address** - The value of the `From` header for notifications from the API Management instance. API Management sends notifications on behalf of this originating address.
-    > [!NOTE]
-    > When you change the Originating email address, some recipients may not receive the auto-generated emails from API Management or emails may get sent to the Junk/Spam folder. This happens because the email no longer passes SPF Authentication after you change the Originating email address domain. To ensure successful SPF Authentication and delivery of email, create the following TXT record in the DNS database of the domain specified in the email address. For instance, if the email address is `noreply@contoso.com`, you will need to contact the administrator of contoso.com to add the following TXT record: **"v=spf1 include:spf.protection.outlook.com include:_spf-ssg-a.microsoft.com -all"** 
+    
     
       :::image type="content" source="media/api-management-howto-configure-notifications/configure-email-settings.png" alt-text="Screenshot of API Management email settings in the portal":::
 1. Select **Save**.
+
+### Considerations for changing the originating email address
+
+Recipients of email notifications from API Management could be affected when you change the originating email address.
+
+* **Change to From address** - When you change the originating email address (for example, to `no-reply@contoso.com`), the `From` address header will be `noreply@contoso.com apimgmt-noreply@mail.windowsazure.com`. This is because the email is being sent by API Management, and not the email server of the originating email address.
+
+* **Email set to Junk or Spam folder** - Some recipients may not receive the email notifications from API Management or emails may get sent to the Junk or Spam folder. This can happen depending on the organization's SPF or DKIM email authentication settings:
+
+    * **SPF authentication** - Email might no longer pass SPF authentication after you change the originating email address domain. To ensure successful SPF authentication and delivery of email, create the following TXT record in the DNS database of the domain specified in the email address. For instance, if the email address is `noreply@contoso.com`, contact the administrator of contoso.com to add the following TXT record: **"v=spf1 include:spf.protection.outlook.com include:_spf-ssg-a.microsoft.com -all"**
+
+    * **DKIM authentication** - To generate a valid signature for DKIM for email authentication, API Management requires the private key associated with the domain of the originating email address. However, it is currently not possible to upload this private key in API Management. Therefore, to assign a valid signature, API Management uses the private key associated with the `mail.windowsazure.com` domain.
 
 ## Next steps
 

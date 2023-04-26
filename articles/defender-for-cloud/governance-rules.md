@@ -26,7 +26,7 @@ You can then review the progress of the tasks by subscription, recommendation, o
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Preview.<br>[!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]|
+|Release state:|General availability (GA)|
 | Prerequisite: | Requires the [Defender Cloud Security Posture Management (CSPM) plan](concept-cloud-security-posture-management.md) to be enabled.|
 |Required roles and permissions:|Azure - **Contributor**, **Security Admin**, or **Owner** on the subscription<br>AWS, GCP – **Contributor**, **Security Admin**, or **Owner** on the connector|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected GCP accounts|
@@ -143,7 +143,7 @@ The governance report lets you select subscriptions that have governance rules a
 
 **To review the status of the recommendations in a rule**:
 
-1. In **Recommendations**, select **Governance report (preview)**.
+1. In **Recommendations**, select **Governance report**.
 1. Select the subscriptions that you want to review.
 1. Select the rules that you want to see details about.
 
@@ -152,7 +152,7 @@ You can see the list of owners and recommendations for the selected rules, and t
 **To see the list of recommendations for each owner**:
 
 1. Select **Security posture**.
-1. Select the **Owner (preview)** tab to see the list of owners and the number of overdue recommendations for each owner.
+1. Select the **Owner** tab to see the list of owners and the number of overdue recommendations for each owner.
 
     - Hover over the (i) in the overdue recommendations to see the breakdown of overdue recommendations by severity.
 

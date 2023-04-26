@@ -53,7 +53,7 @@ AutoML follows the usual cross-validation procedure, training a separate model o
 
 Cross-validation for forecasting jobs is configured by setting the number of cross-validation folds and, optionally, the number of time periods between two consecutive cross-validation folds. See the [custom cross-validation settings](./how-to-auto-train-forecast.md#custom-cross-validation-settings) guide for more information and an example of configuring cross-validation for forecasting.
 
-You can also bring your own validation data. Learn more in the [configure data splits and cross-validation in AutoML](how-to-configure-cross-validation-data-splits.md#provide-validation-data) article.
+You can also bring your own validation data. Learn more in the [configure data splits and cross-validation in AutoML (SDK v1)](./v1/how-to-configure-cross-validation-data-splits.md#provide-validation-data) article.
 
 ## Next steps
 * Learn more about [how to set up AutoML to train a time-series forecasting model](./how-to-auto-train-forecast.md).

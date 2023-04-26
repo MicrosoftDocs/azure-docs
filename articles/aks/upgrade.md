@@ -3,7 +3,6 @@ title: Overview of upgrading Azure Kubernetes Service (AKS) clusters and compone
 description: Learn about the various upgradeable components of an Azure Kubernetes Service (AKS) cluster and how to maintain them.
 author: nickomang
 ms.author: nickoman
-ms.service: azure-kubernetes-service
 ms.topic: conceptual
 ms.date: 11/11/2022
 ---
@@ -66,5 +65,5 @@ For more information what cluster operations may trigger specific upgrade events
 [ts-ip-limit]: /troubleshoot/azure/azure-kubernetes/error-code-publicipcountlimitreached
 [ts-quota-exceeded]: /troubleshoot/azure/azure-kubernetes/error-code-quotaexceeded
 [ts-subnet-full]: /troubleshoot/azure/azure-kubernetes/error-code-subnetisfull-upgrade
-[node-security-patches]: ./concepts-security.md#node-security-patches
+[node-security-patches]: ./concepts-vulnerability-management.md#worker-nodes
 [node-updates-kured]: ./node-updates-kured.md

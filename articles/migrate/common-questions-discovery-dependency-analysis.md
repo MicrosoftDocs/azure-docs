@@ -5,7 +5,8 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 12/13/2022
+ms.date: 02/28/2023
+ms.custom: engagement-fy23
 ---
 
 # Discovery and dependency analysis - Common questions
@@ -71,7 +72,7 @@ For agent-based dependency visualization:
 
 - Use a [script to install the Dependency agent](../azure-monitor/vm/vminsights-enable-hybrid.md#dependency-agent).
 - For MMA, [use the command line or automation](../azure-monitor/agents/log-analytics-agent.md#installation-options), or use a [script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
-- In addition to scripts, you can use deployment tools like Microsoft Endpoint Configuration Manager and Intigua to deploy the agents.
+- In addition to scripts, you can use deployment tools like Microsoft Configuration Manager and Intigua to deploy the agents.
 
 ## What operating systems does MMA support?
 

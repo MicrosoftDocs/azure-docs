@@ -53,7 +53,7 @@ Azure Front Door zero-down time migration happens in three stages. The first sta
 > * Traffic to your Azure Front Door (classic) will continue to be serve until migration has been completed. 
 > * Each Azure Front Door (classic) profile can create one Azure Front Door Standard or Premium profile.
 
-Migration is only available can be completed using the Azure portal. Service charges for Azure Front Door Standard or Premium tier will start once migration is completed.
+Migration is only available and can be completed using the Azure portal. Service charges for Azure Front Door Standard or Premium tier will start once migration is completed.
 
 ## Breaking changes between tiers
 

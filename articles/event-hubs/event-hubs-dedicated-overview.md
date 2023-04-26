@@ -1,16 +1,19 @@
 ---
-title: Overview of Azure Event Hubs dedicated tier
-description: This article provides an overview of dedicated Azure Event Hubs, which offers single-tenant deployments of event hubs.  
+title: Overview of Azure Event Hubs Dedicated tier
+description: This article provides an overview of Dedicated Azure Event Hubs, which offers single-tenant deployments of event hubs.  
 ms.topic: article
 ms.date: 02/07/2023
 ---
 
 # Overview of Azure Event Hubs Dedicated tier
 
-Event Hubs dedicated clusters are designed to meet the needs of most demanding mission-critical event streaming workloads. These clusters provide a high-performance, low-latency, scalable, and reliable event streaming service for your event streaming applications that are based on AMQP(Event Hubs SDK) or Apache Kafka APIs. 
+Event Hubs Dedicated clusters are designed to meet the needs of most demanding mission-critical event streaming workloads. These clusters provide a high-performance, low-latency, scalable, and reliable event streaming service for your event streaming applications that are based on AMQP(Event Hubs SDK) or Apache Kafka APIs. 
+
+> [!NOTE]
+> The Dedicated tier isn't available in all regions. Try to create a Dedicated cluster in the Azure portal and see supported regions in the **Location** drop-down list on the **Create Event Hubs Cluster** page.
 
 ## Why Dedicated cluster? 
-The dedicated tier of Event Hubs offers several benefits to customers who need run mission-critical workloads at enterprise-level capacity. 
+The Dedicated tier of Event Hubs offers several benefits to customers who need run mission-critical workloads at enterprise-level capacity. 
 
 ### Low latency event streaming
 These clusters are optimized for low end-to-end latency and high performance. Therefore these clusters enable businesses to handle high-velocity and high-volume data streaming. 
@@ -20,13 +23,13 @@ Dedicated clusters can stream events at the gigabytes per second or millions of 
 
 
 ### Guaranteed consistent performance
-Event Hubs dedicated clusters minimize the latency jitter and ensure consistent performance with guaranteed capacity. 
+Event Hubs Dedicated clusters minimize the latency jitter and ensure consistent performance with guaranteed capacity. 
 
 ### Zero interference
 Event Hubs Dedicated Clusters operate on a single-tenant architecture. Therefore it ensures that the allocated resources being not shared with any other tenants. Therefore, unlike other tiers, you wouldn't see any cross tenant interference in Dedicated cluster. 
 
 ###  Self-serve scaling 
-The dedicated cluster offers self-serve scaling capabilities that allow you to adjust the capacity of the cluster according to dynamic loads and to facilitate business operations. You can scale out during spikes in usage and scale in when the usage is low. 
+The Dedicated cluster offers self-serve scaling capabilities that allow you to adjust the capacity of the cluster according to dynamic loads and to facilitate business operations. You can scale out during spikes in usage and scale in when the usage is low. 
 
 ### High-end features and generous quotas
 Dedicated clusters include all features of the Premium tier and more. The service also manages load balancing, operating system updates, security patches, and partitioning. So, you can spend less time on infrastructure maintenance and more time on building your event streaming applications.  
@@ -41,15 +44,15 @@ How much you can ingest and stream per CU depends on various factors, such as th
 - Payload size
 - Egress rate
 
-Therefore, to determine the necessary number of CUs, you should carry out your anticipated event streaming workload on an Event Hubs dedicated cluster while observing the cluster's resource utilization. For more information, see [When to scale my dedicated cluster](#when-to-scale-my-dedicated-cluster). 
+Therefore, to determine the necessary number of CUs, you should carry out your anticipated event streaming workload on an Event Hubs Dedicated cluster while observing the cluster's resource utilization. For more information, see [When to scale my Dedicated cluster](#when-to-scale-my-dedicated-cluster). 
 
 ## Cluster Types
 Event Hubs Dedicated Clusters come in two distinct types: Self-serve scalable clusters and Legacy clusters. These two types differ in their support for the number of CUs, the amount of throughput each CU provides, and the regional and zone availability. 
 
-As a dedicated cluster user, you can determine the type of cluster by examining the availability of the capacity scaling feature in the portal. If this capability is present, you're using a self-serve scalable cluster. Conversely, if it isn't available, you're utilizing a legacy dedicated cluster. Alternatively you can look for the [Azure Resource Manager properties](/azure/templates/microsoft.eventhub/clusters?pivots=deployment-language-arm-template) related to Dedicated clusters. 
+As a Dedicated cluster user, you can determine the type of cluster by examining the availability of the capacity scaling feature in the portal. If this capability is present, you're using a self-serve scalable cluster. Conversely, if it isn't available, you're utilizing a legacy Dedicated cluster. Alternatively you can look for the [Azure Resource Manager properties](/azure/templates/microsoft.eventhub/clusters?pivots=deployment-language-arm-template) related to Dedicated clusters. 
 
 ### Self-serve scalable clusters
-Event Hubs Self-serve scalable clusters are based on new infrastructure and allow users to easily scale the number of capacity units allocated to each cluster. By creating a dedicated cluster through the Event Hubs portal or ARM templates, you gain access to a self-service scalable cluster. To learn how to scale your dedicated cluster, see [Scale Event Hubs dedicated clusters](event-hubs-dedicated-cluster-create-portal.md). 
+Event Hubs Self-serve scalable clusters are based on new infrastructure and allow users to easily scale the number of capacity units allocated to each cluster. By creating a Dedicated cluster through the Event Hubs portal or ARM templates, you gain access to a self-service scalable cluster. To learn how to scale your Dedicated cluster, see [Scale Event Hubs Dedicated clusters](event-hubs-dedicated-cluster-create-portal.md). 
 
 
 Approximately, one capacity unit (CU) in a self-serve scalable cluster provides *ingress capacity ranging from 100 MB/s to 200 MB/s*, although actual throughput may fluctuate depending on various factors.
@@ -58,12 +61,12 @@ With self-serve scalable clusters, you can purchase up to 10 CUs for a cluster i
 If you need a cluster larger than 10 CU, you can [submit a support request](event-hubs-dedicated-cluster-create-portal.md#submit-a-support-request) to scale up your cluster after its creation.
 
 > [!IMPORTANT] 
-> Self-serve scalable dedicated clusters currently don't support [availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones). If you need to use AZ with your dedicated cluster, then you need to explicitly create a Legacy dedicated cluster. 
+> Self-serve scalable Dedicated clusters currently don't support [availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones). If you need to use AZ with your Dedicated cluster, then you need to explicitly create a Legacy Dedicated cluster. 
 
 ### Legacy clusters 
-Event Hubs dedicated clusters created prior to the availability of self-serve scalable clusters are referred to as legacy clusters. 
+Event Hubs Dedicated clusters created prior to the availability of self-serve scalable clusters are referred to as legacy clusters. 
 
-To use these legacy clusters, direct creation through the Azure portal or ARM templates isn't possible and you must instead [submit a support request](event-hubs-dedicated-cluster-create-portal.md#submit-a-support-request) to create one. 
+To use these legacy clusters, direct creation through the Azure portal or ARM templates isn't possible and you must instead [submit a support request](event-hubs-Dedicated-cluster-create-portal.md#submit-a-support-request) to create one. 
 
 Approximately, one capacity unit (CU) in a self-serve scalable cluster provides *ingress capacity ranging from 50 MB/s to 100 MB/s*, although actual throughput may fluctuate depending on various factors. 
 
@@ -77,7 +80,7 @@ With Legacy cluster, you can purchase up to 20 CUs.
 
 ## Determining cluster type 
 
-You can determine the cluster type that you are using the following methods. 
+You can determine the cluster type that you're using the following methods. 
 
 | Method | Action | Self-serve scalable clusters | Legacy clusters | Notes |
 | -------------| ------------- | --------- | --------- | --------- | 
@@ -86,12 +89,9 @@ You can determine the cluster type that you are using the following methods.
 | Using nslookup| Run nslookup command on a namespace in cluster.   | CNAME maps to `*.cloudapp.azure.com`.   | CNAME maps to `*.cloudapp.net`. | Example: `nslookup ns.servicebus.windows.net`. | 
 
 ## Quotas and limits
-The Event Hubs dedicated offering is billed at a fixed monthly price, with a **minimum of 4 hours of usage**. The dedicated tier offers all the features of the premium plan, but with enterprise-scale capacity and limits for customers with demanding workloads. 
+The Event Hubs Dedicated offering is billed at a fixed monthly price, with a **minimum of 4 hours of usage**. The Dedicated tier offers all the features of the premium plan, but with enterprise-scale capacity and limits for customers with demanding workloads. 
 
 For more information about quotas and limits, see [Event Hubs quotas and limits](event-hubs-quotas.md)
-
-## How to onboard
-Event Hubs dedicated tier is generally available (GA). The self-serve experience to create an Event Hubs cluster through the [Azure portal](event-hubs-dedicated-cluster-create-portal.md) is currently in Preview. You can also request for the cluster to be created by contacting the [Event Hubs team](mailto:askeventhubs@microsoft.com). 
 
 ## FAQs
 

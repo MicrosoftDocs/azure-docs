@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 01/09/2022
+ms.date: 04/04/2023
 ms.custom: ignite-2022
 ---
 
@@ -18,47 +18,47 @@ This article discusses currently supported data sources, file types, and scannin
 
 The table below shows the supported capabilities for each data source. Select the data source, or the feature, to learn more.
 
-|**Category**|  **Data Store**  |**Technical metadata** |**Classification** |**Lineage** | **Access Policy** | **Data Sharing** |
-|---|---|---|---|---|---|---|
-| Azure |[Multiple sources](register-scan-azure-multiple-sources.md)| [Yes](register-scan-azure-multiple-sources.md#register) | [Yes](register-scan-azure-multiple-sources.md#scan) | No |[Yes](register-scan-azure-multiple-sources.md#access-policy) | No |
-||[Azure Blob Storage](register-scan-azure-blob-storage-source.md)| [Yes](register-scan-azure-blob-storage-source.md#register) | [Yes](register-scan-azure-blob-storage-source.md#scan)| Limited* | [Yes](register-scan-azure-blob-storage-source.md#access-policy) (Preview) | [Yes](register-scan-azure-blob-storage-source.md#data-sharing)|
-||    [Azure Cosmos DB (API for NoSQL)](register-scan-azure-cosmos-database.md)| [Yes](register-scan-azure-cosmos-database.md#register) | [Yes](register-scan-azure-cosmos-database.md#scan)|No*|No| No|
-||    [Azure Data Explorer](register-scan-azure-data-explorer.md)| [Yes](register-scan-azure-data-explorer.md#register) | [Yes](register-scan-azure-data-explorer.md#scan)| No* | No | No|
-|| [Azure Data Factory](how-to-link-azure-data-factory.md) | [Yes](how-to-link-azure-data-factory.md) | No | [Yes](how-to-link-azure-data-factory.md) | No | No|
-||    [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md)| [Yes](register-scan-adls-gen1.md#register) | [Yes](register-scan-adls-gen1.md#scan)| Limited* | No | No|
-||    [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)| [Yes](register-scan-adls-gen2.md#register) | [Yes](register-scan-adls-gen2.md#scan)| Limited* | [Yes](register-scan-adls-gen2.md#access-policy) (Preview) | [Yes](register-scan-adls-gen2.md#data-sharing) |
-|| [Azure Data Share](how-to-link-azure-data-share.md) | [Yes](how-to-link-azure-data-share.md) | No | [Yes](how-to-link-azure-data-share.md) | No | No|
-|| [Azure Database for MySQL](register-scan-azure-mysql-database.md) | [Yes](register-scan-azure-mysql-database.md#register) | [Yes](register-scan-azure-mysql-database.md#scan) | No* | No | No |
-|| [Azure Database for PostgreSQL](register-scan-azure-postgresql.md) | [Yes](register-scan-azure-postgresql.md#register) | [Yes](register-scan-azure-postgresql.md#scan) | No* | No | No |
-|| [Azure Databricks](register-scan-azure-databricks.md) | [Yes](register-scan-azure-databricks.md#register) | [Yes](register-scan-azure-databricks.md#scan) | [Yes](register-scan-azure-databricks.md#lineage) | No | No |
-||    [Azure Dedicated SQL pool (formerly SQL DW)](register-scan-azure-synapse-analytics.md)| [Yes](register-scan-azure-synapse-analytics.md#register) | [Yes](register-scan-azure-synapse-analytics.md#scan)| No* | No | No |
-||    [Azure Files](register-scan-azure-files-storage-source.md)|[Yes](register-scan-azure-files-storage-source.md#register) | [Yes](register-scan-azure-files-storage-source.md#scan) | Limited* |  No | No |
-||    [Azure SQL Database](register-scan-azure-sql-database.md)| [Yes](register-scan-azure-sql-database.md#register-the-data-source) |[Yes](register-scan-azure-sql-database.md#scope-and-run-the-scan)| [Yes (Preview)](register-scan-azure-sql-database.md#extract-lineage-preview) | [Yes](register-scan-azure-sql-database.md#set-up-access-policies) (Preview) | No |
-||    [Azure SQL Managed Instance](register-scan-azure-sql-managed-instance.md)|  [Yes](register-scan-azure-sql-managed-instance.md#scan) | [Yes](register-scan-azure-sql-managed-instance.md#scan) | No* | No | No |
-||    [Azure Synapse Analytics (Workspace)](register-scan-synapse-workspace.md)| [Yes](register-scan-synapse-workspace.md#register) | [Yes](register-scan-synapse-workspace.md#scan)| [Yes - Synapse pipelines](how-to-lineage-azure-synapse-analytics.md)| No| No |
-|Database| [Amazon RDS](register-scan-amazon-rds.md) | [Yes](register-scan-amazon-rds.md#register-an-amazon-rds-data-source) | [Yes](register-scan-amazon-rds.md#scan-an-amazon-rds-database) | No | No | No |
-||    [Cassandra](register-scan-cassandra-source.md)|[Yes](register-scan-cassandra-source.md#register) | No | [Yes](register-scan-cassandra-source.md#lineage)| No| No |
-|| [Db2](register-scan-db2.md) | [Yes](register-scan-db2.md#register) | No | [Yes](register-scan-db2.md#lineage) | No | No |
-||    [Google BigQuery](register-scan-google-bigquery-source.md)| [Yes](register-scan-google-bigquery-source.md#register)| No | [Yes](register-scan-google-bigquery-source.md#lineage)| No| No |
-|| [Hive Metastore Database](register-scan-hive-metastore-source.md) | [Yes](register-scan-hive-metastore-source.md#register) | No | [Yes*](register-scan-hive-metastore-source.md#lineage) | No| No |
-|| [MongoDB](register-scan-mongodb.md) | [Yes](register-scan-mongodb.md#register) | No | No | No | No |
-|| [MySQL](register-scan-mysql.md) | [Yes](register-scan-mysql.md#register) | No | [Yes](register-scan-mysql.md#lineage) | No | No |
-|| [Oracle](register-scan-oracle-source.md) | [Yes](register-scan-oracle-source.md#register)| [Yes](register-scan-oracle-source.md#scan) | [Yes*](register-scan-oracle-source.md#lineage) | No| No |
-|| [PostgreSQL](register-scan-postgresql.md) | [Yes](register-scan-postgresql.md#register) | No | [Yes](register-scan-postgresql.md#lineage) | No | No |
-|| [SAP Business Warehouse](register-scan-sap-bw.md) | [Yes](register-scan-sap-bw.md#register) | No | No | No | No |
-|| [SAP HANA](register-scan-sap-hana.md) | [Yes](register-scan-sap-hana.md#register) | No | No | No | No |
-|| [Snowflake](register-scan-snowflake.md) | [Yes](register-scan-snowflake.md#register) | [Yes](register-scan-snowflake.md#scan) | [Yes](register-scan-snowflake.md#lineage) | No | No |
-||    [SQL Server](register-scan-on-premises-sql-server.md)| [Yes](register-scan-on-premises-sql-server.md#register) |[Yes](register-scan-on-premises-sql-server.md#scan) | No* | No| No |
-||    [SQL Server on Azure-Arc](register-scan-azure-arc-enabled-sql-server.md)| [Yes](register-scan-azure-arc-enabled-sql-server.md#register) | [Yes](register-scan-azure-arc-enabled-sql-server.md#scan) | No* |[Yes](register-scan-azure-arc-enabled-sql-server.md#access-policy) | No |
-||    [Teradata](register-scan-teradata-source.md)| [Yes](register-scan-teradata-source.md#register)| [Yes](register-scan-teradata-source.md#scan)| [Yes*](register-scan-teradata-source.md#lineage) | No| No |
-|File|[Amazon S3](register-scan-amazon-s3.md)|[Yes](register-scan-amazon-s3.md)| [Yes](register-scan-amazon-s3.md)| Limited* | No| No |
-||[HDFS](register-scan-hdfs.md)|[Yes](register-scan-hdfs.md)| [Yes](register-scan-hdfs.md)| No | No| No |
-|Services and apps|    [Erwin](register-scan-erwin-source.md)| [Yes](register-scan-erwin-source.md#register)| No | [Yes](register-scan-erwin-source.md#lineage)| No| No |
-||    [Looker](register-scan-looker-source.md)| [Yes](register-scan-looker-source.md#register)| No | [Yes](register-scan-looker-source.md#lineage)| No| No |
-||    [Power BI](register-scan-power-bi-tenant.md)| [Yes](register-scan-power-bi-tenant.md)| No | [Yes](how-to-lineage-powerbi.md)| No| No |
-|| [Salesforce](register-scan-salesforce.md) | [Yes](register-scan-salesforce.md#register) | No | No | No | No |
-||    [SAP ECC](register-scan-sapecc-source.md)| [Yes](register-scan-sapecc-source.md#register) | No | [Yes*](register-scan-sapecc-source.md#lineage) | No| No |
-|| [SAP S/4HANA](register-scan-saps4hana-source.md) | [Yes](register-scan-saps4hana-source.md#register)| No | [Yes*](register-scan-saps4hana-source.md#lineage) | No| No |
+|**Category**|  **Data Store**  |**Technical metadata** |**Classification** |**Lineage** | **Labeling** |**Access Policy** | **Data Sharing** |
+|---|---|---|---|---|---|---|---|
+| Azure |[Multiple sources](register-scan-azure-multiple-sources.md)| [Yes](register-scan-azure-multiple-sources.md#register) | [Yes](register-scan-azure-multiple-sources.md#scan) | No |[Source Dependent](create-sensitivity-label.md)|[Yes](register-scan-azure-multiple-sources.md#access-policy) | No |
+||[Azure Blob Storage](register-scan-azure-blob-storage-source.md)| [Yes](register-scan-azure-blob-storage-source.md#register) | [Yes](register-scan-azure-blob-storage-source.md#scan)| Limited* | [Yes](create-sensitivity-label.md)|[Yes](register-scan-azure-blob-storage-source.md#access-policy) (Preview) | [Yes](register-scan-azure-blob-storage-source.md#data-sharing)|
+||    [Azure Cosmos DB (API for NoSQL)](register-scan-azure-cosmos-database.md)| [Yes](register-scan-azure-cosmos-database.md#register) | [Yes](register-scan-azure-cosmos-database.md#scan)|No*|[Yes](create-sensitivity-label.md)|No| No|
+||    [Azure Data Explorer](register-scan-azure-data-explorer.md)| [Yes](register-scan-azure-data-explorer.md#register) | [Yes](register-scan-azure-data-explorer.md#scan)| No* | [Yes](create-sensitivity-label.md)|No | No|
+|| [Azure Data Factory](how-to-link-azure-data-factory.md) | [Yes](how-to-link-azure-data-factory.md) | No | [Yes](how-to-link-azure-data-factory.md) | No | No | No|
+||    [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md)| [Yes](register-scan-adls-gen1.md#register) | [Yes](register-scan-adls-gen1.md#scan)| Limited* | [Yes](create-sensitivity-label.md)|No | No|
+||    [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)| [Yes](register-scan-adls-gen2.md#register) | [Yes](register-scan-adls-gen2.md#scan)| Limited* | [Yes](create-sensitivity-label.md)|[Yes](register-scan-adls-gen2.md#access-policy) (Preview) | [Yes](register-scan-adls-gen2.md#data-sharing) |
+|| [Azure Data Share](how-to-link-azure-data-share.md) | [Yes](how-to-link-azure-data-share.md) | No | [Yes](how-to-link-azure-data-share.md) | No| No | No|
+|| [Azure Database for MySQL](register-scan-azure-mysql-database.md) | [Yes](register-scan-azure-mysql-database.md#register) | [Yes](register-scan-azure-mysql-database.md#scan) | No* | [Yes](create-sensitivity-label.md)| No | No |
+|| [Azure Database for PostgreSQL](register-scan-azure-postgresql.md) | [Yes](register-scan-azure-postgresql.md#register) | [Yes](register-scan-azure-postgresql.md#scan) | No* | [Yes](create-sensitivity-label.md)| No | No |
+|| [Azure Databricks](register-scan-azure-databricks.md) | [Yes](register-scan-azure-databricks.md#register) | No | [Yes](register-scan-azure-databricks.md#lineage) | No | No | No |
+||    [Azure Dedicated SQL pool (formerly SQL DW)](register-scan-azure-synapse-analytics.md)| [Yes](register-scan-azure-synapse-analytics.md#register) | [Yes](register-scan-azure-synapse-analytics.md#scan)| No* | No | No | No |
+||    [Azure Files](register-scan-azure-files-storage-source.md)|[Yes](register-scan-azure-files-storage-source.md#register) | [Yes](register-scan-azure-files-storage-source.md#scan) | Limited* |  [Yes](create-sensitivity-label.md)|No | No |
+||    [Azure SQL Database](register-scan-azure-sql-database.md)| [Yes](register-scan-azure-sql-database.md#register-the-data-source) |[Yes](register-scan-azure-sql-database.md#scope-and-run-the-scan)| [Yes (Preview)](register-scan-azure-sql-database.md#extract-lineage-preview) | [Yes](create-sensitivity-label.md)| [Yes](register-scan-azure-sql-database.md#set-up-access-policies) | No |
+||    [Azure SQL Managed Instance](register-scan-azure-sql-managed-instance.md)|  [Yes](register-scan-azure-sql-managed-instance.md#scan) | [Yes](register-scan-azure-sql-managed-instance.md#scan) | No* | [Yes](create-sensitivity-label.md)| No | No |
+||    [Azure Synapse Analytics (Workspace)](register-scan-synapse-workspace.md)| [Yes](register-scan-synapse-workspace.md#register) | [Yes](register-scan-synapse-workspace.md#scan)| [Yes - Synapse pipelines](how-to-lineage-azure-synapse-analytics.md)| [Yes](create-sensitivity-label.md)|No| No |
+|Database| [Amazon RDS](register-scan-amazon-rds.md) | [Yes](register-scan-amazon-rds.md#register-an-amazon-rds-data-source) | [Yes](register-scan-amazon-rds.md#scan-an-amazon-rds-database) | No | No | No | No|
+||    [Cassandra](register-scan-cassandra-source.md)|[Yes](register-scan-cassandra-source.md#register) | No | [Yes](register-scan-cassandra-source.md#lineage)| No| No |No|
+|| [Db2](register-scan-db2.md) | [Yes](register-scan-db2.md#register) | No | [Yes](register-scan-db2.md#lineage) | No | No | No|
+||    [Google BigQuery](register-scan-google-bigquery-source.md)| [Yes](register-scan-google-bigquery-source.md#register)| No | [Yes](register-scan-google-bigquery-source.md#lineage)| No| No | No|
+|| [Hive Metastore Database](register-scan-hive-metastore-source.md) | [Yes](register-scan-hive-metastore-source.md#register) | No | [Yes*](register-scan-hive-metastore-source.md#lineage) | No| No |No|
+|| [MongoDB](register-scan-mongodb.md) | [Yes](register-scan-mongodb.md#register) | No | No | No | No | No|
+|| [MySQL](register-scan-mysql.md) | [Yes](register-scan-mysql.md#register) | No | [Yes](register-scan-mysql.md#lineage) | No | No | No|
+|| [Oracle](register-scan-oracle-source.md) | [Yes](register-scan-oracle-source.md#register)| [Yes](register-scan-oracle-source.md#scan) | [Yes*](register-scan-oracle-source.md#lineage) | No| No | No|
+|| [PostgreSQL](register-scan-postgresql.md) | [Yes](register-scan-postgresql.md#register) | No | [Yes](register-scan-postgresql.md#lineage) | No | No | No|
+|| [SAP Business Warehouse](register-scan-sap-bw.md) | [Yes](register-scan-sap-bw.md#register) | No | No | No | No | No|
+|| [SAP HANA](register-scan-sap-hana.md) | [Yes](register-scan-sap-hana.md#register) | No | No | No | No | No|
+|| [Snowflake](register-scan-snowflake.md) | [Yes](register-scan-snowflake.md#register) | [Yes](register-scan-snowflake.md#scan) | [Yes](register-scan-snowflake.md#lineage) | No | No | No|
+||    [SQL Server](register-scan-on-premises-sql-server.md)| [Yes](register-scan-on-premises-sql-server.md#register) |[Yes](register-scan-on-premises-sql-server.md#scan) | No* | [Yes](create-sensitivity-label.md)|No| No |
+||    [SQL Server on Azure-Arc](register-scan-azure-arc-enabled-sql-server.md)| [Yes](register-scan-azure-arc-enabled-sql-server.md#register) | [Yes](register-scan-azure-arc-enabled-sql-server.md#scan) | No* |No|[Yes](register-scan-azure-arc-enabled-sql-server.md#access-policy) | No |
+||    [Teradata](register-scan-teradata-source.md)| [Yes](register-scan-teradata-source.md#register)| [Yes](register-scan-teradata-source.md#scan)| [Yes*](register-scan-teradata-source.md#lineage) | No|No| No |
+|File|[Amazon S3](register-scan-amazon-s3.md)|[Yes](register-scan-amazon-s3.md)| [Yes](register-scan-amazon-s3.md)| Limited* | [Yes](create-sensitivity-label.md)|No| No |
+||[HDFS](register-scan-hdfs.md)|[Yes](register-scan-hdfs.md)| [Yes](register-scan-hdfs.md)| No | No| No |No|
+|Services and apps|    [Erwin](register-scan-erwin-source.md)| [Yes](register-scan-erwin-source.md#register)| No | [Yes](register-scan-erwin-source.md#lineage)| No| No |No|
+||    [Looker](register-scan-looker-source.md)| [Yes](register-scan-looker-source.md#register)| No | [Yes](register-scan-looker-source.md#lineage)| No| No |No|
+||    [Power BI](register-scan-power-bi-tenant.md)| [Yes](register-scan-power-bi-tenant.md)| No | [Yes](how-to-lineage-powerbi.md)| No| No |No|
+|| [Salesforce](register-scan-salesforce.md) | [Yes](register-scan-salesforce.md#register) | No | No | No | No |No|
+||    [SAP ECC](register-scan-sapecc-source.md)| [Yes](register-scan-sapecc-source.md#register) | No | [Yes*](register-scan-sapecc-source.md#lineage) | No| No | No|
+|| [SAP S/4HANA](register-scan-saps4hana-source.md) | [Yes](register-scan-saps4hana-source.md#register)| No | [Yes*](register-scan-saps4hana-source.md#lineage) | No| No |No|
 
 \* Besides the lineage on assets within the data source, lineage is also supported if dataset is used as a source/sink in [Data Factory](how-to-link-azure-data-factory.md) or [Synapse pipeline](how-to-lineage-azure-synapse-analytics.md).
 
@@ -105,16 +105,22 @@ The following is a list of all the Azure data source (data center) regions where
 The following file types are supported for scanning, for schema extraction, and classification where applicable:
 
 - Structured file formats supported by extension: AVRO, ORC, PARQUET, CSV, JSON, PSV, SSV, TSV, TXT, XML, GZIP
- > [!Note]
- > * The Microsoft Purview Data Map scanner only supports schema extraction for the structured file types listed above.
- > * For AVRO, ORC, and PARQUET file types, the scanner does not support schema extraction for files that contain complex data types (for example, MAP, LIST, STRUCT). 
- > * The scanner supports scanning snappy compressed PARQUET types for schema extraction and classification. 
- > * For GZIP file types, the GZIP must be mapped to a single csv file within. 
- > Gzip files are subject to System and Custom Classification rules. We currently don't support scanning a gzip file mapped to multiple files within, or any file type other than csv. 
- > * For delimited file types (CSV, PSV, SSV, TSV, TXT), we do not support data type detection. The data type will be listed as "string" for all columns. We only support comma(‘,’), semicolon(‘;’), vertical bar(‘|’) and tab(‘\t’) as delimiter. If the field doesn't have quotes on the ends, or the field is a single quote char or there are quotes within the field, the row will be judged as error row. Rows that have different number of columns than the header row will be judged as error rows. (numbers of error rows / numbers of rows sampled ) must be less than 0.1.
- > * For Parquet files, if you are using a self-hosted integration runtime, you need to install the **64-bit JRE 8 (Java Runtime Environment) or OpenJDK** on your IR machine. Check our [Java Runtime Environment section at the bottom of the page](manage-integration-runtimes.md#java-runtime-environment-installation) for an installation guide.
 - Document file formats supported by extension: DOC, DOCM, DOCX, DOT, ODP, ODS, ODT, PDF, POT, PPS, PPSX, PPT, PPTM, PPTX, XLC, XLS, XLSB, XLSM, XLSX, XLT
-- The Microsoft Purview Data Map also supports custom file extensions and custom parsers.
+- The Microsoft Purview Data Map also supports [custom file extensions and custom parsers](create-a-scan-rule-set.md#create-a-custom-file-type).
+
+> [!Note]
+> **Known Limitations:**
+> * The Microsoft Purview Data Map scanner only supports schema extraction for the structured file types listed above.
+> * For AVRO, ORC, and PARQUET file types, the scanner does not support schema extraction for files that contain complex data types (for example, MAP, LIST, STRUCT). 
+> * The scanner supports scanning snappy compressed PARQUET types for schema extraction and classification. 
+> * For GZIP file types, the GZIP must be mapped to a single csv file within. 
+> Gzip files are subject to System and Custom Classification rules. We currently don't support scanning a gzip file mapped to multiple files within, or any file type other than csv. 
+> * **For delimited file types (CSV, PSV, SSV, TSV, TXT)**:
+>    * We do not support data type detection. The data type will be listed as "string" for all columns.
+>    * We only support comma(‘,’), semicolon(‘;’), vertical bar(‘|’) and tab(‘\t’) as delimiters.
+>    * Delimited files with less than three rows cannot be determined to be CSV files if they are using a custom delimiter. For example: files with ~ delimiter and less than three rows will not be able to be determined to be CSV files.
+>    * If a field contains double quotes, the double quotes can only appear at the beginning and end of the field and must be matched. Double quotes that appear in the middle of the field or appear at the beginning and end but are not matched will be recognized as bad data and there will be no schema get parsed from the file. Rows that have different number of columns than the header row will be judged as error rows. (numbers of error rows / numbers of rows sampled ) must be less than 0.1.
+ > * For Parquet files, if you are using a self-hosted integration runtime, you need to install the **64-bit JRE 8 (Java Runtime Environment) or OpenJDK** on your IR machine. Check our [Java Runtime Environment section at the bottom of the page](manage-integration-runtimes.md#java-runtime-environment-installation) for an installation guide.
 
 ## Schema extraction
 

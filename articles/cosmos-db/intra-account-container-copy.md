@@ -30,7 +30,7 @@ Intra-account container copy jobs can be [created and managed using CLI commands
 
 ## Get started
 
-To get started using container copy jobs, register for "Intra-account offline container copy (Cassandra & SQL)" preview from the ['Preview Features'](access-previews.md) list in the Azure portal. Once the registration is complete, the preview will be effective for all Cassandra and API for NoSQL accounts in the subscription.
+To get started using container copy jobs, register for "Intra-account offline container copy (Cassandra & SQL)" preview from the ['Preview Features'](access-previews.md) list in the Azure portal. Once the registration is complete, the preview is effective for all Cassandra and API for NoSQL accounts in the subscription.
 
 ## Overview of steps needed to do container copy
 
@@ -49,7 +49,7 @@ Intra-account container copy jobs perform offline data copy using the source con
 * The container copy jobs run on these instances.
 * A single job is executed across all instances at any time.
 * The instances are shared by all the container copy jobs running within the same account.
-* The platform may de-allocate the instances if they're idle for >15 mins.
+* The platform may deallocate the instances if they're idle for >15 mins.
 
 > [!NOTE]
 > We currently only support offline container copy jobs. So, we strongly recommend to stop performing any operations on the source container prior to beginning the container copy. Item deletions and updates done on the source container after beginning the copy job may not be captured. Hence, continuing to perform operations on the source container while the container job is in progress may result in additional or missing data on the target container.
@@ -78,15 +78,15 @@ Container copy jobs are currently supported on best-effort basis. We don't provi
 
 ### Can I create multiple container copy jobs within an account?
 
-Yes, you can create multiple jobs within the same account. The jobs will run consecutively. You can [list all the jobs](how-to-container-copy.md#list-all-the-container-copy-jobs-created-in-an-account) created within an account and monitor their progress.
+Yes, you can create multiple jobs within the same account. The jobs run consecutively. You can [list all the jobs](how-to-container-copy.md#list-all-the-container-copy-jobs-created-in-an-account) created within an account and monitor their progress.
 
 ### Can I copy an entire database within the Azure Cosmos DB account?
 
-You'll have to create a job for each container in the database.
+You must create a job for each container in the database.
 
 ### I have an Azure Cosmos DB account with multiple regions. In which region will the container copy job run?
 
-The container copy job will run in the write region. If there are accounts configured with multi-region writes, the job will run in one of the regions from the list.
+The container copy job runs in the write region. If there are accounts configured with multi-region writes, the job runs in one of the regions from the list.
 
 ### What happens to the container copy jobs when the account's write region changes?
 
@@ -95,8 +95,8 @@ The account's write region may change in the rare scenario of a region outage or
 ### Why is a new database *__datatransferstate* created in the account when I run container copy jobs? Am I being charged for this database?
 
 * *__datatransferstate* is a database that is created while running container copy jobs. This database is used by the platform to store the state and progress of the copy job.
-* The database uses manual provisioned throughput of 800 RUs. You'll be charged for this database.
-* Deleting this database will remove the container copy job history from the account. It can be safely deleted once all the jobs in the account have completed, if you no longer need the job history. The platform won't clean up the *__datatransferstate* database automatically.
+* The database uses manual provisioned throughput of 800 RUs. You are charged for this database.
+* Deleting this database removes the container copy job history from the account. It can be safely deleted once all the jobs in the account have completed, if you no longer need the job history. The platform doesn't clean up the *__datatransferstate* database automatically.
 
 ## Supported regions
 
@@ -141,7 +141,7 @@ Currently, container copy is supported in the following regions:
 
 * Error - (Request) is blocked by your Cosmos DB account firewall settings.
 
-    The job creation request could be blocked if the client IP isn't allowed as per the VNet and Firewall IPs configured on the account. In order to get past this issue, you need to [allow access to the IP through the Firewall setting](how-to-configure-firewall.md). Alternately, you may set **Accept connections from within public Azure datacenters** in your firewall settings and run the container copy commands through the portal [Cloud Shell](../cloud-shell/quickstart-powershell.md#start-cloud-shell).
+    The job creation request could be blocked if the client IP isn't allowed as per the VNet and Firewall IPs configured on the account. In order to get past this issue, you need to [allow access to the IP through the Firewall setting](how-to-configure-firewall.md). Alternately, you may set **Accept connections from within public Azure datacenters** in your firewall settings and run the container copy commands through the portal [Cloud Shell](/azure/cloud-shell/quickstart?tabs=powershell).
 
     ```output
     InternalServerError Request originated from IP xxx.xxx.xxx.xxx through public internet. This is blocked by your Cosmos DB account firewall settings. More info: https://aka.ms/cosmosdb-tsg-forbidden

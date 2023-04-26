@@ -1,11 +1,11 @@
 ---
-title: Concepts overview for Azure IoT Hub | Microsoft Docs
-description: The Azure IoT Hub conceptual documentation includes discussions of endpoints, security, the identity registry, device management, direct methods, device twins, file uploads, jobs, the IoT Hub query language, messaging and many other features. This article helps get you to the right articles to learn about a particular feature.
+title: Concepts overview for Azure IoT Hub
+description: The Azure IoT Hub conceptual documentation includes discussions of endpoints, security, the identity registry, device management, direct methods, device twins, file uploads, jobs, the IoT Hub query language, messaging and many other features.
 author: kgremban
+
 ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/03/2022
 ms.custom: mqtt
 ---
@@ -38,8 +38,6 @@ The following articles can help you get started exploring IoT Hub features in mo
 
   * [Read device-to-cloud messages from the built-in endpoint](iot-hub-devguide-messages-read-builtin.md).
 
-  * [Use custom endpoints and routing rules for device-to-cloud messages](iot-hub-devguide-messages-read-custom.md).
-
   * [Send cloud-to-device messages from IoT Hub](iot-hub-devguide-messages-c2d.md).
 
   * [Create and read IoT Hub messages](iot-hub-devguide-messages-construct.md).
@@ -68,4 +66,4 @@ The following articles can help you get started exploring IoT Hub features in mo
 
 * [Azure IoT Hub SDKs](iot-hub-devguide-sdks.md) lists the Azure IoT SDKs for developing device and service apps that interact with your IoT hub. The article includes links to online API documentation.
 
-* [IoT Hub MQTT support](iot-hub-mqtt-support.md) provides detailed information about how IoT Hub supports the MQTT protocol. The article describes the support for the MQTT protocol built in to the Azure IoT SDKs and provides information about using the MQTT protocol directly.
+* [IoT Hub MQTT support](../iot/iot-mqtt-connect-to-iot-hub.md) provides detailed information about how IoT Hub supports the MQTT protocol. The article describes the support for the MQTT protocol built in to the Azure IoT SDKs and provides information about using the MQTT protocol directly.

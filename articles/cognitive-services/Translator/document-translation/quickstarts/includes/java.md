@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: include
-ms.date: 02/10/2023
+ms.date: 03/17/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -19,7 +19,7 @@ For this quickstart, we use the Gradle build automation tool to create and run t
 
 * You should have the latest version of [Visual Studio Code](https://code.visualstudio.com/) or your preferred IDE. _See_ [Java in Visual Studio Code](https://code.visualstudio.com/docs/languages/java).
 
-  >[!TIP]
+  > [!TIP]
   >
   > * Visual Studio Code offers a **Coding Pack for Java** for Windows and macOS.The coding pack is a bundle of VS Code, the Java Development Kit (JDK), and a collection of suggested extensions by Microsoft. The Coding Pack can also be used to fix an existing development environment.
   > * If you are using VS Code and the Coding Pack For Java, install the [**Gradle for Java**](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle) extension.
@@ -30,8 +30,8 @@ For this quickstart, we use the Gradle build automation tool to create and run t
 
   * [**Gradle**](https://docs.gradle.org/current/userguide/installation.html), version 6.8 or later.
 
-  > [!div class="nextstepaction"]
-  > [I ran into an issue setting up my environment.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Translate-documents)
+> [!div class="nextstepaction"]
+> [I ran into an issue setting up my environment.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Translate-documents)
 
 ## Create a new Gradle project
 
@@ -42,7 +42,7 @@ For this quickstart, we use the Gradle build automation tool to create and run t
     ```
 
    ```powershell
-    mkdir document-translation; cd document-translation
+   mkdir document-translation; cd document-translation
    ```
 
 1. Run the `gradle init` command from the document-translation directory. This command creates essential build files for Gradle, including _build.gradle.kts_, which is used at runtime to create and configure your application.
@@ -77,8 +77,8 @@ For this quickstart, we use the Gradle build automation tool to create and run t
   }
   ```
 
-  > [!div class="nextstepaction"]
-  > [I ran into creating a Gradle project.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Create-gradle-project)
+> [!div class="nextstepaction"]
+> [I ran into creating a Gradle project.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Create-gradle-project)
 
 ## Translate all documents in a storage container
 
@@ -98,7 +98,7 @@ For this quickstart, we use the Gradle build automation tool to create and run t
     >
     > * You can create a new file using PowerShell.
     > * Open a PowerShell window in your project directory by holding down the Shift key and right-clicking the folder.
-    > * Type the following command **New-Item DocumentTranslation.java**.
+    > * Enter the following command **New-Item DocumentTranslation.java**.
     >
     > * You can also create a new file in your IDE named `DocumentTranslation.java`  and save it to the `java` directory.
 
@@ -110,8 +110,8 @@ For this quickstart, we use the Gradle build automation tool to create and run t
 
 ## Code sample
 
-  > [!IMPORTANT]
-  > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). For more information, _see_ Cognitive Services [security](../../../../../cognitive-services/security-features.md).
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). For more information, _see_ Cognitive Services [security](../../../../../cognitive-services/security-features.md).
 
 ```java
 import java.io.*;
@@ -156,7 +156,6 @@ public class DocumentTranslation {
         }
     }
 }
-
 ```
 
 ## Build and run your Java application
@@ -175,11 +174,11 @@ public class DocumentTranslation {
       gradle run
       ```
 
-* The successful POST method returns a `202 Accepted` response code indicating that the batch request was created by the service.
+Upon successful completion: 
 
+* The translated documents can be found in your target container.
+* The successful POST method returns a `202 Accepted` response code indicating that the service created the batch request.
 * The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests.
 
-* The translated documents are listed in your target container.
-
-  > [!div class="nextstepaction"]
-  > [I successfully translated my document.](#next-steps)  [I ran into an issue.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Translate-documents)
+> [!div class="nextstepaction"]
+> [I successfully translated my document.](#next-steps)  [I ran into an issue.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Translate-documents)

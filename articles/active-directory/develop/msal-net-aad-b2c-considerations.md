@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2020
+ms.date: 02/21/2023
 ms.author: henrymbugua
 ms.reviewer: saeeda, jeferrie
 ms.custom: "devx-track-csharp, aaddev"
@@ -29,9 +29,9 @@ This article applies to MSAL.NET 3.x. For MSAL.NET 2.x, see [Azure AD B2C specif
 
 The authority format for Azure AD B2C is: `https://{azureADB2CHostname}/tfp/{tenant}/{policyName}`
 
-- `azureADB2CHostname` - The name of the Azure AD B2C tenant plus the host. For example, *contosob2c.b2clogin.com*.
-- `tenant` - The domain name or the directory (tenant) ID of the Azure AD B2C tenant. For example, *contosob2c.onmicrosoft.com* or a GUID, respectively.
-- `policyName` - The name of the user flow or custom policy to apply. For example, a sign-up/sign-in policy like *b2c_1_susi*.
+- `azureADB2CHostname` - The name of the Azure AD B2C tenant plus the host. For example, _contosob2c.b2clogin.com_.
+- `tenant` - The domain name or the directory (tenant) ID of the Azure AD B2C tenant. For example, _contosob2c.onmicrosoft.com_ or a GUID, respectively.
+- `policyName` - The name of the user flow or custom policy to apply. For example, a sign-up/sign-in policy like _b2c_1_susi_.
 
 For more information about Azure AD B2C authorities, see [Set redirect URLs to b2clogin.com](../../active-directory-b2c/b2clogin.md).
 
@@ -77,7 +77,7 @@ catch (MsalUiRequiredException ex)
                         .WithAccount(account)
                         .WithParentActivityOrWindow(ParentActivityOrWindow)
                         .ExecuteAsync();
-}  
+}
 ```
 
 In the preceding code snippet:
@@ -116,12 +116,12 @@ private async void EditProfileButton_Click(object sender, RoutedEventArgs e)
 
 For more information on the ROPC flow, see [Sign in with resource owner password credentials grant](v2-oauth-ropc.md).
 
-The ROPC flow is **not recommended** because asking a user for their password in your application is not secure. For more information about this problem, see [What’s the solution to the growing problem of passwords?](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/).
+The ROPC flow is **not recommended** because asking a user for their password in your application isn't secure. For more information about this problem, see [What’s the solution to the growing problem of passwords?](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/).
 
 By using username/password in an ROPC flow, you sacrifice several things:
 
 - Core tenets of modern identity: The password can be fished or replayed because the shared secret can be intercepted. By definition, ROPC is incompatible with passwordless flows.
-- Users who need to do MFA won't be able to sign in (as there is no interaction).
+- Users who use multi-factor authentication (MFA) won't be able to sign in as there's no interaction.
 - Users won't be able to use single sign-on (SSO).
 
 ### Configure the ROPC flow in Azure AD B2C
@@ -137,11 +137,11 @@ AcquireTokenByUsernamePassword(
             SecureString password)
 ```
 
-This `AcquireTokenByUsernamePassword` method takes the following parameters:
+The `AcquireTokenByUsernamePassword` method takes the following parameters:
 
-- The *scopes* for which to obtain an access token.
-- A *username*.
-- A SecureString *password* for the user.
+- The _scopes_ for which to obtain an access token.
+- A _username_.
+- A SecureString _password_ for the user.
 
 ### Limitations of the ROPC flow
 
@@ -149,9 +149,7 @@ The ROPC flow **only works for local accounts**, where your users have registere
 
 ## Google auth and embedded webview
 
-If you're using Google as an identity provider, we recommend you use the system browser as Google doesn't allow [authentication from embedded webviews](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Currently, `login.microsoftonline.com` is a trusted authority with Google and will work with embedded webview. However, `b2clogin.com` is not a trusted authority with Google, so users will not be able to authenticate.
-
-We'll provide an update to this [issue](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/688) if things change.
+If you're using Google as an identity provider, we recommend you use the system browser as Google doesn't allow [authentication from embedded webviews](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Currently, `login.microsoftonline.com` is a trusted authority with Google and will work with embedded webview. However, `b2clogin.com` isn't a trusted authority with Google, so users won't be able to authenticate.
 
 ## Token caching in MSAL.NET
 
@@ -186,6 +184,6 @@ For more information about specifying which claims are returned by your user flo
 
 More details about acquiring tokens interactively with MSAL.NET for Azure AD B2C applications are provided in the following sample.
 
-| Sample | Platform | Description|
-|------ | -------- | -----------|
-|[active-directory-b2c-xamarin-native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | A Xamarin Forms app that uses MSAL.NET to authenticate users via Azure AD B2C and then access a web API with the tokens returned.|
+| Sample                                                                                                      | Platform                          | Description                                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| [active-directory-b2c-xamarin-native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | A Xamarin Forms app that uses MSAL.NET to authenticate users via Azure AD B2C and then access a web API with the tokens returned. |

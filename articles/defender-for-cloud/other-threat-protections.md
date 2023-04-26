@@ -30,7 +30,7 @@ For a list of the Azure network layer alerts, see the [Reference table of alerts
 
 Microsoft Defender for Cloud Apps (formerly known as Microsoft Cloud App Security) is a cloud access security broker (CASB) that supports various deployment modes including log collection, API connectors, and reverse proxy. It provides rich visibility, control over data travel, and sophisticated analytics to identify and combat cyberthreats across all your Microsoft and third-party cloud services.
 
-Once Microsoft Defender for Cloud Apps has been enabled, you can then select the integration from within Defender for Cloud's settings. Your hardened recommendations from Defender for Cloud will appear in Defender for Cloud Apps with no other configuration needed.
+Once Microsoft Defender for Cloud Apps has been enabled, you can then select the integration from within Defender for Cloud's settings. Your security recommendations from Defender for Cloud will appear in Defender for Cloud Apps with no other configuration needed.
 
 > [!NOTE]
 > Defender for Cloud stores security-related customer data in the same geo as its resource. If Microsoft hasn't yet deployed Defender for Cloud in the resource's geo, then it stores the data in the United States. When Microsoft Defender for Cloud Apps is enabled, this information is stored in accordance with the geo location rules of Microsoft Defender for Cloud Apps. For more information, see [Data storage for non-regional services](https://azuredatacentermap.azurewebsites.net/).

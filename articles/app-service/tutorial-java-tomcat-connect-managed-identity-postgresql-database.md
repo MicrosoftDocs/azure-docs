@@ -6,7 +6,7 @@ ms.topic: tutorial
 ms.date: 09/26/2022
 author: KarlErickson
 ms.author: karler
-ms.custom: passwordless-java, service-connector
+ms.custom: passwordless-java, service-connector, devx-track-azurecli
 ---
 
 # Tutorial: Connect to a PostgreSQL Database from Java Tomcat App Service without secrets using a managed identity
@@ -26,7 +26,7 @@ ms.custom: passwordless-java, service-connector
 * [Git](https://git-scm.com/)
 * [Java JDK](/azure/developer/java/fundamentals/java-support-on-azure)
 * [Maven](https://maven.apache.org)
-* [Azure CLI](/cli/azure/install-azure-cli) version 2.41.0 or higher.
+* [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
 
 ## Clone the sample app and prepare the repo
 
@@ -74,7 +74,7 @@ Follow these steps to create an Azure Database for Postgres in your subscription
        --location $LOCATION \
        --admin-user $POSTGRESQL_ADMIN_USER \
        --admin-password $POSTGRESQL_ADMIN_PASSWORD \
-       --public-network-access 0.0.0.0 \
+       --public-access 0.0.0.0 \
        --sku-name Standard_D2s_v3 
    ```
 
@@ -164,12 +164,17 @@ Follow these steps to build a WAR file and deploy to Azure App Service on Tomcat
 
 ## Connect the Postgres database with identity connectivity
 
+Next, connect the database using [Service Connector](../service-connector/overview.md).
+
+Install the Service Connector passwordless extension for the Azure CLI:
+
+```azurecli
+az extension add --name serviceconnector-passwordless --upgrade
+```
+
+Then, connect your app to a Postgres database with a system-assigned managed identity using Service Connector.
+
 ### [Flexible Server](#tab/flexible)
-
-> [!NOTE]  
-> Azure Active Directory Authentication for PostgreSQL Flexible Server is currently in preview.
-
-Next, connect your app to a Postgres database with a system-assigned managed identity using Service Connector. 
 
 To do this, run the [az webapp connection create](/cli/azure/webapp/connection/create#az-webapp-connection-create-postgres-flexible) command.
 

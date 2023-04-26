@@ -75,7 +75,7 @@ Installation of the self-hosted integration runtime on a domain controller isn't
 - Copy-activity runs happen with a specific frequency. Processor and RAM usage on the machine follows the same pattern with peak and idle times. Resource usage also depends heavily on the amount of data that is moved. When multiple copy jobs are in progress, you see resource usage go up during peak times.
 - Tasks might fail during extraction of data in Parquet, ORC, or Avro formats. For more on Parquet, see [Parquet format in Azure Data Factory](./format-parquet.md#using-self-hosted-integration-runtime). File creation runs on the self-hosted integration machine. To work as expected, file creation requires the following prerequisites:
   - [Visual C++ 2010 Redistributable](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) Package (x64)
-  - Java Runtime (JRE) version 8 from a JRE provider such as [Eclipse Temurin](https://adoptium.net/temurin/releases/?version=8). Ensure that the JAVA_HOME environment variable is set to the JDK folder (and not just the JRE folder).
+  - Java Runtime (JRE) version 11 from a JRE provider such as [Eclipse Temurin](https://adoptium.net/temurin/releases/?version=11). Ensure that the JAVA_HOME environment variable is set to the JDK folder (and not just the JRE folder) you may also need to add the bin folder to your system's PATH environment variable.
   >[!NOTE]
   >It might be necessary to adjust the Java settings if memory errors occur, as described in the [Parquet format](./format-parquet.md#using-self-hosted-integration-runtime) documentation.
   
@@ -202,6 +202,9 @@ Here are details of the application's actions and arguments:
 |`-dlma`,<br/>`-DisableLocalMachineAccess`|| Disable local machine access (localhost, private IP) on the current self-hosted IR node. In self-hosted IR High Availability scenario, the action needs to be invoked on every self-hosted IR node.|
 |`-DisableLocalFolderPathValidation`|| Disable security validation to enable access to file system of the local machine.|
 |`-EnableLocalFolderPathValidation`||  Enable security validation to disable access to file system of the local machine. |
+|`-eesp`,<br/>`-EnableExecuteSsisPackage`|| Enable SSIS package execution on self-hosted IR node.|
+|`-desp`,<br/>`-DisableExecuteSsisPackage`|| Disable SSIS package execution on self-hosted IR node.|
+|`-gesp`,<br/>`-GetExecuteSsisPackage`|| Get the value if ExecuteSsisPackage option is enabled on self-hosted IR node.<br/> If the returned value is true, then ExecuteSSISPackage is enabled; If the returned value is false or null, then ExecuteSSISPackage is disabled.|
 
 ## Install and register a self-hosted IR from Microsoft Download Center
 

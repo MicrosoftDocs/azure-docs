@@ -82,7 +82,7 @@ After you add a module to a deployment, you can select its name to open the **Up
 
 If you're creating a layered deployment, you may be configuring a module that exists in other deployments targeting the same devices. To update the module twin without overwriting other versions, open the **Module Twin Settings** tab. Create a new **Module Twin Property** with a unique name for a subsection within the module twin's desired properties, for example `properties.desired.settings`. If you define properties within just the `properties.desired` field, it will overwrite the desired properties for the module defined in any lower priority deployments.
 
-![Set module twin property for layered deployment](./media/how-to-deploy-monitor/module-twin-property.png)
+:::image type="content" source="./media/how-to-deploy-monitor/module-twin-property.png" alt-text="Screenshot showing how to set the module twin property for layered deployment.":::
 
 For more information about module twin configuration in layered deployments, see [Layered deployment](module-deployment-monitoring.md#layered-deployment).
 
@@ -165,7 +165,7 @@ When you modify a deployment, the changes immediately replicate to all targeted 
 
 1. Select the **Metrics** tab and click the **Edit Metrics** button. Add or modify custom metrics, using the example syntax as a guide. Select **Save**.
 
-    ![Edit custom metrics in a deployment](./media/how-to-deploy-monitor/metric-list.png)
+   :::image type="content" source="./media/how-to-deploy-monitor/metric-list.png" alt-text="Screenshot showing how to edit custom metrics in a deployment.":::
 
 1. Select the **Labels** tab and make any desired changes and select **Save**.
 

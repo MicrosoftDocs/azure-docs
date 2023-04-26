@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with MindTickle | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with MindTickle'
 description: Learn how to configure single sign-on between Azure Active Directory and MindTickle.
 services: active-directory
 author: jeevansd

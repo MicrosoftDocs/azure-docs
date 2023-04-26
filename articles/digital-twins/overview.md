@@ -72,7 +72,7 @@ Here's an example of a scene in 3D Scenes Studio, showing how digital twin prope
 
 The data in your Azure Digital Twins model can be routed to downstream Azure services for more analytics or storage. 
 
-To send digital twin data to [Azure Data Explorer](/azure/data-explorer/data-explorer-overview), you can take advantage of Azure Digital Twin's [data history](concepts-data-history.md) feature, which connects an Azure Digital Twins instance to an Azure Data Explorer cluster so that digital twin property updates are automatically historized to Azure Data Explorer. You can then query this data in Azure Data Explorer using the [Azure Digital Twins query plugin for Azure Data Explorer](concepts-data-explorer-plugin.md).
+To send digital twin data to [Azure Data Explorer](/azure/data-explorer/data-explorer-overview), you can take advantage of Azure Digital Twin's [data history](concepts-data-history.md) feature, which connects an Azure Digital Twins instance to an Azure Data Explorer cluster so that graph updates are automatically historized to Azure Data Explorer. You can then query this data in Azure Data Explorer using the [Azure Digital Twins query plugin for Azure Data Explorer](concepts-data-explorer-plugin.md).
 
 To send digital twin data to other Azure services or ultimately outside of Azure, you can create *event routes*, which utilize [Event Hubs](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md), and [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) to send data through custom flows.
 
@@ -102,7 +102,7 @@ The following diagram shows where Azure Digital Twins might lie in the context o
 
 ## Resources
 
-This section highlights some resources that may be useful while working with Azure Digital Twins. You can view additional resources in the **Resources** section of this this documentation set (accessible through the navigation links to the left).
+This section highlights some resources that may be useful while working with Azure Digital Twins. You can view additional resources in the **Resources** section of this documentation set (accessible through the navigation links to the left).
 
 ### Service limits
 
@@ -110,7 +110,7 @@ You can read about the service limits of Azure Digital Twins in the [Azure Digit
 
 ### Terminology
 
-You can view a list of common IoT terms and their uses across the Azure IoT services, including Azure Digital Twins, in the [Azure IoT Glossary](../iot-fundamentals/iot-glossary.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json). This resource may be a useful reference while you get started with Azure Digital Twins and building an IoT solution.
+You can view a list of common IoT terms and their uses across the Azure IoT services, including Azure Digital Twins, in the [Azure IoT Glossary](../iot/iot-glossary.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json). This resource may be a useful reference while you get started with Azure Digital Twins and building an IoT solution.
 
 ## Next steps
 

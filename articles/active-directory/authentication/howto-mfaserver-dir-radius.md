@@ -1,5 +1,5 @@
 ---
-title: RADIUS and Azure MFA Server - Azure Active Directory
+title: RADIUS and Azure MFA Server
 description: Deploying RADIUS Authentication and Azure Multi-Factor Authentication Server.
 
 services: multi-factor-authentication

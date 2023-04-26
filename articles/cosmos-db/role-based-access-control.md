@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.date: 05/11/2022
 author: seesharprun
 ms.author: sidandrews
-ms.custom: devx-track-azurepowershell, ignite-2022
+ms.custom: ignite-2022
 ---
 
 # Azure role-based access control in Azure Cosmos DB
@@ -63,8 +63,7 @@ This setting will prevent any changes to any Azure Cosmos DB resource from any c
 
 - Creating, deleting child resources such as databases and containers. This includes resources for other APIs such as Cassandra, MongoDB, Gremlin, and table resources.
 
-- Updating throughput on database or container level resources.
-
+- Reading or updating throughput on database or container level resources.
 - Modifying container properties including index policy, TTL and unique keys.
 
 - Modifying stored procedures, triggers or user-defined functions.
@@ -119,3 +118,4 @@ Update-AzCosmosDBAccount -ResourceGroupName [ResourceGroupName] -Name [CosmosDBA
 - [Azure custom roles](../role-based-access-control/custom-roles.md)
 - [Azure Cosmos DB resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)
 - [Configure role-based access control for your Azure Cosmos DB for MongoDB](mongodb/how-to-setup-rbac.md)
+

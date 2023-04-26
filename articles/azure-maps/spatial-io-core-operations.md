@@ -1,8 +1,8 @@
 ---
 title:  Core IO operations | Microsoft Azure Maps
 description: Learn how to efficiently read and write XML and delimited data using core libraries from the spatial IO module.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: azure-maps
@@ -45,7 +45,7 @@ To use this class, follow the steps below:
 - Call the `toString` function to retrieve the delimited string. 
 - Optionally, call the `clear` method to make the writer reusable and reduce its resource allocation, or call the `delete` method to dispose of the writer instance.
 
-> [!Note]
+> [!NOTE]
 > The number of columns written will be constrained to the number of cells in the first row of the data passed to the writer.
 
 ## Read XML files

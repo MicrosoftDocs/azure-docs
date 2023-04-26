@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configure dual-stack outbound connectivity with a NAT gateway and a public load balancer'
-titleSuffix: Azure Virtual Network NAT
+titleSuffix: Azure NAT Gateway
 description: Learn how to configure outbound connectivity for a dual stack network with a NAT gateway and a public load balancer.
 author: asudbring
 ms.author: allensu
@@ -8,7 +8,7 @@ ms.service: virtual-network
 ms.subservice: nat
 ms.topic: tutorial
 ms.date: 02/05/2023
-ms.custom: template-tutorial
+ms.custom: template-tutorial, devx-track-azurecli
 ---
 
 # Tutorial: Configure dual stack outbound connectivity with a NAT gateway and a public load balancer
@@ -374,7 +374,7 @@ az network nsg create \
     --resource-group TutorialIPv6NATLB-rg
 ```
 
-Use [az network nsg rule create](/azure/network/nsg/rule#az-network-nsg-rule-create) to create a rule for RDP connectivity to the virtual machine.
+Use [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) to create a rule for RDP connectivity to the virtual machine.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -393,7 +393,7 @@ az network nsg rule create \
 
 ### Create network interface
 
-Use [az network nic create](/azure/network/nic#az_network_nic_create) to create the network interface for the virtual machine.
+Use [az network nic create](/cli/azure/network/nic#az-network-nic-create) to create the network interface for the virtual machine.
 
 ```azurecli-interactive
 az network nic create \
@@ -406,9 +406,9 @@ az network nic create \
 
 ### Add IPv6 to network interface
 
-The support IPv6, the virtual machine must have a IPv6 network configuration added to the network interface. IPv6 can't be the primary IP configuration for a virtual machine network interface. For more information, see [Overview of IPv6](/azure/virtual-network/ip-services/ipv6-overview).
+The support IPv6, the virtual machine must have a IPv6 network configuration added to the network interface. IPv6 can't be the primary IP configuration for a virtual machine network interface. For more information, see [Overview of IPv6](../ip-services/ipv6-overview.md).
 
-Use [az network nic ip-config create](/azure/network/nic/ip-config#az_network_nic_ip_config_create) to add the IPv6 configuration to the network interface.
+Use [az network nic ip-config create](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_create) to add the IPv6 configuration to the network interface.
 
 ```azurecli-interactive
 az network nic ip-config create \
@@ -678,13 +678,13 @@ Make note of both IP addresses. Use the IPs to verify the outbound connectivity 
 
 1. On the desktop of **myVM**, open **Microsoft Edge**.
 
-1. To confirm the IPv4 address, enter **http://v4.testmyipv6.com** in the address bar.
+1. To confirm the IPv4 address, enter `http://v4.testmyipv6.com` in the address bar.
 
 1. You should see the IPv4 address displayed. In this example, the IP of **20.230.191.5** is displayed.
 
     :::image type="content" source="./media/tutorial-dual-stack-outbound-nat-load-balancer/portal-verify-ipv4.png" alt-text="Screenshot of outbound IPv4 public IP address from portal steps.":::
 
-1. In the address bar, enter **http://v6.testmyipv6.com**
+1. In the address bar, enter `http://v6.testmyipv6.com`
 
 1. You should see the IPv6 address displayed. In this example, the IP of **2603:1030:c02:8::14** is displayed.
 
@@ -709,13 +709,13 @@ Make note of both IP addresses. Use the IPs to verify the outbound connectivity 
 
 1. On the desktop of **myVM**, open **Microsoft Edge**.
 
-1. To confirm the IPv4 address, enter **http://v4.testmyipv6.com** in the address bar.
+1. To confirm the IPv4 address, enter `http://v4.testmyipv6.com` in the address bar.
 
 1. You should see the IPv4 address displayed. In this example, the IP of **40.90.217.214** displayed.
 
     :::image type="content" source="./media/tutorial-dual-stack-outbound-nat-load-balancer/cli-verify-ipv4.png" alt-text="Screenshot of outbound IPv4 public IP address from CLI steps.":::
 
-1. In the address bar, enter **http://v6.testmyipv6.com**
+1. In the address bar, enter `http://v6.testmyipv6.com`
 
 1. You should see the IPv6 address displayed. In this example, the IP of **2603:1030:c04:3::4d**  is displayed.
 

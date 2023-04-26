@@ -1,5 +1,5 @@
 ---
-title: Fix problems with dynamic group memberships - Azure AD | Microsoft Docs
+title: Fix problems with dynamic group memberships
 description: Troubleshooting tips for dynamic group membership in Azure Active Directory
 services: active-directory
 author: barclayn

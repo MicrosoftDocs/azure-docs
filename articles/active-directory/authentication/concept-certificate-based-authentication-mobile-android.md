@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory certificate-based authentication on Android devices - Azure Active Directory
+title: Azure Active Directory certificate-based authentication on Android devices
 description: Learn about Azure Active Directory certificate-based authentication on Android devices
 
 services: active-directory

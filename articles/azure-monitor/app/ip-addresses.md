@@ -2,7 +2,7 @@
 title: IP addresses used by Azure Monitor | Microsoft Docs
 description: This article discusses server firewall exceptions that are required by Azure Monitor
 ms.topic: conceptual
-ms.date: 01/10/2023
+ms.date: 03/22/2023
 ms.reviewer: saars
 ---
 
@@ -54,7 +54,7 @@ Application Insights Agent configuration is needed only when you're making chang
 
 ## Availability tests
 
-This is the list of addresses from which [availability web tests](./monitor-web-app-availability.md) are run. If you want to run web tests on your app but your web server is restricted to serving specific clients, you'll have to permit incoming traffic from our availability test servers.
+This is the list of addresses from which [availability web tests](./availability-overview.md) are run. If you want to run web tests on your app but your web server is restricted to serving specific clients, you'll have to permit incoming traffic from our availability test servers.
 
 > [!NOTE]
 > For resources located inside private virtual networks that can't allow direct inbound communication with the availability test agents in public Azure, the only option is to [create and host your own custom availability tests](availability-azure-functions.md).
@@ -64,10 +64,10 @@ This is the list of addresses from which [availability web tests](./monitor-web-
 If you're using Azure network security groups, add an *inbound port rule* to allow traffic from Application Insights availability tests. Select **Service Tag** as the **Source** and **ApplicationInsightsAvailability** as the **Source service tag**.
 
 >[!div class="mx-imgBorder"]
->![Screenshot that shows selecting Inbound security rules and then selecting Add.](./media/ip-addresses/add-inbound-security-rule.png)
+>:::image type="content" source="./media/ip-addresses/add-inbound-security-rule.png" lightbox="./media/ip-addresses/add-inbound-security-rule.png" alt-text="Screenshot that shows selecting Inbound security rules and then selecting Add.":::
 
 >[!div class="mx-imgBorder"]
->![Screenshot that shows the Add inbound security rule tab.](./media/ip-addresses/add-inbound-security-rule2.png)
+>:::image type="content" source="./media/ip-addresses/add-inbound-security-rule2.png" lightbox="./media/ip-addresses/add-inbound-security-rule2.png" alt-text="Screenshot that shows the Add inbound security rule tab.":::
 
 Open port 80 (HTTP) and port 443 (HTTPS) for incoming traffic from these addresses. IP addresses are grouped by location.
 

@@ -25,12 +25,12 @@ The default answer for a project is meant to be returned when an answer is not f
 
 For a client application, such as a bot with the [Azure Bot service](/azure/bot-service/bot-builder-howto-qna), you can choose from the following scenarios:
 
-* Use your project/knowledge base's setting
+* Use your project's setting
 * Use different text in the client application to distinguish when an answer is returned but doesn't meet the score threshold. This text can either be static text stored in code, or can be stored in the client application's settings list.
 
 ## Change default answer in Language Studio
 
-The knowledge base default answer is returned when no answer is returned from question answering.
+The project default answer is returned when no answer is returned from question answering.
 
 1. Sign in to the [Language Studio](https://language.azure.com). Go to Custom question answering and select your project from the list.
 1. Select **Settings** from the left navigation bar.
@@ -41,4 +41,4 @@ The knowledge base default answer is returned when no answer is returned from qu
 
 ## Next steps
 
-* [Create a knowledge base](manage-knowledge-base.md)
+* [Create a project](manage-knowledge-base.md)

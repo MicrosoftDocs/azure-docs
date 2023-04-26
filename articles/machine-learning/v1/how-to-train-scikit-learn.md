@@ -10,7 +10,7 @@ author: balapv
 ms.reviewer: mopeakande
 ms.date: 11/04/2022
 ms.topic: how-to
-ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, sdkv1, event-tier1-build-2022
 #Customer intent: As a Python scikit-learn developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my machine learning models at scale.
 ---
 
@@ -19,7 +19,7 @@ ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
 > * [v1](how-to-train-scikit-learn.md)
-> * [v2 (current version)](../how-to-train-scikit-learn.md)
+> * [v2 (current version)](../how-to-train-scikit-learn.md?view=azureml-api-2&preserve-view=true)
 
 In this article, learn how to run your scikit-learn training scripts with Azure Machine Learning.
 
@@ -59,18 +59,18 @@ ws = Workspace.from_config()
 
 ### Prepare scripts
 
-In this tutorial, the [training script **train_iris.py**](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train_iris.py) is already provided for you. In practice, you should be able to take any custom training script as is and run it with Azure ML without having to modify your code.
+In this tutorial, the [training script **train_iris.py**](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train_iris.py) is already provided for you. In practice, you should be able to take any custom training script as is and run it with Azure Machine Learning without having to modify your code.
 
 > [!NOTE]
-> - The provided training script shows how to log some metrics to your Azure ML run using the `Run` object within the script.
+> - The provided training script shows how to log some metrics to your Azure Machine Learning run using the `Run` object within the script.
 > - The provided training script uses example data from the  `iris = datasets.load_iris()` function.  To use and access your own data, see [how to train with datasets](how-to-train-with-datasets.md) to make data available during training.
 
 ### Define your environment
 
-To define the Azure ML [Environment](../concept-environments.md) that encapsulates your training script's dependencies, you can either define a custom environment or use and Azure ML curated environment.
+To define the Azure Machine Learning [Environment](../concept-environments.md) that encapsulates your training script's dependencies, you can either define a custom environment or use and Azure Machine Learning curated environment.
 
 #### Use a curated environment
-Optionally, Azure ML provides prebuilt, [curated environments](../resource-curated-environments.md) if you don't want to define your own environment. 
+Optionally, Azure Machine Learning provides prebuilt, [curated environments](../resource-curated-environments.md) if you don't want to define your own environment. 
 
 If you want to use a curated environment, you can run the following command instead:
 
@@ -93,7 +93,7 @@ dependencies:
     - azureml-defaults
 ```
 
-Create an Azure ML environment from this Conda environment specification. The environment will be packaged into a Docker container at runtime.
+Create an Azure Machine Learning environment from this Conda environment specification. The environment will be packaged into a Docker container at runtime.
 ```python
 from azureml.core import Environment
 
@@ -141,7 +141,7 @@ run.wait_for_completion(show_output=True)
 ```
 
 > [!WARNING]
-> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use a [.ignore file](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) or don't include it in the source directory . Instead, access your data using an Azure ML [dataset](how-to-train-with-datasets.md).
+> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use a [.ignore file](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) or don't include it in the source directory . Instead, access your data using an Azure Machine Learning [dataset](how-to-train-with-datasets.md).
 
 ### What happens during run execution
 As the run is executed, it goes through the following stages:
@@ -181,10 +181,12 @@ model = run.register_model(model_name='sklearn-iris',
 
 ## Deployment
 
-The model you just registered can be deployed the exact same way as any other registered model in Azure ML. The deployment how-to
+The model you just registered can be deployed the exact same way as any other registered model in Azure Machine Learning. The deployment how-to
 contains a section on registering models, but you can skip directly to [creating a compute targethow-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
 
 ### (Preview) No-code model deployment
+
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 Instead of the traditional deployment route, you can also use the no-code deployment feature (preview) for scikit-learn. No-code model deployment is supported for all built-in scikit-learn model types. By registering your model as shown above with the `model_framework`, `model_framework_version`, and `resource_configuration` parameters, you can simply use the [`deploy()`](/python/api/azureml-core/azureml.core.model%28class%29#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) static function to deploy your model.
 

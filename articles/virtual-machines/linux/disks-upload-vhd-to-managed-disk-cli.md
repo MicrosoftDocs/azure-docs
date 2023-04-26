@@ -8,6 +8,7 @@ ms.date: 01/03/2023
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
+ms.custom: devx-track-azurecli
 ---
 
 # Upload a VHD to Azure or copy a managed disk to another region - Azure CLI
@@ -170,3 +171,5 @@ az disk revoke-access -n $targetDiskName -g $targetRG
 ## Next steps
 
 Now that you've successfully uploaded a VHD to a managed disk, you can attach the disk as a [data disk to an existing VM](add-disk.md) or [attach the disk to a VM as an OS disk](upload-vhd.md#create-the-vm), to create a new VM.
+
+If you've additional questions, see the [uploading a managed disk](../faq-for-disks.yml#uploading-to-a-managed-disk) section in the FAQ.

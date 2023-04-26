@@ -67,4 +67,4 @@ await client.CreateDocumentCollectionAsync(
 * [Partitioning in Azure Cosmos DB](../partitioning-overview.md)
 * [Request Units in Azure Cosmos DB](../request-units.md)
 * [Provision throughput on containers and databases](../set-throughput.md)
-* [Work with Azure Cosmos DB account](../account-databases-containers-items.md)
+* [Work with Azure Cosmos DB account](../resource-model.md)

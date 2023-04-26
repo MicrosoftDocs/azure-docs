@@ -349,4 +349,4 @@ In the future, if you plan on reconnecting your management group to a Log Analyt
 
 ## Next steps
 
-To add functionality and gather data, see [Add Azure Monitor solutions from the Solutions Gallery](../insights/solutions.md).
+To add functionality and gather data, see [Add Azure Monitor solutions from the Solutions Gallery](/previous-versions/azure/azure-monitor/insights/solutions).

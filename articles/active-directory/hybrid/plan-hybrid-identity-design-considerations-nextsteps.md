@@ -34,7 +34,7 @@ Monitoring the following resources often provides the latest news and updates on
 * [Microsoft Enterprise Mobility blog](https://cloudblogs.microsoft.com/ENTERPRISEMOBILITY/)
 * [Microsoft In The Cloud blog](https://cloudblogs.microsoft.com/)
 * [Microsoft Intune blog](https://techcommunity.microsoft.com/t5/intune-customer-success/welcome-to-the-new-intune-customer-success-blog/ba-p/281367)
-* [Microsoft Endpoint Configuration Manager blog](https://techcommunity.microsoft.com/t5/Configuration-Manager-Blog/bg-p/ConfigurationManagerBlog)
+* [Microsoft Configuration Manager blog](https://techcommunity.microsoft.com/t5/Configuration-Manager-Blog/bg-p/ConfigurationManagerBlog)
 
 ## See also
 [Design considerations overview](plan-hybrid-identity-design-considerations-overview.md)

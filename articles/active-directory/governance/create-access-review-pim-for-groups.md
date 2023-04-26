@@ -1,5 +1,5 @@
 ---
-title: Create an access review of PIM for Groups - Azure AD (preview)
+title: Create an access review of PIM for Groups (preview)
 description: Learn how to create an access review of PIM for Groups in Azure Active Directory. 
 services: active-directory
 author: amsliu

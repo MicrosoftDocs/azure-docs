@@ -70,6 +70,8 @@
       - name: Create profile and endpoint - ARM Template
         displayName: Resource Manager
         href: ../cdn/create-profile-endpoint-template.md?toc=/azure/frontdoor/TOC.json
+      - name: Create profile and endpoint - Terraform
+        href: ../cdn/create-profile-endpoint-terraform.md?toc=/azure/frontdoor/TOC.json
 - name: Tutorials
   items:
     - name: Front Door
@@ -139,14 +141,20 @@
           href: front-door-routing-architecture.md?pivots=front-door-standard-premium
         - name: Route matching
           href: front-door-route-matching.md?pivots=front-door-standard-premium
-        - name: Origin selection
-          href: routing-methods.md
         - name: Routing limits
           href: front-door-routing-limits.md
-      - name: Endpoint
+      - name: Endpoints
         href: endpoint.md
-      - name: Origin
-        href: origin.md?pivots=front-door-standard-premium
+      - name: Origins
+        items:
+        - name: Overview
+          href: origin.md?pivots=front-door-standard-premium
+        - name: Origin selection
+          href: routing-methods.md
+        - name: Private Link
+          href: private-link.md
+        - name: Health probes
+          href: health-probes.md
       - name: Domains
         items:
         - name: Overview
@@ -155,26 +163,24 @@
           href: apex-domain.md
         - name: Wildcard domains
           href: front-door-wildcard-domain.md?pivots=front-door-standard-premium
-      - name: Health probes
-        href: health-probes.md
       - name: Rules Engine
         items:  
-        - name: Rules Engine architecture
+        - name: Overview
           href: front-door-rules-engine.md?pivots=front-door-standard-premium
-        - name: Rules match conditions
+        - name: Match conditions
           href: rules-match-conditions.md?pivots=front-door-standard-premium
-        - name: Rules actions
+        - name: Actions
           href: front-door-rules-engine-actions.md?pivots=front-door-standard-premium
-      - name: Server variables
-        href: rule-set-server-variables.md
-      - name: URL rewrite
-        href: front-door-url-rewrite.md?pivots=front-door-standard-premium
-      - name: URL redirect
-        href: front-door-url-redirect.md?pivots=front-door-standard-premium
-      - name: Private Link
-        href: private-link.md
+        - name: Server variables
+          href: rule-set-server-variables.md
+        - name: URL rewrite
+          href: front-door-url-rewrite.md?pivots=front-door-standard-premium
+        - name: URL redirect
+          href: front-door-url-redirect.md?pivots=front-door-standard-premium
       - name: Understand billing
         href: billing.md
+      - name: Logs and metrics
+        href: front-door-diagnostics.md?pivots=front-door-standard-premium
       - name: Best practices
         href: best-practices.md
       - name: Scenarios
@@ -245,6 +251,8 @@
       href: front-door-faq.yml
   - name: CDN
     items:
+    - name: Migrate CDN provider
+      href: ../cdn/cdn-change-provider.md?toc=/azure/frontdoor/TOC.json
     - name: Security baseline
       href: /security/benchmark/azure/baselines/content-delivery-network-security-baseline?toc=/azure/frontdoor/TOC.json
     - name: DDoS protection
@@ -269,7 +277,7 @@
         items:
         - name: Upgrade to Premium tier
           href: tier-upgrade.md
-        - name: Front Door manager
+        - name: Configure endpoints
           href: how-to-configure-endpoints.md
         - name: Origins in origin group
           href: how-to-configure-origin.md
@@ -307,17 +315,19 @@
             href: standard-premium/how-to-enable-private-link-storage-account.md
           - name: Azure CLI
             href: standard-premium/how-to-enable-private-link-storage-account-cli.md
+        - name: Connect to a storage static website
+          href: how-to-enable-private-link-storage-static-website.md
         - name: Connect to an App service
           items:
           - name: Azure portal
             href: standard-premium/how-to-enable-private-link-web-app.md
           - name: Azure CLI
             href: standard-premium/how-to-enable-private-link-web-app-cli.md
-      - name: Monitor and Reports
+      - name: Monitor and reports
         items:
-        - name: Configure diagnostic
+        - name: Configure diagnostic logs
           href: standard-premium/how-to-logs.md
-        - name: Set up monitoring and alerts
+        - name: Access metrics and create alerts
           href: standard-premium/how-to-monitor-metrics.md
         - name: View Front Door reports
           href: standard-premium/how-to-reports.md

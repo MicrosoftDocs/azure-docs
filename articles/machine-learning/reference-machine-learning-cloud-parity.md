@@ -39,13 +39,13 @@ The information in the rest of this document provides information on what featur
 | Azure Databricks integration                                              | GA                   | NO                 | NO          |
 | SQL, Azure Cosmos DB, and HDInsight integrations                                   | GA                   | YES                | YES         |
 | **[Machine Learning pipelines](concept-ml-pipelines.md)** |   |  | | 
-| Create, run, and publish pipelines using the Azure ML SDK                   | GA                   | YES                | YES         |
-| Create pipeline endpoints using the Azure ML SDK                           | GA                   | YES                | YES         |
-| Create, edit, and delete scheduled runs of pipelines using the Azure ML SDK | GA                   | YES*               | YES*        |
+| Create, run, and publish pipelines using the Azure Machine Learning SDK                   | GA                   | YES                | YES         |
+| Create pipeline endpoints using the Azure Machine Learning SDK                           | GA                   | YES                | YES         |
+| Create, edit, and delete scheduled runs of pipelines using the Azure Machine Learning SDK | GA                   | YES*               | YES*        |
 | View pipeline run details in studio                                        | GA                   | YES                | YES         |
-| Create, run, visualize, and publish pipelines in Azure ML designer          | GA      | YES                | YES         |
+| Create, run, visualize, and publish pipelines in Azure Machine Learning designer          | GA      | YES                | YES         |
 | Azure Databricks Integration with ML Pipeline                             | GA                   | NO                 | NO          |
-| Create pipeline endpoints in Azure ML designer                             | GA      | YES                | YES         |
+| Create pipeline endpoints in Azure Machine Learning designer                             | GA      | YES                | YES         |
 | **[Integrated notebooks](how-to-run-jupyter-notebooks.md)** |   |  | | 
 | Workspace notebook and file sharing                                        | GA                   | YES                | YES         |
 | R and Python support                                                       | GA                   | YES                | YES         |
@@ -76,7 +76,7 @@ The information in the rest of this document provides information on what featur
 | View, edit, or delete dataset drift monitors from the UI                    | Public Preview       | YES                | YES         |
 | **Machine learning lifecycle** |   | | |
 | [Model profiling (SDK/CLI v1)](v1/how-to-deploy-profile-model.md)                                                            | GA                   | YES                | PARTIAL     |
-| [The Azure ML CLI 1.0](v1/reference-azure-machine-learning-cli.md)     | GA                   | YES                | YES         |
+| [The Azure Machine Learning CLI 1.0](v1/reference-azure-machine-learning-cli.md)     | GA                   | YES                | YES         |
 | [FPGA-based Hardware Accelerated Models (SDK/CLI v1)](./v1/how-to-deploy-fpga-web-service.md)                                     | GA                   | NO                 | NO          |
 | [Visual Studio Code integration](how-to-setup-vs-code.md)                                             | Public Preview       | NO                 | NO          |
 | [Event Grid integration](how-to-use-event-grid.md)                                                     | Public Preview       | NO                 | NO          |
@@ -90,11 +90,10 @@ The information in the rest of this document provides information on what featur
 | Explainability in UI                                                       | Public Preview       | NO                 | NO          |
 | Differential privacy SmartNoise toolkit                                    | OSS                  | NO                 | NO          |
 | Custom tags in Azure Machine Learning to implement datasheets              | GA                   | NO                 | NO          |
-| Fairness AzureML Integration                                               | Public Preview       | NO                 | NO          |
+| Fairness Azure Machine Learning Integration                                               | Public Preview       | NO                 | NO          |
 | Interpretability  SDK                                                      | GA                   | YES                | YES         |
 | **Training** |   | | |
 | [Experimentation log streaming](how-to-track-monitor-analyze-runs.md)                                              | GA                   | YES                | YES         |
-| [Reinforcement Learning (SDK/CLI v1)](./v1/how-to-use-reinforcement-learning.md)                                                     | Public Preview       | NO                 | NO          |
 | [Experimentation UI](how-to-track-monitor-analyze-runs.md)                                                         | Public Preview                   | YES                | YES         |
 | [.NET integration ML.NET 1.0](/dotnet/machine-learning/tutorials/object-detection-model-builder)                                                | GA                   | YES                | YES         |
 | **Inference** |   | | |
@@ -153,13 +152,13 @@ The information in the rest of this document provides information on what featur
 | Azure Databricks Integration                                              | GA               | YES        | N/A        |
 | SQL, Azure Cosmos DB, and HDInsight integrations                                   | GA               | YES       | N/A        |
 | **Machine Learning pipelines** |    | | |
-| Create, run, and publish pipelines using the Azure ML SDK                   | GA               | YES       | N/A        |
-| Create pipeline endpoints using the Azure ML SDK                           | GA               | YES       | N/A        |
-| Create, edit, and delete scheduled runs of pipelines using the Azure ML SDK | GA               | YES       | N/A        |
+| Create, run, and publish pipelines using the Azure Machine Learning SDK                   | GA               | YES       | N/A        |
+| Create pipeline endpoints using the Azure Machine Learning SDK                           | GA               | YES       | N/A        |
+| Create, edit, and delete scheduled runs of pipelines using the Azure Machine Learning SDK | GA               | YES       | N/A        |
 | View pipeline run details in studio                                        | GA               | YES       | N/A        |
-| Create, run, visualize, and publish pipelines in Azure ML designer          | GA  | YES       | N/A        |
+| Create, run, visualize, and publish pipelines in Azure Machine Learning designer          | GA  | YES       | N/A        |
 | Azure Databricks Integration with ML Pipeline                             | GA               | YES        | N/A        |
-| Create pipeline endpoints in Azure ML designer                             | GA   | YES       | N/A        |
+| Create pipeline endpoints in Azure Machine Learning designer                             | GA   | YES       | N/A        |
 | **Integrated notebooks** |   | | |
 | Workspace notebook and file sharing                                        | GA               | YES       | N/A        |
 | R and Python support                                                       | GA               | YES       | N/A        |
@@ -189,7 +188,7 @@ The information in the rest of this document provides information on what featur
 | View, edit, or delete dataset drift monitors from the UI                    | Preview   | YES       | N/A        |
 | **Machine learning lifecycle** |    | | |
 | Model profiling                                                            | GA               | YES  | N/A        |
-| The Azure DevOps extension for Machine Learning & the Azure ML CLI         | GA               | YES       | N/A        |
+| The Azure DevOps extension for Machine Learning & the Azure Machine Learning CLI         | GA               | YES       | N/A        |
 | FPGA-based Hardware Accelerated Models                                     | Deprecating               | Deprecating            | N/A        |
 | Visual Studio Code integration                                             | Preview   | NO        | N/A        |
 | Event Grid integration                                                     | Preview   | YES       | N/A        |
@@ -203,7 +202,7 @@ The information in the rest of this document provides information on what featur
 | Explainability in UI                                                       | Preview   | NO        | N/A        |
 | Differential privacy SmartNoise toolkit                                    | OSS              | NO        | N/A        |
 | custom tags in Azure Machine Learning to implement datasheets              | GA               | YES        | N/A        |
-| Fairness AzureML Integration                                               | Preview   | NO        | N/A        |
+| Fairness Azure Machine Learning Integration                                               | Preview   | NO        | N/A        |
 | Interpretability  SDK                                                      | GA               | YES       | N/A        |
 | **Training** |    | | |
 | Experimentation log streaming                                              | GA               | YES       | N/A        |
@@ -233,9 +232,9 @@ The information in the rest of this document provides information on what featur
 
 * Sample notebook may not work, if it needs access to public data.
 * IP address ranges: The CLI command used in the [required public internet access](how-to-secure-training-vnet.md#required-public-internet-access-to-train-models) instructions does not return IP ranges. Use the [Azure IP ranges and service tags for Azure China](https://www.microsoft.com//download/details.aspx?id=57062) instead.
-* Azure Machine Learning compute instances preview is not supported in a workspace where Private Endpoint is enabled for now, but CI will be supported in the next deployment for the service expansion to all AzureML regions.
+* Azure Machine Learning compute instances preview is not supported in a workspace where Private Endpoint is enabled for now, but CI will be supported in the next deployment for the service expansion to all Azure Machine Learning regions.
 * Searching for assets in the web UI with Chinese characters will not work correctly.
 
 ## Next steps
 
-To learn more about the regions that Azure Machine learning is available in, see [Products by region](https://azure.microsoft.com/global-infrastructure/services/).
+To learn more about the regions that Azure Machine Learning is available in, see [Products by region](https://azure.microsoft.com/global-infrastructure/services/).

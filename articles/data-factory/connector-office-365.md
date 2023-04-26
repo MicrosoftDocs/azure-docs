@@ -28,13 +28,12 @@ This Microsoft 365 (Office 365) connector is supported for the following capabil
 |---------| --------|
 |[Copy activity](copy-activity-overview.md) (source/-)|&#9312;|
 |[Mapping data flow](concepts-data-flow-overview.md) (source/-)|&#9312;|
-|[Lookup activity](control-flow-lookup-activity.md) (source/-)|&#9312;|
 
 <small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
 ADF Microsoft 365 (Office 365) connector and Microsoft Graph Data Connect enables at scale ingestion of different types of datasets from Exchange Email enabled mailboxes, including address book contacts, calendar events, email messages, user information, mailbox settings, and so on.  Refer [here](/graph/data-connect-datasets) to see the complete list of datasets available.
 
-For now, within a single copy activity and data flow, you can only **ingest data from Microsoft 365 (Office 365) into [Azure Blob Storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) in JSON format** (type setOfObjects). If you want to load Microsoft 365 (Office 365) into other types of data stores or in other formats, you can chain the first copy activity or data flow with a subsequent activity to further load data into any of the [supported ADF destination stores](copy-activity-overview.md#supported-data-stores-and-formats) (refer to "supported as a sink" column in the "Supported data stores and formats" table).
+For now, within a single copy activity and data flow, you can only **ingest data from Microsoft 365 (Office 365) into [Azure Blob Storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) in JSON format** (type setOfObjects). When copying to Azure Blob Storage, the output is a blob containing JSON text. If you want to load Microsoft 365 (Office 365) into other types of data stores or in other formats, you can chain the first copy activity or data flow with a subsequent activity to further load data into any of the [supported ADF destination stores](copy-activity-overview.md#supported-data-stores-and-formats) (refer to "supported as a sink" column in the "Supported data stores and formats" table).
 
 >[!IMPORTANT]
 >- The Azure subscription containing the data factory or Synapse workspace and the sink data store must be under the same Azure Active Directory (Azure AD) tenant as Microsoft 365 (Office 365) tenant.
@@ -361,10 +360,6 @@ To create a mapping data flow using the Microsoft 365 connector as a source, com
 5. For the tabs **Projection**, **Optimize** and **Inspect**, please follow [mapping data flow](concepts-data-flow-overview.md).
 
 6. On the tab **Data preview** click on the **Refresh** button to fetch a sample dataset for validation.
-
-## Lookup activity properties
-
-To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

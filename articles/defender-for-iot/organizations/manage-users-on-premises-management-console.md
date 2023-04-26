@@ -181,11 +181,7 @@ Before you create access groups, we also recommend that you:
 
     Users with **Admin** roles have access to all business topology entities by default, and can't be assigned to access groups.
 
-- Carefully set up your business topology. For a rule to be successfully applied, you must assign sensors to zones in the **Site Management** window. For more information, see:
-
-    - [Work with site map views](how-to-gain-insight-into-global-regional-and-local-threats.md#work-with-site-map-views)
-    - [Create enterprise zones](how-to-activate-and-set-up-your-on-premises-management-console.md#create-enterprise-zones)
-    - [Assign sensors to zones](how-to-activate-and-set-up-your-on-premises-management-console.md#assign-sensors-to-zones)
+- Carefully set up your business topology. For a rule to be successfully applied, you must assign sensors to zones in the **Site Management** window. For more information, see [Create OT sites and zones on an on-premises management console](ot-deploy/sites-and-zones-on-premises.md).
 
 **To create access groups**:
 

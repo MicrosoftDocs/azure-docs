@@ -1,5 +1,5 @@
 ---
-title: Govern access for applications in your environment - Azure AD
+title: Govern access for applications in your environment
 description: Microsoft Entra Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.  These features can be used for your existing business critical third party on-premises and cloud-based applications.
 services: active-directory
 documentationcenter: ''

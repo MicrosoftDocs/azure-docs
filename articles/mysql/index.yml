@@ -119,7 +119,7 @@ landingContent:
           - text: Migrate using Data Migration Service
             url: single-server/how-to-migrate-online.md
           - text: Azure Data migration guide
-            url: https://datamigration.microsoft.com/scenario/mysql-to-azuremysql?step=1
+            url: migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md
           - text: Troubleshoot migration errors
             url: single-server/how-to-troubleshoot-common-errors.md
 

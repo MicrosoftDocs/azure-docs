@@ -30,7 +30,7 @@ from openrowset(
     format = 'parquet') as rows
 ```
 
-Make sure that you can access this file. If your file is protected with SAS key or custom Azure identity, you would need to set up [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+Make sure that you can access this file. If your file is protected with SAS key or custom Azure identity, you would need to set up [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-level-credential).
 
 > [!IMPORTANT]
 > Ensure you are using a UTF-8 database collation (for example `Latin1_General_100_BIN2_UTF8`) because string values in PARQUET files are encoded using UTF-8 encoding.
@@ -120,6 +120,8 @@ ORDER BY
 ## Automatic schema inference
 
 You don't need to use the OPENROWSET WITH clause when reading Parquet files. Column names and data types are automatically read from Parquet files.
+
+Have in mind that if you are reading number of files at once, the schema, column names and data types will be inferred from the first file service gets from the storage. This can mean that some of the columns expected are omitted, all because the file used by the service to define the schema did not contain these columns. To explicitly specify the schema, please use OPENROWSET WITH clause.
 
 The following sample shows the automatic schema inference capabilities for Parquet files. It returns the number of rows in September 2018 without specifying a schema.
 

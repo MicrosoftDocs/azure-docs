@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 01/30/2023
+ms.date: 02/20/2023
 ---
 
 # Scale a cluster in Azure Cosmos DB for PostgreSQL
@@ -33,7 +33,7 @@ queries.
 1. Select **Save** to apply the changed values.
 
 > [!NOTE]
-> Once you increase nodes and save, you can't decrease the number of worker nodes by using this form.
+> Once you increase nodes and save, you can't decrease the number of worker nodes by using this **Scale** page.
 
 > [!NOTE]
 > To take advantage of newly added nodes you must [rebalance distributed table
@@ -47,10 +47,10 @@ queries.
 You can increase the capabilities of existing nodes. Adjusting compute capacity up and down can be useful for performance
 experiments, and short- or long-term changes to traffic demands.
 
-To change the vCores for all worker nodes, on the **Scale** screen, select a new value under **Compute per node**. To adjust the coordinator node's vCores, expand **Coordinator** and select a new value under **Coordinator computer**.
+To change the vCores for all worker nodes, on the **Scale** screen, select a new value under **Compute per node**. To adjust the coordinator node's vCores, expand **Coordinator** and select a new value under **Coordinator compute**.
 
 > [!NOTE]
-> Once you increase vCores and save, you can't decrease the number of vCores by using this form.
+> You can scale compute on [cluster read replicas](concepts-read-replicas.md) independent of their primary cluster's compute.
 
 > [!NOTE]
 > There is a vCore quota per Azure subscription per region.  The default quota
@@ -67,7 +67,7 @@ nodes before needing to add more worker nodes.
 To change the storage amount for all worker nodes, on the **Scale** screen, select a new value under **Storage per node**. To adjust the coordinator node's storage, expand **Coordinator** and select a new value under **Coordinator storage**.
 
 > [!NOTE]
-> Once you increase storage and save, you can't decrease the amount of storage by using this form.
+> Once you increase storage and save, you can't decrease the amount of storage.
 
 ## Next steps
 

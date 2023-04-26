@@ -84,7 +84,7 @@ If after investigation, an account is confirmed compromised:
    1. Select the event or user in the **Risky sign-ins** or **Risky users** reports and choose "Confirm compromised".
    2. If a risk-based policy wasn't triggered, and the risk wasn't [self-remediated](#self-remediation-with-risk-based-policy), then do one or more of the followings:
       1. [Request a password reset](#manual-password-reset).
-      1. Block the user if you suspect the attacker can reset the password or do multi-factor authentication for the user.
+      1. Block the user if you suspect the attacker can reset the password or do multifactor authentication for the user.
       1. Revoke refresh tokens.
       1. [Disable any devices](../devices/device-management-azure-portal.md) that are considered compromised.
       1. If using [continuous access evaluation](../conditional-access/concept-continuous-access-evaluation.md), revoke all access tokens.

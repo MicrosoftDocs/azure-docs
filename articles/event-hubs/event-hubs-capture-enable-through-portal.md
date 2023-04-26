@@ -70,7 +70,7 @@ Follow [Create a storage account](../storage/common/storage-account-create.md?ta
 1. On the **Review + create** page, review settings, and select **Create** to create the event hub. 
 
     > [!NOTE]
-    > The container you create in a Azure Data Lake Storage Gen 2 using this user interface (UI) is shown under **File systems** in **Storage Explorer**. Similarly, the file system you create in a Data Lake Storage Gen 2 account shows up as a container in this UI. 
+    > The container you create in an Azure Data Lake Storage Gen 2 using this user interface (UI) is shown under **File systems** in **Storage Explorer**. Similarly, the file system you create in a Data Lake Storage Gen 2 account shows up as a container in this UI. 
 
 
 ## Capture data to Azure Data Lake Storage Gen 1 

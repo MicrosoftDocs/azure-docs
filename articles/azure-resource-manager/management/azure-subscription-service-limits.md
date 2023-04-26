@@ -281,7 +281,7 @@ The following table details the features and limits of the Basic, Standard, and 
 
 ## Event Grid limits
 
-[!INCLUDE [event-grid-limits](../../../includes/event-grid-limits.md)]
+[!INCLUDE [event-grid-limits](../../../articles/event-grid/includes/limits.md)]
 
 ## Event Hubs limits
 [!INCLUDE [event-hubs-limits](../../../includes/event-hubs-limits.md)]
@@ -347,6 +347,10 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 [!INCLUDE [azure-front-door-service-limits](../../../includes/front-door-limits.md)]
 
+### Azure Network Watcher limits
+
+[!INCLUDE [network-watcher-limits](../../../includes/network-watcher-limits.md)]
+
 ### Azure Route Server limits
 
 [!INCLUDE [Azure Route Server Limits](../../../includes/route-server-limits.md)]
@@ -358,10 +362,6 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 ### NAT Gateway limits
 
 [!INCLUDE [nat-gateway-limits](../../../includes/azure-nat-gateway-limits.md)]
-
-### Network Watcher limits
-
-[!INCLUDE [network-watcher-limits](../../../includes/network-watcher-limits.md)]
 
 ### Private Link limits
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Proxyclick | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Proxyclick'
 description: In this tutorial, you'll learn how to configure single sign-on between Azure Active Directory and Proxyclick.
 services: active-directory
 author: jeevansd

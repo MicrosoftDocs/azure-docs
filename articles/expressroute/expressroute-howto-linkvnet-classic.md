@@ -8,7 +8,6 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: duau 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Connect a virtual network to an ExpressRoute circuit using PowerShell (classic)
@@ -207,4 +206,3 @@ New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetN
 ## Next steps
 
 For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
-

@@ -8,6 +8,7 @@ ms.date: 9/22/2022
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge 
+ms.custom: devx-track-azurecli
 services: iot-edge
 ---
 # Monitor IoT Edge deployments
@@ -51,11 +52,11 @@ To view the details of a deployment and monitor the devices running it, use the 
 1. Select the deployment that you want to monitor.
 1. On the **Deployment Details** page, scroll down to the bottom section and select the **Target Condition** tab. Select **View** to list the devices that match the target condition. You can change the condition and also the **Priority**. Select **Save** if you made changes.
 
-   ![View targeted devices for a deployment](./media/how-to-monitor-iot-edge-deployments/target-devices.png)
+   :::image type="content" source="./media/how-to-monitor-iot-edge-deployments/target-devices.png" alt-text="Screenshot showing targeted devices for a deployment.":::
 
 1. Select the **Metrics** tab. If you choose a metric from the **Select Metric** drop-down, a **View** button appears for you to display the results. You can also select **Edit Metrics** to adjust the criteria for any custom metrics that you have defined. Select **Save** if you made changes.
 
-   ![View metrics for a deployment](./media/how-to-monitor-iot-edge-deployments/deployment-metrics-tab.png)
+   :::image type="content" source="./media/how-to-monitor-iot-edge-deployments/deployment-metrics-tab.png" alt-text="Screenshot showing the metrics for a deployment.":::
 
 To make changes to your deployment, see [Modify a deployment](how-to-deploy-at-scale.md#modify-a-deployment).
 

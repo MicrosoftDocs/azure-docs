@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Rescana | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Rescana'
 description: Learn how to configure single sign-on between Azure Active Directory and Rescana.
 services: active-directory
 author: jeevansd

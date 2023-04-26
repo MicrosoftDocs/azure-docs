@@ -7,7 +7,6 @@ ms.subservice: availability-zones
 ms.topic: conceptual
 ms.date: 12/12/2022
 ms.author: anaharris
-ms.reviewer: cynthn
 ms.custom: references_regions
 ---
 
@@ -50,6 +49,9 @@ You are not limited to using services within your regional pairs. Although an Az
 
 Regions are paired for cross-region replication based on proximity and other factors.
 
+>[!IMPORTANT]
+>To learn more about your region's architecture, please contact your Microsoft sales or customer representative.
+
 **Azure regional pairs**
 
 | Geography | Regional pair A | Regional pair B |
@@ -85,7 +87,7 @@ Regions are paired for cross-region replication based on proximity and other fac
 | US Government |US Gov Arizona\* |US Gov Texas\* |
 | US Government |US Gov Virginia\* |US Gov Texas\* |
 
-(\*) Certain regions are access restricted to support specific customer scenarios, such as in-country disaster recovery. These regions are available only upon request by [creating a new support request](https://learn.microsoft.com/troubleshoot/azure/general/region-access-request-process#reserved-access-regions).
+(\*) Certain regions are access restricted to support specific customer scenarios, such as in-country disaster recovery. These regions are available only upon request by [creating a new support request](/troubleshoot/azure/general/region-access-request-process#reserved-access-regions).
 
 > [!IMPORTANT]
 > - West India is paired in one direction only. West India's secondary region is South India, but South India's secondary region is Central India.

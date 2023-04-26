@@ -1,5 +1,5 @@
 ---
-title: FAQs for hybrid FIDO2 security key deployment - Azure Active Directory
+title: FAQs for hybrid FIDO2 security key deployment
 description: Learn about some frequently asked questions for passwordless hybrid FIDO2 security key sign-in using Azure Active Directory
 
 services: active-directory

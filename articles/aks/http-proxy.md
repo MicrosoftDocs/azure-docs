@@ -1,8 +1,8 @@
 ---
 title: Configuring Azure Kubernetes Service (AKS) nodes with an HTTP proxy
 description: Use the HTTP proxy configuration feature for Azure Kubernetes Service (AKS) nodes.
-ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
+ms.custom: devx-track-arm-template, devx-track-azurecli
 author: asudbring
 ms.topic: how-to
 ms.date: 02/01/2023
@@ -126,7 +126,6 @@ The HTTP proxy with the Monitoring add-on supports the following configurations:
 The following configurations aren't supported:
 
   - The Custom Metrics and Recommended Alerts features aren't supported when you use a proxy with trusted certificates
-  - Outbound proxy isn't supported with Azure Monitor Private Link Scope (AMPLS)
 
 ## Next steps
 

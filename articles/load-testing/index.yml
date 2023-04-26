@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   ms.author: nicktrog
   author: ntrogh
-  ms.date: 09/30/2022
+  ms.date: 03/24/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -41,6 +41,14 @@ landingContent:
           - text: Set up automated regression testing with CI/CD
             url: tutorial-identify-performance-regression-with-cicd.md
 
+  # Card
+  - title: Scenarios
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Load test Azure App Service apps
+            url: concept-load-test-app-service.md
+  
   # Card
   - title: Configure load tests
     linkLists:
@@ -82,8 +90,6 @@ landingContent:
             url: how-to-compare-multiple-test-runs.md
           - text: Configure server-side monitoring
             url: how-to-monitor-server-side-metrics.md
-          - text: Get insights from App Service Diagnostics
-            url: how-to-appservice-insights.md
           - text: Export test results for custom reporting
             url: how-to-export-test-results.md
 

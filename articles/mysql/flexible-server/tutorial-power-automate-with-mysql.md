@@ -1,6 +1,6 @@
 ---
-title: Create a Power Automate flow with Azure Database for MySQL Flexible Server
-description: Create a Power Automate flow with Azure Database for MySQL Flexible Server
+title: Create a Power Automate flow with Azure Database for MySQL - Flexible Server
+description: Create a Power Automate flow with Azure Database for MySQL - Flexible Server
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
@@ -9,7 +9,7 @@ ms.author: sumuth
 ms.date: 1/15/2023
 ---
 
-# Tutorial: Create a Power Automate flow app with Azure Database for MySQL Flexible Server
+# Tutorial: Create a Power Automate flow app with Azure Database for MySQL - Flexible Server
 
 Power Automate is a service that helps you create automated workflows between your favorite apps and services to synchronize files, get notifications, collect data, and more. Here are a few examples of what you can do with Power Automate.
 
@@ -26,7 +26,7 @@ In this quickstart shows how to create an automated workflow usingPower automate
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free).
 
-- Create an Azure Database for MySQL Flexible server using [Azure portal](./quickstart-create-server-portal.md) <br/> or [Azure CLI](./quickstart-create-server-cli.md) if you don't have one.
+- Create an Azure Database for MySQL - Flexible Server using [Azure portal](./quickstart-create-server-portal.md) <br/> or [Azure CLI](./quickstart-create-server-cli.md) if you don't have one.
 - Populate the database server with this [sample data](https://raw.githubusercontent.com/Azure-Samples/mysql-database-samples/main/mysqltutorial.org/mysql-classicmodesl.sql).
 
 [Having issues? Let us know](https://github.com/MicrosoftDocs/azure-docs/issues)

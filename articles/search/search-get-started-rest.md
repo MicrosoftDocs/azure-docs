@@ -17,13 +17,13 @@ ms.custom: mode-api
 
 This article explains how to formulate requests interactively using the [Azure Cognitive Search REST APIs](/rest/api/searchservice) and a REST client for sending and receiving requests. 
 
-The article uses the Postman desktop application. You can [download and import a Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) if you prefer to use predefined requests.
+The article uses the Postman app. You can [download and import a Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) if you prefer to use predefined requests.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-+ [Postman desktop app](https://www.getpostman.com/), used for sending requests to Azure Cognitive Search.
++ [Postman app](https://www.postman.com/downloads/), used for sending requests to Azure Cognitive Search.
 
 + [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
@@ -53,7 +53,7 @@ Request header composition includes two elements: `Content-Type` and the `api-ke
 
 For the requests to succeed, you'll need to provide the service name and api-key as collection variables.
 
-1. Open the Postman Desktop app and import the collection.
+1. Open the Postman app and import the collection.
 
 1. Select the collection's access menu, select **Edit**, and provide the service name and key of your search service.
 

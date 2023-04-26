@@ -4,6 +4,7 @@ description: Learn how to use the Azure CLI to deploy Private Endpoint for your 
 author: ericgre
 ms.assetid: a56faf72-7237-41e7-85ce-da8346f2bcaa
 ms.devlang: azurecli
+ms.custom: devx-track-azurecli
 ms.topic: sample
 ms.date: 07/06/2020
 ms.author: ericg

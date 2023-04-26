@@ -30,7 +30,7 @@ Azure Communications Gateway provides all the features of a traditional session 
 - Defending against Denial of Service attacks and other malicious traffic
 - Ensuring Quality of Service
 
-Azure Communications Gateway also offers dashboards that you can use to monitor key metrics of your deployment.
+Azure Communications Gateway also offers metrics for monitoring your deployment.
 
 You must provide the networking connection between Azure Communications Gateway and your core networks. For Teams Phone Mobile, you must also provide a network element that can route calls into the Microsoft Phone System for call anchoring.
 
@@ -97,7 +97,7 @@ For full details of the media interworking features available in Azure Communica
 
 ## Compatibility with monitoring requirements
 
-The Azure Communications Gateway service includes continuous monitoring for potential faults in your deployment. The metrics we monitor cover all metrics required to be monitored by Operators as part of the Operator Connect program and include:
+The Azure Communications Gateway service includes continuous monitoring for potential faults in your deployment. The metrics we monitor cover all metrics that operators must monitor as part of the Operator Connect program and include:
 
 - Call quality
 - Call errors and unusual behavior (for example, call setup failures, short calls, or unusual disconnections)

@@ -2,11 +2,11 @@
 title: Push settings to App Configuration with Azure Pipelines
 description: Learn to use Azure Pipelines to push key-values to an App Configuration Store
 services: azure-app-configuration
-author: maud-lv
+author: mcleanbyron
 ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 02/23/2021
-ms.author: malev
+ms.author: mcleans
 ---
 
 # Push settings to App Configuration with Azure Pipelines
@@ -16,10 +16,10 @@ The [Azure App Configuration Push](https://marketplace.visualstudio.com/items?it
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- App Configuration resource - create one for free in the [Azure portal](https://portal.azure.com).
+- App Configuration store - [create one for free](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store)
 - Azure DevOps project - [create one for free](https://go.microsoft.com/fwlink/?LinkId=2014881)
 - Azure App Configuration Push task - download for free from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task-push).
-- [Node 16](https://nodejs.org/en/blog/release/v16.16.0/) - for users running the task on self-hosted agents.
+- [Azure Pipelines agent version 2.206.1](https://github.com/microsoft/azure-pipelines-agent/releases/tag/v2.206.1) or later and [Node version 16](https://nodejs.org/en/blog/release/v16.16.0/) or later for running the task on self-hosted agents.
 
 ## Create a service connection
 
@@ -27,7 +27,18 @@ The [Azure App Configuration Push](https://marketplace.visualstudio.com/items?it
 
 ## Add role assignment
 
-[!INCLUDE [azure-app-configuration-role-assignment](../../includes/azure-app-configuration-role-assignment.md)]
+Assign the proper App Configuration role assignments to the credentials being used within the task so that the task can access the App Configuration store.
+
+1. Go to your target App Configuration store. 
+1. In the left menu, select **Access control (IAM)**.
+1. In the right pane, select **Add role assignments**.
+
+    :::image type="content"  border="true" source="./media/azure-app-configuration-role-assignment/add-role-assignment-button.png" alt-text="Screenshot shows the Add role assignments button.":::
+1. For **Role**, select **App Configuration Data Owner**. This role allows the task to read from and write to the App Configuration store.
+1. Select the service principal associated with the service connection that you created in the previous section.
+
+    :::image type="content"  border="true" source="./media/azure-app-configuration-role-assignment/add-role-assignment-data-owner.png" alt-text="Screenshot shows the Add role assignment dialog.":::
+1. Select **Review + assign**.
 
 ## Use in builds
 
@@ -50,7 +61,7 @@ This section will cover how to use the Azure App Configuration Push task in an A
 
 ## Use in releases
 
-This section will cover how to use the Azure App Configuration Push task in an Azure DevOps release pipelines.
+This section will cover how to use the Azure App Configuration Push task in an Azure DevOps release pipeline.
 
 1. Navigate to release pipeline page by selecting **Pipelines** > **Releases**. Documentation for release pipelines can be found [here](/azure/devops/pipelines/release).
 1. Choose an existing release pipeline. If you don’t have one, select **+ New** to create a new one.

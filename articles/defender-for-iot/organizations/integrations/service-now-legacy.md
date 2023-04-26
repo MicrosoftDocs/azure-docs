@@ -1,7 +1,7 @@
 ---
 title: Microsoft Defender for IoT integration with ServiceNow (legacy)
 description: In this tutorial, learn how to integrate the legacy ServiceNow integration with Microsoft Defender for IoT.
-ms.topic: tutorial
+ms.topic: reference
 ms.date: 08/11/2022
 ---
 

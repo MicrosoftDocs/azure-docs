@@ -1,5 +1,5 @@
 ---
-title: Prerequisites for Azure Active Directory reporting API | Microsoft Docs
+title: Prerequisites for Azure Active Directory reporting API
 description: Learn about the prerequisites to access the Azure AD reporting API
 services: active-directory
 author: shlipsey3
@@ -81,7 +81,7 @@ Once you have the app registration configured, you can run activity log queries 
 1. Use one of the following queries to start using Microsoft Graph for accessing activity logs:
     - GET `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits`
     - GET `https://graph.microsoft.com/v1.0/auditLogs/signIns`
-    - For more information on Microsoft Graph queries for activity logs, see [Activity reports API overview](/graph/api/resources/azuread-auditlog-overview)
+    - For more information on Microsoft Graph queries for activity logs, see [Activity reports API overview](/graph/api/resources/azure-ad-auditlog-overview)
 
     ![Screenshot of an activity log GET query in Microsoft Graph.](./media/howto-configure-prerequisites-for-reporting-api/graph-sample-get-query.png)
 
