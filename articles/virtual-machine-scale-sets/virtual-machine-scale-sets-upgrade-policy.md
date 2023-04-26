@@ -202,14 +202,14 @@ Changes to the scale set OS, data disk Profile (such as admin username and passw
 > [!NOTE]
 > The Reimage flag will reimage the selected instance, restoring it to the initial state. The instance may be restarted, and any local data will be lost.
 
-### [CLI](#tab/cli)
+### [CLI](#tab/cli-1)
 Reimage a Virtual Machine Scale Set instance using [az vmss reimage](/cli/azure/vmss#az-vmss-reimage).
 
 ```azurecli-interactive
 az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
 ```
 
-### [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell-1)
 Reimage a Virtual Machine Scale Set instance using [Set-AzVmssVM](/powershell/module/az.compute/set-azvmssvm).
 
 ```azurepowershell-interactive
