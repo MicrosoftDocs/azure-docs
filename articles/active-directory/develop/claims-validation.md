@@ -16,7 +16,9 @@ ms.custom: aaddev, curation-claims
 
 # Secure applications and APIs by validating claims
 
-Interacting with tokens is a core piece of building applications to authenticate or authorize users. In accordance with the [Zero Trust principle to explicitly verify](zero-trust-for-developers.md), it's essential that applications validate the tokens they're issued. Token validation allows applications to ensure tokens haven't been tampered with or misused by verifying the correct structure, claim values, expiry, and signature. Token validation can seem complex given its various scenarios and applications. This article aims to simplify the token validation process so you can ensure your applications adhere to the most secure practices. 
+Interacting with tokens is a core piece of building applications to authorize users. In accordance with the [Zero Trust principle](zero-trust-for-developers.md) for least privileged access, it's essential that applications validate the values of certain claims present in the access token when performing authorization. 
+
+Claims based authorization allows applications to ensure that the token contains the correct values for things such as the tenant, subject, and actor present in the token. That being said, claims based authorization can seem complex given the various methods to utilize and scenarios to keep track of. This article intends to simplify the claims based authorization process so that you can ensure your applications adhere to the most secure practices.
 
 To make sure that your authorization logic is secure, you must validate the following information in claims:
 
