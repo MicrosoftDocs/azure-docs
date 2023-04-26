@@ -60,7 +60,7 @@ After a few minutes, **URL** shows the configured endpoint URL. Save the URL to 
 
 #### [Azure CLI](#tab/Azure-CLI)
 
-Use the following command to assign the endpoint. Specify `true` to assign the endpoint, otherwise `false`.
+Use the following command to assign the endpoint.
 
 ```azurecli
 az spring gateway update \
@@ -371,7 +371,7 @@ You can now test whether the application is TLS enabled with the endpoint of the
 
 ### Rotate certificates
 
-As certificates expire, you need to rotate certificates in Spring Cloud Gateway by using the following procedure:
+As certificates expire, you need to rotate certificates in Spring Cloud Gateway by using the following steps:
 
 - Generate new certificates from a trusted CA.
 - Import the certificates into Azure Spring Apps. For more information, see the [Import a certificate](how-to-use-tls-certificate.md#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md).

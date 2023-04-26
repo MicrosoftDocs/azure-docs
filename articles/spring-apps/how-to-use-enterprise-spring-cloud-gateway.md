@@ -138,7 +138,7 @@ Use the following steps to create a sample application using Spring Cloud Gatewa
 
    :::image type="content" source="media/how-to-use-enterprise-spring-cloud-gateway/gateway-overview.png" alt-text="Screenshot of Azure portal Azure Spring Apps overview page with 'Assign endpoint' highlighted." lightbox="media/how-to-use-enterprise-spring-cloud-gateway/gateway-overview.png":::
 
-   You can also use Azure CLI to assign the endpoint. Use the following command to assign the endpoint. Specify `true` to assign the endpoint, otherwise `false`.
+   You can also use Azure CLI to assign the endpoint. Use the following command to assign the endpoint.
 
    ```azurecli
    az spring gateway update \
