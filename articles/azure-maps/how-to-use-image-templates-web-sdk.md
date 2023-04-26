@@ -115,7 +115,7 @@ The following sample uses the `marker-arrow` template with a red primary color, 
 
 ## Create custom reusable templates
 
-If your application uses the same icon with different icons or if you're creating a module that adds more image templates, you can easily add and retrieve these icons from the Azure Maps web SDK. Use the following static functions on the `atlas` namespace.
+If your application uses the same icon within different modules or if you're creating a module that adds more image templates, you can easily add and retrieve these icons from the Azure Maps web SDK. Use the following static functions on the `atlas` namespace.
 
 | Name | Return Type | Description |
 |------|-------------|-------------|
