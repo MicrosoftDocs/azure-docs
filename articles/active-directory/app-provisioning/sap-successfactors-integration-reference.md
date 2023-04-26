@@ -150,13 +150,13 @@ The next section provides a list of common scenarios for editing the JSONPath va
 
 JSONPath is a query language for JSON that is similar to XPath for XML. Like XPath, JSONPath allows for the extraction and filtration of data out of a JSON payload.
 
-By using JSONPath transformation, you can customize the behavior of the Azure AD provisioning app to retrieve custom attributes and handle scenarios such as rehire, worker conversion and global assignment. 
+By using JSONPath transformation, you can customize the behavior of the Azure AD provisioning app to retrieve custom attributes and handle scenarios such as rehiring, worker conversion and global assignment. 
 
 This section covers how you can customize the provisioning app for the following HR scenarios: 
 * [Retrieving more attributes](#retrieving-more-attributes)
 * [Retrieving custom attributes](#retrieving-custom-attributes)
 * [Mapping employment status to account status](#mapping-employment-status-to-account-status)
-* [Handling worker conversion and rehire scenario](#handling-worker-conversion-and-rehire-scenario)
+* [Handling worker conversion and rehiring scenarios](#handling-worker-conversion-and-rehiring-scenarios)
 * [Retrieving current active employment record](#retrieving-current-active-employment-record)
 * [Handling global assignment scenario](#handling-global-assignment-scenario)
 * [Handling concurrent jobs scenario](#handling-concurrent-jobs-scenario)
@@ -188,7 +188,7 @@ To add more SuccessFactors attributes to the provisioning schema, use the steps 
    * If the attribute is part of *User* entity, then look for the attribute under *employmentNav/userNav* node.
    * If the attribute is part of *EmpJob* entity, then look for the attribute under *employmentNav/jobInfoNav* node. 
 1. Construct the JSON Path associated with the attribute and add this new attribute to the list of SuccessFactors attributes. 
-   * Example 1: Let's say you want to add the attribute *okToRehire*, which is part of *employmentNav* entity, then use the JSONPath  `$.employmentNav.results[0].okToRehire`
+   * Example 1: Let's say you want to add the attribute `okToRehire`, which is part of `employmentNav` entity, then use the JSONPath  `$.employmentNav.results[0].okToRehire`
    * Example 2: Let's say you want to add the attribute *timeZone*, which is part of *userNav* entity, then use the JSONPath `$.employmentNav.results[0].userNav.timeZone`
    * Example 3: Let's say you want to add the attribute *flsaStatus*, which is part of *jobInfoNav* entity, then use the JSONPath `$.employmentNav.results[0].jobInfoNav.results[0].flsaStatus`
 1. Save the schema. 
@@ -249,11 +249,11 @@ Use the steps to update your mapping to retrieve these codes.
 1. After confirming that sync works as expected, restart the provisioning job. 
 
 
-### Handling worker conversion and rehire scenario
+### Handling worker conversion and rehiring scenarios
 
 **About worker conversion scenario:** Worker conversion is the process of converting an existing full-time employee to a contractor or a contractor to full-time. In this scenario, Employee Central adds a new *EmpEmployment* entity along with a new *User* entity for the same *Person* entity. The *User* entity nested under the previous *EmpEmployment* entity is set to null. 
 
-**About rehire scenario:** In SuccessFactors, there are two options to process rehires: 
+**About rehiring scenarios:** In SuccessFactors, there are two options to process rehiring employees: 
 * Option 1: Create a new person profile in Employee Central
 * Option 2: Reuse existing person profile in Employee Central
 
@@ -290,7 +290,7 @@ To handle both these scenarios so that the new employment data shows up when a c
 
 Using the JSONPath root of `$.employmentNav.results[0]` or `$.employmentNav.results[-1:]` to fetch employment records works in most scenarios and keeps the configuration simple. However, depending on how your SuccessFactors instance is configured, there may be a need to update this configuration to ensure that the connector always fetches the latest active employment record.
 
-This section describes how you can update the JSONPath settings to definitely retrieve the current active employment record of the user. It also handles worker conversion and rehire scenarios. 
+This section describes how you can update the JSONPath settings to definitely retrieve the current active employment record of the user. It also handles worker conversion and rehiring scenarios. 
 
 1. Open the attribute-mapping blade of your SuccessFactors provisioning app. 
 1. Scroll down and click **Show advanced options**.
@@ -424,13 +424,13 @@ The SuccessFactors Writeback app uses the following logic to update the User obj
 * As a first step, it looks for *userId* attribute in the change set. If it is present, then it uses "UserId" for making the SuccessFactors API call. 
 * If *userId* is not found, then it defaults to using the *personIdExternal* attribute value. 
 
-Usually the *personIdExternal* attribute value in SuccessFactors matches the *userId* attribute value. However, in scenarios such as rehire and worker conversion, an employee in SuccessFactors may have two employment records, one active and one inactive. In such scenarios, to ensure that write-back updates the active user profile, please update the configuration of the SuccessFactors provisioning apps as described. This configuration ensures that *userId* is always present in the change set visible to the connector and is used in the SuccessFactors API call.
+Usually the *personIdExternal* attribute value in SuccessFactors matches the *userId* attribute value. However, in scenarios such as rehiring and worker conversion, an employee in SuccessFactors may have two employment records, one active and one inactive. In such scenarios, to ensure that write-back updates the active user profile, please update the configuration of the SuccessFactors provisioning apps as described. This configuration ensures that *userId* is always present in the change set visible to the connector and is used in the SuccessFactors API call.
 
 1. Open the SuccessFactors to Azure AD user provisioning app or SuccessFactors to on-premises AD user provisioning app. 
 1. Ensure that an extensionAttribute *(extensionAttribute1-15)* in Azure AD always stores the *userId* of every worker's active employment record. This can be achieved by mapping SuccessFactors *userId* attribute to an extensionAttribute in Azure AD. 
     > [!div class="mx-imgBorder"]
     > ![Inbound UserID attribute mapping](./media/sap-successfactors-integration-reference/inbound-userid-attribute-mapping.png)
-1. For guidance regarding JSONPath settings, refer to the section [Handling worker conversion and rehire scenario](#handling-worker-conversion-and-rehire-scenario) to ensure the *userId* value of the active employment record flows into Azure AD. 
+1. For guidance regarding JSONPath settings, refer to the section [Handling worker conversion and rehiring scenarios](#handling-worker-conversion-and-rehiring-scenarios) to ensure the *userId* value of the active employment record flows into Azure AD. 
 1. Save the mapping. 
 1. Run the provisioning job to ensure that the *userId* values flow into Azure AD. 
     > [!NOTE]
