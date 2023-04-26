@@ -18,7 +18,7 @@ ms.custom: developer
 
 # Sign in users and call an API in your own Node.js web application by using Microsoft Entra
 
-In this article, you learn how to create your Node.js web app that calls your web API. You build the web API by using ASP.NET. You secure the web API by using Microsoft Entra. To authorize access to the web API, you must serve requests that include a valid access token that's issued by Active Directory (Azure AD) for customers. 
+In this article, you learn how to create your Node.js web app that calls your web API. You build the web API by using ASP.NET. You secure the web API by using Microsoft Entra. To authorize access to the web API, you must serve requests that include a valid access token. Active Directory (Azure AD) for customers issues this token. 
 
 To simplify adding authentication and authorization, the Node.js client web app and .NET web API use [Microsoft Authentication Library for Node (MSAL Node)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) and [Microsoft Identity Web](/articles/active-directory/develop/microsoft-identity-web.md) respectively.
 
@@ -34,7 +34,7 @@ We've organized this article into four separate articles so it's easy for you to
 
 ## Overview
 
-Token-based authentication ensures that requests to a web API are accompanied by a valid access token.
+Token-based authentication ensures that requests to a web API includes a valid access token.
 
 The client web app completes the following events:
 
@@ -55,7 +55,7 @@ The web API completes the following events:
 
 - It validates the permissions (scopes) in the token.
 
-- If the access toke is valid, the endpoint responds to the HTTP request, otherwise, it responds with a `401 Unauthorized` HTTP error. 
+- If the access token is valid, the endpoint responds to the HTTP request, otherwise, it responds with a `401 Unauthorized` HTTP error. 
 
 ## Prerequisites
 

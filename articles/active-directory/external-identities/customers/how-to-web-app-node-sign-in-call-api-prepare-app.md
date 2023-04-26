@@ -1,6 +1,6 @@
 ---
 title: Sign in users and call an API in your own Node.js web application by using Microsoft Entra - Prepare your client app and API
-description: Learn about how to prepare your Node.js client web app and ASP.NET web API. The app your prepare is what you configure to sign in users, then call an API by using Microsoft Entra.
+description: Learn about how to prepare your Node.js client web app and ASP.NET web API. The app you here prepare is what you configure later to sign in users, then call an API by using Microsoft Entra.
 services: active-directory
 author: kengaderdus
 manager: mwongerapk
@@ -16,7 +16,7 @@ ms.custom: developer
 
 # Sign in users and call an API in your own Node.js web application by using Microsoft Entra - Prepare your client app and API
 
-In this article, you create app projects for both the client web app and web API. Later, you add authentication and authorization to this apps. You create app projects for an ASP.NET web API and a Node.js web app client. 
+In this article, you create app projects for both the client web app and web API. Later, you add authentication and authorization to this app. You create app projects for an ASP.NET web API and a Node.js web app client. 
 
 ## Prerequisite 
 
@@ -187,7 +187,7 @@ n your terminal, install `axios`, `cookie-parser`, `dotenv`, `express`, `express
 
 ## Next steps
 
-Next, learn how to sign in users and acquire an access:
+Next, learn how to sign-in users and acquire an access token:
 
 > [!div class="nextstepaction"]
 > [Sign-in users and acquire an access token >](how-to-web-app-node-sign-in-call-api-sign-in-acquire-access-token.md)
