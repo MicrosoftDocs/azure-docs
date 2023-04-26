@@ -4,8 +4,8 @@ description: Provide a list of the Azure Resource Manager resource types support
 ms.date: 10/26/2022
 ms.topic: reference
 ms.custom: generated
-ms.author: timwarner
-author: timwarner-msft
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
 # Azure Resource Graph table and resource type reference
 

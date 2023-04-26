@@ -272,6 +272,8 @@
       href: logic-apps-enterprise-integration-flatfile.md
     - name: XML and JSON transforms
       items:
+      - name: Create maps in Visual Studio Code
+        href: create-maps-data-transformation-visual-studio-code.md
       - name: Transform XML
         href: logic-apps-enterprise-integration-transform.md
       - name: Process XML

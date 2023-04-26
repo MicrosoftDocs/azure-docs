@@ -2,6 +2,7 @@
 title: User-defined types in Bicep
 description: Describes how to define and use user-defined data types in Bicep.
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 01/09/2023
 ---
 
@@ -217,4 +218,4 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
 
 ## Next steps
 
-- For a list of the Bicep date types, see [Data types](./data-types.md).
+- For a list of the Bicep data types, see [Data types](./data-types.md).

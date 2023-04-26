@@ -94,7 +94,7 @@ Modern authentication clients (Office 2016 and Office 2013, iOS, and Android app
 
 To plan for rollback, use the [documented current federation settings](#document-current-federation-settings) and check the [federation design and deployment documentation](/windows-server/identity/ad-fs/deployment/windows-server-2012-r2-ad-fs-deployment-guide). 
 
-The rollback process should include converting managed domains to federated domains by using the [Convert-MSOLDomainToFederated](/powershell/module/msonline/convert-msoldomaintofederated) cmdlet. If necessary, configuring extra claims rules.
+The rollback process should include converting managed domains to federated domains by using the [New-MgDomainFederationConfiguration](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdomainfederationconfiguration?view=graph-powershell-1.0&preserve-view=true) cmdlet. If necessary, configuring extra claims rules.
 
 ## Migration considerations 
 
@@ -136,7 +136,7 @@ The following table explains the behavior for each option. For more information,
 | rejectMfaByFederatedIdp | Azure AD always performs MFA and rejects MFA that federated identity provider performs. |
 
 >[!NOTE]
-> The **federatedIdpMfaBehavior** setting is an evolved version of the **SupportsMfa** property of the [Set-MsolDomainFederationSettings MSOnline v1 PowerShell cmdlet](/powershell/module/msonline/set-msoldomainfederationsettings). 
+> The **federatedIdpMfaBehavior** setting is an evolved version of the **SupportsMfa** property of the [Set-MsolDomainFederationSettings MSOnline v1 PowerShell cmdlet](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdomainfederationconfiguration?view=graph-powershell-1.0&preserve-view=true). 
 
 For domains that have already set the **SupportsMfa** property, these rules determine how **federatedIdpMfaBehavior** and **SupportsMfa** work together:
 
@@ -251,12 +251,13 @@ Sign in to the [Azure portal](https://portal.azure.com/), browse to **Azure Acti
 
 4. On the **User sign-in** page:
 
-    - If you select **Pass-through authentication** option button, check **Enable single sign-on**, and then select **Next**.
+    - If you select **Pass-through authentication** option button, and if SSO is needed for Windows 7 and 8.1 devices, check **Enable single sign-on**, and then select **Next**.
 
-    -  If you select the **Password hash synchronization** option button, make sure to select the **Do not convert user accounts** check box. The option is deprecated. Check **Enable single sign-on**, and then select **Next**.
+    - If you select the **Password hash synchronization** option button, make sure to select the **Do not convert user accounts** check box. The option is deprecated. If SSO is needed for Windows 7 and 8.1 devices, check **Enable single sign-on**, and then select **Next**.
 
       ![Check enable single sign-on on User sign-in page](media/deploy-cloud-user-authentication/user-sign-in.png)
 
+   Learn more: [Enable seamless SSO by using PowerShell](how-to-connect-staged-rollout.md#pre-work-for-seamless-sso). 
 5. On the **Enable single sign-on** page, enter the credentials of a Domain Administrator account, and then select **Next**.
 
     ![Enable single sign-on page](media/deploy-cloud-user-authentication/enable-single-sign-on.png)
@@ -267,6 +268,8 @@ Sign in to the [Azure portal](https://portal.azure.com/), browse to **Azure Acti
       - Two Kerberos service principal names (SPNs) are created to represent two URLs that are used during Azure AD sign-in.
 
     The domain administrator credentials aren't stored in Azure AD Connect or Azure AD and get discarded when the process successfully finishes. They are  used to turn ON this feature.
+
+    Learn more: [Seamless SSO technical deep dive.](how-to-connect-sso-how-it-works.md) 
 
 6. On the **Ready to configure** page, make sure that the **Start the synchronization process when configuration completes** check box is selected. Then, select **Configure**.
 

@@ -4,7 +4,7 @@ description: Azure Cosmos DB's point-in-time restore feature helps to recover da
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/02/2023
+ms.date: 03/31/2023
 ms.author: govindk
 ms.reviewer: mjbrown
 ms.custom: references_regions, cosmos-db-video, ignite-2022
@@ -33,7 +33,7 @@ The time window available for restore (also known as retention period) is the lo
 
 The selected option depends on the chosen tier of continuous backup. The point in time for restore can be any timestamp within the retention period no further back than the point when the resource was created. In strong consistency mode, backups taken in the write region are more up to date when compared to the read regions. Read regions can lag behind due to network or other transient issues. While doing restore, you can [get the latest restorable timestamp](get-latest-restore-timestamp.md) for a given resource in a specific region. Getting the latest timestamp ensures that the resource has taken backups up to the given timestamp, and can restore in that region.
 
-Currently, you can restore an Azure Cosmos DB account (API for NoSQL or MongoDB) contents at a specific point in time to another account. You can perform this restore operation via the [Azure portal](restore-account-continuous-backup.md#restore-account-portal), the [Azure CLI](restore-account-continuous-backup.md#restore-account-cli) (Azure CLI), [Azure PowerShell](restore-account-continuous-backup.md#restore-account-powershell), or [Azure Resource Manager templates](restore-account-continuous-backup.md#restore-arm-template). API for Table or Gremlin are in preview and supported through [Azure CLI](restore-account-continuous-backup.md#restore-account-cli) (Azure CLI) and [Azure PowerShell](restore-account-continuous-backup.md#restore-account-powershell).
+Currently, you can restore an Azure Cosmos DB account (API for NoSQL or MongoDB, API for Table, API for Gremlin) contents at a specific point in time to another account. You can perform this restore operation via the [Azure portal](restore-account-continuous-backup.md#restore-account-portal), the [Azure CLI](restore-account-continuous-backup.md#restore-account-cli) (Azure CLI), [Azure PowerShell](restore-account-continuous-backup.md#restore-account-powershell), or [Azure Resource Manager templates](restore-account-continuous-backup.md#restore-arm-template). 
 
 ## Backup storage redundancy
 
@@ -127,9 +127,7 @@ See [How do customer-managed keys affect continuous backups?](./how-to-setup-cmk
 
 Currently the point in time restore functionality has the following limitations:
 
-* Azure Cosmos DB APIs for SQL and MongoDB are supported for continuous backup. API for Cassandra isn't supported now.
-
-* API for Table and Gremlin are in preview and supported via PowerShell and Azure CLI.
+* Azure Cosmos DB APIs for SQL, MongoDB, Gremlin and Table supported for continuous backup. API for Cassandra isn't supported now.
 
 * Multi-regions write accounts aren't supported.
 

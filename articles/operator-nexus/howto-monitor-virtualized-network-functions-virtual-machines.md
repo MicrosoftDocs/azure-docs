@@ -1,12 +1,12 @@
 ---
 title: "Azure Operator Nexus: Monitoring of Virtualized Network Function Virtual Machines"
 description: How-to guide for setting up monitoring of Virtualized Network Function Virtual Machines on Operator Nexus.
-author: mukesh-dua #Required; your GitHub user alias, with correct capitalization.
-ms.author: mukeshdua #Required; microsoft alias of author; optional team alias.
-ms.service: azure-operator-nexus  #Required
-ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 02/01/2023 #Required; mm/dd/yyyy format.
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+author: mukesh-dua
+ms.author: mukeshdua
+ms.service: azure-operator-nexus
+ms.topic: how-to
+ms.date: 02/01/2023
+ms.custom: template-how-to
 ---
 
 # Monitoring virtual machines (for virtualized network function)

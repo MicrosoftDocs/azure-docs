@@ -5,11 +5,10 @@ ms.service: azure-arc
 ms.topic: include
 ms.date: 12/7/2022
 ---
-<!---
+
 At this time, a test or preview build is not available for the next release.
--->
 
-
+<!---
 April 2023 preview release is now available.
 
 |Component|Value|
@@ -45,3 +44,4 @@ April 2023 preview release is now available.
 - Arc SQL Server | Azure Policy to enable best practices assessment at scale
 - Arc PostgreSQL | Ensure postgres extensions work per database/role.
 - Arc PostgreSQL | Upload metrics/logs to Azure Monitor
+-->
