@@ -118,7 +118,7 @@ To reduce the list to show only jobs that are visualized in the dashboard, click
 
 To reset and start choosing a new set of jobs to visualize, you can click on the eye at the top to **Visualize None** to remove all jobs from surfacing in the dashboard and then go ahead and select the new set of jobs.
 
- :::image type="content" source="media/how-to-visualize-jobs/visualize-jobs.gif" alt-text="Screenshot of how to visualize jobs in dashboard view. lightbox="media/how-to-visualize-jobs/visualize-jobs.gif":::
+ :::image type="content" source="media/how-to-visualize-jobs/visualize-jobs.gif" alt-text="Screenshot of how to visualize jobs in dashboard view." lightbox="media/how-to-visualize-jobs/visualize-jobs.gif":::
 
 
 ## Add charts 
