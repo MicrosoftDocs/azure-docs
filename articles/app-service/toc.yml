@@ -573,7 +573,7 @@
       href: quickstart-html.md
     - name: Deploy with template
       href: deploy-complex-application-predictably.md
-        - name: Resource Manager template guidance - delete
-          href: deploy-resource-manager-template.md
+    - name: Resource Manager template guidance - delete
+      href: deploy-resource-manager-template.md
     - name: Enable authentication quickstart (dup)
       href: scenario-secure-app-authentication-app-service-as-user.md
