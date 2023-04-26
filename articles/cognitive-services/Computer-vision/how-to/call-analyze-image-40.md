@@ -20,7 +20,7 @@ This article demonstrates how to call the Image Analysis 4.0 API to return infor
 
 This guide assumes you have successfully followed the steps mentioned in the [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md) page. This means:
 
-* You have <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Computer Vision resource"  target="_blank">created a Computer Vision resource </a> and obtained a key and endpoint URL. 
+* You have <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Computer Vision resource"  target="_blank">created a Computer Vision resource </a> and obtained a key and endpoint URL.
 * If you are using the client SDK, you have the appropriate SDK package installed and you have a running quickstart application. You will modify this quickstart application based on code examples below.
 * If you are using 4.0 REST API calls directly, you have successfully made a `curl.exe` call to the service (or used an alternative tool). You will modify the `curl.exe` call based on the examples belows.
 
@@ -36,19 +36,19 @@ The SDK examples below all assume that you defined the environment variables `VI
 
 #### [C#](#tab/csharp)
 
-At the start of your code, use one of the [VisionServiceOptions](/api/azure.ai.vision.core.options.visionserviceoptions) constructors. For example:
+Start by creating a [VisionServiceOptions](/api/azure.ai.vision.core.options.visionserviceoptions) object using one of the constructors. For example:
 
 [!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/1/Program.cs?name=vision_service_options)]
 
 #### [Python](#tab/python)
 
-At the start of your code, use one of the [VisionServiceOptions](/python/api/azure-ai-vision/azure.ai.vision.visionserviceoptions) constructors. For example:
+Start by creating a [VisionServiceOptions](/python/api/azure-ai-vision/azure.ai.vision.visionserviceoptions) object using one of the constructors. For example:
 
 [!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/1/Program.cs?name=vision_service_options)]
 
 #### [C++](#tab/cpp)
 
-At the start of your code, use one of the static constructor method [VisionServiceOptions::FromEndpoint](/cpp/cognitive-services/vision/service-visionserviceoptions) to create a *VisionServiceOptions* object. For example:
+At the start of your code, use one of the static constructor methods [VisionServiceOptions::FromEndpoint](/cpp/cognitive-services/vision/service-visionserviceoptions) to create a *VisionServiceOptions* object. For example:
 
 [!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/1/1.cpp?name=vision_service_options)]
 
@@ -115,7 +115,7 @@ Create a new [ImageAnalysisOptions](/dotnet/api/azure.ai.vision.imageanalysis.im
 
 #### [Python](#tab/python)
 
-Create a new [ImageAnalysisOptions](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions) object and specify the visual features you'd like to extract, by setting the [features](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions?view=azure-python-preview#azure-ai-vision-imageanalysisoptions-features) property.
+Create a new [ImageAnalysisOptions](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions) object and specify the visual features you'd like to extract, by setting the [features](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions#azure-ai-vision-imageanalysisoptions-features) property.
 
 [!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/1/main.py?name=visual_features)]
 

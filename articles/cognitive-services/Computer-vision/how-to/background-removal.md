@@ -16,10 +16,99 @@ ms.custom: references_regions
 
 This article demonstrates how to call the Image Analysis 4.0 API to segment an image. It also shows you how to parse the returned information.
 
-This guide assumes you've already [created a Computer Vision resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) and obtained a key and endpoint URL.
+## Prerequisites
+
+This guide assumes you have successfully followed the steps mentioned in the [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md) page. This means:
+
+* You have <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Computer Vision resource"  target="_blank">created a Computer Vision resource </a> and obtained a key and endpoint URL.
+* If you are using the client SDK, you have the appropriate SDK package installed and you have a running quickstart application. You will modify this quickstart application based on code examples below.
+* If you are using 4.0 REST API calls directly, you have successfully made a `curl.exe` call to the service (or used an alternative tool). You will modify the `curl.exe` call based on the examples belows.
+
+The quickstart shows you how to extract visual features from an image, however the concepts are similar to background removal, hence you will benefit from starting there and making the modifications below.
 
 > [!IMPORTANT]
 > These APIs are only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
+
+## Authenticate against the service
+
+To authenticate against the Image Analysis service, you will need a Computer Vision key and endpoint URL. Alternatively, you can use a short-duration token instead of a key.
+
+> [!TIP]
+> Don't include the key directly in your code, and never post it publicly. See the Cognitive Services [security](/azure/cognitive-services/security-features) article for more authentication options like [Azure Key Vault](/azure/cognitive-services/use-key-vault). 
+
+
+The SDK examples below all assume that you defined the environment variables `VISION_KEY` and `VISION_ENDPOINT` with your key and endpoint.
+
+#### [C#](#tab/csharp)
+
+Start by creating a [VisionServiceOptions](/api/azure.ai.vision.core.options.visionserviceoptions) object using one of the constructors. For example:
+
+[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/segmentation/Program.cs?name=vision_service_options)]
+
+#### [Python](#tab/python)
+
+Start by creating a [VisionServiceOptions](/python/api/azure-ai-vision/azure.ai.vision.visionserviceoptions) object using one of the constructors. For example:
+
+[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/segmentation/main.py?name=vision_service_options)]
+
+#### [C++](#tab/cpp)
+
+At the start of your code, use one of the static constructor methods [VisionServiceOptions::FromEndpoint](/cpp/cognitive-services/vision/service-visionserviceoptions) to create a *VisionServiceOptions* object. For example:
+
+[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/segmentation/segmentation.cpp?name=vision_service_options)]
+
+Where we used this helper function to read the value of an environment variable:
+
+[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/segmentation/segmentation.cpp?name=get-env-var)]
+
+#### [REST](#tab/rest)
+
+The HTTP request header **Ocp-Apim-Subscription-Key** should be set to your vision key.
+
+---
+
+## Submit data to the service
+
+The code in this guide uses remote images referenced by URL. You may want to try different images on your own to see the full capability of the Image Analysis features.
+
+#### [C#](#tab/csharp)
+
+Create a new **VisionSource** object from the URL of the image you want to analyze, using the static constructor [VisionSource.FromUrl](/dotnet/api/azure.ai.vision.core.input.visionsource.fromurl).
+
+[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/segmentation/Program.cs?name=vision_source)]
+
+> [!TIP]
+> You can also analyze a local image. See [VisionSource::FromFile](/dotnet/api/azure.ai.vision.core.input.visionsource.fromfile).
+
+#### [Python](#tab/python)
+
+In your script, create a new [VisionSource](/python/api/azure-ai-vision/azure.ai.vision.visionsource) object from the URL of the image you want to analyze.
+
+[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/segmentation/main.py?name=vision_source)]
+
+> [!TIP]
+> You can also analyze a local image by passing in the full-path image file name to the **VisionSource** constructor instead of the image URL.
+
+#### [C++](#tab/cpp)
+
+Create a new [VisionSource](/cpp/cognitive-services/vision/input-visionsource) object from the URL of the image you want to analyze, using the static constructor **VisionSource::FromUrl**.**
+
+[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/segmentation/segmentation.cpp?name=vision_source)]
+
+> [!TIP]
+> You can also analyze a local image. See [VisionSource::FromFile](/cpp/cognitive-services/vision/input-visionsource#fromfile).
+
+#### [REST](#tab/rest)
+
+When analyzing a remote image, you specify the image's URL by formatting the request body like this: `{"url":"https://learn.microsoft.com/azure/cognitive-services/computer-vision/images/windows-kitchen.jpg"}`. The **Content-Type** should be `application/json`.
+
+To analyze a local image, you'd put the binary image data in the HTTP request body. The **Content-Type** should be `application/octet-stream` or `multipart/form-data`.
+
+---
+<!-- old text:
+# Authentication and submitting data to the service
+
+The concepts are identical to the ones mentioned in the how-to guide for extracting visual features. See sections there [Authenticate against the service](call-analyze-image-40#authenticate) and [Submit data to the service](call-analyze-image-40#submit-data).
 
 ## Submit data to the service
 
@@ -27,22 +116,64 @@ When calling the **[Segment](https://centraluseuap.dev.cognitive.microsoft.com/d
 
 To analyze a local image, you'd put the binary image data in the HTTP request body.
 
+-->
+
 ## Determine how to process the data
 
-### Select a mode 
+### Select a mode
 
+#### [C#](#tab/csharp)
 
-|URL parameter  |Value  |Description  |
-|---------|---------|---------|
-|`mode`     |   `backgroundRemoval`      |    Outputs an image of the detected foreground object with a transparent background.     |
-|`mode`     |     `foregroundMatting`    | Outputs a grayscale alpha matte image showing the opacity of the detected foreground object.       |
+Create a new [ImageAnalysisOptions](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions) object and specify the segmentation mode you would like to use, by setting the [SegmentationMode](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysisoptions.features#azure-ai-vision-imageanalysis-imageanalysisoptions-features) property. You must set this property if you want to do segmentation. Supported values are enumerated by [ImageSegmentationMode](/cpp/cognitive-services/vision/azure-ai-vision-imageanalysis-namespace#imagesegmentationmode).
 
+[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/segmentation/Program.cs?name=segmentation_mode)]
+
+#### [Python](#tab/python)
+
+Create a new [ImageAnalysisOptions](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions) object and specify the segmentation mode you would like to use, by setting the [segmentation_mode](/python/api/azure-ai-vision/azure.ai.vision.imageanalysisoptions#azure-ai-vision-imageanalysisoptions-segmentation_mode) property. You must set this property if you want to do segmentation. Supported values are enumerated by [ImageSegmentationMode](TODO).
+
+[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/segmentation/main.py?name=segmentation_mode)]
+
+#### [C++](#tab/cpp)
+
+Create a new [ImageAnalysisOptions](/cpp/cognitive-services/vision/imageanalysis-imageanalysisoptions) object and specify the segmentation mode you would like to use, by calling the [SetSegmentationMode](TODO) method. You must call this method if you want to do segmentation. Supported values are numerated by [ImageSegmentationMode](TODO)
+
+[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/segmentation/segmentation.cpp?name=segmentation_mode)]
+
+#### [REST](#tab/rest)
+
+Set the query string *mode** to one of two values below. This query string is mandatory if you want to do image segmentation.
+
+|URL parameter | Value               |Description  |
+|--------------|---------------------|-------------|
+| `mode`       | `backgroundRemoval` | Outputs an image of the detected foreground object with a transparent background. |
+| `mode`       | `foregroundMatting` | Outputs a gray-scale alpha matte image showing the opacity of the detected foreground object. |
 
 A populated URL for backgroundRemoval would look like this: `https://{endpoint}/computervision/imageanalysis:segment?api-version=2023-02-01-preview&mode=backgroundRemoval`
 
 ## Get results from the service
 
-This section shows you how to parse the results of the API call.
+This section shows you how to make the API call and parse the results.
+
+#### [C#](#tab/csharp)
+
+The following code calls the Image Analysis API and saves the resulting segmented image to a file named **output.png**. It also displays some metadata about the segmented image.
+
+[!code-csharp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/csharp/image-analysis/segmentation/Program.cs?name=segment)]
+
+#### [Python](#tab/python)
+
+The following code calls the Image Analysis API and saves the resulting segmented image to a file named **output.png**. It also displays some metadata about the segmented image.
+
+[!code-python[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/python/image-analysis/segmentation/main.py?name=segment)]
+
+#### [C++](#tab/cpp)
+
+The following code calls the Image Analysis API and saves the resulting segmented image to a file named **output.png**. It also displays some metadata about the segmented image.
+
+[!code-cpp[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/cpp/image-analysis/segmentation/segmentation.cpp?name=segment)]
+
+#### [REST](#tab/rest)
 
 The service returns a `200` HTTP response, and the body contains the returned image in the form of a binary stream. The following is an example of the 4-channel PNG image response for the `backgroundRemoval` mode:
 
@@ -54,7 +185,9 @@ The following is an example of the 1-channel PNG image response for the `foregro
 
 The API will return an image the same size as the original for the `foregroundMatting` mode, but at most 16 megapixels (preserving image aspect ratio) for the `backgroundRemoval` mode.
 
-## Error codes
+## Troubleshooting
+
+### [REST](#tab/rest)
 
 See the following list of possible errors and their causes:
 
