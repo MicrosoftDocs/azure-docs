@@ -16,7 +16,7 @@ ms.author: pafarley
 
 # What is Azure Content Safety Studio?
 
-Azure Content Safety Studio provides templates and customized workflows to let you choose and build your own content moderation workflow. Upload multilingual and multimodal content: text, images, and video. 
+Azure Content Safety Studio provides templates and customized workflows to let you choose and build your own content moderation system. Upload your own content or choose from sample content.
 
 Content Safety Studio not only contains the out-of-the-box AI models, but also uses Microsoft's built-in terms lists. Use our lists to flag profanities and keep up to date with new trends swiftly. You can also upload your own custom lists to enhance the coverage of harmful content that's specific to your industry. 
 

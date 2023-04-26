@@ -19,7 +19,7 @@ ms.custom: references_regions
 
 # What is Azure Content Safety? (preview)
 
-The Azure Content Safety Public Preview service is a Cognitive Service that detects material that is potentially offensive, risky, or otherwise undesirable. This service offers state-of-the-art text, image and multi-modal models that detect problematic content. Azure Content Safety helps make applications and services safer from harmful user-generated and AI-generated content.
+The Azure Content Safety Public Preview service is a Cognitive Service that detects material that is potentially offensive, risky, or otherwise undesirable. This service offers state-of-the-art text and image models that detect problematic content. Azure Content Safety helps make applications and services safer from harmful user-generated and AI-generated content.
 
 Azure Content Safety can be accessed through RESTful APIs.
 
@@ -52,7 +52,6 @@ There are different types of analysis available from this service. The following
 | :-------------------------- | :---------------------- |
 | Text Detection API          | Scans text for sexual content, violence, hate, and self harm with multi-severity risk levels. |
 | Image Detection API         | Scans images for sexual content, violence, hate, and self harm with multi-severity risk levels. |
-| Multimodal Detection API    | Scans both image and text (include separate text or text from OCR of image) for hate content with multi-severity risk levels. |
 
 ## Input requirements
 
