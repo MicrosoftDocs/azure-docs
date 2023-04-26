@@ -26,7 +26,7 @@ An application that accesses a storage account when network rules are in effect 
 
 Turning on firewall rules for your storage account blocks incoming requests for data by default, unless the requests originate from a service that operates within an Azure virtual network or from allowed public IP addresses. Requests that are blocked include those from other Azure services, from the Azure portal, and from logging and metrics services.
 
-You can grant access to Azure services that operate from within a virtual network by allowing traffic from the subnet that hosts the service instance. You can also enable a limited number of scenarios through the exceptions mechanism described in this article. To access data from the storage account through the Azure portal, you need to be on a machine within the trusted boundary (either IP or virtual network) that you set up.
+You can grant access to Azure services that operate from within a virtual network by allowing traffic from the subnet that hosts the service instance. You can also enable a limited number of scenarios through the exceptions mechanism that this article describes. To access data from the storage account through the Azure portal, you need to be on a machine within the trusted boundary (either IP or virtual network) that you set up.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -78,7 +78,7 @@ You must set the default rule to **deny**, or network rules have no effect. Howe
 
 2. Choose which type of public network access you want to allow:
 
-    - To allow traffic from all networks, use the `Update-AzStorageAccountNetworkRuleSet` command, and set the `-DefaultAction` parameter to `Allow`:
+    - To allow traffic from all networks, use the `Update-AzStorageAccountNetworkRuleSet` command and set the `-DefaultAction` parameter to `Allow`:
 
       ```powershell
       Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Allow
@@ -168,7 +168,7 @@ If you want to enable access to your storage account from a virtual network or s
 
 3. Check that you've chosen to allow access from **Selected networks**.
 
-4. To grant access to a virtual network by using a new network rule, under **Virtual networks**, select **Add existing virtual network**, select the **Virtual networks** and **Subnets** options, and then select **Add**.
+4. To grant access to a virtual network by using a new network rule, under **Virtual networks**, select **Add existing virtual network**. Select the **Virtual networks** and **Subnets** options, and then select **Add**.
 
     To create a new virtual network and grant it access, select **Add new virtual network**. Provide the necessary information to create the new virtual network, and then select **Create**.
 
@@ -553,7 +553,7 @@ The following table lists services that can access your storage account data if 
 | Azure IoT Central | `Microsoft.IoTCentral/IoTApps` | Enables access to storage accounts. |
 | Azure IoT Hub                  | `Microsoft.Devices/IotHubs`              | Allows data from an IoT hub to be written to Blob Storage. [Learn more](../../iot-hub/virtual-network-support.md#egress-connectivity-from-iot-hub-to-other-azure-resources). |
 | Azure Logic Apps               | `Microsoft.Logic/workflows`              | Enables logic apps to access storage accounts. [Learn more](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
-| Azure Machine Learning | `Microsoft.MachineLearningServices`      | Enables authorized Azure Machine Learning workspaces write experiment output, models, and logs to Blob Storage and read the data. [Learn more](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). |
+| Azure Machine Learning | `Microsoft.MachineLearningServices`      | Enables authorized Azure Machine Learning workspaces to write experiment output, models, and logs to Blob Storage and read the data. [Learn more](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). |
 | Azure Media Services           | `Microsoft.Media/mediaservices`          | Enables access to storage accounts. |
 | Azure Migrate                  | `Microsoft.Migrate/migrateprojects`      | Enables access to storage accounts. |
 | Microsoft Purview                  | `Microsoft.Purview/accounts`             | Enables access to storage accounts. |
