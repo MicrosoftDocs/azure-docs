@@ -65,13 +65,13 @@ Instead of manually configuring your Spring Boot applications, you can automatic
 
 #### Use the Azure CLI
 
-Use the Azure CLI to configure your Spring app to connect to a Cosmos NoSQL Database by using the `az spring connection create` command, as shown in the following example. Please replace the variables in the example with actual values.
+Use the Azure CLI to configure your Spring app to connect to a Cosmos NoSQL Database by using the `az spring connection create` command, as shown in the following example. Be sure to replace the variables in the example with actual values.
 
 > [!NOTE]
 > Updating Azure Cosmos DB database settings can take a few minutes to complete.
 
 > [!NOTE]
-> If you're using Cosmos Cassandra, use `--key_space` instead of `--database`. If you're using Cosmos Table, use `--table` instead of `--database`. See more details at [Service Connector Azure CLI](../service-connector/quickstart-cli-spring-cloud-connection.md).
+> If you're using Cosmos Cassandra, use `--key_space` instead of `--database`. If you're using Cosmos Table, use `--table` instead of `--database`. For more information, see [Quickstart: Create a service connection in Azure Spring Apps with the Azure CLI](../service-connector/quickstart-cli-spring-cloud-connection.md).
 
 ```azurecli
 az spring connection create cosmos-sql \
