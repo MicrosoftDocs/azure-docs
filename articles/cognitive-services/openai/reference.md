@@ -274,7 +274,7 @@ curl -X POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/dalle/images/gen
 
 The operation returns a `202` status code and an `GenerateImagesResponse` JSON object containing the ID and status of the operation.
 
-```console
+```json
 {
   "id": "f508bcf2-e651-4b4b-85a7-58ad77981ffa",
   "status": "notRunning"
