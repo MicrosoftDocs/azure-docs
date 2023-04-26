@@ -47,7 +47,7 @@
   - name: Improve security
     href: advisor-security-recommendations.md
   - name: Improve reliability  
-    href: advisor-how-to-improve-reliability-of-your-applications.md
+    href: advisor-how-to-improve-reliability.md
   - name: Improve the performance of highly used VMs
     href: advisor-how-to-performance-resize-high-usage-vm-recommendations.md
   - name: Use tags to filter recommendations and score
