@@ -56,12 +56,16 @@ If you'd rather use a certificate instead of a secret, you can configure the env
 
 ### Configure authorization and permission levels
 
-Permission levels like `Contributor` or `Data Scientist` are already configured to permform MLflow operations in an Azure Machine Learning workspace. On custom roles, you need the following permissions:
+Some default roles like [AzureML Data Scientist or contributor](how-to-assign-roles.md#default-roles) are already configured to perform MLflow operations in an Azure Machine Learning workspace. If using a custom roles, you need the following permissions:
 
-* **To use MLflow tracking:** `Microsoft.MachineLearningServices/workspaces/experiments/*` and `Microsoft.MachineLearningServices/workspaces/jobs/*`.
-* **To use MLflow model registry:** `Microsoft.MachineLearningServices/workspaces/models/*/*`
+* **To use MLflow tracking:** 
+    * `Microsoft.MachineLearningServices/workspaces/experiments/*`.
+    * `Microsoft.MachineLearningServices/workspaces/jobs/*`.
 
-Grant these permissions either to your user or the service principal using the service.
+* **To use MLflow model registry:**
+    * `Microsoft.MachineLearningServices/workspaces/models/*/*`
+
+Grant access for the service principal you created or user account to your workspace as explained at [Grant access](../role-based-access-control/quickstart-assign-role-user-portal.md#grant-access).
 
 ### Troubleshooting authentication
 
