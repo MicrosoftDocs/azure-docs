@@ -58,7 +58,7 @@ You can choose one of the following actions when a request matches a rule's cond
 A WAF policy can consist of two types of security rules:
 
 - *custom rules*: rules that you can create yourself. 
-- *managed rule sets*: Azure managed pre-configured set of rules that can be enabled.
+- *managed rule sets*: Azure managed pre-configured set of rules that you can enable.
 
 ### Custom rules
 
