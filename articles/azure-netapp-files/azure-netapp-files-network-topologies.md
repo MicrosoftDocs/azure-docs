@@ -34,7 +34,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 
 ### Supported regions 
 
-Azure NetApp Files Standard network features are supported for the following regions:
+Azure NetApp Files *Standard network features* are supported for the following regions:
 
 *   Australia Central
 *   Australia Central 2
@@ -70,6 +70,25 @@ Azure NetApp Files Standard network features are supported for the following reg
 *   West US
 *   West US 2
 *	West US 3 
+
+The option to *[edit network features for existing volumes](configure-network-features.md#edit-network-features-option-for-existing-volumes)* is supported for the following regions:
+
+*  Australia Central
+*  Australia Central 2
+*  Australia East
+*  Brazil South
+*  Canada Central
+*  East Asia
+*  Germany North
+*  Japan West
+*  Korea Central
+*  North Central US
+*  Norway East
+*  South Africa North
+*  South India
+*  Sweden Central
+*  UAE Central
+*  UAE North
 
 ## Considerations
 
