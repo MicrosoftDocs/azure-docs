@@ -8,7 +8,7 @@ ms.author: kindrasiri
 ---
 
 #  Schema Registry in Azure Event Hubs
-Schema Registry in Azure Event Hubs provides you a repository to use and manage schemas in schema-driven event streaming scenarios. 
+Schema Registry in Azure Event Hubs provides you with a repository to use and manage schemas in schema-driven event streaming scenarios. 
 
 ## Schema Registry components 
 
@@ -79,7 +79,7 @@ You can use one of the following libraries to include an Avro serializer, which 
 For limits (for example: number of schema groups in a namespace) of Event Hubs, see [Event Hubs quotas and limits](event-hubs-quotas.md)
 
 ## Azure role-based access control
-When accessing the schema registry programmatically, you need to register an application in Azure Active Directory (Azure AD) and add the security principal of the application to one of the Azure role-based access control (Azure RBAC) roles:
+When accessing the schema registry programmatically, you need to register an application in Azure Active Directory (Azure AD) and add the security principal of the application to one of the following Azure role-based access control (Azure RBAC) roles:
 
 | Role | Description | 
 | ---- | ----------- | 
