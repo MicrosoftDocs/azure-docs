@@ -108,7 +108,7 @@
         href: compare-tiers.md
     - name: Schema Registry 
       items: 
-      - name: Schema Registry
+      - name: Schema Registry concepts
         href: schema-registry-concepts.md   
       - name: Client-side schema enforcement
         href: schema-registry-client-side-enforcement.md
