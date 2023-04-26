@@ -488,6 +488,8 @@
               items:
                 - name: Azure Files CSI driver
                   href: azure-files-csi.md
+                - name: Azure Files and Azure NetApp Files comparison
+                  href: ../storage/files/storage-files-netapp-comparison.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
                 - name: Provision Azure Files storage
                   href: azure-csi-files-storage-provision.md
             - name: Provision Azure NetApp Files storage
