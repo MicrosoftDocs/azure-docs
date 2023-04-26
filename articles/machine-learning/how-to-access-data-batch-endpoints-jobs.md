@@ -137,7 +137,7 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
     # [Python](#tab/sdk)
 
     ```python
-    input = Input(type=AssetTypes.URI_FOLDER, path=heart_dataset_unlabeled.id)
+    input = Input(path=heart_dataset_unlabeled.id)
     ```
 
     # [REST](#tab/rest)
@@ -159,7 +159,7 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
     ---
 
     > [!NOTE]
-    > Data assets ID would look like `/subscriptions/<subscription>/resourcegroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace>/data/<data-asset>/versions/<version>`.
+    > Data assets ID would look like `/subscriptions/<subscription>/resourcegroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace>/data/<data-asset>/versions/<version>`. You can also use `azureml:/<datasset_name>@latest` as a way to indicate the input.
 
 
 1. Run the deployment:
@@ -179,8 +179,18 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
     az ml batch-endpoint invoke --name $ENDPOINT_NAME --input $DATASET_ID
     ```
     
-    > [!TIP]
-    > You can also use `--input azureml:/<dataasset_name>@latest` as a way to indicate the input.
+    The argument `--set` tends to produce long commands when multiple inputs are indicated. On those cases, place your inputs in a `YAML` file and use `--file` to indicate the inputs you need for your endpoint invocation.
+
+    __inputs.yml__
+    
+    ```yml
+    inputs:
+      heart_dataset: azureml:/<datasset_name>@latest
+    ```
+    
+    ```azurecli
+    az ml batch-endpoint invoke --name $ENDPOINT_NAME --file inputs.yml
+    ```
 
     # [Python](#tab/sdk)
    
@@ -252,6 +262,8 @@ Data from Azure Machine Learning registered data stores can be directly referenc
     input = Input(type=AssetTypes.URI_FOLDER, path=f"{default_ds.id}/paths/{data_path})
     ```
 
+    If your data is a file, change `type=AssetTypes.URI_FILE`. 
+
     # [REST](#tab/rest)
 
     __Body__
@@ -268,6 +280,9 @@ Data from Azure Machine Learning registered data stores can be directly referenc
         }
     }
     ```
+
+    If your data is a file, use `UriFile` as type instead. 
+
     ---
     
     > [!NOTE]
@@ -293,7 +308,22 @@ Data from Azure Machine Learning registered data stores can be directly referenc
     az ml batch-endpoint invoke --name $ENDPOINT_NAME --input $INPUT_PATH --input-type uri_folder
     ```
     
-    If your data is a file, use `uri_file` as type instead.
+    The argument `--set` tends to produce long commands when multiple inputs are indicated. On those cases, place your inputs in a `YAML` file and use `--file` to indicate the inputs you need for your endpoint invocation.
+
+    __inputs.yml__
+    
+    ```yml
+    inputs:
+      heart_dataset:
+        type: uri_folder
+        path: azureml://datastores/<data-store>/paths/<data-path>
+    ```
+    
+    ```azurecli
+    az ml batch-endpoint invoke --name $ENDPOINT_NAME --file inputs.yml
+    ```
+
+    If your data is a file, use `uri_file` as type instead. 
    
     # [Python](#tab/sdk)
    
@@ -380,7 +410,7 @@ Azure Machine Learning batch endpoints can read data from cloud locations in Azu
        "properties": {
            "InputData": {
                "heart_dataset": {
-                   "JobInputType" : "UriFolder",
+                   "JobInputType" : "UriFile",
                    "Uri": "https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data/heart.csv"
                }
            }
@@ -405,7 +435,22 @@ Azure Machine Learning batch endpoints can read data from cloud locations in Azu
     az ml batch-endpoint invoke --name $ENDPOINT_NAME --input $INPUT_DATA --input-type uri_folder
     ```
     
-    If your data is a file, use `uri_file` as type instead.
+    The argument `--set` tends to produce long commands when multiple inputs are indicated. On those cases, place your inputs in a `YAML` file and use `--file` to indicate the inputs you need for your endpoint invocation.
+
+    __inputs.yml__
+    
+    ```yml
+    inputs:
+      heart_dataset:
+        type: uri_folder
+        path: https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data
+    ```
+    
+    ```azurecli
+    az ml batch-endpoint invoke --name $ENDPOINT_NAME --file inputs.yml
+    ```
+
+    If your data is a file, use `uri_file` as type instead. 
 
     # [Python](#tab/sdk)
    
@@ -463,7 +508,7 @@ The following example shows how to indicate an input named `score_mode`, of type
 
 # [Azure CLI](#tab/cli)
 
-Use the parameter `--file` to indicate the inputs you need for your endpoint invocation.
+Place your inputs in a `YAML` file and use `--file` to indicate the inputs you need for your endpoint invocation.
 
 __inputs.yml__
 
