@@ -129,7 +129,7 @@ If enabled for Authenticator Lite, users are prompted to register their account 
 :::image type="content" border="true" source="./media/how-to-mfa-authenticator-lite/registration.png" alt-text="Screenshot of how to register Authenticator Lite.":::
 
 >[!NOTE]
->Users with no MFA methods registered will be prompted to download the Authenticator App when they begin registration flow. For the most seamless Authenticator Lite registration experience, [provision your users a TAP](https://learn.microsoft.com/azure/active-directory/authentication/howto-authentication-temporary-access-pass) (temporary access pass) which they can use during registration.
+>If they don't have any MFA methods registered, users are prompted to download Authenticator when they begin the registration flow. For the most seamless experience, provision users with a [Temporary Access Pass (TAP)](howto-authentication-temporary-access-pass.md) that they can use during Authenticator Lite registration.
 
 
 ## Monitoring Authenticator Lite usage
