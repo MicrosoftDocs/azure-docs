@@ -15,7 +15,7 @@ ms.topic: how-to
 
 When you deploy Azure Arc data services, the Azure Arc Data Controller is one of the most critical components of the deployment. The data controller:
 
-- Provisions and de-provisions resources
+- Provisions and deprovisions resources
 - Orchestrates most of the activities for Azure Arc-enabled SQL Managed Instance
 - Captures the billing and usage information of each Arc SQL managed instance. 
 
@@ -26,7 +26,7 @@ This article explains how to back up the controller database.
 Following steps are needed in order to back up the `controller` database:
 
 1. Retrieve the credentials for the secret
-1. Decode the credentials as they are base64 encoded
+1. Decode the credentials from base64
 1. Use the decoded credentials to connect to the SQL instance hosting the controller database, and issue the `BACKUP` command
 
 ## Retrieve the credentials for the secret
@@ -50,7 +50,7 @@ The contents of the yaml file of the secret `controller-db-rw-secret` contain a 
 
 ## Use the decoded credentials to connect to the SQL instance hosting the controller database, and issue the `BACKUP` command
 
-With the decoded credentials run the following command to issue a T-SQL `BACKUP` command to backup the controller database.
+With the decoded credentials, run the following command to issue a T-SQL `BACKUP` command to back up the controller database.
 
 ```azurecli
 kubectl exec controldb-0 -n contosons -c  mssql-server -- /opt/mssql-tools/bin/sqlcmd -S localhost -U controldb-rw-user -P "<password>" -Q "BACKUP DATABASE [controller] TO  DISK = N'/var/opt/controller.bak' WITH NOFORMAT, NOINIT,  NAME = N'Controldb-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10, CHECKSUM"
@@ -58,5 +58,6 @@ kubectl exec controldb-0 -n contosons -c  mssql-server -- /opt/mssql-tools/bin/s
 
 Once the backup is created, you can move the `controller.bak` file to a remote storage for any recovery purposes. 
 
-Ideally, it is recommended to backup the controller database before and after any custom resource change such as creating or deleting an Arc-enabled SQL Managed Instance.
+> [!TIP]
+> Back up the controller database before and after any custom resource changes such as creating or deleting an Arc-enabled SQL Managed Instance.
 
