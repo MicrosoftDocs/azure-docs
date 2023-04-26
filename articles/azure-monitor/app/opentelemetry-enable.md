@@ -44,13 +44,9 @@ Follow the steps in this section to instrument your application with OpenTelemet
 
 - Application using an officially supported version of [.NET Core](https://dotnet.microsoft.com/download/dotnet) or [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) that's at least .NET Framework 4.6.2
 
-#install-the-client-library
-
 ### [Java](#tab/java)
 
 - A Java application using Java 8+
-
-#install-the-client-library
 
 ### [Node.js](#tab/nodejs)
 
@@ -58,13 +54,9 @@ Follow the steps in this section to instrument your application with OpenTelemet
   - [OpenTelemetry supported runtimes](https://github.com/open-telemetry/opentelemetry-js#supported-runtimes)
   - [Azure Monitor OpenTelemetry Exporter supported runtimes](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter#currently-supported-environments)
 
-#install-the-client-library
-
 ### [Python](#tab/python)
 
 - Python Application using Python 3.7+
-
-#install-the-client-library
 
 ---
 
@@ -85,8 +77,6 @@ If you get an error like "There are no versions available for the package Azure.
 dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter -s https://api.nuget.org/v3/index.json
 ```
 
-#install-the-client-library
-
 #### [Java](#tab/java)
 
 Download the [applicationinsights-agent-3.4.12.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.4.12/applicationinsights-agent-3.4.12.jar) file.
@@ -99,8 +89,6 @@ Download the [applicationinsights-agent-3.4.12.jar](https://github.com/microsoft
 > [3.2.0](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0), and
 > [3.1.0](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.0)
 > for more details.
-
-#install-the-client-library
 
 #### [Node.js](#tab/nodejs)
 
@@ -132,8 +120,6 @@ npm install @opentelemetry/semantic-conventions
 npm install @opentelemetry/instrumentation-http
 ```
 
-#install-the-client-library
-
 #### [Python](#tab/python)
 
 Install the latest [azure-monitor-opentelemetry](https://pypi.org/project/azure-monitor-opentelemetry/) PyPI package:
@@ -141,8 +127,6 @@ Install the latest [azure-monitor-opentelemetry](https://pypi.org/project/azure-
 ```sh
 pip install azure-monitor-opentelemetry --pre
 ```
-
-#install-the-client-library
 
 ---
 
@@ -193,8 +177,6 @@ public class Program
 > [!NOTE]
 > The `Activity` and `ActivitySource` classes from the `System.Diagnostics` namespace represent the OpenTelemetry concepts of `Span` and `Tracer`, respectively. You create `ActivitySource` directly by using its constructor instead of by using `TracerProvider`. Each [`ActivitySource`](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/trace/customizing-the-sdk#activity-source) class must be explicitly connected to `TracerProvider` by using `AddSource()`. That's because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. To learn more, see [Introduction to OpenTelemetry .NET Tracing API](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
 
-#install-the-client-library
-
 ##### [Java](#tab/java)
 
 Java auto-instrumentation is enabled through configuration changes; no code changes are required.
@@ -206,8 +188,6 @@ Point the JVM to the jar file by adding `-javaagent:"path/to/applicationinsights
 
 > [!TIP]
 > If you develop a Spring Boot application, you can optionally replace the JVM argument by a programmatic configuration. For more information, see [Using Azure Monitor Application Insights with Spring Boot](./java-spring-boot.md).
-
-#install-the-client-library
 
 ##### [Node.js](#tab/nodejs)
 
@@ -273,8 +253,6 @@ function doWork(parent) {
 
 ```
 
-#install-the-client-library
-
 ##### [Python](#tab/python)
 
 The following code demonstrates how to enable OpenTelemetry in a simple Python application:
@@ -295,8 +273,6 @@ with tracer.start_as_current_span("hello"):
 input()
 
 ```
-
-#install-the-client-library
 
 ---
 
@@ -323,8 +299,6 @@ The following instructions detail where to paste your unique connection string.
 
 Replace the `<Your Connection String>` in the preceding code with the connection string from *your* Application Insights resource.
 
-#install-the-client-library
-
 #### [Java](#tab/java)
 
 Use one of the following two ways to point the jar file to your Application Insights resource:
@@ -343,8 +317,6 @@ Use one of the following two ways to point the jar file to your Application Insi
    }
    ```
 
-#install-the-client-library
-
 #### [Node.js](#tab/nodejs)
 
 Replace the `<Your Connection String>` in the preceding code with the connection string from *your* Application Insights resource.
@@ -352,8 +324,6 @@ Replace the `<Your Connection String>` in the preceding code with the connection
 #### [Python](#tab/python)
 
 Replace the `<Your Connection String>` in the preceding code with the connection string from *your* Application Insights resource.
-
-#install-the-client-library
 
 ---
 
@@ -721,8 +691,6 @@ public class Program
 }
 ```
 
-#install-the-client-library
-
 #### [Java](#tab/java)
 
 ```java
@@ -741,8 +709,6 @@ public class Program {
     }
 }
 ```
-
-#install-the-client-library
 
 #### [Node.js](#tab/nodejs)
 
@@ -774,8 +740,6 @@ public class Program {
     histogram.record(100, { testKey2: "testValue" });
 ```
 
-#install-the-client-library
-
 #### [Python](#tab/python)
 
 ```python
@@ -794,8 +758,6 @@ histogram.record(30.0, {"test_key": "test_value2"})
 
 input()
 ```
-
-#install-the-client-library
 
 ---
 
@@ -838,8 +800,6 @@ public class Program
 }
 ```
 
-#install-the-client-library
-
 #### [Java](#tab/java)
 
 ```Java
@@ -868,8 +828,6 @@ public class Program {
 }
 ```
 
-#install-the-client-library
-
 #### [Node.js](#tab/nodejs)
 
 ```javascript
@@ -894,8 +852,6 @@ public class Program {
     counter.add(3, { "testKey": "testValue2" });
 ```
 
-#install-the-client-library
-
 #### [Python](#tab/python)
 
 ```python
@@ -914,8 +870,6 @@ counter.add(3.0, {"test_key": "test_value2"})
 
 input()
 ```
-
-#install-the-client-library
 
 ---
 
@@ -961,8 +915,6 @@ public class Program
 }
 ```
 
-#install-the-client-library
-
 #### [Java](#tab/java)
 
 ```Java
@@ -985,8 +937,6 @@ public class Program {
     }
 }
 ```
-
-#install-the-client-library
 
 #### [Node.js](#tab/nodejs)
 
@@ -1013,8 +963,6 @@ public class Program {
         observableResult.observe(randomNumber, {"testKey": "testValue"});
     });
 ```
-
-#install-the-client-library
 
 #### [Python](#tab/python)
 
@@ -1047,8 +995,6 @@ gauge2 = meter.create_observable_gauge("gauge2", [observable_gauge_sequence])
 input()
 ```
 
-#install-the-client-library
-
 ---
 
 ### Add Custom Exceptions
@@ -1075,8 +1021,6 @@ using (var activity = activitySource.StartActivity("ExceptionExample"))
 }
 ```
 
-#install-the-client-library
-
 #### [Java](#tab/java)
 
 You can use `opentelemetry-api` to update the status of a span and record exceptions.
@@ -1102,8 +1046,6 @@ You can use `opentelemetry-api` to update the status of a span and record except
     span.recordException(e);
    ```
 
-#install-the-client-library
-
 #### [Node.js](#tab/nodejs)
 
 ```javascript
@@ -1126,8 +1068,6 @@ catch(error){
     span.recordException(error);
 }
 ```
-
-#install-the-client-library
 
 #### [Python](#tab/python)
 
@@ -1167,8 +1107,6 @@ with tracer.start_as_current_span("hello", record_exception=False) as span:
 
 ```
 
-#install-the-client-library
-
 ---
 
 ### Add Custom Spans
@@ -1178,8 +1116,6 @@ You may want to add a custom span when there's a dependency request that's not a
 #### [.NET](#tab/net)
   
 Coming soon.
-
-#install-the-client-library
 
 #### [Java](#tab/java)
   
@@ -1252,13 +1188,9 @@ you can add your spans by using the OpenTelemetry API.
     }
    ```
 
-#install-the-client-library
-
 #### [Node.js](#tab/nodejs)
 
 Coming soon.
-
-#install-the-client-library
 
 #### [Python](#tab/python)
 
@@ -1302,8 +1234,6 @@ tracer = trace.get_tracer(__name__)
 with tracer.start_as_current_span("my request span", kind=SpanKind.SERVER) as span:
 ...
 ```
-
-#install-the-client-library
 
 ---
 
@@ -1363,8 +1293,6 @@ We recommend you use the OpenTelemetry APIs whenever possible, but there may be 
 #### [.NET](#tab/net)
   
 This is not available in .NET.
-
-#install-the-client-library
 
 #### [Java](#tab/java)
 
@@ -1431,19 +1359,13 @@ This is not available in .NET.
     }
     ```
 
-#install-the-client-library
-
 #### [Node.js](#tab/nodejs)
   
 Coming soon.
 
-#install-the-client-library
-
 #### [Python](#tab/python)
   
 This is not available in Python.
-
-#install-the-client-library
 
 ---
 
@@ -1509,8 +1431,6 @@ public class ActivityEnrichingProcessor : BaseProcessor<Activity>
 }
 ```
 
-#install-the-client-library
-
 ##### [Java](#tab/java)
 
 You can use `opentelemetry-api` to add attributes to spans.
@@ -1536,8 +1456,6 @@ Adding one or more span attributes populates the `customDimensions` field in the
     AttributeKey attributeKey = AttributeKey.stringKey("mycustomdimension");
     Span.current().setAttribute(attributeKey, "myvalue1");
    ```
-
-#install-the-client-library
 
 ##### [Node.js](#tab/nodejs)
 
@@ -1574,8 +1492,6 @@ provider.addSpanProcessor(new SpanEnrichingProcessor());
 provider.addSpanProcessor(new SimpleSpanProcessor(azureExporter));
 ```
 
-#install-the-client-library
-
 ##### [Python](#tab/python)
 
 Use a custom processor:
@@ -1607,8 +1523,6 @@ class SpanEnrichingProcessor(SpanProcessor):
         span._attributes["CustomDimension2"] = "Value2"
 ```
 
-#install-the-client-library
-
 ---
 
 #### Set the user IP
@@ -1624,13 +1538,9 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
 activity.SetTag("http.client_ip", "<IP Address>");
 ```
 
-#install-the-client-library
-
 ##### [Java](#tab/java)
 
 Java automatically populates this field.
-
-#install-the-client-library
 
 ##### [Node.js](#tab/nodejs)
 
@@ -1649,8 +1559,6 @@ class SpanEnrichingProcessor {
 }
 ```
 
-#install-the-client-library
-
 ##### [Python](#tab/python)
 
 Use the add [custom property example](#add-a-custom-property-to-a-span), but replace the following lines of code in `SpanEnrichingProcessor.py`:
@@ -1658,8 +1566,6 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
 ```python
 span._attributes["http.client_ip"] = "<IP Address>"
 ```
-
-#install-the-client-library
 
 ---
 
@@ -1673,8 +1579,6 @@ You can populate the _user_Id_ or _user_AuthenticatedId_ field for requests by u
 ##### [.NET](#tab/net)
 
 Coming soon.
-
-#install-the-client-library
 
 ##### [Java](#tab/java)
 
@@ -1698,8 +1602,6 @@ Populate the `user ID` field in the `requests`, `dependencies`, or `exceptions` 
    Span.current().setAttribute("enduser.id", "myuser");
    ```
 
-#install-the-client-library
-
 #### [Node.js](#tab/nodejs)
 
 Use the add [custom property example](#add-a-custom-property-to-a-span), but replace the following lines of code:
@@ -1717,8 +1619,6 @@ class SpanEnrichingProcessor implements SpanProcessor{
 }
 ```
 
-#install-the-client-library
-
 ##### [Python](#tab/python)
 
 Use the add [custom property example](#add-a-custom-property-to-a-span), but replace the following lines of code:
@@ -1726,8 +1626,6 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
 ```python
 span._attributes["enduser.id"] = "<User ID>"
 ```
-
-#install-the-client-library
 
 ---
 
@@ -1737,8 +1635,6 @@ span._attributes["enduser.id"] = "<User ID>"
   
 Coming soon.
 
-#install-the-client-library
-
 #### [Java](#tab/java)
 
 Logback, Log4j, and java.util.logging are [auto-instrumented](#logs). Attaching custom dimensions to your logs can be accomplished in these ways:
@@ -1747,13 +1643,9 @@ Logback, Log4j, and java.util.logging are [auto-instrumented](#logs). Attaching 
 * [Log4j 2 Thread Context](https://logging.apache.org/log4j/2.x/manual/thread-context.html)
 * [Log4j 1.2 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html)
 
-#install-the-client-library
-
 #### [Node.js](#tab/nodejs)
   
 Coming soon.
-
-#install-the-client-library
 
 #### [Python](#tab/python)
   
@@ -1765,8 +1657,6 @@ logger.warning("WARNING: Warning log with properties", extra={"key1": "value1"})
 ...
 
 ```
-
-#install-the-client-library
 
 ---
 
@@ -1815,8 +1705,6 @@ You might use the following ways to filter out telemetry before it leaves your a
     ```
 
 1. If a particular source isn't explicitly added by using `AddSource("ActivitySourceName")`, then none of the activities created by using that source will be exported.
-
-#install-the-client-library
 
 #### [Java](#tab/java)
 
@@ -1877,8 +1765,6 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
         }
     }
     ```
- 
-#install-the-client-library
 
 #### [Python](#tab/python)
 
@@ -1944,8 +1830,6 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
     
     ```
 
-#install-the-client-library
-
 ---
     
 <!-- For more information, see [GitHub Repo](link). -->
@@ -1957,8 +1841,6 @@ You might want to get the trace ID or span ID. If you have logs that are sent to
 #### [.NET](#tab/net)
 
 Coming soon.
-
-#install-the-client-library
 
 #### [Java](#tab/java)
 
@@ -1984,13 +1866,9 @@ You can use `opentelemetry-api` to get the trace ID or span ID.
    String spanId = span.getSpanContext().getSpanId();
    ```
 
-#install-the-client-library
-
 #### [Node.js](#tab/nodejs)
 
 Coming soon.
-
-#install-the-client-library
 
 #### [Python](#tab/python)
 
@@ -2002,8 +1880,6 @@ Get the request trace ID and the span ID in your code:
    trace_id = trace.get_current_span().get_span_context().trace_id
    span_id = trace.get_current_span().get_span_context().span_id
    ```
-
-#install-the-client-library
 
 ---
 
