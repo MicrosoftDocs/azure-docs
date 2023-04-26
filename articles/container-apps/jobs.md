@@ -89,7 +89,7 @@ The following example ARM template creates a manual job named `my-job` in a reso
 
 `mcr.microsoft.com/k8se/quickstart-jobs:latest` is a sample container image that runs a job that waits a few seconds, prints a message to the console, and then exits.
 
-Creating a manual job only defines the job. To start a job execution, see [Start a job execution on demand](#start-a-job-execution-on-demand).
+The above command only creates the job. To start a job execution, see [Start a job execution on demand](#start-a-job-execution-on-demand).
 
 ### Scheduled jobs
 
@@ -106,7 +106,7 @@ Cron expressions in scheduled jobs are evaluated in Universal Time Coordinated (
 
 # [Azure CLI](#tab/azure-cli)
 
-To create a manual job using the Azure CLI, use the `az containerapp job create` command. The following example creates a scheduled job named `my-job` in a resource group named `my-resource-group` and a Container Apps environment named `my-environment`:
+To create a scheduled job using the Azure CLI, use the `az containerapp job create` command. The following example creates a scheduled job named `my-job` in a resource group named `my-resource-group` and a Container Apps environment named `my-environment`:
 
 ```azurecli
 az containerapp job create \
