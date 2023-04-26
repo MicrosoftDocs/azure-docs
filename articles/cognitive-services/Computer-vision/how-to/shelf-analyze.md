@@ -22,7 +22,7 @@ The fastest way to start using Shelf Analysis is to use the built-in pre-trained
   * You'll need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
 * An Azure Storage resource with a blob storage container. [Create one](tbd)
 * [cURL](https://curl.haxx.se/) installed. Or, you can use a different REST platform, like Postman, Swagger, or the REST Client extension for VS Code.
-* A set of training images. You can use our [sample image sets](tbd) or bring your own images.
+* A set of training images. You can use our [sample image sets](tbd) or bring your own images. The maximum file size per image is 20MB.
 
 ## Analyze shelf images
 
