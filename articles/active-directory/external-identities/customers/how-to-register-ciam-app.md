@@ -94,6 +94,8 @@ App roles enable the client app to obtain an access token as themselves. This is
 ### If you want to call an API follow the steps below (optional):
 [!INCLUDE [grant permissions for calling an API](../customers/includes/register-app/grant-api-permission-call-api.md)] 
 
+
 ## Next steps
  
 - [Create a sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md)
+- [Enable self-service password reset](how-to-enable-password-reset-customers.md)
