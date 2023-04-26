@@ -1,9 +1,8 @@
 ---
-title: Azure Schema Registry Concepts
-description: This article provides an overview of Schema Registry support by Azure Event Hubs.
-ms.topic: overview
-ms.date: 05/04/2022
-ms.custom: references_regions, ignite-fall-2021
+title: Client-side schema enforcement - Schema Registry
+description: This article provides information on using schemas in a schema registry when publishing or consuming events from Azure Event Hubs. 
+ms.topic: concept
+ms.date: 04/26/2023
 ---
 
 # Client-side schema enforcement 
