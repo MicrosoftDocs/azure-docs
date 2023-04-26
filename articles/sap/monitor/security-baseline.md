@@ -21,7 +21,8 @@ When a feature has relevant Azure Policy Definitions, they are listed in this ba
 
 When Azure Monitor for SAP solutions is deployed, a managed resource group is deployed with it. 
 This managed resource group contains services such as Azure Log Analytics, Azure Functions, Azure Storage and Azure Key Vault. 
-Security baseline for all these services are as follows:
+
+## Security baseline for relevant servicea
 
 - [Azure Log Analytics](/security/benchmark/azure/baselines/azure-monitor-security-baseline)
 - [Azure Functions](/security/benchmark/azure/baselines/functions-security-baseline)
