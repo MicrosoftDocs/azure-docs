@@ -413,6 +413,21 @@ items:
     items:
     - name: Quickstarts
       items:
-      - name: Publish and subscribe on an MQTT topic
-        href: custom-event-quickstart-portal.md
-        
+      - name: Publish and subscribe on an MQTT topic using CLI
+        href: mqtt-publish-and-subscribe-cli.md
+      - name: Publish and subscribe on an MQTT topic using portal
+        href: mqtt-publish-and-subscribe-portal.md
+    - name: Tutorials
+      items:
+      - name: Route MQTT messages to Event Hubs using CLI
+        href: mqtt-routing-to-event-hubs-cli.md
+      - name: Route MQTT messages to Event Hubs using portal
+        href: mqtt-routing-to-event-hubs-portal.md
+    - name: Concepts
+      items:
+      - name: Azure Event Grid Namespace MQTT client authentication
+        href: mqtt-client-authentication.md
+    - name: How-to guides
+      items:
+      - name: Azure Event Grid Namespace MQTT client authentication using certificate chain
+        href: mqtt-certificate-chain-client-authentication.md           

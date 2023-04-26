@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Publish and Subscribe on an MQTT topic using CLI'
+title: 'Quickstart: Publish and subscribe on an MQTT topic using CLI'
 description: 'Quickstart guide to use Azure Event Grid MQTT and Azure CLI to publish and subscribe MQTT messages on a topic'
 ms.topic: quickstart
 ms.date: 04/20/2023
@@ -24,7 +24,7 @@ In this article, you use the Azure CLI to do the following tasks:
 - You need an X.509 client certificate to generate the thumbprint and authenticate the client connection.
 - Use the Bash environment in [Azure Cloud Shell](/azure/cloud-shell/overview). For more information, see [Quickstart for Bash in Azure Cloud Shell](/azure/cloud-shell/quickstart).
 - If you prefer to run CLI reference commands locally, [install](/cli/azure/install-azure-cli) the Azure CLI. If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
-- If you're using a local installation, sign in to the Azure CLI by using the [az login]/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
+- If you're using a local installation, sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 - When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
 - This article requires version 2.17.1 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.

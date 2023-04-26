@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Publish and Subscribe on an MQTT topic using portal'
+title: 'Quickstart: Publish and subscribe on an MQTT topic using portal'
 description: 'Quickstart guide to use Azure Event Grid MQTT and Azure portal to publish and subscribe MQTT messages on a topic'
 ms.topic: quickstart
 ms.date: 04/20/2023
