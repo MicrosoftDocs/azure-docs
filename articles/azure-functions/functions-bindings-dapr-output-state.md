@@ -72,13 +72,20 @@ public static async Task<IActionResult> Run(
 The following examples show Dapr output bindings in a _function.json_ file and C# script (.csx) code that uses the bindings. In the _function.json_ file, todo:
 
 ```json
-
+{
+    "type": "daprState",
+    "direction": "out",
+    "name": "state",
+    "stateStore": "statestore",
+    "key": "{key}"
+}
 ```
 
 Here's the C# script code:
 
 ```csharp
-
+[HttpTrigger(AuthorizationLevel.Function, "get", Route = "state/{key}")] HttpRequest req,
+[DaprState("statestore", Key = "{key}")] IAsyncCollector<DaprStateRecord> state,
 ```
 
 ---
@@ -177,10 +184,9 @@ C# script uses a _function.json_ file for configuration instead of attributes.
 
 |function.json property | Description|
 |---------|----------------------|
-|**type** | Must be set to `daprState`. This property is set automatically when you create the trigger in the Azure portal.|
-|**bindingName** | The name of the binding. |
-|**name** | The name of the variable that represents the Dapr data in function code. |
-|**direction** | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. Exceptions are noted in the [usage](#usage) section. |
+| **StateStore** | The name of the state store to save state. |
+| **Key** | The name of the key to save state within the state store. |
+
 
 ::: zone-end
 

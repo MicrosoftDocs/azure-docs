@@ -45,15 +45,14 @@ This article supports both programming models.
 # [In-process](#tab/in-process)
 
 ```csharp
-[FunctionName("StateInputBinding")]
-public static IActionResult Run(
-    [HttpTrigger(AuthorizationLevel.Function, "get", Route = "state/{key}")] HttpRequest req,
-    [DaprState("statestore", Key = "{key}")] string state,
+[FunctionName("SendMessageToKafka")]
+public static async Task Run(
+    [DaprServiceInvocationTrigger] JObject payload,
+    [DaprBinding(BindingName = "%KafkaBindingName%", Operation = "create")] IAsyncCollector<object> messages,
     ILogger log)
 {
-    log.LogInformation("C# HTTP trigger function processed a request.");
-
-    return new OkObjectResult(state);
+    log.LogInformation("C#  function processed a SendMessageToKafka request.");
+    await messages.AddAsync(payload);
 }
 ```
 
@@ -71,13 +70,19 @@ public static IActionResult Run(
 The following examples show Dapr output bindings in a _function.json_ file and C# script (.csx) code that uses the bindings. In the _function.json_ file, todo:
 
 ```json
-
+{
+    "type": "daprBinding",
+    "direction": "out",
+    "bindingName": "myKafkaBinding",
+    "operation": "create",
+    "name": "messages"
+}
 ```
 
 Here's the C# script code:
 
 ```csharp
-
+[DaprBinding(BindingName = "myKafkaBinding", Operation = "create")] IAsyncCollector<DaprBindingMessage> messages,
 ```
 
 ---
@@ -90,18 +95,17 @@ Here's the C# script code:
 
 The following examples show Dapr triggers in a _function.json_ file and JavaScript code that uses those bindings. 
 
-Here's the _function.json_ file for `daprBindingTrigger`:
+Here's the _function.json_ file for `daprBinding`:
 
 ```json
 {
   "bindings": 
     {
-      "type": "daprState",
-      "direction": "in",
-      "dataType": "string",
-      "name": "state",
-      "stateStore": "statestore",
-      "key": "{key}"
+      "type": "daprBinding",
+      "direction": "out",
+      "bindingName": "%KafkaBindingName%",
+      "operation": "create",
+      "name": "messages"
     }
 }
 ```
@@ -109,8 +113,9 @@ Here's the _function.json_ file for `daprBindingTrigger`:
 Here's the JavaScript code for the Dapr output binding trigger:
 
 ```javascript
-module.exports = async function (context, req) {
-    context.log('Current state of this function: ' + context.bindings.daprState);
+module.exports = async function (context) {
+    context.log("Node HTTP trigger function processed a request.");
+    context.bindings.messages = { "data": context.bindings.args };
 };
 ```
 
@@ -129,9 +134,19 @@ The following example shows a Dapr trigger binding. The example depends on wheth
 
 # [v1](#tab/python-v1)
 
-Here's the _function.json_ file for `daprBindingTrigger`:
+Here's the _function.json_ file for `daprBinding`:
 
 ```json
+{
+  "bindings": 
+    {
+      "type": "daprBinding",
+      "direction": "out",
+      "bindingName": "%KafkaBindingName%",
+      "operation": "create",
+      "name": "messages"
+    }
+}
 ```
 
 For more information about *function.json* file properties, see the [Configuration](#configuration) section explains these properties.
@@ -139,6 +154,13 @@ For more information about *function.json* file properties, see the [Configurati
 Here's the Python code:
 
 ```python
+import logging
+import json
+import azure.functions as func
+
+def main(args, messages: func.Out[bytes]) -> None:
+    logging.info('Python processed a SendMessageToKafka request from the Dapr Runtime.')
+    messages.set(json.dumps({"data": args}))
 ```
 
 ::: zone-end
@@ -170,10 +192,8 @@ C# script uses a _function.json_ file for configuration instead of attributes.
 
 |function.json property | Description|
 |---------|----------------------|
-|**type** | Must be set to `daprBindingTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
-|**bindingName** | The name of the binding. |
-|**name** | The name of the variable that represents the Dapr data in function code. |
-|**direction** | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. Exceptions are noted in the [usage](#usage) section. |
+|**BindingName** | The name of the Dapr binding. |
+|**Operation** | The configured binding operation. |
 
 ::: zone-end
 
@@ -184,8 +204,10 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Description|
 |---------|----------------------|
-|**type** | Must be set to `daprBindingTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
+|**type** | Must be set to `daprBinding`. |
+|**direction** | Must be set to `out`. |
 |**bindingName** | The name of the binding. |
+|**operation** | The binding operation. |
 |**name** | The name of the variable that represents the Dapr data in function code. |
 
 
@@ -198,10 +220,11 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Description|
 |---------|----------------------|
-|**type** | Must be set to `daprBindingTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
+|**type** | Must be set to `daprBinding`. |
+|**direction** | Must be set to `out`. |
 |**bindingName** | The name of the binding. |
+|**operation** | The binding operation. |
 |**name** | The name of the variable that represents the Dapr data in function code. |
-|**direction** | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. Exceptions are noted in the [usage](#usage) section. |
 
 ::: zone-end
 

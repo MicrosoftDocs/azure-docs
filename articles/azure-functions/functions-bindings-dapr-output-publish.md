@@ -12,7 +12,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 ::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-python"
 
-The output binding allows you to read Dapr data as output to an Azure Function.
+The publish output binding allows you to read Dapr data as output to an Azure Function.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-dapr.md).
 
@@ -45,15 +45,14 @@ This article supports both programming models.
 # [In-process](#tab/in-process)
 
 ```csharp
-[FunctionName("StateInputBinding")]
-public static IActionResult Run(
-    [HttpTrigger(AuthorizationLevel.Function, "get", Route = "state/{key}")] HttpRequest req,
-    [DaprState("statestore", Key = "{key}")] string state,
+[FunctionName("PublishOutputBinding")]
+public static void Run(
+    [HttpTrigger(AuthorizationLevel.Function, "post", Route = "topic/{topicName}")] HttpRequest req,
+    [DaprPublish(PubSubName = "%PubSubName%", Topic = "{topicName}")] out DaprPubSubEvent pubSubEvent,
     ILogger log)
 {
-    log.LogInformation("C# HTTP trigger function processed a request.");
-
-    return new OkObjectResult(state);
+    string requestBody = new StreamReader(req.Body).ReadToEnd();
+    pubSubEvent = new DaprPubSubEvent(requestBody);
 }
 ```
 
@@ -68,16 +67,22 @@ public static IActionResult Run(
 
 # [C# Script](#tab/csharp-script)
 
-The following examples show Dapr output bindings in a _function.json_ file and C# script (.csx) code that uses the bindings. In the _function.json_ file, todo:
+The following examples show Dapr publish output bindings in a _function.json_ file and C# script (.csx) code that uses the bindings. In the _function.json_ file, todo:
 
 ```json
-
+{
+    "type": "daprPublish",
+    "direction": "out",
+    "name": "pubEvent",
+    "pubsubname": "pubsub",
+    "topic": "myTopic"
+}
 ```
 
 Here's the C# script code:
 
 ```csharp
-
+[DaprPublish(PubSubName = "pubsub", Topic = "myTopic")] IAsyncCollector<DaprPubSubEvent> pubEvent,
 ```
 
 ---
@@ -90,27 +95,28 @@ Here's the C# script code:
 
 The following examples show Dapr triggers in a _function.json_ file and JavaScript code that uses those bindings. 
 
-Here's the _function.json_ file for `daprBindingTrigger`:
+Here's the _function.json_ file for `daprPublish`:
 
 ```json
 {
   "bindings": 
     {
-      "type": "daprState",
-      "direction": "in",
-      "dataType": "string",
-      "name": "state",
-      "stateStore": "statestore",
-      "key": "{key}"
+      "type": "daprPublish",
+      "direction": "out",
+      "pubsubname": "messagebus",
+      "topic": "{topicName}",
+      "name": "payload"
     }
 }
 ```
 
-Here's the JavaScript code for the Dapr output binding trigger:
+Here's the JavaScript code for the Dapr publish output binding trigger:
 
 ```javascript
 module.exports = async function (context, req) {
-    context.log('Current state of this function: ' + context.bindings.daprState);
+    context.log("Node HTTP trigger function processed a request.");
+    context.bindings.payload = { payload: req.body };
+    context.done(null);
 };
 ```
 
@@ -129,7 +135,7 @@ The following example shows a Dapr trigger binding. The example depends on wheth
 
 # [v1](#tab/python-v1)
 
-Here's the _function.json_ file for `daprBindingTrigger`:
+Here's the _function.json_ file for `daprPublish`:
 
 ```json
 ```
@@ -150,7 +156,7 @@ Both in-process and isolated process C# libraries use the <!--attribute API here
 
 # [In-process](#tab/in-process)
 
-In [C# class libraries], use the [DaprBindingTrigger] to trigger a Dapr output binding, which supports the following properties.
+In [C# class libraries], use the [DaprBindingTrigger] to trigger a Dapr publish output binding, which supports the following properties.
 
 | Parameter | Description | 
 | --------- | ----------- | 
@@ -170,10 +176,8 @@ C# script uses a _function.json_ file for configuration instead of attributes.
 
 |function.json property | Description|
 |---------|----------------------|
-|**type** | Must be set to `daprBindingTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
-|**bindingName** | The name of the binding. |
-|**name** | The name of the variable that represents the Dapr data in function code. |
-|**direction** | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. Exceptions are noted in the [usage](#usage) section. |
+| **PubSubName** | The name of the Dapr pub/sub to send the message. |
+| **Topic** | The name of the Dapr topic to send the message. |
 
 ::: zone-end
 
@@ -184,8 +188,10 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Description|
 |---------|----------------------|
-|**type** | Must be set to `daprBindingTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
-|**bindingName** | The name of the binding. |
+|**type** | Must be set to `daprPublish`. |
+|**direction** | Must be set to `out`. |
+|**pubsubName** | The name of the pub/sub component service. |
+|**topic** | The name of the pub/sub topic. |
 |**name** | The name of the variable that represents the Dapr data in function code. |
 
 
@@ -198,10 +204,7 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Description|
 |---------|----------------------|
-|**type** | Must be set to `daprBindingTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
-|**bindingName** | The name of the binding. |
-|**name** | The name of the variable that represents the Dapr data in function code. |
-|**direction** | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. Exceptions are noted in the [usage](#usage) section. |
+|  |  |
 
 ::: zone-end
 

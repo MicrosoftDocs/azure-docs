@@ -76,13 +76,21 @@ public static async Task<IActionResult> Run(
 The following examples show Dapr output bindings in a _function.json_ file and C# script (.csx) code that uses the bindings. In the _function.json_ file, todo:
 
 ```json
-
+{
+    "type": "daprInvoke",
+    "direction": "out",
+    "appId": "{appId}",
+    "methodName": "{methodName}",
+    "httpVerb": "post",
+    "name": "output"
+}
 ```
 
 Here's the C# script code:
 
 ```csharp
-
+[HttpTrigger(AuthorizationLevel.Function, "get", Route = "invoke/{appId}/{methodName}")] HttpRequest req,
+[DaprInvoke(AppId = "{appId}", MethodName = "{methodName}", HttpVerb = "post")] IAsyncCollector<InvokeMethodParameters> output,
 ```
 
 ---
@@ -95,7 +103,7 @@ Here's the C# script code:
 
 The following examples show Dapr triggers in a _function.json_ file and JavaScript code that uses those bindings. 
 
-Here's the _function.json_ file for `daprBindingTrigger`:
+Here's the _function.json_ file for `daprInvoke`:
 
 ```json
 {
@@ -136,7 +144,7 @@ The following example shows a Dapr trigger binding. The example depends on wheth
 
 # [v1](#tab/python-v1)
 
-Here's the _function.json_ file for `daprBindingTrigger`:
+Here's the _function.json_ file for `daprInvoke`:
 
 ```json
 ```
@@ -177,7 +185,9 @@ C# script uses a _function.json_ file for configuration instead of attributes.
 
 |function.json property | Description|
 |---------|----------------------|
-|  |  |
+| **AppId** | The Dapr app ID to invoke. |
+| **MethodName** | The method name of the app to invoke. |
+| **HttpVerb** | _Optional._ HTTP verb to use of the app to invoke. Default is `POST`. |
 
 ::: zone-end
 
@@ -189,7 +199,7 @@ The following table explains the binding configuration properties that you set i
 |function.json property | Description|
 |---------|----------------------|
 |**type** | Must be set to `daprInvoke`. |
-|**direction** | Must be set to `in`. |
+|**direction** | Must be set to `out`. |
 |**appId** | The app ID of the applications involved in the invoke binding. |
 |**methodName** | The name of the method variable. |
 |**httpVerb** | Post . |
@@ -205,10 +215,7 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Description|
 |---------|----------------------|
-|**type** | Must be set to `daprBindingTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
-|**bindingName** | The name of the binding. |
-|**name** | The name of the variable that represents the Dapr data in function code. |
-|**direction** | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. Exceptions are noted in the [usage](#usage) section. |
+|  |  |
 
 ::: zone-end
 
