@@ -377,7 +377,7 @@ As certificates expire, you need to rotate certificates in Spring Cloud Gateway 
 - Import the certificates into Azure Spring Apps. For more information, see the [Import a certificate](how-to-use-tls-certificate.md#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md).
 - Synchronize the certificates, using the Azure portal or the Azure CLI.
 
-The gateway restarts accordingly sto ensure that the gateway uses the new certificate for all connections.
+The gateway restarts accordingly to ensure that the gateway uses the new certificate for all connections.
 
 #### [Azure portal](#tab/Azure-portal)
 
@@ -386,8 +386,7 @@ Use the following steps to synchronize certificates.
 1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** in the navigation pane.
 1. On the **Spring Cloud Gateway** page, select **Certificate management**.
 1. Select the certificate you imported in **Certificates**.
-1. Select **sync certificate**.
-1. Select **Save**.
+1. Select **sync certificate**, and confirm the operation.
 
    :::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sync-certificate.png" alt-text="Screenshot of the Azure portal showing the Spring Cloud Gateway page for an Azure Spring Apps instance, with Certificate Management selected and the prompt to sync the certificate highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sync-certificate.png":::
 
