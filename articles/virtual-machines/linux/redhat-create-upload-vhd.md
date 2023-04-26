@@ -89,7 +89,7 @@ This section assumes that you've already obtained an ISO file from the Red Hat w
 > ** When using Accelerated Networking (AN) the synthetic interface that is created must me configured to be unmanaged using a udev rule. This will prevents NetworkManager from assigning the same ip to it as the primary interface. <br>
      To apply it:<br>
 ```
-sudo cat > /home/azureuser/68-azure-sriov-nm-unmanaged.rule <<EOF 
+sudo cat >/etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules <<EOF 
 # Accelerated Networking on Azure exposes a new SRIOV interface to the VM.
 # This interface is transparently bonded to the synthetic interface,
 # so NetworkManager should just ignore any SRIOV interfaces.
@@ -625,7 +625,7 @@ This section shows you how to use KVM to prepare a [RHEL 6](#rhel-6-using-kvm) o
 > ** When using Accelerated Networking (AN) the synthetic interface that is created must me configured to be unmanaged using a udev rule. This will prevents NetworkManager from assigning the same ip to it as the primary interface. <br>
      To apply it:<br>
 ```
-sudo cat > /home/azureuser/68-azure-sriov-nm-unmanaged.rule <<EOF 
+sudo cat > /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules <<EOF 
 # Accelerated Networking on Azure exposes a new SRIOV interface to the VM.
 # This interface is transparently bonded to the synthetic interface,
 # so NetworkManager should just ignore any SRIOV interfaces.
@@ -1011,7 +1011,7 @@ This section assumes that you have already installed a RHEL virtual machine in V
 > ** When using Accelerated Networking (AN) the synthetic interface that is created must me configured to be unmanaged using a udev rule. This will prevents NetworkManager from assigning the same ip to it as the primary interface. <br>
      To apply it:<br>
 ```
-sudo cat > /home/azureuser/68-azure-sriov-nm-unmanaged.rule <<EOF 
+sudo cat > /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules <<EOF 
 # Accelerated Networking on Azure exposes a new SRIOV interface to the VM.
 # This interface is transparently bonded to the synthetic interface,
 # so NetworkManager should just ignore any SRIOV interfaces.
