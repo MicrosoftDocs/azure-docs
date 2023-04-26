@@ -99,14 +99,14 @@ Here's the _function.json_ file for `daprBindingTrigger`:
 
 ```json
 {
-  "bindings": 
+  "bindings":
     {
-      "type": "daprState",
-      "direction": "in",
-      "dataType": "string",
-      "name": "state",
-      "stateStore": "statestore",
-      "key": "{key}"
+      "type": "daprInvoke",
+      "direction": "out",
+      "appId": "{appId}",
+      "methodName": "{methodName}",
+      "httpVerb": "post",
+      "name": "payload"
     }
 }
 ```
@@ -115,7 +115,9 @@ Here's the JavaScript code for the Dapr output binding trigger:
 
 ```javascript
 module.exports = async function (context, req) {
-    context.log('Current state of this function: ' + context.bindings.daprState);
+    context.log("Node HTTP trigger function processed a request.");
+    context.bindings.output = { body: req.body };
+    context.done(null);
 };
 ```
 
@@ -175,10 +177,7 @@ C# script uses a _function.json_ file for configuration instead of attributes.
 
 |function.json property | Description|
 |---------|----------------------|
-|**type** | Must be set to `daprBindingTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
-|**bindingName** | The name of the binding. |
-|**name** | The name of the variable that represents the Dapr data in function code. |
-|**direction** | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. Exceptions are noted in the [usage](#usage) section. |
+|  |  |
 
 ::: zone-end
 
@@ -189,8 +188,11 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Description|
 |---------|----------------------|
-|**type** | Must be set to `daprBindingTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
-|**bindingName** | The name of the binding. |
+|**type** | Must be set to `daprInvoke`. |
+|**direction** | Must be set to `in`. |
+|**appId** | The app ID of the applications involved in the invoke binding. |
+|**methodName** | The name of the method variable. |
+|**httpVerb** | Post . |
 |**name** | The name of the variable that represents the Dapr data in function code. |
 
 
