@@ -46,12 +46,12 @@ This page provides a single place for the tutorials to the various entra identit
 | [Akamai Enterprise Application Access](https://learn.microsoft.com/azure/active-directory/saas-apps/akamai-enterprise-application-access-provisioning-tutorial) | ● | ● |
 | [AlertMedia](https://learn.microsoft.com/azure/active-directory/saas-apps/alertmedia-provisioning-tutorial) | ● | ● |
 | [Alexis HR](https://learn.microsoft.com/azure/active-directory/saas-apps/alexishr-provisioning-tutorial) | ● | ● |
-| [Alinto Protect (renamed Cleanmail)](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
-| [Alvao](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
-| [Amazon Web Services (AWS) - Role Provisioning](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
-| [Appaegis Isolation Access Cloud](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
-| [Apple School Manager](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
-| [Apple Business Manager](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Alinto Protect (renamed Cleanmail)](https://learn.microsoft.com/azure/active-directory/saas-apps/alinto-protect-provisioning-tutorial) | ● | ● |
+| [Alvao](https://learn.microsoft.com/azure/active-directory/saas-apps/alvao-provisioning-tutorial) | ● | ● |
+| [Amazon Web Services (AWS) - Role Provisioning](https://learn.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-sso) | ● | ● |
+| [Appaegis Isolation Access Cloud](https://learn.microsoft.com/azure/active-directory/saas-apps/appaegis-isolation-access-cloud-provisioning-tutorial) | ● | ● |
+| [Apple School Manager](https://learn.microsoft.com/azure/active-directory/saas-apps/apple-school-manager-provision-tutorial) | ● | ● |
+| [Apple Business Manager](https://learn.microsoft.com/azure/active-directory/saas-apps/apple-business-manager-provision-tutorial) | ● | ● |
 | [Ardoq](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
 | [Asana](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
 | [AskSpoke](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
