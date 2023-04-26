@@ -1,7 +1,7 @@
 ---
 title: 'Validate schema when sending or receiving events'
 description: In this quickstart, you create a .NET Core application that sends/receives events to/from Azure Event Hubs with schema validation using Schema Registry.
-ms.topic: how-to
+ms.topic: quickstart
 ms.date: 04/26/2023
 ms.devlang: csharp
 author: kasun04
