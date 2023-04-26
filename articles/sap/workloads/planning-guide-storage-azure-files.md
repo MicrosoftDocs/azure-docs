@@ -32,9 +32,9 @@ For SAP workloads, the supported use of Azure Files' shares are:
 > [!NOTE]
 > No SAP DBMS workloads are supported on Azure Premium Files volumes, NFS or SMB. For support restrictions on Azure storage types for SAP NetWeaver/application layer of S/4HANA, read the [SAP support note 2015553](https://launchpad.support.sap.com/#/notes/2015553)
 
-## Important considerations for Azure Premium Files shares
+## Important considerations for Azure Premium Files shares with SAP
 
-When you plan your deployment with Azure Files, consider the following important points:  
+When you plan your deployment with Azure Files, consider the following important points. The term share in this section applies to both SMB share and NFS volume.   
 
 - The minimum share size is 100 gibibytes (GiB). With Azure Premium Files, you pay for the [capacity of the provisioned shares](/azure/storage/files/understanding-billing#provisioned-model). 
 - Size your file shares not only based on capacity requirements, but also on IOPS and throughput requirements. For details, see [Azure files share targets](/azure/storage/files/storage-files-scale-targets#azure-file-share-scale-targets).
@@ -44,21 +44,21 @@ When you plan your deployment with Azure Files, consider the following important
 - Don't use the `saptrans` share for any other activity, such as interfaces.
 - If your SAP system has a heavy load of batch jobs, you might have millions of job logs. If the SAP batch job logs are stored in the file system, pay special attention to the sizing of the `sapmnt` share. Reorganize the job log files regularly as per [SAP note 16083](https://launchpad.support.sap.com/#/notes/16083). As of SAP_BASIS 7.52, the default behavior for the batch job logs is to be stored in the database. For details, see [SAP note 2360818 | Job log in the database][https://launchpad.support.sap.com/#/notes/2360818].
 - Avoid consolidating the shares for too many SAP systems in a single storage account. There are also [scalability and performance targets for storage accounts](/azure/storage/files/storage-files-scale-targets#storage-account-scale-targets). Be careful to not exceed the limits for the storage account, too.
-- In general,  don't consolidate the shares for more than *five* SAP systems in a single storage account. This guideline helps you avoid exceeding the storage account limits and simplifies performance analysis.   
+- In general, don't consolidate the shares for more than *five* SAP systems in a single storage account. This guideline helps you avoid exceeding the storage account limits and simplifies performance analysis.   
 - In general, avoid mixing shares like `sapmnt` for non-production and production SAP systems in the same storage account.
-- Use a [private endpoint](/azure/storage/files/storage-files-networking-endpoints) with Azure Files. In the unlikely event of a zonal failure, your NFS sessions automatically redirect to a healthy zone. You don't have to remount the NFS shares on your VMs.
-- If you're deploying your VMs across availability zones, use a [storage account with ZRS](/azure/storage/common/storage-redundancy#zone-redundant-storage) in the Azure regions that supports ZRS.
+- Use a [private endpoint](/azure/storage/files/storage-files-networking-endpoints) with Azure Files. In the unlikely event of a zonal failure, your NFS sessions automatically redirect to a healthy zone. You don't have to remount the NFS shares on your VMs. Use of private link can result in additional charges for the data processed, see details about [private link pricing](https://azure.microsoft.com/en-us/pricing/details/private-link/).
+- If you're deploying your VMs across availability zones, use a [storage account with ZRS](/azure/storage/common/storage-redundancy#zone-redundant-storage) in the Azure regions which support ZRS.
 - Azure Premium Files doesn't currently support automatic cross-region replication for disaster recovery scenarios. See [guidelines on DR for SAP applications](disaster-recovery-overview-guide.md) for available options.
 
-Carefully consider when consolidating multiple activities into one file share or multiple file shares in one storage accounts. Distributing these shares onto separate storage accounts improves throughput, resiliency and simplifies the performance analysis. If many SIDs and shares are consolidated onto a single Azure Files storage account and the storage account performance is poor due to hitting the throughput limits, it is difficult to identify which SID or volume is causing the problem.
+Carefully consider when consolidating multiple activities into one file share or multiple file shares in one storage accounts. Distributing these shares onto separate storage accounts improves throughput, resiliency and simplifies the performance analysis. If many SAP SIDs and shares are consolidated onto a single Azure Files storage account and the storage account performance is poor due to hitting the throughput limits, it can become difficult to identify which SID or volume is causing the problem.
 
-## NFS specific considerations
+## NFS additional considerations
 
 - We recommend that you deploy on SLES 15 SP2 or higher, RHEL 8.4 or higher to benefit from [NFS client improvements](/azure/storage/files/storage-troubleshooting-files-nfs#ls-hangs-for-large-directory-enumeration-on-some-kernels).
 - Mount the NFS shares with [documented mount](/azure/storage/files/storage-files-how-to-mount-nfs-shares) options, with [troubleshooting](/azure/storage/files/storage-troubleshooting-files-nfs#cannot-connect-to-or-mount-an-nfs-azure-file-share) information available for mount or connection problems.
 - For SAP J2EE systems, placing `/usr/sap/<SID>/J<nr>` on NFS on Azure Files is not supported.
 
-## SMB specific considerations
+## SMB additional considerations
 
 - SAP software provisioning manager (SWPM) version 1.0 SP32, SWPM 2.0 SP09 or higher is required to use Azure Files SMB. SAPInst patch must be 749.0.91 or higher. If SWPM/SAPInst does not accept more than 13 characters for file share server, then the SWPM version is too old.
 - During the installation of the SAP PAS Instance, SWPM/SAPInst will request a transport hostname. The FQDN of the storage account should be entered <storage_account>.file.core.windows.net or with IP address/hostname of the private endpoint, if used.
