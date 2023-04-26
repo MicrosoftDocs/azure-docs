@@ -12,6 +12,7 @@ ms.author: mmitrik
 
 # DICOM Conformance Statement v2
 
+> [!NOTE]
 > API version 2 is in **Preview** and should be used only for testing.
 
 The Medical Imaging Server for DICOM supports a subset of the DICOMweb™ Standard. Support includes:
