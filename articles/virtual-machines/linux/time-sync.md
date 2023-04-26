@@ -129,7 +129,7 @@ systemctl restart chronyd
 
 ### Time sync messages related to systemd-timesyncd
 
-In some cases, the systemd-timesyncd service might still be enable and trying to do a sync upon a reboot, if you are still seeing messages in syslog that look similar to:
+In some cases, the systemd-timesyncd service might still be enabled and trying to do a sync upon a reboot, if you are still seeing messages in syslog that look similar to:
 
 ````
 systemd-timesyncd[945]: Network configuration changed, trying to establish connection.
@@ -145,7 +145,7 @@ You can disable it by using:
 ```bash
 systemctl disable systemd-timesyncd
 ````
-In most cases, systemd-timesyncd will try during boot but once chrony starts up it will overwrite and become the default timesync source.
+In most cases, systemd-timesyncd will try during boot but once chrony starts up it will overwrite and become the default time sync source.
 
 For more information about Ubuntu and NTP, see [Time Synchronization](https://ubuntu.com/server/docs/network-ntp).
 
@@ -159,7 +159,7 @@ On SUSE and Ubuntu releases before 19.10, time sync is configured using [systemd
 
 ### cloud-init
 
-Images that use cloud-init to provision the VM can use the ntp section to setup a time sync service. An example of cloud-init installing chrony and configuring it to use the PTP clock source for Ubuntu VMs:
+Images that use cloud-init to provision the VM can use the `ntp` section to setup a time sync service. An example of cloud-init installing chrony and configuring it to use the PTP clock source for Ubuntu VMs:
 
 ```yaml
 #cloud-config
