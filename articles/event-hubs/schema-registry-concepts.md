@@ -1,7 +1,7 @@
 ---
 title: Azure Schema Registry Concepts
 description: This article provides an overview of Schema Registry support by Azure Event Hubs.
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 04/26/2023
 author: kasun04
 ms.author: kindrasiri
