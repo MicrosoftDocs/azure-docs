@@ -91,11 +91,11 @@ You need the Application ID and the Application ID URI for later use. In the Azu
 
 To get the Application ID, select **Authentication** in the navigation pane, and then copy the **App (client) ID** value for the identity provider that includes the name of the Function app.
 
-:::image type="content" source="media/tutorial-managed-identities-functions/function-auth-config-3.png" alt-text="Screenshot of the Azure portal showing the Authentication page for a Function app, with the Function app name highlighted in the Identity provider." lightbox="media/tutorial-managed-identities-functions/function-auth-config-3.png":::
+:::image type="content" source="media/tutorial-managed-identities-functions/function-authentication.png" alt-text="Screenshot of the Azure portal showing the Authentication page for a Function app, with the Function app name highlighted in the Identity provider." lightbox="media/tutorial-managed-identities-functions/function-authentication.png":::
 
 To get the Application ID URI, select **Expose an API** in the navigation pane, and then copy the **Application ID URI** value.
 
-:::image type="content" source="media/tutorial-managed-identities-functions/function-auth-config-4.png" alt-text="Screenshot of the Azure portal showing the Expose an API page for a Function app with the Application ID URI highlighted." lightbox="media/tutorial-managed-identities-functions/function-auth-config-4.png":::
+:::image type="content" source="media/tutorial-managed-identities-functions/function-expose-api.png" alt-text="Screenshot of the Azure portal showing the Expose an API page for a Function app with the Application ID URI highlighted." lightbox="media/tutorial-managed-identities-functions/function-expose-api.png":::
 
 ## Create an HTTP triggered function
 
