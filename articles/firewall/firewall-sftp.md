@@ -1,20 +1,19 @@
 ---
-title: Deploy Azure Firewall to access a storage account container using Azure PowerShell
+title: Deploy Azure Firewall to access a storage account container via SFTP
 description: In this article, you use Azure PowerShell to deploy Azure Firewall to access a storage account container via SFTP.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 10/24/2022
+ms.date: 04/26/2023
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
 
-# Deploy Azure Firewall to access a storage account container using Azure PowerShell
+# Deploy Azure Firewall to access a storage account container via SFTP
 
-You can use Azure Firewall to access a storage account container via SFTP. The firewall is deployed in a virtual network and configured with DNAT rules to translate the SFTP traffic to the storage account container. The storage account container is configured with a private endpoint to allow access from the firewall. To connect to the container, you use the firewall public IP address and the storage account container name.
+You can use Azure Firewall to access a storage account container via SFTP. Using Azure PowerShell, the firewall is deployed in a virtual network and configured with DNAT rules to translate the SFTP traffic to the storage account container. The storage account container is configured with a private endpoint to allow access from the firewall. To connect to the container, you use the firewall public IP address and the storage account container name.
 
-<diagram>
 
 In this article, you:
 
@@ -177,10 +176,10 @@ $localuserPassword
 
 ```azurepowershell
 
-# Place the previously created storage account into a variable.
+# Place the previously created storage account into a variable
 $storage = Get-AzStorageAccount -ResourceGroupName $rg -Name $StorageAccountName
 
-# Create the private endpoint connection.
+# Create the private endpoint connection
 $pec = @{
     Name = 'Connection01'
     PrivateLinkServiceId = $storage.ID
@@ -190,7 +189,7 @@ $pec = @{
 $privateEndpointConnection = New-AzPrivateLinkServiceConnection @pec
 
 
-# Create the static IP configuration.
+# Create the static IP configuration
 $ip = @{
     Name = 'myIPconfig'
     GroupId = 'blob'
@@ -200,7 +199,7 @@ $ip = @{
 
 $ipconfig = New-AzPrivateEndpointIpConfiguration @ip
 
-# Create the private endpoint.
+# Create the private endpoint
 $pe = @{
     ResourceGroupName = $rg
     Name = 'StorageEP'
