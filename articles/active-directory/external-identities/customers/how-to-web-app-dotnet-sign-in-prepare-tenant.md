@@ -58,4 +58,4 @@ If you have already registered a web application in the Microsoft Entra admin ce
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Sign in users in your own ASP.NET web application by using Microsoft Entra - Prepare your application](how-to-web-app-dotnet-sign-in-prepare-app.md)
+> [Prepare your application](how-to-web-app-dotnet-sign-in-prepare-app.md)

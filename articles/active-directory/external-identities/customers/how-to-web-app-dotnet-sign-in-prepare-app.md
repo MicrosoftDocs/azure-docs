@@ -68,4 +68,4 @@ After registering an application and creating a user flow in a CIAM tenant, an A
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Sign in users in your own ASP.NET web application by using Microsoft Entra - Sign in and sign out ](how-to-web-app-dotnet-sign-in-sign-out.md)
+> [Sign in and sign out](how-to-web-app-dotnet-sign-in-sign-out.md)

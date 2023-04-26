@@ -18,7 +18,7 @@ ms.custom: developer
 
 # Sign in users in a sample ASP.NET web application by using Microsoft Entra
 
-This how-to guide uses a sample ASP.NET web application to show the fundamentals of modern authentication with Azure AD Consumer Identity and Access Management (CIAM), using the [Microsoft Authentication Library for .NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [Microsoft Identity Web](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) for Node to handle authentication.
+This how-to guide uses a sample ASP.NET web application to show the fundamentals of modern authentication using the [Microsoft Authentication Library for .NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) and [Microsoft Identity Web](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) for ASP.NET to handle authentication.
 
 In this article, you'll register a web application in the Microsoft Entra admin center and create a sign in and sign out user flow. You'll associate your web application with the user flow, download and update a sample ASP.NET web application using your own Azure Active Directory (Azure AD) for customers tenant details. Finally, you'll run and test the sample web application.
 
@@ -36,9 +36,9 @@ In this article, you'll register a web application in the Microsoft Entra admin 
 
 [!INCLUDE [ciam-redirect-url-dotnet](./includes/register-app/add-platform-redirect-url-dotnet.md)]
 
-6. Under the **Implicit grant and hybrid flows** section, select the **ID tokens** option.
+To enable the implicit grant flow;
 
-7. Select **Save**.
+[!INCLUDE [ciam-enable-implicit-hybrid-flow](./includes/register-app/enable-implicit-hybrid-flows.md)]
 
 ## Add app client secret
 
@@ -69,7 +69,7 @@ To get the web app sample code, you can do either of the following tasks:
 
 ## Configure the application
 
-1. Navigate to the directory that contains the ASP.NET sample app:
+1. Navigate to the root folder of the sample you have downloaded and directory that contains the ASP.NET sample app:
 
     ```powershell
     cd 1-Authentication\1-sign-in-aspnet-core-mvc
