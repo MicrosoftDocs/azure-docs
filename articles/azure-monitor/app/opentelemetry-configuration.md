@@ -13,6 +13,8 @@ Application Insights OpenTelemetry configuration allows you to use OpenTelemetry
 
 ## Connection string
 
+A connection string in Application Insights defines the target location for sending telemetry data, ensuring it reaches the appropriate resource for monitoring and analysis.
+
 ### [.NET](#tab/net)
 
 
@@ -23,7 +25,6 @@ Application Insights OpenTelemetry configuration allows you to use OpenTelemetry
 
 
 ### [Python](#tab/python)
-
 
 ---
 

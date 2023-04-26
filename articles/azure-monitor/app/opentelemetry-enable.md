@@ -44,13 +44,13 @@ Follow the steps in this section to instrument your application with OpenTelemet
 
 - Application using an officially supported version of [.NET Core](https://dotnet.microsoft.com/download/dotnet) or [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) that's at least .NET Framework 4.6.2
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 ### [Java](#tab/java)
 
 - A Java application using Java 8+
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 ### [Node.js](#tab/nodejs)
 
@@ -58,13 +58,13 @@ Follow the steps in this section to instrument your application with OpenTelemet
   - [OpenTelemetry supported runtimes](https://github.com/open-telemetry/opentelemetry-js#supported-runtimes)
   - [Azure Monitor OpenTelemetry Exporter supported runtimes](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter#currently-supported-environments)
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 ### [Python](#tab/python)
 
 - Python Application using Python 3.7+
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 ---
 
@@ -85,7 +85,7 @@ If you get an error like "There are no versions available for the package Azure.
 dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter -s https://api.nuget.org/v3/index.json
 ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 #### [Java](#tab/java)
 
@@ -100,7 +100,7 @@ Download the [applicationinsights-agent-3.4.12.jar](https://github.com/microsoft
 > [3.1.0](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.0)
 > for more details.
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 #### [Node.js](#tab/nodejs)
 
@@ -132,7 +132,7 @@ npm install @opentelemetry/semantic-conventions
 npm install @opentelemetry/instrumentation-http
 ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 #### [Python](#tab/python)
 
@@ -142,7 +142,7 @@ Install the latest [azure-monitor-opentelemetry](https://pypi.org/project/azure-
 pip install azure-monitor-opentelemetry --pre
 ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 ---
 
@@ -193,7 +193,7 @@ public class Program
 > [!NOTE]
 > The `Activity` and `ActivitySource` classes from the `System.Diagnostics` namespace represent the OpenTelemetry concepts of `Span` and `Tracer`, respectively. You create `ActivitySource` directly by using its constructor instead of by using `TracerProvider`. Each [`ActivitySource`](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/trace/customizing-the-sdk#activity-source) class must be explicitly connected to `TracerProvider` by using `AddSource()`. That's because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. To learn more, see [Introduction to OpenTelemetry .NET Tracing API](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 ##### [Java](#tab/java)
 
@@ -207,7 +207,7 @@ Point the JVM to the jar file by adding `-javaagent:"path/to/applicationinsights
 > [!TIP]
 > If you develop a Spring Boot application, you can optionally replace the JVM argument by a programmatic configuration. For more information, see [Using Azure Monitor Application Insights with Spring Boot](./java-spring-boot.md).
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 ##### [Node.js](#tab/nodejs)
 
@@ -273,7 +273,7 @@ function doWork(parent) {
 
 ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 ##### [Python](#tab/python)
 
@@ -296,7 +296,7 @@ input()
 
 ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 ---
 
@@ -323,7 +323,7 @@ The following instructions detail where to paste your unique connection string.
 
 Replace the `<Your Connection String>` in the preceding code with the connection string from *your* Application Insights resource.
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 #### [Java](#tab/java)
 
@@ -343,7 +343,7 @@ Use one of the following two ways to point the jar file to your Application Insi
    }
    ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 #### [Node.js](#tab/nodejs)
 
@@ -353,7 +353,7 @@ Replace the `<Your Connection String>` in the preceding code with the connection
 
 Replace the `<Your Connection String>` in the preceding code with the connection string from *your* Application Insights resource.
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 ---
 
@@ -368,9 +368,11 @@ Run your application and open your **Application Insights Resource** tab in the 
 
 As part of using Application Insights instrumentation, we collect and send diagnostic data to Microsoft. This data helps us run and improve Application Insights. To learn more, see [Statsbeat in Azure Application Insights](./statsbeat.md).
 
-## Instrumentation libraries
+<<!-- TODO: Add link to Troubleshooting page if data is NOT flowing.>>
 
-The following libraries are validated to work with the current release.
+## Included instrumentation libraries
+
+The following libraries are bundled with our distro.
 
 > [!WARNING]
 > Instrumentation libraries are based on experimental OpenTelemetry specifications, which impacts languages in [preview status](opentelemetry-enable.md#opentelemetry-release-status). Microsoft's *preview* support commitment is to ensure that the following libraries emit data to Azure Monitor Application Insights, but it's possible that breaking changes or experimental mapping will block some data elements.
@@ -393,8 +395,6 @@ Dependencies
 - [SQL
   client](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.SqlClient/README.md) <sup>[1](#FOOTNOTEONE)</sup> version:
   [1.0.0-rc9.7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.SqlClient/1.0.0-rc9.7)
-
-
 
 #### [Java](#tab/java)
 
@@ -516,6 +516,29 @@ Dependencies
 
 ---
 
+> [!NOTE]
+> Application Insights standard metrics include a variety of measurements related to request processing, dependency calls, exceptions, browser timings, and performance counters. For more information, see [Application Insights standard metrics](standard-metrics.md)
+
+## Community instrumentation libraries
+
+You can extend functionality with other instrumentation libraries from the OpenTelemetry community.
+
+> [!NOTE] 
+> We don't support and cannot guarantee the quality of community instrumentation libraries. If you would like to suggest a community instrumentation library us to include in our distro, go to feedback hub and open a request.
+
+### [.NET](#tab/net)
+
+
+### [Java](#tab/java)
+
+
+### [Node.js](#tab/nodejs)
+
+
+### [Python](#tab/python)
+
+---
+
 ### Metrics
 
 #### [.NET](#tab/net)
@@ -600,7 +623,7 @@ Depending on your language and signal type, there are different ways to collect 
   
 -	OpenTelemetry API
 -	Language-specific logging/metrics libraries
--	Application Insights Classic API
+-	Application Insights [Classic API](api-custom-events-metrics.md)
  
 The following table represents the currently supported custom telemetry types:
 
@@ -627,7 +650,7 @@ The following table represents the currently supported custom telemetry types:
 | &nbsp;&nbsp;&nbsp;Python Logging Module   |               |                |              |            |            |          | Yes    |
 
 > [!NOTE]
-> Application Insights Java 3.x listens for telemetry that's sent to the Application Insights Classic API. Similarly, Application Insights Node.js 3.x collects events created with the Application Insights Classic API. This makes upgrading easier and fills a gap in our custom telemetry support until all custom telemetry types are supported via the OpenTelemetry API.
+> Application Insights Java 3.x listens for telemetry that's sent to the Application Insights [Classic API](api-custom-events-metrics.md). Similarly, Application Insights Node.js 3.x collects events created with the Application Insights [Classic API](api-custom-events-metrics.md). This makes upgrading easier and fills a gap in our custom telemetry support until all custom telemetry types are supported via the OpenTelemetry API.
 
 ### Add Custom Metrics
 
@@ -656,7 +679,7 @@ The [OpenTelemetry Specification](https://github.com/open-telemetry/opentelemetr
 describes the instruments and provides examples of when you might use each one.
 
 > [!TIP]
-> The histogram is the most versatile and most closely equivalent to the Application Insights Track Metric Classic API.  Azure Monitor currently flattens the histogram instrument into our five supported aggregation types, and support for percentiles is underway. Although less versatile, other OpenTelemetry instruments have a lesser impact on your application's performance.
+> The histogram is the most versatile and most closely equivalent to the Application Insights Track Metric [Classic API](api-custom-events-metrics.md). Azure Monitor currently flattens the histogram instrument into our five supported aggregation types, and support for percentiles is underway. Although less versatile, other OpenTelemetry instruments have a lesser impact on your application's performance.
 
 #### Histogram Example
 
@@ -698,7 +721,7 @@ public class Program
 }
 ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 #### [Java](#tab/java)
 
@@ -719,7 +742,7 @@ public class Program {
 }
 ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 #### [Node.js](#tab/nodejs)
 
@@ -751,7 +774,7 @@ public class Program {
     histogram.record(100, { testKey2: "testValue" });
 ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 #### [Python](#tab/python)
 
@@ -772,7 +795,7 @@ histogram.record(30.0, {"test_key": "test_value2"})
 input()
 ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 ---
 
@@ -815,7 +838,7 @@ public class Program
 }
 ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 #### [Java](#tab/java)
 
@@ -845,7 +868,7 @@ public class Program {
 }
 ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 #### [Node.js](#tab/nodejs)
 
@@ -871,7 +894,7 @@ public class Program {
     counter.add(3, { "testKey": "testValue2" });
 ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 #### [Python](#tab/python)
 
@@ -892,7 +915,7 @@ counter.add(3.0, {"test_key": "test_value2"})
 input()
 ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 ---
 
@@ -938,7 +961,7 @@ public class Program
 }
 ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 #### [Java](#tab/java)
 
@@ -963,7 +986,7 @@ public class Program {
 }
 ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 #### [Node.js](#tab/nodejs)
 
@@ -991,7 +1014,7 @@ public class Program {
     });
 ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 #### [Python](#tab/python)
 
@@ -1024,7 +1047,7 @@ gauge2 = meter.create_observable_gauge("gauge2", [observable_gauge_sequence])
 input()
 ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 ---
 
@@ -1052,7 +1075,7 @@ using (var activity = activitySource.StartActivity("ExceptionExample"))
 }
 ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 #### [Java](#tab/java)
 
@@ -1079,7 +1102,7 @@ You can use `opentelemetry-api` to update the status of a span and record except
     span.recordException(e);
    ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 #### [Node.js](#tab/nodejs)
 
@@ -1104,7 +1127,7 @@ catch(error){
 }
 ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 #### [Python](#tab/python)
 
@@ -1144,7 +1167,7 @@ with tracer.start_as_current_span("hello", record_exception=False) as span:
 
 ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 ---
 
@@ -1156,7 +1179,7 @@ You may want to add a custom span when there's a dependency request that's not a
   
 Coming soon.
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 #### [Java](#tab/java)
   
@@ -1229,13 +1252,13 @@ you can add your spans by using the OpenTelemetry API.
     }
    ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 #### [Node.js](#tab/nodejs)
 
 Coming soon.
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 #### [Python](#tab/python)
 
@@ -1280,7 +1303,7 @@ with tracer.start_as_current_span("my request span", kind=SpanKind.SERVER) as sp
 ...
 ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 ---
 
@@ -1333,15 +1356,15 @@ Coming soon.
 
 -->
   
-### Send custom telemetry using the Application Insights Classic API
+### Send custom telemetry using the Application Insights [Classic API](api-custom-events-metrics.md)
   
-We recommend you use the OpenTelemetry APIs whenever possible, but there may be some scenarios when you have to use the Application Insights Classic APIs.
+We recommend you use the OpenTelemetry APIs whenever possible, but there may be some scenarios when you have to use the Application Insights [Classic API](api-custom-events-metrics.md)s.
   
 #### [.NET](#tab/net)
   
 This is not available in .NET.
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 #### [Java](#tab/java)
 
@@ -1408,19 +1431,19 @@ This is not available in .NET.
     }
     ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 #### [Node.js](#tab/nodejs)
   
 Coming soon.
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 #### [Python](#tab/python)
   
 This is not available in Python.
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 ---
 
@@ -1486,7 +1509,7 @@ public class ActivityEnrichingProcessor : BaseProcessor<Activity>
 }
 ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 ##### [Java](#tab/java)
 
@@ -1514,7 +1537,7 @@ Adding one or more span attributes populates the `customDimensions` field in the
     Span.current().setAttribute(attributeKey, "myvalue1");
    ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 ##### [Node.js](#tab/nodejs)
 
@@ -1551,7 +1574,7 @@ provider.addSpanProcessor(new SpanEnrichingProcessor());
 provider.addSpanProcessor(new SimpleSpanProcessor(azureExporter));
 ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 ##### [Python](#tab/python)
 
@@ -1584,7 +1607,7 @@ class SpanEnrichingProcessor(SpanProcessor):
         span._attributes["CustomDimension2"] = "Value2"
 ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 ---
 
@@ -1601,13 +1624,13 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
 activity.SetTag("http.client_ip", "<IP Address>");
 ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 ##### [Java](#tab/java)
 
 Java automatically populates this field.
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 ##### [Node.js](#tab/nodejs)
 
@@ -1626,7 +1649,7 @@ class SpanEnrichingProcessor {
 }
 ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 ##### [Python](#tab/python)
 
@@ -1636,7 +1659,7 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
 span._attributes["http.client_ip"] = "<IP Address>"
 ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 ---
 
@@ -1651,7 +1674,7 @@ You can populate the _user_Id_ or _user_AuthenticatedId_ field for requests by u
 
 Coming soon.
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 ##### [Java](#tab/java)
 
@@ -1675,7 +1698,7 @@ Populate the `user ID` field in the `requests`, `dependencies`, or `exceptions` 
    Span.current().setAttribute("enduser.id", "myuser");
    ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 #### [Node.js](#tab/nodejs)
 
@@ -1694,7 +1717,7 @@ class SpanEnrichingProcessor implements SpanProcessor{
 }
 ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 ##### [Python](#tab/python)
 
@@ -1704,7 +1727,7 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
 span._attributes["enduser.id"] = "<User ID>"
 ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 ---
 
@@ -1714,7 +1737,7 @@ span._attributes["enduser.id"] = "<User ID>"
   
 Coming soon.
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 #### [Java](#tab/java)
 
@@ -1724,13 +1747,13 @@ Logback, Log4j, and java.util.logging are [auto-instrumented](#logs). Attaching 
 * [Log4j 2 Thread Context](https://logging.apache.org/log4j/2.x/manual/thread-context.html)
 * [Log4j 1.2 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html)
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 #### [Node.js](#tab/nodejs)
   
 Coming soon.
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 #### [Python](#tab/python)
   
@@ -1743,7 +1766,7 @@ logger.warning("WARNING: Warning log with properties", extra={"key1": "value1"})
 
 ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 ---
 
@@ -1793,7 +1816,7 @@ You might use the following ways to filter out telemetry before it leaves your a
 
 1. If a particular source isn't explicitly added by using `AddSource("ActivitySourceName")`, then none of the activities created by using that source will be exported.
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 #### [Java](#tab/java)
 
@@ -1855,7 +1878,7 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
     }
     ```
  
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 #### [Python](#tab/python)
 
@@ -1921,7 +1944,7 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
     
     ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 ---
     
@@ -1935,7 +1958,7 @@ You might want to get the trace ID or span ID. If you have logs that are sent to
 
 Coming soon.
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 #### [Java](#tab/java)
 
@@ -1961,13 +1984,13 @@ You can use `opentelemetry-api` to get the trace ID or span ID.
    String spanId = span.getSpanContext().getSpanId();
    ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 #### [Node.js](#tab/nodejs)
 
 Coming soon.
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 #### [Python](#tab/python)
 
@@ -1980,7 +2003,7 @@ Get the request trace ID and the span ID in your code:
    span_id = trace.get_current_span().get_span_context().span_id
    ```
 
-<!--TODO: ADD DISTRO INFO. PLEASE REMOVE THIS LINE WHEN THIS SECTION IS UPDATED. -->
+#install-the-client-library
 
 ---
 
