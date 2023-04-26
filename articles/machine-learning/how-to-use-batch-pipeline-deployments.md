@@ -18,7 +18,7 @@ ms.custom: how-to, devplatv2, event-tier1-build-2023
 
 [!INCLUDE [ml v2](../../includes/machine-learning-dev-v2.md)]
 
-In this article, you'll learn how to create a batch deployment that contains a pipeline component. You'll learn to:
+Batch endpoints allow the deployment of pipeline components, providing a convenient way to operationalize pipelines in Azure Machine Learning. In this article, you'll learn how to create a batch deployment that contains a pipeline component. You'll learn to:
 
 > [!div class="checklist"]
 > * Create a pipeline component
@@ -203,8 +203,6 @@ To deploy the pipeline component, we have to create a batch deployment. A deploy
     > [!TIP]
     > Notice the use of the `--set-default` flag to indicate that this new deployment is now the default.
 
-    Your deployment is ready for use.
-
     # [Python](#tab/python)
 
     This command will start the deployment creation and return a confirmation response while the deployment creation continues.
@@ -221,7 +219,7 @@ To deploy the pipeline component, we have to create a batch deployment. A deploy
     ml_client.batch_endpoints.begin_create_or_update(endpoint).result()
     ```
 
-    Your deployment is ready for use.
+1. Your deployment is ready for use.
 
 ### Test the deployment
 
