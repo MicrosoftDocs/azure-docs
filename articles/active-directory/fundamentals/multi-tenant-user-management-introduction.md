@@ -57,7 +57,7 @@ Most documentation for B2B refers to an external user as a guest user. It confla
 
 Watch Arvind Harinder talk about the cross-tenant sync capability in Azure AD (embedded below).
 
-> [!VIDEO https://www.youtube.com/watch?v=7B-PQwNfGBc
+> [!VIDEO https://www.youtube.com/embed/7B-PQwNfGBc]
 
 The following conceptual and how-to articles provide information about Azure AD B2B collaboration and cross-tenant synchronization.
 
