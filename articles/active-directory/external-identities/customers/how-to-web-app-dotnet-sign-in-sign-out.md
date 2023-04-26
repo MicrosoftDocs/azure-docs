@@ -51,7 +51,7 @@ Identity related NuGet packages must be installed in the project for authenticat
     [Authorize]
     ```
 
-1. Open *Program.cs* and add the following snippet to the top of the file:
+1. Open *Program.cs* and replace the contents of the file with the following snippet:
 
     ```csharp
     using Microsoft.AspNetCore.Authentication.OpenIdConnect;
@@ -59,14 +59,24 @@ Identity related NuGet packages must be installed in the project for authenticat
     using Microsoft.AspNetCore.Mvc.Authorization;
     using Microsoft.Identity.Web;
     using Microsoft.Identity.Web.UI;
-    ```
+    using System.IdentityModel.Tokens.Jwt;
 
-1. Next we need to add the services to the container and sign users in with the Microsoft identity platform. After `Services.AddControllersWithViews();` add the following snippet:
+    var builder = WebApplication.CreateBuilder(args);
 
-    ```csharp
+    // Add services to the container.
+    builder.Services.AddControllersWithViews();
+
+    // This is required to be instantiated before the OpenIdConnectOptions starts getting configured.
+    // By default, the claims mapping will map claim names in the old format to accommodate older SAML applications.
+    // For instance, 'http://schemas.microsoft.com/ws/2008/06/identity/claims/role' instead of 'roles' claim.
+    // This flag ensures that the ClaimsIdentity claims collection will be built from the claims in the token
+    JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
+
     // Sign-in users with the Microsoft identity platform
     builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
-    .AddMicrosoftIdentityWebApp(builder.Configuration);
+        .AddMicrosoftIdentityWebApp(builder.Configuration)
+        .EnableTokenAcquisitionToCallDownstreamApi()
+        .AddInMemoryTokenCaches();
 
     builder.Services.AddControllersWithViews(options =>
     {
@@ -75,15 +85,37 @@ Identity related NuGet packages must be installed in the project for authenticat
             .Build();
         options.Filters.Add(new AuthorizeFilter(policy));
     }).AddMicrosoftIdentityUI();
-    ```
 
+    var app = builder.Build();
+
+    // Configure the HTTP request pipeline.
+    if (!app.Environment.IsDevelopment())
+    {
+        app.UseExceptionHandler("/Home/Error");
+        // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+        app.UseHsts();
+    }
+
+    app.UseHttpsRedirection();
+    app.UseStaticFiles();
+
+    app.UseRouting();
+    app.UseAuthorization();
+
+    app.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
+
+    app.Run();
+
+    ```
 
 ## Add the sign-in and sign-out experience
 
 After installing the NuGet packages and adding necessary code for authentication, we need to add the sign-in and sign-out experiences.
 
-1. In your IDE, navigate to *Views* > *Shared*, and create a new file called *_LoginPartial.cshtml*.
-1. Open *_LoginPartial.cshtml* and add the following code for adding the sign in and sign out experience:
+1. In your IDE, navigate to *Views/Shared*, and create a new file called *_LoginPartial.cshtml*.
+1. Open *_LoginPartial.cshtml* and add the following code for adding the sign in and sign out experience. The code reads the ID token claims to check that the user is authenticated and uses `User.Claims` to extract ID token claims. In this case, `preferred_username`.
 
     ```csharp
     @using System.Security.Principal
@@ -92,7 +124,7 @@ After installing the NuGet packages and adding necessary code for authentication
     @if (User.Identity is not null && User.Identity.IsAuthenticated)
     {
             <li class="nav-item">
-                <span class="nav-link text-dark">Hello @User.Identity.Name!</span>
+                <span class="nav-link text-dark">Hello @User.Claims.First(c => c.Type == "preferred_username").Value!</span>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">Sign out</a>
@@ -114,6 +146,55 @@ After installing the NuGet packages and adding necessary code for authentication
         <partial name="_LoginPartial" />
     </div>
     ```
+
+## View ID token claims
+
+Open *Views/Home/Index.cshtml* and replace the contents of the file with the following snippet:
+
+```csharp
+@{
+ViewData["Title"] = "Home Page";
+}
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        text-align: justify;
+        padding: 8px;
+        border-bottom: 1px solid #ddd;
+        border-top: 1px solid #ddd;
+    }
+</style>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+
+    @if (@User.Identity is not null && @User.Identity.IsAuthenticated)
+    {
+        <p>You are signed in! Below are the claims in your ID token. For more information, visit: <a href="https://learn.microsoft.com/azure/active-directory/develop/id-tokens">Microsoft identity platform ID tokens</a></p>
+        <table>
+            <tbody>
+                
+                @foreach (var item in @User.Claims)
+                {
+                    <tr>
+                        <td>@item.Type</td>
+                        <td>@item.Value</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    <br />
+    <p>Learn about <a href="https://learn.microsoft.com/azure/active-directory/develop/v2-overview">building web apps with Microsoft identity platform</a>.</p>
+</div>
+```
+
+Using the token claims, the app checks that the user is authenticated using `User.Identity.IsAuthenticated`, and from there lists out the ID token claims by looping through each item in `User.Claims`, returning their `Type` and `Value`.
 
 ## Sign-in to the application
 
