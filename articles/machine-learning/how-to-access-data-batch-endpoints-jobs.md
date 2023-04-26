@@ -31,10 +31,10 @@ The number and type of inputs and outputs depend on the [type of batch deploymen
 
 The following table summarizes it:
 
-| Deployment type        | Input's number | Suported input's types              | Output's number | Suported output's types              |
-| ---------------------- | -------------- | -------------------------- | --------------- | --------------------------- |
-| [Model deployment](concept-endpoints-batch.md#model-deployments)  | 1              | [Data inputs](#data-inputs) | 1               | [Data outputs](#data-inputs) |
-| [Pipeline component deployment](concept-endpoints-batch.md#pipeline-component-deployment)  | [0..N]         | [Data inputs](#data-inputs) and [literal inputs](#literal-inputs)  | [0..N]   | [Data outputs](#data-outputs) |
+| Deployment type | Input's number | Suported input's types | Output's number | Suported output's types |
+|--|--|--|--|--|
+| [Model deployment](concept-endpoints-batch.md#model-deployments) | 1 | [Data inputs](#data-inputs) | 1 | [Data outputs](#data-inputs) |
+| [Pipeline component deployment (preview)](concept-endpoints-batch.md#pipeline-component-deployment-preview) | [0..N] | [Data inputs](#data-inputs) and [literal inputs](#literal-inputs) | [0..N] | [Data outputs](#data-outputs) |
 
 
 
