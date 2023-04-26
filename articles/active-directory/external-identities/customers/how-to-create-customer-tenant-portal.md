@@ -87,7 +87,7 @@ Before you can create the new customer tenant in the Microsoft Entra admin cente
 
 1. Select **Next: Review + Create**. Review the information you entered and if the information is correct, select **Create**. The tenant creation process can take up to 30 minutes. You can monitor the progress of the tenant creation process in the **Notifications** pane. Once the customer tenant is created, you can access it in both the Microsoft Entra admin center and the Azure portal.
 
-## Find the customer tenant details
+## Get the customer tenant details <!--  Check with Derdus - he is using how-to-create-customer-tenant-portal.md#get-tenant-name --> 
 
 If you're not sure which directory contains your customer tenant, you can find the tenant name and ID both in the Microsoft Entra admin center and in the Azure portal.
 
