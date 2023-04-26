@@ -32,7 +32,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 Before you begin this tutorial, have the following prerequisites in place:
 
-* Complete the one of the [Send telemetry](../iot-develop/quickstart-send-telemetry-iot-hub.md) quickstarts in the development language of your choice. Alternatively, you can use any device app that sends temperature telemetry; for example, the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) or one of the [Embedded device](../iot-develop/quickstart-devkit-mxchip-az3166.md) quickstarts. These articles cover the following requirements:
+* Complete one of the [Send telemetry](../iot-develop/quickstart-send-telemetry-iot-hub.md) quickstarts in the development language of your choice. Alternatively, you can use any device app that sends temperature telemetry; for example, the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) or one of the [Embedded device](../iot-develop/quickstart-devkit-mxchip-az3166.md) quickstarts. These articles cover the following requirements:
 
   * An active Azure subscription.
   * An Azure IoT hub in your subscription.
@@ -48,7 +48,7 @@ Create a Stream Analytics job. After you create the job, you define the inputs, 
 
 ### Create a Stream Analytics job
 
-Create a Steam Analytics job that you'll use to route data from IoT Hub to Power BI.
+Create a Stream Analytics job that you'll use to route data from IoT Hub to Power BI.
 
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource**. Type *Stream Analytics Job* in the search box and select it from the drop-down list. On the **Stream Analytics job** overview page, select **Create**
 
@@ -140,7 +140,7 @@ Configure the Stream Analytics job to collect data from your IoT hub.
 ### Run the Stream Analytics job
 
 1. In the Stream Analytics job, select **Overview**.
-1. select **Start** > **Now** > **Start**. Once the job successfully starts, the job status changes from **Stopped** to **Running**.
+1. Select **Start** > **Now** > **Start**. Once the job successfully starts, the job status changes from **Stopped** to **Running**.
 
 ## Create and publish a Power BI report to visualize the data
 
