@@ -18,7 +18,7 @@ Traffic Controller is the evolution of Application Gateway Ingress Controller (A
 
 The existing Application Gateway Ingress Controller (AGIC) is a Kubernetes application, which makes it possible for Azure Kubernetes Service (AKS) customers to leverage Azure's native Application Gateway Application load-balancer. In its current form Application Gateway Ingress Controller (AGIC) monitors a subset of Kubernetes Resources for changes and applies them to the Application Gateway utilizing Azure Resource Manager (ARM).
 
-Traffic Controller offers an elastic and scalable ingress to AKS clusters and comprises of a new data plane as well as control plane with new set of ARM APIs, different from existing Application Gateway. Traffic controller consists of an outside the AKS cluster data plane which is responsible for ingress and is controlled by an LB controller component running inside the AKS cluster adhering to Kubernete's Gateway APIs.
+Traffic Controller offers an elastic and scalable ingress to AKS clusters and comprises of a new data plane as well as control plane with new set of ARM APIs, different from existing Application Gateway. Traffic controller consists of an outside the AKS cluster data plane which is responsible for ingress and is controlled by an ALB controller component running inside the AKS cluster adhering to Kubernete's Gateway APIs.
 
 ## Features
 
@@ -44,7 +44,7 @@ Traffic Controller supports the following features for traffic management:
 
 ### Implementation of Gateway API
 
-LB Controller implements version [v1beta1](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1) of the [Gateway API](https://gateway-api.sigs.k8s.io/)
+ALB Controller implements version [v1beta1](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1) of the [Gateway API](https://gateway-api.sigs.k8s.io/)
 
 | Gateway API Resource      | Support | Comments     |
 | ------------------------- | ------- | ------------ |
@@ -53,9 +53,9 @@ LB Controller implements version [v1beta1](https://gateway-api.sigs.k8s.io/refer
 | [HTTPRoute](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io%2fv1beta1.HTTPRoute)                | Yes   | Currently does not support [HTTPRouteFilter](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1.HTTPRouteFilter) |
 | [ReferenceGrant](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io%2fv1alpha2.ReferenceGrant)     | Yes   | Currently supports version v1alpha1 of this api |
 
-### Implementation of custom CRDs in LB Controller 
+### Implementation of custom CRDs in ALB Controller 
 
-LB Controller supports a few custom CRDs, details on these can be found [here](api-types-kubernetes.md).
+ALB Controller supports a few custom CRDs, details on these can be found [here](api-types-kubernetes.md).
 
 ## Reporting Issues
 

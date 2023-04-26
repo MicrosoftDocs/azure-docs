@@ -19,7 +19,7 @@ This document will help setup an example application that leverage the following
 - [HTTPRoute](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/httproute/) - creating a http route that references a backend service
 
 ## Prerequisites
-Ensure you have a setup your Traffic Controller and LB Controller following the [Quickstart guide](quickstart-create-traffic-controller.md).
+Ensure you have a setup your Traffic Controller and ALB Controller following the [Quickstart guide](quickstart-create-traffic-controller.md).
 
 Set the following environment variables
 ```bash
@@ -108,4 +108,4 @@ Curling this IP should return responses from the backend as configured on the HT
 curl --insecure https://$ip/ -H "host: example.com"
 ```
 
-Congratulations, you have installed LB controller, deployed a backend application and routed traffic to the application via the ingress on Traffic Controller.
+Congratulations, you have installed ALB controller, deployed a backend application and routed traffic to the application via the ingress on Traffic Controller.
