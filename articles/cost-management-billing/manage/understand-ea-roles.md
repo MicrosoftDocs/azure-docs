@@ -181,7 +181,7 @@ The following sections describe the limitations and capabilities of each role.
 
 - ⁴ Notification contacts are sent email communications about the Azure Enterprise Agreement.
 - ⁵ Task is limited to accounts in your department.
-- ⁶ The Enterprise Administrator (read only) role doesn't allow reservation purchases. However, if the EA Admin (read only) is also a subscription owner or subscription reservation purchaser, they can purchase a reservation.
+- ⁶ A subscription owner or reservation purchaser may purchase and manage reservations and savings plans within the subscription, and only if permitted by the reservation purchase enabled flag.  Enterprise administrators may purchase and manage reservations and savings plans across the billing account.  Enterprise administrators (read-only) may view all purchased reservations and savings plans.  Neither EA administrator role is governed by the reservation purchase enabled flag.  While the Enterprise Admin (read-only) role holder is not permitted to make purchases, as it is not governed by reservation purchase enabled, if a user with that role also holds either a subscription owner or reservation purchaser permission, that user may purchase reservations and savings plans even if the reservation purchase enabled flag is set to false
 
 ## Add a new enterprise administrator
 

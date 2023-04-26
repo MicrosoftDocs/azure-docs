@@ -4,13 +4,13 @@ description: A share snapshot is a read-only version of an Azure file share that
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/06/2022
+ms.date: 04/25/2023
 ms.author: kendownie
 ms.subservice: files
 ---
 
 # Overview of share snapshots for Azure Files
-Azure Files provides the capability to take share snapshots of SMB file shares. Share snapshots capture the share state at that point in time. This article describes the capabilities that file share snapshots provide and how you can take advantage of them in your custom use case.
+Azure Files provides the capability to take snapshots of file shares. Share snapshots capture the share state at that point in time. This article describes the capabilities that file share snapshots provide and how you can take advantage of them in your custom use case.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -69,7 +69,7 @@ Snapshots don't count towards the maximum share size limit, which is 100 TiB for
 
 The maximum number of share snapshots that Azure Files allows today is 200 per share. After 200 share snapshots, you have to delete older share snapshots in order to create new ones. 
 
-There is no limit to the simultaneous calls for creating share snapshots. There is no limit to amount of space that share snapshots of a particular file share can consume. 
+There's no limit to the simultaneous calls for creating share snapshots. There's no limit to amount of space that share snapshots of a particular file share can consume. 
 
 Taking snapshots of NFS Azure file shares isn't currently supported.
 
@@ -93,23 +93,7 @@ Before you deploy the share snapshot scheduler, carefully consider your share sn
 
 Share snapshots provide only file-level protection. Share snapshots don't prevent fat-finger deletions on a file share or storage account. To help protect a storage account from accidental deletions, you can either [enable soft delete](storage-files-prevent-file-share-deletion.md), or lock the storage account and/or the resource group.
 
-## Delete multiple snapshots
-
-Use the following PowerShell script to delete multiple file share snapshots. Be sure to replace **storageaccount_name**, **resource-GROUP**, and **sharename** with your own values.
-
-```powerShell
-$storageAccount = "storageaccount_name" 
-$RG = "resource-GROUP" $sharename = "sharename"
-$sa = get-azstorageaccount -Name $storageAccount -ResourceGroupName $RG $items = "","","" 
-ForEach ($item in $items)
-{
-    $snapshotTime = "$item"
-    $snap = Get-AzStorageShare -Name $sharename -SnapshotTime "$snapshotTime" -Context $sa.Context
-    $lease = [Azure.Storage.Files.Shares.Specialized.ShareLeaseClient]::new($snap.ShareClient)
-    $l
-}
-```
-## Next steps
+## See also
 - Working with share snapshots in:
     - [Azure file share backup](../../backup/azure-file-share-backup-overview.md)
     - [Azure PowerShell](/powershell/module/az.storage/new-azrmstorageshare)
