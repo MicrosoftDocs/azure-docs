@@ -1931,6 +1931,8 @@
         href: proactis-rego-source-to-pay-tutorial.md
       - name: Proactis Rego Source-to-Contract
         href: proactis-rego-source-to-contract-tutorial.md
+      - name: Proactis Rego Invoice Capture
+        href: proactis-rego-invoice-capture-tutorial.md
       - name: Procaire
         href: procaire-tutorial.md
       - name: ProcessUnity
