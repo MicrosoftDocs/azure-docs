@@ -296,7 +296,7 @@ GET https://{your-resource-name}.openai.azure.com/openai/dalle/operations/images
 | Parameter | Type | Required? |  Description |
 |--|--|--|--|
 | ```your-resource-name``` | string |  Required | The name of your Azure OpenAI Resource. |
-| ```operation-id``` | string |  Required | A GUID that marks the operation for the result retrieval later. |
+| ```operation-id``` | string |  Required | The GUID that identifies the original image generation request. |
 
 **Supported versions**
 
@@ -330,7 +330,35 @@ The operation returns a `200` status code and an `OperationResponse` JSON object
 
 ### Cancel an image generation request
 
-You can use the operation ID returned by the request to delete that request
+You can use the operation ID returned by the request to delete that request from the server.
+
+
+```http
+DELETE https://{your-resource-name}.openai.azure.com/openai/dalle/operations/images/{operation-id}?api-version={api-version}
+```
+
+**Path parameters**
+
+| Parameter | Type | Required? |  Description |
+|--|--|--|--|
+| ```your-resource-name``` | string |  Required | The name of your Azure OpenAI Resource. |
+| ```operation-id``` | string |  Required | The GUID that identifies the original image generation request. |
+
+**Supported versions**
+
+- `2023-04-15-preview`
+
+#### Example request
+
+```console
+curl -X DELETE "https://aoairesource.openai.azure.com/openai/dalle/operations/images/{operation-id}?api-version=2023-04-15-preview"
+-H "Content-Type: application/json"
+-H "Api-Key: {api key}"
+```
+
+#### Response
+
+The operation returns a `204` status code if successful. This API only succeeds if the operation is in a terminal state (not `running`).
 
 ## Management APIs
 
