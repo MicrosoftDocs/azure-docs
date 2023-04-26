@@ -1,9 +1,11 @@
 ---
-title: Use JSON Schema with Apache Kafka applications - Azure Event Hubs | Microsoft Docs
+title: Use JSON Schema with Apache Kafka applications
 description: This article provides information on how to use JSON Schema in Schema Registry with Apache Kafka applications.
 ms.topic: how-to
-ms.date: 03/09/2023
+ms.date: 04/26/2023
 ms.devlang: scala
+author: kasun04
+ms.author: kindrasiri
 ---
 
 # Use JSON Schema with Apache Kafka applications 
