@@ -429,7 +429,7 @@ The following code calls the Image Analysis API and prints the results for the v
 The sample code above for getting analysis results shows how to handle errors and get the [ImageAnalysisErrorDetails](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysiserrordetails) object that contains the error information. This includes:
 
 * Error reason. See enum [ImageAnalysisErrorReason](/dotnet/api/azure.ai.vision.imageanalysis.imageanalysiserrorreason).
-* Error code and error message. Click on the REST tab to see a list of some common error codes and messages.
+* Error code and error message. Click on the [REST tab](#tab/rest) to see a list of some common error codes and messages.
 
 In addition to those errors, the SDK has a few additional error messages, including:
   * `Missing Image Analysis options: You must set at least one visual feature (or model name) for the 'analyze' operation. Or set segmentation mode for the 'segment' operation`
@@ -444,7 +444,7 @@ In general, if you run into an issue, please first have a look at the [Image Ana
 The sample code above for getting analysis results shows how to handle errors and get the [ImageAnalysisErrorDetails](/python/api/azure-ai-vision/azure.ai.vision.imageanalysiserrordetails) object that contains the error information. This includes:
 
 * Error reason. See enum [ImageAnalysisErrorReason](/python/api/azure-ai-vision/azure.ai.vision.enums.imageanalysiserrorreason).
-* Error code and error message. Click on the REST tab to see a list of some common error codes and messages.
+* Error code and error message. Click on the [REST tab](#tab/rest) to see a list of some common error codes and messages.
 
 In addition to those errors, the SDK has a few additional error messages, including:
   * `Missing Image Analysis options: You must set at least one visual feature (or model name) for the 'analyze' operation. Or set segmentation mode for the 'segment' operation`
@@ -459,7 +459,7 @@ In general, if you run into an issue, please first have a look at the [Image Ana
 The sample code above for getting analysis results shows how to handle errors and get the [ImageAnalysisErrorDetails](/cpp/cognitive-services/vision/imageanalysis-imageanalysiserrordetails) object that contains the error information. This includes:
 
 * Error reason. See enum [ImageAnalysisErrorReason](/cpp/cognitive-services/vision/azure-ai-vision-imageanalysis-namespace#enum-imageanalysiserrorreason).
-* Error code and error message. Click on the REST tab to see a list of some common error codes and messages.
+* Error code and error message. Click on the [REST tab](#tab/rest) to see a list of some common error codes and messages.
 
 In addition to those errors, the SDK has a few additional error messages, including:
   * `Missing Image Analysis options: You must set at least one visual feature (or model name) for the 'analyze' operation. Or set segmentation mode for the 'segment' operation`
