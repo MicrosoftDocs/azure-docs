@@ -455,8 +455,8 @@
       displayName: Create datastores
       href: how-to-datastore.md
     - name: Setup storage authentication
-      displayName:
-      href:
+      displayName: Data administration and authentication
+      href: how-to-administrate-data-authentication.md
     - name: Common data authentication issues and FAQ
       displayName:
       href:
@@ -466,11 +466,11 @@
       displayName:
       href:
     - name: Create connections to external data sources
-      displayName:
-      href:
+      displayName: 
+      href: how-to-connection.md
     - name: Import data
       displayName:
-      href:
+      href: how-to-import-data-assets.md
     - name: Manage import schedules
       displayName:
       href:
@@ -489,14 +489,14 @@
       displayName: Create data assets
       href: how-to-create-data-assets.md
     - name: Access data during interactive development
-      displayName:
-      href:
+      displayName: Access data during interactive development
+      href: how-to-access-data-interactive.md
     - name: Access data in jobs
-      displayName:
-      href:
+      displayName: Access data in jobs
+      href: how-to-read-write-data-v2.md
     - name: Working with Tables (mltable)
-      displayName:
-      href:
+      displayName: Working with Tables (mltable)
+      href: how-to-mltable.md
     - name: Tuning data loading performance
       displayName:
       href:
@@ -511,40 +511,39 @@
     - name: Setup
       items:
       - name: Image labeling
-        displayName:
-        href:
+        displayName: data, dataset
+        href: how-to-create-image-labeling-projects.md
       - name: Text labeling
-        displayName:
-        href:
+        displayName: data, dataset
+        href: how-to-create-text-labeling-projects.md
       - name: Add users
-        displayName:
-        href:
+        displayName: data, dataset, labeling
+        href: how-to-add-users.md
     - name: End-to-end tutorial
       displayName:
       href:
     - name: Label images and text
-      displayName:
-      href:
+      displayName: data, dataset, labeling
+      href: how-to-label-data.md
     - name: Outsource labeling tasks
-      displayName:
-      href:
+      displayName: data, dataset, labeling
+      href: how-to-outsource-data-labeling.md
     - name: Common data labelling issues and FAQ
-      displayName:
+      displayName: data, dataset, labeling, FAQ
       href:
   - name: Prepare data with Apache Spark
     items:
     - name: Overview
-      displayName:
-      href:
+      href: apache-spark-azure-ml-concepts.md
     - name: End-to-end tutorial
       displayName:
       href:
     - name: Submit Spark Jobs
-      displayName:
-      href:
+      displayName: Submit Spark jobs in Azure Machine Learning
+      href: how-to-submit-spark-jobs.md
     - name: Interactive development with Apache Spark
-      displayName:
-      href:
+      displayName: Interactive Data Wrangling with Apache Spark
+      href: interactive-data-wrangling-with-apache-spark-azure-ml.md
     - name: Tuning Apache Spark performance
       displayName:
       href:
