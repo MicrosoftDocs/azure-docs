@@ -198,3 +198,5 @@ Now that you've learned the basics of Queue Storage, follow these links to learn
 - [Azure Storage client SDK reference](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage)
 - [Azure Storage services REST API](/rest/api/storageservices/)
 - [Azure Storage team blog](https://techcommunity.Microsoft.com/t5/Azure-storage/bg-p/azurestorageblog)
+
+For related code samples using deprecated Java version 8 SDKs, see [Code samples using Java version 8](queues-v8-samples-java.md).
