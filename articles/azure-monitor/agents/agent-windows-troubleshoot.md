@@ -149,11 +149,11 @@ You may have received the breaking change notification even if you have not pers
 -	VM Insights
 -	[System Center Operations Manager (SCOM)](/system-center/scom/deploy-upgrade-agents)
 -	[System Center Service Manager (SCSM)](/system-center/scsm/upgrade-service-manager)
--	[Microsoft Defender for Server](/microsoft-365/security/defender-endpoint/update-agent-mma-windows?view=o365-worldwide)
--	[Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/update-agent-mma-windows?view=o365-worldwide)
+-	[Microsoft Defender for Server](/microsoft-365/security/defender-endpoint/update-agent-mma-windows)
+-	[Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/update-agent-mma-windows)
 -	Azure Sentinel
 -	[Azure Automation Agent-based Hybrid Worker](../../automation/automation-windows-hrw-install.md#update-log-analytics-agent-to-latest-version)
--	[Azure Automation Change Tracking and Inventory](../../automation/change-tracking/overview?tabs=python-2.md#update-log-analytics-agent-to-latest-version)
+-	[Azure Automation Change Tracking and Inventory](../../automation/change-tracking/overview.md?tabs=python-2#update-log-analytics-agent-to-latest-version)
 -	[Azure Automation Update Management](../../automation/update-management/overview.md#update-windows-log-analytics-agent-to-latest-version)
 
 
