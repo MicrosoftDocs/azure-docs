@@ -31,8 +31,7 @@ This article shows how to do the following tasks:
 > * If you're looking for information on using the Azure Machine Learning SDK v1 or CLI v1, see [How to track, monitor, and analyze jobs (v1)](./v1/how-to-track-monitor-analyze-runs.md).
 > * If you're looking for information on monitoring training jobs from the CLI or SDK v2, see [Track experiments with MLflow and CLI v2](how-to-use-mlflow-cli-runs.md).
 > * If you're looking for information on monitoring the Azure Machine Learning service and associated Azure services, see [How to monitor Azure Machine Learning](monitor-azure-machine-learning.md).
->
-> If you're looking for information on monitoring models deployed to online endpoints, see [Monitor online endpoints](how-to-monitor-online-endpoints.md).
+> * If you're looking for information on monitoring models deployed to online endpoints, see [Monitor online endpoints](how-to-monitor-online-endpoints.md).
 
 > [!IMPORTANT]
 > Items marked (preview) in this article are currently in public preview.
@@ -92,16 +91,14 @@ You can now tag your experiments with custom labels that will help you group and
 ## Custom View 
     
 To view your jobs in the studio: 
-    
+
 1. Navigate to the **Jobs** tab.
-    
+
 1. Select either **All experiments** to view all the jobs in an experiment or select **All jobs** to view all the jobs submitted in the Workspace.
-    
-In the **All jobs'** page, you can filter the jobs list by tags, experiments, compute target and more to better organize and scope your work.  
-    
+
+    In the **All jobs'** page, you can filter the jobs list by tags, experiments, compute target and more to better organize and scope your work.  
+
 1. Make customizations to the page by selecting jobs to compare, adding charts or applying filters. These changes can be saved as a **Custom View** so you can easily return to your work. Users with workspace permissions can edit, or view the custom view. Also, share the custom view with team members for enhanced collaboration by selecting **Share view**.
-
-
 
 ## Next steps
 

@@ -34,8 +34,7 @@ This article will show you how to utilize your dashboard with the following task
 > * If you're looking for information on using the Azure Machine Learning SDK v1 or CLI v1, see [How to track, monitor, and analyze jobs (v1)](./v1/how-to-track-monitor-analyze-runs.md).
 > * If you're looking for information on monitoring training jobs from the CLI or SDK v2, see [Track experiments with MLflow and CLI v2](how-to-use-mlflow-cli-runs.md).
 > * If you're looking for information on monitoring the Azure Machine Learning service and associated Azure services, see [How to monitor Azure Machine Learning](monitor-azure-machine-learning.md).
->
-> If you're looking for information on monitoring models deployed to online endpoints, see [Monitor online endpoints](how-to-monitor-online-endpoints.md).
+> * If you're looking for information on monitoring models deployed to online endpoints, see [Monitor online endpoints](how-to-monitor-online-endpoints.md).
 
 > [!IMPORTANT]
 > Items marked (preview) in this article are currently in public preview.
@@ -70,9 +69,9 @@ The left side bar is a collapsed view of your jobs list. You can filter, add col
 
 By pinning columns, you can simplify your list view to only show columns you pinned. You can also change the width on the jobs list to either view more or less.
 
-:::image type="content" source="media/how-to-visualize-jobs/jobs-list-in-dashboard-view.gif" alt-text="Screenshot of how to filter, add and pin columns, and edit the jobs list in dashboard view.":::
+:::image type="content" source="media/how-to-visualize-jobs/jobs-list-in-dashboard-view.gif" alt-text="Screenshot of how to filter, add and pin columns, and edit the jobs list in dashboard view." lightbox="media/how-to-visualize-jobs/jobs-list-in-dashboard-view.gif":::
 
-For sweep and automl jobs, you can easily identify the best trial and best model with the **Best** label positioned next to the appropriate job display name. This will simplify comparisons across these
+For sweep and AutoML jobs, you can easily identify the best trial and best model with the **Best** label positioned next to the appropriate job display name. This will simplify comparisons across these jobs.
 
 ### Sections
 
@@ -86,7 +85,7 @@ You can also move sections up and down as well as remove sections that you no lo
 
 Hide/Show Tiles and Order Tiles in Section 
 
-:::image type="content" source="media/how-to-visualize-jobs/sections-in-dashboard-view.gif" alt-text="Screenshot of how to organize sections in dashboard view.":::
+:::image type="content" source="media/how-to-visualize-jobs/sections-in-dashboard-view.gif" alt-text="Screenshot of how to organize sections in dashboard view." lightbox="media/how-to-visualize-jobs/sections-in-dashboard-view.gif":::
 
 ### Tiles
 
@@ -98,7 +97,7 @@ To easily find the tile with the metric you care most about, you can use the sea
 
 Search Tiles 
 
-:::image type="content" source="media/how-to-visualize-jobs/tiles-in-dashboard-view.gif" alt-text="Screenshot of how to search and add tiles in dashboard view.":::
+:::image type="content" source="media/how-to-visualize-jobs/tiles-in-dashboard-view.gif" alt-text="Screenshot of how to search and add tiles in dashboard view."  lightbox="media/how-to-visualize-jobs/tiles-in-dashboard-view.gif":::
 
 
 ## Change job colors
@@ -109,7 +108,7 @@ You can either stick to the colors assigned or take advantage of the color picke
 
 To open the color picker, simply select the colored dot next to the job and change color via the palette, RGB, or hex code. 
 
-:::image type="content" source="media/how-to-visualize-jobs/change-job-color.gif" alt-text="Screenshot of how to change job color."::: 
+:::image type="content" source="media/how-to-visualize-jobs/change-job-color.gif" alt-text="Screenshot of how to change job color." lightbox="media/how-to-visualize-jobs/change-job-color.gif"::: 
 
 ## Visualize jobs 
 
@@ -119,14 +118,14 @@ To reduce the list to show only jobs that are visualized in the dashboard, click
 
 To reset and start choosing a new set of jobs to visualize, you can click on the eye at the top to **Visualize None** to remove all jobs from surfacing in the dashboard and then go ahead and select the new set of jobs.
 
- :::image type="content" source="media/how-to-visualize-jobs/visualize-jobs.gif" alt-text="Screenshot of how to visualize jobs in dashboard view.":::
+ :::image type="content" source="media/how-to-visualize-jobs/visualize-jobs.gif" alt-text="Screenshot of how to visualize jobs in dashboard view. lightbox="media/how-to-visualize-jobs/visualize-jobs.gif":::
 
 
 ## Add charts 
 
-You can create a custom chart to add to your dashboard view if you’re looking to plot a set of metrics or specific style. Azure Machine Learning Studio supports line, bar, scatter, and parallel coordinates charts for you to add to your view. 
+You can create a custom chart to add to your dashboard view if you’re looking to plot a set of metrics or specific style. Azure Machine Learning studio supports line, bar, scatter, and parallel coordinates charts for you to add to your view.
 
-:::image type="content" source="media/how-to-visualize-jobs/add-bar-chart-to-dashboard.gif" alt-text="Screenshot of how to add a bar chart to your dashboard view.":::
+:::image type="content" source="media/how-to-visualize-jobs/add-bar-chart-to-dashboard.gif" alt-text="Screenshot of how to add a bar chart to your dashboard view." lightbox="media/how-to-visualize-jobs/add-bar-chart-to-dashboard.gif":::
 
 ## Edit charts 
 
@@ -134,7 +133,7 @@ You can add data smoothing, ignore outliers, and change the x-axis for all the c
 
 You can perform these actions for an individual chart as well by clicking on the pencil icon to customize specific charts to your desired preference. You can also edit the style of the line type and marker for line and scatter charts respectively.
 
-:::image type="content" source="media/how-to-visualize-jobs/edit-line-chart-style.gif" alt-text="Screenshot of how to change line chart styles.":::
+:::image type="content" source="media/how-to-visualize-jobs/edit-line-chart-style.gif" alt-text="Screenshot of how to change line chart styles." lightbox="media/how-to-visualize-jobs/edit-line-chart-style.gif":::
 
 ## Compare your training jobs using Compare Tile 
 
@@ -155,7 +154,7 @@ Navigate to the Resource metrics section to view your resource usage across jobs
 
 You can add markdown tiles to your dashboard view to summarize insights, add comments, take notes, and more. This is a great way for you to provide additional context and references for yourself and your team if you share this view. 
 
-:::image type="content" source="media/how-to-visualize-jobs/add-markdown-tile.gif" alt-text="Screenshot of how to add a markdown tile to dashboard view.":::
+:::image type="content" source="media/how-to-visualize-jobs/add-markdown-tile.gif" alt-text="Screenshot of how to add a markdown tile to dashboard view." lightbox="media/how-to-visualize-jobs/add-markdown-tile.gif":::
 
 ## Create and save custom views
 
@@ -163,7 +162,7 @@ After applying changes to your jobs list and dashboard, you can save all these c
 
 Please note that you cannot save changes to the Default view, but you can save them into your own Custom view. You can now manage all your views from a single menu to create new, edit existing, rename, or delete them.
 
-:::image type="content" source="media/how-to-visualize-jobs/create-save-custom-views.gif" alt-text="Screenshot of how to save and manage custom views.":::
+:::image type="content" source="media/how-to-visualize-jobs/create-save-custom-views.gif" alt-text="Screenshot of how to save and manage custom views." lightbox="media/how-to-visualize-jobs/create-save-custom-views.gif":::
 
 
 ## Next steps
