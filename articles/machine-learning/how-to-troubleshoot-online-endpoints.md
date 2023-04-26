@@ -242,6 +242,7 @@ We also recommend [deploying locally](#deploy-locally) to test and debug your mo
 This is a list of common resources that might run out of quota when using Azure services:
 
 * [CPU](#cpu-quota)
+* [Cluster](#cluster-quota)
 * [Disk](#disk-quota)
 * [Memory](#memory-quota)
 * [Role assignments](#role-assignment-quota)
@@ -258,6 +259,12 @@ Additionally, this is a list of common resources that might run out of quota onl
 Before deploying a model, you need to have enough compute quota. This quota defines how much virtual cores are available per subscription, per workspace, per SKU, and per region. Each deployment subtracts from available quota and adds it back after deletion, based on type of the SKU.
 
 A possible mitigation is to check if there are unused deployments that you can delete. Or you can submit a [request for a quota increase](how-to-manage-quotas.md#request-quota-increases).
+
+#### Cluster quota
+
+This issue will occur when you do not have enough Azure ML Compute cluster quota. This quota defines the total number of clusters that may be in use at one time per subscription to deploy CPU or GPU nodes in Azure Cloud.
+
+A possible mitigation is to check if there are unused deployments that you can delete. Or you can submit a [request for a quota increase](how-to-manage-quotas.md#request-quota-increases). Make sure to select `Machine Learning Service: Cluster Quota` as the quota type for this quota increase request.
 
 #### Disk quota
 
