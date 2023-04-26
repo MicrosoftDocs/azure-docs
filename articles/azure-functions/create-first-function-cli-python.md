@@ -256,18 +256,6 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
 
     ---
 
-1. When you're using the Azure CLI, you can turn on the `param-persist` option that automatically tracks the names of your created resources. For more information, see [Azure CLI persisted parameter](/cli/azure/param-persist-howto).
-
-    # [Azure CLI](#tab/azure-cli)
-    ```azurecli
-    az config param-persist on
-    ```
-
-    # [Azure PowerShell](#tab/azure-powershell)
-
-    This feature isn't available in Azure PowerShell.
-
-    ---
 
 1. Create a resource group named `AzureFunctionsQuickstart-rg` in your chosen region.
 
