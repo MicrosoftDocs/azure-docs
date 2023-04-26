@@ -9,7 +9,7 @@ ms.date: 03/02/2022
 ms.author: mmitrik
 ---
 
-# Enable Audit and Diagnostic Logging in the DICOM service
+# Enable audit and diagnostic logging in the DICOM service
 
 In this article, you'll learn how to enable diagnostic logging in DICOM service and be able to review some sample queries for these logs. Access to diagnostic logs is essential for any healthcare service where compliance with regulatory requirements is a must. The feature in DICOM service enables diagnostic logs is the [Diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md) in the Azure portal. 
 
@@ -45,12 +45,12 @@ In this article, you'll learn how to enable diagnostic logging in DICOM service 
  
    For information on how to work with diagnostic logs, see [Azure Resource Log documentation](../../azure-monitor/essentials/platform-logs-overview.md)
 
-## Log Details
-The log schema used differ based on the destination. Log Analytics has a schema that will differ from other destinations. Each log type will also have a schema that differs.
+## Log details
+The log schema used differs based on the destination. Log Analytics has a schema that will differ from other destinations. Each log type will also have a schema that differs.
 
 ### Audit log details
 
-#### Raw Logs
+#### Raw logs
 
 The DICOM service returns the following fields in the audit log as seen when streamed outside of Log Analytics: 
 
@@ -69,7 +69,7 @@ The DICOM service returns the following fields in the audit log as seen when str
 |level|String|Log level (Informational, Error).
 
 
-#### Log Analytics Logs
+#### Log Analytics logs
 
 The DICOM service returns the following fields in the audit log in Log Analytics: 
 
@@ -88,9 +88,9 @@ The DICOM service returns the following fields in the audit log in Log Analytics
 |TenantId|String| Tenant ID.
 
 
-### Dignostic log details
+### Diagnostic log details
 
-#### Raw Logs
+#### Raw logs
 
 The DICOM service returns the following fields in the audit log as seen when streamed outside of Log Analytics: 
 
@@ -106,7 +106,7 @@ The DICOM service returns the following fields in the audit log as seen when str
 |properties|String|Additional information about the event in JSON array format. Examples include DICOM identifiers present in the request.
 |level|String|Log level (Informational, Error).
 
-#### Log Analytics Logs
+#### Log Analytics logs
 
 The DICOM service returns the following fields in the audit log in Log Analytics: 
 
