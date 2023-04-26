@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 04/05/2022
+ms.date: 04/26/2023
 ms.custom: devx-track-csharp
 ---
 
@@ -106,12 +106,6 @@ The number of instances can grow and shrink, and the change feed processor will 
 
 Moreover, the change feed processor can dynamically adjust to containers scale due to throughput or storage increases. When your container grows, the change feed processor transparently handles these scenarios by dynamically increasing the leases and distributing the new leases among existing instances.
 
-## Change feed and provisioned throughput
-
-Change feed read operations on the monitored container will consume [request units](../request-units.md). Make sure your monitored container is not experiencing [throttling](troubleshoot-request-rate-too-large.md), otherwise you will experience delays in receiving change feed events on your processors.
-
-Operations on the lease container (updating and maintaining state) consume [request units](../request-units.md). The higher the number of instances using the same lease container, the higher the potential request units consumption will be. Make sure your lease container is not experiencing [throttling](troubleshoot-request-rate-too-large.md), otherwise you will experience delays in receiving change feed events on your processors, in some cases where throttling is high, the processors might stop processing completely.
-
 ## Starting time
 
 By default, when a change feed processor starts the first time, it will initialize the leases container, and start its [processing life cycle](#processing-life-cycle). Any changes that happened in the monitored container before the change feed processor was initialized for the first time won't be detected.
@@ -123,9 +117,6 @@ It's possible to initialize the change feed processor to read changes starting a
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=TimeInitialization)]
 
 The change feed processor will be initialized for that specific date and time and start reading the changes that happened after.
-
-> [!NOTE]
-> Starting the change feed processor at a specific date and time is not supported in multi-region write accounts.
 
 ### Reading from the beginning
 
@@ -175,16 +166,6 @@ To prevent your change feed processor from getting "stuck" continuously retrying
 
 In addition, you can use the [change feed estimator](how-to-use-change-feed-estimator.md) to monitor the progress of your change feed processor instances as they read the change feed.
 
-<!-- ## Life-cycle notifications
-
-The change feed processor lets you hook to relevant events in its [life cycle](#processing-life-cycle), you can choose to be notified to one or all of them. The recommendation is to at least register the error notification:
-
-* Register a handler for `WithLeaseAcquireNotification` to be notified when the current host acquires a lease to start processing it.
-* Register a handler for `WithLeaseReleaseNotification` to be notified when the current host releases a lease and stops processing it.
-* Register a handler for `WithErrorNotification` to be notified when the current host encounters an exception during processing, being able to distinguish if the source is the user delegate (unhandled exception) or an error the processor is encountering trying to access the monitored container (for example, networking issues).
-
-[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartWithNotifications)] -->
-
 ## Deployment unit
 
 A single change feed processor deployment unit consists of one or more compute instances with the same lease container configuration, the same `leasePrefix`, but different `hostName` name each. You can have many deployment units where each one has a different business flow for the changes and each deployment unit consisting of one or more instances.
@@ -205,12 +186,6 @@ The number of instances can grow and shrink, and the change feed processor will 
 
 Moreover, the change feed processor can dynamically adjust to containers scale due to throughput or storage increases. When your container grows, the change feed processor transparently handles these scenarios by dynamically increasing the leases and distributing the new leases among existing instances.
 
-## Change feed and provisioned throughput
-
-Change feed read operations on the monitored container will consume [request units](../request-units.md). Make sure your monitored container is not experiencing [throttling](troubleshoot-request-rate-too-large.md), otherwise you will experience delays in receiving change feed events on your processors.
-
-Operations on the lease container (updating and maintaining state) consume [request units](../request-units.md). The higher the number of instances using the same lease container, the higher the potential request units consumption will be. Make sure your lease container is not experiencing [throttling](troubleshoot-request-rate-too-large.md), otherwise you will experience delays in receiving change feed events on your processors, in some cases where throttling is high, the processors might stop processing completely.
-
 ## Starting time
 
 By default, when a change feed processor starts the first time, it will initialize the leases container, and start its [processing life cycle](#processing-life-cycle). Any changes that happened in the monitored container before the change feed processor was initialized for the first time won't be detected.
@@ -218,9 +193,6 @@ By default, when a change feed processor starts the first time, it will initiali
 ### Reading from a previous date and time
 
 It's possible to initialize the change feed processor to read changes starting at a **specific date and time**, by setting `setStartTime` in `options`. The change feed processor will be initialized for that specific date and time and start reading the changes that happened after.
-
-> [!NOTE]
-> Starting the change feed processor at a specific date and time is not supported in multi-region write accounts.
 
 ### Reading from the beginning
 
@@ -230,6 +202,20 @@ In our above sample, we set `setStartFromBeginning` to `false`, which is the sam
 > These customization options only work to setup the starting point in time of the change feed processor. Once the leases container is initialized for the first time, changing them has no effect.
 
 ---
+
+## Change feed and provisioned throughput
+
+Change feed read operations on the monitored container will consume [request units](../request-units.md). Make sure your monitored container is not experiencing [throttling](troubleshoot-request-rate-too-large.md), otherwise you will experience delays in receiving change feed events on your processors.
+
+Operations on the lease container (updating and maintaining state) consume [request units](../request-units.md). The higher the number of instances using the same lease container, the higher the potential request units consumption will be. Make sure your lease container is not experiencing [throttling](troubleshoot-request-rate-too-large.md), otherwise you will experience delays in receiving change feed events on your processors, in some cases where throttling is high, the processors might stop processing completely.
+
+## Customizing lease operations
+
+There are three key configurations that can affect the change feed processor behavior, in all cases, they will affect the [request unit consumption on the lease container](#change-feed-and-provisioned-throughput). These configurations can be changed during the creation of the change feed processor:
+
+1. Lease Acquire: By default every 17 seconds. A host will periodically check the state of the lease store and consider acquiring leases as part of the [dynamic scaling](#dynamic-scaling) process. This process is done by executing a Query on the lease container. Reducing this value will make re-balancing and acquiring leases faster but increase [request unit consumption on the lease container](#change-feed-and-provisioned-throughput).
+1. Lease Expiration: By default 60 seconds. Defines the maximum amount of time that a lease can exist without any renewal activity before it is acquired by another host. If a host crashes, the leases it owned will be picked up by other hosts after this period of time plus the configured renewal interval. Reducing this value will make recovering after a host crash faster, but the expiration value should never be lower than the renewal interval.
+1. 1. Lease Renewal: By default every 13 seconds. A host owning a lease will periodically renew it even if there are no new changes to consume. This process is done by executing a Replace on the lease. Reducing this value will lower the time required to detect leases lost by host crashing but increase [request unit consumption on the lease container](#change-feed-and-provisioned-throughput).
 
 ## Sharing the lease container
 
