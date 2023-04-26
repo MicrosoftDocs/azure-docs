@@ -7,7 +7,7 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, ignite-fall-2021, mode-other
 ---
 
-# Quickstart: Validate schema when sending and receiving events - AMQP and .NET 
+# Quickstart: Validate schema when event streaming using Event Hubs .NET SDKs (AMQP) 
 In this quickstart, you learn how to send events to and receive events from an event hub with schema validation using the **Azure.Messaging.EventHubs** .NET library. 
 
 > [!NOTE]

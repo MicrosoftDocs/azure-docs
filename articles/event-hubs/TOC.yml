@@ -4,9 +4,9 @@
   items:
     - name: What is Event Hubs?
       href: event-hubs-about.md
-    - name: What is Azure Event Hubs for Apache Kafka?
+    - name: Kafka on Azure Event Hubs
       href: azure-event-hubs-kafka-overview.md
-    - name: Azure Schema Registry in Event Hubs
+    - name: Schema Registry
       href: schema-registry-overview.md      
     - name: Terminology
       href: event-hubs-features.md
@@ -104,6 +104,12 @@
         href: event-hubs-dedicated-overview.md
       - name: Compare tiers
         href: compare-tiers.md
+    - name: Schema Registry 
+      items: 
+      - name: Schema Registry
+        href: schema-registry-concepts.md   
+      - name: Client-side schema enforcement
+        href: schema-registry-client-side-enforcement.md
     - name: Event processing using SDKs
       items: 
       - name: Event processor host (legacy SDK)
@@ -230,6 +236,22 @@
           href: ../stream-analytics/no-code-filter-ingest-data-explorer.md?toc=/azure/event-hubs/toc.json
         - name: Process data using Azure Stream Analytics
           href: process-data-azure-stream-analytics.md
+    
+    - name: Use Schema Registry 
+      items:
+        - name: Client-side schema enforcement 
+          items:
+          - name: Using Avro schema 
+            items: 
+            - name: Avro schema with Apache Kafka applications
+              href: schema-registry-kafka-java-send-receive-quickstart.md
+            - name: Avro schema with Event Hubs SDK(AMQP)
+              href: schema-registry-dotnet-send-receive-quickstart.md
+          - name: Using JSON Schema  
+            items: 
+            - name: JSON Schema with Apache Kafka applications
+              href: schema-registry-json-schema-kafka.md
+
     - name: Integrate with Spring framework
       items:
         - name: Create a Spring Cloud Stream Binder app
