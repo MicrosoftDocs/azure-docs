@@ -49,6 +49,7 @@ When planning for your upgrade, make sure you're allowing sufficient time for an
 
 In addition, consider the following points for pre- and post-upgrade steps you may need to plan for when scheduling your maintenance window:
 
+- Run the health checks defined in [Verify deployment pre-upgrade](#verify-deployment-pre-upgrade) and confirm your deployment is working.
 - Refer to the packet core release notes for the version of packet core you're upgrading to and whether it's supported by the version your Azure Stack Edge (ASE) is currently running.
 - If your ASE version is incompatible with the packet core version you're upgrading to, you'll need to upgrade ASE first. Refer to [Update your Azure Stack Edge Pro GPU](../databox-online/azure-stack-edge-gpu-install-update.md) for the latest available version of ASE.
   - If you're currently running a packet core version that the ASE version you're upgrading to supports, you can upgrade ASE and packet core independently.
@@ -57,6 +58,13 @@ In addition, consider the following points for pre- and post-upgrade steps you m
 - Review [Restore backed up deployment information](#restore-backed-up-deployment-information) and [Verify upgrade](#verify-upgrade) for the post-upgrade steps you'll need to follow to ensure your deployment is fully operational. Make sure your upgrade plan allows sufficient time for these steps.
 
 ## Upgrade the packet core instance
+
+### Verify deployment pre-upgrade
+Run the following health checks and confirm your deployment is working:
+- Verify through [Log Analytics] or the [packet core dashboards] that there are no unexpected alerts and metrics match what you expect for your deployment in a healthy state.
+- Confirm that your test devices are able to register, start a session, and send/receive data through packet core.
+- Navigate to your Azure Stack Edge resource in the Azure portal and confirm there are no warning or error banners shown on the page.
+- Confirm that your Azure Stack Edge workloads are healthy and running - see instructions in https://learn.microsoft.com/en-us/azure/private-5g-core/commission-cluster?pivots=ase-pro-2#set-up-portal-access to view what's running, and check all pods are fully ready and running.
 
 ### Back up deployment information
 
@@ -111,6 +119,13 @@ Once the upgrade completes, check if your deployment is operating normally.
 1. Navigate to the **Packet Core Control Plane** resource as described in [View the current packet core version](#view-the-current-packet-core-version). Check the **Version** field under the **Configuration** heading to confirm that it displays the new software version.
 1. Use [Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally.
 1. Execute the testing plan you prepared in [Plan for your upgrade](#plan-for-your-upgrade).
+
+#### Verify deployment post-upgrade
+Run the following health checks and confirm your deployment is working:
+- Verify through [Log Analytics] or the [packet core dashboards] that there are no unexpected alerts and metrics match what you expect for your deployment in a healthy state.
+- Confirm that your test devices are able to register, start a session, and send/receive data through packet core.
+- Navigate to your Azure Stack Edge resource in the Azure portal and confirm there are no warning or error banners shown on the page.
+- Confirm that your Azure Stack Edge workloads are healthy and running - see instructions in https://learn.microsoft.com/en-us/azure/private-5g-core/commission-cluster?pivots=ase-pro-2#set-up-portal-access to view what's running, and check all pods are fully ready and running.
 
 ## Rollback
 
