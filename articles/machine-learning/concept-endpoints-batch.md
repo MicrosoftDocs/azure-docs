@@ -18,6 +18,11 @@ ms.date: 04/01/2023
 
 After you train a machine learning model, you need to deploy it so that others can consume its predictions. Such execution mode of a model is called *inference*. Azure Machine Learning uses the concept of [endpoints and deployments](concept-endpoints.md) for machine learning models inference.
 
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 **Batch endpoints** are endpoints that are used to do batch inferencing on large volumes of data over in asynchronous way.  Batch endpoints receive pointers to data and run jobs asynchronously to process the data in parallel on compute clusters. Batch endpoints store outputs to a data store for further analysis.
 
 We recommend using them when:
@@ -39,7 +44,7 @@ A deployment is a set of resources and compute required to implement the functio
 There are two types of deployments in batch endpoints: 
 
 * [Model deployments](#model-deployments)
-* [Pipeline component deployment (preview)](#pipeline-component-deployment)
+* [Pipeline component deployment (preview)](#pipeline-component-deployment-preview)
 
 ### Model deployments
 
