@@ -26,7 +26,7 @@ This article explains how the integration works and how you can customize the pr
 ## Establishing connectivity 
 Azure AD provisioning service uses basic authentication to connect to Employee Central OData API endpoints. When setting up the SuccessFactors provisioning app, use the *Tenant URL* parameter in the *Admin Credentials* section to configure the [API data center URL](https://apps.support.sap.com/sap/support/knowledge/en/2215682). 
 
-To further secure the connectivity between Azure AD provisioning service and SuccessFactors, you can add the Azure AD IP ranges in the SuccessFactors IP allowlist using the steps described below:
+To further secure the connectivity between Azure AD provisioning service and SuccessFactors, add the Azure AD IP ranges in the SuccessFactors IP allowlist:
 
 1. Download the [latest IP Ranges](https://www.microsoft.com/download/details.aspx?id=56519) for the Azure Public Cloud 
 1. Open the file and search for tag **AzureActiveDirectory** 
@@ -39,7 +39,7 @@ To further secure the connectivity between Azure AD provisioning service and Suc
 1. Log in to SuccessFactors admin portal to add IP ranges to the allowlist. Refer to SAP [support note 2253200](https://apps.support.sap.com/sap/support/knowledge/en/2253200). You can now [enter IP ranges](https://answers.sap.com/questions/12882263/whitelisting-sap-cloud-platform-ip-address-range-i.html) in this tool. 
 
 ## Supported entities
-For every user in SuccessFactors, Azure AD provisioning service retrieves the following entities. Each entity is expanded using the OData API *$expand* query parameter. Refer to the *Retrieval rule* column below. Some entities are expanded by default, while some entities are expanded only if a specific attribute is present in the mapping. 
+For every user in SuccessFactors, Azure AD provisioning service retrieves the following entities. Each entity is expanded using the OData API *$expand* query parameter as outlined in the *Retrieval rule* column. Some entities are expanded by default, while some entities are expanded only if a specific attribute is present in the mapping. 
 
 | \# | SuccessFactors Entity                  | OData Node     | Retrieval rule |
 |----|----------------------------------------|------------------------------|------------------|
