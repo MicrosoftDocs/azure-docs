@@ -54,4 +54,3 @@ If you haven't already created your own Microsoft Entra for Customers Tenant, [c
 
 > [!div class="nextstepaction"]
 > [Start building your React Single Page Application](./how-to-spa-react-prepare-app.md)
-

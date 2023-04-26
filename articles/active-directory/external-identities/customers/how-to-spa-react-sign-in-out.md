@@ -313,7 +313,7 @@ All the required code snippets have been added, so the application can now be ca
     ```
 
 1. Open a web browser and navigate to the port specified in [Prepare a Single-page application for authentication](./how-to-spa-react-prepare-app.md). For example, http://localhost:3000/.
-1. Select the Sign In button. For the purposes of this tutorial, choose the Sign in using Popup option.
+1. For the purposes of this how-to, choose the **Sign in using Popup** option.
 1. After the popup window appears with the sign-in options, select the account with which to sign-in.
 1. A second window may appear indicating that a code will be sent to your email address. If this happens, select **Send code**. Open the email from the sender Microsoft account team, and enter the 7-digit single-use code. Once entered, select **Sign in**.
 1. For **Stay signed in**, you can select either **No** or **Yes**.
