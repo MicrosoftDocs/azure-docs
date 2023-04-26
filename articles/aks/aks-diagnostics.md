@@ -50,7 +50,7 @@ I received a diagnostic alert indicating that the disconnection may be related t
 
 Based on the diagnostic result, it appears that the issue may be related to known DNS issues or VNET configuration. Thankfully, I can use the documentation links provided to address the issue and resolve the problem.
 
-![AKS Diagnose and Solve Problems Results - Networking - Cluster DNS.](./media/concepts-diagnostics/aks-diagnostics-network.png)
+![Screenshot of AKS Diagnose and Solve Problems Results - Networking - Cluster DNS.](./media/concepts-diagnostics/aks-diagnostics-network.png)
 
 Furthermore, if the recommended documentation based on the diagnostic results does not resolve the issue, you can return to the previous step in Diagnostics and refer to additional documentation.
 
