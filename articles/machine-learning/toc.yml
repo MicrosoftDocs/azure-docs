@@ -693,7 +693,7 @@
     - name: PyTorch
       href: how-to-train-pytorch.md
     - name: Tune Hyperperameters
-      href: how-to-tune-hyperperameters.md
+      href: how-to-tune-hyperparameters.md
   - name: Distributed Training and deep learning
     items:
     - name: Distributed training
@@ -757,6 +757,126 @@
   - name: Use pipeline inputs for versatile pipeline
     href: how-to-use-pipeline-parameter.md
   - name: Manage components
+- name: Deploy with Inferencing
+  items:
+    - name: Online endpoints (real-time)
+      items:
+        - name: Endpoints
+          href: concept-endpoints.md
+        - name: Deploy an ML model with an online endpoint
+          href: how-to-deploy-online-endpoints.md
+        - name: Safe rollout for online endpoints
+          href: how-to-safely-rollout-online-endpoints.md
+        - name: Autoscale online endpoints
+          href: how-to-autoscale-endpoints.md
+        - name: Managed online endpoints VM SKU list
+          href: reference-managed-online-endpoints-vm-sku-list.md
+        - name: Viewing managed online endpoint costs
+          href: how-to-view-online-endpoints-costs.md
+        - name: Monitoring online endpoints
+          href: how-to-monitor-online-endpoints.md
+        - name: Debug online endpoints locally VS Code
+          href: how-to-debug-managed-online-endpoints-visual-studio-code.md
+        - name: Debug scoring script with inference HTTP server
+          href: how-to-inference-server-http.md
+        - name: Troubleshoot online endpoints
+          href: how-to-troubleshoot-online-endpoints.md
+        - name: Deployment scenarios
+          items:
+            - name: Deploy a MLFlow model with an online endpoint
+              displayName: ncd, no code deploy, no-code deployment
+              href: how-to-deploy-mlflow-models-online-endpoints.md
+            - name: Use a custom container to deploy a model to an online endpoint
+              href: how-to-deploy-custom-container.md
+            - name: Use online endpoints in studio
+              href: how-to-use-managed-online-endpoint-studio.md
+            - name: High performance serving with Triton
+              href: how-to-deploy-with-triton.md
+            - name: Use REST to deploy a model as an online endpoint
+              href: how-to-deploy-with-rest.md
+            - name: Deploy an AutoML endpoint with an online endpoint
+              href: how-to-deploy-automl-endpoint.md
+        - name: Security
+          items:
+            - name: Authenticate to endpoints
+              href: how-to-authenticate-online-endpoint.md
+            - name: Network isolation with managed online endpoints
+              displayName: network, vnet, secure
+              href: how-to-secure-online-endpoint.md
+            - name: Access Azure resources from online endpoints
+              href: how-to-access-resources-from-endpoints-managed-identities.md
+    - name: Batch endpoints
+      items:
+        - name: Batch scoring with batch endpoints
+          href: how-to-use-batch-endpoint.md	
+        - name: Create jobs and input data for batch endpoints	
+          href: how-to-access-data-batch-endpoints-jobs.md
+        - name: Author scoring scripts for batch scoring	
+          href: how-to-batch-scoring-script.md
+        - name: Customize outputs in batch jobs
+          href: how-to-deploy-model-custom-output.md	
+        - name: Troubleshoot batch endpoints
+          href: how-to-troubleshoot-batch-endpoints.md	
+        - name: Security
+          items:
+          - name: Authorization on batch endpoints
+            href: how-to-authenticate-batch-endpoint.md
+         -  name: Network isolation in batch endpoints
+            href: how-to-secure-batch-endpoint.md
+        - name: Cost management
+          items:
+            - name: Use low priority VMs in batch deployments
+              href: how-to-use-low-priority-batch.md
+        - name: Scenarios
+          items:
+            - name: Use MLFlow models in batch deployments 
+              href: how-to-mlflow-batch.md
+            - name: Image processing with batch deployments
+              href: how-to-image-processing-batch.md
+            - name: Text processing with batch deployments 
+              href: how-to-nlp-processing-batch.md
+        - name: Integrations
+          items:
+            - name: Run batch endpoints from Azure Data Factory
+              href: how-to-use-batch-azure-data-factory.md
+            - name: Run batch endpoints from Event Grid events in storage
+              href: how-to-use-event-grid-batch.md
+            - name: Use REST to deploy a model as batch endpoints
+              href: how-to-deploy-batch-with-rest.md
+    - name: Deploy and consume MLFlow models
+      items:
+        - name: MLFlow and Azure Machine Learning
+          href: concept-mlflow.md
+        - name: MLFlow models
+          displayName: tracking models, mlflow, custom, flavors
+          href: concept-mlflow-models.md
+        - name: Guidelines for deploying MLFlow models
+          displayName: mlflow models deployment plugin
+          href: how-to-deploy-mlflow-models.md
+        - name: Using MLFlow models for no-code deployment
+          href: how-to-log-mlflow-models.md
+        - name: Online inference
+          items:
+            - name: Deploy MLFlow models to Online Endpoints
+              href: how-to-deploy-mlflow-models-online-endpoints.md
+            - name: Progressive rollout of MLFlow models to Online Endpoints
+              href: how-to-deploy-mlflow-models-online-progressive.md
+        - name: Batch inference
+          items:
+            - name: Deploy MLFlow models to Batch Endpoints
+              href: how-to-mlflow-batch.md
+            - name: Deploy and run MLFlow models in Spark jobs
+              href: how-to-deploy-mlflow-model-spark-jobs.md
+    - name: Model portability (ONNX)
+      href: concept-onnx.md
+    - name: Prebuilt Docker images for inference
+      href: concept-prebuilt-docker-images-inference.md
+- name: Monitor your models
+  items:
+    - name: Data collection
+    - name: Model monitoring
+- name: Operationalize with MLOps
+  items: 
 - name: How-to guides
   items:
     - name: Share components, environments, and models
