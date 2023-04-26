@@ -3,7 +3,7 @@ title: Create a Cloud NGFW by Palo Alto Networks Preview resource
 description: This article describes how to use the Azure portal to create a Cloud NGFW by Palo Alto Networks Preview resource.
 
 ms.topic: quickstart
-ms.date: 04/25/2023
+ms.date: 04/26/2023
 
 ---
 
@@ -19,21 +19,15 @@ In this quickstart, you use the Azure Marketplace to find and create an instance
 
 1. Set the following values in the Basics tab.
 
-  :::image type="content" source="media/palo-alto-create/palo-alto-basics.png" alt-text="Screenshot of basics pane of the Palo Alto NetworksNetworks create experience.":::
+   :::image type="content" source="media/palo-alto-create/palo-alto-basics.png" alt-text="Screenshot of Basics tab of the Palo Alto Networks create experience.":::
 
    | Property  | Description |
    |---------|---------|
    | **Subscription**  | From the drop-down, select your Azure subscription where you have owner access. |
    | **Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see Azure Resource Group overview. |
    | **Name**  | Put the name for the Palo Alto Networks account you want to create. |
-   | **Region** | Select West Central US. West Central US is the only Azure region supported by Palo Alto Networks during preview. |
+   | **Region** | Select an appropriate region. |
    | **Pricing Plan**     | Specified based on the selected Palo Alto Networks plan. |
-
-> [!NOTE]
-> West Central US is the only Azure region supported by Palo Alto Networks during preview.
->
-
-<!-- Is this true -->
 
 ### Networking
 
@@ -51,7 +45,7 @@ In this quickstart, you use the Azure Marketplace to find and create an instance
 
 1. After setting the DNS values, select the **Next: Security Policy** to see the **Security Policies** tab. You can set the policies for the firewall using this tab.
 
-  :::image type="content" source="media/palo-alto-create/palo-alto-rulestack.png" alt-text="Screenshot of the Rulestack in the Palo Alto Networks create experience.":::
+   :::image type="content" source="media/palo-alto-create/palo-alto-rulestack.png" alt-text="Screenshot of the Rulestack in the Palo Alto Networks create experience.":::
 
 1. Select checkbox **Managed By** to indicate either **Azure Portal** or **Palo Alto Networks Panorama**.
 
@@ -65,7 +59,7 @@ In this quickstart, you use the Azure Marketplace to find and create an instance
 
 1. After completing the **Security Policies** values, select the **Next: DNS Proxy** to see the **DNS Proxy** screen.
 
-:::image type="content" source="media/palo-alto-create/palo-alto-dns-proxy.png" alt-text="Screenshot of the DNS Proxy in the Palo Alto Networks create experience.":::
+   :::image type="content" source="media/palo-alto-create/palo-alto-dns-proxy.png" alt-text="Screenshot of the DNS Proxy in the Palo Alto Networks create experience.":::
 
 1. Select the checkbox **DNS Proxy** to indicate **Disabled** or **Enabled**.
 
@@ -75,7 +69,9 @@ You can specify custom tags for the new Palo Alto Networks resource in Azure by 
 
 1. Select Tags.
 
-    :::image type="content" source="media/palo-alto-create/palo-alto-tags.png" alt-text="Screenshot showing the tags pane in the Palo Alto Networks create experience.":::
+   :::image type="content" source="media/palo-alto-create/palo-alto-tags.png" alt-text="Screenshot showing the tags pane in the Palo Alto Networks create experience.":::
+
+1. Type in the **Name** and **Value** properties that you need.
 
    | Property | Description |
    |----------| -------------|
@@ -96,7 +92,7 @@ Next, you must accept the Terms of Use for the new Palo Alto Networks resource.
 
 1. Select the **Next: Review + Create** to navigate to the final step for resource creation. When you get to the **Review + Create** page, all validations are run. At this point, review all the selections made in the Basics, Networking, and optionally Tags panes. You can also review the Palo Alto and Azure Marketplace terms and conditions.  
 
-   :::image type="content" source="media/palo-alto-create/palo-alto-review-create.png" alt-text="screenshot of review and create palo-alto resource":::
+   :::image type="content" source="media/palo-alto-create/palo-alto-review-create.png" alt-text="Screenshot of Review and Create resource tab.":::
 
 1. When you've reviewed all the information, select **Create**. Azure now deploys the Cloud NGFW by Palo Alto Networks.
 

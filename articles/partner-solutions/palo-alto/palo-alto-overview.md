@@ -3,7 +3,7 @@ title: What is Cloud NGFW by Palo Alto Networks
 description: Learn about using the Cloud NGFW by Palo Alto Networks from the Marketplace.
 
 ms.topic: conceptual
-ms.date: 04/25/2023
+ms.date: 04/26/2023
 
 
 ---
