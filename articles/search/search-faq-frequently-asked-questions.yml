@@ -24,7 +24,7 @@ sections:
       - question: |
           Does Cognitive Search support vector search?
         answer: |
-          No. Currently, the stable and public preview versions of Cognitive Search don't provide vector search.
+          No. Currently, the stable and public preview versions of Cognitive Search don't provide vector search. If you've seen presentations that mention vector search, the demonstration is using capabilities that are still in development.
 
       - question: |
           How do I work with Cognitive Search?
