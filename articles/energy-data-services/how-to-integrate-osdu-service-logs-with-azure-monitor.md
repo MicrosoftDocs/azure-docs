@@ -26,17 +26,17 @@ In this article, you'll learn how to integrate OSDU service logs with Azure Moni
 1. Open Microsoft Azure Data Manager for Energy Preview *Overview* page.
 1. Select *Diagnostic Settings* from the left panel.
     
-    [![The list of OSDU services currently available is visible on the diagnostic settings overview page.](media/how-to-integrate-osdu-service-logs-with-azure-monitor/diagnostic-settings-overview-page.png)](media/how-to-integrate-osdu-service-logs-with-azure-monitor/diagnostic-settings-overview-page.png#lightbox)
+    [![Screenshot shows that the list of OSDU services currently supported is visible on the diagnostic settings overview page.](media/how-to-integrate-osdu-service-logs-with-azure-monitor/diagnostic-settings-overview-page.png)](media/how-to-integrate-osdu-service-logs-with-azure-monitor/diagnostic-settings-overview-page.png#lightbox)
     
 1. Select *Add diagnostic setting*. Choose a for your diagnostic setting and select the services under Categories that you want to send to your chosen destination. 
 
 
-    [![The list of OSDU services currently available is visible on the diagnostic settings overview page.](media/how-to-integrate-osdu-service-logs-with-azure-monitor/diagnostic-settings-creation-page.png)](media/how-to-integrate-osdu-service-logs-with-azure-monitor/diagnostic-settings-creation-page.png#lightbox)
+    [![Screenshot to show that users can select all or a few log categories while creating a diagnostic setting.](media/how-to-integrate-osdu-service-logs-with-azure-monitor/diagnostic-settings-creation-page.png)](media/how-to-integrate-osdu-service-logs-with-azure-monitor/diagnostic-settings-creation-page.png#lightbox)
     
 
 1. Under the Logs section, you can choose one or multiple OSDU services for which you want to create a diagnostic setting. Select *Archive to a storage account* and/or *Send to Log Analytics workspace* as desired.
 
-     [![The list of OSDU services currently available is visible on the diagnostic settings overview page.](media/how-to-integrate-osdu-service-logs-with-azure-monitor/diagnostic-settings-configuration.png)](media/how-to-integrate-osdu-service-logs-with-azure-monitor/diagnostic-settings-configuration.png#lightbox)
+     [![Screenshot shows that export to multiple destinations can be configured with just one diagnostic setting.](media/how-to-integrate-osdu-service-logs-with-azure-monitor/diagnostic-settings-configuration.png)](media/how-to-integrate-osdu-service-logs-with-azure-monitor/diagnostic-settings-configuration.png#lightbox)
  
 1. Verify the subscription, storage account, and Log Analytics workspace to which you want to archive the logs or integrate with.
 
@@ -46,11 +46,11 @@ In this article, you'll learn how to integrate OSDU service logs with Azure Moni
 1. Expand the list of tables under Log Management category. The OSDU service logs exported using a diagnostic setting show up in the *OEPDataplaneLogs* table. 
 1. Move to the editor pane. Here you can write Kusto Query Language (KQL) queries to filter your OSDU service logs to only look for the relevant ones. 
 
-     [![The list of OSDU services currently available is visible on the diagnostic settings overview page.](media/how-to-integrate-osdu-service-logs-with-azure-monitor/log-analytics-workspace.png)](media/how-to-integrate-osdu-service-logs-with-azure-monitor/log-analytics-workspace.png#lightbox)
+     [![Screenshot shows the different parts of a Log Analytics workspace interface.](media/how-to-integrate-osdu-service-logs-with-azure-monitor/log-analytics-workspace.png)](media/how-to-integrate-osdu-service-logs-with-azure-monitor/log-analytics-workspace.png#lightbox)
 
 ## Troubleshooting with OSDU service logs
 
-Identify errors and issues related to specific services and APIs. Examine logs for services like the Workflow Service, Partition Service, or Entitlements Service to quickly identify and resolve any issues in the API calls or service functionality.
+Analyzing OSDU service logs in Azure Monitor can help you identify errors and issues related to specific services and APIs. Examine logs for services like the Workflow Service, Partition Service, or Entitlements Service to quickly identify and resolve any issues in the API calls or service functionality.
 
 Log Analytics Workspace query editor supports KQL queries. Here are some sample queries that may be helpful:
 
