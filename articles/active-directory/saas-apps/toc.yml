@@ -1497,6 +1497,8 @@
         href: litmos-tutorial.md
       - name: LMS and Education Management System Leaf
         href: lms-and-education-management-system-leaf-tutorial.md
+      - name: Locus
+        href: locus-tutorial.md
       - name: LogicMonitor
         href: logicmonitor-tutorial.md
       - name: LoginRadius
