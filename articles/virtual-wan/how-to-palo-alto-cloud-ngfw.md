@@ -180,4 +180,4 @@ The following section describes common issues seen when using Palo Alto Networks
 
 * For more information about Virtual WAN, see the [FAQ](virtual-wan-faq.md).
 * For more information about routing intent, see the [Routing Intent documentation](how-to-routing-policies.md).
-* For more information about Palo Alto Networks Cloud NGFW, see [Palo Alto Networks Cloud NGFW documentation](https://docs.paloaltonetworks.com/cloud-ngfw/azure/cloud-ngfw-for-azure).
+* For more information about Palo Alto Networks Cloud NGFW, see [Palo Alto Networks Cloud NGFW documentation](https://aka.ms/pancloudngfwdoc).
