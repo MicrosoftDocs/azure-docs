@@ -66,7 +66,7 @@ items:
                 - name: ASP.NET
                   items:
                     - name: Sign in users
-                      href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart 
+                      href: how-to-web-app-dotnet-sample-sign-in.md
             - name: Headless app
               href: https://learn.microsoft.com/azure/active-directory/develop/console-app-quickstart
             - name: Desktop app
@@ -131,11 +131,11 @@ items:
                         - name: Overview
                           href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
                         - name: Prepare tenant
-                          href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
+                          href: how-to-web-app-dotnet-sign-in-prepare-tenant.md
                         - name: Prepare app
-                          href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
+                          href: how-to-web-app-dotnet-sign-in-prepare-app.md
                         - name: Sign in and sign out
-                          href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
+                          href: how-to-web-app-dotnet-sign-in-sign-out.md
             - name: Web API
               items: 
                 - name: Protect ASP.NET API
