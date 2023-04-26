@@ -1,14 +1,14 @@
 ---
-title: 'Quickstart: Validate schema when sending or receiving events'
+title: 'Validate schema when sending or receiving events'
 description: In this quickstart, you create a .NET Core application that sends/receives events to/from Azure Event Hubs with schema validation using Schema Registry.
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 04/26/2023
 ms.devlang: csharp
 author: kasun04
 ms.author: kindrasiri
 ---
 
-# Quickstart: Validate schema when streaming events using Event Hubs .NET SDKs (AMQP) 
+# Validate schema when streaming events using Event Hubs .NET SDKs (AMQP) 
 In this quickstart, you learn how to send events to and receive events from an event hub with schema validation using the **Azure.Messaging.EventHubs** .NET library. 
 
 > [!NOTE]
