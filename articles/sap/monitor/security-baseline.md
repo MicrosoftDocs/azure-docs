@@ -13,9 +13,9 @@ ms.author: sakhare
 
 # Security baseline for Azure Monitor for SAP solutions
 
-This security baseline applies guidance from the Microsoft cloud security benchmark version 1.0. The Microsoft cloud security benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the security controls defined by the Microsoft cloud security benchmark and the related guidance.
+This security baseline applies guidance from the Microsoft cloud security benchmarks version 1.0. The Microsoft cloud security benchmark provides recommendations on how you can secure your cloud solutions on Azure. 
 
-You can monitor this security baseline and its recommendations using Microsoft Defender for Cloud. Azure Policy definitions will be listed in the Regulatory Compliance section of the Microsoft Defender for Cloud dashboard.
+You can monitor this security baseline and its recommendations using Microsoft Defender for Cloud. Azure Policy definitions is listed in the Regulatory Compliance section of the Microsoft Defender for Cloud dashboard.
 
 When a feature has relevant Azure Policy Definitions, they are listed in this baseline to help you measure compliance with the Microsoft cloud security benchmark controls and recommendations. Some recommendations may require a paid Microsoft Defender plan to enable certain security scenarios.
 
