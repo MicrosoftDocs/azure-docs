@@ -368,7 +368,7 @@ To resolve this issue:
 
 1. Run these commands:
 
-   ```
+   ```bash
    sudo mv -f /home/nxautomation/state/worker.conf /home/nxautomation/state/worker.conf_old
    sudo mv -f /home/nxautomation/state/worker_diy.crt /home/nxautomation/state/worker_diy.crt_old
    sudo mv -f /home/nxautomation/state/worker_diy.key /home/nxautomation/state/worker_diy.key_old
