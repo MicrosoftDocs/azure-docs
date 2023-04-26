@@ -21,15 +21,7 @@ In this quickstart, you'll create a manual or scheduled job.
 - An Azure account with an active subscription.
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
-
-## Preview limitations
-
-The jobs preview has the following limitations:
-
-- Only supported in the East US 2 EUAP (`eastus2euap`) region
-- Only supported in the Azure CLI using a preview version of the Azure Container Apps extension
-- Only supported in the Consumption plan
-- Logs are currently unavailable for scheduled jobs
+- See [Jobs preview limitations](jobs.md#jobs-preview-limitations) for a list of limitations.
 
 ## Setup
 

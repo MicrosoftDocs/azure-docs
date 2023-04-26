@@ -19,6 +19,23 @@ Container apps are services that run until continuously. If a replica fails, it'
 
 Container Apps jobs are tasks that start, run for a finite duration, and exit when finished. A job execution typically performs a single unit of work. Job executions start manually or on a schedule and are complete when its replicas exit. Examples of jobs include on-demand batch processing and scheduled tasks. You can query job executions and their statuses.
 
+## Jobs preview limitations
+
+The jobs preview has the following limitations:
+
+- Only supported in the East US 2 EUAP (`eastus2euap`) region
+- Only supported in the Azure CLI using a preview version of the Azure Container Apps extension
+
+    Uninstall any existing versions of the Azure Container Apps extension for the CLI and install the latest version that supports the jobs preview.
+
+    ```azurecli
+    az extension remove --name containerapp
+    az extension add --upgrade --source https://containerappextension.blob.core.windows.net/containerappcliext/containerapp-private_preview_jobs_1.0.5-py2.py3-none-any.whl --yes
+    ```
+    
+- Only supported in the Consumption plan
+- Logs are currently unavailable for scheduled jobs
+
 ## Job trigger types
 
 A job's trigger type determines how the job is started. The following trigger types are available:
