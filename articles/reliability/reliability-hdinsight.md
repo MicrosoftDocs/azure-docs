@@ -78,7 +78,7 @@ In the resources section, you need to add a section of ‘zones’ and provide w
 
 When the HDInsight cluster is ready, you can check the location to see which availability zone they're deployed in.
 
-:::image type="content" source="../hdinsight/media/hdinsight-use-availability-zones/cluster-availability-zone-info.png" alt-text="Screenshot that shows availability zone info in cluster overview" border="true":::
+:::image type="content" source="../hdinsight/media/hdinsight-use-availability-zones/cluster-availability-zone-info.png" alt-text="Screenshot that shows availability zone info in cluster overview." border="true":::
 
 **Get API response**: 
 
