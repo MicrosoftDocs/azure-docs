@@ -100,7 +100,7 @@ Use the following Azure CLI commands for preparation:
 
 ```azurecli
 az config set defaults.group=<service-group-name>
-az config set defaults.spring-cloud=<service-instance-name>
+az config set defaults.spring=<service-instance-name>
 az spring app create --name planet-weather-provider
 az spring app create --name solar-system-weather
 ```
