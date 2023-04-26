@@ -59,7 +59,7 @@ Cloud resources:
 
 > [!TIP]
 > For guidance on interactive debugging in Visual Studio Code or Visual Studio 2022:
->* [Use Visual Studio Code to develop and debug modules for Azure IoT Edge](how-to-vs-code-develop-module.md)
+>* [Debug Azure IoT Edge modules using Visual Studio Code](debug-module-vs-code.md)
 >* [Use Visual Studio 2022 to develop and debug modules for Azure IoT Edge](how-to-visual-studio-develop-module.md)
 >
 >This tutorial teaches the development steps for Visual Studio Code.
@@ -1278,6 +1278,7 @@ In this tutorial, you set up Visual Studio Code on your development machine and 
 You can continue on to the next tutorials to learn how Azure IoT Edge can help you deploy Azure cloud services to process and analyze data at the edge.
 
 > [!div class="nextstepaction"]
+> [Debug Azure IoT Edge modules using Visual Studio Code](debug-module-vs-code.md)
 > [Functions](tutorial-deploy-function.md)
 > [Stream Analytics](tutorial-deploy-stream-analytics.md)
 > [Custom Vision Service](tutorial-deploy-custom-vision.md)
