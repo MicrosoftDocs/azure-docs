@@ -13,7 +13,7 @@ In this quickstart guide, we explore how to validate event from Apache Kafka app
 
 In this use case a Kafka producer application uses Avro schema stored in Azure Schema Registry to, serialize the event and publish them to a Kafka topic/event hub in Azure Event Hubs. The Kafka consumer deserializes the events that it consumes from Event Hubs. For that it uses schema ID of the event and the Avro schema, which is stored in Azure Schema Registry. 
 
-:::image type="content" source="./media/schema-registry-overview/kafka-avro.png" alt-text="Schema serialization/de-serialization for Kafka applications using Avro schema." border="false":::
+:::image type="content" source="./media/schema-registry-overview/kafka-avro.png" alt-text="Diagram showing schema serialization/de-serialization for Kafka applications using Avro schema." border="false":::
 
 
 
@@ -108,88 +108,88 @@ To update the Kafka Producer configuration, navigate to *azure-schema-registry-f
     client.secret=<>
 1. Follow the same instructions and update the *azure-schema-registry-for-kafka/tree/master/java/avro/samples/kafka-consumer* configuration as well. 
 1. For both Kafka producer and consumer applications, following Avro schema is used: 
-```avro
-{
-  "namespace": "com.azure.schemaregistry.samples",
-  "type": "record",
-  "name": "Order",
-  "fields": [
-    {
-      "name": "id",
-      "type": "string"
-    },
-    {
-      "name": "amount",
-      "type": "double"
-    },
-    {
-      "name": "description",
-      "type": "string"
-    }
-  ]
-}
-```
+   ```avro
+   {
+     "namespace": "com.azure.schemaregistry.samples",
+     "type": "record",
+     "name": "Order",
+     "fields": [
+       {
+         "name": "id",
+         "type": "string"
+       },
+       {
+         "name": "amount",
+         "type": "double"
+       },
+       {
+         "name": "description",
+         "type": "string"
+       }
+     ]
+   }
+   ```
 
 
 ## Using Kafka producer with Avro schema validation 
 To run the Kafka producer application, navigate to *azure-schema-registry-for-kafka/tree/master/java/avro/samples/kafka-producer*.
 
 1. You can run the producer application so that it can produce Avro specific records or generic records. For specific records mode you need to first generate the classes against either the producer schema using the following maven command: 
-```shell
-mvn generate-sources
-```
+   ```shell
+   mvn generate-sources
+   ```
 
 1. Then you can run the producer application using the following commands. 
 
-```shell
-mvn clean package
-mvn -e clean compile exec:java -Dexec.mainClass="com.azure.schemaregistry.samples.producer.App"
-```
+   ```shell
+   mvn clean package
+   mvn -e clean compile exec:java -Dexec.mainClass="com.azure.schemaregistry.samples.producer.App"
+   ```
 
 1. Upon successful execution of the producer application, it prompts you to choose the producer scenario. For this quickstart, you can choose option *1 - produce Avro SpecificRecords*. 
 
-```shell
-Enter case number:
-1 - produce Avro SpecificRecords
-2 - produce Avro GenericRecords
-```
+   ```shell
+   Enter case number:
+   1 - produce Avro SpecificRecords
+   2 - produce Avro GenericRecords
+   ```
 
 1. Upon successful data serialization and publishing, you should see the following console logs in your producer application: 
 
-```shell 
-INFO com.azure.schemaregistry.samples.producer.KafkaAvroSpecificRecord - Sent Order {"id": "ID-0", "amount": 10.0, "description": "Sample order 0"}
-INFO com.azure.schemaregistry.samples.producer.KafkaAvroSpecificRecord - Sent Order {"id": "ID-1", "amount": 11.0, "description": "Sample order 1"}
-INFO com.azure.schemaregistry.samples.producer.KafkaAvroSpecificRecord - Sent Order {"id": "ID-2", "amount": 12.0, "description": "Sample order 2"}
-```
+   ```shell 
+   INFO com.azure.schemaregistry.samples.producer.KafkaAvroSpecificRecord - Sent Order {"id": "ID-0", "amount": 10.0, "description": "Sample order 0"}
+   INFO com.azure.schemaregistry.samples.producer.KafkaAvroSpecificRecord - Sent Order {"id": "ID-1", "amount": 11.0, "description": "Sample order 1"}
+   INFO com.azure.schemaregistry.samples.producer.KafkaAvroSpecificRecord - Sent Order {"id": "ID-2", "amount": 12.0, "description": "Sample order 2"}
+   ```
 
 ## Using Kafka consumer with Avro schema validation 
 To run the Kafka consumer application, navigate to *azure-schema-registry-for-kafka/tree/master/java/avro/samples/kafka-consumer*.
 
 1. You can run the consumer application so that it can consume Avro specific records or generic records. For specific records mode you need to first generate the classes against either the producer schema using the following maven command: 
-```shell
-mvn generate-sources
-```
+   ```shell
+   mvn generate-sources
+   ```
 
 1. Then you can run the consumer application using the following command. 
-```shell
-mvn clean package
-mvn -e clean compile exec:java -Dexec.mainClass="com.azure.schemaregistry.samples.consumer.App"
-```
+   ```shell
+   mvn clean package
+   mvn -e clean compile exec:java -Dexec.mainClass="com.azure.schemaregistry.samples.consumer.App"
+   ```
 1. Upon successful execution of the consumer application, it prompts you to choose the producer scenario. For this quickstart, you can choose option *1 - consume Avro SpecificRecords*. 
 
-```shell
-Enter case number:
-1 - consume Avro SpecificRecords
-2 - consume Avro GenericRecords
-  ```
+   ```shell
+   Enter case number:
+   1 - consume Avro SpecificRecords
+   2 - consume Avro GenericRecords
+     ```
 
 1. Upon successful data consumption and deserialization, you should see the following console logs in your producer application: 
 
-```shell
-INFO com.azure.schemaregistry.samples.consumer.KafkaAvroSpecificRecord - Order received: {"id": "ID-0", "amount": 10.0, "description": "Sample order 0"}
-INFO com.azure.schemaregistry.samples.consumer.KafkaAvroSpecificRecord - Order received: {"id": "ID-1", "amount": 11.0, "description": "Sample order 1"}
-INFO com.azure.schemaregistry.samples.consumer.KafkaAvroSpecificRecord - Order received: {"id": "ID-2", "amount": 12.0, "description": "Sample order 2"}
-```
+   ```shell
+   INFO com.azure.schemaregistry.samples.consumer.KafkaAvroSpecificRecord - Order received: {"id": "ID-0", "amount": 10.0, "description": "Sample order 0"}
+   INFO com.azure.schemaregistry.samples.consumer.KafkaAvroSpecificRecord - Order received: {"id": "ID-1", "amount": 11.0, "description": "Sample order 1"}
+   INFO com.azure.schemaregistry.samples.consumer.KafkaAvroSpecificRecord - Order received: {"id": "ID-2", "amount": 12.0, "description": "Sample order 2"}
+   ```
 
 ## Clean up resources
 Delete the Event Hubs namespace or delete the resource group that contains the namespace. 
