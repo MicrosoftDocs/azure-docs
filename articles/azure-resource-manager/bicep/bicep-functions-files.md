@@ -74,7 +74,7 @@ The following example creates a JSON file that contains values for a network sec
 
 You load that file and convert it to a JSON object. You use the object to assign values to the resource.
 
-::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/functions/loadJsonContent/loadsharedrules.bicep" highlight="3,13-21" :::
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/functions/loadJsonContent/loadsharedrules.bicep" highlight="3,12" :::
 
 You can reuse the file of values in other Bicep files that deploy a network security group.
 
