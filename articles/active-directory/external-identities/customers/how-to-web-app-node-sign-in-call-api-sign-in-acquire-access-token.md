@@ -121,7 +121,7 @@ The `/` route is the entry point to the application. It renders the `views/index
 
 The `/signin`, `/signout` and `/redirect` routes are defined in the *routes/auth.js* file, but their logic live in *auth/AuthProvider.js* file.
 
-- `login` method handles`/signin` route:
+- The `login` method handles`/signin` route:
     
     - Initiates sign-in flow by triggering the first leg of auth code flow.  
     
@@ -198,7 +198,7 @@ The `/signin`, `/signout` and `/redirect` routes are defined in the *routes/auth
             //...
         ```
 
-- `handleRedirect` method handles `/redirect` route:
+- The `handleRedirect` method handles `/redirect` route:
     
     - You set this route as Redirect URI for the web app in the Microsoft Entra admin center earlier in [Register the web app](how-to-web-app-node-sample-sign-in-call-api.md#register-the-web-app).
     
@@ -220,7 +220,7 @@ The `/signin`, `/signout` and `/redirect` routes are defined in the *routes/auth
             //...
         ```
     
-- `logout` method handles `/signout` route: 
+- The `logout` method handles `/signout` route: 
     
     - It initiates sign out process. 
     

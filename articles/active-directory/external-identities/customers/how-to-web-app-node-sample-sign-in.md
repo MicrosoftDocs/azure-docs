@@ -124,9 +124,11 @@ You can now test the sample Node.js web app. You need to start the Node.js serve
 
 1. Select **Sign out** to sign the user out of the web app or select **View ID token claims** to view ID token claims returned by Microsoft Entra. 
 
-When users select **Sign in** link, the app initiates an authentication request and redirects users to Azure AD for customers. On the sign in or sign up page that appears, onces users successfully signs in or creates an account, Azure AD for customers returns an ID token to the app. The app validates the ID token, reads the claims, and returns a secure page to the users.  
+### How it works
 
-When the users select **Sign out**, the app clears its session, the redirect the user to Azure AD for customers sign-out endpoint to notify it that the user has signed out.   
+When users select the **Sign in** link, the app initiates an authentication request and redirects users to Azure AD for customers. On the sign in or sign up page that appears, onces users successfully signs in or creates an account, Azure AD for customers returns an ID token to the app. The app validates the ID token, reads the claims, and returns a secure page to the users.  
+
+When the users select the **Sign out** link, the app clears its session, the redirect the user to Azure AD for customers sign-out endpoint to notify it that the user has signed out.   
 
 If you want to build an app similar to the sample you've run, complete the steps in [Sign in users in your own Node.js web application by using Microsoft Entra](how-to-web-app-node-sign-in-overview.md) article. 
 

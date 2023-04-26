@@ -35,6 +35,10 @@ Create a folder to host your node application, such as `ciam-sign-in-node-expres
         └── authConfig.js
         └── package.json
         └── .env
+        └── auth/
+            └── AuthProvider.js
+        └── controller/
+            └── authController.js
         └── routes/
             └── auth.js
             └── index.js
