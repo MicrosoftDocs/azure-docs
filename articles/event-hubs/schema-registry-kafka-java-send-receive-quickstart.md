@@ -1,10 +1,11 @@
 ---
-title: 'Quickstart: Validate events from Apache Kafka applications using Avro schemas (Java)'
+title: 'Validate events from Apache Kafka apps using Avro (Java)'
 description: In this quickstart, you create Kafka application,  which is based on Java that sends/receives events to/from Azure Event Hubs with schema validation using Schema Registry.
 ms.topic: quickstart
-ms.date: 04/10/2023
+ms.date: 04/26/2023
 ms.devlang: java
-ms.custom: build-2023
+author: kasun04
+ms.author: kindrasiri
 ---
 
 # Quickstart: Validate schemas for Apache Kafka applications using Avro (Java)
