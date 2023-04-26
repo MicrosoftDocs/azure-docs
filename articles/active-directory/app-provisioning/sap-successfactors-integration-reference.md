@@ -88,7 +88,7 @@ Based on the attribute-mapping, during full sync Azure AD provisioning service s
 
 For each SuccessFactors user, the provisioning service looks for an account in the target (Azure AD/on-premises Active Directory) using the matching attribute defined in the mapping. For example: if *personIdExternal* maps to *employeeId* and is set as the matching attribute, then the provisioning service uses the *personIdExternal* value to search for the user with *employeeId* filter. If a user match is found, then it updates the target attributes. If no match is found, then it creates a new entry in the target. 
 
-To validate the data returned by your OData API endpoint for a specific `personIdExternal`, update the `SuccessFactorsAPIEndpoint` in the API query below with your API data center server URL and use a tool like [Postman](https://www.postman.com/downloads/) to invoke the query. If the "in" filter does not work, you can try the "eq" filter. 
+To validate the data returned by your OData API endpoint for a specific `personIdExternal`, update the `SuccessFactorsAPIEndpoint` in the API query with your API data center server URL and use a tool like [Postman](https://www.postman.com/downloads/) to invoke the query. If the "in" filter does not work, you can try the "eq" filter. 
 
 ```
 https://[SuccessFactorsAPIEndpoint]/odata/v2/PerPerson?$format=json&
@@ -106,7 +106,7 @@ employmentNav/jobInfoNav/employmentTypeNav,employmentNav/jobInfoNav/employeeClas
 
 After full sync, Azure AD provisioning service maintains `LastExecutionTimestamp` and uses it to create delta queries for retrieving incremental changes. The timestamp attributes present in each SuccessFactors entity, such as `lastModifiedDateTime`, `startDate`, `endDate`, and `latestTerminationDate`, are evaluated to see if the change falls between the `LastExecutionTimestamp` and `CurrentExecutionTime`. If yes, then the entry change is considered to be effective and processed for sync. 
 
-Here is the OData API request template that Azure AD uses to query SuccessFactors for incremental changes. You can update the variables `SuccessFactorsAPIEndpoint`, `LastExecutionTimestamp` and `CurrentExecutionTime` in the request template below use a tool like [Postman](https://www.postman.com/downloads/) to check what data is returned. Alternatively, you can also retrieve the actual request payload from SuccessFactors by [enabling OData API Audit logs](#enabling-odata-api-audit-logs-in-successfactors). 
+Here is the OData API request template that Azure AD uses to query SuccessFactors for incremental changes. You can update the variables `SuccessFactorsAPIEndpoint`, `LastExecutionTimestamp` and `CurrentExecutionTime` in the request template use a tool like [Postman](https://www.postman.com/downloads/) to check what data is returned. Alternatively, you can also retrieve the actual request payload from SuccessFactors by [enabling OData API Audit logs](#enabling-odata-api-audit-logs-in-successfactors). 
 
 ```
 https://[SuccessFactorsAPIEndpoint]/odata/v2/PerPerson/$count?$format=json&$filter=(personEmpTerminationInfoNav/activeEmploymentsCount ne null) and
@@ -128,7 +128,7 @@ https://[SuccessFactorsAPIEndpoint]/odata/v2/PerPerson/$count?$format=json&$filt
 
 When Azure AD provisioning service queries SuccessFactors, it retrieves a JSON result set. The JSON result set includes a number of attributes stored in Employee Central. By default, the provisioning schema is configured to retrieve only a subset of those attributes. 
 
-To retrieve additional attributes, follow the steps listed below:
+To retrieve additional attributes, follow the steps listed:
     
 1. Browse to **Enterprise Applications** -> **SuccessFactors App** -> **Provisioning** -> **Edit Provisioning** -> **attribute-mapping page**.
 1. Scroll down and click **Show advanced options**.
@@ -167,9 +167,9 @@ This section covers how you can customize the provisioning app for the following
 ### Retrieving additional attributes
 
 The default Azure AD SuccessFactors provisioning app schema ships with [90+ pre-defined attributes](sap-successfactors-attribute-reference.md). 
-To add more SuccessFactors attributes to the provisioning schema, use the steps listed below: 
+To add more SuccessFactors attributes to the provisioning schema, use the steps listed: 
 
-1. Use the OData query below to retrieve data for a valid test user from Employee Central. 
+1. Use the OData query to retrieve data for a valid test user from Employee Central. 
 
    ```
     https://[SuccessFactorsAPIEndpoint]/odata/v2/PerPerson?$format=json&
@@ -201,7 +201,7 @@ By default, the following custom attributes are pre-defined in the Azure AD Succ
 * *customString1-customString15* from the EmpEmployment (employmentNav) entity called *empNavCustomString1-empNavCustomString15*
 * *customString1-customString15* from the EmpJobInfo (jobInfoNav) entity called *empJobNavCustomString1-empNavJobCustomString15*
 
-Let's say, in your Employee Central instance, *customString35* attribute in *EmpJobInfo* stores the location description. You want to flow this value to Active Directory *physicalDeliveryOfficeName* attribute. To configure attribute-mapping for this scenario, use the steps given below: 
+Let's say, in your Employee Central instance, *customString35* attribute in *EmpJobInfo* stores the location description. You want to flow this value to Active Directory *physicalDeliveryOfficeName* attribute. To configure attribute-mapping for this scenario, use the steps: 
 
 1. Edit the SuccessFactors attribute list to add a new attribute called *empJobNavCustomString35*.
 1. Set the JSONPath API expression for this attribute as: 
@@ -231,7 +231,7 @@ If you are running into any of these issues or prefer mapping employment status 
 * R = Retired
 * T = Terminated
 
-Use the steps below to update your mapping to retrieve these codes. 
+Use the steps to update your mapping to retrieve these codes. 
 
 1. Open the attribute-mapping blade of your SuccessFactors provisioning app. 
 1. Under **Show advanced options**, click on **Edit SuccessFactors attribute list**. 
@@ -260,7 +260,7 @@ Use the steps below to update your mapping to retrieve these codes.
 If your HR process uses Option 1, then no changes are required to the provisioning schema. 
 If your HR process uses Option 2, then Employee Central adds a new *EmpEmployment* entity along with a new *User* entity for the same *Person* entity. 
 
-To handle both these scenarios so that the new employment data shows up when a conversion or rehire occurs, you can bulk update the provisioning app schema using the steps listed below:  
+To handle both these scenarios so that the new employment data shows up when a conversion or rehire occurs, you can bulk update the provisioning app schema using the steps listed:  
 
 1. Open the attribute-mapping blade of your SuccessFactors provisioning app. 
 1. Scroll down and click **Show advanced options**.
@@ -327,7 +327,7 @@ When a user in Employee Central is processed for global assignment, SuccessFacto
 * One *EmpEmployment* + *User* entity that corresponds to home assignment with *assignmentClass* set to "ST" and 
 * Another *EmpEmployment* + *User* entity that corresponds to the global assignment with *assignmentClass* set to "GA"
 
-To fetch attributes belonging to the standard assignment and global assignment user profile, use the steps listed below: 
+To fetch attributes belonging to the standard assignment and global assignment user profile, use the steps listed: 
 
 1. Open the attribute-mapping blade of your SuccessFactors provisioning app. 
 1. Scroll down and click **Show advanced options**.
@@ -345,7 +345,7 @@ To fetch attributes belonging to the standard assignment and global assignment u
 1. Scroll down and click **Show advanced options**.
 1. Click on **Edit attribute list for SuccessFactors**.
 1. Add new attributes to fetch global assignment data. For example: if you want to fetch the department name associated with a global assignment profile, you can add the attribute *globalAssignmentDepartment* with the JSONPath expression set to `$.employmentNav.results[?(@.assignmentClass == 'GA')].jobInfoNav.results[0].departmentNav.name_localized`. 
-1. You can now either flow both department values to Active Directory attributes or selectively flow a value using expression mapping. Example: the below expression sets the value of AD *department* attribute to *globalAssignmentDepartment* if present, else it sets the value to *department* associated with standard assignment. 
+1. You can now either flow both department values to Active Directory attributes or selectively flow a value using expression mapping. Example: the expression sets the value of AD *department* attribute to *globalAssignmentDepartment* if present, else it sets the value to *department* associated with standard assignment. 
    * `IIF(IsPresent([globalAssignmentDepartment]),[globalAssignmentDepartment],[department])`
 
 1. Save the mapping. 
@@ -356,7 +356,7 @@ To fetch attributes belonging to the standard assignment and global assignment u
 ### Handling concurrent jobs scenario
 
 When a user in Employee Central has concurrent/multiple jobs, there are two *EmpEmployment* and *User* entities with *assignmentClass* set to "ST". 
-To fetch attributes belonging to both jobs, use the steps listed below: 
+To fetch attributes belonging to both jobs, use the steps listed: 
 
 1. Open the attribute-mapping blade of your SuccessFactors provisioning app. 
 1. Scroll down and click **Show advanced options**.
@@ -370,7 +370,7 @@ To fetch attributes belonging to both jobs, use the steps listed below:
 
 ### Retrieving position details
 
-The SuccessFactors connector supports expansion of the position object. To expand and retrieve position object attributes such as job level or position names in a specific language, you can use JSONPath expressions as shown below. 
+The SuccessFactors connector supports expansion of the position object. To expand and retrieve position object attributes such as job level or position names in a specific language, you can use JSONPath expressions as shown. 
 
 | Attribute Name | JSONPath expression |
 | -------------- | ------------------- |
@@ -424,7 +424,7 @@ The SuccessFactors Writeback app uses the following logic to update the User obj
 * As a first step, it looks for *userId* attribute in the change set. If it is present, then it uses "UserId" for making the SuccessFactors API call. 
 * If *userId* is not found, then it defaults to using the *personIdExternal* attribute value. 
 
-Usually the *personIdExternal* attribute value in SuccessFactors matches the *userId* attribute value. However, in scenarios such as rehire and worker conversion, an employee in SuccessFactors may have two employment records, one active and one inactive. In such scenarios, to ensure that write-back updates the active user profile, please update the configuration of the SuccessFactors provisioning apps as described below. This configuration ensures that *userId* is always present in the change set visible to the connector and is used in the SuccessFactors API call.
+Usually the *personIdExternal* attribute value in SuccessFactors matches the *userId* attribute value. However, in scenarios such as rehire and worker conversion, an employee in SuccessFactors may have two employment records, one active and one inactive. In such scenarios, to ensure that write-back updates the active user profile, please update the configuration of the SuccessFactors provisioning apps as described. This configuration ensures that *userId* is always present in the change set visible to the connector and is used in the SuccessFactors API call.
 
 1. Open the SuccessFactors to Azure AD user provisioning app or SuccessFactors to on-premises AD user provisioning app. 
 1. Ensure that an extensionAttribute *(extensionAttribute1-15)* in Azure AD always stores the *userId* of every worker's active employment record. This can be achieved by mapping SuccessFactors *userId* attribute to an extensionAttribute in Azure AD. 
@@ -443,7 +443,7 @@ Usually the *personIdExternal* attribute value in SuccessFactors matches the *us
 1. Go to *Attribute mapping -> Advanced -> Review Schema* to open the JSON schema editor.
 1. Download a copy of the schema as backup. 
 1. In the schema editor, hit Ctrl-F and search for the JSON node containing the userId mapping, where it is mapped to a source Azure AD attribute. 
-1. Update the flowBehavior attribute from "FlowWhenChanged" to "FlowAlways" as shown below. 
+1. Update the flowBehavior attribute from "FlowWhenChanged" to "FlowAlways" as shown. 
     > [!div class="mx-imgBorder"]
     > ![Mapping flow behavior update](./media/sap-successfactors-integration-reference/mapping-flow-behavior-update.png)
 1. Save the mapping and test the write-back scenario with provisioning-on-demand. 
@@ -459,13 +459,3 @@ Usually the *personIdExternal* attribute value in SuccessFactors matches the *us
 * [Learn how to configure SuccessFactors to Active Directory provisioning](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
 * [Learn how to configure writeback to SuccessFactors](../saas-apps/sap-successfactors-writeback-tutorial.md)
 * [Learn more about supported SuccessFactors Attributes for inbound provisioning](sap-successfactors-attribute-reference.md)
-
-
-
-
-
-
-
-
-
-
