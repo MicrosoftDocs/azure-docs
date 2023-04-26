@@ -627,13 +627,13 @@ Consider the following points when deciding how to store log data:
 
 ## Implementation considerations
 
-This section discusses some of the considerations to bear in mind when you implement the patterns described in the previous sections. Most of this section uses examples written in C# that use the Storage Client Library (version 4.3.0 at the time of writing).  
+This section discusses some of the considerations to bear in mind when you implement the patterns described in the previous sections. Most of this section uses examples written in C# that use the Storage client library (version 4.3.0 at the time of writing).  
 
 ## Retrieving entities
 
-As discussed in the section Design for querying, the most efficient query is a point query. However, in some scenarios you may need to retrieve multiple entities. This section describes some common approaches to retrieving entities using the Storage Client Library.  
+As discussed in the section Design for querying, the most efficient query is a point query. However, in some scenarios you may need to retrieve multiple entities. This section describes some common approaches to retrieving entities using the Storage client library.  
 
-### Executing a point query using the Storage Client Library
+### Executing a point query using the Storage client library
 
 The easiest way to execute a point query is to use the **GetEntityAsync** method as shown in the following C# code snippet that retrieves an entity with a **PartitionKey** of value "Sales" and a **RowKey** of value "212":  
 
@@ -687,7 +687,7 @@ You should always fully test the performance of your application in such scenari
 
 A query against the table service may return a maximum of 1,000 entities at one time and may execute for a maximum of five seconds. If the result set contains more than 1,000 entities, if the query did not complete within five seconds, or if the query crosses the partition boundary, the Table service returns a continuation token to enable the client application to request the next set of entities. For more information about how continuation tokens work, see [Query Timeout and Pagination](/rest/api/storageservices/Query-Timeout-and-Pagination).  
 
-If you are using the Table Client Library, it can automatically handle continuation tokens for you as it returns entities from the Table service. The following C# code sample using the Table Client Library automatically handles continuation tokens if the table service returns them in a response:  
+If you are using the Azure Tables client library, it can automatically handle continuation tokens for you as it returns entities from the Table service. The following C# code sample using the client library automatically handles continuation tokens if the table service returns them in a response:  
 
 ```csharp
 var employees = employeeTable.Query<EmployeeEntity>("PartitionKey eq 'Sales'")
@@ -755,12 +755,6 @@ By using continuation tokens explicitly, you can control when your application r
 >
 >
 
-The following C# code shows how to modify the number of entities returned inside a segment:  
-
-```csharp
-employees.max = 50;  
-```
-
 ### Server-side projection
 
 A single entity can have up to 255 properties and be up to 1 MB in size. When you query the table and retrieve entities, you may not need all the properties and can avoid transferring data unnecessarily (to help reduce latency and cost). You can use server-side projection to transfer just the properties you need. The following example  retrieves just the **Email** property (along with **PartitionKey**, **RowKey**, **Timestamp**, and **ETag**) from the entities selected by the query.  
@@ -780,9 +774,9 @@ Notice how the **RowKey** value is available even though it was not included in 
 
 ## Modifying entities
 
-The Storage Client Library enables you to modify your entities stored in the table service by inserting, deleting, and updating entities. You can use EGTs to batch multiple inserts, update, and delete operations together to reduce the number of round trips required and improve the performance of your solution.  
+The Storage client library enables you to modify your entities stored in the table service by inserting, deleting, and updating entities. You can use EGTs to batch multiple inserts, update, and delete operations together to reduce the number of round trips required and improve the performance of your solution.  
 
-Exceptions thrown when the Storage Client Library executes an EGT typically include the index of the entity that caused the batch to fail. This is helpful when you are debugging code that uses EGTs.  
+Exceptions thrown when the Storage client library executes an EGT typically include the index of the entity that caused the batch to fail. This is helpful when you are debugging code that uses EGTs.  
 
 You should also consider how your design affects how your client application handles concurrency and update operations.  
 
@@ -1001,13 +995,13 @@ The techniques discussed in this section are especially relevant to the discussi
 > 
 > 
 
-The remainder of this section describes some of the features in the Storage Client Library that facilitate working with multiple entity types in the same table.  
+The remainder of this section describes some of the features in the Storage client library that facilitate working with multiple entity types in the same table.  
 
 ### Retrieving heterogeneous entity types
 
-If you are using the Table Client Library, you have three options for working with multiple entity types.  
+If you are using the Table client library, you have three options for working with multiple entity types.  
 
-If you know the type of the entity stored with a specific **RowKey** and **PartitionKey** values, then you can specify the entity type when you retrieve the entity as shown in the previous two examples that retrieve entities of type **EmployeeEntity**: [Executing a point query using the Storage Client Library](#executing-a-point-query-using-the-storage-client-library) and [Retrieving multiple entities using LINQ](#retrieving-multiple-entities-using-linq).  
+If you know the type of the entity stored with a specific **RowKey** and **PartitionKey** values, then you can specify the entity type when you retrieve the entity as shown in the previous two examples that retrieve entities of type **EmployeeEntity**: [Executing a point query using the Storage client library](#executing-a-point-query-using-the-storage-client-library) and [Retrieving multiple entities using LINQ](#retrieving-multiple-entities-using-linq).  
 
 The second option is to use the **TableEntity** type (a property bag) instead of a concrete POCO entity type (this option may also improve performance because there is no need to serialize and deserialize the entity to .NET types). The following C# code potentially retrieves multiple entities of different types from the table, but returns all entities as **TableEntity** instances. It then uses the **EntityType** property to determine the type of each entity:  
 
@@ -1059,7 +1053,7 @@ It is possible to generate a SAS token that grants access to a subset of the ent
 Provided you are spreading your requests across multiple partitions, you can improve throughput and client responsiveness by using asynchronous or parallel queries.
 For example, you might have two or more worker role instances accessing your tables in parallel. You could have individual worker roles responsible for particular sets of partitions, or simply have multiple worker role instances, each able to access all the partitions in a table.  
 
-Within a client instance, you can improve throughput by executing storage operations asynchronously. The Storage Client Library makes it easy to write asynchronous queries and modifications. For example, you might start with the synchronous method that retrieves all the entities in a partition as shown in the following C# code:  
+Within a client instance, you can improve throughput by executing storage operations asynchronously. The Storage client library makes it easy to write asynchronous queries and modifications. For example, you might start with the synchronous method that retrieves all the entities in a partition as shown in the following C# code:  
 
 ```csharp
 private static void ManyEntitiesQuery(TableClient employeeTable, string department)
