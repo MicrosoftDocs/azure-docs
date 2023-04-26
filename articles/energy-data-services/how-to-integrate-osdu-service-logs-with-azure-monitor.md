@@ -1,6 +1,6 @@
 ---
-title: Integrate OSDU Service Logs with Azure Monitor - Microsoft Microsoft Azure Data Manager for Energy Preview
-description: Learn how to integrate OSDU service logs with Azure Monitor to enable better troubleshooting, debugging, and monitoring of core and DDMS services offered by OSDU.
+title: Integrate OSDU Service Logs with Azure Monitor - Microsoft Azure Data Manager for Energy Preview
+description: This how-to article helps you integrate OSDU service logs with Azure Monitor. This feature helps you better troubleshoot, debug, & monitor the OSDU services.
 author: nitinnms
 ms.author: nitindwivedi
 ms.service: energy-data-services
@@ -11,15 +11,15 @@ ms.custom: template-how-to
 
 # Integrate OSDU Service Logs with Azure Monitor
 
-In this article, you'll learn how to integrate OSDU service logs with Azure Monitor to take advantage of Log Analytics workspace features for better monitoring and troubleshooting of core and DDMS services offered by OSDU. This feature complements other logs integration features available to users, such as integrating Airflow logs and Elastic logs with Azure Monitor.
+Azure Data Manager for Energy Preview supports exporting OSDU Service Logs to Azure Monitor using a diagnostic setting. This feature helps you better troubleshoot, debug, & monitor the OSDU services. The instructions here are similar to how you would integrate other logs, such as Airflow and Elastic, with Azure Monitor.
 
 ## Prerequisites
 
 * An existing **Log Analytics Workspace**.
-    This workspace will be used to query the OSDU service logs using the Kusto Query Language (KQL) query editor in the Log Analytics workspace. Useful Resource: [Create a log analytics workspace in Azure portal](../azure-monitor/logs/quick-create-workspace.md).
+    This workspace is used to query the OSDU service logs using the Kusto Query Language (KQL) query editor in the Log Analytics workspace. Useful Resource: [Create a log analytics workspace in Azure portal](../azure-monitor/logs/quick-create-workspace.md).
 
 * An existing **storage account**:
-    It will be used to store JSON dumps of OSDU service logs. The storage account doesn’t have to be in the same subscription as your Log Analytics workspace.
+    It's used to store JSON dumps of OSDU service logs. The storage account doesn’t have to be in the same subscription as your Log Analytics workspace.
 
 ## Enabling diagnostic settings for OSDU service logs integration
 
@@ -28,7 +28,7 @@ In this article, you'll learn how to integrate OSDU service logs with Azure Moni
     
     [![Screenshot shows that the list of OSDU services currently supported is visible on the diagnostic settings overview page.](media/how-to-integrate-osdu-service-logs-with-azure-monitor/diagnostic-settings-overview-page.png)](media/how-to-integrate-osdu-service-logs-with-azure-monitor/diagnostic-settings-overview-page.png#lightbox)
     
-1. Select *Add diagnostic setting*. Choose a for your diagnostic setting and select the services under Categories that you want to send to your chosen destination. 
+1. Select *Add diagnostic setting*. Choose a diagnostic setting name and select the services under Categories whose logs you want to send to your chosen destination. 
 
 
     [![Screenshot to show that users can select all or a few log categories while creating a diagnostic setting.](media/how-to-integrate-osdu-service-logs-with-azure-monitor/diagnostic-settings-creation-page.png)](media/how-to-integrate-osdu-service-logs-with-azure-monitor/diagnostic-settings-creation-page.png#lightbox)
@@ -79,7 +79,7 @@ You can archive OSDU service logs to storage accounts and take advantage of Azur
 
 * Specify the storage account for archiving logs during the diagnostic setting creation process.
 * Set retention policies for the archived logs.
-* Access the logs in the storage account for additional analysis or long-term storage.
+* Access the logs in the storage account for other analysis or long-term storage.
 
 ## Next steps
 
