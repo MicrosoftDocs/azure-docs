@@ -2,6 +2,7 @@
 title: Configure Container insights cost optimization data collection rules | Microsoft Docs
 description: This article describes how you can configure the Container insights agent to control data collection for metric counters
 ms.topic: conceptual
+ms.custom: devx-track-azurecli
 ms.date: 02/23/2023
 ms.reviewer: aul
 ---

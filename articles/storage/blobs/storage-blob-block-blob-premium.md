@@ -2,9 +2,9 @@
 title: Premium block blob storage accounts
 titleSuffix: Azure Storage
 description: Achieve lower and consistent latencies for Azure Storage workloads that require fast and consistent response times.
-author: jimmart-dev
+author: tamram
 
-ms.author: jammart
+ms.author: tamram
 ms.date: 10/14/2021
 ms.service: storage
 ms.subservice: blobs

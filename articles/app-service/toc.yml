@@ -2,6 +2,8 @@
   href: index.yml
 - name: Get started
   items:
+    - name: Getting started
+      href: getting-started.md
     - name: About App Service
       href: overview.md
     - name: About App Service Environments

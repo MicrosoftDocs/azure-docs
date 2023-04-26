@@ -4,7 +4,7 @@ description: Learn how to enable InfiniBand on Azure HPC VMs.
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/10/2023
+ms.date: 04/12/2023
 ms.reviewer: cynthn
 ms.author: mamccrea
 author: mamccrea
@@ -19,9 +19,11 @@ author: mamccrea
 There are various ways to enable InfiniBand on the capable VM sizes.
 
 ## VM Images with InfiniBand drivers
+
 See [VM Images](../configure.md#vm-images) for a list of supported VM Images on the Marketplace, which come pre-loaded with InfiniBand drivers (for SR-IOV or non-SR-IOV VMs) or can be configured with the appropriate drivers for [RDMA capable VMs](../sizes-hpc.md#rdma-capable-instances).  The [CentOS-HPC](../configure.md#centos-hpc-vm-images) and [Ubuntu-HPC](../configure.md#ubuntu-hpc-vm-images) VM images in the Marketplace are the easiest way to get started.
 
 ## InfiniBand Driver VM Extensions
+
 On Linux, the [InfiniBandDriverLinux VM extension](hpc-compute-infiniband-linux.md) can be used to install the Mellanox OFED drivers and enable InfiniBand on the SR-IOV enabled HB-series and N-series VMs.
 
 On Windows, the [InfiniBandDriverWindows VM extension](hpc-compute-infiniband-windows.md) installs Windows Network Direct drivers (on non-SR-IOV VMs) or Mellanox OFED drivers (on SR-IOV VMs) for RDMA connectivity. In certain deployments of A8 and A9 instances, the HpcVmDrivers extension is added automatically. Note that the HpcVmDrivers VM extension is being deprecated; it will not be updated.
@@ -29,10 +31,12 @@ On Windows, the [InfiniBandDriverWindows VM extension](hpc-compute-infiniband-wi
 To add the VM extension to a VM, you can use [Azure PowerShell](/powershell/azure/) cmdlets. For more information, see [Virtual machine extensions and features](overview.md). You can also work with extensions for VMs deployed in the [classic deployment model](/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic).
 
 ## Manual installation
+
 [Mellanox OpenFabrics drivers (OFED)](https://www.mellanox.com/products/InfiniBand-VPI-Software) can be manually installed on the [SR-IOV enabled](../sizes-hpc.md#rdma-capable-instances) [HB-series](../sizes-hpc.md) and [N-series](../sizes-gpu.md) VMs.
 
 ### Linux
-The [OFED drivers for Linux](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed) can be installed with the example below. Though the example here is for RHEL/CentOS, but the steps are general and can be used for any compatible Linux operating system such as Ubuntu (16.04, 18.04 19.04, 20.04) and SLES (12 SP4 and 15). More examples for other distros are on the [azhpc-images repo](https://github.com/Azure/azhpc-images/blob/master/ubuntu/ubuntu-18.x/ubuntu-18.04-hpc/install_mellanoxofed.sh). The inbox drivers also work as well, but the Mellanox OFED drivers provide more features.
+
+The [OFED drivers for Linux](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed) can be installed with the example below. Though the example here is for RHEL/CentOS, but the steps are general and can be used for any compatible Linux operating system such as Ubuntu (18.04, 19.04, 20.04) and SLES (12 SP4+ and 15). More examples for other distros are on the [azhpc-images repo](https://github.com/Azure/azhpc-images/blob/master/ubuntu/ubuntu-18.x/ubuntu-18.04-hpc/install_mellanoxofed.sh). The inbox drivers also work as well, but the Mellanox OFED drivers provide more features.
 
 ```bash
 MLNX_OFED_DOWNLOAD_URL=http://content.mellanox.com/ofed/MLNX_OFED-5.0-2.1.8.0/MLNX_OFED_LINUX-5.0-2.1.8.0-rhel7.7-x86_64.tgz
@@ -45,11 +49,12 @@ KERNEL=${KERNEL[-1]}
 # Uncomment the lines below if you are running this on a VM
 #RELEASE=( $(cat /etc/centos-release | awk '{print $4}') )
 #yum -y install http://olcentgbl.trafficmanager.net/centos/${RELEASE}/updates/x86_64/kernel-devel-${KERNEL}.rpm
-yum install -y kernel-devel-${KERNEL}
-./MLNX_OFED_LINUX-5.0-2.1.8.0-rhel7.7-x86_64/mlnxofedinstall --kernel $KERNEL --kernel-sources /usr/src/kernels/${KERNEL} --add-kernel-support --skip-repo
+sudo yum install -y kernel-devel-${KERNEL}
+sudo ./MLNX_OFED_LINUX-5.0-2.1.8.0-rhel7.7-x86_64/mlnxofedinstall --kernel $KERNEL --kernel-sources /usr/src/kernels/${KERNEL} --add-kernel-support --skip-repo
 ```
 
 ### Windows
+
 For Windows, download and install the [Mellanox OFED for Windows drivers](https://www.mellanox.com/products/adapter-software/ethernet/windows/winof-2).
 
 ## Enable IP over InfiniBand (IB)

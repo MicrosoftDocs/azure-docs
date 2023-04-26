@@ -45,14 +45,14 @@ You can deploy Azure AD-joined VMs directly from the Azure portal when you [crea
 
 ### Assign user access to host pools
 
-After you've created your host pool, you must assign users access to their resources. To grant access to resources, add each user to the app group. Follow the instructions in [Manage app groups](manage-app-groups.md) to assign user access to apps and desktops. We recommend that you use user groups instead of individual users wherever possible.
+After you've created your host pool, you must assign users access to their resources. To grant access to resources, add each user to the application group. Follow the instructions in [Manage application groups](manage-app-groups.md) to assign user access to apps and desktops. We recommend that you use user groups instead of individual users wherever possible.
 
 For Azure AD-joined VMs, you'll need to do two extra things on top of the requirements for Active Directory or Azure Active Directory Domain Services-based deployments:  
 
 - Assign your users the **Virtual Machine User Login** role so they can sign in to the VMs.
 - Assign administrators who need local administrative privileges the **Virtual Machine Administrator Login** role.
 
-To grant users access to Azure AD-joined VMs, you must [configure role assignments for the VM](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#configure-role-assignments-for-the-vm). You can assign the **Virtual Machine User Login** or **Virtual Machine Administrator Login** role either on the VMs, the resource group containing the VMs, or the subscription. We recommend assigning the Virtual Machine User Login role to the same user group you used for the app group at the resource group level to make it apply to all the VMs in the host pool.
+To grant users access to Azure AD-joined VMs, you must [configure role assignments for the VM](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#configure-role-assignments-for-the-vm). You can assign the **Virtual Machine User Login** or **Virtual Machine Administrator Login** role either on the VMs, the resource group containing the VMs, or the subscription. We recommend assigning the Virtual Machine User Login role to the same user group you used for the application group at the resource group level to make it apply to all the VMs in the host pool.
 
 ## Access Azure AD-joined VMs
 
@@ -75,6 +75,8 @@ To access Azure AD-joined VMs using the web, Android, macOS and iOS clients, you
 ### Enforcing Azure AD Multi-Factor Authentication for Azure AD-joined session VMs
 
 You can use Azure AD Multi-Factor Authentication with Azure AD-joined VMs. Follow the steps to [Enforce Azure Active Directory Multi-Factor Authentication for Azure Virtual Desktop using Conditional Access](set-up-mfa.md) and note the extra steps for [Azure AD-joined session host VMs](set-up-mfa.md#azure-ad-joined-session-host-vms).
+
+If you're using Azure AD Multi-Factor Authentication and you don't want to restrict signing in to strong authentication methods like Windows Hello for Business, you'll need to [exclude the Azure Windows VM Sign-In app](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#mfa-sign-in-method-required) from your Conditional Access policy.
 
 ### Single sign-on
 
