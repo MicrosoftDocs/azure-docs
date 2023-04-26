@@ -44,7 +44,6 @@ Because you may need write access to `/etc`, `/home`, `/root`, `/var` for specif
 | BootEFIB | 8 MB | Firmware partition B for future GRUBless boot |
 | BootB | 192 MB | Contains the bootloader for B partition |
 | RootFS B | 4 GB | One of two active/passive partitions holding the root file system |
-| Unused | 4 GB | This partition is reserved for future use |
 | Log | 1 GB or 6 GB | Logs specific partition mounted under /logs |
 | Data | 2 GB to 2 TB | Stateful partition for storing persistent data across updates. Expandable according to the deployment configuration |
 
