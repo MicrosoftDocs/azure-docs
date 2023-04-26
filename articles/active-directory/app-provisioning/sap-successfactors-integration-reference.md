@@ -251,7 +251,7 @@ Use the steps to update your mapping to retrieve these codes.
 
 ### Handling worker conversion and rehiring scenarios
 
-**About worker conversion scenario:** Worker conversion is the process of converting an existing full-time employee to a contractor or a contractor to full-time. In this scenario, Employee Central adds a new *EmpEmployment* entity along with a new *User* entity for the same *Person* entity. The *User* entity nested under the previous *EmpEmployment* entity is set to null. 
+**About worker conversion scenario:** Worker conversion is the process of converting an existing full-time employee to a contractor or a contractor to a full-time employee. In this scenario, Employee Central adds a new *EmpEmployment* entity along with a new *User* entity for the same *Person* entity. The *User* entity nested under the previous *EmpEmployment* entity is set to null. 
 
 **About rehiring scenarios:** In SuccessFactors, there are two options to process rehiring employees: 
 * Option 1: Create a new person profile in Employee Central
