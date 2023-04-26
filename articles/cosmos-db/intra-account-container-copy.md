@@ -2,8 +2,8 @@
 title: Intra-account container copy jobs
 titleSuffix: Azure Cosmos DB
 description: Copy container data between containers within an account in Azure Cosmos DB.
-author: nayakshweta
-ms.author: shwetn
+author: seesharprun
+ms.author: sidandrews
 ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.topic: conceptual
