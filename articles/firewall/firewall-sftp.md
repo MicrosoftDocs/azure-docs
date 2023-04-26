@@ -35,6 +35,9 @@ This article requires the latest Azure PowerShell modules. Run `Get-Module -List
 
 First, set up some variables to use in the deployment. Replace the values with your own.
 
+> [!TIP]
+> You can use Azure Active Directory to find you user principal name. For more information, see [Find your user principal name](/active-directory/fundamentals/add-users-azure-active-directory#find-your-user-principal-name-upn).
+
 ```azurepowershell
 $rg = "<resource-group-name>"
 $location = "<location>"
@@ -216,8 +219,35 @@ New-AzPrivateEndpoint @pe
 
 Now, test to ensure you can connect to the storage account container using SFTP. You can use any SFTP client to test the connection. In this example, we use sftp from a command prompt.
 
+For example, for a storage account named `teststorageaccount`, a container named `testcontainer`, a local account named `testuser`, and a firewall public IP address of `13.68.216.252`. you would use the following command:
+
+```
+sftp teststorageaccount.testcontainer.testuser@13.68.216.252
+```
+
+Enter the password you saved earlier when prompted.
 
 
+You should see something similar to the following:
+
+```
+> sftp vehstore101.container01.testuser@13.68.216.252
+teststorageaccount.testcontainer.testuser@13.68.216.252's password:
+Connected to 13.68.216.252.
+sftp>
+```
+
+You should now be connected to the storage account container using SFTP. You can use `put` and `get` commands to upload and download files. Use `ls` to list the files in the container, and `lls` to list the files in the local directory.
+
+## Clean up resources
+
+When no longer needed, you can use the following command to remove the resource group, firewall, firewall policy, and all related resources.
+
+```azurepowershell
+
+Remove-AzResourceGroup -Name $rg -Force
+
+```
 
 ## Next steps
 
