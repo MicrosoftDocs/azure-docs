@@ -765,7 +765,7 @@
                   href: reference-migrate-sdk-v1-mlflow-tracking.md
             - name: Query & compare experiments and runs with MLflow
               href: how-to-track-experiments-mlflow.md
-            - name: Organize & manage training jobs (preview)
+            - name: Organize & manage jobs (preview)
               href: how-to-track-monitor-organize-jobs.md
             - name: Visualize training results (preview)
               href: how-to-visualize-jobs.md
