@@ -97,7 +97,7 @@ Add your user account to the **Schema Registry Reader** role at the namespace le
     Install-Package Azure.ResourceManager.Compute
     ```
 1. Authenticate producer applications to connect to Azure via Visual Studio as shown [here](/dotnet/api/overview/azure/identity-readme#authenticating-via-visual-studio).  
-1. Sign-in to Azure using the user account that's a member of the `Schema Registry Reader` role at the namespace level. For information about schema registry roles, see [Azure Schema Registry in Event Hubs](schema-registry-overview.md#azure-role-based-access-control). 
+1. Sign-in to Azure using the user account that's a member of the `Schema Registry Reader` role at the namespace level. For information about schema registry roles, see [Azure Schema Registry in Event Hubs](schema-registry-concepts.md#azure-role-based-access-control). 
 
 ### Code generation using the Avro schema  
 1. Use the same content you used to create the schema to create a file named ``Order.avsc``. Save the file in the project or solution folder. 
@@ -222,7 +222,7 @@ This section shows how to write a .NET Core console application that receives ev
     Install-Package Azure.ResourceManager.Compute
     ```
 1. Authenticate producer applications to connect to Azure via Visual Studio as shown [here](/dotnet/api/overview/azure/identity-readme#authenticating-via-visual-studio). 
-1. Sign-in to Azure using the user account that's a member of the `Schema Registry Reader` role at the namespace level. For information about schema registry roles, see [Azure Schema Registry in Event Hubs](schema-registry-overview.md#azure-role-based-access-control). 
+1. Sign-in to Azure using the user account that's a member of the `Schema Registry Reader` role at the namespace level. For information about schema registry roles, see [Azure Schema Registry in Event Hubs](schema-registry-concepts.md#azure-role-based-access-control). 
 1. Add the `Order.cs` file you generated as part of creating the producer app to the **OrderConsumer** project. 
 1. Right-click **OrderConsumer** project, and select **Set as Startup project**. 
 
