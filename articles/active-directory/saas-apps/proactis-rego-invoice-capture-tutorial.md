@@ -66,27 +66,27 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
     | **Identifier** |
     |-------------|
-    `https://eu-p5.proactiscloud.com`
-    `https://eu-p5-uat.proactiscloud.com`
-    `https://us-p5-icmanaged.proactiscloud.com`
-    `https://us-p5-icmanageduat.proactiscloud.com`
-    `https://hosted.proactiscapture.com`
-    `https://hosteduat.proactiscapture.com`
-    `https://managed.proactiscapture.com`
-    `https://manageduat.proactiscapture.com`
+    | `https://eu-p5.proactiscloud.com` |
+    | `https://eu-p5-uat.proactiscloud.com` |
+    | `https://us-p5-icmanaged.proactiscloud.com` |
+    | `https://us-p5-icmanageduat.proactiscloud.com` |
+    | `https://hosted.proactiscapture.com` |
+    | `https://hosteduat.proactiscapture.com` |
+    | `https://managed.proactiscapture.com` |
+    | `https://manageduat.proactiscapture.com` |
 
     b. In the **Reply URL** textbox, type a URL using one of the following patterns:
 
     | **Reply URL** |
     |---------------|
-    `https://manageduat.proactiscapture.com/SSO/<CustomerName>/AssertionConsumerService`
-    `https://managed.proactiscapture.com/SSO/<CustomerName>/AssertionConsumerService`
-    `https://hosteduat.proactiscapture.com/SSO/<CustomerName>/AssertionConsumerService`
-    `https://hosted.proactiscapture.com/SSO/<CustomerName>/AssertionConsumerService`
-    `https://us-p5-icmanageduat.proactiscloud.com/SSO/<CustomerName>/AssertionConsumerService`
-    `https://us-p5-icmanaged.proactiscloud.com/SSO/<CustomerName>/AssertionConsumerService`
-    `https://eu-p5-uat.proactiscloud.com/SSO/<CustomerName>/AssertionConsumerService`
-    `https://eu-p5.proactiscloud.com/SSO/<CustomerName>/AssertionConsumerService`
+    | `https://manageduat.proactiscapture.com/SSO/<CustomerName>/AssertionConsumerService` |
+    | `https://managed.proactiscapture.com/SSO/<CustomerName>/AssertionConsumerService` |
+    | `https://hosteduat.proactiscapture.com/SSO/<CustomerName>/AssertionConsumerService` |
+    | `https://hosted.proactiscapture.com/SSO/<CustomerName>/AssertionConsumerService` |
+    | `https://us-p5-icmanageduat.proactiscloud.com/SSO/<CustomerName>/AssertionConsumerService` |
+    | `https://us-p5-icmanaged.proactiscloud.com/SSO/<CustomerName>/AssertionConsumerService` |
+    | `https://eu-p5-uat.proactiscloud.com/SSO/<CustomerName>/AssertionConsumerService` |
+    | `https://eu-p5.proactiscloud.com/SSO/<CustomerName>/AssertionConsumerService` |
 
 1. If you wish to configure the application in **SP** initiated mode, then perform the following step:
 
@@ -94,14 +94,14 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
     | **Sign on URL** |
     |-------------|
-    `https://manageduat.proactiscapture.com/SSO/<CustomerName>`
-    `https://managed.proactiscapture.com/SSO/<CustomerName>`
-    `https://hosteduat.proactiscapture.com/SSO/<CustomerName>`
-    `https://hosted.proactiscapture.com/SSO/<CustomerName>`
-    `https://us-p5-icmanageduat.proactiscloud.com/SSO/<CustomerName>`
-    `https://us-p5-icmanaged.proactiscloud.com/SSO/<CustomerName>`
-    `https://eu-p5-uat.proactiscloud.com/SSO/<CustomerName>`
-    `https://eu-p5.proactiscloud.com/SSO/<CustomerName>`
+    | `https://manageduat.proactiscapture.com/SSO/<CustomerName>` |
+    | `https://managed.proactiscapture.com/SSO/<CustomerName>` |
+    | `https://hosteduat.proactiscapture.com/SSO/<CustomerName>`|
+    | `https://hosted.proactiscapture.com/SSO/<CustomerName>` |
+    | `https://us-p5-icmanageduat.proactiscloud.com/SSO/<CustomerName>` |
+    | `https://us-p5-icmanaged.proactiscloud.com/SSO/<CustomerName>` |
+    | `https://eu-p5-uat.proactiscloud.com/SSO/<CustomerName>` |
+    | `https://eu-p5.proactiscloud.com/SSO/<CustomerName>` |
 
     > [!NOTE]
     > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Proactis Rego Invoice Capture Client support team](mailto:support@proactis.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
