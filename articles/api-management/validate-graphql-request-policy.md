@@ -126,6 +126,6 @@ This example applies the following validation and authorization rules to a Graph
 
 ## Related policies
 
-* [API Management policies for GraphQL APIs](graphql-policies.md)
+* [Validation policies](api-management-policies.md#validation-policies)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

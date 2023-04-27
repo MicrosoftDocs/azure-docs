@@ -9,7 +9,7 @@ ms.date: 04/13/2023
 
 # Support matrices for Defender for Cloud
 
-This article indicates the Azure clouds, Azure services, and client operating systems that are supported by Microsoft Defender for Cloud.
+This article describes Azure services and client operating systems that are supported by Microsoft Defender for Cloud. For Azure cloud support, review [this article](support-matrix-cloud-environment.md)
 
 ## Security benefits for Azure services
 
