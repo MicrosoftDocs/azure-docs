@@ -22,8 +22,12 @@ This article describes how to build a Business case for on-premises servers and 
 
 - Make sure you've [created](./create-manage-projects.md) an Azure Migrate project. You can also reuse an existing project to use this capability.
 - Once you've created a project, the Azure Migrate: Discovery and assessment tool is automatically [added](how-to-assess.md) to the project.
-- Before you build the Business case, you need to set up an Azure Migrate appliance for [VMware](how-to-set-up-appliance-vmware.md) or [Hyper-V](how-to-set-up-appliance-hyper-v.md) or [Physical/Bare-metal or other clouds](how-to-set-up-appliance-physical.md). The appliance discovers servers, SQL Server instance and databases, and ASP.NET webapps and sends metadata and performance (resource utilization) data to Azure Migrate. [Learn more](migrate-appliance.md).
+- Before you build the Business case, you need to first discovery your IT estate. You can choose one of the two discovery sources based on your use case:
 
+    **Discovery Source** | **Details** | **Migration strategies that can be used to build a business case**
+    --- | --- | ---
+    Use more accurate data insights collected via **Azure Migrate appliance** | You need to set up an Azure Migrate appliance for [VMware](how-to-set-up-appliance-vmware.md) or [Hyper-V](how-to-set-up-appliance-hyper-v.md) or [Physical/Bare-metal or other clouds](how-to-set-up-appliance-physical.md). The appliance discovers servers, SQL Server instance and databases, and ASP.NET webapps and sends metadata and performance (resource utilization) data to Azure Migrate. [Learn more](migrate-appliance.md). | Azure recommended to minimize cost, Migrate to all IaaS (Infrastructure as a Service), Modernize to PaaS (Platform as a Service)
+    Build a quick business case using the **servers imported via a .csv file** | You need to provide the server inventory in a [.CSV file and import in Azure Migrate](tutorial-discover-import.md) to get a quick business case based on the provided inputs. You don't need to set up the Azure Migrate appliance to discover servers for this option. | Migrate to all IaaS (Infrastructure as a Service)
 
 ## Business case overview
 
@@ -69,6 +73,8 @@ There are three types of migration strategies that you can choose while building
 1. In **Target location**, specify the Azure region to which you want to migrate.
 
    Azure SKU size and cost recommendations are based on the location that you specify.
+
+1. In **Discovery source**, specify the discovery source on which you wish to create the business case. The options to build the business case using data discovered via the  appliance or imported via a .csv file will be available based on the type of discovered servers present in your project. The discovery source will be defaulted to the option chosen by you while building the business case and you will not be able to update this field later.
 
 1. In **Migration strategy**, specify the migration strategy for your Business case:
     
