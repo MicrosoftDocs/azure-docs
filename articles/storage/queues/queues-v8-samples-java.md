@@ -60,7 +60,7 @@ catch (Exception e)
 
 Related article: [Get started with Azure Queue Storage using Java](storage-java-how-to-use-queue-storage.md#how-to-add-a-message-to-a-queue)
 
-To insert a message into an existing queue, first create a new `CloudQueueMessage`. Next, call the `addMessage` method. A `CloudQueueMessage` can be created from either a string (in UTF-8 format) or a byte array. Here is code that creates a queue (if it doesn't exist) and inserts the message `Hello, World`.
+To insert a message into an existing queue, first create a new `CloudQueueMessage`. Next, call the `addMessage` method. A `CloudQueueMessage` can be created from either a string (in UTF-8 format) or a byte array. The following code example creates a queue (if it doesn't exist) and inserts the message `Hello, World`.
 
 ```java
 try
@@ -282,7 +282,7 @@ catch (Exception e)
 
 Related article: [Get started with Azure Queue Storage using Java](storage-java-how-to-use-queue-storage.md#additional-options-for-dequeuing-messages)
 
-The following code example uses the `retrieveMessages` method to get 20 messages in one call. Then it processes each message using a `for` loop. It also sets the invisibility timeout to five minutes (300 seconds) for each message. The timeout starts for all messages at the same time. When five minutes have passed since the call to `retrieveMessages`, any messages not deleted will become visible again.
+The following code example uses the `retrieveMessages` method to get 20 messages in one call. Then it processes each message using a `for` loop. It also sets the invisibility timeout to five minutes (300 seconds) for each message. The timeout starts for all messages at the same time. When five minutes have passed since the call to `retrieveMessages`, any messages not deleted becomes visible again.
 
 ```java
 try
@@ -315,7 +315,7 @@ catch (Exception e)
 
 Related article: [Get started with Azure Queue Storage using Java](storage-java-how-to-use-queue-storage.md#how-to-list-the-queues)
 
-To obtain a list of the current queues, call the `CloudQueueClient.listQueues()` method, which will return a collection of `CloudQueue` objects.
+To obtain a list of the current queues, call the `CloudQueueClient.listQueues()` method, which returns a collection of `CloudQueue` objects.
 
 ```java
 try

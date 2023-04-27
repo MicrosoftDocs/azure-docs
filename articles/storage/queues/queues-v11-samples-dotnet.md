@@ -57,8 +57,7 @@ queue.CreateIfNotExists();
 
 Related article: [Get started with Azure Queue Storage using .NET](storage-dotnet-how-to-use-queues.md#insert-a-message-into-a-queue)
 
-To insert a message into an existing queue, first create a new [`CloudQueueMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet-legacy&preserve-view=true). Next, call the [`AddMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet-legacy&preserve-view=true) method. A `CloudQueueMessage` can be created from either a string (in UTF-8 format) or a byte array. Here is code which creates a queue (if it doesn't exist) and inserts the message `Hello, World`:
-To insert a message into an existing queue, first create a new [`CloudQueueMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet-legacy&preserve-view=true). Next, call the [`AddMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet-legacy&preserve-view=true) method. A `CloudQueueMessage` can be created from either a string (in UTF-8 format) or a byte array. Here is code which creates a queue (if it doesn't exist) and inserts the message `Hello, World`:
+To insert a message into an existing queue, first create a new [`CloudQueueMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet-legacy&preserve-view=true). Next, call the [`AddMessage`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet-legacy&preserve-view=true) method. A `CloudQueueMessage` can be created from either a string (in UTF-8 format) or a byte array. The following code example creates a queue (if it doesn't already exist) and inserts the message `Hello, World`:
 
 ```csharp
 // Retrieve storage account from connection string
@@ -185,7 +184,7 @@ Console.WriteLine("Deleted message");
 
 Related article: [Get started with Azure Queue Storage using .NET](storage-dotnet-how-to-use-queues.md#use-additional-options-for-dequeuing-messages)
 
-The following code example uses the [`GetMessages`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessages?view=azure-dotnet-legacy&preserve-view=true) method to get 20 messages in one call. Then it processes each message using a `foreach` loop. It also sets the invisibility timeout to five minutes for each message. Note that the five minutes starts for all messages at the same time, so after five minutes have passed since the call to `GetMessages`, any messages which have not been deleted will become visible again.
+The following code example uses the [`GetMessages`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessages?view=azure-dotnet-legacy&preserve-view=true) method to get 20 messages in one call. Then it processes each message using a `foreach` loop. It also sets the invisibility timeout to five minutes for each message. The timeout starts for all messages at the same time, so after five minutes have passed since the call to `GetMessages`, any messages that haven't been deleted will become visible again.
 
 ```csharp
 // Retrieve storage account from connection string.
