@@ -1,14 +1,13 @@
 ---
 title: include file
-description: include file
+description: Advanced send email Python SDK include file
 author: natekimball-msft
 manager: koagbakp
 services: azure-communication-services
 ms.author: natekimball
-ms.date: 03/24/2023
+ms.date: 04/07/2023
 ms.topic: include
 ms.service: azure-communication-services
-ms.custom: mode-other
 ---
 
 Get started with Azure Communication Services by using the Communication Services Python Email SDK to send Email messages.
@@ -94,7 +93,7 @@ The `response.status` values are explained further in the following table.
 | Status Name | Description |
 | ----------- | ------------|
 | InProgress | The email send operation is currently in progress and being processed. |
-| Succeeded | The email send operation has completed without error and the email is out for delivery. Any detailed status about the email delivery beyond this stage can be obtained either through Azure Monitor or through Azure Event Grid. [Learn how to subscribe to email events](../handle-email-events.md) |
+| Succeeded | The email send operation has completed without error and the email is out for delivery. Any detailed status about the email delivery beyond this stage can be obtained either through Azure Monitor or through Azure Event Grid. [Learn how to subscribe to email events](../../handle-email-events.md) |
 | Failed | The email send operation wasn't successful and encountered an error. The email wasn't sent. The result contains an error object with more details on the reason for failure or cancellation. |
 | Canceled | The email send operation was canceled before it could complete. The email wasn't sent. The result contains an error object with more details on the reason for failure or cancellation.|
 
@@ -102,13 +101,13 @@ The `response.status` values are explained further in the following table.
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Python](https://www.python.org/downloads/) 3.7+.
-- An Azure Email Communication Services resource created and ready with a provisioned domain. [Get started with creating an Email Communication Resource](../create-email-communication-resource.md).
-- An active Azure Communication Services resource connected to an Email Domain and its connection string. [Get started by connecting an Email Communication Resource with a Azure Communication Resource](../connect-email-communication-resource.md).
+- An Azure Email Communication Services resource created and ready with a provisioned domain. [Get started with creating an Email Communication Resource](../../create-email-communication-resource.md).
+- An active Azure Communication Services resource connected to an Email Domain and its connection string. [Get started by connecting an Email Communication Resource with a Azure Communication Resource](../../connect-email-communication-resource.md).
 
 Completing this quick start incurs a small cost of a few USD cents or less in your Azure account.
 
 > [!NOTE]
-> We can also send an email from our own verified domain. [Add custom verified domains to Email Communication Service](../add-azure-managed-domains.md).
+> We can also send an email from our own verified domain. [Add custom verified domains to Email Communication Service](../../add-azure-managed-domains.md).
 
 ### Prerequisite check
 - In a terminal or command window, run the `python --version` command to check that Python is installed.
@@ -161,7 +160,7 @@ There are a few different options available for authenticating an email client:
 
 #### [Connection String](#tab/connection-string)
 
-Instantiate an **EmailClient** with your connection string. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
+Instantiate an **EmailClient** with your connection string. Learn how to [manage your resource's connection string](../../../create-communication-resource.md#store-your-connection-string).
 
 ```python
 # Create the EmailClient object that you use to send Email messages.
@@ -170,7 +169,7 @@ email_client = EmailClient.from_connection_string(<connection_string>)
 
 #### [Azure Active Directory](#tab/aad)
 
-You can also use Active Directory authentication using [DefaultAzureCredential](../../../concepts/authentication.md).
+You can also use Active Directory authentication using [DefaultAzureCredential](../../../../concepts/authentication.md).
 
 ```python
 from azure.communication.email import EmailClient
@@ -197,86 +196,4 @@ email_client = EmailClient(endpoint, key);
 
 ---
 
-For simplicity, this quickstart uses connection strings, but in production environments, we recommend using [service principals](../../../quickstarts/identity/service-principal.md).
-
-## Basic email sending 
-
-### Send an email message
-
-To send an email message, you need to:
-- Construct the message with the following values:
-   - `senderAddress`: A valid sender email address, found in the MailFrom field in the overview pane of the domain linked to your Email Communication Services Resource.
-   - `recipients`: An object with a list of email recipients, and optionally, lists of CC & BCC email recipients. 
-   - `content`: An object containing the subject, and optionally the plaintext or HTML content, of an email message.
-- Call the begin_send method, which returns the result of the operation. 
-
-```python
-message = {
-    "content": {
-        "subject": "This is the subject",
-        "plainText": "This is the body",
-        "html": "html><h1>This is the body</h1></html>"
-    },
-    "recipients": {
-        "to": [
-            {
-                "address": "<emailalias@emaildomain.com>",
-                "displayName": "Customer Name"
-            }
-        ]
-    },
-    "senderAddress": "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>"
-}
-
-poller = email_client.begin_send(message)
-print("Result: " + poller.result())
-
-```
-
-Make these replacements in the code:
-
-- Replace `<emailalias@emaildomain.com>` with the email address you would like to send a message to.
-- Replace `<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>` with the MailFrom address of your verified domain.
-
-### Get the status of the email delivery
-
-We can poll for the status of the email delivery by setting a loop on the operation status object returned from the EmailClient's `begin_send` method:
-
-```python
-POLLER_WAIT_TIME = 10
-
-try:
-    email_client = EmailClient.from_connection_string(connection_string)
-
-    poller = email_client.begin_send(message);
-
-    time_elapsed = 0
-    while not poller.done():
-        print("Email send poller status: " + poller.status())
-
-        poller.wait(POLLER_WAIT_TIME)
-        time_elapsed += POLLER_WAIT_TIME
-
-        if time_elapsed > 18 * POLLER_WAIT_TIME:
-            raise RuntimeError("Polling timed out.")
-
-    if poller.result()["status"] == "Succeeded":
-        print(f"Successfully sent the email (operation id: {poller.result()['id']})")
-    else:
-        raise RuntimeError(str(poller.result()["error"]))
-
-except Exception as ex:
-    print(ex)
-```
-
-### Run the code
-
-Run the application from your application directory with the `python` command.
-
-```console
-python send-email.py
-```
-
-### Sample code
-
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/send-email)
+For simplicity, this quickstart uses connection strings, but in production environments, we recommend using [service principals](../../../../quickstarts/identity/service-principal.md).
