@@ -66,7 +66,7 @@ The installation process takes about 20 minutes. After the installation, the sys
 
     The installation wizard starts running. This step takes several minutes to complete, and includes system reboots.
 
-    When complete, the a screen similar to the following appears, prompting you to enter your management interface:
+    When complete, a screen similar to the following appears, prompting you to enter your management interface:
 
    :::image type="content" source="../media/tutorial-install-components/on-prem-first-steps-install.png" alt-text="Screenshot of the management interface prompt.":::
 
@@ -102,7 +102,7 @@ The installation process takes about 20 minutes. After the installation, the sys
 
 1. When you're ready, press **ENTER** to continue.
 
-    The installation is complete and you're prompted to sign in. SIgn in using one of the privileged user credentials you'd saved from the previous step. At this point, you can also browse to the on-premises management consoles's IP address in a browser and sign in there.
+    The installation is complete and you're prompted to sign in. Sign in using one of the privileged user credentials you saved from the previous step. At this point, you can also browse to the on-premises management console's IP address in a browser and sign in there.
 
 ## Configure network adapters for a VM deployment
 
