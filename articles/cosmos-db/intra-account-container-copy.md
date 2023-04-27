@@ -2,8 +2,8 @@
 title: Intra-account container copy jobs
 titleSuffix: Azure Cosmos DB
 description: Copy container data between containers within an account in Azure Cosmos DB.
-author: nayakshweta
-ms.author: shwetn
+author: seesharprun
+ms.author: sidandrews
 ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -76,9 +76,9 @@ The rate of container copy job progress is determined by these factors:
 
 Container copy jobs don't work with accounts having following capabilities enabled. You will need to disable these features before running the container copy jobs.
 
-- [Disable local auth](https://learn.microsoft.com/azure/cosmos-db/how-to-setup-rbac#use-azure-resource-manager-templates)
-- [Private endpoint / IP Firewall enabled](https://learn.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-global-azure-datacenters-or-other-sources-within-azure). You will need to provide access to connections within public Azure datacenters to run container copy jobs.
-- [Merge partition](https://learn.microsoft.com/azure/cosmos-db/merge).
+- [Disable local auth](how-to-setup-rbac.md#use-azure-resource-manager-templates)
+- [Private endpoint / IP Firewall enabled](how-to-configure-firewall.md#allow-requests-from-global-azure-datacenters-or-other-sources-within-azure). You will need to provide access to connections within public Azure datacenters to run container copy jobs.
+- [Merge partition](merge.md).
 
 
 ### Account Configurations
