@@ -35,7 +35,7 @@ Use this quickstart for the question answering client library for Python to:
 
 ## Setting up
 
-[!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
+[!INCLUDE [Create environment variables](../../includes/environment-variables.md)]
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Question-answering&Page=quickstart&Section=Create-environment-variables" target="_target">I ran into an issue</a>

@@ -34,7 +34,7 @@ Use this quickstart for the question answering client library for .NET to:
 
 ## Setting up
 
-[!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
+[!INCLUDE [Create environment variables](../../includes/environment-variables.md)]
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Create-environment-variables" target="_target">I ran into an issue</a>
