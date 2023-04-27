@@ -64,10 +64,10 @@ Modules built as Linux containers can be deployed to either Linux or Windows dev
 | Windows 10/11 IoT Enterprise | ![Windows 10/11 IoT Enterprise + AMD64](./media/support/green-check.png) |  | ![Win 10 IoT Enterprise + ARM64](./media/support/green-check.png) |
 | Windows Server 2019/2022 | ![Windows Server 2019/2022 + AMD64](./media/support/green-check.png) |  |  |
 
-> [!NOTE] 
-> Ubuntu 18.04 LTS ends standard support on May 31st, 2023. IoT Edge devices using 18.04 will continue to run and applications aren't impacted. After Ubuntu 18.04 LTS standard support ends, there won't be IoT Edge security, feature, or maintenance patch updates released for Ubuntu 18.04 devices. Consider upgrading devices to Ubuntu 20.04 LTS or Ubuntu 22.04 LTS.
-
 All Windows operating systems must be minimum build 17763 with all current cumulative updates installed.
+
+> [!NOTE] 
+> Ubuntu 18.04 LTS ends standard support on May 31st, 2023. In June 2023, Ubuntu 18.04 LTS won't be an IoT Edge *tier 1* supported platform. Ubuntu 18.04 LTS IoT Edge packages will be available until Nov 30th, 2023. IoT Edge system modules Edge Agent and Edge Hub aren't impacted. If you take no action, Ubuntu 18.04 LTS based IoT Edge devices continue to work but security patches and bug fixes in the host packages for Ubuntu 18.04 won't be available after Nov 30th, 2023. To continue to receive support and security updates, we recommend that you update your host OS to a *tier 1* supported platform. For more information, see the [Update your IoT Edge devices on Ubuntu 18.04 LTS announcement](https://azure.microsoft.com/updates/update-ubuntu-1804/).
 
 #### Windows containers
 
