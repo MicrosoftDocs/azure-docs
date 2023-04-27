@@ -128,7 +128,7 @@ It will display a status page similar to:
 
 #### Manual installation
 
-When you configure Profiler, updates are made to the web app's settings. If necessary, you can [apply the updates manually](./profiler.md#verify-always-on-setting-is-enabled). 
+When you configure Profiler, updates are made to the web app's settings. If necessary, you can [apply the updates manually](./profiler.md#verify-the-always-on-setting-is-enabled). 
 
 #### Too many active profiling sessions
 
