@@ -139,6 +139,12 @@ public static string Run([EventHubTrigger("src", Connection = "EventHubConnectio
 }
 ```
 
+|Property  | Description |
+|---------|-------------| 
+|MaxRetryCount|Required. The maximum number of retries allowed per function execution. `-1` means to retry indefinitely.|
+|DelayInterval|The delay that's used between retries. Specify it as a string with the format `HH:mm:ss`.|
+
+
 # [C# script](#tab/csharp-script/fixed-delay)
 
 Here's the retry policy in the *function.json* file:
