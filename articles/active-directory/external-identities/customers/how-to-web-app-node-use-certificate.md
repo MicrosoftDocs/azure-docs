@@ -32,9 +32,9 @@ You can use [Azure Key Vault](/azure/key-vault/certificates/quick-create-portal)
 
 Follow the steps in [Set and retrieve a certificate from Azure Key Vault using the Azure portal](/azure/key-vault/certificates/quick-create-portal) to create and download your certificate.
 
-If you've an existing self-signed certificate in you local machine, you can skip this step, then proceed to [Upload certificate to your app registration](#upload-certificate-to-your-app-registration).
+If you have an existing self-signed certificate in your local computer, you can skip this step, then proceed to [Upload certificate to your app registration](#upload-certificate-to-your-app-registration).
 
-If you've an existing self-signed certificate in Azure Key Vault, and you want to use it without downloading it, skip this step, then proceed to [Use a self-signed certificate directly from Azure Key Vault](#use-a-self-signed-certificate-directly-from-azure-key-vault). 
+If you have an existing self-signed certificate in Azure Key Vault, and you want to use it without downloading it, skip this step, then proceed to [Use a self-signed certificate directly from Azure Key Vault](#use-a-self-signed-certificate-directly-from-azure-key-vault). 
 
 ## Upload certificate to your app registration
 
@@ -56,7 +56,7 @@ Once you associate your app registration with the certificate, you need to updat
             //...
         };
     ```
-1. Comment the the `clientSecret` property, then add the `clientCertificate` object similar to the following code:
+1. Comment the `clientSecret` property, then add the `clientCertificate` object  to look similar to the following code:
 
     ```javascript
         const fs = require('fs'); //// import the fs module for reading the key file
@@ -77,9 +77,9 @@ Once you associate your app registration with the certificate, you need to updat
     
     Make sure you import the file system (fs) module as you need it to read the certificate file. 
 
-    In your code replace the placeholders: 
+    In your code, replace the placeholders: 
 
-    - `YOUR_CERT_THUMBPRINT` with the **Thumbprint** value you recorder earlier.
+    - `YOUR_CERT_THUMBPRINT` with the **Thumbprint** value you recorded earlier.
     
     - `PATH_TO_YOUR_PRIVATE_KEY_FILE` with the file path to your certificate. 
 
@@ -89,7 +89,7 @@ Once you associate your app registration with the certificate, you need to updat
 
 You can use your existing certificate directly from Azure Key Vault:
 
-1. Locate the file that contains your MSAL configuration object, such as `msalConfig`  in *authConfig.js*, then comment the the `clientSecret` property:
+1. Locate the file that contains your MSAL configuration object, such as `msalConfig`  in *authConfig.js*, then comment the `clientSecret` property:
     
     ```java
         const msalConfig = {
@@ -102,7 +102,7 @@ You can use your existing certificate directly from Azure Key Vault:
         };
     ```
 
-1. Install [Azure CLI](), then, on your console, type the following command to sign-in:
+1. Install [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), then on your console, type the following command to sign-in:
 
 
     ```console
@@ -145,7 +145,7 @@ You can use your existing certificate directly from Azure Key Vault:
         getKeyAndThumbprint();        
     ```
      
-    In your code replace the placeholders:
+    In your code, replace the placeholders:
 
     - `ENTER_YOUR_KEY_VAULT_URL` with your Azure Key Vault URL.
      

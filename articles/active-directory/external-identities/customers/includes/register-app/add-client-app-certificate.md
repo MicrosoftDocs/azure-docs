@@ -7,7 +7,7 @@ ms.date: 05/05/2023
 ms.author: kengaderdus
 ---
 
-To use your client app certificate, you need to associate tha app you registered in the Microsoft Entra admin center with the certificate:
+To use your client app certificate, you need to associate the app you registered in the Microsoft Entra admin center with the certificate:
 
 1. 1.  Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
 
@@ -31,4 +31,4 @@ To use your client app certificate, you need to associate tha app you registered
 
 1. For **Description**, type in a description, such as, *CIAM client app certificate*, then select **Add** to upload your certificate. Once the certificate is uploaded, the **Thumbprint**, **Start date**, and *Expires* values are displayed.
 
-1. Record the **Thumbprint** value for user later when you configuration your client app.
+1. Record the **Thumbprint** value for use later when you configure your client app.
