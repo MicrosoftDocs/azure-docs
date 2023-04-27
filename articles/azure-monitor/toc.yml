@@ -1441,7 +1441,7 @@ items:
       - name: Scale with custom metrics
         href: autoscale/autoscale-custom-metric.md
       - name: Autoscale Virtual Machine Scale Sets using PowerShell
-        href: ./autoscale/autoscale-powershell.md
+        href: autoscale/autoscale-using-powershell.md
       - name: Scale Virtual Machine Scale Sets using Resource Manager templates
         href: ../virtual-machine-scale-sets/tutorial-autoscale-template.md?toc=/azure/azure-monitor/toc.json
       - name: Scale Virtual Machine Scale Sets using CLI
