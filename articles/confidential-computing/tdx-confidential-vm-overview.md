@@ -9,7 +9,7 @@ ms.topic: overview
 ms.date: 4/25/2023
 ---
 
-# DCesv5 and ECesv5 series confidential VMs 
+## Preview of DCesv5 and ECesv5 series confidential VMs 
 
 Starting with the 4th Gen Intel® Xeon® Scalable processors, Azure has begun supporting VMs backed by an all-new hardware-based Trusted Execution Environment called [Intel® Trust Domain Extensions (TDX)](https://www.intel.com/content/www/us/en/developer/articles/technical/intel-trust-domain-extensions.html#inpage-nav-2). Organizations can use these VMs to seamlessly bring confidential workloads to the cloud without any code changes to their applications.
 
@@ -18,7 +18,7 @@ Intel TDX helps harden the virtualized environment to deny the hypervisor and ot
 > [!IMPORTANT]
 > DCesv5 and ECesv5 are now available in preview, customers can sign-up [today](https://aka.ms/TDX-signup).
 
-## Benefits
+### Benefits
 
 Some of the benefits of Confidential VMs with Intel TDX include:
 
@@ -29,7 +29,7 @@ Some of the benefits of Confidential VMs with Intel TDX include:
 - Support for operator-independent remote attestation with [Intel Project Amber](http://projectamber.intel.com/).
 - Support for Ubuntu 22.04, SUSE Linux Enterprise Server 15 SP5 and SUSE Linux Enterprise Server for SAP 15 SP5.
 
-## See also
+### See also
 
 - [Read our product announcement](https://aka.ms/tdx-blog)
 - [Try Ubuntu confidential VMs with Intel TDX today: limited preview now available on Azure](https://canonical.com/blog/ubuntu-confidential-vms-intel-tdx-microsoft-azure-confidential-computing)
