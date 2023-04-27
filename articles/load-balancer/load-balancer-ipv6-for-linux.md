@@ -96,7 +96,7 @@ Recent SLES and openSUSE images in Azure have been preconfigured with DHCPv6. No
 
 # [Ubuntu](#tab/ubuntu) 
 
-(17.10 or higher)
+For Ubuntu versions 17.10 or higher
 
 1. Edit the **`/etc/dhcp/dhclient.conf`** file, and add the following line:
 
