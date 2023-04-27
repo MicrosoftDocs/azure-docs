@@ -225,6 +225,9 @@ $storageType = 'PremiumV2_LRS'
 #Get-AzLocation
 $location = 'westus'
 
+#To use a 512 sector size, replace 4096 with 512
+$logicalSectorSize=4096
+
 # Get the disk that you need to backup by creating an incremental snapshot
 $yourDisk = Get-AzDisk -DiskName $diskName -ResourceGroupName $resourceGroupName
 
@@ -232,7 +235,7 @@ $yourDisk = Get-AzDisk -DiskName $diskName -ResourceGroupName $resourceGroupName
 $snapshotConfig=New-AzSnapshotConfig -SourceUri $yourDisk.Id -Location $yourDisk.Location -CreateOption Copy -Incremental 
 $snapshot = New-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName -Snapshot $snapshotConfig
 
-$diskConfig = New-AzDiskConfig -SkuName $storageType -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id -DiskSizeGB $diskSize
+$diskConfig = New-AzDiskConfig -SkuName $storageType -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id -DiskSizeGB $diskSize -LogicalSectorSize $logicalSectorSize
  
 New-AzDisk -Disk $diskConfig -ResourceGroupName $resourceGroupName -DiskName $diskName
 ```
@@ -248,6 +251,8 @@ resourceGroupName="yourResourceGroupNameHere"
 snapshotName="desiredSnapshotNameHere"
 #Provide the storage type. Use PremiumV2_LRS or UltraSSD_LRS.
 storageType=PremiumV2_LRS
+##Replace 4096 with 512 to deploy a disk with 512 sector size
+logicalSectorSize=4096
 
 # Get the disk you need to backup
 yourDiskID=$(az disk show -n $diskName -g $resourceGroupName --query "id" --output tsv)
@@ -255,7 +260,7 @@ yourDiskID=$(az disk show -n $diskName -g $resourceGroupName --query "id" --outp
 # Create the snapshot
 snapshot=$(az snapshot create -g $resourceGroupName -n $snapshotName --source $yourDiskID --incremental true)
 
-az disk create -g resourceGroupName -n newDiskName --source $snapshot
+az disk create -g resourceGroupName -n newDiskName --source $snapshot --logical-sector-size $logicalSectorSize
 
 ```
 
