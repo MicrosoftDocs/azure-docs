@@ -32,7 +32,7 @@ This document contains information about new features and other changes to the M
 
 - Fixed the possibility of undefined copyright element container when withRuleBasedAttribution is set to false
 
-- Fixed the possibility of event listener removal called on undefined target in EventManager.remove()
+- Fixed the possibility of event listener removal called on undefined target in `EventManager.remove()`
 
 ### [3.0.0-preview.6] (March 31, 2023)
 
