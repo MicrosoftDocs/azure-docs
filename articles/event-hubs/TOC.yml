@@ -63,7 +63,7 @@
       items:
         - name: Create a schema registry - Azure portal
           href: create-schema-registry.md  
-        - name: Validate events using a schema (.NET + AMQP)
+        - name: Validate events using an Avro schema (.NET + AMQP)
           href: schema-registry-dotnet-send-receive-quickstart.md
     - name: Create a dedicated cluster
       href: event-hubs-dedicated-cluster-create-portal.md

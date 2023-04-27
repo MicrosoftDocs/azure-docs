@@ -11,10 +11,9 @@ ms.author: daknappe
 
 The Microsoft Remote Desktop client is used to connect to Azure Virtual Desktop to access your desktops and applications. This article shows you how to connect to Azure Virtual Desktop with the Remote Desktop client for Windows, which will only allow you to subscribe to a feed made available to you by your organization administrators.
 
-   > [!NOTE]
-   > If you also want the ability to connect to other devices like local servers or clients, or machines in your Active Directory domain from the Remote Desktop client, you'll need to download the one from the Microsoft Store.
-
 You can find a list of all the Remote Desktop clients you can use to connect to Azure Virtual Desktop at [Remote Desktop clients overview](remote-desktop-clients-overview.md).
+
+If you want to connect to Remote Desktop Services or a remote PC instead of Azure Virtual Desktop, see [Connect to Remote Desktop Services with the Remote Desktop app for Windows](/windows-server/remote/remote-desktop-services/clients/windows).
 
 ## Prerequisites
 
