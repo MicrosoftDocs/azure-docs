@@ -77,10 +77,9 @@ For more information, see the following articles:
 
 ## Network security and isolation
 
-To restrict network access to Azure Machine Learning resources, you can use [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md) and [Azure Machine Learning managed virtual network (preview)](how-to-managed-network.md). Using either option reduces the attack surface for your solution, as well as the chances of data exfiltration.
+To restrict network access to Azure Machine Learning resources, you can use [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md) and [Azure Machine Learning managed virtual network (preview)](how-to-managed-network.md). Using a virtual network reduces the attack surface for your solution, as well as the chances of data exfiltration.
 
-> [!IMPORTANT]
-> You can use both a manged virtual network and Azure Virtual Network as part of your solution. For example, using a managed virtual network to secure managed compute resources and an Azure Virtual Network to connect your on-premises network to the cloud. In this configuration, the Azure Machine Learning workspace might have a private endpoint in the Azure Virtual Network to allow clients to access the workspace.
+We recommend using a managed virtual network to secure managed compute resources and an Azure Virtual Network for your unmanaged resources or to secure client access to the workspace.
 
 * __Azure Machine Learning managed virtual network__ (preview) provides a fully managed solution that enables network isolation for your workspace and managed compute resources. You can use private endpoints to secure communication with other Azure services, and can restrict outbound communications.
 
