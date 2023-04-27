@@ -15,7 +15,7 @@ ms.reviewer: chmutali
 
 # How Azure Active Directory provisioning integrates with SAP SuccessFactors 
 
-[Azure Active Directory user provisioning service](../app-provisioning/user-provisioning.md) integrates with [SAP SuccessFactors Employee Central](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html) to manage the identity life cycle of users. Azure Active Directory offers three pre-built integrations: 
+[Azure Active Directory user provisioning service](../app-provisioning/user-provisioning.md) integrates with [SAP SuccessFactors Employee Central](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html) to manage the identity life cycle of users. Azure Active Directory offers three prebuilt integrations: 
 
 * [SuccessFactors to on-premises Active Directory user provisioning](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
 * [SuccessFactors to Azure Active Directory user provisioning](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)
@@ -166,7 +166,7 @@ This section covers how you can customize the provisioning app for the following
 
 ### Retrieving more attributes
 
-The default Azure AD SuccessFactors provisioning app schema ships with [90+ pre-defined attributes](sap-successfactors-attribute-reference.md). 
+The default Azure AD SuccessFactors provisioning app schema ships with [90+ predefined attributes](sap-successfactors-attribute-reference.md). 
 To add more SuccessFactors attributes to the provisioning schema, use the steps listed: 
 
 1. Use the OData query to retrieve data for a valid test user from Employee Central. 
@@ -196,7 +196,7 @@ To add more SuccessFactors attributes to the provisioning schema, use the steps 
 
 ### Retrieving custom attributes
 
-By default, the following custom attributes are pre-defined in the Azure AD SuccessFactors provisioning app: 
+By default, the following custom attributes are predefined in the Azure AD SuccessFactors provisioning app: 
 * *custom01-custom15* from the User (userNav) entity
 * *customString1-customString15* from the EmpEmployment (employmentNav) entity called *empNavCustomString1-empNavCustomString15*
 * *customString1-customString15* from the EmpJobInfo (jobInfoNav) entity called *empJobNavCustomString1-empNavJobCustomString15*
@@ -307,7 +307,7 @@ This section describes how you can update the JSONPath settings to definitely re
 
 1. Save the schema.
 1. The above process updates all JSONPath expressions. 
-1. For pre-hire processing to work, the JSONPath associated with `startDate` attribute must use either `[0]` or `[-1:]` index. Under **Show advanced options**, click on **Edit SuccessFactors attribute list**. Find the attribute `startDate` and set it to the value `$.employmentNav.results[-1:].startDate`
+1. For prehire processing to work, the JSONPath associated with `startDate` attribute must use either `[0]` or `[-1:]` index. Under **Show advanced options**, click on **Edit SuccessFactors attribute list**. Find the attribute `startDate` and set it to the value `$.employmentNav.results[-1:].startDate`
 1. Save the schema.
 1. To ensure that terminations are processed as expected, you can use one of the following settings in the attribute mapping section.
  
@@ -361,7 +361,7 @@ To fetch attributes belonging to both jobs, use the steps listed:
 1. Open the attribute-mapping blade of your SuccessFactors provisioning app. 
 1. Scroll down and click **Show advanced options**.
 1. Click on **Edit attribute list for SuccessFactors**.
-1. Let's say you want to pull the department associated with job 1 and job 2. The pre-defined attribute *department* already fetches the value of department for the first job. You can define a new attribute called *secondJobDepartment* and set the JSONPath expression to `$.employmentNav.results[1].jobInfoNav.results[0].departmentNav.name_localized`
+1. Let's say you want to pull the department associated with job 1 and job 2. The predefined attribute *department* already fetches the value of department for the first job. You can define a new attribute called *secondJobDepartment* and set the JSONPath expression to `$.employmentNav.results[1].jobInfoNav.results[0].departmentNav.name_localized`
 1. You can now either flow both department values to Active Directory attributes or selectively flow a value using expression mapping. 
 1. Save the mapping. 
 1. Test the configuration using [provision on demand](provision-on-demand.md). 
@@ -379,11 +379,11 @@ The SuccessFactors connector supports expansion of the position object. To expan
 | positionNameDE | $.employmentNav.results[0].jobInfoNav.results[0].positionNav.externalName_de_DE |
 
 ### Provisioning users in the Onboarding module
-Inbound user provisioning from SAP SuccessFactors to on premises Active Directory and Azure AD now supports advance provisioning of prehires present in the SAP SuccessFactors Onboarding 2.0 module. When the Azure AD provisioning service encounters a new hire profile with a future start date, it queries SAP SuccessFactors to get new hires with one of the following status codes: `active`, `inactive`, `active_external_suite`. The status code `active_external_suite` corresponds to pre-hires present in the SAP SuccessFactors Onboarding 2.0 module. For a description of these status codes, refer to [SAP support note 2736579](https://launchpad.support.sap.com/#/notes/0002736579).
+Inbound user provisioning from SAP SuccessFactors to on premises Active Directory and Azure AD now supports advance provisioning of prehires present in the SAP SuccessFactors Onboarding 2.0 module. When the Azure AD provisioning service encounters a new hire profile with a future start date, it queries SAP SuccessFactors to get new hires with one of the following status codes: `active`, `inactive`, `active_external_suite`. The status code `active_external_suite` corresponds to prehires present in the SAP SuccessFactors Onboarding 2.0 module. For a description of these status codes, refer to [SAP support note 2736579](https://launchpad.support.sap.com/#/notes/0002736579).
 
-The default behavior of the provisioning service is to process pre-hires in the Onboarding module. 
+The default behavior of the provisioning service is to process prehires in the Onboarding module. 
 
-If you want to exclude processing of pre-hires in the Onboarding module, update your provisioning job configuration as follows: 
+If you want to exclude processing of prehires in the Onboarding module, update your provisioning job configuration as follows: 
 1. Open the attribute-mapping blade of your SuccessFactors provisioning app.
 1. Under show advanced options, edit the SuccessFactors attribute list to add a new attribute called `userStatus`.
 1. Set the JSONPath API expression for this attribute as: `$.employmentNav.results[0].userNav.status`
