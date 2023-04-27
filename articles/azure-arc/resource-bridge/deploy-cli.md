@@ -60,7 +60,7 @@ While the Arc resource bridge is connecting the ARM resource to the on-premises 
 
 `Status` transitions between `WaitingForHeartbeat` -> `Validating` ->  `Connecting` -> `Connected` -> `Running`.
 
-- WaitingForHeartBeat: Azure is waiting to receive a signal from the appliance VM
+- WaitingForHeartbeat: Azure is waiting to receive a signal from the appliance VM
 
 - Validating: Appliance VM is checking Azure services for connectivity and serviceability
 
