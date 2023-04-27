@@ -59,7 +59,7 @@ This article uses [Python 3.9+](https://www.python.org/) and [Flask 2.1](https:/
 
 1. Update pip in the virtual environment by running the following command in the terminal:
 
-    ```bash
+    ```
     python -m pip install --upgrade pip
     ``` 
 
