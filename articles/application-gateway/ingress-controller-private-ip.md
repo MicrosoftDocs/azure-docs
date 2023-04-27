@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/4/2019
+ms.date: 04/27/2023
 ms.author: greglin
 ---
 
@@ -30,7 +30,7 @@ For Application Gateways without a Private IP, Ingresses annotated with `appgw.i
 
 * Error as indicated in the Ingress Event
 
-    ```bash
+    ```output
     Events:
     Type     Reason       Age               From                                                                     Message
     ----     ------       ----              ----                                                                     -------
@@ -40,7 +40,7 @@ For Application Gateways without a Private IP, Ingresses annotated with `appgw.i
 
 * Error as indicated in AGIC Logs
 
-    ```bash
+    ```output
     E0730 18:57:37.914749       1 prune.go:65] Ingress default/hello-world-ingress requires Application Gateway applicationgateway3026 has a private IP address
     ```
 

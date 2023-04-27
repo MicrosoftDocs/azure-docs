@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/14/2019
+ms.date: 04/27/2023
 ms.author: greglin
 ms.custom: mvc, devx-track-azurecli
 ---

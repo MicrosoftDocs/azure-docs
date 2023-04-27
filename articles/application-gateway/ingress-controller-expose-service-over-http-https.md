@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 06/09/2022
+ms.date: 04/27/2023
 ms.author: greglin
 ---
 

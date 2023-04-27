@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 06/09/2022
+ms.date: 04/27/2023
 ms.author: greglin
 ---
 
@@ -340,15 +340,15 @@ Alternatively you can:
 
 * Download the YAML file above:
 
-```bash
-curl https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/docs/examples/aspnetapp.yaml -o aspnetapp.yaml
-```
+  ```bash
+  curl https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/docs/examples/aspnetapp.yaml -o aspnetapp.yaml
+  ```
 
 * Apply the YAML file:
 
-```bash
-kubectl apply -f aspnetapp.yaml
-```
+  ```bash
+  kubectl apply -f aspnetapp.yaml
+  ```
 
 
 ## Other Examples
