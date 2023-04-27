@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/07/2023
+ms.date: 04/25/2023
 ms.author: netahw
 monikerRange: 'form-recog-3.0.0'
 recommendations: false
