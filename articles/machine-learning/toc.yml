@@ -477,7 +477,7 @@
     - name: Common data access issues and FAX
       displayName:
       href:
-    # v1
+# v1
     - name: Data access
       href: ./v1/concept-data.md
     - name: Studio network data access
@@ -522,7 +522,7 @@
     - name: Import data in the designer
       displayName: designer, data, import, dataset, datastore
       href: ./v1/how-to-designer-import-data.md
-        # end v1
+# end v1
   - name: Label data
     items:
     - name: Overview
