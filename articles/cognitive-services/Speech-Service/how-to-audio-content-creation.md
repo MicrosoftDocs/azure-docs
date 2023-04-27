@@ -162,7 +162,13 @@ After you've reviewed your audio output and are satisfied with your tuning and a
 1. Select the file you want to download and **Download**. 
 
    Now you're ready to use your custom tuned audio in your apps or products.
+   
+## Configure BYOS and anonymous public read access for blobs
+   
+If you lose access permission to your Bring Your Own Storage (BYOS), you won't be able to view, create, edit, or delete files. To resume your access, you need to remove the current storage and reconfigure the BYOS in the [Azure portal](https://ms.portal.azure.com/#allservices). To learn more about how to configure BYOS, see [Mount Azure Storage as a local share in App Service](https://learn.microsoft.com/azure/app-service/configure-connect-to-azure-storage?pivots=container-linux&tabs=portal). 
 
+After configuring the BYOS permission, you need to configure anonymous public read access for containers and blobs. Otherwise, blob data isn't available for public access and your lexicon file in the blob will be inaccessible. By default, a container’s public access setting is disabled. To grant anonymous users read access to a container and its blobs, first set **Allow Blob public access** to **Enabled** to allow public access for the storage account, then set the container's public access level (**anonymous read access for blobs only**). To learn more about how to configure anonymous public read access, see [Configure anonymous public read access for containers and blobs](https://learn.microsoft.com/azure/storage/blobs/anonymous-read-access-configure?tabs=portal). 
+   
 ## Add or remove Audio Content Creation users
 
 If more than one user wants to use Audio Content Creation, you can grant them access to the Azure subscription and the Speech resource. If you add users to an Azure subscription, they can access all the resources under the Azure subscription. But if you add users to a Speech resource only, they'll have access only to the Speech resource and not to other resources under this Azure subscription. Users with access to the Speech resource can use the Audio Content Creation tool.
