@@ -89,15 +89,6 @@ Feel free to [contact us](mailto:acm-team@microsoft.com) if you need other regio
 
 If you need a faster rate, please [contact us](mailto:acm-team@microsoft.com) to request.
 
-### Latency
-
-The service is designed for real-time scenarios, while various factors could affect the client-observed latency. To avoid the networking impact as much as possible, you may want to make API calls from the same region as the Azure Content Safety resource. Below are some benchmark performance numbers for your reference. If you observe unexpected high latency, please contact us.
-
-| API            | Latency for reference |
-| :------------- | :-------------------- |
-| Text analysis  | 100ms~300ms             |
-| Image analysis | 100ms~300ms             |
-
 
 ## Data privacy and security
 
