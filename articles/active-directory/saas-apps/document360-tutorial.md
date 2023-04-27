@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with Document360
 
-In this article, you learn how to integrate Document360 with Azure Active Directory (Azure AD). Document360 is a online self-service knowledge base software. When you integrate Document360 with Azure AD, you can:
+In this article, you learn how to integrate Document360 with Azure Active Directory (Azure AD). Document360 is an online self-service knowledge base software. When you integrate Document360 with Azure AD, you can:
 
 * Control in Azure AD who has access to Document360.
 * Enable your users to be automatically signed-in to Document360 with their Azure AD accounts.

@@ -22,7 +22,7 @@ In this article, you learn how to integrate Alchemer with Azure Active Directory
 * Enable your users to be automatically signed-in to Alchemer with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-You configure and test Azure AD single sign-on for Alchemer in a test environment. Alchemer supports both **SP** and **IDP** initiated single sign-on and Just In Time user provisioning..
+You configure and test Azure AD single sign-on for Alchemer in a test environment. Alchemer supports both **SP** and **IDP** initiated single sign-on and Just In Time user provisioning.
 
 ## Prerequisites
 
