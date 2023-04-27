@@ -86,7 +86,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
     | `https://identity.us.document360.io` |
 
     > [!NOTE]
-    > The value is not real. Update the value with the actual Reply URL. Contact [Document360 Client support team](mailto:support@document360.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > The Reply URL is not real. Update this value with the actual Reply URL. Contact [Document360 Client support team](mailto:support@document360.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Raw)** and select **Download** to download the certificate and save it on your computer.
 

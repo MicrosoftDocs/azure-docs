@@ -69,7 +69,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
     `https://login.cmdnctrl.net`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Alchemer Client support team](mailto:support@cmdnctrl.net) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [CMD+CTRL Base Camp Client support team](mailto:support@cmdnctrl.net) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
