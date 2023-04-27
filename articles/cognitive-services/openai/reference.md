@@ -328,10 +328,9 @@ The operation returns a `200` status code and an `OperationResponse` JSON object
 }
 ```
 
-### Cancel an image generation request
+### Delete a generated image from the server
 
-You can use the operation ID returned by the request to delete that request from the server.
-
+You can use the operation ID returned by the request to delete the corresponding image from the Azure server. Generated images are automatically deleted after 24 hours by default, but you can trigger the deletion earlier if you want to.
 
 ```http
 DELETE https://{your-resource-name}.openai.azure.com/openai/dalle/operations/images/{operation-id}?api-version={api-version}
@@ -358,7 +357,7 @@ curl -X DELETE "https://aoairesource.openai.azure.com/openai/dalle/operations/im
 
 #### Response
 
-The operation returns a `204` status code if successful. This API only succeeds if the operation is in a terminal state (not `running`).
+The operation returns a `204` status code if successful. This API only succeeds if the operation is in an end state (not `running`).
 
 ## Management APIs
 
