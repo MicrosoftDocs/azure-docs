@@ -19,6 +19,9 @@ Here are some important terms used by the service:
 
 [!INCLUDE [Terms](includes/terms.md)]
 
+> [!IMPORTANT]
+> `Hub`, `Group`, `UserId` are important roles when you manage clients and send messages. They will be required parameters in different REST API calls as plain text. So __DO NOT__ put sensitive information in these fields. For example, credentials or bearer tokens which will have high leak risk.
+
 ## Workflow
 
 A typical workflow using the service is shown as below:
