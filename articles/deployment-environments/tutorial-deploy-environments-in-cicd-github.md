@@ -13,9 +13,9 @@ Continuous integration and continuous delivery (CI/CD) is a software development
 
 In this tutorial, you'll Learn how to integrate Azure Deployment Environments into your CI/CD pipeline by using GitHub Actions. You use a workflow that features three branches: main, dev, and test.
 
-- The  _main_ branch is always considered production.
-- You create feature branches from the _main_ branch.
-- You create pull requests to merge feature branches into _main_.
+- The  *main* branch is always considered production.
+- You create feature branches from the *main* branch.
+- You create pull requests to merge feature branches into *main*.
 
 This workflow is a small example for the purposes of this tutorial. Real world workflows may be more complex.
 
@@ -296,7 +296,7 @@ In this step, you create a new repository in your GitHub account that has a pred
 
 1. On the **Actions** tab, notice that the Create Environment action fails.  This behavior is expected, you can proceed with the next step.
 
-### 3.2 Protect the repository's _main_ branch
+### 3.2 Protect the repository's *main* branch
 
 You can protect important branches by setting branch protection rules. Protection rules define whether collaborators can delete or force push to the branch. They also set requirements for any pushes to the branch, such as passing status checks or a linear commit history.
 
@@ -317,7 +317,7 @@ You can protect important branches by setting branch protection rules. Protectio
  
    :::image type="content" source="media/tutorial-deploy-environments-in-cicd-github/github-protect-rule.png" alt-text="Screenshot showing the branch protection rule page, with Add branch protection rule highlighted. ":::
 
-1. Under **Branch name pattern**, enter <_main_>.
+1. Under **Branch name pattern**, enter <*main*>.
  
    :::image type="content" source="media/tutorial-deploy-environments-in-cicd-github/github-branch-name-pattern.png" alt-text="Screenshot showing the branch name pattern text box, with main highlighted.":::
  
@@ -649,11 +649,11 @@ For more information about environments and required approvals, see "[Using envi
 
 3. Select **Save protection rules**.
 
-Finally configure _main_ as the deployment branch:
+Finally configure *main* as the deployment branch:
 
 1. In the **Deployment branches dropdown**, choose **Selected branches**.
 
-2. Select **Add deployment branch rule** and enter _main_ for the **Branch name pattern**.
+2. Select **Add deployment branch rule** and enter *main* for the **Branch name pattern**.
 
 3. Select **Add rule**.
 
