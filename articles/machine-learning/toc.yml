@@ -579,12 +579,15 @@
         - name: Azure Container for PyTorch
           displayName: acpt
           href: how-to-azure-container-for-pytorch-environment.md
-        - name: Set up VS Code extension
-          displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
-          href: how-to-setup-vs-code.md
-        - name: Connect to compute instance VS Code
+        - name: Launch VS Code remote
           displayName: Visual Studio Code, VSCode, debug, bugs
           href: how-to-set-up-vs-code-remote.md
+        - name: Work in VS Code remote
+          displayName: Visual Studio Code, VSCode, debug, bugs
+          href: how-to-work-in-vs-code-remote.md
+        - name: Set up VS Code (Desktop)
+          displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
+          href: how-to-setup-vs-code.md
         - name: Manage environments with SDK and CLI (v2)
           displayName: environment
           href: how-to-manage-environments-v2.md
