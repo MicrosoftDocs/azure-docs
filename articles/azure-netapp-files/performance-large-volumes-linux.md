@@ -62,7 +62,7 @@ The following graph represents a 256 Kibibyte (KiB) sequential workload ranging 
 
 :::image type="content" source="../media/azure-netapp-files/performance-large-volume-scale-out-sequential-workloads.png" alt-text="Graph showing 256-KiB sequential workloads of 12 VMs for one large volume." lightbox="../media/azure-netapp-files/performance-large-volume-scale-out-sequential-workloads.png":::
 
-12 e32s_v5 VMs were used in testing. As the [Linux scale-up](#linux-scale-up-tests) section shows, using 12 VMs ensured that storage was the gating factor.
+12 e32s_v5 VMs were used in testing. As the [Linux scale-up tests](#linux-scale-up-tests) section shows, using 12 VMs ensured that storage was the gating factor.
 
 ### 8-KiB Random Workload (IOPS)
 
