@@ -1,5 +1,4 @@
 ---
-
 title: Build a business case or assess servers using an imported CSV file
 description: Describes how to discover on-premises servers for migration to Azure using an imported CSV file in Azure Migrate
 author: rashi-ms
@@ -9,8 +8,6 @@ ms.topic: tutorial
 ms.date: 04/28/2023
 ms.custom: engagement-fy23
 
-
-#Customer intent: As a server admin, I want to discover servers using an imported CSV file. 
 ---
 
 # Tutorial: Build a business case or assess servers using an imported CSV file
