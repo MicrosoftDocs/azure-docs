@@ -18,21 +18,21 @@ In the support table, **NA** indicates that the feature isn't available.
 **Feature/Plan** | **Azure** | **Azure Government** | **Azure China**<br/><br/>**21Vianet**
 --- | --- | --- | --- 
 **GENERAL FEATURES** | | |
-[Continuous data export](./continuous-export.md) | GA | GA | GA
+[Continuous data export](continuous-export.md) | GA | GA | GA
 [Response automation with Azure Logic Apps ](./workflow-automation.md) | GA | GA | GA
-[Alert email notifications](./configure-email-notifications.md)<br/>Security alerts are available when one or more Defender for Cloud plans is enabled. | GA | GA | GA
-[Alert suppression rules](./alerts-suppression-rules.md) | GA | GA | GA
+[Alert email notifications](configure-email-notifications.md)<br/>Security alerts are available when one or more Defender for Cloud plans is enabled. | GA | GA | GA
+[Alert suppression rules](alerts-suppression-rules.md) | GA | GA | GA
 [Integration with Microsoft Defender for Cloud Apps](other-threat-protections.md#display-recommendations-in-microsoft-defender-for-cloud-apps) | GA | GA | GA
 [Alert bi-directional synchronization with Microsoft Sentinel](../sentinel/connect-azure-security-center.md) | Public preview | NA | NA
-[Azure Workbooks integration for reporting](./custom-dashboards-azure-workbooks.md) | GA | GA | GA
+[Azure Workbooks integration for reporting](custom-dashboards-azure-workbooks.md) | GA | GA | GA
 [Automatic component/agent/extension provisioning](monitoring-components.md) | GA | GA | GA
-[Integration with Microsoft Defender for Cloud Apps](./other-threat-protections.md)
+[Integration with Microsoft Defender for Cloud Apps](other-threat-protections.md) | GA | GA | GA
 **FOUNDATIONAL CSPM FEATURES (FREE)** | | |  
 [Asset inventory](asset-inventory.md) | GA | GA | GA
 [Security recommendations](security-policy-concept.md) | GA | GA | GA
 [Recommendation exemptions](exempt-resource.md) | Public preview | NA | NA
 [Secure score](secure-score-security-controls.md) | GA | GA | GA
-**DEFENDER FOR CLOUD PLANS** | | | 
+**DEFENDER FOR CLOUD PLANS** | | |
 [Defender CSPM](concept-cloud-security-posture-management.md)| GA | NA | NA
 Defender CSPM: [Agentless container posture/Agentless vulnerability assessments for container images](concept-agentless-containers.md)| Public preview | NA | NA
 [Defender for APIs](defender-for-apis-introduction.md) | Public preview | NA | NA
@@ -43,13 +43,13 @@ Defender CSPM: [Agentless container posture/Agentless vulnerability assessments 
 Defender for Containers: [Support for Azure Arc-enabled Kubernetes clusters](defender-for-containers-introduction.md) | Public preview | NA | NA
 Defender for Containers: [Run-time visibility of vulnerabilities in container images](defender-for-containers-vulnerability-assessment-azure.md#view-vulnerabilities-for-images-running-on-your-aks-clusters) | Preview | NA | NA
 [Defender for DNS](defender-for-dns-introduction.md) | GA | GA | GA
-[Defender for Key Vault](./defender-for-key-vault-introduction.md) | GA | NA | NA
-[Defender for Kubernetes](./defender-for-kubernetes-introduction.md)<br/> Deprecated. Defender for Containers has replaced it. | GA | GA | GA
+[Defender for Key Vault](defender-for-key-vault-introduction.md) | GA | NA | NA
+[Defender for Kubernetes](defender-for-kubernetes-introduction.md)<br/> Deprecated. Defender for Containers has replaced it. | GA | GA | GA
 [Defender for Open-Source Relational Databases](defender-for-databases-introduction.md) | GA | NA | NA  
-[Defender for Resource Manager](./defender-for-resource-manager-introduction.md) | GA | GA | GA
+[Defender for Resource Manager](defender-for-resource-manager-introduction.md) | GA | GA | GA
 [Defender for Servers](plan-defender-for-servers.md) (Review [detailed feature support](#defender-for-servers-cloud-support) | GA | GA | GA
-[Defender for Storage](./defender-for-storage-introduction.md)<br/> Some threat protection alerts for Defender for Storage are in public preview. | GA | GA (activity monitoring) | NA
-[Defender for SQL Servers on Machines](./defender-for-sql-introduction.md)| GA | GA | NA
+[Defender for Storage](defender-for-storage-introduction.md)<br/> Some threat protection alerts for Defender for Storage are in public preview. | GA | GA (activity monitoring) | NA
+[Defender for SQL Servers on Machines](defender-for-sql-introduction.md) | GA | GA | NA
 
 
 ## Defender for Servers cloud support
