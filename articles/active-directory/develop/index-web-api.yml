@@ -8,7 +8,7 @@ summary: >
 metadata:
   author: Dickson-Mwendia
   ms.author: dmwendia
-  ms.date: 04/01/2022
+  ms.date: 04/27/2023
   ms.service: active-directory
   ms.subservice: develop
   ms.topic: landing-page
@@ -28,8 +28,13 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: ASP.NET
+          - text: ASP.NET - Register your app
             url: web-api-tutorial-01-register-app.md
+          - text: ASP.NET - Configure your app
+            url: web-api-tutorial-02-prepare-api.md
+          - text: ASP.NET - Call your web API
+            url: web-api-tutorial-03-protect-endpoint.md
+        
   - title: "Scenarios in depth"
     linkLists:
       - linkListType: how-to-guide
