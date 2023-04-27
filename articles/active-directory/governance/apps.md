@@ -1,6 +1,6 @@
 ---
 title: Entra Identity Governance Integrations
-description: This page provides a single place for the tutorials to the various entra identity governance integrations.
+description: This page provides an overview of the Entra Identity Governance integrations available to automate provisioning and governance controls.
 services: active-directory
 author: thomasakelo, arvinh
 manager: CelesteDG
@@ -16,11 +16,11 @@ ms.reviewer: celested
 
 # Entra Identity Governance Integrations
 
-This page provides a single place for the tutorials to the various entra identity governance integrations. The integrations are covered under 4 sections
+This page provides an overview of the hundreds of Entra Identity Governance integrations available. These application integrations are used to automate identity lifecycle and implement governance controls across your organization.
 
 ## Featured integrations
 
-| Category | Application tutorial for user provisioning |
+| Category | Application |
 | :--- | :--- |
 | HR | [SuccessFactors - User Provisioning](https://learn.microsoft.com/azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial) |
 | HR| [Workday - User Provisioning](https://learn.microsoft.com/azure/active-directory/saas-apps/workday-inbound-cloud-only-tutorial)|
@@ -72,7 +72,7 @@ This page provides a single place for the tutorials to the various entra identit
 | [Novell eDirectory](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● |  |
 
 ## Partner driven integrations
-Checkout the integrations [partners](https://learn.microsoft.com/azure/active-directory/app-provisioning/partner-driven-integrations) have built on top of Entra IGA.
+There is also a healthy partner ecosystem, further expanding the breadth and depth of integrations available with Entra Identity Governance. Explore the [partner integrations](https://learn.microsoft.com/azure/active-directory/app-provisioning/partner-driven-integrations) available, including:
 * Epic
 * Cerner
 * IBM RACF
