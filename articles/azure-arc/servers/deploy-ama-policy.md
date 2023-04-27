@@ -11,14 +11,33 @@ This article covers how to deploy the Azure Monitor Agent to Arc-enabled servers
 
 Deploying the Azure Monitor Agent through Azure Policy using an ARM template involves two main steps:
 
-Creating a Data Collection Rule (DCR)
-Creating and deploying the Policy definition
+- Selecting a Data Collection Rule (DCR)
+
+- Creating and deploying the Policy definition
 
 In this scenario, the Policy definition is used to verify that the AMA is installed on your Arc-enabled servers, and to install it on new servers or on existing servers that are discovered to not have the AMA installed. However, in order for Azure Monitor to work on a machine, it also needs to be associated with a Data Collection Rule. Therefore, you'll need to include the resource ID of the DCR within the Policy definition.
 
 
+## Selecting a Data Collection Rule
 
+Data Collection Rules (DCRs) define the data collection process in Azure Monitor. DCRs specify what data should be collected, how to transform that data, and where to send that data. You need to select (or create) a DCR and specify it within the ARM template you'll use for deploying AMA.
 
+1. From your browser, go to the [Azure portal](https://portal.azure.com).
+
+1. Navigate to the **Monitor | Overview** page and then, under **Settings**, select **Data Collection Rules**.
+    A list of existing DCRs displays. You can filter this at the top of the window. If you need to create a new DCR, see ?? for more information.
+
+1. Select the DCR to apply to your ARM template to view its overview.
+
+1. Select **Resources** to view a list resources (such as Arc-enabled VMs) assigned to the DCR. To add additional resources, select *Add**. (You will need to add resources if you created a new DCR.)
+
+1. Select **Overview**, then select **JSON View** to view the JSON code for the DCR:
+    
+    :::image type="content" source="media/deploy-ama-policy/dcr-overview.png" alt-text="Overview window for a data collection rule highlighting the JSON view button.":::
+
+1. Locate the **Resource ID** field at the top of the window and click the button to copy the resource ID for the DCR to the clipboard. Save this resource ID; you'll need to use it within the ARM template.
+    
+    :::image type="content" source="media/deploy-ama-policy/dcr-json-view.png" alt-text="JSON code view for a data collection rule highlight the resource ID copy button.":::
 
 
 <!--
