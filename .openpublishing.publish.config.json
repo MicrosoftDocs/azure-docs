@@ -969,6 +969,12 @@
       "branch_mapping": {}
     },
     {
+		"path_to_root": "azure-load-testing-samples",
+		"url": "https://github.com/Azure-Samples/azure-load-testing-samples",
+		"branch": "main",
+		"branch_mapping": {}
+	  },
+	  {
       "path_to_root": "microsoft-graph",
       "url": "https://github.com/MicrosoftGraph/microsoft-graph-docs",
       "branch": "main",
