@@ -118,7 +118,7 @@ SELECT * FROM [databaseName].schemaName.tableName
 This section contains a reference of how relevant Microsoft Purview data policy roles map to specific actions in SQL data sources.
 
 >[!NOTE]
-> The roles below may be expanded in the future to include additional actions that become available as long as they are are consistent with the spirit of the role.
+> The roles below may be expanded in the future to include additional actions that become available as long as they are consistent with the spirit of the role.
 
 | **Microsoft Purview policy role definition** | **Data source specific actions**     |
 |-------------------------------------|--------------------------------------|
