@@ -148,8 +148,8 @@ az spring app show-deploy-log --name <app-name>
 
 ## Assign a public endpoint to an application
 
-1. Open the **Apps** page of your service instance.
-2. Click on an application to show its **Overview** page.
+1. Open the **Apps** pane to view apps for your service instance.
+2. Select an application to view its **Overview** page.
 3. Click **Assign endpoint** to assign a public endpoint to the application. This can take a few minutes.
 4. Copy the URL showed up in the **Overview** page, and paste it in your browser to view your running application.
 
