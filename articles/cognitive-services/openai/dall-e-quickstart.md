@@ -15,7 +15,6 @@ zone_pivot_groups: openai-quickstart-dall-e
 
 # Quickstart: Get started generating images using Azure OpenAI Service
 
-Use this article to get started making your first image generations calls to Azure OpenAI.
 
 ::: zone pivot="programming-language-studio"
 

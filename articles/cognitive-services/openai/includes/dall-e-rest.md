@@ -11,6 +11,8 @@ ms.date: 04/04/2023
 keywords: 
 ---
 
+Use this guide to get started calling the image generation REST APIs using Python.
+
 ## Prerequisites
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
@@ -22,22 +24,22 @@ keywords:
 
 ## Retrieve key and endpoint
 
-To successfully make a call against Azure OpenAI, you'll need the following:
+To successfully call the Azure OpenAI APIs, you'll need the following:
 
 |Variable name | Value |
 |--------------------------|-------------|
 | `ENDPOINT`               | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Alternatively, you can find the value in **Azure OpenAI Studio** > **Playground** > **Code View**. An example endpoint is: `https://docs-test-001.openai.azure.com/`.|
 | `API-KEY` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either `KEY1` or `KEY2`.|
 
-Go to your resource in the Azure portal. The **Endpoint and Keys** can be found in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
+Go to your resource in the Azure portal and select the **Keys and endpoint** page. Copy your endpoint and key to a temporary location. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
 
 :::image type="content" source="../media/quickstarts/endpoint.png" alt-text="Screenshot of the overview blade for an OpenAI Resource in the Azure portal with the endpoint & access keys location circled in red." lightbox="../media/quickstarts/endpoint.png":::
 
 ## Create a new Python application
 
-Create a new Python file called quickstart.py. Then open it up in your preferred editor or IDE.
+Create a new Python file called **quickstart.py**. Then open it up in your preferred code editor or IDE.
 
-1. Replace the contents of quickstart.py with the following code. Enter your endpoint URL and key in the appropriate fields. Replace `YOUR_IMAGE_PROMPT` with your own custom prompt.
+1. Replace the contents of **quickstart.py** with the following code. Enter your endpoint URL and key in the appropriate fields. Replace `YOUR_IMAGE_PROMPT` with your own custom prompt.
 
     ```python
     import requests
@@ -72,11 +74,11 @@ Create a new Python file called quickstart.py. Then open it up in your preferred
     python quickstart.py
     ```
 
-    The script will loop until the generated image is ready.
+    The script will make an image generation API call and then loop until the generated image is ready.
 
 ## Output
 
-The output from a successful image generation API call will look like this. The `"contentUrl"` field contains a URL where you can download the generated image. The URL stays active for 24 hours.
+The output from a successful image generation API call looks like this. The `"contentUrl"` field contains a URL where you can download the generated image. The URL stays active for 24 hours.
 
 ```json
 {
@@ -105,7 +107,6 @@ The image generation APIs come with a content moderation filter. If the service 
     }
 }
 ```
-
 
 ## Clean up resources
 
