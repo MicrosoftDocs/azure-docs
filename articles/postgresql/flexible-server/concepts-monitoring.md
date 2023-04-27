@@ -17,7 +17,7 @@ Monitoring data about your servers helps you troubleshoot and optimize for your 
 
 ## Metrics
 
-Azure Database for PostgreSQL provides various metrics that give insight into the behavior of the resources that support the Azure Database for PostgreSQL server. Each metric is emitted at a 1-minute interval and has up to [93 days of history](../../azure-monitor/essentials/data-platform-metrics.md#retention-of-metrics). You can configure alerts on the metrics. Other options include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics overview](../../azure-monitor/essentials/data-platform-metrics.md).
+Azure Database for PostgreSQL provides various metrics that give insight into the behavior of the resources that support the Azure Database for PostgreSQL server. Each metric is emitted at a 1-minute interval and has up to [93 days of history](../../azure-monitor/essentials/data-platform-metrics.md#retention-of-metrics). You can configure alerts on the metrics. Other options include setting up automated actions, performing advanced analytics, and archiving the history. For more information, see the [Azure Metrics overview](../../azure-monitor/essentials/data-platform-metrics.md).
 
 ### List of metrics
 
@@ -26,11 +26,11 @@ The following metrics are available for a flexible server instance of Azure Data
 |Display name|Metric ID|Unit|Description|
 |---|---|---|---|
 |**Active Connections**|`active_connections`|Count|Number of connections to your server.|
-|**Backup Storage Used**|`backup_storage_used`|Bytes|Amount of backup storage used. This metric represents the sum of storage that's consumed by all the full backups, differential backups, and log backups that are retained based on the backup retention period set for the server. The frequency of the backups is service managed. For geo-redundant storage, backup storage usage is twice the usage for locally redundant storage.|
+|**Backup Storage Used**|`backup_storage_used`|Bytes|Amount of backup storage used. This metric represents the sum of storage that's consumed by all the full backups, differential backups, and log backups that are retained based on the backup retention period that's set for the server. The frequency of the backups is service managed. For geo-redundant storage, backup storage usage is twice the usage for locally redundant storage.|
 |**Failed Connections**|`connections_failed`|Count|Number of failed connections.|
 |**Succeeded Connections** |`connections_succeeded`|Count |Number of succeeded connections.|
-|**CPU Credits Consumed**|`cpu_credits_consumed` |Count |Number of credits used by the flexible server. Applicable to the Burstable tier.|
-|**CPU Credits Remaining** |`cpu_credits_remaining`|Count |Number of credits available to burst. Applicable to the Burstable tier. |
+|**CPU Credits Consumed**|`cpu_credits_consumed` |Count |Number of credits used by the flexible server. Applies to the Burstable tier.|
+|**CPU Credits Remaining** |`cpu_credits_remaining`|Count |Number of credits available to burst. Applies to the Burstable tier. |
 |**CPU percent** |`cpu_percent`|Percent |Percentage of CPU in use.|
 |**Disk Queue Depth**|`disk_queue_depth` |Count |Number of outstanding I/O operations to the data disk.|
 |**IOPS**|`iops` |Count |Number of I/O operations to disk per second.|
@@ -41,15 +41,15 @@ The following metrics are available for a flexible server instance of Azure Data
 |**Read IOPS** |`read_iops`|Count |Number of data disk I/O read operations per second. |
 |**Read Throughput** |`read_throughput`|Bytes |Bytes read per second from disk. |
 |**Storage Free**|`storage_free` |Bytes |Amount of storage space that's available.|
-|**Storage percent** |`storage_percent`|Percentage|Percent of storage space used. The storage that's used by the service can include the database files, transaction logs, and the server logs.|
-|**Storage Used**|`storage_used` |Bytes |Amount of storage space used. The storage used by the service can include the database files, transaction logs, and the server logs.|
-|**Transaction Log Storage Used**|`txlogs_storage_used`|Bytes |Amount of storage space used by the transaction logs. |
-|**Write Throughput**|`write_throughput` |Bytes |Bytes written per second to disk.|
+|**Storage percent** |`storage_percent`|Percentage|Percent of storage space that's used. The storage that's used by the service can include database files, transaction logs, and server logs.|
+|**Storage Used**|`storage_used` |Bytes |Amount of storage space that's used. The storage that's used by the service can include the database files, transaction logs, and the server logs.|
+|**Transaction Log Storage Used**|`txlogs_storage_used`|Bytes |Amount of storage space that's used by the transaction logs. |
+|**Write Throughput**|`write_throughput` |Bytes |Bytes written to disk per second.|
 |**Write IOPS**|`write_iops` |Count |Number of data disk I/O write operations per second.|
 
 ## Enhanced metrics
 
-You can use enhanced metrics for Azure Database for PostgreSQL - Flexible Server to get more fine-grained monitoring and alerting on databases. You can configure alerts on the metrics.
+You can use enhanced metrics for Azure Database for PostgreSQL - Flexible Server to get fine-grained monitoring and alerting on databases. You can configure alerts on the metrics.
 
 Some enhanced metrics include a `Dimension` parameter that you can use to split and filter metrics data by using a dimension like database name or state.
 
@@ -85,20 +85,20 @@ You can choose from the following categories of enhanced metrics:
 
 |Display name|Metric ID|Unit|Description|Dimension|Default enabled|
 |---|---|---|---|---|---|
-|**Backends** (Preview) |`numbackends`|Count|Number of back ends connected to this database.|DatabaseName|No|
-|**Deadlocks** (Preview)|`deadlocks` |Count|Number of deadlocks detected in this database|DatabaseName|No|
+|**Backends** (Preview) |`numbackends`|Count|Number of back ends that are connected to this database.|DatabaseName|No|
+|**Deadlocks** (Preview)|`deadlocks` |Count|Number of deadlocks that are detected in this database.|DatabaseName|No|
 |**Disk Blocks Hit** (Preview)|`blks_hit` |Count|Number of times disk blocks were found already in the buffer cache, so that a read wasn't necessary.|DatabaseName|No|
-|**Disk Blocks Read** (Preview) |`blks_read`|Count|Number of disk blocks read in this database|DatabaseName|No|
-|**Temporary Files** (Preview)|`temp_files` |Count|Number of temporary files created by queries in this database. |DatabaseName|No|
-|**Temporary Files Size** (Preview) |`temp_bytes` |Bytes|Total amount of data written to temporary files by queries in this database. |DatabaseName|No|
-|**Total Transactions** (Preview) |`xact_total` |Count|Number of total transactions executed in this database.     |DatabaseName|No|
+|**Disk Blocks Read** (Preview) |`blks_read`|Count|Number of disk blocks that were read in this database.|DatabaseName|No|
+|**Temporary Files** (Preview)|`temp_files` |Count|Number of temporary files that were created by queries in this database. |DatabaseName|No|
+|**Temporary Files Size** (Preview) |`temp_bytes` |Bytes|Total amount of data that's written to temporary files by queries in this database. |DatabaseName|No|
+|**Total Transactions** (Preview) |`xact_total` |Count|Number of total transactions that executed in this database.     |DatabaseName|No|
 |**Transactions Committed** (Preview) |`xact_commit`|Count|Number of transactions in this database that have been committed.|DatabaseName|No|
 |**Transactions Rolled back** (Preview) |`xact_rollback`|Count|Number of transactions in this database that have been rolled back.|DatabaseName|No|
-|**Tuples Deleted** (Preview) |`tup_deleted`|Count|Number of rows deleted by queries in this database. |DatabaseName|No|
-|**Tuples Fetched** (Preview) |`tup_fetched`|Count|Number of rows fetched by queries in this database. |DatabaseName|No|
-|**Tuples Inserted** (Preview)|`tup_inserted` |Count|Number of rows inserted by queries in this database.|DatabaseName|No|
-|**Tuples Returned** (Preview)|`tup_returned` |Count|Number of rows returned by queries in this database.|DatabaseName|No|
-|**Tuples Updated** (Preview) |`tup_updated`|Count|Number of rows updated by queries in this database. |DatabaseName|No|
+|**Tuples Deleted** (Preview) |`tup_deleted`|Count|Number of rows that were deleted by queries in this database. |DatabaseName|No|
+|**Tuples Fetched** (Preview) |`tup_fetched`|Count|Number of rows that were fetched by queries in this database. |DatabaseName|No|
+|**Tuples Inserted** (Preview)|`tup_inserted` |Count|Number of rows that were inserted by queries in this database.|DatabaseName|No|
+|**Tuples Returned** (Preview)|`tup_returned` |Count|Number of rows that were returned by queries in this database.|DatabaseName|No|
+|**Tuples Updated** (Preview) |`tup_updated`|Count|Number of rows that were updated by queries in this database. |DatabaseName|No|
 
 #### Logical replication
 
@@ -111,7 +111,7 @@ You can choose from the following categories of enhanced metrics:
 |Display name|Metric ID|Unit|Description|Dimension|Default enabled|
 |---|---|---|---|---|---|
 |**Max Physical Replication Lag** (Preview)|`physical_replication_delay_in_bytes`|Bytes|Maximum lag across all asynchronous physical replication slots.|Doesn't apply|Yes |
-|**Read Replica Lag** (Preview)|`physical_replication_delay_in_seconds`|Seconds|Read Replica lag in seconds. |Doesn't apply|Yes |
+|**Read Replica Lag** (Preview)|`physical_replication_delay_in_seconds`|Seconds|Read replica lag in seconds. |Doesn't apply|Yes |
 
 #### Saturation
 
@@ -137,7 +137,7 @@ You can choose from the following categories of enhanced metrics:
 
 ## Autovacuum metrics
 
-Autovaccum metrics can be used to monitor and tune autovaccum performance for Azure Database for PostgresSQL - Flexible Server. Each metric is emitted at a *30-minute* interval and has up to *93 days* of retention. You can create alerts for specific metrics and you can split and filter the metrics data by using the DatabaseName dimension.
+Autovaccum metrics can be used to monitor and tune autovaccum performance for Azure Database for PostgresSQL - Flexible Server. Each metric is emitted at a *30-minute* interval and has up to *93 days* of retention. You can create alerts for specific metrics, and you can split and filter metrics data by using the DatabaseName dimension.
 
 ### Enable autovacuum metrics
 
@@ -154,7 +154,7 @@ Autovaccum metrics can be used to monitor and tune autovaccum performance for Az
 |**AutoVacuum Counter User Tables** (Preview) |`autovacuum_count_user_tables` |Count|Number of times user-only tables have been vacuumed by the autovacuum daemon in this database. |DatabaseName|No |
 |**Estimated Dead Rows User Tables** (Preview)|`n_dead_tup_user_tables` |Count|Estimated number of dead rows for user-only tables in this database. |DatabaseName|No |
 |**Estimated Live Rows User Tables** (Preview)|`n_live_tup_user_tables` |Count|Estimated number of live rows for user-only tables in this database. |DatabaseName|No |
-|**Estimated Modifications User Tables** (Preview)|`n_mod_since_analyze_user_tables`|Count|Estimated number of rows modified since user-only tables were last analyzed. |DatabaseName|No |
+|**Estimated Modifications User Tables** (Preview)|`n_mod_since_analyze_user_tables`|Count|Estimated number of rows that were modified since user-only tables were last analyzed. |DatabaseName|No |
 |**User Tables Analyzed** (Preview) |`tables_analyzed_user_tables`|Count|Number of user-only tables that have been analyzed in this database. |DatabaseName|No |
 |**User Tables AutoAnalyzed** (Preview) |`tables_autoanalyzed_user_tables`|Count|Number of user-only tables that have been analyzed by the autovacuum daemon in this database.|DatabaseName|No |
 |**User Tables AutoVacuumed** (Preview) |`tables_autovacuumed_user_tables`|Count|Number of user-only tables that have been vacuumed by the autovacuum daemon in this database.|DatabaseName|No |
@@ -197,7 +197,7 @@ You can use PgBouncer metrics to monitor the performance of the PgBouncer proces
 
 ## Filter and split on dimension metrics
 
-In the preceding tables of metrics, some of the metrics have dimensions like DatabaseName or State. You can use [filtering](../../azure-monitor/essentials/metrics-charts.md#filters) and [splitting](../../azure-monitor/essentials/metrics-charts.md#apply-splitting) for the metrics that have dimensions. These features show how various metric segments (or *dimension values*) affect the overall value of the metric. You can use them to identify possible outliers.
+In the preceding tables, some metrics have dimensions like DatabaseName or State. You can use [filtering](../../azure-monitor/essentials/metrics-charts.md#filters) and [splitting](../../azure-monitor/essentials/metrics-charts.md#apply-splitting) for the metrics that have dimensions. These features show how various metric segments (or *dimension values*) affect the overall value of the metric. You can use them to identify possible outliers.
 
 - **Filtering**: Use filtering to choose which dimension values are included in the chart. For example, you might want to show idle connections when you chart the `Sessions-by-State` metric. You set the filter for Idle in the State dimension.
 - **Splitting**: Use splitting to control whether the chart displays separate lines for each value of a dimension or if it aggregates the values in a single line. For example, you can see one line for a `Sessions-by-State` metric across all sessions. You can see separate lines for each session grouped by State value. Apply splitting on the State dimension to see separate lines.
