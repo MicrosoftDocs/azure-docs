@@ -31,7 +31,7 @@ import com.microsoft.azure.storage.queue.*;
 A `CloudQueueClient` object lets you get reference objects for queues. The following code creates a `CloudQueueClient` object that provides a reference to the queue you want to use. You can create the queue if it doesn't exist.
 
 > [!NOTE]
-> There are others ways to create `CloudStorageAccount` objects. For more information, see `CloudStorageAccount` in the [Azure Storage client SDK reference](https://azure.github.io/azure-sdk-for-java/storage.html).)
+> There are other ways to create `CloudStorageAccount` objects. For more information, see `CloudStorageAccount` in the [Azure Storage client SDK reference](https://azure.github.io/azure-sdk-for-java/storage.html).)
 
 ```java
 try
