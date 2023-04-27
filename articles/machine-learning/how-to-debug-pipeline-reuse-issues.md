@@ -1,7 +1,7 @@
 ---
-title: Debug pipeline reuse issues n Azure Machine Learning
+title: Debug pipeline reuse issues in Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Explain how reuse works in pipeline and how to debug reuse issues with component by component guidance
+description: Learn how reuse works in pipeline and how to debug reuse issues 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: lagayhar
 author: zhanxia
 ms.author: zhanxia
-ms.date: 4/25/2023
+ms.date: 4/27/2023
 ---
 
 # How to debug pipeline reuse issues in Azure Machine Learning?
@@ -75,7 +75,7 @@ If you have two jobs, you expected the second job to reuse the first job, but it
 1. Open **Raw JSON** under Overview tab
 1. Search for snapshot ID in the raw JSON
 
-:::image type="content" source="./media/how-to-debug-pipeline-reuse/check-snapshot.gif" alt-text="Gif showing the jobs tab and opening component overview to check named component snapshot ID.":::
+:::image type="content" source="./media/how-to-debug-pipeline-reuse/check-snapshot.gif" alt-text="Gif showing the jobs tab and opening component overview to check named component snapshot ID." lightbox = "./media/how-to-debug-pipeline-reuse/check-snapshot.gif":::
 
 
 ### Step 4: Check if there's any environment change
