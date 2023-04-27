@@ -52,12 +52,12 @@ Service-managed credentials are associated with a generation within the managed 
 Run the following commands to get current service-managed credentials generation from spec and generate the new generation of service-managed credentials. This action triggers service-managed credential rotation.
 
 ```console
-rotateCredentialGeneration=$(($(kubectl get sqlmi <sqlmi-name> -o jsonpath='{.spec.update.managedCredentialsGeneration}' -n <namespace>) + 1)) 
+rotateCredentialGeneration=$(($(kubectl get sqlmi <sqlmi-name> -o jsonpath='{.spec.update.managedCredentialsGeneration}' -n <namespace>) + 1))
 ```
 
 
 ```console
-kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{ "spec": { "update": { "managedCredentialsGeneration": '$rotateCredentialGeneration'} } }' 
+kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{ "spec": { "update": { "managedCredentialsGeneration": '$rotateCredentialGeneration'} } }'
 ```
 ---
 
@@ -74,11 +74,11 @@ The `managedCredentialsGeneration` identifies the target generation for service-
 Run the following two commands to get current service-managed credentials generation from spec and rollback to the previous generation of service-managed credentials:
 
 ```console
-rotateCredentialGeneration=$(($(kubectl get sqlmi <sqlmi-name> -o jsonpath='{.spec.update.managedCredentialsGeneration}' -n <namespace>) - 1)) 
+rotateCredentialGeneration=$(($(kubectl get sqlmi <sqlmi-name> -o jsonpath='{.spec.update.managedCredentialsGeneration}' -n <namespace>) - 1))
 ```
 
 ```console
-kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{ "spec": { "update": { "managedCredentialsGeneration": '$rotateCredentialGeneration'} } }' 
+kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{ "spec": { "update": { "managedCredentialsGeneration": '$rotateCredentialGeneration'} } }'
 ```
 
 Triggering rollback is the same as triggering a rotation of service-managed credentials except that the target generation is previous generation and doesn't generate a new generation or credentials.
