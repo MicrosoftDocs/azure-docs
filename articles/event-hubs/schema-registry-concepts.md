@@ -24,10 +24,10 @@ The security boundary imposed by the grouping mechanism help ensures that trade 
 ### Schemas
 Schemas define the contract between producers and consumers. A schema defined in an Event Hubs schema registry helps manage the contract outside of event data, thus removing the payload overhead. A schema has a name, type (example: record, array, and so on.), compatibility mode (none, forward, backward, full), and serialization type (only Avro for now). You can create multiple versions of a schema and retrieve and use a specific version of a schema. 
 
-### Schema Formats 
+### Schema formats 
 Schema formats are used to determine the manner in which a schema is structured and defined, with each format outlining specific guidelines and syntax for defining the structure of the events that will be used for event streaming.
 
-#### Avro Schema 
+#### Avro schema 
 [Avro](https://avro.apache.org/) is a popular data serialization system that uses a compact binary format and provides schema evolution capabilities. 
 
 To learn more about using Avro schema format with Event Hubs Schema Registry, see:  
