@@ -42,10 +42,11 @@ public static void Run(
 # [Isolated process](#tab/isolated-process)
 
 TODO: current example has in-proc, need to update with out-of-proc
+<!--
 
 :::code language="csharp" source="https://www.github.com/azure/azure-functions-dapr-extension/samples/dotnet-azurefunction/ConsumeMessageFromKafka.cs" range="8-29"::: 
 
-
+-->
 ---
 
 ::: zone-end 

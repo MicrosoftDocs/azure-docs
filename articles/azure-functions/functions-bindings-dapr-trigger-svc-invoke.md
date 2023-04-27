@@ -44,8 +44,9 @@ public static void Run(
 
 TODO: current example has in-proc, need to update with out-of-proc
 
+<!--
 :::code language="csharp" source="https://www.github.com/azure/azure-functions-dapr-extension/samples/dotnet-azurefunction/RetrieveOrder.cs" range="8-28"::: 
-
+-->
 
 ---
 

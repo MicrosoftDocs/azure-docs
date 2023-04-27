@@ -45,9 +45,10 @@ public static async Task<IActionResult> Run(
 The following example shows how the custom type is used in both the trigger and a Dapr State output binding.
 
 TODO: current example has in-proc, need to update with out-of-proc
+<!--
 
 :::code language="csharp" source="https://www.github.com/azure/azure-functions-dapr-extension/samples/dotnet-azurefunction/StateOutputBinding.cs" range="8-33"::: 
-
+-->
 
 ---
 
