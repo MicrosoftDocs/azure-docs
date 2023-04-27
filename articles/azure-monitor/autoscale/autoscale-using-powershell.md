@@ -28,7 +28,7 @@ This article shows you how to configure autoscale for a Virtual Machine Scale Se
 
 To configure autoscale using PowerShell, you need an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free).
 
-## Set up your environemnt
+## Set up your environment
 
 ```azurepowershell
 #Set the subscription Id, VMSS name, and resource group name
@@ -115,12 +115,12 @@ $rule2=New-AzAutoscaleScaleRuleObject `
     -ScaleActionValue 1 `
     -ScaleActionCooldown ([System.TimeSpan]::New(0,5,0))
 ```
-The table below describes the pararameters used in the `New-AzAutoscaleScaleRuleObject` cmdlet.
+The table below describes the parameters used in the `New-AzAutoscaleScaleRuleObject` cmdlet.
 
 |Parameter| Description|
 |---|---|
 |`MetricTriggerMetricName` |Sets the autoscale trigger metric 
-|`MetricTriggerMetricResourceUri`| Specifies the resource that the `MetricTriggerMetricName` metric belongs to. `MetricTriggerMetricResourceUri` can be any resource and not just the resource that's being scaled. For example, you can scale your VMSS based on metrics created by a load balancer, database, or the VMSS itself. The `MetricTriggerMetricName` must exist for the specified `MetricTriggerMetricResourceUri`.
+|`MetricTriggerMetricResourceUri`| Specifies the resource that the `MetricTriggerMetricName` metric belongs to. `MetricTriggerMetricResourceUri` can be any resource and not just the resource that's being scaled. For example, you can scale your Virtual Machine Scale Sets based on metrics created by a load balancer, database, or the scale set itself. The `MetricTriggerMetricName` must exist for the specified `MetricTriggerMetricResourceUri`.
 |`MetricTriggerTimeGrain`|The sampling frequency of the metric that the rule monitors. `MetricTriggerTimeGrain` must be one of the predefined values for the specified metric and must be between 12 hours and 1 minute. For example, `MetricTriggerTimeGrain` = *PT1M*"* means that the metrics are sampled every 1 minute and aggregated using the aggregation method specified in `MetricTriggerStatistic`.
 |`MetricTriggerTimeAggregation` | The aggregation method within the timeGrain period. For example, statistic = "Average" and timeGrain = "PT1M" means that the metrics are aggregated every 1 minute by taking the average.
 |`MetricTriggerStatistic` |The aggregation method used to aggregate the sampled metrics. For example, TimeAggregation = "Average" aggregates the sampled metrics by taking the average.
@@ -129,7 +129,7 @@ The table below describes the pararameters used in the `New-AzAutoscaleScaleRule
 |`MetricTriggerOperator` |Specifies the logical comparative operating to use when evaluating the metric value.
 |`MetricTriggerDividePerInstance`| When set to `true` divides the trigger metric by the total number of instances. For example, If message count is 300 and there are 5 instances running, the calculated metric value is 60 messages per instance. This property isn't applicable for all metrics.
 | `ScaleActionDirection`| Specify scaling in or out. Valid values are `Increase` and `Decrease`.
-|`ScaleActionType` |Scale by a number of instances, to a specific instance count, or by percentage of the current instance count. Valid values include `ChangeCount`, `ExactCount`, and `PercentChangeCount`.
+|`ScaleActionType` |Scale by a specific number of instances, scale to a specific instance count, or scale by percentage of the current instance count. Valid values include `ChangeCount`, `ExactCount`, and `PercentChangeCount`.
 |`ScaleActionCooldown`| The minimum amount of time to wait between scale operations. This is to allow the metrics to stabilize and avoids [flapping](./autoscale-flapping.md). For example, if `ScaleActionCooldown` is 10 minutes and a scale operation just occurred, Autoscale won't attempt to scale again for 10 minutes.
 
 
@@ -146,7 +146,7 @@ $defaultProfile=New-AzAutoscaleProfileObject `
     -Rule $rule1, $rule2
 ```
 
-The table below describes the pararameters used in the `New-AzAutoscaleProfileObject` cmdlet.
+The table below describes the parameters used in the `New-AzAutoscaleProfileObject` cmdlet.
 
 |Parameter|Description|
 |---|---|
