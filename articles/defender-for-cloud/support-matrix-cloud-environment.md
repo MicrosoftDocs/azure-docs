@@ -32,6 +32,7 @@ In the support table, **NA** indicates that the feature isn't available.
 [Security recommendations](security-policy-concept.md) | GA | GA | GA
 [Recommendation exemptions](exempt-resource.md) | Public preview | NA | NA
 [Secure score](secure-score-security-controls.md) | GA | GA | GA
+[Microsoft Cloud Security Benchmark](concept-regulatory-compliance.md) | GA | NA | NA
 **DEFENDER FOR CLOUD PLANS** | | |
 [Defender CSPM](concept-cloud-security-posture-management.md)| GA | NA | NA
 Defender CSPM: [Agentless container posture/Agentless vulnerability assessments for container images](concept-agentless-containers.md)| Public preview | NA | NA
