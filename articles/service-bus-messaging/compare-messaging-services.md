@@ -41,7 +41,7 @@ It has the following characteristics:
 - Serverless
 - At least once delivery of an event
 
-Event Grid is offered in two editions: **Azure Event Grid**, a fully managed PaaS service on Azure, and **Event Grid on Kubernetes with Azure Arc**, which lets you use Event Grid on your Kubernetes cluster wherever that is deployed, on-premises or on the cloud. For more information, see [Azure Event Grid overview](overview.md) and [Event Grid on Kubernetes with Azure Arc overview](./kubernetes/overview.md).
+Event Grid is offered in two editions: **Azure Event Grid**, a fully managed PaaS service on Azure, and **Event Grid on Kubernetes with Azure Arc**, which lets you use Event Grid on your Kubernetes cluster wherever that is deployed, on-premises or on the cloud. For more information, see [Azure Event Grid overview](../event-grid/overview.md) and [Event Grid on Kubernetes with Azure Arc overview](../event-grid/kubernetes/overview.md).
 
 ## Azure Event Hubs
 Azure Event Hubs is a big data streaming platform and event ingestion service. It can receive and process millions of events per second. It facilitates the capture, retention, and replay of telemetry and event stream data. The data can come from many concurrent sources. Event Hubs allows telemetry and event data to be made available to various stream-processing infrastructures and analytics services. It's available either as data streams or bundled event batches. This service provides a single solution that enables rapid data retrieval for real-time processing, and repeated replay of stored raw data. It can capture the streaming data into a file for processing and analysis.
@@ -77,7 +77,7 @@ For more information, see [Service Bus overview](../service-bus-messaging/servic
 ## Use the services together
 In some cases, you use the services side by side to fulfill distinct roles. For example, an e-commerce site can use Service Bus to process the order, Event Hubs to capture site telemetry, and Event Grid to respond to events like an item was shipped.
 
-In other cases, you link them together to form an event and data pipeline. You use Event Grid to respond to events in the other services. For an example of using Event Grid with Event Hubs to migrate data to Azure Synapse Analytics, see [Stream big data into a Azure Synapse Analytics](event-hubs-integration.md). The following image shows the workflow for streaming the data.
+In other cases, you link them together to form an event and data pipeline. You use Event Grid to respond to events in the other services. For an example of using Event Grid with Event Hubs to migrate data to Azure Synapse Analytics, see [Stream big data into a Azure Synapse Analytics](../event-grid/event-hubs-integration.md). The following image shows the workflow for streaming the data.
 
 :::image type="content" source="./media/compare-messaging-services/overview.svg" alt-text="Image showing how Event Hubs, Service Bus, and Event Grid can be connected together.":::
 
