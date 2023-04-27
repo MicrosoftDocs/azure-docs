@@ -167,7 +167,7 @@ See the [limitations and known issues article](secure-file-transfer-protocol-kno
 
 Enabling the SFTP endpoint has an hourly cost. We will start applying this hourly cost on or after January 1, 2023. For the latest pricing information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-Transaction, storage, and networking prices for the underlying storage account apply. To learn more, see [Understand the full billing model for Azure Blob Storage](../common/storage-plan-manage-costs.md#understand-the-full-billing-model-for-azure-blob-storage).
+Transaction, storage, and networking prices for the underlying storage account apply. All SFTP transactions get converted to Read, Write or Other transactions on your storage accounts. This includes all SFTP commands and API calls. To learn more, see [Understand the full billing model for Azure Blob Storage](../common/storage-plan-manage-costs.md#understand-the-full-billing-model-for-azure-blob-storage).
 
 ## See also
 
