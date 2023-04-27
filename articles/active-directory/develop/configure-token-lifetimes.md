@@ -54,9 +54,6 @@ New-MgApplicationTokenLifetimePolicyByRef -ApplicationId $applicationObjectId -B
 # List the token lifetime policy on the app
 Get-MgApplicationTokenLifetimePolicy -ApplicationId $applicationObjectId
 
-# Remove the policy from the app
-Remove-MgApplicationTokenLifetimePolicyByRef -ApplicationId $applicationObjectId -TokenLifetimePolicyId $tokenLifetimePolicyId
-
 # Delete the policy
 Remove-MgPolicyTokenLifetimePolicy -TokenLifetimePolicyId $tokenLifetimePolicyId
 ```
