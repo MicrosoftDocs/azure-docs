@@ -34,8 +34,16 @@ When you launch VS Code connected to a compute instance for the first time, make
 
 1. Locate the Azure extension and sign in
 1. Once your subscriptions are listed, you can filter to the ones you use frequently. You can also pin workspaces you use most often within the subscriptions.
+
+    :::image type="content" source="media/how-to-work-in-vs-code-remote/azure-extension-filter-pin.png" alt-text="Screenshot shows how to filter and pin in VS Code window.":::
+
 1. The workspace you launched the VS Code remote connection from (the workspace the compute instance is in) should be automatically set as the default. You can update the default workspace from the VS Code status bar.
+
+    :::image type="content" source="media/how-to-work-in-vs-code-remote/vs-code-status-bar.png" alt-text="Screenshot shows VS Code status bar.":::
+
 1. If you plan to use the Azure Machine Learning CLI, open a terminal from the menu, and sign in to the Azure Machine Learning CLI using `az login --identity`.
+
+    :::image type="content" source="media/how-to-work-in-vs-code-remote/vs-code-open-terminal.png" alt-text="Screenshot shows opening terminal window from VS Code.":::
 
 Subsequent times you connect to this compute instance, you shouldn't have to repeat these steps.
 
@@ -45,9 +53,19 @@ There are a few ways to connect to a Jupyter kernel from VS Code. It's important
 
 If you have already opened this notebook in Azure Machine Learning, we recommend you connect to an **existing session on the compute instance**. This action reconnects to an existing session you had for this notebook in Azure Machine Learning.
 
+:::image type="content" source="media/how-to-work-in-vs-code-remote/vs-code-connect-compute-instance.png" alt-text="Screenshot shows connecting to an existing session on the compute instance from VS Code.":::
+
 1. Locate the kernel picker in the upper right-hand corner of your notebook and select it
+
+    :::image type="content" source="media/how-to-work-in-vs-code-remote/choose-kernel-source.png" alt-text="Screenshot shows kernel picker in VS Code.":::
+
 1. Choose the 'Azure Machine Learning compute instance' option, and then the 'Remote' if you've connected before
+
+    :::image type="content" source="media/how-to-work-in-vs-code-remote/select-remote.png" alt-text="Screenshot shows selecting the compute instance in VS Code.":::
+
 1. Select a notebook session with an existing connection
+
+    :::image type="content" source="media/how-to-work-in-vs-code-remote/select-existing-kernel.png" alt-text="Screenshot shows selecting the kernel in VS Code.":::
 
 If your notebook didn't have an existing session, you can pick from the kernels available in that list to create a new one. This action creates a VS Code-specific kernel session. These VS Code-specific sessions are usable only within VS Code and must be managed there. You can manage these sessions by installing the Jupyter PowerToys extension.
 
