@@ -201,7 +201,7 @@ Once the extraction process complete, check the box to launch the freshly extrac
 
 4. Provide a location for the installation of Microsoft Azure Backup server files and select **Next**.
 
-    ![Provide location for installation of files](./media/backup-azure-microsoft-azure-backup/space-screen.png)
+    :::image type="content" source="./media/backup-azure-microsoft-azure-backup/space-screen.png" alt-text="Screenshot shows how to provide location for installation of files.":::
 
     The scratch location is a requirement for back up to Azure. Ensure the scratch location is at least 5% of the data planned to be backed up to the cloud. For disk protection, separate disks need to be configured once the installation completes. For more information about storage pools, see [Prepare data storage](/system-center/dpm/plan-long-and-short-term-data-storage).
 
