@@ -69,7 +69,7 @@ Each change resource has the following properties:
 | `propertyChangeType` | This is deprecated and can be derived as follows `previousValue` being empty indicates Insert, empty `newValue` indicates Remove, when both are present, it is Update.|
 | `previousValue` | The value of the resource property in the previous snapshot. Value is empty when `changeType` is _Insert_. |
 | `newValue` | The value of the resource property in the new snapshot. This property will be empty (absent) when `changeType` is _Remove_. |
-| `changeCategory` | This was optional and has been depreciated, this field will no longer be available|
+| `changeCategory` | This was optional and has been deprecated, this field will no longer be available|
 | `changeAttributes` | Array of metadata related to the change: |
 | `changesCount` | The number of properties changed as part of this change record. |
 | `correlationId` | Contains the ID for tracking related events. Each deployment has a correlation ID, and all actions in a single template will share the same correlation ID. |
