@@ -68,7 +68,7 @@ Besides, you can update to convenience server SDK, which automatically handles `
 
 ### Root cause
 
-This error indicates the `Abuse Protection` request get a `401` response from the registered upstream URL. For me information, see [`Abuse Protection`](./howto-develop-eventhandler#upstream-and-validation).
+This error indicates the `Abuse Protection` request get a `401` response from the registered upstream URL. For more information, see [`Abuse Protection`](./howto-develop-eventhandler#upstream-and-validation).
 
 ### Troubleshooting guide
 
@@ -97,7 +97,7 @@ You can check the metric `Connection Close Count` from Azure portal.
 
 ## ConnectionCountLimitReached
 
-Web PubSub different tiers have a hard limit on concurrent connection. This error indicates your traffic is beyond the supported connection count. See [Web PubSub pricing](https://azure.microsoft.com/pricing/details/web-pubsub/) for details.
+Web PubSub different tiers have a hard limit on concurrent connection. This error indicates your traffic is beyond the supported connection count. For more information about pricing, see [Web PubSub pricing](https://azure.microsoft.com/pricing/details/web-pubsub/).
 
 ### Solution
 
