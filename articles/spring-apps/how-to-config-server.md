@@ -136,7 +136,7 @@ The following table lists the configurable properties you can use to set up Git 
 | `repos."host-key-algorithm"`       | No             | The host key algorithm. Should be *ssh-dss*, *ssh-rsa*, *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384*, or *ecdsa-sha2-nistp521*. Required only if `host-key` exists. |
 | `repos."strict-host-key-checking"` | No             | Indicates whether the Config Server instance fails to start when using the private `host-key`. Should be *true* (default value) or *false*.                         |
 
-The following table shows some examples of patterns for configuring your service with an optional extra repository. For more information, see the [Additional repositories section](#additional-repositories) and the [Pattern Matching and Multiple Repositories section](https://cloud.spring.io/spring-cloud-config/reference/html/#_pattern_matching_and_multiple_repositories) of the Spring documentation.
+The following table shows some examples of patterns for configuring your service with an optional extra repository. For more information, see the [Extra repositories](#extra-repositories) section and the [Pattern Matching and Multiple Repositories section](https://cloud.spring.io/spring-cloud-config/reference/html/#_pattern_matching_and_multiple_repositories) of the Spring documentation.
 
 | Patterns                        | Description                                                                                                            |
 |:--------------------------------|------------------------------------------------------------------------------------------------------------------------|
