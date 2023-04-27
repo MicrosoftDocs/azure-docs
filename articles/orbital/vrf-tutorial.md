@@ -6,7 +6,7 @@ ms.service: orbital
 ms.topic: tutorial
 ms.custom: ga
 ms.date: 04/21/2023
-ms.author: 777arc
+ms.author: marclichtman
 # Customer intent: As an Azure Orbital customer I want easy to understand documentation for virtual RF so I don't have to bug the product team to understand how to build my applications.
 ---
 
