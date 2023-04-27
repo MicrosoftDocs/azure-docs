@@ -19,7 +19,7 @@ To reset your device using the local web UI, take the following steps.
 
 The reset erases the data off the device data disks. Depending on the amount of data on your device, this process takes about 30-40 minutes.
 
-## Remove Azure resources from your Azure Stack edge device
+## Remove Azure resources from your Azure Stack Edge device
  
 In addition to resetting your device, complete the following steps to remove Azure resources associated with the device.
 
