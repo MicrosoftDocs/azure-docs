@@ -14,7 +14,7 @@ ms.author: greglin
 [Azure Application Gateway and Web Application Firewall (WAF) v2](application-gateway-autoscaling-zone-redundant.md) is now available, offering additional features such as autoscaling and availability-zone redundancy.
 
 ApplicationGateway v2 offers higher performance compared to v1, with better scalability, improved throughput, and all new features will be released in v2 SKU.
-We announced deprecation of Application Gateway v1 on April 28, 2023. This SKU will no longer be supported from April 28, 2026. Learn more about the V1 retirement [here](./v1-retirement).
+We announced deprecation of Application Gateway v1 on April 28, 2023. This SKU will no longer be supported from April 28, 2026. Learn more about the V1 retirement [here](./v1-retirement.md).
 
 However, existing v1 gateways aren't automatically upgraded to v2. If you want to migrate from v1 to v2, follow the steps in this article.
 
