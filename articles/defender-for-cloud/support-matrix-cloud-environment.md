@@ -31,10 +31,10 @@ md#display-recommendations-in-microsoft-defender-for-cloud-apps) | GA | GA | GA
 [Asset inventory](asset-inventory.md) | GA | GA | GA
 [Security recommendations](security-policy-concept.md) | GA | GA | GA
 [Recommendation exemptions](exempt-resource.md) | Public preview | NA | NA
-[Secure score](secure-score-security-controls) | GA | GA | GA
+[Secure score](secure-score-security-controls.md) | GA | GA | GA
 **DEFENDER FOR CLOUD PLANS** | | | 
 **[Defender CSPM](concept-cloud-security-posture-management.md)**| GA | NA | NA
-**Defender CSPM: [Agentless container posture/Agentless vulnerability assessments for container images](concept-agentless-containers)**| Public preview | NA | NA
+**Defender CSPM: [Agentless container posture/Agentless vulnerability assessments for container images](concept-agentless-containers.md)**| Public preview | NA | NA
 **[Defender for APIs](defender-for-apis-introduction.md)** | Public preview | NA | NA
 **[Defender for App Service](defender-for-app-service-introduction.md)** | GA | NA | NA
 **[Defender for Azure Cosmos DB](concept-defender-for-cosmos.md)** | Public preview | NA | NA
