@@ -133,8 +133,6 @@ Use the IoT extensions for Visual Studio Code to develop IoT Edge modules. These
 
 1. At the bottom of the explorer section, expand the collapsed **Azure IoT Hub / Devices** menu. You should see the devices and IoT Edge devices associated with the IoT Hub that you selected through the command palette.
 
-   :::image type="content" source="./media/tutorial-develop-for-linux/view-iot-hub-devices.png" alt-text="Screenshot that shows your devices in the Azure I o T Hub section of the Explorer menu.":::
-
 ::: zone-end
 
 ### Install language specific tools
@@ -252,8 +250,6 @@ Use Visual Studio Code and the [Azure IoT Edge](https://marketplace.visualstudio
 1. Select a module template for your preferred development language to be the first module in the solution.
 1. Enter a name for your module. Choose a name that's unique within your container registry.
 1. Provide the name of the module's image repository. Visual Studio Code autopopulates the module name with **localhost:5000/<your module name\>**. Replace it with your own registry information. Use **localhost** if you use a local Docker registry for testing. If you use Azure Container Registry, then use **Login server** from your registry's settings. The sign-in server looks like **_\<registry name\>_.azurecr.io**. Only replace the **localhost:5000** part of the string so that the final result looks like **\<*registry name*\>.azurecr.io/_\<your module name\>_**.
-
-   :::image type="content" source="./media/tutorial-develop-for-linux/repository.png" alt-text="Screenshot of how to provide a Docker image repository." lightbox="./media/tutorial-develop-for-linux/repository.png":::
 
 Visual Studio Code takes the information you provided, creates an IoT Edge solution, and then loads it in a new window.
 
@@ -1117,8 +1113,6 @@ docker push myacr.azurecr.io/filtermodule:0.0.1-amd64
 
 In the Visual Studio Code explorer, right-click the **deployment.template.json** file and select **Build and Push IoT Edge Solution**.
 
-:::image type="content" source="./media/tutorial-develop-for-linux/build-and-push-modules.png" alt-text="Screenshot showing the right-click menu option Build and Push I o T Edge Solution." lightbox="./media/tutorial-develop-for-linux/build-and-push-modules.png":::
-
 The build and push command starts three operations. First, it creates a new folder in the solution called **config** that holds the full deployment manifest, built out of information in the deployment template and other solution files. Second, it runs `docker build` to build the container image based on the appropriate dockerfile for your target architecture. Then, it runs `docker push` to push the image repository to your container registry.
 
 This process may take several minutes the first time, but is faster the next time that you run the commands.
@@ -1215,8 +1209,6 @@ az iot edge set-modules --hub-name my-iot-hub --device-id my-device --content ./
 
 1. Right-click the IoT Edge device that you want to deploy to, then select **Create Deployment for Single Device**.
 
-   :::image type="content" source="./media/tutorial-develop-for-linux/create-deployment.png" alt-text="Screenshot showing how to create a deployment for a single device.":::
-
 1. In the file explorer, navigate into the **config** folder then select the **deployment.amd64.json** file.
 
    Don't use the deployment.template.json file, which doesn't have the container registry credentials or module image values in it. If you target a Linux ARM32 device, the deployment manifest's name is **deployment.arm32v7.json**.
@@ -1224,8 +1216,6 @@ az iot edge set-modules --hub-name my-iot-hub --device-id my-device --content ./
 1. Under your device, expand **Modules** to see a list of deployed and running modules. Select the refresh button. You should see the new SimulatedTemperatureSensor and SampleModule modules running on your device.
 
    It may take a few minutes for the modules to start. The IoT Edge runtime needs to receive its new deployment manifest, pull down the module images from the container runtime, then start each new module.
-
-   :::image type="content" source="./media/tutorial-develop-for-linux/view-running-modules.png" alt-text="Screenshot where to view modules running on your IOT Edge device.":::
 
 ## View messages from device
 
