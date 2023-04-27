@@ -124,6 +124,8 @@ items:
                           href: how-to-web-app-node-sign-in-prepare-app.md
                         - name: Add sign-in and sign-out
                           href: how-to-web-app-node-sign-in-sign-in-out.md
+                        - name: Use client certificate
+                          href: how-to-web-app-node-use-certificate.md 
                 - name: ASP.NET
                   items:
                     - name: Sign in users

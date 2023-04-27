@@ -302,3 +302,5 @@ Learn how to:
 - [Customize the default branding](how-to-customize-branding-customers.md).
  
 - [Configure sign-in with Google](how-to-google-federation-customers.md). 
+
+- [Use client certificate for authentication in your Node.js web app instead of a client secret](how-to-web-app-node-use-certificate.md).

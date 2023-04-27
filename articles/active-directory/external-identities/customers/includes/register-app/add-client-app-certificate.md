@@ -7,7 +7,7 @@ ms.date: 05/05/2023
 ms.author: kengaderdus
 ---
 
-To use your client app certificate, you need to associate your Azure AD for customers app registration with the certificate:
+To use your client app certificate, you need to associate tha app you registered in the Microsoft Entra admin center with the certificate:
 
 1. 1.  Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
 
