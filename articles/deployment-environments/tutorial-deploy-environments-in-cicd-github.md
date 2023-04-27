@@ -284,17 +284,17 @@ az role assignment create \
 In this section, you create a new GitHub repository to store a catalog. Azure Deployment Environments supports both GitHub and Azure DevOps repositories. In this tutorial, you use GitHub. 
 ### 3.1 Create a new GitHub repository
 
-<!--- Update after moving template repo from Colby's account --->
-
 In this step, you create a new repository in your GitHub account that has a predefined directory structure, branches, and files. These items are generated from a sample template repository.
 
-1. Use this link to generate a new GitHub repository from the [sample template](https://github.com/colbylwilliams/ade-cicd-sample/generate).
+1. Use this link to generate a new GitHub repository from the [sample template](https://github.com/Azure-Samples/deployment-environments-cicd-tutorial/generate).
+ 
+   :::image type="content" source="media/tutorial-deploy-environments-in-cicd-github/github-generate-from-template.png" alt-text="Screenshot showing the GitHub create repository from template page."::: 
 
 1. If you don't have a paid GitHub account, set your repository to **Public**.
 
 1. Select **Create repository from template**.
 
-1. On the **Actions** tab, notice that the Create Environment action fails.  This is expected, you can proceed with the next step.
+1. On the **Actions** tab, notice that the Create Environment action fails.  This behavior is expected, you can proceed with the next step.
 
 ### 3.2 Protect the repository's _main_ branch
 
@@ -611,7 +611,7 @@ Create three environments: Dev, Test, and Prod to map to the project's environme
 
 1. For **Value**, enter the client ID (`appId`) for the **Dev** Azure AD app you created earlier (saved as the `$DEV_AZURE_CLIENT_ID` environment variable).
  
-   :::image type="content" source="media/tutorial-deploy-environments-in-cicd-github/github-add-secret.png" alt-text="Screenshot of the add secret box with the name AZURE CLIENT ID, the value set to an ID number, and add secret highlighted.":::
+   :::image type="content" source="media/tutorial-deploy-environments-in-cicd-github/github-add-secret.png" alt-text="Screenshot of the Add secret box with the name AZURE CLIENT ID, the value set to an ID number, and add secret highlighted.":::
 
 1. Select **Add secret**.
 
