@@ -64,7 +64,7 @@ Run the following health checks and confirm your deployment is working:
 - Verify through [Log Analytics] or the [packet core dashboards] that there are no unexpected alerts and metrics match what you expect for your deployment in a healthy state.
 - Confirm that your test devices are able to register, start a session, and send/receive data through packet core.
 - Navigate to your Azure Stack Edge resource in the Azure portal and confirm there are no warning or error banners shown on the page.
-- Confirm that your Azure Stack Edge workloads are healthy and running - see instructions in https://learn.microsoft.com/en-us/azure/private-5g-core/commission-cluster?pivots=ase-pro-2#set-up-portal-access to view what's running, and check all pods are fully ready and running.
+- Confirm that your Azure Stack Edge workloads are healthy and running - see instructions in [https://learn.microsoft.com/en-us/azure/private-5g-core/commission-cluster?pivots=ase-pro-2#set-up-portal-access](/azure/private-5g-core/commission-cluster?pivots=ase-pro-2) to view what's running, and check all pods are fully ready and running.
 
 ### Back up deployment information
 
@@ -125,7 +125,7 @@ Run the following health checks and confirm your deployment is working:
 - Verify through [Log Analytics] or the [packet core dashboards] that there are no unexpected alerts and metrics match what you expect for your deployment in a healthy state.
 - Confirm that your test devices are able to register, start a session, and send/receive data through packet core.
 - Navigate to your Azure Stack Edge resource in the Azure portal and confirm there are no warning or error banners shown on the page.
-- Confirm that your Azure Stack Edge workloads are healthy and running - see instructions in https://learn.microsoft.com/en-us/azure/private-5g-core/commission-cluster?pivots=ase-pro-2#set-up-portal-access to view what's running, and check all pods are fully ready and running.
+- Confirm that your Azure Stack Edge workloads are healthy and running - see instructions in [https://learn.microsoft.com/en-us/azure/private-5g-core/commission-cluster?pivots=ase-pro-2#set-up-portal-access](/azure/private-5g-core/commission-cluster?pivots=ase-pro-2) to view what's running, and check all pods are fully ready and running.
 
 ## Rollback
 
