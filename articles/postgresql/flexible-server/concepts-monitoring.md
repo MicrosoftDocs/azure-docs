@@ -16,9 +16,11 @@ ms.date: 11/30/2021
 Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for PostgreSQL provides various monitoring options to provide insight into the behavior of your server.
 
 ## Metrics
-Azure Database for PostgreSQL provides various metrics that give insight into the behavior of the resources supporting the PostgreSQL server. Each metric is emitted at a one-minute frequency, and has up to [93 days of history](../../azure-monitor/essentials/data-platform-metrics.md#retention-of-metrics). You can configure alerts on the metrics. Other options include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics Overview](../../azure-monitor/essentials/data-platform-metrics.md).
+
+Azure Database for PostgreSQL provides various metrics that give insight into the behavior of the resources that support the PostgreSQL server. Each metric is emitted at a 1-minute frequency and has up to [93 days of history](../../azure-monitor/essentials/data-platform-metrics.md#retention-of-metrics). You can configure alerts on the metrics. Other options include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics Overview](../../azure-monitor/essentials/data-platform-metrics.md).
 
 ### List of metrics
+
 The following metrics are available for PostgreSQL flexible server:
 
 |Display Name                |Metric ID                  |Unit      |Description                                                                                                                                                                                                                                                                                                                                                                 |
@@ -47,94 +49,94 @@ The following metrics are available for PostgreSQL flexible server:
 
 ## Enhanced Metrics
 
-Introducing Enhanced Metrics for Azure Database for PostgreSQL Flexible Server to enable more fine grained monitoring and alerting on databases. You can configure alerts on the metrics. In addition, some of these new Metrics now also include ‘Dimension’ that will allow to split and filter the metrics data by using the allowed dimension such as Database Name, State etc. 
+Introducing Enhanced Metrics for Azure Database for PostgreSQL Flexible Server to enable more fine grained monitoring and alerting on databases. You can configure alerts on the metrics. In addition, some of these new Metrics now also include ‘Dimension’ that will allow to split and filter the metrics data by using the allowed dimension such as Database Name, State etc.
 
-#### Enabling enhanced metrics
+#### Enable enhanced metrics
 
-- Most of these new metrics are _disabled_ by default, barring a few exceptions (per the list below) 
-- To enable these metrics, please turn ON the server parameter `metrics.collector_database_activity`. This parameter is dynamic, and will not require instance restart.
+- Most of these new metrics are *disabled* by default. A few exceptions are described in the next table.
+- To enable these metrics, set the server parameter `metrics.collector_database_activity` to `ON`. This parameter is dynamic and doesn't require an instance restart.
 
 #### List of enhanced metrics
 
 ##### Activity
 
-|Display Name                           |Metric ID                   |Unit   |Description                                                                                                                                                                   |Dimension      |Default enabled   |
+|Display name                           |Metric ID                   |Unit   |Description                                                                                                                                                                   |Dimension      |Default enabled   |
 |---------------------------------------|----------------------------|-------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|------------------|
-|**Sessions By State** (Preview)        |sessions_by_state           |Count  |Overall state of the backends                                                                                                                                                 |State          |No                |
-|**Sessions By WaitEventType** (Preview)|sessions_by_wait_event_type |Count  |Sessions by the type of event for which the backend is waiting                                                                                                                |Wait Event Type|No                |
-|**Oldest Backend** (Preview)           |oldest_backend_time_sec     |Seconds|The age in seconds of the oldest backend (irrespective of the state)                                                                                                          |N/a            |No                |
-|**Oldest Query** (Preview)             |longest_query_time_sec      |Seconds|The age in seconds of the longest query that is currently running                                                                                                             |N/a            |No                |
-|**Oldest Transaction** (Preview)       |longest_transaction_time_sec|Seconds|The age in seconds of the longest transaction (including idle transactions)                                                                                                   |N/a            |No                |
-|**Oldest xmin** (Preview)              |oldest_backend_xmin         |Count  |The actual value of the oldest xmin. If xmin is not increasing it indicates there are some long running transactions that can potentially hold dead tuples from being removed |N/a            |No                |
-|**Oldest xmin Age** (Preview)          |oldest_backend_xmin_age     |Count  |Age in units of the oldest xmin. It indicated how many transactions passed since oldest xmin                                                                                  |N/a            |No                |
+|**Sessions By State** (Preview)        |`sessions_by_state`           |Count  |Overall state of the backends                                                                                                                                                 |State          |No                |
+|**Sessions By WaitEventType** (Preview)|`sessions_by_wait_event_type` |Count  |Sessions by the type of event for which the backend is waiting                                                                                                                |Wait Event Type|No                |
+|**Oldest Backend** (Preview)           |`oldest_backend_time_sec`     |Seconds|The age in seconds of the oldest backend (irrespective of the state)                                                                                                          |N/a            |No                |
+|**Oldest Query** (Preview)             |`longest_query_time_sec`      |Seconds|The age in seconds of the longest query that is currently running                                                                                                             |N/a            |No                |
+|**Oldest Transaction** (Preview)       |`longest_transaction_time_sec`|Seconds|The age in seconds of the longest transaction (including idle transactions)                                                                                                   |N/a            |No                |
+|**Oldest xmin** (Preview)              |`oldest_backend_xmin`        |Count  |The actual value of the oldest xmin. If xmin is not increasing it indicates there are some long running transactions that can potentially hold dead tuples from being removed |N/a            |No                |
+|**Oldest xmin Age** (Preview)          |`oldest_backend_xmin_age`    |Count  |Age in units of the oldest xmin. It indicated how many transactions passed since oldest xmin                                                                                  |N/a            |No                |
 
 ##### Database
 
-|Display Name                         |Metric ID    |Unit |Description                                                                                         |Dimension    |Default enabled   |
+|Display name                         |Metric ID    |Unit |Description                                                                                         |Dimension    |Default enabled   |
 |-------------------------------------|-------------|-----|----------------------------------------------------------------------------------------------------|-------------|------------------|
-|**Backends** (Preview)                   |numbackends  |Count|Number of backends connected to this database                                                       |Database Name|No                |
-|**Deadlocks** (Preview)                  |deadlocks    |Count|Number of deadlocks detected in this database                                                       |Database Name|No                |
-|**Disk Blocks Hit** (Preview)            |blks_hit     |Count|Number of times disk blocks were found already in the buffer cache, so that a read was not necessary|Database Name|No                |
-|**Disk Blocks Read** (Preview)           |blks_read    |Count|Number of disk blocks read in this database                                                         |Database Name|No                |
-|**Temporary Files** (Preview)            |temp_files   |Count|Number of temporary files created by queries in this database                                       |Database Name|No                |
-|**Temporary Files Size** (Preview)       |temp_bytes   |Bytes|Total amount of data written to temporary files by queries in this database                         |Database Name|No                |
-|**Total Transactions** (Preview)         |xact_total   |Count|Number of total transactions executed in this database                                              |Database Name|No                |
-|**Transactions Committed** (Preview)     |xact_commit  |Count|Number of transactions in this database that have been committed                                    |Database Name|No                |
-|**Transactions Rolled back** (Preview)   |xact_rollback|Count|Number of transactions in this database that have been rolled back                                  |Database Name|No                |
-|**Tuples Deleted** (Preview)             |tup_deleted  |Count|Number of rows deleted by queries in this database                                                  |Database Name|No                |
-|**Tuples Fetched** (Preview)             |tup_fetched  |Count|Number of rows fetched by queries in this database                                                  |Database Name|No                |
-|**Tuples Inserted** (Preview)            |tup_inserted |Count|Number of rows inserted by queries in this database                                                 |Database Name|No                |
-|**Tuples Returned** (Preview)            |tup_returned |Count|Number of rows returned by queries in this database                                                 |Database Name|No                |
-|**Tuples Updated** (Preview)             |tup_updated  |Count|Number of rows updated by queries in this database                                                  |Database Name|No                |
+|**Backends** (Preview)                   |`numbackends`  |Count|Number of backends connected to this database                                                       |Database Name|No                |
+|**Deadlocks** (Preview)                  |`deadlocks`   |Count|Number of deadlocks detected in this database                                                       |Database Name|No                |
+|**Disk Blocks Hit** (Preview)            |`blks_hit`     |Count|Number of times disk blocks were found already in the buffer cache, so that a read was not necessary|Database Name|No                |
+|**Disk Blocks Read** (Preview)           |`blks_read`    |Count|Number of disk blocks read in this database                                                         |Database Name|No                |
+|**Temporary Files** (Preview)            |`temp_files`   |Count|Number of temporary files created by queries in this database                                       |Database Name|No                |
+|**Temporary Files Size** (Preview)       |`temp_bytes`   |Bytes|Total amount of data written to temporary files by queries in this database                         |Database Name|No                |
+|**Total Transactions** (Preview)         |`xact_total`   |Count|Number of total transactions executed in this database                                              |Database Name|No                |
+|**Transactions Committed** (Preview)     |`xact_commit`  |Count|Number of transactions in this database that have been committed                                    |Database Name|No                |
+|**Transactions Rolled back** (Preview)   |`xact_rollback`|Count|Number of transactions in this database that have been rolled back                                  |Database Name|No                |
+|**Tuples Deleted** (Preview)             |`tup_deleted`  |Count|Number of rows deleted by queries in this database                                                  |Database Name|No                |
+|**Tuples Fetched** (Preview)             |`tup_fetched`  |Count|Number of rows fetched by queries in this database                                                  |Database Name|No                |
+|**Tuples Inserted** (Preview)            |`tup_inserted` |Count|Number of rows inserted by queries in this database                                                 |Database Name|No                |
+|**Tuples Returned** (Preview)            |`tup_returned` |Count|Number of rows returned by queries in this database                                                 |Database Name|No                |
+|**Tuples Updated** (Preview)             |`tup_updated`  |Count|Number of rows updated by queries in this database                                                  |Database Name|No                |
 
-##### Logical Replication
+##### Logical replication
 
-|Display Name                         |Metric ID                         |Unit |Description                                     |Dimension|Default enabled   |
+|Display name                         |Metric ID                         |Unit |Description                                     |Dimension|Default enabled   |
 |-------------------------------------|----------------------------------|-----|------------------------------------------------|---------|------------------|
-|**Max Logical Replication Lag** (Preview)|logical_replication_delay_in_bytes|Bytes|Maximum lag across all logical replication slots|N/a      |Yes               |
+|**Max Logical Replication Lag** (Preview)|`logical_replication_delay_in_bytes`|Bytes|Maximum lag across all logical replication slots|N/a      |Yes               |
 
 ##### Replication
 
-|Display Name                          |Metric ID                            |Unit   |Description                                                   |Dimension|Default enabled   |
+|Display name                          |Metric ID                            |Unit   |Description                                                   |Dimension|Default enabled   |
 |--------------------------------------|-------------------------------------|-------|--------------------------------------------------------------|---------|------------------|
-|**Max Physical Replication Lag** (Preview)|physical_replication_delay_in_bytes  |Bytes  |Maximum lag across all asynchronous physical replication slots|N/a      |Yes               |
-|**Read Replica Lag** (Preview)            |physical_replication_delay_in_seconds|Seconds|Read Replica lag in seconds                                   |N/a      |Yes               |
-
+|**Max Physical Replication Lag** (Preview)|`physical_replication_delay_in_bytes`  |Bytes  |Maximum lag across all asynchronous physical replication slots|N/a      |Yes               |
+|**Read Replica Lag** (Preview)            |`physical_replication_delay_in_seconds`|Seconds|Read Replica lag in seconds                                   |N/a      |Yes               |
 
 ##### Saturation
 
-|Display Name                           |Metric ID                         |Unit   |Description                                          |Dimension|Default enabled   |
+|Display name                           |Metric ID                         |Unit   |Description                                          |Dimension|Default enabled   |
 |---------------------------------------|----------------------------------|-------|-----------------------------------------------------|---------|------------------|
-|**Disk Bandwidth Consumed Percentage**|disk_bandwidth_consumed_percentage|Percent|Percentage of data disk bandwidth consumed per minute|N/a      |Yes               |
-|**Disk IOPS Consumed Percentage**     |disk_iops_consumed_percentage     |Percent|Percentage of data disk I/Os consumed per minute     |N/a      |Yes               |
+|**Disk Bandwidth Consumed Percentage**|`disk_bandwidth_consumed_percentage`|Percent|Percentage of data disk bandwidth consumed per minute|N/a      |Yes               |
+|**Disk IOPS Consumed Percentage**     |`disk_iops_consumed_percentage`     |Percent|Percentage of data disk I/Os consumed per minute     |N/a      |Yes               |
 
 ##### Traffic
 
-|Display Name|Metric ID             |Unit |Description                                                    |Dimension|Default enabled   |
+|Display name|Metric ID             |Unit |Description                                                    |Dimension|Default enabled   |
 |-------------------|---------------|-----|---------------------------------------------------------------|---------|------------------|
-|**Max Connections^**    |max_connections|Count|Max Connections                                            |N/a      |Yes               |
+|Max Connections ^    |`max_connections`|Count|Max Connections                                            |N/a      |Yes               |
 
-^ **Max Connections** here represents the configured value for _max_connections_ server parameter, and this metric is pooled every 30 minutes.
+^ **Max Connections** represents the configured value for the `_max_connections_ server` parameter. This metric is pooled every 30 minutes.
 
-#### Considerations when using the enhanced metrics
+#### Considerations for using enhanced metrics
 
-- There is **50 database** limit on metrics with `database name` dimension.
-  * On **Burstable** SKU -  this limit is 10 `database name` dimension
+- Metrics that use the `database name` dimension have a 50-database limit.
+  - On  the Burstable SKU, the limit is 10 `database name` dimensions.
 - `database name` dimension limit is applied on OiD column (in other words _Order-of-Creation_ of the database)
-- The `database name` in metrics dimension is **case insensitive**. Therefore the metrics for same database names in varying case (_ex. foo, FoO, FOO_) will be merged, and may not show accurate data.
+- The `database name` in metrics dimension is *case insensitive*. Therefore the metrics for same database names in varying case (_ex. foo, FoO, FOO_) will be merged, and might not show accurate data.
 
 ## Autovacuum metrics
 
 Autovaccum metrics can be used to monitor and tune autovaccum performance for Azure database for postgres flexible server. Each metric is emitted at a **30 minute** frequency, and has up to **93 days** of retention. Customers can configure alerts on the metrics and can also access the new metrics dimensions, to split and filter the metrics data on database name.
 
-#### Enabling Autovacuum metrics
-* Autovacuum metrics are disabled by default
-* To enable these metrics, please turn ON the server parameter `metrics.autovacuum_diagnostics`. 
-  * This parameter is dynamic, hence will not require instance restart.
+#### Enable Autovacuum metrics
+
+- Autovacuum metrics are disabled by default.
+- To enable these metrics, set the server parameter `metrics.autovacuum_diagnostics` to `ON`.
+  - This parameter is dynamic, hence will not require instance restart.
 
 #### List of Autovacuum metrics
 
-|Display Name                                     |Metric ID                      |Unit |Description                                                                                             |Dimension   |Default enabled|
+|Display name                                     |Metric ID                      |Unit |Description                                                                                             |Dimension   |Default enabled|
 |-------------------------------------------------|-------------------------------|-----|--------------------------------------------------------------------------------------------------------|------------|---------------|
 |**Analyze Counter User Tables** (Preview)        |analyze_count_user_tables      |Count|Number of times user only tables have been manually analyzed in this database                           |DatabaseName|No             |
 |**AutoAnalyze Counter User Tables** (Preview)    |autoanalyze_count_user_tables  |Count|Number of times user only tables have been analyzed by the autovacuum daemon in this database           |DatabaseName|No             |
@@ -149,50 +151,54 @@ Autovaccum metrics can be used to monitor and tune autovaccum performance for Az
 |**User Tables Vacuumed** (Preview)               |tables_vacuumed_user_tables    |Count|Number of user only tables that have been vacuumed in this database                                     |DatabaseName|No             |
 |**Vacuum Counter User Tables** (Preview)         |vacuum_count_user_tables       |Count|Number of times user only tables have been manually vacuumed in this database (not counting VACUUM FULL)|DatabaseName|No             |
 
-#### Considerations when using the autovacuum metrics
+#### Considerations for using the autovacuum metrics
 
 - There is **30 database** limit on metrics with `database name` dimension.
-  * On **Burstable** SKU -  this limit is 10 `database name` dimension
+  - On **Burstable** SKU -  this limit is 10 `database name` dimension
 - `database name` dimension limit is applied on OiD column (in other words _Order-of-Creation_ of the database)
 
 ## PgBouncer metrics
 
-PgBouncer metrics can be used for monitoring the performance of PgBouncer process, including details for active connections, Idle connections, Total pooled connections, number of connection pools etc. Each metric is emitted at a **30 minute** frequency and has up to **93 days** of history. Customers can configure alerts on the metrics and can also access the new metrics dimensions, to split and filter the metrics data on database name.
+You can use PgBouncer metrics to monitor the performance of the PgBouncer process, including details for active connections, idle connections, total pooled connections, and the number of connection pools. Each metric is emitted at a *30-minute* frequency and has up to *93 days* of history. Customers can configure alerts on the metrics and also access the new metrics dimensions to split and filter the metrics data on database name.
 
-#### Enabling PgBouncer metrics
-* PgBouncer metrics are disabled by default.
-* For Pgbouncer metrics to work, both the server parameters `pgbouncer.enabled` and `metrics.pgbouncer_diagnostics` have to be enabled.
-  * These parameters are dynamic, and will not require instance restart.
+#### Enable PgBouncer metrics
+
+- PgBouncer metrics are disabled by default.
+- For Pgbouncer metrics to work, both the server parameters `pgbouncer.enabled` and `metrics.pgbouncer_diagnostics` must be enabled.
+  - These parameters are dynamic and don't require an instance restart.
 
 #### List of PgBouncer metrics
 
-|Display Name                            |Metrics ID                |Unit |Description                                                                          |Dimension   |Default enabled|
+|Display name                            |Metrics ID                |Unit |Description                                                                          |Dimension   |Default enabled|
 |----------------------------------------|--------------------------|-----|-------------------------------------------------------------------------------------|------------|---------------|
-|**Active client connections** (Preview) |client_connections_active |Count|Connections from clients which are associated with a PostgreSQL connection           |DatabaseName|No             |
-|**Waiting client connections** (Preview)|client_connections_waiting|Count|Connections from clients that are waiting for a PostgreSQL connection to service them|DatabaseName|No             |
-|**Active server connections** (Preview) |server_connections_active |Count|Connections to PostgreSQL that are in use by a client connection                     |DatabaseName|No             |
-|**Idle server connections** (Preview)   |server_connections_idle   |Count|Connections to PostgreSQL that are idle, ready to service a new client connection    |DatabaseName|No             |
-|**Total pooled connections** (Preview)  |total_pooled_connections  |Count|Current number of pooled connections                                                 |DatabaseName|No             |
-|**Number of connection pools** (Preview)|num_pools                 |Count|Total number of connection pools                                                     |DatabaseName|No             |
+|**Active client connections** (Preview) |`client_connections_active` |Count|Connections from clients which are associated with a PostgreSQL connection |`DatabaseName`|No |
+|**Waiting client connections** (Preview)|`client_connections_waiting`|Count|Connections from clients that are waiting for a PostgreSQL connection to service them|`DatabaseName`|No |
+|**Active server connections** (Preview) |`server_connections_active` |Count|Connections to PostgreSQL that are in use by a client connection |`DatabaseName`|No |
+|**Idle server connections** (Preview)   |`server_connections_idle`   |Count|Connections to PostgreSQL that are idle, ready to service a new client connection |`DatabaseName`|No |
+|**Total pooled connections** (Preview)  |`total_pooled_connections`  |Count|Current number of pooled connections |`DatabaseName`|No |
+|**Number of connection pools** (Preview)|`num_pools` |Count|Total number of connection pools |`DatabaseName`|No |
 
 #### Considerations when using the PgBouncer metrics
 
-- There is **30 database** limit on metrics with `database name` dimension.
-  * On **Burstable** SKU -  this limit is 10 `database name` dimension.
-- `database name` dimension limit is applied on OiD column (in other words _Order-of-Creation_ of the database)
+- There's a _30-database_ limit on metrics that have the `database name` dimension.
 
-## Applying filters and splitting on metrics with dimension
+  - On the _Burstable_ SKU, the limit is 10 databases that have the `database name` dimension.
 
-In the above list of metrics, some of the metrics have dimension such as `database name`, `state` etc. [Filtering](../../azure-monitor/essentials/metrics-charts.md#filters) and [Splitting](../../azure-monitor/essentials/metrics-charts.md#apply-splitting) are allowed for the metrics that have dimensions. These features show how various metric segments ("dimension values") affect the overall value of the metric. You can use them to identify possible outliers.
+- The `database name` dimension limit is applied to the **OiD** column (the database  _Order-of-Creation_ of the database)
 
-* **Filtering** lets you choose which dimension values are included in the chart. For example, you might want to show idle connections when you chart the `Sessions-by-State`  metric. You apply the filter on the __idle__ on __state__ dimension.
-* **Splitting** controls whether the chart displays separate lines for each value of a dimension or aggregates the values into a single line. For example, you can see one line for an `Sessions-by-State` metric across all sessions. Or you can see separate lines for each session grouped by their `state`. You apply splitting on the `State` dimension to see separate lines. 
+## Apply filters and split on dimension metrics
 
-Here in this example below, we have done **splitting** by `State` dimension and **filtered** on a specific `state` types.
+In the preceding list of metrics, some of the metrics have dimensions like `database name` or `state`. [Filtering](../../azure-monitor/essentials/metrics-charts.md#filters) and [splitting](../../azure-monitor/essentials/metrics-charts.md#apply-splitting) are allowed for the metrics that have dimensions. These features show how various metric segments (or _dimension values_) affect the overall value of the metric. You can use them to identify possible outliers.
+
+- **Filtering**: Use filtering to choose which dimension values are included in the chart. For example, you might want to show idle connections when you chart the `Sessions-by-State`  metric. You apply the filter on the **idle** on **state** dimension.
+-* **Splitting**: Use splitting to control whether the chart displays separate lines for each value of a dimension or aggregates the values in a single line. For example, you can see one line for a `Sessions-by-State` metric across all sessions. Or you can see separate lines for each session grouped by their `state` value. You apply splitting on the `State` dimension to see separate lines.
+
+The following example demonstrates splitting by the `State` dimension and filtering on specific `state` types.
 
 ![Screenshot of sessions by state.](https://user-images.githubusercontent.com/19426853/196329577-dc1c1cc0-4fcb-4ab7-a466-025425d57844.png)
 
 For more details on setting-up charts with dimensional metrics, see [Metric chart examples](../../azure-monitor/essentials/metric-chart-samples.md)
 
 ## Server logs
-In addition to the metrics, Azure Database for PostgreSQL also allows you to configure and access PostgreSQL standard logs. To learn more about logs, visit the [logging concepts doc](concepts-logging.md).
+
+In addition to the metrics, you can use Azure Database for PostgreSQL to configure and access PostgreSQL standard logs. To learn more about logs, see the [logging concepts](concepts-logging.md) article.
