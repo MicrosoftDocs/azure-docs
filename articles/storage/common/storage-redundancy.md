@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/24/2023
+ms.date: 04/27/2023
 ms.author: jammart
 ms.subservice: common
 ms.custom: references_regions
@@ -101,7 +101,7 @@ For a list of regions that support zone-redundant storage (ZRS) for premium bloc
 
 ZRS is supported for premium file shares (Azure Files) through the `FileStorage` storage account kind.
 
-[!INCLUDE [storage-files-redundancy-premium-zrs](../../../includes/storage-files-redundancy-premium-zrs.md)]
+For a list of regions that support zone-redundant storage (ZRS) for premium file share accounts, see [Azure Files zone-redundant storage for premium file shares](../files/redundancy-premium-file-shares.md).
 
 ## Redundancy in a secondary region
 
