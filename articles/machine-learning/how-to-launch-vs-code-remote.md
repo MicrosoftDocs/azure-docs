@@ -171,4 +171,4 @@ At this point, you can continue to run cells in your Jupyter Notebook.
 
 Now that you've launched Visual Studio Code remotely connected to a compute instance, you can prep your data, edit and debug your code, and submit training jobs with the Azure Machine Learning extension.
 
-To learn more about the how to make the most of VS Code integrated with Azure Machine Learning, see [Work in VS Code remotely connected to a compute instance (preview)](how-to-work-in-vs-code-remote.md)
+To learn more about how to make the most of VS Code integrated with Azure Machine Learning, see [Work in VS Code remotely connected to a compute instance (preview)](how-to-work-in-vs-code-remote.md)
