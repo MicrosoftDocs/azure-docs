@@ -93,7 +93,7 @@ To create a new virtual WAN, use the steps in the following article:
 
 To you Palo Alto Networks Cloud NGFW, you must register the **PaloAltoNetworks.Cloudngfw** resource provider to your subscription with an API version that is at minimum **2022-08-29-preview**.
 
-For more information on how to register a Resource Provider to an Azure subscription, see [Azure resource provders and types documentation ](../azure-resource-manager/management/resource-providers-and-types.md).
+For more information on how to register a Resource Provider to an Azure subscription, see [Azure resource providers and types documentation](../azure-resource-manager/management/resource-providers-and-types.md).
 ## Deploy virtual hub
 The following steps describe how to deploy a Virtual Hub that can be used with Palo Alto Networks Cloud NGFW.
 
@@ -114,7 +114,6 @@ The following steps describe how to deploy a Virtual Hub that can be used with P
 >[!NOTE]
 > You must wait for the routing status of the hub to be "Provisioned" before deploying Cloud NGFW. 
  
-
 1. Navigate to your Virtual Hub and click on **SaaS solutions** under **Third-party providers**.
 1. Click **Create SaaS** and select **Palo Alto Networks Cloud NGFW (preview)**.
 1. Click **Create**.
