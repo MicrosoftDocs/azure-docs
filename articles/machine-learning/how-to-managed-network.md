@@ -181,7 +181,7 @@ You can configure a managed VNet using either the `az ml workspace create` or `a
     To Update an existing workspace using the YAML file, use the `--file` parameter and specify the YAML file that contains the configuration settings:
 
     ```azurecli
-    az ml workspace update --file workspace.yaml --resource-group MyGroup
+    az ml workspace update --file workspace.yaml --name ws --resource-group MyGroup
     ```
 
     The following YAML example defines a managed VNet for the workspace. It also demonstrates how to add a private endpoint connection to a resource used by the workspace; in this example, a private endpoint for a blob store:
@@ -189,14 +189,14 @@ You can configure a managed VNet using either the `az ml workspace create` or `a
     ```yml
     name: myworkspace
     managed_network:
-    isolation_mode: allow_internet_outbound
-    outbound_rules:
-    - name: added-perule
-      destination:
-        service_resource_id: /subscriptions/{subscription ID}/resourceGroups/{resource group name}/providers/Microsoft.Storage/storageAccounts/{storage account name}
-        spark_enabled: true
-        subresource_target: blob
-      type: private_endpoint
+      isolation_mode: allow_internet_outbound
+      outbound_rules:
+      - name: added-perule
+        destination:
+          service_resource_id: /subscriptions/{subscription ID}/resourceGroups/{resource group name}/providers/Microsoft.Storage/storageAccounts/{storage account name}
+          spark_enabled: true
+          subresource_target: blob
+        type: private_endpoint
     ```
 
 # [Python](#tab/python)
