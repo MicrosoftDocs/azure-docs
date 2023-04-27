@@ -46,7 +46,6 @@ Use this quickstart to send text summarization requests using the REST API. In t
 > [!NOTE]
 > * The following BASH examples use the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character.
 > * You can find language specific samples on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code).
-> * Go to the Azure portal and find the key and endpoint for the Language resource you created in the prerequisites. They will be located on the resource's **key and endpoint** page, under **resource management**.
 To call the API, you need the following information:
 
 Choose the type of summarization you would like to perform, and select one of the tabs below to see an example API call:
@@ -106,21 +105,18 @@ curl -i -X POST $LANGUAGE_ENDPOINT/language/analyze-text/jobs?api-version=2022-1
 }
 '
 ```
-2. Make the following changes in the command where needed:
-- Replace the value `your-language-resource-key` with your key.
-- Replace the first part of the request URL `your-language-resource-endpoint` with your endpoint URL.
 
-3. Open a command prompt window (for example: BASH).
+2. Open a command prompt window (for example: BASH).
 
-4. Paste the command from the text editor into the command prompt window, then run the command.
+3. Paste the command from the text editor into the command prompt window, then run the command.
 
-5. Get the `operation-location` from the response header. The value will look similar to the following URL:
+4. Get the `operation-location` from the response header. The value will look similar to the following URL:
 
 ```http
 https://<your-language-resource-endpoint>/language/analyze-text/jobs/12345678-1234-1234-1234-12345678?api-version=2022-10-01-preview
 ```
 
-6. To get the results of the request, use the following cURL command. Be sure to replace `<my-job-id>` with the numerical ID value you received from the previous `operation-location` response header:
+5. To get the results of the request, use the following cURL command. Be sure to replace `<my-job-id>` with the numerical ID value you received from the previous `operation-location` response header:
 
 ```bash
 curl -X GET $LANGUAGE_ENDPOINT/language/analyze-text/jobs/<my-job-id>?api-version=2022-10-01-preview \
@@ -298,21 +294,17 @@ curl -i -X POST $LANGUAGE_ENDPOINT/language/analyze-conversations/jobs?api-versi
 ```
 Only the `resolution` aspect supports sentenceCount. If you do not specify the `sentenceCount` parameter, the model will determine the summary's length. Note that `sentenceCount` is just the approximation of sentence count of output summary, range 1 to 7.
 
-2. Make the following changes in the command where needed:
-- Replace the value `your-language-resource-key` with your key.
-- Replace the first part of the request URL `your-language-resource-endpoint` with your endpoint URL.
+2. Open a command prompt window (for example: BASH).
 
-3. Open a command prompt window (for example: BASH).
+3. Paste the command from the text editor into the command prompt window, then run the command.
 
-4. Paste the command from the text editor into the command prompt window, then run the command.
-
-5. Get the `operation-location` from the response header. The value will look similar to the following URL:
+4. Get the `operation-location` from the response header. The value will look similar to the following URL:
 
 ```http
 https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/12345678-1234-1234-1234-12345678?api-version=2022-10-01-preview
 ```
 
-6. To get the results of the request, use the following cURL command. Be sure to replace `<my-job-id>` with the numerical ID value you received from the previous `operation-location` response header:
+5. To get the results of the request, use the following cURL command. Be sure to replace `<my-job-id>` with the numerical ID value you received from the previous `operation-location` response header:
 
 ```bash
 curl -X GET $LANGUAGE_ENDPOINT/language/analyze-conversations/jobs/<my-job-id>?api-version=2022-10-01-preview \
