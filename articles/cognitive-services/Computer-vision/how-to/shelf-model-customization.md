@@ -12,9 +12,9 @@ ms.date: 04/26/2023
 ms.author: pafarley
 ---
 
-# tbd
+# Train a custom shelf analysis model
 
-The fastest way to start using Shelf Analysis is to use the built-in pre-trained AI models. With a the Product Understanding API, you can upload a shelf image and receive rich product data.
+You can train a custom model to tbd
 
 ## Prerequisites
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
@@ -22,130 +22,17 @@ The fastest way to start using Shelf Analysis is to use the built-in pre-trained
   * You'll need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
 * An Azure Storage resource with a blob storage container. [Create one](tbd)
 * [cURL](https://curl.haxx.se/) installed. Or, you can use a different REST platform, like Postman, Swagger, or the REST Client extension for VS Code.
-* A set of training images. You can use our [sample image sets](tbd) or bring your own images.
+* A set of training images. You can use our [sample image sets](tbd) or bring your own images. The maximum file size per image is 20MB.
 
-## Analyze shelf images
+## Train
 
-To analyze a shelf image, do the following steps:
-
-1. Copy the following `curl` command into a text editor.
-
-    ```bash
-    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://<endpoint>/vision/v4.0-preview.1/operations/shelfanalysis-productunderstanding:analyze" -d 
-    "{
-        'url':'<your_url_string>'
-    }"
-    ```
-1. Make the following changes in the command where needed:
-    1. Replace the value of `<subscriptionKey>` with your Computer Vision resource key.
-    1. Replace the value of `<endpoint>` with your Computer Vision resource endpoint. For example: `https://YourResourceName.cognitiveservices.azure.com`.
-    1. Upload your sample image to your blob storage container, and get the absolute URL. Replace `<your_url_string>`.
-1. Open a command prompt window.
-1. Paste your edited `curl` command from the text editor into the command prompt window, and then run the command.
-
-
-## Examine the response
-
-A successful response is returned in JSON. The product understanding API results will be returned in a `ProductUnderstandingResultApiModel` JSON field:
-
-```json
-{
-  "imageMetadata": {
-    "width": 2000,
-    "height": 1500
-  },
-  "products": [
-    {
-      "id": "string",
-      "boundingBox": {
-        "x": 1234,
-        "y": 1234,
-        "w": 12,
-        "h": 12
-      },
-      "classifications": [
-        {
-          "confidence": 0.9,
-          "label": "string"
-        }
-      ]
-    }
-  ],
-  "gaps": [
-    {
-      "id": "string",
-      "boundingBox": {
-        "x": 1234,
-        "y": 1234,
-        "w": 123,
-        "h": 123
-      },
-      "classifications": [
-        {
-          "confidence": 0.8,
-          "label": "string"
-        }
-      ]
-    }
-  ]
-}
-```
-
-See the following sections for definitions of each JSON field.
-
-### Product Understanding Result API model
-
-Results from the product understanding operation.
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| `imageMetadata` | [ImageMetadataApiModel](#image-metadata-api-model) | The image metadata information such as height, width and format. | Yes |
-| `products` |[DetectedObjectApiModel](#detected-object-api-model) | Products detected in the image. | Yes |
-| `gaps` | [DetectedObjectApiModel](#detected-object-api-model) | Gaps detected in the image. | Yes |
-
-### Image Metadata API model
-The image metadata information such as height, width and format.
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| `width` | integer | The width of the image in pixels. | Yes |
-| `height` | integer | The height of the image in pixels. | Yes |
-
-### Detected Object API model
-
-Describes a detected object in an image.
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| `id` | string | Id of the detected object. | No |
-| `boundingBox` | [BoundingBoxApiModel](#bounding-box-api-model) | A bounding box for an area inside an image. | Yes |
-| `classifications` | [ImageClassificationApiModel](#image-classification-api-model) | Classification confidences of the detected object. | Yes |
-
-### Bounding Box API model
-
-A bounding box for an area inside an image.
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| `x` | integer | Left-coordinate of the top left point of the area, in pixels. | Yes |
-| `y` | integer | Top-coordinate of the top left point of the area, in pixels. | Yes |
-| `w` | integer | Width measured from the top-left point of the area, in pixels. | Yes |
-| `h` | integer | Height measured from the top-left point of the area, in pixels. | Yes |
-
-### Image Classification API model
-
-Describes the image classification confidence of a label.
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| `confidence` | float | Confidence of the classification prediction. | Yes |
-| `label` | string | Label of the classification prediction. | Yes |
+## Analyze with the custom model
 
 ## Next steps
 
 In this guide, you learned how to make a basic shelf analysis call using the pre-trained Product Understanding REST API. Next, learn how to use a custom shelf analysis model to better meet your business needs.
 
 > [!div class="nextstepaction"]
-> [Use a custom shelf analysis model](../how-to/shelf-model-customization.md)
+> [tbd](tbd)
 
 * [Image Analysis overview](../overview-image-analysis.md)
