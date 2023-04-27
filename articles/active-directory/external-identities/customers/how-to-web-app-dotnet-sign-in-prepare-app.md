@@ -11,7 +11,7 @@ ms.subservice: ciam
 ms.topic: how-to
 ms.date: 04/04/2023
 ms.custom: it-pro
-#Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own ASP.NET web app with Azure Active Directory (Azure AD) for customers tenant
+#Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own ASP.NET web app with Azure Active Directory (Azure AD) for customers tenant.
 ---
 
 # Sign in users in your own ASP.NET web application by using Microsoft Entra - Prepare your application
@@ -41,7 +41,7 @@ After registering an application and creating a user flow in a CIAM tenant, an A
     {
       "AzureAd": {
         "Authority": "https://Enter_the_Tenant_Name_Here.ciamlogin.com/",
-        "ClientId": "1e5eb9de-85aa-4a98-9ae2-34680ad28364",
+        "ClientId": "Enter_the_Application_Id_Here",
         "ClientCredentials": [
           {
             "SourceType": "ClientSecret",
