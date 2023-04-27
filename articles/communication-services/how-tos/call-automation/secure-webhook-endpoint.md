@@ -37,8 +37,8 @@ Each mid-call webhook callback sent by Call Automation uses a signed JSON Web To
 2. Install the [Microsoft.AspNetCore.Authentication.JwtBearer NuGet](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.JwtBearer) package.
 3. Configure your application to validate the JWT using the NuGet package and the configuration of your ACS resource. You need the `audience` values as it is present in the JWT payload.
 4. Validate the issuer, audience and the JWT token.
-- The audience is your ACS resource ID you used to setup your Call Automation client. Refer [here](../../quickstarts/voice-video-calling/get-resource-id.md) about how to get it.
-- The JSON Web Key Set (JWKS) endpoint in the OpenId configuration contains the keys used to validate the JWT token. When the signature is valid and the token hasn't expired (within 5 minutes of generation), the client can use the token for authorization.
+   - The audience is your ACS resource ID you used to setup your Call Automation client. Refer [here](../../quickstarts/voice-video-calling/get-resource-id.md) about how to get it.
+   - The JSON Web Key Set (JWKS) endpoint in the OpenId configuration contains the keys used to validate the JWT token. When the signature is valid and the token hasn't expired (within 5 minutes of generation), the client can use the token for authorization.
 
 This sample code demonstrates how to use `Microsoft.IdentityModel.Protocols.OpenIdConnect` to validate webhook payload
 ## [csharp](#tab/csharp)
