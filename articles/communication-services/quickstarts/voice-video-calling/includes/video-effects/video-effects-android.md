@@ -12,22 +12,19 @@ ms.subservice: calling
 ms.custom: mode-other
 ---
 
-You can use the Video Effects feature to add effects to your video in video calls. This feature enables developers to build background visual effects. Background blur provides users with the mechanism to remove distractions behind a participant so that participants can communicate without disruptive activity or confidential information in the background. This feature is especially useful the context of telehealth, where a provider or patient might want to obscure their surroundings to protect sensitive information or personally identifiable information. Background blur can be applied across all virtual appointment scenarios, including telebanking and virtual hearings, to protect user privacy.
-
 > [!IMPORTANT]
-> The Calling Video Effects are available starting on the public preview version [2.5.1-beta.4](https://central.sonatype.com/artifact/com.azure.android/azure-communication-calling/2.5.1-beta.4) of the Android Calling SDK. Please ensure that you use this or a newer SDK when using Video Effects.
+> The Calling Video Effects are available starting on the public preview version [2.5.1-beta.4](https://central.sonatype.com/artifact/com.azure.android/azure-communication-calling/2.5.1-beta.4) of the Android Calling SDK. Please ensure that you use this or a newer SDK when using Video Effects. This API is provided as a preview ('beta') for developers and may change based on feedback that we receive.
 
-> [!IMPORTANT]
-> In order to use Video Effects on the Android Calling SDK, a machine learning model is downloaded to the customer's device.
+> [!Note]
+> In order to use Video Effects on the Android Calling SDK, a machine learning model is downloaded to the customer's device. We encourage you to review the privacy notes in your app update them accordingly, if necessary.
 
-> [!NOTE]
-> This API is provided as a preview ('beta') for developers and may change based on feedback that we receive.
+You can use the Video Effects feature to add effects to your video in video calls. Background blur provides users with the mechanism to remove distractions behind a participant so that participants can communicate without disruptive activity or confidential information in the background. This feature is especially useful the context of telehealth, where a provider or patient might want to obscure their surroundings to protect sensitive information or personally identifiable information. Background blur can be applied across all virtual appointment scenarios, including telebanking and virtual hearings, to protect user privacy.
+
+This quickstart builds on [Quickstart: Add 1:1 video calling to your app](../../get-started-with-video-calling.md?pivots=platform-android) for Android.
 
 ## Using video effects
 
-> [!NOTE]
-> Currently there's one available Video Effect:
-> - Background Blur.
+Currently there's one available Video Effect: Background Blur.
 
 The `VideoEffectsLocalVideoStreamFeature` object has the following API structure:
 
@@ -47,20 +44,16 @@ To use Video Effects with the Azure Communication Calling SDK, once you've creat
 
 ```java
 // Obtain the Video Effects feature from the LocalVideoStream object that is sending the video.
-VideoEffectsLocalVideoStreamFeature videoEffectsFeature = localVideoStream.feature(Features.VIDEO_EFFECTS);
+VideoEffectsLocalVideoStreamFeature videoEffectsFeature = currentVideoStream.feature(Features.VIDEO_EFFECTS);
 ```
 
 ```java
 // Create event handlers for the events
 private void handleOnVideoEffectEnabled(VideoEffectEnabledEvent args) {
-   Log.i("VideoEfects", "Effect enabled for effect " + args.getVideoEffectName());
 }
 private void handleOnVideoEffectDisabled(VideoEffectDisabledEvent args) {
-   Log.i("VideoEfects", "Effect disabled for effect " + args.getVideoEffectName());
 }
 private void handleOnVideoEffectError(VideoEffectErrorEvent args) {
-   Log.i("VideoEfects", "Error " + args.getCode() + ":" + args.getMessage()
-           + " for effect " + args.getVideoEffectName());
 }
  
 // Subscribe to the events
@@ -78,25 +71,46 @@ videoEffectsFeature.disableEffects();
 
 ### Background blur
 
-> [!IMPORTANT]
-> Background Blur Video Effect requires a machine learning model that is downloaded to the customer's device.
-
 Background Blur is a Video Effect that allows a person's background to be blurred. In order to use Background Video Effect, you need to obtain a `VideoEffectsLocalVideoStreamFeature` feature from a valid `LocalVideoStream`.
 
 To enable Background Blur Video Effect:
 
-- Create a new Background Blur Video Effect object
+- Create a method that obtains the `VideoEFfects` Feature subscribes to the events:
 
 ```java
-// Create a new BackgroundBlur Video Effect object.
-BackgroundBlurEffect backgroundBlurEffect = new BackgroundBlurEffect();
+private void handleOnVideoEffectEnabled(VideoEffectEnabledEvent args) {
+   Log.i("VideoEfects", "Effect enabled for effect " + args.getVideoEffectName());
+}
+private void handleOnVideoEffectDisabled(VideoEffectDisabledEvent args) {
+   Log.i("VideoEfects", "Effect disabled for effect " + args.getVideoEffectName());
+}
+private void handleOnVideoEffectError(VideoEffectErrorEvent args) {
+   Log.i("VideoEfects", "Error " + args.getCode() + ":" + args.getMessage()
+           + " for effect " + args.getVideoEffectName());
+}
 
-// Enable the the Background Blur Video Effect on the Video Effects Feature.
-videoEffectsFeature.enableEffect(backgroundBlurEffect);
+VideoEffectsLocalVideoStreamFeature videoEffectsFeature;
+public void createVideoEffectsFeature() {
+    videoEffectsFeature = currentVideoStream.feature(Features.VIDEO_EFFECTS);
+    videoEffectsFeature.addOnVideoEffectEnabledListener(this::handleOnVideoEffectStarted);
+    videoEffectsFeature.addOnVideoEffectDisabledListener(this::handleOnVideoEffectStopped);
+    videoEffectsFeature.addOnVideoEffectErrorListener(this::handleOnVideoEffectError);
+}
+
+```
+
+- Create a new Background Blur Video Effect object and call `enableEffect` on the `videoEffectsFeature` object:
+
+```java
+public void enableBackgroundBlur() {
+    videoEffectsFeature.enableEffect(backgroundBlurEffect);
+}
 ```
 
 To disable Background Blur Video Effect:
 
 ```java
-videoEffectsFeature.disableEffects();
+public void disableBackgroundBlur() {
+    videoEffectsFeature.disableEffects();
+}
 ```
