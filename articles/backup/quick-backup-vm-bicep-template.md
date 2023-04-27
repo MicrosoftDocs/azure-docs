@@ -5,7 +5,7 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 11/17/2021
 ms.reviewer: Daya-Patil
-ms.custom: mvc, subject-bicepqs, devx-track-azurepowershell, mode-arm
+ms.custom: mvc, subject-bicepqs, mode-arm, devx-track-bicep
 ms.service: backup
 author: jyothisuri
 ms.author: jsuri

@@ -8,7 +8,7 @@ ms.author: halkazwini
 ms.service: route-server
 ms.topic: sample
 ms.date: 02/23/2023
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, devx-track-arm-template
 ---
 
 # Azure Resource Manager templates for Azure Route Server

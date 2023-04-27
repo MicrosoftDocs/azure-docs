@@ -22,6 +22,36 @@ To help you stay up to date with the latest developments, this article covers:
 
 This page is updated regularly with the latest developments in Azure Private 5G Core.
 
+## March 2023
+
+### Packet core 2303
+
+**Type:** New release
+
+**Date available:** March 30, 2023
+
+The 2303 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2303 release notes](azure-private-5g-core-release-notes-2303.md).
+
+## February 2023
+
+### Packet core 2302
+
+**Type:** New release
+
+**Date available:** March 6, 2023
+
+The 2302 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2302 release notes](azure-private-5g-core-release-notes-2302.md).
+
+### Rollback
+
+**Type:** New feature
+
+**Date available:** February 16, 2023
+
+This feature allows you to easily revert to a previous packet core version if you encounter issues after upgrading the packet core. 
+
+For details, see [Rollback (portal)](upgrade-packet-core-azure-portal.md#rollback) or [Rollback (ARM)](upgrade-packet-core-arm-template.md#rollback).
+
 ## January 2023
 
 ### Packet core 2301

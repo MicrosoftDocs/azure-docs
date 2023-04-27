@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with GTNexus SSO System | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with GTNexus SSO System'
 description: Learn how to configure single sign-on between Azure Active Directory and GTNexus SSO System.
 services: active-directory
 author: jeevansd

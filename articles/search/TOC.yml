@@ -43,9 +43,11 @@
   - name: ARM template
     displayName: Resource Manager 
     href: search-get-started-arm.md
+  - name: Terraform
+    href: search-get-started-terraform.md
 - name: Tutorials
   items:
-  - name: Add search to web apps
+  - name: Add search to static web apps
     items: 
     - name: C#
       items: 
@@ -76,7 +78,9 @@
       - name: Deploy static web app
         href: tutorial-python-deploy-static-web-app.md
       - name: Explore the code
-        href: tutorial-python-search-query-integration.md                
+        href: tutorial-python-search-query-integration.md
+  - name: Add search to ASP.NET Core (MVC)
+    href: tutorial-csharp-create-mvc-app.md             
   - name: Index with indexers
     items:
     - name: Index Azure SQL Database
@@ -105,18 +109,6 @@
     href: tutorial-create-custom-analyzer.md
   - name: Query from Power Apps   
     href: search-howto-powerapps.md
-  - name: Create a C# app
-    items:
-    - name: 1 - Basic search page
-      href: tutorial-csharp-create-first-app.md
-    - name: 2 - Add results paging
-      href: tutorial-csharp-paging.md
-    - name: 3 - Add type-ahead
-      href: tutorial-csharp-type-ahead-and-suggestions.md
-    - name: 4 - Add facets
-      href: tutorial-csharp-facets.md
-    - name: 5 - Add results ordering
-      href: tutorial-csharp-orders.md
 - name: Samples
   items:
   - name: C# samples
@@ -238,6 +230,8 @@
         href: search-indexer-howto-access-ip-restricted.md
       - name: Connect through private endpoints
         href: search-indexer-howto-access-private.md
+      - name: Connect to a SQL managed instance private endpoint
+        href: search-indexer-how-to-access-private-sql.md
     - name: Data encryption
       items:
       - name: Customer-managed keys
@@ -248,7 +242,7 @@
       items:
       - name: Security filters
         href: search-security-trimming-for-azure-search.md
-      - name: Filter on user identities
+      - name: Security filters with Azure AD
         href: search-security-trimming-for-azure-search-with-aad.md
   - name: Development
     items:

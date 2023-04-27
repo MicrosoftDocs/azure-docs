@@ -6,7 +6,6 @@ ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
 ms.date: 01/25/2022
-ms.custom: devx-track-azurepowershell
 ---
 # Use the Redis command-line tool with Azure Cache for Redis
 

@@ -12,14 +12,40 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 02/28/2023
+ms.date: 04/26/2023
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
 
-Azure NetApp Files provides regular updates. This article provides a summary about the latest new features and enhancements. 
+Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
+
+## April 2023
+
+* [Azure Virtual WAN](configure-virtual-wan.md) is now generally available in [all regions](azure-netapp-files-network-topologies.md#supported-regions) that support standard network features
+
+## March 2023
+
+* [Disable `showmount`](disable-showmount.md) (Preview)
+
+    By default, Azure NetApp Files enables [`showmount` functionality](/windows-server/administration/windows-commands/showmount) to show NFS exported paths. The setting allows NFS clients to use the `showmount -e` command to see a list of exports available on the Azure NetApp Files NFS-enabled storage endpoint. This functionality might cause security scanners to flag the Azure NetApp Files NFS service as having a vulnerability because these scanners often use `showmount` to see what is being returned. In those scenarios, you might want to disable `showmount` on Azure NetApp Files. This setting allows you to enable/disable `showmount` for your NFS-enabled storage endpoints. 
+
+* [Active Directory support improvement](create-active-directory-connections.md#preferred-server-ldap) (Preview)
+
+    The Preferred server for LDAP client option allows you to submit the IP addresses of up to two Active Directory (AD) servers as a comma-separated list. Rather than sequentially contacting all of the discovered AD services for a domain, the LDAP client will contact the specified servers first. 
 
 ## February 2023
+
+* [Cross region replication enhancement: snapshot revert on replication source volume](snapshots-revert-volume.md)
+
+    When using cross-region replication, reverting a snapshot in a source or destination volume with an active replication configuration was not initially supported. Restoring a snapshot on the source volume from the latest local snapshot was not possible. Instead you had to use either client copy using the `.snapshot` directory, single file snapshot restore, or needed to break the replication in order to apply a volume revert. With this new feature, a snapshot revert on a replication source volume is possible provided you select a snapshot that is newer than the latest SnapMirror snapshot. This enables data recovery (revert) from a snapshot while cross region replication stays active, improving data protection SLA.
+
+* [Access-based enumeration](azure-netapp-files-create-volumes-smb.md#access-based-enumeration) (Preview)
+
+    Access-based enumeration (ABE) displays only the files and folders that a user has permissions to access. If a user does not have Read (or equivalent) permissions for a folder, the Windows client hides the folder from the user’s view. This new capability provides an additional layer of security by only displaying files and folders a user has access to, and as a result hiding file and folder information a user has no access to. You can now enable ABE on Azure NetApp Files [SMB](azure-netapp-files-create-volumes-smb.md#access-based-enumeration) and [dual-protocol](create-volumes-dual-protocol.md#access-based-enumeration) (with NTFS security style) volumes. 
+
+* [Non-browsable shares](azure-netapp-files-create-volumes-smb.md#non-browsable-share) (Preview)
+
+    You can now configure Azure NetApp Files [SMB](azure-netapp-files-create-volumes-smb.md#non-browsable-share) or [dual-protocol](create-volumes-dual-protocol.md#non-browsable-share) volumes as non-browsable. This new feature prevents the Windows client from browsing the share, and the share does not show up in the Windows File Explorer. This new capability provides an additional layer of security by not displaying shares that are configured as non-browsable. Users who have access to the share will maintain access. 
 
 * Option to **delete base snapshot** when you [restore a snapshot to a new volume using Azure NetApp Files](snapshots-restore-new-volume.md) 
 
@@ -173,7 +199,7 @@ Azure NetApp Files provides regular updates. This article provides a summary abo
 
 * [Azure Application Consistent Snapshot Tool (AzAcSnap) v5.1 Public Preview](azacsnap-release-notes.md)
 
-    [Azure Application Consistent Snapshot Tool](azacsnap-introduction.md) (AzAcSnap) is a command-line tool that enables customers to simplify data protection for third-party databases (SAP HANA) in Linux environments (for example, SUSE and RHEL).  
+    [Azure Application Consistent Snapshot Tool](azacsnap-introduction.md) (AzAcSnap) is a command-line tool that enables customers to simplify data protection for third-party databases (SAP HANA) in Linux environments (for example, `SUSE` and `RHEL`).  
  
     The public preview of v5.1 brings the following new capabilities to AzAcSnap:  
     * Oracle Database support
@@ -294,7 +320,7 @@ Azure NetApp Files provides regular updates. This article provides a summary abo
 
 * Azure NetApp Files Application Consistent Snapshot tool [(AzAcSnap)](azacsnap-introduction.md) is now generally available. 
 
-    AzAcSnap is a command-line tool that enables you to simplify data protection for third-party databases (SAP HANA) in Linux environments (for example, SUSE and RHEL). See [Release Notes for AzAcSnap](azacsnap-release-notes.md) for the latest changes about the tool.   
+    AzAcSnap is a command-line tool that enables you to simplify data protection for third-party databases (SAP HANA) in Linux environments (for example, `SUSE` and `RHEL`). See [Release Notes for AzAcSnap](azacsnap-release-notes.md) for the latest changes about the tool.   
 
 * [Support for capacity pool billing tags](manage-billing-tags.md)   
 
@@ -361,7 +387,7 @@ Azure NetApp Files provides regular updates. This article provides a summary abo
 
 * [Azure Application Consistent Snapshot Tool](azacsnap-introduction.md) (Preview)    
 
-    Azure Application Consistent Snapshot Tool (AzAcSnap) is a command-line tool that enables you to simplify data protection for third-party databases (SAP HANA) in Linux environments (for example, SUSE and RHEL).   
+    Azure Application Consistent Snapshot Tool (AzAcSnap) is a command-line tool that enables you to simplify data protection for third-party databases (SAP HANA) in Linux environments (for example, `SUSE` and `RHEL`).   
 
     AzAcSnap leverages the volume snapshot and replication functionalities in Azure NetApp Files and Azure Large Instance. It provides the following benefits:
 

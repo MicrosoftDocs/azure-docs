@@ -42,7 +42,7 @@ Typically the thread creator and participants have same level of access to the t
 ### Chat Data 
 Azure Communication Services stores chat messages for 90 days. Chat thread participants can use `ListMessages` to view  message history for a particular thread.  However, the API does not return messages once the 90 day period has passed. Users that are removed from a chat thread are able to view previous message history for 90 days but cannot send or receive new messages. To learn more about data being stored in Azure Communication Services chat service, refer to the [data residency and privacy page](../privacy.md).  
 
-For customers that use Virtual appointments, refer to our Teams Interoperability [user privacy](/azure/communication-services/concepts/interop/guest/privacy#chat-storage) for storage of chat messages in Teams meetings.
+For customers that use Virtual appointments, refer to our Teams Interoperability [user privacy](../interop/guest/privacy.md#chat-storage) for storage of chat messages in Teams meetings.
 
 ### Service limits
 - The maximum number of participants allowed in a chat thread is 250.
@@ -55,7 +55,7 @@ There are two core parts to chat architecture: 1) Trusted Service and 2) Client 
 
 :::image type="content" source="../../media/chat-architecture.svg" alt-text="Diagram showing Communication Services' chat architecture.":::
 
- - **Trusted service:** To properly manage a chat session, you need a service that helps you connect to Communication Services by using your resource connection string. This service is responsible for creating chat threads, adding and removing participants, and issuing access tokens to users. More information about access tokens can be found in our [access tokens](../../quickstarts/access-tokens.md) quickstart.
+ - **Trusted service:** To properly manage a chat session, you need a service that helps you connect to Communication Services by using your resource connection string. This service is responsible for creating chat threads, adding and removing participants, and issuing access tokens to users. More information about access tokens can be found in our [access tokens](../../quickstarts/identity/access-tokens.md) quickstart.
  - **Client app:**  The client application connects to your trusted service and receives the access tokens that are used by users to connect directly to Communication Services. After creating the chat thread and adding users as participants, they can use the client application to connect to the chat thread and send messages. Use real-time notifications feature, which we discuss below, in your client application to subscribe to message & thread updates from other participants.
 
 

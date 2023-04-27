@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Troubleshoot SQL connectivity issues | Microsoft Docs'
+title: 'Azure AD Connect: Troubleshoot SQL connectivity issues'
 description: Explains how to troubleshoot SQL connectivity issues that occur with Azure AD Connect.
 services: active-directory
 documentationcenter: ''

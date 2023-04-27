@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/22/2023
+ms.date: 03/03/2023
 ms.author: lajanuar
 recommendations: false
 ms.custom: references.regions
@@ -308,7 +308,7 @@ The following are the fields extracted per document type. The Azure Form Recogni
 |`LastName`|`string`|Surname|TALBOT|
 |`DateOfIssue`|`date`|Date of issue|08/12/2012|
 
-#### `idDocument` field extracted
+#### `idDocument` fields extracted
 
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|

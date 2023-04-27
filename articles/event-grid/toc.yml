@@ -3,20 +3,16 @@ items:
     href: index.yml
   - name: Switch to Event Grid on Kubernetes documentation
     href: kubernetes/index.yml
-  - name: Switch to Event Grid on IoT Edge documentation
-    href: edge/pub-sub-events-webhook-local.md
   - name: Overview
     items:
     - name: What is Event Grid?
       href: overview.md
-    - name: Compare messaging services
-      href: compare-messaging-services.md
     - name: Release notes
       href: whats-new.md
   - name: Quickstarts
     expanded: true
     items:
-    - name: Storage events
+    - name: Subscribe to Storage events
       items:
       - name: Portal
         href: blob-event-quickstart-portal.md
@@ -30,30 +26,32 @@ items:
       - name: ARM template
         displayName: Resource Manager
         href: blob-event-quickstart-template.md
-    - name: Custom events
+    - name: Publish and subscribe using custom topics
       items:
-      - name: Portal
-        href: custom-event-quickstart-portal.md
-      - name: Azure CLI
-        href: custom-event-quickstart.md
-      - name: PowerShell
-        href: custom-event-quickstart-powershell.md
-    - name: Azure Functions as event handler
-      href: custom-event-to-function.md
-    - name: Queue storage as event handler
-      href: custom-event-to-queue-storage.md
-    - name: Event Hubs as event handler
-      href: custom-event-to-eventhub.md
-    - name: Container Registry events
+      - name: Custom events to Event Grid Viewer app
+        items:
+        - name: Portal
+          href: custom-event-quickstart-portal.md
+        - name: Azure CLI
+          href: custom-event-quickstart.md
+        - name: PowerShell
+          href: custom-event-quickstart-powershell.md
+      - name: Custom events to an Azure function 
+        href: custom-event-to-function.md
+      - name: Custom events to an Azure Queue storage
+        href: custom-event-to-queue-storage.md
+      - name: Custom events to an Azure event hub
+        href: custom-event-to-eventhub.md
+    - name: Subscribe to Container Registry events
       href: ../container-registry/container-registry-event-grid-quickstart.md?toc=/azure/event-grid/toc.json
-    - name: Handle Azure Communication Services events
+    - name: Subscribe to Azure Communication Services events
       href: ../communication-services/quickstarts/sms/handle-sms-events.md?toc=/azure/event-grid/toc.json
-    - name: Azure Cache for Redis events
+    - name: Subscribe to Azure Cache for Redis events
       href: ../azure-cache-for-redis/cache-event-grid-quickstart-portal.md?toc=/azure/event-grid/toc.json
   - name: Tutorials
     items:
     - name: Email when VM changes
-      href: monitor-virtual-machine-changes-event-grid-logic-app.md
+      href: monitor-virtual-machine-changes-logic-app.md
     - name: Resize uploaded images
       items:
       - name: Upload image data in the cloud with Azure Storage
@@ -71,7 +69,7 @@ items:
       - name: Azure Functions
         href: ../service-bus-messaging/service-bus-to-event-grid-integration-function.md?toc=/azure/event-grid/toc.json
     - name: Stream data from Event Hubs
-      href: event-grid-event-hubs-integration.md
+      href: event-hubs-integration.md
     - name: Route Media Services events
       href: /azure/media-services/latest/monitoring/job-state-events-cli-how-to
     - name: Route to Hybrid Connection
@@ -79,26 +77,26 @@ items:
   - name: Samples
     items:
     - name: Azure CLI
-      href: scripts/event-grid-cli-subscribe-custom-topic.md
+      href: scripts/cli-subscribe-custom-topic.md
     - name: Azure PowerShell
       href: powershell-samples.md
       items:
       - name: Create custom topic
-        href: scripts/event-grid-powershell-create-custom-topic.md
+        href: scripts/powershell-create-custom-topic.md
       - name: Subscribe to Azure subscription
-        href: scripts/event-grid-powershell-azure-subscription.md
+        href: scripts/powershell-azure-subscription.md
       - name: Subscribe to Blob storage
-        href: scripts/event-grid-powershell-blob.md
+        href: scripts/powershell-blob.md
       - name: Subscribe to custom topic
-        href: scripts/event-grid-powershell-subscribe-custom-topic.md
+        href: scripts/powershell-subscribe-custom-topic.md
       - name: Subscribe to resource group
-        href: scripts/event-grid-powershell-resource-group.md
+        href: scripts/powershell-resource-group.md
       - name: Subscribe and filter events for resource group
-        href: scripts/event-grid-powershell-resource-group-filter.md
+        href: scripts/powershell-resource-group-filter.md
       - name: Secure WebHook delivery with Azure AD App in Azure Event Grid
-        href: scripts/event-grid-powershell-webhook-secure-delivery-azure-ad-app.md
+        href: scripts/powershell-webhook-secure-delivery-azure-ad-app.md
       - name: Secure WebHook delivery with Azure AD User in Azure Event Grid
-        href: scripts/event-grid-powershell-webhook-secure-delivery-azure-ad-user.md
+        href: scripts/powershell-webhook-secure-delivery-azure-ad-user.md
     - name: Resource Manager templates
       href: template-samples.md
     - name: Code samples
@@ -143,6 +141,8 @@ items:
           href: event-schema-container-registry.md
         - name: Azure Data Box
           href: event-schema-data-box.md
+        - name: Azure Data Manager for Agriculture
+          href: event-schema-data-manager-for-agriculture.md
         - name: Azure Event Hubs
           href: event-schema-event-hubs.md
         - name: Azure Health Data Services
@@ -253,7 +253,7 @@ items:
       - name: Diagnostic logs
         href: diagnostic-logs.md
       - name: Metrics
-        href: metrics.md
+        href: ../azure-monitor/essentials/metrics-supported.md#microsofteventgriddomains
     - name: Use cases
       items:
       - name: Use cases for domains
@@ -270,6 +270,8 @@ items:
         href: create-view-manage-system-topics-arm.md
     - name: Create and manage custom topics
       items:
+      - name: Use CloudEvents schema
+        href: cloudevents-schema.md
       - name: Create a custom topic or a domain
         href: create-custom-topic.md
       - name: Configure a custom topic or a domain
@@ -314,8 +316,6 @@ items:
       href: subscribe-through-portal.md
     - name: Map custom fields to schema
       href: input-mappings.md
-    - name: Use CloudEvents schema
-      href: cloudevents-schema.md
     - name: Manage topics with Event Domains
       href: how-to-event-domains.md
     - name: Build your own client-side disaster recovery
@@ -396,12 +396,14 @@ items:
         href: /azure/templates/microsoft.eventgrid/topics
     - name: SDKs
       href: sdk-overview.md
+    - name: Transition from Event Grid on IoT Edge to Azure IoT Edge
+      href: transition.md
   - name: Resources
     items:
     - name: Build your skills with Microsoft Learn training
       href: /training/browse/?products=azure-event-grid
     - name: FAQ
-      href: event-grid-faq.yml
+      href: faq.yml
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/
     - name: Pricing

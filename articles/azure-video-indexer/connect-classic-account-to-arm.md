@@ -3,7 +3,7 @@ title: Connect a classic Azure Video Indexer account to ARM
 description: This topic explains how to connect an existing classic paid Azure Video Indexer account to an ARM-based account
 ms.topic: how-to
 ms.author: itnorman
-ms.date: 05/04/2022
+ms.date: 03/20/2023
 ms.custom: ignite-fall-2021
 ---
 
@@ -11,7 +11,9 @@ ms.custom: ignite-fall-2021
 
 This article shows how to connect an existing classic paid Azure Video Indexer account to an Azure Resource Manager (ARM)-based (recommended) account. To create a new ARM-based account, see [create a new account](create-account-portal.md). To understand the Azure Video Indexer account types, review [account types](accounts-overview.md).
 
-In this article, we demonstrate options of connecting your **existing** Azure Video Indexer account to an [ARM][docs-arm-overview]-based account.
+In this article, we demonstrate options of connecting your **existing** Azure Video Indexer account to an [ARM][docs-arm-overview]-based account. You can also view the following video.
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RW10iby]
 
 ## Prerequisites
 
@@ -95,11 +97,11 @@ APIs to be changed:
  
 For a full description of [Azure Video Indexer REST API](/rest/api/videoindexer/preview/accounts) calls and documentation, follow the link.
 
-For code sample generating an access token through ARM see [C# code sample](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/ApiUsage/ArmBased/Program.cs).
+For code sample generating an access token through ARM see [C# code sample](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/API-Samples/C%23/ArmBased/Program.cs).
 
 ### Next steps
 
-Learn how to [Upload a video using C#](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/ApiUsage/ArmBased).
+Learn how to [Upload a video using C#](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/API-Samples/C%23/ArmBased/).
   
 <!-- links -->
 [docs-arm-overview]: ../azure-resource-manager/management/overview.md

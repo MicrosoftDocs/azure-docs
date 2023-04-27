@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: User provisioning for LinkedIn Elevate - Azure AD'
+title: 'Tutorial: User provisioning for LinkedIn Elevate'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to LinkedIn Elevate.
 services: active-directory
 author: ArvindHarinder1

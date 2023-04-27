@@ -18,6 +18,9 @@ ms.custom: devx-track-csharp
 
 With batch transcriptions, you submit the [audio data](batch-transcription-audio-data.md), and then retrieve transcription results asynchronously. The service transcribes the audio data and stores the results in a storage container. You can then [retrieve the results](batch-transcription-get.md) from the storage container.
 
+> [!NOTE]
+> To use batch transcription, you need to use a standard (S0) Speech resource. Free resources (F0) aren't supported. For more information, see [pricing and limits](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+
 ## Create a transcription job
 
 ::: zone pivot="rest-api"
@@ -110,7 +113,7 @@ To create a transcription, use the `spx batch transcription create` command. Con
 Here's an example Speech CLI command that creates a transcription job:
 
 ```azurecli-interactive
-spx batch transcription create --api-version v3.1 --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav
+spx batch transcription create --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav
 ```
 
 You should receive a response body in the following format:
@@ -220,12 +223,15 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
 ::: zone pivot="speech-cli"
 
 ```azurecli-interactive
-spx batch transcription create --api-version v3.1 --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav --model "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+spx batch transcription create --name "My Transcription" --language "en-US" --content https://crbn.us/hello.wav;https://crbn.us/whatstheweatherlike.wav --model "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
 ```
 
 ::: zone-end
 
-To use a Custom Speech model for batch transcription, you need the model's URI. You can retrieve the model location when you create or get a model. The top-level `self` property in the response body is the model's URI. For an example, see the JSON response example in the [Create a model](how-to-custom-speech-train-model.md?pivots=rest-api#create-a-model) guide. A [custom model deployment endpoint](how-to-custom-speech-deploy-model.md) isn't needed for the batch transcription service.
+To use a Custom Speech model for batch transcription, you need the model's URI. You can retrieve the model location when you create or get a model. The top-level `self` property in the response body is the model's URI. For an example, see the JSON response example in the [Create a model](how-to-custom-speech-train-model.md?pivots=rest-api#create-a-model) guide. 
+
+> [!TIP]
+> A [hosted deployment endpoint](how-to-custom-speech-deploy-model.md) isn't required to use custom speech with the batch transcription service. You can conserve resources if the [custom speech model](how-to-custom-speech-train-model.md) is only used for batch transcription.
 
 Batch transcription requests for expired models will fail with a 4xx error. You'll want to set the `model` property to a base model or custom model that hasn't yet expired. Otherwise don't include the `model` property to always use the latest base model. For more information, see [Choose a model](how-to-custom-speech-create-project.md#choose-your-model) and [Custom Speech model lifecycle](how-to-custom-speech-model-and-endpoint-lifecycle.md).
 
@@ -243,3 +249,4 @@ The [Trusted Azure services security mechanism](batch-transcription-audio-data.m
 - [Batch transcription overview](batch-transcription.md)
 - [Locate audio files for batch transcription](batch-transcription-audio-data.md)
 - [Get batch transcription results](batch-transcription-get.md)
+- [See batch transcription code samples at GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch/)

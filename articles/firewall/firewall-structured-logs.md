@@ -45,12 +45,17 @@ New resource specific tables are now available in Diagnostic setting that allows
 - [Application rule aggregation log](/azure/azure-monitor/reference/tables/azfwapplicationruleaggregation) - Contains aggregated Application rule log data for Policy Analytics.
 - [Network rule aggregation log](/azure/azure-monitor/reference/tables/azfwnetworkruleaggregation) - Contains aggregated Network rule log data for Policy Analytics.
 - [NAT rule aggregation log](/azure/azure-monitor/reference/tables/azfwnatruleaggregation) - Contains aggregated NAT rule log data for Policy Analytics.
+- [Top flow log (preview)](/azure/azure-monitor/reference/tables/azfwfatflow) - The Top Flows (Fat Flows) log shows the top connections that are contributing to the highest throughput through the firewall.
+- [Flow trace (preview)](/azure/azure-monitor/reference/tables/azfwflowtrace) - Contains flow information, flags, and the time period when the flows were recorded. You'll be able to see full flow information such as SYN, SYN-ACK, FIN, FIN-ACK, RST, INVALID (flows).
 
 ## Enable/disable structured logs
 
 By default, the new resource specific tables are disabled. 
 
 Run the following Azure PowerShell commands to enable Azure Firewall Structured logs:
+
+> [!NOTE]
+> It can take several minutes for this to take effect. Consider performing an update on Azure Firewall for the change to take effect immediately.
 
 ```azurepowershell
 Connect-AzAccount 

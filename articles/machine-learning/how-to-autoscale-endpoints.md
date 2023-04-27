@@ -25,7 +25,7 @@ Today, you can manage autoscaling using either the Azure CLI, REST, ARM, or the 
 ## Prerequisites
 
 * A deployed endpoint. [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md). 
-* To use autoscale, the role `microsoft.insights/autoscalesettings/write` must be assigned to the identity that manages autoscale. You can use any built-in or custom roles that allow this action. For general guidance on managing roles for Azure Machine Learning, see [Manage users and roles](/azure/machine-learning/how-to-assign-roles). For more on autoscale settings from Azure Monitor, see [Microsoft.Insights autoscalesettings](/azure/templates/microsoft.insights/autoscalesettings).
+* To use autoscale, the role `microsoft.insights/autoscalesettings/write` must be assigned to the identity that manages autoscale. You can use any built-in or custom roles that allow this action. For general guidance on managing roles for Azure Machine Learning, see [Manage users and roles](./how-to-assign-roles.md). For more on autoscale settings from Azure Monitor, see [Microsoft.Insights autoscalesettings](/azure/templates/microsoft.insights/autoscalesettings).
 
 ## Define an autoscale profile
 

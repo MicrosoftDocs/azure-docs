@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect sync:  Changing the AD DS account password | Microsoft Docs'
+title: 'Azure AD Connect sync:  Changing the AD DS account password'
 description: This topic document describes how to update Azure AD Connect after the password of the AD DS account is changed.
 services: active-directory
 keywords: AD DS account, Active Directory account, password

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Workday inbound provisioning in Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Workday inbound provisioning in Azure Active Directory'
 description: Learn how to configure inbound provisioning from Workday to Azure AD
 services: active-directory
 author: cmmdesai
@@ -16,6 +16,10 @@ The objective of this tutorial is to show the steps you need to perform to provi
 
 >[!NOTE]
 >Use this tutorial if the users you want to provision from Workday are cloud-only users who don't need an on-premises AD account. If the users require only on-premises AD account or both AD and Azure AD account, then please refer to the tutorial on [configure Workday to Active Directory](workday-inbound-tutorial.md) user provisioning. 
+
+The following video provides a quick overview of the steps involved when planning your provisioning integration with Workday. 
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/TfndXBlhlII]
 
 ## Overview
 

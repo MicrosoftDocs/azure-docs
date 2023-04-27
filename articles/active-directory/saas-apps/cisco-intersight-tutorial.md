@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Cisco Intersight | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Cisco Intersight'
 description: Learn how to configure single sign-on between Azure Active Directory and Cisco Intersight.
 services: active-directory
 author: jeevansd

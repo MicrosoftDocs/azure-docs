@@ -1,15 +1,8 @@
 ---
-author: sdwheeler
 description: This article covers troubleshooting Cloud Shell common scenarios.
-manager: mkluck
-ms.author: sewhee
 ms.contributor: jahelmic
 ms.date: 11/14/2022
-ms.service: cloud-shell
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.workload: infrastructure-services
-services: azure
 tags: azure-resource-manager
 title: Azure Cloud Shell troubleshooting
 ---
@@ -258,8 +251,8 @@ again.
    Bash:
 
    ```bash
-   token=$(az account get-access-token --resource "https://management.azure.com/" | jq -r ".accessToken")
-   curl -X DELETE https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"Bearer $token"
+   TOKEN=$(az account get-access-token --resource "https://management.azure.com/" | jq -r ".accessToken")
+   curl -X DELETE https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"Bearer $TOKEN"
    ```
 
    PowerShell:

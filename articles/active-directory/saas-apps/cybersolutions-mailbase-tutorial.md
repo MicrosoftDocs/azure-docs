@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with CyberSolutions MAILBASEΣ\CMSS | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with CyberSolutions MAILBASEΣ\CMSS'
 description: Learn how to configure single sign-on between Azure Active Directory and CyberSolutions MAILBASEΣ\CMSS.
 services: active-directory
 author: jeevansd

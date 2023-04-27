@@ -84,14 +84,16 @@ In the Azure portal, navigate to [Cost Management + Billing](https://portal.az
 
 ### MCA customers
 
-If you're an Owner, Contributor or Reader on your Billing Account, you can download the CSV file that contains new usage data from the [Azure portal](https://ms.portal.azure.com/#home). In the portal, navigate to **Cost management + Billing**.
+To view and download usage data for a billing profile, you must be a billing profile Owner, Contributor, Reader, or Invoice manager.
 
-1. Select the billing account.
-2. Select **Invoices.**
-3. Download the Actual Cost CSV file based on your scenario.
-    - To download the usage for the current month, select **Download pending usage.**
-    - To download the usage for a prior invoice, select the ellipsis symbol ( **...** ) and select **Prepare Azure usage file.**
-1. If you want to download the Amortized Cost CSV file, you'll need to use [Exports](../costs/tutorial-export-acm-data.md) or the [Cost Details API](../automate/get-small-usage-datasets-on-demand.md).
+To download usage for billed charges:
+
+1. Search for **Cost Management + Billing**.
+2. Select a billing profile.
+3. Select **Invoices**.
+4. In the invoice grid, find the row of the invoice corresponding to the usage that you want to download.
+5. Select the ellipsis (**...**) at the end of the row.
+6. In the download context menu, select **Azure usage and charges**.
 
 ## Common cost and usage tasks
 
@@ -120,11 +122,21 @@ You can charge back savings plan use to other organizations by subscription, res
 
 ### Determine savings resulting from savings plan
 
-Get the Amortized costs data and filter the data for a savings plan instance. Then:
+Get the Amortized costs data and filter the data for a `PricingModel` = `SavingsPlan`. Then:
 
-1. Get estimated pay-as-you-go costs. Multiply the `UnitPrice` value with `Quantity` values to get estimated pay-as-you-go costs if the savings plan discount didn't apply to the usage.
+1. Get estimated pay-as-you-go costs or customer discounted cost. Multiply the `UnitPrice` value with `Quantity` values to get estimated pay-as-you-go costs if the savings plan discount didn't apply to the usage.
 2. Get the savings plan costs. Sum the `Cost` values to get the monetary value of what you paid for the savings plan. It includes the used and unused costs of the savings plan.
-3. Subtract savings plan costs from estimated pay-as-you-go costs to get the estimated savings.
+3. Subtract estimated pay-as-you-go costs from savings plan costs to get the estimated savings.
+
+To determine the savings from the pay-as-you-go list price:
+
+1. To get the pay-as-you-go list price cost (`PayGPriceCost`), multiply the `PayGPrice` value with the `Quantity` value.
+1. Subtract `PayGPriceCost` from `Cost` to determine the savings from the savings plan.
+
+To determine the savings percentage from the discounted price:
+
+1. Subtract `PayGPrice` from `Cost` to get the savings from the savings plan against discounts.
+1. Divide `Cost` by `PayGPrice` and then divide by 100 to get the discount percentage applied, per line item.
 
 Keep in mind that if you have an underutilized savings plan, the `UnusedBenefit` entry for `ChargeType` becomes a factor to consider. When you have a fully utilized savings plan, you receive the maximum savings possible. Any `UnusedBenefit` quantity reduces savings.
 

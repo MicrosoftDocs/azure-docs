@@ -24,8 +24,8 @@ Learn more about [Threat Intelligence](understand-threat-intelligence.md) in Mic
 
 ## Prerequisites  
 
+- In order to install, update and delete standalone content or solutions in content hub, you need the **Template Spec Contributor** role at the resource group level. See [Azure RBAC built in roles](../role-based-access-control/built-in-roles.md#template-spec-contributor) for details on this role.
 - You must have either the **Global administrator** or **Security administrator** Azure AD roles in order to grant permissions to your TIP product or to any other custom application that uses direct integration with the Microsoft Graph Security tiIndicators API.
-
 - You must have read and write permissions to the Microsoft Sentinel workspace to store your threat indicators.
 
 ## Instructions
@@ -118,11 +118,23 @@ Once this configuration is complete, threat indicators will be sent from your TI
 
 The last step in the integration process is to enable the **Threat Intelligence Platforms data connector** in Microsoft Sentinel. Enabling the connector is what allows Microsoft Sentinel to receive the threat indicators sent from your TIP or custom solution. These indicators will be available to all Microsoft Sentinel workspaces for your organization. Follow these steps to enable the Threat Intelligence Platforms data connector for each workspace:
 
-1. From the Azure portal, navigate to the **Microsoft Sentinel** service.
+1. From the [Azure portal](https://portal.azure.com/), navigate to the **Microsoft Sentinel** service.
 
 1. Choose the **workspace** to which you want to import the threat indicators sent from your TIP or custom solution.
 
-1. Select **Data connectors** from the menu, select **Threat Intelligence Platforms** from the connectors gallery, and select the **Open connector page** button.
+1. Select **Content hub** from the menu.
+
+1. Find and select the **Threat Intelligence** solution.
+
+1. Select the :::image type="icon" source="media/connect-threat-intelligence-tip/install-update-button.png"::: **Install/Update** button.
+
+    For more information about how to manage the solution components, see [Discover and deploy out-of-the-box content](sentinel-solutions-deploy.md).
+
+1. To configure the TIP data connector, select the **Data connectors** menu. 
+
+1. Find and select the **Threat Intelligence Platforms** data connector > **Open connector page** button.
+
+    :::image type="content" source="media/connect-threat-intelligence-tip/tip-data-connector-config.png" alt-text="Screenshot displaying the data connectors page with the TIP data connector listed." lightbox="media/connect-threat-intelligence-tip/tip-data-connector-config.png":::
 
 1. As you’ve already completed the app registration and configured your TIP or custom solution to send threat indicators, the only step left is to select the **Connect** button.
 

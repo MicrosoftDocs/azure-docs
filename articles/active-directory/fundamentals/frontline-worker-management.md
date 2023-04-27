@@ -37,7 +37,7 @@ My Staff also enables frontline managers to register their team members' phone n
 
 ![SMS sign-in](media/concept-fundamentals-frontline-worker/sms-signin.png)
 
-Frontline managers can also use Managed Home Screen (MHS) application to allow workers to have access to a specific set of applications on their Intune-enrolled Android dedicated devices. The dedicated devices are enrolled with [Azure AD shared device mode](../develop/msal-shared-devices.md). When configured in multi-app kiosk mode in the Microsoft Endpoint Manager (MEM) console, MHS is automatically launched as the default home screen on the device and appears to the end user as the *only* home screen. To learn more, see how to [configure the Microsoft Managed Home Screen app for Android Enterprise](/mem/intune/apps/app-configuration-managed-home-screen-app).
+Frontline managers can also use Managed Home Screen (MHS) application to allow workers to have access to a specific set of applications on their Intune-enrolled Android dedicated devices. The dedicated devices are enrolled with [Azure AD shared device mode](../develop/msal-shared-devices.md). When configured in multi-app kiosk mode in the Microsoft Intune admin center, MHS is automatically launched as the default home screen on the device and appears to the end user as the *only* home screen. To learn more, see how to [configure the Microsoft Managed Home Screen app for Android Enterprise](/mem/intune/apps/app-configuration-managed-home-screen-app).
 
 ## Secure sign-out of frontline workers from shared devices
 

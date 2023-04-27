@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect sync: Synchronization Service Manager UI | Microsoft Docs'
+title: 'Azure AD Connect sync: Synchronization Service Manager UI'
 description: Understand Synchronization Service Manager for Azure AD Connect.
 services: active-directory
 documentationcenter: ''

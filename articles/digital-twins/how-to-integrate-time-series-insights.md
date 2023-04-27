@@ -1,5 +1,4 @@
 ---
-# Mandatory fields.
 title: Integrate with Azure Time Series Insights
 titleSuffix: Azure Digital Twins
 description: Learn how to set up event routes from Azure Digital Twins to Azure Time Series Insights.
@@ -8,10 +7,10 @@ ms.author: baanders # Microsoft employees only
 ms.date: 01/10/2023
 ms.topic: how-to
 ms.service: digital-twins
+ms.custom: devx-track-azurecli
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 

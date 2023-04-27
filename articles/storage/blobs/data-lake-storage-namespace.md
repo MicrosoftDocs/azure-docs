@@ -1,12 +1,12 @@
 ---
-title: Azure Data Lake Storage Gen2 Hierarchical Namespace
+title: Azure Data Lake Storage Gen2 hierarchical namespace
 titleSuffix: Azure Storage
 description: Describes the concept of a hierarchical namespace for Azure Data Lake Storage Gen2
 author: normesta
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 03/09/2023
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
@@ -44,5 +44,5 @@ To analyze differences in data storage prices, transaction prices, and storage c
 
 ## Next steps
 
-- Enable a hierarchical namespace when you create a new storage account. See [Create a Storage account](../common/storage-account-create.md).
+- Enable a hierarchical namespace when you create a new storage account. See [Create a storage account to use with Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
 - Enable a hierarchical namespace on an existing storage account. See [Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities](upgrade-to-data-lake-storage-gen2-how-to.md).

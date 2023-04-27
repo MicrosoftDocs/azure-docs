@@ -1,5 +1,5 @@
 ---
-title: Authorize web app access with OpenID Connect & Azure AD | Microsoft Docs
+title: Authorize web app access with OpenID Connect & Azure AD
 description: This article describes how to use HTTP messages to authorize access to web applications and web APIs in your tenant using Azure Active Directory and OpenID Connect.
 services: active-directory
 documentationcenter: .net

@@ -117,6 +117,7 @@ If you want to use your own DNS server, add the following records:
 
 1. Create a zone for `<App Service Environment-name>.appserviceenvironment.net`.
 1. Create an A record in that zone that points * to the inbound IP address used by your App Service Environment.
+1. Create an A record in that zone that points @ to the inbound IP address used by your App Service Environment.
 1. Create a zone in `<App Service Environment-name>.appserviceenvironment.net` named `scm`.
 1. Create an A record in the `scm` zone that points * to the IP address used by the private endpoint of your App Service Environment.
 
@@ -124,6 +125,7 @@ To configure DNS in Azure DNS private zones:
 
 1. Create an Azure DNS private zone named `<App Service Environment-name>.appserviceenvironment.net`.
 1. Create an A record in that zone that points * to the inbound IP address.
+1. Create an A record in that zone that points @ to the inbound IP address.
 1. Create an A record in that zone that points *.scm to the inbound IP address.
 
 In addition to the default domain provided when an app is created, you can also add a custom domain to your app. You can set a custom domain name without any validation on your apps. If you're using custom domains, you need to ensure they have DNS records configured. You can follow the preceding guidance to configure DNS zones and records for a custom domain name (replace the default domain name with the custom domain name). The custom domain name works for app requests, but doesn't work for the `scm` site. The `scm` site is only available at *&lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net*.

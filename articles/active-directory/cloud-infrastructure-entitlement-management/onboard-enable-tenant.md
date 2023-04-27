@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/20/2022
+ms.date: 04/24/2023
 ms.author: jfields
 ---
 
@@ -17,7 +17,7 @@ ms.author: jfields
 This article describes how to enable Permissions Management in your organization. Once you've enabled Permissions Management, you can connect it to your Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) platforms.
 
 > [!NOTE]
-> To complete this task, you must have *global administrator* permissions as a user in that tenant. You can't enable Permissions Management as a user from other tenant who has signed in via B2B or via Azure Lighthouse.
+> To complete this task, you must have *Microsoft Entra Permissions Management Administrator* permissions. You can't enable Permissions Management as a user from another tenant who has signed in via B2B or via Azure Lighthouse.
 
 :::image type="content" source="media/onboard-enable-tenant/dashboard.png" alt-text="A preview of what the permissions management dashboard looks like." lightbox="media/onboard-enable-tenant/dashboard.png":::
 
@@ -43,7 +43,7 @@ To enable Permissions Management in your organization:
     1. Go to [Entra services](https://entra.microsoft.com) and use your credentials to sign in to [Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview).
     1. If you aren't already authenticated, sign in as a global administrator user.
     1. If needed, activate the global administrator role in your Azure AD tenant.
-    1. In the Azure AD portal, select **Permissions Management**, and then select the link to purchase a license or begin a trial.
+    1. In the Azure portal, select **Permissions Management**, and then select the link to purchase a license or begin a trial.
 
 > [!NOTE]
 > There are two ways to enable a trial or a full product license, self-service and volume licensing. 

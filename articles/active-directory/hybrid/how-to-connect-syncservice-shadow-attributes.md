@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect sync service shadow attributes | Microsoft Docs
+title: Azure AD Connect sync service shadow attributes
 description: Describes how shadow attributes work in Azure AD Connect sync service.
 services: active-directory
 author: billmath

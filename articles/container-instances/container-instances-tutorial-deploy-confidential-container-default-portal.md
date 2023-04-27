@@ -80,3 +80,5 @@ In this tutorial, you created a confidential container on Azure Container instan
 * [Azure CLI confcom extension examples](https://github.com/Azure/azure-cli-extensions/blob/main/src/confcom/azext_confcom/README.md)
 * [Confidential Hello World application](https://aka.ms/ccacihelloworld)
 
+<!-- LINKS - External -->
+[azure-free-account]: https://azure.microsoft.com/free/

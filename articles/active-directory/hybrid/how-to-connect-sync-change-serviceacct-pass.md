@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect sync:  Changing the ADSync service account | Microsoft Docs'
+title: 'Azure AD Connect sync:  Changing the ADSync service account'
 description: This topic document describes the encryption key and how to abandon it after the password is changed.
 services: active-directory
 keywords: Azure AD sync service account, password

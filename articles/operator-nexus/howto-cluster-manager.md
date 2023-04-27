@@ -6,26 +6,23 @@ ms.author: jaredro
 ms.date: 01/23/2023
 ms.topic: how-to
 # ms.prod: used for on prem applications
-ms.service: azure 
+ms.service: azure-operator-nexus 
 ---
 
 # Cluster Manager: How to manage the Cluster Manager in Operator Nexus
 
-The Cluster Manager is deployed in the operator's Azure subscription to manage the lifecycle of Operator Nexus clusters. 
+The Cluster Manager is deployed in the operator's Azure subscription to manage the lifecycle of Operator Nexus Clusters. 
 
 ## Before you begin
 
 You'll need:
 
 - **Azure Subscription ID** - The Azure subscription ID where Cluster Manager needs to be created (should be the same subscription ID of the Network Fabric Controller).
-- **Fabric Controller ID** - Network Fabric Controller and Cluster Manager have a 1:1 association. You'll need the resource ID of the Network Fabric Controller associated with the Cluster Manager. Both the Cluster Manager and Fabric Controller need to be in the same resource group.
+- **Network Fabric Controller ID** - Network Fabric Controller and Cluster Manager have a 1:1 association. You'll need the resource ID of the Network Fabric Controller associated with the Cluster Manager.
 - **Log Analytics Workspace ID** - The resource ID of the Log Analytics Workspace used for the logs collection.
-- **Azure Region** - The Cluster Manager should be created in the same region as the Network Fabric Controller.
+- **Azure Region** - The Cluster Manager should be created in the same Azure region as the Network Fabric Controller.
 This Azure region should be used in the `Location` field of the Cluster Manager and all associated Operator Nexus instances.
 
-## Prerequisites: Install CLI extensions
-
-Install latest version of the [appropriate CLI extensions](./howto-install-cli-extensions.md)
 
 ## Global arguments
 
@@ -54,7 +51,7 @@ Some arguments that are available for every Azure CLI command
 
 ## Create a Cluster Manager
 
-Use the `az network clustermanager create` command to create a Cluster Manager. This command creates a new Cluster Manager or updates the properties of the Cluster Manager if it exists. If you have multiple Azure subscriptions, select the appropriate subscription ID using the [az account set](/cli/azure/account#az-account-set) command.
+Use the `az networkcloud clustermanager create` command to create a Cluster Manager. This command creates a new Cluster Manager or updates the properties of the Cluster Manager if it exists. If you have multiple Azure subscriptions, select the appropriate subscription ID using the [az account set](/cli/azure/account#az-account-set) command.
 
 ```azurecli
 az networkcloud clustermanager create \
@@ -124,7 +121,7 @@ az networkcloud clustermanager show \
 
 ## Update Cluster Manager
 
-This command is used to Patch properties of the provided Cluster Manager, or update the tags assigned to the Cluster Manager. Properties and tag updates can be done independently.
+This command is used to patch properties of the provided Cluster Manager, or update the tags assigned to the Cluster Manager. Properties and tag updates can be done independently.
 
 ```azurecli
 az networkcloud clustermanager update \

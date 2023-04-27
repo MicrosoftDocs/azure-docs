@@ -3,7 +3,7 @@ title: Monitor Azure Load Testing data reference
 description: Important reference material needed when you monitor Azure Load Testing
 author: Sachid26
 ms.topic: reference
-ms.author: sacsh
+ms.author: sacsharm
 ms.service: load-testing
 ms.custom: subject-monitoring
 ms.date: 04/22/2022

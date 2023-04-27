@@ -212,7 +212,7 @@ Once deployed the **Microsoft Enterprise SSO Extension for Apple devices** suppo
 
 ### Bootstrapping
 
-By default, only MSAL apps invoke the SSO Extension, and then in turn the Extension acquires a shared credential (PRT) from Azure AD. However, the **Safari** browser application or other **Non-MSAL** applications can be configured to acquire the PRT. See [Allow users to sign in from unknown applications and the Safari browser](../develop/apple-sso-plugin.md#allow-users-to-sign-in-from-unknown-applications-and-the-safari-browser). After the SSO extension acquires a PRT, it will store the credential in the user's login Keychain. Next, check to ensure that the PRT is present in the user's keychain:
+By default, only MSAL apps invoke the SSO Extension, and then in turn the Extension acquires a shared credential (PRT) from Azure AD. However, the **Safari** browser application or other **Non-MSAL** applications can be configured to acquire the PRT. See [Allow users to sign in from applications that don't use MSAL and the Safari browser](../develop/apple-sso-plugin.md#allow-users-to-sign-in-from-applications-that-dont-use-msal-and-the-safari-browser). After the SSO extension acquires a PRT, it will store the credential in the user's login Keychain. Next, check to ensure that the PRT is present in the user's keychain:
 
 #### Checking keychain access for PRT
 
@@ -359,8 +359,8 @@ During the MDM configuration of the Microsoft Enterprise SSO Extension, an optio
 
 | Callout | Feature flag | Description |
 |:---------:|:---------|:---------|
-|**1**|**[browser_sso_interaction_enabled](../develop/apple-sso-plugin.md#allow-users-to-sign-in-from-unknown-applications-and-the-safari-browser)**|Non-MSAL or Safari browser can bootstrap a PRT   |
-|**2**|**[browser_sso_disable_mfa](../develop/apple-sso-plugin.md#disable-asking-for-mfa-during-initial-bootstrapping)**|During bootstrapping of the PRT credential, by default MFA is required. Notice this configuration is set to **null** which means that the default configuration will be enforced|
+|**1**|**[browser_sso_interaction_enabled](../develop/apple-sso-plugin.md#allow-users-to-sign-in-from-applications-that-dont-use-msal-and-the-safari-browser)**|Non-MSAL or Safari browser can bootstrap a PRT   |
+|**2**|**browser_sso_disable_mfa**|(Now deprecated) During bootstrapping of the PRT credential, by default MFA is required. Notice this configuration is set to **null** which means that the default configuration will be enforced|
 |**3**|**[disable_explicit_app_prompt](../develop/apple-sso-plugin.md#disable-oauth-2-application-prompts)**|Replaces **prompt=login** authentication requests from applications to reduce prompting|
 |**4**|**[AppPrefixAllowList](../develop/apple-sso-plugin.md#enable-sso-for-all-apps-with-a-specific-bundle-id-prefix)**|Any Non-MSAL application that has a Bundle ID that starts with **`com.micorosoft.`** can be intercepted and handled by the SSO extension broker   |
 

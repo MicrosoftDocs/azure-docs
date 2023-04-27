@@ -39,7 +39,7 @@ To restore files or folders from the recovery point, go to the virtual machine a
     ![File recovery menu](./media/backup-azure-restore-files-from-vm/file-recovery-blade.png)
 
 > [!IMPORTANT]
-> Users should note the performance limitations of this feature. As pointed out in the footnote section of the above blade, this feature should be used when the total size of recovery is not beyond 10 GB and you could get data transfer speeds of around 1 GB per hour
+> Users should note the performance limitations of this feature. As pointed out in the footnote section of the above blade, this feature should be used when the total size of recovery is 10 GB or less. The expected data transfer speeds are around 1 GB per hour.
 
 4. From the **Select recovery point** drop-down menu, select the recovery point that holds the files you want. By default, the latest recovery point is already selected.
 
@@ -235,12 +235,12 @@ Once the script is run, the LVM partitions are mounted in the physical volume(s)
 To list the volume group names:
 
 ```bash
-pvs -o +vguuid
+sudo pvs -o +vguuid
 ```
 
 This command will list all physical volumes (including the ones present before running the script), their corresponding volume group names, and the volume group's unique user IDs (UUIDs). A sample output of the command is shown below.
 
-```bash
+```output
 PV         VG        Fmt  Attr PSize   PFree    VG UUID
 
   /dev/sda4  rootvg    lvm2 a--  138.71g  113.71g EtBn0y-RlXA-pK8g-de2S-mq9K-9syx-B29OL6
@@ -260,7 +260,7 @@ The first column (PV) shows the physical volume, the subsequent columns show the
 
 There are scenarios where volume group names can have 2 UUIDs after running the script. It means that the volume group names in the machine where the script is executed and in the backed-up VM are the same. Then we need to rename the backed-up VMs volume groups. Take a look at the example below.
 
-```bash
+```output
 PV         VG        Fmt  Attr PSize   PFree    VG UUID
 
   /dev/sda4  rootvg    lvm2 a--  138.71g  113.71g EtBn0y-RlXA-pK8g-de2S-mq9K-9syx-B29OL6
@@ -281,8 +281,8 @@ The script output would have shown /dev/sdg, /dev/sdh, /dev/sdm2 as attached. So
 Now we need to rename VG names for script-based volumes, for example: /dev/sdg, /dev/sdh, /dev/sdm2. To rename the volume group, use the following command
 
 ```bash
-vgimportclone -n rootvg_new /dev/sdm2
-vgimportclone -n APPVg_2 /dev/sdg /dev/sdh
+sudo vgimportclone -n rootvg_new /dev/sdm2
+sudo vgimportclone -n APPVg_2 /dev/sdg /dev/sdh
 ```
 
 Now we have all VG names with unique IDs.
@@ -292,14 +292,13 @@ Now we have all VG names with unique IDs.
 Make sure that the Volume groups corresponding to script's volumes are active. The following command is used to display active volume groups. Check whether the script's related volume groups are present in this list.
 
 ```bash
-vgdisplay -a
+sudo vgdisplay -a
 ```  
 
 Otherwise, activate the volume group by using the following command.
 
 ```bash
-#!/bin/bash
-vgchange –a y  <volume-group-name>
+sudo vgchange –a y  <volume-group-name>
 ```
 
 ##### Listing logical volumes within Volume groups
@@ -307,8 +306,7 @@ vgchange –a y  <volume-group-name>
 Once we get the unique, active list of VGs related to the script, then the logical volumes present in those volume groups can be listed using the following command.
 
 ```bash
-#!/bin/bash
-lvdisplay <volume-group-name>
+sudo lvdisplay <volume-group-name>
 ```
 
 This command displays the path of each logical volume as 'LV Path'.
@@ -318,8 +316,7 @@ This command displays the path of each logical volume as 'LV Path'.
 To mount the logical volumes to the path of your choice:
 
 ```bash
-#!/bin/bash
-mount <LV path from the lvdisplay cmd results> </mountpath>
+sudo mount <LV path from the lvdisplay cmd results> </mountpath>
 ```
 
 > [!WARNING]
@@ -330,8 +327,7 @@ mount <LV path from the lvdisplay cmd results> </mountpath>
 The following command displays details about all raid disks:
 
 ```bash
-#!/bin/bash
-mdadm –detail –scan
+sudo mdadm –detail –scan
 ```
 
  The relevant RAID disk is displayed as `/dev/mdm/<RAID array name in the protected VM>`
@@ -339,8 +335,7 @@ mdadm –detail –scan
 Use the mount command if the RAID disk has physical volumes:
 
 ```bash
-#!/bin/bash
-mount [RAID Disk Path] [/mountpath]
+sudo mount [RAID Disk Path] [/mountpath]
 ```
 
 If the RAID disk has another LVM configured in it, then use the preceding procedure for LVM partitions but use the volume name in place of the RAID Disk name.

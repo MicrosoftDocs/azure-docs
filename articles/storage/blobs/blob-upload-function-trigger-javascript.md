@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 05/13/2022
 ms.devlang: javascript
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-azurecli
 ---
 
 # JavaScript Tutorial: Upload and analyze a file with Azure Functions and Blob Storage

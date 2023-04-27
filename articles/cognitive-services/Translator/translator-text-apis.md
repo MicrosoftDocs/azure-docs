@@ -51,7 +51,7 @@ To call the Translator service via the [REST API](reference/rest-api-guide.md), 
 |Header|Value| Condition  |
 |--- |:--- |:---|
 |**Ocp-Apim-Subscription-Key** |Your Translator service key from the Azure portal.|<ul><li>***Required***</li></ul> |
-|**Ocp-Apim-Subscription-Region**|The region where your resource was created. |<ul><li>***Required*** when using a multi-service Cognitive Services or regional (non-global) resource.</li><li> ***Optional*** when using a single-service Translator Resource.</li></ul>|
+|**Ocp-Apim-Subscription-Region**|The region where your resource was created. |<ul><li>***Required*** when using a multi-service Cognitive Services or regional (geographic) resource like **West US**.</li><li> ***Optional*** when using a single-service Translator Resource.</li></ul>|
 |**Content-Type**|The content type of the payload. The accepted value is **application/json** or **charset=UTF-8**.|<ul><li>***Required***</li></ul>|
 |**Content-Length**|The **length of the request** body.|<ul><li>***Optional***</li></ul> |
 |**X-ClientTraceId**|A client-generated GUID to uniquely identify the request. You can omit this header if you include the trace ID in the query string using a query parameter named ClientTraceId.|<ul><li>***Optional***</li></ul>

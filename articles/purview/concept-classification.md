@@ -6,7 +6,7 @@ ms.author: ankitgup
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 01/04/2022
+ms.date: 03/23/2023
 ---
 
 # Data classification in the Microsoft Purview governance portal
@@ -25,7 +25,7 @@ Classification is the process of organizing data into *logical categories* that 
 * Organize and understand the variety of data classes that are important in your organization and where they're stored.
 * Understand the risks associated with your most important data assets and then take appropriate measures to mitigate them.
 
-As shown in the following image, it's possible to apply classifications at both the asset level and the schema level for the *Customers* table in Azure SQL Database.
+Following image shows classification applied while scanning on the *Customer* table in Azure SQL Database. 
 
 :::image type="content" source="./media/concept-classification/classification-customers-example-1.png" alt-text="Screenshot that shows the classification of the 'Customers' table in Azure SQL Database." lightbox="./media/concept-classification/classification-customers-example-1.png":::
 

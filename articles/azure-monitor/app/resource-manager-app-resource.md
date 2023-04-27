@@ -1,21 +1,21 @@
 ---
-title: Resource Manager template samples for Application Insights Resources
+title: Resource Manager template samples for Application Insights resources
 description: Sample Azure Resource Manager templates to deploy Application Insights resources in Azure Monitor.
 ms.topic: sample
 ms.date: 11/14/2022
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-arm-template
 ms.reviewer: vitalyg
 ---
 
 # Resource Manager template samples for creating Application Insights resources
 
-This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md) to deploy and configure [classic Application Insights resources](../app/create-new-resource.md) and the new [workspace-based Application Insights resources](../app/create-workspace-resource.md). Each sample includes a template file and a parameters file with sample values to provide to the template.
+This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md) to deploy and configure [classic Application Insights resources](/previous-versions/azure/azure-monitor/app/create-new-resource) and the new [workspace-based Application Insights resources](../app/create-workspace-resource.md). Each sample includes a template file and a parameters file with sample values to provide to the template.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
 ## Classic Application Insights resource
 
-The following sample creates a [classic Application Insights resource](../app/create-new-resource.md).
+The following sample creates a [classic Application Insights resource](/previous-versions/azure/azure-monitor/app/create-new-resource).
 
 ### Template file
 
@@ -271,6 +271,6 @@ resource component 'Microsoft.Insights/components@2020-02-02' = {
 
 ## Next steps
 
-* [Get other sample templates for Azure Monitor](../resource-manager-samples.md).
-* [Learn more about classic Application Insights resources](../app/create-new-resource.md).
-* [Learn more about workspace-based Application Insights resources](../app/create-workspace-resource.md).
+* Get other [sample templates for Azure Monitor](../resource-manager-samples.md).
+* Learn more about [classic Application Insights resources](/previous-versions/azure/azure-monitor/app/create-new-resource).
+* Learn more about [workspace-based Application Insights resources](../app/create-workspace-resource.md).
