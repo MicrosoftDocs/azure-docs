@@ -4,12 +4,12 @@ titleSuffix: Azure AD B2C
 description: Configure Azure Active Directory B2C with Transmit Security for passwordless strong customer authentication
 services: active-directory-b2c
 author: gargi-sinha
-manager: CelesteDG
+manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/20/2022
+ms.date: 04/27/2023
 ms.author: gasinh
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
