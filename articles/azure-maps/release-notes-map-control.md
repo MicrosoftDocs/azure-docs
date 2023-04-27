@@ -34,6 +34,19 @@ This document contains information about new features and other changes to the M
 
 - Fixed the possibility of event listener removal called on undefined target in `EventManager.remove()`
 
+#### Installation (3.0.0-preview.7)
+
+The preview is available on [npm][3.0.0-preview.7] and CDN.
+
+- **NPM:** Refer to the instructions at [azure-maps-control@3.0.0-preview.7][3.0.0-preview.7]
+
+- **CDN:** Reference the following CSS and JavaScript in the `<head>` element of an HTML file:
+
+    ```html
+    <link href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0.0-preview.7/atlas.min.css" rel="stylesheet" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0.0-preview.7/atlas.min.js"></script>
+    ```
+
 ### [3.0.0-preview.6] (March 31, 2023)
 
 #### Installation (3.0.0-preview.6)
