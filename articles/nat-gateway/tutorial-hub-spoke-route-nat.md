@@ -4,8 +4,7 @@ titleSuffix: Azure NAT Gateway
 description: Learn how to integrate a NAT gateway into a hub and spoke network with a network virtual appliance. 
 author: asudbring
 ms.author: allensu
-ms.service: virtual-network
-ms.subservice: nat
+ms.service: nat-gateway
 ms.topic: tutorial 
 ms.date: 01/17/2023
 ms.custom: template-tutorial 

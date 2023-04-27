@@ -4,8 +4,7 @@ titleSuffix: Azure NAT Gateway
 description: In this tutorial, learn how to integrate a NAT gateway with an internal load Balancer using the Azure portal.
 author: asudbring
 ms.author: allensu
-ms.service: virtual-network
-ms.subservice: nat
+ms.service: nat-gateway
 ms.topic: tutorial
 ms.date: 05/24/2022
 ms.custom: template-tutorial

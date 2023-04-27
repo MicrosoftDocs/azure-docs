@@ -3,9 +3,7 @@ title: Metrics and alerts for Azure NAT Gateway
 titleSuffix: Azure Virtual Network
 description: Understand Azure Monitor metrics and alerts available for NAT gateway.
 author: asudbring
-manager: KumudD
-ms.service: virtual-network
-ms.subservice: nat
+ms.service: nat-gateway
 # Customer intent: As an IT administrator, I want to understand available Azure Monitor metrics and alerts for Virtual Network NAT.
 ms.topic: conceptual
 ms.date: 04/12/2022

@@ -3,8 +3,7 @@ title: Azure NAT Gateway Resource Health
 titleSuffix: Azure Virtual Network
 description: Understand how to use resource health for NAT gateway.
 author: asudbring
-ms.service: virtual-network
-ms.subservice: nat
+ms.service: nat-gateway
 # Customer intent: As an IT administrator, I want to understand how to use resource health to monitor NAT gateway.
 ms.topic: conceptual
 ms.date: 04/25/2022

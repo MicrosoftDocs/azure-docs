@@ -4,8 +4,7 @@ titlesuffix: Azure NAT Gateway
 description: Learn how to create an NAT gateway in an Azure DDoS Protection Standard protected virtual network.
 author: asudbring
 ms.author: allensu
-ms.service: virtual-network
-ms.subservice: nat
+ms.service: nat-gateway
 ms.topic: tutorial 
 ms.date: 01/24/2022
 ---

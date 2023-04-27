@@ -5,8 +5,7 @@ titlesuffix: Azure Virtual Network
 description: Overview of Azure NAT Gateway features, resources, architecture, and implementation. Learn how Azure NAT Gateway works and how to use NAT gateway resources in Azure.
 services: virtual-network
 author: asudbring
-ms.service: virtual-network
-ms.subservice: nat
+ms.service: nat-gateway
 ms.topic: conceptual
 ms.date: 12/06/2022
 ms.author: allensu

@@ -3,8 +3,7 @@ title: Create and configure NAT gateway after moving resources to another region
 description: Learn how to configure a new NAT gateway for resources moved to another region.
 author: asudbring
 ms.author: allensu
-ms.service: virtual-network
-ms.subservice: nat
+ms.service: nat-gateway
 ms.topic: how-to
 ms.date: 01/04/2022
 ms.custom: template-how-to

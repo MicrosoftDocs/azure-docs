@@ -3,8 +3,7 @@ title: 'Create a NAT gateway - Resource Manager Template'
 titleSuffix: Azure NAT Gateway
 description: This quickstart shows how to create a NAT gateway by using the Azure Resource Manager template (ARM template).
 author: asudbring
-ms.service: virtual-network
-ms.subservice: nat
+ms.service: nat-gateway
 ms.topic: how-to
 ms.date: 04/24/2023
 ms.author: allensu
@@ -16,11 +15,11 @@ ms.custom: subject-armqs, devx-track-arm-template
 
 Get started with Azure NAT Gateway by using an Azure Resource Manager template (ARM template). This template deploys a virtual network, a NAT gateway resource, and Ubuntu virtual machine. The Ubuntu virtual machine is deployed to a subnet that is associated with the NAT gateway resource.
 
-[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
 
-[![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fnat-gateway-1-vm%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fnat-gateway-1-vm%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -89,7 +88,7 @@ Nine Azure resources are defined in the template:
 
 # [**Portal**](#tab/create-nat-portal)
 
-[![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fnat-gateway-1-vm%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fnat-gateway-1-vm%2Fazuredeploy.json)
 
 ## Review deployed resources
 
@@ -176,4 +175,4 @@ To learn more about Azure NAT Gateway and Azure Resource Manager, continue to th
 
 * Read about the [NAT Gateway resource](nat-gateway-resource.md)
 
-* Learn more about [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
+* Learn more about [Azure Resource Manager](../azure-resource-manager/management/overview.md)

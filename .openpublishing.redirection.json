@@ -22579,11 +22579,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/virtual-network/nat-gateway/toc.yml",
-            "redirect_url": "/azure/nat-gateway/toc",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/virtual-network/nat-gateway/manage-nat-gateway.md",
             "redirect_url": "/azure/nat-gateway/manage-nat-gateway",
             "redirect_document_id": false

@@ -4,8 +4,7 @@ titleSuffix: Azure Virtual Network
 description: Troubleshoot issues with NAT Gateway.
 services: virtual-network
 author: asudbring
-ms.service: virtual-network
-ms.subservice: nat
+ms.service: nat-gateway
 ms.topic: troubleshooting
 ms.date: 08/29/2022
 ms.author: allensu

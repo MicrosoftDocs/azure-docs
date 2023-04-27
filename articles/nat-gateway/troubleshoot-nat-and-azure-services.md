@@ -3,8 +3,7 @@ title: Troubleshoot outbound connectivity with Azure services
 titleSuffix: Azure Virtual Network
 description: Troubleshoot issues with NAT gateway and Azure services.
 author: asudbring
-ms.service: virtual-network
-ms.subservice: nat
+ms.service: nat-gateway
 ms.topic: troubleshooting
 ms.date: 08/29/2022
 ms.author: allensu

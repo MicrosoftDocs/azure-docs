@@ -4,8 +4,7 @@ titleSuffix: Azure NAT Gateway
 description: Learn how to migrate your virtual machine public IP to a NAT gateway.
 author: asudbring
 ms.author: allensu
-ms.service: virtual-network
-ms.subservice: nat
+ms.service: nat-gateway
 ms.topic: tutorial
 ms.date: 5/25/2022
 ms.custom: template-tutorial 
