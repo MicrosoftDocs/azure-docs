@@ -157,7 +157,7 @@ DNS is primarily a UDP protocol. Because the UDP protocol doesn't guarantee mess
 
 Check the current settings on a Linux VM with `cat /etc/resolv.conf`. Look at the *options* line, for example:
 
-```bash
+```output
 options timeout:1 attempts:5
 ```
 
