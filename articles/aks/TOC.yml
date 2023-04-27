@@ -500,6 +500,8 @@
               href: azure-disk-csi.md
             - name: Provision Azure Disks storage
               href: azure-csi-disk-storage-provision.md
+            - name: Use Azure Premium SSD v2 disks
+              href: use-premium-v2-disks.md
             - name: Use Azure ultra disks
               href: use-ultra-disks.md
         - name: Other storage options
