@@ -4,7 +4,7 @@ description: Describes the steps to publish and consume events or messages using
 ms.topic: quickstart
 ms.author: jafernan
 author: jfggdl
-ms.date: 05/23/2023
+ms.date: 04/27/2023
 ---
 
 # Publish to namespace topics and consume events
