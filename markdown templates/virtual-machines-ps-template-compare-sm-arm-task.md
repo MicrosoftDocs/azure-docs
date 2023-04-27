@@ -11,7 +11,7 @@ Pay attention to spacing and indents. They affect formatting.
 <!--replace this with Properties and Tags sections. These are required sections. See "article-metadata.md" under your repo's "contributor-guide" folder. Attributes in each section can be placed on separate lines to make them easier to read and check-->
 
 # Use Azure PowerShell to [task]
-This article shows you how to [task] using commands from the Azure and the Azure Resource Manager modules. This is intended to help you learn the new commands and migrate existing scripts to the new commands.
+This article shows you how to [task] by using commands from the Azure and the Azure Resource Manager modules. This is intended to help you learn the new commands and migrate existing scripts to the new commands.
 
 ## Prerequisite: Install a Recent Version of Azure PowerShell
 If you haven't done so already, install at least the [version number] version of Azure PowerShell on your local computer. Using an earlier version will have different Azure Resource Manager cmdlets described in this article. For details, see:
@@ -32,13 +32,13 @@ Then, use the following syntax to add a reference to the image in your article:
 ![](./media/name-of-file-without-extension/image-name-no-spaces.png)
 -->
 
-<!--if a command string uses variables, define the variables first using the following construction. Sometimes, the variable is straightforward and doesn't need much explanation. But parameters such as location and size can benefit from brief description or listing of all accepted values:--> 
+<!--if a command string uses variables, define the variables first using the following construction. In some cases, the variable is straightforward and doesn't need much explanation. But parameters such as location and size can benefit from brief explanation or listing of all accepted values:--> 
 
 These command examples use the following variables:
 
 $FriendlyName"\<Describe value>"
 
-<!-- if it makes more sense to present this in a table, use this. Otherwise, delete. The table will render once it's in GitHub or published to Sandbox.-->
+<!-- if it makes more sense to present this in a table, use this. Otherwise, delete. The table will render after it's in GitHub or published to Sandbox.-->
 
 | Service Management | Resource Manager |
 | --- | --- |

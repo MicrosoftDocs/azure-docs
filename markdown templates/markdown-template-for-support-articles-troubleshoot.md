@@ -5,7 +5,7 @@ services: service-name
 documentationcenter: dev-center-name
 author: GitHub-alias-of-only-one-author
 manager: manager-alias
-editor:"
+editor: editor-alias
 tags: top-support-issue
 
 ms.service: required
