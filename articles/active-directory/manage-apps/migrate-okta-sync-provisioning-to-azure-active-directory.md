@@ -15,7 +15,7 @@ ms.custom: kr2b-contr-experiment
 
 # Tutorial: Migrate Okta sync provisioning to Azure AD Connect synchronization
 
-In this tutorial, you'll learn to migrate user provisioning from Okta to Azure Active Directory (Azure AD) and migrate User Sync or Universal Sync to Azure AD Connect. This capability enables provisioning into Azure AD and Office 365.
+In this tutorial, learn to migrate user provisioning from Okta to Azure Active Directory (Azure AD) and migrate User Sync or Universal Sync to Azure AD Connect. This capability enables provisioning into Azure AD and Office 365.
 
    > [!NOTE]
    > When migrating synchronization platforms, validate steps in this article against your environment before you remove Azure AD Connect from staging mode or enable the Azure AD cloud provisioning agent.
@@ -192,7 +192,7 @@ After you verify the Azure AD Connect installation, disable Okta provisioning to
 
 1. Go to the Okta portal
 2. Select **Applications**.
-3. Select your Okta app that provisiosn users to Azure AD. 
+3. Select the Okta app that provisiosns users to Azure AD. 
 4. Select the **Provisioning** tab.
 5. Select the **Integration** section.
 
