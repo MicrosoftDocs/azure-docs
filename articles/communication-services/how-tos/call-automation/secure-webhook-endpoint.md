@@ -85,11 +85,9 @@ app.UseHttpsRedirection();
 app.MapPost("/api/callback", (HttpContext context) =>
 {
     // Your implemenation on the callback event
-
     return Results.Ok();
 })
 .RequireAuthorization()
-.WithName("callback")
 .WithOpenApi();
 
 app.UseAuthentication();
