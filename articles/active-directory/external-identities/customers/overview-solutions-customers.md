@@ -47,7 +47,7 @@ You can offer your customers the ability to sign in with their existing social o
 
 :::image type="content" source="media/overview-solutions-customers/use-case-social.png" alt-text="Screenshot of the social sign-in use case.":::
 
-To allow your customers to sign in using their social accounts, you can navigate to **External Identities** > **All identity providers** in the admin center. You can find the exact steps for adding Google and Facebook as identity providers in the following links for [Google](how-to-google-federation-customers.md) and for [Facebook](how-to-facebook-federation-customers.md).  
+To allow your customers to sign up and sign in using their social accounts, you can navigate to **External Identities** > **All identity providers** in the admin center. You can find the exact steps for adding Google and Facebook as identity providers in the following links for [Google](how-to-google-federation-customers.md) and for [Facebook](how-to-facebook-federation-customers.md).  
 
 ### Sign-up with a one-time passcode
 
@@ -77,7 +77,7 @@ In this use case, from the Kiosk page select sign-in. Use the second device, suc
 
 Profile editing policy lets you manage your profile attributes, like display name, surname, given name, city, and others. After you update your profile, sign out and sign in again.
 
-To edit your profile on the **Woodgrove Groceries** page, select the icon with your name located in the top-right corner of the page. Once you're done, select **Save**.
+To edit your profile on the **Woodgrove Groceries** page, select the icon with your name, located in the top-right corner of the page. After making your changes, select **Save**.
 
 ### Delete your account
 
