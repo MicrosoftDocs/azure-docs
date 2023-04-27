@@ -153,7 +153,7 @@ User Defined Routes (UDR) and controlled egress through NAT Gateway are supporte
 ### User defined routes (UDR) - preview
 
 > [!NOTE]
-> When using UDR with Azure Firewall in Azure Container Apps, you will need to add certain FQDN's and service tags to the allowlist for the firewall. To learn more, see[configuring UDR with Azure Firewall](./networking.md#configuring-udr-with-azure-firewall).
+> When using UDR with Azure Firewall in Azure Container Apps, you will need to add certain FQDN's and service tags to the allowlist for the firewall. To learn more, see [configuring UDR with Azure Firewall](./networking.md#configuring-udr-with-azure-firewall---preview).
 
 You can use UDR on the workload profiles architecture to restrict outbound traffic from your container app through Azure Firewall or other network appliances. Configuring UDR is done outside of the Container Apps environment scope. UDR isn't supported for external environments.
 
