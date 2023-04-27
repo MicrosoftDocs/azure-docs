@@ -71,6 +71,8 @@ Use the following command to assign a public endpoint to your app.
       --assign-public-endpoint true
   ```
 
+---
+
 ## Change the customers service to be a gRPC service
 
 Before changing the customers service into a gRPC server, examine the current response to list all owners by adding `/owners` to the URL path.  
