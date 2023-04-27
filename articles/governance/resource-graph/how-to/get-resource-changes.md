@@ -64,11 +64,11 @@ Each change resource has the following properties:
 | `targetResourceId` | The resourceID of the resource on which the change occurred. |
 |---|---|
 | `targetResourceType` | The resource type of the resource on which the change occurred. |
-| `changeType` | Describes the type of change detected for the entire change record. Values are: Create, Update, and Delete. The **changes** property dictionary is only included when **changeType** is _Update_. For the delete case, the change resource will still be maintained as an extension of the deleted resource for fourteen days, even if the entire Resource group has been deleted. The change resource will not block deletions or impact any existing delete behavior. |
+| `changeType` | Describes the type of change detected for the entire change record. Values are: Create, Update, and Delete. The **changes** property dictionary is only included when `changeType` is _Update_. For the delete case, the change resource will still be maintained as an extension of the deleted resource for fourteen days, even if the entire Resource group has been deleted. The change resource will not block deletions or impact any existing delete behavior. |
 | `changes` | Dictionary of the resource properties (with property name as the key) that were updated as part of the change: |
-| `propertyChangeType` | This is depreciated and can be derived as follows  previousValue being empty indicates Insert, empty newValue indicates Remove, when both are present, it is Update.|
-| `previousValue` | The value of the resource property in the previous snapshot. Value is empty when **changeType** is _Insert_. |
-| `newValue` | The value of the resource property in the new snapshot. This property will be empty (absent) when **changeType** is _Remove_. |
+| `propertyChangeType` | This is deprecated and can be derived as follows `previousValue` being empty indicates Insert, empty `newValue` indicates Remove, when both are present, it is Update.|
+| `previousValue` | The value of the resource property in the previous snapshot. Value is empty when `changeType` is _Insert_. |
+| `newValue` | The value of the resource property in the new snapshot. This property will be empty (absent) when `changeType` is _Remove_. |
 | `changeCategory` | This was optional and has been depreciated, this field will no longer be available|
 | `changeAttributes` | Array of metadata related to the change: |
 | `changesCount` | The number of properties changed as part of this change record. |
@@ -263,7 +263,7 @@ resourcechanges 
 - Keep a Configuration Management Database (CMDB) up to date. Instead of refreshing all resources and their full property sets on a scheduled frequency, only get what changed.
 - Understand what other properties may have been changed when a resource changed compliance state. Evaluation of these extra properties can provide insights into other properties that may need to be managed via an Azure Policy definition.
 - The order of query commands is important. In this example, the `order by` must come before the `limit` command. This command order first orders the query results by the change time and then limits them to ensure that you get the five most recent results.
-- Resource configuration changes supports changes to resource types from the [Resources table](..//reference/supported-tables-resources.md#resources), resourcecontainers and healthresources table in Resource Graph. Changes are queryable for 14 days. For longer retention, you can [integrate your Resource Graph query with Azure Logic Apps](../tutorials/logic-app-calling-arg.md) and export query results to any of the Azure data stores (such as [Log Analytics](../../../azure-monitor/logs/log-analytics-overview.md) for your desired retention.
+- Resource configuration changes supports changes to resource types from the [Resources table](../reference/supported-tables-resources.md#resources), `resourcecontainers` and `healthresources` table in Resource Graph. Changes are queryable for 14 days. For longer retention, you can [integrate your Resource Graph query with Azure Logic Apps](../tutorials/logic-app-calling-arg.md) and export query results to any of the Azure data stores (such as [Log Analytics](../../../azure-monitor/logs/log-analytics-overview.md) for your desired retention.
 
 ## Next steps
 
