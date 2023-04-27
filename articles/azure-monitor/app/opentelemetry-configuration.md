@@ -9,7 +9,7 @@ ms.reviewer: mmcc
 
 # Azure Monitor OpenTelemetry configuration
 
-Application Insights OpenTelemetry configuration allows you to use OpenTelemetry to collect telemetry data from your application and send it to Application Insights for analysis and monitoring.
+This article covers configuration settings for the Azure Monitor OpenTelemetry distro.
 
 ## Connection string
 

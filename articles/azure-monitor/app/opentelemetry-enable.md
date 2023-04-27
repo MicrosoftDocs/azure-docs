@@ -491,10 +491,10 @@ Dependencies
 
 ## Community instrumentation libraries
 
-You can extend functionality with other instrumentation libraries from the OpenTelemetry community.
+You can collect more data automatically when you include instrumentation libraries from the OpenTelemetry community.
 
 > [!NOTE] 
-> We don't support and cannot guarantee the quality of community instrumentation libraries. If you would like to suggest a community instrumentation library us to include in our distro, go to feedback hub and open a request.
+>  We don't support and cannot guarantee the quality of community instrumentation libraries. If you would like to suggest a community instrumentation library us to include in our distro, post or up-vote an idea in our [feedback community](https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0).
 
 ### [.NET](#tab/net)
 
@@ -1286,8 +1286,8 @@ Coming soon.
 
 -->
   
-### Send custom telemetry using the Application Insights [Classic API](api-custom-events-metrics.md)
-  
+### Send custom telemetry using the Application Insights Classic API
+
 We recommend you use the OpenTelemetry APIs whenever possible, but there may be some scenarios when you have to use the Application Insights [Classic API](api-custom-events-metrics.md)s.
   
 #### [.NET](#tab/net)
@@ -1922,6 +1922,7 @@ To provide feedback:
 
 ### [.NET](#tab/net)
 
+- To further configure the OpenTelemetry distro, please see [Azure Monitor OpenTelemetry configuration](opentelemetry-configuration.md)
 - To review the source code, see the [Azure Monitor Exporter GitHub repository](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter).
 - To install the NuGet package, check for updates, or view release notes, see the [Azure Monitor Exporter NuGet Package](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter/) page.
 - To become more familiar with Azure Monitor Application Insights and OpenTelemetry, see the [Azure Monitor Example Application](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/tests/Azure.Monitor.OpenTelemetry.Exporter.Demo).
