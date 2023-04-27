@@ -48,6 +48,14 @@ The following are some of the trade-offs of using this solution:
 
 * **Significant ongoing staff allocation** - IT staff must maintain infrastructure and software for the authentication solution. Any staff attrition might introduce risk.
 
+## Migration resources
+
+The following are resources to help with your migration to this solution architecture.
+
+| Migration Resource   | Description           |
+| - | - |
+| [Resources for migrating applications to Azure Active Directory (Azure AD)](../manage-apps/migration-resources.md) | List of resources to help you migrate application access and authentication to Azure AD |
+
 ## Next steps
 
 See these related multilateral federation articles:
