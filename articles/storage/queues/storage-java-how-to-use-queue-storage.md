@@ -27,8 +27,6 @@ This guide will show you how to code for common scenarios using the Azure Queue 
 
 ## Create a Java application
 
-# [Java v12 SDK](#tab/java)
-
 First, verify that your development system meets the prerequisites listed in [Azure Queue Storage client library v12 for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue).
 
 To create a Java application named `queues-how-to-v12`:
@@ -117,8 +115,6 @@ Add the following import statements to the top of the Java file where you want t
 ## Set up an Azure Storage connection string
 
 An Azure Storage client uses a storage connection string for accessing data management services. Get the name and the primary access key for your storage account listed in the [Azure portal](https://portal.azure.com). Use them as the `AccountName` and `AccountKey` values in the connection string. This example shows how you can declare a static field to hold the connection string:
-
-# [Java v12 SDK](#tab/java)
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_ConnectionString":::
 
