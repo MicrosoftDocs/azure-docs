@@ -235,7 +235,7 @@ Use the steps to update your mapping to retrieve these codes.
 
 1. Open the attribute-mapping blade of your SuccessFactors provisioning app. 
 1. Under **Show advanced options**, click on **Edit SuccessFactors attribute list**. 
-1. Find the attribute `emplStatus` and update the JSONPath to `$.employmentNav.results[0].jobInfoNav.results[0].emplStatusNav.externalCode`. This will enable the connector to retrieve the employment status codes in the table. 
+1. Find the attribute `emplStatus` and update the JSONPath to `$.employmentNav.results[0].jobInfoNav.results[0].emplStatusNav.externalCode`. The update makes the connector retrieve the employment status codes in the table. 
 1. Save the changes. 
 1. In the attribute mapping blade, update the expression mapping for the account status flag. 
 
