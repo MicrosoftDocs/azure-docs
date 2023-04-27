@@ -18,7 +18,7 @@ ms.custom: developer
 
 # Use client certificate for authentication in your Node.js web app
 
-Microsoft identity supports two types of authentication for [confidential client applications](/articles/active-directory/develop/msal-client-applications.md); password-based authentication (such as client secret) and certificate-based authentication. For a higher level of security, we recommend using a certificate (instead of a client secret) as a credential in your confidential client applications.
+Microsoft identity supports two types of authentication for [confidential client applications](../../../active-directory/develop/msal-client-applications.md); password-based authentication (such as client secret) and certificate-based authentication. For a higher level of security, we recommend using a certificate (instead of a client secret) as a credential in your confidential client applications.
 
 In production, you should purchase a certificate signed by a well-known certificate authority, and use [Azure Key Vault](https://azure.microsoft.com/products/key-vault/) to manage certificate access and lifetime for you. However, for testing purposes, you can create a self-signed certificate and configure your apps to authenticate with it.
 
@@ -153,20 +153,24 @@ You can use your existing certificate directly from Azure Key Vault:
     
 1. Use the `thumbprint` and `privateKey` values to update your configuration: 
 
-```javascript
-    let clientCert = {
-        thumbprint: thumbprint, 
-        privateKey: privateKey,
-    };
-
-    msalConfig.auth.clientCertificate = clientCert;
-```  
+    ```javascript
+        let clientCert = {
+            thumbprint: thumbprint, 
+            privateKey: privateKey,
+        };
+    
+        msalConfig.auth.clientCertificate = clientCert;
+    ```  
 
 1. Then proceed to instantiate your confidential client as shown in the `getMsalInstance` method:
 
     ```javascript
-        getMsalInstance(msalConfig) {
-            return new msal.ConfidentialClientApplication(msalConfig);
+        class AuthProvider {
+            //...
+            getMsalInstance(msalConfig) {
+                return new msal.ConfidentialClientApplication(msalConfig);
+            }
+            //...
         }
     ``` 
 
@@ -176,4 +180,4 @@ You can use your existing certificate directly from Azure Key Vault:
 
 Learn how to:
 
-- [Sign in users and call an API in your own Node.js web application by using Microsoft Entra](how-to-web-app-node-sign-in-call-api-overview.md)
+- [Sign in users and call an API in your own Node.js web application by using Microsoft Entra](how-to-web-app-node-sign-in-call-api-overview.md).
