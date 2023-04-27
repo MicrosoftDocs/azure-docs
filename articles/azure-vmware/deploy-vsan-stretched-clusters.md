@@ -62,14 +62,15 @@ Azure VMware Solution stretched clusters are available in the following regions:
 
 ## Prerequisites
 
-To request support, send an email request to **avsStretchedCluster@microsoft.com** with the following details:
+Follow the [Request Host Quota](/azure/azure-vmware/request-host-quota-azure-vmware-solution) process to get the quota reserved for the required number of nodes. Provide the following details to facilitate the process:
 
 - Company name
-- Point of contact (email)
-- Subscription (a new, separate subscription is required)
-- Region requested (West Europe, UK South, Germany West Central)
-- Number of nodes in first stretched cluster (minimum 6, maximum 16 - in multiples of two)
-- Estimated provisioning date (used for billing purposes)
+- Point of contact: email
+- Subscription ID: a new, separate subscription is required
+- Type of private cloud: "Stretched Cluster"
+- Region requested: UK South, West Europe, Germany West Central, or Australia East
+- Number of nodes in first stretched cluster: minimum 6, maximum 16 - in multiples of two
+- Estimated expansion plan
 
 ## Deploy a stretched cluster private cloud
 
