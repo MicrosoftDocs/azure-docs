@@ -94,7 +94,7 @@ No. Apps can't be assigned managed identities when running in Azure Arc. If your
 
 ### Are there any scaling limits?
 
-All applications deployed with Azure Container Apps on Azure Arc-enabled Kubernetes are able to scale within the limits of the underlying Kubernetes cluster. If the cluster runs out of available compute resources (CPU and memory primarily), then applications will scale to the number of instances of the application that Kubernetes can schedule with available resource.
+All applications deployed with Azure Container Apps on Azure Arc-enabled Kubernetes are able to scale within the limits of the underlying Kubernetes cluster. If the cluster runs out of available compute resources (CPU and memory primarily), then applications scale to the number of instances of the application that Kubernetes can schedule with available resource.
 
 ### What logs are collected?
 
@@ -133,7 +133,7 @@ ARM64 based clusters aren't supported at this time.
  - Upgrade of KEDA to 2.9.1
  - Upgrade of Dapr to 1.9.5
  - Increase Envoy Controller resource limits to 200 m CPU
- - Increase Container App Controller resource limits to 1 GB memory
+ - Increase Container App Controller resource limits to 1-GB memory
  - Reduce EasyAuth sidecar resource limits to 50 m CPU
  - Resolve KEDA error logging for missing metric values
 
