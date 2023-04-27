@@ -356,6 +356,7 @@ Now that you've learned about Dapr and some of the challenges it solves:
 - Walk through a tutorial [using GitHub Actions to automate changes for a multi-revision, Dapr-enabled container app][dapr-github-actions].
 - Learn how to [perform event-driven work using Dapr bindings][dapr-bindings-tutorial].
 - [Enable token authentication for Dapr requests.][dapr-token]
+- [Scale your Dapr applications using KEDA scalers][dapr-keda]
 - [Answer common questions about the Dapr integration with Azure Container Apps][dapr-faq]
 
 
@@ -366,6 +367,7 @@ Now that you've learned about Dapr and some of the challenges it solves:
 [dapr-github-actions]: ./dapr-github-actions.md
 [dapr-bindings-tutorial]: ./microservices-dapr-bindings.md
 [dapr-token]: ./dapr-auth-token.md
+[dapr-keda]: ./dapr-keda-scaling.md
 [dapr-faq]: ./faq.yml#dapr
 
 <!-- Links External -->

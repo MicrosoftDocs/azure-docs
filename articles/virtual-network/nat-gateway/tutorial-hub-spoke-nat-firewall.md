@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Integrate NAT gateway with Azure Firewall in a hub and spoke network'
-titleSuffix: Azure Virtual Network NAT
+titleSuffix: Azure NAT Gateway
 description: Learn how to integrate a NAT gateway and Azure Firewall in a hub and spoke network.
 author: asudbring
 ms.author: allensu
