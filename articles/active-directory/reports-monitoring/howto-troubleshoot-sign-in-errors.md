@@ -1,6 +1,6 @@
 ---
 
-title: How to troubleshoot sign-in errors reports
+title: How to troubleshoot sign-in errors
 description: Learn how to troubleshoot sign-in errors using Azure Active Directory reports in the Azure portal
 services: active-directory
 author: shlipsey3
@@ -9,10 +9,9 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 02/16/2023
+ms.date: 04/27/2023
 ms.author: sarahlipsey
 ms.reviewer: dhanyahk 
-
 ms.collection: M365-identity-device-management
 ---
 
@@ -24,21 +23,20 @@ The [sign-ins report](concept-sign-ins.md) in Azure Active Directory (Azure AD) 
 - How many users have users signed in over a week?
 - What’s the status of these sign-ins?
 
-
 In addition, the sign-ins report can also help you troubleshoot sign-in failures for users in your organization. In this guide, you learn how to isolate a sign-in failure in the sign-ins report, and use it to understand the root cause of the failure.
 
 ## Prerequisites
 
 You need:
 
-* An Azure AD tenant with a premium (P1/P2) license. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition.
-* A user, who is in the **global administrator**, **security administrator**, **security reader**, or **reports reader** role for the tenant. In addition, any user can access their own sign-ins. 
+* An Azure AD tenant with a Premium P1/P2 license.
+* A user with the **Global Administrator**, **Security Administrator**, **Security Reader**, or **Reports Reader** role for the tenant. In addition, any user can access their own sign-ins from https://mysignins.microsoft.com. 
 
 ## Troubleshoot sign-in errors using the sign-ins report
 
-1. Navigate to the [Azure portal](https://portal.azure.com) and select your directory.
-2. Select **Azure Active Directory** and select **Sign-ins** from the **Monitoring** section. 
-3. Use the provided filters to narrow down the failure, either by the username or object identifier, application name or date. In addition, select **Failure** from the **Status** drop-down to display only the failed sign-ins. 
+1. Sign in to the [Azure portal](https://portal.azure.com) using a role of least privilege access.
+2. Go to **Azure AD** > **Sign-ins**. 
+3. Use the filters to narrow down the failure, either by the username or object identifier, application name or date. In addition, select **Failure** from the **Status** drop-down to display only the failed sign-ins. 
 
     ![Filter results](./media/howto-troubleshoot-sign-in-errors/filters.png)
         
@@ -55,6 +53,10 @@ You need:
 7. You can get additional information, including ideas for remediation, by searching for the error code, **50126** in this example, in the [sign-ins error codes reference](../develop/reference-aadsts-error-codes.md). 
 
 8. If all else fails, or the issue persists despite taking the recommended course of action, [open a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md) following the steps in the **Troubleshooting and support** tab. 
+
+## Common scenarios
+
+When troubleshooting sign-in errors, you're probably going to see repeated error codes or sign-in details. 
 
 ## Next steps
 
