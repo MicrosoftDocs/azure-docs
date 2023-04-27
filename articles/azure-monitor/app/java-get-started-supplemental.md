@@ -20,6 +20,10 @@ For more information, see [Application monitoring for Azure App Service and Java
 
 For more information, see [Monitoring Azure Functions with Azure Monitor Application Insights](./monitor-functions.md#distributed-tracing-for-java-applications-preview).
 
+## Azure Spring Apps
+
+For more information, see [Use Application Insights Java In-Process Agent in Azure Spring Apps](../../spring-apps/how-to-application-insights.md).
+
 ## Containers
 
 ### Docker entry point

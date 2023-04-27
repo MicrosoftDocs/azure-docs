@@ -9,6 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 04/25/2023
 ms.author: lajanuar
+monikerRange: 'form-recog-3.0.0'
 recommendations: false
 ---
 
@@ -19,7 +20,7 @@ recommendations: false
 
 # Form Recognizer SDK (public preview)
 
-**This article applies to:** ![Form Recognizer checkmark](media/yes-icon.png) **Form Recognizer version 2023-02-28-preview**.
+**The SDKs referenced in this article are supported by:** ![Form Recognizer checkmark](media/yes-icon.png) **Form Recognizer REST API version 2023-02-28-preview**.
 
 > [!IMPORTANT]
 >
