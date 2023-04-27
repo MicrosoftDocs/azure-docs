@@ -19,7 +19,7 @@ ms.date: 03/03/2023
 A new patch mode - **Azure orchestrated with user managed schedules (Preview)** is introduced as a prerequisite to enable scheduled patching on Azure VMs. The new patch enables the *Azure-orchestrated using Automatic guest patching* and *BypassPlatformSafteyChecksOnUserSchedule* VM properties on your behalf after receiving the consent. [Learn more](prerequsite-for-schedule-patching.md).
 
 > [!IMPORTANT]
-> For a seamless scheduled patching experience, we recommend that for all Azure VMs, you update the patch mode to *Azure orchestrated with user managed schedules (preview)* before **May 19, 2023**. If you fail to update the patch mode before **May 19, 2023**, you can experience a disruption in business continuity because the schedules will fail to patch the VMs.
+> For a seamless scheduled patching experience, we recommend that for all Azure VMs, you update the patch mode to *Azure orchestrated with user managed schedules (preview)*. If you fail to update the patch mode, you can experience a disruption in business continuity because the schedules will fail to patch the VMs.
 
 
 ## November 2022
