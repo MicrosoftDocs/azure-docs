@@ -116,11 +116,11 @@ Event Grid Web Hooks require validation on creation. You can validate by followi
 
 1. Update your `pom.xml` under the `azure-webapp-maven-plugin`'s `configuration` add
 
-```xml
-<appSettings>
-  <AppConfigurationConnectionString>${AppConfigurationConnectionString}</AppConfigurationConnectionString>
-</appSettings>
-```
+   ```xml
+   <appSettings>
+     <AppConfigurationConnectionString>${AppConfigurationConnectionString}</AppConfigurationConnectionString>
+   </appSettings>
+   ```
 
 1. Run the following command to build the console app:
 
