@@ -405,7 +405,7 @@ az network nic create \
 
 ### Add IPv6 to network interface
 
-The support IPv6, the virtual machine must have a IPv6 network configuration added to the network interface. IPv6 can't be the primary IP configuration for a virtual machine network interface. For more information, see [Overview of IPv6](../ip-services/ipv6-overview.md).
+The support IPv6, the virtual machine must have a IPv6 network configuration added to the network interface. IPv6 can't be the primary IP configuration for a virtual machine network interface. For more information, see [Overview of IPv6](../virtual-network/ip-services/ipv6-overview.md).
 
 Use [az network nic ip-config create](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_create) to add the IPv6 configuration to the network interface.
 

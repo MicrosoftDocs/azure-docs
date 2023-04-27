@@ -36,7 +36,7 @@ items:
   - name: Migrate a virtual machine public IP address
     href: tutorial-migrate-ilip-nat.md
   - name: Deploy a NAT gateway with DDoS protection
-    href: tutorial-protect-nat-gateway.md
+    href: tutorial-protect-nat-gateway-ddos.md
   expanded: true
 - name: Concepts
   items:
@@ -90,7 +90,7 @@ items:
     href: https://azure.microsoft.com/resources/samples/?service=virtual-network
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
-    href: ../policy-reference.md
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn training
