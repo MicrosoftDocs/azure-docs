@@ -135,9 +135,9 @@ except HttpResponseError as ex:
     print(ex)
 ```
 
-### List all created rooms
+### List all active rooms
 
-To retrieve all rooms created under your resource, use the `list_rooms` method exposed on the client.
+To retrieve all active rooms created under your resource, use the `list_rooms` method exposed on the client.
 
 ```python
 try:
