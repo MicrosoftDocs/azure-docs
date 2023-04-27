@@ -11,7 +11,7 @@ ms.devlang: csharp
 
 # Troubleshooting guide for common issues
 
-This article provides troubleshooting guidance for some of the common issues that customers might encounter. Listed errors are available to check when you turn on `LiveTrace` tool or collect from diagnostics following [Capture resource logs](./howto-troubleshoot-resource-logs.md).
+This article provides troubleshooting guidance for some of the common issues that customers might encounter. Listed errors are available to check when you turn on [`live trace tool`](./howto-troubleshoot-resource-logs.md#capture-resource-logs-by-using-the-live-trace-tool) or collect from [Azure monior](./howto-troubleshoot-resource-logs.md#capture-resource-logs-with-azure-monitor).
 
 ## 404 from HttpHandlerUnexpectedResponse
 
@@ -45,11 +45,13 @@ This error indicates event request get a `500` response from registered upstream
 
 ## AbuseProtectionResponseMissingAllowedOrigin
 
-Web PubSub follows the [CloudEvents Abuse Protection](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection) to validate the upstream webhook. Every registered upstream webhook URL will be validated. The `WebHook-Request-Origin` request header is set to the service domain name `<web-pubsub-name>.webpubsub.azure.com`, and it expects the response to have a header `WebHook-Allowed-Origin` to contain this domain name or `*`. 
-
 ### Possible errors
 
 - `Abuse protection for 'https://<upstream-host>/<upstream-path>' missing allowed origins: .`
+
+### Root cause
+
+Web PubSub follows the [CloudEvents Abuse Protection](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection) to validate the upstream webhook. Every registered upstream webhook URL will be validated. The `WebHook-Request-Origin` request header is set to the service domain name `<web-pubsub-name>.webpubsub.azure.com`, and it expects the response to have a header `WebHook-Allowed-Origin` to contain this domain name or `*`. 
 
 ### Troubleshooting guide
 
@@ -77,7 +79,7 @@ This error indicates the `Abuse Protection` request get a `401` response from th
 
 ## Client connection drops
 
-When the client is connected to Azure Web PubSub, the persistent connection between the client and Azure Web PubSUb can sometimes drop for different reasons. This section describes several possibilities causing such connection drop and provides some guidance on how to identify the root cause. 
+When the client is connected to Azure Web PubSub, the persistent connection between the client and Azure Web PubSub can sometimes drop for different reasons. This section describes several possibilities causing such connection drop and provides some guidance on how to identify the root cause. 
 
 You can check the metric `Connection Close Count` from Azure portal.
 
@@ -93,7 +95,7 @@ You can check the metric `Connection Close Count` from Azure portal.
 
 ### Troubleshooting guide
 
-`PingTimeout` and `SlowClient` indicates that you have some clients not able to afford current traffic load. It's suggested to control the message sending speed and investigate client traces if client side performance can be improved.
+`PingTimeout` and `SlowClient` indicates that you have some clients not able to afford current traffic load. It's suggested to control the message sending speed and investigate [client traces](./howto-troubleshoot-network-trace) if client side performance can be improved.
 
 ## ConnectionCountLimitReached
 
