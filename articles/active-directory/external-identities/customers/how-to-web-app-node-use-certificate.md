@@ -24,13 +24,13 @@ In production, you should purchase a certificate signed by a well-known certific
 
 In this article, you learn to generate a self-signed certificate by using [Azure Key Vault](https://azure.microsoft.com/products/key-vault/) on the Azure Portal.
 
-You can also create a self-signed certificate programmatically by using [.NET](/key-vault/certificates/quick-create-net), [Node.js](/key-vault/certificates/quick-create-node), [Go](/key-vault/certificates/quick-create-go), [Python](/key-vault/certificates/quick-create-python) or [Java](/key-vault/certificates/quick-create-java) client libraries.
+You can also create a self-signed certificate programmatically by using [.NET](/azure/key-vault/certificates/quick-create-net), [Node.js](/azure/key-vault/certificates/quick-create-node), [Go](/azure/key-vault/certificates/quick-create-go), [Python](/azure/key-vault/certificates/quick-create-python) or [Java](/azure/key-vault/certificates/quick-create-java) client libraries.
 
 ## Create a self-signed certificate
 
-You can use [Azure Key Vault](/key-vault/certificates/quick-create-portal) to generate a self-signed certificate for your app. By using Azure Key Vault, you enjoy benefits, such as, assigning a partner Certificate Authority (CA) and automating certificate rotation.
+You can use [Azure Key Vault](/azure/key-vault/certificates/quick-create-portal) to generate a self-signed certificate for your app. By using Azure Key Vault, you enjoy benefits, such as, assigning a partner Certificate Authority (CA) and automating certificate rotation.
 
-Follow the steps in [Set and retrieve a certificate from Azure Key Vault using the Azure portal](/key-vault/certificates/quick-create-portal) to create and download your certificate.
+Follow the steps in [Set and retrieve a certificate from Azure Key Vault using the Azure portal](/azure/key-vault/certificates/quick-create-portal) to create and download your certificate.
 
 If you've an existing self-signed certificate in you local machine, you can skip this step, then proceed to [Upload certificate to your app registration](#upload-certificate-to-your-app-registration).
 
