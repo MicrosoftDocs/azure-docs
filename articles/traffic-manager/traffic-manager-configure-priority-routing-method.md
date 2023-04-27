@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* For the *Add an endpoint* section we will connect to an app service. To learn more, see [Create an App Service app](/articles/app-service/getting-started.md).
+* For the *Add an endpoint* section we will connect to an app service. To learn more, see [Create an App Service app](/articles/app-service/overview.md)
 
 ## To configure the priority traffic routing method
 1. From a browser, sign in to the [Azure portal](https://portal.azure.com).
