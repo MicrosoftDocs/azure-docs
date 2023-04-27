@@ -11,7 +11,12 @@ ms.author: greglin
 
 # Migrate Azure Application Gateway and Web Application Firewall from v1 to v2
 
-[Azure Application Gateway and Web Application Firewall (WAF) v2](application-gateway-autoscaling-zone-redundant.md) is now available, offering additional features such as autoscaling and availability-zone redundancy. However, existing v1 gateways aren't automatically upgraded to v2. If you want to migrate from v1 to v2, follow the steps in this article.
+[Azure Application Gateway and Web Application Firewall (WAF) v2](application-gateway-autoscaling-zone-redundant.md) is now available, offering additional features such as autoscaling and availability-zone redundancy.
+
+ApplicationGateway v2 offers higher performance compared to v1, with better scalability, improved throughput, and all new features will be released in v2 SKU.
+We announced deprecation of Application Gateway v1 on April 28, 2023. This SKU will no longer be supported from April 28, 2026. Learn more about the V1 retirement [here](./v1-retirement).
+
+However, existing v1 gateways aren't automatically upgraded to v2. If you want to migrate from v1 to v2, follow the steps in this article.
 
 There are two stages in a migration:
 
@@ -170,7 +175,50 @@ Here are a few scenarios where your current application gateway (Standard) may r
 
 ## ApplicationGateway V2 pricing
 
-The pricing models are different for the Application Gateway v1 and v2 SKUs. Please review the pricing at [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/) page before migrating from V1 to V2.
+The pricing models are different for the Application Gateway v1 and v2 SKUs. V2 is charged based on based on consumption. See [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/) before migrating for pricing information. 
+
+### Cost Efficiency during migration
+The V2 SKU comes with a range of advantages such as a performance boost of 5x, improved security with faster updates of security rules in WAF_v2, WAF custom rules, policy associations, and bot protection. It also offers high scalability, optimized traffic routing, and seamless integration with Azure services. These features can improve the overall user experience, prevent slowdowns during times of heavy traffic, and avoid expensive data breaches.
+
+We have 5 sizes available in v1 SKU- Standard_small, Standard_medium, Standard_large, WAF_medium and WAF_large.
+
+ <table>
+  <tr>
+    <th> SKU</th>
+    <th>v1 Fixed Price/mo</th>
+    <th>v2 Fixed Price/mo</th>
+     <th>Recommendation</th>
+  </tr>
+  <tr>
+     <td>Standard Medium</td>
+    <td>102.2 </td>
+    <td>179.58</td>
+     <td rowspan="2">V2 SKU can handle a larger number of requests than a V1 gateway, so consolidate multiple V1 gateways into a single V2 gateway, to optimize the cost. Ensure that consolidation doesn’t exceed the Application Gateway limits. We recommend 3:1 consolidation.</td>
+  </tr>
+    <td>WAF Medium </td>
+    <td>183.96 </td>
+    <td>262.8</td>     
+  </tr>
+   <tr>
+     <td>Standard Large</td>
+    <td>467.2 </td>
+    <td>179.58</td>
+     <td rowspan="2">Moving to V2 can provide you with a better price compared to V1.</td>
+  </tr>
+    <td>WAF Large </td>
+    <td>654.08 </td>
+    <td>262.8</td>     
+  </tr>
+ </table>
+ 
+ > [!NOTE]
+> Calculations shown here are based on East US and gateway with 2 instances in V1. The variable cost in V2 is based on one of the 3 dimensions with highest usage:
+> New connections (50/sec),Persistent connections (2500 persistent connections/min),Throughput (1 CU can handle 2.22 Mbps)
+
+ > [!NOTE]
+> The scenarios described here are examples and are for illustration purposes only. For pricing information according to your region, see the [Pricing page](https://azure.microsoft.com/pricing/details/application-gateway/).
+
+For further concerns regarding the pricing, work with your CSAM or get in touch with our support team for assistance.
 
 ## Common questions
 
