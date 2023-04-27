@@ -112,25 +112,10 @@ Batch endpoints and deployments run on compute clusters. They can run on any Azu
 
 ```python
 compute_name = "batch-cluster"
-if not any(filter(lambda m: m.name == compute_name, ml_client.compute.list())):
-    print(f"Compute {compute_name} is not created. Creating...")
-    compute_cluster = AmlCompute(
-        name=compute_name, description="amlcompute", min_instances=0, max_instances=5
-    )
-    ml_client.begin_create_or_update(compute_cluster)
-```
-
-The compute may take time to be created. Let's wait for it:
-
-```python
-from time import sleep
-
-print(f"Waiting for compute {compute_name}", end="")
-while ml_client.compute.get(name=compute_name).provisioning_state == "Creating":
-    sleep(1)
-    print(".", end="")
-
-print(" [DONE]")
+compute_cluster = AmlCompute(
+    name=compute_name, description="Batch endpoints compute cluster", min_instances=0, max_instances=5
+)
+ml_client.begin_create_or_update(compute_cluster).result()
 ```
 
 ---

@@ -32,7 +32,7 @@ You'll learn to:
 
 ## About this example
 
-The model training component will use tabular data from the [UCI Heart Disease Data Set](https://archive.ics.uci.edu/ml/datasets/Heart+Disease) to train an XGBoost model. During training, the data preprocessing component will perform data transformations, and finally, the model evaluation component will be used for inferencing.
+This example deploys a training pipeline that takes input training data (labeled) and produces a predictive model, along with the evaluation results and the transformations applied during preprocessing. The model training component will use tabular data from the [UCI Heart Disease Data Set](https://archive.ics.uci.edu/ml/datasets/Heart+Disease) to train an XGBoost model. During training, the data preprocessing component will perform data transformations, and finally, the model evaluation component will be used for inferencing.
 
 A visualization of the pipeline is as follows:
 
@@ -111,31 +111,16 @@ Batch endpoints and deployments run on compute clusters. They can run on any Azu
 
 ```python
 compute_name = "batch-cluster"
-if not any(filter(lambda m: m.name == compute_name, ml_client.compute.list())):
-    print(f"Compute {compute_name} is not created. Creating...")
-    compute_cluster = AmlCompute(
-        name=compute_name, description="amlcompute", min_instances=0, max_instances=5
-    )
-    ml_client.begin_create_or_update(compute_cluster)
-```
-
-The compute may take time to be created. Let's wait for it:
-
-```python
-from time import sleep
-
-print(f"Waiting for compute {compute_name}", end="")
-while ml_client.compute.get(name=compute_name).provisioning_state == "Creating":
-    sleep(1)
-    print(".", end="")
-
-print(" [DONE]")
+compute_cluster = AmlCompute(
+    name=compute_name, description="Batch endpoints compute cluster", min_instances=0, max_instances=5
+)
+ml_client.begin_create_or_update(compute_cluster).result()
 ```
 ---
 
 ### Register the training data as a data asset
 
-We're going to register the training data in the `heart.csv` file as a data asset in the workspace. We'll use this data asset for training.
+Our training data is represented in CSV files. To mimic a more production-level workload, we're going to register the training data in the `heart.csv` file as a data asset in the workspace. This data asset will later be indicated as an input to the endpoint.
 
 # [Azure CLI](#tab/cli)
 
@@ -171,13 +156,16 @@ heart_dataset_train = ml_client.data.get(name=dataset_name, label="latest")
 
 ## Create the pipeline
 
-The pipeline we want to operationalize has two components (steps):
+The pipeline we want to operationalize has takes 1 input, the training data, and produces 3 outputs, the trained model, the evaluation results, and the data transformations applied as preprocessing. It is composed of 2 components:
 
 1. `preprocess_job`: This step reads the input data and returns the prepared data and the applied transformations. The step receives three inputs:
     - `data`: a folder containing the input data to transform and score
     - `transformations`: (optional) Path to the transformations that will be applied, if available. If the path isn't provided, then the transformations will be learned from the input data. Since the `transformations` input is optional, the `preprocess_job` component can be used during training and scoring.
     - `categorical_encoding`: the encoding strategy for the categorical features (`ordinal` or `onehot`).
-1. `train_job`: This step will train an XGBoost model based on the prepared data and return the evaluation results and the trained model.
+1. `train_job`: This step will train an XGBoost model based on the prepared data and return the evaluation results and the trained model. The step receives three inputs:
+    - `data`: the preprocessed data.
+    - `target_column`: the column that we want to predict.
+    - `eval_size`: indicates the proportion of the input data used for evaluation.
 
 # [Azure CLI](#tab/cli)
 
@@ -465,6 +453,8 @@ Once the deployment is created, it's ready to receive jobs. Follow these steps t
     ml_client.jobs.get(name=job.name).stream()
     ```
 
+It's worth to be mentioned that only the pipeline's inputs are published as inputs in the Batch Endpoint. For instance, `categorical_encoding` is an input of an step of the pipeline, but not an input in the pipeline itself. Use this fact to control which inputs do you want to expose to your clients and which ones you do not.
+
 ### Access job outputs
 
 Once the job is completed, we can access some of its outputs. This pipeline produces the following outputs for its components:
@@ -495,7 +485,7 @@ Let's change the way preprocessing is done in the pipeline to see if we get a mo
 
 ### Change a parameter in the pipeline's preprocessing component
 
-The preprocessing component has a parameter called `categorical_encoding`, which can have values `ordinal` or `onehot`. These values correspond to two different ways of encoding categorical features. 
+The preprocessing component has an input called `categorical_encoding`, which can have values `ordinal` or `onehot`. These values correspond to two different ways of encoding categorical features. 
 
 - `ordinal`: Encodes the feature values with numeric values (ordinal) from `[1:n]`, where `n` is the number of categories in the feature. Ordinal encoding implies that there's a natural rank order among the feature categories.
 - `onehot`: Doesn't imply a natural rank ordered relationship but introduces a dimensionality problem if the number of categories is large.
@@ -503,7 +493,7 @@ The preprocessing component has a parameter called `categorical_encoding`, which
 By default, we used `ordinal` previously. Let's now change the categorical encoding to use `onehot` and see how the model performs.
 
 > [!TIP]
-> Alternatively, we could have exposed the `categorial_encoding` parameter to clients as an input to the pipeline job itself. However, we chose to change the parameter value in the preprocessing step so that we can hide and control the parameter inside of the deployment and take advantage of the opportunity to have multiple deployments under the same endpoint.
+> Alternatively, we could have exposed the `categorial_encoding` input to clients as an input to the pipeline job itself. However, we chose to change the parameter value in the preprocessing step so that we can hide and control the parameter inside of the deployment and take advantage of the opportunity to have multiple deployments under the same endpoint.
 
 1. Configure the deployment:
 
