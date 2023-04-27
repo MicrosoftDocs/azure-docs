@@ -16,6 +16,24 @@ This document contains information about new features and other changes to the M
 
 ## v3 (preview)
 
+### [3.0.0-preview.7] (May 2nd, 2023)
+
+#### New features (3.0.0-preview.7)
+
+- In addition to map configuration, [Map.setServiceOptions()] now supports changing `domain`, `styleAPIVersion`, `styleDefinitionsVersion` on runtime.
+
+#### Bug fixes (3.0.0-preview.7)
+
+- Fixed token expired exception on relaunches when using AAD / shared token / anonymous authentication by making sure authentication is resolved prior to any style definition request
+
+- Fixed redundant style definition and thumbnail requests 
+
+- Fixed incorrect `aria-label` applied to zoom out control button element
+
+- Fixed the possibility of undefined copyright element container when withRuleBasedAttribution is set to false
+
+- Fixed the possibility of event listener removal called on undefined target in EventManager.remove()
+
 ### [3.0.0-preview.6] (March 31, 2023)
 
 #### Installation (3.0.0-preview.6)
@@ -201,6 +219,24 @@ This update is the first preview of the upcoming 3.0.0 release. The underlying [
 
 ## v2 (latest)
 
+### [2.2.7] (May 2nd, 2023)
+
+#### New features (2.2.7)
+
+- In addition to map configuration, [Map.setServiceOptions()] now supports changing `domain`, `styleAPIVersion`, `styleDefinitionsVersion` on runtime.
+
+#### Bug fixes (2.2.7)
+
+- Fixed token expired exception on relaunches when using AAD / shared token / anonymous authentication by making sure authentication is resolved prior to any style definition request
+
+- Fixed redundant style definition and thumbnail requests 
+
+- Fixed incorrect `aria-label` applied to zoom out control button element
+
+- Fixed the possibility of undefined copyright element container when withRuleBasedAttribution is set to false
+
+- Fixed the possibility of event listener removal called on undefined target in EventManager.remove()
+
 ### [2.2.6]
 
 #### Bug fixes (2.2.6)
@@ -274,12 +310,14 @@ Stay up to date on Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
 
+[3.0.0-preview.7]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.7
 [3.0.0-preview.6]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.6
 [3.0.0-preview.5]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.5
 [3.0.0-preview.4]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.4
 [3.0.0-preview.3]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.3
 [3.0.0-preview.2]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.2
 [3.0.0-preview.1]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.1
+[2.2.7]: https://www.npmjs.com/package/azure-maps-control/v/2.2.7
 [2.2.6]: https://www.npmjs.com/package/azure-maps-control/v/2.2.6
 [2.2.5]: https://www.npmjs.com/package/azure-maps-control/v/2.2.5
 [2.2.4]: https://www.npmjs.com/package/azure-maps-control/v/2.2.4
@@ -295,6 +333,7 @@ Stay up to date on Azure Maps:
 [language mapping]: https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/azure-maps/supported-languages.md#azure-maps-supported-languages
 [user regions (view)]: /javascript/api/azure-maps-control/atlas.styleoptions?view=azure-maps-typescript-latest#azure-maps-control-atlas-styleoptions-view
 [ImageSpriteManager.add()]: /javascript/api/azure-maps-control/atlas.imagespritemanager?view=azure-maps-typescript-latest#azure-maps-control-atlas-imagespritemanager-add
+[Map.setServiceOptions()]: https://learn.microsoft.com/en-us/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#azure-maps-control-atlas-map-setserviceoptions
 [azure-maps-control]: https://www.npmjs.com/package/azure-maps-control
 [maplibre-gl]: https://www.npmjs.com/package/maplibre-gl
 [SourceManager]: /javascript/api/azure-maps-control/atlas.sourcemanager
