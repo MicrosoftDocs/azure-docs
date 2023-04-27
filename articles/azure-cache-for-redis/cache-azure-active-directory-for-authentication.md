@@ -1,7 +1,7 @@
 ---
 title: Use Azure Active Directory for Cache Authentication
 titleSuffix: Azure Cache for Redis
-description: Learn how to develop code for Azure Cache for Redis.
+description: Learn how to use Azure Active Direcory with Azure Cache for Redis.
 author: flang-msft
 
 ms.service: cache
@@ -36,7 +36,7 @@ To use the ACL integration, your client application must assume the identity of 
 - To enable AAD token based authentication for your Azure Cache for Redis instance, at least one Redis user must be configured under the **Data Access Policy** setting in the Resource menu.
 - Azure AD based authentication is supported for SSL connections and TLS 1.2 only.
 - Azure AD based authentication isn't supported on Azure Cache for Redis instances that run Redis version 4.
-- Azure AD based authentication isn't supported on Azure Cache for Redis instances that [depend on Cloud Services](/azure/azure-cache-for-redis/cache-faq.md#caches-with-a-dependency-on-cloud-services--classic).
+- Azure AD based authentication isn't supported on Azure Cache for Redis instances that [depend on Cloud Services](/azure/azure-cache-for-redis/cache-faq.yml#caches-with-a-dependency-on-cloud-services--classic).
 - Azure AD based authentication isn't supported in the Enterprise tiers of Azure Cache for Redis Enterprise.
 - Some Redis commands are blocked. For a full list of blocked commands, see [Redis commands not supported in Azure Cache for Redis](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis).
 
@@ -113,24 +113,16 @@ Because most Azure Cache for Redis clients assume that a password/access key is 
 
 The following table includes links to code samples, which demonstrate how to connect to your Azure Cache for Redis instance using an Azure AD token. A wide variety of client libraries are included in multiple languages.
 
-+---------------------+----------------+-------------------------------------------------------------------------+
-| **Client library**  | **Language**   | **Link to sample code**                                                 |
-+=====================+================+=========================================================================+
-| StackExchange.Redis | C#/.NET        | StackExchange.Redis extension as a NuGet package                               |
-|                     |                | <!-- Link -->                                                           |
-+---------------------+----------------+------------------------------------------------------------+
+| **Client library**  | **Language**   | **Link to sample code**|
+|----|----|----|
+| StackExchange.Redis | C#/.NET        | StackExchange.Redis extension as a NuGet package  <!-- Link -->   |
 | Python              | Python         | [Python code Sample](https://aka.ms/redis/aad/sample-code/python)        |
-+---------------------+----------------+------------------------------------------------------------+
 | Jedis               | Java           | [Jedis code sample](https://aka.ms/redis/aad/sample-code/java-jedis)    |
-+---------------------+----------------+------------------------------------------------------------+
 | Lettuce             | Java           | [Lettuce code sample](https://aka.ms/redis/aad/sample-code/java-lettuce)  |
-+---------------------+----------------+------------------------------------------------------------+
 | Redisson            | Java           | [Redisson code sample](https://aka.ms/redis/aad/sample-code/java-redisson) |
-+---------------------+----------------+------------------------------------------------------------+
 | ioredis             | Node.js        | [ioredis code sample](https://aka.ms/redis/aad/sample-code/js-ioredis)    |
-+---------------------+----------------+------------------------------------------------------------+
 | Node-redis          | Node.js        | [noredis code sample](https://aka.ms/redis/aad/sample-code/js-noderedis)  |
-+---------------------+----------------+------------------------------------------------------------+
 
 ## Next steps
+
 - [Configure role-based access control with Data Access Policy](cache-configure-role-based-access-control.md)
