@@ -24,7 +24,7 @@ productDirectory:
     # Card
     - title: Learn Live on YouTube
       imageSrc: ./media/azure-cloud.png
-      summary: Register on Reactor to register for our upcoming live webcasts with Azure engineers on technical topics
+      summary: Register on Reactor to join for our upcoming live webcasts with Azure engineers on technical topics
       url: https://developer.microsoft.com/reactor/?search=learn+live+%23fasttrack-azure
     # Card
     - title: Watch on-demand recordings
