@@ -22,7 +22,7 @@ For more information, see [Monitoring Azure Functions with Azure Monitor Applica
 
 ## Azure Spring Apps
 
-For more information, see [Use Application Insights Java In-Process Agent in Azure Spring Apps](~/spring-apps/how-to-application-insights?pivots=sc-standard.md).
+For more information, see [Use Application Insights Java In-Process Agent in Azure Spring Apps](../../spring-apps/how-to-application-insights.md).
 
 ## Containers
 
