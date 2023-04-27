@@ -95,23 +95,24 @@ Communication Services offers the following types of logs that you can enable:
 [
 {
 "TimeGenerated":"2023-04-12T14:21:35.0700920Z", 
-"CorrelationId":"fcc87f7f-test-446f-zzzz-b036051faea4",
-"Category":"EndOfCallSurvey", 
-"ResourceId":"/SUBSCRIPTIONS/EEE463725-0000-43FC-1234-000C509B41E96/RESOURCEGROUPS/ACS-DATALYTICS-SPGW-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-DATALYTICS-ALLTELEMETRY", 
-"OperationName":"EndOfCallSurvey", 
+"CorrelationId":"91c3369f-test-40b0-a4ba-0000003419f9",
+"Category":"CallSurvey", 
+"ResourceId":"/SUBSCRIPTIONS/ED463725-1C38-43FC-BD8B-CAC509B41E96/RESOURCEGROUPS/ACS-DATALYTICS-SPGW-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-DATALYTICS-ALLTELEMETRY", 
+"OperationName":"CallSurvey", 
 "OperationVersion":"0.0"
 
 "properties": 
     {
-        "CallId":"fcc87f7f-xxxx-446f-b73f-b036051fa000",
-        "SurveyId":"a6dd61c4-ffff-4885-96a4-a001d4c09e8b",
-        "ParticipantId":"91c3369f-test-40b0-a4ba-f5f4d93000f9",
+        "CallId":"fcc1234f-ce69-ZZZZ-b73f-b036051test4",
+        "SurveyId":"a6dd61c4-b924-4885-96a4-a991d4c09e8b",
+        "ParticipantId":"91c3369f-test-40b0-a4ba-0000003419f9",
         "OverallCallIssues":"CallCannotJoin",
         "OverallRatingScore":7,
         "OverallRatingScoreLowerBound":0,
         "OverallRatingScoreUpperBound":10,
         "OverallRatingScoreThreshold":5        
     }
+
 }
 ]
 ```
@@ -119,26 +120,24 @@ Communication Services offers the following types of logs that you can enable:
 ```json
 [
 {
-
 "TimeGenerated":"2023-04-12T14:21:35.0700920Z", 
-"CorrelationId":"fcc87f7f-test-446f-zzzz-b036051fa123",
-"Category":"EndOfCallSurvey", 
-"ResourceId":"/SUBSCRIPTIONS/EEE463725-0000-43FC-1234-000C509B41E96/RESOURCEGROUPS/ACS-DATALYTICS-SPGW-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-DATALYTICS-ALLTELEMETRY", 
+"CorrelationId":"91c3369f-test-40b0-a4ba-0000003419f9",
+"Category":"CallSurvey", 
+"ResourceId":"/SUBSCRIPTIONS/ED463725-1C38-43FC-BD8B-CAC509B41E96/RESOURCEGROUPS/ACS-DATALYTICS-SPGW-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-DATALYTICS-ALLTELEMETRY", 
 "OperationName":"EndOfCallSurvey", 
 "OperationVersion":"0.0"
 
 "properties": 
     {
-        "CallId":"fff87f7f-ce69-xxxx-b73f-b036051f0004",
-        "SurveyId":"a6dd61c4-b924-4885-96a4-a991d3339e8b",
-        "ParticipantId":"91c3369f-0000-40b0-zzzz-f5f4d93419f9",
+        "CallId":"fcc1234f-ce69-ZZZZ-b73f-b036051test4",
+        "SurveyId":"a6dd61c4-xxxx-4885-96a4-a991d4c09e8b",
+        "ParticipantId":"91c3369f-test-40b0-a4ba-0000003419f9",
         "AudioIssues":"NoRemoteAudio",      
         "AudioRatingScore":6,
         "AudioRatingScoreLowerBound":0,
         "AudioRatingScoreUpperBound":10,
         "AudioRatingScoreThreshold":4        	
     }
-}
 ]
 ```
 ### Example for the video quality
@@ -146,24 +145,23 @@ Communication Services offers the following types of logs that you can enable:
 [
 {
 "TimeGenerated":"2023-04-12T14:21:35.0700920Z", 
-"CorrelationId":"fcc87test-ce69-0000-b73f-b036051fa111",
-"Category":"EndOfCallSurvey", 
-"ResourceId":"/SUBSCRIPTIONS/EEE463725-0000-43FC-1234-000C509B41E96/RESOURCEGROUPS/ACS-DATALYTICS-SPGW-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-DATALYTICS-ALLTELEMETRY", 
-"OperationName":"EndOfCallSurvey", 
+"CorrelationId":"91c3369f-test-40b0-a4ba-0000003419f9",
+"Category":"CallSurvey", 
+"ResourceId":"/SUBSCRIPTIONS/ED463725-1C38-43FC-BD8B-CAC509B41E96/RESOURCEGROUPS/ACS-DATALYTICS-SPGW-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-DATALYTICS-ALLTELEMETRY", 
+"OperationName":"CallSurvey", 
 "OperationVersion":"0.0"
 
 "properties": 
     {
-        "CallId":"fceee7f7f-ce69-4test-b73f-b0360001fa114",
-        "SurveyId":"a6dd61c4-b924-xxxx-96a4-a991d4c00000",
-        "ParticipantId":"91c3369f-ca5c-40b0-a4ba-f5f4d93419f9",
+        "CallId":"fcc87f7f-ce69-eeed-7777-b036051faea4",
+        "SurveyId":"a6dd61c4-zzzz-4885-tttt-a991d4c09e8b",
+        "ParticipantId":"91c3369f-test-40b0-a4ba-0000003419f9",
         "VideoIssues":"NoVideoReceived",
         "VideoRatingScore":9,
         "VideoRatingScoreLowerBound":0,
         "VideoRatingScoreUpperBound":10,
         "VideoRatingScoreThreshold":7
     }
-
 }
 ]
 ```
@@ -172,17 +170,18 @@ Communication Services offers the following types of logs that you can enable:
 [
 {
 "TimeGenerated":"2023-04-12T14:21:35.0700920Z", 
-"CorrelationId":"fdd87f7f-ce69-test-b73f-b030000faea4",
-"Category":"EndOfCallSurvey", 
-"ResourceId":"/SUBSCRIPTIONS/EEE463725-0000-43FC-1234-000C509B41E96/RESOURCEGROUPS/ACS-DATALYTICS-SPGW-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-DATALYTICS-ALLTELEMETRY", 
+"TimeGenerated":"2023-04-12T14:21:35.0700920Z", 
+"CorrelationId":"91c3369f-test-40b0-a4ba-0000003419f9",
+"Category":"CallSurvey", 
+"ResourceId":"/SUBSCRIPTIONS/ED463725-1C38-43FC-BD8B-CAC509B41E96/RESOURCEGROUPS/ACS-DATALYTICS-SPGW-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-DATALYTICS-ALLTELEMETRY", 
 "OperationName":"EndOfCallSurvey", 
 "OperationVersion":"0.0"
 
 "properties": 
     {
-        "CallId":"fcc870000-ce69-446f-test-b036051faea4",
-        "SurveyId":"a6dd61c4-b924-4885-96a4-a991d4c09e8b",
-        "ParticipantId":"91c33zzz-ca5c-xxxx-a4ba-f5f4d93000f9",
+        "CallId":"1237f7f-ce69-ffff-b73f-b036051f6666",
+        "SurveyId":"a6dd6bbb-b924-zzzz-96a4-a991d4c01000",
+        "ParticipantId":"91c3369f-test-40b0-a4ba-0000003419f9",
         "ScreenshareIssues":"StoppedUnexpectedly,CannotPresent",
         "ScreenshareRatingScore":2,
         "ScreenshareRatingScoreLowerBound":0,
