@@ -477,7 +477,7 @@
     - name: Common data access issues and FAX
       displayName:
       href:
-# v1
+    # v1
     - name: Data access
       href: ./v1/concept-data.md
     - name: Studio network data access
@@ -494,35 +494,35 @@
     - name: Connect to data (UI)
       displayName: blob, get, fileshare, access, mount, download, data lake, datastore, dataset, data set
       href: ./v1/how-to-connect-data-ui.md
-- name: Manage & consume data
-  items:
-    - name: Train with datasets
-      displayName: data, dataset, mount
-      href: ./v1/how-to-train-with-datasets.md
-    - name: Detect drift on datasets
-      displayName: data, dataset
-      href: ./v1/how-to-monitor-datasets.md
-    - name: Version & track datasets
-      displayName: data, data set
-      href: ./v1/how-to-version-track-datasets.md
-    - name: Create datasets with labels
-      displayName: data, labels, torchvision
-      href: ./v1/how-to-use-labeled-dataset.md
-- name: Get & prepare data
-  items:
-    - name: Data ingestion with Azure Data Factory
-      displayName: data, ingestion, adf
-      href: ./v1/how-to-data-ingest-adf.md
-    - name: Data preparation with Azure Synapse
-      displayName: data, data prep, spark, spark pool, cluster, spark cluster,dataset, datastore
-      href: ./v1/how-to-data-prep-synapse-spark-pool.md
-    - name: DevOps for data ingestion
-      displayName: data, ingestion, devops
-      href: ./v1/how-to-cicd-data-ingestion.md
-    - name: Import data in the designer
-      displayName: designer, data, import, dataset, datastore
-      href: ./v1/how-to-designer-import-data.md
-# end v1
+    - name: Manage & consume data
+      items:
+        - name: Train with datasets
+          displayName: data, dataset, mount
+          href: ./v1/how-to-train-with-datasets.md
+        - name: Detect drift on datasets
+          displayName: data, dataset
+          href: ./v1/how-to-monitor-datasets.md
+        - name: Version & track datasets
+          displayName: data, data set
+          href: ./v1/how-to-version-track-datasets.md
+        - name: Create datasets with labels
+          displayName: data, labels, torchvision
+          href: ./v1/how-to-use-labeled-dataset.md
+    - name: Get & prepare data
+      items:
+        - name: Data ingestion with Azure Data Factory
+          displayName: data, ingestion, adf
+          href: ./v1/how-to-data-ingest-adf.md
+        - name: Data preparation with Azure Synapse
+          displayName: data, data prep, spark, spark pool, cluster, spark cluster,dataset, datastore
+          href: ./v1/how-to-data-prep-synapse-spark-pool.md
+        - name: DevOps for data ingestion
+          displayName: data, ingestion, devops
+          href: ./v1/how-to-cicd-data-ingestion.md
+        - name: Import data in the designer
+          displayName: designer, data, import, dataset, datastore
+          href: ./v1/how-to-designer-import-data.md
+    # end v1
   - name: Label data
     items:
     - name: Overview
