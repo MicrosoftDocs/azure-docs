@@ -49,7 +49,7 @@ All of the Azure Spring Boot libraries have had their Group and Artifact IDs upd
 </dependency>
 ```
 
-> NOTE:
+> [!NOTE]
 > The 4.7.0 version is the first 4.x version of the library. This is to match the version of the other Spring Cloud Azure libraries.
 
 As of the 4.7.0 version, the App Configuration and Feature Management libraries are now part of the spring-cloud-azure-dependencies BOM. The BOM file makes it so that you no longer need to specify the version of the libraries in your project. The BOM automatically manages the version of the libraries.
@@ -84,15 +84,15 @@ spring.cloud.azure.appconfiguration.stores[0].feature-flags.selects[0].label-fil
 spring.cloud.azure.appconfiguration.stores[0].monitoring.feature-flag-refresh-interval
 ```
 
-> NOTE:
+> [!NOTE]
 > The property `spring.cloud.azure.appconfiguration.stores[0].feature-flags.label` has been removed. Instead you can use `spring.cloud.azure.appconfiguration.stores[0].feature-flags.selects[0].label-filter` to specify a label filter.
 
 ## Possible conflicts with Azure Spring global properties
 
 [Azure Spring common configuration properties](/azure/developer/java/spring-framework/configuration) enables you to customize your connections to Azure services. The new App Configuration library will picks up any global or app configuration setting configured with Azure Spring common configuration properties. Your connection to app configuration will change if the configurations have been set for another Azure Spring library.
 
-> NOTE:
+> [!NOTE]
 > You can override this by using `ConfigurationClientCustomizer`/`SecretClientCustomizer` to modify the clients.
 
-> WARNING:
+> [!WARNING]
 > You may now run into an issue where more than one connection method is provided as Azure Spring global properties will automatically pick up credentials, such as Environment Variables, and use them to connect to Azure services. This can cause issues if you are using a different connection method, such as Managed Identity, and the global properties are overriding it.
