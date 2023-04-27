@@ -50,7 +50,7 @@ This article shows how to add a map to your integration account. If you're worki
 
     * If you already have an integration account with the artifacts that you need or want to use, you can link your integration account to multiple Standard logic app resources where you want to use the artifacts. That way, you don't have to upload maps to each individual logic app. For more information, review [Link your logic app resource to your integration account](logic-apps-enterprise-integration-create-integration-account.md?tabs=standard#link-account).
 
-    * The **Liquid** built-in connector lets you select a map that you previously uploaded to your logic app resource or to a linked integration account, but not both. You can then use this artifact across all child workflows within the same logic app resource.
+    * The **Liquid** built-in connector lets you select a map that you previously uploaded to your logic app resource or to a linked integration account, but not both.
 
     So, if you don't have or need an integration account, you can use the upload option. Otherwise, you can use the linking option. Either way, you can use these artifacts across all child workflows within the same logic app resource.
 
@@ -64,9 +64,17 @@ This article shows how to add a map to your integration account. If you're worki
 
     * Supports references to external assemblies from maps, which enable direct calls from XSLT maps to custom .NET code. To configure support for external assemblies, see [.NET Framework assembly support for XSLT transformations added to Azure Logic Apps (Standard)](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/net-framework-assembly-support-added-to-azure-logic-apps/ba-p/3669120).
 
+    * Supports XSLT 1.0, 2.0, and 3.0.
+
     * No limits apply to map file sizes.
 
   * Consumption workflows
+
+    * Azure Logic Apps allocates finite memory for processing XML transformations. If you create Consumption workflows, and your map or payload transformations have high memory consumption, such transformations might fail, resulting in out of memory errors. To avoid this scenario, consider these options:
+
+      * Edit your maps or payloads to reduce memory consumption.
+
+      * Create [Standard logic app workflows](logic-apps-overview.md#resource-environment-differences), which run in single-tenant Azure Logic Apps and offer dedicated and flexible options for compute and memory resources.
 
     * Supports references to external assemblies from maps, which enable direct calls from XSLT maps to custom .NET code with the following requirements:
 
@@ -85,14 +93,6 @@ This article shows how to add a map to your integration account. If you're worki
         | [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) | This tool helps you more easily manage storage accounts and blob containers. To use Storage Explorer, either [download and install Azure Storage Explorer](https://www.storageexplorer.com/). Then, connect Storage Explorer to your storage account by following the steps in [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). To learn more, see [Quickstart: Create a blob in object storage with Azure Storage Explorer](../storage/blobs/quickstart-storage-explorer.md). <br><br>Or, in the Azure portal, select your storage account. From your storage account menu, select **Storage Explorer**. |
 
         To add larger maps, you can use the [Azure Logic Apps REST API - Maps](/rest/api/logic/maps/createorupdate). For Standard workflows, the Azure Logic Apps REST API is currently unavailable.
-
-    * Azure Logic Apps allocates finite memory for processing XML transformations. If you create Consumption workflows, and your map or payload transformations have high memory consumption, such transformations might fail, resulting in out of memory errors. To avoid this scenario, consider these options:
-
-      * Edit your maps or payloads to reduce memory consumption.
-
-      * Create [Standard logic app workflows](logic-apps-overview.md#resource-environment-differences) instead.
-
-        These workflows run in single-tenant Azure Logic Apps, which offers dedicated and flexible options for compute and memory resources. However, Standard workflows support only XSLT 1.0 and don't support referencing external assemblies from maps.
 
 <a name="create-maps"></a>
 
