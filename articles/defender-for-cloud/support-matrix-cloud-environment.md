@@ -13,14 +13,14 @@ This article indicates which Defender for Cloud features are supported in Azure 
 
 ## Cloud support
 
-In the support table, **NA** indicates that the feature is not available.
+In the support table, **NA** indicates that the feature isn't available.
 
 **Feature/Plan** | **Azure** | **Azure Government** | **Azure China**<br/><br/>**21Vianet**
 --- | --- | --- | --- 
 **GENERAL FEATURES** | | |
 [Continuous data export](./continuous-export.md) | GA | GA | GA
 [Response automation with Azure Logic Apps ](./workflow-automation.md) | GA | GA | GA
-[Alert email notifications](./configure-email-notifications.md)<br/><br/> Security alerts are available when one or more Defender for Cloud plans are enabled. | GA | GA | GA
+[Alert email notifications](./configure-email-notifications.md)<br/><br/> Security alerts are available when one or more Defender for Cloud plans is enabled. | GA | GA | GA
 [Alert suppression rules](./alerts-suppression-rules.md) | GA | GA | GA
 md#display-recommendations-in-microsoft-defender-for-cloud-apps) | GA | GA | GA
 **[Alert bi-directional synchronization with Microsoft Sentinel](../sentinel/connect-azure-security-center.md)** | Public preview | NA | NA
@@ -44,7 +44,7 @@ md#display-recommendations-in-microsoft-defender-for-cloud-apps) | GA | GA | GA
 **Defender for Containers: [Run-time visibility of vulnerabilities in container images](defender-for-containers-vulnerability-assessment-azure.md#view-vulnerabilities-for-images-running-on-your-aks-clusters) | Preview | NA | NA
 **[Defender for DNS](defender-for-dns-introduction.md)** | GA | GA | GA
 **[Defender for Key Vault](./defender-for-key-vault-introduction.md)** | GA | NA | NA
-**[Defender for Kubernetes](./defender-for-kubernetes-introduction.md)**<br/><br/> Defender for Kubernetes is deprecated. It's been replaced by Defender for Containers. | GA | GA | GA
+**[Defender for Kubernetes](./defender-for-kubernetes-introduction.md)**<br/><br/> Defender for Kubernetes is deprecated. Defender for Containers has replaced it. | GA | GA | GA
 **[Defender for Open-Source Relational Databases](defender-for-databases-introduction.md)** | GA | NA | NA  
 **[Defender for Resource Manager](./defender-for-resource-manager-introduction.md)** | GA | GA | GA
 **[Defender for Servers](plan-defender-for-servers.md) (Review [detailed feature support](#defender-for-servers-cloud-support) | GA | GA | GA
