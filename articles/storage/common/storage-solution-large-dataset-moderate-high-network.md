@@ -73,6 +73,8 @@ If using offline data transfer, use the following table to understand the differ
 | **Use when data moves**     |Within a commerce boundary|Within a commerce boundary|Within a commerce boundary|Across geographic boundaries, e.g. US to EU|
 |    **Pricing**                          |    [Pricing](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [Pricing](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Pricing](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Pricing](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
 
+*\* Data Box Disk does not support Large File Shares and does not preserve file metadata*
+
 If using online data transfer, use the table in the following section for high network bandwidth.
 
 ### High network bandwidth
@@ -86,8 +88,6 @@ If using online data transfer, use the table in the following section for high n
 |    **Transfer from other clouds**   |    No                                        |    No                                        |    No                                                    |    Yes                                                                |
 |    **User type**                    |    IT Pro or dev                                       |    Dev                                       |    IT Pro                                                |    IT Pro                                                             |
 |    **Pricing**                      |    Free, data egress charges apply         |    Free, data egress charges apply         |    [Azure Stack Edge pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/) <br> [Data Box Gateway pricing](https://azure.microsoft.com/pricing/details/databox/gateway/)                                               |    [Pricing](https://azure.microsoft.com/pricing/details/data-factory/)                                                            |
-
-*\* Data Box Disk does not support Large File Shares and does not preserve file metadata*
 
 ## Next steps
 
