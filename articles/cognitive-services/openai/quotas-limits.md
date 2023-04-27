@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: conceptual
-ms.date: 04/24/2023
+ms.date: 04/25/2023
 ms.author: chrhoder
 ---
 
@@ -24,7 +24,7 @@ The following sections provide you with a quick guide to the quotas and limits t
 |--|--|
 | OpenAI resources per region per Azure subscription | 3 |
 | Requests per minute per model* | Davinci-models (002 and later): 120  <br> ChatGPT model (preview): 300 <br> GPT-4 models (preview): 18 <br> All other models: 300 |
-| Tokens per minute per model* | Davinci-models (002 and later): 40,000  <br> ChatGPT model: 120,000 <br> All other models: 120,000 |
+| Tokens per minute per model* | Davinci-models (002 and later): 40,000  <br> ChatGPT model: 120,000 <br> GPT-4 8k model: 10,000 <br> GPT-4 32k model: 32,000 <br> All other models: 120,000 |
 | Max fine-tuned model deployments* | 2 |
 | Ability to deploy same model to multiple deployments | Not allowed |
 | Total number of training jobs per resource | 100 |
