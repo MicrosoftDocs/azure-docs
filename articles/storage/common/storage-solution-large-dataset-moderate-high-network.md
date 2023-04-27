@@ -60,7 +60,7 @@ If using offline data transfer, use the following table to understand the differ
 |                                     |    Data Box Disk      |    Data Box                                      |    Data Box Heavy            |    Import/Export                       |
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
 |    **Data size**                    |    Up to 35 TBs                 |    Up to 80 TBs per device                       |    Up to 800 TB per device               |    Variable                            |
-|    **Data type**                    |    Azure Blobs                  |    Azure Blobs<br>Azure Files                    |    Azure Blobs<br>Azure Files            |    Azure Blobs<br>Azure Files          |
+|    **Data type**                    |    Azure Blobs<br>Azure Files   |    Azure Blobs<br>Azure Files                    |    Azure Blobs<br>Azure Files            |    Azure Blobs<br>Azure Files          |
 |    **Form factor**                  |    5 SSDs per order             |    1 X 50-lbs. desktop-sized device per order    |    1 X ~500-lbs. large device per order    |    Up to 10 HDDs/SSDs per order        |
 |    **Initial setup time**               |    Low <br>(15 mins)            |    Low to moderate <br> (<30 mins)               |    Moderate<br>(1-2 hours)               |    Moderate to difficult<br>(variable) |
 |    **Send data to Azure**           |    Yes                          |    Yes                                           |    Yes                                   |    Yes                                 |
