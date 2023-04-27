@@ -68,7 +68,7 @@ landingContent:
             url: confidential-vm-overview.md
           - text: Virtual Machines based on AMD processors with SEV-SNP technology
             url: virtual-machine-solutions-amd.md
-          - text: Preview of Azure Confidential VM with Intel TDX
+          - text: Virtual Machines based on Intel processors with TDX technology (preview)
             url: tdx-confidential-vm-overview.md
       - linkListType: concept
         links:
@@ -100,7 +100,7 @@ landingContent:
             url: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
       - linkListType: whats-new
         links:
-          - text: DCesv5 and ECesv5 Confidential VMs with Intel TDX
+          - text: Preview of DCesv5 and ECesv5 Confidential VMs with Intel TDX
             url: https://aka.ms/tdx-blog/
 
   # Card
