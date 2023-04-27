@@ -111,7 +111,7 @@ sections:
       - question: |
           How do I deploy a model with the REST API? 
         answer:
-          There are currently two models that provide model deployment functionality. For the latest model deployment features such as the ability to specify a model version during deployment for models like text-embedding-ada-002 Version 2, use the [Cognitive Services Create or Update REST API call](/rest/api/cognitiveservices/accountmanagement/deployments/create-or-update?tabs=HTTP). 
+          There are currently two different REST APIs that allow model deployment. For the latest model deployment features such as the ability to specify a model version during deployment for models like text-embedding-ada-002 Version 2, use the [Cognitive Services Create or Update REST API call](/rest/api/cognitiveservices/accountmanagement/deployments/create-or-update?tabs=HTTP). 
 additionalContent: |
 
   ## Next steps
