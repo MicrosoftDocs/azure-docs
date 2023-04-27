@@ -13,7 +13,7 @@ ms.author: barclayn
 
 # LinkedIn employment verification
 
-If your organization wants its employees get verified on LinkedIn, you need to follow these few steps:
+If your organization wants its employees to get verified on LinkedIn, you need to follow these few steps:
 
 1. Setup your Microsoft Entra Verified ID service by following these [instructions](verifiable-credentials-configure-tenant.md).
 1. [Create](how-to-use-quickstart-verifiedemployee.md#create-a-verified-employee-credential) a Verified ID Employee credential.

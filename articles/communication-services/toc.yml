@@ -146,6 +146,18 @@ items:
       href: quickstarts/email/connect-email-communication-resource.md
     - name: Send an email
       href: quickstarts/email/send-email.md
+    - name: Advanced email sending
+      items:
+        - name: Send email to multiple recipients
+          href: quickstarts/email/send-email-advanced/send-email-to-multiple-recipients.md
+        - name: Send email with attachments
+          href: quickstarts/email/send-email-advanced/send-email-with-attachments.md
+        - name: Manually poll for email status
+          href: quickstarts/email/send-email-advanced/manually-poll-for-email-status.md
+        - name: Throw an exception when sending tier limit is reached
+          href: quickstarts/email/send-email-advanced/throw-exception-when-tier-limit-reached.md
+        - name: Use email object model for payload
+          href: quickstarts/email/send-email-advanced/use-email-object-model-for-payload.md
     - name: Add multiple sender addresses
       href: quickstarts/email/add-multiple-senders.md
     - name: Add multiple sender addresses with ACS Management SDKs
