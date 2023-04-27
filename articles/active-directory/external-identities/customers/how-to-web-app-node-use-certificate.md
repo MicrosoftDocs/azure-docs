@@ -46,33 +46,33 @@ Once you associate your app registration with the certificate, you need to updat
 
 1. Locate the file that contains your MSAL configuration object, such as `msalConfig`  in *authConfig.js*.
     
-    ```java
-        const msalConfig = {
-            auth: {
-                clientId: process.env.CLIENT_ID || 'Enter_the_Application_Id_Here', // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
-                authority: process.env.AUTHORITY || `https://${TENANT_NAME}.ciamlogin.com/`, 
-                clientSecret: process.env.CLIENT_SECRET || 'Enter_the_Client_Secret_Here', // Client secret generated from the app registration in Azure portal
-            },
-            //...
-        };
+    ```javascript
+    const msalConfig = {
+        auth: {
+            clientId: process.env.CLIENT_ID || 'Enter_the_Application_Id_Here', // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
+            authority: process.env.AUTHORITY || `https://${TENANT_NAME}.ciamlogin.com/`, 
+            clientSecret: process.env.CLIENT_SECRET || 'Enter_the_Client_Secret_Here', // Client secret generated from the app registration in Azure portal
+        },
+        //...
+    };
     ```
 1. Comment the `clientSecret` property, then add the `clientCertificate` object  to look similar to the following code:
 
     ```javascript
-        const fs = require('fs'); //// import the fs module for reading the key file
+    const fs = require('fs'); //// import the fs module for reading the key file
 
-        const msalConfig = {
-            auth: {
-                clientId: process.env.CLIENT_ID || 'Enter_the_Application_Id_Here', // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
-                authority: process.env.AUTHORITY || `https://${TENANT_NAME}.ciamlogin.com/`, 
-                //clientSecret: process.env.CLIENT_SECRET || 'Enter_the_Client_Secret_Here', // Client secret generated from the app registration in Azure portal
-                clientCertificate: {
-                    thumbprint: "YOUR_CERT_THUMBPRINT", // replace with thumbprint obtained during step 2 above
-                    privateKey: fs.readFileSync('PATH_TO_YOUR_PRIVATE_KEY_FILE'), // such as, c:/Users/your-username/Desktop/ciam-client-app-cert.key
-                }
-            },
-            //...
-        };
+    const msalConfig = {
+        auth: {
+            clientId: process.env.CLIENT_ID || 'Enter_the_Application_Id_Here', // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
+            authority: process.env.AUTHORITY || `https://${TENANT_NAME}.ciamlogin.com/`, 
+            //clientSecret: process.env.CLIENT_SECRET || 'Enter_the_Client_Secret_Here', // Client secret generated from the app registration in Azure portal
+            clientCertificate: {
+                thumbprint: "YOUR_CERT_THUMBPRINT", // replace with thumbprint obtained during step 2 above
+                privateKey: fs.readFileSync('PATH_TO_YOUR_PRIVATE_KEY_FILE'), // such as, c:/Users/your-username/Desktop/ciam-client-app-cert.key
+            }
+        },
+        //...
+    };
     ```
     
     Make sure you import the file system (fs) module as you need it to read the certificate file. 
@@ -92,57 +92,57 @@ You can use your existing certificate directly from Azure Key Vault:
 1. Locate the file that contains your MSAL configuration object, such as `msalConfig`  in *authConfig.js*, then comment the `clientSecret` property:
     
     ```java
-        const msalConfig = {
-            auth: {
-                clientId: process.env.CLIENT_ID || 'Enter_the_Application_Id_Here', // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
-                authority: process.env.AUTHORITY || `https://${TENANT_NAME}.ciamlogin.com/`, 
-                //clientSecret: process.env.CLIENT_SECRET || 'Enter_the_Client_Secret_Here', // Client secret generated from the app registration in Azure portal
-            },
-            //...
-        };
+    const msalConfig = {
+        auth: {
+            clientId: process.env.CLIENT_ID || 'Enter_the_Application_Id_Here', // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
+            authority: process.env.AUTHORITY || `https://${TENANT_NAME}.ciamlogin.com/`, 
+            //clientSecret: process.env.CLIENT_SECRET || 'Enter_the_Client_Secret_Here', // Client secret generated from the app registration in Azure portal
+        },
+        //...
+    };
     ```
 
 1. Install [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), then on your console, type the following command to sign-in:
 
 
     ```console
-        az login --tenant YOUR_TENANT_ID
+    az login --tenant YOUR_TENANT_ID
     ```
 1. On your console, type the following command to install the required packages:  
 
     ```console
-        npm install --save @azure/identity @azure/keyvault-certificates @azure/keyvault-secrets
+    npm install --save @azure/identity @azure/keyvault-certificates @azure/keyvault-secrets
     ```
 
 1. In your client app, use the following code to generate `thumbprint` and `privateKey`;
 
     ```javascript
-        const identity = require("@azure/identity");
-        const keyvaultCert = require("@azure/keyvault-certificates");
-        const keyvaultSecret = require('@azure/keyvault-secrets');
-    
-        const KV_URL = process.env["KEY_VAULT_URL"] || "ENTER_YOUR_KEY_VAULT_URL"
-        const CERTIFICATE_NAME = process.env["CERTIFICATE_NAME"] || "ENTER_THE_NAME_OF_YOUR_CERTIFICATE_ON_KEY_VAULT";
-    
-        // Initialize Azure SDKs
-        const credential = new identity.DefaultAzureCredential();
-        const certClient = new keyvaultCert.CertificateClient(KV_URL, credential);
-        const secretClient = new keyvaultSecret.SecretClient(KV_URL, credential);
-    
-        async function getKeyAndThumbprint() {
-    
-            // Grab the certificate thumbprint
-            const certResponse = await certClient.getCertificate(CERTIFICATE_NAME).catch(err => console.log(err));
-            const thumbprint = certResponse.properties.x509Thumbprint.toString('hex')
-    
-            // When you upload a certificate to Key Vault, a secret containing your private key is automatically created
-            const secretResponse = await secretClient.getSecret(CERTIFICATE_NAME).catch(err => console.log(err));;
-    
-            // secretResponse contains both public and private key, but we only need the private key
-            const privateKey = secretResponse.value.split('-----BEGIN CERTIFICATE-----\n')[0]
-        }
+    const identity = require("@azure/identity");
+    const keyvaultCert = require("@azure/keyvault-certificates");
+    const keyvaultSecret = require('@azure/keyvault-secrets');
 
-        getKeyAndThumbprint();        
+    const KV_URL = process.env["KEY_VAULT_URL"] || "ENTER_YOUR_KEY_VAULT_URL"
+    const CERTIFICATE_NAME = process.env["CERTIFICATE_NAME"] || "ENTER_THE_NAME_OF_YOUR_CERTIFICATE_ON_KEY_VAULT";
+
+    // Initialize Azure SDKs
+    const credential = new identity.DefaultAzureCredential();
+    const certClient = new keyvaultCert.CertificateClient(KV_URL, credential);
+    const secretClient = new keyvaultSecret.SecretClient(KV_URL, credential);
+
+    async function getKeyAndThumbprint() {
+
+        // Grab the certificate thumbprint
+        const certResponse = await certClient.getCertificate(CERTIFICATE_NAME).catch(err => console.log(err));
+        const thumbprint = certResponse.properties.x509Thumbprint.toString('hex')
+
+        // When you upload a certificate to Key Vault, a secret containing your private key is automatically created
+        const secretResponse = await secretClient.getSecret(CERTIFICATE_NAME).catch(err => console.log(err));;
+
+        // secretResponse contains both public and private key, but we only need the private key
+        const privateKey = secretResponse.value.split('-----BEGIN CERTIFICATE-----\n')[0]
+    }
+
+    getKeyAndThumbprint();        
     ```
      
     In your code, replace the placeholders:
@@ -154,24 +154,24 @@ You can use your existing certificate directly from Azure Key Vault:
 1. Use the `thumbprint` and `privateKey` values to update your configuration: 
 
     ```javascript
-        let clientCert = {
-            thumbprint: thumbprint, 
-            privateKey: privateKey,
-        };
-    
-        msalConfig.auth.clientCertificate = clientCert;
+    let clientCert = {
+        thumbprint: thumbprint, 
+        privateKey: privateKey,
+    };
+
+    msalConfig.auth.clientCertificate = clientCert;
     ```  
 
 1. Then proceed to instantiate your confidential client as shown in the `getMsalInstance` method:
 
     ```javascript
-        class AuthProvider {
-            //...
-            getMsalInstance(msalConfig) {
-                return new msal.ConfidentialClientApplication(msalConfig);
-            }
-            //...
+    class AuthProvider {
+        //...
+        getMsalInstance(msalConfig) {
+            return new msal.ConfidentialClientApplication(msalConfig);
         }
+        //...
+    }
     ``` 
 
 1. Use the steps in [Run and test the web app](how-to-web-app-node-sign-in-sign-in-out.md#run-and-test-the-web-app) to test your app.
