@@ -39,12 +39,20 @@ After registering an application and creating a user flow in a CIAM tenant, an A
 
     ```json
     {
-        "AzureAd": {
+      "AzureAd": {
         "Authority": "https://Enter_the_Tenant_Name_Here.ciamlogin.com/",
-        "ExtraQueryParameters": { "dc": "ESTS-PUB-EUS-AZ1-FD000-TEST1" },
-        "ClientId": "Enter_the_Application_Id_Here",
+        "ClientId": "1e5eb9de-85aa-4a98-9ae2-34680ad28364",
+        "ClientCredentials": [
+          {
+            "SourceType": "ClientSecret",
+            "ClientSecret": "Enter_the_Client_Secret_Here"
+          }
+        ],
         "CallbackPath": "/signin-oidc",
-        "SignedOutCallbackPath": "/signout-callback-oidc"
+        "SignedOutCallbackPath": "/signout-callback-oidc",
+        "ExtraQueryParameters": {
+          "dc": "ESTS-PUB-EUS-AZ1-FD000-TEST1"
+        }
       },
       "Logging": {
         "LogLevel": {
@@ -56,14 +64,15 @@ After registering an application and creating a user flow in a CIAM tenant, an A
     }
     ```
 
-    * `Instance` - The authentication endpoint. Check with the different available endpoints in [National clouds](../../develop/authentication-national-cloud.md#azure-ad-authentication-endpoints).
     * `Authority` - The identity provider instance and sign-in audience for the app. Replace `Enter_the_Tenant_Name_Here` with the name of your CIAM tenant.
     * `ClientId` - The identifier of the application, also referred to as the client. Replace the text in quotes with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
+    * `ClientSecret` - The value of the client secret you created in [Prepare your tenant](./how-to-web-app-dotnet-sign-in-prepare-tenant.md). Replace the text in quotes with the client secret **value** in the Microsoft Entra admin center.
     * `CallbackPath` - Is an identifier to help the server redirect a response to the appropriate application.
     
 1. Save changes to the file.
 1. Open the *Properties/launchSettings.json* file.
-1. Find and record the `https` value `applicationURI` within *launchSettings.json*, for example `https://localhost:{port}`. You use this URL to define the **Redirect URI**.
+1. Change the `https` value in `applicationURI` so that it reads `https://localhost:7274`. You used this URL to define the **Redirect URI**.
+1. Save the changes to your file.
 
 ## Next steps
 

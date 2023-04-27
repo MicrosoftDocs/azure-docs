@@ -1,6 +1,6 @@
 ---
 title: Sign in users in your own ASP.NET web application by using Microsoft Entra - Sign in and sign out 
-description: Add sign in to an ASP.NET application and sign-in, sign-out of an application
+description: Add sign in to an ASP.NET application and sign-in, sign out of an application
 services: active-directory
 author: cilwerner
 ms.author: cwerner
@@ -16,7 +16,7 @@ ms.custom: it-pro
 
 # Sign in users in your own ASP.NET web application by using Microsoft Entra - Sign in and sign out
 
-In the [previous article](./how-to-web-app-dotnet-sign-in-prepare-app.md), an ASP.NET project was created and configured for authentication. This article will demonstrate how to install the required packages, add code that implements authentication to the sign in and sign out experience. Finally, you'll sign-in and sign-out of the application.
+In the [previous article](./how-to-web-app-dotnet-sign-in-prepare-app.md), an ASP.NET project was created and configured for authentication. This article demonstrates how to install the required packages, add code that implements authentication to the sign in and sign out experience. Finally, you'll sign in and sign out of the application.
 
 ## Prerequisites
 
@@ -110,9 +110,9 @@ Identity related NuGet packages must be installed in the project for authenticat
 
     ```
 
-## Add the sign-in and sign-out experience
+## Add the sign-in and sign out experience
 
-After installing the NuGet packages and adding necessary code for authentication, we need to add the sign-in and sign-out experiences.
+After installing the NuGet packages and adding necessary code for authentication, we need to add the sign-in and sign out experiences.
 
 1. In your IDE, navigate to *Views/Shared*, and create a new file called *_LoginPartial.cshtml*.
 1. Open *_LoginPartial.cshtml* and add the following code for adding the sign in and sign out experience. The code reads the ID token claims to check that the user is authenticated and uses `User.Claims` to extract ID token claims. In this case, `preferred_username`.
@@ -194,7 +194,7 @@ ViewData["Title"] = "Home Page";
 </div>
 ```
 
-Using the token claims, the app checks that the user is authenticated using `User.Identity.IsAuthenticated`, and from there lists out the ID token claims by looping through each item in `User.Claims`, returning their `Type` and `Value`.
+Using the token claims, the app checks that the user is authenticated using `User.Identity.IsAuthenticated`, and lists out the ID token claims by looping through each item in `User.Claims`, returning their `Type` and `Value`.
 
 ## Sign-in to the application
 
@@ -206,7 +206,7 @@ Using the token claims, the app checks that the user is authenticated using `Use
 
 1. Open a new private browser, and enter the application URI into the browser, for example `https://localhost:{port}`.
 1. Select **No account? Create one**, which starts the sign-up flow.
-1. In the **Create account** window, enter the email address registered to your CIAM tenant which will start the sign-up flow as a user for your application.
+1. In the **Create account** window, enter the email address registered to your CIAM tenant, which will start the sign-up flow as a user for your application.
 1. After entering a one-time passcode from the CIAM tenant, enter a new password and more account details, this sign-up flow is completed.
     1. If a window appears prompting you to **Stay signed in**, choose either **Yes** or **No**.
 1. The ASP.NET Welcome page appears in your browser as depicted in the following screenshot:
@@ -217,7 +217,7 @@ Using the token claims, the app checks that the user is authenticated using `Use
 
 1. To sign out of the application, select **Sign out** in the navigation bar.
 1. A window appears asking which account to sign out of.
-1. Upon successful sign out, a final window will appear advising you to close all browser windows.
+1. Upon successful sign out, a final window appears advising you to close all browser windows.
 
 ## Next steps
 

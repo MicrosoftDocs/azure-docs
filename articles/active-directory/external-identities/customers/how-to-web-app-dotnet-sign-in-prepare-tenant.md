@@ -17,13 +17,13 @@ ms.custom: developer
 
 # Sign in users in your own ASP.NET web application by using Microsoft Entra - Prepare your tenant
 
-This how-to guide will demonstrate how to, you prepare your Azure Active Directory (Azure AD) for customers tenant for authentication. You will register a web application in the Microsoft Entra admin center, and record its identifiers. You will then create a sign in and sign out user flow in the Microsoft Entra admin center and associate your web application with the user flow.
+This how-to guide demonstrates how to prepare your Azure Active Directory (Azure AD) for customers tenant for authentication. You'll register a web application in the Microsoft Entra admin center, and record its identifiers. You'll then create a sign in and sign out user flow in the Microsoft Entra admin center and associate your web application with the user flow.
 
 ## Prerequisites
 
 - Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-hub-free-trial).
 
-If you have already registered a web application in the Microsoft Entra admin center, and associated it with a user flow, you can skip the steps in this article and move to [Sign in users in your own ASP.NET web application by using Microsoft Entra - Prepare your application](how-to-web-app-dotnet-sign-in-prepare-app.md).
+If you have already registered a web application in the Microsoft Entra admin center, and associated it with a user flow, you can skip the steps in this article and move to [Prepare your application](how-to-web-app-dotnet-sign-in-prepare-app.md).
 
 ## Register the web app
 
@@ -31,13 +31,7 @@ If you have already registered a web application in the Microsoft Entra admin ce
 
 ## Define the platform and URLs
 
-1. In the Microsoft Entra admin center, under **Manage**, select **App registrations**, and then select the application that was previously created.
-1. In the left menu, under **Manage**, select **Authentication**.
-1. In **Platform configurations**, select **Add a platform**, and then select **Web**.
-1. Under **Redirect URIs**, enter the `applicationURL` and the `CallbackPath`, `/signin-oidc`, in the form of `https://localhost:{port}/signin-oidc`.
-1. Under **Front-channel logout URL**, enter the following URL for signing out, `https://localhost:{port}/signout-callback-oidc`.
-1. Under **Implicit grant and hybrid flows**, select the **ID tokens** checkbox.
-1. Select **Configure**.
+[!INCLUDE [ciam-register-app](./includes/register-app/add-platform-redirect-url-dotnet.md)]
 
 ## Add app client secret
 
