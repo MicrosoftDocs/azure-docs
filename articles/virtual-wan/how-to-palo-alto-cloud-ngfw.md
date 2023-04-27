@@ -9,6 +9,7 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 05/02/2023
 ms.author: wellee
+ms.custom : references_regions
 
 ---
 # Configure Palo Alto Networks Cloud NGFW in Virtual WAN (preview)
@@ -16,9 +17,9 @@ ms.author: wellee
 > [!IMPORTANT]
 > Palo Alto Cloud NGFW for Virtual WAN is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## Background
+[Palo Alto Networks Cloud Next Generation Firewall (NGFW)](https://aka.ms/pancloudngfwdocs) is a cloud-native software-as-a-service (SaaS) security offering that can be deployed into the Virtual WAN hub as a bump-in-the-wire solution to inspect network traffic. The following document describes some of the key features, critical use cases and how-to associated with using Palo Alto Networks Cloud NGFW in Virtual WAN.
 
-[Palo Alto Networks Cloud Next Generation Firewall (NGFW)](https://aka.ms/pancloudngfwdocs) is a cloud-native software-as-a-service security offering that can be deployed into the Virtual WAN hub as a bump-in-the-wire solution to inspect network traffic.
+## Background
 
 Palo Alto Networks Cloud NGFW integration with Virtual WAN provides the following benefits to customers:
 
@@ -163,9 +164,9 @@ The following section describes common issues seen when using Palo Alto Networks
 ### Troubleshooting Cloud NGFW creation
 
 * Ensure your Virtual Hubs are deployed in one of the following regions: Central US, East US, East US 2, West Europe or Australia East. Cloud NGFW deployment fails in other regions.
-* Ensure your Virtual Hub was created with the Azure Resource Tag **"hubSaaSPreview" : "true"**. Hubs created without this tag are'nt eligible to be used with Cloud NGFW. These tags must be specified at hub creation time and cannot be provided after hub deployment. To use Cloud NGFW, you need to create a new Virtual Hub.
-* Ensure the Routing status of the Virtual Hub is "Provisioned." Attempts to create Cloud NGFW prior to routing being provisioned will fail. 
-* Ensure registration to the **PaloAltoNetworks.Cloudngfw** resource provider is succesful.
+* Ensure your Virtual Hub was created with the Azure Resource Tag **"hubSaaSPreview" : "true"**. Hubs created without this tag aren't eligible to be used with Cloud NGFW. These tags must be specified at hub creation time and can't be provided after hub deployment. To use Cloud NGFW, you need to create a new Virtual Hub.
+* Ensure the Routing status of the Virtual Hub is "Provisioned." Attempts to create Cloud NGFW prior to routing being provisioned will fail.
+* Ensure registration to the **PaloAltoNetworks.Cloudngfw** resource provider is successful.
 
 ### Troubleshooting deletion
 
