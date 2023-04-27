@@ -416,7 +416,7 @@ This section covers different write-back scenarios. It recommends configuration 
 | 5 | * In SuccessFactors business email and business phone is primary. <br> * In Azure AD, if mobile is available, then set it as the business phone, else use telephoneNumber. | true | true | false | `IIF(IsPresent([mobile]), [mobile], [telephoneNumber])` | \[Not Set\] | 
 
 * If there's no mapping for phone number in the write-back attribute-mapping, then only email is included in the write-back.
-* During new hire onboarding in Employee Central, business email and phone number may not be available. If setting business email and business phone as primary is mandatory during onboarding, you can set a dummy value  for business phone and email during new hire creation, which will eventually be updated by the write-back app.
+* During new hire onboarding in Employee Central, business email and phone number may not be available. If setting business email and business phone as primary is mandatory during onboarding, you can set a dummy value  for business phone and email during new hire creation, which is eventually be updated by the write-back app.
  
 ### Enabling writeback with UserID
 
@@ -452,7 +452,7 @@ Usually the *personIdExternal* attribute value in SuccessFactors matches the *us
 
 * In Employee Central, during onboarding personal email and personal phone is set as primary. The write-back app can't switch this setting and set business email and business phone as primary.
 * In Employee Central, business phone is set as primary. The write-back app can't change this and set cell phone as primary.
-* The write-back app can't read the current primary flag settings and use the same values for the write operation. The flag values configured in the attribute-mapping will always be used. 
+* The write-back app can't read the current primary flag settings and use the same values for the write operation. The flag values configured in the attribute-mapping are always be used. 
 
 ## Next steps
 
