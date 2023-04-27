@@ -44,20 +44,13 @@ md#display-recommendations-in-microsoft-defender-for-cloud-apps) | GA | GA | GA
 **Defender for Containers: [Run-time visibility of vulnerabilities in container images](defender-for-containers-vulnerability-assessment-azure.md#view-vulnerabilities-for-images-running-on-your-aks-clusters) | Preview | NA | NA
 **[Defender for DNS](defender-for-dns-introduction.md)** | GA | GA | GA
 **[Defender for Key Vault](./defender-for-key-vault-introduction.md)** | GA | NA | NA
-**[Defender for Kubernetes](./defender-for-kubernetes-introduction.md)**<br/><br/> Defender for Kubernetes is deprecated and replaced by Defender for Containers. | GA | GA | GA
+**[Defender for Kubernetes](./defender-for-kubernetes-introduction.md)**<br/><br/> Defender for Kubernetes is deprecated. It's been replaced by Defender for Containers. | GA | GA | GA
 **[Defender for Open-Source Relational Databases](defender-for-databases-introduction.md)** | GA | NA | NA  
 **[Defender for Resource Manager](./defender-for-resource-manager-introduction.md)** | GA | GA | GA
-**[Defender for Servers](plan-defender-for-servers.md) (see table below for detailed feature support) | GA | GA | GA
+**[Defender for Servers](plan-defender-for-servers.md) (Review [detailed feature support](#defender-for-servers-cloud-support) | GA | GA | GA
 **[Defender for Storage](./defender-for-storage-introduction.md)**<br/><br/> Some threat protection alerts for Defender for Storage are in public preview. | GA | GA (activity monitoring) | NA
 **[Defender for SQL Servers on Machines](./defender-for-sql-introduction.md)** | GA | GA | NA
 
-
-**[Kubernetes workload protection](kubernetes-workload-protections.md)** | GA | GA | GA
-
-**OTHER FEATURES** | | |  
-
-**[Agentless discovery for Kubernetes](concept-agentless-containers.md)** | Public preview | NA | NA
-**[Agentless vulnerability assessments for container images.](concept-agentless-containers.md)**<br/><br/> Including registry scanning (up to 20 unique images per billable resources) | Public preview | NA | NA
 
 ## Defender for Servers cloud support
 
