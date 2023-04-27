@@ -209,7 +209,7 @@ Once the extraction process complete, check the box to launch the freshly extrac
 
 5. Provide a strong password for restricted local user accounts and select **Next**.
 
-    ![Provide strong password](./media/backup-azure-microsoft-azure-backup/security-screen.png)
+    :::image type="content" source="./media/backup-azure-microsoft-azure-backup/security-screen.png" alt-text="Screenshot shows how to provide strong password.":::
 6. Select whether you want to use *Microsoft Update* to check for updates and select **Next**.
 
    > [!NOTE]
@@ -217,10 +217,11 @@ Once the extraction process complete, check the box to launch the freshly extrac
    >
    >
 
-    ![Microsoft Update Opt-In](./media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
+    :::image type="content" source="./media/backup-azure-microsoft-azure-backup/update-opt-screen2.png" alt-text="Screenshot shows the Microsoft Update Opt-In page.":::
 7. Review the *Summary of Settings* and select **Install**.
 
-    ![Summary of settings](./media/backup-azure-microsoft-azure-backup/summary-screen.png)
+    :::image type="content" source="./media/backup-azure-microsoft-azure-backup/summary-screen.png" alt-text="Screenshot shows the summary of settings.":::
+
 8. The installation happens in phases. In the first phase, the Microsoft Azure Recovery Services Agent is installed on the server. The wizard also checks for Internet connectivity. If Internet connectivity is available, you can continue with the installation. If not, you need to provide proxy details to connect to the Internet.
 
     >[!Important]
@@ -228,10 +229,10 @@ Once the extraction process complete, check the box to launch the freshly extrac
 
     The next step is to configure the Microsoft Azure Recovery Services Agent. As a part of the configuration, you'll have to provide your vault credentials to register the machine to the Recovery Services vault. You'll also provide a passphrase to encrypt/decrypt the data sent between Azure and your premises. You can automatically generate a passphrase or provide your own minimum 16-character passphrase. Continue with the wizard until the agent has been configured.
 
-    ![Register Server Wizard](./media/backup-azure-microsoft-azure-backup/mars/04.png)
+    :::image type="content" source="./media/backup-azure-microsoft-azure-backup/mars/register-server-wizard.png" alt-text="Screenshot shows the Register Server Wizard.":::
 9. Once registration of the Microsoft Azure Backup server successfully completes, the overall setup wizard proceeds to the installation and configuration of SQL Server and the Azure Backup Server components. Once the SQL Server component installation completes, the Azure Backup Server components are installed.
 
-    ![Azure Backup Server setup progress](./media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
+    :::image type="content" source="./media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png" alt-text="Screenshot shows the Azure Backup Server setup progress.":::
 
 When the installation step has completed, the product's desktop icons will have been created as well. Double-click the icon to launch the product.
 
