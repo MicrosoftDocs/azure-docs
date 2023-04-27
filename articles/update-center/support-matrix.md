@@ -73,26 +73,25 @@ United States | Central US </br> East US </br> East US 2</br> North Central US <
 
 ## Supported operating systems
 
-The following table lists the supported operating systems for Azure VMs and Azure Arc-enabled servers. Before you enable update management center (preview), ensure that the target machines meet the operating system requirements.
-
 > [!NOTE]
 > - All operating systems are assumed to be x64. x86 isn't supported for any operating system.
 > - Update management center (Preview) doesn't support CIS hardened images.
 
+The following table lists the supported operating systems for Azure VMs and Azure Arc-enabled servers. Before you enable update management center (preview), ensure that the target machines meet the operating system requirements.
+
 # [Azure VMs](#tab/azurevm-os)
 
 > [!NOTE]
-> - Currently, we don't support [Specialized Azure Compute Gallery (SIG) custom images](../virtual-machines/linux/imaging.md#azure-compute-gallery) and non Azure Compute gallery images (including the VMs created by Azure Migrate, Azure Backup, Azure Site Recovery).
-> - For [Azure VMs](../virtual-machines/index.yml), we currently support a combination of Offer, Publisher, and SKU of the VM image. Ensure you match all three to confirm support. See the list of [supported OS images](../virtual-machines/automatic-vm-guest-patching.md#supported-os-images). 
-> - Currently, we don't provide support for custom images.
+> - For [Azure VMs](../virtual-machines/index.yml), we **support** a combination of Offer, Publisher, and SKU of the VM image. Ensure you match all three to confirm support. See the list of [supported OS images](../virtual-machines/automatic-vm-guest-patching.md#supported-os-images). 
+> Currently, we **don't support** [Specialized Azure Compute Gallery (SIG) custom images](../virtual-machines/linux/imaging.md#azure-compute-gallery), non Azure Compute gallery images (including the VMs created by Azure Migrate, Azure Backup, Azure Site Recovery), and custom images.
 
 **Marketplace/PIR images**
 
-Currently, we support a combination of Offer, Publisher, and Sku of the image. Ensure that you match all the three to confirm support. For more information, see [list of supported marketplace OS images](../virtual-machines/automatic-vm-guest-patching.md). 
+We support a combination of Offer, Publisher, and Sku of the image. Ensure that you match all the three to confirm support. For more information, see [list of supported marketplace OS images](../virtual-machines/automatic-vm-guest-patching.md). 
 
 **Custom images**
 
-Currently, we support [generalized Azure Compute Gallery (SIG) custom images](../virtual-machines/linux/imaging.md). Refer the table below for the list of operating system that we support for generalized Azure Compute Gallery images.
+We support [generalized Azure Compute Gallery (SIG) custom images](../virtual-machines/linux/imaging.md). Refer the table below for the list of operating system that we support for generalized Azure Compute Gallery images.
 
 **Windows Operating System**
 
@@ -108,7 +107,7 @@ Currently, we support [generalized Azure Compute Gallery (SIG) custom images](..
 
 - CentOS 7.8
 - Oracle Linux 7.x, 8x
-- Red Hat Enterprise 7,8,9
+- Red Hat Enterprise 7, 8, 9
 - SUSE Linux Enterprise Server 12.x, 15.0-15.4
 - Ubuntu 16.04 LTS, 18.04 LTS, 20.04 LTS, 22.04LTS 
 
