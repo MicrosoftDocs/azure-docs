@@ -123,9 +123,9 @@ Write-Host "Press [ENTER] to continue..."
 
 ## Next steps
 
-In this quickstart, you deployed an Azure Spring Apps instance into an existing virtual network using an ARM template, and then validated the deployment. To learn more about Azure Spring Apps and Azure Resource Manager, continue on to the resources below.
+In this quickstart, you deployed an Azure Spring Apps instance into an existing virtual network using an ARM template, and then validated the deployment. To learn more about Azure Spring Apps and Azure Resource Manager, continue on to the following resources.
 
-* Deploy one of the following sample applications from the locations below:
+* Deploy one of the following sample applications from the following locations:
   * [Pet Clinic App with MySQL Integration](https://github.com/azure-samples/spring-petclinic-microservices)
   * [Simple Hello World](./quickstart.md?pivots=programming-language-java&tabs=Azure-CLI)
 * Use [custom domains](tutorial-custom-domain.md) with Azure Spring Apps.

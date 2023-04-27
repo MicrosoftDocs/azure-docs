@@ -138,7 +138,7 @@ Azure Spring Apps, including the Enterprise plan, runs on Azure in a fully manag
 | Best practice                                                      | Ecosystem                                                                                             |
 |--------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
 | Create service instances using a provisioning tool.                | Azure portal, CLI, ARM Template, Bicep, or Terraform                                                  |
-| Automate environments and application deployments.                 | GitHub, Azure DevOps, GitLab, and Jenkins                                                             |
+| Automate environments and application deployments.                 | GitHub, Azure DevOps Server, GitLab, and Jenkins                                                      |
 | Monitor end-to-end using any tool and platform.                    | Application Insights, Azure Log Analytics, Splunk, Elastic, New Relic, Dynatrace, or AppDynamics      |
 | Connect Spring applications and interact with your cloud services. | Spring integration with Azure services for data, messaging, eventing, cache, storage, and directories |
 | Securely load app secrets and certificates.                        | Azure Key Vault                                                                                       |

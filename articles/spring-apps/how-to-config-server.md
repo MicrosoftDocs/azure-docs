@@ -52,7 +52,7 @@ management.endpoints.jmx.exposure.include
 
 ## Create your Config Server files
 
-Azure Spring Apps supports Azure DevOps, GitHub, GitLab, and Bitbucket for storing your Config Server files. When your repository is ready, you can create the configuration files and store them there.
+Azure Spring Apps supports Azure DevOps Server, GitHub, GitLab, and Bitbucket for storing your Config Server files. When your repository is ready, you can create the configuration files and store them there.
 
 Some configurable properties are available only for certain types. The following sections describe the properties for each repository type.
 
@@ -136,7 +136,7 @@ The following table lists the configurable properties you can use to set up Git 
 | `repos."host-key-algorithm"`       | No             | The host key algorithm. Should be *ssh-dss*, *ssh-rsa*, *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384*, or *ecdsa-sha2-nistp521*. Required only if `host-key` exists. |
 | `repos."strict-host-key-checking"` | No             | Indicates whether the Config Server instance fails to start when using the private `host-key`. Should be *true* (default value) or *false*.                         |
 
-The following table shows some examples of patterns for configuring your service with an optional additional repository. For more information, see the [Additional repositories section](#additional-repositories) and the [Pattern Matching and Multiple Repositories section](https://cloud.spring.io/spring-cloud-config/reference/html/#_pattern_matching_and_multiple_repositories) of the Spring documentation.
+The following table shows some examples of patterns for configuring your service with an optional extra repository. For more information, see the [Additional repositories section](#additional-repositories) and the [Pattern Matching and Multiple Repositories section](https://cloud.spring.io/spring-cloud-config/reference/html/#_pattern_matching_and_multiple_repositories) of the Spring documentation.
 
 | Patterns                        | Description                                                                                                            |
 |:--------------------------------|------------------------------------------------------------------------------------------------------------------------|
@@ -170,7 +170,7 @@ Updating the configuration can take a few minutes. You should get a notification
 
 ### Enter repository information directly to the Azure portal
 
-You can enter repository information for the default repository and, optionally, for additional repositories.
+You can enter repository information for the default repository and, optionally, for extra repositories.
 
 #### Default repository
 
@@ -193,9 +193,9 @@ Use the steps in this section to enter repository information for a public or pr
 
   :::image type="content" source="media/how-to-config-server/ssh-auth.png" lightbox="media/how-to-config-server/ssh-auth.png" alt-text="Screenshot of the Default repository section showing authentication settings for SSH authentication.":::
 
-#### Additional repositories
+#### Extra repositories
 
-If you want to configure your service with an optional additional repository, specify the **Uri** and **Authentication** settings as you did for the default repository. Be sure to include a **Name** setting for your pattern, and then select **Apply** to attach it to your instance.
+If you want to configure your service with an optional extra repository, specify the **Uri** and **Authentication** settings as you did for the default repository. Be sure to include a **Name** setting for your pattern, and then select **Apply** to attach it to your instance.
 
 ### Enter repository information into a YAML file
 
@@ -265,7 +265,7 @@ Use the following steps to get your repo URL and credentials.
 
 ## Delete your configuration
 
-Select **Reset** on the **Config Server** tab to erase your existing settings. Delete the config server settings if you want to connect your Config Server instance to another source, such as when you're moving from GitHub to Azure DevOps.
+Select **Reset** on the **Config Server** tab to erase your existing settings. Delete the config server settings if you want to connect your Config Server instance to another source, such as when you're moving from GitHub to Azure DevOps Server.
 
 ## Config Server refresh
 
@@ -300,9 +300,9 @@ Instead, you can automatically refresh values from Config Server by letting the 
    }
    ```
 
-1. Enable auto-refresh and set the appropriate refresh interval in your *application.yml* file. In the following example, the client polls for config changes every 60 seconds, which is the minimum value you can set for a refresh interval.
+1. Enable autorefresh and set the appropriate refresh interval in your *application.yml* file. In the following example, the client polls for config changes every 60 seconds, which is the minimum value you can set for a refresh interval.
 
-   By default, auto-refresh is set to *false* and the refresh-interval is set to *60 seconds*.
+   By default, autorefresh is set to *false* and the refresh-interval is set to *60 seconds*.
 
    ```yaml
    spring:
