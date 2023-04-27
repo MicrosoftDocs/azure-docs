@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 04/26/2022
+ms.date: 04/27/2022
 ms.author: jasteppe
 ---
 
@@ -14,9 +14,9 @@ ms.author: jasteppe
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-You may prefer to deploy the MedTech service using the Azure portal if you need to track every step of the developmental process. Manual deployment might be necessary if you have to customize or troubleshoot your deployment.
+You may prefer to deploy the MedTech service using the Azure portal if you need to track every step of the developmental process. An Azure portal deployment might be necessary if you have to customize or troubleshoot your deployment.
 
-The MedTech service deployment using the Azure portal is divided into the following three sections:
+In this quickstart, the MedTech service deployment using the Azure portal is divided into the following three sections:
 
 * [Deploy prerequisite resources](#deploy-prerequisite-resources)
 * [Configure and deploy the MedTech service](#configure-and-deploy-the-medtech-service)
@@ -52,7 +52,7 @@ Deploy an Event Hubs namespace into the resource group. Event Hubs namespaces ar
 
 ### Deploy a workspace
 
- Deploy a [workspace](../workspace-overview.md). After you create a workspace using the [Azure portal](../healthcare-apis-quickstart.md), a FHIR service and MedTech service can be deployed from the workspace.
+Deploy a [workspace](../workspace-overview.md). After you create a workspace using the [Azure portal](../healthcare-apis-quickstart.md), a FHIR service and MedTech service can be deployed from the workspace.
 
 ### Deploy a FHIR service
 
@@ -62,11 +62,11 @@ Deploy a [FHIR service](../fhir/fhir-portal-quickstart.md) into your resource gr
 
 If you have successfully deployed the prerequisite resources, you're now ready to deploy the MedTech service using your workspace.
 
-Before you can deploy the MedTech service, you must complete the following configuration tasks:
+Before you can deploy the MedTech service, you must complete the following steps:
 
 ### Set up the MedTech service configuration
 
-Start with these three steps to begin configuring the MedTech service so it's ready to accept your tabbed configuration input:
+Start with these three steps to begin configuring the MedTech service:
 
 1. Start by going to your workspace and select the **Create MedTech service** box.
 
@@ -82,7 +82,7 @@ Start with these three steps to begin configuring the MedTech service so it's re
 
 ### Configure the Basics tab
 
-Follow these six steps to fill in the **Basics** tab configuration:
+Follow these four steps to fill in the **Basics** tab configuration:
 
 1. Enter the **MedTech service name**.
 
@@ -98,22 +98,18 @@ Follow these six steps to fill in the **Basics** tab configuration:
 
 4. Enter the **Consumer group**.
 
-   The Consumer group name is located by going to the **Overview** page of the Event Hubs Namespace and selecting the event hub to be used for the MedTech service device messages. In this example, the event hub is named *devicedata*.
-
-5. When you're inside the event hub, select the **Consumer groups** button under **Entities** to display the name of the consumer group to be used by your MedTech service.
-
-6. By default, a consumer group named *$Default* is created during the deployment of an event hub. Use this consumer group for your MedTech service deployment.
+   By default, a consumer group named *$Default* is created during the deployment of an event hub. Use this consumer group for your MedTech service deployment.
 
    > [!IMPORTANT]
-   > If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group.
+   > If you're going to allow access from multiple services to the event hub, it is highly recommended that each service has its own event hub consumer group.
    >
    > Consumer groups enable multiple consuming applications to have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups).
    >
    > Examples:
    >
-   > * Two MedTech services accessing the same device message event hub.
+   > * Two MedTech services accessing the same event hub.
    >
-   > * A MedTech service and a storage writer application accessing the same device message event hub.
+   > * A MedTech service and a storage writer application accessing the same event hub.
 
 The **Basics** tab should now look something like this after you've filled it out:
 
@@ -160,20 +156,9 @@ Before you complete your configuration in the **Review + create** tab, you may w
 
 Tags are name and value pairs used for categorizing resources and are an optional step. For more information about tags, see [Use tags to organize your Azure resources and management hierarchy](../../azure-resource-manager/management/tag-resources.md).
 
-### Select the Review + create tab to validate your deployment
+### Validate your deployment
 
-To begin the validation process of your MedTech service deployment, select the **Review + create** tab. There's a short delay and then you should see a screen that displays a **Validation success** message. Below the message, you should see the following values for your deployment.
-
-**Basics** 
-* MedTech service name
-* Event Hubs name
-* Consumer group
-* Event Hubs namespace
-
-**Destination**
-* FHIR server
-* Destination name
-* Resolution type
+To begin the validation process of your MedTech service deployment, select the **Review + create** tab. There's a short delay and then you should see a screen that displays a **Validation success** message.
 
 Your validation screen should look something like this:
 
