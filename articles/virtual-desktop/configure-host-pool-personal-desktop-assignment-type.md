@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Desktop assign personal desktops - Azure
+title: Configure personal desktop assignment in Azure Virtual Desktop  - Azure
 description: How to configure automatic or direct assignment for an Azure Virtual Desktop personal desktop host pool.
 author: Heidilohr
 ms.topic: how-to
@@ -8,7 +8,7 @@ ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
 ---
-# Assign personal desktops
+# Configure personal desktop assignment
 
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/configure-host-pool-personal-desktop-assignment-type-2019.md).
@@ -22,8 +22,7 @@ You can configure the assignment type of your personal desktop host pool to adju
 
 If you're using either the Azure portal or PowerShell method, you'll need the following things:
 
-- An Azure Virtual Desktop deployment with at least one host pool
-- A host pool with more than one session host inside of it
+- A personal host pool with at least one session host.
 - An Azure account with administrator permissions
 
 If you're assigning desktops with PowerShell, you'll need to [download and install the Azure Virtual Desktop PowerShell module](powershell-module.md) if you haven't already.
@@ -56,25 +55,15 @@ To automatically assign users, first assign them to the personal desktop host po
 
 To configure automatic assignment in the Azure portal:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. Enter **Azure Virtual Desktop** into the search bar.
+1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
 
-1. Under **Services**, select **Azure Virtual Desktop**.
+1. Select **Host pools**, then select the personal host pool you want to configure automatic assignment.
 
-1. At the Azure Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
-
-1. Select the host pool you want to assign users to.
-
-1. Next, go to the menu on the left side of the window and select **Properties**.
-
-1. In the **Basics** tab, go to the **Assignment** drop-down menu and select **Automatic**.
+1. Next, select **Properties**, then go to the **Assignment** drop-down menu and select **Automatic**.
 
 1. Select **Save**.
-
-To assign a user to the personal desktop host pool:
-
-1. In the host pool you want to edit, select **Session hosts**.
 
 <!---How do I automatically assign things? Is there a process for it like the PowerShell side? Should I remove that second PowerShell cmdlet if it's not relevant to the process this section is meant to describe?--->
 
@@ -88,14 +77,11 @@ Update-AzWvdHostPool -ResourceGroupName $resourceGroupName -Name $hostPoolName -
 
 To assign a user to the personal desktop host pool, run the following PowerShell cmdlet:
 
-```powershell
-New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <appgroupname> -ResourceGroupName $resourceGroupName -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
-```
 ---
 
 ## Configure direct assignment
 
-Unlike automatic assignment, when you use direct assignment, you must assign the user to both the personal desktop host pool and a specific session host before they can connect to their personal desktop. If the user is only assigned to a host pool without a session host assignment, they won't be able to access resources and will see an error message that says, "No resources available."
+Unlike automatic assignment, when you use direct assignment, you assign a specific personal desktop to a user first. You must assign the user to both the personal desktop host pool and a specific session host before they can connect to their personal desktop. If the user is only assigned to a host pool without a session host assignment, they won't be able to access resources and will see an error message that says **No resources available**.
 
 #### [Azure portal](#tab/azure)
 
