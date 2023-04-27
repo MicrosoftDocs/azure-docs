@@ -517,9 +517,10 @@ Using a shared kubeconfig requires slightly different steps depending on your Ku
        name: azure
    ```
 
-   [Exec plugin](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#client-go-credential-plugins) is a Kubernetes authentication strategy that allows `kubectl` to execute an external command to receive user credentials to send to `apiserver`. Starting with Kubernetes version 1.26, the default Azure authorization plugin is no longer included in `client-go` and `kubectl`. With later versions, in order to use the exec plugin to receive user credentials you must use Azure Kubelogin, a `client-go` credential (exec) plugin that implements Azure authentication.
+> [!NOTE]
+>[Exec plugin](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#client-go-credential-plugins) is a Kubernetes authentication strategy that allows `kubectl` to execute an external command to receive user credentials to send to `apiserver`. Starting with Kubernetes version 1.26, the default Azure authorization plugin is no longer included in `client-go` and `kubectl`. With later versions, in order to use the exec plugin to receive user credentials you must use [Azure Kubelogin](https://azure.github.io/kubelogin/index.html), a `client-go` credential (exec) plugin that implements Azure authentication.
 
-1. Install Azure Kubelogin:
+4. Install Azure Kubelogin:
 
    - For Windows or Mac, follow the [Azure Kubelogin installation instructions](https://azure.github.io/kubelogin/install.html#installation).
    - For Linux or Ubuntu, download the [latest version of kubelogin](https://github.com/Azure/kubelogin/releases), then run the following commands:
@@ -534,7 +535,7 @@ Using a shared kubeconfig requires slightly different steps depending on your Ku
      sudo chmod +x /usr/local/bin/kubelogin 
      ```
 
-1. [Convert](https://azure.github.io/kubelogin/cli/convert-kubeconfig.html) the kubelogin to the appropriate [login mode](https://azure.github.io/kubelogin/concepts/login-modes.html). For example, for [device code login](https://azure.github.io/kubelogin/concepts/login-modes/devicecode.html) with an Azure Active Directory user, the commands would be as follows:
+5. [Convert](https://azure.github.io/kubelogin/cli/convert-kubeconfig.html) the kubelogin to the appropriate [login mode](https://azure.github.io/kubelogin/concepts/login-modes.html). For example, for [device code login](https://azure.github.io/kubelogin/concepts/login-modes/devicecode.html) with an Azure Active Directory user, the commands would be as follows:
 
    ```bash
    export KUBECONFIG=/path/to/kubeconfig
