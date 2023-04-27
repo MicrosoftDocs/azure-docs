@@ -145,8 +145,6 @@
         - name: Studio network data access
           href: ./v1/concept-network-data-access.md
         # end v1
-        - name: Apache Spark in Azure Machine Learning (preview)
-          href: apache-spark-azure-ml-concepts.md
         - name: Data concepts in Azure Machine Learning
           href: concept-data.md
         - name: Sourcing human data responsibly
@@ -158,43 +156,19 @@
               href: how-to-export-delete-data.md
     - name: Deploy models
       items:
-        - name: Endpoints
-          href: concept-endpoints.md
-        - name: Model portability (ONNX)
-          href: concept-onnx.md
-        - name: Prebuilt docker images for inference
-          href: concept-prebuilt-docker-images-inference.md
     - name: MLflow
       items:
-        - name: MLflow and Azure Machine Learning
-          href: concept-mlflow.md
         # v1
         - name: MLflow
           href: ./v1/concept-mlflow-v1.md
         # end v1
-        - name: MLflow models
-          displayName: tracking models, mlflow, custom, flavors
-          href: concept-mlflow-models.md
     - name: Manage the ML lifecycle (MLOps)
       items:
-        - name: MLOps capabilities
-          displayName: deploy, deployment, publish, production, operationalize, operationalization
-          href: concept-model-management-and-deployment.md
         # v1
         - name: MLOps capabilities
           displayName: deploy, deployment, publish, production, operationalize, operationalization
           href: ./v1/concept-model-management-and-deployment.md
         # end v1
-        - name: Registries
-          displayName: collaborate share
-          href: concept-machine-learning-registries-mlops.md
-        - name: ML pipelines
-          href: concept-ml-pipelines.md
-        - name: ML components
-          href: concept-component.md
-        - name: Git integration
-          displayName: github gitlab
-          href: concept-train-model-git-integration.md
     - name: Responsible AI
       items:
         - name: Responsible AI overview
