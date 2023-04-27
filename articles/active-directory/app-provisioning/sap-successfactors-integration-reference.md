@@ -218,9 +218,9 @@ Extending this scenario:
 
 By default, the Azure AD SuccessFactors connector uses the `activeEmploymentsCount` field of the `PersonEmpTerminationInfo` object to set account status. You may encounter one of the following issues with this attribute. 
 1. There's a known SAP SuccessFactors issue documented in [knowledge base article 3047486](https://launchpad.support.sap.com/#/notes/3047486) that at times this may disable the account of a terminated worker one day prior to the termination on the last day of work. 
-1. If the `PersonEmpTerminationInfo` object gets set to null, during termination, then AD account disabling will not work, as the provisioning engine filters out records where `personEmpTerminationInfoNav` object is set to null. 
+1. If the `PersonEmpTerminationInfo` object gets set to null, during termination, then AD account disabling won't work, as the provisioning engine filters out records where `personEmpTerminationInfoNav` object is set to null. 
 
-If you are running into any of these issues or prefer mapping employment status to account status, you can update the mapping to expand the `emplStatus` field and use the employment status code present in the field `emplStatus.externalCode`. Based on [SAP support note 2505526](https://launchpad.support.sap.com/#/notes/2505526), here's a list of employment status codes that you can retrieve in the provisioning app. 
+If you're running into any of these issues or prefer mapping employment status to account status, you can update the mapping to expand the `emplStatus` field and use the employment status code present in the field `emplStatus.externalCode`. Based on [SAP support note 2505526](https://launchpad.support.sap.com/#/notes/2505526), here's a list of employment status codes that you can retrieve in the provisioning app. 
 * A = Active 
 * D = Dormant
 * U = Unpaid Leave
@@ -297,7 +297,7 @@ This section describes how you can update the JSONPath settings to definitely re
 1. Click on the link **Review your schema here** to open the schema editor. 
 1. Click on the **Download** link to save a copy of the schema before editing. 
 1. In the schema editor, press Ctrl-H key to open the find-replace control.
-1. Perform the following find replace operations. Ensure there's no leading or trailing space when performing the find-replace operations. If you are using `[-1:]` index instead of `[0]`, then update the *string-to-find* field accordingly. 
+1. Perform the following find replace operations. Ensure there's no leading or trailing space when performing the find-replace operations. If you're using `[-1:]` index instead of `[0]`, then update the *string-to-find* field accordingly. 
 
     | **String to find** | **String to use for replace** | **Purpose**  |
     | ------------------ | ----------------------------- | ------------ |
@@ -434,7 +434,7 @@ Usually the *personIdExternal* attribute value in SuccessFactors matches the *us
 1. Save the mapping. 
 1. Run the provisioning job to ensure that the *userId* values flow into Azure AD. 
     > [!NOTE]
-    > If you are using SuccessFactors to on-premises Active Directory user provisioning, configure AAD Connect to sync the *userId* attribute value from on-premises Active Directory to Azure AD.   
+    > If you're using SuccessFactors to on-premises Active Directory user provisioning, configure AAD Connect to sync the *userId* attribute value from on-premises Active Directory to Azure AD.   
 1. Open the SuccessFactors Writeback app in the Azure portal. 
 1. Map the desired *extensionAttribute* that contains the userId value to the SuccessFactors *userId* attribute.
     > [!div class="mx-imgBorder"]
