@@ -164,7 +164,7 @@ On your development machine, you can start an IoT Edge simulator instead of inst
 
 1. In the Visual Studio Code Explorer view, right-click the `deployment.debug.template.json` file for your solution and then select **Build and Run IoT Edge solution in Simulator**. You can watch all the module container logs in the same window. You can also navigate to the Docker view to watch container status.
 
-   :::image type="content" source="media/how-to-vs-code-develop-module/view-log.png" alt-text="Screenshot of the Watch Variables.":::
+   :::image type="content" source="media/debug-module-vs-code/view-log.png" alt-text="Screenshot of the Watch Variables.":::
 
 1. Navigate to the Visual Studio Code Debug view and select the debug configuration file for your module. The debug option name should be similar to ***&lt;your module name&gt;* Remote Debug**
 
@@ -449,7 +449,7 @@ The Docker and Moby engines support SSH connections to containers allowing you t
 1. In Visual Studio Code, set breakpoints in your custom module.
 1. When a breakpoint is hit, you can inspect variables, step through code, and debug your module.
 
-    :::image type="content" source="media/how-to-vs-code-develop-module/vs-code-breakpoint.png" alt-text="Screenshot of Visual Studio Code attached to a Docker container on a remote device paused at a breakpoint." lightbox="media/how-to-vs-code-develop-module/vs-code-breakpoint.png":::
+    :::image type="content" source="media/debug-module-vs-code/vs-code-breakpoint.png" alt-text="Screenshot of Visual Studio Code attached to a Docker container on a remote device paused at a breakpoint." lightbox="media/debug-module-vs-code/vs-code-breakpoint.png":::
 > [!NOTE]
 > The preceding example shows how to debug IoT Edge modules on remote containers. The example adds a remote Docker context and changes to the Docker privileges on the remote device. After you finish debugging your modules, set your Docker context to *default* and remove privileges from your user account.
 
