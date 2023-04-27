@@ -42,10 +42,19 @@ Azure Managed Instance for Apache Cassandra provides automated deployment and sc
 
 ## Support
 
-Azure Managed Instance for Apache Cassandra provides an [SLA](https://azure.microsoft.com/support/legal/sla/managed-instance-apache-cassandra/v1_0/) for the availability of data centers in a managed cluster. If you encounter any issues with using the service, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
+Azure Managed Instance for Apache Cassandra provides an [SLA](https://azure.microsoft.com/support/legal/sla/managed-instance-apache-cassandra/v1_0/) for the availability of data centers in a managed cluster. If you encounter any issues with using the service, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal. 
+
+Our support ativities include:
+
+- Pro-active monitoring of CPU, disk, node health, quorum loss, and many other mitigations.
+- Pro-active advise on performance bottle necks and sizing.
+- 24x7 support coverage.
+- Support for additional open source projects including cassandra-ldap, medusa, reaper, lucene, ecaudit (C* 3.11), mcac.
+- Community approved patch support.
 
 >[!IMPORTANT]
-> We will attempt to investigate and diagnose any issues reported via support case, and resolve or mitigate where possible. However, you are ultimately responsible for any Apache Cassandra configuration level usage which causes CPU, disk, or network problems.
+> We will investigate and diagnose any issues reported via support case, and resolve or mitigate where possible. 
+> However, you are ultimately responsible for any Apache Cassandra configuration level usage which causes CPU, disk, or network problems.
 >
 > Examples of such issues include:
 >
@@ -55,7 +64,9 @@ Azure Managed Instance for Apache Cassandra provides an [SLA](https://azure.micr
 >  * Incorrect keyspace configuration settings.
 >  * Poor data model or partition key strategy.
 >
-> In the event that we investigate a support case and discover that the root cause of the issue is at the Apache Cassandra configuration level (and not any underlying platform level aspects we maintain), the case may be closed. Where possible, we will also provide recommendations and guidance on remediation. We therefore recommend you [enable metrics](visualize-prometheus-grafana.md) and/or become familiar with our [Azure monitor integration](monitor-clusters.md ) in order to prevent common application/configuration level issues in Apache Cassandra, such as the above.
+> In the event that we investigate a support case and discover that the root cause of the issue is at the Apache Cassandra configuration level (and not any underlying platform level aspects we maintain), we will still provide recommendations and guidance on remediation, or mitigation (when possible), before closing the case. 
+> 
+> We recommend you [enable metrics](visualize-prometheus-grafana.md) and/or become familiar with our [Azure monitor integration](monitor-clusters.md ) in order to prevent common application/configuration level issues in Apache Cassandra, such as the above.
 
 >[!WARNING]
 > Azure Managed Instance for Apache Cassandra also let's you run `nodetool` and `sstable` commands for routine DBA administration - see article [here](dba-commands.md). Some of these commands can destabilize the cassandra cluster and should only be run carefully and after being tested in non-production environments. Where possible, a `--dry-run` option should be deployed first. Microsoft cannot offer any SLA or support on issues with running commands which alter the default database configuration and/or tables.
