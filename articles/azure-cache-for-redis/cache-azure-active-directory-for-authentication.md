@@ -6,7 +6,7 @@ author: flang-msft
 
 ms.service: cache
 ms.topic: conceptual
-ms.date: 04/24/2023
+ms.date: 04/27/2023
 ms.author: franlanglois
 
 ---
@@ -41,8 +41,7 @@ To use the ACL integration, your client application must assume the identity of 
 - Some Redis commands are blocked. For a full list of blocked commands, see [Redis commands not supported in Azure Cache for Redis](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis).
 
 > [!IMPORTANT]
-> Once a connection is established using Azure AD token, client applications must periodically refresh Azure AD token before expiry and send an AUTH command to Redis server to avoid disruption of connections. For more information, see Configure your Redis client to use Azure Active Directory.
-> <!-- I don't understand what this is trying to do.  -->
+> Once a connection is established using Azure AD token, client applications must periodically refresh Azure AD token before expiry, and send an `AUTH` command to Redis server to avoid disruption of connections. For more information, see [Configure your Redis client to use Azure Active Directory](#configure-your-redis-client-to-use-azure-active-directory).
 
 ## Enable Azure AD token based authentication on your cache
 
@@ -52,24 +51,24 @@ To use the ACL integration, your client application must assume the identity of 
 
 1. Select "**Add**" and choose **New Redis User**.
 
-1. On the Access Policy tab, select **Owner** policy, and then select the **Next:Redis Users**.  To create custom data access policies, see  
-   <!-- This doesn't match what I am seeing. -->
+1. On the **Access Policy** tab, select one the available policies in the table: **Owner**, **Contributor**, or **Reader**. Then, select the **Next:Redis Users**.
 
-   <!-- (ADD SCREENSHOT) -->
+   :::image type="content" source="media/cache-azure-active-directory-for-authentication/cache-new-redis-user.png" alt-text="Screenshot showing the available Access Policies .":::
 
-1. Choose the service principal or managed identity that you want to use for authenticating to your Azure Cache for Redis instance and select  **Save**.
+1. Choose either the **User or service principal** or **Managed Identity** to determine how you want to use for authenticate to your Azure Cache for Redis instance.
 
-1. On the left side of the screen, select **Advanced settings**.
+1. Then, select **Select members** and select  **Select**. Then, select **Next : Review + Design**.
+   :::image type="content" source="media/cache-azure-active-directory-for-authentication/cache-select-members.png" alt-text="Screenshot showing members to add as New Redis Users.":::
 
-1. Check the box labeled **(PREVIEW) Enable Azure AD Authorization** and select **OK**.
+1. From the Resource menu, select **Advanced settings**.
 
-   <!-- (ADD SCREENSHOT) -->
+1. Check the box labeled **(PREVIEW) Enable Azure AD Authorization** and select **OK**. Then, select **Save**.
+
+   :::image type="content" source="media/cache-azure-active-directory-for-authentication/cache-aad-access-authorization.png" alt-text="Screenshot of A A D access authorization":::
 
 1. A dialog box displays a popup notifying you that upgrading is permanent and might cause a brief connection blip. Select **Yes.**
 
 1. Once the enable operation is complete, you get a notification on your portal indicating completion. The operation can take several minutes.
-
-   <!-- (ADD SCREENSHOT) -->
 
    > [!NOTE]
    > Propagation of a change to the cache configuration for Azure AD authentication might take as many as 20 minutes.
@@ -104,12 +103,11 @@ Because most Azure Cache for Redis clients assume that a password/access key is 
 
 ### Best practices for Azure AD authentication
 
-1. Configure private links or firewall rules to protect your cache from a Denial of Service attack.
+- Configure private links or firewall rules to protect your cache from a Denial of Service attack.
 
-1. Ensure that your client application sends a new Azure AD token at least 3 minutes before token expiry to avoid connection disruption.
+- Ensure that your client application sends a new Azure AD token at least 3 minutes before token expiry to avoid connection disruption.
 
-1. When executing AUTH command periodically, consider adding a jitter so that the AUTH commands are staggered, and your Redis server doesn't receive lot of AUTH commands at the same time.
-   <!-- Not sure I follow this. -->
+- When calling the Redis server `AUTH` command periodically, consider adding a jitter so that the `AUTH` commands are staggered, and your Redis server doesn't receive lot of `AUTH` commands at the same time.
 
 ### Client library support
 
@@ -118,8 +116,7 @@ The following table includes links to code samples, which demonstrate how to con
 +---------------------+----------------+-------------------------------------------------------------------------+
 | **Client library**  | **Language**   | **Link to sample code**                                                 |
 +=====================+================+=========================================================================+
-| StackExchange.Redis | C#/.NET        | StackExchange.Redis extension as a NuGet                                |
-|                     |                |                                                                         |
+| StackExchange.Redis | C#/.NET        | StackExchange.Redis extension as a NuGet package                               |
 |                     |                | <!-- Link -->                                                           |
 +---------------------+----------------+------------------------------------------------------------+
 | Python              | Python         | [Python code Sample](https://aka.ms/redis/aad/sample-code/python)        |
@@ -134,3 +131,6 @@ The following table includes links to code samples, which demonstrate how to con
 +---------------------+----------------+------------------------------------------------------------+
 | Node-redis          | Node.js        | [noredis code sample](https://aka.ms/redis/aad/sample-code/js-noderedis)  |
 +---------------------+----------------+------------------------------------------------------------+
+
+## Next steps
+- [Configure role-based access control with Data Access Policy](cache-configure-role-based-access-control.md)

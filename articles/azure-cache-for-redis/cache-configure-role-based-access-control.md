@@ -5,7 +5,7 @@ description: Learn how to configure role-based access control with Data Access P
 author: flang-msft
 
 ms.service: cache
-ms.topic: conceptual
+
 ms.date: 04/25/2023
 ms.author: franlanglois
 
@@ -18,7 +18,7 @@ Managing access to your Azure Cache for Redis instance is critical to ensure tha
 Azure Cache for Redis now integrates this ACL functionality with Azure Active Directory (Azure AD) to allow you to configure your Data Access Policies for your application's service principal and managed identity.
 
 Azure Cache for Redis offers three built-in access policies: _Owner_, _Contributor_, and _Reader_. If the built-in access policies don't satisfy your data protection and isolation requirements, you can create and use your own custom data access policy as described in Configure custom data access policy.
-<!-- where should this link to? -->
+<!-- heading below -->
 
 ## Scope of Availability
 
@@ -39,8 +39,9 @@ As documented on [Redis Access Control List](https://redis.io/docs/management/se
 
 ### Command categories
 
-Redis has created groupings of commands such as administrative commands, dangerous commands, etc. to make setting permissions on a group of commands easier. These [commands](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis) are still blocked. The following groups are useful command categories that Redis supports. For more information on command categories, see the full list.
-<!-- what is the link for this -->
+Redis has created groupings of commands such as administrative commands, dangerous commands, etc. to make setting permissions on a group of commands easier. These [commands](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis) are still blocked. The following groups are useful command categories that Redis supports. For more information on command categories, see the full list. 
+
+<!-- Redis Command categories on this page  https://redis.io/docs/management/security/acl/-->
 
 - **admin**
   - Administrative commands. Normal applications never need to use these, including `MONITOR`, `SHUTDOWN`, and others.
@@ -93,14 +94,23 @@ The following list contains some examples of permission strings for various scen
 
 1. In the Azure portal, select the Azure Cache for Redis instance that you want to configure Azure AD token based authentication for.
 
-1. On the left side of the screen, select **(PREVIEW) Data Access Policy**.
+1. From the Resource menu, select **(PREVIEW) Data Access Policy**.
 
-   :::image type="content" source="media/cache-configure-role-based-access-control/cache-data-access-configuration.png" alt-text="asd":::
+   :::image type="content" source="media/cache-configure-role-based-access-control/cache-data-access-configuration.png" alt-text="Screenshot showing Data Access Configuration highlighed in the Resourece menu.":::
 
 1. Select **Add** and choose **New Access Policy**
 
-   :::image type="content" source="media/cache-configure-role-based-access-control/cache-data-access-add.png" alt-text="asdf":::
+   :::image type="content" source="media/cache-configure-role-based-access-control/cache-add-custom-policy.png" alt-text="Screenshot showing a form to add custom access policy.":::
 
 1. Provide a name for your access policy.
 
-1. Configure Permissions as per your requirements.<!-- link -->
+1. [Configure Permissions](#permissions-for-your-data-access-policy) as per your requirements.
+
+## Next steps
+
+- [Use Azure Active Directory for cache authentication](cache-azure-active-directory-for-authentication.md)
+
+- 
+- 
+
+
