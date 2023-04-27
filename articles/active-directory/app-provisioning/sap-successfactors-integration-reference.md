@@ -260,7 +260,7 @@ Use the steps to update your mapping to retrieve these codes.
 If your HR process uses Option 1, then no changes are required to the provisioning schema. 
 If your HR process uses Option 2, then Employee Central adds a new *EmpEmployment* entity along with a new *User* entity for the same *Person* entity. 
 
-To handle both these scenarios so that the new employment data shows up when a conversion or rehire occurs, you can bulk update the provisioning app schema using the steps listed:  
+You can handle both scenarios so that the new employment data shows up when a conversion or rehire occurs. Bulk update the provisioning app schema using the steps listed:  
 
 1. Open the attribute-mapping blade of your SuccessFactors provisioning app. 
 1. Scroll down and click **Show advanced options**.
