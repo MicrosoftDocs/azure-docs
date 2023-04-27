@@ -146,6 +146,18 @@ items:
       href: quickstarts/email/connect-email-communication-resource.md
     - name: Send an email
       href: quickstarts/email/send-email.md
+    - name: Advanced email sending
+      items:
+        - name: Send email to multiple recipients
+          href: quickstarts/email/send-email-advanced/send-email-to-multiple-recipients.md
+        - name: Send email with attachments
+          href: quickstarts/email/send-email-advanced/send-email-with-attachments.md
+        - name: Manually poll for email status
+          href: quickstarts/email/send-email-advanced/manually-poll-for-email-status.md
+        - name: Throw an exception when sending tier limit is reached
+          href: quickstarts/email/send-email-advanced/throw-exception-when-tier-limit-reached.md
+        - name: Use email object model for payload
+          href: quickstarts/email/send-email-advanced/use-email-object-model-for-payload.md
     - name: Add multiple sender addresses
       href: quickstarts/email/add-multiple-senders.md
     - name: Add multiple sender addresses with ACS Management SDKs
@@ -231,6 +243,8 @@ items:
         href: how-tos/calling-sdk/transfer-calls.md
       - name: Subscribe to SDK events
         href: how-tos/calling-sdk/events.md
+      - name: Enable Closed captions for Teams Interoperability
+        href: how-tos/calling-sdk/closed-captions-teams-interop-how-to.md        
     - name: Call recording
       items:
       - name: Record a call
@@ -369,6 +383,8 @@ items:
         href: how-tos/call-automation/play-action.md
       - name: Gather user input with recognize action 
         href: how-tos/call-automation/recognize-action.md
+      - name: How to secure webhook endpoint
+        href: how-tos/call-automation/secure-webhook-endpoint.md
     - name: Call recording
       items:
       - name: Record a call
@@ -567,6 +583,8 @@ items:
         href: concepts/rooms/room-concept.md
     - name: Call recording
       href: concepts/voice-video-calling/call-recording.md
+    - name: Enable Closed captions
+      href: concepts/interop/enable-closed-captions.md      
     - name: Media access
       href: concepts/voice-video-calling/media-access.md
     - name: Video constraints

@@ -1435,12 +1435,12 @@ items:
         href: autoscale/autoscale-common-scale-patterns.md
       - name: Scale with custom metrics
         href: autoscale/autoscale-custom-metric.md
+      - name: Autoscale Virtual Machine Scale Sets using PowerShell
+        href: autoscale/autoscale-using-powershell.md
       - name: Scale Virtual Machine Scale Sets using Resource Manager templates
         href: ../virtual-machine-scale-sets/tutorial-autoscale-template.md?toc=/azure/azure-monitor/toc.json
       - name: Scale Virtual Machine Scale Sets using CLI
         href: ../virtual-machine-scale-sets/tutorial-autoscale-cli.md?toc=/azure/azure-monitor/toc.json
-      - name: Scale Virtual Machine Scale Sets using PowerShell
-        href: ../virtual-machine-scale-sets/tutorial-autoscale-powershell.md?toc=/azure/azure-monitor/toc.json
       - name: Use webhooks and email notifications
         href: autoscale/autoscale-webhook-email.md
       - name: Autoscale diagnostics
