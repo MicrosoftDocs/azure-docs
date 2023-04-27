@@ -147,7 +147,7 @@ Otherwise create an x509 self-signed certificate storing it in AKV for remote si
     az keyvault certificate download --file $CERT_PATH --id $CERT_ID --encoding PEM
     ```
 
-5. Add a signing key referencing the key id.
+5. Add a signing key referencing the key ID.
 
     ```bash
     notation key add $KEY_NAME --plugin azure-kv --id $KEY_ID
@@ -245,7 +245,7 @@ Otherwise create an x509 self-signed certificate storing it in AKV for remote si
     ```bash
     notation verify $IMAGE
     ```
-   Upon successful verification of the image using the trust policy, the sha256 digest of the verified image is returned in a successful output messages.
+   Upon successful verification of the image using the trust policy, the sha256 digest of the verified image is returned in a successful output message.
 
 ## Next steps
 
