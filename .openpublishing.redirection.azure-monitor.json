@@ -6137,6 +6137,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/vm/monitor-virtual-machine-management-packs.md",
+            "redirect_url": "/azure/azure-monitor/azure-monitor-operations-manager#migrate-management-pack-logic",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/logs/dashboard-upgrade.md",
             "redirect_url": "/azure/azure-monitor/visualize/tutorial-logs-dashboards",
             "redirect_document_id": false

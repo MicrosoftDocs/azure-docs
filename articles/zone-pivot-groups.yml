@@ -2272,6 +2272,32 @@ groups:
     title: ASE Pro 2
   - id: ase-pro-gpu
     title: ASE Pro
+# Owner: barclayn, rolyon
+## Zone pivot with Azure portal, Azure AD PowerShell, Microsoft Graph PowerShell, Microsoft Graph
+- id: identity-pivot-portal-aadpowershell-mspowershell-msgraph
+  title: Manage identity
+  prompt: Choose an option
+  pivots:
+  - id: portal
+    title: Azure portal
+  - id: aad-powershell
+    title: Azure AD PowerShell
+  - id: ms-powershell
+    title: Microsoft Graph PowerShell
+  - id: ms-graph
+    title: Microsoft Graph
+# Owner: barclayn, rolyon
+## Zone pivot with Azure portal, Microsoft Graph PowerShell, Microsoft Graph
+- id: identity-pivot-portal-mspowershell-msgraph
+  title: Manage identity
+  prompt: Choose an option
+  pivots:
+  - id: portal
+    title: Azure portal
+  - id: ms-powershell
+    title: Microsoft Graph PowerShell
+  - id: ms-graph
+    title: Microsoft Graph
 # Owner: rolyon
 - id: app-provisioning-cross-tenant-synchronization
   title: Application provisioning or cross-tenant synchronization
