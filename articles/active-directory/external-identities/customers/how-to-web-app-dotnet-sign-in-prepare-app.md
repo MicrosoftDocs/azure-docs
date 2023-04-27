@@ -49,10 +49,7 @@ After registering an application and creating a user flow in a CIAM tenant, an A
           }
         ],
         "CallbackPath": "/signin-oidc",
-        "SignedOutCallbackPath": "/signout-callback-oidc",
-        "ExtraQueryParameters": {
-          "dc": "ESTS-PUB-EUS-AZ1-FD000-TEST1"
-        }
+        "SignedOutCallbackPath": "/signout-callback-oidc"
       },
       "Logging": {
         "LogLevel": {
