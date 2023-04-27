@@ -14,7 +14,7 @@ ms.author: jasteppe
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-You may prefer to deploy the MedTech service using the Azure portal if you need to track every step of the developmental process. An Azure portal deployment might be necessary if you have to customize or troubleshoot your deployment.
+You may prefer to deploy the MedTech service using the Azure portal if you need to track every step of the provisioning process or if you want to customize or troubleshoot your deployment.
 
 In this quickstart, the MedTech service deployment using the Azure portal is divided into the following three sections:
 
@@ -52,7 +52,7 @@ Deploy an Event Hubs namespace into the resource group. Event Hubs namespaces ar
 
 ### Deploy a workspace
 
-Deploy a [workspace](../workspace-overview.md). After you create a workspace using the [Azure portal](../healthcare-apis-quickstart.md), a FHIR service and MedTech service can be deployed from the workspace.
+Deploy a [workspace](../workspace-overview.md) into the resource group. After you create a workspace using the [Azure portal](../healthcare-apis-quickstart.md), a FHIR service and MedTech service can be deployed from the workspace.
 
 ### Deploy a FHIR service
 
@@ -60,7 +60,7 @@ Deploy a [FHIR service](../fhir/fhir-portal-quickstart.md) into your resource gr
 
 ## Configure and deploy the MedTech service
 
-If you have successfully deployed the prerequisite resources, you're now ready to deploy the MedTech service using your workspace.
+If you have successfully deployed the prerequisite resources, you're now ready to deploy the MedTech service.
 
 Before you can deploy the MedTech service, you must complete the following steps:
 
@@ -68,7 +68,7 @@ Before you can deploy the MedTech service, you must complete the following steps
 
 Start with these three steps to begin configuring the MedTech service:
 
-1. Start by going to your workspace and select the **Create MedTech service** box.
+1. Start by going to your Azure Health Data services workspace and select the **Create MedTech service** box.
 
 2. This step takes you to the **Add MedTech service** button. Select the button.
 
@@ -132,13 +132,13 @@ Under the **Destination** tab, use these values to enter the destination propert
 
 * Next, select the **Resolution type**.
 
-  **Resolution type** specifies how MedTech service resolves missing data when reading from the FHIR service. MedTech reads device and patient resources from the FHIR service using [device identifiers](https://www.hl7.org/fhir/device-definitions.html#Device.identifier) and [patient identifiers](https://www.hl7.org/fhir/patient-definitions.html#Patient.identifier).
+  **Resolution type** specifies how MedTech service associates device data with FHIR Device resources and FHIR Patient resources. MedTech reads device and patient resources from the FHIR service using [device identifiers](https://www.hl7.org/fhir/device-definitions.html#Device.identifier) and [patient identifiers](https://www.hl7.org/fhir/patient-definitions.html#Patient.identifier).
 
-  Missing data can be resolved by choosing a **Resolution type** of **Create** and **Lookup**:
+  Device and Patient resources can be resolved by choosing a **Resolution type** of **Create** and **Lookup**:
 
   - **Create**
 
-    If **Create** was selected, and device or patient resources are missing when you're reading data, new resources are created, containing just the identifier.
+    If **Create** was selected, and device or patient resources are missing when you're reading data, new resources are created using the identifiers included in the device message.
 
   - **Lookup**
   
@@ -187,7 +187,7 @@ Your screen should look something like this:
 
 ### Grant resource access to the MedTech service system-managed identity
 
-There are two post-deployment access steps you must perform or the MedTech service can't:
+There are two post-deployment access steps you must perform or the MedTech service won't be able to read data from the Event Hub or write data to the FHIR service.
 
 1. Read device data from the event hub. 
 2. Read or write to the FHIR service. 
