@@ -15,7 +15,7 @@ This article indicates which Defender for Cloud features are supported in Azure 
 
 In the support table, **NA** indicates that the feature isn't available.
 
-**Feature/Plan** | **Azure** | **Azure Government** | **Azure China**<br/><br/>**21Vianet**
+**Feature/Plan** | **Azure** | **Azure Government** | **Azure China**<br/>21Vianet**
 --- | --- | --- | --- 
 **GENERAL FEATURES** | | |
 [Continuous data export](continuous-export.md) | GA | GA | GA
@@ -55,7 +55,7 @@ Defender for Containers: [Run-time visibility of vulnerabilities in container im
 
 ## Defender for Servers cloud support
 
-**Feature/Plan** | **Azure** | **Azure Government** | **Azure China**<br/><br/>**21Vianet**
+**Feature/Plan** | **Azure** | **Azure Government** | **Azure China**<br/>**21Vianet**
 --- | --- | --- | --- 
 [Just-in-time VM access](./just-in-time-access-usage.md) | GA | GA | GA
 [File integrity monitoring](./file-integrity-monitoring-overview.md)  | GA | GA | GA
