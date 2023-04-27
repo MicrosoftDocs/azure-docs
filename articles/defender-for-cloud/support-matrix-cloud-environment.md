@@ -15,7 +15,7 @@ This article indicates which Defender for Cloud features are supported in Azure 
 
 In the support table, **NA** indicates that the feature isn't available.
 
-**Feature/Plan** | **Azure** | **Azure Government** | **Azure China**<br/>21Vianet**
+**Feature/Plan** | **Azure** | **Azure Government** | **Azure China**<br/>**21Vianet**
 --- | --- | --- | --- 
 **GENERAL FEATURES** | | |
 [Continuous data export](continuous-export.md) | GA | GA | GA
