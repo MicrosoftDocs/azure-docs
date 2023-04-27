@@ -90,7 +90,8 @@ Next, repeat the process to [peer ExpressRoute Global Reach](./tutorial-expressr
 
 The following SPBM policies are supported with a PFTT of "Dual Site Mirroring" and SFTT of "RAID 1 (Mirroring)" enabled as the default policies for the cluster:
 
-- Dual site mirroring
+- Site disaster tolerance settings (PFTT):
+    - Dual site mirroring
     - None - keep data on preferred
     - None - keep data on non-preferred
 - Local failures to tolerate (SFTT):
