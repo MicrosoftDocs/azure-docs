@@ -96,7 +96,7 @@ ml_client = MLClient(
 ## Create a compute cluster to run your job
 
 > [!NOTE]
-> To try [serverless compute (preview)](../how-to-use-serverless-compute.md), skip this step and proceed to [create a job environment](#create-a-job-environment).
+> To try [serverless compute (preview)](how-to-use-serverless-compute.md), skip this step and proceed to [create a job environment](#create-a-job-environment).
 
 In Azure, a job can refer to several tasks that Azure allows its users to do: training, pipeline creation, deployment, etc. For this tutorial and our purpose of training a machine learning model, we'll use *job* as a reference to running training computations (*training job*).
 
@@ -359,7 +359,7 @@ Here, create input variables to specify the input data, split ratio, learning ra
 * Configure the command line action itself - `python main.py` in this case. The inputs/outputs are accessible in the command via the `${{ ... }}` notation.
 
 > [!NOTE]
-> To use [serverless compute (preview)](../how-to-use-serverless-compute.md), delete `compute="cpu-cluster"` in this code.
+> To use [serverless compute (preview)](how-to-use-serverless-compute.md), delete `compute="cpu-cluster"` in this code.
 
 ```python
 from azure.ai.ml import command
