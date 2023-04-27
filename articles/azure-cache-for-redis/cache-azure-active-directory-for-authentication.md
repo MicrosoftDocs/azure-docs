@@ -36,7 +36,7 @@ To use the ACL integration, your client application must assume the identity of 
 - To enable AAD token based authentication for your Azure Cache for Redis instance, at least one Redis user must be configured under the **Data Access Policy** setting in the Resource menu.
 - Azure AD based authentication is supported for SSL connections and TLS 1.2 only.
 - Azure AD based authentication isn't supported on Azure Cache for Redis instances that run Redis version 4.
-- Azure AD based authentication isn't supported on Azure Cache for Redis instances that [depend on Cloud Services](/azure/azure-cache-for-redis/cache-faq.yml#caches-with-a-dependency-on-cloud-services--classic).
+- Azure AD based authentication isn't supported on Azure Cache for Redis instances that [depend on Cloud Services](./cache-faq.yml#caches-with-a-dependency-on-cloud-services--classic).
 - Azure AD based authentication isn't supported in the Enterprise tiers of Azure Cache for Redis Enterprise.
 - Some Redis commands are blocked. For a full list of blocked commands, see [Redis commands not supported in Azure Cache for Redis](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis).
 
