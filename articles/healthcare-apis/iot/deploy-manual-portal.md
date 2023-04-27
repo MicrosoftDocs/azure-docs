@@ -177,7 +177,7 @@ To begin the validation process of your MedTech service deployment, select the *
 
 Your validation screen should look something like this:
 
-:::image type="content" source="media\deploy-manual-portal\validate-and-review-medtech-service.png" alt-text="Screenshot of validation success with details displayed." lightbox="media\deploy-manual-portal\validate-and-review-medtech-service.png":::
+:::image type="content" source="media\deploy-manual-portal\validate-and-review-tab.png" alt-text="Screenshot of validation success with details displayed." lightbox="media\deploy-manual-portal\validate-and-review-tab.png":::
 
 If your deployment didn't validate, review the validation failure message(s), and troubleshoot the issue(s). Check all properties under each MedTech service tab that you've configured and then try the validation process again.
 
