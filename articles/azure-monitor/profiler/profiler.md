@@ -57,7 +57,8 @@ If your Application Insights resource is in the same subscription as your instan
 1. Scroll down and select the **.NET** or **.NET Core** tab, depending on your app.
 1. Verify that **Collection level** > **Recommended** is selected.
 1. Under **Profiler**, select **On**.
-   - If you chose the **Basic** collection level earlier, the Profiler setting is disabled.
+
+   If you chose the **Basic** collection level earlier, the Profiler setting is disabled.
 1. Select **Apply** > **Yes** to confirm.
 
    :::image type="content" source="./media/profiler/enable-profiler.png" alt-text="Screenshot that shows enabling Profiler on your app.":::
