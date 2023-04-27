@@ -62,7 +62,7 @@ This section describes performance thresholds of a single large volume on scale-
 
 ### 256-KiB Sequential Workloads (MiB/s)
 
-The following graph represents a 256 Kibibyte (KiB) sequential workload ranging in 10% increments from 100% read to 100% write. A 1-TiB working set was used for these tests. This graph shows that a single Azure NetApp Files large volume can handle between ~8,518 MiB/s pure sequential writes and ~9,970 MiB/s pure sequential reads.
+The following graph represents a 256-Kibibyte (KiB) sequential workload ranging in 10% increments from 100% read to 100% write. A 1-TiB working set was used for these tests. This graph shows that a single Azure NetApp Files large volume can handle between ~8,518 MiB/s pure sequential writes and ~9,970 MiB/s pure sequential reads.
 
 :::image type="content" source="../media/azure-netapp-files/performance-large-volume-scale-out-sequential-workloads.png" alt-text="Graph showing 256-KiB sequential workloads of 12 VMs for one large volume." lightbox="../media/azure-netapp-files/performance-large-volume-scale-out-sequential-workloads.png":::
 
@@ -70,7 +70,7 @@ The following graph represents a 256 Kibibyte (KiB) sequential workload ranging 
 
 ### 8-KiB Random Workload (IOPS)
 
-The following graph describes the results of an 8 Kibibyte (KiB) random workload, also with a 1 TiB working set. The 8-KiB `iosize` is ubiquitous for databases and thus its selection. This graph shows that an Azure NetApp Files large volume can handle between ~474,000 pure random writes and ~709,000 pure random reads.
+The following graph describes the results of an 8-Kibibyte (KiB) random workload, also with a 1-TiB working set. The 8-KiB `iosize` is ubiquitous for databases and thus its selection. This graph shows that an Azure NetApp Files large volume can handle between ~474,000 pure random writes and ~709,000 pure random reads.
 
 :::image type="content" source="../media/azure-netapp-files/performance-large-volume-scale-out-random-workloads.png" alt-text="Graph showing 8-KiB random workloads of 12 VMs for one large volume." lightbox="../media/azure-netapp-files/performance-large-volume-scale-out-random-workloads.png":::
 
@@ -102,13 +102,13 @@ The following graphs show 256-KiB sequential reads of ~10,000 MiB/s reads with `
 
 ### Linux write throughput
 
-This section shows the advantages of `nconnect` for sequential write workloads. Using `nconnect` had a noticeable benefit for sequential writes, garnering the client 6,600 MiB/s, which is approximately four times greater throughput than achievable without `nconnect`. 
+This section shows the advantages of `nconnect` for sequential write workloads. Using `nconnect` had a noticeable benefit for sequential writes, garnering the client 6,600 MiB/s, which is approximately 4 times greater throughput than achievable without `nconnect`. 
 
 :::image type="content" source="../media/azure-netapp-files/performance-large-volume-scale-up-linux-write-throughput.png" alt-text="Graphs comparing throughput for sequential write test with and without `nconnect`." lightbox="../media/azure-netapp-files/performance-large-volume-scale-up-linux-write-throughput.png":::
 
 ### Linux read IOPS
 
-Using 8-KiB random reads and `nconnect`, the E104ds_v5 instance drove ~426,000 read IOPS, which is approximately seven times the load achievable without `nconnect`. 
+Using 8-KiB random reads and `nconnect`, the E104ds_v5 instance drove ~426,000 read IOPS, which is approximately 7 times the load achievable without `nconnect`. 
 
 :::image type="content" source="../media/azure-netapp-files/performance-large-volume-scale-up-linux-read-iops.png" alt-text="Graphs comparing IOPS of random read tests with and without `nconnect`." lightbox="../media/azure-netapp-files/performance-large-volume-scale-up-linux-read-iops.png":::
 
