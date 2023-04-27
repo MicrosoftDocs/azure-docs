@@ -193,7 +193,9 @@ The only combinations allowed for resizing are:
 - VM (with local temp disk) -> VM (with local temp disk); and
 - VM (with no local temp disk) -> VM (with no local temp disk).
 
-If interested in a work-around, see [How do I migrate from a VM size with local temp disk to a VM size with no local temp disk?](azure-vms-no-temp-disk.yml#how-do-i-migrate-from-a-vm-size-with-local-temp-disk-to-a-vm-size-with-no-local-temp-disk---)
+If interested in a work-around, see [How do I migrate from a VM size with local temp disk to a VM size with no local temp disk? ](azure-vms-no-temp-disk.yml#how-do-i-migrate-from-a-vm-size-with-local-temp-disk-to-a-vm-size-with-no-local-temp-disk---)
+Note : The above workaround mentioned in document [How do I migrate from a VM size with local temp disk to a VM size with no local temp disk? ](azure-vms-no-temp-disk.yml#how-do-i-migrate-from-a-vm-size-with-local-temp-disk-to-a-vm-size-with-no-local-temp-disk---) can be applied for resizing a VM (with no local temp disk) to VM (with local temp disk) . For this scenario ,create a snapshot of the VM (with no local temp disk) --> create a disk out of snapshot --> create VM out of disk with appropriate VM size that supports VM (with local temp disk)  : VM sizes (e.g. Standard_D2s_v3, Standard_E48_v3)
+
 
 
 
