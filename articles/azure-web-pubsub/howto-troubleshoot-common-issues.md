@@ -2,7 +2,7 @@
 title: "Troubleshooting guide for Azure Web PubSub Service"
 description: Learn how to troubleshoot common issues for Web PubSub
 author: JialinXin
-ms.service: signalr
+ms.service: azure-web-pubsub
 ms.topic: how-to
 ms.date: 04/28/2023
 ms.author: jixin
