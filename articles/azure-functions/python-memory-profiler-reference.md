@@ -19,7 +19,7 @@ Before you start developing a Python function app, you must meet these requireme
 
 * [Python 3.7 or above](https://www.python.org/downloads). To check the full list of supported Python versions in Azure Functions, see the [Python developer guide](functions-reference-python.md#python-version).
 
-* The [Azure Functions Core Tools](functions-run-local.md#v2), version 3.x or greater. Check your version with `func --version`. To learn about updating, see [Azure Functions Core Tools on GitHub](https://github.com/Azure/azure-functions-core-tools).
+* The [Azure Functions Core Tools](functions-run-local.md#v2), version 4.x or greater. Check your version with `func --version`. To learn about updating, see [Azure Functions Core Tools on GitHub](https://github.com/Azure/azure-functions-core-tools).
 
 * [Visual Studio Code](https://code.visualstudio.com/) installed on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
