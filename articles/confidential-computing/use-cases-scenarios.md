@@ -73,10 +73,10 @@ In this use-case we use a combination of Azure Confidential Compute technologies
 - Application is protected from the cloud operator whilst in-use using Confidential Compute
 - Application resources can only be deployed in the West Europe Azure region
 - Consumers of the application authenticating with modern authentication protocols can be mapped to the sovereign region they're connecting from, and denied access unless they are in an allowed region.
-- Access using administrative protocols (RDP, SSH etc.) is limited to access from the Azure Bastion service that is integrated with Priviledged Identity Management (PIM). The PIM policy requires a Conditional Access Policy that validates which sovereign region the administrator is accessing from.
+- Access using administrative protocols (RDP, SSH etc.) is limited to access from the Azure Bastion service that is integrated with Privileged Identity Management (PIM). The PIM policy requires a Conditional Access Policy that validates which sovereign region the administrator is accessing from.
 - All services log actions to Azure Monitor.
 
-:::image type="content" source="media/use-cases-scenarios/restricted-workload.jpg" alt-text="Diagram showing workloads protected by Azure Confidential Compute and complemented with Azure configuration including Azure Policy and Conditional Access":::
+:::image type="content" source="media/use-cases-scenarios/restricted-workload.jpg" alt-text="Diagram showing workloads protected by Azure Confidential Compute and complemented with Azure configuration including Azure Policy and Conditional Access.":::
 
 ## Manufacturing – IP Protection
 
@@ -100,9 +100,9 @@ In this case, the Azure Container Instance policy engine would refuse to release
 
 The Tailspin Toys application itself is coded to periodically make a call to the attestation service and report the results back to Tailspin Toys over the Internet to ensure there's a continual heartbeat of security status. 
 
-The attestation service returns cryptographically signed details from the hardware supporting the Contoso tenant to validate that the workload is running inside a confidential enclave as expected, the attestation is outside the the control of the Contoso administrators and is based on the hardware root of trust that Confidential Compute provides.
+The attestation service returns cryptographically signed details from the hardware supporting the Contoso tenant to validate that the workload is running inside a confidential enclave as expected, the attestation is outside the control of the Contoso administrators and is based on the hardware root of trust that Confidential Compute provides.
 
-:::image type="content" source="media/use-cases-scenarios/manufacturing-ip-protection.jpg" alt-text="Diagram showing a service provider running an industrial control suite from a toy manufacturer inside a Trusted Execution Environment (TEE)":::
+:::image type="content" source="media/use-cases-scenarios/manufacturing-ip-protection.jpg" alt-text="Diagram showing a service provider running an industrial control suite from a toy manufacturer inside a Trusted Execution Environment (TEE).":::
 
 ## Enhanced customer data privacy
 
@@ -116,7 +116,7 @@ Confidential computing goes in this direction by allowing customers incremental 
 
 ### Data sovereignty
 
-In Government and public agencies, Azure confidential computing is a solution to raise the degree of trust towards the ability to protect data sovereignty in the public cloud. Moreover, thanks to the increasingly adoption of confidential computing capabilities into PaaS services in Azure, a higher degree of trust can be achieved with a reduced impact to the innovation ability provided by public cloud services. This combination of protecting data sovereignty with a reduced impact to the innovation ability makes Azure confidential computing a very effective response to the needs of sovereignty and digital transformation of Government services.
+In Government and public agencies, Azure confidential computing is a solution to raise the degree of trust towards the ability to protect data sovereignty in the public cloud. Moreover, thanks to the increasing adoption of confidential computing capabilities into PaaS services in Azure, a higher degree of trust can be achieved with a reduced impact to the innovation ability provided by public cloud services. This combination of protecting data sovereignty with a reduced impact to the innovation ability makes Azure confidential computing a very effective response to the needs of sovereignty and digital transformation of Government services.
 
 ### Reduced chain of trust
 
