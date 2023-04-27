@@ -1,11 +1,12 @@
 ---
 title: Dapr trigger and bindings for Azure Functions
 description: Learn to use the Dapr trigger and bindings in Azure Functions.
-
 ms.topic: reference
 ms.date: 04/17/2023
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
+
+::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-python"
 
 # Dapr trigger and bindings for Azure Functions
 
@@ -23,6 +24,7 @@ Azure Functions integrates with [Dapr](https://docs.dapr.io/) via [triggers and 
 |Publish a message to a Dapr topic |[daprPublish](./functions-bindings-dapr-output-publish.md) |
 | Send a value to a Dapr output binding |[daprBinding](./functions-bindings-dapr-output.md) |
 
+::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 
@@ -36,10 +38,6 @@ Functions execute in the same process as the Functions host. To learn more, see 
 # [Isolated process](#tab/isolated-process)
 
 Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
-
-# [C# Script](#tab/csharp-script)
-
-Functions run as C# script, which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions](./functions-bindings-register.md)
 
 ---
 
@@ -105,10 +103,6 @@ An in-process class library is a compiled C# function runs in the same process a
 # [Isolated process](#tab/isolated-process)
 
 An isolated worker process class library compiled C# function runs in a process isolated from the runtime.  
-
-# [C# Script](#tab/csharp-script)
-
-C# script is used primarily when creating C# functions in the Azure portal.
 
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: Dapr output binding for Azure Functions
-description: Learn how to provide Dapr output binding data to an Azure Function.
+title: Dapr Binding output binding for Azure Functions
+description: Learn how to provide Dapr Binding output binding data to an Azure Function.
 ms.topic: reference
 ms.date: 04/17/2023
 ms.devlang: csharp, java, javascript, powershell, python
@@ -8,7 +8,7 @@ ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
-# Dapr output binding for Azure Functions
+# Dapr Binding output binding for Azure Functions
 
 ::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-python"
 
@@ -16,23 +16,6 @@ The output binding allows you to read Dapr data as output to an Azure Function.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-dapr.md).
 
-::: zone-end
-
-::: zone pivot="programming-language-python"
-Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
-
-# [v2](#tab/python-v2)
-The Python v2 programming model lets you define bindings using decorators directly in your Python function code. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-decorators#programming-model).
-
-# [v1](#tab/python-v1)
-The Python v1 programming model requires you to define bindings in a separate _function.json_ file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
-
----
-
-This article supports both programming models.
-
-> [!IMPORTANT]
-> The Python v2 programming model is currently in preview.
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
@@ -58,32 +41,11 @@ public static async Task Run(
 
 # [Isolated process](#tab/isolated-process)
 
-<!--add a link to the extension-specific code example in this repo: https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/Extensions/ as in the following example: 
+The following example shows how the custom type is used in both the trigger and a Dapr state output binding.
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="35-49"::: 
+TODO: current example has in-proc, need to update with out-of-proc
 
--->
-
-
-# [C# Script](#tab/csharp-script)
-
-The following examples show Dapr output bindings in a _function.json_ file and C# script (.csx) code that uses the bindings. In the _function.json_ file, todo:
-
-```json
-{
-    "type": "daprBinding",
-    "direction": "out",
-    "bindingName": "myKafkaBinding",
-    "operation": "create",
-    "name": "messages"
-}
-```
-
-Here's the C# script code:
-
-```csharp
-[DaprBinding(BindingName = "myKafkaBinding", Operation = "create")] IAsyncCollector<DaprBindingMessage> messages,
-```
+:::code language="csharp" source="~/azure-functions-dapr-extension/samples/dotnet-azurefunction/SendMessageToKafka.cs" range="8-26"::: 
 
 ---
 
@@ -110,7 +72,7 @@ Here's the _function.json_ file for `daprBinding`:
 }
 ```
 
-Here's the JavaScript code for the Dapr output binding trigger:
+Here's the JavaScript code for the Dapr Binding output binding trigger:
 
 ```javascript
 module.exports = async function (context) {
@@ -122,17 +84,9 @@ module.exports = async function (context) {
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-## Examples
+## Example
 
-The following example shows a Dapr trigger binding. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
-
-# [v2](#tab/python-v2)
-
-```python
-
-```
-
-# [v1](#tab/python-v1)
+The following example shows a Dapr Binding output binding, which uses the [v1 Python programming model](functions-reference-python.md).
 
 Here's the _function.json_ file for `daprBinding`:
 
@@ -172,32 +126,30 @@ Both in-process and isolated process C# libraries use the <!--attribute API here
 
 # [In-process](#tab/in-process)
 
-In [C# class libraries], use the [DaprBindingTrigger] to trigger a Dapr output binding, which supports the following properties.
+In [C# class libraries], use the [HttpTrigger] to trigger a Dapr Binding output binding, which supports the following properties.
 
 | Parameter | Description | 
 | --------- | ----------- | 
-| **BindingName** | The name of the Dapr trigger. If not specified, the name of the function is used as the trigger name. | 
+| **BindingName** | The name of the Dapr binding. | 
+| **Operation** | The configured binding operation. | 
+
 
 # [Isolated process](#tab/isolated-process)
 
-<!-- C# attribute information for the trigger goes here with an intro sentence. Use a code link like the following to show the method definition: 
+The following table explains the parameters for the `DaprBinding`.
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="13-16"::: 
+TODO: table has in-proc parameters - need out-of-proc
 
--->
+| Parameter | Description | 
+| --------- | ----------- | 
+| **BindingName** | The name of the Dapr binding. | 
+| **Operation** | The configured binding operation. | 
 
-# [C# Script](#tab/csharp-script)
-
-C# script uses a _function.json_ file for configuration instead of attributes.
-
-|function.json property | Description|
-|---------|----------------------|
-|**BindingName** | The name of the Dapr binding. |
-|**Operation** | The configured binding operation. |
+---
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript"
+::: zone pivot="programming-language-javascript, programming-language-python"
 
 ## Configuration
 The following table explains the binding configuration properties that you set in the function.json file.
@@ -206,23 +158,7 @@ The following table explains the binding configuration properties that you set i
 |---------|----------------------|
 |**type** | Must be set to `daprBinding`. |
 |**direction** | Must be set to `out`. |
-|**bindingName** | The name of the binding. |
-|**operation** | The binding operation. |
-|**name** | The name of the variable that represents the Dapr data in function code. |
-
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-## Configuration
-The following table explains the binding configuration properties that you set in the _function.json_ file.
-
-|function.json property | Description|
-|---------|----------------------|
-|**type** | Must be set to `daprBinding`. |
-|**direction** | Must be set to `out`. |
-|**bindingName** | The name of the binding. |
+|**bindingname** | The name of the binding. |
 |**operation** | The binding operation. |
 |**name** | The name of the variable that represents the Dapr data in function code. |
 
@@ -233,7 +169,9 @@ The following table explains the binding configuration properties that you set i
 See the [Example section](#example) for complete examples.
 
 ## Usage
-The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
+The parameter type supported by the Dapr Binding output binding depends on the Functions runtime version, the extension package version, and the C# modality used.
+
+TODO: Need usage content. 
 
 # [In-process](#tab/in-process)
 
@@ -242,8 +180,6 @@ The parameter type supported by the Event Grid trigger depends on the Functions 
 # [Isolated process](#tab/isolated-process)
 
 <!--If available, call out any usage information from the linked example in the worker repo. -->
-
-# [C# Script](#tab/csharp-script)
 
 
 ---
@@ -256,7 +192,9 @@ The parameter type supported by the Event Grid trigger depends on the Functions 
 See the [Example section](#example) for complete examples.
 
 ## Usage
-The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
+The parameter type supported by the Dapr Binding output binding depends on the Functions runtime version, the extension package version, and the C# modality used.
+
+TODO: Need usage content. 
 
 ::: zone-end
 
@@ -265,7 +203,9 @@ The parameter type supported by the Event Grid trigger depends on the Functions 
 See the [Example section](#example) for complete examples.
 
 ## Usage
-The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
+The parameter type supported by the Dapr Binding output binding depends on the Functions runtime version, the extension package version, and the C# modality used.
+
+TODO: Need usage content. 
 
 ::: zone-end
 

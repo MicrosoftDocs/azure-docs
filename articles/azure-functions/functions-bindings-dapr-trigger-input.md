@@ -41,31 +41,10 @@ public static void Run(
  
 # [Isolated process](#tab/isolated-process)
 
-<!--add a link to the extension-specific code example in this repo: https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/Extensions/ as in the following example: 
+TODO: current example has in-proc, need to update with out-of-proc
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="35-49"::: 
+:::code language="csharp" source="~/azure-functions-dapr-extension/samples/dotnet-azurefunction/ConsumeMessageFromKafka.cs" range="8-29"::: 
 
--->
-
-
-# [C# Script](#tab/csharp-script)
-
-The following shows a Dapr binding trigger in a _function.json_ file and code that uses the binding. 
-
-```json
-{
-    "type": "daprBindingTrigger",
-    "bindingName": "myKafkaBinding",
-    "name": "triggerData",
-    "direction": "in"
-}
-```
-
-Here's the C# script code:
-
-```csharp
-
-```
 
 ---
 
@@ -105,15 +84,7 @@ module.exports = async function (context) {
 ::: zone pivot="programming-language-python"
 ## Example
 
-The following example shows a Dapr trigger binding. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
-
-# [v2](#tab/python-v2)
-
-```python
-
-```
-
-# [v1](#tab/python-v1)
+The following example shows a Dapr Input Binding trigger, which uses the [v1 Python programming model](functions-reference-python.md).
 
 Here's the _function.json_ file for `daprBindingTrigger`:
 
@@ -145,8 +116,6 @@ def main(triggerData: str) -> None:
     logging.info('Trigger data: ' + triggerData)
 ```
 
----
-
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
@@ -164,44 +133,20 @@ In [C# class libraries], use the [DaprBindingTrigger] to trigger a Dapr input bi
 
 # [Isolated process](#tab/isolated-process)
 
-<!-- C# attribute information for the trigger goes here with an intro sentence. Use a code link like the following to show the method definition: 
+TODO: table has in-proc parameters - need out-of-proc
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="13-16"::: 
-
--->
-
-# [C# Script](#tab/csharp-script)
-
-C# script uses a _function.json_ file for configuration instead of attributes.
-
-|function.json property | Description|
-|---------|----------------------|
-|**type** | Must be set to `daprBindingTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
-|**bindingName** | The name of the binding. |
-|**name** | The name of the variable that represents the Dapr data in function code. |
-|**direction** | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. Exceptions are noted in the [usage](#usage) section. |
+| Parameter | Description | 
+| --------- | ----------- | 
+| **BindingName** | The name of the Dapr trigger. If not specified, the name of the function is used as the trigger name. | 
 
 ---
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript"
+::: zone pivot="programming-language-javascript, programming-language-python"
 
 ## Configuration
 The following table explains the binding configuration properties that you set in the function.json file.
-
-|function.json property | Description|
-|---------|----------------------|
-|**type** | Must be set to `daprBindingTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
-|**bindingName** | The name of the binding. |
-|**name** | The name of the variable that represents the Dapr data in function code. |
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-## Configuration
-The following table explains the binding configuration properties that you set in the _function.json_ file.
 
 |function.json property | Description|
 |---------|----------------------|
@@ -217,7 +162,7 @@ The following table explains the binding configuration properties that you set i
 See the [Example section](#example) for complete examples.
 
 ## Usage
-The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
+The parameter type supported by the Dapr Input Binding trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
 
 # [In-process](#tab/in-process)
 
@@ -226,8 +171,6 @@ The parameter type supported by the Event Grid trigger depends on the Functions 
 # [Isolated process](#tab/isolated-process)
 
 <!--If available, call out any usage information from the linked example in the worker repo. -->
-
-# [C# Script](#tab/csharp-script)
 
 
 ---
@@ -240,7 +183,7 @@ The parameter type supported by the Event Grid trigger depends on the Functions 
 See the [Example section](#example) for complete examples.
 
 ## Usage
-The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
+The parameter type supported by the Dapr Input Binding trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
 
 ::: zone-end
 
@@ -249,7 +192,7 @@ The parameter type supported by the Event Grid trigger depends on the Functions 
 See the [Example section](#example) for complete examples.
 
 ## Usage
-The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
+The parameter type supported by the Dapr Input Binding trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
 
 ::: zone-end
 
