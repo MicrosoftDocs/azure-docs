@@ -49,7 +49,7 @@ A development machine:
 An Azure IoT Edge device:
 
 * You should run IoT Edge on a separate device. This distinction between development machine and IoT Edge device simulates a true deployment scenario and helps keep the different concepts separate.
-Use the quickstart article [Deploy code to a Linux Device](quickstart-linux.md) to create an IoT Edge device in Azure.
+Use the quickstart article [Deploy code to a Linux Device](quickstart-linux.md) to create an IoT Edge device in Azure or the [Azure Resource Template to deploy an IoT Edge enabled VM](https://github.com/Azure/iotedge-vm-deploy).
 
 Cloud resources:
 
@@ -66,7 +66,7 @@ Cloud resources:
 
 ## Key concepts
 
-This tutorial walks through the development of an IoT Edge module. An *IoT Edge module*, or sometimes just *module* for short, is a container with executable code. You can deploy one or more modules to an IoT Edge device. Modules perform specific tasks like ingesting data from sensors, cleaning and analyzing data, or sending messages to an IoT hub. For more information, see [Understand Azure IoT Edge modules](iot-edge-modules.md).
+This tutorial walks through the development of an IoT Edge module. An *IoT Edge module* is a container with executable code. You can deploy one or more modules to an IoT Edge device. Modules perform specific tasks like ingesting data from sensors, cleaning and analyzing data, or sending messages to an IoT hub. For more information, see [Understand Azure IoT Edge modules](iot-edge-modules.md).
 
 When developing IoT Edge modules, it's important to understand the difference between the development machine and the target IoT Edge device where the module deploys. The container that you build to hold your module code must match the operating system (OS) of the *target device*. For example, the most common scenario is someone developing a module on a Windows computer intending to target a Linux device running IoT Edge. In that case, the container operating system would be Linux. As you go through this tutorial, keep in mind the difference between the *development machine OS* and the *container OS*.
 
@@ -103,17 +103,9 @@ Use the Docker documentation to install on your development machine:
 
 ::: zone pivot="iotedge-dev-cli"
 
-* Install the Python-based [Azure IoT Edge Dev Tool](https://pypi.org/project/iotedgedev/) to debug, run, and test your IoT Edge solution. [Python 3.6 or 3.7](https://www.python.org/downloads/) and [Pip3](https://pip.pypa.io/en/stable/installation/) are required for the *Azure IoT Edge Tool*. Install the prerequisites first if needed.
-
-   ```bash
-   pip3 install iotedgedev
-   ```
-
-   > [!NOTE]
-   >
-   > If you have multiple Python versions, including pre-installed Python 2.7 (for example, on Ubuntu or macOS), make sure you use `pip3` to install *IoT Edge Dev Tool (iotedgedev)*.
-   >
-   > For more information setting up your development machine, see [iotedgedev development setup](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/manual-dev-machine-setup.md).
+Install the Python-based [Azure IoT Edge Dev Tool](https://pypi.org/project/iotedgedev/) to create your IoT Edge solution. There are two options:
+    * Use the pre-built [IoT Edge Dev Container](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/run-devcontainer-docker.md)
+    * Install the tool using the [iotedgedev development setup](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/manual-dev-machine-setup.md)
 
 ::: zone-end
 
