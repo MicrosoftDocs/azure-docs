@@ -211,14 +211,15 @@ Using Apple's [`AVAudioEngine`](https://developer.apple.com/documentation/avfaud
         private let audioEngine: AVAudioEngine = AVAudioEngine()
 
         init(properties: RawOutgoingAudioProperties) throws {
-            // This can be different depending on which device we are running.
+            // This can be different depending on which device we are running or value set for
+            // `try AVAudioSession.sharedInstance().setPreferredSampleRate(...)`.
             let nodeFormat = self.audioEngine.inputNode.outputFormat(forBus: 0)
             let matchingSampleRate = AudioSampleRate.allCases.first(where: { $0.valueInHz == nodeFormat.sampleRate })
             guard let inputNodeSampleRate = matchingSampleRate else {
                 throw MicrophoneSenderError.notMatchingFormat
             }
 
-            // Override the sample rate to one that matches hardware (Audio engine input node frequency).
+            // Override the sample rate to one that matches audio session (Audio engine input node frequency).
             properties.sampleRate = inputNodeSampleRate
 
             let options = RawOutgoingAudioStreamOptions()
@@ -253,7 +254,7 @@ Using Apple's [`AVAudioEngine`](https://developer.apple.com/documentation/avfaud
                 // as long as it can be evenly divided by the specified size.
                 self.stream.sendOutgoing(audioBuffer: rawBuffer) { error in
                     if let error = error {
-                    // Handle error
+                        // Handle error
                     }
                 }
             }
@@ -266,6 +267,16 @@ Using Apple's [`AVAudioEngine`](https://developer.apple.com/documentation/avfaud
         }
     }
 ```
+
+---
+**NOTE**
+
+The sample rate of the audio engine [input node](https://developer.apple.com/documentation/avfaudio/avaudioengine/1386063-inputnode) default to a value of the preferred sample rate for the shared audio session and we cannot install tap in that node using a different sample rate. So we have to ensure that the `RawOutgoingStream`
+properties sample rate matches the one we get from tap into microphone samples or convert the tap buffers to the format that 
+matches what is expected on the outgoing stream.
+
+---
+
 
 With this small sample, we learned how we can capture the microphone [`AVAudioEngine`](https://developer.apple.com/documentation/avfaudio/avaudioengine) data and send those samples to a call using raw outgoing audio feature.
 
