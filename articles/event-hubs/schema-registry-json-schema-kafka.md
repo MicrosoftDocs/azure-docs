@@ -15,7 +15,8 @@ In this use case a Kafka producer application uses JSON schema stored in Azure S
 :::image type="content" source="./media/schema-registry-overview/kafka-json-schema.png" alt-text="Diagram showing the schema serialization/de-serialization for Kafka applications using JSON schema." border="false":::
 
 > [!NOTE]
-> This feature is currently in preview. 
+> This feature is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 
 ## Prerequisites
 If you're new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md) before you do this quickstart. 
