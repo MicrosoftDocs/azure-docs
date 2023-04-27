@@ -46,7 +46,7 @@ If a component meets the reuse criteria, the pipeline service skips execution fo
 
 ## Steps to debug pipeline reuse issues
 
-If reuse isn't working as expected in your pipeline. You can follow below steps to debug.
+If reuse isn't working as expected in your pipeline, try the following steps to debug.
 
 ### Step 1: Check if pipeline setting ForceRerun=True
 
