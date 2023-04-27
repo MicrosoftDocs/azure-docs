@@ -2,11 +2,11 @@
 title: Upgrade a packet core instance
 titleSuffix: Azure Private 5G Core
 description: In this how-to guide, you'll learn how to upgrade a packet core instance using the Azure portal. 
-author: djrmetaswitch
-ms.author: drichards
+author: prmuthu
+ms.author: prmuthu
 ms.service: private-5g-core
 ms.topic: how-to
-ms.date: 04/27/2022
+ms.date: 04/26/2023
 ms.custom: template-how-to
 ---
 
