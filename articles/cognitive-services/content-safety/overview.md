@@ -37,7 +37,7 @@ The following are a few scenarios in which a software developer or team would re
 
 - Online marketplaces that moderate product catalogs and other user-generated content.
 - Gaming companies that moderate user-generated game artifacts and chat rooms.
-- Social messaging platforms that moderate images, text, and videos added by their users.
+- Social messaging platforms that moderate images and text added by their users.
 - Enterprise media companies that implement centralized moderation for their content.
 - K-12 education solution providers filtering out content that is inappropriate for students and educators.
 
