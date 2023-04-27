@@ -20,6 +20,7 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in April include:
 
+- [Microsoft Defender for APIs is now available (Preview)](#microsoft-defender-for-apis-is-now-available-preview)
 - [Agentless Container Posture in Defender CSPM (Preview)](#agentless-container-posture-in-defender-cspm-preview)
 - [New preview Unified Disk Encryption recommendation](#unified-disk-encryption-recommendation-preview)
 - [Changes in the recommendation Machines should be configured securely](#changes-in-the-recommendation-machines-should-be-configured-securely)
@@ -30,6 +31,17 @@ Updates in April include:
 - [Deprecation and improvement of selected alerts for Windows and Linux Servers](#deprecation-and-improvement-of-selected-alerts-for-windows-and-linux-servers)
 - [New Azure Active Directory authentication-related recommendations for Azure Data Services](#new-azure-active-directory-authentication-related-recommendations-for-azure-data-services)
 - [Two recommendations related to missing Operating System (OS) updates were released to GA](#two-recommendations-related-to-missing-operating-system-os-updates-were-released-to-ga)
+
+### Microsoft Defender for APIs is now available (Preview)
+
+Microsoft Defender for APIs is a plan provided by Microsoft Defender for Cloud that offers full lifecycle protection, detection, and response coverage for APIs.
+
+Defender for APIs helps you to gain visibility into business-critical APIs. You can investigate and improve your API security posture, prioritize vulnerability fixes, and quickly detect active real-time threats.
+
+Defender for APIs currently provides security for APIs published in Azure API Management. Defender for APIs can be onboarded in the Defender for Cloud portal, or within the API Management instance in the Azure portal.
+
+Learn more about [Microsoft Defender for APIs](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-apis-introduction).
+
 ### Agentless Container Posture in Defender CSPM (Preview)
 
 The new Agentless Container Posture (Preview) capabilities are available as part of the Defender CSPM (Cloud Security Posture Management) plan.
