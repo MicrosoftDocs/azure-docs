@@ -103,13 +103,29 @@ New-AzVmss `
   -LoadBalancerName "myLoadBalancer" `
   -UpgradePolicyMode "Automatic"
 ```
+
+### [Template](#tab/template)
+When using an ARM template, add the upgradePolicy to the properties section: 
+
+```ARM
+"properties": {
+    "singlePlacementGroup": false,
+        "upgradePolicy": {
+            "mode": "Rolling",
+            "rollingUpgradePolicy": {
+            "maxBatchInstancePercent": 20,
+            "maxUnhealthyInstancePercent": 20,
+            "maxUnhealthyUpgradedInstancePercent": 20,
+            "pauseTimeBetweenBatches": "PT2S",
+	        "MaxSurge": "true"
+```
 ---
 
 ## Changing the Upgrade Policy
 
 The Upgrade Policy for a Virtual Machine Scale Set can be changed at any point in time. 
 
-### [CLI](#tab/cli)
+### [CLI](#tab/cli-2)
 Update an existing Virtual Machine Scale Set using [az vmss update](/cli/azure/vmss#az-vmss-update) and set the Upgrade Policy from `Manual` to `Rolling` with `MaxSurge` enabled. If you do not already have a health probe or the Application Health Extension installed, configure that prior to changing the Upgrade Policy.
 
 ```azurecli-interactive
@@ -123,7 +139,7 @@ az vmss update \
     --max-surge true
 ```
 
-### [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell-2)
 Update an existing Virtual Machine Scale Set using [Set-AzVmssRollingUpgradePolicy](/powershell/module/az.compute/set-azvmssrollingupgradepolicy) and [Update-AzVmss](/powershell/module/az.compute/update-azvmss). If you do not already have a health probe or the Application Health Extension installed, configure that prior to changing the Upgrade Policy.
 
 ```azurepowershell-interactive
@@ -139,6 +155,23 @@ Set-AzVmssRollingUpgradePolicy `
 
 Update-Azvmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMachineScaleSet $vmss
 ```
+
+### [Template](#tab/template-2)
+
+Update the properties section of your ARM template as follows: 
+
+```ARM
+"properties": {
+    "singlePlacementGroup": false,
+        "upgradePolicy": {
+            "mode": "Rolling",
+            "rollingUpgradePolicy": {
+            "maxBatchInstancePercent": 20,
+            "maxUnhealthyInstancePercent": 20,
+            "maxUnhealthyUpgradedInstancePercent": 20,
+            "pauseTimeBetweenBatches": "PT2S",
+	        "MaxSurge": "true"
+```
 ---
 
 ## Performing Manual Upgrades
@@ -148,39 +181,53 @@ If you have the Upgrade Policy set to manual, you need to trigger manual upgrade
 > [!NOTE]
 > While performing upgrades, the instances may be restarted.
 
-### [CLI](#tab/cli)
+### [CLI](#tab/cli-3)
 Update Virtual Machine Scale Set instances using [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances).
 
 ```azurecli-interactive
 az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
 ```
-### [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell-3)
 Update Virtual Machine Scale Set instances using [Update-AzVmssInstance](/powershell/module/az.compute/update-azvmssinstance).
     
 ```azurepowershell-interactive
 Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
 ```
+
+### [REST API](#tab/rest-3)
+Update Virtual Machine Scale Set instances using [update instances](/rest/api/compute/virtualmachinescalesets/updateinstances).
+
+```rest
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/manualupgrade?api-version={apiVersion}
+```
 ---
 
 ## Exceptions to Upgrade Policies
 
-Changes to the scale set OS, data disk Profile (such as admin username and password) and [Custom Data](../virtual-machines/custom-data.md) only apply to VMs created after the change in the scale set model. To bring existing VMs up-to-date, you must do a "reimage" of each existing VM. 
+Changes to the scale set OS, data disk Profile (such as admin username and password) and [Custom Data](../virtual-machines/custom-data.md) only apply to VMs created after the change in the scale set model. To bring existing VMs up-to-date, you must do a "reimage" of each existing VM. You can do this reimage using:
 
 > [!NOTE]
-> When using reimage, the selected instance will be restored its initial state. The instance may be restarted, and any local data will be lost.
+> The Reimage flag will reimage the selected instance, restoring it to the initial state. The instance may be restarted, and any local data will be lost.
 
-### [CLI](#tab/cli)
+### [CLI](#tab/cli-4)
 Reimage a Virtual Machine Scale Set instance using [az vmss reimage](/cli/azure/vmss#az-vmss-reimage).
 
 ```azurecli-interactive
 az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
 ```
 
-### [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell-4)
 Reimage a Virtual Machine Scale Set instance using [Set-AzVmssVM](/powershell/module/az.compute/set-azvmssvm).
 
 ```azurepowershell-interactive
 Set-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
+```
+
+### [REST API](#tab/rest-4)
+Reimage a Virtual Machine Scale Set instance using [reimage](/rest/api/compute/virtualmachinescalesets/reimage).
+
+```rest
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/reimage?api-version={apiVersion}
 ```
 ---
 
