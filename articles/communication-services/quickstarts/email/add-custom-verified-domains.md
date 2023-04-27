@@ -19,6 +19,15 @@ In this quick start, you learn about how to add a custom domain and verify in Az
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
 - An Azure Email Communication Services Resource created and ready to provision the domains [Get started with Creating Email Communication Resource](../../quickstarts/email/create-email-communication-resource.md)
 
+## Azure Managed Domains vs. Custom Domains
+
+Before provisioning a Custom Domain, review the following table to determine which domain type is most appropriate for your particular use case.
+
+| | [Azure Managed Domains](./add-azure-managed-domains.md) | [Custom Domains](./add-custom-verified-domains.md) | 
+|---|---|---|
+|**Pros:** | - Setup is quick & easy<br/>- No domain verification required<br /> | - Emails are sent from your own domain |
+|**Cons:** | - Sender domain is not personalized and cannot be changed | - Requires verification of domain records <br /> - Longer setup for verification |
+
 ## Provision custom domain
 To provision a custom domain, you need to:
     
@@ -110,9 +119,9 @@ You can optionally configure your MailFrom address to be something other than th
 
 ## Next steps
 
-* [Get started with create and manage Email Communication Service in Azure Communication Service](../../quickstarts/email/create-email-communication-resource.md)
-
 * [Get started by connecting Email Communication Service with a Azure Communication Service resource](../../quickstarts/email/connect-email-communication-resource.md)
+
+* [How to send an email using Azure Communication Service](../../quickstarts/email/send-email.md)
 
 
 The following documents may be interesting to you:
