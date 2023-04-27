@@ -214,6 +214,7 @@ The following tables summarize current availability:
 
 | Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
 | :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
+| Switzerland           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
 | Switzerland           | Local     | -        | -        | Public Preview | Public Preview\* |
 | Switzerland, Germany, Netherlands, United Kingdom, Australia, France, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia              | Alphanumeric Sender ID  \**  | Public Preview      | -        | -  | - |
 
