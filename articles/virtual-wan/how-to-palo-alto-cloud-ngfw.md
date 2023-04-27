@@ -88,8 +88,13 @@ To create a new virtual WAN, use the steps in the following article:
 * For routing between Virtual WAN and Palo Alto Networks Cloud NGFW to work properly, your entire network (on-premises and Virtual Networks) must be within RFC-1918 (subnets within 10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12). For example, you may not use a subnet such as 40.0.0.0/24 within your Virtual Network or on-premises. Traffic to 40.0.0.0/24 may not be routed properly.  
 * All other limitations in the [Routing Intent and Routing policies documentation limitations section](how-to-routing-policies.md) apply to Palo Alto Networks Cloud NGFW deployments in Virtual WAN.
 
+## Register resource provider
+
+To you Palo Alto Networks Cloud NGFW, you must register the **PaloAltoNetworks.Cloudngfw** resource provider to your subscription with an API version that is at minimum **2022-08-29-preview**.
+
+For more information on how to register a Resource Provider to an Azure subscription, see [Azure resource provders and types documentation ](../azure-resource-manager/management/resource-providers-and-types.md).
 ## Deploy virtual hub
-The follow steps describe how to deploy a Virtual Hub that can be used with Palo Alto Networks Cloud NGFW.
+The following steps describe how to deploy a Virtual Hub that can be used with Palo Alto Networks Cloud NGFW.
 
 1. Navigate to your Virtual WAN resource.
 1. On the left hand menu, select **Hubs** under **Connectivity**.
@@ -160,6 +165,7 @@ The following section describes common issues seen when using Palo Alto Networks
 * Ensure your Virtual Hubs are deployed in one of the following regions: Central US, East US, East US 2, West Europe or Australia East. Cloud NGFW deployment fails in other regions.
 * Ensure your Virtual Hub was created with the Azure Resource Tag **"hubSaaSPreview" : "true"**. Hubs created without this tag are'nt eligible to be used with Cloud NGFW. These tags must be specified at hub creation time and cannot be provided after hub deployment. To use Cloud NGFW, you need to create a new Virtual Hub.
 * Ensure the Routing status of the Virtual Hub is "Provisioned." Attempts to create Cloud NGFW prior to routing being provisioned will fail. 
+* Ensure registration to the **PaloAltoNetworks.Cloudngfw** resource provider is succesful.
 
 ### Troubleshooting deletion
 
