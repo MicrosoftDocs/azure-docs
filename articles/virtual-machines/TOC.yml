@@ -1357,8 +1357,14 @@
         href: ./windows/download-vhd.md
   - name: Migration and conversion
     items:
-    - name: Convert disk to another disk type or redundancy
-      href: disks-convert-types.md
+    - name: Convert disk to another disk type
+      items:
+      - name: CLI
+        displayName: Convert disk to another disk type
+        href: ./linux/convert-disk-storage.md
+      - name: PowerShell
+        displayName: Convert disk to another disk type
+        href: ./windows/convert-disk-storage.md
     - name: Migrate AWS and on-premises disk to Azure
       href: ./windows/on-prem-to-azure.md
     - name: Migrate to premium SSDs with Azure Site Recovery
