@@ -129,7 +129,7 @@ This section walks you through spinning up FileStreamSource and FileStreamSink c
     ```bash
     curl -s -X POST -H "Content-Type: application/json" --data '{"name": "file-source","config": {"connector.class":"org.apache.kafka.connect.file.FileStreamSourceConnector","tasks.max":"1","topic":"connect-quickstart","file": "{YOUR/HOME/PATH}/connect-quickstart/input.txt"}}' http://localhost:8083/connectors
     ```
-    You should see the Event Hub `connect-quickstart` on your Event Hubs instance after running the above command.
+    You should see the event hub `connect-quickstart` on your Event Hubs instance after running the above command.
 4. Check status of source connector.
     ```bash
     curl -s http://localhost:8083/connectors/file-source/status
@@ -155,7 +155,7 @@ This section walks you through spinning up FileStreamSource and FileStreamSink c
     ```
 
 ### Cleanup
-Kafka Connect creates Event Hub topics to store configurations, offsets, and status that persist even after the Connect cluster has been taken down. Unless this persistence is desired, it is recommended that these topics are deleted. You may also want to delete the `connect-quickstart` Event Hub that were created during the course of this walkthrough.
+Kafka Connect creates Event Hubs topics to store configurations, offsets, and status that persist even after the Connect cluster has been taken down. Unless this persistence is desired, it is recommended that these topics are deleted. You may also want to delete the `connect-quickstart` Event Hubs that were created during the course of this walkthrough.
 
 ## Next steps
 
