@@ -11,7 +11,8 @@ ms.devlang: csharp
 
 # Troubleshooting guide for common issues
 
-This article provides troubleshooting guidance for some of the common issues that customers might encounter. Listed errors are available to check when you turn on [`live trace tool`](./howto-troubleshoot-resource-logs.md#capture-resource-logs-by-using-the-live-trace-tool) or collect from [Azure Monior](./howto-troubleshoot-resource-logs.md#capture-resource-logs-with-azure-monitor).
+This article provides troubleshooting guidance for some of the common issues that customers might encounter. Listed errors are available to check when you turn on [`live trace tool`](./howto-troubleshoot-resource-logs.md#capture-resource-logs-by-using-the-live-trace-tool) or collect from [Azure Monitor](./howto-troubleshoot-resource-logs.md#capture-resource-logs-with-azure-monitor).
+
 
 ## 404 from HttpHandlerUnexpectedResponse
 
