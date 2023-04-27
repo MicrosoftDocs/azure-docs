@@ -51,13 +51,11 @@ To minimize issues related to throttling, it's a good idea to use the following 
 
 The next sections describe specific cases of adjusting quotas.
 
-### How to request an increase to the transactions-per-minute,  number of fine-tuned models deployed or token per minute quotas.
+### How to request increases to the default quotas and limits
 
-If you need to increase the limit, you can apply for a quota increase here: <https://aka.ms/oai/quotaincrease>
+At this time, due to overwhelming demand we cannot accept any new resource or quota increase requests.
 
-### How to request an increase to the number of resources per region
-
-If you need to increase the number of resources, you can apply for a resource increase here: <https://aka.ms/oai/resourceincrease>
+ 
 
 > [!NOTE]
 > Ensure that you thoroughly assess your current resource utilization, approaching its full capacity. Be aware that we will not grant additional resources if efficient usage of existing resources is not observed.
