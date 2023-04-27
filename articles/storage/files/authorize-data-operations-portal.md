@@ -4,7 +4,7 @@ description: When you access file data using the Azure portal, the portal makes 
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/24/2023
+ms.date: 04/27/2023
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -49,39 +49,27 @@ For information about the built-in roles that support access to file data, see [
 
 Custom roles can support different combinations of the same permissions provided by the built-in roles. For more information about creating Azure custom roles, see [Azure custom roles](../../role-based-access-control/custom-roles.md) and [Understand role definitions for Azure resources](../../role-based-access-control/role-definitions.md).
 
-## Navigate to files in the Azure portal
-
-To view file data in the portal, navigate to the **Overview** for your storage account, and select **File service**. Alternatively you can navigate to the **File shares** section in the menu.
-
-:::image type="content" source="media/authorize-data-operations-portal/blob-access-portal.png" alt-text="Screenshot showing how to navigate to blob data in the Azure portal.":::
-
 ## Determine the current authentication method
 
-When you navigate to a file share, the Azure portal indicates whether you're currently using the storage account access key or your Azure AD account to authenticate.
+To view file data in the portal, navigate to your storage account and select **Data storage** > **File shares** from the left navigation. When you select a file share, the Azure portal indicates whether you're currently using the storage account access key or your Azure AD account to authenticate.
 
 ### Authenticate with the storage account access key
 
-If you're authenticating using the storage account access key, you'll see **Access Key** specified as the authentication method in the portal:
+If you're authenticating using the storage account access key, you'll see **Access Key** specified as the authentication method:
 
-:::image type="content" source="media/authorize-data-operations-portal/auth-method-access-key.png" alt-text="Screenshot showing user currently accessing containers with the account key.":::
+:::image type="content" source="media/authorize-data-operations-portal/auth-method-access-key.png" alt-text="Screenshot showing user currently accessing file share with the account key.":::
 
-To switch to using your Azure AD account, select the link highlighted in the image. If you have the appropriate permissions via the Azure roles that are assigned to you, you'll be able to proceed. However, if you lack the necessary permissions, you'll see an error message like the following:
+To switch to using your Azure AD account, select the link highlighted in the image that says **Switch to Azure AD User Account**. If you have the appropriate permissions via the Azure roles that are assigned to you, you'll be able to proceed. However, if you lack the necessary permissions, you'll see an error message that you don't have permissions to list the data using your user account with Azure AD.
 
-:::image type="content" source="media/authorize-data-operations-portal/auth-error-azure-ad.png" alt-text="Error shown if Azure AD account doesn't support access.":::
-
-Notice that no file shares appear in the list if your Azure AD account lacks permissions to view them. Select **Switch to access key** to use the access key for authentication again.
+No file shares will appear in the list if your Azure AD account lacks permissions to view them. Select **Switch to access key** to use the access key for authentication again.
 
 ### Authenticate with your Azure AD account
 
 If you're authenticating using your Azure AD account, you'll see **Azure AD User Account** specified as the authentication method in the portal.
 
-:::image type="content" source="media/authorize-data-operations-portal/auth-method-azure-ad.png" alt-text="Screenshot showing user currently accessing containers with Azure AD account.":::
+To switch to using the account access key, select the link that says **Switch to access key.** If you have access to the storage account key, then you'll be able to proceed. However, if you lack access to the account key, you'll see an error message that you don't have permissions to use the access key to list data.
 
-To switch to using the account access key, select the link highlighted in the image. If you have access to the storage account key, then you'll be able to proceed. However, if you lack access to the account key, you'll see an error message like the following:
-
-:::image type="content" source="media/authorize-data-operations-portal/auth-error-access-key.png" alt-text="Error shown if you do not have access to account key.":::
-
-Notice that no file shares appear in the list if you don't have access to the storage account key. Select **Switch to Azure AD User Account** to use your Azure AD account for authentication again.
+No file shares appear in the list if you don't have access to the storage account access key. Select **Switch to Azure AD User Account** to use your Azure AD account for authentication again.
 
 ## Specify how to authorize a specific file share operation
 
@@ -93,7 +81,7 @@ To specify how to authorize a specific file share, follow these steps:
 2. Select the **Browse** option from the menu.
 3. Under **Authentication method**, indicate whether you want to authorize the file share operations (listing data in the file share, upload file, and create directory) by using your Azure AD account or with the storage account access key, as shown in the following image.
 
-    :::image type="content" source="media/authorize-data-operations-portal/auth-blob-upload.png" alt-text="Screenshot showing how to change authorization method on blob upload.":::
+    :::image type="content" source="media/authorize-data-operations-portal/choose-auth-file-share.png" alt-text="Screenshot showing how to change authorization method on a specific file share.":::
 
 ## Default to Azure AD authorization in the Azure portal
 
