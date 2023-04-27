@@ -427,7 +427,7 @@ The SuccessFactors Writeback app uses the following logic to update the User obj
 Usually the *personIdExternal* attribute value in SuccessFactors matches the *userId* attribute value. However, in scenarios such as rehiring and worker conversion, an employee in SuccessFactors may have two employment records, one active and one inactive. In such scenarios, to ensure that write-back updates the active user profile, update the configuration of the SuccessFactors provisioning apps as described. This configuration ensures that *userId* is always present in the changeset visible to the connector and is used in the SuccessFactors API call.
 
 1. Open the SuccessFactors to Azure AD user provisioning app or SuccessFactors to on-premises AD user provisioning app. 
-1. Ensure that an extensionAttribute *(extensionAttribute1-15)* in Azure AD always stores the *userId* of every worker's active employment record. This can be achieved by mapping SuccessFactors *userId* attribute to an extensionAttribute in Azure AD. 
+1. Ensure that `extensionAttribute[1-15]` in Azure AD always stores the `userId` of every worker's active employment record. The record maps SuccessFactors `userId` attribute to `extensionAttribute[1-15]` in Azure AD. 
     > [!div class="mx-imgBorder"]
     > ![Inbound UserID attribute mapping](./media/sap-successfactors-integration-reference/inbound-userid-attribute-mapping.png)
 1. For guidance regarding JSONPath settings, refer to the section [Handling worker conversion and rehiring scenarios](#handling-worker-conversion-and-rehiring-scenarios) to ensure the *userId* value of the active employment record flows into Azure AD. 
