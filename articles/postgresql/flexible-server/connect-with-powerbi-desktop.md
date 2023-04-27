@@ -101,7 +101,7 @@ To make the connection, take the following steps:
 
 Power Query Desktop provides a set of advanced options that you can add to your query if needed. 
 
-    :::image type="content" source="./media/connect-with-powerbi-desktop/ConnPBIAP8.png" alt-text="Screenshot of PostgreSQL advanced options."::: 
+   :::image type="content" source="./media/connect-with-powerbi-desktop/ConnPBIAP8.png" alt-text="Screenshot of PostgreSQL advanced options."::: 
 
 The following table lists all of the advanced options you can set in Power Query Desktop.
 
