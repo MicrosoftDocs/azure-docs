@@ -6,7 +6,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/11/2023
+ms.date: 04/26/2023
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
@@ -483,7 +483,7 @@ The following table summarizes the available attributes by source:
 > | Property | Value |
 > | --- | --- |
 > | **Display name** | Is private link |
-> | **Description** | Whether access is over a private link.<br/>Use to require access over any private endpoint. |
+> | **Description** | Whether access is over a private link.<br/>Use to require access over any private link. |
 > | **Attribute** | `isPrivateLink` |
 > | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
 > | **Attribute type** | [Boolean](../../role-based-access-control/conditions-format.md#boolean-comparison-operators) |
