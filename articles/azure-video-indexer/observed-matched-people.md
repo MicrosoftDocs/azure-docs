@@ -6,7 +6,7 @@ author: Juliako
 ms.author: juliako
 manager: femila
 ms.service: azure-video-indexer
-ms.date: 07/07/2022
+ms.date: 04/06/2023
 ms.topic: article
 ---
 
@@ -210,9 +210,20 @@ During the observed people tracking and matched faces procedure, images in a med
 
 Below are some considerations to keep in mind when using observed people and matched faces. 
 
-- When uploading a file always use high-quality video content. The recommended maximum frame size is HD and frame rate is 30 FPS. A frame should contain no more than 10 people. When outputting frames from videos to AI models, only send around 2 or 3 frames per second. Processing 10 and more frames might delay the AI result. People and faces in videos recorded by cameras that are high-mounted, down-angled or with a wide field of view (FOV) may have fewer pixels that may result in lower accuracy of the generated insights. 
-- Typically, small people or objects under 200 pixels and people who are seated may not be detected. People wearing similar clothes or uniforms might be detected as being the same person and will be given the same ID number. People or objects that are obstructed may not be detected. Tracks of people with front and back poses may be split into different instances. 
-- An observed person must first be detected and appear in the people category before they're matched. Tracks are optimized to handle observed people who frequently appear in the front. Obstructions like overlapping people or faces may cause mismatches between matched people and observed people. Mismatching may occur when different people appear in the same relative spatial position in the frame within a short period. 
+### Limitations of observed people tracing
+
+It's important to note the limitations of observed people tracing, to avoid or mitigate the effects of false negatives (missed detections) and limited detail.
+
+* People are generally not detected if they appear small (minimum person height is 100 pixels).
+* Maximum frame size is FHD
+* Low quality video (for example, dark lighting conditions) may impact the detection results. 
+* The recommended frame rate at least 30 FPS. 
+* Recommended video input should contain up to 10 people in a single frame. The feature could work with more people in a single frame, but the detection result retrieves up to 10 people in a frame with the detection highest confidence. 
+* People with similar clothes: (for example, people wear uniforms, players in sport games) could be detected as the same person with the same ID number. 
+* Obstruction – there maybe errors where there are obstructions (scene/self or obstructions by other people).
+* Pose: The tracks may be split due to different poses (back/front)       
+
+### Other considerations
 
 When used responsibly and carefully, Azure Video Indexer is a valuable tool for many industries. To respect the privacy and safety of others, and to comply with local and global regulations, we recommend the following:  
 

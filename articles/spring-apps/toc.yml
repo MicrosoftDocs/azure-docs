@@ -44,7 +44,7 @@ items:
       href: quickstart-sample-app-introduction.md
     - name: Provision a service instance
       href: quickstart-provision-service-instance.md
-    - name: Set up configuration server
+    - name: Set up Config Server
       href: quickstart-setup-config-server.md
     - name: Build and deploy apps
       href: quickstart-deploy-apps.md
@@ -91,7 +91,7 @@ items:
       href: tutorial-circuit-breaker.md
     - name: Custom DNS name
       href: tutorial-custom-domain.md
-    - name: Managed identity to connect to databases
+    - name: Passwordless connections to Azure databases
       href: /azure/developer/java/spring-framework/deploy-passwordless-spring-database-app?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
     - name: Managed identity to connect Key Vault
       href: tutorial-managed-identities-key-vault.md
@@ -231,8 +231,6 @@ items:
       href: how-to-integrate-azure-load-balancers.md
   - name: Monitor
     items:
-    - name: Distributed tracing and App Insights
-      href: how-to-distributed-tracing.md
     - name: Analyze logs and metrics
       href: diagnostic-services.md
     - name: Stream logs in real time
@@ -317,9 +315,9 @@ items:
       href: how-to-enable-redundancy-and-disaster-recovery.md
   - name: Troubleshoot
     items:
-    - name: Self diagnose and solve problems
+    - name: Self-diagnose and solve problems
       href: how-to-self-diagnose-solve.md
-    - name: Self diagnose running in virtual networks
+    - name: Self-diagnose running in virtual networks
       href: how-to-self-diagnose-running-in-vnet.md
     - name: Troubleshoot common issues
       href: troubleshoot.md

@@ -245,10 +245,8 @@ Kubernetes. We'll use it to install the `application-gateway-kubernetes-ingress`
     sed -i "s|<applicationGatewayName>|${applicationGatewayName}|g" helm-config.yaml
     sed -i "s|<identityResourceId>|${identityResourceId}|g" helm-config.yaml
     sed -i "s|<identityClientId>|${identityClientId}|g" helm-config.yaml
-
-    # You can further modify the helm config to enable/disable features
-    nano helm-config.yaml
     ```
+    
 
    > [!NOTE]
    > **For deploying to Sovereign Clouds (e.g., Azure Government)**, the `appgw.environment` configuration parameter must be added and set to the appropriate value as documented below.
