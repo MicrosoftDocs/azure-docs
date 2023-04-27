@@ -218,7 +218,7 @@ Extending this scenario:
 
 By default, the Azure AD SuccessFactors connector uses the `activeEmploymentsCount` field of the `PersonEmpTerminationInfo` object to set account status. You may encounter one of the following issues with this attribute. 
 1. There's a known issue where the connector may disable the account of a terminated worker one day prior to the termination on the last day of work. The issue is documented in [knowledge base article 3047486](https://launchpad.support.sap.com/#/notes/3047486). 
-1. If the `PersonEmpTerminationInfo` object gets set to null, during termination, then AD account disabling won't work, as the provisioning engine filters out records where `personEmpTerminationInfoNav` object is set to null. 
+1. If the `PersonEmpTerminationInfo` object gets set to null, during termination, then AD account disabling doesn't work because the provisioning engine filters out records where the `personEmpTerminationInfoNav` object is set to null.
 
 If you're running into any of these issues or prefer mapping employment status to account status, you can update the mapping to expand the `emplStatus` field and use the employment status code present in the field `emplStatus.externalCode`. Based on [SAP support note 2505526](https://launchpad.support.sap.com/#/notes/2505526), here's a list of employment status codes that you can retrieve in the provisioning app. 
 * A = Active 
