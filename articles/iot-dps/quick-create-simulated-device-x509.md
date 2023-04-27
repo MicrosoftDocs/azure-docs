@@ -3,7 +3,7 @@ title: Quickstart - Provision an X.509 certificate simulated device to Microsoft
 description: Learn how to provision a simulated device that authenticates with an X.509 certificate in the Azure IoT Hub Device Provisioning Service
 author: kgremban
 ms.author: kgremban
-ms.date: 11/01/2022
+ms.date: 04/06/2023
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
@@ -15,11 +15,11 @@ zone_pivot_groups: iot-dps-set1
 
 # Quickstart: Provision an X.509 certificate simulated device
 
-In this quickstart, you'll create a simulated device on your Windows machine. The simulated device will be configured to use the [X.509 certificate attestation](concepts-x509-attestation.md) mechanism for authentication. After you've configured your device, you'll then provision it to your IoT hub using the Azure IoT Hub Device Provisioning Service.
+In this quickstart, you create a simulated device on your Windows machine. The simulated device is configured to use the [X.509 certificate attestation](concepts-x509-attestation.md) mechanism for authentication. After you've configured your device, you then provision it to your IoT hub using the Azure IoT Hub Device Provisioning Service.
 
 If you're unfamiliar with the process of provisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview.  Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing.
 
-This quickstart demonstrates a solution for a Windows-based workstation. However, you can also perform the procedures on Linux. For a Linux example, see [Tutorial: Provision for geolatency](how-to-provision-multitenant.md).
+This quickstart demonstrates a solution for a Windows-based workstation. However, you can also perform the procedures on Linux. For a Linux example, see [Tutorial: Provision for geo latency](how-to-provision-multitenant.md).
 
 ## Prerequisites
 
@@ -87,13 +87,13 @@ The following prerequisites are for a Windows development environment. For Linux
 
 * Open both a Windows command prompt and a Git Bash prompt.
 
-    The steps in this quickstart assume that you're using a Windows machine and the OpenSSL installation that is installed as part of Git. You'll use the Git Bash prompt to issue OpenSSL commands and the Windows command prompt for everything else. If you're using Linux, you can issue all commands from a Bash shell.
+    The steps in this quickstart assume that you're using a Windows machine and the OpenSSL installation that is installed as part of Git. You use the Git Bash prompt to issue OpenSSL commands and the Windows command prompt for everything else. If you're using Linux, you can issue all commands from a Bash shell.
 
 ## Prepare your development environment
 
 ::: zone pivot="programming-language-ansi-c"
 
-In this section, you'll prepare a development environment that's used to build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). The sample code attempts to provision the device, during the device's boot sequence.
+In this section, you prepare a development environment that's used to build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). The sample code attempts to provision the device, during the device's boot sequence.
 
 1. Open a web browser, and go to the [Release page of the Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c/releases/latest).
 
@@ -199,7 +199,7 @@ git clone -b v2 https://github.com/Azure/azure-iot-sdk-python.git --recursive
 
 ## Create a self-signed X.509 device certificate
 
-In this section, you'll use OpenSSL to create a self-signed X.509 certificate and a private key. This certificate will be uploaded to your provisioning service instance and verified by the service.
+In this section, you use OpenSSL to create a self-signed X.509 certificate and a private key. This certificate is uploaded to your provisioning service instance and verified by the service.
 
 > [!CAUTION]
 > Use certificates created with OpenSSL in this quickstart for development testing only.
@@ -318,13 +318,13 @@ Perform the steps in this section in your Git Bash prompt.
 
 7. When asked to **Enter pass phrase for device-key.pem:**, use the same pass phrase you did previously, `1234`.
 
-Keep the Git Bash prompt open. You'll need it later in this quickstart.
+Keep the Git Bash prompt open. You need it later in this quickstart.
 
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 
-The C# sample code is set up to use X.509 certificates that are stored in a password-protected PKCS#12 formatted file (`certificate.pfx`). You'll still need the PEM formatted public key certificate file (`device-cert.pem`) that you just created to create an individual enrollment entry later in this quickstart.
+The C# sample code is set up to use X.509 certificates that are stored in a password-protected PKCS#12 formatted file (`certificate.pfx`). You still need the PEM formatted public key certificate file (`device-cert.pem`) that you just created to create an individual enrollment entry later in this quickstart.
 
 1. To generate the PKCS12 formatted file expected by the sample, enter the following command:
 
@@ -356,7 +356,7 @@ The C# sample code is set up to use X.509 certificates that are stored in a pass
     cp certificate.pfx ./azure-iot-sdk-csharp/provisioning/device/samples/"Getting Started"/X509Sample
     ```
 
-You won't need the Git Bash prompt for the rest of this quickstart. However, you may want to keep it open to check your certificate if you have problems in later steps.
+You don't need the Git Bash prompt for the rest of this quickstart. However, you may want to keep it open to check your certificate if you have problems in later steps.
 
 ::: zone-end
 
@@ -387,7 +387,7 @@ You won't need the Git Bash prompt for the rest of this quickstart. However, you
     cp unencrypted-device-key.pem ./azure-iot-sdk-node/provisioning/device/samples
     ```
 
-You won't need the Git Bash prompt for the rest of this quickstart. However, you may want to keep it open to check your certificate if you have problems in later steps.
+You don't need the Git Bash prompt for the rest of this quickstart. However, you may want to keep it open to check your certificate if you have problems in later steps.
 
 ::: zone-end
 
@@ -400,7 +400,7 @@ You won't need the Git Bash prompt for the rest of this quickstart. However, you
     cp device-key.pem ./azure-iot-sdk-python/samples/async-hub-scenarios
     ```
 
-You won't need the Git Bash prompt for the rest of this quickstart. However, you may want to keep it open to check your certificate if you have problems in later steps.
+You don't need the Git Bash prompt for the rest of this quickstart. However, you may want to keep it open to check your certificate if you have problems in later steps.
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
@@ -423,7 +423,7 @@ You won't need the Git Bash prompt for the rest of this quickstart. However, you
 
 7. When asked to **Enter pass phrase for device-key.pem:**, use the same pass phrase you did previously, `1234`.
 
-Keep the Git Bash prompt open. You'll need it later in this quickstart.
+Keep the Git Bash prompt open. You need it later in this quickstart.
 
 ::: zone-end
 
@@ -482,7 +482,7 @@ In this section, you update the sample code with your Device Provisioning Servic
 
 ### Configure the custom HSM stub code
 
-The specifics of interacting with actual secure hardware-based storage vary depending on the hardware. As a result, the certificate and private key used by the simulated device in this quickstart will be hardcoded in the custom Hardware Security Module (HSM) stub code.
+The specifics of interacting with actual secure hardware-based storage vary depending on the hardware. As a result, the certificate and private key used by the simulated device in this quickstart is hardcoded in the custom Hardware Security Module (HSM) stub code.
 
 To update the custom HSM stub code to simulate the identity of the device with ID `my-x509-device`:
 
@@ -506,7 +506,7 @@ To update the custom HSM stub code to simulate the identity of the device with I
     "-----END CERTIFICATE-----";        
     ```
 
-    Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command will generate the syntax for the `CERTIFICATE` string constant value and write it to the output.
+    Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command generates the syntax for the `CERTIFICATE` string constant value and writes it to the output.
 
     ```Bash
     sed -e 's/^/"/;$ !s/$/""\\n"/;$ s/$/"/' device-cert.pem
@@ -526,7 +526,7 @@ To update the custom HSM stub code to simulate the identity of the device with I
     "-----END RSA PRIVATE KEY-----";
     ```
 
-    Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command  will generate the syntax for the `PRIVATE_KEY` string constant value and write it to the output.
+    Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command  generates the syntax for the `PRIVATE_KEY` string constant value and writes it to the output.
 
     ```Bash
     sed -e 's/^/"/;$ !s/$/""\\n"/;$ s/$/"/' unencrypted-device-key.pem
@@ -563,7 +563,7 @@ To update the custom HSM stub code to simulate the identity of the device with I
 
 ::: zone pivot="programming-language-csharp"
 
-In this section, you'll use your Windows command prompt.
+In this section, you use your Windows command prompt.
 
 1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service.
 
@@ -573,7 +573,7 @@ In this section, you'll use your Windows command prompt.
 
 3. In your Windows command prompt, change to the X509Sample directory. This directory is located in the *.\azure-iot-sdk-csharp\provisioning\device\samples\getting started\X509Sample* directory off the directory where you cloned the samples on your computer.
 
-4. Enter the following command to build and run the X.509 device provisioning sample (replace the `<IDScope>` value with the ID Scope that you copied in the previous section. The certificate file will default to *./certificate.pfx* and prompt for the .pfx password.
+4. Enter the following command to build and run the X.509 device provisioning sample (replace the `<IDScope>` value with the ID Scope that you copied in the previous section. The certificate file defaults to *./certificate.pfx* and prompts for the .pfx password.
 
     ```cmd
     dotnet run -- -s <IDScope>
@@ -588,7 +588,7 @@ In this section, you'll use your Windows command prompt.
     dotnet run -- -s 0ne00000A0A -c certificate.pfx -p 1234
     ```
 
-5. The device connects to DPS and is assigned to an IoT hub. Then, the device will send a telemetry message to the IoT hub.
+5. The device connects to DPS and is assigned to an IoT hub. Then, the device sends a telemetry message to the IoT hub.
 
     ```output
     Loading the certificate...
@@ -611,7 +611,7 @@ In this section, you'll use your Windows command prompt.
 
 ::: zone pivot="programming-language-nodejs"
 
-In this section, you'll use your Windows command prompt.
+In this section, you use your Windows command prompt.
 
 1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service.
 
@@ -676,7 +676,7 @@ In this section, you'll use your Windows command prompt.
 
 ::: zone pivot="programming-language-python"
 
-In this section, you'll use your Windows command prompt.
+In this section, you use your Windows command prompt.
 
 1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service.
 
@@ -684,7 +684,7 @@ In this section, you'll use your Windows command prompt.
 
     :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope-and-global-device-endpoint.png" alt-text="Screenshot of the ID scope and global device endpoint on Azure portal.":::
 
-1. In your Windows command prompt, go to the directory of the [provision_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/async-hub-scenarios/provision_x509.py) sample. The path shown is relative to the location where you cloned the SDK.
+1. In your Windows command prompt, go to the directory of the [provision_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/v2/samples/async-hub-scenarios/provision_x509.py) sample. The path shown is relative to the location where you cloned the SDK.
 
     ```cmd
     cd ./azure-iot-sdk-python/samples/async-hub-scenarios
@@ -722,9 +722,9 @@ In this section, you'll use your Windows command prompt.
     set PASS_PHRASE=1234
     ```
 
-1. Review the code for [provision_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/async-hub-scenarios/provision_x509.py). If you're not using **Python version 3.7** or later, make the [code change mentioned here](https://github.com/Azure/azure-iot-sdk-python/tree/main/samples/async-hub-scenarios#advanced-iot-hub-scenario-samples-for-the-azure-iot-hub-device-sdk) to replace `asyncio.run(main())` and save your changes.
+1. Review the code for [provision_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/v2/samples/async-hub-scenarios/provision_x509.py). If you're not using **Python version 3.7** or later, make the [code change mentioned here](https://github.com/Azure/azure-iot-sdk-python/tree/v2/samples/async-hub-scenarios#advanced-iot-hub-scenario-samples-for-the-azure-iot-hub-device-sdk) to replace `asyncio.run(main())` and save your changes.
 
-1. Run the sample. The sample connects to DPS, which will provision the device to an IoT hub. After the device is provisioned, the sample will send some test messages to the IoT hub.
+1. Run the sample. The sample connects to DPS, which provisions the device to an IoT hub. After the device is provisioned, the sample sends some test messages to the IoT hub.
 
     ```cmd
     $ python azure-iot-sdk-python/samples/async-hub-scenarios/provision_x509.py
@@ -798,7 +798,7 @@ In this section, you use both your Windows command prompt and your Git Bash prom
         "-----END CERTIFICATE-----";        
         ```
 
-        Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command  will generate the syntax for the `leafPublicPem` string constant value and write it to the output.
+        Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command generates the syntax for the `leafPublicPem` string constant value and writes it to the output.
 
         ```Bash
         sed 's/^/"/;$ !s/$/\\n" +/;$ s/$/"/' device-cert.pem
@@ -818,7 +818,7 @@ In this section, you use both your Windows command prompt and your Git Bash prom
         "-----END PRIVATE KEY-----";
         ```
 
-        Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command will generate the syntax for the `leafPrivateKey` string constant value and write it to the output.
+        Updating this string value manually can be prone to error. To generate the proper syntax, you can copy and paste the following command into your **Git Bash prompt**, and press **ENTER**. This command generates the syntax for the `leafPrivateKey` string constant value and writes it to the output.
 
         ```Bash
         sed 's/^/"/;$ !s/$/\\n" +/;$ s/$/"/' unencrypted-device-key.pem
@@ -841,7 +841,7 @@ In this section, you use both your Windows command prompt and your Git Bash prom
     java -jar ./provisioning-x509-sample-1.8.1-with-deps.jar
     ```
 
-    The sample connects to DPS, which will provision the device to an IoT hub. After the device is provisioned, the sample will send some test messages to the IoT hub.
+    The sample connects to DPS, which provisions the device to an IoT hub. After the device is provisioned, the sample sends some test messages to the IoT hub.
 
     ```output
     Starting...

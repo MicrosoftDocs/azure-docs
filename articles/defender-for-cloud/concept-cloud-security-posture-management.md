@@ -17,7 +17,8 @@ Defender for Cloud continually assesses your resources, subscriptions and organi
 - **Foundational CSPM capabilities** - None 
 - **Defender Cloud Security Posture Management (CSPM)** - Agentless scanning requires the **Subscription Owner** to enable the plan. Anyone with a lower level of authorization can enable the Defender CSPM plan but the agentless scanner won't be enabled by default due to lack of permissions. Attack path analysis and security explorer won't be populated with vulnerabilities because the agentless scanner is disabled. 
 
-For commercial and national cloud coverage, see the [features supported in different Azure cloud environments](support-matrix-defender-for-cloud.md#features-supported-in-different-azure-cloud-environments).
+For commercial and national cloud coverage, review [features supported in different Azure cloud environments](support-matrix-cloud-environment.md).
+
 
 ## Defender CSPM plan options
 
@@ -28,7 +29,7 @@ The optional Defender CSPM plan, provides advanced posture management capabiliti
 ### Plan pricing
 
 > [!NOTE]
-> The Microsoft Defender CSPM plan protects across multicloud workloads. With Defender CSPM generally available (GA), the plan will remain free until billing starts on May 1 2023. Billing will apply for compute, database, and storage resources. Billable workloads will be VMs, Storage Accounts, OSS DBs, and SQL PaaS & Servers on Machines. When billing starts, existing Microsoft Defender for Cloud customers will receive automatically applied discounts for Defender CSPM. ​
+> The Microsoft Defender CSPM plan protects across multicloud workloads. With Defender CSPM generally available (GA), the plan will remain free until billing starts on August 1 2023. Billing will apply for compute, database, and storage resources. Billable workloads will be VMs, Storage Accounts, OSS DBs, and SQL PaaS & Servers on Machines. When billing starts, existing Microsoft Defender for Cloud customers will receive automatically applied discounts for Defender CSPM. ​
 
  Microsoft Defender CSPM protects across all your multicloud workloads, but billing only applies for Servers, Databases and Storage accounts at $15/billable resource/month. If you have one of the following plans enabled, you will receive a discount.
 
