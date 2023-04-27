@@ -100,7 +100,9 @@ Using an authentication token like a GitHub personal access token (PAT) enables 
     :::image type="content" source="media/quickstart-create-and-configure-devcenter/generate-git-hub-token.png" alt-text="Screenshot that shows the GitHub Tokens (classic) configuration page.":::
 
 1. Select **Generate token**.
-1. On the Personal access tokens (classic) page, copy the new token.
+1. On the Personal access tokens (classic) page:
+    - In the **Configure SSO** box, authorize single sign-on **microsoft** organization.
+    - Copy the new token.
  
     :::image type="content" source="media/quickstart-create-and-configure-devcenter/copy-new-token.png" alt-text="Screenshot that shows the new GitHub token with the copy button highlighted.":::
 
