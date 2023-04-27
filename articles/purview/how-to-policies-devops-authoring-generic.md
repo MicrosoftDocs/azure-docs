@@ -137,7 +137,7 @@ This section contains a reference of how relevant Microsoft Purview data policy 
 |||
 
 >[!NOTE]
-> The role definition for SQL Performance Monitor will be expanded in the first half of May 2023, including the following actions.
+> The role definition for SQL Performance Monitor will be expanded in the first half of May 2023, to include the following SQL side specific actions.
 
 | **Microsoft Purview policy role definition** | **Data source specific actions**     |
 |-------------------------------------|--------------------------------------|
