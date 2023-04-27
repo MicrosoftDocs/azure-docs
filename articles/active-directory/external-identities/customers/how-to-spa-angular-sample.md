@@ -1,5 +1,5 @@
 ---
-title: Sign in users in a sample React Single Page Application (SPA)
+title: Sign in users in a sample Angular Single Page Application (SPA)
 description: Learn how to configure a sample React Single Page Application (SPA)
 services: active-directory
 author: garrodonnell
@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 04/25/2023
 ms.custom: developer
 
-#Customer intent: As a dev, devops, I want to learn about how to configure a sample React Single Page Application to sign in and sign out users with my Azure Active Directory (Azure AD) for customers tenant
+#Customer intent: As a dev, devops, I want to learn about how to configure a sample Angular Single Page Application to sign in and sign out users with my Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Sign in users in a sample React Single Page Application (SPA)
+# Sign in users in a sample Angular Single Page Application (SPA)
 
-This how-to guide uses a sample React Single Page Application (SPA) to demonstrate how to add authentication to a SPA by using Microsoft Entra. The SPA enables users to sign in and sign out by using their own Azure AD for customers tenant. The sample uses the [Microsoft Authentication Library for JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) to handle authentication.
+This how-to guide uses a sample Angular Single Page Application (SPA) to demonstrate how to add authentication to a SPA by using Microsoft Entra. The SPA enables users to sign in and sign out by using their own Azure AD for customers tenant. The sample uses the [Microsoft Authentication Library for JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) to handle authentication.
 
 In this article:
 
@@ -26,7 +26,7 @@ In this article:
 > * Register a web application in the Microsoft Entra admin center.
 > * Create a sign in and sign out user flow in Microsoft Entra admin center.
 > * Associate your web application with the user flow.
-> * Update a React SPA web application using your own Azure Active Directory (Azure AD) for customers tenant details.
+> * Update a Angular SPA web application using your own Azure Active Directory (Azure AD) for customers tenant details.
 > * Run and test the sample web application.
 ## Prerequisites
 
@@ -97,7 +97,7 @@ All the required code snippets have been added, so the application can now be ca
 1. Run the following command to start your express web server.
 
     ```powershell
-        cd 1-Authentication\2-sign-in-react\SPA
+        cd 1-Authentication\2-sign-in-angular\SPA
         npm start
     ```
 
