@@ -12,8 +12,6 @@ ms.service: azure-communication-services
 ---
 # Quickstart:  How to add and remove Multiple Sender Addresses to Email Communication Service
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 In this quick start, you learn about how to add and remove multiple sender addresses in Azure Communication Services to send email.
 
 ## Prerequisites

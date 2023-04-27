@@ -7,17 +7,18 @@ ms.devlang: java
 author: mrm9084
 ms.author: mametcal
 ms.topic: how-to
-ms.date: 05/02/2022
+ms.date: 04/11/2023
 ---
 
 # Convert to new App Configuration Spring Boot library
 
-A new version of the App Configuration library for Spring Boot is now available. The version introduces new features such as Push refresh, but also a number of breaking changes. These changes aren't backwards compatible with configuration setups that were using the previous library version. For the following topics.
+A new version of the App Configuration library for Spring Boot is now available. The version introduces new features such as Azure Spring global properties, but also some breaking changes. These changes aren't backwards compatible with configuration setups that were using the previous library version. For the following topics:
 
 * Group and Artifact Ids
-* Spring Profiles
-* Configuration loading and reloading
+* Package path renamed
+* Classes renamed
 * Feature flag loading
+* Possible conflicts with Azure Spring global properties
 
 this article provides a reference on the change and actions needed to migrate to the new library version.
 
@@ -28,74 +29,70 @@ All of the Azure Spring Boot libraries have had their Group and Artifact IDs upd
 ```xml
 <dependency>
     <groupId>com.azure.spring</groupId>
-    <artifactId>azure-spring-cloud-appconfiguration-config</artifactId>
-    <version>2.6.0</version>
+    <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
+    <version>4.7.0</version>
 </dependency>
 <dependency>
     <groupId>com.azure.spring</groupId>
-    <artifactId>azure-spring-cloud-appconfiguration-config-web</artifactId>
-    <version>2.6.0</version>
+    <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+    <version>4.7.0</version>
+</dependency>
+<dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>spring-cloud-azure-feature-management</artifactId>
+    <version>4.7.0</version>
+</dependency>
+<dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>spring-cloud-azure-feature-management-web</artifactId>
+    <version>4.7.0</version>
 </dependency>
 ```
 
-## Use of Spring Profiles
+> [!NOTE]
+> The 4.7.0 version is the first 4.x version of the library. This is to match the version of the other Spring Cloud Azure libraries.
 
-In the previous release, Spring Profiles were used as part of the configuration so they could match the format of the configuration files. For example,
+As of the 4.7.0 version, the App Configuration and Feature Management libraries are now part of the spring-cloud-azure-dependencies BOM. The BOM file makes it so that you no longer need to specify the version of the libraries in your project. The BOM automatically manages the version of the libraries.
 
-```properties
-/<application name>_dev/config.message
+```xml
+<dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>spring-cloud-azure-dependencies</artifactId>
+    <version>4.7.0</version>
+    <type>pom</type>
+</dependency>
 ```
 
-This has been changed so the default label(s) in a query are the Spring Profiles with the following format, with a label that matches the Spring Profile:
+## Package path renamed
 
-```properties
-/application/config.message
-```
+The package path for the `spring-cloud-azure-feature-managment` and `spring-cloud-azure-feature-management-web` libraries have been renamed from `com.azure.spring.cloud.feature.manager` to `com.azure.spring.cloud.feature.management` and `com.azure.spring.cloud.feature.management.web`.
 
- To convert to the new format, you can run the bellow commands with your store name:
+## Classes renamed
 
-```azurecli
-az appconfig kv export -n your-stores-name -d file --format properties --key /application_dev* --prefix /application_dev/ --path convert.properties --skip-features --yes
-az appconfig kv import -n your-stores-name -s file --format properties --label dev --prefix /application/ --path convert.properties --skip-features --yes
-```
-
-or use the Import/Export feature in the portal.
-
-When you are completely moved to the new version, you can remove the old keys by running:
-
-```azurecli
-az appconfig kv delete -n ConversionTest --key /application_dev/*
-```
-
-This command will list all of the keys you are about to delete so you can verify no unexpected keys will be removed. Keys can also be deleted in the portal.
-
-## Which configurations are loaded
-
-The default case of loading configuration matching `/application/*` hasn't changed. The change is that `/${spring.application.name}/*` will not be used in addition automatically anymore unless set. Instead, to use `/${spring.application.name}/*` you can use the new Selects configuration.
-
-```properties
-spring.cloud.azure.appconfiguration.stores[0].selects[0].key-filter=/${spring.application.name}/*
-```
-
-## Configuration reloading
-
-The monitoring of all configuration stores is now disabled by default. A new configuration has been added to the library to allow config stores to have monitoring enabled. In addition, cache-expiration has been renamed to refresh-interval and has also been changed to be per config store. Also if monitoring of a config store is enabled at least one watched key is required to be configured, with an optional label.
-
-```properties
-spring.cloud.azure.appconfiguration.stores[0].monitoring.enabled
-spring.cloud.azure.appconfiguration.stores[0].monitoring.refresh-interval
-spring.cloud.azure.appconfiguration.stores[0].monitoring.trigger[0].key
-spring.cloud.azure.appconfiguration.stores[0].monitoring.trigger[0].label
-```
-
-There has been no change to how the refresh-interval works, the change is renaming the configuration to clarify functionality. The requirement of a watched key makes sure that when configurations are being changed the library will not attempt to load the configurations until all changes are done.
+* `ConfigurationClientBuilderSetup` has been renamed to `ConfigurationClientCustomizer` and its `setup` method has been renamed to `customize`
+* `SecretClientBuilderSetup` has been renamed to `SecretClientCustomizer` and its `setup` method has been renamed to `customize`
+* `AppConfigurationCredentialProvider` and `KeyVaultCredentialProvider` have been removed. Instead you can use [Azure Spring common configuration properties](/azure/developer/java/spring-framework/configuration) or modify the credentials using `ConfigurationClientCustomizer`/`SecretClientCustomizer`.
 
 ## Feature flag loading
 
-By default, loading of feature flags is now disabled. In addition, Feature Flags now have a label filter as well as a refresh-interval.
+Feature flags now support loading using multiple key/label filters. 
 
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].feature-flags.enable
-spring.cloud.azure.appconfiguration.stores[0].feature-flags.label-filter
+spring.cloud.azure.appconfiguration.stores[0].feature-flags.selects[0].key-filter
+spring.cloud.azure.appconfiguration.stores[0].feature-flags.selects[0].label-filter
 spring.cloud.azure.appconfiguration.stores[0].monitoring.feature-flag-refresh-interval
 ```
+
+> [!NOTE]
+> The property `spring.cloud.azure.appconfiguration.stores[0].feature-flags.label` has been removed. Instead you can use `spring.cloud.azure.appconfiguration.stores[0].feature-flags.selects[0].label-filter` to specify a label filter.
+
+## Possible conflicts with Azure Spring global properties
+
+[Azure Spring common configuration properties](/azure/developer/java/spring-framework/configuration) enables you to customize your connections to Azure services. The new App Configuration library will picks up any global or app configuration setting configured with Azure Spring common configuration properties. Your connection to app configuration will change if the configurations have been set for another Azure Spring library.
+
+> [!NOTE]
+> You can override this by using `ConfigurationClientCustomizer`/`SecretClientCustomizer` to modify the clients.
+
+> [!WARNING]
+> You may now run into an issue where more than one connection method is provided as Azure Spring global properties will automatically pick up credentials, such as Environment Variables, and use them to connect to Azure services. This can cause issues if you are using a different connection method, such as Managed Identity, and the global properties are overriding it.
