@@ -43,6 +43,4 @@ May 2023 test release is now available.
 - Arc SQL MI | Service-Managed Credential Rotation
 - Arc Data Services | Upgrade to OpenSearch | GA
 - Arc Data Services | Arc Data Controller | az CLI | Improved Arc data controller upgrade reliability
-- Arc SQL Server | Database Watcher | Private Preview (BYOC)
-- Arc SQL Server | Database Watcher - Reporting Layer | Preview
 
