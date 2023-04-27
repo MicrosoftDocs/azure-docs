@@ -123,47 +123,52 @@ This section contains a reference of how relevant Microsoft Purview data policy 
 | **Microsoft Purview policy role definition** | **Data source specific actions**     |
 |-------------------------------------|--------------------------------------|
 |                                     |                                      |
-| *SQL Performance Monitor* |Microsoft.Sql/sqlservers/Connect |
-||Microsoft.Sql/sqlservers/databases/Connect |
-||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabasePerformanceState/rows/select |
-||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/ServerPerformanceState/rows/select |
+| *SQL Performance Monitor* |Microsoft.Sql/Sqlservers/Connect |
+||Microsoft.Sql/Sqlservers/Databases/Connect |
+||Microsoft.Sql/Sqlservers/Databases/SystemViewsAndFunctions/DatabasePerformanceState/rows/select |
+||Microsoft.Sql/Sqlservers/Databases/SystemViewsAndFunctions/ServerPerformanceState/rows/select |
 |||               
-| *SQL Security Auditor* |Microsoft.Sql/sqlservers/Connect |
-||Microsoft.Sql/sqlservers/databases/Connect |
+| *SQL Security Auditor* |Microsoft.Sql/Sqlservers/Connect |
+||Microsoft.Sql/Sqlservers/Databases/Connect |
 ||Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerSecurityState/rows/select |
-||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabaseSecurityState/rows/select |
+||Microsoft.Sql/Sqlservers/Databases/SystemViewsAndFunctions/DatabaseSecurityState/rows/select |
 ||Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerSecurityMetadata/rows/select |
-||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabaseSecurityMetadata/rows/select |
+||Microsoft.Sql/Sqlservers/Databases/SystemViewsAndFunctions/DatabaseSecurityMetadata/rows/select |
 |||
 
 >[!NOTE]
-> The role definition for SQL Performance Monitor will be expanded in the first half of May 2023 to include the following actions.
+> The role definition for SQL Performance Monitor will be expanded in the first half of May 2023, including the following actions.
 
-- /Sqlservers/Databases/SystemViewsAndFunctions/DatabasePerformanceState/Rows/Select
-- /Sqlservers/SystemViewsAndFunctions/ServerPerformanceState/Rows/Select
-- /Sqlservers/Databases/SystemViewsAndFunctions/DatabaseGeneralMetadata/Rows/Select
-- /Sqlservers/SystemViewsAndFunctions/ServerGeneralMetadata/Rows/Select
-- /Sqlservers/Databases/DBCCs/ViewDatabasePerformanceState/Execute
-- /Sqlservers/DBCCs/ViewServerPerformanceState/Execute
-- /Sqlservers/Databases/ExtendedEventSessions/Create
-- /Sqlservers/Databases/ExtendedEventSessions/Options/Alter
-- /Sqlservers/Databases/ExtendedEventSessions/Events/Add
-- /Sqlservers/Databases/ExtendedEventSessions/Events/Drop
-- /Sqlservers/Databases/ExtendedEventSessions/State/Enable
-- /Sqlservers/Databases/ExtendedEventSessions/State/Disable
-- /Sqlservers/Databases/ExtendedEventSessions/Drop
-- /Sqlservers/Databases/ExtendedEventSessions/Target/Add
-- /Sqlservers/Databases/ExtendedEventSessions/Target/Drop
-- /Sqlservers/ExtendedEventSessions/Create
-- /Sqlservers/ExtendedEventSessions/Options/Alter
-- /Sqlservers/ExtendedEventSessions/Events/Add
-- /Sqlservers/ExtendedEventSessions/Events/Drop
-- /Sqlservers/ExtendedEventSessions/State/Enable
-- /Sqlservers/ExtendedEventSessions/State/Disable
-- /Sqlservers/ExtendedEventSessions/Drop
-- /Sqlservers/ExtendedEventSessions/Target/Add
-- /Sqlservers/ExtendedEventSessions/Target/Drop
-
+| **Microsoft Purview policy role definition** | **Data source specific actions**     |
+|-------------------------------------|--------------------------------------|
+|                                     |                                      |
+| *SQL Performance Monitor* |Microsoft.Sql/Sqlservers/Connect |
+||Microsoft.Sql/Sqlservers/Databases/Connect |
+||Microsoft.Sql/Sqlservers/Databases/SystemViewsAndFunctions/DatabasePerformanceState/Rows/Select |
+||Microsoft.Sql/Sqlservers/SystemViewsAndFunctions/ServerPerformanceState/Rows/Select |
+||Microsoft.Sql/Sqlservers/Databases/SystemViewsAndFunctions/DatabaseGeneralMetadata/Rows/Select |
+||Microsoft.Sql/Sqlservers/SystemViewsAndFunctions/ServerGeneralMetadata/Rows/Select |
+||Microsoft.Sql/Sqlservers/Databases/DBCCs/ViewDatabasePerformanceState/Execute |
+||Microsoft.Sql/Sqlservers/DBCCs/ViewServerPerformanceState/Execute |
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/Create |
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/Options/Alter |
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/Events/Add |
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/Events/Drop |
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/State/Enable |
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/State/Disable |
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/Drop
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/Target/Add |
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/Target/Drop |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/Create |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/Options/Alter |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/Events/Add |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/Events/Drop |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/State/Enable |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/State/Disable |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/Drop |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/Target/Add |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/Target/Drop |
+|||
 
 ## Next steps
 Check the blogs, videos and related documents
