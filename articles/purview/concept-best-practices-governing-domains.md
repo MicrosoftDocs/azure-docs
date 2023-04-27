@@ -15,9 +15,9 @@ Understanding your domains is critical for effective data governance. In this ar
 
 We also review how to apply several Purview features to data governance. We show how to:
 
-- Use collections for creating a domain structure, segregating governance roles and responsibilities, and managing access to metadata
-- Use the glossary to define key terms and data elements, and cover when it might be helpful to separate glossaries for different business areas
-- Use business assets to model the real-world concepts and objectives within a domain 
+- Use collections for creating a domain structure, segregating governance roles and responsibilities, and managing access to metadata.
+- Use the glossary to define key terms and data elements, and cover when it might be helpful to separate glossaries for different business areas.
+- Use business assets to model the real-world concepts and objectives within a domain.
 
 Let's dive into the world of domains and discover how Purview can help improve your data governance practices.
 
@@ -41,7 +41,7 @@ In the next sections, we'll walk through how to:
 - Define responsibilities for the domain.
 - Implement a domain-driven governance approach in Purview.
 
-## Analyzing a domain
+## Analyze a domain
 When you establish an approach to data governance, a domain model can help create a shared understanding of the domain between technical and business experts. A domain model is a description of the real-world concepts and activities inside the business domain you want to govern. You’ll start by sketching an abstract view of your problem space, then refine it as you work toward the solution you implement in Purview. Don’t be afraid of change. You’ll learn and improve your approach as you tackle new domains. 
 
 Begin by describing business activities and their connections. This should be a collaborative effort that involves data and business stakeholders. This doesn’t have to be formal—use a whiteboard to create a picture that makes sense to everyone.
@@ -117,11 +117,11 @@ In this step, we create a blueprint for the context we want to show in Purview. 
 
 Adding these relationship definitions means we’ll now be able to link datasets to business process assets in Purview. This will help us contextualize data for both business and technology stakeholders.
 
-### Step 3.2: Adding business assets
+### Step 3.2: Add business assets
 
 Now let’s add the business processes (ledger management, order placement, etc.) and two systems (Contoso billing, General ledger) from our diagram. 
 
-:::image type="content" source="media/concept-best-practices-domains/08-business-assets.png" alt-text="Screenshot from Purview business assets page shows a list of business assets including 6 business process assets for 'ledger management', 'order placement', and others along with 2 systems assets called 'Contoso billing' and 'General legder.":::
+:::image type="content" source="media/concept-best-practices-domains/08-business-assets.png" alt-text="Screenshot from Purview business assets page shows a list of business assets including 6 business process assets for 'ledger management', 'order placement', and others along with 2 systems assets called 'Contoso billing' and 'General ledger.":::
 
 We’ll create data domain assets for 'account' and 'order' as well because these are not only important terms but key entity concepts in these business areas. This will help us show business context for key data entities.
 
@@ -137,7 +137,7 @@ Analytical data sources often centralize data that’s shared by multiple depart
 
 Then we’ll set up scoped scans to divide the data between areas of responsibility. When you set up a [scoped scan](concept-scans-and-ingestion.md#scope-your-scan), you can choose specific folders or tables that apply to each area of responsibility so you can scan the right data into a collection.
 
-:::image type="content" source="media/concept-best-practices-domains/11-scope-scan.png" alt-text="Screenshot of Purview scan settings showing that data will be scanned into the Finance domain collection next to a screen shot showing the Purview 'scope your scan' panel with individual tables selected for scanning under the main database.":::
+:::image type="content" source="media/concept-best-practices-domains/11-scope-scan.png" alt-text="Screenshot of Purview scan settings showing that data will be scanned into the Finance domain collection next to a screenshot showing the Purview 'scope your scan' panel with individual tables selected for scanning under the main database.":::
 
 ### Step 5: Contextualize your data
 
