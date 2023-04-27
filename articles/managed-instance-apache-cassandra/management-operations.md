@@ -15,9 +15,8 @@ Azure Managed Instance for Apache Cassandra provides automated deployment and sc
 
 ## Compaction
 
-* The system currently doesn't perform a major compaction.
-* Repair (see [Maintenance](#maintenance)) performs a Merkle tree compaction, which is a special kind of compaction.
-* Depending on the compaction strategy on the keyspace, Cassandra automatically compacts when the keyspace reaches a specific size. We recommend that you carefully select a compaction strategy for your workload, and don't do any manual compactions outside the strategy.
+* There are different [types of compaction](https://cassandra.apache.org/doc/latest/cassandra/operating/compaction/index.html#types-of-compaction). We currently perform a minor compaction via repair (see [Maintenance](#maintenance)). This performs a Merkle tree compaction, which is a special kind of compaction.
+* Depending on the [compaction strategy](https://cassandra.apache.org/doc/latest/cassandra/operating/compaction/index.html) that was set on the table using CQL (for example `WITH compaction = { 'class' : 'LeveledCompactionStrategy' }`), Cassandra automatically compacts when the table reaches a specific size. We recommend that you carefully select a compaction strategy for your workload, and don't do any manual compactions outside the strategy.
 
 ## Patching
 
