@@ -11,7 +11,7 @@ ms.devlang: csharp
 
 # Troubleshooting guide for common issues
 
-This article provides troubleshooting guidance for some of the common issues that customers might encounter. Listed errors are available to check when you turn on `LiveTrace` tool or collect from diagnostics following [Capture resource logs](./howto-troubleshoot-resource-logs).
+This article provides troubleshooting guidance for some of the common issues that customers might encounter. Listed errors are available to check when you turn on `LiveTrace` tool or collect from diagnostics following [Capture resource logs](./howto-troubleshoot-resource-logs.md).
 
 ## 404 from HttpHandlerUnexpectedResponse
 
@@ -68,11 +68,11 @@ Besides, you can update to convenience server SDK, which automatically handles `
 
 ### Root cause
 
-This error indicates the `Abuse Protection` request get a `401` response from the registered upstream URL. For more information, see [`Abuse Protection`](./howto-develop-eventhandler#upstream-and-validation).
+This error indicates the `Abuse Protection` request get a `401` response from the registered upstream URL. For more information, see [`Abuse Protection`](./howto-develop-eventhandler.md#upstream-and-validation).
 
 ### Troubleshooting guide
 
-- Check if there's any authentication enabled in upstream side, for example, the `App Keys` for a `WebPubSubTrigger` Azure Function is set correctly, see [example](./quickstart-serverless?#configure-the-web-pubsub-service-event-handler).
+- Check if there's any authentication enabled in upstream side, for example, the `App Keys` for a `WebPubSubTrigger` Azure Function is set correctly, see [example](./quickstart-serverless.md?#configure-the-web-pubsub-service-event-handler).
 - Check upstream side logs to investigate how is the `Abuse Protection` request processed.
 
 ## Client connection drops
