@@ -36,9 +36,9 @@ As you develop more complex prompts, it's helpful to keep this fundamental behav
 
 ### Prompt components
 
-When using the Completion API while there is no differentiation between different parts of the prompt, it can still be useful for learning and discussion to identify underlying prompt components. With the [Chat Completion API](../how-to/chatgpt.md) there are distinct sections of the prompt that are sent to the API in the form of an array of dictionaries with associated roles: system, user, and assistant. This guidance will focus more generally on how to think about prompt construction rather than providing prescriptive guidance that is specific to one API over another.
+When using the Completion API while there's no differentiation between different parts of the prompt, it can still be useful for learning and discussion to identify underlying prompt components. With the [Chat Completion API](../how-to/chatgpt.md) there are distinct sections of the prompt that are sent to the API in the form of an array of dictionaries with associated roles: system, user, and assistant. This guidance will focus more generally on how to think about prompt construction rather than providing prescriptive guidance that is specific to one API over another.
 
-It is also important to understand that while there could be other valid ways to dissect prompts, the goal of this breakdown is to provide a relatively simple way to think about prompt construction. With the Completion API, all the components are optional, but at least one must be present and most prompts include more than one component. There can be some grey area between components as well. The order presented below roughly corresponds to how commonly each component is used, from most to least.
+It's also important to understand that while there could be other valid ways to dissect prompts, the goal of this breakdown is to provide a relatively simple way to think about prompt construction. With the Completion API, all the components are optional, but at least one must be present and most prompts include more than one component. There can be some grey area between components as well. The order presented below roughly corresponds to how commonly each component is used, from most to least.
 
 #### Instructions
 
