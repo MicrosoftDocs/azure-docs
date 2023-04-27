@@ -70,6 +70,9 @@ Interoperability between Azure Communication Services and Microsoft Teams enable
  
 Microsoft indicates to you via the Azure Communication Services API that recording or closed captions has commenced, and you must communicate this fact, in real-time, to your users within your application's user interface. You agree to indemnify Microsoft for all costs and damages incurred due to your failure to comply with this obligation.
 
+## Known limitations
+- Closed captions feature is not supported on Firefox. 
+
 ## Next steps
 
 - Learn how to use [closed captions for Teams interopability](../../how-tos/calling-sdk/closed-captions-teams-interop-how-to.md).
