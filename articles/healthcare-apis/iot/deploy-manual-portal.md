@@ -88,15 +88,15 @@ Follow these four steps to fill in the **Basics** tab configuration:
 
    The **MedTech service name** is a friendly, unique name for your MedTech service. For this example, we have named the MedTech service *mt-azuredocsdemo*.
 
-2. Enter the **Event Hubs Namespace**.
+2. Select the **Event Hubs Namespace**.
 
    The **Event Hubs Namespace** is the name of the *Event Hubs namespace* that you previously deployed. For this example, we're using *eh-azuredocsdemo* for our MedTech service device messages.
 
-3. Enter the **Events Hubs name**.
+3. Select the **Events Hubs name**.
 
    The **Event Hubs name** is the name of the event hub that you previously deployed within the Event Hubs Namespace. For this example, we're using *devicedata* for our MedTech service device messages.  
 
-4. Enter the **Consumer group**.
+4. Select the **Consumer group**.
 
    By default, a consumer group named *$Default* is created during the deployment of an event hub. Use this consumer group for your MedTech service deployment.
 
@@ -123,7 +123,7 @@ For the purposes of this quickstart, accept the default **Device mapping** and m
 
 Under the **Destination** tab, use these values to enter the destination properties for your MedTech service instance:
 
-* First, enter the name of your **FHIR server**.
+* First, select the name of your **FHIR server**.
 
 * Next, enter the **Destination name**.
 
@@ -187,15 +187,12 @@ Your screen should look something like this:
 
 ### Grant resource access to the MedTech service system-managed identity
 
-There are two post-deployment access steps you must perform or the MedTech service won't be able to read data from the Event Hub or write data to the FHIR service.
-
-1. Read device data from the event hub. 
-2. Read or write to the FHIR service. 
+There are two post-deployment access steps you must perform or the MedTech service will not be able to read data from the event hub or write data to the FHIR service.
 
 These steps are:
 
-1. Grant the MedTech service system-managed identity **Azure Event Hubs Data Receiver** access to the [event hub](../../event-hubs/authorize-access-azure-active-directory.md).
-2. Grant the MedTech service system-managed identity **FHIR Data Writer** access to the [FHIR service](../configure-azure-rbac.md).
+* Grant the MedTech service system-managed identity **Azure Event Hubs Data Receiver** access to the [event hub](../../event-hubs/authorize-access-azure-active-directory.md).
+* Grant the MedTech service system-managed identity **FHIR Data Writer** access to the [FHIR service](../configure-azure-rbac.md).
 
 These two steps are needed because MedTech service uses [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) and a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for extra security and access control of your Azure resources.
 
