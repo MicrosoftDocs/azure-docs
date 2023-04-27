@@ -170,7 +170,7 @@ The user assigned managed identity should be specified using its [resourceID](./
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az vm create --resource-group <MyResourceGroup> --name <myVM> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY NAME>
+az vm create --resource-group <MyResourceGroup> --name <myVM> --image <SKU Linux Image> --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY NAME>
 ```
 
 [Configure managed identities for Azure resources on a VM using the Azure CLI](qs-configure-cli-windows-vm.md#user-assigned-managed-identity)
