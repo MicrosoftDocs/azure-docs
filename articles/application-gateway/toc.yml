@@ -302,7 +302,7 @@
   - name: Custom error pages
     href: custom-error.md
 - name: Migrating to v2 SKU
-   items:
+  items:
       - name: About v1 retirement
         href: v1-retirement.md
       - name: Migrate from v1 to v2
