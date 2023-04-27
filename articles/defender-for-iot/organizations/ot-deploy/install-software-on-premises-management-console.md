@@ -116,7 +116,7 @@ After deploying an on-premises management console sensor on a [virtual appliance
     |Adapters  |Description  |
     |---------|---------|
     |**Single network adapter**     |   To use a single network adapter, add **Network adapter 1** to connect to the on-premises management console UI and any connected OT sensors.      |
-    |**Secondary NIC**     |   To use a secondary NIC in addition to your main network adapter, add: <br> <br> - **Network adapter 1** to connect to the on-premises management console UI <br>  - **Network adapter 2**, to connect to connected OT sensors     |
+    |<a name=add-a-secondary-nic-after-installation-optional></a>**Secondary NIC**     |   To use a secondary NIC in addition to your main network adapter, add: <br> <br> - **Network adapter 1** to connect to the on-premises management console UI <br>  - **Network adapter 2**, to connect to connected OT sensors     |
 
 For more information, see:
 
