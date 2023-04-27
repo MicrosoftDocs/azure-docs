@@ -547,7 +547,7 @@
   - name: Integrations
     items:
     - name: Power BI
-      href: flexible-server/connect-with-powerbi-desktop.md
+      href: flexible-server/connect-with-power-bi-desktop.md
   - name: Troubleshooting
     items:  
     - name: Functional troubleshooting
