@@ -2,7 +2,7 @@
     "redirections": [
     {
         "source_path_from_root": "/articles/machine-learning/how-to-set-up-vs-code-remote.md",
-        "redirect_url": "/azure/machine-learning/how-to-launch-vs-code",
+        "redirect_url": "/azure/machine-learning/how-to-launch-vs-code-remote",
         "redirect_document_id": true
     },
     {
