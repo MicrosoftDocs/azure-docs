@@ -43,7 +43,7 @@ public static void Run(
 
 TODO: current example is in-proc, need to update with out-of-proc
 
-:::code language="csharp" source="~/azure-functions-dapr-extension/samples/dotnet-azurefunction/PrintTopicMessage.cs" range="8-26"::: 
+:::code language="csharp" source="https://www.github.com/azure/azure-functions-dapr-extension/samples/dotnet-azurefunction/PrintTopicMessage.cs" range="8-26"::: 
 
 
 ---
