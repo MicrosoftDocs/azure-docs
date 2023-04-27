@@ -421,7 +421,7 @@ This section covers different write-back scenarios. It recommends configuration 
 ### Enabling writeback with UserID
 
 The SuccessFactors Writeback app uses the following logic to update the User object attributes: 
-* As a first step, it looks for *userId* attribute in the change set. If it is present, then it uses "UserId" for making the SuccessFactors API call. 
+* As a first step, it looks for *userId* attribute in the change set. If it's present, then it uses "UserId" for making the SuccessFactors API call. 
 * If *userId* isn't found, then it defaults to using the *personIdExternal* attribute value. 
 
 Usually the *personIdExternal* attribute value in SuccessFactors matches the *userId* attribute value. However, in scenarios such as rehiring and worker conversion, an employee in SuccessFactors may have two employment records, one active and one inactive. In such scenarios, to ensure that write-back updates the active user profile, please update the configuration of the SuccessFactors provisioning apps as described. This configuration ensures that *userId* is always present in the change set visible to the connector and is used in the SuccessFactors API call.
@@ -442,7 +442,7 @@ Usually the *personIdExternal* attribute value in SuccessFactors matches the *us
 1. Save the mapping. 
 1. Go to *Attribute mapping -> Advanced -> Review Schema* to open the JSON schema editor.
 1. Download a copy of the schema as backup. 
-1. In the schema editor, hit Ctrl-F and search for the JSON node containing the userId mapping, where it is mapped to a source Azure AD attribute. 
+1. In the schema editor, hit Ctrl-F and search for the JSON node containing the userId mapping, where it's mapped to a source Azure AD attribute. 
 1. Update the flowBehavior attribute from "FlowWhenChanged" to "FlowAlways" as shown. 
     > [!div class="mx-imgBorder"]
     > ![Mapping flow behavior update](./media/sap-successfactors-integration-reference/mapping-flow-behavior-update.png)
@@ -450,9 +450,9 @@ Usually the *personIdExternal* attribute value in SuccessFactors matches the *us
 
 ### Unsupported scenarios for phone and email write-back
 
-* In Employee Central, during onboarding personal email and personal phone is set as primary. The write-back app cannot switch this setting and set business email and business phone as primary.
-* In Employee Central, business phone is set as primary. The write-back app cannot change this and set cell phone as primary.
-* The write-back app cannot read the current primary flag settings and use the same values for the write operation. The flag values configured in the attribute-mapping will always be used. 
+* In Employee Central, during onboarding personal email and personal phone is set as primary. The write-back app can't switch this setting and set business email and business phone as primary.
+* In Employee Central, business phone is set as primary. The write-back app can't change this and set cell phone as primary.
+* The write-back app can't read the current primary flag settings and use the same values for the write operation. The flag values configured in the attribute-mapping will always be used. 
 
 ## Next steps
 
