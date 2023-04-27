@@ -138,7 +138,7 @@ Delta will only read 2 partitions where **part_col == 5 and 8**  from the target
 
 In Settings tab, you will find three more options to optimize delta sink transformation. 
 
-* When **Merge schema** option is enabled, any columns that are present in the previous stream, but not in the Delta table, are automatically added on to the end of the schema.
+* When **Merge schema** option is enabled, it allows schema evolution, i.e. any columns that are present in the current incoming stream but not in the target Delta table are automatically added to its schema. This option is supported across all update methods.
 
 * When **Auto compact** is enabled, after an individual write, transformation  checks if files can further be compacted, and runs a quick OPTIMIZE job (with 128 MB file sizes instead of 1GB) to further compact files for partitions that have the most number of small files. Auto compaction helps in coalescing a large number of small files into a smaller number of large files. Auto compaction only kicks in when there are at least 50 files. Once a compaction operation is performed, it creates a new version of the table, and writes a new file containing the data of several previous files in a compact compressed form. 
 
