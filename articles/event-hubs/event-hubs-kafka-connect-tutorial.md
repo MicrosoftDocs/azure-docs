@@ -9,7 +9,7 @@ ms.date: 11/03/2022
 [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) is a framework to connect and import/export data from/to any external system such as MySQL, HDFS, and file system through a Kafka cluster. This tutorial walks you through using Kafka Connect framework with Event Hubs.
 
 > [!NOTE]
-> This feature is currently in Preview. 
+> This feature is currently in Preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 > [!WARNING]
 > Use of the Apache Kafka Connect framework and its connectors is **not eligible for product support through Microsoft Azure**.
