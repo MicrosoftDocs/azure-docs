@@ -1,12 +1,12 @@
 ---
 title: Understanding virtual RF (vRF) by demodulating Aqua using GNU Radio
 description: Learn how to use virtual RF (vRF) instead of a managed modem. Receive a raw RF signal from NASA's Aqua public satellite and process it in GNU Radio.
-author: marclichtman
+author: 777arc
 ms.service: orbital
 ms.topic: tutorial
 ms.custom: ga
 ms.date: 04/21/2023
-ms.author: marclichtman
+ms.author: 777arc
 # Customer intent: As an Azure Orbital customer I want easy to understand documentation for virtual RF so I don't have to bug the product team to understand how to build my applications.
 ---
 
@@ -85,7 +85,7 @@ sudo apt-get install gnuradio python3-packaging
 
 Verify that GNU Radio installed properly and that graphics are working using `gnuradio-companion`; a window should pop up that looks like this:
 
-   :::image type="content" source="media/gnuradio_gui.png" alt-text="GNU Radio Aqua flowgraph" lightbox="media/gnuradio_gui.png":::
+   :::image type="content" source="media/gnuradio_gui.png" alt-text="GNU Radio desktop GUI" lightbox="media/gnuradio_gui.png":::
 
 If the block tree on the right isn't displayed, you can show it using the magnifying glass icon at the top-right.
 
@@ -104,7 +104,7 @@ Before running the flowgraph, verify that your `/tmp/samples.iq` exists (or if y
 
    :::image type="content" source="media/aqua_psd.png" alt-text="GNU Radio Aqua PSD" lightbox="media/aqua_psd.png":::
 
-   :::image type="content" source="media/aqua_constellation.png" alt-text="GNU Radio logo" lightbox="media/aqua_constellation.png":::
+   :::image type="content" source="media/aqua_constellation.png" alt-text="IQ plot of Aqua signal" lightbox="media/aqua_constellation.png":::
 
 Yours may vary, based on the strength the signal was received.  If no GUI showed up, then check GNU Radio's output in the bottom left for errors.  If the GUI shows up but resembles a horizontal noisy line (with no hump), it means the contact didn't actually receive the Aqua signal.  In this case, double check that autotrack is enabled in your Contact Profile and that the center frequency was entered correctly.
 
