@@ -124,8 +124,12 @@ No. A stretched cluster is created between two availability zones, while the thi
 - Scale out and scale-in of stretched clusters can only happen in pairs. A minimum of 6 nodes and a maximum of 16 nodes are supported in a stretched cluster environment.
 - Customer workload VMs are restarted with a medium vSphere HA priority. Management VMs have the highest restart priority.
 - The solution relies on vSphere HA and vSAN for restarts and replication. Recovery time objective (RTO) is determined by the amount of time it takes vSphere HA to restart a VM on the surviving AZ after the failure of a single AZ.
-- The current  features for standard private cloud environments aren't supported in a stretched cluster environment.
-- Disaster recovery addons like, VMware SRM, Zerto, and JetStream are currently not supported in a stretched cluster environment.
+- Currently not supported in a stretched cluster environment:
+    - Recently released features like Public IP down to NSX Edge and external storage, like ANF datastores.
+    - Disaster recovery addons like VMware SRM, Zerto, and JetStream.
+- Open a [support ticket](https://rc.portal.azure.com/#create/Microsoft.Support) from the Azure portal for the following scenarios (be sure to select **Stretched Clusters** as a **Problem Type**):
+    - Connect a private cloud in another region to a stretched cluster private cloud.
+    - Connect two stretched cluster private clouds in a single region.
 
 ### What kind of latencies should I expect between the availability zones (AZs)?
 
