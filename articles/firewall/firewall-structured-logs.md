@@ -63,7 +63,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
 > [!NOTE]
-> It can take several minutes for this to take effect. Run the following Azure PowerShell command to see the >`ResistratonState`:
+> It can take several minutes for this to take effect. Run the following Azure PowerShell command to see the `ResistratonState`:
 >
 > `Get-AzProviderFeature -FeatureName "AFWEnableStructuredLogs" -ProviderNamespace "Microsoft.Network"`
 >
