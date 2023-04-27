@@ -546,8 +546,8 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 
 | Alert                                   | Description                                                          | MITRE tactics<br>([Learn more](#intentions)) | Severity |
 |-----------------------------------------|----------------------------------------------------------------------|:--------------------------------------------:|----------|
-| **DDoS Attack detected for Public IP**  | DDoS Attack detected for Public IP (IP address) and being mitigated. | Probing                                      | High     |
-| **DDoS Attack mitigated for Public IP** | DDoS Attack mitigated for Public IP (IP address).                    | Probing                                      | Low      |
+| **DDoS Attack detected for Public IP**<br>(NETWORK_DDOS_DETECTED)  | DDoS Attack detected for Public IP (IP address) and being mitigated. | Probing                                      | High     |
+| **DDoS Attack mitigated for Public IP**<br>(NETWORK_DDOS_MITIGATED) | DDoS Attack mitigated for Public IP (IP address).                    | Probing                                      | Low      |
 
 
 ## <a name="alerts-fusion"></a>Security incident alerts
