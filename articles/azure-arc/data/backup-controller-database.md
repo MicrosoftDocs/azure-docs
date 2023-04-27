@@ -44,11 +44,11 @@ For example:
 kubectl get secret controller-db-rw-secret --namespace arcdataservices -o yaml
 ```
 
-## Retrieve the credentials for the secret
+## Decode the base64 encoded credentials
 
 The contents of the yaml file of the secret `controller-db-rw-secret` contain a `password` and `username`. You can use any base64 decoder tool to decode the contents of the `password`.
 
-## Use the decoded credentials to connect to the SQL instance hosting the controller database, and issue the `BACKUP` command
+## Back up the database
 
 With the decoded credentials, run the following command to issue a T-SQL `BACKUP` command to back up the controller database.
 
@@ -61,3 +61,6 @@ Once the backup is created, you can move the `controller.bak` file to a remote s
 > [!TIP]
 > Back up the controller database before and after any custom resource changes such as creating or deleting an Arc-enabled SQL Managed Instance.
 
+## Next steps
+
+[Azure Data Studio dashboards](azure-data-studio-dashboards.md)
