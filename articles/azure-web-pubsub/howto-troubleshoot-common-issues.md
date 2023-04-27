@@ -1,6 +1,6 @@
 ---
 title: "Troubleshooting guide for Azure Web PubSub Service"
-description: Learn how to troubleshoot common issues
+description: Learn how to troubleshoot common issues for Web PubSub
 author: JialinXin
 ms.service: signalr
 ms.topic: how-to
@@ -11,7 +11,7 @@ ms.devlang: csharp
 
 # Troubleshooting guide for common issues
 
-This article provides troubleshooting guidance for some of the common issues that customers might encounter. Listed errors are available to check when you turn on `LiveTrace` tool or collect from diagnostics following [Capture resource logs](https://learn.microsoft.com/azure/azure-web-pubsub/howto-troubleshoot-resource-logs).
+This article provides troubleshooting guidance for some of the common issues that customers might encounter. Listed errors are available to check when you turn on `LiveTrace` tool or collect from diagnostics following [Capture resource logs](./howto-troubleshoot-resource-logs).
 
 ## 404 from HttpHandlerUnexpectedResponse
 
@@ -68,11 +68,11 @@ Besides, you can update to convenience server SDK, which automatically handles `
 
 ### Root cause
 
-This error indicates the `Abuse Protection` request get a `401` response from the registered upstream URL. For me information, see [`Abuse Protection`](https://learn.microsoft.com/azure/azure-web-pubsub/howto-develop-eventhandler#upstream-and-validation).
+This error indicates the `Abuse Protection` request get a `401` response from the registered upstream URL. For me information, see [`Abuse Protection`](./howto-develop-eventhandler#upstream-and-validation).
 
 ### Troubleshooting guide
 
-- Check if there's any authentication enabled in upstream side, for example, the `App Keys` for a `WebPubSubTrigger` Azure Function is set correctly, see [example](https://learn.microsoft.com/azure/azure-web-pubsub/quickstart-serverless?#configure-the-web-pubsub-service-event-handler).
+- Check if there's any authentication enabled in upstream side, for example, the `App Keys` for a `WebPubSubTrigger` Azure Function is set correctly, see [example](./quickstart-serverless?#configure-the-web-pubsub-service-event-handler).
 - Check upstream side logs to investigate how is the `Abuse Protection` request processed.
 
 ## Client connection drops
@@ -86,7 +86,7 @@ You can check the metric `Connection Close Count` from Azure portal.
 | Reason | Root cause |
 |--|--|
 | Normal | Close by clients |
-| ClosedByAppServer | Close by server triggered Rest API call like [`CloseConnection`](https://learn.microsoft.com/rest/api/webpubsub/dataplane/web-pub-sub/close-connection?tabs=HTTP) |
+| ClosedByAppServer | Close by server triggered Rest API call like [`CloseConnection`](/rest/api/webpubsub/dataplane/web-pub-sub/close-connection?tabs=HTTP) |
 | ServiceReload | Close by service due to regular maintenance or backend auto scales |
 | PingTimeout | Close by service due to client status unhealthy that service doesn't receive any regular pings |
 | SlowClient | Close by service due to clients are not able to receive buffered messages fast enough |
@@ -97,7 +97,7 @@ You can check the metric `Connection Close Count` from Azure portal.
 
 ## ConnectionCountLimitReached
 
-Web PubSub different tiers have a hard limit on concurrent connection. This error indicates your traffic is beyond the supported connection count. See [Web PubSub pricing](https://azure.microsoft.com/en-us/pricing/details/web-pubsub/) for details.
+Web PubSub different tiers have a hard limit on concurrent connection. This error indicates your traffic is beyond the supported connection count. See [Web PubSub pricing](https://azure.microsoft.com/pricing/details/web-pubsub/) for details.
 
 ### Solution
 
