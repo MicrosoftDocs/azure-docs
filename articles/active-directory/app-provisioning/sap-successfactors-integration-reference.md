@@ -84,7 +84,7 @@ Based on the attribute-mapping, during full sync Azure AD provisioning service s
 >| OData customPageSize query parameter | `100` |
 
 > [!NOTE]
-> During the full initial sync, both active and terminated workers from SAP SuccessFactors will be fetched.
+> During the full initial sync, both active and terminated workers from SAP SuccessFactors are fetched.
 
 For each SuccessFactors user, the provisioning service looks for an account in the target (Azure AD/on-premises Active Directory) using the matching attribute defined in the mapping. For example: if *personIdExternal* maps to *employeeId* and is set as the matching attribute, then the provisioning service uses the *personIdExternal* value to search for the user with *employeeId* filter. If a user match is found, then it updates the target attributes. If no match is found, then it creates a new entry in the target. 
 
@@ -302,8 +302,8 @@ This section describes how you can update the JSONPath settings to definitely re
     | **String to find** | **String to use for replace** | **Purpose**  |
     | ------------------ | ----------------------------- | ------------ |
     | `$.employmentNav.results\[0\].<br>jobInfoNav.results\[0\].emplStatus` | `$.employmentNav..jobInfoNav..results\[?(@.emplStatusNav.externalCode == 'A' \|\| @.emplStatusNav.externalCode == 'U' \|\| @.emplStatusNav.externalCode == 'P' )\].emplStatusNav.externalCode` | With this find-replace, we're adding the ability to expand emplStatusNav OData object.    |
-    | `$.employmentNav.results\[0\].<br>jobInfoNav.results\[0\]`            | `$.employmentNav..jobInfoNav..results\[?(@.emplStatusNav.externalCode == 'A' \|\| @.emplStatusNav.externalCode == 'U' \|\| @.emplStatusNav.externalCode == 'P')\]`                             | With this find-replace, we instruct the connector to always retrieve attributes associated with the active SuccessFactors EmpJobInfo record. Attributes associated with terminated/inactive records in SuccessFactors will be ignored. |
-    | `$.employmentNav.results\[0\]`                                    | `$.employmentNav..results\[?(@.jobInfoNav..results\[?(@.emplStatusNav.externalCode == 'A' \|\| @.emplStatusNav.externalCode == 'U' \|\| @.emplStatusNav.externalCode == 'P')\])\]`             | With this find-replace, we instruct the connector to always retrieve attributes associated with the active SuccessFactors Employment record. Attributes associated with terminated/inactive records in SuccessFactors will be ignored. |
+    | `$.employmentNav.results\[0\].<br>jobInfoNav.results\[0\]`            | `$.employmentNav..jobInfoNav..results\[?(@.emplStatusNav.externalCode == 'A' \|\| @.emplStatusNav.externalCode == 'U' \|\| @.emplStatusNav.externalCode == 'P')\]`                             | With this find-replace, we instruct the connector to always retrieve attributes associated with the active SuccessFactors EmpJobInfo record. Attributes associated with terminated/inactive records in SuccessFactors are ignored. |
+    | `$.employmentNav.results\[0\]`                                    | `$.employmentNav..results\[?(@.jobInfoNav..results\[?(@.emplStatusNav.externalCode == 'A' \|\| @.emplStatusNav.externalCode == 'U' \|\| @.emplStatusNav.externalCode == 'P')\])\]`             | With this find-replace, we instruct the connector to always retrieve attributes associated with the active SuccessFactors Employment record. Attributes associated with terminated/inactive records in SuccessFactors are ignored. |
 
 1. Save the schema.
 1. The above process updates all JSONPath expressions. 
