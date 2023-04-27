@@ -17,6 +17,7 @@ ms.reviewer: akkumari
 Autoscale settings help ensure that you have the right amount of resources running to handle the fluctuating load of your application. You can configure autoscale using the Azure portal, Azure CLI, PowerShell or ARM or Bicep templates.  
 
 This article shows you how to configure autoscale for a Virtual Machine Scale Set with PowerShell, using the following steps:
+
 + Create a scale set that you can autoscale
 + Create rules to scale in and scale out
 + Create a profile that uses your rules
@@ -35,6 +36,7 @@ $subscriptionId = (Get-AzContext).Subscription.Id
 $resourceGroupName="rg-powershell-autoscale"
 $vmssName="vmss-001"
 ```
+
 ## Create a Virtual Machine Scale Set
 
 Create a scale set using the following cmdlets. Set the `$resourceGroupName` and `$vmssName` variables to suite your environment.
@@ -49,15 +51,16 @@ $vmCred = New-Object System.Management.Automation.PSCredential('azureuser', $vmP
 
 
 New-AzVmss `
-  -ResourceGroupName $resourceGroupName `
-  -Location "EastUS" `
-  -VMScaleSetName $vmssName `
-  -Credential $vmCred `
-  -VirtualNetworkName "myVnet" `
-  -SubnetName "mySubnet" `
-  -PublicIpAddressName "myPublicIPAddress" `
-  -LoadBalancerName "myLoadBalancer" `
-  -UpgradePolicyMode "Automatic" 
+ -ResourceGroupName $resourceGroupName `
+ -Location "EastUS" `
+ -VMScaleSetName $vmssName `
+ -Credential $vmCred `
+ -VirtualNetworkName "myVnet" `
+ -SubnetName "mySubnet" `
+ -PublicIpAddressName "myPublicIPAddress" `
+ -LoadBalancerName "myLoadBalancer" `
+ -OrchestrationMode "Flexible"
+
 ```
 
 ## Create autoscale settings
@@ -74,7 +77,7 @@ To create autoscale setting using PowerShell, follow the sequence below:
 Create scale in and scale out rules then associated them with a profile.
 Rules are created using the [`New-AzAutoscaleScaleRuleObject`](https://learn.microsoft.com/powershell/module/az.monitor/new-azautoscalescaleruleobject).
 
-The following PowerShell script created two rules.
+The following PowerShell script creates two rules.
 
 + Scale out when Percentage CPU exceeds 70%
 + Scale in when Percentage CPU is less than 30%
@@ -112,6 +115,7 @@ $rule2=New-AzAutoscaleScaleRuleObject `
     -ScaleActionValue 1 `
     -ScaleActionCooldown ([System.TimeSpan]::New(0,5,0))
 ```
+The table below describes the pararameters used in the `New-AzAutoscaleScaleRuleObject` cmdlet.
 
 |Parameter| Description|
 |---|---|
@@ -142,7 +146,7 @@ $defaultProfile=New-AzAutoscaleProfileObject `
     -Rule $rule1, $rule2
 ```
 
-Parameters  
+The table below describes the pararameters used in the `New-AzAutoscaleProfileObject` cmdlet.
 
 |Parameter|Description|
 |---|---|
