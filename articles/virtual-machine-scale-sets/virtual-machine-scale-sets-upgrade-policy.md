@@ -174,7 +174,7 @@ Update the properties section of your ARM template as follows:
 ```
 ---
 
-## Performing Manual Upgrades
+## Performing manual upgrades
  
 If you have the Upgrade Policy set to manual, you need to trigger manual upgrades of each existing VM to apply changes to the instances based on the updated scale set model. 
 
