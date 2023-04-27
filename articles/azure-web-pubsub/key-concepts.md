@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.date: 07/28/2022
+ms.date: 04/28/2023
 ms.custom: mode-other
 ---
 
