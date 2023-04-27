@@ -3194,7 +3194,7 @@
         href: netpresenter-provisioning-tutorial.md
       - name: Netskope User Authentication
         href: netskope-administrator-console-provisioning-tutorial.md
-      - name: NetsparkerEnterprise
+      - name: Netsparker Enterprise
         href: netsparker-enterprise-provisioning-tutorial.md
       - name: New Relic by Organization
         href: new-relic-by-organization-provisioning-tutorial.md
@@ -3290,6 +3290,8 @@
         href: sigma-computing-provisioning-tutorial.md
       - name: Signagelive
         href: signagelive-provisioning-tutorial.md
+      - name: Sign In Enterprise Host Provisioning
+        href: sign-in-enterprise-host-provisioning-tutorial.md
       - name: Slack
         href: slack-provisioning-tutorial.md
       - name: Smartfile
