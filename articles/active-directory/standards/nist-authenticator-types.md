@@ -26,11 +26,11 @@ The authentication process begins when a claimant asserts its control of one of 
 |Single-factor out-of-band <br>(something you have)| Microsoft Authenticator App (Push Notification) <br> Phone (SMS): Not recommended |
 Multi-factor Out-of-band <br> (something you have + something you know/are) | Microsoft Authenticator App (Passwordless) |
 |Single-factor one-time password (OTP) <br> (something you have)| Microsoft Authenticator App (OTP) <br> Single-factor Hardware/Software OTP<sup data-htmlnode="">1</sup>|
-|Multi-factor OTP <br> (something you have + something you know/are)| Multi-factor Hardware/Software OTP  <sup data-htmlnode="">1</sup>| 
-|Single-factor crypto software <br> (something you have)|Single-factor certificate <br> Compliant mobile device <br> Microsoft Authenticator App (Push Notification) <br> Hybrid Azure AD joined <sup data-htmlnode="">2</sup> with software TPM <br> Azure AD joined <sup data-htmlnode="">2</sup> with software TPM |
+|Multi-factor OTP <br> (something you have + something you know/are)| Treated as single-factor OTP| 
+|Single-factor crypto software <br> (something you have)|Single-factor software certificate <br> Azure AD joined <sup data-htmlnode="">2</sup> with software TPM <br> Hybrid Azure AD joined <sup data-htmlnode="">2</sup> with software TPM  <br> Compliant mobile device |
 |Single-factor crypto hardware <br> (something you have) | Azure AD joined <sup data-htmlnode="">2</sup> with hardware TPM <br> Hybrid Azure AD joined <sup data-htmlnode="">2</sup> with hardware TPM|
 |Multi-factor crypto software <br> (something you have + something you know/are) | Multi-factor Software Certificate (PIN Protected) <br> Windows Hello for Business with software TPM |
-|Multi-factor crypto hardware <br> (something you have + something you know/are) | <br> Windows Hello for Business with hardware TPM <br> Hardware protected certificate (smartcard/security key/TPM) <br> FIDO 2 security key|
+|Multi-factor crypto hardware <br> (something you have + something you know/are) |Hardware protected certificate (smartcard/security key/TPM) <br> Windows Hello for Business with hardware TPM <br> FIDO 2 security key|
 
 <sup data-htmlnode="">1</sup> 30-second or 60-second OATH-TOTP SHA-1 token
 
