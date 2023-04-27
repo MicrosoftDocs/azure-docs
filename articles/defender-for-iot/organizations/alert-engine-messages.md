@@ -29,7 +29,7 @@ Defender for IoT alerts use the following severity levels:
 | **Medium**     | **Major**        | Indicates a security threat that's important to address.        |
 | **Low**     | **Minor**, **Warning**        | Indicates some deviation from the baseline behavior that might contain a security threat, or contains no security threats.        |
 
-**Note**: Alert severities on this page are listed by the severity as shown in the Azure portal.
+Alert severities on this page are listed by the severity as shown in the Azure portal.
 
 ## Supported alert types
 
