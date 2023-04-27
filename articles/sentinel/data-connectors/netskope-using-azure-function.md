@@ -50,9 +50,8 @@ Netskope
 
 To integrate with Netskope (using Azure Function) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
-- **Netskope API Token**: A Netskope API Token is required. [See the documentation to learn more about Netskope API](https://innovatechcloud.goskope.com/docs/Netskope_Help/en/rest-api-v1-overview.html). **Note:** A Netskope account is required
-
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
+- **Netskope API Token**: A Netskope API Token is required. [See the documentation to learn more about Netskope API](https://innovatechcloud.goskope.com). **Note:** A Netskope account is required.
 
 ## Vendor installation instructions
 
@@ -65,7 +64,7 @@ To integrate with Netskope (using Azure Function) make sure you have:
    >  This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias Netskope and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Netskope/Parsers/Netskope.txt), on the second line of the query, enter the hostname(s) of your Netskope device(s) and any other unique identifiers for the logstream. The function usually takes 10-15 minutes to activate after solution installation/update.
 
 
->**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
+>**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
 
 
 **STEP 1 - Configuration steps for the Netskope API**
@@ -91,7 +90,7 @@ This method provides an automated deployment of the Netskope connector using an 
  - Use the following schema for the `uri` value: `https://<Tenant Name>.goskope.com` Replace `<Tenant Name>` with your domain.
  - The default **Time Interval** is set to pull the last five (5) minutes of data. If the time interval needs to be modified, it is recommended to change the Function App Timer Trigger accordingly (in the function.json file, post deployment) to prevent overlapping data ingestion.
  - The default **Log Types** is set to pull all 6 available log types (`alert, page, application, audit, infrastructure, network`), remove any are not required. 
- - Note: If using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) for further details. 
+ - Note: If using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](/azure/app-service/app-service-key-vault-references) for further details. 
 4. Mark the checkbox labeled **I agree to the terms and conditions stated above**. 
 5. Click **Purchase** to deploy.
 6. After successfully deploying the connector, download the Kusto Function to normalize the data fields. [Follow the steps](https://aka.ms/sentinelgithubparsersnetskope) to use the Kusto function alias, **Netskope**.
@@ -134,7 +133,7 @@ This method provides the step-by-step instructions to deploy the Netskope connec
 > - Enter the URI that corresponds to your region. The `uri` value must follow the following schema: `https://<Tenant Name>.goskope.com` - There is no need to add subsquent parameters to the Uri, the Function App will dynamically append the parameteres in the proper format.
 > - Set the `timeInterval` (in minutes) to the default value of `5` to correspond to the default Timer Trigger of every `5` minutes. If the time interval needs to be modified, it is recommended to change the Function App Timer Trigger accordingly to prevent overlapping data ingestion. 
 > - Set the `logTypes` to `alert, page, application, audit, infrastructure, network` - This list represents all the avaliable log types. Select the log types based on logging requirements, seperating each by a single comma.
-> - Note: If using Azure Key Vault, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) for further details. 
+> - Note: If using Azure Key Vault, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](/azure/app-service/app-service-key-vault-references) for further details. 
 > - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us`.
 4. Once all application settings have been entered, click **Save**.
 5. After successfully deploying the connector, download the Kusto Function to normalize the data fields. [Follow the steps](https://aka.ms/sentinelgithubparsersnetskope) to use the Kusto function alias, **Netskope**.

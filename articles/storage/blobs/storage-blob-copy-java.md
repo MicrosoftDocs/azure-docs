@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 11/16/2022
+ms.date: 04/18/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -16,94 +16,28 @@ ms.custom: devx-track-java, devguide-java
 
 # Copy a blob with Java
 
-This article shows how to copy a blob in a storage account using the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme). It also shows how to abort a pending copy operation.
+This article provides an overview of copy operations using the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme).
 
-## About copying blobs
+## About copy operations
 
-A copy operation can perform any of the following actions:
+Copy operations can be used to move data within a storage account, between storage accounts, or into a storage account from a source outside of Azure. When using the Blob Storage client libraries to copy data resources, it's important to understand the REST API operations behind the client library methods. The following table lists REST API operations that can be used to copy data resources to a storage account. The table also includes links to detailed guidance about how to perform these operations using the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme).
 
-- Copy a source blob to a destination blob with a different name. The destination blob can be an existing blob of the same blob type (block, append, or page), or can be a new blob created by the copy operation.
-- Copy a source blob to a destination blob with the same name, effectively replacing the destination blob. Such a copy operation removes any uncommitted blocks and overwrites the destination blob's metadata.
-- Copy a source file in the Azure File service to a destination blob. The destination blob can be an existing block blob, or can be a new block blob created by the copy operation. Copying from files to page blobs or append blobs isn't supported.
-- Copy a snapshot over its base blob. By promoting a snapshot to the position of the base blob, you can restore an earlier version of a blob.
-- Copy a snapshot to a destination blob with a different name. The resulting destination blob is a writeable blob and not a snapshot.
+| REST API operation | When to use | Client library methods | Guidance |
+| --- | --- | --- | --- |
+| [Put Blob From URL](/rest/api/storageservices/put-blob-from-url) | This operation is preferred for scenarios where you want to move data into a storage account and have a URL for the source object. This operation completes synchronously. | [uploadFromUrl](/java/api/com.azure.storage.blob.specialized.blockblobclient#method-details) | [Copy a blob from a source object URL with Java](storage-blob-copy-url-java.md) |
+| [Put Block From URL](/rest/api/storageservices/put-block-from-url) | For large objects, you can use [Put Block From URL](/rest/api/storageservices/put-block-from-url) to write individual blocks to Blob Storage, and then call [Put Block List](/rest/api/storageservices/put-block-list) to commit those blocks to a block blob. This operation completes synchronously. | [stageBlockFromUrl](/java/api/com.azure.storage.blob.specialized.blockblobclient#method-details) | [Copy a blob from a source object URL with Java](storage-blob-copy-url-java.md) |
+| [Copy Blob](/rest/api/storageservices/copy-blob) | This operation can be used when you want asynchronous scheduling for a copy operation. | [beginCopy](/java/api/com.azure.storage.blob.specialized.blobclientbase#method-details) | [Copy a blob with asynchronous scheduling using Java](storage-blob-copy-async-java.md) |
 
-The source blob for a copy operation may be one of the following types:
-- Block blob
-- Append blob
-- Page blob
-- Blob snapshot
-- Blob version
+For append blobs, you can use the [Append Block From URL](/rest/api/storageservices/append-block-from-url) operation to commit a new block of data to the end of an existing append blob. The following client library method wraps this operation:
 
-If the destination blob already exists, it must be of the same blob type as the source blob. An existing destination blob will be overwritten.
+- [appendBlockFromUrl](/java/api/com.azure.storage.blob.specialized.appendblobclient#method-details)
 
-The destination blob can't be modified while a copy operation is in progress. A destination blob can only have one outstanding copy operation. One way to enforce this requirement is to use a blob lease, as shown in the code example.
+For page blobs, you can use the [Put Page From URL](/rest/api/storageservices/put-page-from-url) operation to write a range of pages to a page blob where the contents are read from a URL. The following client library method wraps this operation:
 
-The entire source blob or file is always copied. Copying a range of bytes or set of blocks isn't supported. When a blob is copied, its system properties are copied to the destination blob with the same values.
+- [uploadPagesFromUrl](/java/api/com.azure.storage.blob.specialized.pageblobclient#method-details)
 
-## Copy a blob
+## Client library resources
 
-To copy a blob, use the following method:
-
-- [copyFromUrl](/java/api/com.azure.storage.blob.specialized.blobclientbase)
-
-This method synchronously copies the data at the source URL to a blob and waits for the copy to complete before returning a response. The source must be a block blob no larger than 256 MB. The source URL must include a SAS token that provides permissions to read the source blob. To learn more about the underlying operation, see [REST API operations](#rest-api-operations).
-
-The following code example gets a `BlobClient` object representing an existing blob and copies it to a new blob in a different container. This example also gets a lease on the source blob before copying so that no other client can modify the blob until the copy is complete and the lease is broken.
-
-:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobCopy.java" id="Snippet_CopyBlobURL":::
-
-Sample output is similar to:
-
-```console
-Source blob lease state: leased
-Copy status: success
-Copy progress: 5/5
-Copy completion time: 2022-11-14T16:53:54Z
-Total bytes copied: 5
-Source blob lease state: broken
-```
-
-You can also copy a blob using the following method:
-
-- [beginCopy](/java/api/com.azure.storage.blob.specialized.blobclientbase)
-
-This method triggers a long-running, asynchronous operation. The source may be another blob or an Azure File resource. If the source is in another storage account, the source must either be public or authorized with a SAS token. To learn more about the underlying operation, see [REST API operations](#rest-api-operations).
-
-:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobCopy.java" id="Snippet_CopyBlobBeginCopy":::
-
-You can also specify extended options for the copy operation by passing in a [BlobBeginCopyOptions](/java/api/com.azure.storage.blob.options.blobbegincopyoptions) object to the `beginCopy` method. The following example shows how to create a `BlobBeginCopyOptions` object and configure options to pass with the copy request:
-
-:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobCopy.java" id="Snippet_CopyBlobOptions":::
-
-## Abort a copy operation
-
-If you have a pending copy operation and need to cancel it, you can abort the operation. Aborting a copy operation results in a destination blob of zero length and full metadata. To learn more about the underlying operation, see [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob).
-
-The metadata for the destination blob will have the new values copied from the source blob or set explicitly during the copy operation. To keep the original metadata from before the copy, make a snapshot of the destination blob before calling one of the copy methods. The final blob will be committed when the copy completes.
-
-To abort a copy operation, use the following method:
-
-- [BlobClient.abortCopyFromUrl](/java/api/com.azure.storage.blob.specialized.blobclientbase)
-
-The following example stops a pending copy and leaves a destination blob with zero length and full metadata:
-
-:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobCopy.java" id="Snippet_AbortCopy":::
-
-## Resources
-
-To learn more about copying blobs using the Azure Blob Storage client library for Java, see the following resources.
-
-### REST API operations
-
-The Azure SDK for Java contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Java paradigms. The client library methods for copying blobs use the following REST API operations:
-
-- [Copy Blob](/rest/api/storageservices/copy-blob) (REST API)
-- [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url) (REST API)
-- [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob) (REST API)
-
-### Code samples
-
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobCopy.java)
-
-[!INCLUDE [storage-dev-guide-resources-java](../../../includes/storage-dev-guides/storage-dev-guide-resources-java.md)]
+- [Client library reference documentation](/java/api/overview/azure/storage-blob-readme)
+- [Client library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob)
+- [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob)
