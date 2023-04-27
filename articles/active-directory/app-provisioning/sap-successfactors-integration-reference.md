@@ -284,7 +284,7 @@ To handle both these scenarios so that the new employment data shows up when a c
 1. After confirming that sync works as expected, restart the provisioning job. 
 
 > [!NOTE]
-> The approach described above only works if SAP SuccessFactors returns the employment objects in ascending order, where the latest employment record is always the last record in the *employmentNav* results array. The order in which multiple employment records are returned is not guaranteed by SuccessFactors. If your SuccessFactors instance has multiple employment records corresponding to a worker and you always want to retrieve attributes associated with the active employment record, use steps described in the next section.  
+> The approach described above only works if SAP SuccessFactors returns the employment objects in ascending order, where the latest employment record is always the last record in the *employmentNav* results array. The order in which multiple employment records are returned isn't guaranteed by SuccessFactors. If your SuccessFactors instance has multiple employment records corresponding to a worker and you always want to retrieve attributes associated with the active employment record, use steps described in the next section.  
 
 ### Retrieving current active employment record
 
@@ -412,7 +412,7 @@ This section covers different write-back scenarios. It recommends configuration 
 | 1 | * Only set business email as primary. <br> * Don't set phone numbers. | true | true | false | \[Not Set\] | \[Not Set\] | 
 | 2 | * In SuccessFactors, business email and business phone is primary <br> * Always flow Azure AD telephone number to business phone and mobile to cell phone. | true | true | false | telephoneNumber | mobile | 
 | 3 | * In SuccessFactors, business email and cell phone is primary <br> * Always flow Azure AD telephone number to business phone and mobile to cell phone | true | false | true |  telephoneNumber | mobile | 
-| 4 | * In SuccessFactors business email is primary <br> * In Azure AD, check if work telephone number is present, if present, then check if mobile number is also present, mark  work telephone number as primary only if mobile number is not present. | true | Use expression mapping: `IIF(IsPresent([telephoneNumber]), IIF(IsPresent([mobile]),"false", "true"), "false")` | Use expression mapping: `IIF(IsPresent([mobile]),"false", "true")` | telephoneNumber | mobile | 
+| 4 | * In SuccessFactors business email is primary <br> * In Azure AD, check if work telephone number is present, if present, then check if mobile number is also present, mark  work telephone number as primary only if mobile number isn't present. | true | Use expression mapping: `IIF(IsPresent([telephoneNumber]), IIF(IsPresent([mobile]),"false", "true"), "false")` | Use expression mapping: `IIF(IsPresent([mobile]),"false", "true")` | telephoneNumber | mobile | 
 | 5 | * In SuccessFactors business email and business phone is primary. <br> * In Azure AD, if mobile is available, then set it as the business phone, else use telephoneNumber. | true | true | false | `IIF(IsPresent([mobile]), [mobile], [telephoneNumber])` | \[Not Set\] | 
 
 * If there's no mapping for phone number in the write-back attribute-mapping, then only email is included in the write-back.
@@ -422,7 +422,7 @@ This section covers different write-back scenarios. It recommends configuration 
 
 The SuccessFactors Writeback app uses the following logic to update the User object attributes: 
 * As a first step, it looks for *userId* attribute in the change set. If it is present, then it uses "UserId" for making the SuccessFactors API call. 
-* If *userId* is not found, then it defaults to using the *personIdExternal* attribute value. 
+* If *userId* isn't found, then it defaults to using the *personIdExternal* attribute value. 
 
 Usually the *personIdExternal* attribute value in SuccessFactors matches the *userId* attribute value. However, in scenarios such as rehiring and worker conversion, an employee in SuccessFactors may have two employment records, one active and one inactive. In such scenarios, to ensure that write-back updates the active user profile, please update the configuration of the SuccessFactors provisioning apps as described. This configuration ensures that *userId* is always present in the change set visible to the connector and is used in the SuccessFactors API call.
 
