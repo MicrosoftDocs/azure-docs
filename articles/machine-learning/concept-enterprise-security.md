@@ -79,13 +79,13 @@ For more information, see the following articles:
 
 To restrict network access to Azure Machine Learning resources, you can use [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md) or [Azure Machine Learning managed virtual network (preview)](how-to-managed-network.md). Using either option reduces the attack surface for your solution, as well as the chances of data exfiltration. 
 
-* Azure Machine Learning managed virtual network provides a fully managed solution that enables network isolation for your workspace and managed compute resources. You can use private endpoints to secure communication with other Azure services, and can restrict outbound communications.
+* __Azure Machine Learning managed virtual network__ provides a fully managed solution that enables network isolation for your workspace and managed compute resources. You can use private endpoints to secure communication with other Azure services, and can restrict outbound communications.
 
     [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
     For more information, see [Azure Machine Learning managed virtual network (preview)](how-to-managed-network.md).
 
-* Azure Virtual Networks allow you to create more complex network configurations, such as joining the VNet to your local network through virtual private network (VPN) gateways. While you can also use private endpoints to secure communication with other Azure services, you may need to use network security groups, user-defined routing, or a firewall to restrict outbound communication.
+* __Azure Virtual Networks__ allow you to create more complex network configurations, such as joining the VNet to your local network through virtual private network (VPN) gateways. While you can also use private endpoints to secure communication with other Azure services, you may need to use network security groups, user-defined routing, or a firewall to restrict outbound communication.
 
     For more information, see the following documents:
 

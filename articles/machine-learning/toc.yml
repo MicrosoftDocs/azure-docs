@@ -362,8 +362,11 @@
         - name: Virtual network overview
           displayName: vnet, blob
           href: how-to-network-security-overview.md
+        - name: Managed virtual network
+          displayName: vnet, workspace, network isolation
+          href: how-to-managed-network.md
         - name: Secure workspace resources
-          displayName: vnet, workspace, container instance, container registry
+          displayName: vnet, workspace, network isolation, container registry
           href: how-to-secure-workspace-vnet.md
         - name: Secure training environment
           displayName: vnet, No public IP
