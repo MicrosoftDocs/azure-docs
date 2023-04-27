@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 03/23/2023
+ms.date: 04/27/2023
 ms.custom:
 ---
 # Create, list, update and delete Microsoft Purview DevOps policies
@@ -137,7 +137,7 @@ This section contains a reference of how relevant Microsoft Purview data policy 
 |||
 
 >[!NOTE]
-> The role definition for SQL Performance Monitor will be expanded around April 2023 to include the following actions.
+> The role definition for SQL Performance Monitor will be expanded in the first half of May 2023 to include the following actions.
 
 - /Sqlservers/Databases/SystemViewsAndFunctions/DatabasePerformanceState/Rows/Select
 - /Sqlservers/SystemViewsAndFunctions/ServerPerformanceState/Rows/Select
