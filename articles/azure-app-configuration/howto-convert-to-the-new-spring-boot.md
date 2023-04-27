@@ -71,7 +71,7 @@ The package path for the `spring-cloud-azure-feature-managment` and `spring-clou
 
 * `ConfigurationClientBuilderSetup` has been renamed to `ConfigurationClientCustomizer` and its `setup` method has been renamed to `customize`
 * `SecretClientBuilderSetup` has been renamed to `SecretClientCustomizer` and its `setup` method has been renamed to `customize`
-* `AppConfigurationCredentialProvider` and `KeyVaultCredentialProvider` have been removed. Instead you can use [Azure Spring common configuration properties](../developer/java/spring-framework/configuration.md) or modify the credentials using `ConfigurationClientCustomizer`/`SecretClientCustomizer`.
+* `AppConfigurationCredentialProvider` and `KeyVaultCredentialProvider` have been removed. Instead you can use [Azure Spring common configuration properties](/azure/developer/java/spring-framework/configuration) or modify the credentials using `ConfigurationClientCustomizer`/`SecretClientCustomizer`.
 
 ## Feature flag loading
 
