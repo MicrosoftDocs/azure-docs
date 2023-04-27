@@ -188,7 +188,7 @@ Reasons for why you may see a drop in data path availability include:
 
 Alerts can be configured in Azure Monitor for each of the preceding metrics. These alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address potential issues with your NAT gateway resource. 
 
-For more information about how metric alerts work, see [Azure Monitor Metric Alerts](../../azure-monitor/alerts/alerts-metric-overview.md). See guidance below on how to configure some common and recommended types of alerts for your NAT gateway. 
+For more information about how metric alerts work, see [Azure Monitor Metric Alerts](../azure-monitor/alerts/alerts-metric-overview.md). See guidance below on how to configure some common and recommended types of alerts for your NAT gateway. 
 
 ### Alerts for data path availability droppage
 
@@ -263,7 +263,7 @@ To create the alert, use the following steps:
 
 ## Network Insights
 
-[Azure Monitor Network Insights](../../network-watcher/network-insights-overview.md) allows you to visualize your Azure infrastructure setup and to review all metrics for your NAT gateway resource from a pre-configured metrics dashboard. These visual tools help you diagnose and troubleshoot any issues with your NAT gateway resource. 
+[Azure Monitor Network Insights](../network-watcher/network-insights-overview.md) allows you to visualize your Azure infrastructure setup and to review all metrics for your NAT gateway resource from a pre-configured metrics dashboard. These visual tools help you diagnose and troubleshoot any issues with your NAT gateway resource. 
 
 ### View the topology of your Azure architectural setup
 
@@ -295,5 +295,5 @@ For more information on what each metric is showing you and how to analyze these
 
 * Learn about [Azure NAT Gateway](nat-overview.md)
 * Learn about [NAT gateway resource](nat-gateway-resource.md)
-* Learn about [Azure Monitor](../../azure-monitor/overview.md)
+* Learn about [Azure Monitor](../azure-monitor/overview.md)
 * Learn about [troubleshooting NAT gateway resources](troubleshoot-nat.md).

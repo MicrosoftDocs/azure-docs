@@ -25,13 +25,13 @@ This article provides guidance on how to troubleshoot connectivity issues when u
 
 ### Azure App Services regional Virtual network integration turned off 
 
-NAT gateway can be used with Azure app services to allow applications to make outbound calls from a virtual network. To use this integration between Azure app services and NAT gateway, regional virtual network integration must be enabled. See [how regional virtual network integration works](../../app-service/overview-vnet-integration.md#how-regional-virtual-network-integration-works) to learn more.  
+NAT gateway can be used with Azure app services to allow applications to make outbound calls from a virtual network. To use this integration between Azure app services and NAT gateway, regional virtual network integration must be enabled. See [how regional virtual network integration works](../app-service/overview-vnet-integration.md#how-regional-virtual-network-integration-works) to learn more.  
 
 To use NAT gateway with Azure App services, follow these steps:  
 
-1. Ensure that your application(s) have virtual network integration configured, see [Enable virtual network integration](../../app-service/configure-vnet-integration-enable.md).  
+1. Ensure that your application(s) have virtual network integration configured, see [Enable virtual network integration](../app-service/configure-vnet-integration-enable.md).  
 
-2. Ensure that **Route All** is enabled for your virtual network integration, see [Configure virtual network integration routing](../../app-service/configure-vnet-integration-routing.md). 
+2. Ensure that **Route All** is enabled for your virtual network integration, see [Configure virtual network integration routing](../app-service/configure-vnet-integration-routing.md). 
 
 3. Create a NAT gateway resource.  
 
@@ -39,7 +39,7 @@ To use NAT gateway with Azure App services, follow these steps:
 
 5. Assign NAT gateway to the same subnet being used for Virtual network integration with your application(s).  
 
-To see step-by-step instructions on how to configure NAT gateway with virtual network integration, see [Configuring NAT gateway integration](../../app-service/networking/nat-gateway-integration.md#configuring-nat-gateway-integration) 
+To see step-by-step instructions on how to configure NAT gateway with virtual network integration, see [Configuring NAT gateway integration](../app-service/networking/nat-gateway-integration.md#configuring-nat-gateway-integration) 
 
 Important notes about the NAT gateway and Azure App Services integration:  
 
@@ -65,7 +65,7 @@ NAT gateway can be deployed with AKS clusters in order to allow for explicit out
 
 2. **User-Assigned NAT gateway**: NAT gateway is provisioned by you to an existing virtual network for the AKS cluster. 
 
-Learn more at [Managed NAT Gateway](../../aks/nat-gateway.md).
+Learn more at [Managed NAT Gateway](../aks/nat-gateway.md).
 
 ### Can't update my NAT gateway IPs or idle timeout timer for an AKS cluster 
 
@@ -108,7 +108,7 @@ Update your idle timeout timer configuration on your User-Assigned NAT gateway w
 
 Azure Firewall can provide outbound connectivity to the internet from virtual networks. Azure Firewall provides only 2,496 SNAT ports per public IP address. While Azure Firewall can be associated with up to 250 public IP addresses to handle egress traffic, users may require much fewer public IP addresses for connecting outbound. The requirement for egressing with fewer public IP addresses may be due to various architectural requirements and allowlist limitations by destination endpoints.
 
-One method by which to provide greater scalability for outbound traffic and also reduce the risk of SNAT port exhaustion is to use NAT gateway in the same subnet with Azure Firewall. To set up NAT gateway in an Azure Firewall subnet, see [integrate NAT gateway with Azure Firewall](/azure/virtual-network/nat-gateway/tutorial-hub-spoke-nat-firewall). See [Scale SNAT ports with Azure NAT Gateway](../../firewall/integrate-with-nat-gateway.md) to learn more about how NAT gateway works with Firewall.
+One method by which to provide greater scalability for outbound traffic and also reduce the risk of SNAT port exhaustion is to use NAT gateway in the same subnet with Azure Firewall. To set up NAT gateway in an Azure Firewall subnet, see [integrate NAT gateway with Azure Firewall](/azure/virtual-network/nat-gateway/tutorial-hub-spoke-nat-firewall). See [Scale SNAT ports with Azure NAT Gateway](../firewall/integrate-with-nat-gateway.md) to learn more about how NAT gateway works with Firewall.
 
 > [!NOTE]
 > NAT gateway is not supported in a vWAN architecture. NAT gateway cannot be configured to an Azure Firewall subnet in a vWAN hub.

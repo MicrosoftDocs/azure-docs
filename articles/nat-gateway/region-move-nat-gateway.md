@@ -75,8 +75,8 @@ After you have created new NAT gateway and have tested it, you can delete the so
 
 For more information on moving resources in Azure, see:
 
-- [Move NSGs to another region](../move-across-regions-nsg-portal.md).
-- [Move public IP addresses to another region](../move-across-regions-publicip-portal.md).
-- [Move a storage account to another region](../../storage/common/storage-account-move.md?tabs=azure-portal)
+- [Move NSGs to another region](../virtual-network/move-across-regions-nsg-portal.md).
+- [Move public IP addresses to another region](../virtual-network/move-across-regions-publicip-portal.md).
+- [Move a storage account to another region](../storage/common/storage-account-move.md?tabs=azure-portal)
 
 

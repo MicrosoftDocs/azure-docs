@@ -12,7 +12,7 @@ ms.custom: template-tutorial
 
 # Tutorial: Migrate outbound access to Azure NAT Gateway
 
-In this article, you'll learn how to migrate your outbound connectivity from [default outbound access](../ip-services/default-outbound-access.md) to a NAT gateway. You'll learn how to change your outbound connectivity from load balancer outbound rules to a NAT gateway. You'll reuse the IP address from the outbound rule configuration for the NAT gateway.
+In this article, you'll learn how to migrate your outbound connectivity from [default outbound access](../virtual-network/ip-services/default-outbound-access.md) to a NAT gateway. You'll learn how to change your outbound connectivity from load balancer outbound rules to a NAT gateway. You'll reuse the IP address from the outbound rule configuration for the NAT gateway.
 
 Azure NAT Gateway is the recommended method for outbound connectivity. A NAT gateway is a fully managed and highly resilient Network Address Translation (NAT) service. A NAT gateway doesn't have the same limitations of SNAT port exhaustion as default outbound access. A NAT gateway replaces the need for outbound rules in a load balancer for outbound connectivity.
 
@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* A standard public load balancer in your subscription. The load balancer must have a separate frontend IP address and outbound rules configured. For more information on creating an Azure Load Balancer, see [Quickstart: Create a public load balancer to load balance VMs using the Azure portal](../../load-balancer/quickstart-load-balancer-standard-public-portal.md)
+* A standard public load balancer in your subscription. The load balancer must have a separate frontend IP address and outbound rules configured. For more information on creating an Azure Load Balancer, see [Quickstart: Create a public load balancer to load balance VMs using the Azure portal](../load-balancer/quickstart-load-balancer-standard-public-portal.md)
     * The load balancer name used in the examples is **myLoadBalancer**.
 
 > [!NOTE]
