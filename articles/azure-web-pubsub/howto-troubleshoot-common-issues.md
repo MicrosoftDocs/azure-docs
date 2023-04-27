@@ -11,7 +11,7 @@ ms.devlang: csharp
 
 # Troubleshooting guide for common issues
 
-This article provides troubleshooting guidance for some of the common issues that customers might encounter. Listed errors are available to check by turn on `LiveTrace` tool or collect from diagnostics following [Capture resource logs](https://learn.microsoft.com/azure/azure-web-pubsub/howto-troubleshoot-resource-logs).
+This article provides troubleshooting guidance for some of the common issues that customers might encounter. Listed errors are available to check when you turn on `LiveTrace` tool or collect from diagnostics following [Capture resource logs](https://learn.microsoft.com/azure/azure-web-pubsub/howto-troubleshoot-resource-logs).
 
 ## 404 from HttpHandlerUnexpectedResponse
 
@@ -25,8 +25,8 @@ This error indicates the event is registered in Web PubSub settings but fail to 
 
 ### Troubleshooting guide
 
-- Check your upstream server function or method whether it is good to work.
-- Check whether this event is intended to register. If not, simply remove it from the hub settings in Web PubSub side. 
+- Check your upstream server function or method whether it's good to work.
+- Check whether this event is intended to register. If not, remove it from the hub settings in Web PubSub side. 
 
 ## 500 from HttpHandlerUnexpectedResponse
 
@@ -45,7 +45,7 @@ This error indicates event request get a `500` response from registered upstream
 
 ## AbuseProtectionResponseMissingAllowedOrigin
 
-Web PubSub follows the [CloudEvents Abuse Protection](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection) to validate the upstream webhook. Every registered upstream webhook URL will be validated by this mechanism. The `WebHook-Request-Origin` request header is set to the service domain name `<web-pubsub-name>.webpubsub.azure.com`, and it expects the response to have a header `WebHook-Allowed-Origin` to contain this domain name or `*`. 
+Web PubSub follows the [CloudEvents Abuse Protection](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection) to validate the upstream webhook. Every registered upstream webhook URL will be validated. The `WebHook-Request-Origin` request header is set to the service domain name `<web-pubsub-name>.webpubsub.azure.com`, and it expects the response to have a header `WebHook-Allowed-Origin` to contain this domain name or `*`. 
 
 ### Possible errors
 
@@ -55,9 +55,9 @@ Web PubSub follows the [CloudEvents Abuse Protection](https://github.com/cloudev
 
 Review the upstream side code to ensure when upstream receives the `OPTIONS` preflight request from Web PubSub service, it's correctly handled following the rule that contains the expected header `WebHook-Allowed-Origin` and value.
 
-Besides, you can update to convenience server SDK which automatically handles `Abuse Protection` for you.
+Besides, you can update to convenience server SDK, which automatically handles `Abuse Protection` for you.
 
-- [@web-pubsub-express for JaveScript ](https://www.npmjs.com/package/@azure/web-pubsub-express)
+- [@web-pubsub-express for Javascript ](https://www.npmjs.com/package/@azure/web-pubsub-express)
 - [Microsoft.Azure.WebPubSub.AspNetCore for C#](https://www.nuget.org/packages/Microsoft.Azure.WebPubSub.AspNetCore)
 
 ## 401 Unauthorized from AbuseProtectionResponseInvalidStatusCode
@@ -68,7 +68,7 @@ Besides, you can update to convenience server SDK which automatically handles `A
 
 ### Root cause
 
-This error indicates the `Abuse Protection` request get a `401` response from the registered upstream URL. See [`Abuse Protection`](https://learn.microsoft.com/azure/azure-web-pubsub/howto-develop-eventhandler#upstream-and-validation) for more details.
+This error indicates the `Abuse Protection` request get a `401` response from the registered upstream URL. For me information, see [`Abuse Protection`](https://learn.microsoft.com/azure/azure-web-pubsub/howto-develop-eventhandler#upstream-and-validation).
 
 ### Troubleshooting guide
 
@@ -79,12 +79,12 @@ This error indicates the `Abuse Protection` request get a `401` response from th
 
 When the client is connected to Azure Web PubSub, the persistent connection between the client and Azure Web PubSUb can sometimes drop for different reasons. This section describes several possibilities causing such connection drop and provides some guidance on how to identify the root cause. 
 
-You can check the metric `Connection Close Count` from Azure Portal.
+You can check the metric `Connection Close Count` from Azure portal.
 
 ### Possible reasons and root cause
 
 | Reason | Root cause |
-| -- | -- |
+|--|--|
 | Normal | Close by clients |
 | ClosedByAppServer | Close by server triggered Rest API call like [`CloseConnection`](https://learn.microsoft.com/rest/api/webpubsub/dataplane/web-pub-sub/close-connection?tabs=HTTP) |
 | ServiceReload | Close by service due to regular maintenance or backend auto scales |
@@ -101,5 +101,5 @@ Web PubSub different tiers have a hard limit on concurrent connection. This erro
 
 ### Solution
 
-Scale up to a paid tier(Standard or Premium) to have at least 1000 connections or scale out to more units that supports more connections.
+Scale up to a paid tier(Standard or Premium) to have at least 1000 connections or scale out to more units that support more connections.
 
