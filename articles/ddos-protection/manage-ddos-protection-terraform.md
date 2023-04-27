@@ -5,9 +5,9 @@ author: TomArcherMsft
 ms.service: ddos-protection
 ms.topic: quickstart
 ms.workload: infrastructure-services
-ms.custom: devx-track-terraform
+ms.custom: devx-track-terraform, ai-gen-docs
 ms.author: tarcher
-ms.date: 4/12/2023
+ms.date: 4/14/2023
 ---
 
 # Quickstart: Create and configure Azure DDoS Network Protection using Terraform
@@ -111,19 +111,6 @@ In this article, you learn how to:
     ```azurepowershell
     Get-AzDdosProtectionPlan -ResourceGroupName $resource_group_name `
                              -Name $ddos_protection_plan_name
-    ```
-
-1. Get the virtual network name.
-
-    ```console
-    $virtual_network_name=$(terraform output -raw virtual_network_name)
-    ```
-
-1. Run [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) to display information about the new virtual network.
-
-    ```azurepowershell
-    Get-AzVirtualNetwork -ResourceGroupName $resource_group_name `
-                         -Name $virtual_network_name
     ```
 
 ---
