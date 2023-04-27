@@ -68,8 +68,6 @@ items:
         href: vm/monitor-virtual-machine-analyze.md
       - name: Create alerts
         href: vm/monitor-virtual-machine-alerts.md
-      - name: Migrate management pack logic
-        href: vm/monitor-virtual-machine-management-packs.md
   - name: Monitor Azure Monitor
     href: monitor-azure-monitor.md
   - name: Monitor applications
@@ -378,8 +376,7 @@ items:
     - name: Data collector API
       items:
       - name: Overview
-        href: logs/data-collector-api.md
-      - name: Log Analytics Data collector API
+        displayName: data collector api
         href: logs/data-collector-api.md
       - name: Log Analytics Data Collector API Pipeline example
         href: logs/create-pipeline-datacollector-api.md
@@ -1165,8 +1162,6 @@ items:
        href: visualize/tutorial-logs-dashboards.md
      - name: Dashboard using application data
        href: app/tutorial-app-dashboards.md
-     - name: Upgrading Log Analytics Dashboards
-       href: logs/dashboard-upgrade.md
   - name: Power BI
     href: logs/log-powerbi.md
   - name: Grafana

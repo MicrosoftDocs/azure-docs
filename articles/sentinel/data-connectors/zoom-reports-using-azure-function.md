@@ -10,7 +10,7 @@ ms.author: cwatson
 
 # Zoom Reports (using Azure Function) connector for Microsoft Sentinel
 
-The [Zoom](https://zoom.us/) Reports data connector provides the capability to ingest [Zoom Reports](https://marketplace.zoom.us/docs/api-reference/zoom-api/reports/) events into Microsoft Sentinel through the REST API. Refer to [API documentation](https://marketplace.zoom.us/docs/api-reference/introduction) for more information. The connector provides ability to get events which helps to examine potential security risks, analyze your team's use of collaboration, diagnose configuration problems and more.
+The [Zoom](https://zoom.us/) Reports data connector provides the capability to ingest [Zoom Reports](https://developers.zoom.us/docs/api/) events into Microsoft Sentinel through the REST API. Refer to [API documentation](https://developers.zoom.us/docs/api/) for more information. The connector provides ability to get events which helps to examine potential security risks, analyze your team's use of collaboration, diagnose configuration problems and more.
 
 ## Connector attributes
 
@@ -40,7 +40,7 @@ Zoom
 To integrate with Zoom Reports (using Azure Function) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions).
-- **REST API Credentials/permissions**: **ZoomApiKey** and **ZoomApiSecret** are required for Zoom API. [See the documentation to learn more about API](https://marketplace.zoom.us/docs/guides/auth/jwt). Check all [requirements and follow  the instructions](https://marketplace.zoom.us/docs/guides/auth/jwt) for obtaining credentials.
+- **REST API Credentials/permissions**: **ZoomApiKey** and **ZoomApiSecret** are required for Zoom API. [See the documentation to learn more about API](https://developers.zoom.us/docs/internal-apps/jwt/). Check all [requirements and follow  the instructions](https://developers.zoom.us/docs/internal-apps/jwt/) for obtaining credentials.
 
 
 ## Vendor installation instructions
@@ -59,7 +59,7 @@ To integrate with Zoom Reports (using Azure Function) make sure you have:
 
 **STEP 1 - Configuration steps for the Zoom API**
 
- [Follow the instructions](https://marketplace.zoom.us/docs/guides/auth/jwt) to obtain the credentials. 
+ [Follow the instructions](https://developers.zoom.us/docs/internal-apps/jwt/) to obtain the credentials. 
 
 
 
@@ -89,7 +89,7 @@ Use the following step-by-step instructions to deploy the Zoom Reports data conn
 
 **1. Deploy a Function App**
 
-> **NOTE:** You will need to [prepare VS code](https://learn.microsoft.com/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.
+> **NOTE:** You will need to [prepare VS code](/azure/azure-functions/functions-create-first-function-python) for Azure function development.
 
 1. Download the [Azure Function App](https://aka.ms/sentinel-ZoomAPI-functionapp) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.

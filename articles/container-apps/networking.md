@@ -161,6 +161,7 @@ Important notes for configuring UDR with Azure Firewall:
 - You need to allow the `MicrosoftContainerRegistry` and its dependency `AzureFrontDoor.FirstParty` service tags to your Azure Firewall. Alternatively, you can add the following FQDNs: *mcr.microsoft.com* and **.data.mcr.microsoft.com*.
 - If you're using Azure Container Registry (ACR), you need to add the `AzureContainerRegistry` service tag and the **.blob.core.windows.net* FQDN in the Azure Firewall.
 - If you're using [Docker Hub registry](https://docs.docker.com/desktop/allow-list/) and want to access it through the firewall, you need to add the following FQDNs to your firewall: *hub.docker.com*, *registry-1.docker.io*, and *production.cloudflare.docker.com*.
+- If you're using [Azure Key Vault references](./manage-secrets.md#reference-secret-from-key-vault), you will need to add the `AzureKeyVault` service tag and the *login.microsoft.com* FQDN to the allow list for your firewall.
 - External environments aren't supported.
 
 Azure creates a default route table for your virtual networks upon create. By implementing a user-defined route table, you can control how traffic is routed within your virtual network. For example, you can create a UDR that routes all traffic to the firewall. For a guide on how to setup UDR with Container Apps to restrict outbound traffic with Azure Firewall, visit the [how to for Container Apps and Azure Firewall](./user-defined-routes.md).
