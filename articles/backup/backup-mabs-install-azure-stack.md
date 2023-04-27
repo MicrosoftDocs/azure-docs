@@ -208,7 +208,7 @@ Azure Backup Server shares code with Data Protection Manager. You'll see referen
    > Azure Backup Server won't work with a remote SQL Server instance. The instance used by Azure Backup Server must be local.
    >
 
-   ::image type="content" source="./media/backup-azure-microsoft-azure-backup/sql/install-new-instance-of-sql-server.png" alt-text="Screenshot shows Azure Backup Server SQL check.":::
+   :::image type="content" source="./media/backup-azure-microsoft-azure-backup/sql/install-new-instance-of-sql-server.png" alt-text="Screenshot shows Azure Backup Server SQL check.":::
 
     After checking, if the virtual machine has the necessary prerequisites to install Azure Backup Server, select **Next**.
 
