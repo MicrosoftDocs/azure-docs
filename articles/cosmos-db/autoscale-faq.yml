@@ -139,7 +139,7 @@ sections:
       - question: |
           What storage limit is associated with each maximum RU/s option?  
         answer: |
-          The storage limit in GB for each maximum RU/s is the maximum RU/s of the database or container divided by 10. For example, if the maximum RU/s is 20,000 RU/s, the resource can support 2000 GB of storage.
+          The storage limit in GB for each maximum RU/s is the maximum RU/s of the database or container divided by 10. For example, if the maximum RU/s is 20,000 RU/s, the resource can support 2,000 GB of storage.
 
           For available maximum RU/s and storage options, see [Provision throughput autoscale limits](provision-throughput-autoscale.md#autoscale-limits). 
           
