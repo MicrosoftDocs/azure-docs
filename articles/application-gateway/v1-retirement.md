@@ -42,7 +42,7 @@ Start planning your migration to Application Gateway V2, today.
 
 - Make a list of all Application Gateway V1's: On April 28,2023, we sent out emails with subject " Retirement Notice: Transition to Application Gateway V2 by 28 April 2026 " to V1 subscription owners. The email provides the subscription, Gateway Name and Application Gateway V1 Resource details in it. Please use them to build this list.
 
-- Learn more](./migrate-v1-v2.md) about migrating your application gateway V1 to V2 SKU. For more information, see [Frequently asked questions about V1 to V2 migration.](./migrate-v1-v2.md#common-questions)
+- [Learn more](./migrate-v1-v2.md) about migrating your application gateway V1 to V2 SKU. For more information, see [Frequently asked questions about V1 to V2 migration.](./migrate-v1-v2.md#common-questions)
 
 - For technical questions, issues, and help get answers from community experts in  [Microsoft Q&A](https://aka.ms/ApplicationGatewayQA) or reach out to us at [AppGatewayMigrationTeam](mailto:appgatewaymigration@microsoft.com). If you have a support question and you need technical help, please create a [support request](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV3Blade) . 
 
@@ -93,3 +93,8 @@ Planning and execution of migration greatly depends on the complexity of the dep
 ### How do I report an issue?
 
 Post your issues and questions about migration to our [Microsoft Q&A](https://aka.ms/ApplicationGatewayQA) for AppGateway, with the keyword V1Migration. We recommend posting all your questions on this forum. If you have a support contract, you're welcome to log a [support ticket](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV3Blade) as well.
+
+## Next steps
+  
+  * [Migration Guidance](./migrate-v1-v2.md)
+  
