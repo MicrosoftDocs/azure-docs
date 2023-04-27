@@ -231,6 +231,8 @@ items:
         href: how-tos/calling-sdk/transfer-calls.md
       - name: Subscribe to SDK events
         href: how-tos/calling-sdk/events.md
+      - name: Enable Closed captions for Teams Interoperability
+        href: how-tos/calling-sdk/closed-captions-teams-interop-how-to.md        
     - name: Call recording
       items:
       - name: Record a call
@@ -567,6 +569,8 @@ items:
         href: concepts/rooms/room-concept.md
     - name: Call recording
       href: concepts/voice-video-calling/call-recording.md
+    - name: Enable Closed captions
+      href: concepts/interop/enable-closed-captions.md      
     - name: Media access
       href: concepts/voice-video-calling/media-access.md
     - name: Video constraints
