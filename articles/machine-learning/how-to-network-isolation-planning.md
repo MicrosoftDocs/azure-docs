@@ -21,7 +21,7 @@ In this article, you learn how to plan your network isolation for Azure Machine 
 
 ### Azure Machine Learning managed virtual network or Azure Virtual Network
 
-Azure Machine Learning can use either a managed virtual network (preview) or Azure Virtual Network to enable network isolation.
+Azure Machine Learning can use a managed virtual network (preview) or Azure Virtual Network to enable network isolation.
 
 > [!IMPORTANT]
 > Azure Machine Learning managed virtual network is currently in preview. This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
@@ -32,6 +32,8 @@ Using a Managed virtual network provides an easier configuration for network iso
 Using Azure Virtual Networks provides a more customizable network isolation solution, with the caveat that you are responsible for configuration and management. For example, configuring allowed inbound and outbound network connectivity based on your needs.
 
 > [!TIP]
+> You can use both a manged virtual network and Azure Virtual Network as part of your solution. For example, using a managed virtual network to secure managed compute resources and an Azure Virtual Network to connect your on-premises network to the cloud. In this configuration, the Azure Machine Learning workspace might have a private endpoint in the Azure Virtual Network to allow clients to access the workspace.
+> 
 > The information in this article is primarily about using Azure Virtual Networks. For more information on Azure Machine Learning managed virtual networks, see the [Managed virtual network](how-to-managed-network.md) article.
 
 ### Azure Machine Learning has both IaaS and PaaS resources

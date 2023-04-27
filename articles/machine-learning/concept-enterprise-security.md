@@ -77,15 +77,18 @@ For more information, see the following articles:
 
 ## Network security and isolation
 
-To restrict network access to Azure Machine Learning resources, you can use [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md) or [Azure Machine Learning managed virtual network (preview)](how-to-managed-network.md). Using either option reduces the attack surface for your solution, as well as the chances of data exfiltration. 
+To restrict network access to Azure Machine Learning resources, you can use [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md) and [Azure Machine Learning managed virtual network (preview)](how-to-managed-network.md). Using either option reduces the attack surface for your solution, as well as the chances of data exfiltration.
 
-* __Azure Machine Learning managed virtual network__ provides a fully managed solution that enables network isolation for your workspace and managed compute resources. You can use private endpoints to secure communication with other Azure services, and can restrict outbound communications.
+> [!IMPORTANT]
+> You can use both a manged virtual network and Azure Virtual Network as part of your solution. For example, using a managed virtual network to secure managed compute resources and an Azure Virtual Network to connect your on-premises network to the cloud. In this configuration, the Azure Machine Learning workspace might have a private endpoint in the Azure Virtual Network to allow clients to access the workspace.
+
+* __Azure Machine Learning managed virtual network__ (preview) provides a fully managed solution that enables network isolation for your workspace and managed compute resources. You can use private endpoints to secure communication with other Azure services, and can restrict outbound communications.
 
     [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
     For more information, see [Azure Machine Learning managed virtual network (preview)](how-to-managed-network.md).
 
-* __Azure Virtual Networks__ allow you to create more complex network configurations, such as joining the VNet to your local network through virtual private network (VPN) gateways. While you can also use private endpoints to secure communication with other Azure services, you may need to use network security groups, user-defined routing, or a firewall to restrict outbound communication.
+* __Azure Virtual Networks__ provides a more customizable virtual network offering. However, you are responsible for configuration and management. You may need to use network security groups, user-defined routing, or a firewall to restrict outbound communication.
 
     For more information, see the following documents:
 
