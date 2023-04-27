@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 04/26/2023
+ms.date: 04/27/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -25,16 +25,16 @@ Azure Text Translation is a cloud-based REST API feature of the Azure Translator
 
 Text Translation SDK supports the following languages and platforms:
 
-| Language → SDK version | Package| Supported API version| Platform support |
-|:----------------------:|:----------|:----------| :----------------|
-| [.NET/C# → 1.0.0-beta.1]||||
-|[Java → ]||||
-|[JavaScript → ]||||gnizer-api-v2/operations/AnalyzeLayoutAsync) | [Browser, Windows, macOS, Linux](https://nodejs.org/en/download/) |
-|[Python → ]||||
+| Language → SDK version | Package| Supported API version|
+|:----------------------:|:----------|:----------|
+| [.NET/C# → 1.0.0-beta.1](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.Translation.Text/1.0.0-beta.1/index.html)|[NuGet](https://www.nuget.org/packages/Azure.AI.Translation.Text/1.0.0-beta.1)|Translator v3.0|
+|[Java → 1.0.0-beta.1](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-translation-text/1.0.0-beta.1/index.html) → ]|[MVN repository](https://mvnrepository.com/artifact/com.azure/azure-ai-translation-text/1.0.0-beta.1)|Translator v3.0|
+|[JavaScript → 1.0.0-beta.1](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-cognitiveservices-translatortext/1.0.0/index.html)|[npm](https://www.npmjs.com/package/@azure-rest/ai-translation-text/v/1.0.0-beta.1)|Translator v3.0 |
+|[Python → 1.0.0b1](/python/api/azure-ai-translation-text/azure.ai.translation.text?view=azure-python-preview&preserve-view=true)|[PyPi](https://pypi.org/project/azure-ai-translation-text/1.0.0b1/)|Translator v3.0|
 
 ## Changelog and release history
 
-This reference article provides a version-based description of Form Recognizer feature and capability releases, changes, updates, and enhancements.
+This section provides a version-based description of Text Translation feature and capability releases, changes, updates, and enhancements.
 
 #### Translator Text SDK April 2023 preview release
 
@@ -42,59 +42,60 @@ This release includes the following updates:
 
 ### [**C#**](#tab/csharp)
 
-* **Version**
-* **Targets**
-* **Initial release**
+* **Version 1.0.0-beta.1 (2023-04-17)**
+* **Targets Text Translation v3.0**
+* **Initial version release**
 
-[**Package (NuGet)**]()
+[**Package (NuGet)**](https://www.nuget.org/packages/Azure.AI.Translation.Text/1.0.0-beta.1)
 
-[**Changelog/Release History**]()
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/translation/Azure.AI.Translation.Text/CHANGELOG.md#100-beta1-2023-04-17)
 
-[**ReadMe**]()
+[**README**](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/translation/Azure.AI.Translation.Text#readme)
 
-[**Samples**]()
+[**Samples**](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/translation/Azure.AI.Translation.Text/samples)
 
 ### [**Java**](#tab/java)
 
-* **Version**
-* **Targets**
-* **Initial release**
+* **Version 1.0.0-beta.1 (2023-04-18)**
+* **Targets Text Translation v3.0**
+* **Initial version release**
 
-[**Package (NuGet)**]()
+[**Package (MVN)**](https://mvnrepository.com/artifact/com.azure/azure-ai-translation-text/1.0.0-beta.1)
 
-[**Changelog/Release History**]()
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/translation/azure-ai-translation-text/CHANGELOG.md#100-beta1-2023-04-18)
 
-[**ReadMe**]()
+[**README**](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/translation/azure-ai-translation-text#readme)
 
-[**Samples**]()
+[**Samples**](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/translation/azure-ai-translation-text#next-steps)
 
 ### [**JavaScript**](#tab/javascript)
 
-* **Version**
-* **Targets**
-* **Initial release**
+* **Version 1.0.0-beta.1 (2023-04-18)**
+* **Targets Text Translation v3.0**
+* **Initial version release**
 
-[**Package (NuGet)**]()
+[**Package (npm)**](https://www.npmjs.com/package/@azure-rest/ai-translation-text/v/1.0.0-beta.1)
 
-[**Changelog/Release History**]()
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/translation/ai-translation-text-rest/CHANGELOG.md#100-beta1-2023-04-18)
 
-[**ReadMe**]()
+[**README**](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/translation/ai-translation-text-rest/README.md)
 
-[**Samples**]()
+[**Samples**](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/translation/ai-translation-text-rest/samples/v1-beta)
 
 ### [**Python**](#tab/python)
 
-* **Version**
-* **Targets**
-* **Initial release**
+* **Version 1.0.0b1 (2023-04-19)**
+* **Targets Text Translation v3.0**
+* **Initial version release**
 
-[**Package (NuGet)**]()
+[**Package (PyPi)**](https://pypi.org/project/azure-ai-translation-text/1.0.0b1/)
 
-[**Changelog/Release History**]()
+[**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/translation/azure-ai-translation-text/CHANGELOG.md#100b1-2023-04-19)
 
-[**ReadMe**]()
+[**README**](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/translation/azure-ai-translation-text/README.md)
 
-[**Samples**]()
+[**Samples**](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/translation/azure-ai-translation-text/samples)
+
 ---
 
 ## Use Text Translation SDK in your applications
@@ -106,37 +107,37 @@ The Text Translation SDK enables the use and management of the Text Translation 
 ### [C#/.NET](#tab/csharp)
 
 ```dotnetcli
-dotnet add package Azure.AI.FormRecognizer --version 4.0.0
+dotnet add package Azure.AI.Translation.Text --version 1.0.0-beta.1
 ```
 
 ```powershell
-Install-Package Azure.AI.FormRecognizer -Version 4.0.0
+Install-Package Azure.AI.Translation.Text -Version 1.0.0-beta.1
 ```
 
 ### [Java](#tab/java)
 
 ```xml
 <dependency>
-<groupId>com.azure</groupId>
-<artifactId>azure-ai-formrecognizer</artifactId>
-<version>4.0.6</version>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-ai-translation-text</artifactId>
+    <version>1.0.0-beta.1</version>
 </dependency>
 ```
 
 ```kotlin
-implementation("com.azure:azure-ai-formrecognizer:4.0.6")
+implementation("com.azure:azure-ai-translation-text:1.0.0-beta.1")
 ```
 
 ### [JavaScript](#tab/javascript)
 
 ```javascript
-npm i @azure/ai-form-recognizer
+npm i @azure-rest/ai-translation-text@1.0.0-beta.1
 ```
 
 ### [Python](#tab/python)
 
 ```python
-pip install azure-ai-formrecognizer
+pip install azure-ai-translation-text==1.0.0b1
 ```
 
 ---
@@ -147,15 +148,14 @@ pip install azure-ai-formrecognizer
 
 ```csharp
 using Azure;
-using Azure.AI.FormRecognizer.DocumentAnalysis;
+using Azure.AI.Translation.Text;
 ```
 
 ### [Java](#tab/java)
 
 ```java
-import com.azure.ai.formrecognizer.*;
-import com.azure.ai.formrecognizer.models.*;
-import com.azure.ai.formrecognizer.DocumentAnalysisClient.*;
+import com.azure.ai.translation.text.models.*;
+import com.azure.ai.translation.text.models.Translation;
 
 import com.azure.core.credential.AzureKeyCredential;
 ```
@@ -163,14 +163,15 @@ import com.azure.core.credential.AzureKeyCredential;
 ### [JavaScript](#tab/javascript)
 
 ```javascript
-const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
+const { 
+    TranslatorCredential, TextTranslationClient } = require("@azure-rest/ai-translation-text");
 ```
 
 ### [Python](#tab/python)
 
 ```python
-from azure.ai.formrecognizer import DocumentAnalysisClient
 from azure.core.credentials import AzureKeyCredential
+from azure-ai-translation-text import TextTranslationClient
 ```
 
 ---
@@ -191,21 +192,32 @@ Here's where to find your Text Translation API key in the Azure portal:
 
 ### [C#/.NET](#tab/csharp)
 
+**Using a regional endpoint**
+
 ```csharp
 
-//set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal to create your `AzureKeyCredential` and `DocumentAnalysisClient` instance
+Uri endpoint = new("<your-endpoint>);
 string key = "<your-key>";
-string endpoint = "<your-endpoint>";
-AzureKeyCredential credential = new AzureKeyCredential(key);
-DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
+string region = "<region>"
+AzureKeyCredential credential = new(key);
+TextTranslationClient client = new(credential, region);
+```
+
+**Using the global endpoint**
+
+```csharp
+Uri endpoint = new("<your-endpoint>");
+string key = "<your-key>";
+string region = "<region>"
+AzureKeyCredential credential = new(key);
+TextTranslationClient client = new(credential, endpoint);
 ```
 
 ### [Java](#tab/java)
 
 ```java
 
-// create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
-DocumentAnalysisClient client = new DocumentAnalysisClientBuilder()
+TextTranslationClient client = new TextTranslationClientBuilder()
             .credential(new AzureKeyCredential("<your-key>"))
             .endpoint("<your-endpoint>")
             .buildClient();
@@ -215,17 +227,16 @@ DocumentAnalysisClient client = new DocumentAnalysisClientBuilder()
 
 ```javascript
 
-// create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
 async function main() {
-    const client = new DocumentAnalysisClient("<your-endpoint>", new AzureKeyCredential("<your-key>"));
+    const client = new TextTranslationClient("<your-endpoint>", new AzureKeyCredential("<your-key>"));
 ```
 
 ### [Python](#tab/python)
 
 ```python
 
-# create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
-    document_analysis_client = DocumentAnalysisClient(endpoint="<your-endpoint>", credential=AzureKeyCredential("<your-key>"))
+  translator_credential = TranslatorCredential("<apiKey>", "<region>")
+  text_translator_client = TextTranslationClient(endpoint="<endpoint>", credential=translator_credential)
 ```
 
 ---
@@ -257,14 +268,14 @@ Here's how to acquire and use the [DefaultAzureCredential](/dotnet/api/azure.ide
 
 1. Set the values of the client ID, tenant ID, and client secret in the Azure AD application as environment variables: **`AZURE_CLIENT_ID`**, **`AZURE_TENANT_ID`**, and **`AZURE_CLIENT_SECRET`**, respectively.
 
-1. Create your **`DocumentAnalysisClient`** instance including the **`DefaultAzureCredential`**:
+1. Create your **`TextTranslationClient`** instance including the **`DefaultAzureCredential`**:
 
     ```csharp
     string endpoint = "<your-endpoint>";
-    var client = new DocumentAnalysisClient(new Uri(endpoint), new DefaultAzureCredential());
+    var client = new TextTranslationClient(new Uri(endpoint), new DefaultAzureCredential());
     ```
 
-For more information, *see* [Authenticate the client](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.FormRecognizer_4.0.0-beta.4/sdk/formrecognizer/Azure.AI.FormRecognizer#authenticate-the-client)
+For more information, *see* [Authenticate the client]())
 
 ### [Java](#tab/java)
 
@@ -286,17 +297,17 @@ Here's how to acquire and use the [DefaultAzureCredential](/java/api/com.azure.i
 
 1. Set the values of the client ID, tenant ID, and client secret of the Azure AD application as environment variables: **`AZURE_CLIENT_ID`**, **`AZURE_TENANT_ID`**, and **`AZURE_CLIENT_SECRET`**, respectively.
 
-1. Create your **`DocumentAnalysisClient`** instance and **`TokenCredential`** variable:
+1. Create your **`TextTranslationClient`** instance and **`TokenCredential`** variable:
 
     ```java
     TokenCredential credential = new DefaultAzureCredentialBuilder().build();
-    DocumentAnalysisClient documentAnalysisClient = new DocumentAnalysisClientBuilder()
+    TextTranslationClient TextTranslationClient = new TextTranslationClientBuilder()
         .endpoint("{your-endpoint}")
         .credential(credential)
         .buildClient();
     ```
 
-For more information, *see* [Authenticate the client](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/formrecognizer/azure-ai-formrecognizer#authenticate-the-client)
+For more information, *see* [Authenticate the client]()
 
 ### [JavaScript](#tab/javascript)
 
@@ -314,16 +325,16 @@ Here's how to acquire and use the [DefaultAzureCredential](/javascript/api/@azur
 
 1. Set the values of the client ID, tenant ID, and client secret of the Azure AD application as environment variables: **`AZURE_CLIENT_ID`**, **`AZURE_TENANT_ID`**, and **`AZURE_CLIENT_SECRET`**, respectively.
 
-1. Create your **`DocumentAnalysisClient`** instance including the **`DefaultAzureCredential`**:
+1. Create your **`TextTranslationClient`** instance including the **`DefaultAzureCredential`**:
 
     ```javascript
-    const { DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
+    const { TextTranslationClient } = require("@azure/ai-translation-text");
     const { DefaultAzureCredential } = require("@azure/identity");
 
-    const client = new DocumentAnalysisClient("<your-endpoint>", new DefaultAzureCredential());
+    const client = new TextTranslationClient("<your-endpoint>", new DefaultAzureCredential());
     ```
 
-For more information, *see* [Create and authenticate a client](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/formrecognizer/ai-form-recognizer#create-and-authenticate-a-client).
+For more information, *see* [Create and authenticate a client]().
 
 ### [Python](#tab/python)
 
@@ -341,20 +352,20 @@ Here's how to acquire and use the [DefaultAzureCredential](/python/api/azure-ide
 
 1. Set the values of the client ID, tenant ID, and client secret of the Azure AD application as environment variables: **`AZURE_CLIENT_ID`**, **`AZURE_TENANT_ID`**, and **`AZURE_CLIENT_SECRET`**, respectively.
 
-1. Create your **`DocumentAnalysisClient`** instance including the **`DefaultAzureCredential`**:
+1. Create your **`TextTranslationClient`** instance including the **`DefaultAzureCredential`**:
 
     ```python
     from azure.identity import DefaultAzureCredential
-    from azure.ai.formrecognizer import DocumentAnalysisClient
+    from azure.ai.translation-text import TextTranslationClient
 
     credential = DefaultAzureCredential()
-    document_analysis_client = DocumentAnalysisClient(
+    text_translation_client = TextTranslationClient(
         endpoint="https://<my-custom-subdomain>.cognitiveservices.azure.com/",
         credential=credential
     )
     ```
 
-For more information, *see* [Authenticate the client](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.2.0b5/sdk/formrecognizer/azure-ai-formrecognizer#authenticate-the-client)
+For more information, *see* [Authenticate the client]()
 
 ---
 
@@ -364,7 +375,7 @@ Create a client object to interact with the Text Translation SDK, and then call 
 
 ## Help options
 
-The [Microsoft Q&A](/answers/tags/132/azure-translator) and [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-text-translation) forums are available for the developer community to ask and answer questions about Azure Text Translation and other services. Microsoft monitors the forums and replies to questions that the community has yet to answer. To make sure that we see your question, tag it with **`azure-form-recognizer`**.
+The [Microsoft Q&A](/answers/tags/132/azure-translator) and [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-text-translation) forums are available for the developer community to ask and answer questions about Azure Text Translation and other services. Microsoft monitors the forums and replies to questions that the community has yet to answer. To make sure that we see your question, tag it with **`azure-text-translation`**.
 
 ## Next steps
 
