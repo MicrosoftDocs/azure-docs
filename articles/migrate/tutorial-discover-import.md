@@ -168,10 +168,11 @@ For example, to specify all fields for a second disk, add these columns:
 
 ## Import the server information
 
-After adding information to the CSV template, import the CSV file into Server Assessment.
+After adding information to the CSV template, import the CSV file.
 
-1. In Azure Migrate, in **Discover machines**, go to the completed template.
-2. Select **Import**.
+1. In **Migration goals** > **Servers** > **Azure Migrate: Discovery and assessment**, select **Discover**.
+1. In **Discover machines**, select **Import using CSV** 
+1. Upload the .csv file and select **Import**.
 3. The import status is shown.
     - If warnings appear in the status, you can either fix them or continue without addressing them.
     - To improve assessment accuracy, improve the server information as suggested in warnings.
@@ -191,7 +192,7 @@ You can update the information for a server by importing the data for the server
 To verify that the servers appear in the Azure portal after discovery:
 
 1. Open the Azure Migrate dashboard.
-2. On the **Azure Migrate - Servers** > **Azure Migrate: Server Assessment** page, select the icon that displays the count for **Discovered servers**.
+2. On the **Azure Migrate - Servers** > **Azure Migrate: Discovery and assessment** page, select the icon that displays the count for **Discovered servers**.
 3. Select the **Import based** tab.
 
 ## Supported operating system names
@@ -206,7 +207,7 @@ Asianux 3<br/>Asianux 4<br/>Asianux 5<br/>CentOS<br/>CentOS 4/5<br/>CoreOS Linux
 - If you import servers by using a CSV file and build a business case:
     - Performance history duration in Azure settings will not be applicable
     - Servers where no performance data is specified will be classified as *unknown* in the business case utilization insights chart and will be sized as-is without rightsizing for Azure cost
-    - Servers where server type and virtualization are not specified will be classified as *Not applicable* in virtualization distribution and no virtualisation software cost will be added in on-premises cost
+    - Servers where server type and virtualization are not specified will be classified as *Not applicable* in virtualization distribution and no virtualization software cost will be added in on-premises cost
 
 
 ## Assessment considerations

@@ -74,7 +74,7 @@ There are three types of migration strategies that you can choose while building
 
    Azure SKU size and cost recommendations are based on the location that you specify.
 
-1. In **Discovery source**, specify the discovery source on which you wish to create the business case. The options to build the business case using data discovered via the  appliance or imported via a .csv file will be available based on the type of discovered servers present in your project. The discovery source will be defaulted to the option chosen by you while building the business case and you will not be able to update this field later.
+1. In **Discovery source**, specify the discovery source on which you wish to create the business case. The options to build the business case using data discovered via the  appliance or imported via a .csv file is present based on the type of discovered servers present in your project. The discovery source will be defaulted to the option chosen by you while building the business case and you won't be able to update this field later.
 
 1. In **Migration strategy**, specify the migration strategy for your Business case:
     
@@ -91,7 +91,7 @@ There are three types of migration strategies that you can choose while building
 
     :::image type="content" source="./media/how-to-build-a-business-case/build-button.png" alt-text="Screenshot of the button to initiate the Business case creation.":::
 
-1. You are directed to the newly created Business case with a banner that says that your Business case is computing. The computation might take some time, depending on the number of servers and workloads in the project. You can come back to the Business case page after ~30 minutes and select **Refresh**.
+1. You're directed to the newly created Business case with a banner that says that your Business case is computing. The computation might take some time, depending on the number of servers and workloads in the project. You can come back to the Business case page after ~30 minutes and select **Refresh**.
     
     :::image type="content" source="./media/how-to-build-a-business-case/refresh-inline.png" alt-text="Screenshot of the refresh button to refresh the Business case." lightbox="./media/how-to-build-a-business-case/refresh-expanded.png":::
     
