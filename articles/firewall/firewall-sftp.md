@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 # Access a storage account using SFTP over an Azure Firewall static public IP address
 
-You can use Azure Firewall to access a storage account container via SFTP. Using Azure PowerShell, a firewall is deployed in a virtual network and configured with DNAT rules to translate the SFTP traffic to the storage account container. The storage account container is configured with a private endpoint to allow access from the firewall. To connect to the container, you use the firewall public IP address and the storage account container name.
+You can use Azure Firewall to access a storage account container via SFTP. Azure PowerShell is used to deploy a firewall in a virtual network and configured with DNAT rules to translate the SFTP traffic to the storage account container. The storage account container is configured with a private endpoint to allow access from the firewall. To connect to the container, you use the firewall public IP address and the storage account container name.
 
 
 In this article, you:
@@ -36,7 +36,7 @@ This article requires the latest Azure PowerShell modules. Run `Get-Module -List
 First, set up some variables to use in the deployment. Replace the values with your own.
 
 > [!TIP]
-> You can use Azure Active Directory to find you user principal name.
+> You can use Azure Active Directory to find your user principal name.
 
 ```azurepowershell
 $rg = "<resource-group-name>"
@@ -228,7 +228,7 @@ sftp teststorageaccount.testcontainer.testuser@13.68.216.252
 Enter the password you saved earlier when prompted.
 
 
-You should see something similar to the following:
+You should see something similar to the following output:
 
 ```
 > sftp vehstore101.container01.testuser@13.68.216.252
