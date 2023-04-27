@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 03/20/2023
+ms.date: 04/27/2023
 ms.author: cshoe
 ---
 
@@ -138,7 +138,17 @@ ARM64 based clusters aren't supported at this time.
  - Resolve KEDA error logging for missing metric values
 
 ### Container Apps extension v1.0.50 (March 2023)
+ 
  - Updated logging images in sync with Public Cloud
+
+### Container Apps extension v1.5.1 (April 2023)
+ 
+ - New versioning number format
+ - Upgrade of Dapr to 1.10.4
+ - Maintain scale of Envoy after deployments of new revisions
+ - Change to when default startup probes are added to a container, if developer doesn't define both startup and readiness probes, then default startup probes are added
+ - Adds CONTAINER_APP_REPLICA_NAME environment variable to custom containers
+ - Improvement in performance when multiple revisions are stopped
 
 ## Next steps
 
