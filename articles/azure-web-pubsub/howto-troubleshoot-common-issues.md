@@ -95,7 +95,7 @@ You can check the metric `Connection Close Count` from Azure portal.
 
 ### Troubleshooting guide
 
-`PingTimeout` and `SlowClient` indicates that you have some clients not able to afford current traffic load. It's suggested to control the message sending speed and investigate [client traces](./howto-troubleshoot-network-trace) if client side performance can be improved.
+`PingTimeout` and `SlowClient` indicates that you have some clients not able to afford current traffic load. It's suggested to control the message sending speed and investigate [client traces](./howto-troubleshoot-network-trace.md) if client side performance can be improved.
 
 ## ConnectionCountLimitReached
 
