@@ -581,7 +581,7 @@
           href: how-to-azure-container-for-pytorch-environment.md
         - name: Launch VS Code remote
           displayName: Visual Studio Code, VSCode, debug, bugs
-          href: how-to-set-up-vs-code-remote.md
+          href: how-to-launch-vs-code-remote.md
         - name: Work in VS Code remote
           displayName: Visual Studio Code, VSCode, debug, bugs
           href: how-to-work-in-vs-code-remote.md
