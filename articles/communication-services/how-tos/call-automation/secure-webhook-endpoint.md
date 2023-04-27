@@ -82,7 +82,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapPost("/api/callback", (HttpContext context) =>
+app.MapPost("/api/callback", (CloudEvent[] events) =>
 {
     // Your implemenation on the callback event
     return Results.Ok();
