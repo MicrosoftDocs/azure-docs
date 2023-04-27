@@ -12,16 +12,15 @@ zone_pivot_groups: functions-nodejs-model
 
 In this article, you use command-line tools to create a JavaScript function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
 
->[!NOTE]
->The v4 programming model for authoring Functions in Node.js is currently in Preview. Compared to the current v3 model, the v4 model is designed to have a more idiomatic and intuitive experience for JavaScript and TypeScript developers. To learn more, see the [Developer Reference Guide](functions-reference-node.md).
+[!INCLUDE [functions-nodejs-model-pivot-description](../../includes/functions-nodejs-model-pivot-description.md)]
 
-Use the selector at the top to choose the programming model of your choice for completing this quickstart. Note that completion will incur a small cost of a few USD cents or less in your Azure account.
+Completion of this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
-There is also a [Visual Studio Code-based version](create-first-function-vs-code-node.md) of this article.
+There's also a [Visual Studio Code-based version](create-first-function-vs-code-node.md) of this article.
 
 ## Configure your local environment
 
-Before you begin, you must have the following:
+Before you begin, you must have the following prerequisites:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -30,7 +29,7 @@ Before you begin, you must have the following:
 ::: zone-end
 
 ::: zone pivot="nodejs-model-v4" 
-+ The [Azure Functions Core Tools](./functions-run-local.md#v2) version v4.0.5085 or above
++ The [Azure Functions Core Tools](./functions-run-local.md#v2) version v4.0.5095 or above
 ::: zone-end
 
 + One of the following tools for creating Azure resources:
@@ -49,7 +48,7 @@ Before you begin, you must have the following:
 
 ### Prerequisite check
 
-Verify your prerequisites, which depend on whether you are using Azure CLI or Azure PowerShell for creating Azure resources:
+Verify your prerequisites, which depend on whether you're using Azure CLI or Azure PowerShell for creating Azure resources:
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -58,7 +57,7 @@ Verify your prerequisites, which depend on whether you are using Azure CLI or Az
 ::: zone-end
 
 ::: zone pivot="nodejs-model-v4" 
-+ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version v4.0.4915 or above.
++ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version v4.0.5095 or above.
 ::: zone-end
 
 + Run `az --version` to check that the Azure CLI version is 2.4 or later.
@@ -72,7 +71,7 @@ Verify your prerequisites, which depend on whether you are using Azure CLI or Az
 ::: zone-end
 
 ::: zone pivot="nodejs-model-v4" 
-+ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version v4.0.4915 or above.
++ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version v4.0.5095 or above.
 ::: zone-end
 
 + Run `(Get-Module -ListAvailable Az).Version` and verify version 5.0 or later.
@@ -138,7 +137,7 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
     ```console
     func init LocalFunctionProj --model V4
     ```
-    You are then prompted to choose a worker runtime and a language - choose Node for the first and JavaScript for the second.
+    You're then prompted to choose a worker runtime and a language - choose Node for the first and JavaScript for the second.
 
 2. Navigate into the project folder:
 
@@ -154,7 +153,7 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
     func new
     ```
 
-    Choose the template for "HTTP trigger". You can keep the default name (*httpTrigger*) or give it a new name (*HttpExample*). Your function name must be unique, or you'll be asked to confirm if your intention is to replace an existing function. 
+    Choose the template for "HTTP trigger". You can keep the default name (*httpTrigger*) or give it a new name (*HttpExample*). Your function name must be unique, or you're asked to confirm if your intention is to replace an existing function. 
 
     You can find the function you added in the *src/functions* directory. 
 
@@ -188,7 +187,7 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
     az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime node --runtime-version 18 --functions-version 4 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
 
-    The [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command creates the function app in Azure. It is recommended that you use the latest version of Node.js, which is currently 18. You can specify the version by setting `--runtime-version` to `18`.
+    The [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command creates the function app in Azure. It's recommended that you use the latest version of Node.js, which is currently 18. You can specify the version by setting `--runtime-version` to `18`.
 
     # [Azure PowerShell](#tab/azure-powershell)
 
@@ -196,13 +195,13 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
     New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime node -RuntimeVersion 18 -FunctionsVersion 4 -Location <REGION>
     ```
 
-    The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure. It is recommended that you use the latest version of Node.js, which is currently 18. You can specify the version by setting `--runtime-version` to `18`.
+    The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure. It's recommended that you use the latest version of Node.js, which is currently 18. You can specify the version by setting `--runtime-version` to `18`.
 
     ---
 
     In the previous example, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app.
 
-    This command creates a function app running in your specified language runtime under the [Azure Functions Consumption Plan](consumption-plan.md), which is free for the amount of usage you incur here. The command also provisions an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
+    This command creates a function app running in your specified language runtime under the [Azure Functions Consumption Plan](consumption-plan.md), which is free for the amount of usage you incur here. The command also creates an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
 
 ::: zone pivot="nodejs-model-v4" 
 ## Update app settings

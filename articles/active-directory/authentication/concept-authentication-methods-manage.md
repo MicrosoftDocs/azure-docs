@@ -105,6 +105,7 @@ Tenants are set to either Pre-migration or Migration in Progress by default, dep
 
 ## Known issues and limitations
 - In recent updates we removed the ability to target individual users. Previously targeted users will remain in the policy but we recommend moving them to a targeted group.
+- Registration of FIDO2 security keys may fail for some users if the FIDO2 Authentication method policy is targeted for a group and the overall Authentication methods policy has more than 20 groups configured. We're working on increasing the policy size limit and in the mean time recommend limiting the number of group targets to no more than 20.
 
 ## Next steps
 

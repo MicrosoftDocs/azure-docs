@@ -190,11 +190,11 @@
             - name: Autoscale FAQ
               href: ../autoscale-faq.yml
         - name: Serverless
-          items: 
-          - name: Serverless overview
-            href: ../serverless.md
-          - name: Serverless 1 TB
-            href: ../serverless-1TB.md
+          items:
+            - name: Serverless overview
+              href: ../serverless.md
+            - name: Serverless 1 TB
+              href: ../serverless-1TB.md
         - name: Choose between autoscale and standard (manual) throughput
           href: ../how-to-choose-offer.md
         - name: Choose between provisioned throughput and serverless
@@ -270,6 +270,8 @@
           href: ../synapse-link-frequently-asked-questions.yml
         - name: Analytical store - overview
           href: ../analytical-store-introduction.md
+        - name: Change data capture (CDC)
+          href: ../analytical-store-change-data-capture.md
     - name: Back up and restore
       items:
         - name: Back up and restore introduction
@@ -288,10 +290,12 @@
               href: ../audit-restore-continuous.md
         - name: Periodic backup
           items:
-            - name: Configure periodic backup
+            - name: Introduction
               href: ../periodic-backup-restore-introduction.md
-            - name: Update backup storage redundancy
-              href: ../periodic-backup-update-storage-redundancy.md
+            - name: Storage redundancy
+              href: ../periodic-backup-storage-redundancy.md
+            - name: Request data restore
+              href: ../periodic-backup-request-data-restore.md
     - name: Global distribution
       items:
         - name: Global distribution overview
@@ -307,20 +311,6 @@
           href: ../conflict-resolution-policies.md
         - name: Global distribution - under the hood
           href: ../global-dist-under-the-hood.md
-    - name: Manage back up and restore
-      items:
-        - name: Manage continuous backup
-          items:
-            - name: Permissions and roles - Continuous backup
-              href: ../continuous-backup-restore-permissions.md
-            - name: Create account - Continuous backup
-              href: ../provision-account-continuous-backup.md
-            - name: Get the latest restorable timestamp
-              href: ../get-latest-restore-timestamp.md
-            - name: Restore an account - Continuous backup
-              href: ../restore-account-continuous-backup.md
-            - name: Migrate to continuous backup
-              href: ../migrate-continuous-backup.md
     - name: Security
       items:
         - name: Security overview
@@ -696,6 +686,8 @@
               href: ../synapse-link-power-bi.md
         - name: Configure custom partitioning
           href: ../configure-custom-partitioning.md
+        - name: Get started with change data capture
+          href: ../get-started-change-data-capture.md
     - name: Manage Azure Cosmos DB resources
       items:
         - name: Manage an Azure Cosmos DB account
@@ -730,6 +722,26 @@
           href: how-to-manage-conflicts.md
         - name: Convert session token format
           href: how-to-convert-session-token.md
+    - name: Back up and restore
+      items:
+        - name: Continuous backup
+          items:
+            - name: Permissions and roles - Continuous backup
+              href: ../continuous-backup-restore-permissions.md
+            - name: Create account - Continuous backup
+              href: ../provision-account-continuous-backup.md
+            - name: Get the latest restorable timestamp
+              href: ../get-latest-restore-timestamp.md
+            - name: Restore an account - Continuous backup
+              href: ../restore-account-continuous-backup.md
+            - name: Migrate to continuous backup
+              href: ../migrate-continuous-backup.md
+        - name: Periodic backup
+          items:
+            - name: Update storage redundancy
+              href: ../periodic-backup-update-storage-redundancy.md
+            - name: Modify interval retention
+              href: ../periodic-backup-modify-interval-retention.md
     - name: Security
       items:
         - name: Networking

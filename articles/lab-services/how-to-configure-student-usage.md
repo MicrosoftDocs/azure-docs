@@ -25,6 +25,8 @@ By default, access to a lab is restricted. Only users that are in the list of la
 
 You can [add users from an Azure Active Directory (Azure AD) group](#add-users-to-a-lab-from-an-azure-ad-group), or [manually add a list of users by email](#add-users-manually). If you enable Azure Lab Services integration with [Microsoft Teams](./how-to-manage-labs-within-teams.md) or [Canvas](./how-to-manage-labs-within-canvas.md), Azure Lab Services automatically grants user access to the lab and assigns a lab VM based on their membership in Microsoft or Canvas. In this case, you don't have to specify the lab user list, and users don't have to register for the lab.
 
+Azure Lab Services supports up to 400 users per lab.
+
 ## Prerequisites
 
 - To manage users for the lab, your Azure account needs one of the following permissions:

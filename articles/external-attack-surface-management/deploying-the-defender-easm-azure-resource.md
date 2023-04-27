@@ -3,7 +3,7 @@ title: Creating a Defender EASM Azure resource
 description: This article explains how to create an Microsoft Defender External Attack Surface Management (Defender EASM) Azure resource using the Azure portal.
 author: danielledennis
 ms.author: dandennis
-ms.service: security
+ms.service: defender-easm
 ms.date: 07/14/2022
 ms.topic: quickstart
 ms.custom: references_regions 

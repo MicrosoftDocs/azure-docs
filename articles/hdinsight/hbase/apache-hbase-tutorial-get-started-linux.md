@@ -4,7 +4,7 @@ description: Follow this Apache HBase tutorial to start using hadoop on HDInsigh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 03/31/2022
+ms.date: 04/26/2023
 ---
 
 # Tutorial: Use Apache HBase in Azure HDInsight
@@ -248,22 +248,22 @@ The HBase REST API is secured via [basic authentication](https://en.wikipedia.or
 1. Set environment variable for ease of use. Edit the commands below by replacing `MYPASSWORD` with the cluster login password. Replace `MYCLUSTERNAME` with the name of your HBase cluster. Then enter the commands.
 
     ```bash
-    export password='MYPASSWORD'
-    export clustername=MYCLUSTERNAME
+    export PASSWORD='MYPASSWORD'
+    export CLUSTER_NAME=MYCLUSTERNAME
     ```
 
 1. Use the following command to list the existing HBase tables:
 
     ```bash
-    curl -u admin:$password \
-    -G https://$clustername.azurehdinsight.net/hbaserest/
+    curl -u admin:$PASSWORD \
+    -G https://$CLUSTER_NAME.azurehdinsight.net/hbaserest/
     ```
 
 1. Use the following command to create a new HBase table with two-column families:
 
     ```bash
-    curl -u admin:$password \
-    -X PUT "https://$clustername.azurehdinsight.net/hbaserest/Contacts1/schema" \
+    curl -u admin:$PASSWORD \
+    -X PUT "https://$CLUSTER_NAME.azurehdinsight.net/hbaserest/Contacts1/schema" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -d "{\"@name\":\"Contact1\",\"ColumnSchema\":[{\"name\":\"Personal\"},{\"name\":\"Office\"}]}" \
@@ -274,8 +274,8 @@ The HBase REST API is secured via [basic authentication](https://en.wikipedia.or
 1. Use the following command to insert some data:
 
     ```bash
-    curl -u admin:$password \
-    -X PUT "https://$clustername.azurehdinsight.net/hbaserest/Contacts1/false-row-key" \
+    curl -u admin:$PASSWORD \
+    -X PUT "https://$CLUSTER_NAME.azurehdinsight.net/hbaserest/Contacts1/false-row-key" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -d "{\"Row\":[{\"key\":\"MTAwMA==\",\"Cell\": [{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}]}]}" \
@@ -293,8 +293,8 @@ The HBase REST API is secured via [basic authentication](https://en.wikipedia.or
 1. Use the following command to get a row:
 
     ```bash
-    curl -u admin:$password \
-    GET "https://$clustername.azurehdinsight.net/hbaserest/Contacts1/1000" \
+    curl -u admin:$PASSWORD \
+    GET "https://$CLUSTER_NAME.azurehdinsight.net/hbaserest/Contacts1/1000" \
     -H "Accept: application/json" \
     -v
     ```

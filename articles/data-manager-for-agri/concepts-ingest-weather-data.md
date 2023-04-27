@@ -4,9 +4,9 @@ description: Learn how to fetch weather data from various weather data providers
 author: lbethapudi
 ms.author: lbethapudi
 ms.service: data-manager-for-agri
-ms.topic: conceptual #Required; leave this attribute/value as-is.
+ms.topic: conceptual
 ms.date: 02/14/2023
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+ms.custom: template-concept
 ---
 
 # Weather data overview

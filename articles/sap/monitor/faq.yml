@@ -7,6 +7,7 @@ metadata:
   ms.subservice: sap-monitor
   ms.topic: faq
   ms.date: 10/27/2022
+  ms.custom: references_regions
   ms.author: radeltch
 title: Azure Monitor for SAP solutions FAQ (preview)
 summary: |
@@ -26,7 +27,8 @@ sections:
       - question: |
           In which regions is this service available for public preview?  
         answer: |
-          For public preview, this service will be available in East US 2, West US 2, East US, and West Europe.
+           For public preview, the Azure Monitor for SAP solutions service is available in the following regions: 
+           **East US 2**, **West US 2**, **East US**, **Central US**, **South Central US**, **West US 3**, **North Central US**, **West Central US**, **West US**, **North Europe**, **West Europe**, **Australia East**, **Australia Central**, **Australia Southeast**, **Central India**, **South India**, **East Asia**, **Southeast Asia**.
 
       - question: |
           Do I need to give permissions to allow the deployment of a managed resource group in my subscription?  

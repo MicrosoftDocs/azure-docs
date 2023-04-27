@@ -1,8 +1,8 @@
 ---
 title: PgBouncer - Azure Database for PostgreSQL - Flexible Server
 description: This article provides an overview with the built-in PgBouncer extension.
-ms.author: alkuchar
-author: AwdotiaRomanowna
+author: varun-dhawan
+ms.author: varundhawan
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -43,7 +43,24 @@ For more details on the PgBouncer configurations, please see [pgbouncer.ini](htt
 > [!Note] 
 > Upgrading of PgBouncer is managed by Azure.
 
-## Monitoring PgBouncer statistics 
+## Monitoring PgBouncer
+
+### PgBouncer Metrics
+
+Azure Database for PostgreSQL - Flexible Server now provides six new metrics for monitoring PgBouncer connection pooling.  
+
+|Display Name                            |Metrics ID                |Unit |Description                                                                          |Dimension   |Default enabled|
+|----------------------------------------|--------------------------|-----|-------------------------------------------------------------------------------------|------------|---------------|
+|**Active client connections** (Preview) |client_connections_active |Count|Connections from clients which are associated with a PostgreSQL connection           |DatabaseName|No             |
+|**Waiting client connections** (Preview)|client_connections_waiting|Count|Connections from clients that are waiting for a PostgreSQL connection to service them|DatabaseName|No             |
+|**Active server connections** (Preview) |server_connections_active |Count|Connections to PostgreSQL that are in use by a client connection                     |DatabaseName|No             |
+|**Idle server connections** (Preview)   |server_connections_idle   |Count|Connections to PostgreSQL that are idle, ready to service a new client connection    |DatabaseName|No             |
+|**Total pooled connections** (Preview)  |total_pooled_connections  |Count|Current number of pooled connections                                                 |DatabaseName|No             |
+|**Number of connection pools** (Preview)|num_pools                 |Count|Total number of connection pools                                                     |DatabaseName|No             |
+
+To learn more, please refer [pgbouncer metrics](./concepts-monitoring.md#pgbouncer-metrics)
+
+### Admin Console
 
 PgBouncer also provides an **internal** database that you can connect to called `pgbouncer`. Once connected to the database you can execute `SHOW` commands that provide information on the current state of pgbouncer.
 

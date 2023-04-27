@@ -11,7 +11,7 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 03/1/2023
+ms.date: 03/28/2023
 ms.author: gunnarc
 ms.custom: compute-evergreen
 ---
@@ -37,6 +37,9 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 Unsure about how to update your Guest OS? Check [this][cloud updates] out.
 
 ## News updates
+
+###### **March 28, 2023**
+The March Guest OS has released. 
 
 ###### **March 1, 2023**
 The February Guest OS has released. 
@@ -212,8 +215,9 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+|  WA-GUEST-OS-7.23_202303-01 |  March 28, 2023  |  Post 7.25  |
 |  WA-GUEST-OS-7.22_202302-01 |  March 1, 2023  |  Post 7.24  |
-|  WA-GUEST-OS-7.21_202301-011 |  January 31, 2023  |  Post 7.23  |
+|~~WA-GUEST-OS-7.21_202301-01~~|  January 31, 2023  |  March 28, 2023  |
 |~~WA-GUEST-OS-7.20_202212-01~~|  January 19, 2023  |  March 1, 2023  |
 |~~WA-GUEST-OS-7.19_202211-01~~|  December 12, 2022  |  January 31, 2023  |
 |~~WA-GUEST-OS-7.18_202210-02~~|  November 4, 2022  |  January 19, 2023  |
@@ -243,8 +247,9 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+|  WA-GUEST-OS-6.55_202303-01 |  March 28, 2023  |  Post 6.57  |
 |  WA-GUEST-OS-6.54_202302-01 |  March 1, 2023  |  Post 6.56  |
-|  WA-GUEST-OS-6.53_202301-01 |  January 31, 2023  |  Post 6.55  |
+|~~WA-GUEST-OS-6.53_202301-01~~|  January 31, 2023  |  March 28, 2023  |
 |~~WA-GUEST-OS-6.52_202212-01~~|  January 19, 2023  |  March 1, 2023  |
 |~~WA-GUEST-OS-6.51_202211-01~~|  December 12, 2022  |  January 31, 2023  |
 |~~WA-GUEST-OS-6.50_202210-02~~|  November 4, 2022  |  January 19, 2023  |
@@ -308,8 +313,9 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+|  WA-GUEST-OS-5.79_202303-01  |  March 28, 2023   |  Post 5.81  | 
 |  WA-GUEST-OS-5.78_202302-01  |  March 1, 2023   |  Post 5.80  | 
-|  WA-GUEST-OS-5.77_202301-01  |  January 31, 2023   |  Post 5.79  | 
+|~~WA-GUEST-OS-5.77_202301-01~~|  January 31, 2023   |  March 28, 2023  | 
 |~~WA-GUEST-OS-5.76_202212-01~~|  January 19, 2023   |  March 1, 2023  | 
 |~~WA-GUEST-OS-5.75_202211-01~~|  December 12, 2022  |  January 31, 2023  | 
 |~~WA-GUEST-OS-5.74_202210-02~~|  November 4, 2022  |  January 19, 2023  | 
@@ -370,8 +376,9 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+|  WA-GUEST-OS-4.115_202303-01 |  March 28, 2023  |  Post 4.117  |
 |  WA-GUEST-OS-4.114_202302-01 |  March 1, 2023  |  Post 4.116  |
-|  WA-GUEST-OS-4.113_202301-01 |  January 31, 2023  |  Post 4.115  |
+|~~WA-GUEST-OS-4.113_202301-01~~|  January 31, 2023  |  March 28, 2023  |
 |~~WA-GUEST-OS-4.112_202212-01~~|  January 19, 2023  |  March 1, 2023  |
 |~~WA-GUEST-OS-4.111_202211-01~~|  December 12, 2022  |  January 31, 2023  |
 |~~WA-GUEST-OS-4.110_202210-02~~|  November 4, 2022  |  January 19, 2023 |
@@ -432,8 +439,9 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+|  WA-GUEST-OS-3.122_202303-01  |  March 28, 2023  |  Post 3.124  |
 |  WA-GUEST-OS-3.121_202302-01  |  March 1, 2023  |  Post 3.123  |
-|  WA-GUEST-OS-3.120_202301-01  |  January 31, 2023  |  Post 3.122  |
+|~~WA-GUEST-OS-3.120_202301-01~~|  January 31, 2023  |  March 28, 2023  |
 |~~WA-GUEST-OS-3.119_202212-01~~|  January 19, 2023  |  March 1, 2023  |
 |~~WA-GUEST-OS-3.118_202211-01~~|  December 12, 2022  |  January 31, 2023  |
 |~~WA-GUEST-OS-3.117_202210-02~~|  November 4, 2022  |  January 19, 2023 |
@@ -494,8 +502,9 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+|  WA-GUEST-OS-2.135_202303-01  |  March 28, 2023  |  Post 2.137  |
 |  WA-GUEST-OS-2.134_202302-01  |  March 1, 2023  |  Post 2.136  |
-|  WA-GUEST-OS-2.133_202301-01  |  January 31, 2023  |  Post 2.135  |
+|~~WA-GUEST-OS-2.133_202301-01~~|  January 31, 2023  |  March 28, 2023  |
 |~~WA-GUEST-OS-2.132_202212-01~~|  January 19, 2023  |  March 1, 2023  |
 |~~WA-GUEST-OS-2.131_202211-01~~|  December 12, 2022  |  January 31, 2023  |
 |~~WA-GUEST-OS-2.130_202210-02~~|  November 4, 2022  |  January 19, 2023  |

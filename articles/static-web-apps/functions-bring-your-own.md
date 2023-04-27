@@ -79,6 +79,9 @@ You're responsible for setting up a [deployment workflow](../azure-functions/fun
 
 - **Function access keys:** If your function requires an [access key](../azure-functions/security-concepts.md#function-access-keys), then you must provide the key with calls from the static app to the API.
 
+> [!NOTE]
+> To prevent accidentally exposing your function app to anonymous traffic, the identity provider created by the linking process is not automatically deleted. You can delete the identity provider named *Azure Static Web Apps (Linked)* from the function app's authentication settings.
+
 ## Restrictions
 
 - Only one Azure Functions app is available to a single static web app.
