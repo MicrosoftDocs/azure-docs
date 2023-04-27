@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 09/13/2022
+ms.date: 11/15/2022
 ms.author: greglin
 #Customer intent: As an IT administrator, I want to learn about Azure Application Gateways and what I can use them for.
 ---
@@ -23,7 +23,7 @@ This type of routing is known as application layer (OSI layer 7) load balancing.
 
 >[!NOTE]
 > Azure provides a suite of fully managed load-balancing solutions for your scenarios. 
-> * If you are looking to do DNS based global routing and do **not** have requirements for Transport Layer Security (TLS) protocol termination ("SSL offload"), per-HTTP/HTTPS request or application-layer processing, review [Traffic Manager](../traffic-manager/traffic-manager-overview.md). 
+> * If you're looking to do DNS based global routing and do **not** have requirements for Transport Layer Security (TLS) protocol termination ("SSL offload"), per-HTTP/HTTPS request or application-layer processing, review [Traffic Manager](../traffic-manager/traffic-manager-overview.md). 
 > * If you need to optimize global routing of your web traffic and optimize top-tier end-user performance and reliability through quick global failover, see [Front Door](../frontdoor/front-door-overview.md).
 > * To do transport layer load balancing, review [Load Balancer](../load-balancer/load-balancer-overview.md). 
 > 

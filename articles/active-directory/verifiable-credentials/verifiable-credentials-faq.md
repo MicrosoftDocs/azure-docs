@@ -21,6 +21,7 @@ This page contains commonly asked questions about Verifiable Credentials and Dec
 - [Conceptual questions about decentralized identity](#conceptual-questions)
 - [Questions about using Verifiable Credentials preview](#using-the-preview)
 
+
 ## The basics
 
 ### What is a DID? 

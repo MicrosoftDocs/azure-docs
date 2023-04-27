@@ -4,13 +4,13 @@ title: Azure Form Recognizer documentation # < 60 chars
 summary: Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine-learning models to extract key-value pairs, text, and tables from your documents. Form Recognizer analyzes your forms and documents, extracts text and data, maps field relationships as key-value pairs, and returns a structured JSON output. You quickly get accurate results that are tailored to your specific content without excessive manual intervention or extensive data science expertise. Use Form Recognizer to automate your data processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities. # < 160 chars
 
 metadata:
-  title: Form Recognizer documentation - Quickstarts, Tutorials, API Reference - Azure Applied AI Services | Microsoft Docs # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine-learning models to extract key-value pairs, text, and tables from your documents. Form Recognizer analyzes your forms and documents, extracts text and data, maps field relationships as key-value pairs, and returns a structured JSON output. You quickly get accurate results that are tailored to your specific content without excessive manual intervention or extensive data science expertise. Use Form Recognizer to automate your data processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities. # Required; article description that is displayed in search results. < 160 chars.
-  ms.service: applied-ai-services #Required; service per approved list. service slug assigned to your service by ACOM.
+  title: Form Recognizer documentation - Quickstarts, Tutorials, API Reference - Azure Applied AI Services | Microsoft Docs
+  description: Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine-learning models to extract key-value pairs, text, and tables from your documents. Form Recognizer analyzes your forms and documents, extracts text and data, maps field relationships as key-value pairs, and returns a structured JSON output. You quickly get accurate results that are tailored to your specific content without excessive manual intervention or extensive data science expertise. Use Form Recognizer to automate your data processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities.
+  ms.service: applied-ai-services
   ms.subservice: forms-recognizer
-  ms.topic: landing-page # Required
-  author: laujan #Required; your GitHub user alias, with correct capitalization.
-  ms.author: lajanuar #Required; microsoft alias of author; optional team alias.
+  ms.topic: landing-page
+  author: laujan
+  ms.author: lajanuar
   ms.date: 08/22/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -67,15 +67,15 @@ landingContent:
         - text: Form Recognizer Sample Labeling tool
           url: quickstarts/try-sample-label-tool.md
         - text: REST API
-          url: quickstarts/get-started-v3-sdk-rest-api.md
+          url: quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true
         - text: C# SDK
-          url: quickstarts/get-started-v3-sdk-rest-api.md
+          url: quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true
         - text: Java SDK
-          url: quickstarts/get-started-v3-sdk-rest-api.md
+          url: quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true
         - text: JavaScript SDK
-          url: quickstarts/get-started-v3-sdk-rest-api.md
+          url: quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true
         - text: Python SDK
-          url: quickstarts/get-started-v3-sdk-rest-api.md
+          url: quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true
 
       - linkListType: how-to-guide
         links:
@@ -84,13 +84,13 @@ landingContent:
           - text: Migrate to Form Recognizer v3.0
             url: v3-migration-guide.md
           - text: Use the read model
-            url: how-to-guides/use-prebuilt-read.md
+            url: how-to-guides/use-sdk-rest-api.md?view=form-recog-3.0.0&preserve-view=true
           - text: Create SAS tokens for storage containers
             url: create-sas-tokens.md
           - text: Build a custom model (v3.0)
             url:  how-to-guides/build-custom-model-v3.md
           - text: Compose custom models (v3.0)
-            url: compose-custom-models-v3.md
+            url: how-to-guides/compose-custom-models.md?view=form-recog-3.0.0&preserve-view=true
           - text: Install and run Form Recognizer containers
             url: containers/form-recognizer-container-install-run.md
           - text: Create and use managed identities

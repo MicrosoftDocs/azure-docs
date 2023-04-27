@@ -1,12 +1,13 @@
 ---
 title:  How to run a reindex job in Azure API for FHIR 
 description: This article describes how to run a reindex job to index any search or sort parameters that haven't yet been indexed in your database.   
-author: ginalee-dotcom
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
+ms.custom: ignite-2022
 ms.topic: reference
 ms.date: 06/03/2022
-ms.author: mikaelw
+ms.author: kesheth
 ---
 # Running a reindex job in Azure API for FHIR
 
@@ -187,7 +188,7 @@ Below is a table outlining the available parameters, defaults, and recommended r
 | QueryDelayIntervalInMilliseconds  | The delay between each batch of resources being kicked off during the reindex job. A smaller number will speed up the job while a higher number will slow it down. | 500 MS (.5 seconds) | 50-500000 |
 | MaximumResourcesPerQuery  | The maximum number of resources included in the batch of resources to be reindexed.  | 100 | 1-5000 |
 | MaximumConcurrency  | The number of batches done at a time.  | 1 | 1-10 |
-| targetDataStoreUsagePercentage | Allows you to specify what percent of your data store to use for the reindex job. For example, you could specify 50% and that would ensure that at most the reindex job would use 50% of available RUs on Cosmos DB.  | Not present, which means that up to 100% can be used. | 0-100 |
+| targetDataStoreUsagePercentage | Allows you to specify what percent of your data store to use for the reindex job. For example, you could specify 50% and that would ensure that at most the reindex job would use 50% of available RUs on Azure Cosmos DB. | Not present, which means that up to 100% can be used. | 0-100 |
 
 If you want to use any of the parameters above, you can pass them into the Parameters resource when you start the reindex job.
 

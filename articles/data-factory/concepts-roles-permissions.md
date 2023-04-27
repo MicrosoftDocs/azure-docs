@@ -1,7 +1,7 @@
 ---
 title: Roles and permissions for Azure Data Factory 
 description: Describes the roles and permissions required to create Data Factories and to work with child resources.
-ms.date: 01/21/2022
+ms.date: 02/08/2023
 ms.topic: conceptual
 ms.service: data-factory
 ms.subservice: security

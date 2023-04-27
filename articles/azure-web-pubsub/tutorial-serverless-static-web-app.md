@@ -4,6 +4,7 @@ description: A tutorial about how to use Azure Web PubSub service and Azure Stat
 author: JialinXin
 ms.author: jixin
 ms.service: azure-web-pubsub
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 06/03/2022
 ---

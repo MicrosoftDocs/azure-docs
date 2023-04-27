@@ -1,6 +1,6 @@
 ---
-title: How to manage Azure Mover projects #Required; page title is displayed in search results. Include the brand.
-description: Learn how to manage Azure Mover projects #Required; article description that is displayed in search results. 
+title: How to manage Azure Mover projects
+description: Learn how to manage Azure Mover projects
 author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover
@@ -274,4 +274,5 @@ Remove-AzStorageMoverProject `
 ## Next steps
 
 After your projects are created, you can begin working with job definitions.
-Check back soon for a guide on how to manage job definitions.
+> [!div class="nextstepaction"]
+> [Define a migration job](job-definition-create.md)

@@ -1,7 +1,7 @@
 ---
 title: Configure TLS termination with Key Vault certificates - PowerShell
 titleSuffix: Azure Application Gateway
-description: Learn how how to use an Azure PowerShell script to integrate your key vault with your application gateway for TLS/SSL termination certificates.
+description: Learn how to use an Azure PowerShell script to integrate your key vault with your application gateway for TLS/SSL termination certificates.
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
@@ -85,7 +85,7 @@ $publicip = New-AzPublicIpAddress -ResourceGroupName $rgname -name "AppGwIP" `
   -location $location -AllocationMethod Static -Sku Standard
 ```
 
-### Create pool and front-end ports
+### Create pool and frontend ports
 
 ```azurepowershell
 $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "appgwSubnet" -VirtualNetwork $vnet

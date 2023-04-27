@@ -1,7 +1,6 @@
 ---
 title: Automatically repairing Azure Kubernetes Service (AKS) nodes 
 description: Learn about node auto-repair functionality, and how AKS fixes broken worker nodes.
-services: container-service
 ms.topic: conceptual
 ms.date: 03/11/2021
 ---
@@ -30,6 +29,7 @@ kubectl get nodes
 
 > [!Note]
 > AKS initiates repair operations with the user account **aks-remediator**.
+> Minimum required Nodes in an AKS Cluster for auto repair is 2. 
 
 If AKS identifies an unhealthy node that remains unhealthy for 10 minutes, AKS takes the following actions:
 

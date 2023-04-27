@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Carbonite Endpoint Backup | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Carbonite Endpoint Backup'
 description: Learn how to configure single sign-on between Azure Active Directory and Carbonite Endpoint Backup.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/03/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 

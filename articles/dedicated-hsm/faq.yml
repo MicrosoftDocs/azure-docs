@@ -92,7 +92,7 @@ sections:
       - question: |
           Which Azure regions is Dedicated HSM available in?
         answer: |
-          As of January 2022, Dedicated HSM is available in the 23 regions listed below. Further regions are planned and can be discussed via your Microsoft Account Representative.
+          As of October 2022, Dedicated HSM is available in the 22 regions listed below. Further regions are planned and can be discussed via your Microsoft Account Representative.
           
           * East US
           * East US 2
@@ -102,7 +102,6 @@ sections:
           * Canada Central
           * South Central US
           * Southeast Asia
-          * East Asia
           * India Central
           * India South
           * Japan East

@@ -123,7 +123,7 @@ $artifactParameters = @()
 # Fill the artifact parameter with the additional -param_ data and strip off the -param_
 $Params | ForEach-Object {
    if ($_ -match '^-param_(.*)') {
-      $name = $_.TrimStart('^-param_')
+      $name = $_ -replace '^-param_'
    } elseif ( $name ) {
       $artifactParameters += @{ "name" = "$name"; "value" = "$_" }
       $name = $null #reset name variable

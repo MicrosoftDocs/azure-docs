@@ -26,7 +26,7 @@ To assign a scaling plan to an existing host pool:
 1. Under the **Settings** heading, select **Scaling plan**, and then select **+ Assign**. Select the scaling plan you want to assign and select **Assign**. The scaling plan must be in the same Azure region as the host pool.
 
 > [!TIP]
-> If you've enabled the scaling plan during deployment, then you'll also have the option to disable the plan for the selected host pool in the **Scaling plan** menu by unselecting the **Enable scaling plan** checkbox, as shown in the following screenshot.
+> If you've enabled the scaling plan during deployment, then you'll also have the option to disable the plan for the selected host pool in the **Scaling plan** menu by unselecting the **Enable autoscale** checkbox, as shown in the following screenshot.
 >
 > [!div class="mx-imgBorder"]
 > ![A screenshot of the scaling plan window. The "enable autoscale" check box is selected and highlighted with a red border.](media/enable-autoscale.png)

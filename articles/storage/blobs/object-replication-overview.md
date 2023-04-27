@@ -2,15 +2,14 @@
 title: Object replication overview
 titleSuffix: Azure Storage
 description: Object replication asynchronously copies block blobs between a source storage account and a destination account. Use object replication to minimize latency on read requests, to increase efficiency for compute workloads, to optimize data distribution, and to minimize costs.
-services: storage
 author: normesta
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/09/2022
+ms.date: 01/25/2023
 ms.author: normesta
 ms.subservice: blobs
-ms.custom: devx-track-azurepowershell
+ms.custom: engagement-fy23
 ---
 
 # Object replication for block blobs
@@ -39,7 +38,7 @@ Enabling change feed and blob versioning may incur additional costs. For more in
 
 Object replication is supported for general-purpose v2 storage accounts and premium block blob accounts. Both the source and destination accounts must be either general-purpose v2 or premium block blob accounts. Object replication supports block blobs only; append blobs and page blobs aren't supported.
 
-Object replication is supported for accounts that are encrypted with customer-managed keys. For more information about customer-managed keys, see [Customer-managed keys for Azure Storage encryption](../common/customer-managed-keys-overview.md).
+Object replication is supported for accounts that are encrypted with either microsoft-managed keys or customer-managed keys. For more information about customer-managed keys, see [Customer-managed keys for Azure Storage encryption](../common/customer-managed-keys-overview.md).
 
 Object replication isn't supported for blobs in the source account that are encrypted with a customer-provided key. For more information about customer-provided keys, see [Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md).
 
@@ -56,7 +55,11 @@ Object replication asynchronously copies block blobs in a container according to
 
 Object replication requires that blob versioning is enabled on both the source and destination accounts. When a replicated blob in the source account is modified, a new version of the blob is created in the source account that reflects the previous state of the blob, before modification. The current version in the source account reflects the most recent updates. Both the current version and any previous versions are replicated to the destination account. For more information about how write operations affect blob versions, see [Versioning on write operations](versioning-overview.md#versioning-on-write-operations).
 
-When a blob in the source account is deleted, the current version of the blob becomes a previous version, and there's no longer a current  version. All existing previous versions of the blob are preserved. This state is replicated to the destination account. For more information about how to delete operations affect blob versions, see [Versioning on delete operations](versioning-overview.md#versioning-on-delete-operations).
+If your storage account has object replication policies in effect, you cannot disable blob versioning for that account. You must delete any object replication policies on the account before disabling blob versioning.
+
+### Deleting a blob in the source account
+
+When a blob in the source account is deleted, the current version of the blob becomes a previous version, and there's no longer a current version. All existing previous versions of the blob are preserved. This state is replicated to the destination account. For more information about how to delete operations affect blob versions, see [Versioning on delete operations](versioning-overview.md#versioning-on-delete-operations).
 
 ### Snapshots
 
@@ -182,6 +185,9 @@ You can use Azure Policy to audit a set of storage accounts to ensure that the *
 ## Replication status
 
 You can check the replication status for a blob in the source account. For more information, see [Check the replication status of a blob](object-replication-configure.md#check-the-replication-status-of-a-blob).
+
+> [!NOTE]
+>  While replication is in progress, there's no way to determine the percentage of data that has been replicated. 
 
 If the replication status for a blob in the source account indicates failure, then investigate the following possible causes:
 

@@ -3,11 +3,11 @@ metadata:
   title: Azure Private DNS FAQ
   description: In this article, learn frequently asked questions about Azure Private DNS
   services: dns
-  author: rohinkoul
+  author: greg-lindsay
   ms.service: dns
   ms.topic: faq
-  ms.date: 01/15/2021
-  ms.author: rohink
+  ms.date: 09/27/2022
+  ms.author: greglin
 title: Azure Private DNS FAQ
 summary: The following are frequently asked questions about Azure private DNS.
 
@@ -41,11 +41,11 @@ sections:
           Can a virtual network that belongs to a different subscription be linked to a private zone?
         answer: |
           Yes. You must have write operation permission on the virtual networks and the private DNS zone. The write permission can be granted to several Azure roles. For example, the Classic Network Contributor Azure role has write permissions to virtual networks and Private DNS zones Contributor role has write permissions on the private DNS zones. For more information on Azure roles, see [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
-          
+
       - question: |
-          Will the automatically registered virtual machine DNS records in a private zone be automatically deleted when you delete the virtual machine?
+          What causes the automatically registered virtual machine DNS records in a private zone be created or deleted?
         answer: |
-          Yes. If you delete a virtual machine within a linked virtual network with autoregistration enabled, the registered records are automatically deleted.
+          When you start a virtual machine within a linked virtual network with autoregistration enabled, DNS records are automatically created for that virtual machine. When you stop a virtual machine and it is deallocated, the autoregistered DNS records are removed.
 
       - question: |
           I've reconfigured the OS in my virtual machine to have a new host name or static IP address. Why don't I see that change reflected in the private zone?
@@ -96,12 +96,12 @@ sections:
       - question: |
           Why don’t my existing private DNS zones show up in new portal experience?
         answer: |
-          If your existing private DNS zone were created using preview API, you must migrate these zones to new resource model. Private DNS zones created using preview API will not show up in new portal experience. See below for instructions on how to migrate to new resource model.
+          If your existing private DNS zone were created using preview API, you must migrate these zones to new resource model. Private DNS zones created using preview API won't show up in new portal experience. See below for instructions on how to migrate to new resource model.
 
       - question: |
           How do I migrate my existing private DNS zones to the new model?
         answer: |
-          We strongly recommend that you migrate to the new resource model as soon as possible. Legacy resource model will be supported, however, further features will not be developed on top of this model. In future, we intend to deprecate it in favor of new resource model. For guidance on how to migrate your existing private DNS zones to new resource model see[migration guide for Azure DNS private zones](private-dns-migration-guide.md).
+          We strongly recommend that you migrate to the new resource model as soon as possible. Legacy resource model will be supported, however, further features won't be developed on top of this model. In future, we intend to deprecate it in favor of new resource model. For guidance on how to migrate your existing private DNS zones to new resource model see[migration guide for Azure DNS private zones](private-dns-migration-guide.md).
           
           ### Does Azure DNS private zones store any customer content?
           No, Azure DNS private zones doesn't store any customer content.

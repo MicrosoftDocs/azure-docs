@@ -14,7 +14,7 @@ ROBOTS: NOINDEX,NOFOLLOW
 
 This quickstart shows how to deploy a basic HTML+CSS site to <abbr title="An HTTP-based service for hosting web applications, REST APIs, and mobile back-end applications.">Azure App Service</abbr>. You'll complete this quickstart in [Cloud Shell](../cloud-shell/overview.md), but you can also run these commands locally with [Azure CLI](/cli/azure/install-azure-cli).
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## 1. Prepare your environment
 
@@ -103,15 +103,11 @@ The page is running as an Azure App Service web app.
 
 ## 4. Update and redeploy the app
 
-In the Cloud Shell, **type** `nano index.html` to open the nano text editor. 
+In the Cloud Shell, use `sed` to change "Azure App Service - Sample Static HTML Site" to "Azure App Service".
 
-In the `<h1>` heading tag, change "Azure App Service - Sample Static HTML Site" to "Azure App Service".
-
-![Nano index.html](media/quickstart-html/nano-index-html.png)
-
-**Save** your changes by using command `^O`.
-
-**Exit** nano by using command `^X`.
+```bash
+sed  -i 's/Azure App Service - Sample Static HTML Site/Azure App Service/' index.html
+```
 
 Redeploy the app with `az webapp up` command.
 
@@ -162,4 +158,4 @@ This command may take a minute to run.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> Map custom domain
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)

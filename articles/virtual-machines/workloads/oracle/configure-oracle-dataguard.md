@@ -29,6 +29,10 @@ To install Oracle Data Guard, you need to create two Azure VMs on the same avail
 
 The Marketplace image that you use to create the VMs is Oracle:Oracle-Database-Ee:12.1.0.2:latest.
 
+> [!NOTE]
+> Be aware of versions that are End Of Life (EOL) and no longer supported by Redhat. Uploaded images that are, at or beyond EOL will be supported on a reasonable business effort basis. Link to Redhat's [Product Lifecycle](https://access.redhat.com/product-life-cycles/?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204)
+
+
 ### Sign in to Azure 
 
 Sign in to your Azure subscription by using the [az login](/cli/azure/reference-index) command and follow the on-screen directions.
@@ -64,6 +68,10 @@ az vm availability-set create \
 Create a VM by using the [az vm create](/cli/azure/vm) command. 
 
 The following example creates two VMs named `myVM1` and `myVM2`. It also creates SSH keys, if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.
+
+> [!NOTE]
+> Be aware of versions that are End Of Life (EOL) and no longer supported by Redhat. Uploaded images that are, at or beyond EOL will be supported on a reasonable business effort basis. Link to Redhat's [Product Lifecycle](https://access.redhat.com/product-life-cycles/?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204)
+
 
 Create myVM1 (primary):
 ```azurecli
@@ -157,7 +165,7 @@ az network nsg rule create --resource-group myResourceGroup\
 Use the following command to create an SSH session with the virtual machine. Replace the IP address with the `publicIpAddress` value for your virtual machine.
 
 ```bash 
-$ ssh azureuser@<publicIpAddress>
+ssh azureuser@<publicIpAddress>
 ```
 
 ### Create the database on myVM1 (primary)
@@ -167,13 +175,13 @@ The Oracle software is already installed on the Marketplace image, so the next s
 Switch to the Oracle superuser:
 
 ```bash
-$ sudo su - oracle
+sudo su - oracle
 ```
 
 Create the database:
 
 ```bash
-$ dbca -silent \
+dbca -silent \
    -createDatabase \
    -templateName General_Purpose.dbc \
    -gdbname cdb1 \
@@ -227,8 +235,8 @@ Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/cdb1/cdb1.log" for furthe
 Set the ORACLE_SID and ORACLE_HOME variables:
 
 ```bash
-$ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
-$ ORACLE_SID=cdb1; export ORACLE_SID
+ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
+ ORACLE_SID=cdb1; export ORACLE_SID
 ```
 
 Optionally, you can add ORACLE_HOME and ORACLE_SID to the /home/oracle/.bashrc file, so that these settings are saved for future logins:
@@ -245,7 +253,7 @@ export ORACLE_SID=cdb1
 ### Enable archive log mode on myVM1 (primary)
 
 ```bash
-$ sqlplus / as sysdba
+sqlplus / as sysdba
 SQL> SELECT log_mode FROM v$database;
 
 LOG_MODE
@@ -338,7 +346,7 @@ ADR_BASE_LISTENER = /u01/app/oracle
 Enable Data Guard Broker:
 
 ```bash
-$ sqlplus / as sysdba
+sqlplus / as sysdba
 SQL> ALTER SYSTEM SET dg_broker_start=true;
 SQL> EXIT;
 ```
@@ -346,8 +354,8 @@ SQL> EXIT;
 Start the listener:
 
 ```bash
-$ lsnrctl stop
-$ lsnrctl start
+ lsnrctl stop
+ lsnrctl start
 ```
 
 ### Set up service on myVM2 (standby)
@@ -355,13 +363,13 @@ $ lsnrctl start
 SSH to myVM2:
 
 ```bash 
-$ ssh azureuser@<publicIpAddress>
+ssh azureuser@<publicIpAddress>
 ```
 
 Log in as Oracle:
 
 ```bash
-$ sudo su - oracle
+sudo su - oracle
 ```
 
 Edit or create the tnsnames.ora file, which is in the $ORACLE_HOME\network\admin folder.
@@ -418,8 +426,8 @@ ADR_BASE_LISTENER = /u01/app/oracle
 Start the listener:
 
 ```bash
-$ lsnrctl stop
-$ lsnrctl start
+ lsnrctl stop
+ lsnrctl start
 ```
 
 
@@ -443,14 +451,14 @@ mkdir -p /u01/app/oracle/admin/cdb1/adump
 Create a password file:
 
 ```bash
-$ orapwd file=/u01/app/oracle/product/12.1.0/dbhome_1/dbs/orapwcdb1 password=OraPasswd1 entries=10
+ orapwd file=/u01/app/oracle/product/12.1.0/dbhome_1/dbs/orapwcdb1 password=OraPasswd1 entries=10
 ```
 
 Start the database on myVM2:
 
 ```bash
-$ export ORACLE_SID=cdb1
-$ sqlplus / as sysdba
+ export ORACLE_SID=cdb1
+ sqlplus / as sysdba
 
 SQL> STARTUP NOMOUNT PFILE='/tmp/initcdb1_stby.ora';
 SQL> EXIT;
@@ -459,7 +467,7 @@ SQL> EXIT;
 Restore the database by using the RMAN tool:
 
 ```bash
-$ rman TARGET sys/OraPasswd1@cdb1 AUXILIARY sys/OraPasswd1@cdb1_stby
+ rman TARGET sys/OraPasswd1@cdb1 AUXILIARY sys/OraPasswd1@cdb1_stby
 ```
 
 Run the following commands in RMAN:
@@ -497,7 +505,7 @@ export ORACLE_SID=cdb1
 
 Enable Data Guard Broker:
 ```bash
-$ sqlplus / as sysdba
+sqlplus / as sysdba
 SQL> ALTER SYSTEM SET dg_broker_start=true;
 SQL> EXIT;
 ```
@@ -507,7 +515,7 @@ SQL> EXIT;
 Start Data Guard Manager and log in by using SYS and a password. (Do not use OS authentication.) Perform the following:
 
 ```bash
-$ dgmgrl sys/OraPasswd1@cdb1
+ dgmgrl sys/OraPasswd1@cdb1
 DGMGRL for Linux: Version 12.1.0.2.0 - 64bit Production
 
 Copyright (c) 2000, 2013, Oracle. All rights reserved.
@@ -579,7 +587,7 @@ cdb1_stby=
 Start SQL*Plus:
 
 ```bash
-$ sqlplus sys/OraPasswd1@cdb1
+sqlplus sys/OraPasswd1@cdb1
 SQL*Plus: Release 12.2.0.1.0 Production on Wed May 10 14:18:31 2017
 
 Copyright (c) 1982, 2016, Oracle.  All rights reserved.
@@ -598,7 +606,7 @@ SQL>
 To switch from primary to standby (cdb1 to cdb1_stby):
 
 ```bash
-$ dgmgrl sys/OraPasswd1@cdb1
+dgmgrl sys/OraPasswd1@cdb1
 DGMGRL for Linux: Version 12.1.0.2.0 - 64bit Production
 
 Copyright (c) 2000, 2013, Oracle. All rights reserved.
@@ -625,7 +633,7 @@ Start SQL*Plus:
 
 ```bash
 
-$ sqlplus sys/OraPasswd1@cdb1_stby
+sqlplus sys/OraPasswd1@cdb1_stby
 SQL*Plus: Release 12.2.0.1.0 Production on Wed May 10 14:18:31 2017
 
 Copyright (c) 1982, 2016, Oracle.  All rights reserved.
@@ -642,7 +650,7 @@ SQL>
 To switch over, run the following on myVM2:
 
 ```bash
-$ dgmgrl sys/OraPasswd1@cdb1_stby
+dgmgrl sys/OraPasswd1@cdb1_stby
 DGMGRL for Linux: Version 12.1.0.2.0 - 64bit Production
 
 Copyright (c) 2000, 2013, Oracle. All rights reserved.
@@ -668,7 +676,7 @@ Start SQL*Plus:
 
 ```bash
 
-$ sqlplus sys/OraPasswd1@cdb1
+sqlplus sys/OraPasswd1@cdb1
 SQL*Plus: Release 12.2.0.1.0 Production on Wed May 10 14:18:31 2017
 
 Copyright (c) 1982, 2016, Oracle.  All rights reserved.

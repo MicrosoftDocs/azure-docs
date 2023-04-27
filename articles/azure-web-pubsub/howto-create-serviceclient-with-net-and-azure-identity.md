@@ -31,7 +31,7 @@ This how-to guide shows you how to create a `WebPubSubServiceClient` using Azure
 1. Create a `TokenCredential` with Azure Identity SDK.
 
     ```C#
-    using Azure.Identity
+    using Azure.Identity;
 
     namespace chatapp 
     {
@@ -60,8 +60,9 @@ This how-to guide shows you how to create a `WebPubSubServiceClient` using Azure
 2. Then create a `client` with `endpoint`, `hub`, and `credential`. 
 
     ```C#
-    using Azure.Identity
-
+    using Azure.Identity;
+    using Azure.Messaging.WebPubSub;
+    
     public class Program
     {
         public static void Main(string[] args)
@@ -106,7 +107,7 @@ This how-to guide shows you how to create a `WebPubSubServiceClient` using Azure
     }
     ```
 
-    Learn how to use this client, see [Azure Web PubSub service client library for .NET](/dotnet/api/overview/azure/messaging.webpubsub-readme-pre)
+    Learn how to use this client, see [Azure Web PubSub service client library for .NET](/dotnet/api/overview/azure/messaging.webpubsub-readme)
 
 ## Complete sample
 

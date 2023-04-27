@@ -1,14 +1,15 @@
 ---
-title: Azure Data Explorer output from Azure Stream Analytics (Preview)
+title: Azure Data Explorer output from Azure Stream Analytics 
 description: This article describes using Azure Database Explorer as an output for Azure Stream Analytics.
 author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
+ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 08/05/2022
+ms.date: 10/27/2022
 ---
 
-# Azure Data Explorer output from Azure Stream Analytics (Preview)
+# Azure Data Explorer output from Azure Stream Analytics
 
 You can use [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/) as an output for analyzing large volumes of diverse data from any data source, such as websites, applications, IoT devices, and more. Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. It helps you handle the many data streams emitted by modern software, so you can collect, store, and analyze data. This data is used for diagnostics, monitoring, reporting, machine learning, and additional analytics capabilities.
 
@@ -16,10 +17,10 @@ Azure Data Explorer supports several ingestion methods, including connectors to 
 
 For more information about Azure Data Explorer, visit the [What is Azure Data Explorer documentation.](/azure/data-explorer/data-explorer-overview/)
 
-To learn more about how to create an Azure Data Explorer and cluster by using the Azure portal, visit: [Quickstart: Create an Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-database-portal/)
+To learn more about how to create an Azure Data Explorer cluster by using the Azure portal, visit: [Quickstart: Create an Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-database-portal/)
 
 > [!NOTE] 
-> Azure Data Explorer from Azure Stream Analytics does not support output to Synapse Data Explorer clusters.
+> Azure Data Explorer from Azure Stream Analytics supports output to Synapse Data Explorer clusters. To write to your synapse data explorer clusters, you have to specify the url of your cluster in the configuration blade for Azure Data Explorer output in your Azure Stream Analytics job.
 
 ## Output configuration
 
@@ -64,10 +65,11 @@ You can significantly grow the scope of real-time analytics by leveraging ASA an
 * Stream Analytics can perform aggregates, filters, enrich, and transform incoming data streams for use in Data Explorer
 
 
-## Limitation
-* The name of the columns & data type should match between Azure Stream Analytics SQL query and Azure Data Explorer table.
+## Other Scenarios and limitations
+* The name of the columns and data type should match between Azure Stream Analytics SQL query and Azure Data Explorer table. Note that the comparison is case sensitive.
+* Columns that exist in your Azure Data explorer clusters but are missing in ASA are ignored while columns that are missing in Azure Stream  raise an error.
+* The order of your columns in your ASA query does not matter. Order is determined by the schema of the ADX table.
 * Azure Data Explorer has an aggregation (batching) policy for data ingestion, designed to optimize the ingestion process. The policy is configured to 5 minutes, 1000 items or 1 GB of data by default, so you may experience a latency. See [batching policy](/azure/data-explorer/kusto/management/batchingpolicy) for aggregation options.
-* Test connection to Azure Data Explorer is not supported in jobs running in Shared multi-tenant environment.
 
 ## Next steps
 

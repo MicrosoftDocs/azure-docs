@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 03/01/2022
+ms.date: 04/11/2023
 ms.author: aahi
 ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021
 keywords: on-premises, Docker, container, sentiment analysis, natural language processing
@@ -44,6 +44,10 @@ The following table describes the minimum and recommended specifications for the
 CPU core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
 ## Get the container image with `docker pull`
+
+The Sentiment Analysis container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/textanalytics/` repository and is named `sentiment`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment`
+
+To use the latest version of the container, you can use the `latest` tag. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/product/azure-cognitive-services/textanalytics/sentiment/tags).
 
 The sentiment analysis container v3 container is available in several languages. To download the container for the English container, use the command below. 
 
@@ -115,6 +119,10 @@ Use the host, `http://localhost:5000`, for container APIs.
 <!--  ## Validate container is running -->
 
 [!INCLUDE [Container's API documentation](../../../../../includes/cognitive-services-containers-api-documentation.md)]
+
+## Run the container disconnected from the internet
+
+[!INCLUDE [configure-disconnected-container](../../../containers/includes/configure-disconnected-container.md)]
 
 ## Stop the container
 

@@ -14,7 +14,7 @@ ms.custom: references_regions
 
 # Cloud transformation posture
 
-Active Directory, Azure Active Directory (Azure AD), and other Microsoft tools are at the core of identity and access management (IAM). For example, Active Directory Domain Services (AD DS) and Microsoft Endpoint Configuration Manager provide device management in Active Directory. In Azure AD, Intune provides the same capability.
+Active Directory, Azure Active Directory (Azure AD), and other Microsoft tools are at the core of identity and access management (IAM). For example, Active Directory Domain Services (AD DS) and Microsoft Configuration Manager provide device management in Active Directory. In Azure AD, Intune provides the same capability.
 
 As part of most modernization, migration, or Zero Trust initiatives, organizations shift IAM activities from using on-premises or infrastructure-as-a-service (IaaS) solutions to using built-for-the-cloud solutions. For an IT environment that uses Microsoft products and services, Active Directory and Azure AD play a role.
 
@@ -28,7 +28,7 @@ Many companies that migrate from Active Directory to Azure AD start with an envi
 
 [![Architectural diagram that depicts the common technologies contained in the pillars of applications, devices, and users.](media/road-to-cloud-posture/road-to-the-cloud-start.png)](media/road-to-cloud-posture/road-to-the-cloud-start.png#lightbox)
 
-Microsoft has modeled five states of transformation that commonly align with the business goals of customers. As the goals of customers mature, it's typical for them to shift from one state to the next at a pace that suits their resources and culture. This approach closely follows [Active Directory in Transition: Gartner Survey Results and Analysis](https://www.gartner.com/en/documents/4006741).
+Microsoft has modeled five states of transformation that commonly align with the business goals of customers. As the goals of customers mature, it's typical for them to shift from one state to the next at a pace that suits their resources and culture.
 
 The five states have exit criteria to help you determine where your environment resides today. Some projects, such as application migration, span all five states. Other projects span a single state.
 
@@ -114,7 +114,7 @@ In this state:
 
 * A plan to move apps that depend on Active Directory and are part of the vision for the future-state Azure AD environment is being executed. A plan to replace services that won't move (file, print, or fax services) is in place.
 
-* On-premises workloads have been replaced with cloud alternatives such as Windows Virtual Desktop, Azure Files, or Google Cloud Print. Azure SQL Managed Instance replaces SQL Server.
+* On-premises workloads have been replaced with cloud alternatives such as Windows Virtual Desktop, Azure Files, or Universal Print. Azure SQL Managed Instance replaces SQL Server.
 
 ### State 5: 100% cloud
 

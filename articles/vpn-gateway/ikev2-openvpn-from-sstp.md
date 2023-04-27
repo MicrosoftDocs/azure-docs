@@ -2,9 +2,7 @@
 title: 'How to transition to OpenVPN or IKEv2 from SSTP'
 titleSuffix: Azure VPN Gateway
 description: Learn how to transition to OpenVPN protocol or IKEv2 from SSTP to overcome the 128 concurrent connection SSTP limit.
-services: vpn-gateway
 author: cherylmc
-
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 05/04/2022
@@ -44,6 +42,10 @@ Adding IKEv2 to an existing SSTP VPN gateway won't affect existing clients and y
 To add IKEv2 to an existing gateway, go to the "point-to-site configuration" tab under the Virtual Network Gateway in portal, and select **IKEv2 and SSTP (SSL)** from the drop-down box.
 
 :::image type="content" source="./media/ikev2-openvpn-from-sstp/add-tunnel-type.png" alt-text="Screenshot that shows the Point-to-site configuration page with the Tunnel type drop-down open, and IKEv2 and SSTP(SSL) selected." lightbox="./media/ikev2-openvpn-from-sstp/add-tunnel-type.png":::
+
+>[!NOTE]
+> When you have both SSTP and IKEv2 enabled on the Gateway, the point-to-site address pool will be statically split between the two, so clients using different protocols will be assigned IP addresses from either sub-range. Note that the maximum amount of SSTP clients is always 128 even if the address range is larger than /24 resulting in a bigger amount of addresses available for IKEv2 clients. For smaller ranges, the pool will be equally halved. Traffic Selectors used by the gateway may not include the Point to Site address range CIDR, but the two sub-range CIDRs.
+>
 
 ### Option 2 - Remove SSTP and enable OpenVPN on the Gateway
 

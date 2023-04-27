@@ -14,9 +14,6 @@ ms.author: eur
 
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CPP&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
-
 ## Set up the environment
 The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and implements .NET Standard 2.0. You install the Speech SDK later in this guide, but first check the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-cpp) for any more requirements.
 
@@ -24,19 +21,16 @@ The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/
 
 [!INCLUDE [Environment variables](../../common/environment-variables.md)]
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CPP&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
-
 ## Recognize speech from a microphone
 
 Follow these steps to create a new console application and install the Speech SDK.
 
-1. Create a new C++ console project in Visual Studio.
+1. Create a new C++ console project in Visual Studio Community 2022 named `SpeechRecognition`.
 1. Install the Speech SDK in your new project with the NuGet package manager.
     ```powershell
     Install-Package Microsoft.CognitiveServices.Speech
     ```
-1. Replace the contents of `main.cpp` with the following code:
+1. Replace the contents of `SpeechRecognition.cpp` with the following code:
     
     ```cpp
     #include <iostream> 
@@ -46,12 +40,13 @@ Follow these steps to create a new console application and install the Speech SD
     using namespace Microsoft::CognitiveServices::Speech;
     using namespace Microsoft::CognitiveServices::Speech::Audio;
     
-    std::string getEnvironmentVariable(const char* name);
+    std::string GetEnvironmentVariable(const char* name);
     
     int main()
     {
-        auto speechKey = getEnvironmentVariable("SPEECH_KEY");
-        auto speechRegion = getEnvironmentVariable("SPEECH_REGION");
+        // This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
+        auto speechKey = GetEnvironmentVariable("SPEECH_KEY");
+        auto speechRegion = GetEnvironmentVariable("SPEECH_REGION");
         
         if ((size(speechKey) == 0) || (size(speechRegion) == 0)) {
             std::cout << "Please set both SPEECH_KEY and SPEECH_REGION environment variables." << std::endl;
@@ -90,7 +85,7 @@ Follow these steps to create a new console application and install the Speech SD
         }
     }
     
-    std::string getEnvironmentVariable(const char* name)
+    std::string GetEnvironmentVariable(const char* name)
     {
     #if defined(_MSC_VER)
         size_t requiredSize = 0;
@@ -111,7 +106,11 @@ Follow these steps to create a new console application and install the Speech SD
 
 1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-US` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/language-identification.md). 
 
+
 [Build and run](/cpp/build/vscpp-step-2-build) your new console application to start speech recognition from a microphone.
+
+> [!IMPORTANT]
+> Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
 
 Speak into your microphone when prompted. What you speak should be output as text: 
 
@@ -119,9 +118,6 @@ Speak into your microphone when prompted. What you speak should be output as tex
 Speak into your microphone.
 RECOGNIZED: Text=I'm excited to try speech to text.
 ```
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CPP&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Recognize-speech-from-a-microphone" target="_target">I ran into an issue</a>
 
 ## Remarks
 Now that you've completed the quickstart, here are some additional considerations:

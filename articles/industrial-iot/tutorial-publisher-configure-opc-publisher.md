@@ -1,8 +1,8 @@
 ---
 title: Configure the Microsoft OPC Publisher
 description: In this tutorial, you learn how to configure the OPC Publisher in standalone mode.
-author: jehona-m
-ms.author: jemorina
+author: hansgschossmann
+ms.author: johanng
 ms.service: industrial-iot
 ms.topic: tutorial
 ms.date: 3/22/2021

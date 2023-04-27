@@ -4,6 +4,8 @@ description: In this article, learn how to configure, initiate, and manage backu
 ms.topic: conceptual
 ms.date: 10/06/2021
 ms.assetid: 6050a941-89d7-4b27-9976-69898cc34cde
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up Azure Disks using Azure Data Protection via REST API

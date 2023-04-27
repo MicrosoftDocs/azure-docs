@@ -2,13 +2,10 @@
 title: 'Download VPN device configuration scripts for S2S VPN connections'
 description: Learn how to download VPN device configuration scripts for S2S VPN connections with Azure VPN Gateways.
 titleSuffix: Azure VPN Gateway
-services: vpn-gateway
 author: cherylmc
-
-
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 10/24/2022
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 
@@ -18,10 +15,6 @@ ms.custom: devx-track-azurepowershell
 This article walks you through downloading VPN device configuration scripts for S2S VPN connections with Azure VPN Gateways. The following diagram shows the high-level workflow.
 
 ![download-script](./media/vpn-gateway-download-vpndevicescript/downloaddevicescript.png)
-
-The following devices have available scripts:
-
-[!INCLUDE [scripts](../../includes/vpn-gateway-device-configuration-scripts.md)]
 
 ## <a name="about"></a>About VPN device configuration scripts
 
@@ -68,7 +61,7 @@ Once the connection resource is created, follow the instructions below to downlo
 
     ![download66-script-2](./media/vpn-gateway-download-vpndevicescript/downloadscript-2.PNG)
 
-6. You are prompted to save the downloaded script (a text file) from your browser.
+6. You're prompted to save the downloaded script (a text file) from your browser.
 7. Once you downloaded the configuration script, open it with a text editor and search for the keyword "REPLACE" to identify and examine the parameters that may need to be replaced.
 
     ![edit-script](./media/vpn-gateway-download-vpndevicescript/editscript.png)
@@ -93,7 +86,7 @@ Get-AzVirtualNetworkGatewayConnectionVpnDeviceConfigScript -Name $Connection -Re
 
 ## Apply the configuration script to your VPN device
 
-After you have downloaded and validated the configuration script, the next step is to apply the script to your VPN device. The actual procedure varies based on your VPN device makes and models. Consult the operation manuals or the instruction pages for your VPN devices.
+After you've downloaded and validated the configuration script, the next step is to apply the script to your VPN device. The actual procedure varies based on your VPN device makes and models. Consult the operation manuals or the instruction pages for your VPN devices.
 
 ## Next steps
 

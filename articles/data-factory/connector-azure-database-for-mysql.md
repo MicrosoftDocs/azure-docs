@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/04/2022
+ms.date: 12/15/2022
 ---
 
 # Copy and transform data in Azure Database for MySQL using Azure Data Factory or Synapse Analytics
@@ -302,7 +302,7 @@ The below table lists the properties supported by Azure Database for MySQL sink.
 
 * Enable incremental extract: Use this option to tell ADF to only process rows that have changed since the last time that the pipeline executed.
 
-* Incremental date column: When using the incremental extract feature, you must choose the date/time column that you wish to use as the watermark in your source table.
+* Incremental column: When using the incremental extract feature, you must choose the date/time or numeric column that you wish to use as the watermark in your source table.
 
 * Start reading from beginning: Setting this option with incremental extract will instruct ADF to read all rows on first execution of a pipeline with incremental extract turned on.
 

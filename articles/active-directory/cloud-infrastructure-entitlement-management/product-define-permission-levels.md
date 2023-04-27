@@ -2,13 +2,14 @@
 title: Define and manage users, roles, and access levels in Permissions Management
 description: How to define and manage users, roles, and access levels in Permissions Management User management dashboard.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: ciem
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: kenwith
+ms.author: jfields
 ---
 
 # Define and manage users, roles, and access levels

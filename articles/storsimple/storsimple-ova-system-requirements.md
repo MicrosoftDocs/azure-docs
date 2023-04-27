@@ -24,7 +24,6 @@ The system requirements include:
 The StorSimple system requirements information published in this article applies to StorSimple Virtual Arrays only.
 
 * For 8000 series devices, go to [System requirements for your StorSimple 8000 series device](./storsimple-8000-system-requirements.md).
-* For 7000 series devices, go to [System requirements for your StorSimple 5000-7000 series device](http://onlinehelp.storsimple.com/1_StorSimple_System_Requirements).
 
 ## Software requirements
 The software requirements include the information on the supported web browsers, SMB versions, virtualization platforms and the minimum virtual device requirements.

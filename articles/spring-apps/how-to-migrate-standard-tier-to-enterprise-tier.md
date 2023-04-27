@@ -17,7 +17,7 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to migrate an existing application in Basic or Standard tier to Enterprise tier. When you migrate from Basic or Standard tier to Enterprise tier, VMware Tanzu components will replace the OSS Spring Cloud components to provide more feature support.
+This article shows you how to migrate an existing application in Basic or Standard tier to Enterprise tier. When you migrate from Basic or Standard tier to Enterprise tier, VMware Tanzu components will replace the open-source software (OSS) Spring Cloud components to provide more feature support.
 
 This article will use the Pet Clinic sample apps as examples of how to migrate.
 
@@ -44,7 +44,7 @@ Use the following steps to provision an Azure Spring Apps service instance:
 
 1. Select **Change** next to the **Pricing** option, then select **Enterprise**.
 
-   :::image type="content" source="media/enterprise/getting-started-enterprise/choose-enterprise-tier.png" alt-text="Screenshot of Azure portal Azure Spring Apps creation page with Basics section and 'Choose your pricing tier' pane showing." lightbox="media/enterprise/getting-started-enterprise/choose-enterprise-tier.png":::
+   :::image type="content" source="media/how-to-migrate-standard-tier-to-enterprise-tier/choose-enterprise-tier.png" alt-text="Screenshot of Azure portal Azure Spring Apps creation page with Basics section and 'Choose your pricing tier' pane showing." lightbox="media/how-to-migrate-standard-tier-to-enterprise-tier/choose-enterprise-tier.png":::
 
    Select the **Terms** checkbox to agree to the legal terms and privacy statements of the Enterprise tier offering in the Azure Marketplace.
 
@@ -53,7 +53,7 @@ Use the following steps to provision an Azure Spring Apps service instance:
    > [!NOTE]
    > All Tanzu components are enabled by default. Carefully consider which Tanzu components you want to use or enable during the provisioning phase. After provisioning the Azure Spring Apps instance, you can't enable or disable Tanzu components.
 
-   :::image type="content" source="media/enterprise/getting-started-enterprise/create-instance-tanzu-settings-public-preview.png" alt-text="Screenshot of Azure portal Azure Spring Apps creation page with V M ware Tanzu Settings section showing." lightbox="media/enterprise/getting-started-enterprise/create-instance-tanzu-settings-public-preview.png":::
+   :::image type="content" source="media/how-to-migrate-standard-tier-to-enterprise-tier/create-instance-tanzu-settings-public-preview.png" alt-text="Screenshot of Azure portal Azure Spring Apps creation page with V M ware Tanzu Settings section showing." lightbox="media/how-to-migrate-standard-tier-to-enterprise-tier/create-instance-tanzu-settings-public-preview.png":::
 
 1. Select the **Application Insights** section, then select **Enable Application Insights**. You can also enable Application Insights after you provision the Azure Spring Apps instance.
 
@@ -72,7 +72,7 @@ It takes about 5 minutes to finish the resource provisioning.
 1. Update Azure CLI with the Azure Spring Apps extension by using the following command:
 
    ```azurecli
-   az extension update --name spring-cloud
+   az extension add --upgrade --name spring
    ```
 
 1. Sign in to the Azure CLI and choose your active subscription by using the following command:
@@ -87,7 +87,7 @@ It takes about 5 minutes to finish the resource provisioning.
 
    ```azurecli
    az provider register --namespace Microsoft.SaaS
-   az term accept --publisher vmware-inc --product azure-spring-cloud-vmware-tanzu-2 --plan tanzu-asc-ent-mtr
+   az term accept --publisher vmware-inc --product azure-spring-cloud-vmware-tanzu-2 --plan asa-ent-hr-mtr
    ```
 
 1. Enter a name for your Azure Spring Apps service instance. The name must be between 4 and 32 characters long and can  only contain lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
@@ -96,7 +96,7 @@ It takes about 5 minutes to finish the resource provisioning.
 
    ```azurecli
    az group create --name <resource-group-name>
-   az spring-cloud create \
+   az spring create \
        --resource-group <resource-group-name> \
        --name <service-instance-name> \
        --sku enterprise
@@ -107,7 +107,7 @@ It takes about 5 minutes to finish the resource provisioning.
 1. Set your default resource group name and Spring Cloud service name using the following command:
 
    ```azurecli
-   az config set defaults.group=<resource-group-name> defaults.spring-cloud=<service-instance-name>
+   az config set defaults.group=<resource-group-name> defaults.spring=<service-instance-name>
    ```
 
 ---
@@ -120,23 +120,26 @@ The app creation steps are the same as Standard Tier.
 
    ```azurecli
    az account set --subscription=<your-subscription-id>
-   az configure --defaults group=<your-resource-group-name> spring-cloud=<your-service-name>
+   az configure --defaults group=<your-resource-group-name> spring=<your-service-name>
    ```
 
 1. To create the two core applications for PetClinic, `api-gateway` and `customers-service`, use the following commands:
 
    ```azurecli
-   az spring-cloud app create --name api-gateway --instance-count 1 --memory 2Gi --assign-endpoint
-   az spring-cloud app create --name customers-service --instance-count 1 --memory 2Gi
+   az spring app create --name api-gateway --instance-count 1 --memory 2Gi --assign-endpoint
+   az spring app create --name customers-service --instance-count 1 --memory 2Gi
    ```
 
 ## Use Application Configuration Service for external configuration
 
-In Enterprise tier, Application Configuration Service provides external configuration support for your apps. Managed Spring Cloud Config Server is only available in Basic and Standard tiers and isn't available in Enterprise tier.
+For externalized configuration in a distributed system, managed Spring Cloud Config Server is only available in Basic and Standard tiers. In Enterprise tier, Application Configuration Service for Tanzu (ACS) provides similar functions for your apps. The following table describes some differences in usage between the OSS config server and ACS.
 
-| Component     | Standard Tier                                                               | Enterprise Tier                                                                                   |
-|---------------|-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
-| Config Server | OSS config server <br> Auto bound (always injection) <br>Always provisioned | Application Configuration Service for Tanzu <br> Need manual binding to app <br> Enable on demand |
+| Component                                   | Support tiers  | Enabled           | Bind to app | Profile                                                               |
+|---------------------------------------------|----------------|-------------------|-------------|-----------------------------------------------------------------------|
+| Spring Cloud Config Server                  | Basic/Standard | Always enabled.   | Auto bound  | Configured in app's source code.                                      |
+| Application Configuration Service for Tanzu | Enterprise     | Enable on demand. | Manual bind | Provided as `config-file-pattern` in an Azure Spring Apps deployment. |
+
+Unlike the client-server mode in the OSS config server, ACS manages configuration by using the Kubernetes-native `ConfigMap`, which is populated from properties defined in backend Git repositories. ACS can't get the active profile configured in the app's source code to match the right configuration, so the explicit configuration `config-file-pattern` should be specified at the Azure Spring Apps deployment level.
 
 ## Configure Application Configuration Service for Tanzu settings
 
@@ -147,7 +150,7 @@ Follow these steps to use Application Configuration Service for Tanzu as a centr
 1. Select **Application Configuration Service**.
 1. Select **Overview** to view the running state and resources allocated to Application Configuration Service for Tanzu.
 
-   :::image type="content" source="./media/enterprise/getting-started-enterprise/config-service-overview.png" alt-text="Screenshot of Azure portal Azure Spring Apps with Application Configuration Service page and Overview section showing." lightbox="./media/enterprise/getting-started-enterprise/config-service-overview.png":::
+   :::image type="content" source="./media/how-to-migrate-standard-tier-to-enterprise-tier/config-service-overview.png" alt-text="Screenshot of Azure portal Azure Spring Apps with Application Configuration Service page and Overview section showing." lightbox="./media/how-to-migrate-standard-tier-to-enterprise-tier/config-service-overview.png":::
 
 1. Select **Settings**, then add a new entry in the **Repositories** section with the following information:
 
@@ -160,14 +163,14 @@ Follow these steps to use Application Configuration Service for Tanzu as a centr
 
 1. After validation completes successfully, select **Apply** to update the configuration settings.
 
-   :::image type="content" source="./media/enterprise/getting-started-enterprise/config-service-settings.png" alt-text="Screenshot of Azure portal Azure Spring Apps with Application Configuration Service page and Settings section showing." lightbox="./media/enterprise/getting-started-enterprise/config-service-settings.png":::
+   :::image type="content" source="./media/how-to-migrate-standard-tier-to-enterprise-tier/config-service-settings.png" alt-text="Screenshot of Azure portal Azure Spring Apps with Application Configuration Service page and Settings section showing." lightbox="./media/how-to-migrate-standard-tier-to-enterprise-tier/config-service-settings.png":::
 
 ### [Azure CLI](#tab/azure-cli)
 
 To set the default repository, use the following command:
 
 ```azurecli
-az spring-cloud application-configuration-service git repo add \
+az spring application-configuration-service git repo add \
     --name default \
     --patterns api-gateway,customers-service \
     --uri https://github.com/Azure-Samples/spring-petclinic-microservices-config.git \
@@ -197,8 +200,8 @@ The list under **App name** will show the apps bound with Application Configurat
 To bind apps to Application Configuration Service for VMware Tanzu® and VMware Tanzu® Service Registry, use the following commands:
 
 ```azurecli
-az spring-cloud application-configuration-service bind --app api-gateway
-az spring-cloud application-configuration-service bind --app customers-service
+az spring application-configuration-service bind --app api-gateway
+az spring application-configuration-service bind --app customers-service
 ```
 
 ---
@@ -225,7 +228,7 @@ To bind apps to Application Configuration Service for VMware Tanzu®, follow the
 
 1. Choose one app in the dropdown, and then select **Apply** to bind the application to Tanzu Service Registry.
 
-   :::image type="content" source="media/enterprise/getting-started-enterprise/service-reg-app-bind-dropdown.png" alt-text="Screenshot of Azure portal Azure Spring Apps with Service Registry page and 'Bind app' dialog showing." lightbox="media/enterprise/getting-started-enterprise/service-reg-app-bind-dropdown.png":::
+   :::image type="content" source="media/how-to-migrate-standard-tier-to-enterprise-tier/service-reg-app-bind-dropdown.png" alt-text="Screenshot of Azure portal Azure Spring Apps with Service Registry page and 'Bind app' dialog showing." lightbox="media/how-to-migrate-standard-tier-to-enterprise-tier/service-reg-app-bind-dropdown.png":::
 
 The list under **App name** shows the apps bound with Tanzu Service Registry.
 
@@ -234,8 +237,8 @@ The list under **App name** shows the apps bound with Tanzu Service Registry.
 To bind apps to Application Configuration Service for VMware Tanzu® and VMware Tanzu® Service Registry, use the following commands:
 
 ```azurecli
-az spring-cloud service-registry bind --app api-gateway
-az spring-cloud service-registry bind --app customers-service
+az spring service-registry bind --app api-gateway
+az spring service-registry bind --app customers-service
 ```
 
 ---
@@ -272,11 +275,11 @@ To build locally, use the following steps:
 1. Deploy the JAR files built in the previous step using the following commands:
 
    ```azurecli
-   az spring-cloud app deploy \
+   az spring app deploy \
        --name api-gateway \
        --artifact-path spring-petclinic-api-gateway/target/spring-petclinic-api-gateway-2.3.6.jar \
        --config-file-patterns api-gateway
-   az spring-cloud app deploy \
+   az spring app deploy \
        --name customers-service \
        --artifact-path spring-petclinic-customers-service/target/spring-petclinic-customers-service-2.3.6.jar \
        --config-file-patterns customers-service
@@ -285,7 +288,7 @@ To build locally, use the following steps:
 1. Query the application status after deployment by using the following command:
 
    ```azurecli
-   az spring-cloud app list --output table
+   az spring app list --output table
    ```
 
    This command produces output similar to the following example:
@@ -297,9 +300,9 @@ To build locally, use the following steps:
    customers-service     eastus      <resource group>                                                                      default                  Succeeded             1      2Gi       1/1                1/1                    -                     True                     True
    ```
 
-## Use Application Insight
+## Use Application Insights
 
-Azure Enterprise tier uses the build service feature [Buildpack Bindings](./how-to-enterprise-build-service.md#buildpack-bindings) to integrate [Application Insights](../azure-monitor/app/app-insights-overview.md) with the type `ApplicationInsights` instead of In-Process Agent.
+Azure Spring Apps Enterprise tier uses buildpack bindings to integrate [Application Insights](../azure-monitor/app/app-insights-overview.md) with the type `ApplicationInsights` instead of In-Process Agent. For more information, see [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-intergration-and-ca-certificates.md).
 
 | Standard Tier                                                      | Enterprise Tier                                                                    |
 |--------------------------------------------------------------------|------------------------------------------------------------------------------------|
@@ -312,18 +315,18 @@ To check or update the current settings in Application Insights, use the followi
 1. Select **Application Insights**.
 1. Enable Application Insights by selecting **Edit binding**, or the **Unbound** hyperlink.
 
-   :::image type="content" source="media/enterprise/how-to-application-insights/application-insights-binding-enable.png" alt-text="Screenshot of Azure portal Azure Spring Apps instance with Application Insights page showing and drop-down menu visible with 'Edit binding' option.":::
+   :::image type="content" source="media/how-to-migrate-standard-tier-to-enterprise-tier/application-insights-binding-enable.png" alt-text="Screenshot of Azure portal Azure Spring Apps instance with Application Insights page showing and drop-down menu visible with 'Edit binding' option.":::
 
 1. Edit the binding settings, then select **Save**.
 
-   :::image type="content" source="media/enterprise/how-to-application-insights/application-insights-edit-binding.png" alt-text="Screenshot of Azure portal 'Edit binding' pane." lightbox="media/enterprise/how-to-application-insights/application-insights-edit-binding.png":::
+   :::image type="content" source="media/how-to-migrate-standard-tier-to-enterprise-tier/application-insights-edit-binding.png" alt-text="Screenshot of Azure portal 'Edit binding' pane." lightbox="media/how-to-migrate-standard-tier-to-enterprise-tier/application-insights-edit-binding.png":::
 
 ### [Azure CLI](#tab/azure-cli)
 
 To create an Application Insights buildpack binding, use the following command:
 
 ```azurecli
-az spring-cloud build-service builder buildpack-binding create \
+az spring build-service builder buildpack-binding create \
     --resource-group <your-resource-group-name> \
     --service <your-service-instance-name> \
     --name <your-binding-name> \
@@ -336,7 +339,7 @@ az spring-cloud build-service builder buildpack-binding create \
 To list all buildpack bindings, and find Application Insights bindings for the type `ApplicationInsights`, use the following command:
 
 ```azurecli
-az spring-cloud build-service builder buildpack-binding list \
+az spring build-service builder buildpack-binding list \
     --resource-group <your-resource-group-name> \
     --service <your-service-resource-name> \
     --builder-name <your-builder-name>
@@ -345,7 +348,7 @@ az spring-cloud build-service builder buildpack-binding list \
 To replace an Application Insights buildpack binding, use the following command:
 
 ```azurecli
-az spring-cloud build-service builder buildpack-binding set \
+az spring build-service builder buildpack-binding set \
     --resource-group <your-resource-group-name> \
     --service <your-service-instance-name> \
     --name <your-binding-name> \
@@ -358,7 +361,7 @@ az spring-cloud build-service builder buildpack-binding set \
 To get an Application Insights buildpack binding, use the following command:
 
 ```azurecli
-az spring-cloud build-service builder buildpack-binding show \
+az spring build-service builder buildpack-binding show \
     --resource-group <your-resource-group-name> \
     --service <your-service-instance-name> \
     --name <your-binding-name> \
@@ -368,7 +371,7 @@ az spring-cloud build-service builder buildpack-binding show \
 To delete an Application Insights buildpack binding, use the following command:
 
 ```azurecli
-az spring-cloud build-service builder buildpack-binding delete \
+az spring build-service builder buildpack-binding delete \
     --resource-group <your-resource-group-name> \
     --service <your-service-instance-name> \
     --name <your-binding-name> \

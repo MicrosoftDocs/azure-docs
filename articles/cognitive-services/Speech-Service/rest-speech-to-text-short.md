@@ -25,6 +25,8 @@ Before you use the speech-to-text REST API for short audio, consider the followi
 * [Speech translation](speech-translation.md) is not supported via REST API for short audio. You need to use [Speech SDK](speech-sdk.md).
 * [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md) are not supported via REST API for short audio. You should always use the [Speech to Text REST API](rest-speech-to-text.md) for batch transcription and Custom Speech.
 
+Before you use the speech-to-text REST API for short audio, understand that you need to complete a token exchange as part of authentication to access the service. For more information, see [Authentication](#authentication).
+
 ## Regions and endpoints
 
 The endpoint for the REST API for short audio has this format:
@@ -73,7 +75,7 @@ These parameters might be included in the query string of the REST request.
 
 | Parameter | Description | Required or optional |
 |-----------|-------------|---------------------|
-| `language` | Identifies the spoken language that's being recognized. See [Supported languages](language-support.md?tabs=stt-tts). | Required |
+| `language` | Identifies the spoken language that's being recognized. See [Supported languages](language-support.md?tabs=stt). | Required |
 | `format` | Specifies the result format. Accepted values are `simple` and `detailed`. Simple results include `RecognitionStatus`, `DisplayText`, `Offset`, and `Duration`. Detailed responses include four different representations of display text. The default setting is `simple`. | Optional |
 | `profanity` | Specifies how to handle profanity in recognition results. Accepted values are: <br><br>`masked`, which replaces profanity with asterisks. <br>`removed`, which removes all profanity from the result. <br>`raw`, which includes profanity in the result. <br><br>The default setting is `masked`. | Optional |
 | `cid` | When you're using the [Speech Studio](speech-studio-overview.md) to create [custom models](./custom-speech-overview.md), you can take advantage of the **Endpoint ID** value from the **Deployment** page. Use the **Endpoint ID** value as the argument to the `cid` query string parameter. | Optional |
@@ -303,6 +305,8 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
     }
 }
 ```
+
+## Authentication
 
 [!INCLUDE [](includes/cognitive-services-speech-service-rest-auth.md)]
 

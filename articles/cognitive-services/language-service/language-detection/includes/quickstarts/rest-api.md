@@ -1,16 +1,16 @@
 ---
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 08/15/2022
-ms.author: aahi
+ms.date: 10/31/2022
+ms.author: jboback
 ms.custom: ignite-fall-2021
 ---
 
-[Reference documentation](/rest/api/language/text-analysis-runtime/analyze-text)
+[Reference documentation](/rest/api/language/2022-05-01/text-analysis-runtime/analyze-text)
 
 Use this quickstart to send language detection requests using the REST API. In the following example, you will use cURL to identify the language that a text sample was written in.
 
@@ -21,7 +21,7 @@ Use this quickstart to send language detection requests using the REST API. In t
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The current version of [cURL](https://curl.haxx.se/).
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`Free F0`) to try the service, and upgrade later to a paid tier for production.
 
@@ -92,7 +92,7 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/:analyze-text
 			"warnings": []
 		}],
 		"errors": [],
-		"modelVersion": "2021-11-20"
+		"modelVersion": "2022-10-01"
 	}
 }
 ```

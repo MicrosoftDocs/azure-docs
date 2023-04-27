@@ -1,5 +1,5 @@
 ---
-title: Azure Pipelines task for Azure Database for MySQL Single Server 
+title: Azure Pipelines task for Azure Database for MySQL single server 
 description: Enable Azure Database for MySQL Flexible Server CLI  task for using with Azure Pipelines
 ms.topic: how-to
 ms.service: mysql
@@ -10,11 +10,11 @@ author: juliakm
 ms.date: 09/14/2022
 ---
 
-# Azure Pipelines for Azure Database for MySQL Single Server
+# Azure Pipelines for Azure Database for MySQL single server
 
 Get started with Azure Database for MySQL by deploying a database update with Azure Pipelines. Azure Pipelines lets you build, test, and deploy with continuous integration (CI) and continuous delivery (CD) using [Azure DevOps](/azure/devops/). 
 
-You'll use the [Azure Database for MySQL Deployment task](/azure/devops/pipelines/tasks/deploy/azure-mysql-deployment.md). The Azure Database for MySQL Deployment task only works with Azure Database for MySQL Single Server.
+You'll use the [Azure Database for MySQL Deployment task](/azure/devops/pipelines/tasks/deploy/azure-mysql-deployment). The Azure Database for MySQL Deployment task only works with Azure Database for MySQL single server.
 
 ## Prerequisites
 
@@ -149,4 +149,4 @@ When you’re done working with your pipeline, delete `quickstartdb` in your Azu
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Build an ASP.NET Core and Azure SQL Database app in Azure App Service](/azure/app-service/tutorial-dotnetcore-sqldb-app)
+> [Tutorial: Build an ASP.NET Core and Azure SQL Database app in Azure App Service](../../app-service/tutorial-dotnetcore-sqldb-app.md)

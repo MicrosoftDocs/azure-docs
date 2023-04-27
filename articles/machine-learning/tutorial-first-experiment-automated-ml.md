@@ -6,13 +6,12 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: tutorial
-author: blackmist
-ms.author: larryfr
-ms.reviewer: nibaccam
+author: manashgoswami 
+ms.author: magoswam
+ms.reviewer: ssalgado 
 ms.date: 10/21/2021
-ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
-
-# Customer intent: As a non-coding data scientist, I want to use automated machine learning techniques so that I can build a classification model.
+ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4, ignite-2022
+#Customer intent: As a non-coding data scientist, I want to use automated machine learning techniques so that I can build a classification model.
 ---
 
 # Tutorial: Train a classification model with no-code AutoML in the Azure Machine Learning studio
@@ -32,7 +31,7 @@ You won't write any code in this tutorial, you'll use the studio interface to pe
 Also try automated machine learning for these other model types:
 
 * For a no-code example of forecasting, see [Tutorial: Demand forecasting & AutoML](tutorial-automated-ml-forecast.md).
-* For a code first example of an object detection model, see the [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md),
+* For a code first example of an object detection model, see the [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md),
 
 ## Prerequisites
 
@@ -138,7 +137,7 @@ After you load and configure your data, you can set up your experiment. This set
         
             Field | Description | Value for tutorial
             ----|---|---
-            Compute name |	A unique name that identifies your compute context. | automl-compute
+            Compute name |    A unique name that identifies your compute context. | automl-compute
             Min / Max nodes| To profile data, you must specify 1 or more nodes.|Min nodes: 1<br>Max nodes: 6
             Idle seconds before scale down | Idle time before  the cluster is automatically scaled down to the minimum node count.|120 (default)
             Advanced settings | Settings to configure and authorize a virtual network for your experiment.| None               
@@ -279,8 +278,6 @@ In this automated machine learning tutorial, you used Azure Machine Learning's a
 
 + Learn more about [automated machine learning](concept-automated-ml.md).
 + For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md) article.
-+ Learn more about [featurization](how-to-configure-auto-features.md#featurization).
-+ Learn more about [data profiling](v1/how-to-connect-data-ui.md#profile).
 
 
 >[!NOTE]

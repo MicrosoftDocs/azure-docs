@@ -8,13 +8,13 @@ ms.date: 05/10/2019
 ---
 # Service Health portal classic experience overview
 
-The [Service Health portal](https://ms.portal.azure.com/#view/Microsoft_Azure_Health/AzureHealthBrowseBlade/~/serviceIssues) is part of the [Service Health service](overview.md). The portal provides you with a customizable dashboard which tracks the health of your Azure services in the regions where you use them. In this dashboard, you can track active events like ongoing service issues, upcoming planned maintenance, or relevant health advisories. When events become inactive, they get placed in your health history for up to 90 days. Finally, you can use the Service Health dashboard to create and manage service health alerts which proactively notify you when service issues are affecting you.
+The [Service Health portal](https://portal.azure.com/#view/Microsoft_Azure_Health/AzureHealthBrowseBlade/~/serviceIssues) is part of the [Service Health service](overview.md). The portal provides you with a customizable dashboard which tracks the health of your Azure services in the regions where you use them. In this dashboard, you can track active events like ongoing service issues, upcoming planned maintenance, or relevant health advisories. When events become inactive, they get placed in your health history for up to 90 days. Finally, you can use the Service Health dashboard to create and manage service health alerts which proactively notify you when service issues are affecting you.
 
 This article goes through the classic portal experience. The portal is in process of updating to a new user interface. Some users will see the experience below. Others will see the [updated service Health portal experience](service-health-portal-update.md). 
 
 ## Service Health Events
 
-The [Service Health portal](https://ms.portal.azure.com/#view/Microsoft_Azure_Health/AzureHealthBrowseBlade/~/serviceIssues) tracks four types of health events that may impact your resources:
+The [Service Health portal](https://portal.azure.com/#view/Microsoft_Azure_Health/AzureHealthBrowseBlade/~/serviceIssues) tracks four types of health events that may impact your resources:
 
 1. **Service issues** - Problems in the Azure services that affect you right now. 
 2. **Planned maintenance** - Upcoming maintenance that can affect the availability of your services in the future.  

@@ -151,15 +151,17 @@ The following table lists the supported Spring Boot and Spring Cloud combination
 
 ### [Basic/Standard tier](#tab/basic-standard-tier)
 
-| Spring Boot version | Spring Cloud version |
-|---------------------|----------------------|
-| 2.7.x               | 2021.0.3+ aka Jubilee|
-| 2.6.x               | 2021.0.0+ aka Jubilee|
+| Spring Boot version | Spring Cloud version  |
+|---------------------|-----------------------|
+| 3.0.0               | 2022.0.0-RC2          |
+| 2.7.x               | 2021.0.3+ aka Jubilee |
+| 2.6.x               | 2021.0.0+ aka Jubilee |
 
 ### [Enterprise tier](#tab/enterprise-tier)
 
 | Spring Boot version | Spring Cloud version       |
 |---------------------|----------------------------|
+| 3.0.0               | 2022.0.0-RC2               |
 | 2.7.x               | 2021.0.3+ aka Jubilee      |
 | 2.6.x               | 2021.0.0+ aka Jubilee      |
 | 2.5.x               | 2020.3+ aka Ilford+        |
@@ -177,8 +179,7 @@ For more information, see the following pages:
 * [Adding Spring Cloud To An Existing Spring Boot Application](https://spring.io/projects/spring-cloud#adding-spring-cloud-to-an-existing-spring-boot-application)
 
 > [!NOTE]
-> - Upgrade Spring Boot to 2.5.2 or 2.4.8 to address the following CVE report [CVE-2021-22119: Denial-of-Service attack with spring-security-oauth2-client](https://tanzu.vmware.com/security/cve-2021-22119). If you're using Spring Security, upgrade it to 5.5.1, 5.4.7, 5.3.10 or 5.2.11.
-> - An issue was identified with Spring Boot 2.4.0 on TLS authentication between apps and Spring Cloud Service Registry. Use version 2.4.1 or above. If you must use version 2.4.0, see the [FAQ](./faq.md?pivots=programming-language-java#development) for a workaround.
+> - The support for Spring Boot 3.0 is still in preview, so you shouldn't use it in production.
 
 ### Dependencies for Spring Boot version 2.4/2.5/2.6/2.7
 

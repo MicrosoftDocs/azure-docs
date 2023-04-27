@@ -1,7 +1,6 @@
 ---
 title: Troubleshooting Open Service Mesh
 description: How to troubleshoot Open Service Mesh
-services: container-service
 ms.topic: article
 ms.date: 8/26/2021
 ms.author: pgibson

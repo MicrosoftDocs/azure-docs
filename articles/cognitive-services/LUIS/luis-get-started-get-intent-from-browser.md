@@ -11,6 +11,9 @@ ms.custom: mode-other
 
 # How to query the prediction runtime with user text
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 To understand what a LUIS prediction endpoint returns, view a prediction result in a web browser.
 
 ## Prerequisites

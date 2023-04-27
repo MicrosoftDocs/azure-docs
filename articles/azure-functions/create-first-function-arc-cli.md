@@ -28,7 +28,7 @@ On your local computer:
 
 # [JavaScript](#tab/nodejs)
 
-+ [Node.js](https://nodejs.org/) version 12. Node.js version 10 is also supported.
++ [Node.js](https://nodejs.org/) version 18. Node.js version 14 is also supported.
 + [Azure Functions Core Tools version 4.x.](functions-run-local.md?tabs=v4%2Cnode#install-the-azure-functions-core-tools). 
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later
 
@@ -152,7 +152,7 @@ az functionapp create --resource-group MyResourceGroup --name <APP_NAME> --custo
 
 # [JavaScript](#tab/nodejs)  
 ```azurecli
-az functionapp create --resource-group MyResourceGroup --name <APP_NAME> --custom-location <CUSTOM_LOCATION_ID> --storage-account <STORAGE_NAME> --functions-version 4 --runtime node --runtime-version 12
+az functionapp create --resource-group MyResourceGroup --name <APP_NAME> --custom-location <CUSTOM_LOCATION_ID> --storage-account <STORAGE_NAME> --functions-version 4 --runtime node --runtime-version 18
 ```
 
 # [Python](#tab/python)  

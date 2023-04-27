@@ -1,7 +1,7 @@
 ---
 title: Prebuilt API - question answering
 titleSuffix: Azure Cognitive Services
-description: Use the question answering Prebuilt API to ask and receive answers to questions without having to create a project/knowledge base. 
+description: Use the question answering Prebuilt API to ask and receive answers to questions without having to create a project. 
 ms.service: cognitive-services
 ms.subservice: language-service
 author: jboback
@@ -12,13 +12,13 @@ ms.date: 11/03/2021
 
 # Prebuilt API
 
-The question answering **prebuilt API** provides you the capability to answer questions based on a passage of text without having to create projects/knowledge bases, maintain question and answer pairs, or incurring costs for underutilized infrastructure. This functionality is provided as an API and can be used to meet question and answering needs without having to learn the details about question answering.
+The question answering **prebuilt API** provides you the capability to answer questions based on a passage of text without having to create projects, maintain question and answer pairs, or incurring costs for underutilized infrastructure. This functionality is provided as an API and can be used to meet question and answering needs without having to learn the details about question answering.
 
 Given a user query and a block of text/passage the API will return an answer and precise answer (if available).
 
 ## Example API usage
 
-Imagine that you have one or more blocks of text from which you would like to get answers for a given question. Normally you would have had to create as many sources as the number of blocks of text. However, now with the prebuilt API you can query the blocks of text without having to define content sources in a project/knowledge base.
+Imagine that you have one or more blocks of text from which you would like to get answers for a given question. Normally you would have had to create as many sources as the number of blocks of text. However, now with the prebuilt API you can query the blocks of text without having to define content sources in a project.
 
 Some other scenarios where this API can be used are:
 

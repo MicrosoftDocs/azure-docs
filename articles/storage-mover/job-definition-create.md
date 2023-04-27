@@ -1,11 +1,11 @@
 ---
-title: How to define and start a migration job
-description: To migrate a share, create a job definition in a project and start it.
+title: How to define a migration job
+description: To migrate a share, create a job definition in a project.
 author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover
 ms.topic: how-to
-ms.date: 09/20/2022
+ms.date: 09/26/2022
 ---
 
 <!-- 
@@ -25,7 +25,7 @@ Initial doc score: 100 (1532 words and 0 issues)
 
 # How to define and start a migration job
 
-When you migrate a share to Azure, you'll need to describe the source share, the Azure target, and any migration settings you want to apply. These attributes are defined in a job definition within your storage mover resource. This article describes how to create and run such a job definition.
+When you migrate a share to Azure, you need to describe the source share, the Azure target, and any migration settings you want to apply. These attributes are defined in a job definition within your storage mover resource. This article describes how to create and run such a job definition.
 
 ## Prerequisites
 
@@ -37,8 +37,8 @@ There are three prerequisites to the definition the migration of your source sha
    Follow the steps in the *[Create a storage mover resource](storage-mover-create.md)* article to deploy a storage mover resource to the desired region within your Azure subscription.
 1. You need to deploy and register an Azure Storage Mover agent virtual machine (VM).
    Follow the steps in the [Azure Storage Mover agent VM deployment](agent-deploy.md) and [agent registration](agent-register.md) articles to deploy at least one agent.
-1. Finally, to define a migration, you'll need to create a job definition.
-   Job definitions are organized in a migration project. You'll need at least one migration project in your storage mover resource. If you haven't already, follow the deployment steps in the [manage projects](project-manage.md) article to create a migration project.
+1. Finally, to define a migration, you need to create a job definition.
+   Job definitions are organized in a migration project. You need at least one migration project in your storage mover resource. If you haven't already, follow the deployment steps in the [manage projects](project-manage.md) article to create a migration project.
 
 ## Create and start a job definition
 
@@ -74,9 +74,10 @@ Refer to the [resource naming convention](../azure-resource-manager/management/r
 
    :::image type="content" source="media/job-definition-create/endpoint-source-new-sml.png" alt-text="Screen capture of the Source tab illustrating the location of the New Source Endpoint fields." lightbox="media/job-definition-create/endpoint-source-new-lrg.png":::
 
-   By default, migration jobs will start from the root of your share. However, if your use case involves copying data from a specific path within your source share, you can provide the path in the **Sub-path** field. Supplying this value will start the data migration from the location you've specified. If the sub path you've specified isn't found, no data will be copied.
+   <a name="sub-path"></a>
+   By default, migration jobs start from the root of your share. However, if your use case involves copying data from a specific path within your source share, you can provide the path in the **Sub-path** field. Supplying this value will start the data migration from the location you've specified. If the sub path you've specified isn't found, no data will be copied.
 
-   Prior to creating an endpoint and a job resource, it's important to verify that the path you've provided is correct and that the data is accessible. You're unable to modify endpoints or job resources after they're created. If the specified path is wrong, you'll need to delete the resources and re-create them.
+   Prior to creating an endpoint and a job resource, it's important to verify that the path you've provided is correct and that the data is accessible. You're unable to modify endpoints or job resources after they're created. If the specified path is wrong, your only option is to delete the resources and re-create them.
 
    Values for host, share name, and subpath are concatenated to form the full migration source path. The path is displayed in the **Full path** field within the **Verify full path** section. Copy the path provided and verify that you're able to access it before committing your changes.
 
@@ -92,19 +93,26 @@ Refer to the [resource naming convention](../azure-resource-manager/management/r
 
    :::image type="content" source="media/job-definition-create/endpoint-target-new-sml.png" alt-text="Screen capture of the Target tab illustrating the location of the New Target Endpoint fields." lightbox="media/job-definition-create/endpoint-target-new-lrg.png":::
 
-   A target subpath value can be used to specify a location within the target container where your migrated data will be copied. The subpath value is relative to the container's root. Omitting the subpath value will result in the data being copied to the root, while providing a unique value will generate a new subfolder.
+   A target subpath value can be used to specify a location within the target container where your migrated data will be copied. The subpath value is relative to the container's root. Omitting the subpath value results in the data being copied to the root, while providing a unique value will generate a new subfolder.
 
    After ensuring the accuracy of your settings, select **Next** to continue.
 
-1. Within the **Settings** tab, take note of the settings associated with the **Copy mode** and **Migration outcomes**. The service's **copy mode** will affect the behavior of the migration engine when files or folders change between copy iterations.
+1. Within the **Settings** tab, take note of the settings associated with the **Copy mode** and **Migration outcomes**. The service's **copy mode** affects the behavior of the migration engine when files or folders change between copy iterations.
 
-   The current release of Azure Storage Mover only supports **merge** mode.
+   <a name="copy-modes"></a>
+   **Merge source into target:**
 
    - Files will be kept in the target, even if they don’t exist in the source.
    - Files with matching names and paths will be updated to match the source.
-   - Folder renames between copies may lead to duplicate content in the target.
+   - File or folder renames between copies lead to duplicate content in the target.
+   
+   **Mirror source to target:**
 
-   **Migration outcomes** are based upon the specific storage types of the source and target endpoints. For example, because blob storage only supports "virtual" folders, source files in folders will have their paths prepended to their names and placed in a flat list within a blob container. Empty folders will be represented as an empty blob in the target. Source folder metadata will be persisted in the custom metadata field of a blob, as they are with files.
+   - Files in the target will be deleted if they don’t exist in the source.
+   - Files and folders in the target will be updated to match the source.   
+   - File or folder renames between copies won't lead to duplicate content. A renamed item on the source side leads to the deletion of the item with the original name in the target. Additionally, the renamed item is also uploaded to the target. If the renamed item is a folder, the described behavior of delete and reupload applies to all files and folders contained in it. Avoid renaming folders during a migration, especially near the root level of your source data.
+
+   **Migration outcomes** are based upon the specific storage types of the source and target endpoints. For example, because blob storage only supports "virtual" folders, source files in folders will have their paths prepended to their names and placed in a flat list within a blob container. Empty folders will be represented as an empty blob in the target. Source folder metadata is persisted in the custom metadata field of a blob, as they are with files.
 
    After viewing the effects of the copy mode and migration outcomes, select **Next** to review the values from the previous tabs.
 
@@ -114,29 +122,30 @@ Refer to the [resource naming convention](../azure-resource-manager/management/r
 
 ### [PowerShell](#tab/powershell)
 
-You'll need to use several cmdlets to create a new job definition.
+You need to use several cmdlets to create a new job definition.
 
 Use the `New-AzStorageMoverJobDefinition` cmdlet to create new job definition resource in a project. The following example assumes that you aren't reusing *storage endpoints* you've previously created.
 
 ```powershell
       
-## Set variables
+##  Set variables
 $subscriptionID     = "Your subscription ID"
 $resourceGroupName  = "Your resource group name"
 $storageMoverName   = "Your storage mover name"
 
-## Log into Azure with your Azure credentials
+##  Log into Azure with your Azure credentials
 Connect-AzAccount -SubscriptionId $subscriptionID
 
-## Define the source endpoint: an NFS share in this example
-## There is a separate cmdlet for creating each type of endpoint.
-## (Each storage location type has different properties.)
-## Run "Get-Command -Module Az.StorageMover" to see a full list.
+##  Define the source endpoint: an NFS share in this example
+##  There is a separate cmdlet for creating each type of endpoint.
+##  (Each storage location type has different properties.)
+##  Run "Get-Command -Module Az.StorageMover" to see a full list.
 $sourceEpName        = "Your source endpoint name could be the name of the share"
 $sourceEpDescription = "Optional, up to 1024 characters"
-$sourceEpHost        = "The IP address or DNS name of the device (NAS / SERVER) that hosts your source share"
+$sourceEpHost        = "The IP address or DNS name of the source share NAS or server"
 $sourceEpExport      = "The name of your source share"
-## Note that Host and Export will be concatenated to Host:/Export to form the full path to the source NFS share
+##  Note that Host and Export will be concatenated to Host:/Export to form the full path 
+##  to the source NFS share
 
 New-AzStorageMoverNfsEndpoint `
     -ResourceGroupName $resourceGroupName `
@@ -146,13 +155,16 @@ New-AzStorageMoverNfsEndpoint `
     -Export $sourceEpExport `
     -Description $sourceEpDescription # Description optional
 
-## Define the target endpoint: an Azure blob container in this example
-$targetEpName          = "Your target endpoint name could be the name of the target blob container"
+##  Define the target endpoint: an Azure blob container in this example
+$targetEpName          = "Target endpoint or blob container name"
 $targetEpDescription   = "Optional, up to 1024 characters"
 $targetEpContainer     = "The name of the target container in Azure"
-$targetEpSaResourceId  = /subscriptions/<GUID>/resourceGroups/<name>/providers/Microsoft.Storage/storageAccounts/<storageAccountName>
-## Note: the target storage account can be in a different subscription and region than the storage mover resource.
-## Only the storage account resource ID contains a fully qualified reference.
+$targetEpSaResourceId  = /subscriptions/<GUID>/resourceGroups/<name>/providers/`
+                         Microsoft.Storage/storageAccounts/<storageAccountName>
+##  Note: the target storage account can be in a different subscription and region than
+##  the storage mover resource.
+##
+##  Only the storage account resource ID contains a fully qualified reference.
 
 New-AzStorageMoverAzStorageContainerEndpoint `
     -ResourceGroupName $resourceGroupName `
@@ -163,11 +175,12 @@ New-AzStorageMoverAzStorageContainerEndpoint `
     -Description $targetEpDescription # Description optional
 
 ## Create a job definition resource
-$projectName   = "Your project name"
-$jobDefName   = "Your job definition name"
+$projectName        = "Your project name"
+$jobDefName         = "Your job definition name"
 $JobDefDescription  = "Optional, up to 1024 characters"
-$jobDefCopyMode = "Additive"
-$agentName = "The name of one of your agents previously registered to the same storage mover resource"
+$jobDefCopyMode     = "Additive" # Merges source into target. See description in portal tab.
+#$jobDefCopyMode    = "Mirror" # Mirrors source into target. See description in portal tab.
+$agentName          = "The name of an agent previously registered to the same storage mover resource"
 
 
 New-AzStorageMoverJobDefinition `
@@ -181,19 +194,12 @@ New-AzStorageMoverJobDefinition `
     -AgentName $agentName `
     -Description $sourceEpDescription # Description optional
 
-## When you are ready to start migrating, you can run the job definition
-Start-AzStorageMoverJobDefinition `
-    -JobDefinitionName $jobDefName `
-    -ProjectName $projectName `
-    -ResourceGroupName $resourceGroupName `
-    -StorageMoverName $storageMoverName
-
 ```
 
 ---
 
 ## Next steps
 
-Now that you've created a job definition with source and target endpoints, learn how to estimate the time required to perform your migration job. Learn about Azure Storage Mover performance targets by visiting the article suggested below.
+Now that you've created a job definition with source and target endpoints, learn how to estimate the time required to perform your migration job.
 > [!div class="nextstepaction"]
 > [Azure Storage Mover scale and performance targets](performance-targets.md)

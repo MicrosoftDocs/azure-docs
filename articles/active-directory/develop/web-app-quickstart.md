@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 11/16/2021
+ms.date: 01/18/2023
 ms.author: dmwendia
 ms.custom: aaddev, scenarios:getting-started, devx-track-js
 zone_pivot_groups: web-app-quickstart
@@ -28,10 +28,6 @@ zone_pivot_groups: web-app-quickstart
 
 ::: zone pivot="devlang-nodejs-msal"
 [!INCLUDE [node.js-msal](./includes/web-app/quickstart-nodejs-msal.md)]
-::: zone-end
-
-::: zone pivot="devlang-nodejs-passport"
-[!INCLUDE [node.js-passport](./includes/web-app/quickstart-nodejs.md)]
 ::: zone-end
 
 ::: zone pivot="devlang-java"

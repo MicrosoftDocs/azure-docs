@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Tangoe Command Premium Mobile | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Tangoe Command Premium Mobile'
 description: Learn how to configure single sign-on between Azure Active Directory and Tangoe Command Premium Mobile.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/02/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Tangoe Command Premium Mobile

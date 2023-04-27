@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Configure Zip for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Zip for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Zip.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: 8aea0505-a3a1-4f84-8deb-6e557997c815
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/16/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

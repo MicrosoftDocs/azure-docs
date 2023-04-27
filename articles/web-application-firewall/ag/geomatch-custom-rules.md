@@ -184,7 +184,7 @@ If you are using the Geomatch operator, the selectors can be any of the followin
 | TG | Togo|
 | TH | Thailand|
 | TN | Tunisia|
-| TR | Turkey|
+| TR | Türkiye |
 | TT | Trinidad and Tobago|
 | TW | Taiwan|
 | TZ | Tanzania, United Republic of|

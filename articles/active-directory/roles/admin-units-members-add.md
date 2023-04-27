@@ -1,5 +1,5 @@
 ---
-title: Add users, groups, or devices to an administrative unit - Azure Active Directory
+title: Add users, groups, or devices to an administrative unit
 description: Add users, groups, or devices to an administrative unit in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 06/30/2022
+ms.date: 10/05/2022
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -26,7 +26,10 @@ This article describes how to add users, groups, or devices to administrative un
 
 - Azure AD Premium P1 or P2 license for each administrative unit administrator
 - Azure AD Free licenses for administrative unit members
-- Privileged Role Administrator or Global Administrator
+- To add existing users, groups, or devices:
+    - Privileged Role Administrator or Global Administrator
+- To create new groups:
+    - Groups Administrator (scoped to the administrative unit or entire directory) or Global Administrator
 - Microsoft Graph PowerShell
 - Admin consent when using Graph explorer for Microsoft Graph API
 
@@ -38,7 +41,7 @@ You can add users, groups, or devices to administrative units using the Azure po
 
 ### Add a single user, group, or device to administrative units
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory**.
 
@@ -60,7 +63,7 @@ You can add users, groups, or devices to administrative units using the Azure po
 
 ### Add users, groups, or devices to a single administrative unit
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory**.
 
@@ -80,7 +83,7 @@ You can add users, groups, or devices to administrative units using the Azure po
 
 ### Add users to an administrative unit in a bulk operation
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory**.
 
@@ -106,7 +109,7 @@ You can add users, groups, or devices to administrative units using the Azure po
 
 ### Create a new group in an administrative unit
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory**.
 

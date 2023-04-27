@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/05/2022
+ms.date: 04/14/2023
 ---
 
 # Transform data from an SAP ODP source using the SAP CDC connector in Azure Data Factory or Azure Synapse Analytics
@@ -26,7 +26,7 @@ This SAP CDC connector is supported for the following capabilities:
 
 | Supported capabilities|IR |
 |---------| --------|
-|[Mapping data flow](concepts-data-flow-overview.md) (source/-)|&#9313;|
+|[Mapping data flow](concepts-data-flow-overview.md) (source/-)|&#9312;, &#9313;|
 
 <small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
@@ -38,16 +38,7 @@ The SAP CDC connector supports basic authentication or Secure Network Communicat
 
 ## Prerequisites
 
-To use this SAP CDC connector, you need to:
-
-- Set up a self-hosted integration runtime (version 3.17 or later). For more information, see [Create and configure a self-hosted integration runtime](create-self-hosted-integration-runtime.md).
-
-- Download the 64-bit [SAP Connector for Microsoft .NET 3.0](https://support.sap.com/en/product/connectors/msnet.html) from SAP's website, and install it on the self-hosted integration runtime machine. During installation, make sure you select the **Install Assemblies to GAC** option in the **Optional setup steps** window.
-
-  :::image type="content" source="./media/connector-sap-business-warehouse-open-hub/install-sap-dotnet-connector.png" alt-text="Screenshot showing installation of SAP Connector for .NET.":::
-
-- The SAP user who's being used in the SAP table connector must have the permissions described in [User Configuration](sap-change-data-capture-prerequisites-configuration.md#set-up-the-sap-user):
-
+To use this SAP CDC connector, refer to [Prerequisites and setup for the SAP CDC connector](sap-change-data-capture-prerequisites-configuration.md).
 
 ## Get started
 
@@ -59,11 +50,19 @@ Follow the steps described in [Prepare the SAP CDC linked service](sap-change-da
 
 ## Dataset properties
 
-To prepare an SAP CDC dataset, follow [Prepare the SAP CDC source dataset](sap-change-data-capture-prepare-linked-service-source-dataset.md#set-up-the-source-dataset)
+To prepare an SAP CDC dataset, follow [Prepare the SAP CDC source dataset](sap-change-data-capture-prepare-linked-service-source-dataset.md#set-up-the-source-dataset).
 
 ## Transform data with the SAP CDC connector
 
 SAP CDC datasets can be used as source in mapping data flow. Since the raw SAP ODP change feed is difficult to interpret and to correctly update to a sink, mapping data flow takes care of this by evaluating technical attributes provided by the ODP framework (e.g., ODQ_CHANGEMODE) automatically. This allows users to concentrate on the required transformation logic without having to bother with the internals of the SAP ODP change feed, the right order of changes, etc.
+
+To get started, create a pipeline with a mapping data flow.
+
+:::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-pipeline-dataflow-activity.png" alt-text="Screenshot of add data flow activity in pipeline.":::
+
+Next, specify a staging folder in Azure Data Lake Gen2, which will serve as an intermediate storage for data extracted from SAP.
+
+:::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-staging-folder.png" alt-text="Screenshot of specify staging folder in data flow activity.":::
 
 ### Mapping data flow properties
 
@@ -81,10 +80,15 @@ To create a mapping data flow using the SAP CDC connector as a source, complete 
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-mapping-data-flow-select-dataset.png" alt-text="Screenshot of the select dataset option in source settings of mapping data flow source.":::
 
-1. On the tab **Source options** select the option **Full on every run** if you want to load full snapshots on every execution of your mapping data flow, or **Full on the first run, then incremental** if you want to subscribe to a change feed from the SAP source system. In this case, the first run of your pipeline will do a delta initialization, which means it will return a current full data snapshot and create an ODP delta subscription in the source system so that with subsequent runs, the SAP source system will return incremental changes since the previous run only. In case of incremental loads it is required to specify the keys of the ODP source object in the **Key columns** property.
+1. On the tab **Source options** select the option **Full on every run** if you want to load full snapshots on every execution of your mapping data flow, or **Full on the first run, then incremental** if you want to subscribe to a change feed from the SAP source system. In this case, the first run of your pipeline will do a delta initialization, which means it will return a current full data snapshot and create an ODP delta subscription in the source system so that with subsequent runs, the SAP source system will return incremental changes since the previous run only. You can also do **incremental changes only** if you want to create an ODP delta subscription in the SAP source system in the first run of your pipeline without returning any data, and with subsequent runs, the SAP source system will return incremental changes since the previous run only. In case of incremental loads it is required to specify the keys of the ODP source object in the **Key columns** property.
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-mapping-data-flow-run-mode.png" alt-text="Screenshot of the run mode property in source options of mapping data flow source.":::
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-mapping-data-flow-key-columns.png" alt-text="Screenshot of the key columns selection in source options of mapping data flow source.":::
 
-1. For details on the tabs **Projection**, **Optimize** and **Inspect**, please follow [mapping data flow](concepts-data-flow-overview.md).
+1. For the tabs **Projection**, **Optimize** and **Inspect**, please follow [mapping data flow](concepts-data-flow-overview.md).
+
+1. If **Run mode** is set to **Full on every run** or **Full on the first run, then incremental**, the tab **Optimize** offers additional selection and partitioning options. Each partition condition (the screenshot below shows an example with two conditions) will trigger a separate extraction process in the connected SAP system. Up to three of these extraction process are executed in parallel.
+
+    :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-mapping-data-flow-optimize-partition.png" alt-text="Screenshot of the partitioning options in optimize of mapping data flow source.":::
+

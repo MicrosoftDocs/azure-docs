@@ -22,7 +22,7 @@ Find the project for this sample on [GitHub](https://github.com/Azure-Samples/co
 
 ### Features
 
-Refer to the native [UI Library overview](/azure/communication-services/concepts/ui-library/ui-library-overview)
+Refer to the native [UI Library overview](../../concepts/ui-library/ui-library-overview.md)
 
 ### Prerequisites
 

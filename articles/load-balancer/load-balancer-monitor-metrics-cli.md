@@ -11,11 +11,6 @@ ms.date: 06/09/2022
 ms.custom: template-how-to 
 ---
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
-
 # Get Load Balancer metrics with Azure Monitor CLI 
 
 In this article, you'll learn some examples to list Load Balancer metrics using Azure Monitor CLI.

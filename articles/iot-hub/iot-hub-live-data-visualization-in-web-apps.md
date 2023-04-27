@@ -2,11 +2,11 @@
 title: Real-time data visualization of your IoT hub data in a web app
 description: Use a web application to visualize temperature and humidity data that is collected from a sensor and sent to your Iot hub.
 author: kgremban
-ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
-ms.date: 11/18/2021
+
 ms.author: kgremban
+ms.service: iot-hub
+ms.topic: tutorial
+ms.date: 11/18/2021
 ms.custom: ['Role: Cloud Development', 'Role: Data Analytics', devx-track-azurecli]
 ---
 
@@ -32,7 +32,7 @@ In this article, you learn how to visualize real-time sensor data that your IoT 
 
 * The steps in this article assume a Windows development machine; however, you can easily perform these steps on a Linux system in your preferred shell.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Add a consumer group to your IoT hub
 

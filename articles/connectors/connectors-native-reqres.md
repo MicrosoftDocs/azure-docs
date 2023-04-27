@@ -11,6 +11,8 @@ tags: connectors
 
 # Handle incoming or inbound HTTPS requests sent to workflows in Azure Logic Apps
 
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
+
 To run your logic app workflow after receiving an HTTPS request from another service, you can start your workflow with the Request built-in trigger. Your workflow can then respond to the HTTPS request by using Response built-in action.
 
 The following list describes some example tasks that your workflow can perform when you use the Request trigger and Response action:
@@ -29,11 +31,11 @@ To run your workflow by sending an outgoing or outbound request instead, use the
 
 * The logic app workflow where you want to receive the inbound HTTPS request. To start your workflow with a Request trigger, you have to start with a blank workflow. To use the Response action, your workflow must start with the Request trigger.
 
-If you're new to Azure Logic Apps, review the following get started documentation:
+If you're new to Azure Logic Apps, see the following documentation:
 
 * [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md)
 
-* [Quickstart: Create a Consumption logic app workflow in multi-tenant Azure Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* [Quickstart: Create a Consumption logic app workflow in multi-tenant Azure Logic Apps](../logic-apps/quickstart-create-example-consumption-workflow.md)
 
 * [Create a Standard logic app workflow in single-tenant Azure Logic Apps](../logic-apps/create-single-tenant-workflows-azure-portal.md)
 

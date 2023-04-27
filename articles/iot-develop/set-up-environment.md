@@ -3,8 +3,8 @@ title: Tutorial - Set up the IoT resources you need for IoT Plug and Play | Micr
 description: Tutorial - Create an IoT Hub and Device Provisioning Service instance to use with the IoT Plug and Play quickstarts and tutorials.
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/11/2020
-ms.topic: quickstart
+ms.date: 11/17/2022
+ms.topic: tutorial
 ms.service: iot-develop
 services: iot-develop
 ms.custom: mode-other, devx-track-azurecli 
@@ -19,7 +19,7 @@ Before you can complete any of the IoT Plug and Play quickstarts and tutorials, 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3](../../includes/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 ## Create the resources
 
@@ -125,7 +125,7 @@ The first time you run the tool, you're prompted for the IoT hub connection stri
 
 Configure the tool to use the model files you downloaded previously. From the home page in the tool, select **IoT Plug and Play Settings**, then **+ Add > Local folder**. Select the *models* folder you created previously. Then select **Save** to save the settings.
 
-To learn more, see [Install and use Azure IoT explorer](../iot-fundamentals/howto-use-iot-explorer.md).
+To learn more, see [Install and use Azure IoT explorer](../iot/howto-use-iot-explorer.md).
 
 ## Clean up resources
 

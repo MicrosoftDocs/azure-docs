@@ -11,7 +11,7 @@ ms.date: 07/06/2022
 ms.author: egrootenboer
 ---
 
-# Configure the minimum TLS version for an Event Hubs namespace (Preview)
+# Configure the minimum TLS version for an Event Hubs namespace
 
 Azure Event Hubs namespaces permit clients to send and receive data with TLS 1.0 and above. To enforce stricter security measures, you can configure your Event Hubs namespace to require that clients send and receive data with a newer version of TLS. If an Event Hubs namespace requires a minimum version of TLS, then any requests made with an older version will fail. For conceptual information about this feature, see [Enforce a minimum required version of Transport Layer Security (TLS) for requests to an Event Hubs namespace](transport-layer-security-enforce-minimum-version.md).
 

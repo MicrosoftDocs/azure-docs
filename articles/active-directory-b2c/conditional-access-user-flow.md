@@ -170,7 +170,7 @@ Configure Conditional Access through the Azure portal or Microsoft Graph APIs to
 
 ### Enable template 1 with Conditional Access APIs (optional)
 
-Create a sign-in risk-based Conditional Access policy with MS Graph APIs. For more information, see [Conditional Access APIs](../active-directory/conditional-access/howto-conditional-access-apis.md#graph-api).
+Create a sign-in risk-based Conditional Access policy with MS Graph APIs. For more information, see [Conditional Access APIs](../active-directory/conditional-access/howto-conditional-access-apis.md#microsoft-graph-apis).
 The following template can be used to create a Conditional Access policy with display name "Template 1: Require MFA for medium+ sign-in risk" in report-only mode.
 
 ```json
@@ -232,7 +232,7 @@ To configure your user based conditional access:
 
 ### Enable template 2 with Conditional Access APIs (optional)
 
-To create a user risk-based Conditional Access policy with Conditional Access APIs, refer to the documentation for [Conditional Access APIs](../active-directory/conditional-access/howto-conditional-access-apis.md#graph-api).
+To create a user risk-based Conditional Access policy with Conditional Access APIs, refer to the documentation for [Conditional Access APIs](../active-directory/conditional-access/howto-conditional-access-apis.md#microsoft-graph-apis).
 
 The following template can be used to create a Conditional Access policy with display name "Template 2: Require secure password change for medium+ user risk" in report-only mode.
 
@@ -303,7 +303,7 @@ To enable with condition access policy:
 
 ### Enable template 3 with Conditional Access APIs (optional)
 
-To create a location-based Conditional Access policy with Conditional Access APIs,  refer to the documentation for [Conditional Access APIs](../active-directory/conditional-access/howto-conditional-access-apis.md#graph-api). To set up Named Locations, refer to the documentations for [Named Locations](/graph/api/resources/namedlocation).
+To create a location-based Conditional Access policy with Conditional Access APIs,  refer to the documentation for [Conditional Access APIs](../active-directory/conditional-access/howto-conditional-access-apis.md#microsoft-graph-apis). To set up Named Locations, refer to the documentations for [Named Locations](/graph/api/resources/namedlocation).
 
 The following template can be used to create a Conditional Access policy with display name "Template 3: Block unallowed locations" in report-only mode.
 

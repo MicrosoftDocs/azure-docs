@@ -60,6 +60,10 @@ In this step, you publish the template VM. When you publish the template VM, Azu
 
     ![Virtual machines in stopped state](./media/how-to-create-manage-template/virtual-machines-stopped.png)
 
+## Known issues
+
+When you create a new lab from an exported lab VM image, you’re unable to login with the credentials you used for creating the lab. Follow these steps to [troubleshoot the login problem](./troubleshoot-access-lab-vm.md#unable-to-login-with-the-credentials-you-used-for-creating-the-lab).
+
 ## Next steps
 
 See the following articles:

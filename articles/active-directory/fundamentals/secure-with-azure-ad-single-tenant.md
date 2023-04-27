@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 7/5/2022
 ms.author: gasinh
 ms.reviewer: ajburnle
-ms.custom: "it-pro"
+ms.custom: it-pro, ignite-2022
 ms.collection: M365-identity-device-management
 ---
 
@@ -25,7 +25,7 @@ Many separation scenarios can be achieved within a single tenant. If possible, w
 
 If a set of resources require unique tenant-wide settings, or there is minimal risk tolerance for unauthorized access by tenant members, or critical impact could be caused by configuration changes, you must achieve isolation in multiple tenants.
 
-**Configuration separation** - In some cases, resources such as applications have dependencies on tenant-wide configurations like authentication methods or [named locations](/azure/active-directory/conditional-access/location-condition#named-locations). You should consider these dependencies when isolating resources. Global administrators can configure the resource settings and tenant-wide settings that affect resources.
+**Configuration separation** - In some cases, resources such as applications have dependencies on tenant-wide configurations like authentication methods or [named locations](../conditional-access/location-condition.md#named-locations). You should consider these dependencies when isolating resources. Global administrators can configure the resource settings and tenant-wide settings that affect resources.
 
 If a set of resources require unique tenant-wide settings, or the tenant's settings must be administered by a different entity, you must achieve isolation with multiple tenants.
 
@@ -82,7 +82,7 @@ Azure RBAC allows you to design an administration model with granular scopes and
 
 * **Resource group** - You can assign roles to specific resource groups so that they don't impact any other resource groups. In the example above, the Benefits engineering team can assign the Contributor role to the test lead so they can manage the test DB and the test web app, or to add more resources.
 
-* **Individual resources** - You can assign roles to specific resources so that they don't impact any other resources. In the example above, the Benefits engineering team can assign a data analyst the Cosmos DB Account Reader role just for the test instance of the Cosmos DB, without interfering with the test web app, or any production resource.
+* **Individual resources** - You can assign roles to specific resources so that they don't impact any other resources. In the example above, the Benefits engineering team can assign a data analyst the Cosmos DB Account Reader role just for the test instance of the Azure Cosmos DB database, without interfering with the test web app or any production resource.
 
 For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md) and [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md).
 

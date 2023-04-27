@@ -1,15 +1,16 @@
 ---
 title: Extra deployment steps and samples for Enterprise IoT deployment - Microsoft Defender for IoT
-description: Describes additional deployment and validation procedures to use when deploying an Enterprise IoT network sensor.
-ms.topic: how-to
+description: Describes extra deployment and validation procedures to use when deploying an Enterprise IoT network sensor.
+ms.topic: install-set-up-deploy
 ms.date: 08/08/2022
+ms.custom: enterprise-iot
 ---
 
 # Extra steps and samples for Enterprise IoT deployment
 
 This article provides extra steps for deploying an Enterprise IoT sensor, including a sample SPAN port configuration procedure, and CLI steps to validate your deployment or delete a sensor.
 
-For more information, see [Tutorial: Get started with Enterprise IoT monitoring](tutorial-getting-started-eiot-sensor.md).
+For more information, see [Enhance IoT security monitoring with an Enterprise IoT network sensor (Public preview)](eiot-sensor.md).
 
 ## Configure a SPAN monitoring interface for a virtual appliance
 
@@ -37,11 +38,11 @@ This procedure describes an example of how to configure a SPAN port on your vSwi
 
 1. Connect to the sensor, and verify that mirroring works.
 
-If you've jumped to this procedure from the tutorial procedure for [Prepare a physical appliance or VM](tutorial-getting-started-eiot-sensor.md#prepare-a-physical-appliance-or-vm), continue with [step 2](tutorial-getting-started-eiot-sensor.md#sign-in) to continue preparing your appliance.
+If you've jumped to this procedure from the tutorial procedure for [Prepare a physical appliance or VM](eiot-sensor.md#prepare-a-physical-appliance-or-vm), continue the procedure to [prepare your appliance](eiot-sensor.md#sign-in) to continue preparing your appliance.
 
 ## Validate your Enterprise IoT sensor setup
 
-If, after completing the Enterprise IoT sensor installation and setup, you don't see your sensor showing on the **Sites and sensors** page in the Azure portal, this procedure can help validate your installation directly on the sensor.
+If after completing the Enterprise IoT sensor installation and setup, you don't see your sensor showing on the **Sites and sensors** page in the Azure portal, this procedure can help validate your installation directly on the sensor.
 
 Wait 1 minute after your sensor installation has completed before starting this procedure.
 
@@ -95,9 +96,9 @@ sudo apt purge -y microsoft-eiot-sensor
 > [!IMPORTANT]
 > If you want to cancel your plan for Enterprise IoT networks only, do so from [Defender for Endpoint](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
 >
-> If you want to cancel your plan for both OT and Enterprise IoT networks together, you can use the [**Pricing**](how-to-manage-subscriptions.md) page in Defender for IoT in the Azure portal.
+> If you want to cancel your plan for both OT and Enterprise IoT networks together, you can use the [**Plans and pricing**](how-to-manage-subscriptions.md) page in Defender for IoT in the Azure portal.
 >
 
 ## Next steps
 
-For more information, see [Tutorial: Get started with Enterprise IoT monitoring](tutorial-getting-started-eiot-sensor.md) and [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md).
+For more information, see [Enhance IoT security monitoring with an Enterprise IoT network sensor (Public preview)](eiot-sensor.md) and [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md).

@@ -2,12 +2,13 @@
 title: Declare resources in Bicep
 description: Describes how to declare resources to deploy in Bicep.
 ms.topic: conceptual
-ms.date: 02/04/2022
+ms.custom: devx-track-bicep
+ms.date: 02/21/2023
 ---
 
 # Resource declaration in Bicep
 
-This article describes the syntax you use to add a resource to your Bicep file.
+This article describes the syntax you use to add a resource to your Bicep file. You are limited to 800 resources in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
 
 ## Declaration
 
@@ -29,7 +30,7 @@ resource stg 'Microsoft.Storage/storageAccounts@2021-04-01' = {
 
 Symbolic names are case-sensitive. They may contain letters, numbers, and underscores (`_`). They can't start with a number. A resource can't have the same name as a parameter, variable, or module.
 
-For the available resource types and version, see [Bicep resource reference](/azure/templates/). Bicep doesn't support `apiProfile`, which is available in [Azure Resource Manager templates (ARM templates) JSON](../templates/syntax.md).
+For the available resource types and version, see [Bicep resource reference](/azure/templates/). Bicep doesn't support `apiProfile`, which is available in [Azure Resource Manager templates (ARM templates) JSON](../templates/syntax.md). You can also define Bicep extensibility provider resources. For more information, see [Bicep extensibility Kubernetes provider](./bicep-extensibility-kubernetes-provider.md).
 
 To conditionally deploy a resource, use the `if` syntax. For more information, see [Conditional deployment in Bicep](conditional-resource-deployment.md).
 
@@ -128,7 +129,7 @@ az provider show \
 
 ## Tags
 
-You can apply tags to a resource during deployment. Tags help you logically organize your deployed resources. For examples of the different ways you can specify the tags, see [ARM template tags](../management/tag-resources.md#arm-templates).
+You can apply tags to a resource during deployment. Tags help you logically organize your deployed resources. For examples of the different ways you can specify the tags, see [ARM template tags](../management/tag-resources-bicep.md).
 
 ## Managed identities for Azure resources
 

@@ -5,10 +5,12 @@ description: Resolutions for common problems with outbound connectivity with Azu
 services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
+ms.custom: ignite-2022
 ms.topic: troubleshooting
 ms.date: 04/21/2022
 ms.author: mbender
 ---
+
 # Troubleshoot SNAT exhaustion and connection timeouts
 
 This article is intended to provide guidance for common problems that can occur with outbound connections from an Azure Load Balancer. Most problems with outbound connectivity that customers experience is due to source network address translation (SNAT) port exhaustion and connection timeouts leading to dropped packets. 
@@ -25,7 +27,7 @@ It's important to optimize your Azure deployments for outbound connectivity. Opt
 
 ### Use a NAT gateway for outbound connectivity to the Internet
 
-Virtual network NAT gateway is a highly resilient and scalable Azure service that provides outbound connectivity to the internet from your virtual network. A NAT gateway’s unique method of consuming SNAT ports helps resolve common SNAT exhaustion and connection issues. For more information about Azure Virtual Network NAT, see [What is Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md).
+Azure NAT Gateway is a highly resilient and scalable Azure service that provides outbound connectivity to the internet from your virtual network. A NAT gateway’s unique method of consuming SNAT ports helps resolve common SNAT exhaustion and connection issues. For more information about Azure NAT Gateway, see [What is Azure NAT Gateway?](../virtual-network/nat-gateway/nat-overview.md).
 
 * **How does a NAT gateway reduce the risk of SNAT port exhaustion?**
 
@@ -33,13 +35,13 @@ Virtual network NAT gateway is a highly resilient and scalable Azure service tha
 
     A NAT gateway makes available SNAT ports accessible to every instance in a subnet. This dynamic allocation allows VM instances to use the number of SNAT ports each needs from the available pool of ports for new connections. The dynamic allocation reduces the risk of SNAT exhaustion.
 
-    :::image type="content" source="./media/troubleshoot-outbound-connection/load-balancer-vs-nat.png" alt-text="Diagram of Azure Load Balancer vs. Azure Virtual Network NAT.":::
+    :::image type="content" source="./media/troubleshoot-outbound-connection/load-balancer-vs-nat.png" alt-text="Diagram of Azure Load Balancer vs. Azure NAT Gateway.":::
 
 * **Port selection and reuse behavior.**
     
     A NAT gateway selects ports at random from the available pool of ports. If there aren't available ports, SNAT ports will be reused as long as there's no existing connection to the same destination public IP and port. This port selection and reuse behavior of a NAT gateway makes it less likely to experience connection timeouts. 
 
-    To learn more about how SNAT and port usage works for NAT gateway, see [SNAT fundamentals](../virtual-network/nat-gateway/nat-gateway-resource.md#fundamentals). There are a few conditions in which you won't be able to use NAT gateway for outbound connections. For more information on NAT gateway limitations, see [Virtual Network NAT limitations](../virtual-network/nat-gateway/nat-gateway-resource.md#limitations).
+    To learn more about how SNAT and port usage works for NAT gateway, see [SNAT fundamentals](../virtual-network/nat-gateway/nat-gateway-resource.md#fundamentals). There are a few conditions in which you won't be able to use NAT gateway for outbound connections. For more information on NAT gateway limitations, see [NAT Gateway limitations](../virtual-network/nat-gateway/nat-gateway-resource.md#limitations).
 
     If you're unable to use a NAT gateway for outbound connectivity, refer to the other migration options described in this article.
 
@@ -60,7 +62,7 @@ For smaller scale deployments, you can consider assigning a public IP to a VM. I
 We highly recommend considering utilizing NAT gateway instead, as assigning individual public IP addresses isn't a scalable solution.
 
 > [!NOTE]
-> If you need to connect your Azure virtual network to Azure PaaS services like Storage, SQL, Cosmos DB, or any other of the Azure services [listed here](../private-link/availability.md), you can leverage Azure Private Link to avoid SNAT entirely. Azure Private Link sends traffic from your virtual network to Azure services over the Azure backbone network instead of over the internet.
+> If you need to connect your Azure virtual network to Azure PaaS services like Azure Storage, Azure SQL, Azure Cosmos DB, or other [available Azure services](../private-link/availability.md), you can use Azure Private Link to avoid SNAT entirely. Azure Private Link sends traffic from your virtual network to Azure services over the Azure backbone network instead of over the internet.
 >
 >Private Link is the recommended option over service endpoints for private access to Azure hosted services. For more information on the difference between Private Link and service endpoints, see [Compare Private Endpoints and Service Endpoints](../virtual-network/vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints).
 

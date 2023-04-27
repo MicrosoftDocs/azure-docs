@@ -2,6 +2,7 @@
 title: Tutorial - Editing Data Collection Rules
 description: This article describes how to make changes in Data Collection Rule definition using command line tools and simple API calls.
 ms.topic: tutorial
+ms.custom: ignite-2022
 author: bwren
 ms.author: bwren
 ms.reviewer: ivankh
@@ -44,8 +45,8 @@ In order to update DCR, we are going to retrieve its content and save it as a fi
 2. Execute the following commands to retrieve DCR content and save it to a file. Replace `<ResourceId>` with DCR ResourceID and `<FilePath>` with the name of the file to store DCR.
 
     ```PowerShell
-    $ResourceId = “<ResourceId>” # Resource ID of the DCR to edit
-    $FilePath = “<FilePath>” # Store DCR content in this file
+    $ResourceId = "<ResourceId>" # Resource ID of the DCR to edit
+    $FilePath = "<FilePath>" # Store DCR content in this file
     $DCR = Invoke-AzRestMethod -Path ("$ResourceId"+"?api-version=2021-09-01-preview") -Method GET
     $DCR.Content | ConvertFrom-Json | ConvertTo-Json -Depth 20 | Out-File -FilePath $FilePath
     ```
@@ -60,11 +61,11 @@ code "temp.dcr"
 Let’s modify the KQL transformation within DCR to drop rows where RequestType is anything, but “GET”.
 1.	Open the file created in the previous part for editing using an editor of your choice.
 2.	Locate the line containing `”transformKql”` attribute, which, if you followed the tutorial for custom log creation, should look similar to this:
-    ``` JSON
+    ```json
     "transformKql": "  source\n    | extend TimeGenerated = todatetime(Time)\n    | parse RawData with \n    ClientIP:string\n    ' ' *\n    ' ' *\n    ' [' * '] \"' RequestType:string\n    \" \" Resource:string\n    \" \" *\n    '\" ' ResponseCode:int\n    \" \" *\n    | where ResponseCode != 200\n    | project-away Time, RawData\n"
     ```
 3.	Modify KQL transformation to include additional filter by RequestType
-    ``` JSON
+    ```json
     "transformKql": "  source\n    | where RawData contains \"GET\"\n     | extend TimeGenerated = todatetime(Time)\n    | parse RawData with \n    ClientIP:string\n    ' ' *\n    ' ' *\n    ' [' * '] \"' RequestType:string\n    \" \" Resource:string\n    \" \" *\n    '\" ' ResponseCode:int\n    \" \" *\n    | where ResponseCode != 200\n    | project-away Time, RawData\n"
     ```
 4.	Save the file with modified DCR content.

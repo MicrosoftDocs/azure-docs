@@ -2,15 +2,15 @@
 title: Shared device mode for Android devices
 description: Learn how to enable shared device mode to allow frontline workers to share an Android device
 services: active-directory
-author: mmacy
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/30/2021
-ms.author: marsma
+ms.date: 02/06/2023
+ms.author: henrymbugua
 ms.reviewer: brandwe
 ms.custom: aaddev, identitypla | Azuretformtop40
 ---
@@ -93,8 +93,16 @@ If your application is running in multiple-account mode, and an administrator pu
 
 These Microsoft applications support Azure AD's shared device mode:
 
-* [Microsoft Teams](/microsoftteams/platform/)
-* [Microsoft Managed Home Screen](/mem/intune/apps/app-configuration-managed-home-screen-app) app for Android Enterprise
+- [Microsoft Teams](/microsoftteams/platform/)
+- [Microsoft Managed Home Screen](/mem/intune/apps/app-configuration-managed-home-screen-app) app for Android Enterprise
+- [Microsoft Edge](/microsoft-edge) (in Public Preview)
+- [Outlook](/mem/intune/apps/app-configuration-policies-outlook) (in Public Preview)
+- [Microsoft Power Apps](/power-apps) (in Public Preview)
+- [Yammer](/yammer) (in Public Preview)
+
+> [!IMPORTANT]
+> Public preview is provided without a service-level agreement and isn't recommended for production workloads. Some features might be unsupported or have constrained capabilities. For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Shared device sign-out and the overall app lifecycle
 
 When a user signs out, you'll need to take action to protect the privacy and data of the user. For example, if you're building a medical records app you'll want to make sure that when the user signs out previously displayed patient records are cleared. Your application must be prepared for data privacy and check every time it enters the foreground.

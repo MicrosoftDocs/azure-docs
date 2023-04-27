@@ -2,7 +2,7 @@
 title: Quickstart - Create connected registry using the CLI
 description: Use Azure CLI commands to create a connected Azure container registry resource that can synchronize images and other artifacts with the cloud registry.
 ms.topic: quickstart
-ms.date: 10/21/2021
+ms.date: 10/11/2022
 ms.author: memladen
 author: toddysm
 ms.custom: ignite-fall-2021, mode-api, devx-track-azurecli 
@@ -17,7 +17,7 @@ Here you create two connected registry resources for a cloud registry: one conne
 
 After creating a connected registry, you can follow other guides to deploy and use it on your on-premises or remote infrastructure.
 
-[!INCLUDE [Prepare Azure CLI environment](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [Prepare Azure CLI environment](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 * Azure Container registry - If you don't already have a container registry, [create one](container-registry-get-started-azure-cli.md) (Premium tier required) in a [region](intro-connected-registry.md#available-regions) that supports connected registries. 
 

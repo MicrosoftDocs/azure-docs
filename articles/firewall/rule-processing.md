@@ -37,13 +37,13 @@ Here's an example policy:
 |BaseRCG1      |Rule collection group           |200         |8         |Parent policy|
 |DNATRC1     |DNAT rule collection         |  600       |   7      |Parent policy|
 |DNATRC3|DNAT rule collection|610|3|Parent policy|
-|NetworkRc1     |Network rule collection  | 800        |    1     |Parent policy|
+|NetworkRC1     |Network rule collection  | 800        |    1     |Parent policy|
 |BaseRCG2  |Rule collection group         |300         | 3        |Parent policy|
-|AppRCG2     |Application rule collection | 1200        |2         |Parent policy
+|AppRC2     |Application rule collection | 1200        |2         |Parent policy
 |NetworkRC2     |Network rule collection         |1300         |    1     |Parent policy|
 |ChildRCG1  | Rule collection group        | 300        |5         |-|
-|ChAppRC1     |Application rule collection         |  700       | 3        |-|
-|ChNetRC1       |   Network rule collection      |    900     |    2     |-|
+|ChNetRC1     |Network rule collection         |  700       | 3        |-|
+|ChAppRC1       |   Application rule collection      |    900     |    2     |-|
 |ChildRCG2      |Rule collection group         | 650        |    9     |-|
 |ChNetRC2      |Network rule collection         |    1100     |  2       |-|
 |ChAppRC2      |     Application rule collection    |2000         |7         |-|
@@ -93,7 +93,7 @@ If still no match is found within application rules, then the packet is evaluate
 
 ### DNAT rules and Network rules
 
-Inbound Internet connectivity can be enabled by configuring Destination Network Address Translation (DNAT) as described in [Tutorial: Filter inbound traffic with Azure Firewall DNAT using the Azure portal](tutorial-firewall-dnat.md). NAT rules are applied in priority before network rules. If a match is found, an implicit corresponding network rule to allow the translated traffic is added. For security reasons, the recommended approach is to add a specific internet source to allow DNAT access to the network and avoid using wildcards.
+Inbound Internet connectivity can be enabled by configuring Destination Network Address Translation (DNAT) as described in [Tutorial: Filter inbound traffic with Azure Firewall DNAT using the Azure portal](tutorial-firewall-dnat.md). NAT rules are applied in priority before network rules. If a match is found, an implicit corresponding network rule to allow the translated traffic is added. This means that the traffic will not be subject to any further processing by other network rules. For security reasons, the recommended approach is to add a specific internet source to allow DNAT access to the network and avoid using wildcards.
 
 Application rules aren't applied for inbound connections. So if you want to filter inbound HTTP/S traffic, you should use Web Application Firewall (WAF). For more information, see [What is Azure Web Application Firewall?](../web-application-firewall/overview.md)
 

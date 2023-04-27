@@ -10,7 +10,7 @@ ms.author: shwinne
 ms.reviewer: sgilley
 ms.date: 04/25/2022
 ms.topic: how-to
-ms.custom: devx-track-python, devx-track-azurecli, cliv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, devx-track-azurecli, cliv1, event-tier1-build-2022
 ---
 
 # Start, monitor, and track run history
@@ -434,7 +434,7 @@ root_run(current_child_run).log("MyMetric", f"Data from child run {current_child
 
 1. Select **Diagnostic settings** and then select **+ Add diagnostic setting**.
 
-    ![Screenshot of diagnostic settings for email notification.](./media/how-to-track-monitor-analyze-runs/diagnostic-setting.png)
+    ![Screenshot of diagnostic settings for email notification.](../media/how-to-track-monitor-analyze-runs/diagnostic-setting.png)
 
 1. In the Diagnostic Setting, 
     1. under the **Category details**, select the **AmlRunStatusChangedEvent**. 
@@ -443,11 +443,11 @@ root_run(current_child_run).log("MyMetric", f"Data from child run {current_child
     > [!NOTE]
     > The **Azure Log Analytics Workspace** is a different type of Azure Resource than the **Azure Machine Learning service Workspace**. If there are no options in that list, you can [create a Log Analytics Workspace](../../azure-monitor/logs/quick-create-workspace.md). 
     
-    ![Screenshot of configuring the email notification.](./media/how-to-track-monitor-analyze-runs/log-location.png)
+    ![Screenshot of configuring the email notification.](../media/how-to-track-monitor-analyze-runs/log-location.png)
 
 1. In the **Logs** tab, add a **New alert rule**. 
 
-    ![Screeenshot of the new alert rule.](./media/how-to-track-monitor-analyze-runs/new-alert-rule.png)
+    ![Screeenshot of the new alert rule.](../media/how-to-track-monitor-analyze-runs/new-alert-rule.png)
 
 1. See [how to create and manage log alerts using Azure Monitor](../../azure-monitor/alerts/alerts-log.md).
 

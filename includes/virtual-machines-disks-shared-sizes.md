@@ -5,12 +5,12 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 07/19/2022
+ ms.date: 10/14/2022
  ms.author: rogarana
  ms.custom: include file
 ---
 
-For now, only ultra disks, premium SSD v2 (preview), premium SSD, and standard SSDs can enable shared disks. Different disk sizes may have a different `maxShares` limit, which you can't exceed when setting the `maxShares` value.
+For now, only ultra disks, premium SSD v2, premium SSD, and standard SSDs can enable shared disks. Different disk sizes may have a different `maxShares` limit, which you can't exceed when setting the `maxShares` value.
 
 For each disk, you can define a `maxShares` value that represents the maximum number of nodes that can simultaneously share the disk. For example, if you plan to set up a 2-node failover cluster, you would set `maxShares=2`. The maximum value is an upper bound. Nodes can join or leave the cluster (mount or unmount the disk) as long as the number of nodes is lower than the specified `maxShares` value.
 

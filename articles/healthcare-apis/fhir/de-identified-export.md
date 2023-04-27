@@ -1,12 +1,12 @@
 ---
 title: Using the FHIR service to export de-identified data
 description: This article describes how to set up and use de-identified export
-author: judegnan
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/30/2022
-ms.author: mikaelw
+ms.author: kesheth
 ---
 # Exporting de-identified data
 

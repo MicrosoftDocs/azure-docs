@@ -3,12 +3,12 @@ title: Client-side encryption for queues
 titleSuffix: Azure Storage
 description: The Queue Storage client library supports client-side encryption and integration with Azure Key Vault for users requiring encryption on the client.
 services: storage
-author: tamram
+author: pauljewellmsft
 
 ms.service: storage
 ms.topic: article
 ms.date: 07/11/2022
-ms.author: tamram
+ms.author: pauljewell
 ms.reviewer: ozgun
 ms.subservice: queues
 ms.custom: devx-track-csharp

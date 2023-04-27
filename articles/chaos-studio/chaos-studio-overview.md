@@ -2,10 +2,10 @@
 title: What is Azure Chaos Studio (Preview)?
 description: Measure, understand, and build resilience to incidents by using chaos engineering to inject faults and monitor how your application responds.
 services: chaos-studio
-author: johnkemnetz
+author: prasha-microsoft 
 ms.topic: overview
 ms.date: 05/27/2022
-ms.author: johnkem
+ms.author: prashabora
 ms.service: chaos-studio
 ms.custom: template-overview,ignite-fall-2021, kr2b-contr-experiment
 ---

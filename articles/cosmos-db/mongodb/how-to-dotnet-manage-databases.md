@@ -1,26 +1,26 @@
 ---
 title: Manage a MongoDB database using .NET
-description: Learn how to manage your Cosmos DB resource when it provides the MongoDB API with a .NET SDK.
-author: alexwolfmsft
-ms.author: alexwolf
+description: Learn how to manage your Azure Cosmos DB resource when it provides the API for MongoDB with a .NET SDK.
+author: seesharprun
+ms.author: sidandrews
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
-ms.devlang: dotnet
+ms.subservice: mongodb
+ms.devlang: csharp
 ms.topic: how-to
 ms.date: 07/22/2022
-ms.custom: devx-track-dotnet
+ms.custom: devx-track-dotnet, ignite-2022, devguide-csharp, cosmos-db-dev-journey
 ---
 
 # Manage a MongoDB database using .NET
 
-[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
+[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
 Your MongoDB server in Azure Cosmos DB is available from the [MongoDB](https://www.nuget.org/packages/MongoDB.Driver) NuGet package.
 
 > [!NOTE]
 > The [example code snippets](https://github.com/Azure-Samples/cosmos-db-mongodb-api-dotnet-samples) are available on GitHub as a .NET project.
 
-[MongoDB API reference documentation](https://docs.mongodb.com/drivers/csharp) | [MongoDB Package (NuGet)](https://www.nuget.org/packages/MongoDB.Driver)
+[API for MongoDB reference documentation](https://docs.mongodb.com/drivers/csharp) | [MongoDB Package (NuGet)](https://www.nuget.org/packages/MongoDB.Driver)
 
 ## Name a database
 
@@ -28,9 +28,9 @@ In Azure Cosmos DB, a database is analogous to a namespace. When you create a da
 
 Here are some quick rules when naming a database:
 
-* Keep database names between 3 and 63 characters long
-* Database names can only contain lowercase letters, numbers, or the dash (-) character.
-* Database names must start with a lowercase letter or number.
+- Keep database names between 3 and 63 characters long
+- Database names can only contain lowercase letters, numbers, or the dash (-) character.
+- Database names must start with a lowercase letter or number.
 
 Once created, the URI for a database is in this format:
 
@@ -40,10 +40,10 @@ Once created, the URI for a database is in this format:
 
 You can use the `MongoClient` to get an instance of a database, or create one if it doesn't exist already. The `MongoDatabase` class provides access to collections and their documents.
 
-* [MongoClient](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/T_MongoDB_Driver_MongoClient.htm)
-* [MongoClient.Database](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/T_MongoDB_Driver_MongoDatabase.htm)
+- [MongoClient](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/T_MongoDB_Driver_MongoClient.htm)
+- [MongoClient.Database](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/T_MongoDB_Driver_MongoDatabase.htm)
 
-The following code snippet creates a new database by inserting a document into a collection. Remember, the database will not be created until it is needed for this type of operation.
+The following code snippet creates a new database by inserting a document into a collection. Remember, the database won't be created until it's needed for this type of operation.
 
 :::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/105-manage-databases/program.cs" id="create_database":::
 
@@ -51,7 +51,7 @@ The following code snippet creates a new database by inserting a document into a
 
 You can also retrieve an existing database by name using the `GetDatabase` method to access its collections and documents.
 
-* [MongoClient.GetDatabase](https://mongodb.github.io/mongo-csharp-driver/2.17/apidocs/html/M_MongoDB_Driver_MongoClient_GetDatabase.htm)
+- [MongoClient.GetDatabase](https://mongodb.github.io/mongo-csharp-driver/2.17/apidocs/html/M_MongoDB_Driver_MongoClient_GetDatabase.htm)
 
 :::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/105-manage-databases/program.cs" id="get_database":::
 
@@ -59,7 +59,7 @@ You can also retrieve an existing database by name using the `GetDatabase` metho
 
 You can retrieve a list of all the databases on the server using the `MongoClient`.
 
-* [MongoClient.Database.ListDatabaseNames](https://mongodb.github.io/mongo-csharp-driver/2.17/apidocs/html/M_MongoDB_Driver_MongoClient_ListDatabaseNames_3.htm)
+- [MongoClient.Database.ListDatabaseNames](https://mongodb.github.io/mongo-csharp-driver/2.17/apidocs/html/M_MongoDB_Driver_MongoClient_ListDatabaseNames_3.htm)
 
 :::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/105-manage-databases/program.cs" id="get_all_databases":::
 
@@ -69,13 +69,13 @@ This technique can then be used to check if a database already exists.
 
 ## Drop a database
 
-A database is removed from the server using the `DropDatabase` method on the DB class. 
+A database is removed from the server using the `DropDatabase` method on the DB class.
 
-* [MongoClient.DropDatabase](https://mongodb.github.io/mongo-csharp-driver/2.17/apidocs/html/M_MongoDB_Driver_MongoClient_DropDatabase_1.htm)
+- [MongoClient.DropDatabase](https://mongodb.github.io/mongo-csharp-driver/2.17/apidocs/html/M_MongoDB_Driver_MongoClient_DropDatabase_1.htm)
 
 :::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/105-manage-databases/program.cs" id="drop_database":::
 
 ## See also
 
-- [Get started with Azure Cosmos DB MongoDB API and .NET](how-to-dotnet-get-started.md)
-- Work with a collection](how-to-dotnet-manage-collections.md)
+- [Get started with Azure Cosmos DB for MongoDB and .NET](how-to-dotnet-get-started.md)
+- [Work with a collection](how-to-dotnet-manage-collections.md)

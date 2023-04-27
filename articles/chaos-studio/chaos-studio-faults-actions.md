@@ -1,12 +1,12 @@
 ---
 title: Faults and actions in Azure Chaos Studio
 description: Understand what faults and actions are in Azure Chaos Studio. What is the difference between a fault and an action? How do you define a fault?
-author: johnkemnetz
-ms.author: johnkem
+author: prasha-microsoft 
+ms.author: prashabora
 ms.service: chaos-studio
 ms.topic: conceptual
 ms.date: 11/01/2021
-ms.custom: template-concept, ignite-fall-2021
+ms.custom: template-concept, ignite-fall-2021, ignite-2022
 ---
 
 # Faults and actions in Azure Chaos Studio
@@ -27,7 +27,7 @@ There are two varieties of actions in Chaos Studio:
 
 ## Faults
 
-Faults are the most common action in Chaos Studio. Faults cause a disruption in a system, allowing you to verify that the system effectively handles that disruption without impacting availability. Faults can be destructive (for example, killing a process), apply pressure (for example, adding virtual memory pressure), add latency, or cause a configuration change. In addition to a name and type, faults may also have a *duration*, if continuous, and *parameters*. Parameters describe how the fault should be applied and are specific to the fault name. For example, a parameter for the Cosmos DB failover fault is the read region that will be promoted to the write region during the write region failure. Some parameters are required while others are optional.
+Faults are the most common action in Chaos Studio. Faults cause a disruption in a system, allowing you to verify that the system effectively handles that disruption without impacting availability. Faults can be destructive (for example, killing a process), apply pressure (for example, adding virtual memory pressure), add latency, or cause a configuration change. In addition to a name and type, faults may also have a *duration*, if continuous, and *parameters*. Parameters describe how the fault should be applied and are specific to the fault name. For example, a parameter for the Azure Cosmos DB failover fault is the read region that will be promoted to the write region during the write region failure. Some parameters are required while others are optional.
 
 Faults are either *agent-based* or *service-direct* depending on the target type. An agent-based fault requires the Chaos Studio agent to be installed on a virtual machine or virtual machine scale set. The agent is available for both Windows and Linux, but not all faults are available on both operating systems. See the [fault library](chaos-studio-fault-library.md) for information on which faults are supported on each operating system. Service-direct faults do not require any agent - they run directly against an Azure resource.
 

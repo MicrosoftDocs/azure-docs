@@ -14,7 +14,7 @@ ms.custom: mvc, devx-track-azurepowershell
 
 # Create an application gateway that hosts multiple web sites using Azure PowerShell
 
-You can use Azure PowerShell to [configure the hosting of multiple web sites](multiple-site-overview.md) when you create an [application gateway](overview.md). In this article, you define backend address pools using virtual machines scale sets. You then configure listeners and rules based on domains that you own to make sure web traffic arrives at the appropriate servers in the pools. This article assumes that you own multiple domains and uses examples of *www.contoso.com* and *www.fabrikam.com*.
+You can use Azure PowerShell to [configure the hosting of multiple web sites](multiple-site-overview.md) when you create an [application gateway](overview.md). In this article, you define backend address pools using virtual machines scale sets. You then configure listeners and rules based on domains that you own to make sure web traffic arrives at the appropriate servers in the pools. This article assumes that you own multiple domains and uses examples of `www.contoso.com` and `www.fabrikam.com`.
 
 In this article, you learn how to:
 

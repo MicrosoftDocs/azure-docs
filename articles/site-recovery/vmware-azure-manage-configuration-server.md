@@ -1,11 +1,11 @@
 ---
 title: Manage the configuration server for disaster recovery with Azure Site Recovery
 description: Learn about the common tasks to manage an on-premises configuration server for disaster recovery of VMware VMs and physical servers to Azure with Azure Site Recovery.
-author: v-pgaddala
+author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.author: v-pgaddala
+ms.author: ankitadutta
 ms.date: 08/03/2022
 ---
 
@@ -274,7 +274,7 @@ You can optionally delete the configuration server by using PowerShell.
 
     ```
     $vault = Get-AzRecoveryServicesVault -Name <name of your vault>
-    Set-AzRecoveryServicesVaultContext -ARSVault $vault
+    Set-AzRecoveryServicesAsrVaultContext -Vault $vault
     ```
 4. Retrieve the configuration server.
 

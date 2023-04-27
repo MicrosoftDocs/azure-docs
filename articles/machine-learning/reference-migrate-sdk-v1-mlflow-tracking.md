@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: cliv2, event-tier1-build-2022
+ms.custom: cliv2, event-tier1-build-2022, ignite-2022
 
 author: Abeomor
 ms.author: osomorog
@@ -14,32 +14,48 @@ ms.date: 05/04/2022
 ms.reviewer: larryfr
 ---
 
-# Migrate logging from SDK v1 to SDK v2 (preview)
+# Migrate logging from SDK v1 to SDK v2
 
-The Azure Machine Learning Python SDK v2 does not provide native logging APIs. Instead, we recommend that you use [MLflow Tracking](https://www.mlflow.org/docs/latest/tracking.html). If you're migrating from SDK v1 to SDK v2 (preview), use the information in this section to understand the MLflow equivalents of SDK v1 logging APIs.
+Azure Machine Learning uses MLflow Tracking for metric logging and artifact storage for your experiments, whether you created the experiments via the Azure Machine Learning Python SDK, the Azure Machine Learning CLI, or Azure Machine Learning studio. We recommend using MLflow for tracking experiments. 
 
-## Setup
+If you're migrating from SDK v1 to SDK v2, use the information in this section to understand the MLflow equivalents of SDK v1 logging APIs.
 
-To use MLflow tracking, import `mlflow` and optionally set the tracking URI for your workspace. If you're training on an Azure Machine Learning compute resource, such as a compute instance or compute cluster, the tracking URI is set automatically. If you're using a different compute resource, such as your laptop or desktop, you need to set the tracking URI.
+## Why MLflow?
 
-```python
-import mlflow
+MLflow, with over 13 million monthly downloads, has become the standard platform for end-to-end MLOps, enabling teams of all sizes to track, share, package and deploy any model for batch or real-time inference. By integrating with MLflow, your training code will not need to hold any specific code related to Azure Machine Learning, achieving true portability and seamless integration with other open-source platforms.
 
-# The rest of this is only needed if you are not using an Azure ML compute
-## Construct AzureML MLFLOW TRACKING URI
-def get_azureml_mlflow_tracking_uri(region, subscription_id, resource_group, workspace):
-return "azureml://{}.api.azureml.ms/mlflow/v1.0/subscriptions/{}/resourceGroups/{}/providers/Microsoft.MachineLearningServices/workspaces/{}".format(region, subscription_id, resource_group, workspace)
+## Prepare for migrating to MLflow
 
-region='<REGION>' ## example: westus
-subscription_id = '<SUBSCRIPTION_ID>' ## example: 11111111-1111-1111-1111-111111111111
-resource_group = '<RESOURCE_GROUP>' ## example: myresourcegroup
-workspace = '<AML_WORKSPACE_NAME>' ## example: myworkspacename
+To use MLflow tracking, you will need to install `mlflow` and `azureml-mlflow` Python packages. All Azure Machine Learning environments have these packages already available for you but you will need to include them if creating your own environment.
 
-MLFLOW_TRACKING_URI = get_azureml_mlflow_tracking_uri(region, subscription_id, resource_group, workspace)
-
-## Set the MLFLOW TRACKING URI
-mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
+```bash
+pip install mlflow azureml-mlflow
 ```
+
+> [!TIP]
+> You can use the [`mlflow-skinny`](https://github.com/mlflow/mlflow/blob/master/README_SKINNY.rst) which is a lightweight MLflow package without SQL storage, server, UI, or data science dependencies. This is recommended for users who primarily need the tracking and logging capabilities without importing the full suite of MLflow features including deployments.
+
+## Connect to your workspace
+
+Azure Machine Learning allows users to perform tracking in training jobs running on your workspace or running remotely (tracking experiments running outside Azure Machine Learning). If performing remote tracking, you will need to indicate the workspace you want to connect MLflow to.
+
+# [Azure Machine Learning compute](#tab/aml)
+
+You are already connected to your workspace when running on Azure Machine Learning compute.
+
+# [Remote compute](#tab/remote)
+
+**Configure tracking URI**
+
+[!INCLUDE [configure-mlflow-tracking](../../includes/machine-learning-mlflow-configure-tracking.md)]
+
+**Configure authentication**
+
+Once the tracking is configured, you'll also need to configure how the authentication needs to happen to the associated workspace. By default, the Azure Machine Learning plugin for MLflow will perform interactive authentication by opening the default browser to prompt for credentials. Refer to [Configure MLflow for Azure Machine Learning: Configure authentication](how-to-use-mlflow-configure-tracking.md#configure-authentication) for more ways to configure authentication for MLflow in Azure Machine Learning workspaces.
+
+[!INCLUDE [configure-mlflow-auth](../../includes/machine-learning-mlflow-configure-auth.md)]
+
+---
 
 ## Experiments and runs
 
@@ -48,12 +64,12 @@ __SDK v1__
 ```python
 from azureml.core import Experiment
 
-# create an AzureML experiment and start a run
+# create an Azure Machine Learning experiment and start a run
 experiment = Experiment(ws, "create-experiment-sdk-v1")
 azureml_run = experiment.start_logging()
 ```
 
-__SDK v2 (preview) with MLflow__
+__SDK v2 with MLflow__
 
 ```python
 # Set the MLflow experiment and start a run
@@ -71,7 +87,7 @@ __SDK v1__
 azureml_run.log("sample_int_metric", 1)
 ```
 
-__SDK v2 (preview) with MLflow__
+__SDK v2 with MLflow__
 
 ```python
 mlflow.log_metric("sample_int_metric", 1)
@@ -85,7 +101,7 @@ __SDK v1__
 azureml_run.log("sample_boolean_metric", True)
 ```
 
-__SDK v2 (preview) with MLflow__
+__SDK v2 with MLflow__
 
 ```python
 mlflow.log_metric("sample_boolean_metric", 1)
@@ -99,7 +115,7 @@ __SDK v1__
 azureml_run.log("sample_string_metric", "a_metric")
 ```
 
-__SDK v2 (preview) with MLflow__
+__SDK v2 with MLflow__
 
 ```python
 mlflow.log_text("sample_string_text", "string.txt")
@@ -115,7 +131,7 @@ __SDK v1__
 azureml_run.log_image("sample_image", path="Azure.png")
 ```
 
-__SDK v2 (preview) with MLflow__
+__SDK v2 with MLflow__
 
 ```python
 mlflow.log_artifact("Azure.png")
@@ -134,7 +150,7 @@ plt.plot([1, 2, 3])
 azureml_run.log_image("sample_pyplot", plot=plt)
 ```
 
-__SDK v2 (preview) with MLflow__
+__SDK v2 with MLflow__
 
 ```python
 import matplotlib.pyplot as plt
@@ -158,7 +174,7 @@ list_to_log = [1, 2, 3, 2, 1, 2, 3, 2, 1]
 azureml_run.log_list('sample_list', list_to_log)
 ```
 
-__SDK v2 (preview) with MLflow__
+__SDK v2 with MLflow__
 
 ```python
 list_to_log = [1, 2, 3, 2, 1, 2, 3, 2, 1]
@@ -180,7 +196,7 @@ __SDK v1__
 azureml_run.log_row("sample_table", col1=5, col2=10)
 ```
 
-__SDK v2 (preview) with MLflow__
+__SDK v2 with MLflow__
 
 ```python
 metrics = {"sample_table.col1": 5, "sample_table.col2": 10}
@@ -203,7 +219,7 @@ table = {
 azureml_run.log_table("table", table)
 ```
 
-__SDK v2 (preview) with MLflow__
+__SDK v2 with MLflow__
 
 ```python
 # Add a metric for each column prefixed by metric name. Similar to log_row
@@ -238,7 +254,7 @@ ACCURACY_TABLE = '{"schema_type": "accuracy_table", "schema_version": "v1", "dat
 azureml_run.log_accuracy_table('v1_accuracy_table', ACCURACY_TABLE)
 ```
 
-__SDK v2 (preview) with MLflow__
+__SDK v2 with MLflow__
 
 ```python
 ACCURACY_TABLE = '{"schema_type": "accuracy_table", "schema_version": "v1", "data": {"probability_tables": ' +\
@@ -265,7 +281,7 @@ CONF_MATRIX = '{"schema_type": "confusion_matrix", "schema_version": "v1", "data
 azureml_run.log_confusion_matrix('v1_confusion_matrix', json.loads(CONF_MATRIX))
 ```
 
-__SDK v2 (preview) with MLflow__
+__SDK v2 with MLflow__
 
 ```python
 CONF_MATRIX = '{"schema_type": "confusion_matrix", "schema_version": "v1", "data": {"class_labels": ' + \
@@ -289,7 +305,7 @@ PREDICTIONS = '{"schema_type": "predictions", "schema_version": "v1", "data": {"
 azureml_run.log_predictions('test_predictions', json.loads(PREDICTIONS))
 ```
 
-__SDK v2 (preview) with MLflow__
+__SDK v2 with MLflow__
 
 ```python
 PREDICTIONS = '{"schema_type": "predictions", "schema_version": "v1", "data": {"bin_averages": [0.25,' + \
@@ -313,7 +329,7 @@ RESIDUALS = '{"schema_type": "residuals", "schema_version": "v1", "data": {"bin_
 azureml_run.log_residuals('test_residuals', json.loads(RESIDUALS))
 ```
 
-__SDK v2 (preview) with MLflow__
+__SDK v2 with MLflow__
 
 ```python
 RESIDUALS = '{"schema_type": "residuals", "schema_version": "v1", "data": {"bin_edges": [100, 200, 300], ' + \

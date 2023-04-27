@@ -1,12 +1,12 @@
 ---
 title: Enable replication for private endpoints in Azure Site Recovery 
 description: This article describes how to configure replication for VMs with private endpoints from one Azure region to another by using Site Recovery.
-author: v-pgaddala
-ms.author: v-pgaddala
+author: ankitaduttaMSFT
+ms.author: ankitadutta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/14/2020
-ms.custom: references_regions, subject-rbac-steps
+ms.date: 04/23/2022
+ms.custom: references_regions, subject-rbac-steps, engagement-fy23
 ---
 # Replicate machines with private endpoints
 
@@ -161,7 +161,7 @@ additional fully qualified domain names are added to the same private endpoint.
 
 The five domain names are formatted with the following pattern:
 
-`{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
+`{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.privatelink.siterecovery.windowsazure.com`
 
 ## Approve private endpoints for Site Recovery
 
@@ -222,7 +222,7 @@ following role permissions depending on the type of storage account:
 
 The following steps describe how to add a role assignment to your storage accounts, one at a time. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-1. In the Azure portal, navigate to your Azure SQL Server page.
+1. In the Azure portal, navigate to the cache storage account you created.
 
 1. Select **Access control (IAM)**.
 
@@ -318,7 +318,7 @@ domain names to private IPs.
       private DNS zone.
 
       These fully qualified domain names match the pattern:
-      `{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
+      `{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.privatelink.siterecovery.windowsazure.com`
 
       :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/add-record-set.png" alt-text="Shows the page to add a DNS A type record for the fully qualified domain name to the private endpoint in the Azure portal.":::
 

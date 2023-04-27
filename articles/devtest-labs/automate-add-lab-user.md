@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 06/26/2020 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ---
 
 # Automate adding a lab user to a lab in Azure DevTest Labs
@@ -98,7 +98,7 @@ The role definition ID is the string identifier for the existing role definition
 
 The subscription ID is obtained by using `subscription().subscriptionId` template function.  
 
-You need to get the role definition for the `DevTest Labs User` built-in role. To get the GUID for the [DevTest Labs User](../role-based-access-control/built-in-roles.md#devtest-labs-user) role, you can use the [Role Assignments REST API](/rest/api/authorization/roleassignments) or the [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) cmdlet.
+You need to get the role definition for the `DevTest Labs User` built-in role. To get the GUID for the [DevTest Labs User](../role-based-access-control/built-in-roles.md#devtest-labs-user) role, you can use the [Role Assignments REST API](/rest/api/authorization/role-assignments) or the [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) cmdlet.
 
 ```powershell
 $dtlUserRoleDefId = (Get-AzRoleDefinition -Name "DevTest Labs User").Id

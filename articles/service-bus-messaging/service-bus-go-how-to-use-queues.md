@@ -109,7 +109,8 @@ func SendMessageBatch(messages []string, client *azservicebus.Client) {
 	if err != nil {
 		panic(err)
 	}
-
+	defer sender.Close(context.TODO())
+	
 	batch, err := sender.NewMessageBatch(context.TODO(), nil)
 	if err != nil {
 		panic(err)
@@ -148,10 +149,7 @@ func GetMessage(count int, client *azservicebus.Client) {
 	}
 
 	for _, message := range messages {
-		body, err := message.Body()
-		if err != nil {
-			panic(err)
-		}
+		body := message.Body
 		fmt.Printf("%s\n", string(body))
 
 		err = receiver.CompleteMessage(context.TODO(), message, nil)
@@ -317,10 +315,7 @@ func GetMessage(count int, client *azservicebus.Client) {
 	}
 
 	for _, message := range messages {
-		body, err := message.Body()
-		if err != nil {
-			panic(err)
-		}
+		body := message.Body
 		fmt.Printf("%s\n", string(body))
 
 		err = receiver.CompleteMessage(context.TODO(), message, nil)

@@ -8,7 +8,7 @@ ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: how-to
 ms.date: 03/22/2022
-ms.custom: template-how-to, devx-track-azurecli
+ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Deploy a VM with trusted launch enabled
@@ -25,8 +25,11 @@ ms.custom: template-how-to, devx-track-azurecli
     - Configure prerequisites to enable Guest Attestation on Trusted Launch enabled VMs 
 
     - Configure machines to automatically install the Azure Monitor and Azure Security agents on virtual machines 
+- Make sure that the firewall policies are allowing access to *.attest.azure.net
+   > [!NOTE]
+   >  If you are using a Linux image and anticipate the VM may have kernel drivers either unsigned or not signed by the Linux distro vendor, then you may want to consider turning off secure boot. In Portal, in the ‘Create a virtual machine’ page for ‘Security type’ parameter with ‘Trusted Launch Virtual Machines’ selected, click on ‘Configure security features’ and uncheck the ‘Enable secure boot’ checkbox. In CLI, PowerShell, or SDK, set secure boot parameter to false.
 
- 
+
 ## Deploy a trusted launch VM
 Create a virtual machine with trusted launch enabled. Choose an option below:
 
@@ -203,7 +206,7 @@ Sign in to Azure using `az login`.
 az login 
 ```
 
-Create an image definition with TrustedLaunch security type 
+Create an image definition with `TrustedLaunch` security type 
 
 ```azurecli-interactive
 az sig image-definition create --resource-group MyResourceGroup --location eastus \ 
@@ -341,7 +344,7 @@ For VMs created with trusted launch enabled, you can view the trusted launch con
 
 :::image type="content" source="media/trusted-launch/overview-properties.png" alt-text="Screenshot of the Trusted Launch properties of the VM.":::
 
-To change the trusted launch configuration, in the left menu, select **Configuration** under the **Settings** section. You can enable or disable Secure Boot and vTPM from the Trusted LaunchSecurity type section. Select Save at the top of the page when you are done. 
+To change the trusted launch configuration, in the left menu, under the **Settings** section, select **Configuration**. You can enable or disable Secure Boot and vTPM from the **Security type** section. Select **Save** at the top of the page when you are done.
 
 :::image type="content" source="media/trusted-launch/update.png" alt-text="Screenshot showing check boxes to change the Trusted Launch settings.":::
 

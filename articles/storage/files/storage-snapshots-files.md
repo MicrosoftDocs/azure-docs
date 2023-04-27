@@ -1,16 +1,16 @@
 ---
-title: Overview of share snapshots for Azure Files | Microsoft Docs
-description: A share snapshot is a read-only version of an Azure Files share that's taken at a point in time, as a way to back up the share.
+title: Overview of share snapshots for Azure Files
+description: A share snapshot is a read-only version of an Azure file share that's taken at a point in time, as a way to back up the share.
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/17/2022
+ms.date: 04/25/2023
 ms.author: kendownie
 ms.subservice: files
 ---
 
 # Overview of share snapshots for Azure Files
-Azure Files provides the capability to take share snapshots of file shares. Share snapshots capture the share state at that point in time. This article describes the capabilities that file share snapshots provide and how you can take advantage of them in your custom use case.
+Azure Files provides the capability to take snapshots of file shares. Share snapshots capture the share state at that point in time. This article describes the capabilities that file share snapshots provide and how you can take advantage of them in your custom use case.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -31,7 +31,7 @@ Imagine that you're working on a text file in a file share. After the text file 
 
 ### General backup purposes
 
-After you create a file share, you can periodically create a share snapshot of the file share to use it for data backup. A share snapshot, when taken periodically, helps maintain previous versions of data that can be used for future audit requirements or disaster recovery. We recommend using [Azure file share backup](../../backup/azure-file-share-backup-overview.md) as a backup solution for taking and managing snapshots. You may also take and manage snapshots yourself, using the [Azure portal](storage-files-quick-create-use-windows.md#create-a-share-snapshot), [Azure PowerShell](/powershell/module/az.storage/new-azrmstorageshare?view=azps-8.0.0), or [Azure CLI](/cli/azure/storage/share?view=azure-cli-latest#az-storage-share-snapshot).
+After you create a file share, you can periodically create a share snapshot of the file share to use it for data backup. A share snapshot, when taken periodically, helps maintain previous versions of data that can be used for future audit requirements or disaster recovery. We recommend using [Azure file share backup](../../backup/azure-file-share-backup-overview.md) as a backup solution for taking and managing snapshots. You may also take and manage snapshots yourself, using the [Azure portal](storage-files-quick-create-use-windows.md#create-a-share-snapshot), [Azure PowerShell](/powershell/module/az.storage/new-azrmstorageshare), or [Azure CLI](/cli/azure/storage/share#az-storage-share-snapshot).
 
 ## Capabilities
 
@@ -53,7 +53,7 @@ Share snapshots persist until they are explicitly deleted. A share snapshot cann
 
 When you create a share snapshot of a file share, the files in the share's system properties are copied to the share snapshot with the same values. The base files and the file share's metadata are also copied to the share snapshot, unless you specify separate metadata for the share snapshot when you create it.
 
-You cannot delete a share that has share snapshots unless you delete all the share snapshots first.
+You can't delete a share that has share snapshots unless you delete all the share snapshots first.
 
 ## Space usage
 
@@ -63,15 +63,15 @@ To conserve space, you can delete the share snapshot for the period when the chu
 
 Even though share snapshots are saved incrementally, you need to retain only the most recent share snapshot in order to restore the share. When you delete a share snapshot, only the data unique to that share snapshot is removed. Active snapshots contain all the information that you need to browse and restore your data (from the time the share snapshot was taken) to the original location or an alternate location. You can restore at the item level.
 
-Snapshots don't count towards the share size limit. There is no limit to how much space share snapshots occupy in total. Storage account limits still apply.
+Snapshots don't count towards the maximum share size limit, which is 100 TiB for premium file shares and standard file shares with large file shares enabled. There's no limit to how much space share snapshots occupy in total. Storage account limits still apply (5 PiB for standard storage accounts, 100 TiB for premium FileStorage accounts).
 
 ## Limits
 
-The maximum number of share snapshots that Azure Files allows today is 200. After 200 share snapshots, you have to delete older share snapshots in order to create new ones. 
+The maximum number of share snapshots that Azure Files allows today is 200 per share. After 200 share snapshots, you have to delete older share snapshots in order to create new ones. 
 
-There is no limit to the simultaneous calls for creating share snapshots. There is no limit to amount of space that share snapshots of a particular file share can consume. 
+There's no limit to the simultaneous calls for creating share snapshots. There's no limit to amount of space that share snapshots of a particular file share can consume. 
 
-Today, it is not possible to mount share snapshots on Linux. This is because the Linux SMB client does not support mounting snapshots like Windows does.
+Taking snapshots of NFS Azure file shares isn't currently supported.
 
 ## Copying data back to a share from share snapshot
 
@@ -93,10 +93,10 @@ Before you deploy the share snapshot scheduler, carefully consider your share sn
 
 Share snapshots provide only file-level protection. Share snapshots don't prevent fat-finger deletions on a file share or storage account. To help protect a storage account from accidental deletions, you can either [enable soft delete](storage-files-prevent-file-share-deletion.md), or lock the storage account and/or the resource group.
 
-## Next steps
+## See also
 - Working with share snapshots in:
     - [Azure file share backup](../../backup/azure-file-share-backup-overview.md)
-    - [Azure PowerShell](/powershell/module/az.storage/new-azrmstorageshare?view=azps-8.0.0)
-    - [Azure CLI](/cli/azure/storage/share?view=azure-cli-latest#az-storage-share-snapshot)
+    - [Azure PowerShell](/powershell/module/az.storage/new-azrmstorageshare)
+    - [Azure CLI](/cli/azure/storage/share#az-storage-share-snapshot)
     - [Windows](storage-how-to-use-files-windows.md#accessing-share-snapshots-from-windows)
     - [Share snapshot FAQ](storage-files-faq.md#share-snapshots)
