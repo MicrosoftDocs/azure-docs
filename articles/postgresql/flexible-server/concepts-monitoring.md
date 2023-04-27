@@ -1,6 +1,6 @@
 ---
 title: Monitoring and metrics - Azure Database for PostgreSQL - Flexible Server
-description: Get an overview of the monitoring and metrics features in Azure Database for PostgreSQL - Flexible Server.
+description: Review the monitoring and metrics features in Azure Database for PostgreSQL - Flexible Server.
 author: varun-dhawan
 ms.author: varundhawan
 ms.service: postgresql
@@ -131,7 +131,7 @@ You can choose from the following categories of enhanced metrics:
 #### Considerations for using enhanced metrics
 
 - Enhanced metrics that use the DatabaseName dimension have a *50-database* limit.
-- The limit is 10 databases for metrics that use the DatabaseName dimension.
+- On the *Burstable* SKU, the limit is 10 databases for metrics that use the DatabaseName dimension.
 - The DatabaseName dimension limit is applied on the object identifier (OID) column, which reflects the order of creation for the database.
 - The DatabaseName in the metrics dimension is *case insensitive*. The metrics for database names that are the same except for case (for example, *contoso_database* and *Contoso_database*) will be merged and might not show accurate data.
 
@@ -165,7 +165,7 @@ Autovaccum metrics can be used to monitor and tune autovaccum performance for Az
 ### Considerations for using autovacuum metrics
 
 - Autovacuum metrics that use the DatabaseName dimension have a *30-database* limit.
-- On the *Burstable* SKU, this limit is 10 databases for metrics that use the DatabaseName dimension.
+- On the *Burstable* SKU, the limit is 10 databases for metrics that use the DatabaseName dimension.
 - The DatabaseName dimension limit is applied on the OID column, which reflects the order of creation for the database.
 
 ## PgBouncer metrics
