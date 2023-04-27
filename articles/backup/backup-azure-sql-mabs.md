@@ -9,7 +9,7 @@ ms.service: backup
 ms.custom: engagement-fy23
 ---
 
-# Back up SQL Server to Azure by using Azure Backup Server
+# Back up SQL Server to Azure using Azure Backup Server
 
 This article describes how to back up and restore SQL Server to Azure by using Microsoft Azure Backup Server (MABS).
 

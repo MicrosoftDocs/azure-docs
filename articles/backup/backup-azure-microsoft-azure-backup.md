@@ -2,7 +2,7 @@
 title: Use Azure Backup Server to back up workloads
 description: In this article, learn how to prepare your environment to protect and back up workloads using Microsoft Azure Backup Server (MABS).
 ms.topic: how-to
-ms.date: 03/01/2023
+ms.date: 04/27/2023
 ms.service: backup
 author: jyothisuri
 ms.author: jsuri
@@ -161,12 +161,14 @@ Once the extraction process complete, check the box to launch the freshly extrac
 
 ### Installing the software package
 
-1. Select **Microsoft Azure Backup** to launch the setup wizard.
+1. Select **Microsoft Azure Backup Server** to launch the setup wizard.
 
-    ![Microsoft Azure Backup Setup Wizard](./media/backup-azure-microsoft-azure-backup/launch-screen2.png)
-2. On the Welcome screen, select the **Next** button. This takes you to the *Prerequisite Checks* section. On this screen, select **Check** to determine if the hardware and software prerequisites for Azure Backup Server have been met. If all prerequisites are met successfully, you'll see a message indicating that the machine meets the requirements. Select the **Next** button.
+    :::image type="content" source="./media/backup-azure-microsoft-azure-backup/launch-setup-wizard.png" alt-text="Screenshot shows Microsoft Azure Backup Setup Wizard.":::
+2. On the **Welcome** screen, select **Next**.
 
-    ![Azure Backup Server - Welcome and Prerequisites check](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
+   This takes you to the *Prerequisite Checks* section. On this screen, select **Check** to determine if the hardware and software prerequisites for Azure Backup Server have been met. If all prerequisites are met successfully, you'll see a message indicating that the machine meets the requirements. Select the **Next** button.
+
+    :::image type="content" source="./media/backup-azure-microsoft-azure-backup/prereq/welcome-screen.png" alt-text="Screenshot shows Azure Backup Server welcome and prerequisites check.":::
 3. The Azure Backup Server installation package comes bundled with the appropriate SQL Server binaries needed. When starting  a new Azure Backup Server installation, pick the option **Install new Instance of SQL Server with this Setup** and select the **Check and Install** button. Once the prerequisites are successfully installed, select **Next**.
 
     >[!NOTE]
@@ -174,7 +176,7 @@ Once the extraction process complete, check the box to launch the freshly extrac
     >If you wish to use your own SQL server, the supported SQL Server versions are SQL Server 2022 and 2019. All SQL Server versions should be Standard or Enterprise 64-bit.
     >Azure Backup Server won't work with a remote SQL Server instance. The instance being used by Azure Backup Server needs to be local. If you're using an existing SQL server for MABS, the MABS setup only supports the use of *named instances* of SQL server.
 
-    ![Azure Backup Server - SQL check](./media/backup-azure-microsoft-azure-backup/sql/01.png)
+    :::image type="content" source="./media/backup-azure-microsoft-azure-backup/sql/install-new-instance-of-sql-server.png" alt-text="Screenshot shows Azure Backup Server SQL check.":::
 
     If a failure occurs with a recommendation to restart the machine, do so and select **Check Again**. If there are any SQL configuration issues, reconfigure SQL according to the SQL guidelines and retry to install/upgrade MABS using the existing instance of SQL.
 
