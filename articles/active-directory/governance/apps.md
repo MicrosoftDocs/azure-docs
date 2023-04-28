@@ -113,18 +113,18 @@ This page provides a single place for the tutorials to the various entra identit
 | [Embed Signage](https://learn.microsoft.com/azure/active-directory/saas-apps/embed-signage-provisioning-tutorial) | ● | ● |
 | [Envoy](https://learn.microsoft.com/azure/active-directory/saas-apps/envoy-provisioning-tutorial) | ● | ● |
 | [Eletive](https://learn.microsoft.com/azure/active-directory/saas-apps/eletive-provisioning-tutorial) | ● | ● |
-| [Elium](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
-| [Exium](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
-| [Evercate](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
-| [Facebook Work Accounts](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
-| [Federated Directory](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
-| [Figma](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
-| [Flock](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
-| [Foodee](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
-| [Fortes Change Cloud](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
-| [Frankli.io](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
-| [Freshservice Provisioning](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
-| [Fuze](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Elium](https://learn.microsoft.com/azure/active-directory/saas-apps/elium-provisioning-tutorial) | ● | ● |
+| [Exium](https://learn.microsoft.com/azure/active-directory/saas-apps/exium-provisioning-tutorial) | ● | ● |
+| [Evercate](https://learn.microsoft.com/azure/active-directory/saas-apps/evercate-provisioning-tutorial) | ● | ● |
+| [Facebook Work Accounts](https://learn.microsoft.com/azure/active-directory/saas-apps/facebook-work-accounts-provisioning-tutorial) | ● | ● |
+| [Federated Directory](https://learn.microsoft.com/azure/active-directory/saas-apps/federated-directory-provisioning-tutorial) | ● | ● |
+| [Figma](https://learn.microsoft.com/azure/active-directory/saas-apps/figma-provisioning-tutorial) | ● | ● |
+| [Flock](https://learn.microsoft.com/azure/active-directory/saas-apps/flock-provisioning-tutorial) | ● | ● |
+| [Foodee](https://learn.microsoft.com/azure/active-directory/saas-apps/foodee-provisioning-tutorial) | ● | ● |
+| [Fortes Change Cloud](https://learn.microsoft.com/azure/active-directory/saas-apps/fortes-change-cloud-provisioning-tutorial) | ● | ● |
+| [Frankli.io](https://learn.microsoft.com/azure/active-directory/saas-apps/frankli-io-provisioning-tutorial) | ● | ● |
+| [Freshservice Provisioning](https://learn.microsoft.com/azure/active-directory/saas-apps/freshservice-provisioning-tutorial) | ● | ● |
+| [Fuze](https://learn.microsoft.com/azure/active-directory/saas-apps/fuze-provisioning-tutorial) | ● | ● |
 | [G Suite](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
 | [Genesys Cloud for Azure](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
 | [getAbstract](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
