@@ -25,7 +25,7 @@ MFA prevents unauthorized access to accounts and data. The memo requirements cit
 
 ## Phishing-resistant methods
 
-Some federal agencies have deployed modern credentials such as FIDO2 security keys or Windows Hellow for Business. Many are evaluating Azure AD authentication with certificates. 
+Some federal agencies have deployed modern credentials such as FIDO2 security keys or Windows Hello for Business. Many are evaluating Azure AD authentication with certificates. 
 
 Learn more:
 
@@ -33,7 +33,7 @@ Learn more:
 * [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview)
 * [Overview of Azure AD certificate-based authentication](../authentication/concept-certificate-based-authentication.md)
 
-Some agencies are modernizing their authentication credentials. There are multiple options for meeting phishing-resistant MFA requirements with Azure AD. Microsoft recommends adopting phishing-resistant MFA method that matches the agency capabilities. Consider what's possible now for phishing-resistance MFA to improve the overall cybersecurity posture. Implement modern credentials. However, if the quickest path is not a modern approach, take the step to begin the journey toward modern approaches.
+Some agencies are modernizing their authentication credentials. There are multiple options for meeting phishing-resistant MFA requirements with Azure AD. Microsoft recommends adopting phishing-resistant MFA method that matches the agency capabilities. Consider what's possible now for phishing-resistance MFA to improve the overall cybersecurity posture. Implement modern credentials. However, if the quickest path isn't a modern approach, take the step to begin the journey toward modern approaches.
 
    ![Diagram of Azure AD phishing-resistant MFA methods.](media/memo-22-09/azure-active-directory-pr-methods.png)
 
@@ -43,7 +43,7 @@ Some agencies are modernizing their authentication credentials. There are multip
   * See, [Passwordless authentication options for Azure AD, FIDO2 security keys](../authentication/concept-authentication-passwordless.md#fido2-security-keys)
   * Go to cisa.gov for [More than a Password](https://www.cisa.gov/mfa)
 * **Azure AD certificate authentication** without dependency on a federated identity provider. 
-  * This includes smart card implementations: Common Access Card (CAC), Personal Identity Verification (PIV), and derived PIV credentials for mobile devices or security keys
+  * This soluion includes smart card implementations: Common Access Card (CAC), Personal Identity Verification (PIV), and derived PIV credentials for mobile devices or security keys
   * See, [Overview of Azure AD certificate-based authentication](../authentication/concept-certificate-based-authentication.md)
 * **Windows Hello for Business** has phishing-resistant MFA
   * See the [Windows Hello for Business Deployment Overview](/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
@@ -102,7 +102,7 @@ The following table details the availability of phishing-resistant MFA scenarios
 | Windows device| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg) |
 | iOS mobile device| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| Not applicable| Not applicable| ![Checkmark with solid fill](media/memo-22-09/check.jpg) |
 | Android mobile device| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| Not applicable| Not applicable| ![Checkmark with solid fill](media/memo-22-09/check.jpg) |
-| MacOS device| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| Edge/Chrome | Not applicable| ![Checkmark with solid fill](media/memo-22-09/check.jpg) |
+| macOS device| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| ![Checkmark with solid fill](media/memo-22-09/check.jpg)| Edge/Chrome | Not applicable| ![Checkmark with solid fill](media/memo-22-09/check.jpg) |
 
 Learn more: [Browser support for FIDO2 passwordless authentication](../authentication/fido2-compatibility.md)
 
@@ -126,7 +126,7 @@ Learn more: [Overview: Cross-tenant access with Azure AD External Identities](..
 
 #### Enforcement across agencies
 
-Use Azure AD B2B collaboration to meet requirement that facilitate integration:
+Use Azure AD B2B collaboration to meet requirements that facilitate integration:
 
 - Limit what other Microsoft tenants your users access
 - Allow access to users you don't have to manage in your tenant, but enforce MFA and other access requirements
@@ -139,7 +139,7 @@ Configure trust settings in cross-tenant access policies to trust the MFA method
 
 ## Password policies
 
-The memo requires organizations to change ineffective password policies, such as complex, rotated passwords. This includes removing the requirement for special characters and numbers, with time-based password rotation policies. Instead, consider the following opitons:
+The memo requires organizations to change ineffective password policies, such as complex, rotated passwords. This includes removing the requirement for special characters and numbers, with time-based password rotation policies. Instead, consider the following options:
 
 * **Password protection** to enforce a common list of weak passwords that Microsoft maintains
   * In addition, include custom banned passwords
