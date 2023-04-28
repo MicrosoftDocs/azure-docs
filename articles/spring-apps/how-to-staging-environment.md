@@ -195,7 +195,7 @@ az spring app deploy \
     --service <service-instance-name> \
     --name gateway \
     --deployment green \
-    --jar-path gateway.jar
+    --artifact-path gateway.jar
 ```
 
 ## Delete the staging deployment
