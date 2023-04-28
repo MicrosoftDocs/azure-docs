@@ -63,7 +63,7 @@ To check the `ForceRerun` setting in pipeline UI, go to pipeline job overview ta
 
 Right click on a component and select **View definition**.
 
-:::image type="content" source="./media/how-to-debug-pipeline-reuse/view-defination.png" alt-text="Screenshot showing view component definition.":::
+:::image type="content" source="./media/how-to-debug-pipeline-reuse/view-definition.png" alt-text="Screenshot showing view component definition.":::
 
 `is_deterministic = True` means this component produces the same output for the same input data. If it's set to `False`, the component always reruns.
 
