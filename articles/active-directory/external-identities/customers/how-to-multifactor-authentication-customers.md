@@ -17,7 +17,7 @@ ms.custom: it-pro
 
 # Add multifactor authentication (MFA) to a customer-facing app
 
-[Multifactor authentication](../../authentication/concept-mfa-howitworks) (MFA) adds a layer of security to your customer-facing applications. With MFA, customers are prompted for a one-time passcode in addition to their username and password when they sign up or sign in to your app. This article describes how to enforce MFA for your customers by creating an Azure AD Conditional Access policy and adding MFA to your sign-up and sign-in user flow.
+[Multifactor authentication](../../authentication/concept-mfa-howitworks.md) (MFA) adds a layer of security to your customer-facing applications. With MFA, customers are prompted for a one-time passcode in addition to their username and password when they sign up or sign in to your app. This article describes how to enforce MFA for your customers by creating an Azure AD Conditional Access policy and adding MFA to your sign-up and sign-in user flow.
 
 > [!NOTE]
 > Currently, you can use MFA only with user flows that are set to **Email with password** as the local account authentication method. When user flows are set to **Email with one-time passcode**, the one-time passcode is a first-factor sign-in method and can't be used for MFA.
@@ -31,7 +31,7 @@ ms.custom: it-pro
 
 ## Create a Conditional Access policy
 
-Create a Conditional Access policy in your customer tenant that prompts users for MFA when they sign up or sign in to your app. (For more information, see [Common Conditional Access policy: Require MFA for all users](../../conditional-access/howto-conditional-access-policy-all-users-mfa)).
+Create a Conditional Access policy in your customer tenant that prompts users for MFA when they sign up or sign in to your app. (For more information, see [Common Conditional Access policy: Require MFA for all users](../../conditional-access/howto-conditional-access-policy-all-users-mfa.md)).
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 
@@ -51,7 +51,7 @@ Create a Conditional Access policy in your customer tenant that prompts users fo
 
    b. On the **Exclude** tab, select **Users and groups** and choose your organization's emergency access or break-glass accounts.
 
-   :::image type="content" source="media/how-to-multifactor-authentication-customers/new-policy-users.png" alt-text="Screenshot of the new policy button." lightbox="media/how-to-multifactor-authentication-customers/new-policy-users.png":::
+   :::image type="content" source="media/how-to-multifactor-authentication-customers/new-policy-users.png" alt-text="Screenshot of assigning users to the new policy." lightbox="media/how-to-multifactor-authentication-customers/new-policy-users.png":::
 
 1. Select the link under **Cloud apps or actions**. 
 
@@ -63,11 +63,11 @@ Create a Conditional Access policy in your customer tenant that prompts users fo
 
    b. Under **Exclude**, select any applications that don't require multifactor authentication.
 
-   :::image type="content" source="media/how-to-multifactor-authentication-customers/new-policy-apps.png" alt-text="Screenshot of the new policy button." lightbox="media/how-to-multifactor-authentication-customers/new-policy-apps.png":::
+   :::image type="content" source="media/how-to-multifactor-authentication-customers/new-policy-apps.png" alt-text="Screenshot of assigning apps to the new policy." lightbox="media/how-to-multifactor-authentication-customers/new-policy-apps.png":::
 
 1. Under **Access controls** select the link under **Grant**. Select **Grant access**, select **Require multifactor authentication**, and then choose **Select**.
 
-   :::image type="content" source="media/how-to-multifactor-authentication-customers/new-policy-grant-require-mfa.png" alt-text="Screenshot of the new policy button." lightbox="media/how-to-multifactor-authentication-customers/new-policy-grant-require-mfa.png":::
+   :::image type="content" source="media/how-to-multifactor-authentication-customers/new-policy-grant-require-mfa.png" alt-text="Screenshot of requiring MFA." lightbox="media/how-to-multifactor-authentication-customers/new-policy-grant-require-mfa.png":::
 
 1. Confirm your settings and set **Enable policy** to **On**.
 
@@ -83,13 +83,13 @@ Enable the email one-time passcode authentication method in your customer tenant
 
 1. In the **Method** list, select **Email OTP**.
 
-   :::image type="content" source="media/how-to-multifactor-authentication-customers/auth-methods-eotp.png" alt-text="Screenshot of the new policy button." lightbox="media/how-to-multifactor-authentication-customers/auth-methods-eotp.png":::
+   :::image type="content" source="media/how-to-multifactor-authentication-customers/auth-methods-eotp.png" alt-text="Screenshot of the email one-time passcode option." lightbox="media/how-to-multifactor-authentication-customers/auth-methods-eotp.png":::
 
 1. Under **Enable and Target**, turn the **Enable** toggle on.
 
 1. Under **Include**, next to **Target**, select **All users**.
 
-   :::image type="content" source="media/how-to-multifactor-authentication-customers/enable-eotp.png" alt-text="Screenshot of the new policy button." lightbox="media/how-to-multifactor-authentication-customers/enable-eotp.png":::
+   :::image type="content" source="media/how-to-multifactor-authentication-customers/enable-eotp.png" alt-text="Screenshot of enabling email one-time passcode." lightbox="media/how-to-multifactor-authentication-customers/enable-eotp.png":::
 
 1. Select **Save**.
 
