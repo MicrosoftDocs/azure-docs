@@ -600,7 +600,7 @@ sections:
           * Telemetry Processor to filter or add properties to selected telemetry items before they're sent from your app.
           * Telemetry Initializer to add properties to all items of telemetry.
           
-          Learn more about [ASP.NET](app/api-filtering-sampling.md) or [Java](/previous-versions/azure/azure-monitor/app/deprecated-java-2x#filter-telemetry-in-your-java-web-app).
+          Learn more about [ASP.NET, ASP.NET Core, JavaScript (Web), Python](app/api-filtering-sampling.md) or [Java](/previous-versions/azure/azure-monitor/app/deprecated-java-2x#filter-telemetry-in-your-java-web-app).
           
       - question: |
           How is city, country/region, and other geolocation data calculated?
@@ -678,7 +678,14 @@ sections:
           The browser passes the User Agent string in the HTTP header of the request. The Application Insights ingestion service uses [UA Parser](https://github.com/ua-parser/uap-core) to generate the fields you see in the data tables and experiences. As a result, Application Insights users are unable to change these fields.
           
           Occasionally, this data might be missing or inaccurate if the user or enterprise disables sending User Agent in browser settings. The [UA Parser regexes](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml) might not include all device information. Or Application Insights might not have adopted the latest updates.
+      
+      - question: |
+          How would I measure the impact of a monitoring campaign?
+        answer: |
+          PageView Telemetry includes URL and you could parse the UTM parameter using a [regex function](../data-explorer/kusto/query/re2.md) in Kusto.
           
+          Occasionally, this data might be missing or inaccurate if the user or enterprise disables sending User Agent in browser settings. The [UA Parser regexes](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml) might not include all device information. Or Application Insights might not have adopted the latest updates.
+                    
       - question:  Have I enabled everything in Application Insights?
         answer: |
           | What you should see | How to get it | Why you want it |
