@@ -10,7 +10,7 @@ This article provides a reference of log and metric data collected to analyze th
 
 ## Metrics
 
-### New metrics 
+### Microsoft.EventGrid/namespaces 
 
 | Metric name | Display name | Description | 
 | ----------- | ------------ | ----------- | 
