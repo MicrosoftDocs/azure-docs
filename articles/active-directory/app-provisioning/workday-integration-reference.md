@@ -355,7 +355,7 @@ The *Get_Workers* API can return different data sets associated with a worker. D
 
 The table below provides guidance on mapping configuration to use to retrieve a specific data set. 
 
-| \# | Workday Entity                       | Included by default | XPATH pattern to specify in mapping to fetch non-default entities             |
+| \# | Workday Entity                       | Included by default | XPATH pattern to specify in mapping to fetch nondefault entities             |
 |----|--------------------------------------|---------------------|-------------------------------------------------------------------------------|
 | 1  | Personal Data                        | Yes                 | `wd:Worker_Data/wd:Personal_Data`                                             |
 | 2  | Employment Data                      | Yes                 | `wd:Worker_Data/wd:Employment_Data`                                           |
