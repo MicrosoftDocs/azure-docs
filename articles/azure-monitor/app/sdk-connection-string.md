@@ -163,7 +163,7 @@ Connection string: `APPLICATIONINSIGHTS_CONNECTION_STRING`
 
 # [.NET 5.0+](#tab/dotnet5)
 
-1. Set the instrumentation key in the `application.json` file:
+1. Set the instrumentation key in the `appsettings.json` file:
 
     ```json
     {
@@ -181,7 +181,7 @@ Connection string: `APPLICATIONINSIGHTS_CONNECTION_STRING`
     ```
 
 > [!NOTE]
-> When deploying applications to Azure, consider placing instrumentation keys or other configuration secrets in secure locations such as App Service configuration settings or Azure Key Vault. Avoid including secrets in your application code or checking them into source control where they might be exposed or misused. The preceding code example will also work if the instrumentation key is stored in App Service configuration settings.
+> When deploying applications to Azure in production scenarios, consider placing instrumentation keys or other configuration secrets in secure locations such as App Service configuration settings or Azure Key Vault. Avoid including secrets in your application code or checking them into source control where they might be exposed or misused. The preceding code example will also work if the instrumentation key is stored in App Service configuration settings.
 
 # [.NET Framework](#tab/dotnet-framework)
 
