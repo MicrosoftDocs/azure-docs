@@ -59,7 +59,7 @@ If you're using an older version of the agent, you must have the virtual machine
  - **Ubuntu, Debian**: 
  
  ```bash
-    sudo apt-get updatr
+    sudo apt-get update
     sudo apt-get install -y python2
  ```
  - **SUSE**: 
@@ -72,13 +72,13 @@ Again, only if you're using an older version of the agent, the python2 executabl
 
 1. Run the following command to remove any existing aliases:
  
-    ```
+    ```bash
     sudo update-alternatives --remove-all python
     ```
 
 1. Run the following command to create the alias:
 
-    ```
+    ```bash
     sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
     ```
 
