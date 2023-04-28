@@ -56,7 +56,15 @@ The following example uploads binary data to a block blob using a `BlobClient` o
 
 The following example uploads a block blob with index tags:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_upload_blob_tags":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-upload.py" id="Snippet_upload_blob_tags":::
+
+## Upload a block blob by staging blocks and committing
+
+You can have greater control over how to divide uploads into blocks by manually staging individual blocks of data. When all of the blocks that make up a blob are staged, you can commit them to Blob Storage. You can use this approach to enhance performance by uploading blocks in parallel.
+
+The following example reads data from a file and stages blocks to be committed as part of a blob:
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-upload.py" id="Snippet_upload_blob_blocks":::
 
 ## Resources
 
