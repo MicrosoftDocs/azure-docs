@@ -57,12 +57,12 @@ Before you deploy the OVA file, verify that the file is secure:
 1. On the server on which you downloaded the file, open a Command Prompt window by using the **Run as administrator** option.
 1. Run the following command to generate the hash for the OVA file:
   
-    ```bash
+    ```dos
     C:\>CertUtil -HashFile <file_location> <hashing_agorithm>
     ```
    
     For example: 
-    ```bash
+    ```dos
     C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256
     ```
 
