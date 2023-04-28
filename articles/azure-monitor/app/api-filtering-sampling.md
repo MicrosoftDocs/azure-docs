@@ -10,7 +10,7 @@ ms.reviewer: cithomas
 
 # Filter and preprocess telemetry in the Application Insights SDK
 
-Plug-ins for the Application Insights SDK can customize how telemetry is enriched and processed before it's sent to the Application Insights service. You can write code to process your telemetry before it's sent from the SDK. The processing includes data that's sent from the standard telemetry modules, such as HTTP request collection and dependency collection.
+You can write code to enrich, modify, or delete your telemetry before it's sent from the SDK. The processing includes data that's sent from the standard telemetry modules, such as HTTP request collection and dependency collection.
 
 * [Add or Modify properties](./api-filtering-sampling.md#add-properties) to any telemetry sent from your app by implementing an `ITelemetryInitializer`. For example, you could add calculated values or version numbers by which to filter the data in the portal.
 
