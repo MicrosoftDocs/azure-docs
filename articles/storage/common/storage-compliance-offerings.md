@@ -34,5 +34,5 @@ For the latest insight into Azure Storage compliance audit scope, see [Cloud ser
 
 For more information about Azure compliance, see the following information.
 
-- [Azure compliance](../compliance/index.yml)
+- [Azure compliance](../../compliance/index.yml)
 - [Azure and other Microsoft services compliance offerings](/azure/compliance/offerings/)
