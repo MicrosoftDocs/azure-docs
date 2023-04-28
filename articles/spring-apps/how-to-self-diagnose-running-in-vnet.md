@@ -68,7 +68,7 @@ If you select **Required Outbound Traffic**, results indicate whether there are 
 * *Required outbound traffic resolved with no issues in subnet 'subnet01'.
 * *Required outbound traffic resolved with no issues in subnet 'subnet02'.
 
-If any subnet is blocked because of NSG or firewall rules, and if you haven't blocked the log, endpoint check failures display in the summary for the issue. The following destination endpoints are examples of these failures that were denied because no rule was matched.
+If any subnet is blocked because of NSG or firewall rules, and if you haven't blocked the log, endpoint check failures display in the summary for the issue. The following destination endpoints fail because no rule is matched.
 
 * `http://clr3.gigicert.com`
 * `http://mscrl.microsoft.com`
