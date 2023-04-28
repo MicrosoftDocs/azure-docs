@@ -43,6 +43,8 @@ To install the Telegraf Debian package onto the VM, run the following commands f
 
 # [Ubuntu, Debian](#tab/ubuntu)
 
+Add the repository:
+
 ```bash
 # download the package to the VM 
 curl -s https://repos.influxdata.com/influxdb.key | sudo apt-key add -
@@ -50,6 +52,8 @@ source /etc/lsb-release
 sudo echo "deb https://repos.influxdata.com/${DISTRIB_ID,,} ${DISTRIB_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
 sudo curl -fsSL https://repos.influxdata.com/influxdata-archive_compat.key | sudo apt-key --keyring /etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg add
 ```
+Instal the package:
+
 ```bash
    apt-get update
    apt-get install telegraf
