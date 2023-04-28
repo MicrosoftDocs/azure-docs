@@ -16,14 +16,14 @@ ms.reviewer: amycolannino
 
 # Entra Identity Governance Integrations
 
-This page provides an overview of the hundreds of Entra Identity Governance integrations available. These application integrations are used to automate identity lifecycle and implement governance controls across your organization.
+[Microsoft Entra Identity Governance](/identity-governance-applications-prepare.md) allows you to balance your organization's need for security and employee productivity with the right processes and visibility. This page provides an overview of the hundreds of Entra Identity Governance integrations available. These application integrations are used to automate [identity lifecycle](/what-is-identity-lifecycle-management.md) and implement governance controls across your organization.
 
 ## Featured integrations
 
 | Category | Application |
 | :--- | :--- |
-| HR | [SuccessFactors - User Provisioning](../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md) |
-| HR| [Workday - User Provisioning](../../active-directory/saas-apps/workday-inbound-cloud-only-tutorial.md)|
+| Human Resources | [SuccessFactors - User Provisioning](../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md) |
+| Human Resources| [Workday - User Provisioning](../../active-directory/saas-apps/workday-inbound-cloud-only-tutorial.md)|
 |[LDAP](../../active-directory/app-provisioning/on-premises-ldap-connector-configure.md)| OpenLDAP<br>Microsoft Active Directory Lightweight Directory Services<br>389 Directory Server<br>Apache Directory Server<br>IBM Tivoli DS<br>Isode Directory<br>NetIQ eDirectory<br>Novell eDirectory<br>Open DJ<br>Open DS<br>Oracle (previously Sun ONE) Directory Server Enterprise Edition<br>RadiantOne Virtual Directory Server (VDS) |
 | [SQL](../../active-directory/app-provisioning/tutorial-ecma-sql-connector.md)| Microsoft SQL Server and Azure SQL<br>IBM DB2 10.x<br>IBM DB2 9.x<br>Oracle 10g and 11g<br>Oracle 12c and 18c<br>MySQL 5.x|
 | Cloud platform| [Amazon Web Services (AWS) Console - Role Provisioning](../../active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-sso.md) |
@@ -33,7 +33,7 @@ This page provides an overview of the hundreds of Entra Identity Governance inte
 | ITSM| [ServiceNow](../../active-directory/saas-apps/servicenow-provisioning-tutorial.md)|
 
 
-## Full list of provisioning integrations
+## Entra Identity Governance Integrations
 | Application | Automated provisioning | Single Sign On (SSO)|
 | :--- | :-:  | :-: |
 | [4me](../../active-directory/saas-apps/4me-provisioning-tutorial.md) | ● | ●| 
@@ -253,10 +253,10 @@ This page provides an overview of the hundreds of Entra Identity Governance inte
 | [SAP Cloud Platform Identity Authentication](../../active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md) | ● | ● |
 | SAP R/3 | ● |  |
 | [SAP HANA](../../active-directory/saas-apps/saphana-tutorial.md) |  | ● |
-| [SAP SuccessFactors to Active Directory](../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md) | ● |  |
-| [SAP SuccessFactors to Azure Active Directory](../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) | ● |  |
-| [SAP SuccessFactors Writeback ](../../active-directory/saas-apps/sap-successfactors-writeback-tutorial.md) | ● |  |
-| [SchoolStream ASA](../../active-directory/saas-apps/schoolstream-asa-provisioning-tutorial.md) | ● |  |
+| [SAP SuccessFactors to Active Directory](../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md) | ● | ● |
+| [SAP SuccessFactors to Azure Active Directory](../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) | ● | ● |
+| [SAP SuccessFactors Writeback ](../../active-directory/saas-apps/sap-successfactors-writeback-tutorial.md) | ● | ● |
+| [SchoolStream ASA](../../active-directory/saas-apps/schoolstream-asa-provisioning-tutorial.md) | ● | ● |
 | [Secure Deliver](../../active-directory/saas-apps/secure-deliver-provisioning-tutorial.md) | ● | ● |
 | [SecureLogin](../../active-directory/saas-apps/secure-login-provisioning-tutorial.md) | ● |  |
 | [Sentry](../../active-directory/saas-apps/sentry-provisioning-tutorial.md) | ● | ● |
@@ -309,9 +309,9 @@ This page provides an overview of the hundreds of Entra Identity Governance inte
 | Web Services Connector | ● |  |
 | [WEDO](../../active-directory/saas-apps/wedo-provisioning-tutorial.md) | ● | ● |
 | [Whimsical](../../active-directory/saas-apps/whimsical-provisioning-tutorial.md) | ● | ● |
-| [Workday to Active Directory](../../active-directory/saas-apps/workday-inbound-tutorial.md) | ● |  |
-| [Workday to Azure AD](../../active-directory/saas-apps/workday-inbound-cloud-only-tutorial.md) | ● |  |
-| [Workday Writeback](../../active-directory/saas-apps/workday-writeback-tutorial.md) | ● |  |
+| [Workday to Active Directory](../../active-directory/saas-apps/workday-inbound-tutorial.md) | ● | ● |
+| [Workday to Azure AD](../../active-directory/saas-apps/workday-inbound-cloud-only-tutorial.md) | ● | ● |
+| [Workday Writeback](../../active-directory/saas-apps/workday-writeback-tutorial.md) | ● | ● |
 | [Workteam](../../active-directory/saas-apps/workteam-provisioning-tutorial.md) | ● | ● |
 | [Workplace by Facebook](../../active-directory/saas-apps/workplace-by-facebook-provisioning-tutorial.md) | ● | ● |
 | [Workgrid](../../active-directory/saas-apps/workgrid-provisioning-tutorial.md) | ● | ● |
