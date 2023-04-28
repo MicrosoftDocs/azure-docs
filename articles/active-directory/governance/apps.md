@@ -144,12 +144,15 @@ This page provides a single place for the tutorials to the various entra identit
 | [Group Talk](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
 | [Gtmhub](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
 | [Harness](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| HCL Domino | ● |  |
 | [HelloID](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
 | [Holmes Cloud](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
 | [Hootsuite](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
 | [Hoxhunt](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
 | [Howspace](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
 | [H5mag](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| IBM DB2 | ● |  |
+| IBM Tivoli Directory Server | ● |  |
 | [Ideo](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
 | [Ideagen Cloud](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
 | [Infor CloudSuite](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
@@ -175,6 +178,7 @@ This page provides a single place for the tutorials to the various entra identit
 | [KPN Grip](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
 | [LanSchool Air](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
 | [LawVu](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| LDAP | ● |  |
 | [LimbleCMMS](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
 | [LinkedIn Elevate](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
 | [LinkedIn Sales Navigator](https://learn.microsoft.com/azure/active-directory/saas-apps/linkedinsalesnavigator-provisioning-tutorial) | ● | ● |
@@ -207,7 +211,12 @@ This page provides a single place for the tutorials to the various entra identit
 | Open LDAP | ● |  |
 | [OpenText Directory Services](https://learn.microsoft.com/azure/active-directory/saas-apps/open-text-directory-services-provisioning-tutorial) | ● | ● |
 | [Oracle Cloud Infrastructure Console](https://learn.microsoft.com/azure/active-directory/saas-apps/oracle-cloud-infrastructure-console-provisioning-tutorial) | ● | ● |
+| Oracle Database | ● |  |
+| Oracle E-Business Suite | ● |  |
 | [Oracle Fusion ERP](https://learn.microsoft.com/azure/active-directory/saas-apps/oracle-fusion-erp-provisioning-tutorial) | ● | ● |
+| Oracle Internet Directory | ● |  |
+| Oracle PeopleSoft ERP | ● |  |
+| Oracle SunOne | ● |  |
 | [PagerDuty](https://learn.microsoft.com/azure/active-directory/saas-apps/pagerduty-tutorial) |  | ● |
 | [Palo Alto Networks Cloud Identity Engine - Cloud Authentication Service](https://learn.microsoft.com/azure/active-directory/saas-apps/palo-alto-networks-cloud-identity-engine-provisioning-tutorial) | ● | ● |
 | [Palo Alto Networks SCIM Connector](https://learn.microsoft.com/azure/active-directory/saas-apps/palo-alto-networks-scim-connector-provisioning-tutorial) | ● | ● |
@@ -237,6 +246,7 @@ This page provides a single place for the tutorials to the various entra identit
 | [Samanage](https://learn.microsoft.com/azure/active-directory/saas-apps/samanage-provisioning-tutorial) | ● | ● |
 | [SAP Analytics Cloud](https://learn.microsoft.com/azure/active-directory/saas-apps/sap-analytics-cloud-provisioning-tutorial) | ● | ● |
 | [SAP Cloud Platform Identity Authentication](https://learn.microsoft.com/azure/active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial) | ● | ● |
+| SAP Direct | ● |  |
 | [SAP HANA](https://learn.microsoft.com/azure/active-directory/saas-apps/saphana-tutorial) |  | ● |
 | [SAP SuccessFactors to Active Directory](https://learn.microsoft.com/azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial) | ● | ● |
 | [SAP SuccessFactors to Azure Active Directory](https://learn.microsoft.com/azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial) | ● | ● |
@@ -291,6 +301,7 @@ This page provides a single place for the tutorials to the various entra identit
 | [Visitly](https://learn.microsoft.com/azure/active-directory/saas-apps/visitly-provisioning-tutorial) | ● | ● |
 | [Vonage](https://learn.microsoft.com/azure/active-directory/saas-apps/vonage-provisioning-tutorial) | ● | ● |
 | [Webroot Security Awareness Training](https://learn.microsoft.com/azure/active-directory/saas-apps/webroot-security-awareness-training-provisioning-tutorial) | ● | ● |
+| Web Services Connector | ● |  |
 | [WEDO](https://learn.microsoft.com/azure/active-directory/saas-apps/wedo-provisioning-tutorial) | ● | ● |
 | [Whimsical](https://learn.microsoft.com/azure/active-directory/saas-apps/whimsical-provisioning-tutorial) | ● | ● |
 | [Workday to Active Directory](https://learn.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial) | ● | ● |
