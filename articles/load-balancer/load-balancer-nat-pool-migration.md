@@ -13,7 +13,7 @@ ms.custom: template-how-to, engagement-fy23
 
 # Azure Load Balancer Inbound NAT Pools
 
-Azure Load Balancer NAT Pools are the legacy approach for automatically assigning Load Balancer front end ports to each instance in a Virtual Machine Scale Set. NAT Rules on Standard SKU Load Balancers have subsequently replaced this functionality with an approach that is both easier to manage and faster to configure. 
+Azure Load Balancer NAT Pools are the legacy approach for automatically assigning Load Balancer front end ports to each instance in a Virtual Machine Scale Set. NAT Rules on Standard SKU Load Balancers have replaced this functionality with an approach that is both easier to manage and faster to configure. 
 
 ## Why Migrate to NAT Rules?
 
@@ -28,10 +28,10 @@ NAT Rules provide the same functionality as NAT Pools, but have the following ad
 The migration process will create a new Backend Pool for each Inbound NAT Pool existing on the target Load Balancer. A corresponding NAT Rule will be created for each NAT Pool and associated with the new Backend Pool. Existing Backend Pool membership will be retained. 
 
 > [!IMPORTANT]
-> The migration process requires first removing the Virtual Machine Scale Set(s) from the NAT Pools before associating the Virtual Machine Scale Set(s) with the new NAT Rules. This requires an update to the Virtual Machine Scale Set(s) model, which may cause a brief downtime while instances are upgraded with the model.   
+> The migration process removes the Virtual Machine Scale Set(s) from the NAT Pools before associating the Virtual Machine Scale Set(s) with the new NAT Rules. This requires an update to the Virtual Machine Scale Set(s) model, which may cause a brief downtime while instances are upgraded with the model.   
 
 > [!NOTE]
-> Frontend port assignment to Virtual Machine Scale Set instances may change with the move to NAT Rules, especially in situations where a single NAT Pool has multiple associated Virtual Machine Scale Sets. The new port assignment will align sequentially to instance ID numbers; when there are multiple Virtual Machine Scale Sets, ports will be assigned to all instances in one scale set, then the next, continuing. 
+> Frontend port mapping to Virtual Machine Scale Set instances may change with the move to NAT Rules, especially in situations where a single NAT Pool has multiple associated Virtual Machine Scale Sets. The new port assignment will align sequentially to instance ID numbers; when there are multiple Virtual Machine Scale Sets, ports will be assigned to all instances in one scale set, then the next, continuing. 
 
 ### Prerequisites 
 
@@ -39,9 +39,6 @@ The migration process will create a new Backend Pool for each Inbound NAT Pool e
 * Virtual Machine Scale Sets associated with the target Load Balancer must use either a 'Manual' or 'Automatic' upgrade policy--'Rolling' upgrade policy is not supported. For more information, see [Virtual Machine Scale Sets Upgrade Policies](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)
 * Install the latest version of [PowerShell](https://learn.microsoft.com/powershell/scripting/install/installing-powershell)
 * Install the [Azure PowerShell modules](https://learn.microsoft.com/powershell/azure/install-az-ps)
-
-> [!NOTE]
-> The examples below all use IPv4; to use IPv6, substitute "ipv6" for "ipv4".  Also note that Floating IP for IPv6 does not work for Internal Load Balancers.
 
 ### Install the 'AzureLoadBalancerNATPoolMigration' module
 
