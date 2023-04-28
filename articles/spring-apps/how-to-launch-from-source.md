@@ -80,7 +80,7 @@ Set your default resource group name and Azure Spring Apps instance name using t
 
 ```azurecli
 az config set defaults.group=<service-group-name>
-az config set defaults.spring-cloud=<service-instance-name>
+az config set defaults.spring=<service-instance-name>
 ```
 
 ## Create the application in Azure Spring Apps
@@ -124,14 +124,14 @@ For single module Maven / Gradle projects:
 
 ```azurecli
 cd <path-to-maven-or-gradle-source-root>
-az spring app deploy --name <app-name>
+az spring app deploy --name <app-name> --source-path
 ```
 
 For Maven / Gradle projects with multiple modules, repeat for each module:
 
 ```azurecli
 cd <path-to-maven-or-gradle-source-root>
-az spring app deploy --name <app-name> \
+az spring app deploy --name <app-name> --source-path \
     --target-module <relative-path-to-module>
 ```
 
