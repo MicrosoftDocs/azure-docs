@@ -10,7 +10,7 @@ ms.date: 11/09/2022
 ms.author: cshoe
 ---
 
-# Deploy to Azure Container Apps from Azure Pipelines (preview)
+# Deploy to Azure Container Apps from Azure Pipelines
 
 Azure Container Apps allows you to use Azure Pipelines to publish [revisions](revisions.md) to your container app. As commits are pushed to your [Azure DevOps repository](/azure/devops/repos/), a pipeline is triggered which updates the container image in the container registry. Azure Container Apps creates a new revision based on the updated container image.
 
@@ -18,7 +18,7 @@ The pipeline is triggered by commits to a specific branch in your repository. Wh
 
 ## Container Apps Azure Pipelines task
 
-To build and deploy your container app, add the [`AzureContainerAppsRC`](https://marketplace.visualstudio.com/items?itemName=microsoft-oryx.AzureContainerAppsRC) (preview) Azure Pipelines task to your pipeline.
+To build and deploy your container app, add the [`AzureContainerApps`](https://marketplace.visualstudio.com/items?itemName=microsoft-oryx.AzureContainerAppsRC) Azure Pipelines task to your pipeline.
 
 The task supports the following scenarios:
 
@@ -36,7 +36,7 @@ The following snippet shows how to build a container image from source code and 
 
 ```yaml
 steps:
-- task: AzureContainerAppsRC@0
+- task: AzureContainerApps@1
   inputs:
     appSourcePath: '$(Build.SourcesDirectory)/src'
     azureSubscription: 'my-subscription-service-connection'
@@ -53,7 +53,7 @@ The following snippet shows how to deploy an existing container image to Contain
 
 ```yaml
 steps:
-  - task: AzureContainerAppsRC@0
+  - task: AzureContainerApps@1
     inputs:
       azureSubscription: 'my-subscription-service-connection'
       acrName: 'myregistry'
@@ -187,7 +187,7 @@ To learn more about service connections, see [Connect to Microsoft Azure](/azure
       vmImage: ubuntu-latest
 
     steps:
-      - task: AzureContainerAppsRC@0
+      - task: AzureContainerApps@1
         inputs:
           appSourcePath: '$(Build.SourcesDirectory)/src'
           azureSubscription: '<AZURE_SUBSCRIPTION_SERVICE_CONNECTION>'
