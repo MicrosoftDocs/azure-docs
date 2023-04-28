@@ -26,7 +26,7 @@ Use the following steps to start diagnostics for networked applications.
 
 1. Sign in to the Azure portal.
 1. Go to your Azure Spring Apps instance.
-1. Select **Diagnose and solve problems** from the navigation pane.
+1. Select **Diagnose and solve problems** in the navigation pane.
 1. Select **Networking**.
 
    :::image type="content" source="media/how-to-self-diagnose-running-in-vnet/self-diagnostic-title.png" alt-text="Screenshot of the Azure portal showing the Diagnose and solve problems page with the Networking troubleshooting category highlighted." lightbox="media/how-to-self-diagnose-running-in-vnet/self-diagnostic-title.png":::
@@ -59,7 +59,7 @@ The unknown health status results contain related documentation. You can select 
 
 If you misconfigured your Private DNS Zone record set, a critical result appears such as: `Failed to resolve the Private DNS in subnet xxx`.
 
-In **DNS Resolution Table Renderings**, detail message information displays from which you can check your configurations.
+In **DNS Resolution Table Renderings**, detailed message information displays from which you can check your configurations.
 
 ## Required Outbound Traffic
 
@@ -76,7 +76,7 @@ If any subnet is blocked because of NSG or firewall rules, and if you haven't bl
 
 You can check whether you overlooked any customer responsibilities. For more information, see [Customer responsibilities for running Azure Spring Apps in a virtual network](./vnet-customer-responsibilities.md).
 
-If there's no data in the `Required Outbound Traffic Table Renderings` within 30 minutes, the result is `health status unknown`.
+If there's no data displayed for **Required Outbound Traffic Table Renderings** within 30 minutes, the result is `health status unknown`.
 Your network may be blocked or the log service is down.
 
 ## Next steps
