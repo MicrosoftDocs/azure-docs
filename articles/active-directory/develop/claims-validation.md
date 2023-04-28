@@ -63,7 +63,14 @@ The `roles`, `groups` or `wids` claims can also be used to determine if the subj
 
 ## Validate the actor
 
-A client application that's acting on behalf of a user (referred to as the *actor*), must also be authorized. Use the `scp` claim (scope) to validate that the application has permission to perform an operation. The permissions in `scp` should be limited to what the user actually needs and follows the principles of [least privilege](secure-least-privileged-access.md). The absence of the `scp` claim means full actor permissions. For more information about scopes and permissions, see [Scopes and permissions in the Microsoft identity platform](scopes-oidc.md).
+A client application that's acting on behalf of a user (referred to as the *actor*), must also be authorized. Use the `scp` claim (scope) to validate that the application has permission to perform an operation. The permissions in `scp` should be limited to what the user actually needs and follows the principles of [least privilege](secure-least-privileged-access.md). 
+
+However, there are known scenarios where `scp` isn't present in the token: 
+
+* Daemon apps / app only permission - validate the role claims instead of the `scp` claim.
+* A separate role-based access control system is used - validate roles instead of `scp`.
+
+For more information about scopes and permissions, see [Scopes and permissions in the Microsoft identity platform](scopes-oidc.md).
 
 > [!NOTE]
 > An application may handle app-only tokens (requests from applications without users, such as daemon apps) and want to authorize a specific application across multiple tenants, rather than individual service principal IDs. In that case, the `appid` claim (for v1.0 tokens) or the `azp` claim (for v2.0 tokens) can be used for subject authorization. However, when using these claims, the application must ensure that the token was issued directly for the application by validating the `idtyp` optional claim. Only tokens of type `app` can be authorized this way, as delegated user tokens can potentially be obtained by entities other than the application.
