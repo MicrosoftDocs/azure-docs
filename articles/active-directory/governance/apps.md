@@ -192,6 +192,10 @@ This page provides an overview of the hundreds of Entra Identity Governance inte
 | [MediusFlow](../../active-directory/saas-apps/mediusflow-provisioning-tutorial.md) | ● |  |
 | [MerchLogix](../../active-directory/saas-apps/merchlogix-provisioning-tutorial.md) | ● | ● |
 | [Meta Networks Connector](../../active-directory/saas-apps/meta-networks-connector-provisioning-tutorial.md) | ● | ● |
+| MicroFocus Novell eDirectory | ● |  |
+| Microsoft Lightweight Directory Server (ADAM) | ● |  |
+| Microsoft SharePoint Server (SharePoint) | ● |  |
+| Microsoft SQL Server | ● |  |
 | [Mixpanel](../../active-directory/saas-apps/mixpanel-provisioning-tutorial.md) | ● | ● |
 | [Mindtickle](../../active-directory/saas-apps/mindtickle-provisioning-tutorial.md) | ● | ● |
 | [Miro](../../active-directory/saas-apps/miro-provisioning-tutorial.md) | ● | ● |
@@ -200,6 +204,7 @@ This page provides an overview of the hundreds of Entra Identity Governance inte
 | [Mural Identity](../../active-directory/saas-apps/mural-identity-provisioning-tutorial.md) | ● | ● |
 | [MX3 Diagnostics](../../active-directory/saas-apps/mx3-diagnostics-connector-provisioning-tutorial.md) | ● |  |
 | [myPolicies](../../active-directory/saas-apps/mypolicies-provisioning-tutorial.md) | ● | ● |
+| Net IQ eDirectory | ● |  |
 | [Netpresenter Next](../../active-directory/saas-apps/netpresenter-provisioning-tutorial.md) | ● |  |
 | [Netskope User Authentication](../../active-directory/saas-apps/netskope-administrator-console-provisioning-tutorial.md) | ● | ● |
 | [Netsparker Enterprise](../../active-directory/saas-apps/netsparker-enterprise-provisioning-tutorial.md) | ● | ● |
