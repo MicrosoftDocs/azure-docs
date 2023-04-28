@@ -2,7 +2,7 @@
 title: Entra Identity Governance Integrations
 description: This page provides a single place for the tutorials to the various entra identity governance integrations.
 services: active-directory
-author: thomasakelo, arvinh
+author: jeevansd
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
