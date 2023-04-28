@@ -38,9 +38,6 @@ To follow these procedures, you need:
 4. Select the **Apps** tab under **Settings** in the menu on the left navigation pane.
 5. Select the application for which you want to set up Autoscale. In this example, select the application named **demo**. You should then see the application's **Overview** page.
 6. Go to the **Scale out** tab under **Settings** in the menu on the left navigation pane.
-7. Select the deployment you want to set up Autoscale. The options for Autoscale are described in the following section.
-
-![Screenshot of Azure portal **Scale out** page with `demo/default` deployment indicated.](./media/spring-cloud-autoscale/autoscale-menu.png)
 
 ## Set up Autoscale settings for your application in the Azure portal
 
