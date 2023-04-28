@@ -207,4 +207,4 @@ Use an environment type to help you define the different types of environments y
 In this quickstart, you created a dev center and configured it with an identity, a catalog, and an environment type. To learn how to create and configure a project, advance to the next quickstart.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create and configure a project](./quickstart-create-and-configure-projects.md)
+> [Create and configure a project with Azure CLI](./quickstart-create-and-configure-projects.md)
