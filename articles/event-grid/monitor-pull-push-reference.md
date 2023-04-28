@@ -10,6 +10,28 @@ This article provides a reference of log and metric data collected to analyze th
 
 ## Metrics
 
+### New metrics 
+
+| Metric name | Display name | Description | 
+| ----------- | ------------ | ----------- | 
+| SuccessfulPublishedEvents | Successful published events | Number of published events to a topic or topic space in a namespace. |
+| FailedPublishedEvents | Failed to publish events | Number of events that failed because Event Grid didn't accept them. This count doesn't include events that were published but failed to reach Event Grid due to a network issue. | 
+| SuccessfulReceivedEvents | Successful received event | Number of events that were successfully returned to (received by) clients. |
+| FailedReceivedEvents | Failed to receive event | Number of events requested by clients that Event Grid couldn't deliver successfully. |
+| SuccessfulAcknowlegedEvents | Successful acknowledged events | Number of events acknowledged by clients. |
+| FailedAcknowledgedEvents | Failed to acknowledge events | Number of events that clients didn't acknowledge. |
+| SuccessfulReleasedEvents | Successful released events | Number of events released by queue subscriber clients. |
+| FailedReleasedEvents | Failed to release event counts | Number of events that failed to be released back to Event Grid. |
+| DeadLetteredEvents | Dead-lettered events | Number of events sent to a dead-letter location. |
+| DroppedEvents | Dropped events | Number of events successfully received by Event Grid but later dropped (deleted) due to one of the following reasons: <ul><li>the maximum delivery count of a queue or push subscription has been reached and a dead-letter destination has not been configured or is not available</li><li>Events have been rejected by queue subscription clients and there is no dead-letter destination configured or is not available.</li><li>The time-to-live configured for the event subscription has been reached and there is no dead-letter destination configured or is not available.</li></ul> |
+| ReceiveLatencyInMilliseconds | Receive operations latency in milliseconds | Latency in milliseconds for receive message operations |
+| PublishLatencyInMilliseconds | Publish operations latency in milliseconds | Latency in milliseconds for publish event operations |
+| AcknowledgeLatencyInMilliseconds | Acknowledge operations latency in milliseconds | Latency in milliseconds for acknowledge event operations |
+| ReleaseLatencyInMilliseconds | Release operations latency in milliseconds | Latency in milliseconds for release event operations |
+| RejectLatencyInMilliseconds | Reject operations latency in milliseconds | Latency in milliseconds for reject event operations |
+| MatchedEvents | Matched events | Number of events that were successfully published to the service and met all the filtering criteria specified in event subscriptions. |
+| UnMatchedEvents | Unmatched events | Number of events that were successfully published to the service, but did not meet all filtering criteria specified in  event subscriptions. |
+
 ### Microsoft.EventGrid/domains  
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
