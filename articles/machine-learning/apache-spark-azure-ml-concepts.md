@@ -19,7 +19,7 @@ ms.custom: cliv2, sdkv2
 Azure Machine Learning integration with Azure Synapse Analytics (preview) provides easy access to distributed computation resources through the Apache Spark framework. This integration offers these Apache Spark computing experiences:
 
 - Serverless Spark compute (preview)
-- Attached Synapse Spark pool
+- Attached Synapse Spark pool (preview)
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -45,7 +45,7 @@ Advantages:
 
 Disadvantages:
 
-- A persistent Hive metastore is missing. serverless Spark compute supports only in-memory Spark SQL.
+- A persistent Hive metastore is missing. Serverless Spark compute supports only in-memory Spark SQL.
 - No available tables or databases.
 - Missing Azure Purview integration.
 - No available linked services.
