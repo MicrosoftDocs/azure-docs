@@ -22,15 +22,21 @@ Get started with the Content Studio, REST API, or client SDKs to do basic image 
 > 
 > The sample data and code may contain offensive content rated by the service as TBD risk level. User discretion is advised.
 
-::: zone pivot="content-safety-studio"
-
-[!INCLUDE [Studio quickstart](./includes/quickstarts/studio-quickstart.md)]
-
-::: zone-end
-
 ::: zone pivot="programming-language-rest"
 
 [!INCLUDE [REST API quickstart](./includes/quickstarts/rest-quickstart.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+
+[!INCLUDE [C# SDK quickstart](./includes/quickstarts/csharp-quickstart.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+[!INCLUDE [Python SDK quickstart](./includes/quickstarts/python-quickstart.md)]
 
 ::: zone-end
 

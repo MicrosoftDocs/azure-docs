@@ -11,8 +11,12 @@ items:
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/content-safety
     expanded: true
-- name: Quickstart
-  href: quickstart.md
+- name: Quickstarts
+  items:
+  - name: Content Safety Studio
+    href: studio-quickstart.md
+  - name: REST API and client SDKs
+    href: quickstart.md
 - name: Samples 
   items: 
   - name: Samples browser
