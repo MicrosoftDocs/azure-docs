@@ -1,7 +1,7 @@
 ---
 title:  Managing the Azure Arc-enabled servers agent
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Azure Connected Machine agent.
-ms.date: 04/07/2023
+ms.date: 04/19/2023
 ms.topic: conceptual
 ---
 
@@ -485,7 +485,7 @@ The proxy bypass feature does not require you to enter specific URLs to bypass. 
 | --------------------- | ------------------ |
 | `AAD` | `login.windows.net`, `login.microsoftonline.com`, `pas.windows.net` |
 | `ARM` | `management.azure.com` |
-| `Arc` | `his.arc.azure.com`, `guestconfiguration.azure.com`, `guestnotificationservice.azure.com`, `servicebus.windows.net` |
+| `Arc` | `his.arc.azure.com`, `guestconfiguration.azure.com` |
 
 To send Azure Active Directory and Azure Resource Manager traffic through a proxy server but skip the proxy for Azure Arc traffic, run the following command:
 

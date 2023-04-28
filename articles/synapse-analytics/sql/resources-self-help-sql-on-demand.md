@@ -61,7 +61,7 @@ If you moved a subscription to another Azure AD tenant, you might experience som
 
 If you get errors while you try to access files in Azure storage, make sure that you have permission to access data. You should be able to access publicly available files. If you try to access data without credentials, make sure that your Azure Active Directory (Azure AD) identity can directly access the files.
 
-If you have a shared access signature key that you should use to access files, make sure that you created a [server-level](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential) or [database-scoped](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential) credential that contains that credential. The credentials are required if you need to access data by using the workspace [managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#database-scoped-credential) and custom [service principal name (SPN)](develop-storage-files-storage-access-control.md?tabs=service-principal#database-scoped-credential).
+If you have a shared access signature key that you should use to access files, make sure that you created a [server-level](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-level-credential) or [database-scoped](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential) credential that contains that credential. The credentials are required if you need to access data by using the workspace [managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#database-scoped-credential) and custom [service principal name (SPN)](develop-storage-files-storage-access-control.md?tabs=service-principal#database-scoped-credential).
 
 ### Can't read, list, or access files in Azure Data Lake Storage
 
@@ -1109,7 +1109,7 @@ Some general system constraints might affect your workload:
 | Property | Limitation |
 |---|---|
 | Maximum number of Azure Synapse workspaces per subscription | [See limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-synapse-limits-for-workspaces). |
-| Maximum number of databases per serverless pool | 20 (not including databases synchronized from Apache Spark pool). |
+| Maximum number of databases per serverless pool | 100 (not including databases synchronized from Apache Spark pool). |
 | Maximum number of databases synchronized from Apache Spark pool | Not limited. |
 | Maximum number of databases objects per database | The sum of the number of all objects in a database can't exceed 2,147,483,647. See [Limitations in SQL Server database engine](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects). |
 | Maximum identifier length in characters | 128. See [Limitations in SQL Server database engine](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects).|
