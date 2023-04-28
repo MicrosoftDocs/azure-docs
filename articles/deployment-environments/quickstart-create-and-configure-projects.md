@@ -125,4 +125,4 @@ To configure a project, add a [project environment type](how-to-configure-projec
 In this quickstart, you created a project and granted project access to your development team. To learn about how your development team members can create environments, advance to the next quickstart.
 
 > [!div class="nextstepaction"]
-> [Create and access an environment with Azure CLI](how-to-create-access-environments.md)
+> [Quickstart: Create and access an environment](quickstart-create-access-environments.md)
