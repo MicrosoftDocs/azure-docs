@@ -5,7 +5,7 @@ description: Learn how to copy a blob from a source object URL in Azure Storage 
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 04/20/2023
+ms.date: 04/28/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
