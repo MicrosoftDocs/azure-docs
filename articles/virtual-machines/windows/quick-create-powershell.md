@@ -63,7 +63,8 @@ The `-ScriptString` parameter requires version `4.27.0` or later of the `Az.Comp
 
 ## View the web server in action
 
-With IIS installed and port 80 now open on your VM from the Internet, use a web browser of your choice to view the default IIS welcome page. Use the public IP address of the VM that you created. For more information on finding your IP address, see [Test web site](/azure/virtual-machines/windows/tutorial-automate-vm-deployment#test-web-site). The following example shows the default IIS web site:
+With IIS installed and port 80 now open on your VM from the Internet, use a web browser of your choice to view the default IIS welcome page. Use the public IP address of the VM that you created. The following example shows the default IIS web site:
+
 
 :::image type="content" source="./media/quick-create-powershell/default-iis-website.png" alt-text="Screenshot showing the default IIS web site.":::
 
