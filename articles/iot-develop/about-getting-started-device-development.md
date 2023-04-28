@@ -16,7 +16,7 @@ This article shows how to get started quickly with Azure IoT device development.
 In this article, you can select from a set of device quickstarts to get started with hands-on development.
 
 ## Quickstarts for general devices
-See the following articles to start using the Azure IoT device SDKs to connect general, microprocessor unit (MPU) devices to Azure IoT.  Examples of general MPU devices include MPU-based devices with larger compute and memory resources such as PCs, servers, Raspberry Pi, and smartphones. The following quickstarts all provide device simulators and don't require you to have a physical device.
+See the following articles to start using the Azure IoT device SDKs to connect general, microprocessor unit (MPU) devices to Azure IoT.  Examples of general MPU devices with larger compute and memory resources include PCs, servers, Raspberry Pi devices, and smartphones. The following quickstarts all provide device simulators and don't require you to have a physical device.
 
 Each quickstart shows how to set up a code sample and tools, run a temperature controller sample, and connect it to Azure. After the device is connected, you perform several common operations. 
 
@@ -29,7 +29,7 @@ Each quickstart shows how to set up a code sample and tools, run a temperature c
 |[Send telemetry from a device to Azure IoT Hub (Java)](quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java)|[Azure IoT SDK for Java](https://github.com/Azure/azure-iot-sdk-java)|
 
 ## Quickstarts for embedded devices
-See the following articles to start using the Azure IoT embedded device SDKs to connect embedded, resource-constrained microcontroller unit (MCU) devices to Azure IoT.  Examples of constrained devices include special-purpose MCU devices with compute and memory limitations, such as sensors.  The following quickstarts require you to have the listed MCU devices. 
+See the following articles to start using the Azure IoT embedded device SDKs to connect embedded, resource-constrained microcontroller unit (MCU) devices to Azure IoT.  Examples of constrained MCU devices with compute and memory limitations, include sensors, and special purpose hardware modules or boards. The following quickstarts require you to have the listed MCU devices. 
 
 Each quickstart shows how to set up a code sample and tools, flash the device, and connect it to Azure. After the device is connected, you perform several common operations. 
 
