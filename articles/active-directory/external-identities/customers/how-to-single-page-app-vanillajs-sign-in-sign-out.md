@@ -18,7 +18,7 @@ ms.custom: developer
 
 # Configure a Single-page application User Interface and Sign-In
 
-When authorization has been configured, the user interface can be created to allow users to sign in and sign out when the project is run. To build the user interface (UI) for the application, you'll use [Bootstrap](https://getbootstrap.com/) to create a responsive UI that contains a **Sign-In** and **Sign-Out** button. Next, you'll run the project and test the sign-in and sign-out functionality.
+When authorization has been configured, the user interface can be created to allow users to sign in and sign out when the project is run. To build the user interface (UI) for the application, [Bootstrap](https://getbootstrap.com/) is used to create a responsive UI that contains a **Sign-In** and **Sign-Out** button. Next, you'll run the project and test the sign-in and sign-out functionality.
 
 > [!div class="checklist"]
 >
@@ -34,7 +34,7 @@ When authorization has been configured, the user interface can be created to all
 
 The main page of the application, *index.html*, is the first page that is loaded when the application is started. It's also the page that is loaded when the user selects the **Sign Out** button. 
 
-1. In the *public* folder, create a new file named *index.html*. This file will contain the HTML for the main page of the application.
+1. In the *public* folder, create a new file named *index.html*. This file contains the HTML for the main page of the application.
 1. Open *index.html* and add the following code snippet:
 
    ```html
@@ -108,7 +108,7 @@ The main page of the application, *index.html*, is the first page that is loaded
 
 ## Create the *signout.html* file
 
-1. In the *public* folder, create a new file named *signout.html*. This file will contain the HTML for the sign-out page of the application.
+1. In the *public* folder, create a new file named *signout.html*. This file contains the HTML for the sign-out page of the application.
 1. Open *signout.html* and add the following code snippet:
 
     ```html
@@ -137,7 +137,7 @@ The main page of the application, *index.html*, is the first page that is loaded
 
 ## Create the *ui.js* file
 
-1. In the *public* folder, create a new file named *ui.js*. This file will contain the JavaScript code for the UI of the application.
+1. In the *public* folder, create a new file named *ui.js*. This file contains the JavaScript code for the UI of the application.
 1. Open *ui.js* and add the following code snippet:
 
     ```javascript
@@ -174,7 +174,7 @@ The main page of the application, *index.html*, is the first page that is loaded
 
 ## Create the styles.css file
 
-1. In the *public* folder, create a new file named *styles.css*. This file will contain the CSS code for the UI of the application.
+1. In the *public* folder, create a new file named *styles.css*. This file contains the CSS code for the UI of the application.
 1. Open *styles.css* and add the following code snippet:
 
     ```css
@@ -203,18 +203,18 @@ Now that all the required code snippets have been added, the application can be 
 
 1. Open a web browser and navigate to the port specified in [Prepare a Single-page application for authentication](how-to-single-page-app-vanillajs-sign-in-sign-out.md). For example, `http://localhost:3000/`.
 1. Select **No account? Create one**, which starts the sign-up flow.
-1. In the **Create account** window, enter the email address registered to your CIAM tenant which will start the sign-up flow as a user for your application.
+1. In the **Create account** window, enter the email address registered to your CIAM tenant, which starts the sign-up flow as a user for your application.
 1. After entering a one-time passcode from the CIAM tenant, enter a new password and more account details, this sign-up flow is completed.
 1. If a window appears prompting you to **Stay signed in**, choose either **Yes** or **No**.
 1. The SPA will now display a button saying **Request Profile Information**. Select it to display profile data.
 
-<!-- SCREENSHOT -->
+    :::image type="content" source="media/how-to-spa-vanillajs-sign-in-sign-in-out/display-vanillajs-welcome.png" alt-text="Screenshot of sign in into an ASP.NET web app.":::
 
 ## Sign out of the application
 
 1. To sign out of the application, select **Sign out** in the navigation bar.
 1. A window appears asking which account to sign out of.
-1. Upon successful sign out, a final window will appear advising you to close all browser windows.
+1. Upon successful sign out, a final window appears advising you to close all browser windows.
 
 ## Next steps
 

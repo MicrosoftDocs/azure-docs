@@ -18,7 +18,7 @@ ms.custom: developer
 
 # Prepare a Single-page application for authentication
 
-After registering an application and creating a user flow in a CIAM tenant, a vanilla JavaScript (JS) single-page application (SPA) can be created using an integrated development environment (IDE) or a code editor. In this article, you'll create a vanilla JS SPA and a server to host the application
+After registering an application and creating a user flow in a CIAM tenant, a vanilla JavaScript (JS) single-page application (SPA) can be created using an integrated development environment (IDE) or a code editor. In this article, you create a vanilla JS SPA and a server to host the application
 
 In this article:
 
@@ -31,10 +31,10 @@ In this article:
 ## Prerequisites
 
 - Completion of the prerequisites and steps in [Sign in users to a vanilla JS Single-page application using Microsoft Entra](how-to-single-page-app-vanillajs-prepare-tenant.md).
-- Although any IDE that supports Vanilla JS applications can be used, **Visual Studio Code** is used for this guide. It can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
+- Although any IDE that supports vanilla JS applications can be used, **Visual Studio Code** is used for this guide. It can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
 - [Node.js](https://nodejs.org/en/download/).
 
-## Create a new Vanilla JS project and install dependencies
+## Create a new vanilla JS project and install dependencies
 
 1. Open a terminal in your IDE and navigate to the location in which to create your project.
 1. Run the following command to create a new vanilla JS project

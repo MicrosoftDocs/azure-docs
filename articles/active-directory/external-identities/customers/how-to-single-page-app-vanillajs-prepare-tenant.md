@@ -18,7 +18,7 @@ ms.custom: developer
 
 # Sign in users to a vanilla JS Single-page application using Microsoft Entra - Prepare your tenant
 
-This how-to guide will demonstrate how to prepare your Azure Active Directory (Azure AD) for customers tenant for authentication. You will register a single-page application (SPA) in the Microsoft Entra admin center, and record its identifiers. You will then create a sign in and sign out user flow in the Microsoft Entra admin center and associate your SPA with the user flow.
+This how-to guide demonstrates how to prepare your Azure Active Directory (Azure AD) for customers tenant for authentication. You register a single-page application (SPA) in the Microsoft Entra admin center, and record its identifiers. You'll then create a sign in and sign out user flow in the Microsoft Entra admin center and associate your SPA with the user flow.
 
 In this article:
 
