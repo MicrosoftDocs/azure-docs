@@ -9,14 +9,16 @@ In recent years, advancements in AI have led to the rise of large foundation mod
 <br>'Foundation Models in AzureML'<br> provides AzureML native capabilities that enable customers to build and operationalize open-source foundation models at scale. It includes the following capabilities -
 
 * A comprehensive repository of top 30+ language models from Hugging Face, made available in the model catalog via AzureML built-in registry
+* Ability to import additional open source models from Hugging Face.
 * Support for base model inferencing using pretrained models
 * Ability to finetune the models using your own training data. Finetuning is supported for the following language tasks - Text Classification, Token Classification, Question Answering, Summarization and Translation
 * Ability to evaluate the models using your own test data
+* Support for deploying and operationlizing finetuned model at scale
 * State of the art performance and throughput in Azure hardware
 
 ###  Key user advantages 
 Here’s a summary of key user benefits, as compared to what is available prior -
 ![image](./media/concept-foundation-models/foundation_models_overview.png)
 
-### Finetuning foundation models using your own training data
-In order to improve model performance in your workload, you might want to fine tune a foundation model using your own training data. You can easily finetune these foundation models using either code based notebook samples or by using the Finetune UI wizard linked from the model card.
+### Learn more
+Learn [how to use foundation models in AzureML](./how-to-use-foundation-models.md) for finetuning, evaluation and deployment using AzureML Studio UI or code based methods.
