@@ -20,6 +20,8 @@ Using Azure Spot Virtual Machines allows you to take advantage of our unused cap
 
 Before getting started, ensure that you have an Azure Red Hat Openshift cluster deployed. If you need an ARO cluster, see the [ARO quickstart](tutorial-create-cluster.md) for a public cluster, or the [private cluster tutorial](howto-create-private-cluster-4x.md) for a private cluster. The steps to configure your cluster to use Spot VMs are the same for both private and public clusters.
 
+An ARO cluster should always have at least three worker nodes that are non-Spot VMs, and three control nodes. An ARO cluster cannot have any spot VM-based control nodes.
+
 ## Add Spot VMs
 
 Machine management in Azure Red Hat Openshift is accomplished by using MachineSet. MachineSet resources are groups of machines. MachineSets are to machines as ReplicaSets are to pods. If you need more machines or must scale them down, you change the *Replicas* field on the machine set to meet your compute need. To learn more, check out our OpenShift [MachineSet documentation](https://docs.openshift.com/container-platform/4.8/machine_management/creating_machinesets/creating-machineset-azure.html)
