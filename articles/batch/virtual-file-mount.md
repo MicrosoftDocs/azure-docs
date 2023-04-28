@@ -4,7 +4,7 @@ description: Learn how to mount different kinds of virtual file systems on Batch
 ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurepowershell
-ms.date: 04/24/2023
+ms.date: 04/28/2023
 ---
 
 # Mount a virtual file system on a Batch pool
@@ -99,13 +99,13 @@ You can use [Azure PowerShell](/powershell/) to mount an Azure Files share on a 
 
 1. Sign in to your Azure subscription, replacing the placeholder with your subscription ID.
 
-    ```powershell
+    ```powershell-interactive
     Connect-AzAccount -Subscription "<subscription-ID>"
     ```
 
 1. Get the context for your Batch account. Replace the `<batch-account-name>` placeholder with your Batch account name.
     
-    ```powershell
+    ```powershell-interactive
     $context = Get-AzBatchAccount -AccountName <batch-account-name>
     ```
 
@@ -113,8 +113,8 @@ You can use [Azure PowerShell](/powershell/) to mount an Azure Files share on a 
 
     The following script creates a pool with one Windows Server 2016 Datacenter, Standard_D2_V2 size node, and then mounts the Azure file share to the *S* drive of the node.
 
-    ```powershell
-    $fileShareConfig = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSAzureFileShareConfiguration" -ArgumentList @("<storage-account-name>", "https://<storage-account-name>.file.core.windows.net/<file-share-name>", "S", "<storage-account-key>")
+    ```powershell-interactive
+    $fileShareConfig = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSAzureFileShareConfiguration" -ArgumentList @("<storage-account-name>", "https://<storage-account-name>.file.core.windows.net/batchfileshare1", "S", "<storage-account-key>")
     
     $mountConfig = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSMountConfiguration" -ArgumentList @($fileShareConfig)
     
@@ -131,7 +131,7 @@ You can use [Azure PowerShell](/powershell/) to mount an Azure Files share on a 
 
 Azure Batch tasks can access the mounted files by using the drive's direct path, for example:
 
-```powershell
+```powershell-interactive
 cmd /c "more S:\folder1\out.txt & timeout /t 90 > NULL"
 ```
 
@@ -139,7 +139,7 @@ The Azure Batch agent grants access only for Azure Batch tasks. If you use Remot
 
 Use `cmdkey` to add the credentials. Replace the `<storage-account-name>` and `<storage-account-key`> placeholders with your own information.
 
-```powershell
+```powershell-interactive
 cmdkey /add:"<storage-account-name>.file.core.windows.net" /user:"Azure\<storage-account-name>" /pass:"<storage-account-key>"
 ```
 
@@ -147,13 +147,13 @@ cmdkey /add:"<storage-account-name>.file.core.windows.net" /user:"Azure\<storage
 
 1. Sign in to your Azure subscription, replacing the placeholder with your subscription ID.
 
-    ```powershell
+    ```powershell-interactive
     Connect-AzAccount -Subscription "<subscription-ID>"
     ```
 
 1. Get the context for your Batch account, replacing the placeholder with your Batch account name.
 
-    ```powershell
+    ```powershell-interactive
     $context = Get-AzBatchAccount -AccountName <batch-account-name>
     ```
 
@@ -161,7 +161,7 @@ cmdkey /add:"<storage-account-name>.file.core.windows.net" /user:"Azure\<storage
 
     The following script creates a pool with one Ubuntu 20.04, Standard_DS1_v2 size node, and then mounts the Azure file share to the *S* drive of the node.
 
-    ```powershell
+    ```powershell-interactive
     $fileShareConfig = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSAzureFileShareConfiguration" -ArgumentList @("<storage-account-name>", https://<storage-account-name>.file.core.windows.net/<file-share-name>, "S", "<storage-account-key>", "-o vers=3.0,dir_mode=0777,file_mode=0777,sec=ntlmssp")
     
     $mountConfig = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSMountConfiguration" -ArgumentList @($fileShareConfig)
@@ -197,10 +197,16 @@ To get log files for debugging, you can use the [OutputFiles](batch-task-output-
 
 If you get the following error when you try to mount an Azure file share to a Batch node, you can RDP or SSH to the node to check the related log files.
 
-```text
+```output
 Mount Configuration Error | An error was encountered while configuring specified mount(s)
 Message: System error (out of memory, cannot fork, no more loop devices)
 MountConfigurationPath: S
+```
+
+If you receive this error, RDP or SSH to the node to check the related log files. The Batch agent implements mounting differently on Windows and Linux. On Linux, Batch installs the package `cifs-utils`. Then, Batch issues the mount command. On Windows, Batch uses `cmdkey` to add your Batch account credentials. Then, Batch issues the mount command through `net use`. For example:
+
+```powershell-interactive
+net use S: \\<storage-account-name>.file.core.windows.net\<fileshare> /u:AZURE\<storage-account-name> <storage-account-key>
 ```
 
 # [Windows](#tab/windows)
@@ -211,7 +217,7 @@ MountConfigurationPath: S
 
 1. Review the error messages, for example:
 
-    ```text
+    ```output
     CMDKEY: Credential added successfully.
     System error 86 has occurred.
     
@@ -258,7 +264,7 @@ If you can't use RDP or SSH to check the log files on the node, you can upload t
 
 1. Review the error messages, for example: 
 
-    ```text
+    ```output
     ..20210322T113107.448Z.00000000-0000-0000-0000-000000000000.ERROR.agent.mount.filesystems.basefilesystem.basefilesystem.py.run_cmd_persist_output_async.59.2912.MainThread.3580.Mount command failed with exit code: 2, output:
     
     CMDKEY: Credential added successfully.
@@ -278,7 +284,7 @@ If you can't diagnose or fix mounting errors, you can use PowerShell to mount th
 
 1. Create a pool without a mounting configuration. For example:
 
-    ```powershell
+    ```powershell-interactive
     $imageReference = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("WindowsServer", "MicrosoftWindowsServer", "2016-Datacenter", "latest")
     
     $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSVirtualMachineConfiguration" -ArgumentList @($imageReference, "batch.node.windows amd64")
@@ -314,7 +320,7 @@ If you can't diagnose or fix mounting errors, you can use PowerShell to mount th
 
 1. Create a pool without a mounting configuration. For example:
 
-    ```powershell
+    ```powershell-interactive
     $imageReference = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("0001-com-ubuntu-server-focal", "canonical", "20_04-lts", "latest")
     
     $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSVirtualMachineConfiguration" -ArgumentList @($imageReference, "batch.node.ubuntu 20.04")

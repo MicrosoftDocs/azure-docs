@@ -41,7 +41,7 @@ The `set-query-parameter` policy adds, replaces value of, or deletes request que
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, backend
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
 
 ## Examples
