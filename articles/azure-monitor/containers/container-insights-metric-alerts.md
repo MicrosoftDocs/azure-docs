@@ -34,6 +34,9 @@ Your cluster must be configured to send metrics to [Azure Monitor managed servic
 
 The methods currently available for creating Prometheus alert rules are Azure Resource Manager template (ARM template) and Bicep template.
 
+> [!NOTE]
+> Although you can create the Prometheus alert in a resource group different from the target resource, you should use the same resource group.
+
 ### [ARM template](#tab/arm-template)
 
 1. Download the template that includes the set of alert rules you want to enable. For a list of the rules for each, see [Alert rule details](#alert-rule-details).
@@ -47,8 +50,7 @@ The methods currently available for creating Prometheus alert rules are Azure Re
 
 1. To deploy community and recommended alerts, follow this [template](https://aka.ms/azureprometheus-alerts-bicep) and follow the README.md file in the same folder for how to deploy.
 
-> [!NOTE]
-> Although you can create the Prometheus alert in a resource group different from the target resource, use the same resource group as your target resource.
+---
 
 ### Edit Prometheus alert rules
 
@@ -156,11 +158,11 @@ To disable custom alert rules, use the same ARM template to create the rule, but
 ---
 
 
-## Migrate from metric rules to Prometheus rules (preview) 
+## Migrate from metric rules to Prometheus rules (preview)
 If you're using metric alert rules to monitor your Kubernetes cluster, you should transition to Prometheus recommended alert rules (preview) before March 14, 2026 when metric alerts are retired.
 
-1. Follow the steps at [Enable Prometheus alert rules](#enable-prometheus-alert-rules) to configure Prometheus recommended alert rules (preview). 
-2. Follow the steps at [Disable metric alert rules](#disable-metric-alert-rules) to remove metric alert rules from your clusters. 
+1. Follow the steps at [Enable Prometheus alert rules](#enable-prometheus-alert-rules) to configure Prometheus recommended alert rules (preview).
+2. Follow the steps at [Disable metric alert rules](#disable-metric-alert-rules) to remove metric alert rules from your clusters.
 
 ## Alert rule details
 
@@ -205,7 +207,7 @@ Source code for the recommended alerts can be found in [GitHub](https://github.c
 | Average Persistent Volume Usage % | Average Persistent Volume Usage % | Calculates average persistent volume usage per pod. | 80% |
 | Average Working set memory % | Average Working set memory % | Calculates average Working set memory for a node. | 80% |
 | Restarting container count | Restarting container count | Calculates number of restarting containers. | 0 |
-| Failed Pod Counts | Failed Pod Counts | Calculates number of restarting containers. | 0 |
+| Failed Pod Counts | Failed Pod Counts | Calculates number of pods in failed state. | 0 |
 | Node NotReady status | Node NotReady status | Calculates if any node is in NotReady state. | 0 |
 | OOM Killed Containers | OOM Killed Containers | Calculates number of OOM killed containers. | 0 |
 | Pods ready % | Pods ready % | Calculates the average ready state of pods. | 80% |
