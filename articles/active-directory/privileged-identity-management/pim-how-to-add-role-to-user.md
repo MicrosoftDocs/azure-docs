@@ -317,4 +317,3 @@ POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleEligibilitySc
 ## Next steps
 
 - [Configure Azure AD admin role settings in Privileged Identity Management](pim-how-to-change-default-settings.md)
-- [Assign Azure resource roles in Privileged Identity Management](pim-resource-roles-assign-roles.md)
