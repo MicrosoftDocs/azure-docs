@@ -68,13 +68,16 @@ conceptualContent:
         - url: ./iot-sdks.md#device-sdks
           itemType: reference
           text: Device SDKs reference
+        - url: https://devicecatalog.azure.com/
+          itemType: get-started
+          text: Buy IoT devices
     # Card
     - title: Device connectivity
       links:
         - url: ./iot-overview-device-connectivity.md
           itemType: overview
           text: Introduction to device infrastructure and connectivity
-        - url: ../iot-hub/iot-hub-mqtt-support.md
+        - url: ../iot/iot-mqtt-connect-to-iot-hub.md
           itemType: concept
           text: MQTT support in Azure IoT Hub
         - url: ../iot-edge/iot-edge-as-gateway.md
