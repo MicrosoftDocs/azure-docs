@@ -33,9 +33,9 @@ Azure Data Center Attestation Primitives (DCAP), a replacement for Intel Quote P
 
 ### Where can I download the latest DCAP packages?
 
-- Ubuntu 20.04: <https://packages.microsoft.com/ubuntu/20.04/prod/pool/main/a/az-dcap-client/az-dcap-client_1.11.2_amd64.deb>
-- Ubuntu 18.04: <https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/az-dcap-client_1.11.2_amd64.deb>
-- Windows: <https://www.nuget.org/packages/Microsoft.Azure.DCAP/1.11.2>
+- Ubuntu 20.04: <https://packages.microsoft.com/ubuntu/20.04/prod/pool/main/a/az-dcap-client/az-dcap-client_1.12.0_amd64.deb>
+- Ubuntu 18.04: <https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/az-dcap-client_1.12.0_amd64.deb>
+- Windows: <https://www.nuget.org/packages/Microsoft.Azure.DCAP/1.12.0>
 
 ### Why are there different baselines between THIM and Intel?
 
