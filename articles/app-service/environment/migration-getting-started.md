@@ -20,7 +20,7 @@ If you're currently using App Service Environment v1 or v2, you must migrate you
 |**Review migration options**|Determine if you can use the migration feature to automate your migration or if you need to migrate manually.<br><br>- [Automated migration using the migration feature](migrate.md)<br>- [Manual migration](migration-alternatives.md)|
 |**Plan for migration**|- [Frequently asked questions](migrate.md#frequently-asked-questions)|
 |**Migrate**|Based on your review, either migrate using the migration feature or migrate manually.<br><br>- [Use the migration feature (automated)](how-to-migrate.md)<br>- [Migrate manually](migration-alternatives.md)|
-|**Post-migration actions**|-[Scale down your App Service plans](migrate.md#pricing)|
+|**Scale down your App Service plans**|Review the Isolated v2 SKU sizes and scale down your App Service plans as needed once migration completes reducing cost and ensuring you're not over-provisioned.<br><br>- [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/)<br>- [Scale down your App Service plans](migrate.md#pricing)|
 
 ## Next steps
 
