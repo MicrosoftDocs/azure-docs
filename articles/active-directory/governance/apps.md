@@ -68,8 +68,22 @@ This page provides a single place for the tutorials to the various entra identit
 | [BitaBIZ](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
 | [Bizagi Studio for Digital Process Automation](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
 | [BLDNG APP](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
-| [Open LDAP](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● |  |
-| [Novell eDirectory](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● |  |
+| [Blink](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Blinq](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [BlogIn](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [BlueJeans](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Bonusly](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Box](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Boxcryptor](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Bpanda](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Brivo Onair Identity Connector](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Britive](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [BrowserStack Single Sign-on](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [BullseyeTDP](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Cato Networks Provisioning](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Cerner Central](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Open LDAP] | ● |  |
+| [Novell eDirectory] | ● |  |
 
 ## Partner driven integrations
 Checkout the integrations [partners](https://learn.microsoft.com/azure/active-directory/app-provisioning/partner-driven-integrations) have built on top of Entra IGA.
