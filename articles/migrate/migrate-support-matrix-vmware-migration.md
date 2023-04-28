@@ -39,6 +39,10 @@ The table summarizes VMware vSphere hypervisor requirements.
 **Multiple vCenter Servers** | A single appliance can connect to up to 10 vCenter Servers.
 
 
+> [!Note]
+> For vCenter 7.0.x and above to assign the above listed privileges make sure to clone or create a role.  Select the required priviliges for example VirtualMachine -> Change Configuration-> Acquire disk lease.  [Steps to create custom roles and assign privileges](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-41E5E52E-A95B-4E81-9724-6AD6800BEF78.html#:~:text=Procedure%201%20Log%20in%20to%20the%20vCenter%20Server,privileges%20for%20that%20category.%20...%206%20Click%20Add.)
+
+
 ### VM requirements (agentless)
 
 The table summarizes agentless migration requirements for VMware vSphere VMs.
@@ -123,6 +127,10 @@ This table summarizes assessment support and limitations for VMware vSphere virt
 **VMware vCenter Server** | Version 5.5, 6.0, 6.5, or 6.7.
 **VMware vSphere ESXi host** | Version 5.5, 6.0, 6.5, 6.7 or 7.0.
 **vCenter Server permissions** | **VM discovery**: At least a read-only user<br/><br/> Data Center object –> Propagate to Child Object, role=Read-only.<br/><br/> **Replication**: Create a role (Azure Site Recovery) with the required permissions, and then assign the role to a VMware vSphere user or group<br/><br/> Data Center object –> Propagate to Child Object, role=Azure Site Recovery<br/><br/> Datastore -> Allocate space, browse datastore, low-level file operations, remove file, update virtual machine files<br/><br/> Network -> Network assign<br/><br/> Resource -> Assign VM to resource pool, migrate powered off VM, migrate powered on VM<br/><br/> Tasks -> Create task, update task<br/><br/> Virtual machine -> Configuration<br/><br/> Virtual machine -> Interact -> answer question, device connection, configure CD media, configure floppy media, power off, power on, VMware tools install<br/><br/> Virtual machine -> Inventory -> Create, register, unregister<br/><br/> Virtual machine -> Provisioning -> Allow virtual machine download, allow virtual machine files upload<br/><br/> Virtual machine -> Snapshots -> Remove snapshots.<br/><br/><br/>**Note**:<br/>User assigned at datacenter level, and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object, to the child objects (vSphere hosts, datastores, VMs, and networks).
+
+
+> [!Note]
+> For vCenter 7.0.x and above to assign the above listed privileges make sure to clone or create a role.  Select the required priviliges for example VirtualMachine -> Change Configuration-> Acquire disk lease.  [Steps to create custom roles and assign privileges](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-41E5E52E-A95B-4E81-9724-6AD6800BEF78.html#:~:text=Procedure%201%20Log%20in%20to%20the%20vCenter%20Server,privileges%20for%20that%20category.%20...%206%20Click%20Add.)
 
 ### VM requirements (agent-based)
 
