@@ -20,15 +20,6 @@ We've created this page to keep you updated on new features, blog posts, and oth
 ## From the Community
 See examples and get inspired by what's being done in the community of Azure Communication Services users.
 
-### ChatGPT 3.5 voice-based chat bot on ACS 
-:::image type="content" source="./media/whats-new-images/04-23/chatGPT-voice.png" alt-text="image showing a developer creating an ACS app":::
-
-See how ACS developer Jason Shave created a demo that uses Azure Communication Services call automation, Azure Cognitive Services, and Azure OpenAI to gives ChatGPT ears and a voice! 
-
-[Watch the video.](https://www.youtube.com/watch?v=vkZ0aZXV1LQ)
-
-<br>
-<br>
 
 ### Extending Azure Communication Services with Power Platform Connectors
 :::image type="content" source="./media/whats-new-images/04-23/acs-powerplatform.png" alt-text="image showing components of a power platform flow":::
@@ -36,6 +27,10 @@ See how ACS developer Jason Shave created a demo that uses Azure Communication S
 Listen to Azure Communication Services PMs Tomas Chladek and David De Matheu talk about how to connect your ACS app to Microsoft Teams, and extend it with the Microsoft Power Platform.
 
 [Watch the video.](https://www.youtube.com/watch?v=-TPI293h0mY&t=3s&pp=ygUcYXp1cmUgY29tbXVuaWNhdGlvbiBzZXJ2aWNlcw%3D%3D)
+
+[Read the Power Pages documentation.](https://learn.microsoft.com/en-us/power-pages/configure/component-framework)
+
+[Read the tutorial on integrating with Teams.](https://aka.ms/mscloud-acs-teams-tutorial)
 
 
 <br>
@@ -48,6 +43,12 @@ Learn how to create an app using Azure Communication services front-end componen
 
 [Watch the video.](https://www.youtube.com/watch?v=ZyBNYblzISs&pp=ygUcYXp1cmUgY29tbXVuaWNhdGlvbiBzZXJ2aWNlcw%3D%3D)
 
+[View the Microsoft Cloud Integrations repo.](https://github.com/microsoft/microsoftcloud)
+
+[Read the tutorial on integrating with Teams.](https://aka.ms/mscloud-acs-teams-tutorial)
+
+[Read more about the UI Library.](https://aka.ms/acs-ui-library)
+
 
 <br>
 <br>
@@ -55,9 +56,21 @@ Learn how to create an app using Azure Communication services front-end componen
 ### Dynamically create an Azure Communication Services identity and token 
 :::image type="content" source="./media/whats-new-images/04-23/token.png" alt-text="image showing a step in the token creation process":::
 
-Learn how an external developer can get a token that allows your app to join a teams meeting through ACS.
+Learn how an external developer can get a token that allows your app to join a teams meeting through Azure Communication Services.
 
 [Watch the video.](https://www.youtube.com/watch?v=OgE72PGq6TM&pp=ygUcYXp1cmUgY29tbXVuaWNhdGlvbiBzZXJ2aWNlcw%3D%3D)
+
+[Read more about Microsoft Cloud Integrations.](https://aka.ms/microsoft-cloud)
+
+[View the Microsoft Cloud Integrations repo.](https://github.com/microsoft/microsoftcloud)
+
+[Read the tutorial on integrating with Teams.](https://aka.ms/mscloud-acs-teams-tutorial)
+
+[Read more about the UI Library.](https://aka.ms/acs-ui-library)
+
+[Read the documentation on Azure Functions.](https://aka.ms/msazure--functions)
+
+[View the Graph Explorer.](https://aka.ms/ge)
 
 
 <br>
@@ -70,6 +83,17 @@ Learn how to quickly and easily deploy your Azure Communication Services app to 
 
 [Watch the video.](https://www.youtube.com/watch?v=JYs5CPyu2Io&pp=ygUcYXp1cmUgY29tbXVuaWNhdGlvbiBzZXJ2aWNlcw%3D%3D)
 
+[Read more about Microsoft Cloud Integrations.](https://aka.ms/microsoft-cloud)
+
+[View the Microsoft Cloud Integrations repo.](https://github.com/microsoft/microsoftcloud)
+
+[Read the tutorial on integrating with Teams.](https://aka.ms/mscloud-acs-teams-tutorial)
+
+[Read more about the UI Library.](https://aka.ms/acs-ui-library)
+
+[Read the documentation on Azure Functions.](https://aka.ms/msazure--functions)
+
+[View the Graph Explorer.](https://aka.ms/ge)
 
 <br>
 <br>
@@ -81,7 +105,7 @@ Get detailed information on the latest Azure Communication Services feature laun
 ### Email General Availability 
 :::image type="content" source="./media/whats-new-images/04-23/email.png" alt-text="azure communication services email logo":::
 
-ACS announces the general availabilty of our Email service. ACS Email is powered by Exchange Online and meets the security and privacy requirements of enterprises.
+Azure Communication Services announces the general availability of our Email service. ACS Email is powered by Exchange Online and meets the security and privacy requirements of enterprises.
 
 [Read about ACS Email.](https://techcommunity.microsoft.com/t5/azure-communication-services/simpler-faster-azure-communication-services-email-now-generally/ba-p/3788541)
 
@@ -90,9 +114,9 @@ ACS announces the general availabilty of our Email service. ACS Email is powered
 
 
 ### List of April's new features.
-:::image type="content" source="./media/whats-new-images/04-23/features.png" alt-text="azure communication services email logo":::
+:::image type="content" source="./media/whats-new-images/04-23/features.png" alt-text="a dashboard of data":::
 
-[View the complete list](microsoft.com/t5/azure-communication-services/azure-communication-services-april-2023-feature-updates/ba-p/3786509) of all new features added to Azure Communication Services in April 
+[View the complete list](https://techcommunity.microsoft.com/t5/azure-communication-services/azure-communication-services-april-2023-feature-updates/ba-p/3786509) of all new features added to Azure Communication Services in April.
 
 <br>
 <br>
@@ -117,9 +141,12 @@ ABN AMRO used Azure Communication Services to make it easier for customers to ge
 
 ### Get insights from customer interactions with ACS and OpenAI  
 :::image type="content" source="./media/whats-new-images/04-23/openai.png" alt-text="image of acs and openAI logos":::
+
 Use the gold mine of customer conversations to automatically generate customer insights and create better customer experiences. 
 
 [Read the full blog post.](https://techcommunity.microsoft.com/t5/azure-communication-services/get-insights-from-customer-interactions-with-azure-communication/ba-p/3783858)
+
+[Read about the Azure OpenAI service.](https://azure.microsoft.com/en-us/products/cognitive-services/openai-service/)
 
 <br>
 <br>
@@ -127,9 +154,12 @@ Use the gold mine of customer conversations to automatically generate customer i
 
 ### Latest updates to the UI library 
 :::image type="content" source="./media/whats-new-images/04-23/uilibrary.png" alt-text="a section of a chat app":::
-Get up-to-date on the latest addtions to the Azure Communication Services UI library. UI library makes it easier to create custom applications with only a few lines of code. 
+
+Get up-to-date on the latest additions to the Azure Communication Services UI library. UI library makes it easier to create custom applications with only a few lines of code. 
 
 [Read the full blog post.](https://techcommunity.microsoft.com/t5/azure-communication-services/build-communication-apps-for-microsoft-teams-users-with-azure/ba-p/3775688)
+
+[View the UI Library documentation.](https://azure.github.io/communication-ui-library/)
 
 
 <br>
