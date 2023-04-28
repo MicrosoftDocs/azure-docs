@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial
-ms.date: 04/26/2023
+ms.date: 04/28/2023
 ms.custom: devx-track-arm-template
 ms.author: jasteppe
 ---
@@ -41,9 +41,9 @@ To begin your deployment and complete the tutorial, you must have the following 
 
 - An active Azure subscription account. If you don't have an Azure subscription, see the [subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions/).
 
-- Owner or Contributor and User Access Administrator role assignments in the Azure subscription. For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
+- **Owner** or **Contributor and User Access Administrator** role assignments in the Azure subscription. For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
 
-- The `Microsoft.HealthcareApis`, `Microsoft.EventHub`, and `Microsoft.Devices` resource providers registered with your Azure subscription. To learn more, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
+- The Microsoft.HealthcareApis, Microsoft.EventHub, and Microsoft.Devices resource providers registered with your Azure subscription. To learn more, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 - [Visual Studio Code](https://code.visualstudio.com/Download) installed locally.
 
@@ -104,41 +104,41 @@ To begin deployment in the Azure portal, select the **Deploy to Azure** button:
    :::image type="content" source="media\device-messages-through-iot-hub\deployment-complete-banner.png" alt-text="Screenshot that shows a green checkmark and the message Your deployment is complete.":::
 
    > [!IMPORTANT]
-   > If you're going to allow access from multiple services to the device message event hub, it's required that each service has its own event hub consumer group.
+   > If you're going to allow access from multiple services to the event hub, it's required that each service has its own event hub consumer group.
    >
    > Consumer groups enable multiple consuming applications to have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups).
    >
    > Examples:
    >
-   > * Two MedTech services accessing the same device message event hub.
+   > * Two MedTech services accessing the same event hub.
    >
-   > * A MedTech service and a storage writer application accessing the same device message event hub.
+   > * A MedTech service and a storage writer application accessing the same event hub.
 
 ## Review deployed resources and access permissions
 
 When deployment is completed, the following resources and access roles are created in the template deployment:
 
-* An Event Hubs namespace and event hub. In this deployment, the event hub is named *devicedata*.
+* Event Hubs namespace and event hub. In this deployment, the event hub is named *devicedata*.
 
-  * An event hub consumer group. In this deployment, the consumer group is named *$Default*.
+  * Event hub consumer group. In this deployment, the consumer group is named *$Default*.
 
-  * An Azure Event Hubs Data Sender role. In this deployment, the sender role is named *devicedatasender* and can be used to provide access to the device event hub using a shared access signature (SAS). To learn more about authorizing access using a SAS, see [Authorizing access to Event Hubs resources using Shared Access Signatures](../../event-hubs/authorize-access-shared-access-signature.md). The Azure Event Hubs Data Sender role isn't used in this tutorial.
+  * **Azure Event Hubs Data Sender** role. In this deployment, the sender role is named *devicedatasender* and can be used to provide access to the event hub using a shared access signature (SAS). To learn more about authorizing access using a SAS, see [Authorizing access to Event Hubs resources using Shared Access Signatures](../../event-hubs/authorize-access-shared-access-signature.md). The **Azure Event Hubs Data Sender** role isn't used in this tutorial.
 
-* An IoT hub with [message routing](../../iot-hub/iot-hub-devguide-messages-d2c.md) configured to send device messages to the event hub.
+* IoT hub with [message routing](../../iot-hub/iot-hub-devguide-messages-d2c.md) configured to send device messages to the event hub.
 
-* A [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md), which provides send access from the IoT hub to the event hub. The managed identity has the Azure Event Hubs Data Sender role in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the event hub.
+* [User-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md), which provides send access from the IoT hub to the event hub. The managed identity has the **Azure Event Hubs Data Sender** role in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the event hub.
 
-- A Health Data Services workspace.
+* Health Data Services workspace.
 
-- A Health Data Services FHIR service.
+* Health Data Services FHIR service.
 
-- A Health Data Services MedTech service with the required [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) roles:
+* Health Data Services MedTech service with the required [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) roles:
 
-  - For the event hub, the Azure Event Hubs Data Receiver role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the event hub.
+  * For the event hub, the **Azure Event Hubs Data Receiver** role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the event hub.
 
-  - For the FHIR service, the FHIR Data Writer role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the FHIR service.
+  * For the FHIR service, the **FHIR Data Writer** role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the FHIR service.
 
-- Conforming and valid MedTech service [device](overview-of-device-mapping.md) and [FHIR destination mappings](overview-of-fhir-destination-mapping.md). **Resolution type** is set to **Create**.
+* Conforming and valid MedTech service [device](overview-of-device-mapping.md) and [FHIR destination mappings](overview-of-fhir-destination-mapping.md). **Resolution type** is set to **Create**.
 
 > [!IMPORTANT]
 > In this tutorial, the ARM template configures the MedTech service to operate in **Create** mode. A Patient resource and a Device resource are created for each device that sends data to your FHIR service.
@@ -219,7 +219,7 @@ You complete the steps by using Visual Studio Code with the Azure IoT Hub extens
    >
    > :::image type="content" source="media\device-messages-through-iot-hub\iot-hub-enriched-device-message.png" alt-text="Screenshot of an Azure IoT Hub enriched device message." lightbox="media\device-messages-through-iot-hub\iot-hub-enriched-device-message.png":::
    >
-   > `patientIdExpression` is only required for MedTech services in the **Create** mode, however, if **Lookup** is being used, a Device resource with a matching Device Identifier must exist in the FHIR service. This example assumes your MedTech service is in a **Create** mode. The **Resolution type** for this tutorial set to **Create**. For more information on the **Destination properties**: **Create** and **Lookup**, see [Configure Destination properties](deploy-new-config.md#destination-properties). 
+   > `patientIdExpression` is only required for MedTech services in the **Create** mode, however, if **Lookup** is being used, a Device resource with a matching Device Identifier must exist in the FHIR service. This example assumes your MedTech service is in a **Create** mode. The **Resolution type** for this tutorial set to **Create**. For more information on the **Destination properties**: **Create** and **Lookup**, see [Configure the Destination tab](deploy-manual-portal.md#configure-the-destination-tab). 
 
 ## Review metrics from the test message
 
