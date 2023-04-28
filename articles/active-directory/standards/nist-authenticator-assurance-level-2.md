@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # NIST authenticator assurance level 2 with Azure Active Directory
 
-The National Institute of Standards and Technology (NIST) develops technical requirements for US federal agencies implementing identity solutions. Organizations working with federal agencies must meet these requirements. 
+The National Institute of Standards and Technology (NIST) develops technical requirements for US federal agencies implementing identity solutions. Organizations working with federal agencies must meet these requirements.
 
 Before starting authenticator assurance level 2 (AAL2), you can see the following resources:
 
@@ -30,23 +30,24 @@ Before starting authenticator assurance level 2 (AAL2), you can see the followin
 
 The following table has authenticator types permitted for AAL2:
 
-| Azure AD authentication method| NIST authenticator type | 
+| Azure AD authentication method| NIST authenticator type |
 | - | - |
-| **Recommended methods** |   | 
-| Microsoft Authenticator app for iOS (passwordless) <br> Windows Hello for Business with software Trusted Platform Module (TPM) | Multi-factor crypto software |
-| FIDO 2 security key <br> Microsoft Authenticator app for Android (passwordless) <br> Windows Hello for Business with hardware TPM <br>Smartcard (Active Directory Federation Services) | Multi-factor crypto hardware |
+| **Recommended methods** |   |
+| Multi-factor Software Certificate (PIN Protected) <br> Windows Hello for Business with software Trusted Platform Module (TPM)| Multi-factor crypto software |
+| Hardware protected certificate (smartcard/security key/TPM) <br> FIDO 2 security key <br> Windows Hello for Business with hardware TPM | Multi-factor crypto hardware |
+|Microsoft Authenticator app (Passwordless)  | Multi-factor out-of-band
 | **Additional methods** |  |
-| Password and phone (SMS) | Memorized secret and out-of-band |
-| Password and Microsoft Authenticator app one-time password (OTP) <br> Password and single-factor OTP | Memorized secret and single-factor OTP|
-| Password and Azure AD joined with software TPM <br> Password and compliant mobile device <br> Password and Hybrid Azure AD Joined with software TPM <br> Password and Microsoft Authenticator app (Notification) | Memorized secret and single-factor crypto software |
-| Password and Azure AD joined with hardware TPM <br> Password and Hybrid Azure AD joined with hardware TPM | Memorized secret and single-factor crypto hardware |
+| Password <br> **AND** <br>- Microsoft Authenticator app (Push Notification) <br>- **OR** <br>- Phone (SMS) | Memorized secret <br>**AND**<br> Single-factor out-of-band |
+| Password <br> **AND** <br>- OATH hardware tokens (preview) <br>- **OR**<br>- Microsoft Authenticator app (OTP)<br>- **OR**<br>- OATH software tokens | Memorized secret <br>**AND** <br>Single-factor OTP|
+| Password <br>**AND** <br>- Single-factor software certificate <br>- **OR**<br>- Azure AD joined  with software TPM <br>- **OR**<br>- Hybrid Azure AD joined with software TPM  <br>- **OR**<br>- Compliant mobile device | Memorized secret <br>**AND**<br> Single-factor crypto software |
+| Password <br>**AND**<br>- Azure AD joined with hardware TPM <br>- **OR**<br>- Hybrid Azure AD joined with hardware TPM| Memorized secret <br>**AND**<br>Single-factor crypto hardware |
 
 > [!NOTE]
-> In Conditional Access policy, the Authenticator is verifier impersonation resistance, if you require a device to be compliant or Hybrid Azure AD joined.
+> Today, Microsoft Authenticator by itself is not phishing resistant. To gain protection from external phishing threats when using Microsoft Authenticator you must additionally configure conditional access policy requiring a managed device.
 
 ### AAL2 recommendations
 
-For AAL2, use multi-factor cryptographic hardware or software authenticators. Passwordless authentication eliminates the greatest attack surface (the password), and offers users a streamlined method to authenticate. 
+For AAL2, use multi-factor cryptographic hardware or software authenticators. Passwordless authentication eliminates the greatest attack surface (the password), and offers users a streamlined method to authenticate.
 
 For guidance on selecting a passwordless authentication method, see [Plan a passwordless authentication deployment in Azure Active Directory](../authentication/howto-authentication-passwordless-deployment.md). See also, [Windows Hello for Business deployment guide](/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
 
@@ -70,18 +71,19 @@ Government agency cryptographic authenticators are validated for FIPS 140 Level 
 
 * Windows Hello for Business with software or with hardware TPM
 
-* Smartcard (Active Directory Federation Services) 
+* Certificate stored in software or hardware (smartcard/security key/TPM)
 
-Although Microsoft Authenticator app (in notification, OTP, and passwordless modes) uses FIPS 140-approved cryptography, it's not validated for FIPS 140 Level 1.
+Microsoft Authenticator app (Push Notification/OTP/passwordless) on iOS uses FIPS 140 level 1 validated cryptographic module and is FIPS 140 compliant. While Microsoft Authenticator app on Android (Push Notification/OTP/passwordless) uses FIPS 140 approved cryptography, it is not FIPS compliant.
+
+For OATH hardware tokens and smartcards we recommend you consult with your provider for current FIPS validation status.
 
 FIDO 2 security key providers are in various stages of FIPS certification. We recommend you review the list of [supported FIDO 2 key vendors](../authentication/concept-authentication-passwordless.md#fido2-security-key-providers). Consult with your provider for current FIPS validation status.
 
-
-## Reauthentication 
+## Reauthentication
 
 For AAL2, the NIST requirement is reauthentication every 12 hours, regardless of user activity. Reauthentication is required after a period of inactivity of 30 minutes or longer. Because the session secret is something you have, presenting something you know, or are, is required.
 
-To meet the requirement for reauthentication, regardless of user activity, Microsoft recommends configuring [user sign-in frequency](../conditional-access/howto-conditional-access-session-lifetime.md) to 12 hours. 
+To meet the requirement for reauthentication, regardless of user activity, Microsoft recommends configuring [user sign-in frequency](../conditional-access/howto-conditional-access-session-lifetime.md) to 12 hours.
 
 With NIST you can use compensating controls to confirm subscriber presence:
 
@@ -89,7 +91,7 @@ With NIST you can use compensating controls to confirm subscriber presence:
 
 * Time out regardless of activity: Run a scheduled task (Configuration Manager, GPO, or Intune) to lock the machine after 12 hours, regardless of activity.
 
-## Man-in-the-middle resistance 
+## Man-in-the-middle resistance
 
 Communications between the claimant and Azure AD are over an authenticated, protected channel. This configuration provides resistance to man-in-the-middle (MitM) attacks and satisfies the MitM resistance requirements for AAL1, AAL2, and AAL3.
 
@@ -97,7 +99,7 @@ Communications between the claimant and Azure AD are over an authenticated, prot
 
 Azure AD authentication methods at AAL2 use nonce or challenges. The methods resist replay attacks because the verifier detects replayed authentication transactions. Such transactions won't contain needed nonce or timeliness data.
 
-## Next steps 
+## Next steps
 
 [NIST overview](nist-overview.md)
 

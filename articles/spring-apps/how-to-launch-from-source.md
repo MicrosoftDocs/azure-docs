@@ -124,14 +124,14 @@ For single module Maven / Gradle projects:
 
 ```azurecli
 cd <path-to-maven-or-gradle-source-root>
-az spring app deploy --name <app-name>
+az spring app deploy --name <app-name> --source-path
 ```
 
 For Maven / Gradle projects with multiple modules, repeat for each module:
 
 ```azurecli
 cd <path-to-maven-or-gradle-source-root>
-az spring app deploy --name <app-name> \
+az spring app deploy --name <app-name> --source-path \
     --target-module <relative-path-to-module>
 ```
 
