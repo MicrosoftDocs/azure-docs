@@ -2,32 +2,33 @@
 title: Metric definitions for Azure Communication Service
 titleSuffix: An Azure Communication Services concept document
 description: This document covers definitions of metrics available in the Azure portal.
-author: mikben
-manager: jken
+author: tophpalmer
+manager: chpalm
 services: azure-communication-services
 
-ms.author: mikben
+ms.author: chpalm
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
+ms.subservice: data
 ---
 # Metrics overview
 
-Azure Communication Services currently provides metrics for Chat and SMS. [Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md) can be used to plot your own charts, investigate abnormalities in your metric values, and understand your API traffic by using the metrics data that Chat and SMS requests emit.
+Azure Communication Services currently provides metrics for all ACS primitives. [Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md) can be used to plot your own charts, investigate abnormalities in your metric values, and understand your API traffic by using the metrics data that Chat and SMS requests emit.
 
-## Where to find Metrics
+## Where to find metrics
 
-Chat and SMS services in Azure Communication Services emit metrics for API requests. These metrics can be found in the Metrics blade under your Communication Services resource. You can also create permanent dashboards using the workbooks blade under your Communication Services resource.
+Primitives in Azure Communication Services emit metrics for API requests. These metrics can be found in the Metrics tab under your Communication Services resource. You can also create permanent dashboards using the workbooks tab under your Communication Services resource.
 
 ## Metric definitions
 
-There are two types of requests that are represented within Communication Services metrics: **Chat API requests** and **SMS API requests**.
+Today there are various types of requests that are represented within Communication Services metrics: **Chat API requests** , **SMS API requests** , **Authentication API requests**, **Call Automation API requests** and **Network Traversal API requests**.
 
-Both Chat and SMS API request metrics contain three dimensions that you can use to filter your metrics data. These dimensions can be aggregated together using the `Count` aggregation type and support all standard Azure Aggregation time series including `Sum`, `Average`, `Min`, and `Max`.
+All API request metrics contain three dimensions that you can use to filter your metrics data. These dimensions can be aggregated together using the `Count` aggregation type and support all standard Azure Aggregation time series including `Sum`, `Average`, `Min`, and `Max`.
 
 More information on supported aggregation types and time series aggregations can be found [Advanced features of Azure Metrics Explorer](../../azure-monitor/essentials/metrics-charts.md#aggregation)
 
-- **Operation** - All operations or routes that can be called on the ACS Chat gateway.
+- **Operation** - All operations or routes that can be called on the Azure Communication Services Chat gateway.
 - **Status Code** - The status code response sent after the request.
 - **StatusSubClass** - The status code series sent after the response. 
 
@@ -76,15 +77,51 @@ The following operations are available on SMS API request metrics:
 
 The following operations are available on Authentication API request metrics:
 
-| Operation / Route    | Description                                                                                    |
-| -------------------- | ---------------------------------------------------------------------------------------------- |
-| CreateIdentity       | Creates an identity representing a single user. |
-| DeleteIdentity       | Deletes an identity. |
-| CreateToken          | Creates an access token. |
-| RevokeToken          | Revokes all access tokens created for an identity before a time given. |
+| Operation / Route             | Description                                                                                    |
+| ----------------------------- | ---------------------------------------------------------------------------------------------- |
+| CreateIdentity                | Creates an identity representing a single user. |
+| DeleteIdentity                | Deletes an identity. |
+| CreateToken                   | Creates an access token. |
+| RevokeToken                   | Revokes all access tokens created for an identity before a time given. |
+| ExchangeTeamsUserAccessToken  | Exchange an Azure Active Directory (Azure AD) access token of a Teams user for a new Communication Identity access token with a matching expiration time.|
 
 :::image type="content" source="./media/acs-auth-metrics.png" alt-text="Authentication Request Metric.":::
 
-## Next Steps
+### Call Automation API requests
+
+The following operations are available on Call Automation API request metrics:
+
+| Operation / Route  | Description                                                                                    |
+| -------------------- | ---------------------------------------------------------------------------------------------- |
+| Create Call           | Create an outbound call to user. 
+| Answer Call           | Answer an inbound call. |
+| Redirect Call         | Redirect an inbound call to another user. |
+| Reject Call           | Reject an inbound call. |
+| Transfer Call To Participant   |  Transfer 1:1 call to another user.   |
+| Play                  | Play audio to call participants.  |
+| PlayPrompt            | Play a prompt to users as part of the Recognize action. |
+| Recognize             | Recognize user input from call participants. |
+| Add Participants      |  Add a participant to a call.    |
+| Remove Participants   | Remove a participant from a call.   |
+| HangUp Call           | Hang up your call leg. | 
+| Terminate Call        | End the call for all participants.  | 
+| Get Call              | Get details about a call.     |
+| Get Participant       |  Get details on a call participant.   |
+| Get Participants      |  Get all participants in a call.   |
+| Delete Call           |  Delete a call.    |
+| Cancel All Media Operations | Cancel all ongoing or queued media operations in a call. | 
+
+
+### Network Traversal API requests
+
+The following operations are available on Network Traversal API request metrics:
+
+| Operation / Route    | Description                                                                                    |
+| -------------------- | ---------------------------------------------------------------------------------------------- |
+| IssueRelayConfiguration       | Issue configuration for an STUN/TURN server. |
+
+:::image type="content" source="./media/acs-turn-metrics.png" alt-text="TURN Token Request Metric." lightbox="./media/acs-turn-metrics.png":::
+
+## Next steps
 
 - Learn more about [Data Platform Metrics](../../azure-monitor/essentials/data-platform-metrics.md)

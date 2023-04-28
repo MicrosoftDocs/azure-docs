@@ -15,7 +15,9 @@ The code for all the functions in a specific function app is located in a root p
 * [C# script (.csx)](../articles/azure-functions/functions-reference-csharp.md#folder-structure)
 * [F# script](../articles/azure-functions/functions-reference-fsharp.md#folder-structure)
 * [Java](../articles/azure-functions/functions-reference-java.md#folder-structure)
-* [JavaScript](../articles/azure-functions/functions-reference-node.md#folder-structure)
+* [JavaScript](../articles/azure-functions/functions-reference-node.md?tabs=javascript#folder-structure)
+* [TypeScript](../articles/azure-functions/functions-reference-node.md?tabs=typescript#folder-structure)
+* [PowerShell](../articles/azure-functions/functions-reference-powershell.md#folder-structure)
 * [Python](../articles/azure-functions/functions-reference-python.md#folder-structure)
 
 In version 2.x and higher of the Functions runtime, all functions in the function app must share the same language stack. 

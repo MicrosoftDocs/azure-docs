@@ -1,5 +1,5 @@
 ---
-title: Verify throughput and latency metrics for a storage account in the Azure portal | Microsoft Docs 
+title: Verify throughput and latency metrics for a storage account in the Azure portal 
 description: Learn how to verify throughput and latency metrics for a storage account in the portal.
 author: roygara
 ms.service: storage
@@ -16,10 +16,10 @@ This tutorial is part four and the final part of a series. In the previous tutor
 In part four of the series, you learn how to:
 
 > [!div class="checklist"]
-> * Configure charts in the Azure portal
-> * Verify throughput and latency metrics
+> - Configure charts in the Azure portal
+> - Verify throughput and latency metrics
 
-[Azure storage metrics](./monitor-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) uses Azure monitor to provide a unified view into the performance and availability of your storage account.
+[Azure storage metrics](./monitor-blob-storage.md?toc=/azure/storage/blobs/toc.json) uses Azure monitor to provide a unified view into the performance and availability of your storage account.
 
 ## Configure metrics
 
@@ -47,7 +47,7 @@ Charts can have more than one metric assigned to them, but assigning more than o
 
 ## Dimensions
 
-[Dimensions](./monitor-blob-storage-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#metrics-dimensions) are used to look deeper into the charts and get more detailed information. Different metrics have different dimensions. One dimension that is available is the **API name** dimension. This dimension breaks out the chart into each separate API call. The first image below shows an example chart of total transactions for a storage account. The second image shows the same chart but with the API name dimension selected. As you can see, each transaction is listed giving more details into how many calls were made by API name.
+[Dimensions](./monitor-blob-storage-reference.md?toc=/azure/storage/blobs/toc.json#metrics-dimensions) are used to look deeper into the charts and get more detailed information. Different metrics have different dimensions. One dimension that is available is the **API name** dimension. This dimension breaks out the chart into each separate API call. The first image below shows an example chart of total transactions for a storage account. The second image shows the same chart but with the API name dimension selected. As you can see, each transaction is listed giving more details into how many calls were made by API name.
 
 ![Storage account metrics - transactions without a dimension](./media/storage-blob-scalable-app-verify-metrics/transactionsnodimensions.png)
 
@@ -62,8 +62,8 @@ When no longer needed, delete the resource group, virtual machine, and all relat
 In part four of the series, you learned about viewing metrics for the example solution, such as how to:
 
 > [!div class="checklist"]
-> * Configure charts in the Azure portal
-> * Verify throughput and latency metrics
+> - Configure charts in the Azure portal
+> - Verify throughput and latency metrics
 
 Follow this link to see pre-built storage samples.
 

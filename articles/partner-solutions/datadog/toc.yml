@@ -1,0 +1,33 @@
+items:
+- name: Datadog - An Azure Native ISV Service
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Datadog - An Azure Native ISV Service?
+    href: overview.md
+    displayName: Datadog, Monitoring
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create new Datadog org
+    href: create.md
+  - name: Link to an existing Datadog org
+    href: link-to-existing-organization.md
+- name: How to
+  items:
+  - name: Configure pre-deployment
+    href: prerequisites.md
+  - name: Manage
+    href: manage.md
+  - name: Troubleshoot
+    items:
+    - name: Get support
+      href: get-support.md
+    - name: Fix common errors
+      href: troubleshoot.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/datadog
+  - name: REST API
+    href: /rest/api/datadog

@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Configure front-end frameworks and libraries with Azure Static Web Apps
 
-The Azure Static Web Apps requires that you have the appropriate configuration values in the [build configuration file](github-actions-workflow.md) for your front-end framework or library.
+The Azure Static Web Apps requires that you have the appropriate configuration values in the [build configuration file](build-configuration.md) for your front-end framework or library.
 
 ## Configuration
 
@@ -19,15 +19,16 @@ The following table lists the settings for a series of frameworks and libraries<
 
 The intent of the table columns is explained by the following items:
 
-- **Output location**: Lists the value for `output_location`, which is the [folder for built versions of application files](github-actions-workflow.md#build-and-deploy).
+- **App artifact location (output location)**: Lists the value for `output_location`, which is the [folder for built versions of application files](build-configuration.md).
 
-- **Custom build command**: When the framework requires  a command different from `npm run build` or `npm run azure:build`, you can define a [custom build command](github-actions-workflow.md#custom-build-commands).
+- **Custom build command**: When the framework requires  a command different from `npm run build` or `npm run azure:build`, you can define a [custom build command](build-configuration.md#custom-build-commands).
 
 | Framework | App artifact location | Custom build command |
 |--|--|--|
 | [Alpine.js](https://github.com/alpinejs/alpine/) | `/` | n/a <sup>2</sup> |
-| [Angular](https://angular.io/) | `dist/<APP_NAME>` | `npm run build -- --prod` |
+| [Angular](https://angular.io/) | `dist/<APP_NAME>` <br><br>If you do not include an `<APP_NAME>`, remove the trailing slash. | `npm run build -- --configuration production` |
 | [Angular Universal](https://angular.io/guide/universal) | `dist/<APP_NAME>/browser` | `npm run prerender` |
+| [Astro](https://astro.build) | `dist` | n/a |
 | [Aurelia](https://aurelia.io/) | `dist` | n/a |
 | [Backbone.js](https://backbonejs.org/) | `/` | n/a |
 | [Blazor](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor) | `wwwroot` | n/a |
@@ -36,6 +37,7 @@ The intent of the table columns is explained by the following items:
 | [Framework7](https://framework7.io/) | `www` | `npm run build-prod` |
 | [Glimmer](https://glimmerjs.com/) | `dist` | n/a |
 | [HTML](https://developer.mozilla.org/docs/Web/HTML) | `/` | n/a |
+| [Hugo](https://gohugo.io/) | `public` | n/a |
 | [Hyperapp](https://hyperapp.dev/) | `/` | n/a |
 | [JavaScript](https://developer.mozilla.org/docs/Web/javascript) | `/` | n/a |
 | [jQuery](https://jquery.com/) | `/` | n/a |
@@ -44,10 +46,12 @@ The intent of the table columns is explained by the following items:
 | [Marko](https://markojs.com/) | `public` | n/a |
 | [Meteor](https://www.meteor.com/) | `bundle` | n/a |
 | [Mithril](https://mithril.js.org/) | `dist` | n/a |
+| [Next.js](https://nextjs.org/) (Static HTML Export) | `out` | n/a |
+| [Next.js](https://nextjs.org/) (Server-Side Rendering/Incremental Server Rendering) | n/a | n/a |
 | [Polymer](https://www.polymer-project.org/) | `build/default` | n/a |
 | [Preact](https://preactjs.com/) | `build` | n/a |
 | [React](https://reactjs.org/) | `build` | n/a |
-| [RedwoodJS](https://redwoodjs.com/) | `web/dist` | `yarn rw build` |
+| [RedwoodJS](https://redwoodjs.com/) | `web/dist` | `yarn rw build web` |
 | [Stencil](https://stenciljs.com/) | `www` | n/a |
 | [Svelte](https://svelte.dev/) | `public` | n/a |
 | [Three.js](https://threejs.org/) | `/` | n/a |
@@ -60,4 +64,4 @@ The intent of the table columns is explained by the following items:
 
 ## Next steps
 
-- [Build and workflow configuration](github-actions-workflow.md)
+- [Build and workflow configuration](build-configuration.md)

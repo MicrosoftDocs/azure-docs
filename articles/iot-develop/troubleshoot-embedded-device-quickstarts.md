@@ -1,11 +1,12 @@
 ---
 title: Troubleshooting the Azure RTOS embedded device quickstarts
 description: Steps to help you troubleshoot common issues when using the Azure RTOS embedded device quickstarts
-author: JimacoMS4
-ms.author: v-jbrannian
+author: timlt
+ms.author: timlt
 ms.service: iot-develop
 ms.topic: troubleshooting
-ms.date: 06/10/2021
+ms.date: 10/07/2022
+ms.custom: engagement-fy23
 ---
 
 # Troubleshooting the Azure RTOS embedded device quickstarts
@@ -37,7 +38,7 @@ This issue can occur when you attempt to build the project. It's the result of t
 
 ### Description
 
-The issue can occur because the path to an object file exceeds the default maximum path length in Windows. Examine the build output for a message similar to the following:
+The issue can occur because the path to an object file exceeds the default maximum path length in Windows. Examine the build output for a message similar to the following example:
 
 ```output
 -- Configuring done
@@ -62,13 +63,13 @@ CMake Warning in C:/embedded quickstarts/areallyreallyreallylongpath/getting-sta
 
 You can try one of the following options to resolve this error:
 * Clone the repository into a directory with a shorter path and try again.
-* Follow the instructions in [Maximum Path Length Limitation](/windows/win32/fileio/maximum-file-path-limitation) to enable long paths in Windows 10, version 1607 and later.
+* Follow the instructions in [Maximum Path Length Limitation](/windows/win32/fileio/maximum-file-path-limitation) to enable long paths in Windows 11 and Windows 10, version 1607 and later.
 
 ## Issue: Device can't connect to Iot hub
 
 ### Description
 
-The issue can occur after you've created Azure resources, and flashed your device. When you try to connect your newly flashed device to Azure IoT, you see a console message like the following:
+The issue can occur after you've created Azure resources, and flashed your device. When you try to connect your newly flashed device to Azure IoT, you see a console message like the following example:
 
 ```output
 Unable to resolve DNS for MQTT Server
@@ -82,7 +83,7 @@ Unable to resolve DNS for MQTT Server
 
 ### Description
 
-After you flash a device that uses a Wi-Fi connection and try to connect to your Wi-Fi network, you get an error message that Wi-Fi is unable to connect.
+After you flash a device that uses a Wi-Fi connection, you get an error message that Wi-Fi is unable to connect.
 
 ### Resolution
 
@@ -93,7 +94,7 @@ After you flash a device that uses a Wi-Fi connection and try to connect to your
 
 ### Description
 
-You can't complete the process of flashing your device. You'll know this if you experience any of the following symptoms:
+You can't complete the process of flashing your device. The following symptoms indicate that flashing is incomplete:
 
 * The **.bin* image file that you built doesn't copy to the device.
 * The utility that you're using to flash the device gives a warning or error.
@@ -110,7 +111,7 @@ You can't complete the process of flashing your device. You'll know this if you 
 
 ### Description
 
-After you flash your device and connect it to your computer, you get a message like the following in your terminal software:
+After you flash your device and connect it to your computer, you get output like the following message in your terminal software:
 
 ```output
 Failed to initialize the port.
@@ -148,7 +149,7 @@ After you flash your device successfully and connect it to your computer, you se
 
 ### Description
 
-After you flash your device and connect it to your computer, you get a repeated message like the following in your terminal window:
+After you flash your device and connect it to your computer, you get output like the following message in your terminal window:
 
 ```output
 Failed to publish temperature
@@ -157,6 +158,16 @@ Failed to publish temperature
 ### Resolution
 
 * Confirm that the *Pricing and scale tier* is one of *Free* or *Standard*. **Basic is not supported** as it doesn't support cloud-to-device and device twin communication.
+
+## Issue: Extra messages sent when connecting to IoT Central or IoT Hub
+
+### Description
+
+Because [Defender for IoT module](../defender-for-iot/device-builders/iot-security-azure-rtos.md) is enabled by default from the device end, you might observe extra messages in the output.
+
+### Resolution
+
+* To disable it, define `NX_AZURE_DISABLE_IOT_SECURITY_MODULE` in the NetX Duo header file `nx_port.h`.
 
 ## Next steps
 

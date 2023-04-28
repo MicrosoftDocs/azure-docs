@@ -52,7 +52,7 @@ In this tutorial, you prepare a development environment you can use to clone and
 
 Open a command prompt in the directory of your choice. Execute the following command to clone the [Azure IoT C SDKs and Libraries](https://github.com/Azure/azure-iot-sdk-c) GitHub repository into this location:
 
-```cmd\bash
+```cmd/sh
 git clone https://github.com/Azure/azure-iot-sdk-c.git
 cd azure-iot-sdk-c
 git submodule update --init
@@ -68,7 +68,7 @@ When you run the sample to connect to IoT Central, it uses the Device Provisioni
 
 In *pnp_temperature_controller.c*, the `main` function first calls `CreateDeviceClientAndAllocateComponents` to:
 
-* Set the `dtmi:com:example:Thermostat;1` model ID. IoT Central uses the model ID to identify or generate the device template for this device. To learn more, see [Associate a device with a device template](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template).
+* Set the `dtmi:com:example:Thermostat;1` model ID. IoT Central uses the model ID to identify or generate the device template for this device. To learn more, see [Assign a device to a device template](../articles/iot-central/core/concepts-device-templates.md#assign-a-device-to-a-device-template).
 * Use DPS to provision and register the device.
 * Create a device client handle, and connect to your IoT Central application.
 * Creates a handler for commands in the temperature controller component.
@@ -274,9 +274,9 @@ int PnP_ThermostatComponent_ProcessCommand(PNP_THERMOSTAT_COMPONENT_HANDLE pnpTh
 
 You use the device SDK to build the included sample code:
 
-1. Create a _cmake_ subdirectory in the root folder of the device SDK, and navigate to that folder:
+1. Create a *cmake* subdirectory in the root folder of the device SDK, and navigate to that folder:
 
-    ```cmd\bash
+    ```cmd/sh
     cd azure-iot-sdk-c
     mkdir cmake
     cd cmake
@@ -284,7 +284,7 @@ You use the device SDK to build the included sample code:
 
 1. Run the following commands to build the SDK and samples:
 
-    ```cmd\bash
+    ```cmd/sh
     cmake -Duse_prov_client=ON -Dhsm_type_symm_key=ON -Drun_e2e_tests=OFF ..
     cmake --build .
     ```

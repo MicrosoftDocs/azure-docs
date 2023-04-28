@@ -2,17 +2,14 @@
 title: Troubleshoot Azure Load Balancer health probe status
 description: Learn how to troubleshoot known issues with Azure Load Balancer health probe status.
 services: load-balancer
-documentationcenter: na
-author: asudbring
+author: mbender-ms
 manager: dcscontentpm
-ms.custom: seodoc18
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/02/2020
-ms.author: allensu
+ms.author: mbender
+ms.custom: seodoc18
 ---
 
 # Troubleshoot Azure Load Balancer health probe status
@@ -24,7 +21,7 @@ For the backend servers to participate in the load balancer set, they must pass 
 
 The Load Balancer backend pool VMs may not be responding to the probes due to any of the following reasons: 
 - Load Balancer backend pool VM is unhealthy 
-- Load Balancer backend pool VM is not listening on the probe port 
+- Load Balancer backend pool VM isn't listening on the probe port
 - Firewall, or a network security group is blocking the port on the Load Balancer backend pool VMs 
 - Other misconfigurations in Load Balancer
 
@@ -51,6 +48,10 @@ If the firewall on the VM is blocking the probe port, or one or more network sec
 **Validation and resolution**
 
 1. If the firewall is enabled, check if it is configured to allow the probe port. If not, configure the firewall to allow traffic on the probe port, and test again.
+- Check to make sure your VM firewall is not blocking probe traffic originating from IP address `168.63.129.16`
+- You can check listening ports by running `netstat -a` from a Windows command prompt or `netstat -l` from a Linux terminal
+- You can query your firewall profiles to check whether your policies are blocking incoming traffic by running `netsh advfirewall show allprofiles | more` from a Windows commands prompt or `sudo iptables -L` from a Linux terminal to see all configured firewall rules.
+- More details on troubleshooting firewall issues for Azure VMs, see [Azure VM Guest OS firewall is blocking inbound traffic](/troubleshoot/azure/virtual-machines/guest-os-firewall-blocking-inbound-traffic).
 2. From the list of network security groups, check if the incoming or outgoing traffic on the probe port has interference.
 3. Also, check if a **Deny All** network security groups rule on the NIC of the VM or the subnet that has a higher priority than the default rule that allows LB probes & traffic (network security groups must allow Load Balancer IP of 168.63.129.16).
 4. If any of these rules are blocking the probe traffic, remove and reconfigure the rules to allow the probe traffic.  

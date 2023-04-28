@@ -5,6 +5,8 @@ ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 11/12/2019
 ms.custom: MVC
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 
 ---
 # Run a disaster recovery drill to Azure

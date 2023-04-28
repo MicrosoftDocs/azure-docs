@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Corptax | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Corptax'
 description: Learn how to configure single sign-on between Azure Active Directory and Corptax.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/02/2019
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Corptax
@@ -167,7 +167,7 @@ When you click the Corptax tile in the Access Panel, you should be redirected to
 
 ![image](media/corptax-tutorial/corptaxlogin.png)
 
-In **Environment** text box, type your appropriate environment, you should be automatically signed in to the Corptax for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+In **Environment** text box, type your appropriate environment, you should be automatically signed in to the Corptax for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional Resources
 

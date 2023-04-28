@@ -1,0 +1,114 @@
+### YamlMime:Landing
+
+title: Azure Synapse Analytics migration guides  # < 60 chars
+summary: Azure Synapse migration guides tell the story of bringing existing enterprise analytics solutions to the limitless analytics in Azure Synapse. # < 160 chars
+metadata:
+  title: Azure Synapse Analytics Migration Guides
+  description: Azure Synapse migration guides tell the story of bringing existing enterprise analytics solutions to the limitless analytics in Azure Synapse.
+  ms.service: synapse-analytics
+  ms.subservice: overview 
+  ms.topic: landing-page
+  ms.collection: collection
+  author: WilliamDAssafMSFT
+  ms.author: wiassaf
+  ms.date: 08/09/2022
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: Overview
+    linkLists: 
+      - linkListType: overview
+        links: 
+          - text: What is Azure Synapse Analytics?
+            url: ../overview-what-is.md
+          - text: Get Started with Azure Synapse Analytics
+            url: ../get-started.md
+          - text: What is dedicated SQL pool (formerly SQL DW)?
+            url: ../sql-data-warehouse/sql-data-warehouse-overview-what-is.md
+          - text: Benefits of cloud migration
+            url: https://azure.microsoft.com/overview/cloud-migration-benefits-challenges
+          - text: Migrate a data warehouse to a dedicated SQL pool
+            url: migrate-to-synapse-analytics-guide.md
+          - text: Enable Synapse workspace features for a dedicated SQL pool (formerly SQL DW)
+            url: ../sql-data-warehouse/workspace-connected-create.md
+  - title: Migration resources
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Azure Synapse Resources
+            url: ../index.yml
+          - text: Azure Synapse SQL architecture
+            url: ../sql/overview-architecture.md
+          - text: Cloud Adoption Framework guidance
+            url: /azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/analytics-solutions-overview
+      - linkListType: reference
+        links: 
+          - text: "Customer story: Co-op"
+            url: https://customers.microsoft.com/story/845578-co-op-retailers-azure
+          - text: "Customer story: Neogrid"
+            url: https://customers.microsoft.com/en-GB/story/816187-neogrid-professional-services-azure-synapse-analytics
+  - title: From IBM Netezza
+    linkLists: 
+      - linkListType: overview
+        links: 
+          - text: 1. Design and performance for IBM Netezza migrations
+            url: netezza/1-design-performance-migration.md
+          - text: 2. ETL and load migration considerations
+            url: netezza/2-etl-load-migration-considerations.md     
+          - text: 3. Security access operations
+            url: netezza/3-security-access-operations.md
+          - text: 4. Visualization and reporting
+            url: netezza/4-visualization-reporting.md
+          - text: 5. Minimize SQL issues
+            url: netezza/5-minimize-sql-issues.md
+          - text: 6. Microsoft and third-party migration tools
+            url: netezza/6-microsoft-third-party-migration-tools.md
+          - text: 7. Beyond migration implementation 
+            url: netezza/7-beyond-data-warehouse-migration.md
+          - text: "Cloud adoption framework: Migration solutions"
+            url: /azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/analytics-solutions-netezza
+  - title: From Teradata
+    linkLists: 
+      - linkListType: overview
+        links: 
+          - text: 1. Design and performance for Teradata migrations
+            url: teradata/1-design-performance-migration.md
+          - text: 2. ETL and load migration considerations
+            url: teradata/2-etl-load-migration-considerations.md     
+          - text: 3. Security access operations
+            url: teradata/3-security-access-operations.md
+          - text: 4. Visualization and reporting
+            url: teradata/4-visualization-reporting.md
+          - text: 5. Minimize SQL issues
+            url: teradata/5-minimize-sql-issues.md
+          - text: 6. Microsoft and third-party migration tools
+            url: teradata/6-microsoft-third-party-migration-tools.md
+          - text: 7. Beyond migration implementation 
+            url: teradata/7-beyond-data-warehouse-migration.md
+          - text: "Cloud adoption framework: Migration solutions"
+            url: /azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/analytics-solutions-teradata            
+  - title: From Oracle
+    linkLists: 
+      - linkListType: overview
+        links: 
+          - text: 1. Design and performance for Oracle migrations
+            url: oracle/1-design-performance-migration.md
+          - text: 2. ETL and load migration considerations
+            url: oracle/2-etl-load-migration-considerations.md     
+          - text: 3. Security access operations
+            url: oracle/3-security-access-operations.md
+          - text: 4. Visualization and reporting
+            url: oracle/4-visualization-reporting.md
+          - text: 5. Minimize SQL issues
+            url: oracle/5-minimize-sql-issues.md
+          - text: 6. Microsoft and third-party migration tools
+            url: oracle/6-microsoft-third-party-migration-tools.md
+          - text: 7. Beyond migration implementation 
+            url: oracle/7-beyond-data-warehouse-migration.md
+          - text: "Cloud adoption framework: Migration solutions"
+            url: /azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/analytics-solutions-exadata            
+

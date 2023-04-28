@@ -3,14 +3,14 @@ title: Overview of Azure Active Directory role-based access control (RBAC)
 description: Learn how to understand the parts of a role assignment and restricted scope in Azure Active Directory.
 services: active-directory
 author: rolyon
-manager: daveba
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: overview
-ms.date: 11/20/2020
+ms.date: 04/10/2023
 ms.author: rolyon
-ms.reviewer: vincesm
+ms.reviewer: abhijeetsinha
 ms.custom: it-pro
 
 ms.collection: M365-identity-device-management
@@ -18,15 +18,17 @@ ms.collection: M365-identity-device-management
 
 # Overview of role-based access control in Azure Active Directory
 
-This article describes how to understand Azure Active Directory (Azure AD) role-based access control. Azure AD roles allow you to grant granular permissions to your admins, abiding by the principle of least privilege. Azure AD built-in and custom roles operate on concepts similar to those you will find in [the role-based access control system for Azure resources](../../role-based-access-control/overview.md) (Azure roles). The [difference between these two role-based access control systems](../../role-based-access-control/rbac-and-directory-admin-roles.md) is:
+This article describes how to understand Azure Active Directory (Azure AD) role-based access control. Azure AD roles allow you to grant granular permissions to your admins, abiding by the principle of least privilege. Azure AD built-in and custom roles operate on concepts similar to those you find in [the role-based access control system for Azure resources](../../role-based-access-control/overview.md) (Azure roles). The [difference between these two role-based access control systems](../../role-based-access-control/rbac-and-directory-admin-roles.md) is:
 
-- Azure AD roles control access to Azure AD resources such as users, groups, and applications using Graph API
+- Azure AD roles control access to Azure AD resources such as users, groups, and applications using the Microsoft Graph API
 - Azure roles control access to Azure resources such as virtual machines or storage using Azure Resource Management
 
 Both systems contain similarly used role definitions and role assignments. However, Azure AD role permissions can't be used in Azure custom roles and vice versa.
 
 ## Understand Azure AD role-based access control
-Azure AD supports 2 types of roles definitions:
+
+Azure AD supports two types of roles definitions:
+
 * [Built-in roles](./permissions-reference.md)
 * [Custom roles](./custom-create.md)
 
@@ -38,33 +40,33 @@ Once you’ve created your custom role definition (or using a built-in role), yo
 
 The following are the high-level steps that Azure AD uses to determine if you have access to a management resource. Use this information to troubleshoot access issues.
 
-1. A user (or service principal) acquires a token to the Microsoft Graph or Azure AD Graph endpoint.
-1. The user makes an API call to Azure Active Directory (Azure AD) via Microsoft Graph or Azure AD Graph using the issued token.
+1. A user (or service principal) acquires a token to the Microsoft Graph endpoint.
+1. The user makes an API call to Azure Active Directory (Azure AD) via Microsoft Graph using the issued token.
 1. Depending on the circumstance, Azure AD takes one of the following actions:
-   - Evaluates the user’s role memberships based on the [wids claim](../../active-directory-b2c/access-tokens.md) in the user’s access token.
+   - Evaluates the user’s role memberships based on the [wids claim](../develop/access-tokens.md) in the user’s access token.
    - Retrieves all the role assignments that apply for the user, either directly or via group membership, to the resource on which the action is being taken.
 1. Azure AD determines if the action in the API call is included in the roles the user has for this resource.
 1. If the user doesn't have a role with the action at the requested scope, access is not granted. Otherwise access is granted.
 
 ## Role assignment
 
-A role assignment is an Azure AD resource that attaches a *role definition* to a *user* at a particular *scope* to grant access to Azure AD resources. Access is granted by creating a role assignment, and access is revoked by removing a role assignment. At its core, a role assignment consists of three elements:
+A role assignment is an Azure AD resource that attaches a *role definition* to a *security principal* at a particular *scope* to grant access to Azure AD resources. Access is granted by creating a role assignment, and access is revoked by removing a role assignment. At its core, a role assignment consists of three elements:
 
-- Azure AD user
-- Role definition
-- Resource scope
+- Security principal - An identity that gets the permissions. It could be a user, group, or a service principal. 
+- Role definition - A collection of permissions. 
+- Scope - A way to constrain where those permissions are applicable.
 
-You can [create role assignments](custom-create.md) using the Azure portal, Azure AD PowerShell, or Graph API. You can also [list the role assignments](view-assignments.md).
+You can [create role assignments](manage-roles-portal.md) and [list the role assignments](view-assignments.md) using the Azure portal, Azure AD PowerShell, or Microsoft Graph API. Azure CLI is not supported for Azure AD role assignments.
 
-The following diagram shows an example of a role assignment. In this example, Chris Green has been assigned the App registration administrator custom role at the scope of the Contoso Widget Builder app registration. The assignment grants Chris the permissions of the App registration administrator role for only this specific app registration.
+The following diagram shows an example of a role assignment. In this example, Chris has been assigned the App Registration Administrator custom role at the scope of the Contoso Widget Builder app registration. The assignment grants Chris the permissions of the App Registration Administrator role for only this specific app registration.
 
-![Role assignment is how permissions are enforced and has three parts](./media/custom-overview/rbac-overview.png)
+![Role assignment is how permissions are enforced and has three parts.](./media/custom-overview/rbac-overview.png)
 
 ### Security principal
 
-A security principal represents the user that is to be assigned access to Azure AD resources. A user is an individual who has a user profile in Azure Active Directory.
+A security principal represents a user, group, or service principal that is assigned access to Azure AD resources. A user is an individual who has a user profile in Azure Active Directory. A group is a new Microsoft 365 or security group that has been set as a [role-assignable group](groups-concept.md). A service principal is an identity created for use with applications, hosted services, and automated tools to access Azure AD resources.
 
-### Role
+### Role definition
 
 A role definition, or role, is a collection of permissions. A role definition lists the operations that can be performed on Azure AD resources, such as create, read, update, and delete. There are two types of roles in Azure AD:
 
@@ -73,14 +75,36 @@ A role definition, or role, is a collection of permissions. A role definition li
 
 ### Scope
 
-A scope is the restriction of permitted actions to a particular Azure AD resource as part of a role assignment. When you assign a role, you can specify a scope that limits the administrator's access to a specific resource. For example, if you want to grant a developer a custom role, but only to manage a specific application registration, you can include the specific application registration as a scope in the role assignment.
+A scope is a way to limit the permitted actions to a particular set of resources as part of a role assignment. For example, if you want to assign a custom role to a developer, but only to manage a specific application registration, you can include the specific application registration as a scope in the role assignment.
+
+When you assign a role, you specify one of the following types of scope:
+
+- Tenant
+- [Administrative unit](administrative-units.md)
+- Azure AD resource
+
+If you specify an Azure AD resource as a scope, it can be one of the following:
+
+- Azure AD groups
+- Enterprise applications
+- Application registrations
+
+For more information, see [Assign Azure AD roles at different scopes](assign-roles-different-scopes.md).
+
+## Role assignment options
+
+Azure AD provides multiple options for assigning roles:
+
+- You can assign roles to users directly, which is the default way to assign roles. Both built-in and custom Azure AD roles can be assigned to users, based on access requirements. For more information, see [Assign Azure AD roles to users](manage-roles-portal.md).
+- With Azure AD Premium P1, you can create role-assignable groups and assign roles to these groups. Assigning roles to a group instead of individuals allows for easy addition or removal of users from a role and creates consistent permissions for all members of the group. For more information, see [Assign Azure AD roles to groups](groups-assign-role.md).
+- With Azure AD Premium P2, you can use Azure AD Privileged Identity Management (Azure AD PIM) to provide just-in-time access to roles. This feature allows you to grant time-limited access to a role to users who require it, rather than granting permanent access. It also provides detailed reporting and auditing capabilities. For more information, see [Assign Azure AD roles in Privileged Identity Management](../privileged-identity-management/pim-how-to-add-role-to-user.md).
 
 ## License requirements
 
-Using built-in roles in Azure AD is free, while custom roles requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+Using built-in roles in Azure AD is free. Using custom roles require an Azure AD Premium P1 license for every user with a custom role assignment. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## Next steps
 
 - [Understand Azure AD roles](concept-understand-roles.md)
-- Create custom role assignments using [the Azure portal, Azure AD PowerShell, and Graph API](custom-create.md)
-- [List role assignments](view-assignments.md)
+- [Assign Azure AD roles to users](manage-roles-portal.md)
+- [Create and assign a custom role](custom-create.md)

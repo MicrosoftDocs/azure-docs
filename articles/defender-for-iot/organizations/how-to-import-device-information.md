@@ -1,186 +1,91 @@
 ---
-title: Import device information
-description: Defender for IoT sensors monitor and analyze mirrored traffic. In these cases, you might want to import data to enrich information on devices already detected.
-ms.date: 12/06/2020
+title: Import extra data for detected OT devices - Microsoft Defender for IoT
+description: Learn how to manually enhance the device data automatically detected by your Microsoft Defender for IoT OT sensor with extra, imported data.
+ms.date: 01/24/2023
 ms.topic: how-to
 ---
 
-# Import device information to a sensor
+# Import extra data for detected OT devices
 
-An Azure Defender for IoT sensor monitors and analyzes mirrored traffic. In some cases, because of organization-specific network configuration policies, some information might not be transmitted.
+OT networks sensors automatically monitor and analyze detected device traffic. In some cases, your organization's network policies may prevent some device data from being ingested to Microsoft Defender for IoT.
 
-In these cases, you might want to import data to enrich information on devices that are already detected. Two options are available for importing information to sensors:
+This article describes how you can manually import the missing data to your OT sensor and add it to the device data already detected.
 
-- **Import from the Map**: Update the device name, type, group, or Purdue layer to the map.
+## Prerequisites
 
-- **Import from Import Settings**: Import device OS, IP address, patch level, or authorization status.
+Before performing the procedures in this article, you must have:
 
-## Import from the map
+- An OT network sensor [installed](ot-deploy/install-software-ot-sensor.md), [activated, and configured](ot-deploy/activate-deploy-sensor.md), with device data ingested.
 
-This section describes how to import device names, types, groups, or Purdue layers to the device map. You do this from the map.
+- Access to your OT network sensor as an **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
-Here are the import requirements:
+- An understanding of the extra device data you want to import. Use that understanding to choose one of the following import methods:
 
-- **Names**: Can be up to 30 characters.
+    - **Import data from the device map** to import device names, types, groups, or Purdue layer
+    - **Import data from system settings** to import device IP addresses, operating systems, patch levels, or authorization statuses
 
-- **Type** or **Purdue Layer**: Use the options that appear in the **Device Properties** dialog box. (Right-click the device and select **View Properties**.)
+> [!TIP]
+> A device's authorization status affects the alerts that are triggered by the OT sensor for the selected device. You'll receive alerts for any devices *not* listed as authorized devices, as they'll be considered to be unauthorized.
 
-- **Device Group**: Create a new group of up to 30 characters. 
+## Import data from the OT sensor device map
 
-> [!NOTE]
-> To avoid conflicts, don't import the data that you exported from one sensor to another sensor.
+**To import device names, types, groups, or Purdue layers**:
 
-To import:
+1. Sign into your OT sensor and select **Device map** > **Export Devices** to export the device data already detected by your OT sensor.
 
-1. On the side menu, select **Devices**.
+1. Open the downloaded .CSV file for editing and modify *only* the following data, as needed:
 
-2. In the upper-right corner of the **Devices** window, select :::image type="icon" source="media/how-to-import-device-information/file-icon.png" border="false":::.
+    - **Name**. Maximum length: 30 characters
+    - **Type**. Access the Defender for IoT [device settings file](https://download.microsoft.com/download/8/2/3/823c55c4-7659-4236-bfda-cc2427be2cee/CSS/devices_info_2.2.8%20and%20up.xlsx) and use one of the options listed in the **Devices type** tab
+    - **Group**. Maximum length: 30 characters
+    - **Purdue layer**. Enter one of the following: **Enterprise**, **Supervisory**, or **Process Control**
 
-   :::image type="content" source="media/how-to-import-device-information/device-window-v2.png" alt-text="Screenshot of the device window.":::
+    Make sure to use capitalization standards already in use in the downloaded file. For example, in the **Purdue Layer** column, use *Title Caps*.
 
-3. Select **Export Devices**. An extensive range of information appears in the exported file. This information includes protocols that the device uses and the device authorization status.
+    > [!IMPORTANT]
+    > Make sure that you don't import data to your OT sensor that you've exported from a different sensor.
 
-   :::image type="content" source="media/how-to-import-device-information/sample-exported-file.png" alt-text="The information in the exported file.":::
+1. When you're done, save your file to a location accessible from your OT sensor.
 
-4. In the CSV file, change only the device name, type, group, and Purdue layer. Then save the file. 
+1. On your OT sensor, in the **Device map** page, select **Import Devices** and select your modified .CSV file.
 
-   Use capitalization standards shown in the exported file. For example, for the Purdue layer, use all first-letter capitalization.
+Your device data is updated.
 
-5. From the **Import/Export** drop-down menu in the **Device** window, select **Import Devices**.
+## Import data from the OT sensor system settings
 
-   :::image type="content" source="media/how-to-import-device-information/import-assets-v2.png" alt-text="Import devices through the device window.":::
+**To import device IP addresses, operating systems, or patch levels**:
 
-6. Select **Import Devices** and select the CSV file that you want to import. The import status messages appear on the screen until the **Import Devices** dialog box closes.
+1. Download the Defender for IoT [device settings file](https://download.microsoft.com/download/8/2/3/823c55c4-7659-4236-bfda-cc2427be2cee/CSS/devices_info_2.2.8%20and%20up.xlsx) and open it for editing.
 
-## Import from import settings
+1. In the downloaded file, enter the following details for each device:
 
-This section describes how to import the device IP address, OS, patch level, or authorization status to the device map. You do this from the **Import Settings** dialog box.
+    - **IP Address**. Enter the device's IP address.
+    - **Device Type**. Enter one of the device types listed on the **Devices type** sheet.
+    - **Last Update**. Enter the date that the device was last updated, in `YYYY-MM-DD` format.
 
-To import the IP address, OS, and patch level:
+1. Sign into your OT sensor and select **System settings > Import settings > Device information**.
 
-1. Download the [devices_info_2.2.8 and up.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) file from the [Help Center](https://cyberx-labs.zendesk.com/hc/en-us) and enter the information as follows:
+1. In the **Device information** pane, select **+ Import file** and then select your edited .CSV file.
 
-   - **IP Address**: Enter the device IP address.
+1. Select **Close** to save your changes.
 
-   - **Operating System**: Select from the drop-down list.
+**To import device authorization status**:
 
-   - **Last Update**: Use the YYYY-MM-DD format.
+> [!IMPORTANT]
+> After importing device authorization status, any devices *not* included in the import list are newly defined as not-authorized, and you'll start to receive new alerts about any traffic on each of these devices.
 
-     :::image type="content" source="media/how-to-import-device-information/last-update-screen.png" alt-text="The options screen.":::
+1. Download the Defender for IoT [device authorization file](https://download.microsoft.com/download/8/2/3/823c55c4-7659-4236-bfda-cc2427be2cee/CSS/authorized_devices%20-%20example.csv) and open it for editing.
 
-2. On the side menu, select **Import Settings**.
+1. In the downloaded file, list IP addresses and names for any devices you want to list as authorized devices. 
 
-   :::image type="content" source="media/how-to-import-device-information/import-settings-screen-v2.png" alt-text="Import your settings.":::
+    Make sure that your names are accurate. Names imported from a .CSV file overwrite any names already shown in the OT sensor's device map.
 
-3. To upload the required configuration, in the **Device Info** section, select **Add** and upload the CSV file that you prepared.
+1. Sign into your OT sensor and select **System settings > Import settings > Authorized devices**.
 
-To import the authorization status:
+1. In the **Authorized devices** pane, select **+ Import File** and then select your edited .CSV file.
 
-1. Download and save the [authorized_devices.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) file from the  Defender for IoT help center. Verify that you saved the file as a CSV.
+1. Select **Close** to save your changes.
 
-2. Enter the information as:
+## Next steps
 
-   - **IP Address**: The device IP address.
-
-   - **Name**: The authorized device name. Make sure that names are accurate. Names given to the devices in the imported list overwrite names shown in the device map.
-
-     :::image type="content" source="media/how-to-import-device-information/device-map-file.png" alt-text="Excel files with imported device list.":::
-
-3. On the side menu, select **Import Settings**.
-
-4. In the **Authorized Devices** section, select **Add** and upload the CSV file that you saved.
-
-When the information is imported, you receive alerts about unauthorized devices for all the devices that don't appear on this list.
-
-## Import device information to the sensor
-
-The sensor monitors and analyzes mirrored traffic. In some cases, because of organization-specific network configuration policies, some information might not be transmitted.
-
-In these cases, you might want to import data to enrich device information on devices that are already detected. Two options are available for importing information to sensors:
-
-- **Import from the Map**: Update the device name, type, group, or Purdue layer to the map.
-
-- **Import from Import Settings**: Import device OS, IP address, patch level, or authorization status.
-
-### Import from the map
-
-This section describes how to import device names, types, groups, or Purdue layers to the device map. You do this from the map.
-
-Here are the import requirements:
-
-- **Names**: Can be up to 30 characters.
-
-- **Type** or **Purdue Layer**: Use the options that appear in the **Device Properties** dialog box. (Right-click the device and select **View Properties**.)
-
-- **Device Group**: Create a new group of up to 30 characters. 
-
-> [!NOTE]
-> To avoid conflicts, don't import the data that you exported from one sensor to another sensor.
-
-To import:
-
-1. On the side menu, select **Devices**.
-
-2. In the upper-right corner of the **Devices** window, select :::image type="icon" source="media/how-to-import-device-information/file-icon.png" border="false":::.
-
-   :::image type="content" source="media/how-to-import-device-information/device-window-v2.png" alt-text="The window to pick your device from.":::
-
-3. Select **Export Devices**. An extensive range of information appears in the exported file. Examples include protocols that the device uses and the device authorization status.
-
-   :::image type="content" source="media/how-to-import-device-information/sample-exported-file.png" alt-text="The information in the exported file.":::
-
-4. In the CSV file, only change the device name, type, group, and Purdue layer. Then save the file. 
-
-   Use capitalization standards shown in the exported file. For example, for the Purdue layer, use all first-letter capitalization.
-
-5. From the **Import/Export** drop-down menu in the **device** window, select **Import Devices**.
-
-   :::image type="content" source="media/how-to-import-device-information/import-assets-v2.png" alt-text="Import your devices.":::
-
-6. Select **Import Devices** and select the CSV file that you want to import. The import status messages appear on the screen until the **Import Devices** dialog box closes.
-
-### Import from import settings 
-
-This section describes how to import the device IP address, OS, patch level, or authorization status to the device map. You do this from the **Import Settings** dialog box.
-
-To import the IP address, OS, and patch level:
-
-1. Download the [devices_info_2.2.8 and up.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) file from the [Help Center](https://cyberx-labs.zendesk.com/hc/en-us) and enter the information as follows:
-
-   - **IP Address**: The device IP address.
-
-   - **Operating System**: Select from the drop-down list.
-
-   - **Date of Last Update**: Use the YYYY-MM-DD format.
-
-    :::image type="content" source="media/how-to-import-device-information/last-update-screen.png" alt-text="The content on the screen.":::
-
-2. On the side menu, select **Import Settings**.
-
-   :::image type="content" source="media/how-to-import-device-information/import-settings-screen-v2.png" alt-text="Fill out the import settings screen.":::
-
-3. To upload the required configuration, in the **Device Info** section, select **Add** and upload the CSV file that you've prepared.
-
-To import the authorization status:
-
-1. Download and save the [authorized_devices - examples.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) file from the  Defender for IoT help center. Verify that you saved the file as a CSV.
-
-2. Enter the information as:
-
-   - **IP Address**: The device IP address.
-
-   - **Name**: The authorized device name. Verify that names are accurate. Names given to the devices in the imported list overwrite names shown in the device map.
-
-     :::image type="content" source="media/how-to-import-device-information/device-map-file.png" alt-text="The import list to the device map.":::
-
-3. On the side menu, select **Import Settings**.
-
-4. In the **Authorized Devices** section, select **Add** and upload the CSV file that you saved.
-
-When the information is imported, you receive alerts about unauthorized devices for all the devices that don't appear on this list.
-
-## See also
-
-[Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)
-
-[Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+For more information, see [Detect Windows workstations and servers with a local script](detect-windows-endpoints-script.md) and [Manage your OT device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md).

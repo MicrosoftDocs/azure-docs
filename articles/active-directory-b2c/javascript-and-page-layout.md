@@ -3,15 +3,15 @@ title: JavaScript and page layout versions
 titleSuffix: Azure AD B2C
 description: Learn how to enable JavaScript and use page layout versions in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: garrodonnell
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/07/2021
-ms.custom: project-no-code, devx-track-js
-ms.author: mimart
+ms.date: 10/26/2022
+ms.custom: project-no-code, devx-track-js, engagement-fy23
+ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -20,13 +20,9 @@ zone_pivot_groups: b2c-policy-type
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-::: zone pivot="b2c-custom-policy"
+With Azure Active Directory B2C (Azure AD B2C) [HTML templates](customize-ui-with-html.md), you can craft your users' identity experiences. Your HTML templates can contain only certain HTML tags and attributes. Basic HTML tags, such as &lt;b&gt;, &lt;i&gt;, &lt;u&gt;, &lt;h1&gt;, and &lt;hr&gt; are allowed. More advanced tags such as &lt;script&gt;, and &lt;iframe&gt; are removed for security reasons.
 
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
-
-::: zone-end
-
-Azure AD B2C provides a set of packaged content containing HTML, CSS, and JavaScript for the user interface elements in your user flows and custom policies. To enable JavaScript for your applications:
+To enable JavaScript and advance HTML tags and attributes:
 
 ::: zone pivot="b2c-user-flow"
 
@@ -143,7 +139,7 @@ You enable script execution by adding the **ScriptExecution** element to the [Re
 
 Follow these guidelines when you customize the interface of your application using JavaScript:
 
-- Don't 
+- Don't:
     - bind a click event on `<a>` HTML elements.
     - take a dependency on Azure AD B2C code or comments.
     - change the order or hierarchy of Azure AD B2C HTML elements. Use an Azure AD B2C policy to control the order of the UI elements.
@@ -166,7 +162,7 @@ Follow these guidelines when you customize the interface of your application usi
 
 A common way to help your customers with their sign-up success is to allow them to see what they’ve entered as their password. This option helps users sign up by enabling them to easily see and make corrections to their password if needed. Any field of type password has a checkbox with a **Show password** label.  This enables the user to see the password in plain text. Include this code snippet into your sign-up or sign-in template for a self-asserted page:
 
-```Javascript
+```javascript
 function makePwdToggler(pwd){
   // Create show-password checkbox
   var checkbox = document.createElement('input');
@@ -212,7 +208,7 @@ setupPwdTogglers();
 
 Include the following code into your page where you want to include a **Terms of Use** checkbox. This checkbox is typically needed in your local account sign-up and social account sign-up pages.
 
-```Javascript
+```javascript
 function addTermsOfUseLink() {
     // find the terms of use label element
     var termsOfUseLabel = document.querySelector('#api label[for="termsOfUse"]');
@@ -224,7 +220,7 @@ function addTermsOfUseLink() {
     var termsLabelText = termsOfUseLabel.innerHTML;
 
     // create a new <a> element with the same inner text
-    var termsOfUseUrl = 'https://docs.microsoft.com/legal/termsofuse';
+    var termsOfUseUrl = 'https://learn.microsoft.com/legal/termsofuse';
     var termsOfUseLink = document.createElement('a');
     termsOfUseLink.setAttribute('href', termsOfUseUrl);
     termsOfUseLink.setAttribute('target', '_blank');
@@ -236,6 +232,21 @@ function addTermsOfUseLink() {
 ```
 
 In the code, replace `termsOfUseUrl` with the link to your terms of use agreement. For your directory, create a new user attribute called **termsOfUse** and then include **termsOfUse** as a user attribute.
+
+Alternatively, you can add a link at the bottom of self-asserted pages, without using of JavaScript. Use the following localization:
+
+```xml
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <!-- The following elements will display a link at the bottom of the page. -->
+    <LocalizedString ElementType="UxElement" StringId="disclaimer_link_1_text">Terms of use</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="disclaimer_link_1_url">termsOfUseUrl</LocalizedString>
+    </LocalizedStrings>
+</LocalizedResources>
+```
+
+Replace `termsOfUseUrl` with the link to your organization's privacy policy and terms of use. 
+
 
 ## Next steps
 

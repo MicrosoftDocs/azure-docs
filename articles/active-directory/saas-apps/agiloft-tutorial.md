@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Agiloft Contract Management Suite | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Agiloft Contract Management Suite'
 description: Learn how to configure single sign-on between Azure Active Directory and Agiloft Contract Management Suite.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/03/2021
+ms.date: 02/10/2023
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Agiloft Contract Management Suite
@@ -45,6 +45,8 @@ To configure the integration of Agiloft Contract Management Suite into Azure AD,
 1. In the **Add from the gallery** section, type **Agiloft Contract Management Suite** in the search box.
 1. Select **Agiloft Contract Management Suite** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Agiloft Contract Management Suite
 
 Configure and test Azure AD SSO with Agiloft Contract Management Suite using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Agiloft Contract Management Suite.
@@ -76,13 +78,18 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.agiloft.com:443/gui2/spsamlsso?project=<KB_NAME>`
 
+    > [!NOTE]
+    > The Identifier value should match the entry in the Agiloft SAML Configuration Entity ID field. That field in Agiloft may need to be updated as follows:
+    > 1. Add https:// to the beginning.
+    > 1. If there are any spaces in the URL, replace each one with an underscore (_).
+
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.agiloft.com/gui2/samlssologin.jsp?project=<KB_NAME>`
+    `https://<SUBDOMAIN>.agiloft.com:443/gui2/samlssologin.jsp?project=<KB_NAME>`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Agiloft Contract Management Suite Client support team](https://www.agiloft.com/support-login.htm) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Agiloft Contract Management Suite Client support team](https://www.agiloft.com/support-login.htm) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -120,15 +127,20 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In a different web browser window, log in to your Agiloft Contract Management Suite company site as an administrator.
 
-2. Click on **Setup** (on the Left Pane) and then select **Access**.
+2. Click on the **Settings** icon at the top right corner of the page.
 
-    ![Screenshot that highlights the Access section.](./media/agiloft-tutorial/access.png)
+    ![Screenshot highlighting the Setup icon.](./media/agiloft-tutorial/settings.png)
 
-3. Click on the button **Configure SAML 2.0 Single Sign-On**.
+3. Select **Access**.
+
+    ![Screenshot highlighting the Access area](./media/agiloft-tutorial/access.png)
+
+
+4. Click on the button **Configure SAML 2.0 Single Sign-On**.
 
     ![Screenshot that highlights the Configure SAML 2.0 Single Sign-On button.](./media/agiloft-tutorial/setup.png)
 
-4. A wizard dialog appears. On the dialog, click on the **Identity Provider Details** and fill in the following fields:  
+5. A wizard dialog appears. On the dialog, click on the **Identity Provider Details** and fill in the following fields:  
 
     ![Agiloft Contract Management Suite Configuration](./media/agiloft-tutorial/details.png)
 
@@ -160,8 +172,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Agiloft Contract Management Suite for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Agiloft Contract Management Suite tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Agiloft Contract Management Suite for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Agiloft Contract Management Suite tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Agiloft Contract Management Suite for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure Agiloft Contract Management Suite you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure Agiloft Contract Management Suite you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

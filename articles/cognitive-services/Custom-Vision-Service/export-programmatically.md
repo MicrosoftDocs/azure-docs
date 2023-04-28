@@ -8,9 +8,10 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/28/2021
 ms.author: pafarley
+ms.devlang: python
 ---
 
 # Export a model programmatically
@@ -21,7 +22,7 @@ This guide shows you how to export your model to an ONNX file with the Python SD
 
 ## Create a training client
 
-You need to have a [CustomVisionTrainingClient](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient) object to export a model iteration. Create variables for your Custom Vision training resources Azure endpoint and subscription keys, and use them to create the client object.
+You need to have a [CustomVisionTrainingClient](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient) object to export a model iteration. Create variables for your Custom Vision training resources Azure endpoint and keys, and use them to create the client object.
 
 ```python
 ENDPOINT = "PASTE_YOUR_CUSTOM_VISION_TRAINING_ENDPOINT_HERE"
@@ -50,7 +51,10 @@ flavor = "ONNX10"
 export = trainer.export_iteration(project_id, iteration_id, platform, flavor, raw=False)
 ```
 
-For more information, see the **[export_iteration](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#export-iteration-project-id--iteration-id--platform--flavor-none--custom-headers-none--raw-false----operation-config-)** method.
+For more information, see the **[export_iteration](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin#export-iteration-project-id--iteration-id--platform--flavor-none--custom-headers-none--raw-false----operation-config-)** method.
+
+> [!IMPORTANT]
+> If you've already exported a particular iteration, you cannot call the **export_iteration** method again. Instead, skip ahead to the **get_exports** method call to get a link to your existing exported model.
 
 ## Download the exported model
 
@@ -69,7 +73,7 @@ while (export.status == "Exporting"):
     print("Export status is: ", export.status)
 ```
 
-For more information, see the **[get_exports](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#get-exports-project-id--iteration-id--custom-headers-none--raw-false----operation-config-)** method.
+For more information, see the **[get_exports](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin#get-exports-project-id--iteration-id--custom-headers-none--raw-false----operation-config-)** method.
 
 Then, you can programmatically download the exported model to a location on your device.
 

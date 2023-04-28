@@ -5,7 +5,7 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 01/21/2021
+ms.date: 12/15/2022
 ms.author: spelluru
 ms.custom: "include file"
 
@@ -24,7 +24,7 @@ See the following table for the outbound ports you need to open to use these pro
 | -------- | ----- | ------- | 
 | AMQP | 5671 and 5672 | See [AMQP protocol guide](../../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
 | HTTPS | 443 | This port is used for the HTTP/REST API and for AMQP-over-WebSockets. |
-| Kafka | 9093 | See [Use Event Hubs from Kafka applications](../event-hubs-for-kafka-ecosystem-overview.md)
+| Kafka | 9093 | See [Use Event Hubs from Kafka applications](../azure-event-hubs-kafka-overview.md)
 
 The HTTPS port is required for outbound communication also when AMQP is used over port 5671, because several management operations performed by the client SDKs and the acquisition of tokens from Azure Active Directory (when used) run over HTTPS. 
 
@@ -38,7 +38,7 @@ The official Azure SDKs generally use the AMQP protocol for sending and receivin
 | Python | [EventHubConsumerClient.transport_type](/python/api/azure-eventhub/azure.eventhub.eventhubconsumerclient) with [TransportType.Amqp](/python/api/azure-eventhub/azure.eventhub.transporttype) or [TransportType.AmqpOverWebSocket](/python/api/azure-eventhub/azure.eventhub.transporttype) |
 
 ### What IP addresses do I need to allow?
-When you are working with Azure, sometimes you have to allow specific IP address ranges or URLs in your corporate firewall or proxy to access all Azure services you are using or trying to use. Verify that the traffic is allowed on IP addresses used by Event Hubs. For IP addresses used by Azure Event Hubs: see [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519).
+When you're working with Azure, sometimes you have to allow specific IP address ranges or URLs in your corporate firewall or proxy to access all Azure services you're using or trying to use. Verify that the traffic is allowed on IP addresses used by Event Hubs. For IP addresses used by Azure Event Hubs: see [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519).
 
 Also, verify that the IP address for your namespace is allowed. To find the right IP addresses to allow for your connections, follow these steps:
 
@@ -71,7 +71,7 @@ If you use the **zone redundancy** for your namespace, you need to do a few extr
 ### What client IPs are sending events to or receiving events from my namespace?
 First, enable [IP filtering](../event-hubs-ip-filtering.md) on the namespace. 
 
-Then, Enable diagnostic logs for [Event Hubs virtual network connection events](../event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) by following instructions in the [Enable diagnostic logs](../event-hubs-diagnostic-logs.md#enable-diagnostic-logs). You'll see the IP address for which connection is denied.
+Then, Enable diagnostic logs for [Event Hubs virtual network connection events](../monitor-event-hubs-reference.md#event-hubs-virtual-network-connection-event-schema) by following instructions in the [Enable diagnostic logs](../../azure-monitor/essentials/diagnostic-settings.md). You'll see the IP address for which connection is denied.
 
 ```json
 {

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/04/2020
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -36,7 +36,7 @@ In this tutorial, you'll configure and test Azure AD SSO in a test environment.
 
 Smart Global Governance supports SP-initiated and IDP-initiated SSO.
 
-After you configure Smart Global Governance, you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+After you configure Smart Global Governance, you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
 
 ## Add Smart Global Governance from the gallery
 
@@ -48,6 +48,8 @@ To configure the integration of Smart Global Governance into Azure AD, you need 
 1. To add an application, select **New application**.
 1. In the **Add from the gallery** section, enter **Smart Global Governance** in the search box.
 1. Select **Smart Global Governance** in the results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Smart Global Governance
 
@@ -141,7 +143,7 @@ Work with the [Smart Global Governance support team](mailto:support.tech@smartg
 
 In this section, you'll test your Azure AD SSO configuration by using Access Panel.
 
-When you select the Smart Global Governance tile in Access Panel, you should be automatically signed in to the Smart Global Governance instance for which you set up SSO. For more information about Access Panel, see [Introduction to Access Panel](../user-help/my-apps-portal-end-user-access.md).
+When you select the Smart Global Governance tile in Access Panel, you should be automatically signed in to the Smart Global Governance instance for which you set up SSO. For more information about Access Panel, see [Introduction to Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional resources
 
@@ -151,8 +153,6 @@ When you select the Smart Global Governance tile in Access Panel, you should be 
 
 - [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
 
-- [Try Smart Global Governance with Azure AD](https://aad.portal.azure.com/)
-
-- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)
 
 - [How to protect Smart Global Governance with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 10/25/2019
+ms.date: 01/11/2023
 ms.author: mbaldwin
 
 ---
@@ -26,7 +26,7 @@ This guide describes how to receive Key Vault notifications through Event Grid, 
 
 ## Concepts
 
-Event Grid is an eventing service for the cloud. By following the steps in this guide, you'll subscribe to events for Key Vault and route events to Automation. When one of the secrets in the key vault is about to expire, Event Grid is notified of the status change and makes an HTTP POST to the endpoint. A web hook then triggers an Automation execution of a PowerShell script.
+Event Grid is an eventing service for the cloud. By following the steps in this guide, you'll subscribe to events for Key Vault and route events to Automation. When one of the secrets in the key vault is about to expire (defined as 30 days before expiration date), Event Grid is notified of the status change and makes an HTTP POST to the endpoint. A web hook then triggers an Automation execution of a PowerShell script.
 
 ![HTTP POST flowchart](../media/event-grid-tutorial-1.png)
 
@@ -52,7 +52,7 @@ After your Automation account is ready, create a runbook.
 
 ![Create a runbook UI](../media/event-grid-tutorial-3.png)
 
-1.  Select the Automation account you just created.
+1.  Select the Automation account you created.
 
 1.  Select **Runbooks** under **Process Automation**.
 
@@ -94,7 +94,7 @@ write-Error "No input data found."
 
 Create a webhook to trigger your newly created runbook.
 
-1.  Select **Webhooks** from the **Resources** section of the runbook you just published.
+1.  Select **Webhooks** from the **Resources** section of the runbook you published.
 
 1.  Select **Add Webhook**.
 
@@ -107,7 +107,7 @@ Create a webhook to trigger your newly created runbook.
     > [!IMPORTANT] 
     > You can't view the URL after you create it. Make sure you save a copy in a secure location where you can access it for the remainder of this guide.
 
-1. Select **Parameters and run settings** and then select **OK**. Don't enter any parameters. This will enable the **Create** button.
+1. Select **Parameters and run settings** and then select **OK**. Don't enter any parameters. The **Create** button will be enabled.
 
 1. Select **OK** and then select **Create**.
 

@@ -2,7 +2,7 @@
 author: spelluru
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 11/25/2018
+ms.date: 09/10/2021
 ms.author: spelluru
 ---
 ## What are Service Bus queues?

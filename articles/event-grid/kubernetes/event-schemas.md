@@ -11,12 +11,12 @@ ms.topic: conceptual
 # Event schemas in Event Grid on Kubernetes
 Event Grid on Kubernetes accepts and delivers events in JSON format. It supports the [Cloud Events 1.0 schema specification](https://github.com/cloudevents/spec/blob/v1.0/spec.md) and that's the schema that should be used when publishing events to Event Grid. 
 
-[!INCLUDE [event-grid-preview-feature-note.md](../includes/event-grid-preview-feature-note.md)]
+[!INCLUDE [preview-feature-note.md](../includes/preview-feature-note.md)]
 
 
 
 ## CloudEvent schema
-[CloudEvents](https://cloudevents.io/) is an open specification for describing event data. It simplifies interoperability by providing a common event schema for publishing, and consuming events. See [CloudEvents specification](https://github.com/cloudevents/spec/blob/master/json-format.md#3-envelope) for information on the mandatory context attributes.
+[CloudEvents](https://cloudevents.io/) is an open specification for describing event data. It simplifies interoperability by providing a common event schema for publishing, and consuming events. See [CloudEvents specification](https://github.com/cloudevents/spec/blob/main/cloudevents/formats/json-format.md#3-envelope) for information on the mandatory context attributes.
 
 ## Example — event using CloudEvents schema
 

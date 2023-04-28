@@ -5,6 +5,7 @@ services: site-recovery
 ms.topic: tutorial
 ms.date: 11/05/2020
 ms.custom: mvc
+ms.author: ankitadutta
 #Customer intent: As an Azure admin, I want to run a drill to check that VM disaster recovery is working.
 ---
 

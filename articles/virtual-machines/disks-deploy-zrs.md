@@ -1,20 +1,21 @@
 ---
-title: Deploy a ZRS (preview) managed disk
+title: Deploy a ZRS managed disk
 description: Learn how to deploy a managed disk that uses zone-redundant storage (ZRS).
 author: roygara
 ms.author: rogarana
-ms.date: 07/12/2021
+ms.date: 12/14/2022
 ms.topic: how-to
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
-ms.custom: references_regions, devx-track-azurepowershell
+ms.custom: references_regions, devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
-# Deploy a managed disk that uses zone-redundant storage (preview)
+# Deploy a managed disk that uses zone-redundant storage
 
-This article covers how to deploy a disk that uses zone-redundant storage (ZRS) as a redundancy option (preview). ZRS replicates your Azure managed disk synchronously across three Azure availability zones in the selected region. Each availability zone is a separate physical location with independent power, cooling, and networking.
+This article covers how to deploy a disk that uses zone-redundant storage (ZRS) as a redundancy option. ZRS replicates your Azure managed disk synchronously across three Azure availability zones in the selected region. Each availability zone is a separate physical location with independent power, cooling, and networking.
 
-For conceptual information on ZRS, see [Zone-redundant storage for managed disks (preview)](disks-redundancy.md#zone-redundant-storage-for-managed-disks-preview)
+For conceptual information on ZRS, see [Zone-redundant storage for managed disks](disks-redundancy.md#zone-redundant-storage-for-managed-disks)
 
 ## Limitations
 
@@ -22,32 +23,16 @@ For conceptual information on ZRS, see [Zone-redundant storage for managed disks
 
 # [Azure portal](#tab/portal)
 
-### Prerequisites
-
-You must enable the feature for your subscription. Use the following steps to enable the feature for your subscription:
-
-1.	Execute the following command to register the feature for your subscription
-
-    ```powershell
-     Register-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute" 
-    ```
-
-1.	Confirm that the registration state is **Registered** (it may take a few minutes) using the following command before trying out the feature.
-
-    ```powershell
-     Get-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute"  
-    ```
-
 ### Create a VM with a ZRS OS disk
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Navigate to **Virtual machines** and follow the normal VM creation process.
 1. Select a supported region and set **Availability options** to **No infrastructure redundancy required**.
 
     :::image type="content" source="media/disks-deploy-zrs/disks-zrs-portal-basic.png" alt-text="Screenshot of the VM creation workflow, basic pane, redundancy and regions are highlighted." lightbox="media/disks-deploy-zrs/disks-zrs-portal-basic.png":::
 
 1. Proceed to the **Disks** pane.
-1. Select your disk and select one of the ZRS disks in the drop down.
+1. Select your disk and select one of the ZRS disks in the drop-down.
 
     :::image type="content" source="media/disks-deploy-zrs/disks-zrs-portal-select-blade.png" alt-text="Screenshot of the vm creation workflow, disks pane, OS disk dropdown is expanded with the ZRS premium SSD and standard SSD options highlighted." lightbox="media/disks-deploy-zrs/disks-zrs-portal-select-blade.png":::
 
@@ -73,22 +58,6 @@ You've now deployed a VM with a ZRS OS disk.
 You have now created a managed disk that uses ZRS.
 
 # [Azure CLI](#tab/azure-cli)
-
-#### Prerequisites
-
-You must enable the feature for your subscription. Use the following steps to enable the feature for your subscription:
-
-1.	Execute the following command to register the feature for your subscription
-
-    ```azurecli
-    az feature register --namespace Microsoft.Compute --name SsdZrsManagedDisks
-    ```
- 
-2.	Confirm that the registration state is **Registered** (it may take a few minutes) using the following command before trying out the feature.
-
-    ```azurecli
-    az feature show --namespace Microsoft.Compute --name SsdZrsManagedDisks
-    ```
 
 #### Create a VM with ZRS disks
 
@@ -159,7 +128,7 @@ az vm create -g $rgName \
 --subnet $vmNamePrefix"_subnet"
 
 ```
-#### Create a virtual machine scale set with ZRS Disks
+#### Create a Virtual Machine Scale Set with ZRS Disks
 ```azurecli
 location=westus2
 rgName=yourRGName
@@ -180,23 +149,6 @@ az vmss create -g $rgName \
 ```
 # [Azure PowerShell](#tab/azure-powershell)
 
-
-#### Prerequisites
-
-You must enable the feature for your subscription. Use the following steps to enable the feature for your subscription:
-
-1.	Execute the following command to register the feature for your subscription
-
-    ```powershell
-     Register-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute" 
-    ```
-
-1.	Confirm that the registration state is **Registered** (it may take a few minutes) using the following command before trying out the feature.
-
-    ```powershell
-     Get-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute"  
-    ```
-    
 #### Create a VM with ZRS disks
 
 ```powershell
@@ -301,8 +253,7 @@ $vm1 = New-AzVm `
         -SubnetName $($vmNamePrefix+"_subnet") `
         -SecurityGroupName $($vmNamePrefix+"01_sg") `
         -PublicIpAddressName $($vmNamePrefix+"01_ip") `
-        -Credential $credential `
-        -OpenPorts 80,3389
+        -Credential $credential 
 
 
 $vm1 = Add-AzVMDataDisk -VM $vm1 -Name $sharedDiskName -CreateOption Attach -ManagedDiskId $sharedDisk.Id -Lun 0
@@ -328,7 +279,7 @@ $vm2 = Add-AzVMDataDisk -VM $vm1 -Name $sharedDiskName -CreateOption Attach -Man
 update-AzVm -VM $vm1 -ResourceGroupName $rgName
 ```
 
-#### Create a virtual machine scale set with ZRS Disks
+#### Create a Virtual Machine Scale Set with ZRS Disks
 ```powershell
 $vmLocalAdminUser = "yourLocalAdminUser"
 $vmLocalAdminSecurePassword = ConvertTo-SecureString "yourVMPassword" -AsPlainText -Force
@@ -448,7 +399,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 -dataDiskType $sharedDataDiskType
 ```
 
-#### Create a virtual machine scale set with ZRS Disks
+#### Create a Virtual Machine Scale Set with ZRS Disks
 
 ```
 $vmssName="yourVMSSName"

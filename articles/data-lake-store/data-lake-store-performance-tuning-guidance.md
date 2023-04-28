@@ -2,11 +2,11 @@
 title: Azure Data Lake Storage Gen1 - performance tuning
 description: Learn how using all available throughput in Azure Data Lake Storage Gen1 is important to get the best performance by performing as many reads and writes in parallel as possible.
 
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.author: twooley
+ms.author: normesta
 
 ---
 # Tune Azure Data Lake Storage Gen1 for performance
@@ -39,7 +39,7 @@ After you've addressed the source hardware and network connectivity bottlenecks,
 
 | Tool          | Settings | More Details                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| Powershell       | PerFileThreadCount, ConcurrentFileCount | [Link](./data-lake-store-get-started-powershell.md) |
+| PowerShell       | PerFileThreadCount, ConcurrentFileCount | [Link](./data-lake-store-get-started-powershell.md) |
 | AdlCopy    | Azure Data Lake Analytics units | [Link](./data-lake-store-copy-data-azure-storage-blob.md#performance-considerations-for-using-adlcopy)         |
 | DistCp            | -m (mapper) | [Link](./data-lake-store-copy-data-wasb-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies | [Link](../data-factory/copy-activity-performance.md)                          |

@@ -11,6 +11,7 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 11/23/2020
 ms.author: pafarley
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -90,7 +91,7 @@ To learn more about how the app handles this data, start with the **GetResources
 
 The Custom Vision portion of the tutorial is complete. If you want to run the app, you'll need to integrate the Computer Vision service as well. The app uses the Computer Vision text recognition feature to supplement the logo detection process. An Azure logo can be recognized by its appearance *or* by the text printed near it. Unlike Custom Vision models, Computer Vision is pretrained to perform certain operations on images or videos.
 
-Subscribe to the Computer Vision service to get a key and endpoint URL. For help on this step, see [How to obtain subscription keys](../cognitive-services-apis-create-account.md?tabs=singleservice%2Cwindows).
+Subscribe to the Computer Vision service to get a key and endpoint URL. For help on this step, see [How to obtain keys](../cognitive-services-apis-create-account.md?tabs=singleservice%2Cwindows).
 
 ![The Computer Vision service in the Azure portal, with the Quickstart menu selected. A link for keys is outlined, as is the API endpoint URL](media/azure-logo-tutorial/comvis-keys.png)
 
@@ -113,7 +114,7 @@ az account set --subscription "<subscription name or subscription id>"
 Then create your service principal. (This process might take some time to finish.)
 
 ```azurecli
-az ad sp create-for-rbac --name <servicePrincipalName> --password <yourSPStrongPassword>
+az ad sp create-for-rbac --name <servicePrincipalName> --role Contributor --scopes /subscriptions/<subscription_id> --password <yourSPStrongPassword>
 ```
 
 Upon successful completion, you should see the following JSON output, including the necessary credentials.
@@ -170,7 +171,7 @@ Follow these steps to run the app:
 
 ## Clean up resources
 
-If you've followed all of the steps of this scenario and used the app to deploy Azure services to your account, go to the [Azure portal](https://ms.portal.azure.com/). There, cancel the services you don't want to use.
+If you've followed all of the steps of this scenario and used the app to deploy Azure services to your account, go to the [Azure portal](https://portal.azure.com/). There, cancel the services you don't want to use.
 
 If you plan to create your own object detection project with Custom Vision, you might want to delete the logo detection project you created in this tutorial. A free subscription for Custom Vision allows for only two projects. To delete the logo detection project, on the [Custom Vision website](https://customvision.ai), open **Projects** and then select the trash icon under **My New Project**.
 

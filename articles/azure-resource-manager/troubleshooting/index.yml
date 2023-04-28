@@ -1,0 +1,117 @@
+### YamlMime:Landing
+
+title: Deployment troubleshooting documentation
+summary: Troubleshoot Azure deployments for Bicep files and Azure Resource Manager templates.
+
+metadata:
+  title: Deployment troubleshooting documentation
+  description: "Learn how to troubleshoot deployments for Bicep files and Azure Resource Manager templates."
+  services: azure-resource-manager
+  ms.service: azure-resource-manager
+  ms.subservice: troubleshooting
+  ms.topic: landing-page
+  ms.collection: na
+  author: tfitzmac
+  ms.author: tomfitz
+  ms.date: 04/05/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  # Card (optional)
+  - title: About deployments
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is deployment troubleshooting?
+            url: overview.md
+
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Troubleshoot Bicep file
+            url: quickstart-troubleshoot-bicep-deployment.md
+          - text: Troubleshoot ARM template JSON
+            url: quickstart-troubleshoot-arm-deployment.md
+
+  # Card
+  - title: Troubleshoot deployments
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Common deployment errors
+            url:  common-deployment-errors.md
+          - text: ARM template file syntax
+            url: ../templates/syntax.md
+          - text: ARM template test toolkit
+            url: ../templates/test-toolkit.md
+          - text: Bicep file syntax
+            url: ../bicep/file.md
+          - text: Bicep linter
+            url: ../bicep/linter.md
+          - text: Azure Quickstart templates
+            url: https://azure.microsoft.com/resources/templates/
+  # Card
+  - title: Deploy templates
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: ARM template deployment
+            url: ../templates/deployment-tutorial-local-template.md
+          - text: Bicep file deployment
+            url: ../bicep/deploy-powershell.md
+          - text: View deployment history
+            url: ../templates/deployment-history.md
+      - linkListType: how-to-guide
+        links:
+          - text: PowerShell
+            url: ../templates/deploy-powershell.md
+          - text: Azure CLI
+            url: ../templates/deploy-cli.md
+          - text: Portal
+            url: ../templates/deploy-portal.md
+          - text: REST API
+            url: ../templates/deploy-rest.md
+          - text: Deploy to Azure button
+            url: ../templates/deploy-to-azure-button.md
+          - text: ARM template Cloud Shell
+            url: ../templates/deploy-cloud-shell.md
+          - text: Bicep file Cloud Shell
+            url: ../bicep/deploy-cloud-shell.md
+          - text: ARM template what-if deployment
+            url: ../templates/deploy-what-if.md
+          - text: Bicep file what-if deployment
+            url: ../bicep/deploy-what-if.md
+
+  # Card
+  - title: Explore reference content
+    linkLists:
+      - linkListType: reference
+        links:
+        - text: Template reference
+          url: /azure/templates/
+        - text: REST API
+          url: /rest/api/resources/
+        - text: Azure PowerShell
+          url: /powershell/module/az.resources
+        - text: Azure CLI
+          url: /cli/azure/resource
+        - text: .NET
+          url: /dotnet/api/microsoft.azure.management.resourcemanager
+        - text: Java
+          url: /java/api/com.microsoft.azure.management.resources
+        - text: Python
+          url: /python/api/overview/azure/resources
+
+
+  # Card
+  - title: Manage templates
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Export templates
+            url: ../templates/export-template-portal.md
+          - text: CI/CD
+            url: ../templates/add-template-to-azure-pipelines.md

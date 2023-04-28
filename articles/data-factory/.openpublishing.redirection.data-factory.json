@@ -1,0 +1,610 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/data-factory/compute-optimized-retire.md",
+            "redirect_url": "/azure/data-factory/concepts-data-flow-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-factory/turorial-push-lineage-to-purview.md",
+            "redirect_url": "/azure/data-factory/tutorial-push-lineage-to-purview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-factory/continuous-integration-deployment.md",
+            "redirect_url": "/azure/data-factory/continuous-integration-delivery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-factory/continuous-integration-deployment-improvements.md",
+            "redirect_url": "/azure/data-factory/continuous-integration-delivery-improvements",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-factory/transform-data-using-dotnet-custom-activity.md",
+            "redirect_url": "/azure/data-factory/transform-data-using-custom-activity",
+            "redirect_document_id": false
+        }
+        ,
+        {
+            "source_path_from_root": "/articles/data-factory/blog.md",
+            "redirect_url": "https://techcommunity.microsoft.com/t5/Azure-Data-Factory/bg-p/AzureDataFactoryBlog",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-factory/pricing.md",
+            "redirect_url": "https://azure.microsoft.com/pricing/details/data-factory/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-factory/connector-azure-sql-database-managed-insance.md",
+            "redirect_url": "/azure/data-factory/connector-azure-sql-database-managed-instance",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/connector-azure-sql-database-managed-instance.md",
+            "redirect_url": "/azure/data-factory/connector-azure-sql-managed-instance",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/concepts-data-flow-reference-node.md",
+            "redirect_url": "/azure/data-factory/data-flow-join",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/concepts-data-flow-json.md",
+            "redirect_url": "/azure/data-factory/format-json",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md",
+            "redirect_url": "/azure/data-factory/load-azure-sql-data-warehouse",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-monitor-oms.md",
+            "redirect_url": "/azure/data-factory/monitor-using-azure-monitor",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/tutorial-create-azure-ssis-runtime-portal.md",
+            "redirect_url": "/azure/data-factory/tutorial-deploy-ssis-packages-azure",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/how-to-read-write-partitioned-data.md",
+            "redirect_url": "/azure/data-factory/tutorial-incremental-copy-overview",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-amazon-redshift-connector.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-amazon-redshift-connector",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-amazon-simple-storage-service-connector.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-amazon-simple-storage-service-connector",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-api-change-log.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-api-change-log",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-azure-copy-wizard.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-azure-copy-wizard",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/copy-data-tool-troubleshoot-guide.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-azure-copy-wizard#troubleshooting",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-azure-datalake-connector.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-azure-datalake-connector",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-azure-documentdb-connector.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-azure-documentdb-connector",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-azure-ml-batch-execution-activity.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-azure-ml-batch-execution-activity",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-azure-ml-update-resource-activity.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-azure-ml-update-resource-activity",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-azure-search-connector.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-azure-search-connector",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-azure-sql-connector.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-azure-sql-connector",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-azure-sql-data-warehouse-connector.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-azure-sql-data-warehouse-connector",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-azure-table-connector.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-azure-table-connector",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-build-your-first-pipeline.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-build-your-first-pipeline",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-build-your-first-pipeline-using-arm.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-build-your-first-pipeline-using-arm",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-build-your-first-pipeline-using-editor.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-build-your-first-pipeline-using-editor",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-build-your-first-pipeline-using-powershell.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-build-your-first-pipeline-using-powershell",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-build-your-first-pipeline-using-rest-api.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-build-your-first-pipeline-using-rest-api",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-build-your-first-pipeline-using-vs.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-build-your-first-pipeline-using-vs",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-compute-linked-services.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-compute-linked-services",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-copy-activity-fault-tolerance.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-copy-activity-fault-tolerance",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-copy-activity-performance.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-copy-activity-performance",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-copy-activity-tutorial-using-azure-resource-manager-template",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-copy-activity-tutorial-using-dotnet-api.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-copy-activity-tutorial-using-dotnet-api",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-copy-activity-tutorial-using-powershell.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-copy-activity-tutorial-using-powershell",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-copy-activity-tutorial-using-rest-api.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-copy-activity-tutorial-using-rest-api",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-copy-activity-tutorial-using-visual-studio",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/v1/data-factory-copy-activity-tutorial-using-azure-portal.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-copy-data-wizard-tutorial.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-copy-data-wizard-tutorial",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-copy-wizard.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-copy-wizard",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-create-data-factories-programmatically.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-create-data-factories-programmatically",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-create-datasets.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-create-datasets",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-create-pipelines.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-create-pipelines",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-customer-case-studies.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-customer-case-studies",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-customer-profiling-usecase.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-customer-profiling-usecase",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-data-management-gateway.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-data-management-gateway",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-data-management-gateway-high-availability-scalability.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-data-management-gateway-high-availability-scalability",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-data-movement-activities.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-data-movement-activities",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-data-movement-security-considerations.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-data-movement-security-considerations",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-data-processing-using-batch.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-data-processing-using-batch",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-data-transformation-activities.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-data-transformation-activities",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-faq.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-faq",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-ftp-connector.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-ftp-connector",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-functions-variables.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-functions-variables",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-gateway-release-notes.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-gateway-release-notes",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-hadoop-streaming-activity.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-hadoop-streaming-activity",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-hdfs-connector.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-hdfs-connector",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-hive-activity.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-hive-activity",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-how-to-use-resource-manager-templates.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-how-to-use-resource-manager-templates",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-http-connector.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-http-connector",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-introduction.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-introduction",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/v1/index.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-introduction",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-invoke-stored-procedure-from-copy-activity.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-invoke-stored-procedure-from-copy-activity",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-json-scripting-reference.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-json-scripting-reference",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-load-sql-data-warehouse.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-load-sql-data-warehouse",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-map-columns.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-map-columns",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-map-reduce.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-map-reduce",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-monitor-manage-app.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-monitor-manage-app",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-monitor-manage-pipelines.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-monitor-manage-pipelines",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-move-data-between-onprem-and-cloud.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-move-data-between-onprem-and-cloud",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-naming-rules.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-naming-rules",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-odata-connector.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-odata-connector",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-odbc-connector.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-odbc-connector",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-onprem-cassandra-connector.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-onprem-cassandra-connector",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-onprem-db2-connector.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-onprem-db2-connector",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-onprem-file-system-connector.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-onprem-file-system-connector",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-on-premises-mongodb-connector.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-on-premises-mongodb-connector",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-onprem-mysql-connector.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-onprem-mysql-connector",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-onprem-oracle-connector.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-onprem-oracle-connector",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-onprem-postgresql-connector.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-onprem-postgresql-connector",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-onprem-sybase-connector.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-onprem-sybase-connector",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-onprem-teradata-connector.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-onprem-teradata-connector",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-pig-activity.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-pig-activity",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-product-reco-usecase.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-product-reco-usecase",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-repeatable-copy.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-repeatable-copy",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-salesforce-connector.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-salesforce-connector",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-samples.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-samples",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-sap-business-warehouse-connector.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-sap-business-warehouse-connector",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-sap-hana-connector.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-sap-hana-connector",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-scheduling-and-execution.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-scheduling-and-execution",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-sftp-connector.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-sftp-connector",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-spark.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-spark",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-sqlserver-connector.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-sqlserver-connector",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-stored-proc-activity.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-stored-proc-activity",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-supported-file-and-compression-formats.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-supported-file-and-compression-formats",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-troubleshoot.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-troubleshoot",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-troubleshoot-gateway-issues.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-troubleshoot-gateway-issues",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-use-custom-activities.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-use-custom-activities",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-usql-activity.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-usql-activity",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-web-table-connector.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-web-table-connector",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/concepts-data-flow-datasets.md",
+            "redirect_url": "https://azure.microsoft.com/services/data-factory/",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-factory-sdks.md",
+            "redirect_url": "https://azure.microsoft.com/services/data-factory/",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/wrangling-data-flow-overview.md",
+            "redirect_url": "/azure/data-factory/wrangling-overview",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/wrangling-data-flow-functions.md",
+            "redirect_url": "/azure/data-factory/wrangling-functions",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/wrangling-data-flow-tutorial.md",
+            "redirect_url": "/azure/data-factory/wrangling-tutorial",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/quickstart-create-data-factory-portal.md",
+            "redirect_url": "/azure/data-factory/quickstart-create-data-factory",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/scenario-ssis-migration-ssisdb-mi.md",
+            "redirect_url": "/azure/data-factory/scenario-ssis-migration-overview",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/data-flow-troubleshoot-errors.md",
+            "redirect_url": "/azure/data-factory/data-flow-troubleshoot-guide",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/monitor-install-analytics.md",
+            "redirect_url": "/azure/data-factory/monitor-using-azure-monitor",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/sap-change-data-capture-data-replication-template.md",
+            "redirect_url": "/azure/data-factory/sap-change-data-capture-introduction-architecture",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/sap-change-data-capture-data-partitioning-template.md",
+            "redirect_url": "/azure/data-factory/sap-change-data-capture-introduction-architecture",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/quickstart-create-data-factory-copy-data-tool.md",
+            "redirect_url": "/azure/data-factory/quickstart-hello-world-copy-data-tool",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/solution-template-copy-new-files-lastmodifieddate.md",
+            "redirect_url": "/azure/data-factory/solution-template-copy-new-files-last-modified-date",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/connector-azure-synapse-analytics-artifacts.md",
+            "redirect_url": "/azure/data-factory/compute-linked-services",
+            "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/tutorial-refresh-power-bi-dataset-with-airflow.md",
+            "redirect_url": "/azure/data-factory/",
+            "redirect_document_id": true
+          }
+    ]
+}

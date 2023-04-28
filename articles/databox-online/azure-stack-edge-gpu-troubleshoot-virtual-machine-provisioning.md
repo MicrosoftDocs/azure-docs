@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 07/19/2021
+ms.date: 03/24/2023
 ms.author: alkohli
 ---
 # Troubleshoot VM deployment in Azure Stack Edge Pro GPU
@@ -27,7 +27,7 @@ This section provides troubleshooting for most common causes of a VM provisionin
 
 When VM provisioning times out, you see the following error: 
 
-![Screenshot of Azure portal error displayed when VM provisioning times out.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/vm-provisioning-timeout-01.png) 
+![Screenshot of the error displayed in the Azure portal when VM provisioning times out in Azure Stack Edge.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/vm-provisioning-timeout-01.png) 
 
 The following issues are the top causes of VM provisioning timeouts:
 - The IP address that you assigned to the VM is already in use. [Learn more](#vm-provisioning-timeout)
@@ -35,6 +35,7 @@ The following issues are the top causes of VM provisioning timeouts:
 - The default gateway and DNS server couldn't be reached from the guest VM. [Learn more](#gateway-dns-server-couldnt-be-reached-from-guest-vm)
 - During a `cloud init` installation, `cloud init` either didn't run or there were issues while it was running. (Linux VMs only) [Learn more](#cloud-init-issues-linux-vms)
 - For a Linux VM deployed using a custom VM image, the Provisioning flags in the /etc/waagent.conf file are not correct. (Linux VMs only) [Learn more](#provisioning-flags-set-incorrectly-linux-vms)
+- Primary network interface attached to a SRIOV enabled virtual switch [Learn more](#primary-network-interface-attached-to-a-sriov-enabled-virtual-switch)
 
 ### IP assigned to the VM is already in use
 
@@ -85,7 +86,7 @@ To verify that the default gateway and DNS server can be reached from the VM, do
 
    To find out the IP addresses for the default gateway and DNS servers, go to the local UI for your device. Select the port you're interested in, and view the network settings.
 
-   ![Screenshot of default gateway and DNS server settings for a port on an Azure Stack Edge Pro GPU device.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/gateway-dns-server-settings-01.png) 
+   ![Screenshot of the Network page for an Azure Stack Edge device with Network settings for Port 2 displayed.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/gateway-dns-server-settings-01.png) 
 
 
 ### `cloud init` issues (Linux VMs)
@@ -116,7 +117,7 @@ To check for some of the most common issues that prevent `cloud init` from runni
 
    When the data source is set to *Azure*, the entry in the *cloud init* logs looks similar to the following one.
 
-   ![Picture of a cloud-init log entry for a VM image with Data Source set to Azure.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/cloud-init-log-entry-01.png) 
+   ![Illustration of a cloud-init log entry for a VM image with the Data Source set to Azure. The identifying text is highlighted.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/cloud-init-log-entry-01.png)
 
    If the data source is not set to Azure, you may need to revise your `cloud init` script. For more information, see [Diving deeper into cloud-init](../virtual-machines/linux/cloud-init-deep-dive.md).
 
@@ -132,7 +133,18 @@ To check for some of the most common issues that prevent `cloud init` from runni
    | Enable provisioning             | `Provisioning.Enabled=n`      |
    | Rely on cloud-init to provision | `Provisioning.UseCloudInit=y` |
 
+### Primary network interface attached to a SRIOV enabled virtual switch
 
+**Error description:** The primary network interface attached to a single root I/O virtualization (SRIOV) interface-enabled virtual switch caused network traffic to bypass the hyper-v, so the host could not receive DHCP requests from the VM, resulting in a provisioning timeout.
+
+**Suggested solutions:**
+
+- Connect the VM primary network interface to a virtual switch without enabling accelerated networking.
+
+- On an Azure Stack Edge Pro 1 device, virtual switches created on Port 1 to Port 4 do not enable accelerated networking. On Port 5 or Port 6, virtual switches will enable accelerated networking by default.
+
+- On an Azure Stack Edge Pro 2 device, virtual switches created on Port 1 or Port 2 do not enable accelerated networking. On Port 3 or Port 4, virtual switches will enable accelerated networking by default.
+ 
 ##	Network interface creation issues
 
 This section provides guidance for issues that cause network interface creation to fail during a VM deployment.
@@ -148,7 +160,7 @@ To verify whether the network interface was created successfully, do these steps
 
 1. If a network interface was not created successfully, you'll see the following error.
 
-   ![Screenshot of the error displayed in the Portal when network interface creation fails.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/nic-creation-failed-01.png)
+   ![Screenshot of the error displayed in the Azure portal when network interface creation fails during VM deployment on an Azure Stack Edge device.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/nic-creation-failed-01.png)
 
 **Suggested solution:** Create the VM again, and assign it a static IP address.
 
@@ -161,7 +173,7 @@ This section covers common issues that occur during VM creation.
 
 **Error description:** When VM creation fails because of insufficient memory, you'll see the following error.
  
-![Screenshot of the error displayed in the Portal when VM creation fails.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/vm-creation-failed-01.png)
+![Screenshot of the error displayed in the Azure portal when VM creation fails on an Azure Stack Edge device.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/vm-creation-failed-01.png)
 
 **Suggested solution:** Check the available memory on the device, and choose the VM size accordingly. For more information, see [Supported virtual machine sizes on Azure Stack Edge](azure-stack-edge-gpu-virtual-machine-sizes.md).
 
@@ -183,7 +195,7 @@ The memory available for the deployment of a VM is constrained by several factor
 
 If you try to deploy a VM on a GPU device that already has Kubernetes enabled, no GPUs will be available, and VM provisioning will fail with the following error:
 
-![Screenshot of error displayed in the Portal when creation of a GPU VM fails because of no available GPUs.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/gpu-vm-creation-failed-01.png)
+![Screenshot of the error displayed in the Azure portal when creation of a GPU VM fails because of no available GPUs on an Azure Stack Edge device.](./media/azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning/gpu-vm-creation-failed-01.png)
 
 **Possible causes:**
 If Kubernetes is enabled before the VM is created, Kubernetes will use all the available GPUs, and you won’t be able to create any GPU-size VMs. You can create as many GPU-size VMs as the number of available GPUs. Your Azure Stack Edge device can be equipped with 1 or 2 GPUs.

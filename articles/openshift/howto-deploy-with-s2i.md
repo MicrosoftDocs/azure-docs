@@ -15,6 +15,9 @@ In this article, you deploy an application to an Azure Red Hat OpenShift cluster
 
 ## Before you begin
 
+> [!NOTE]
+> This article assumes you have set up a pull secret. If you do not have a pull secret for your cluster, you can follow the documentation to [Add or update your Red Hat pull secret.](./howto-add-update-pull-secret.md)
+
 [!INCLUDE [aro-howto-beforeyoubegin](includes/aro-howto-before-you-begin.md)]
 
 ## Create a project

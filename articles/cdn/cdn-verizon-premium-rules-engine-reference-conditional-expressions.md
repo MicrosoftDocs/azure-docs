@@ -2,11 +2,12 @@
 title: 'Conditional expressions for Azure CDN - Verizon Premium rules engine'
 description: Reference documentation for Azure CDN from Verizon Premium rules engine match conditions and features.
 services: cdn
-author: asudbring
+author: duongau
+manager: kumudd
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 10/09/2020
-ms.author: allensu
+ms.date: 02/27/2023
+ms.author: duau
 
 ---
 

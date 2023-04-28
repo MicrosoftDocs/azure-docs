@@ -5,10 +5,10 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 06/01/2021
+ms.date: 01/30/2023
 ms.author: justinha
 author: justinha
-ms.reviewer: rhicock
+ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
 # Customer intent: As an Azure AD Administrator, I want to learn how to enable and use self-service password reset so that my end-users can unlock their accounts or reset their passwords through a web browser.
 ---
@@ -29,6 +29,10 @@ In this tutorial you learn how to:
 > * Set up authentication methods and registration options
 > * Test the SSPR process as a user
 
+## Video tutorial
+
+You can also follow along in a related video: [How to enable and configure SSPR in Azure AD](https://www.youtube.com/embed/rA8TvhNcCvQ?azure-portal=true).
+
 ## Prerequisites
 
 To finish this tutorial, you need the following resources and privileges:
@@ -36,7 +40,7 @@ To finish this tutorial, you need the following resources and privileges:
 * A working Azure AD tenant with at least an Azure AD free or trial license enabled. In the Free tier, SSPR only works for cloud users in Azure AD. Password change is supported in the Free tier, but password reset is not. 
     * For later tutorials in this series, you'll need an Azure AD Premium P1 or trial license for on-premises password writeback.
     * If needed, [create an Azure account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* An account with *Global Administrator* privileges.
+* An account with *Global Administrator* or *Authentication Policy Administrator* privileges.
 * A non-administrator user with a password you know, like *testuser*. You'll test the end-user SSPR experience using this account in this tutorial.
     * If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
 * A group that the non-administrator user is a member of, likes *SSPR-Test-Group*. You'll enable SSPR for this group in this tutorial.
@@ -51,10 +55,10 @@ Azure AD lets you enable SSPR for *None*, *Selected*, or *All* users. This granu
 
 In this tutorial, set up SSPR for a set of users in a test group. Use the *SSPR-Test-Group* and provide your own Azure AD group as needed:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using an account with *global administrator* permissions.
+1. Sign in to the [Azure portal](https://portal.azure.com) using an account with *global administrator* or *authentication policy administrator* permissions.
 1. Search for and select **Azure Active Directory**, then select **Password reset** from the menu on the left side.
-1. From the **Properties** page, under the option *Self service password reset enabled*, select **Select group**
-1. Browse for and select your Azure AD group, like *SSPR-Test-Group*, then choose *Select*.
+1. From the **Properties** page, under the option *Self service password reset enabled*, choose **Selected**.
+1. If your group isn't visible, choose **No groups selected**, browse for and select your Azure AD group, like *SSPR-Test-Group*, and then choose *Select*.
 
     [![Select a group in the Azure portal to enable for self-service password reset](media/tutorial-enable-sspr/enable-sspr-for-group-cropped.png)](media/tutorial-enable-sspr/enable-sspr-for-group.png#lightbox)
 
@@ -64,7 +68,7 @@ In this tutorial, set up SSPR for a set of users in a test group. Use the *SSPR-
 
 When users need to unlock their account or reset their password, they're prompted for another confirmation method. This extra authentication factor makes sure that Azure AD finished only approved SSPR events. You can choose which authentication methods to allow, based on the registration information the user provides.
 
-1. From the menu on the left side of the **Authentication methods** page, set the **Number of methods required to reset** to *1*.
+1. From the menu on the left side of the **Authentication methods** page, set the **Number of methods required to reset** to *2*.
 
     To improve security, you can increase the number of authentication methods required for SSPR.
 
@@ -96,12 +100,12 @@ To keep users informed about account activity, you can set up Azure AD to send e
 
 1. From the menu on the left side of the **Notifications** page, set up the following options:
 
-   * Set **Notify users on password resets** option to *Yes*.
-   * Set **Notify all admins when other admins reset their password** to *Yes*.
+   * Set **Notify users on password resets?** option to *Yes*.
+   * Set **Notify all admins when other admins reset their password?** to *Yes*.
 
 1. To apply the notification preferences, select **Save**.
 
-If users need more help with the SSPR process, you can customize the "Contact your administrator" link. The user can select this link in the SSPR registration process and when they unlock their account or resets their password. To make sure your users get the support needed, we highly recommend you provide a custom helpdesk email or URL.
+If users need more help with the SSPR process, you can customize the "Contact your administrator" link. The user can select this link in the SSPR registration process and when they unlock their account or resets their password. To make sure your users get the support needed, we recommend you provide a custom helpdesk email or URL.
 
 1. From the menu on the left side of the **Customization** page, set **Customize helpdesk link** to *Yes*.
 1. In the **Custom helpdesk email or URL** field, provide an email address or web page URL where your users can get more help from your organization, like *https:\//support.contoso.com/*
@@ -138,6 +142,10 @@ If you no longer want to use the SSPR functionality you have set up as part of t
 ## FAQs
 
 This section explains common questions from administrators and end-users who try SSPR:
+
+- Why aren't on-premises password policies displayed during SSPR?
+
+  At this time, Azure AD Connect and cloud sync don't support sharing password policy details with the cloud. SSPR only displays the cloud password policy details, and can't show on-premises policies.
 
 - Why do federated users wait up to 2 minutes after they see **Your password has been reset** before they can use passwords that are synchronized from on-premises?
 

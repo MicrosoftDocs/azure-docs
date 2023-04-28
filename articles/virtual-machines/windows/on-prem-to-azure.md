@@ -4,7 +4,7 @@ description: Create VMs in Azure using VHDs uploaded from other clouds like AWS 
 author: roygara
 manager: twooley
 ms.service: storage
-ms.subervice: disks
+ms.subservice: disks
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: conceptual
@@ -15,6 +15,8 @@ ms.custom: H1Hack27Feb2017
 ---
 
 # Migrate from Amazon Web Services (AWS) and other platforms to managed disks in Azure
+
+**Applies to:** :heavy_check_mark: Windows VMs 
 
 You can upload VHD files from AWS or on-premises virtualization solutions to Azure to create virtual machines (VMs) that use managed disks. Azure managed disks removes the need to manage storage accounts for Azure IaaS VMs. You just specify the type of disk, and the size of that disk that you need, and Azure creates and manages the disk for you. 
 

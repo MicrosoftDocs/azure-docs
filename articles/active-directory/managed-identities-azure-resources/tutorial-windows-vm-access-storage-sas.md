@@ -1,22 +1,21 @@
 ---
-title: Tutorial`:` Use managed identity to access Azure Storage using SAS credential - Azure AD
+title: Tutorial`:` Use managed identity to access Azure Storage using SAS credential
 description: A tutorial that shows you how to use a Windows VM system-assigned managed identity to access Azure Storage, using a SAS credential instead of a storage account access key.
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: daveba
+manager: amycolannino
 editor: daveba
 
 ms.service: active-directory
 ms.subservice: msi
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/24/2021
+ms.date: 01/11/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management 
-ms.custom: devx-track-azurepowershell, subject-rbac-steps
+ms.custom: devx-track-azurepowershell, subject-rbac-steps, devx-track-arm-template
 ---
 
 # Tutorial: Use a Windows VM system-assigned managed identity to access Azure Storage via a SAS credential
@@ -185,7 +184,7 @@ Context           : Microsoft.WindowsAzure.Commands.Storage.AzureStorageContext
 Name              : testblob
 ```
 
-You can also download the blob you just uploaded, using the `Get-AzStorageBlobContent` PowerShell cmdlet:
+You can also download the blob you uploaded, using the `Get-AzStorageBlobContent` PowerShell cmdlet:
 
 ```powershell
 Get-AzStorageBlobContent -Blob testblob -Container <CONTAINER-NAME> -Destination test2.txt -Context $ctx

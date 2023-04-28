@@ -2,11 +2,11 @@
 title: Create Azure HDInsight clusters with Data Lake Storage Gen1 - portal
 description: Use the Azure portal to create and use HDInsight clusters with Azure Data Lake Storage Gen1
 
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
-ms.author: twooley
+ms.author: normesta
 
 ---
 # Create HDInsight clusters with Azure Data Lake Storage Gen1 by using the Azure portal
@@ -187,8 +187,6 @@ For information on how to copy data from Blob storage to a storage account with 
 You can use a Spark cluster to run Spark jobs on data that is stored in a Data Lake Storage Gen1. For more information, see [Use HDInsight Spark cluster to analyze data in Data Lake Storage Gen1](../hdinsight/spark/apache-spark-use-with-data-lake-store.md).
 
 ### Use Data Lake Storage Gen1 in a Storm topology
-
-You can use the storage account with Data Lake Storage Gen1 to write data from a Storm topology. For instructions on how to achieve this scenario, see [Use Azure Data Lake Storage Gen1 with Apache Storm with HDInsight](../hdinsight/storm/apache-storm-write-data-lake-store.md).
 
 ## See also
 

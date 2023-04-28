@@ -7,13 +7,16 @@ ms.subservice: disks
 ms.collection: linux
 ms.topic: how-to
 ms.author: jofrance
-ms.date: 03/17/2020
+ms.reviewer: mattmcinnes
+ms.date: 04/06/2023
 
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
 
 ---
 
 # Configure LVM and RAID on encrypted devices
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 This article is a step-by-step process for how to perform Logical Volume Management (LVM) and RAID on encrypted devices. The process applies to the following environments:
 

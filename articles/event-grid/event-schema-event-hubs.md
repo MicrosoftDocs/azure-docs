@@ -2,7 +2,7 @@
 title: Azure Event Hubs as Event Grid source
 description: Describes the properties that are provided for event hubs events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 02/11/2021
+ms.date: 12/02/2022
 ---
 
 # Azure Event Hubs as an Event Grid source
@@ -122,14 +122,15 @@ The data object has the following properties:
 | `firstEnqueueTime` | string | The first time from the queue. |
 | `lastEnqueueTime` | string | The last time from the queue. |
 
+
 ## Tutorials and how-tos
 
 |Title  |Description  |
 |---------|---------|
-| [Tutorial: stream big data into a data warehouse](event-grid-event-hubs-integration.md) | When Event Hubs creates a Capture file, Event Grid sends an event to a function app. The app retrieves the Capture file and migrates data to a data warehouse. |
+| [Tutorial: stream big data into a data warehouse](event-hubs-integration.md) | When Event Hubs creates a Capture file, Event Grid sends an event to a function app. The app retrieves the Capture file and migrates data to a data warehouse. |
 
 ## Next steps
 
 * For an introduction to Azure Event Grid, see [What is Event Grid?](overview.md)
 * For more information about creating an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).
-* For information about handling event hubs events, see [Stream big data into a data warehouse](event-grid-event-hubs-integration.md).
+* For information about handling event hubs events, see [Stream big data into a data warehouse](event-hubs-integration.md).

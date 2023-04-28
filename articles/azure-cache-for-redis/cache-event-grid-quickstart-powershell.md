@@ -2,11 +2,11 @@
 title: 'Quickstart: Route Azure Cache for Redis events to web endpoint with PowerShell'
 description: Use Azure Event Grid to subscribe to Azure Cache for Redis events, send the events to a Webhook, and handle the events in a web application.
 ms.date: 1/5/2021
-author: curib
-ms.author: cauribeg
+author: flang-msft
+ms.author: franlanglois
 ms.topic: quickstart
-ms.service: cache 
-ms.custom: devx-track-azurepowershell
+ms.service: cache
+ms.custom: devx-track-azurepowershell, mode-api
 ---
 
 # Quickstart: Route Azure Cache for Redis events to web endpoint with PowerShell
@@ -82,7 +82,7 @@ $sitename="<your-site-name>"
 
 New-AzResourceGroupDeployment `
   -ResourceGroupName $resourceGroup `
-  -TemplateUri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/main/azuredeploy.json" `
   -siteName $sitename `
   -hostingPlanName viewerhost
 ```

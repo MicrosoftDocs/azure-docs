@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure SAP SuccessFactors writeback in Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure SAP SuccessFactors writeback in Azure Active Directory'
 description: Learn how to configure attribute write-back to SAP SuccessFactors from Azure AD
 services: active-directory
 author: cmmdesai
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 10/14/2020
+ms.date: 11/21/2022
 ms.author: chmutali
 ---
 # Tutorial: Configure attribute write-back from Azure AD to SAP SuccessFactors
@@ -223,7 +223,7 @@ This section provides steps for
 
 **To configure SuccessFactors Writeback:**
 
-1. Go to <https://portal.azure.com>
+1. Go to the [Azure portal](https://portal.azure.com).
 
 2. In the left navigation bar, select **Azure Active Directory**
 
@@ -284,6 +284,7 @@ In this section, you will configure how user data flows from SuccessFactors to A
    | 11 | mobile | cellPhoneNumber | Use this mapping to flow *telephoneNumber* from Azure AD to SuccessFactors business / work phone number. |
    | 12 | 10606 | cellPhoneType | This constant value is the SuccessFactors ID value associated with cell phone. Update this value to match your SuccessFactors environment. See the section [Retrieve constant value for phoneType](#retrieve-constant-value-for-phonetype) for steps to set this value. |
    | 13 | false | cellPhoneIsPrimary | Use this attribute to set the primary flag for cell phone number. Valid values are true or false. |
+   | 14 | [extensionAttribute1-15] | userId | Use this mapping to ensure that the active record in SuccessFactors is updated when there are multiple employment records for the same user. For more details refer to [Enabling writeback with UserID](../app-provisioning/sap-successfactors-integration-reference.md#enabling-writeback-with-userid) |
  
 1. Validate and review your attribute mappings. 
  
@@ -326,7 +327,7 @@ Once the SuccessFactors provisioning app configurations have been completed, you
    > ![Select Writeback scope](./media/sap-successfactors-inbound-provisioning/select-writeback-scope.png)
 
    > [!NOTE]
-   > The SuccessFactors Writeback provisioning app does not support "group assignment". Only "user assignment" is supported. 
+   > SuccessFactors Writeback provisioning apps created after 12-Oct-2022 support the "group assignment" feature. If you created the app prior to 12-Oct-2022, it will only have "user assignment" support. To use the "group assignment" feature, create a new instance of the SuccessFactors Writeback application and move your existing mapping configurations to this app. 
 
 1. Click **Save**.
 

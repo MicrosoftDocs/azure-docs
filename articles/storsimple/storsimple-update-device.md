@@ -9,13 +9,12 @@ editor: ''
 
 ms.assetid: 786059f5-2a38-4105-941d-0860ce4ac515
 ms.service: storsimple
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
+ms.custom: devx-track-azurepowershell
 ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: alkohli
-
 ---
 # Update your StorSimple 8000 Series device
 > [!NOTE]

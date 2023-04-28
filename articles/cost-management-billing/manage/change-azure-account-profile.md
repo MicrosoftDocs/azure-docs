@@ -7,9 +7,8 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 04/08/2021
+ms.date: 03/04/2023
 ms.author: banders
-ms.custom: contperf-fy21q4
 ---
 
 # Change contact information for an Azure billing account

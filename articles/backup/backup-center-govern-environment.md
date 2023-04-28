@@ -3,6 +3,8 @@ title: Govern your backup estate using Backup Center
 description: Learn how to govern your Azure environment to ensure that all your resources are compliant from a backup perspective with Backup Center.
 ms.topic: conceptual
 ms.date: 09/01/2020
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Govern your backup estate using Backup Center
@@ -21,7 +23,7 @@ Backup center helps you govern your Azure environment to ensure that all your re
 
 ## Azure Policies for backup
 
-To view all the [Azure Policies](../governance/policy/overview.md) that are available for backup, select the **Azure Policies for Backup** menu item. This will display all the built-in and custom [Azure policy definitions for backup](policy-reference.md) that are available for assignment to your subscriptions and resource groups.
+To view all the [Azure Policies](../governance/policy/overview.md) that are available for backup, select the **Azure Policies for Backup** menu item. This will display all the built-in and custom [Azure Policy definitions for backup](policy-reference.md) that are available for assignment to your subscriptions and resource groups.
 
 Selecting any of the definitions allows you to [assign the policy](../governance/policy/tutorials/create-and-manage.md#assign-a-policy) to a scope.
 

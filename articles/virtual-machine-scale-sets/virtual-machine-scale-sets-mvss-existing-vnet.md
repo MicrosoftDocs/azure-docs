@@ -6,7 +6,7 @@ ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: networking
-ms.date: 03/30/2021
+ms.date: 11/22/2022
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 

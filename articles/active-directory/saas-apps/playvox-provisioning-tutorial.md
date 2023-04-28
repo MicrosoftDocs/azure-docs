@@ -1,20 +1,19 @@
 ---
-title: 'Tutorial: Configure Playvox for automatic user provisioning by using Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Playvox for automatic user provisioning by using Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Playvox.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: c31c20ab-f6cd-40e1-90ad-fa253ecbc0f8
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/18/2020
+ms.topic: tutorial
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

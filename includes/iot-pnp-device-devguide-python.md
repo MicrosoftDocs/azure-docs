@@ -3,7 +3,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
-ms.date: 11/19/2020
+ms.date: 11/17/2022
 ---
 
 ## Model ID announcement
@@ -27,7 +27,7 @@ device_client = IoTHubDeviceClient.create_from_symmetric_key(
 
 ## DPS payload
 
-Devices using the [Device Provisioning Service (DPS)](../articles/iot-dps/about-iot-dps.md) can include the `modelId` to be used during the provisioning process using the following JSON payload.
+Devices using the [Device Provisioning Service (DPS)](../articles/iot-dps/about-iot-dps.md) can include the `modelId` to be used during the provisioning process by using the following JSON payload.
 
 ```json
 {
@@ -35,15 +35,15 @@ Devices using the [Device Provisioning Service (DPS)](../articles/iot-dps/about-
 }
 ```
 
-## Implement telemetry, properties, and commands
+## Use components
 
-As described in [Understand components in IoT Plug and Play models](../articles/iot-develop/concepts-modeling-guide.md), device builders must decide if they want to use components to describe their devices. When using components, devices must follow the rules described in this section.
+As described in [Understand components in IoT Plug and Play models](../articles/iot-develop/concepts-modeling-guide.md), you must decide if you want to use components to describe your devices. When you use components, devices must follow the rules described in the following sections.
 
-### Telemetry
+## Telemetry
 
-A default component doesn't require any special property.
+A default component doesn't require any special property added to the telemetry message.
 
-When using nested components, devices must set a message property with the component name:
+When you use nested components, devices must set a message property with the component name:
 
 ```python
 async def send_telemetry_from_temp_controller(device_client, telemetry_msg, component_name=None):
@@ -53,10 +53,9 @@ async def send_telemetry_from_temp_controller(device_client, telemetry_msg, comp
     if component_name:
         msg.custom_properties["$.sub"] = component_name
     await device_client.send_message(msg)
-}
 ```
 
-### Read-only properties
+## Read-only properties
 
 Reporting a property from the default component doesn't require any special construct:
 
@@ -64,7 +63,7 @@ Reporting a property from the default component doesn't require any special cons
 await device_client.patch_twin_reported_properties({"maxTempSinceLastReboot": 38.7})
 ```
 
-The device twin is updated with the next reported property:
+The device twin is updated with the following reported property:
 
 ```json
 {
@@ -74,7 +73,7 @@ The device twin is updated with the next reported property:
 }
 ```
 
-When using nested components, properties must be created within the component name:
+When using nested components, properties must be created within the component name and include a marker:
 
 ```python
 inner_dict = {}
@@ -86,7 +85,7 @@ prop_dict["thermostat1"] = inner_dict
 await device_client.patch_twin_reported_properties(prop_dict)
 ```
 
-The device twin is updated with the next reported property:
+The device twin is updated with the following reported property:
 
 ```json
 {
@@ -99,11 +98,13 @@ The device twin is updated with the next reported property:
 }
 ```
 
-### Writable properties
+## Writable properties
 
-These properties can be set by the device or updated by the solution. If the solution updates a property, the client receives a notification as a callback in the `IoTHubDeviceClient` or `IoTHubModuleClient`. To follow the IoT Plug and Play conventions, the device must inform the service that the property was successfully received.
+These properties can be set by the device or updated by the back-end application. If the back-end application updates a property, the client receives a notification as a callback in the `IoTHubDeviceClient` or `IoTHubModuleClient`. To follow the IoT Plug and Play conventions, the device must inform the service that the property was successfully received.
 
-#### Report a writable property
+If the property type is `Object`, the service must send a complete object to the device even if it's only updating a subset of the object's fields. The acknowledgment the device sends must also be a complete object.
+
+### Report a writable property
 
 When a device reports a writable property, it must include the `ack` values defined in the conventions.
 
@@ -121,7 +122,7 @@ prop_dict["targetTemperature"] = {
 await device_client.patch_twin_reported_properties(prop_dict)
 ```
 
-The device twin is updated with the next reported property:
+The device twin is updated with the following reported property:
 
 ```json
 {
@@ -153,7 +154,7 @@ prop_dict["thermostat1"] = inner_dict
 await device_client.patch_twin_reported_properties(prop_dict)
 ```
 
-The device twin is updated with the next reported property:
+The device twin is updated with the following reported property:
 
 ```json
 {
@@ -171,9 +172,9 @@ The device twin is updated with the next reported property:
 }
 ```
 
-#### Subscribe to desired property updates
+### Subscribe to desired property updates
 
-Services can update desired properties that trigger a notification on the connected devices. This notification includes the updated desired properties, including the version number identifying the update. Devices must respond with the same `ack` message as reported properties.
+Services can update desired properties that trigger a notification on the connected devices. This notification includes the updated desired properties, including the version number identifying the update. Devices must include this version number in the  `ack` message sent back to the service.
 
 A default component sees the single property and creates the reported `ack` with the received version:
 
@@ -200,7 +201,7 @@ async def execute_property_listener(device_client):
         await device_client.patch_twin_reported_properties(prop_dict)
 ```
 
-The device twin shows the property in the desired and reported sections:
+The device twin for a nested component shows the desired and reported sections as follows:
 
 ```json
 {
@@ -281,7 +282,7 @@ The device twin for components shows the desired and reported sections as follow
 }
 ```
 
-### Commands
+## Commands
 
 A default component receives the command name as it was invoked by the service.
 
@@ -291,9 +292,10 @@ A nested component receives the command name prefixed with the component name an
 command_request = await device_client.receive_method_request("thermostat1*reboot")
 ```
 
-#### Request and response payloads
+### Request and response payloads
 
-Commands use types to define their request and response payloads. A device must deserialize the incoming input parameter and serialize the response. 
+Commands use types to define their request and response payloads. A device must deserialize the incoming input parameter and serialize the response.
+
 The following example shows how to implement a command with complex types defined in the payloads:
 
 ```json
@@ -361,5 +363,5 @@ def create_max_min_report_response(values):
     return response_payload
 ```
 
-> [!Tip]
+> [!TIP]
 > The request and response names aren't present in the serialized payloads transmitted over the wire.

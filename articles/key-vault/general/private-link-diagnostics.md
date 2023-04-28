@@ -3,7 +3,7 @@ title: Diagnose private links configuration issues on Azure Key Vault
 description: Resolve common private links issues with Key Vault and deep dive into the configuration
 author: msfcolombo
 ms.author: fcolombo
-ms.date: 09/30/2020
+ms.date: 01/17/2023
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
@@ -49,9 +49,9 @@ If the application, script or portal is running on an arbitrary Internet-connect
 
 ### If you use a managed solution, refer to specific documentation
 
-This guide is NOT applicable to solutions that are managed by Microsoft, where the key vault is accessed by an Azure product that exists independently from the customer Virtual Network. Examples of such scenarios are Azure Storage or Azure SQL configured for encryption at rest, Azure Event Hub encrypting data with customer-provided keys, Azure Data Factory accessing service credentials stored in key vault, Azure Pipelines retrieving secrets from key vault, and other similar scenarios. In these cases, *you must check if the product supports key vaults with the firewall enabled*. This support is typically performed with the [Trusted Services](overview-vnet-service-endpoints.md#trusted-services) feature of Key Vault firewall. However, many products are not included in the list of trusted services, for a variety of reasons. In that case, reach the product-specific support.
+This guide is NOT applicable to solutions that are managed by Microsoft, where the key vault is accessed by an Azure product that exists independently from the customer Virtual Network. Examples of such scenarios are Azure Storage or Azure SQL configured for encryption at rest, Azure Event Hubs encrypting data with customer-provided keys, Azure Data Factory accessing service credentials stored in key vault, Azure Pipelines retrieving secrets from key vault, and other similar scenarios. In these cases, *you must check if the product supports key vaults with the firewall enabled*. This support is typically performed with the [Trusted Services](overview-vnet-service-endpoints.md#trusted-services) feature of Key Vault firewall. However, many products are not included in the list of trusted services, for various reasons. In that case, reach the product-specific support.
 
-A small number of Azure products supports the concept of *vnet injection*. In simple terms, the product adds a network device into the customer Virtual Network, allowing it to send requests as if was deployed to the Virtual Network. A notable example is [Azure Databricks](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). Products like this can make requests to the key vault using the private links, and this troubleshooting guide may help.
+A few Azure products supports the concept of *vnet injection*. In simple terms, the product adds a network device into the customer Virtual Network, allowing it to send requests as if it was deployed to the Virtual Network. A notable example is [Azure Databricks](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). Products like this can make requests to the key vault using the private links, and this troubleshooting guide may help.
 
 ## 2. Confirm that the connection is approved and succeeded
 
@@ -59,7 +59,7 @@ The following steps validate that the private endpoint connection is approved  a
 
 1. Open the Azure portal and open your key vault resource.
 2. In the left menu, select **Networking**.
-3. Click the **Private endpoint connections** tab. This will show all private endpoint connections and their respective states. If there are no connections, or if the connection for your Virtual Network is missing, you have to create a new Private Endpoint. This will be covered later.
+3. Select the **Private endpoint connections** tab. This will show all private endpoint connections and their respective states. If there are no connections, or if the connection for your Virtual Network is missing, you have to create a new Private Endpoint. This will be covered later.
 4. Still in **Private endpoint connections**, find the one you are diagnosing and confirm that "Connection state" is **Approved** and "Provisioning state" is **Succeeded**.
     - If the connection is in "Pending" state, you might be able to just approve it.
     - If the connection "Rejected", "Failed", "Error", "Disconnected" or other state, then it's not effective at all, you have to create a new Private Endpoint resource.
@@ -76,7 +76,7 @@ An important notion is that the private links feature only *gives* access to you
 1. Open the Azure portal and open your key vault resource.
 2. In the left menu, select **Networking**.
 3. Make sure the **Firewalls and virtual networks** tab is selected on top.
-4. Make sure the option **Private endpoint and selected networks** is selected. If you find **All networks** select, that explains why external clients are still able to access the key vault.
+4. If you find **Allow public access from all networks** selected, that explains why external clients are still able to access the key vault. If you would like the Key Vault to be accessible only over Private Link, select **Disable Public Access**.
 
 The following statements also apply to firewall settings:
 
@@ -116,7 +116,7 @@ You will need to diagnose hostname resolution, and for that you must know the ex
 
 1. Open the Azure portal and open your key vault resource.
 2. In the left menu, select **Networking**.
-3. Click the **Private endpoint connections** tab. This will show all private endpoint connections and their respective states.
+3. Select the **Private endpoint connections** tab. This will show all private endpoint connections and their respective states.
 4. Find the one you are diagnosing and confirm that "Connection state" is **Approved** and Provisioning state is **Succeeded**. If you are not seeing this, go back to previous sections of this document.
 5. When you find the right item, click the link in the **Private endpoint** column. This will open the Private Endpoint resource.
 6. The Overview page may show a section called **Custom DNS settings**. Confirm that there is only one entry that matches the key vault hostname. That entry shows the key vault private IP address.
@@ -290,7 +290,7 @@ This logic means that if the Virtual Network is linked to a Private DNS Zone wit
 
 As you can see, the name resolution is under your control. The rationales for this design are:
 
-- You may have a complex scenario that involves custom DNS servers and integration with on-premise networks. In that case, you need to control how names are translated to IP addresses.
+- You may have a complex scenario that involves custom DNS servers and integration with on-premises networks. In that case, you need to control how names are translated to IP addresses.
 - You may need to access a key vault without private links. In that case, resolving the hostname from the Virtual Network must return the public IP address, and this happens because key vaults without private links don't have the `privatelink` alias in the name registration.
 
 ## 7. Validate that requests to key vault use private link

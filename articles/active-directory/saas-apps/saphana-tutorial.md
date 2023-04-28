@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with SAP HANA | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with SAP HANA'
 description: Learn how to configure single sign-on between Azure Active Directory and SAP HANA.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/27/2020
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with SAP HANA
@@ -41,8 +41,8 @@ To test the steps in this tutorial, follow these recommendations:
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* SAP HANA supports **IDP** initiated SSO
-* SAP HANA supports **just-in-time** user provisioning
+* SAP HANA supports **IDP** initiated SSO.
+* SAP HANA supports **just-in-time** user provisioning.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -58,6 +58,8 @@ To configure the integration of SAP HANA into Azure AD, you need to add SAP HANA
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **SAP HANA** in the search box.
 1. Select **SAP HANA** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for SAP HANA
 
@@ -187,10 +189,10 @@ If you need to create a user manually, take the following steps:
 
 3. Select **Add** to add the SAML IDP.  Select the appropriate SAML IDP, and then select **OK**.
 
-4. Add the **External Identity** (in this case, BrittaSimon) or choose **Any**. Then select **OK**.
+4. Add the **External Identity** (in this case, BrittaSimon). Then select **OK**.
 
    > [!Note]
-   > If  the **Any** check box is not selected, then the user name in HANA needs to exactly match the name of the user in the UPN before the domain suffix. (For example, BrittaSimon@contoso.com becomes BrittaSimon in HANA.)
+   > You have to populate the **External Identity** field for the user and that has to match the **NameID** field in the SAML token from Azure AD. **Any** checkbox should not be checked as this option requires the IDP to send SPProvderID property in the NameID Field which is right now not supported by Azure AD. Plese refer [this](https://help.sap.com/viewer/b3ee5778bc2e4a089d3299b82ec762a7/2.0.05/en-US/db6db355bb571014b56eb25057daec5f.html) document for more details.
 
 5. For testing purposes, assign all **XS** roles to the user.
 
@@ -207,9 +209,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on Test this application in Azure portal and you should be automatically signed in to the SAP HANA for which you set up the SSO
 
-* You can use Microsoft My Apps. When you click the SAP HANA tile in the My Apps, you should be automatically signed in to the SAP HANA for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the SAP HANA tile in the My Apps, you should be automatically signed in to the SAP HANA for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## Next steps
 
-Once you configure SAP HANA you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure SAP HANA you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

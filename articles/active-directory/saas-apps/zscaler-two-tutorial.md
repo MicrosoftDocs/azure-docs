@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Azure Active Directory integration with Zscaler Two | Microsoft Docs"
+title: "Tutorial: Azure Active Directory integration with Zscaler Two"
 description: Learn how to configure single sign-on between Azure Active Directory and Zscaler Two.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/06/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -17,24 +17,26 @@ ms.author: jeedes
 
 In this tutorial, you'll learn how to integrate Zscaler Two with Azure Active Directory (Azure AD). When you integrate Zscaler Two with Azure AD, you can:
 
-- Control in Azure AD who has access to Zscaler Two.
-- Enable your users to be automatically signed-in to Zscaler Two with their Azure AD accounts.
-- Manage your accounts in one central location - the Azure portal.
+* Control in Azure AD who has access to Zscaler Two.
+* Enable your users to be automatically signed-in to Zscaler Two with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
 To configure Azure AD integration with Zscaler Two, you need the following items:
 
-- An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/).
-- Zscaler Two single sign-on enabled subscription.
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/).
+* Zscaler Two single sign-on enabled subscription.
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-- Zscaler Two supports **SP** initiated SSO.
+* Zscaler Two supports **SP** initiated SSO.
 
-- Zscaler Two supports **Just In Time** user provisioning.
+* Zscaler Two supports **Just In Time** user provisioning.
+
+* Zscaler Two supports [Automated user provisioning](zscaler-two-provisioning-tutorial.md).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -49,6 +51,8 @@ To configure the integration of Zscaler Two into Azure AD, you need to add Zscal
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Zscaler Two** in the search box.
 1. Select **Zscaler Two** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Zscaler Two
 
@@ -116,6 +120,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up Zscaler Two** section, copy the appropriate URL(s) as per your requirement.
 
    ![Copy configuration URLs](common/copy-configuration-urls.png)
+
+> [!VIDEO https://www.youtube.com/embed/7SU5S0WtNNk]
 
 ### Create an Azure AD test user
 
@@ -228,16 +234,19 @@ In this section, a user called Britta Simon is created in Zscaler Two. Zscaler T
 > [!Note]
 > If you need to create a user manually, contact [Zscaler Two support team](https://www.zscaler.com/company/contact).
 
+> [!NOTE]
+> Zscaler Two also supports automatic user provisioning, you can find more details [here](./zscaler-two-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
 ## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
-- Click on **Test this application** in Azure portal. This will redirect to Zscaler Two Sign-on URL where you can initiate the login flow.
+* Click on **Test this application** in Azure portal. This will redirect to Zscaler Two Sign-on URL where you can initiate the login flow.
 
-- Go to Zscaler Two Sign-on URL directly and initiate the login flow from there.
+* Go to Zscaler Two Sign-on URL directly and initiate the login flow from there.
 
-- You can use Microsoft My Apps. When you click the Zscaler Two tile in the My Apps, this will redirect to Zscaler Two Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Zscaler Two tile in the My Apps, this will redirect to Zscaler Two Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
-Once you configure Zscaler Two you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Zscaler Two you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

@@ -4,6 +4,7 @@ description: Shows how to pass a secret from a key vault as a parameter during B
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 ms.date: 06/18/2021
 ---
 
@@ -131,9 +132,9 @@ The following procedure shows how to create a role with the minimum permission, 
     ```azurecli-interactive
     az role definition create --role-definition "<path-to-role-file>"
     az role assignment create \
-      --role "Key Vault resource manager template deployment operator" \
-      --assignee <user-principal-name> \
-      --resource-group ExampleGroup
+      --role "Key Vault Bicep deployment operator" \
+      --scope /subscriptions/<Subscription-id>/resourceGroups/<resource-group-name> \
+      --assignee <user-principal-name>
     ```
 
     # [PowerShell](#tab/azure-powershell)
@@ -294,4 +295,4 @@ New-AzResourceGroupDeployment `
 
 - For general information about key vaults, see [What is Azure Key Vault?](../../key-vault/general/overview.md)
 - For complete examples of referencing key secrets, see [key vault examples](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples) on GitHub.
-- For a Microsoft Learn module that covers passing a secure value from a key vault, see [Manage complex cloud deployments by using advanced ARM template features](/learn/modules/manage-deployments-advanced-arm-template-features/).
+- For a Learn module that covers passing a secure value from a key vault, see [Manage complex cloud deployments by using advanced ARM template features](/training/modules/manage-deployments-advanced-arm-template-features/).

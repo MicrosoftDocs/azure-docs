@@ -5,9 +5,9 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.date: 12/22/2020
+ms.date: 11/16/2022
 ms.author: victorh 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Configure an IP restriction rule with a Web Application Firewall for Azure Front Door
@@ -26,22 +26,25 @@ Create an Azure Front Door profile by following the instructions described in [Q
 
 ### Create a WAF policy
 
-1. On the Azure portal, select **Create a resource**,  type  **Web application firewall** in the search box, and then select **Web Application Firewall (WAF)**.
+1. On the Azure portal, select **Create a resource**,  type  **Web application firewall** in the **Search services and marketplace** search box, press *Enter*, and then select **Web Application Firewall (WAF)**.
 2. Select **Create**.
 3. On the **Create a WAF policy** page, use the following values to complete the **Basics** tab:
 
    |Setting  |Value  |
    |---------|---------|
    |Policy for     |Global WAF (Front Door)|
+   |Front door tier| Select Premium or Standard to match you Front Door tier|
    |Subscription     |Select your subscription|
-   |Resource group     |Select the resource group where your Front Door is.|
+   |Resource group     |Select the resource group where your Front Door is located.|
    |Policy name     |Type a name for your policy|
-   |Policy state     |Enabled|
+   |Policy state     |selected|
+   |Policy mode|Prevention|
 
-   Select **Next: Policy settings**
+1. Select **Next:Managed rules**.
 
-1. On the **Policy settings** tab, select **Prevention**. For the **Block response body**, type *You've been blocked!* so you can see that your custom rule is in effect.
-2. Select **Next: Managed rules**.
+1. Select **Next: Policy settings**
+
+1. On the **Policy settings** tab, type *You've been blocked!* for the **Block response body**,  so you can see that your custom rule is in effect.
 3. Select **Next: Custom rules**.
 4. Select **Add custom rule**.
 5. On the **Add custom rule** page, use the following test values to create a custom rule:
@@ -53,7 +56,7 @@ Create an Azure Front Door profile by following the instructions described in [Q
    |Rule type     |Match|
    |Priority    |100|
    |Match type     |IP address|
-   |Match variable|RemoteAddr|
+   |Match variable|SocketAddr|
    |Operation|Does not contain|
    |IP address or range|10.10.10.0/24|
    |Then|Deny traffic|
@@ -62,10 +65,12 @@ Create an Azure Front Door profile by following the instructions described in [Q
 
    Select **Add**.
 6. Select **Next: Association**.
-7. Select **Add frontend host**.
-8. For **Frontend host**, select your frontend host and select **Add**.
-9. Select **Review + create**.
-10. After your policy validation passes, select **Create**.
+7. Select **Associate a Front door profile**.
+8. For **Frontend profile**, select your frontend profile.
+1. For **Domain**, select the domain.
+1. Select **Add**.
+1. Select **Review + create**.
+1. After your policy validation passes, select **Create**.
 
 ### Test your WAF policy
 
@@ -91,7 +96,7 @@ Create an Azure Front Door profile by following the instructions described in [Q
 
 ### Create a WAF policy
 
-Create a WAF policy by using the [az network front-door waf-policy create](/cli/azure/network/front-door/waf-policy#az_network_front_door_waf_policy_create) command.
+Create a WAF policy by using the [az network front-door waf-policy create](/cli/azure/network/front-door/waf-policy#az-network-front-door-waf-policy-create) command.
 In the example that follows, replace the policy name *IPAllowPolicyExampleCLI* with a unique policy name.
 
 ```azurecli-interactive
@@ -102,7 +107,7 @@ az network front-door waf-policy create \
   ```
 ### Add a custom IP access control rule
 
-Use the [az network front-door waf-policy custom-rule create](/cli/azure/network/front-door/waf-policy/rule#az_network_front_door_waf_policy_rule_create) command to add a custom IP access control rule for the WAF policy you just created.
+Use the [az network front-door waf-policy custom-rule create](/cli/azure/network/front-door/waf-policy/rule#az-network-front-door-waf-policy-rule-create) command to add a custom IP access control rule for the WAF policy you just created.
 
 In the following examples:
 -  Replace *IPAllowPolicyExampleCLI* with your unique policy created earlier.
@@ -125,7 +130,7 @@ Next, add match condition to the rule:
 
 ```azurecli
 az network front-door waf-policy rule match-condition add \
---match-variable RemoteAddr \
+--match-variable SocketAddr \
 --operator IPMatch \
 --values "ip-address-range-1" "ip-address-range-2" \
 --negate true \
@@ -135,7 +140,7 @@ az network front-door waf-policy rule match-condition add \
   ```
 
 ### Find the ID of a WAF policy
-Find a WAF policy's ID by using the [az network front-door waf-policy show](/cli/azure/network/front-door/waf-policy#az_network_front_door_waf_policy_show) command. Replace *IPAllowPolicyExampleCLI* in the following example with your unique policy that you created earlier.
+Find a WAF policy's ID by using the [az network front-door waf-policy show](/cli/azure/network/front-door/waf-policy#az-network-front-door-waf-policy-show) command. Replace *IPAllowPolicyExampleCLI* in the following example with your unique policy that you created earlier.
 
    ```azurecli
    az network front-door  waf-policy show \
@@ -145,12 +150,12 @@ Find a WAF policy's ID by using the [az network front-door waf-policy show](/cli
 
 ### Link a WAF policy to an Azure Front Door front-end host
 
-Set the Azure Front Door *WebApplicationFirewallPolicyLink* ID to the policy ID by using the [az network front-door update](/cli/azure/network/front-door#az_network_front_door_update) command. Replace *IPAllowPolicyExampleCLI* with your unique policy that you created earlier.
+Set the Azure Front Door *WebApplicationFirewallPolicyLink* ID to the policy ID by using the [az network front-door update](/cli/azure/network/front-door#az-network-front-door-update) command. Replace *IPAllowPolicyExampleCLI* with your unique policy that you created earlier.
 
    ```azurecli
    az network front-door update \
      --set FrontendEndpoints[0].WebApplicationFirewallPolicyLink.id=/subscriptions/<subscription ID>/resourcegroups/resource-group-name/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/IPAllowPolicyExampleCLI \
-     --name <frontdoor-name>
+     --name <frontdoor-name> \
      --resource-group <resource-group-name>
    ```
 In this example, the WAF policy is applied to **FrontendEndpoints[0]**. You can link the WAF policy to any of your front ends.
@@ -190,7 +195,7 @@ Use the [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor
 In the following example, replace *ip-address-range-1*, *ip-address-range-2* with your own range.
 ```powershell
 $IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
--MatchVariable  RemoteAddr `
+-MatchVariable  SocketAddr `
 -OperatorProperty IPMatch `
 -MatchValue "ip-address-range-1", "ip-address-range-2"
 -NegateCondition 1

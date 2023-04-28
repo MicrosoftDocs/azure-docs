@@ -1,0 +1,32 @@
+- name: Centrally managed Azure Hybrid Benefit documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is centrally managed Azure Hybrid Benefit?
+    href: overview-azure-hybrid-benefit-scope.md
+- name: Tutorials
+  expanded: true
+  items:
+  - name: Optimize centrally managed Azure Hybrid Benefit
+    href: tutorial-azure-hybrid-benefits-sql.md
+- name: Concepts
+  expanded: false
+  items:
+  - name: SQL IaaS extension registration options
+    href: sql-iaas-extension-registration.md
+  - name: How Azure applies centrally assigned licenses
+    href: manage-licenses-centrally.md
+  - name: SQL Server HADR vs Azure Hybrid Benefit
+    href: sql-server-hadr-licenses.md
+- name: How-to guides
+  expanded: false
+  items:
+  - name: Create SQL Server license assignments
+    href: create-sql-license-assignments.md
+  - name: Transition to centrally managed Azure Hybrid Benefit
+    href: transition-existing.md
+- name: Resources
+  items:
+  - name: FAQ
+    href: faq-azure-hybrid-benefit-scope.yml

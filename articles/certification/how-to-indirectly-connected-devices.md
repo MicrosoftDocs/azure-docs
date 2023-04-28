@@ -1,86 +1,106 @@
 ---
 # Mandatory fields.
-title: Certifing device bundles and indirectly connected devices
+title: Certify bundled or indirectly connected devices
 titleSuffix: Azure Certified
-description: See how to submit an indirectly connected device for certification.
+description: Learn how to submit a bundled or indirectly connected device for Azure Certified Device certification. See how to configure dependencies and components.
 author: cbroad
 ms.author: cbroad # Microsoft employees only
-ms.date: 02/23/2021
+ms.date: 06/07/2022
 ms.topic: how-to
 ms.service: certification
-
+ms.custom: kr2b-contr-experiment
 
 # Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
 # ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Device bundles and indirectly connected devices
 
-To support devices that interact with Azure through a device, SaaS or PaaS offerings, our submission portal (https://certify.azure.com/), and device catalog (https://devicecatalog.azure.com) enable concepts of bundling and dependencies to promote and enable these device combinations access to our Azure Certified Device program.
+Many devices interact with Azure indirectly. Some communicate through another device, such as a gateway. Others connect through software as a service (SaaS) or platform as a service (PaaS) offerings.
 
-Depending on your product line and services offered, your situation may require a combination of these steps:
+The [submission portal](https://certify.azure.com/) and [device catalog](https://devicecatalog.azure.com) offer support for indirectly connected devices:
 
+- By listing dependencies in the portal, you can specify that your device needs another device or service to connect to Azure.
+- By adding components, you can indicate that your device is part of a bundle.
 
-![Create project dependencies](./media/indirect-connected-device/picture-1.png )
+This functionality gives indirectly connected devices access to the Azure Certified Device program.
+
+Depending on your product line and the services that you offer or use, your situation might require a combination of dependencies and bundling. The Azure Edge Certification Portal provides a way for you to list dependencies and additional components.
+
+:::image type="content" source="./media/indirect-connected-device/picture-1.png" alt-text="Screenshot of the Azure Edge Certification Portal. On the Create a certify project page, the Dependencies tab is open.":::
+
 ## Sensors and indirect devices
-Many sensors require a device to connect to Azure. In addition, you may have multiple compatible devices that will work with the sensor device. **To accommodate these scenarios, you must first certify the device(s) before certifying the sensor that will pass information through them.**
 
-Example matrix of submission combinations
-![Submission example](./media/indirect-connected-device/picture-2.png )
+Many sensors require a device to connect to Azure. In addition, you might have multiple compatible devices that work with the sensor. **To accommodate these scenarios, certify the devices before you certify the sensor that passes information through them.**
 
-To certify your sensor, which requires a separate device:
-1.	First, [certify the device](https://certify.azure.com) and publish to the Azure Certified Device Catalog
-    - If you have multiple, compatible passthrough devices (as in the example above), Submit them separately for certification and publish to the catalog as well
-2.	With the sensor connected through the device, submit the sensor for certification
-    * In the “Dependencies” tab of the “Device details” section, set the following values
-        * Dependency type = “Hardware gateway”
-        * Dependency URL = “URL link to the device on the device catalog”
-        * Used during testing = “Yes”
-        * Add any Customer-facing comments that should be provided to a user who sees the product description in the device catalog. (example: “Series 100 devices are required for sensors to connect to Azure”)
+The following matrix provides some examples of submission combinations:
 
-3.	If you have more devices you would like added as optional for this device, you can select “+ Add additional dependency”. Then follow the same guidance and note that it was not used during testing. In the Customer-facing comments, ensure your customers are aware that other devices are associated with this sensor are available (as an alternative to the device that was used during testing).
+:::image type="content" source="./media/indirect-connected-device/picture-2.png" alt-text="Sensor and gateway icons and a table that lists submissions. The table ordering shows that gateways are submitted before sensors that depend on them.":::
 
-![Alt text](./media/indirect-connected-device/picture-3.png "Hardware dependency type")
+To certify a sensor that requires a separate device:
+
+1. Go to the [Azure Certified Device portal](https://certify.azure.com) to certify the device and publish it to the Azure Certified Device catalog. If you have multiple, compatible pass-through devices, as in the earlier example, submit them separately for certification and catalog publication.
+
+1. With the sensor connected through the device, submit the sensor for certification. In the **Dependencies** tab of the **Device details** section, set the following values:
+
+   - **Dependency type**: Select **Hardware gateway**.
+   - **Dependency URL**: Enter the URL of the device in the device catalog.
+   - **Used during testing**: Select **Yes**.
+   - **Customer-facing comments**: Enter any comments that you'd like to provide to a user who sees the product description in the device catalog. For example, you might enter **Series 100 devices are required for sensors to connect to Azure**.
+
+1. If you'd like to add more devices as optional for this device:
+
+   1. Select **Add additional dependency**.
+   1. Enter **Dependency type** and **Dependency URL** values.
+   1. For **Used during testing**, select **No**.
+   1. For **Customer-facing comments**, enter a comment that informs your customers that other devices are available as alternatives to the device that was used during testing.
+
+:::image type="content" source="./media/indirect-connected-device/picture-3.png" alt-text="Screenshot of the Dependencies tab in the portal. The Dependency type, Dependency U R L, and Used during testing fields are called out.":::
 
 ## PaaS and SaaS offerings
-As part of your product portfolio, you may have devices that you certify, but your device also requires other services from your company or other third-party companies. To add this dependency, follow these steps:
-1. Start the submission process for your device
-2. In the “Dependencies” tab, set the following values
-    - Dependency type = “Software service”
-    - Service name = “[your product name]”
-    - Dependency URL = “URL link to a product page that describes the service”
-    - Add any customer facing comments that should be provided to a user who sees the product description in the Azure Certified Device Catalog
-3. If you have other software, services or hardware dependencies you would like added as optional for this device, you can select “+ Add additional dependency” and follow the same guidance.
 
-![Software dependency type](./media/indirect-connected-device/picture-4.png )
+As part of your product portfolio, you might certify a device that requires services from your company or third-party companies. To add this type of dependency:
+
+1. Go to the [Azure Certified Device portal](https://certify.azure.com) and start the submission process for your device.
+
+1. In the **Dependencies** tab, enter the following values:
+
+   - **Dependency type**: Select **Software service**.
+   - **Service name**: Enter the name of your product.
+   - **Dependency URL**: Enter the URL of a product page that describes the service.
+   - **Customer-facing comments**: Enter any comments that you'd like to provide to a user who sees the product description in the Azure Certified Device catalog.
+
+1. If you have other software, services, or hardware dependencies that you'd like to add as optional for this device, select **Add additional dependency** and enter the required information.
+
+:::image type="content" source="./media/indirect-connected-device/picture-4.png" alt-text="Screenshot of the Dependencies tab in the portal. The Dependency type, Service name, and Dependency U R L fields are called out.":::
 
 ## Bundled products
-Bundled product listings are simply the successful certification of a device with another components that will be sold as part of the bundle in one product listing. You have the ability to submit a device that includes extra components such as a temperature sensor and a camera sensor (#1) or you could submit a touch sensor that includes a passthrough device (#2). Through the “Component” feature, you have the ability to add multiple components to your listing.
 
-If you intend to do this, you format the product listing image to indicate this product comes with other components.  In addition, if your bundle requires additional services to certify, you will need to identify those through the services dependency.
-Example matrix of bundled products
+With bundled product listings, a device is successfully certified in the Azure Certified Device program with other components. The device and the components are then sold together under one product listing.
 
-![Bundle submission example](./media/indirect-connected-device/picture-5.png )
+The following matrix provides some examples of bundled products. You can submit a device that includes extra components such as a temperature sensor and a camera sensor, as in submission example 1. You can also submit a touch sensor that includes a pass-through device, as in submission example 2. 
 
-For a more detailed description on how to use the component functionality in the Azure Certified Device portal, see our [help documentation](./how-to-using-the-components-feature.md). 
+:::image type="content" source="./media/indirect-connected-device/picture-5.png" alt-text="Sensor and gateway icons and a table that lists submissions and their bundled components. Sensors and gateways are listed as devices and components.":::
 
-If a device is a passthrough device with a separate sensor in the same product, create one component to reflect the passthrough device, and another component to reflect the sensor. Components can be added to your project in the Product details tab of the Device details section:
+Use the component feature to add multiple components to your listing. Format the product listing image to indicate that your product comes with other components. If your bundle requires additional services for certification, identify those services through service dependencies.
 
-![Adding components](./media/indirect-connected-device/picture-6.png )
+For a more detailed description of how to use the component functionality in the Azure Certified Device portal, see [Add components on the portal](./how-to-using-the-components-feature.md).
 
-For the passthrough device, set the Component type as a Customer Ready Product, and fill in the other fields as relevant for your product. Example:
+If a device is a pass-through device with a separate sensor in the same product, create one component to reflect the pass-through device, and another component to reflect the sensor. As the following screenshot shows, you can add components to your project in the **Product details** tab of the **Device details** section:
 
-![Component details](./media/indirect-connected-device/picture-7.png )
+:::image type="content" source="./media/indirect-connected-device/picture-6.png" alt-text="Screenshot of the Device details page. The Product details tab is open, and the Add a component button is called out.":::
 
-For the sensor, add a second component, setting the Component type as Peripheral and Attachment method as Discrete. Example:
+Configure the pass-through device first. For **Component type**, select **Customer Ready Product**. Enter the other values, as relevant for your product. The following screenshot provides an example:
 
-![Second component details](./media/indirect-connected-device/picture-8.png )
+:::image type="content" source="./media/indirect-connected-device/picture-7.png" alt-text="Screenshot that shows input fields. The General tab is open. For Component type, Customer Ready Product is selected.":::
 
-Once the Sensor component has been created, Edit the details, navigate to the Sensors tab, and then add the sensor details. Example:
+For the sensor, add a second component. For **Component type**, select **Peripheral**. For **Attachment method**, select **Discrete**. The following screenshot provides an example:
 
-![Sensor details](./media/indirect-connected-device/picture-9.png )
+:::image type="content" source="./media/indirect-connected-device/picture-8.png" alt-text="Screenshot that shows input fields. The General tab is open. For Component type, Peripheral is selected. For Attachment method, Discrete is selected.":::
 
-Complete your projects details and Submit your device for certification as normal.
+After you've created the sensor component, enter its information. Then go to the **Sensors** tab and enter detailed sensor information, as the following screenshot shows.
 
+:::image type="content" source="./media/indirect-connected-device/picture-9.png" alt-text="Screenshot that shows the Sensors tab. Values are visible in the Supported sensor type, Included with device, and Sensor details fields.":::
+
+Complete the rest of your project's details, and then submit your device for certification as usual.

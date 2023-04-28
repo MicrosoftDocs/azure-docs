@@ -38,11 +38,11 @@ You'll use a command like the following to create an image classification projec
 
 Copy the command to a text editor and make the following changes:
 
-* Replace `{subscription key}` with your valid Face subscription key.
-* Replace `{endpoint}` with the endpoint that corresponds to your subscription key.
+* Replace `{subscription key}` with your valid Face key.
+* Replace `{endpoint}` with the endpoint that corresponds to your key.
    [!INCLUDE [subdomains-note](../../../../../includes/cognitive-services-custom-subdomains-note.md)]
 * Replace `{name}` with the name of your project.
-* Optionally set other URL parameters to configure what type of model your project will use. See the [CreatProject API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeae) for options.
+* Optionally set other URL parameters to configure what type of model your project will use. See the [CreatProject API](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeae) for options.
 
 You'll receive a JSON response like the following. Save the `"id"` value of your project to a temporary location.
 
@@ -99,10 +99,7 @@ You'll get a JSON response like the following. Save the `"id"` value of each tag
 
 Next, download the sample images for this project. Save the contents of the [sample Images folder](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ImageClassification/Images) to your local device.
 
-> [!NOTE]
-> Do you need a broader set of images to complete your training? Trove, a Microsoft Garage project, allows you to collect and purchase sets of images for training purposes. Once you've collected your images, you can download them and then import them into your Custom Vision project in the usual way. Visit the [Trove page](https://www.microsoft.com/ai/trove?activetab=pivot1:primaryr3) to learn more.
-
-Use the following command to upload the images and apply tags; once for the "Hemlock" images, and separately for the "Japanese Cherry" images. See the [Create Images From Data](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb5) API for more options.
+Use the following command to upload the images and apply tags; once for the "Hemlock" images, and separately for the "Japanese Cherry" images. See the [Create Images From Data](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb5) API for more options.
 
 :::code language="shell" source="~/cognitive-services-quickstart-code/curl/custom-vision/image-classifier.sh" ID="uploadimages":::
 
@@ -121,7 +118,7 @@ This method trains the model on the tagged images you've uploaded and returns an
 * Replace `{projectId}` with your own project ID.
 * Replace `{tagArray}` with the ID of a tag.
 * Then, populate the body of the request with the binary data of the images you want to tag.
-* Optionally use other URL parameters. See the [Train Project](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee1) API for options.
+* Optionally use other URL parameters. See the [Train Project](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee1) API for options.
 
 > [!TIP]
 > Train with selected tags
@@ -171,7 +168,7 @@ This method makes the current iteration of the model available for querying. You
 * Replace `{iterationId}` with the ID returned in the previous step.
 * Replace `{publishedName}` with the name you'd like to assign to your prediction model.
 * Replace `{predictionId}` with your own prediction resource ID. You can find the prediction resource ID on the resource's **Properties** tab in the Azure portal, listed as **Resource ID**.
-* Optionally use other URL parameters. See the [Publish Iteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fdded5) API.
+* Optionally use other URL parameters. See the [Publish Iteration](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fdded5) API.
 
 ## Test the prediction endpoint
 
@@ -183,9 +180,9 @@ Finally, use this command to test your trained model by uploading a new image fo
 * Replace `{projectId}` with your own project ID.
 * Replace `{publishedName}` with the name you used in the previous step.
 * Add the binary data of your local image to the request body.
-* Optionally use other URL parameters. See the [Classify Image](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.1/operations/5eb37d24548b571998fde5f3) API.
+* Optionally use other URL parameters. See the [Classify Image](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.1/operations/5eb37d24548b571998fde5f3) API.
 
-The returned JSON response will least each of the tags that the model applied to your image, along with probability scores for each tag. 
+The returned JSON response will list each of the tags that the model applied to your image, along with probability scores for each tag. 
 
 ```json
 {
@@ -220,5 +217,5 @@ Now you've done every step of the image classification process using the REST AP
 > [Test and retrain a model](../../test-your-model.md)
 
 * [What is Custom Vision?](../../overview.md)
-* [API reference documentation (training)](/dotnet/api/overview/azure/cognitiveservices/client/customvision)
-* [API reference documentation (prediction)](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeae)
+* [API reference documentation (training)](/dotnet/api/overview/azure/custom-vision)
+* [API reference documentation (prediction)](https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeae)

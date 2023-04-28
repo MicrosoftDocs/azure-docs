@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Akamai | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Akamai'
 description: Learn how to configure single sign-on between Azure Active Directory and Akamai.
 services: active-directory
 author: jeevansd
@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/04/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Akamai
+# Tutorial: Azure AD SSO integration with Akamai
 
 In this tutorial, you'll learn how to integrate Akamai with Azure Active Directory (Azure AD). When you integrate Akamai with Azure AD, you can:
 
@@ -62,7 +62,7 @@ Akamai EAA is configured as a single application on the Azure AD. Admin can conf
 
 #### Integration Scenario 2
 
-Akamai EAA Application is set up individually on the Azure AD Portal. Admin can configure Individual he Conditional Access policy on the Application(s) and once the conditions are satisfied users can directly be redirected to the specific application.
+Akamai EAA Application is set up individually on the Azure portal. Admin can configure Individual he Conditional Access policy on the Application(s) and once the conditions are satisfied users can directly be redirected to the specific application.
 
 **Pros**:
 
@@ -106,6 +106,8 @@ To configure the integration of Akamai into Azure AD, you need to add Akamai fro
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Akamai** in the search box.
 1. Select **Akamai** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Akamai
 
@@ -376,7 +378,7 @@ Click **Save and go to Advanced Settings**.
 
 1. Enter **Application Name** and **Description**.
 
-    ![Screenshot of a SSH App dialog showing settings for Application Name and Description.](./media/header-akamai-tutorial/configure-26.png)
+    ![Screenshot of an SSH App dialog showing settings for Application Name and Description.](./media/header-akamai-tutorial/configure-26.png)
 
 1. Configure Application Identity.
 
@@ -516,7 +518,7 @@ Assign the Identity Provider.
 
 1. For the EAADelegation account click on the Delegation tab.
 
-    ![Screenshot of an Administrator Command Prompt showing the command for configuring the SPN.](./media/header-akamai-tutorial/spn.png)
+    ![Screenshot of an Administrator Command Prompt showing the command for configuring the SPN.](./media/header-akamai-tutorial/delegation.png)
 
     * Specify use any authentication Protocol.
     * Click Add and Add the App Pool Account for the Kerberos Website. It should automatically resolve to correct SPN if configured correctly.
@@ -580,8 +582,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on Test this application in Azure portal and you should be automatically signed in to the Akamai for which you set up the SSO.
 
-* You can use Microsoft My Apps. When you click the Akamai tile in the My Apps, you should be automatically signed in to the Akamai for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Akamai tile in the My Apps, you should be automatically signed in to the Akamai for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure Akamai you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Akamai you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

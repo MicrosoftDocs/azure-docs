@@ -17,7 +17,7 @@ To create such a replication task, first create a new folder underneath the proj
 
 Next, create a `function.json` file in the folder. The file configures the function. Start with the following content:
 
-``` JSON
+```json
 {
     "configurationSource": "config",
     "bindings" : [
@@ -59,7 +59,7 @@ If you want to receive events from an Event Hub, add configuration information t
 * **eventHubName** - the name of the Event Hub within the namespace identified by the connection string.
 * **consumerGroup** - the name of the consumer group. Mind that the name is enclosed in percent signs and therefore also refers to an app settings value.
 
-```JSON
+```json
     ...
     "bindings" : [
         {
@@ -81,7 +81,7 @@ If you want to receive events from a Service Bus queue, add configuration inform
 * **connection** - the name of the app settings value for the Service Bus connection string.
 * **queueName** - the name of the Service Bus Queue within the namespace identified by the connection string.
 
-```JSON
+```json
     ...
     "bindings" : [
         {
@@ -103,7 +103,7 @@ If you want to receive events from a Service Bus topic, add configuration inform
 * **topicName** - the name of the Service Bus Topic within the namespace identified by the connection string.
 * **subscriptionName** - the name of the Service Bus Subscription on the given topic within the namespace identified by the connection string.
 
-```JSON
+```json
     ...
     "bindings" : [
         {
@@ -127,7 +127,7 @@ If you want to forward events to an Event Hub, add configuration information to 
 * **connection** - the name of the app settings value for the Event Hub connection string. 
 * **eventHubName** - the name of the Event Hub within the namespace identified by the connection string.
 
-```JSON
+```json
     ...
     "bindings" : [
         {
@@ -151,7 +151,7 @@ If you want to forward events to a Service Bus Queue, add configuration informat
 * **connection** - the name of the app settings value for the Service Bus connection string. 
 * **queueName** - the name of the Service Bus queue within the namespace identified by the connection string.
 
-```JSON
+```json
     ...
     "bindings" : [
         {
@@ -175,7 +175,7 @@ If you want to forward events to a Service Bus Topic, add configuration informat
 * **connection** - the name of the app settings value for the Service Bus connection string. 
 * **topicName** - the name of the Service Bus topic within the namespace identified by the connection string.
 
-```JSON
+```json
     ...
     "bindings" : [
         {
@@ -195,7 +195,7 @@ If you want to forward events to a Service Bus Topic, add configuration informat
 
 The entry point configuration picks one of the standard replication tasks. If you are modifying the `Azure.Messaging.Replication` project, you can also add tasks and refer to them here. For instance:
 
-```JSON
+```json
     ...
     "scriptFile": "../dotnet/bin/Azure.Messaging.Replication.dll",
     "entryPoint": "Azure.Messaging.Replication.EventHubReplicationTasks.ForwardToEventHub"
@@ -213,21 +213,12 @@ The following table gives you the correct values for combinations of sources and
 
 ### Retry policy
 
-Refer to the [Azure Functions documentation on
-retries](../articles/azure-functions/functions-bindings-error-pages.md) to
-configure the retry policy. The policy settings chosen throughout the projects
-in this repository configure an exponential backoff strategy with retry
-intervals from 5 seconds to 5 minutes with infinite retries to avoid data loss.
+Refer to the [Azure Functions documentation on retries](../articles/azure-functions/functions-bindings-error-pages.md) to configure the retry policy for Event Hubs. The policy settings chosen throughout the projects in this repository configure an exponential backoff strategy with retry intervals from 5 seconds to 5 minutes with infinite retries to avoid data loss.
 
-For Service Bus, review the ["using retry support on top of trigger
-resilience"](../articles/azure-functions/functions-bindings-error-pages.md#using-retry-support-on-top-of-trigger-resilience)
-section to understand the interaction of triggers and the maximum delivery count
-defined for the queue.
+The generally available (GA) version of retry policies for Azure Functions only supports Event Hubs and Timer triggers. The preview support for Service Bus trigger has been removed. 
 
 ### Build, deploy, and configure
 
-While you are focusing on configuration, the tasks still require building a
-deployable application and to configure the Azure Functions hosts such that it
-has all the required information to connect to the given endpoints. 
+While you are focusing on configuration, the tasks still require building a deployable application and to configure the Azure Functions hosts such that it has all the required information to connect to the given endpoints. 
 
 This is illustrated, together with reusable scripts, in the [configuration-based replication samples for Azure Functions](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config).

@@ -4,6 +4,9 @@ description: Tutorial to learn how to fail over and reprotect Azure VMs replicat
 ms.topic: tutorial
 ms.date: 11/05/2020
 ms.custom: mvc
+ms.service: site-recovery
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 #Customer intent: As an Azure admin, I want to run a production failover of Azure VMs to a secondary Azure region.
 ---
 
@@ -82,9 +85,6 @@ Before you start this tutorial, you should have:
 
     ![Commit progress notification](./media/azure-to-azure-tutorial-failover-failback/notification-commit-start.png)
     ![Commit success notification](./media/azure-to-azure-tutorial-failover-failback/notification-commit-finish.png)    
-
-9. Site Recovery doesn't clean up the source VM after failover. You need to do that manually.
-
 
 ## Reprotect the VM
 

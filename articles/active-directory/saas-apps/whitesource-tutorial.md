@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Whitesource | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory SSO integration with Whitesource'
 description: Learn how to configure single sign-on between Azure Active Directory and Whitesource.
 services: active-directory
 author: jeevansd
@@ -9,13 +9,13 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/22/2021
+ms.date: 04/03/2023
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Whitesource
+# Tutorial: Azure Active Directory SSO integration with Whitesource
 
-In this tutorial, you'll learn how to integrate Whitesource with Azure Active Directory (Azure AD). When you integrate Whitesource with Azure AD, you can:
+In this tutorial, you learn how to integrate Whitesource with Azure Active Directory (Azure AD). When you integrate Whitesource with Azure AD, you can:
 
 * Control in Azure AD who has access to Whitesource.
 * Enable your users to be automatically signed-in to Whitesource with their Azure AD accounts.
@@ -50,6 +50,8 @@ To configure the integration of Whitesource into Azure AD, you need to add White
 1. In the **Add from the gallery** section, type **Whitesource** in the search box.
 1. Select **Whitesource** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, and walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Whitesource
 
 Configure and test Azure AD SSO with Whitesource using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Whitesource.
@@ -82,7 +84,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `com.whitesource.sp`
 
 	> [!NOTE]
-	> These value is not real. Update these value with the actual Sign on URL. Contact [Whitesource Client support team](https://www.whitesourcesoftware.com/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These value is not real. Update these value with the actual Sign on URL. Contact [Whitesource Client support team](https://www.mend.io/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -94,7 +96,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you create a test user in the Azure portal called B.Simon.
 
 1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
@@ -106,7 +108,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Whitesource.
+In this section, you enable B.Simon to use Azure single sign-on by granting access to Whitesource.
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **Whitesource**.
@@ -118,7 +120,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Whitesource SSO
 
-To configure single sign-on on **Whitesource** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Whitesource support team](https://www.whitesourcesoftware.com/contact-us/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Whitesource** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Whitesource support team](https://www.mend.io/contact-us/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Whitesource test user
 
@@ -132,8 +134,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Whitesource Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Whitesource tile in the My Apps, this will redirect to Whitesource Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Whitesource tile in the My Apps, this will redirect to Whitesource Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure Whitesource you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Whitesource you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

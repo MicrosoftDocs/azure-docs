@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Coda | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Coda'
 description: Learn how to configure single sign-on between Azure Active Directory and Coda.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/20/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -36,6 +36,8 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Coda supports **Just In Time** user provisioning.
 
+* Coda supports [Automated user provisioning](coda-provisioning-tutorial.md).
+
 ## Add Coda from the gallery
 
 To configure the integration of Coda into Azure AD, you need to add Coda from the gallery to your list of managed SaaS apps.
@@ -46,6 +48,8 @@ To configure the integration of Coda into Azure AD, you need to add Coda from th
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Coda** in the search box.
 1. Select **Coda** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Coda
 
@@ -152,14 +156,16 @@ This completes the work necessary for the SAML SSO connection setup.
 
 In this section, a user called Britta Simon is created in Coda. Coda supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Coda, a new one is created after authentication.
 
+Coda also supports automatic user provisioning, you can find more details [here](./coda-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
 ## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
 * Click on Test this application in Azure portal and you should be automatically signed in to the Coda for which you set up the SSO.
 
-* You can use Microsoft My Apps. When you click the Coda tile in the My Apps, you should be automatically signed in to the Coda for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Coda tile in the My Apps, you should be automatically signed in to the Coda for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure Coda you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure Coda you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

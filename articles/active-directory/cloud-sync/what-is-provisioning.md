@@ -1,13 +1,13 @@
 ---
-title: 'What is identity provisioning with Azure AD? | Microsoft Docs'
+title: 'What is identity provisioning with Azure AD?'
 description: Describes overview of identity provisioning.
 services: active-directory
 author: billmath
-manager: daveba
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 01/17/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management

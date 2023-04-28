@@ -15,6 +15,8 @@ ms.custom: seodec18
 
 # Grant data access to an environment
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 This article discusses the two types of Azure Time Series Insights access policies.
 
 > [!Warning]

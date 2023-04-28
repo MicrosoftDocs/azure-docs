@@ -1,15 +1,13 @@
 ---
 title: Connect Raspberry Pi to Azure IoT Hub in the cloud (Node.js)
 description: Learn how to set up and connect Raspberry Pi to Azure IoT Hub for Raspberry Pi to send data to the Azure cloud platform in this tutorial.
-author: wesmc7777
-manager:  eliotgra
-keywords: azure iot raspberry pi, raspberry pi iot hub, raspberry pi send data to cloud, raspberry pi to cloud
+author: kgremban
+
+ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
-ms.devlang: nodejs
-ms.topic: conceptual
-ms.date: 06/18/2021
-ms.author: wesmc
+ms.devlang: javascript
+ms.topic: tutorial
+ms.date: 02/22/2022
 ms.custom: ['Role: Cloud Development', devx-track-js]
 ---
 
@@ -161,8 +159,6 @@ After you've successfully connected BME280 to your Raspberry Pi, it should be li
 
 Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet cable to connect Pi to your wired network or follow the [instructions from the Raspberry Pi Foundation](https://www.raspberrypi.org/documentation/configuration/wireless/) to connect Pi to your wireless network. After your Pi has been successfully connected to the network, you need to take a note of the [IP address of your Pi](https://www.raspberrypi.org/documentation/remote-access/ip-address.md).
 
-![Connected to wired network](./media/iot-hub-raspberry-pi-kit-node-get-started/5-power-on-pi.png)
-
 > [!NOTE]
 > Make sure that Pi is connected to the same network as your computer. For example, if your computer is connected to a wireless network while Pi is connected to a wired network, you might not see the IP address in the devdisco output.
 
@@ -187,7 +183,7 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
    > [!NOTE]
    > The default username is `pi` and the password is `raspberry`.
 
-2. Install Node.js and NPM to your Pi.
+2. Install Node.js and npm to your Pi.
 
    First check your Node.js version.
 
@@ -253,7 +249,7 @@ You should see the following output that shows the sensor data and the messages 
 
 ## Read the messages received by your hub
 
-One way to monitor messages received by your IoT hub from your device is to use the Azure IoT Tools for Visual Studio Code. To learn more, see [Use Azure IoT Tools for Visual Studio Code to send and receive messages between your device and IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+One way to monitor messages received by your IoT hub from your device is to use the Azure IoT Hub extension for Visual Studio Code. To learn more, see [Use the Azure IoT Hub extension for Visual Studio Code to send and receive messages between your device and IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
 For more ways to process data sent by your device, continue on to the next section.
 

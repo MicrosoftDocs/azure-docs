@@ -1,6 +1,5 @@
 ---
 title: Developer guidance for Azure Active Directory Conditional Access
-titleSuffix: Microsoft identity platform
 description: Developer guidance and scenarios for Azure AD Conditional Access and Microsoft identity platform.
 services: active-directory
 keywords:
@@ -33,7 +32,7 @@ Knowledge of [single](quickstart-register-app.md) and [multi-tenant](howto-conve
 
 > [!NOTE]
 > Using this feature requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
-> Customers with [Microsoft 365 Business licenses](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) also have access to Conditional Access features.
+> Customers with [Microsoft 365 Business licenses](/office365/servicedescriptions/office-365-service-descriptions-technet-library) also have access to Conditional Access features.
 
 ## How does Conditional Access impact an app?
 
@@ -89,7 +88,7 @@ Developers can take this challenge and append it onto a new request to Azure AD.
 
 ### Prerequisites
 
-Azure AD Conditional Access is a feature included in [Azure AD Premium](../fundamentals/active-directory-whatis.md). Customers with [Microsoft 365 Business licenses](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) also have access to Conditional Access features.
+Azure AD Conditional Access is a feature included in [Azure AD Premium](../fundamentals/active-directory-whatis.md). Customers with [Microsoft 365 Business licenses](/office365/servicedescriptions/office-365-service-descriptions-technet-library) also have access to Conditional Access features.
 
 ### Considerations for specific scenarios
 
@@ -179,4 +178,4 @@ To try out this scenario, see our [JavaScript SPA calling Node.js web API using 
 * For more Azure AD code samples, see [samples](sample-v2-code.md).
 * For more info on the MSAL SDK's and access the reference documentation, see the [Microsoft Authentication Library overview](msal-overview.md).
 * To learn more about multi-tenant scenarios, see [How to sign in users using the multi-tenant pattern](howto-convert-app-to-be-multi-tenant.md).
-* Learn more about [Conditional access and securing access to IoT apps](/azure/architecture/example-scenario/iot-aad/iot-aad).
+* Learn more about [Conditional Access and securing access to IoT apps](/azure/architecture/example-scenario/iot-aad/iot-aad).

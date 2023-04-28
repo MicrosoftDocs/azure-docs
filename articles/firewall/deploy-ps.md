@@ -4,7 +4,7 @@ description: In this article, you learn how to deploy and configure Azure Firewa
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 12/03/2020
+ms.date: 08/02/2022
 ms.author: victorh
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell

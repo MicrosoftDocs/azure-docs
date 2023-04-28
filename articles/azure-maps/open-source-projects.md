@@ -1,13 +1,12 @@
 ---
 title: Azure Maps community Open-source projects | Microsoft Azure Maps
 description: Open-source projects coordinated for the Microsoft Azure Maps platform.
-author: rbrundritt
-ms.author: richbrun
+author: eriklindeman
+ms.author: eriklind
 ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
 ms.custom: 
 ---
 
@@ -56,7 +55,7 @@ The following is a list of open-source projects that extend the capabilities of 
 | [Azure Maps Gov Cloud Code Samples](https://github.com/Azure-Samples/AzureMapsCodeSamples) | A collection of code samples for using Azure Maps through Azure Government Cloud. |
 | [Azure Maps & Azure Active Directory Samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples) | A collection of samples that show how to use Azure Active Directory with Azure Maps. |
 | [LiveMaps](https://github.com/Azure-Samples/LiveMaps) | Sample application to provide live indoor maps visualization of IoT data on top of Azure Maps using Azure Maps Creator |
-| [Azure Maps Jupyter Notebook samples](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook) | A collection of python samples using the Azure Maps REST services. |
+| [Azure Maps Jupyter Notebook samples](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook) | A collection of Python samples using the Azure Maps REST services. |
 | [Azure Maps .NET UWP IoT Remote Control](https://github.com/Azure-Samples/azure-maps-dotnet-webgl-uwp-iot-remote-control) | This is a sample application that shows how to build a remotely controlled map using Azure Maps and IoT hub services. |
 | [Implement IoT spatial analytics using Azure Maps](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing) | Tracking and capturing relevant events that occur in space and time is a common IoT scenario. |
 
@@ -76,11 +75,11 @@ The following is a list of open-source projects that extend the capabilities of 
 | [Azure Maps Docs](https://github.com/MicrosoftDocs/azure-docs/tree/master/articles/azure-maps) | Source for all Azure Location Based Services documentation. |
 | [Azure Maps Creator Tools](https://github.com/Azure-Samples/AzureMapsCreator) | Python tools for Azure Maps Creator Tools. |
 
-A longer list of open-source projects for Azure Maps that includes community created projects is available [here](https://github.com/microsoft/Maps/blob/master/AzureMaps.md)
+For a more complete list of open-source projects for Azure Maps that includes community created projects, see [Azure Maps Open Source Projects](https://github.com/microsoft/Maps/blob/master/AzureMaps.md) in GitHub.
 
 ## Supportability of open-source projects
 
-The following statements apply across all of the Azure Maps created and maintained open-source projects and samples:
+The following statements apply across all Azure Maps open-source projects and samples:
 
 - Azure Maps open-source projects and samples are created by Microsoft and the community.
 - Azure Maps open-source projects and samples are maintained by Microsoft and the community.

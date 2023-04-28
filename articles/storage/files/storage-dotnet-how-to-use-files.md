@@ -1,13 +1,14 @@
 ---
-title: Develop for Azure Files with .NET | Microsoft Docs
+title: Develop for Azure Files with .NET
+titleSuffix: Azure Storage
 description: Learn how to develop .NET applications and services that use Azure Files to store data.
-author: roygara
+author: khdownie
 ms.service: storage
-ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 10/02/2020
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -237,16 +238,16 @@ if (share.Exists())
     // Check current usage stats for the share.
     // Note that the ShareStats object is part of the protocol layer for the File service.
     Microsoft.Azure.Storage.File.Protocol.ShareStats stats = share.GetStats();
-    Console.WriteLine("Current share usage: {0} GB", stats.Usage.ToString());
+    Console.WriteLine("Current share usage: {0} GiB", stats.Usage.ToString());
 
-    // Specify the maximum size of the share, in GB.
-    // This line sets the quota to be 10 GB greater than the current usage of the share.
+    // Specify the maximum size of the share, in GiB.
+    // This line sets the quota to be 10 GiB greater than the current usage of the share.
     share.Properties.Quota = 10 + stats.Usage;
     share.SetProperties();
 
     // Now check the quota for the share. Call FetchAttributes() to populate the share's properties.
     share.FetchAttributes();
-    Console.WriteLine("Current share quota: {0} GB", share.Properties.Quota);
+    Console.WriteLine("Current share quota: {0} GiB", share.Properties.Quota);
 }
 ```
 
@@ -312,13 +313,13 @@ if (share.Exists())
 
 ---
 
-For more information about creating and using shared access signatures, see [How a shared access signature works](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#how-a-shared-access-signature-works).
+For more information about creating and using shared access signatures, see [How a shared access signature works](../common/storage-sas-overview.md?toc=/azure/storage/files/toc.json#how-a-shared-access-signature-works).
 
 ## Copy files
 
 Beginning with version 5.x of the Azure Files client library, you can copy a file to another file, a file to a blob, or a blob to a file.
 
-You can also use AzCopy to copy one file to another or to copy a blob to a file or the other way around. See [Get started with AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+You can also use AzCopy to copy one file to another or to copy a blob to a file or the other way around. See [Get started with AzCopy](../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json).
 
 > [!NOTE]
 > If you are copying a blob to a file, or a file to a blob, you must use a shared access signature (SAS) to authorize access to the source object, even if you are copying within the same storage account.
@@ -613,7 +614,7 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 
 ---
 
-If you encounter any problems, you can refer to [Troubleshoot Azure Files problems in Windows](storage-troubleshoot-windows-file-connection-problems.md).
+If you encounter any problems, refer to [Troubleshoot Azure Files](files-troubleshoot.md).
 
 ## Next steps
 
@@ -626,8 +627,8 @@ For more information about Azure Files, see the following resources:
 
 ### Tooling support for File storage
 
-- [Get started with AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
-- [Troubleshoot Azure Files problems in Windows](./storage-troubleshoot-windows-file-connection-problems.md)
+- [Get started with AzCopy](../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json)
+- [Troubleshoot Azure Files](files-troubleshoot.md)
 
 ### Reference
 

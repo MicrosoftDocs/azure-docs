@@ -2,7 +2,11 @@
 title: Tutorial - Prepare container image for deployment
 description: Azure Container Instances tutorial part 1 of 3 - Prepare an app in a container image for deployment to Azure Container Instances
 ms.topic: tutorial
-ms.date: 03/21/2018
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ms.custom: "seodec18, mvc, devx-track-js"
 ---
 
@@ -44,7 +48,7 @@ The Dockerfile in the sample application shows how the container is built. It st
 ```Dockerfile
 FROM node:8.9.3-alpine
 RUN mkdir -p /usr/src/app
-COPY ./app/ /usr/src/app/
+COPY ./app/* /usr/src/app/
 WORKDIR /usr/src/app
 RUN npm install
 CMD node /usr/src/app/index.js

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Elium for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Elium for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Elium.
 services: active-directory
 author: twimmers
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/19/2019
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
@@ -29,6 +29,9 @@ This tutorial assumes that you already have the following prerequisites:
 * An Azure AD tenant
 * [An Elium tenant](https://www.elium.com/pricing/)
 * A user account in Elium, with admin permissions
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Assigning users to Elium
 

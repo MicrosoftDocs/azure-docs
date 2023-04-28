@@ -1,14 +1,12 @@
 ---
 title: Use GitHub Actions to make code updates in Azure Functions
 description: Learn how to use GitHub Actions to define a workflow to build and deploy Azure Functions projects in GitHub.
-author: craigshoemaker
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.author: cshoe
 ms.custom: "devx-track-csharp, devx-track-python, github-actions-azure"
 ---
 
-# Continuous delivery by using GitHub Action
+# Continuous delivery by using GitHub Actions
 
 Use [GitHub Actions](https://github.com/features/actions) to define a workflow to automatically build and deploy code to your function app in Azure Functions. 
 
@@ -50,11 +48,15 @@ To download the publishing profile of your function app:
 
 ### Add the GitHub secret
 
-1. In [GitHub](https://github.com), browse to your repository, select **Settings** > **Secrets** > **Add a new secret**.
+1. In [GitHub](https://github.com/), go to your repository.
 
-   :::image type="content" source="media/functions-how-to-github-actions/add-secret.png" alt-text="Add Secret":::
+1. Select **Settings > Secrets > Actions**.
 
-1. Add a new secret using `AZURE_FUNCTIONAPP_PUBLISH_PROFILE` for **Name**, the content of the publishing profile file for **Value**, and then select **Add secret**.
+1. Select **New repository secret**.
+
+1. Add a new secret with the name `AZURE_FUNCTIONAPP_PUBLISH_PROFILE` and the value set to the contents of the publishing profile file.
+
+1. Select **Add secret**.
 
 GitHub can now authenticate to your function app in Azure.
 
@@ -95,10 +97,10 @@ The following example shows the part of the workflow that sets up the environmen
 
 ```yaml
 
-    - name: Setup Node 12.x Environment
-      uses: actions/setup-node@v1
+    - name: Setup Node 14.x Environment
+      uses: actions/setup-node@v2
       with:
-        node-version: 12.x
+        node-version: 14.x
 ```
 
 # [Python](#tab/python)
@@ -212,8 +214,8 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: 'Checkout GitHub Action'
-      uses: actions/checkout@main
+    - name: 'Checkout GitHub action'
+      uses: actions/checkout@v2
 
     - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
       uses: actions/setup-dotnet@v1
@@ -226,9 +228,8 @@ jobs:
         pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
         dotnet build --configuration Release --output ./output
         popd
-    - name: 'Run Azure Functions Action'
+    - name: 'Run Azure Functions action'
       uses: Azure/functions-action@v1
-      id: fa
       with:
         app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
         package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/output'
@@ -251,8 +252,8 @@ jobs:
   build-and-deploy:
     runs-on: windows-latest
     steps:
-    - name: 'Checkout GitHub Action'
-      uses: actions/checkout@main
+    - name: 'Checkout GitHub action'
+      uses: actions/checkout@v2
 
     - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
       uses: actions/setup-dotnet@v1
@@ -265,9 +266,8 @@ jobs:
         pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
         dotnet build --configuration Release --output ./output
         popd
-    - name: 'Run Azure Functions Action'
+    - name: 'Run Azure Functions action'
       uses: Azure/functions-action@v1
-      id: fa
       with:
         app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
         package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/output'
@@ -288,14 +288,14 @@ env:
   AZURE_FUNCTIONAPP_NAME: your-app-name      # set this to your function app name on Azure
   POM_XML_DIRECTORY: '.'                     # set this to the directory which contains pom.xml file
   POM_FUNCTIONAPP_NAME: your-app-name        # set this to the function app name in your local development environment
-  JAVA_VERSION: '1.8.x'                      # set this to the dotnet version to use
+  JAVA_VERSION: '1.8.x'                      # set this to the java version to use
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: 'Checkout GitHub Action'
-      uses: actions/checkout@main
+    - name: 'Checkout GitHub action'
+      uses: actions/checkout@v2
 
     - name: Setup Java Sdk ${{ env.JAVA_VERSION }}
       uses: actions/setup-java@v1
@@ -309,9 +309,8 @@ jobs:
         mvn clean package
         mvn azure-functions:package
         popd
-    - name: 'Run Azure Functions Action'
+    - name: 'Run Azure Functions action'
       uses: Azure/functions-action@v1
-      id: fa
       with:
         app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
         package: './${{ env.POM_XML_DIRECTORY }}/target/azure-functions/${{ env.POM_FUNCTIONAPP_NAME }}'
@@ -330,14 +329,14 @@ env:
   AZURE_FUNCTIONAPP_NAME: your-app-name      # set this to your function app name on Azure
   POM_XML_DIRECTORY: '.'                     # set this to the directory which contains pom.xml file
   POM_FUNCTIONAPP_NAME: your-app-name        # set this to the function app name in your local development environment
-  JAVA_VERSION: '1.8.x'                      # set this to the java version to use
+  JAVA_VERSION: '1.8.x'                      # set this to the Java version to use
 
 jobs:
   build-and-deploy:
     runs-on: windows-latest
     steps:
-    - name: 'Checkout GitHub Action'
-      uses: actions/checkout@main
+    - name: 'Checkout GitHub action'
+      uses: actions/checkout@v2
 
     - name: Setup Java Sdk ${{ env.JAVA_VERSION }}
       uses: actions/setup-java@v1
@@ -351,9 +350,8 @@ jobs:
         mvn clean package
         mvn azure-functions:package
         popd
-    - name: 'Run Azure Functions Action'
+    - name: 'Run Azure Functions action'
       uses: Azure/functions-action@v1
-      id: fa
       with:
         app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
         package: './${{ env.POM_XML_DIRECTORY }}/target/azure-functions/${{ env.POM_FUNCTIONAPP_NAME }}'
@@ -373,17 +371,17 @@ on:
 env:
   AZURE_FUNCTIONAPP_NAME: your-app-name    # set this to your application's name
   AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
-  NODE_VERSION: '12.x'                     # set this to the node version to use (supports 8.x, 10.x, 12.x)
+  NODE_VERSION: '14.x'                     # set this to the node version to use (supports 8.x, 10.x, 12.x, 14.x)
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: 'Checkout GitHub Action'
-      uses: actions/checkout@main
+    - name: 'Checkout GitHub action'
+      uses: actions/checkout@v2
 
     - name: Setup Node ${{ env.NODE_VERSION }} Environment
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v2
       with:
         node-version: ${{ env.NODE_VERSION }}
 
@@ -395,9 +393,8 @@ jobs:
         npm run build --if-present
         npm run test --if-present
         popd
-    - name: 'Run Azure Functions Action'
+    - name: 'Run Azure Functions action'
       uses: Azure/functions-action@v1
-      id: fa
       with:
         app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
         package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
@@ -415,17 +412,17 @@ on:
 env:
   AZURE_FUNCTIONAPP_NAME: your-app-name    # set this to your application's name
   AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
-  NODE_VERSION: '10.x'                     # set this to the node version to use (supports 8.x, 10.x, 12.x)
+  NODE_VERSION: '14.x'                     # set this to the node version to use (supports 8.x, 10.x, 12.x, 14.x)
 
 jobs:
   build-and-deploy:
     runs-on: windows-latest
     steps:
-    - name: 'Checkout GitHub Action'
-      uses: actions/checkout@main
+    - name: 'Checkout GitHub action'
+      uses: actions/checkout@v2
 
     - name: Setup Node ${{ env.NODE_VERSION }} Environment
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v2
       with:
         node-version: ${{ env.NODE_VERSION }}
 
@@ -437,9 +434,8 @@ jobs:
         npm run build --if-present
         npm run test --if-present
         popd
-    - name: 'Run Azure Functions Action'
+    - name: 'Run Azure Functions action'
       uses: Azure/functions-action@v1
-      id: fa
       with:
         app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
         package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
@@ -459,14 +455,14 @@ on:
 env:
   AZURE_FUNCTIONAPP_NAME: your-app-name # set this to your application's name
   AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'   # set this to the path to your web app project, defaults to the repository root
-  PYTHON_VERSION: '3.7'                 # set this to the python version to use (supports 3.6, 3.7, 3.8)
+  PYTHON_VERSION: '3.7'                 # set this to the Python version to use (supports 3.6, 3.7, 3.8)
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: 'Checkout GitHub Action'
-      uses: actions/checkout@main
+    - name: 'Checkout GitHub action'
+      uses: actions/checkout@v2
 
     - name: Setup Python ${{ env.PYTHON_VERSION }} Environment
       uses: actions/setup-python@v1
@@ -480,9 +476,8 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt --target=".python_packages/lib/site-packages"
         popd
-    - name: 'Run Azure Functions Action'
+    - name: 'Run Azure Functions action'
       uses: Azure/functions-action@v1
-      id: fa
       with:
         app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
         package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}

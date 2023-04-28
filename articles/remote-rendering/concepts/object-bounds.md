@@ -1,24 +1,26 @@
 ---
 title: Object bounds
-description: Explains how spatial object bounds can be queried
+description: Learn how spatial object bounds can be queried. Object bounds represent the volume that an entity and its children occupy. 
 author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
-ms.custom: devx-track-csharp
+ms.custom: 
+- devx-track-csharp
+- kr2b-contr-experiment
 ---
 
 # Object bounds
 
-Object bounds represent the volume that an [entity](entities.md) and its children occupy. In Azure Remote Rendering, object bounds are always given as *axis aligned bounding boxes* (AABB). Object bounds can be either in *local space* or in *world space*. Either way, they are always axis-aligned, which means the extents and volume may differ between the local and world space representation.
+Object bounds represent the volume that an [entity](entities.md) and its children occupy. In Azure Remote Rendering, object bounds are always given as *axis aligned bounding boxes* (AABB). Object bounds can be either in *local space* or in *world space*. Either way, they're always axis-aligned, which means the extents and volume may differ between the local and world space representation.
 
 ## Querying object bounds
 
-The local axis aligned bounding box of a [mesh](meshes.md) can be queried directly from the mesh resource. These bounds can be transformed into the local space or world space of an entity using the entity's transform.
+The local axis aligned bounding box of a mesh can be queried directly from the mesh resource. These bounds can be transformed into the local space or world space of an entity using the entity's transform. For more information, see [Meshes](meshes.md).
 
-It's possible to compute the bounds of an entire object hierarchy this way, but that requires to traverse the hierarchy, query the bounds for each mesh, and combine them manually. This operation is both tedious and inefficient.
+It's possible to compute the bounds of an entire object hierarchy this way. That approach requires traversing the hierarchy, querying the bounds for each mesh, and combining them manually. This operation is both tedious and inefficient.
 
-A better way is to call `QueryLocalBoundsAsync` or `QueryWorldBoundsAsync` on an entity. The computation is then offloaded to the server and returned with minimal delay.
+A better way is to call `QueryLocalBoundsAsync` or `QueryWorldBoundsAsync` on an entity. This approach offloads computation to the server and returns with minimal delay.
 
 ```cs
 public async void GetBounds(Entity entity)

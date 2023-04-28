@@ -5,7 +5,8 @@ ms.topic: conceptual
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
-ms.date: 02/05/2021
+ms.subservice: data-flows
+ms.date: 08/04/2022
 ---
 # Save costs for resources with reserved capacity - Azure Data Factory data flows
 

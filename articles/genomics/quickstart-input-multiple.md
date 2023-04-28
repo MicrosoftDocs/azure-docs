@@ -4,9 +4,9 @@ titleSuffix: Microsoft Genomics
 description: This article demonstrates how to submit a workflow to the Microsoft Genomics service if your input file is multiple FASTQ or BAM files from the same sample.
 services: genomics
 ms.service: genomics
-author: grhuynh
+author: vigunase
 manager: cgronlund
-ms.author: grhuynh
+ms.author: vigunase
 ms.topic: conceptual
 ms.date: 02/05/2018
 
@@ -152,4 +152,4 @@ output_storage_account_container: outputs
 Submit the `config.txt` file with this invocation: `msgen submit -f config.txt`
 
 ## Next steps
-In this article, you uploaded multiple BAM files or paired FASTQ files into Azure Storage and submitted a workflow to the Microsoft Genomics service through the `msgen` python client. For more information regarding workflow submission and other commands you can use with the Microsoft Genomics service, see the [FAQ](frequently-asked-questions-genomics.yml). 
+In this article, you uploaded multiple BAM files or paired FASTQ files into Azure Storage and submitted a workflow to the Microsoft Genomics service through the `msgen` Python client. For more information regarding workflow submission and other commands you can use with the Microsoft Genomics service, see the [FAQ](frequently-asked-questions-genomics.yml). 

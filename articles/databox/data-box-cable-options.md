@@ -7,13 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 10/24/2018
+ms.date: 01/10/2023
 ms.author: alkohli
 ---
 
 # Cabling options for your Azure Data Box
 
-This article describes the various ways to cable your Azure Data Box for data transfer.
+This article describes the various ways to cable your Azure Data Box for data transfer. For a full list of supported cables, see the [list of supported cables and switches from Mellanox](https://network.nvidia.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
 
 ## Transfer via MGMT port
 
@@ -113,7 +113,7 @@ Use this configuration if your device will be in a DHCP environment.
 
 Before you begin, make sure you have:
 
-- An RJ45 cable if you wish to connect DATA 1.
+- An RJ45 cable if you wish to connect DATA 3.
 - A 10-GbE SFP+ Twinax copper cable for each 10-GbE data port that you want to connect.
 - One or more data sources running a [Supported OS](data-box-system-requirements.md#supported-operating-systems-for-clients). These data sources could be in different networks such as 1 GbE or 10-GbE networks.
 

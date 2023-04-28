@@ -4,7 +4,8 @@ description: QnA Maker has meta-limits for parts of the knowledge base and servi
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
-ms.date: 11/09/2020
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
 ---
 
 # QnA Maker knowledge base limits and boundaries
@@ -19,7 +20,7 @@ The maximum number of knowledge bases is based on [Azure Cognitive Search tier l
 |---|---|---|---|---|---|----|
 |Maximum number of published knowledge bases allowed|2|14|49|199|199|2,999|
 
- For example, if your tier has 15 allowed indexes, you can publish 14 knowledge bases (1 index per published knowledge base). The fifteenth index, `testkb`, is used for all the knowledge bases for authoring and testing.
+ For example, if your tier has 15 allowed indexes, you can publish 14 knowledge bases (one index per published knowledge base). The 15th index, `testkb`, is used for all the knowledge bases for authoring and testing.
 
 ## Extraction Limits
 
@@ -46,18 +47,13 @@ File names may not include the following characters:
 
 The maximum number of files that can be extracted and maximum file size is based on your **[QnA Maker pricing tier limits](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)**.
 
-> [!NOTE]
-> Custom question answering (preview) is a free service with no limits on the number of sources that can be added. Throughput is currently capped at 10 transactions per second for both management APIs and prediction APIs.
-
 ### Maximum number of deep-links from URL
 
 The maximum number of deep-links that can be crawled for extraction of QnAs from a URL page is **20**.
 
 ## Metadata Limits
 
-Metadata is presented as a text-based key:value pair, such as `product:windows 10`. It is stored and compared in lower case. Maximum number of metadata fields is based on your **[Azure Cognitive Search tier limits](../../search/search-limits-quotas-capacity.md)**.
-
-# [QnA Maker GA (stable release)](#tab/v1)
+Metadata is presented as a text-based key: value pair, such as `product:windows 10`. It is stored and compared in lower case. Maximum number of metadata fields is based on your **[Azure Cognitive Search tier limits](../../search/search-limits-quotas-capacity.md)**.
 
 For GA version, since the test index is shared across all the KBs, the limit is applied across all KBs in the QnA Maker service.
 
@@ -65,29 +61,13 @@ For GA version, since the test index is shared across all the KBs, the limit is 
 |---|---|---|---|---|---|----|
 |Maximum metadata fields per QnA Maker service (across all KBs)|1,000|100*|1,000|1,000|1,000|1,000|
 
-# [Custom question answering (preview release)](#tab/v2)
-
-If you choose to have multiple language KBs in one service, there is a dedicated test index per KB. So the limit is applied per KB in the QnA Maker service.
-
-|**Azure Cognitive Search tier** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
-|---|---|---|---|---|---|----|
-|Maximum metadata fields per QnA Maker service (per KB)|1,000|100*|1,000|1,000|1,000|1,000|
-
-If you don't choose the option to have KBs in multiple langauges, then the limits are applied across all KBs in the QnA Maker service.
-
-|**Azure Cognitive Search tier** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
-|---|---|---|---|---|---|----|
-|Maximum metadata fields per QnA Maker service (across all KBs)|1,000|100*|1,000|1,000|1,000|1,000|
-
----
-
 ### By name and value
 
 The length and acceptable characters for metadata name and value are listed in the following table.
 
 |Item|Allowed chars|Regex pattern match|Max chars|
 |--|--|--|--|
-|Name (key)|Allows<br>alphanumeric (letters and digits)<br>`_` (underscore)<br> Must not contain spaces.|`^[a-zA-Z0-9_]+$`|100|
+|Name (key)|Allows<br>Alphanumeric (letters and digits)<br>`_` (underscore)<br> Must not contain spaces.|`^[a-zA-Z0-9_]+$`|100|
 |Value|Allows everything except<br>`:` (colon)<br>`|` (vertical pipe)<br>Only one value allowed.|`^[^:|]+$`|500|
 |||||
 
@@ -97,7 +77,7 @@ Overall limits on the content in the knowledge base:
 * Length of question text: 1,000 characters
 * Length of metadata key text: 100 characters
 * Length of metadata value text: 500 characters
-* Supported characters for metadata name: Alphabets, digits and `_`
+* Supported characters for metadata name: Alphabets, digits, and `_`
 * Supported characters for metadata value: All except `:` and `|`
 * Length of file name: 200
 * Supported file formats: ".tsv", ".pdf", ".txt", ".docx", ".xlsx".
@@ -127,7 +107,7 @@ These represent the limits for each update action; that is, clicking *Save and t
 
 These represent the limits when unstructured files are used to *Create KB* or call the CreateKnowledgeBase API:
 * Length of file: We will extract first 32000 characters
-* Maximum 3 responses per file.
+* Maximum three responses per file.
 
 ## Prebuilt question answering limits
 
@@ -138,10 +118,13 @@ These represent the limits when unstructured files are used to *Create KB* or ca
 These represent the limits when Prebuilt API is used to *Generate response* or call the GenerateAnswer API:
 * Number of documents: 5
 * Maximum size of a single document:  5,120 characters
-* Maximum 3 responses per document.
+* Maximum three responses per document.
 
 > [!IMPORTANT]
-> Support for unstructured file/content and Prebuilt API is available only in Custom question answering (preview)
+> Support for unstructured file/content and is available only in question answering.
+
+## Alterations limits
+[Alterations](/rest/api/cognitiveservices/qnamaker/alterations/replace) do not allow these special characters: ',', '?', ':', ';', '\"', '\'', '(', ')', '{', '}', '[', ']', '-', '+', '.', '/', '!', '*', '-', '_', '@', '#'
 
 ## Next steps
 

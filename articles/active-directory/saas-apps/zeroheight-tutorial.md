@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with zeroheight | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory SSO integration with zeroheight'
 description: Learn how to configure single sign-on between Azure Active Directory and zeroheight.
 services: active-directory
 author: jeevansd
@@ -9,13 +9,13 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/21/2021
+ms.date: 03/07/2023
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with zeroheight
+# Tutorial: Azure Active Directory SSO integration with zeroheight
 
-In this tutorial, you'll learn how to integrate zeroheight with Azure Active Directory (Azure AD). When you integrate zeroheight with Azure AD, you can:
+In this tutorial, you learn how to integrate zeroheight with Azure Active Directory (Azure AD). When you integrate zeroheight with Azure AD, you can:
 
 * Control in Azure AD who has access to zeroheight.
 * Enable your users to be automatically signed-in to zeroheight with their Azure AD accounts.
@@ -44,6 +44,8 @@ To configure the integration of zeroheight into Azure AD, you need to add zerohe
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **zeroheight** in the search box.
 1. Select **zeroheight** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for zeroheight
 
@@ -80,17 +82,18 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://zeroheight.com/sso`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [zeroheight Client support team](mailto:support@zeroheight.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. These values will be generated for you in your account. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. zeroheight application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+1. The zeroheight application expects the SAML assertions in a specific format and requires you to add custom attribute mappings to your SAML token attributes configuration. Find the following section with the default attributes.
 
 	![image](common/default-attributes.png)
 
-1. In addition to above, zeroheight application expects few more attributes to be passed back in SAML response, which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+1. zeroheight doesn't use any of the default attributes. Instead, add the following attributes to be passed back in SAML response. These attributes should also be pre-populated but you can review them as per your requirements.
 	
 	| Name |  Source Attribute|
 	| ---------- | --------- |
 	| email | user.mail |
+	| FirstName | user.givenname |
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
@@ -122,7 +125,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure zeroheight SSO
 
-To configure single sign-on on **zeroheight** side, you need to send the **App Federation Metadata Url** to [zeroheight support team](mailto:support@zeroheight.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **zeroheight** side, you need to paste the **App Federation Metadata Url** into your browser and download the XML file. Then you will need to extract the Identity Provider Single Sign-On URL and X.509 Certificate from it. Ask your IT team if you are unsure.
 
 ### Create zeroheight test user
 
@@ -136,8 +139,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to zeroheight Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the zeroheight tile in the My Apps, this will redirect to zeroheight Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the zeroheight tile in the My Apps, this will redirect to zeroheight Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next Steps
 
-Once you configure zeroheight you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure zeroheight you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

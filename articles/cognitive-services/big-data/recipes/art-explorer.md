@@ -1,21 +1,22 @@
 ---
-title: "Recipe: Intelligent Art Exploration with the Cognitive Services for Big Data"
+title: "Recipe: Intelligent Art Exploration with the Cognitive Services for big data"
 titleSuffix: Azure Cognitive Services
 description: This recipe shows how to create a searchable art database using Azure Search and MMLSpark.
 services: cognitive-services
 author: mhamilton723
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: text-analytics
+ms.subservice: computer-vision
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 01/10/2022
 ms.author: marhamil
+ms.devlang: python
 ms.custom: devx-track-python
 ---
 
-# Recipe: Intelligent Art Exploration with the Cognitive Services for Big Data
+# Recipe: Intelligent Art Exploration with the Cognitive Services for big data
 
-In this example, we'll use the Cognitive Services for Big Data to add intelligent annotations to the Open Access collection from the Metropolitan Museum of Art (MET). This will enable us to create an intelligent search engine using Azure Search even without manual annotations. 
+In this example, we'll use the Cognitive Services for big data to add intelligent annotations to the Open Access collection from the Metropolitan Museum of Art (MET). This will enable us to create an intelligent search engine using Azure Search even without manual annotations. 
 
 ## Prerequisites
 
@@ -112,4 +113,4 @@ requests.post(url, json={"search": "Glass"}, headers = {"api-key": AZURE_SEARCH_
 
 ## Next steps
 
-Learn how to use [Cognitive Services for Big Data for Anomaly Detection](anomaly-detection.md).
+Learn how to use [Cognitive Services for big data for Anomaly Detection](anomaly-detection.md).

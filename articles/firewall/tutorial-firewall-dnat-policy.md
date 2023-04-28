@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 04/29/2021
+ms.date: 08/26/2021
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator, I want to deploy and configure Azure Firewall policy DNAT so that I can control inbound Internet access to resources located in a subnet.
@@ -167,6 +167,9 @@ After deployment finishes, note the private IP address for the virtual machine. 
 
 For the **SN-Workload** subnet, you configure the outbound default route to go through the firewall.
 
+> [!IMPORTANT]
+> You do not need to configure an explicit route back to the firewall at the destination subnet. Azure Firewall is a stateful service and handles the packets and sessions automatically. If you create this route, you'll create an asymmetrical routing environment that interrupts the stateful session logic and results in dropped packets and connections.
+
 1. From the Azure portal home page, select **All services**.
 2. Under **Networking**, select **Route tables**.
 3. Select **Add**.
@@ -223,7 +226,5 @@ You can keep your firewall resources for the next tutorial, or if no longer need
 
 ## Next steps
 
-Next, you can monitor the Azure Firewall logs.
-
 > [!div class="nextstepaction"]
-> [Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md)
+> [Deploy and configure Azure Firewall Premium](premium-deploy.md)

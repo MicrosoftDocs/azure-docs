@@ -1,16 +1,15 @@
 ---
-title: 'Azure AD Connect: Troubleshoot SQL connectivity issues | Microsoft Docs'
+title: 'Azure AD Connect: Troubleshoot SQL connectivity issues'
 description: Explains how to troubleshoot SQL connectivity issues that occur with Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/30/2020
+ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -25,7 +24,7 @@ The following screenshot shows a typical error, if the SQL Server cannot be foun
 ![SQL error](./media/tshoot-connect-tshoot-sql-connectivity/sql1.png)
 
 ## Troubleshooting steps
-Open a PowerShell window and Import the ADSyncTools Powershell module
+Open a PowerShell window and Import the ADSyncTools PowerShell module
 
 ``` powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12

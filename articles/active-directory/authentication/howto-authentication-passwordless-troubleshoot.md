@@ -1,16 +1,16 @@
 ---
-title: Known issues and troubleshooting for hybrid FIDO2 security keys - Azure Active Directory
+title: Known issues and troubleshooting for hybrid FIDO2 security keys
 description: Learn about some known issues and ways to troubleshoot passwordless hybrid FIDO2 security key sign-in using Azure Active Directory 
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 02/22/2021
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: amycolannino
 ms.reviewer: aakapo
 
 ms.collection: M365-identity-device-management
@@ -98,20 +98,20 @@ The following events logs and registry key info is collected:
 
 ### Deployment Issues
 
-To troubleshoot issues with deploying the Azure AD Kerberos Server, use the new PowerShell module included with Azure AD Connect.
+To troubleshoot issues with deploying the Azure AD Kerberos Server, use the logs for the new [AzureADHybridAuthenticationManagement](https://www.powershellgallery.com/packages/AzureADHybridAuthenticationManagement) PowerShell module.
 
 #### Viewing the logs
 
-The Azure AD Kerberos Server PowerShell cmdlets use the same logging as the standard Azure AD Connect Wizard. To view information or error details from the cmdlets, complete the following steps:
+The Azure AD Kerberos Server PowerShell cmdlets in the [AzureADHybridAuthenticationManagement](https://www.powershellgallery.com/packages/AzureADHybridAuthenticationManagement) module use the same logging as the standard Azure AD Connect Wizard. To view information or error details from the cmdlets, complete the following steps:
 
-1. On the Azure AD Connect Server, browse to `C:\ProgramData\AADConnect\`. This folder is hidden by default.
+1. On the machine where the [AzureADHybridAuthenticationManagement](https://www.powershellgallery.com/packages/AzureADHybridAuthenticationManagement) module was used, browse to `C:\ProgramData\AADConnect\`. This folder is hidden by default.
 1. Open and view the most recent `trace-*.log` file located in the directory.
 
 #### Viewing the Azure AD Kerberos Server Objects
 
 To view the Azure AD Kerberos Server Objects and verify they are in good order, complete the following steps:
 
-1. On the Azure AD Connect Server, open PowerShell and navigate to `C:\Program Files\Microsoft Azure Active Directory Connect\AzureADKerberos\`
+1. On the Azure AD Connect Server or any other machine where the [AzureADHybridAuthenticationManagement](https://www.powershellgallery.com/packages/AzureADHybridAuthenticationManagement) module is installed, open PowerShell and navigate to `C:\Program Files\Microsoft Azure Active Directory Connect\AzureADKerberos\`
 1. Run the following PowerShell commands to view the Azure AD Kerberos Server from both Azure AD and on-premises AD DS.
 
     Replace *corp.contoso.com* with the name of your on-premises AD DS domain.
@@ -122,7 +122,7 @@ To view the Azure AD Kerberos Server Objects and verify they are in good order, 
     # Specify the on-premises AD DS domain.
     $domain = "corp.contoso.com"
 
-    # Enter an Azure Active Directory Global Admin username and password.
+    # Enter an Azure Active Directory Global Administrator username and password.
     $cloudCred = Get-Credential
 
     # Enter a Domain Admin username and password.
@@ -142,7 +142,7 @@ The first set of properties is from the objects in the on-premises AD DS environ
 | Id                 | The unique *Id* of the AD DS domain controller object. |
 | DomainDnsName      | The DNS domain name of the AD DS domain. |
 | ComputerAccount    | The computer account object of the Azure AD Kerberos Server object (the DC). |
-| UserAccount        | The disabled user account object that holds the Azure AD Kerberos Server TGT encryption key. The DN of this account is *CN=krbtgt_AzureAD,CN=Users,<Domain-DN>* |
+| UserAccount        | The disabled user account object that holds the Azure AD Kerberos Server TGT encryption key. The DN of this account is *CN=krbtgt_AzureAD,CN=Users,\<Domain-DN\>* |
 | KeyVersion         | The key version of the Azure AD Kerberos Server TGT encryption key. The version is assigned when the key is created. The version is then incremented every time the key is rotated. The increments are based on replication meta-data and will likely be greater than one.<br /><br /> For example, the initial *KeyVersion* could be *192272*. The first time the key is rotated, the version could advance to *212621*.<br /><br /> The important thing to verify is that the *KeyVersion* for the on-premises object and the *CloudKeyVersion* for the cloud object are the same. |
 | KeyUpdatedOn       | The date and time that the Azure AD Kerberos Server TGT encryption key was updated or created. |
 | KeyUpdatedFrom     | The DC where the Azure AD Kerberos Server TGT encryption key was last updated. |

@@ -3,13 +3,15 @@ title: Azure CLI script sample - create a logic app
 description: Sample script to create a logic app through the Logic Apps extension in the Azure CLI.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm
-ms.topic: article
+ms.reviewer: estfan, azla
+ms.topic: conceptual
 ms.custom: mvc, devx-track-azurecli
-ms.date: 07/30/2020
+ms.date: 08/23/2022
 ---
 
 # Azure CLI script sample - create a logic app
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 This script creates a sample logic app through the [Azure CLI Logic Apps extension](/cli/azure/logic), (`az logic`). For a detailed guide to creating and managing logic apps through the Azure CLI, see the [Logic Apps quickstart for the Azure CLI](quickstart-logic-apps-azure-cli.md).
 
@@ -22,7 +24,7 @@ This script creates a sample logic app through the [Azure CLI Logic Apps extensi
 * The [Azure CLI](/cli/azure/install-azure-cli) installed on your local computer.
 * The [Logic Apps Azure CLI extension](/cli/azure/azure-cli-extensions-list) installed on your computer. To install this extension, use this command: `az extension add --name logic`
 * A [workflow definition](quickstart-logic-apps-azure-cli.md#workflow-definition) for your logic app. This JSON file must follow the [Workflow Definition language schema](logic-apps-workflow-definition-language.md).
-* An API connection to an email account through a supported [Logic Apps connector](../connectors/apis-list.md) in the same resource group as your logic app. This example uses the [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md) connector, but you can also use other connectors like [Outlook.com](../connectors/connectors-create-api-outlook.md).
+* An API connection to an email account through a supported [Azure Logic Apps connector](/connectors/connector-reference/connector-reference-logicapps-connectors) in the same resource group as your logic app. This example uses the [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md) connector, but you can also use other connectors like [Outlook.com](../connectors/connectors-create-api-outlook.md).
 
 ### Prerequisite check
 
@@ -36,7 +38,7 @@ Validate your environment before you begin:
 
 ### Sample workflow explanation
 
-This example workflow definition file creates the same basic logic app as the [Logic Apps quickstart for the Azure portal](quickstart-create-first-logic-app-workflow.md). 
+This example workflow definition file creates the same basic example Consumption logic app workflow as in the [quickstart for the Azure portal](quickstart-create-example-consumption-workflow.md).
 
 This sample workflow: 
 
@@ -192,8 +194,8 @@ This sample script uses the following commands to create a new resource group an
 
 | Command | Notes |
 | ------- | ----- |
-| [`az group create`](/cli/azure/group#az_group_create) | Creates a resource group in which your logic app's resources are stored. |
-| [`az logic workflow create`](/cli/azure/logic/workflow#az_logic_workflow_create) | Creates a logic app based on the workflow defined in the parameter `--definition`. |
+| [`az group create`](/cli/azure/group#az-group-create) | Creates a resource group in which your logic app's resources are stored. |
+| [`az logic workflow create`](/cli/azure/logic/workflow#az-logic-workflow-create) | Creates a logic app based on the workflow defined in the parameter `--definition`. |
 | [`az group delete`](/cli/azure/vm/extension) | Deletes a resource group and all of its nested resources. |
 
 ## Next steps

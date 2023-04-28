@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Draup, Inc | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Draup, Inc'
 description: Learn how to configure single sign-on between Azure Active Directory and Draup, Inc.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/16/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 
 ---
@@ -47,6 +47,8 @@ To configure the integration of Draup, Inc into Azure AD, you need to add Draup,
 1. In the **Add from the gallery** section, type **Draup, Inc** in the search box.
 1. Select **Draup, Inc** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Draup, Inc
 
 Configure and test Azure AD SSO with Draup, Inc using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Draup, Inc.
@@ -70,11 +72,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
+1. On the **Basic SAML Configuration** page, enter the values for the following fields:
 
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-    a. In the **Sign-on URL** text box, type the URL:
+    In the **Sign-on URL** text box, type the URL:
     `https://platform.draup.com/saml2/login/`
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Raw)** and select **Download** to download the certificate and save it on your computer.
@@ -125,8 +125,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Draup, Inc Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Draup, Inc tile in the My Apps, this will redirect to Draup, Inc Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Draup, Inc tile in the My Apps, this will redirect to Draup, Inc Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure Draup, Inc you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure Draup, Inc you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

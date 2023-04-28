@@ -1,30 +1,21 @@
 ---
 title: Back up an SAP HANA database to Azure with Azure Backup 
 description: In this article, learn how to back up an SAP HANA database to Azure virtual machines with the Azure Backup service.
-ms.topic: conceptual
-ms.date: 05/28/2021
+ms.topic: how-to
+ms.date: 02/17/2023
+ms.service: backup
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up SAP HANA databases in Azure VMs
 
+This article describes how to back up SAP HANA databases that are running on Azure VMs to an Azure Backup Recovery Services vault.
+
 SAP HANA databases are critical workloads that require a low recovery-point objective (RPO) and long-term retention. You can back up SAP HANA databases running on Azure virtual machines (VMs) by using [Azure Backup](backup-overview.md).
 
-This article shows how to back up SAP HANA databases that are running on Azure VMs to an Azure Backup Recovery Services vault.
-
-In this article, you'll learn how to:
-> [!div class="checklist"]
->
-> * Create and configure a vault
-> * Discover databases
-> * Configure backups
-> * Run an on-demand backup job
-
 >[!NOTE]
->As of August 1st, 2020, SAP HANA backup for RHEL (7.4, 7.6, 7.7 & 8.1) is generally available.
-
->[!NOTE]
->**Soft delete for SQL server in Azure VM and soft delete for SAP HANA in Azure VM workloads** is now available in preview.<br>
->To sign up for the preview, write to us at [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+>See the [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md) to know more about the supported configurations and scenarios.
 
 ## Prerequisites
 
@@ -41,14 +32,18 @@ The following table lists the various alternatives you can use for establishing 
 | Private endpoints                 | Allow backups over private IPs inside the virtual network  <br><br>   Provide granular control on the network and vault side | Incurs standard private endpoint [costs](https://azure.microsoft.com/pricing/details/private-link/) |
 | NSG service tags                  | Easier to manage as range changes are automatically merged   <br><br>   No additional costs | Can be used with NSGs only  <br><br>    Provides access to the entire service |
 | Azure Firewall FQDN tags          | Easier to manage since the required FQDNs are automatically managed | Can be used with Azure Firewall only                         |
-| Allow access to service FQDNs/IPs | No additional costs   <br><br>  Works with all network security appliances and firewalls | A broad set of IPs or FQDNs may be required to be accessed   |
-| Use an HTTP proxy                 | Single point of internet access to VMs                       | Additional costs to run a VM with the proxy software         |
+| Allow access to service FQDNs/IPs | No additional costs.   <br><br>  Works with all network security appliances and firewalls. <br><br> You can also use service endpoints for *Storage*. However, for *Azure Backup* and *Azure Active Directory*, you need to assign the access to the corresponding IPs/FQDNs. | A broad set of IPs or FQDNs may be required to be accessed.   |
+| [Virtual Network Service Endpoint](../virtual-network/virtual-network-service-endpoints-overview.md)    |     Can be used for Azure Storage.     <br><br>     Provides large benefit to optimize performance of data plane traffic.          |         Can't be used for Azure AD, Azure Backup service.    |
+| Network Virtual Appliance      |      Can be used for Azure Storage, Azure AD, Azure Backup service. <br><br> **Data plane**   <ul><li>      Azure Storage: `*.blob.core.windows.net`, `*.queue.core.windows.net`, `*.blob.storage.azure.net`  </li></ul>   <br><br>     **Management plane**  <ul><li>  Azure AD: Allow access to FQDNs mentioned in sections 56 and 59 of [Microsoft 365 Common and Office Online](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). </li><li>   Azure Backup service: `.backup.windowsazure.com` </li></ul> <br>Learn more about [Azure Firewall service tags](../firewall/fqdn-tags.md).       |  Adds overhead to data plane traffic and decrease throughput/performance.  |
 
 More details around using these options are shared below:
 
 #### Private endpoints
 
 Private endpoints allow you to connect securely from servers inside a virtual network to your Recovery Services vault. The private endpoint uses an IP from the VNET address space for your vault. The network traffic between your resources inside the virtual network and the vault travels over your virtual network and a private link on the Microsoft backbone network. This eliminates exposure from the public internet. Read more on private endpoints for Azure Backup [here](./private-endpoints.md).
+
+> [!NOTE]
+> Private endpoints are supported for Azure Backup and Azure storage. Azure AD has support private end-points in private preview. Until they are generally available, Azure backup supports setting up proxy for Azure AD so that no outbound connectivity is required for HANA VMs. For more information, see the [proxy support section](#use-an-http-proxy-server-to-route-traffic).
 
 #### NSG tags
 
@@ -76,36 +71,73 @@ If you choose to allow access service IPs, refer to the IP ranges in the JSON fi
 
 You can also use the following FQDNs to allow access to the required services from your servers:
 
-| Service    | Domain  names to be accessed                             |
-| -------------- | ------------------------------------------------------------ |
-| Azure  Backup  | `*.backup.windowsazure.com`                             |
-| Azure  Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net` |
-| Azure  AD      | Allow  access to FQDNs under sections 56 and 59 according to [this article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |
+| Service    | Domain  names to be accessed                             |   Ports        |
+| -------------- | ------------------------------------------------------------ | ---------------------- |
+| Azure  Backup  | `*.backup.windowsazure.com`                             |  443       |
+| Azure  Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net` |   443    |
+| Azure  AD      | Allow  access to FQDNs under sections 56 and 59 according to [this article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |    As applicable      |
 
 #### Use an HTTP proxy server to route traffic
 
-When you back up an SAP HANA database running on an Azure VM, the backup extension on the VM uses the HTTPS APIs to send management commands to Azure Backup and data to Azure Storage. The backup extension also uses Azure AD for authentication. Route the backup extension traffic for these three services through the HTTP proxy. Use the list of IPs and FQDNs mentioned above for allowing access to the required services. Authenticated proxy servers aren't supported.
-
 > [!NOTE]
-> There is no service level proxy support. That is, traffic via the proxy from only a few or selected services (Azure backup services) isn't supported. The entire data or traffic can either be routed by proxy or not.
+> Currently, we only support HTTP Proxy for Azure Active Directory (Azure AD) traffic for SAP HANA. If you need to remove outbound connectivity requirements (for Azure Backup and Azure Storage traffic) for database backups via Azure Backup in HANA VMs, use other options, such as private endpoints.
+
+##### Using an HTTP proxy server for Azure AD traffic
+
+1. Go to the "opt/msawb/bin" folder
+2. Create a new JSON file named "ExtensionSettingsOverrides.json"
+3. Add a key-value pair to the JSON file as follows:
+
+    ```json
+    {
+        "UseProxyForAAD":true,
+        "UseProxyForAzureBackup":false,
+        "UseProxyForAzureStorage":false,
+        "ProxyServerAddress":"http://xx.yy.zz.mm:port"
+    }
+    ```
+
+4. Change the permissions and ownership of the file as follows:
+    
+    ```bash
+    chmod 750 ExtensionSettingsOverrides.json
+    chown root:msawb ExtensionSettingsOverrides.json
+    ```
+
+5. No restart of any service is required. The Azure Backup service will attempt to route the Azure AD traffic via the proxy server mentioned in the JSON file.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
+## Enable Cross Region Restore
+
+At the Recovery Services vault, you can enable Cross Region Restore. Learn [how to turn on Cross Region Restore](./backup-create-rs-vault.md#set-cross-region-restore).
+
+[Learn more](./backup-azure-recovery-services-vault-overview.md) about Cross Region Restore.
+
 ## Discover the databases
 
-1. In the vault, in **Getting Started**, select **Backup**. In **Where is your workload running?**, select **SAP HANA in Azure VM**.
-2. Select **Start Discovery**. This initiates discovery of unprotected Linux VMs in the vault region.
+1. In the Azure portal, go to **Backup center** and select **+Backup**.
+
+   :::image type="content" source="./media/backup-azure-sap-hana-database/backup-center-configure-inline.png" alt-text="Screenshot showing to start checking for SAP HANA databases." lightbox="./media/backup-azure-sap-hana-database/backup-center-configure-expanded.png":::
+
+1. Select **SAP HANA in Azure VM** as the datasource type, select a Recovery Services vault to use for backup, and then select **Continue**.
+
+   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-select-vault.png" alt-text="Screenshot showing to select an SAP HANA database in Azure VM.":::
+
+1. Select **Start Discovery**. This initiates discovery of unprotected Linux VMs in the vault region.
 
    * After discovery, unprotected VMs appear in the portal, listed by name and resource group.
    * If a VM isn't listed as expected, check whether it's already backed up in a vault.
    * Multiple VMs can have the same name but they belong to different resource groups.
 
-3. In **Select Virtual Machines**, select the link to download the script that provides permissions for the Azure Backup service to access the SAP HANA VMs for database discovery.
-4. Run the script on each VM hosting SAP HANA databases that you want to back up.
-5. After running the script on the VMs, in **Select Virtual Machines**, select the VMs. Then select **Discover DBs**.
-6. Azure Backup discovers all SAP HANA databases on the VM. During discovery, Azure Backup registers the VM with the vault, and installs an extension on the VM. No agent is installed on the database.
+   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-discover-databases.png" alt-text="Screenshot showing to select Start Discovery.":::
 
-    ![Discover SAP HANA databases](./media/backup-azure-sap-hana-database/hana-discover.png)
+1. In **Select Virtual Machines**, select the link to download the script that provides permissions for the Azure Backup service to access the SAP HANA VMs for database discovery.
+1. Run the script on each VM hosting SAP HANA databases that you want to back up.
+1. After running the script on the VMs, in **Select Virtual Machines**, select the VMs. Then select **Discover DBs**.
+1. Azure Backup discovers all SAP HANA databases on the VM. During discovery, Azure Backup registers the VM with the vault, and installs an extension on the VM. No agent is installed on the database.
+
+   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-select-virtual-machines-inline.png" alt-text="Screenshot showing the discovered SAP HANA databases." lightbox="./media/backup-azure-sap-hana-database/hana-select-virtual-machines-expanded.png":::
 
 ## Configure backup  
 
@@ -113,13 +145,16 @@ Now enable backup.
 
 1. In Step 2, select **Configure Backup**.
 
-    ![Configure Backup](./media/backup-azure-sap-hana-database/configure-backup.png)
+   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-configure-backups.png" alt-text="Screenshot showing to configure Backup.":::
+
 2. In **Select items to back up**, select all the databases you want to protect > **OK**.
 
-    ![Select items to back up](./media/backup-azure-sap-hana-database/select-items.png)
+   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-select-databases-inline.png" alt-text="Screenshot showing to select databases to back up." lightbox="./media/backup-azure-sap-hana-database/hana-select-databases-expanded.png":::
+
 3. In **Backup Policy** > **Choose backup policy**, create a new backup policy for the databases, in accordance with the instructions below.
 
-    ![Choose backup policy](./media/backup-azure-sap-hana-database/backup-policy.png)
+   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-policy-summary.png" alt-text="Screenshot showing to choose backup policy.":::
+
 4. After creating the policy, on the **Backup** menu, select **Enable backup**.
 
     ![Enable backup](./media/backup-azure-sap-hana-database/enable-backup.png)
@@ -133,7 +168,7 @@ A backup policy defines when backups are taken, and how long they're retained.
 * Multiple vaults can use the same backup policy, but you must apply the backup policy to each vault.
 
 >[!NOTE]
->Azure Backup doesn’t automatically adjust for daylight saving time changes when backing up a SAP HANA database running in an Azure VM.
+>Azure Backup doesn’t automatically adjust for daylight saving time changes when backing up an SAP HANA database running in an Azure VM.
 >
 >Modify the policy manually as needed.
 
@@ -190,31 +225,11 @@ Specify the policy settings as follows:
 
 ## Run an on-demand backup
 
-Backups run in accordance with the policy schedule. You can run a backup on-demand as follows:
+Backups run in accordance with the policy schedule. Learn how to [run an on-demand backup](sap-hana-database-manage.md#run-on-demand-backups).
 
-1. In the vault menu, select **Backup items**.
-2. In **Backup Items**,  select the VM running the SAP HANA database, and then select **Backup now**.
-3. In **Backup Now**, choose the type of backup you want to perform. Then select **OK**. This backup will be retained for 45 days.
-4. Monitor the portal notifications. You can monitor the job progress in the vault dashboard > **Backup Jobs** > **In progress**. Depending on the size of your database, creating the initial backup may take a while.
+## Run SAP HANA native clients backup on a database with Azure Backup
 
-By default, the retention of on-demand backups is 45 days.
-
-## Run SAP HANA Studio backup on a database with Azure Backup enabled
-
-If you want to take a local backup (using HANA Studio) of a database that's being backed up with Azure Backup, do the following:
-
-1. Wait for any full or log backups for the database to finish. Check the status in SAP HANA Studio / Cockpit.
-1. Disable log backups, and set the backup catalog to the file system for relevant database.
-1. To do this, double-click **systemdb** > **Configuration** > **Select Database** > **Filter (Log)**.
-1. Set **enable_auto_log_backup** to **No**.
-1. Set **log_backup_using_backint** to **False**.
-1. Set **catalog_backup_using_backint** to **False**.
-1. Take an on-demand full backup of the database.
-1. Wait for the full backup and catalog backup to finish.
-1. Revert the previous settings back to those for Azure:
-    * Set **enable_auto_log_backup** to **Yes**.
-    * Set **log_backup_using_backint** to **True**.
-    * Set **catalog_backup_using_backint** to **True**.
+You can run an on-demand backup using SAP HANA native clients to local file-system instead of Backint. Learn more how to [manage operations using SAP native clients](sap-hana-database-manage.md#manage-operations-using-sap-hana-native-clients).
 
 ## Next steps
 

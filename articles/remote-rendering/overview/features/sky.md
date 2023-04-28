@@ -11,6 +11,7 @@ ms.custom: devx-track-csharp
 # Sky reflections
 
 In Azure Remote Rendering, a sky texture is used to light objects realistically. For augmented reality applications, this texture should resemble your real-world surroundings, to make objects appear convincing. This article describes how to change the sky texture.
+The sky only affects the rendering of [PBR materials](../../overview/features/pbr-materials.md). [Color materials](../../overview/features/color-materials.md) and [point clouds](../../overview/features/point-cloud-rendering.md) aren't affected.
 
 > [!NOTE]
 > The sky texture is also referred to as an *environment map*. These terms are used interchangeably.
@@ -70,7 +71,7 @@ void ChangeEnvironmentMap(ApiHandle<RenderingSession> session)
 }
 ```
 
-Note that the `LoadTextureFromSasAsync` variant is used above because a built-in texture is loaded. In case of loading from [linked blob storages](../../how-tos/create-an-account.md#link-storage-accounts), use the `LoadTextureAsync` variant.
+The `LoadTextureFromSasAsync` variant is used above because a built-in texture is loaded. When loading from [linked blob storages](../../how-tos/create-an-account.md#link-storage-accounts) instead, use the `LoadTextureAsync` variant.
 
 ## Sky texture types
 
@@ -80,7 +81,7 @@ All textures have to be in a [supported texture format](../../concepts/textures.
 
 ### Cube environment maps
 
-For reference, here is an unwrapped cubemap:
+For reference, here's an unwrapped cubemap:
 
 ![An unwrapped cubemap](media/Cubemap-example.png)
 

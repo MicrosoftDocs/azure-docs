@@ -4,7 +4,7 @@ description: Learn how a trained Microsoft Cognitive Toolkit deep learning model
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 01/14/2020
+ms.date: 12/23/2022
 ---
 
 # Use Microsoft Cognitive Toolkit deep learning model with Azure HDInsight Spark cluster

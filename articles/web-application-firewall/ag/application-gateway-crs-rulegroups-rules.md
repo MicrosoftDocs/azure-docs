@@ -5,47 +5,68 @@ description: This page provides information on web application firewall CRS rule
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 07/06/2021
+ms.date: 11/08/2022
 ms.author: victorh
 ms.topic: conceptual
 ---
 
 # Web Application Firewall CRS rule groups and rules
 
-Application Gateway web application firewall (WAF) protects web applications from common vulnerabilities and exploits. This is done through rules that are defined based on the OWASP core rule sets 3.2, 3.1, 3.0, or 2.2.9. These rules can be disabled on a rule-by-rule basis. This article contains the current rules and rule sets offered.
+Application Gateway web application firewall (WAF) protects web applications from common vulnerabilities and exploits. This is done through rules that are defined based on the OWASP core rule sets 3.2, 3.1, 3.0, or 2.2.9. Rules can be disabled on a rule-by-rule basis, or you can set specific actions by individual rule. This article contains the current rules and rule sets offered. In the rare occasion that a published ruleset needs to be updated, it will be documented here.
 
 ## Core rule sets
 
-The Application Gateway WAF comes pre-configured with CRS 3.0 by default. But you can choose to use CRS 3.2, 3.1, or 2.2.9 instead.
+The Application Gateway WAF comes pre-configured with CRS 3.2 by default, but you can choose to use any other supported CRS version.
  
-
-CRS 3.2 (public preview) offers a new engine and new rule sets defending against Java infections, an initial set of file upload checks, fixed false positives, and more. 
-
-CRS 3.1 offers reduced false positives compared with CRS 3.0 and 2.2.9. You can also [customize rules to suit your needs](application-gateway-customize-waf-rules-portal.md).
+CRS 3.2 offers a new engine and new rule sets defending against Java injections, an initial set of file upload checks, and fewer false positives compared with earlier versions of CRS. You can also [customize rules to suit your needs](application-gateway-customize-waf-rules-portal.md). Learn more about the new [Azure WAF engine](waf-engine.md).
 
 > [!div class="mx-imgBorder"]
 > ![Manages rules](../media/application-gateway-crs-rulegroups-rules/managed-rules-01.png)
 
 The WAF protects against the following web vulnerabilities:
 
-- SQL-injection attacks
-- Cross-site scripting attacks
-- Other common attacks, such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion
-- HTTP protocol violations
-- HTTP protocol anomalies, such as missing host user-agent and accept headers
-- Bots, crawlers, and scanners
-- Common application misconfigurations (for example, Apache and IIS)
+- SQL-injection attacks
+- Cross-site scripting attacks
+- Other common attacks, such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion
+- HTTP protocol violations
+- HTTP protocol anomalies, such as missing host user-agent and accept headers
+- Bots, crawlers, and scanners
+- Common application misconfigurations (for example, Apache and IIS)
 
-### OWASP CRS 3.2 (public preview)
+CRS is enabled by default in Detection mode in your WAF policies. You can disable or enable individual rules within the Core Rule Set to meet your application requirements. You can also set specific actions per rule. The CRS supports block, log and anomaly score actions. The Bot Manager ruleset supports the allow, block and log actions.
 
-CRS 3.2 includes 15 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
+Sometimes you might need to omit certain request attributes from a WAF evaluation. A common example is Active Directory-inserted tokens that are used for authentication. You can configure exclusions to apply when specific WAF rules are evaluated, or to apply globally to the evaluation of all WAF rules. Exclusion rules apply to your whole web application. For more information, see [Web Application Firewall (WAF) with Application Gateway exclusion lists](application-gateway-waf-configuration.md).
+
+By default, CRS version 3.2 and above will leverage anomaly scoring when a request matches a rule, CRS 3.1 and below will block matching requests by default. Additionally, custom rules can be configured in the same WAF policy if you wish to bypass any of the pre-configured rules in the Core Rule Set.
+
+Custom rules are always applied before rules in the Core Rule Set are evaluated. If a request matches a custom rule, the corresponding rule action is applied. The request is either blocked or passed through to the back-end. No other custom rules or the rules in the Core Rule Set are processed. 
+
+### Anomaly scoring
+
+When you use CRS, your WAF is configured to use anomaly scoring by default. Traffic that matches any rule isn't immediately blocked, even when your WAF is in prevention mode. Instead, the OWASP rule sets define a severity for each rule: Critical, Error, Warning, or Notice. The severity affects a numeric value for the request, which is called the anomaly score:
+
+| Rule severity | Value contributed to anomaly score |
+|-|-|
+| Critical | 5 |
+| Error | 4 |
+| Warning | 3 |
+| Notice | 2 |
+
+If the anomaly score is 5 or greater, and the WAF is in Prevention mode, the request is blocked. If the anomaly score is 5 or greater, and the WAF is in Detection mode, the request is logged but not blocked.
+
+For example, a single *Critical* rule match is enough for the WAF to block a request when in Prevention mode, because the overall anomaly score is 5. However, one *Warning* rule match only increases the anomaly score by 3, which isn't enough by itself to block the traffic. When an anomaly rule is triggered, it shows a "Matched" action in the logs. If the anomaly score is 5 or greater, there is a separate rule triggered with either "Blocked" or "Detected" action depending on whether WAF policy is in Prevention or Detection mode. For more information, please see [Anomaly Scoring mode](ag-overview.md#anomaly-scoring-mode).
+
+### OWASP CRS 3.2
+
+CRS 3.2 includes 14 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled. The ruleset is based off OWASP CRS 3.2.0 version.
 
 > [!NOTE]
-> CRS 3.2 is only available on the WAF_v2 SKU.
+> CRS 3.2 is only available on the WAF_v2 SKU. Because CRS 3.2 runs on the new Azure WAF engine, you can't downgrade to CRS 3.1 or earlier. If you need to downgrade, [contact Azure Support](https://aka.ms/azuresupportrequest).
 
 |Rule group|Description|
 |---|---|
 |**[General](#general-32)**|General group|
+|**[KNOWN-CVES](#crs800-32)**|Help detect new and known CVEs|
 |**[REQUEST-911-METHOD-ENFORCEMENT](#crs911-32)**|Lock-down methods (PUT, PATCH)|
 |**[REQUEST-913-SCANNER-DETECTION](#crs913-32)**|Protect against port and environment scanners|
 |**[REQUEST-920-PROTOCOL-ENFORCEMENT](#crs920-32)**|Protect against protocol and encoding issues|
@@ -57,12 +78,12 @@ CRS 3.2 includes 15 rule groups, as shown in the following table. Each group con
 |**[REQUEST-941-APPLICATION-ATTACK-XSS](#crs941-32)**|Protect against cross-site scripting attacks|
 |**[REQUEST-942-APPLICATION-ATTACK-SQLI](#crs942-32)**|Protect against SQL-injection attacks|
 |**[REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION](#crs943-32)**|Protect against session-fixation attacks|
-|**[REQUEST-944-APPLICATION-ATTACK-SESSION-JAVA](#crs944-32)**|Protect against JAVA attacks|
+|**[REQUEST-944-APPLICATION-ATTACK-JAVA](#crs944-32)**|Protect against JAVA attacks|
 
 
 ### OWASP CRS 3.1
 
-CRS 3.1 includes 13 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
+CRS 3.1 includes 14 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled. The ruleset is based off OWASP CRS 3.1.1 version.
 
 > [!NOTE]
 > CRS 3.1 is only available on the WAF_v2 SKU.
@@ -70,6 +91,7 @@ CRS 3.1 includes 13 rule groups, as shown in the following table. Each group con
 |Rule group|Description|
 |---|---|
 |**[General](#general-31)**|General group|
+|**[KNOWN-CVES](#crs800-31)**|Help detect new and known CVEs|
 |**[REQUEST-911-METHOD-ENFORCEMENT](#crs911-31)**|Lock-down methods (PUT, PATCH)|
 |**[REQUEST-913-SCANNER-DETECTION](#crs913-31)**|Protect against port and environment scanners|
 |**[REQUEST-920-PROTOCOL-ENFORCEMENT](#crs920-31)**|Protect against protocol and encoding issues|
@@ -85,11 +107,12 @@ CRS 3.1 includes 13 rule groups, as shown in the following table. Each group con
 
 ### OWASP CRS 3.0
 
-CRS 3.0 includes 12 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
+CRS 3.0 includes 13 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled. The ruleset is based off OWASP CRS 3.0.0 version.
 
 |Rule group|Description|
 |---|---|
 |**[General](#general-30)**|General group|
+|**[KNOWN-CVES](#crs800-30)**|Help detect new and known CVEs|
 |**[REQUEST-911-METHOD-ENFORCEMENT](#crs911-30)**|Lock-down methods (PUT, PATCH)|
 |**[REQUEST-913-SCANNER-DETECTION](#crs913-30)**|Protect against port and environment scanners|
 |**[REQUEST-920-PROTOCOL-ENFORCEMENT](#crs920-30)**|Protect against protocol and encoding issues|
@@ -106,6 +129,9 @@ CRS 3.0 includes 12 rule groups, as shown in the following table. Each group con
 
 CRS 2.2.9 includes 10 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
 
+> [!NOTE]
+> CRS 2.2.9 is no longer supported for new WAF policies. We recommend you upgrade to the latest CRS version.
+
 |Rule group|Description|
 |---|---|
 |**[crs_20_protocol_violations](#crs20)**|Protect against protocol violations (such as invalid characters or a GET with a request body)|
@@ -119,23 +145,44 @@ CRS 2.2.9 includes 10 rule groups, as shown in the following table. Each group c
 |**[crs_42_tight_security](#crs42)**|Protect against path-traversal attacks|
 |**[crs_45_trojans](#crs45)**|Protect against backdoor trojans|
 
+### Bot rules
+
+You can enable a managed bot protection rule set to take custom actions on requests from all bot   categories.
+
+|Rule group|Description|
+|---|---|
+|**[BadBots](#bot100)**|Protect against bad bots|
+|**[GoodBots](#bot200)**|Identify good bots|
+|**[UnknownBots](#bot300)**|Identify unknown bots|
+
 The following rule groups and rules are available when using Web Application Firewall on Application Gateway.
 
-# [OWASP 3.2 (public preview)](#tab/owasp32)
+# [OWASP 3.2](#tab/owasp32)
 
 ## <a name="owasp32"></a> 3.2 rule sets
 
-### <a name="general-32"></a> <p x-ms-format-detection="none">General</p>
+### <a name="general-32"></a> General
 |RuleId|Description|
 |---|---|
+|200002|Failed to Parse Request Body.|
+|200003|Multipart Request Body Strict Validation.|
 |200004|Possible Multipart Unmatched Boundary.|
 
-### <a name="crs911-32"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
+### <a name="crs800-32"></a> KNOWN-CVES
+|RuleId|Description|
+|---|---|
+|800100|Rule to help detect and mitigate log4j vulnerability [CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046)|
+|800110|Spring4Shell Interaction Attempt|
+|800111|Attempted Spring Cloud routing-expression injection - [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
+|800112|Attempted Spring Framework unsafe class object exploitation - [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
+|800113|Attempted Spring Cloud Gateway Actuator injection - [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
+
+### <a name="crs911-32"></a> REQUEST-911-METHOD-ENFORCEMENT
 |RuleId|Description|
 |---|---|
 |911100|Method is not allowed by policy|
 
-### <a name="crs913-32"></a> <p x-ms-format-detection="none">REQUEST-913-SCANNER-DETECTION</p>
+### <a name="crs913-32"></a> REQUEST-913-SCANNER-DETECTION
 |RuleId|Description|
 |---|---|
 |913100|Found User-Agent associated with security scanner|
@@ -144,7 +191,7 @@ The following rule groups and rules are available when using Web Application Fir
 |913110|Found request header associated with security scanner|
 |913120|Found request filename/argument associated with security scanner|
 
-### <a name="crs920-32"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
+### <a name="crs920-32"></a> REQUEST-920-PROTOCOL-ENFORCEMENT
 |RuleId|Description|
 |---|---|
 |920100|Invalid HTTP Request Line|
@@ -171,6 +218,7 @@ The following rule groups and rules are available when using Web Application Fir
 |920274|Invalid character in request headers (outside of very strict set)|
 |920280|Request Missing a Host Header|
 |920290|Empty Host Header|
+|920300|Request Missing an Accept Header|
 |920310|Request Has an Empty Accept Header|
 |920311|Request Has an Empty Accept Header|
 |920320|Missing User Agent Header|
@@ -186,7 +234,7 @@ The following rule groups and rules are available when using Web Application Fir
 |920470|Illegal Content-Type header|
 |920480|Restrict charset parameter within the content-type header|
 
-### <a name="crs921-32"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
+### <a name="crs921-32"></a> REQUEST-921-PROTOCOL-ATTACK
 
 |RuleId|Description|
 |---|---|
@@ -200,7 +248,7 @@ The following rule groups and rules are available when using Web Application Fir
 |921170|HTTP Parameter Pollution|
 |921180|HTTP Parameter Pollution (%{TX.1})|
 
-### <a name="crs930-32"></a> <p x-ms-format-detection="none">REQUEST-930-APPLICATION-ATTACK-LFI</p>
+### <a name="crs930-32"></a> REQUEST-930-APPLICATION-ATTACK-LFI
 |RuleId|Description|
 |---|---|
 |930100|Path Traversal Attack (/../)|
@@ -208,7 +256,7 @@ The following rule groups and rules are available when using Web Application Fir
 |930120|OS File Access Attempt|
 |930130|Restricted File Access Attempt|
 
-### <a name="crs931-32"></a> <p x-ms-format-detection="none">REQUEST-931-APPLICATION-ATTACK-RFI</p>
+### <a name="crs931-32"></a> REQUEST-931-APPLICATION-ATTACK-RFI
 |RuleId|Description|
 |---|---|
 |931100|Possible Remote File Inclusion (RFI) Attack: URL Parameter using IP Address|
@@ -216,7 +264,7 @@ The following rule groups and rules are available when using Web Application Fir
 |931120|Possible Remote File Inclusion (RFI) Attack: URL Payload Used w/Trailing Question Mark Character (?)|
 |931130|Possible Remote File Inclusion (RFI) Attack: Off-Domain Reference/Link|
 
-### <a name="crs932-32"></a> <p x-ms-format-detection="none">REQUEST-932-APPLICATION-ATTACK-RCE</p>
+### <a name="crs932-32"></a> REQUEST-932-APPLICATION-ATTACK-RCE
 |RuleId|Description|
 |---|---|
 |932100|Remote Command Execution: Unix Command Injection|
@@ -225,7 +273,7 @@ The following rule groups and rules are available when using Web Application Fir
 |932110|Remote Command Execution: Windows Command Injection|
 |932115|Remote Command Execution: Windows Command Injection|
 |932120|Remote Command Execution: Windows PowerShell Command Found|
-|932130|Remote Command Execution: Unix Shell Expression Found|
+|932130|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889)) Found|
 |932140|Remote Command Execution: Windows FOR/IF Command Found|
 |932150|Remote Command Execution: Direct Unix Command Execution|
 |932160|Remote Command Execution: Unix Shell Code Found|
@@ -234,7 +282,7 @@ The following rule groups and rules are available when using Web Application Fir
 |932180|Restricted File Upload Attempt|
 |932190|Remote Command Execution: Wildcard bypass technique attempt|
 
-### <a name="crs933-32"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
+### <a name="crs933-32"></a> REQUEST-933-APPLICATION-ATTACK-PHP
 |RuleId|Description|
 |---|---|
 |933100|PHP Injection Attack: Opening/Closing Tag Found|
@@ -254,11 +302,11 @@ The following rule groups and rules are available when using Web Application Fir
 |933200|PHP Injection Attack: Wrapper scheme detected|
 |933210|PHP Injection Attack: Variable Function Call Found|
 
-### <a name="crs941-32"></a> <p x-ms-format-detection="none">REQUEST-941-APPLICATION-ATTACK-XSS</p>
+### <a name="crs941-32"></a> REQUEST-941-APPLICATION-ATTACK-XSS
 |RuleId|Description|
 |---|---|
 |941100|XSS Attack Detected via libinjection|
-|941101|XSS Attack Detected via libinjection.|
+|941101|XSS Attack Detected via libinjection.<br />This rule detects requests with a *Referer* header.|
 |941110|XSS Filter - Category 1: Script Tag Vector|
 |941120|XSS Filter - Category 2: Event Handler Vector|
 |941130|XSS Filter - Category 3: Attribute Vector|
@@ -269,7 +317,7 @@ The following rule groups and rules are available when using Web Application Fir
 |941180|Node-Validator Blacklist Keywords|
 |941190|XSS Using style sheets|
 |941200|XSS using VML frames|
-|941210|XSS using obfuscated JavaScript|
+|941210|XSS using obfuscated JavaScript or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889))|
 |941220|XSS using obfuscated VB Script|
 |941230|XSS using 'embed' tag|
 |941240|XSS using 'import' or 'implementation' attribute|
@@ -286,7 +334,7 @@ The following rule groups and rules are available when using Web Application Fir
 |941350|UTF-7 Encoding IE XSS - Attack Detected.|
 |941360|JavaScript obfuscation detected.|
 
-### <a name="crs942-32"></a> <p x-ms-format-detection="none">REQUEST-942-APPLICATION-ATTACK-SQLI</p>
+### <a name="crs942-32"></a> REQUEST-942-APPLICATION-ATTACK-SQLI
 |RuleId|Description|
 |---|---|
 |942100|SQL Injection Attack Detected via libinjection|
@@ -336,14 +384,14 @@ The following rule groups and rules are available when using Web Application Fir
 |942490|Detects classic SQL injection probings 3/3|
 |942500|MySQL in-line comment detected.|
 
-### <a name="crs943-32"></a> <p x-ms-format-detection="none">REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION</p>
+### <a name="crs943-32"></a> REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION
 |RuleId|Description|
 |---|---|
 |943100|Possible Session Fixation Attack: Setting Cookie Values in HTML|
 |943110|Possible Session Fixation Attack: SessionID Parameter Name with Off-Domain Referer|
 |943120|Possible Session Fixation Attack: SessionID Parameter Name with No Referer|
 
-### <a name="crs944-32"></a> <p x-ms-format-detection="none">REQUEST-944-APPLICATION-ATTACK-JAVA</p>
+### <a name="crs944-32"></a> REQUEST-944-APPLICATION-ATTACK-JAVA
 |RuleId|Description|
 |---|---|
 |944100|Remote Command Execution: Apache Struts, Oracle WebLogic|
@@ -360,20 +408,30 @@ The following rule groups and rules are available when using Web Application Fir
 
 ## <a name="owasp31"></a> 3.1 rule sets
 
-### <a name="general-31"></a> <p x-ms-format-detection="none">General</p>
+### <a name="general-31"></a> General
 
 |RuleId|Description|
 |---|---|
 |200004|Possible Multipart Unmatched Boundary.|
 
-### <a name="crs911-31"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
+### <a name="crs800-31"></a> KNOWN-CVES
+|RuleId|Description|
+|---|---|
+|800100|Rule to help detect and mitigate log4j vulnerability [CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046)|
+|800110|Spring4Shell Interaction Attempt|
+|800111|Attempted Spring Cloud routing-expression injection - [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
+|800112|Attempted Spring Framework unsafe class object exploitation - [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
+|800113|Attempted Spring Cloud Gateway Actuator injection - [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
+
+
+### <a name="crs911-31"></a> REQUEST-911-METHOD-ENFORCEMENT
 
 |RuleId|Description|
 |---|---|
 |911100|Method is not allowed by policy|
 
 
-### <a name="crs913-31"></a> <p x-ms-format-detection="none">REQUEST-913-SCANNER-DETECTION</p>
+### <a name="crs913-31"></a> REQUEST-913-SCANNER-DETECTION
 
 |RuleId|Description|
 |---|---|
@@ -384,7 +442,7 @@ The following rule groups and rules are available when using Web Application Fir
 |913120|Found request filename/argument associated with security scanner|
 
 
-### <a name="crs920-31"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
+### <a name="crs920-31"></a> REQUEST-920-PROTOCOL-ENFORCEMENT
 
 |RuleId|Description|
 |---|---|
@@ -422,12 +480,6 @@ The following rule groups and rules are available when using Web Application Fir
 |920340|Request Containing Content but Missing Content-Type header|
 |920341|Request containing content requires Content-Type header|
 |920350|Host header is a numeric IP address|
-|920360|Argument name too long|
-|920370|Argument value too long|
-|920380|Too many arguments in request|
-|920390|Total arguments size exceeded|
-|920400|Uploaded file size too large|
-|920410|Total uploaded files size too large|
 |920420|Request content type is not allowed by policy|
 |920430|HTTP protocol version is not allowed by policy|
 |920440|URL file extension is restricted by policy|
@@ -436,7 +488,7 @@ The following rule groups and rules are available when using Web Application Fir
 |920470|Illegal Content-Type header|
 |920480|Restrict charset parameter within the content-type header|
 
-### <a name="crs921-31"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
+### <a name="crs921-31"></a> REQUEST-921-PROTOCOL-ATTACK
 
 |RuleId|Description|
 |---|---|
@@ -450,7 +502,7 @@ The following rule groups and rules are available when using Web Application Fir
 |921170|HTTP Parameter Pollution|
 |921180|HTTP Parameter Pollution (%{TX.1})|
 
-### <a name="crs930-31"></a> <p x-ms-format-detection="none">REQUEST-930-APPLICATION-ATTACK-LFI</p>
+### <a name="crs930-31"></a> REQUEST-930-APPLICATION-ATTACK-LFI
 
 |RuleId|Description|
 |---|---|
@@ -459,7 +511,7 @@ The following rule groups and rules are available when using Web Application Fir
 |930120|OS File Access Attempt|
 |930130|Restricted File Access Attempt|
 
-### <a name="crs931-31"></a> <p x-ms-format-detection="none">REQUEST-931-APPLICATION-ATTACK-RFI</p>
+### <a name="crs931-31"></a> REQUEST-931-APPLICATION-ATTACK-RFI
 
 |RuleId|Description|
 |---|---|
@@ -468,7 +520,7 @@ The following rule groups and rules are available when using Web Application Fir
 |931120|Possible Remote File Inclusion (RFI) Attack = URL Payload Used w/Trailing Question Mark Character (?)|
 |931130|Possible Remote File Inclusion (RFI) Attack = Off-Domain Reference/Link|
 
-### <a name="crs932-31"></a> <p x-ms-format-detection="none">REQUEST-932-APPLICATION-ATTACK-RCE</p>
+### <a name="crs932-31"></a> REQUEST-932-APPLICATION-ATTACK-RCE
 
 |RuleId|Description|
 |---|---|
@@ -478,7 +530,7 @@ The following rule groups and rules are available when using Web Application Fir
 |932110|Remote Command Execution: Windows Command Injection|
 |932115|Remote Command Execution: Windows Command Injection|
 |932120|Remote Command Execution = Windows PowerShell Command Found|
-|932130|Remote Command Execution = Unix Shell Expression Found|
+|932130|Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889)) Found|
 |932140|Remote Command Execution = Windows FOR/IF Command Found|
 |932150|Remote Command Execution: Direct Unix Command Execution|
 |932160|Remote Command Execution = Unix Shell Code Found|
@@ -487,7 +539,7 @@ The following rule groups and rules are available when using Web Application Fir
 |932180|Restricted File Upload Attempt|
 |932190|Remote Command Execution: Wildcard bypass technique attempt|
 
-### <a name="crs933-31"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
+### <a name="crs933-31"></a> REQUEST-933-APPLICATION-ATTACK-PHP
 
 |RuleId|Description|
 |---|---|
@@ -506,12 +558,12 @@ The following rule groups and rules are available when using Web Application Fir
 |933180|PHP Injection Attack = Variable Function Call Found|
 |933190|PHP Injection Attack: PHP Closing Tag Found|
 
-### <a name="crs941-31"></a> <p x-ms-format-detection="none">REQUEST-941-APPLICATION-ATTACK-XSS</p>
+### <a name="crs941-31"></a> REQUEST-941-APPLICATION-ATTACK-XSS
 
 |RuleId|Description|
 |---|---|
 |941100|XSS Attack Detected via libinjection|
-|941101|XSS Attack Detected via libinjection|
+|941101|XSS Attack Detected via libinjection.<br />This rule detects requests with a *Referer* header.|
 |941110|XSS Filter - Category 1 = Script Tag Vector|
 |941130|XSS Filter - Category 3 = Attribute Vector|
 |941140|XSS Filter - Category 4 = JavaScript URI Vector|
@@ -521,7 +573,7 @@ The following rule groups and rules are available when using Web Application Fir
 |941180|Node-Validator Blocklist Keywords|
 |941190|XSS using style sheets|
 |941200|XSS using VML frames|
-|941210|XSS using obfuscated JavaScript|
+|941210|XSS using obfuscated JavaScript or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889))|
 |941220|XSS using obfuscated VB Script|
 |941230|XSS using 'embed' tag|
 |941240|XSS using 'import' or 'implementation' attribute|
@@ -538,7 +590,7 @@ The following rule groups and rules are available when using Web Application Fir
 |941350|UTF-7 Encoding IE XSS - Attack Detected.|
 
 
-### <a name="crs942-31"></a> <p x-ms-format-detection="none">REQUEST-942-APPLICATION-ATTACK-SQLI</p>
+### <a name="crs942-31"></a> REQUEST-942-APPLICATION-ATTACK-SQLI
 
 |RuleId|Description|
 |---|---|
@@ -588,7 +640,7 @@ The following rule groups and rules are available when using Web Application Fir
 |942480|SQL Injection Attack|
 |942490|Detects classic SQL injection probings 3/3|
 
-### <a name="crs943-31"></a> <p x-ms-format-detection="none">REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION</p>
+### <a name="crs943-31"></a> REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION
 
 |RuleId|Description|
 |---|---|
@@ -596,7 +648,7 @@ The following rule groups and rules are available when using Web Application Fir
 |943110|Possible Session Fixation Attack = SessionID Parameter Name with Off-Domain Referrer|
 |943120|Possible Session Fixation Attack = SessionID Parameter Name with No Referrer|
 
-### <a name="crs944-31"></a> <p x-ms-format-detection="none">REQUEST-944-APPLICATION-ATTACK-SESSION-JAVA</p>
+### <a name="crs944-31"></a> REQUEST-944-APPLICATION-ATTACK-SESSION-JAVA
 
 |RuleId|Description|
 |---|---|
@@ -608,20 +660,30 @@ The following rule groups and rules are available when using Web Application Fir
 
 ## <a name="owasp30"></a> 3.0 rule sets
 
-### <a name="general-30"></a> <p x-ms-format-detection="none">General</p>
+### <a name="general-30"></a> General
 
 |RuleId|Description|
 |---|---|
 |200004|Possible Multipart Unmatched Boundary.|
 
-### <a name="crs911-30"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
+### <a name="crs800-30"></a> KNOWN-CVES
+|RuleId|Description|
+|---|---|
+|800100|Rule to help detect and mitigate log4j vulnerability [CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046)|
+|800110|Spring4Shell Interaction Attempt|
+|800111|Attempted Spring Cloud routing-expression injection - [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
+|800112|Attempted Spring Framework unsafe class object exploitation - [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
+|800113|Attempted Spring Cloud Gateway Actuator injection - [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
+
+
+### <a name="crs911-30"></a> REQUEST-911-METHOD-ENFORCEMENT
 
 |RuleId|Description|
 |---|---|
 |911100|Method is not allowed by policy|
 
 
-### <a name="crs913-30"></a> <p x-ms-format-detection="none">REQUEST-913-SCANNER-DETECTION</p>
+### <a name="crs913-30"></a> REQUEST-913-SCANNER-DETECTION
 
 |RuleId|Description|
 |---|---|
@@ -631,7 +693,7 @@ The following rule groups and rules are available when using Web Application Fir
 |913101|Found User-Agent associated with scripting/generic HTTP client|
 |913102|Found User-Agent associated with web crawler/bot|
 
-### <a name="crs920-30"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
+### <a name="crs920-30"></a> REQUEST-920-PROTOCOL-ENFORCEMENT
 
 |RuleId|Description|
 |---|---|
@@ -677,7 +739,7 @@ The following rule groups and rules are available when using Web Application Fir
 |920274|Invalid character in request headers (outside of very strict set)|
 |920460|Abnormal escape characters|
 
-### <a name="crs921-30"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
+### <a name="crs921-30"></a> REQUEST-921-PROTOCOL-ATTACK
 
 |RuleId|Description|
 |---|---|
@@ -692,7 +754,7 @@ The following rule groups and rules are available when using Web Application Fir
 |921170|HTTP Parameter Pollution|
 |921180|HTTP Parameter Pollution (%@{TX.1})|
 
-### <a name="crs930-30"></a> <p x-ms-format-detection="none">REQUEST-930-APPLICATION-ATTACK-LFI</p>
+### <a name="crs930-30"></a> REQUEST-930-APPLICATION-ATTACK-LFI
 
 |RuleId|Description|
 |---|---|
@@ -701,7 +763,7 @@ The following rule groups and rules are available when using Web Application Fir
 |930120|OS File Access Attempt|
 |930130|Restricted File Access Attempt|
 
-### <a name="crs931-30"></a> <p x-ms-format-detection="none">REQUEST-931-APPLICATION-ATTACK-RFI</p>
+### <a name="crs931-30"></a> REQUEST-931-APPLICATION-ATTACK-RFI
 
 |RuleId|Description|
 |---|---|
@@ -710,18 +772,18 @@ The following rule groups and rules are available when using Web Application Fir
 |931120|Possible Remote File Inclusion (RFI) Attack = URL Payload Used w/Trailing Question Mark Character (?)|
 |931130|Possible Remote File Inclusion (RFI) Attack = Off-Domain Reference/Link|
 
-### <a name="crs932-30"></a> <p x-ms-format-detection="none">REQUEST-932-APPLICATION-ATTACK-RCE</p>
+### <a name="crs932-30"></a> REQUEST-932-APPLICATION-ATTACK-RCE
 
 |RuleId|Description|
 |---|---|
 |932120|Remote Command Execution = Windows PowerShell Command Found|
-|932130|Remote Command Execution = Unix Shell Expression Found|
+|932130|**Application Gateway WAF v2**: Remote Command Execution: Unix Shell Expression or Confluence Vulnerability (CVE-2022-26134) or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889)) Found<br><br>**Application Gateway WAF v1**: Remote Command Execution: Unix Shell Expression|
 |932140|Remote Command Execution = Windows FOR/IF Command Found|
 |932160|Remote Command Execution = Unix Shell Code Found|
 |932170|Remote Command Execution = Shellshock (CVE-2014-6271)|
 |932171|Remote Command Execution = Shellshock (CVE-2014-6271)|
 
-### <a name="crs933-30"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
+### <a name="crs933-30"></a> REQUEST-933-APPLICATION-ATTACK-PHP
 
 |RuleId|Description|
 |---|---|
@@ -737,7 +799,7 @@ The following rule groups and rules are available when using Web Application Fir
 |933161|PHP Injection Attack = Low-Value PHP Function Call Found|
 |933111|PHP Injection Attack = PHP Script File Upload Found|
 
-### <a name="crs941-30"></a> <p x-ms-format-detection="none">REQUEST-941-APPLICATION-ATTACK-XSS</p>
+### <a name="crs941-30"></a> REQUEST-941-APPLICATION-ATTACK-XSS
 
 |RuleId|Description|
 |---|---|
@@ -749,7 +811,7 @@ The following rule groups and rules are available when using Web Application Fir
 |941180|Node-Validator Blocklist Keywords|
 |941190|XSS using style sheets|
 |941200|XSS using VML frames|
-|941210|XSS using obfuscated JavaScript|
+|941210|XSS using obfuscated JavaScript or Text4Shell ([CVE-2022-42889](https://nvd.nist.gov/vuln/detail/CVE-2022-42889))|
 |941220|XSS using obfuscated VB Script|
 |941230|XSS using 'embed' tag|
 |941240|XSS using 'import' or 'implementation' attribute|
@@ -764,7 +826,7 @@ The following rule groups and rules are available when using Web Application Fir
 |941350|UTF-7 Encoding IE XSS - Attack Detected.|
 |941320|Possible XSS Attack Detected - HTML Tag Handler|
 
-### <a name="crs942-30"></a> <p x-ms-format-detection="none">REQUEST-942-APPLICATION-ATTACK-SQLI</p>
+### <a name="crs942-30"></a> REQUEST-942-APPLICATION-ATTACK-SQLI
 
 |RuleId|Description|
 |---|---|
@@ -796,7 +858,7 @@ The following rule groups and rules are available when using Web Application Fir
 |942251|Detects HAVING injections|
 |942460|Meta-Character Anomaly Detection Alert - Repetitive Non-Word Characters|
 
-### <a name="crs943-30"></a> <p x-ms-format-detection="none">REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION</p>
+### <a name="crs943-30"></a> REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION
 
 |RuleId|Description|
 |---|---|
@@ -806,7 +868,7 @@ The following rule groups and rules are available when using Web Application Fir
 
 # [OWASP 2.2.9](#tab/owasp2)
 
-## <a name="owasp229"></a> 2.9 rule sets
+## <a name="owasp229"></a> 2.2.9 rule sets
 
 ### <a name="crs20"></a> crs_20_protocol_violations
 
@@ -1061,6 +1123,33 @@ The following rule groups and rules are available when using Web Application Fir
 |950110|Backdoor access|
 |950921|Backdoor access|
 |950922|Backdoor access|
+
+# [Bot rules](#tab/bot)
+
+## <a name="bot"></a> Bot Manager rule sets
+
+### <a name="bot100"></a> Bad bots
+|RuleId|Description|
+|---|---|
+|Bot100100|Malicious bots detected by threat intelligence|
+|Bot100200|Malicious bots that have falsified their identity|
+
+### <a name="bot200"></a> Good bots
+|RuleId|Description|
+|---|---|
+|Bot200100|Search engine crawlers|
+|Bot200200|Unverified search engine crawlers|
+
+### <a name="bot300"></a> Unknown bots
+|RuleId|Description|
+|---|---|
+|Bot300100|Unspecified identity|
+|Bot300200|Tools and frameworks for web crawling and attacks|
+|Bot300300|General purpose HTTP clients and SDKs|
+|Bot300400|Service agents|
+|Bot300500|Site health monitoring services|
+|Bot300600|Unknown bots detected by threat intelligence<br />(This rule also includes IP addresses matched to the Tor network.)|
+|Bot300700|Other bots|
 
 ---
 

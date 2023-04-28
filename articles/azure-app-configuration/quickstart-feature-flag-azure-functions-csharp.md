@@ -2,15 +2,13 @@
 title: Quickstart for adding feature flags to Azure Functions | Microsoft Docs
 description: In this quickstart, use Azure Functions with feature flags from Azure App Configuration and test the function locally.
 services: azure-app-configuration
-author: AlexandraKemperMS
-
-
+author: mcleanbyron
 ms.service: azure-app-configuration
-ms.custom: devx-track-csharp
+ms.devlang: csharp
+ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
-ms.date: 8/26/2020
-ms.author: alkemper
-
+ms.date: 3/20/2023
+ms.author: mcleans
 ---
 # Quickstart: Add feature flags to an Azure Functions app
 
@@ -20,22 +18,17 @@ The .NET Feature Management libraries extend the framework with feature flag sup
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) with the **Azure development** workload.
 - [Azure Functions tools](../azure-functions/functions-develop-vs.md#check-your-tools-version)
 
-## Create an App Configuration store
+## Add a feature flag
 
-[!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./quickstart-azure-app-configuration-create.md#create-a-feature-flag).
 
-7. Select **Feature Manager** > **+Add** to add a feature flag called `Beta`.
-
-    > [!div class="mx-imgBorder"]
-    > ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
-
-    Leave `label` and `Description` undefined for now.
-
-8. Select **Apply** to save the new feature flag.
+> [!div class="mx-imgBorder"]
+> ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
 
 ## Create a Functions app
 
@@ -78,7 +71,7 @@ This project will use [dependency injection in .NET Azure Functions](../azure-fu
 
 3. Update the `ConfigureAppConfiguration` method, and add Azure App Configuration provider as an extra configuration source by calling `AddAzureAppConfiguration()`. 
 
-   The `UseFeatureFlags()` method tells the provider to load feature flags. All feature flags have a default cache expiration of 30 seconds before rechecking for changes. The expiration interval can be updated by setting the `FeatureFlagsOptions.CacheExpirationInterval` property passed to the `UseFeatureFlags` method. 
+    The `UseFeatureFlags()` method tells the provider to load feature flags. All feature flags have a default cache expiration of 30 seconds before rechecking for changes. The expiration interval can be updated by setting the `FeatureFlagsOptions.CacheExpirationInterval` property passed to the `UseFeatureFlags` method. 
 
     ```csharp
     public override void ConfigureAppConfiguration(IFunctionsConfigurationBuilder builder)
@@ -91,8 +84,9 @@ This project will use [dependency injection in .NET Azure Functions](../azure-fu
         });
     }
     ```
-   > [!TIP]
-   > If you don't want any configuration other than feature flags to be loaded to your application, you can call `Select("_")` to only load a nonexisting dummy key "_". By default, all configuration key-values in your App Configuration store will be loaded if no `Select` method is called.
+
+    > [!TIP]
+    > If you don't want any configuration other than feature flags to be loaded to your application, you can call `Select("_")` to only load a nonexisting dummy key `"_"`. By default, all configuration key-values in your App Configuration store will be loaded if no `Select` method is called.
 
 4. Update the `Configure` method to make Azure App Configuration services and feature manager available through dependency injection.
 
@@ -194,7 +188,7 @@ This project will use [dependency injection in .NET Azure Functions](../azure-fu
 
 ## Next steps
 
-In this quickstart, you created a feature flag and used it with an Azure Functions app via the [Microsoft.FeatureManagement](/dotnet/api/microsoft.featuremanagement) library.
+In this quickstart, you created a feature flag and used it with an Azure Functions app via the [Microsoft.FeatureManagement](https://www.nuget.org/packages/Microsoft.FeatureManagement/) library.
 
 - Learn more about [feature management](./concept-feature-management.md)
 - [Manage feature flags](./manage-feature-flags.md)

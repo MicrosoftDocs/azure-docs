@@ -3,12 +3,12 @@ title: User provisioning management for enterprise apps in Azure Active Director
 description: Learn how to manage user account provisioning for enterprise apps using the Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/11/2021
+ms.date: 10/06/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -22,10 +22,11 @@ This article describes the general steps for managing automatic user account pro
 
 ## Finding your apps in the portal
 
-Use the Azure Active Directory portal to view and manage all applications that are configured for single sign-on in a directory. Enterprise apps are apps that are deployed and used within your organization. Follow these steps to view and manage your enterprise applications:
+Use the Azure portal to view and manage all applications that are configured for single sign-on in a directory. Enterprise apps are apps that are deployed and used within your organization. Follow these steps to view and manage your enterprise applications:
 
-1. Open the [Azure Active Directory portal](https://aad.portal.azure.com).
-1. Select **Enterprise applications** from the left pane. A list of all configured apps is shown, including apps that were added from the gallery.
+1. Open the [Azure portal](https://portal.azure.com).
+1. Browse to **Azure Active Directory** > **Enterprise applications**.
+1. A list of all configured apps is shown, including apps that were added from the gallery.
 1. Select any app to load its resource pane, where you can view reports and manage app settings.
 1. Select **Provisioning** to manage user account provisioning settings for the selected app.
 

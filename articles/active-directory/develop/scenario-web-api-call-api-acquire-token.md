@@ -1,9 +1,8 @@
 ---
-title: Get a token for a web API that calls web APIs | Azure
-titleSuffix: Microsoft identity platform
+title: Get a token for a web API that calls web APIs
 description: Learn how to build a web API that calls web APIs that require acquiring a token for the app.
 services: active-directory
-author: jmprieur
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +10,8 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/15/2020
-ms.author: jmprieur
+ms.author: cwerner
+ms.reviewer: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a web API that calls web APIs by using the Microsoft identity platform.
 ---

@@ -6,12 +6,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: sample
-
+ms.reviewer: lgayhardt
 author: likebupt
 ms.author: keli19
-ms.date: 10/14/2020
+ms.date: 10/21/2021
 ms.custom: designer
 ---
+
 # Example pipelines & datasets for Azure Machine Learning designer
 
 Use the built-in examples in Azure Machine Learning designer to quickly get started building your own machine learning pipelines. The Azure Machine Learning designer [GitHub repository](https://github.com/Azure/MachineLearningDesigner) contains detailed documentation to help you understand some common  machine learning scenarios.
@@ -43,14 +44,14 @@ Here's how to use a designer sample:
 
    1. In the dialog that appears, select an existing compute target or create a new one. Select **Save**.
 
-   1. Select **Submit** at the top of the canvas to submit a pipeline run.
+   1. Select **Submit** at the top of the canvas to submit a pipeline job.
 
-   Depending on the sample pipeline and compute settings, runs may take some time to complete. The default compute settings have a minimum node size of 0, which means that the designer must allocate resources after being idle. Repeated pipeline runs will take less time since the compute resources are already allocated. Additionally, the designer uses cached results for each module to further improve efficiency.
+   Depending on the sample pipeline and compute settings, jobs may take some time to complete. The default compute settings have a minimum node size of 0, which means that the designer must allocate resources after being idle. Repeated pipeline jobs will take less time since the compute resources are already allocated. Additionally, the designer uses cached results for each component to further improve efficiency.
 
 
-1. After the pipeline finishes running, you can review the pipeline and view the output for each module to learn more. Use the following steps to view module outputs:
+1. After the pipeline finishes running, you can review the pipeline and view the output for each component to learn more. Use the following steps to view component outputs:
 
-   1. Right-click the module in the canvas whose output you'd like to see.
+   1. Right-click the component in the canvas whose output you'd like to see.
    1. Select **Visualize**.
 
 
@@ -67,27 +68,27 @@ Explore these built-in regression samples.
 
 ## Classification
 
-Explore these built-in classification samples. You can learn more about the samples by opening the samples and viewing the module comments in the designer.
+Explore these built-in classification samples. You can learn more about the samples by opening the samples and viewing the component comments in the designer.
 
 | Sample title | Description | 
 | --- | --- |
 | [Binary Classification with Feature Selection - Income Prediction](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/binary-classification-feature-selection-income-prediction.md) | Predict income as high or low, using a two-class boosted decision tree. Use Pearson correlation to select features.
-| [Binary Classification with custom Python script - Credit Risk Prediction](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/binary-classification-python-credit-prediction.md) | Classify credit applications as high or low risk. Use the Execute Python Script module to weight your data.
+| [Binary Classification with custom Python script - Credit Risk Prediction](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/binary-classification-python-credit-prediction.md) | Classify credit applications as high or low risk. Use the Execute Python Script component to weight your data.
 | [Binary Classification - Customer Relationship Prediction](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/binary-classification-customer-relationship-prediction.md) | Predict customer churn using two-class boosted decision trees. Use SMOTE to sample biased data.
 | [Text Classification - Wikipedia SP 500 Dataset](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/text-classification-wiki.md) | Classify company types from Wikipedia articles with multiclass logistic regression. |
 | Multiclass Classification - Letter Recognition | Create an ensemble of binary classifiers to classify written letters. |
 
 ## Computer vision
 
-Explore these built-in computer vision samples. You can learn more about the samples by opening the samples and viewing the module comments in the designer.
+Explore these built-in computer vision samples. You can learn more about the samples by opening the samples and viewing the component comments in the designer.
 
 | Sample title | Description | 
 | --- | --- |
-| Image Classification using DenseNet | Use computer vision modules to build image classification model based on PyTorch DenseNet.| 
+| Image Classification using DenseNet | Use computer vision components to build image classification model based on PyTorch DenseNet.| 
 
 ## Recommender
 
-Explore these built-in recommender samples. You can learn more about the samples by opening the samples and viewing the module comments in the designer.
+Explore these built-in recommender samples. You can learn more about the samples by opening the samples and viewing the component comments in the designer.
 
 | Sample title | Description | 
 | --- | --- |
@@ -96,7 +97,7 @@ Explore these built-in recommender samples. You can learn more about the samples
 
 ## Utility
 
-Learn more about the samples that demonstrate machine learning utilities and features. You can learn more about the samples by opening the samples and viewing the module comments in the designer.
+Learn more about the samples that demonstrate machine learning utilities and features. You can learn more about the samples by opening the samples and viewing the component comments in the designer.
 
 | Sample title | Description | 
 | --- | --- |
@@ -110,16 +111,16 @@ Learn more about the samples that demonstrate machine learning utilities and fea
 
 When you create a new pipeline in Azure Machine Learning designer, a number of sample datasets are included by default. These sample datasets are used by the sample pipelines in the designer homepage. 
 
-The sample datasets are available under **Datasets**-**Samples** category. You can find this in the module palette to the left of the canvas in the designer. You can use any of these datasets in your own pipeline by dragging it to the canvas.
+The sample datasets are available under **Datasets**-**Samples** category. You can find this in the component palette to the left of the canvas in the designer. You can use any of these datasets in your own pipeline by dragging it to the canvas.
 
 | Dataset&nbsp;name&nbsp;&nbsp;&nbsp;&nbsp;| Dataset description |
 |-------------|:--------------------|
 | Adult Census Income Binary Classification dataset | A subset of the 1994 Census database, using working adults over the age of 16 with an adjusted income index of > 100.<br/>**Usage**: Classify people using demographics to predict whether a person earns over 50K a year.<br/> **Related Research**: Kohavi, R., Becker, B., (1996). [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml). Irvine, CA: University of California, School of Information and Computer Science|
 |Automobile price data (Raw)|Information about automobiles by make and model, including the price, features such as the number of cylinders and MPG, as well as an insurance risk score.<br/> The risk score is initially associated with auto price. It is then adjusted for actual risk in a process known to actuaries as symboling. A value of +3 indicates that the auto is risky, and a value of -3 that it is probably safe.<br/>**Usage**: Predict the risk score by features, using regression or multivariate classification.<br/>**Related Research**: Schlimmer, J.C. (1987). [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml). Irvine, CA: University of California, School of Information and Computer Science. |
-| CRM Appetency Labels Shared |Labels from the KDD Cup 2009 customer relationship prediction challenge ([orange_small_train_appetency.labels](http://www.sigkdd.org/site/2009/files/orange_small_train_appetency.labels)).|
-|CRM Churn Labels Shared|Labels from the KDD Cup 2009 customer relationship prediction challenge ([orange_small_train_churn.labels](http://www.sigkdd.org/site/2009/files/orange_small_train_churn.labels)).|
-|CRM Dataset Shared | This data comes from the KDD Cup 2009 customer relationship prediction challenge ([orange_small_train.data.zip](http://www.sigkdd.org/site/2009/files/orange_small_train.data.zip)). <br/>The dataset contains 50K customers from the French Telecom company Orange. Each customer has 230 anonymized features, 190 of which are numeric and 40 are categorical. The features are very sparse. |
-|CRM Upselling Labels Shared|Labels from the KDD Cup 2009 customer relationship prediction challenge ([orange_large_train_upselling.labels](http://www.sigkdd.org/site/2009/files/orange_large_train_upselling.labels)|
+| CRM Appetency Labels Shared |Labels from the KDD Cup 2009 customer relationship prediction challenge ([orange_small_train_appetency.labels](https://kdd.org/cupfiles/KDDCupData/2009/orange_small_train_appetency.labels)).|
+|CRM Churn Labels Shared|Labels from the KDD Cup 2009 customer relationship prediction challenge ([orange_small_train_churn.labels](https://kdd.org/cupfiles/KDDCupData/2009/files/orange_small_train_churn.labels)).|
+|CRM Dataset Shared | This data comes from the KDD Cup 2009 customer relationship prediction challenge ([orange_small_train.data.zip](https://kdd.org/cupfiles/KDDCupData/2009/orange_small_train.data.zip)). <br/>The dataset contains 50K customers from the French Telecom company Orange. Each customer has 230 anonymized features, 190 of which are numeric and 40 are categorical. The features are very sparse. |
+|CRM Upselling Labels Shared|Labels from the KDD Cup 2009 customer relationship prediction challenge ([orange_large_train_upselling.labels](https://kdd.org/cupfiles/KDDCupData/2009/orange_small_train_upselling.labels)|
 |Flight Delays Data|Passenger flight on-time performance data taken from the TranStats data collection of the U.S. Department of Transportation ([On-Time](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time)).<br/>The dataset covers the time period April-October 2013. Before uploading to the designer, the dataset was processed as follows: <br/>-    The dataset was filtered to cover only the 70 busiest airports in the continental US <br/>- Canceled flights were labeled as delayed by more than 15 minutes <br/>- Diverted flights were filtered out <br/>- The following columns were selected: Year, Month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, Canceled|
 |German Credit Card UCI dataset|The UCI Statlog (German Credit Card) dataset ([Statlog+German+Credit+Data](https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data))), using the german.data file.<br/>The dataset classifies people, described by a set of attributes, as low or high credit risks. Each example represents a person. There are 20 features, both numerical and categorical, and a binary label (the credit risk value). High credit risk entries have label = 2, low credit risk entries have label = 1. The cost of misclassifying a low risk example as high is 1, whereas the cost of misclassifying a high risk example as low is 5.|
 |IMDB Movie Titles|The dataset contains information about movies that were rated in Twitter tweets: IMDB movie ID, movie name, genre, and production year. There are 17K movies in the dataset. The dataset was introduced in the paper "S. Dooms, T. De Pessemier and L. Martens. MovieTweetings: a Movie Rating Dataset Collected From Twitter. Workshop on Crowdsourcing and Human Computation for Recommender Systems, CrowdRec at RecSys 2013."|

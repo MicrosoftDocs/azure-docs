@@ -1,11 +1,12 @@
 ---
 title: Move data to/from Azure Table 
 description: Learn how to move data to/from Azure Table Storage using Azure Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/22/2018
-ms.author: jingwang
+ms.date: 04/12/2023
+ms.author: jianleishen
 robots: noindex
 ---
 # Move data to and from Azure Table using Azure Data Factory

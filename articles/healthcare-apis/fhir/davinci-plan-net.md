@@ -1,27 +1,26 @@
 ---
-title: Tutorial - Da Vinci Plan Net - Azure API for FHIR
+title: Tutorial - Da Vinci Plan Net - Azure Health Data Services
 description: This tutorial walks through setting up the Azure API for FHIR to pass Touchstone tests for the Da Vinci Payer Data Exchange Implementation Guide.
 services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.reviewer: matjazl
-ms.author: cavoeg
-author: modillon
-ms.date: 06/25/2021
+ms.author: kesheth
+author: expekesheth
+ms.date: 06/06/2022
 ---
 
 # Da Vinci Plan Net
 
-In this tutorial, we'll walk through setting up the Azure API for FHIR to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the Da Vinci PDEX Payer Network (Plan-Net) Implementation Guide.
+In this tutorial, we'll walk through setting up the FHIR service in Azure Health Data Services (hereby called FHIR service) to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the Da Vinci PDEX Payer Network (Plan-Net) Implementation Guide.
 
 ## Touchstone capability statement
 
-The first test that we'll focus on is testing the Azure API for FHIR against the [Da Vinci Plan-Net capability statement](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/PlanNet/00-Capability&activeOnly=false&contentEntry=TEST_SCRIPTS). If you run this test without any updates, the test will fail due to missing search parameters and missing profiles.
+The first test that we'll focus on is testing the FHIR service against the [Da Vinci Plan-Net capability statement](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/PlanNet/00-Capability&activeOnly=false&contentEntry=TEST_SCRIPTS). If you run this test without any updates, the test will fail due to missing search parameters and missing profiles.
 
 ## Define search parameters
 
-As part of the Da Vinci Plan-Net IG, you'll need to define six [new search parameters](./how-to-do-custom-search.md) for the Healthcare Service, Insurance Plan, Practitioner Role, Organization, and Organization Affiliation resources. All six of these are tested in the capability statement:
+As part of the Da Vinci Plan-Net IG, you'll need to define six [new search parameters](how-to-do-custom-search.md) for the Healthcare Service, Insurance Plan, Practitioner Role, Organization, and Organization Affiliation resources. All six of these are tested in the capability statement:
 
 * [Healthcare Service Coverage Area](http://hl7.org/fhir/us/davinci-pdex-plan-net/STU1/SearchParameter-healthcareservice-coverage-area.html)
 * [Insurance Plan Coverage Area](http://hl7.org/fhir/us/davinci-pdex-plan-net/STU1/SearchParameter-insuranceplan-coverage-area.html)
@@ -33,11 +32,11 @@ As part of the Da Vinci Plan-Net IG, you'll need to define six [new search param
 > [!NOTE]
 > In the raw JSON for these search parameters, the name is set to `Plannet_sp_<Resource Name>_<SearchParameter Name>`. The Touchstone test is expecting that the name for these will be only the `SearchParameter Name` (coverage-area, plan-type, or network).
 
-The rest of the search parameters needed for the Da Vinci Plan-Net IG are defined by the base specification and are already available in the Azure API for FHIR without any additional updates.
+The rest of the search parameters needed for the Da Vinci Plan-Net IG are defined by the base specification and are already available in the FHIR service without any additional updates.
 
 ## Store profiles
 
-Outside of defining search parameters, you need to load the [required profiles and extensions](./validation-against-profiles.md#storing-profiles) to pass this test. There are nine profiles used as part of the Da Vinci Plan-Net IG:
+Outside of defining search parameters, you need to load the [required profiles and extensions](./store-profiles-in-fhir.md#accessing-profiles-and-storing-profiles) to pass this test. There are nine profiles used as part of the Da Vinci Plan-Net IG:
 
 * [Plan-Net Endpoint](http://hl7.org/fhir/us/davinci-pdex-plan-net/STU1/StructureDefinition-plannet-Endpoint.html)
 * [Plan-Net Healthcare Service](http://hl7.org/fhir/us/davinci-pdex-plan-net/STU1/StructureDefinition-plannet-HealthcareService.html)
@@ -68,13 +67,15 @@ The next test we'll walk through is the [query capabilities test](https://touchs
 :::image type="content" source="media/davinci-plan-net/touchstone-query-test-execution-failed.png" alt-text="Da Vinci plan net query test failed":::
 
 > [!NOTE]
-> With the sample resources provided, you should expect a 98% success rate of the query tests:
-
-> * There is an open GitHub issue against the FHIR Server that is causing one of these tests to fail: [Resource returned multiple times if it meets both base criteria and _include criteria · Issue #2037 · microsoft/fhir-server (github.com)](https://github.com/microsoft/fhir-server/issues/2037)
+> With the sample resources provided, you should expect a 98% success rate of the query tests.
+> There's an open GitHub issue against the FHIR Server that's causing one of these tests to fail.
+ Resource returned multiple times if it meets both base criteria and _include criteria. [#2037](https://github.com/microsoft/fhir-server/issues/2037)
 
 ## Next steps
 
-In this tutorial, we walked through setting up the Azure API for FHIR to pass the Touchstone tests for the Da Vinci PDEX Payer Network (Plan-Net) Implementation Guide. Next, you can learn about all the Azure API for FHIR features.
+In this tutorial, we walked through setting up the Azure API for FHIR to pass the Touchstone tests for the Da Vinci PDEX Payer Network (Plan-Net) Implementation Guide. Next, you can learn about all the FHIR service features.
 
 >[!div class="nextstepaction"]
 >[Supported features](fhir-features-supported.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

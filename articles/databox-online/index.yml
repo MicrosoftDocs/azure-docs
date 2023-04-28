@@ -4,16 +4,16 @@ title: Azure Stack Edge documentation  # < 60 chars
 summary: Use Azure Stack Edge devices to deliver Azure capabilities such as compute, storage, networking, and hardware-accelerated machine learning to any edge location. # < 160 chars
 
 metadata:
-  title: Azure Stack Edge documentation  # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Stack Edge Documentation for high-performance over-the-network data transfer to Azure. # Required; article description that is displayed in search results. < 160 chars.
+  title: Azure Stack Edge documentation
+  description: Azure Stack Edge Documentation for high-performance over-the-network data transfer to Azure.
   services: databox
-  ms.service: databox #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.service: databox
   ms.subservice: edge
-  ms.topic: landing-page # Required
+  ms.topic: landing-page
   ms.collection: collection
-  author: alkohli #Required; your GitHub user alias, with correct capitalization.
-  ms.author: alkohli #Required; microsoft alias of author; optional team alias.
-  ms.date: 04/20/2021 #Required; mm/dd/yyyy format.
+  author: alkohli
+  ms.author: alkohli
+  ms.date: 02/09/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -25,10 +25,12 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
+          - text: What is Azure Stack Edge Pro 2?
+            url: azure-stack-edge-pro-2-overview.md
           - text: What is Azure Stack Edge Pro GPU?
-            url: azure-stack-edge-gpu-overview.md  
+            url: azure-stack-edge-gpu-overview.md
           - text: What is Azure Stack Edge Pro R?
-            url: ./azure-stack-edge-pro-r-overview.md
+            url: azure-stack-edge-pro-r-overview.md
           - text: What is Azure Stack Edge Mini R?
             url: azure-stack-edge-mini-r-overview.md  
       - linkListType: architecture
@@ -39,8 +41,8 @@ landingContent:
             url: ../storage/common/storage-solution-large-dataset-low-network.md#offline-transfer-or-network-transfer
       - linkListType: whats-new
         links:
-          - text: 2103 release notes for Azure Stack Edge Pro GPU
-            url: azure-stack-edge-gpu-2103-release-notes.md
+          - text: 2205 release notes for Azure Stack Edge Pro GPU
+            url: azure-stack-edge-gpu-2205-release-notes.md
           - text: 2101 release notes for Azure Stack Edge Pro FPGA
             url: azure-stack-edge-2101-release-notes.md
 
@@ -50,12 +52,16 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
+          - text: Azure Stack Edge Pro 2 requirements
+            url: azure-stack-edge-pro-2-system-requirements.md
           - text: Azure Stack Edge Pro GPU requirements
             url: azure-stack-edge-gpu-system-requirements.md
           - text: Azure Stack Edge Pro R requirements
             url: azure-stack-edge-pro-r-system-requirements.md
           - text: Azure Stack Edge Mini R requirements
             url: azure-stack-edge-mini-r-system-requirements.md
+          - text: Azure Stack Edge Pro 2 limits
+            url: azure-stack-edge-pro-2-limits.md           
           - text: Azure Stack Edge Pro GPU limits
             url: azure-stack-edge-limits.md
           - text: Azure Stack Edge Pro R limits
@@ -68,13 +74,17 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: View deployment checklist
-            url: azure-stack-edge-gpu-deploy-checklist.md        
-          - text: Azure Stack Edge Pro GPU
+          - text: View Azure Stack Edge Pro 2 checklist
+            url: azure-stack-edge-pro-2-deploy-checklist.md
+          - text: View Azure Stack Edge Pro GPU checklist
+            url: azure-stack-edge-gpu-deploy-checklist.md    
+          - text: Deploy Azure Stack Edge Pro 2
+            url: azure-stack-edge-pro-2-deploy-prep.md     
+          - text: Deploy Azure Stack Edge Pro GPU
             url: azure-stack-edge-gpu-deploy-prep.md
-          - text: Azure Stack Edge Pro R
+          - text: Deploy Azure Stack Edge Pro R
             url: azure-stack-edge-pro-r-deploy-prep.md
-          - text: Azure Stack Edge Mini R
+          - text: Deploy Azure Stack Edge Mini R
             url: azure-stack-edge-mini-r-deploy-prep.md 
 
   # Card
@@ -82,10 +92,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Azure Stack Edge Pro GPU shares
+          - text: Edge shares
             url: azure-stack-edge-gpu-manage-shares.md
-          - text: Azure Stack Edge Pro FPGA shares
-            url: azure-stack-edge-manage-shares.md
           - text: Edge compute
             url: azure-stack-edge-manage-compute.md
           - text: Edge storage accounts

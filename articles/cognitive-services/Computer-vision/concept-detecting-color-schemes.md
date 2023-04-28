@@ -9,22 +9,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 11/17/2021
 ms.author: pafarley
 ms.custom: seodec18
 ---
 
-# Detect color schemes in images
+# Color schemes detection
 
-Computer Vision analyzes the colors in an image to provide three different attributes: the dominant foreground color, the dominant background color, and the set of dominant colors for the image as a whole. Returned colors belong to the set: black, blue, brown, gray, green, orange, pink, purple, red, teal, white, and yellow. 
+Computer Vision analyzes the colors in an image to provide three different attributes: the dominant foreground color, the dominant background color, and the larger set of dominant colors in the image. The set of possible returned colors is: black, blue, brown, gray, green, orange, pink, purple, red, teal, white, and yellow.
 
-Computer Vision also extracts an accent color, which represents the most vibrant color in the image, based on a combination of dominant colors and saturation. The accent color is returned as a hexadecimal HTML color code. 
+Computer Vision also extracts an accent color, which represents the most vibrant color in the image, based on a combination of the dominant color set and saturation. The accent color is returned as a hexadecimal HTML color code (for example, `#00CC00`).
 
-Computer Vision also returns a boolean value indicating whether an image is in black and white.
+Computer Vision also returns a boolean value indicating whether the image is a black-and-white image.
 
 ## Color scheme detection examples
 
-The following example illustrates the JSON response returned by Computer Vision when detecting the color scheme of the example image. In this case, the example image is not a black and white image, but the dominant foreground and background colors are black, and the dominant colors for the image as a whole are black and white.
+The following example illustrates the JSON response returned by Computer Vision when it detects the color scheme of an image. 
+
+> [!NOTE]
+> In this case, the example image is not a black and white image, but the dominant foreground and background colors are black, and the dominant colors for the image as a whole are black and white.
 
 ![Outdoor Mountain at sunset, with a person's silhouette](./Images/mountain_vista.png)
 
@@ -65,7 +68,7 @@ The following table shows the returned foreground, background, and image colors 
 |![A white flower with a green background](./Images/flower.png) | #C6A205 |
 |![A train running through a station](./Images/train_station.png) | #474A84 |
 
-### Black & white detection examples
+### Black and white detection examples
 
 The following table shows Computer Vision's black and white evaluation in the sample images.
 

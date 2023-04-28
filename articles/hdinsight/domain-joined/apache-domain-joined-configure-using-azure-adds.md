@@ -5,7 +5,7 @@ description: Learn how to set up and configure an HDInsight cluster integrated w
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seodec18,seoapr2020, contperf-fy21q2
-ms.date: 10/30/2020
+ms.date: 04/25/2023
 ---
 
 # Configure HDInsight clusters for Azure Active Directory integration with Enterprise Security Package
@@ -55,9 +55,9 @@ New-SelfSignedCertificate -Subject contoso100.onmicrosoft.com `
 ```
 
 > [!NOTE]  
-> Only tenant administrators have the privileges to enable Azure AD DS. If the cluster storage is Azure Data Lake Storage Gen1 or Gen2, you must disable Azure AD Multi-Factor Authentication only for users who will need to access the cluster by using basic Kerberos authentication.
+> Only tenant administrators have the privileges to enable Azure AD DS. If the cluster storage is Azure Data Lake Storage Gen1 or Gen2, you must disable Azure AD Multi-Factor Authentication only for users who will need to access the cluster by using basic Kerberos authentication.  If your organization requires Multi-Factor Authentication, try using the [HDInsight ID Broker feature](identity-broker.md).
 >
-> You can use [trusted IPs](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) or [Conditional Access](../../active-directory/conditional-access/overview.md) to disable Multi-Factor Authentication for specific users *only* when they're accessing the IP range for the HDInsight cluster's virtual network. If you're using Conditional Access, make sure that the Active Directory service endpoint in enabled on the HDInsight virtual network.
+> You can use [trusted IPs](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips) or [Conditional Access](../../active-directory/conditional-access/overview.md) to disable Multi-Factor Authentication for specific users *only* when they're accessing the IP range for the HDInsight cluster's virtual network.
 >
 > If the cluster storage is Azure Blob storage, do not disable Multi-Factor Authentication.
 

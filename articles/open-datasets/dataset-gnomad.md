@@ -1,11 +1,8 @@
 ---
 title: Genome Aggregation Database (gnomAD)
-titleSuffix: Azure Open Datasets
 description: Learn how to use the Genome Aggregation Database (gnomAD) dataset in Azure Open Datasets.
 ms.service: open-datasets
 ms.topic: sample
-author: peterclu
-ms.author: peterlu
 ms.date: 04/16/2021
 ---
 
@@ -31,7 +28,7 @@ The Storage Account hosting this dataset is in the East US Azure region. Allocat
 
 Storage Account: 'https://datasetgnomad.blob.core.windows.net/dataset/'
 
-Th data is available publicly without restrictions, and the azcopy tool is recommended for bulk operations. For example, to view the VCFs in release 3.0 of gnomAD:
+The data is available publicly without restrictions, and the AzCopy tool is recommended for bulk operations. For example, to view the VCFs in release 3.0 of gnomAD:
 
 ```powershell
 $ azcopy ls https://datasetgnomad.blob.core.windows.net/dataset/release/3.0/vcf/genomes
@@ -41,6 +38,20 @@ To download all the VCFs recursively:
 
 ```powershell
 $ azcopy cp --recursive=true https://datasetgnomad.blob.core.windows.net/dataset/release/3.0/vcf/genomes .
+```
+
+**NEW: Parquet format of gnomAD v2.1.1 VCF files (exomes and genomes)**
+
+To view the parquet files:
+
+```powershell
+$ azcopy ls https://datasetgnomadparquet.blob.core.windows.net/dataset
+```
+
+To download all the parquet files recursively:
+
+```powershell
+$ cp --recursive=true https://datasetgnomadparquet.blob.core.windows.net/dataset
 ```
 
 The [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is also a useful tool for browsing the list of files in the gnomAD release.

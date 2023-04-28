@@ -5,82 +5,79 @@ description: Tutorial to configure Azure Active Directory B2C with BioCatch to i
 services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
-
+ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/20/2021
+ms.date: 03/13/2023
 ms.author: gasinh
 ms.subservice: B2C
 ---
 
 # Tutorial: Configure BioCatch with Azure Active Directory B2C
 
-In this sample tutorial, learn how to integrate Azure Active Directory (AD) B2C authentication with [BioCatch](https://www.biocatch.com/) to further augment your Customer Identity and Access Management (CIAM) security posture. BioCatch analyzes a user's physical and cognitive digital behaviors to generate insights that distinguish between legitimate customers and cyber-criminals.
+Learn how to integrate Azure Active Directory B2C (Azure AD B2C) authentication with BioCatch technology to augment your Customer Identity and Access Management (CIAM) security posture. BioCatch products analyze user physical and cognitive digital behaviors for insights that help distinguish legitimate customers.
+
+Go to biocatch.com to learn more [BioCatch](https://www.biocatch.com/)
 
 ## Prerequisites
 
-To get started, you'll need:
+To get started, you need:
 
-- An Azure subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-
-- [An Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
-
-- A [BioCatch](https://www.biocatch.com/contact-us) account.
+* An Azure subscription
+  * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
+* An Azure AD B2C tenant linked to the Azure subscription
+  * See, [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md)
+* Go to the biocatch.com [Contact Us](https://www.biocatch.com/contact-us) page to request an account
+  * Mention Azure AD B2C integration
 
 ## Scenario description
 
 BioCatch integration includes the following components:
 
-- **A web app or web service** - The user first browses to this web service. This web service instantiates a unique client session ID that is sent to BioCatch. The client session ID then immediately begins transmitting user behavior characteristics to BioCatch.
+* **A web app or web service** - users browse to this web service that instantiates a unique client session ID that goes to BioCatch 
+  * The session ID transmits user behavior characteristics to BioCatch
+* **A method** - sends the session ID to Azure AD B2C. In the example, JavaScript inputs the value into a hidden HTML field.
+* **An Azure AD B2C customized UI** - hides an HTML field for the session ID input from JavaScript
+* **Azure AD B2C custom policy**:
+  * Takes the session ID as a claim via a self-asserted technical profile
+  * Integrates with BioCatch via a REST API claims provider and passes the session ID to BioCatch
+  * Multiple custom claims return from BioCatch for the custom policy logic 
+  * A user journey evaluates a returned claim, and executes a conditional action, such as multi-factor authentication
 
-- **A method** - Sends the unique client session ID to Azure AD B2C. In the provided example, JavaScript is used to input the value into a hidden HTML field.
+Learn more: 
 
-- **An Azure AD B2C customized UI** - Hides an HTML field for the client session ID input from JavaScript, if using the above method
+* [Azure AD B2C custom policy overview](custom-policy-overview.md)
+* [Tutorial: Create user flows and custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy&tabs=applications)
 
-- **Azure AD B2C custom policy**
+The following diagram illustrates user flows with session information. 
 
-  - Takes the custom client session ID from the UI in the form of a claim. This is achieved via a self-asserted technical profile
+   ![Diagram of user flows with session information.](media/partner-biocatch/biocatch-architecture-diagram.png)
 
-  - Integrates with BioCatch via a REST API claims provider and passes the client session ID to the BioCatch platform
+1. The user browses to the web service, which returns HTML, CSS, or JavaScript values, then loads the BioCatch JavaScript SDK. Client-side JavaScript configures a client session ID for the BioCatch SDK. Alternately, the web service pre-configures client session ID and sends it to the client. You can configure the instantiated BioCatch JavaScript SDK for BioCatch, which sends user behavior to BioCatch from the client device, using the client session ID.
+2. User signs-up or signs-in and is redirected to Azure AD B2C. 
+3. The user journey includes a self-asserted claims provider, which inputs the client session ID. This field is hidden. Use JavaScript to input the session ID into the field. Select **Next**, to continue sign-up or sign-in. The session ID goes to BioCatch for a risk score. BioCatch returns session information, and recommends allow or block. The user journey has a conditional check, which acts upon the returned claims.
+4. Based on the conditional check result, an action is invoked.
+5. The web service can use the session ID to query BioCatch API to determine risk and session information.
 
-  - Multiple custom claims are returned from BioCatch for the custom policy logic to then act upon
+## Get started with BioCatch
 
-  - A userjourney, which evaluates a returned claim, for example, session risk, and conditionally executes an action, such as invoke Multi-factor authentication (MFA).
-
-![Diagram of the bio catch architecture.](media/partner-biocatch/biocatch-architecture-diagram.png)
-
-| Step  | Description |
-|:---|:-----------------------|
-|1a     | The user browses the web service. The web service then returns HTML, CSS, or JavaScript values and configures to load the BioCatch JavaScript SDK. Client-side JavaScript configures/sets client session ID for the BioCatch SDK. Alternately, the web service can pre-configure client session ID and send to the client.        |
-|1b    |  Configure the instantiated BioCatch JavaScript SDK against the BioCatch platform. Immediately begin to send user behavior characteristics to BioCatch from the client device, using the client session ID from step 1a.    |
-|2     |  User tries to sign-up/sign-in and is redirected to Azure AD B2C.      |
-|3a    | Part of the userjourney is a self-asserted claimsprovider, which takes the client session ID as input. This field is hidden on the screen. You can use JavaScript to input the session ID into the field. Select the *next* button, to continue the sign-up/sign-in process.|
-|3b     | The client session ID is submitted to the BioCatch platform to determine a risk score. |
-|3c     | BioCatch returns information about the session, such as risk score, and a recommendation on what to do – allow or block |
-|3d    |The userjourney has a conditional check step, which acts upon the returned claims|
-| 4   | Based on the conditional check result, an action such as *step-up MFA* is invoked|
-|5    | At any time from when the user first hits the web service page, the web service can use the client session ID to query the BioCatch API to determine risk score and session information in real-time. |
-
-## Onboard with BioCatch
-
-Contact [BioCatch](https://www.biocatch.com/contact-us) and create an account.
+Go to the biocatch.com [Contact Us](https://www.biocatch.com/contact-us) page to initiate an account.
 
 ## Configure the custom UI
 
-It's recommended to hide the client session ID field. Use CSS, JavaScript, or any other method to hide the field. For testing purposes, you may unhide the field. For example, JavaScript is used to hide the input field as:
+We recommended you hide the Client Session ID field with CSS, JavaScript, or another method. For testing, unhide the field. For example, JavaScript hides the input field as:
 
 ```JavaScript
 document.getElementById("clientSessionId").style.display = 'none';
 ```
 
-## Configure  Azure AD B2C Identity Experience Framework policies
+## Configure Azure AD B2C Identity Experience Framework policies
 
-1. Configure the initial [custom policy configuration](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).
+1. To get started, See [Tutorial: Create user flows and custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).
+2. Create a new file that inherits from the extensions file.
 
-2. Create a new file, which inherits from the extensions file.
-
-    ```XML
+    ```xml
     <BasePolicy> 
 
         <TenantId>tenant.onmicrosoft.com</TenantId> 
@@ -92,7 +89,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 3. Create a reference to the custom UI to hide the input box, under the BuildingBlocks resource.
 
-    ```XML
+    ```xml
     <ContentDefinitions> 
 
         <ContentDefinition Id="api.selfasserted"> 
@@ -106,9 +103,9 @@ document.getElementById("clientSessionId").style.display = 'none';
         </ContentDefinitions>
     ```
 
-4. Add the following claims under the BuildingBlocks resource.
+4. Under the BuildingBlocks resource, add the following claims.
 
-    ```XML
+    ```xml
     <ClaimsSchema> 
 
           <ClaimType Id="riskLevel"> 
@@ -137,12 +134,12 @@ document.getElementById("clientSessionId").style.display = 'none';
 
           </ClaimType> 
 
-    <ClaimsSchema> 
+    </ClaimsSchema> 
     ```
 
-5. Configure self-asserted claims provider for the client session ID field.
+5. Configure a self-asserted claims provider for the client session ID field.
 
-    ```XML
+    ```xml
     <ClaimsProvider> 
 
           <DisplayName>Client Session ID Claims Provider</DisplayName> 
@@ -171,7 +168,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
               <OutputClaims> 
 
-                <OutputClaim ClaimTypeReferenceId="clientSessionId" Required="false" DefaultValue="100"/> 
+                <OutputClaim ClaimTypeReferenceId="clientSessionId" Required="false" DefaultValue="100"/> 
 
               </OutputClaims> 
 
@@ -184,18 +181,18 @@ document.getElementById("clientSessionId").style.display = 'none';
         </ClaimsProvider> 
     ```
 
-6. Configure REST API claims provider for BioCatch. 
+6. Configure a REST API claims provider for BioCatch. 
 
-    ```XML
+    ```xml
     <TechnicalProfile Id="BioCatch-API-GETSCORE"> 
 
           <DisplayName>Technical profile for BioCatch API to return session information</DisplayName> 
 
-          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" /> 
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
 
           <Metadata> 
 
-            <Item Key="ServiceUrl">https://biocatch-url.com/api/v6/score?customerID=<customerid>&amp;action=getScore&amp;uuid=<uuid>&amp;customerSessionID={clientSessionId}&amp;solution=ATO&amp;activtyType=<activity_type>&amp;brand=<brand></Item> 
+            <Item Key="ServiceUrl">https://biocatch-url.com/api/v6/score?customerID=<customerid>&amp;action=getScore&amp;uuid=<uuid>&amp;customerSessionID={clientSessionId}&amp;solution=ATO&amp;activtyType=<activity_type>&amp;brand=<brand></Item>
 
             <Item Key="SendClaimsIn">Url</Item> 
 
@@ -232,142 +229,137 @@ document.getElementById("clientSessionId").style.display = 'none';
       </TechnicalProfiles>
     ```
 
-    > [!Note]
-    > BioCatch will provide you the URL, customer ID and unique user ID (uuID) to configure. The customer SessionID claim is passed through as a querystring parameter to BioCatch. You can choose the activity type, for example *MAKE_PAYMENT*.
+    > [!NOTE]
+    > BioCatch provides the URL, customer ID, and unique user ID (UUID). The customer SessionID claim passes through as a query string parameter to BioCatch. You can select the activity type, for example **MAKE_PAYMENT**.
 
-7. Configure the userjourney; follow the example
+7. Configure the user journey using the following example:
 
-   1. Get the clientSessionID as a claim
+   * Get the clientSessionID as a claim.
+   * Call BioCatch API to get the session information.
+   * If the returned claim risk is **low**, skip the step for MFA, otherwise enforce user MFA.
 
-   1. Call the BioCatch API to get the session information
+    ```xml
+    <OrchestrationStep Order="8" Type="ClaimsExchange"> 
 
-   1. If the returned claim *risk* equals *low*, skip the step for MFA, else force user MFA
+          <ClaimsExchanges> 
 
-    ```XML
-    <OrchestrationStep Order="8" Type="ClaimsExchange"> 
+            <ClaimsExchange Id="clientSessionIdInput" TechnicalProfileReferenceId="login-NonInteractive-clientSessionId" /> 
 
-              <ClaimsExchanges> 
+          </ClaimsExchanges> 
 
-                <ClaimsExchange Id="clientSessionIdInput" TechnicalProfileReferenceId="login-NonInteractive-clientSessionId" /> 
+        </OrchestrationStep> 
 
-              </ClaimsExchanges> 
+        <OrchestrationStep Order="9" Type="ClaimsExchange"> 
 
-            </OrchestrationStep> 
+          <ClaimsExchanges> 
 
-            <OrchestrationStep Order="9" Type="ClaimsExchange"> 
+            <ClaimsExchange Id="BcGetScore" TechnicalProfileReferenceId=" BioCatch-API-GETSCORE" /> 
 
-              <ClaimsExchanges> 
+          </ClaimsExchanges> 
 
-                <ClaimsExchange Id="BcGetScore" TechnicalProfileReferenceId=" BioCatch-API-GETSCORE" /> 
+        </OrchestrationStep> 
 
-              </ClaimsExchanges> 
+        <OrchestrationStep Order="10" Type="ClaimsExchange"> 
 
-            </OrchestrationStep> 
+          <Preconditions> 
 
-            <OrchestrationStep Order="10" Type="ClaimsExchange"> 
+            <Precondition Type="ClaimEquals" ExecuteActionsIf="true"> 
 
-              <Preconditions> 
+              <Value>riskLevel</Value> 
 
-                <Precondition Type="ClaimEquals" ExecuteActionsIf="true"> 
+              <Value>LOW</Value> 
 
-                  <Value>riskLevel</Value> 
+              <Action>SkipThisOrchestrationStep</Action> 
 
-                  <Value>LOW</Value> 
+            </Precondition> 
 
-                  <Action>SkipThisOrchestrationStep</Action> 
+          </Preconditions> 
 
-                </Precondition> 
+          <ClaimsExchanges> 
 
-              </Preconditions> 
+            <ClaimsExchange Id="PhoneFactor-Verify" TechnicalProfileReferenceId="PhoneFactor-InputOrVerify" /> 
 
-              <ClaimsExchanges> 
-
-                <ClaimsExchange Id="PhoneFactor-Verify" TechnicalProfileReferenceId="PhoneFactor-InputOrVerify" /> 
-
-              </ClaimsExchanges>  
-
+          </ClaimsExchanges>
     ```
 
-8. Configure on relying party configuration (optional)
+8. Configure relying party (optional). You can pass the BioCatch returned information to your application as claims in the token: risklevel and score.
 
-    It is useful to pass the BioCatch returned information to your application as claims in the token, specifically *risklevel* and *score*.
-
-    ```XML
+    ```xml
     <RelyingParty> 
 
-        <DefaultUserJourney ReferenceId="SignUpOrSignInMfa" /> 
+    <DefaultUserJourney ReferenceId="SignUpOrSignInMfa" /> 
 
-        <UserJourneyBehaviors> 
+    <UserJourneyBehaviors> 
 
-          <SingleSignOn Scope="Tenant" KeepAliveInDays="30" /> 
+      <SingleSignOn Scope="Tenant" KeepAliveInDays="30" /> 
 
-          <SessionExpiryType>Absolute</SessionExpiryType> 
+      <SessionExpiryType>Absolute</SessionExpiryType> 
 
-          <SessionExpiryInSeconds>1200</SessionExpiryInSeconds> 
+      <SessionExpiryInSeconds>1200</SessionExpiryInSeconds> 
 
-          <ScriptExecution>Allow</ScriptExecution> 
+      <ScriptExecution>Allow</ScriptExecution> 
 
-        </UserJourneyBehaviors> 
+    </UserJourneyBehaviors> 
 
-        <TechnicalProfile Id="PolicyProfile"> 
+    <TechnicalProfile Id="PolicyProfile"> 
 
-          <DisplayName>PolicyProfile</DisplayName> 
+      <DisplayName>PolicyProfile</DisplayName> 
 
-          <Protocol Name="OpenIdConnect" /> 
+      <Protocol Name="OpenIdConnect" /> 
 
-          <OutputClaims> 
+      <OutputClaims> 
 
-            <OutputClaim ClaimTypeReferenceId="displayName" /> 
+        <OutputClaim ClaimTypeReferenceId="displayName" /> 
 
-            <OutputClaim ClaimTypeReferenceId="givenName" /> 
+        <OutputClaim ClaimTypeReferenceId="givenName" /> 
 
-            <OutputClaim ClaimTypeReferenceId="surname" /> 
+        <OutputClaim ClaimTypeReferenceId="surname" /> 
 
-            <OutputClaim ClaimTypeReferenceId="email" /> 
+        <OutputClaim ClaimTypeReferenceId="email" /> 
 
-            <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" /> 
+        <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" /> 
 
-            <OutputClaim ClaimTypeReferenceId="identityProvider" />                 
+        <OutputClaim ClaimTypeReferenceId="identityProvider" />                 
 
-            <OutputClaim ClaimTypeReferenceId="riskLevel" /> 
+        <OutputClaim ClaimTypeReferenceId="riskLevel" /> 
 
-            <OutputClaim ClaimTypeReferenceId="score" /> 
+        <OutputClaim ClaimTypeReferenceId="score" /> 
 
-            <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" /> 
+        <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" /> 
 
-          </OutputClaims> 
+      </OutputClaims> 
 
-          <SubjectNamingInfo ClaimType="sub" /> 
+      <SubjectNamingInfo ClaimType="sub" /> 
 
-        </TechnicalProfile> 
+    </TechnicalProfile> 
 
-      </RelyingParty> 
-
+    </RelyingParty>
     ```
 
 ## Integrate with Azure AD B2C
 
-Follow these steps to add the policy files to Azure AD B2C
+Add the policy files to Azure AD B2C. For the following instructions, use the directory with the Azure AD B2C tenant. 
 
-1. Sign in to the [**Azure portal**](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
-
-2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select **Directory + subscription** filter in the top menu and choose the directory that contains your tenant.
-
-3. Choose **All services** in the top-left corner of the Azure portal, search for and select Azure AD B2C.
-
-4. Navigate to **Azure AD B2C** > **Identity Experience Framework**
-
-3. Upload all the policy files to your tenant.
+1. Sign in to the [**Azure portal**](https://portal.azure.com/) as the Global Administrator of the Azure AD B2C tenant.
+1. In the portal toolbar, select **Directories + subscriptions**.
+1. On the **Portal settings, Directories + subscriptions** page, in the **Directory name** list, locate the Azure AD B2C directory.
+2. Select **Switch**.
+3. In the top-left corner of the Azure portal, select **All services**.
+4. Search for and select **Azure AD B2C**.
+5. Navigate to **Azure AD B2C** > **Identity Experience Framework**.
+6. Upload the policy files to the tenant.
 
 ## Test the solution
 
-1. [Register a dummy application, which redirects to JWT.MS](./tutorial-register-applications.md?tabs=app-reg-ga)  
+For the following instructions, see [Tutorial: Register a web application in Azure Active Directory B2C](./tutorial-register-applications.md?tabs=app-reg-ga)
 
-2. Under the **Identity Experience Framework**, select the policy you created
-
-3. In the policy window, select the dummy JWT.MS application, and select **run now**
-
-4. Go through sign-up flow and create an account. Token returned to JWT.MS should have 2x claims for riskLevel and score. Follow the example.  
+1. Register a dummy application that redirects to JWT.MS. 
+2. Under **Identity Experience Framework**, select the policy you created.
+3. In the policy window, select the dummy JWT.MS application
+4. Select **run now**.
+5. Perform a sign-up flow and create an account. 
+6. The token returned to JWT.MS has 2x claims for riskLevel and score. 
+7. Use the following example.  
 
     ```JavaScript
     { 
@@ -420,6 +412,5 @@ Follow these steps to add the policy files to Azure AD B2C
 
 ## Additional resources
 
-- [Custom policies in Azure AD B2C](./custom-policy-overview.md)
-
-- [Get started with custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy&tabs=applications)
+* [Azure AD B2C custom policy overview](./custom-policy-overview.md)
+* [Tutorial: Create user flows and custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy&tabs=applications)

@@ -3,6 +3,7 @@ title: Azure Event Grid SDKs
 description: Describes the SDKs for Azure Event Grid. These SDKs provide management, publishing and consumption.
 ms.topic: reference
 ms.date: 05/17/2021
+ms.devlang: csharp, golang, java, javascript, python
 ---
 
 # Event Grid SDKs for management and publishing
@@ -15,7 +16,7 @@ The management SDKs enable you to create, update, and delete event grid topics a
 
 * [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid)
 * [Go](https://github.com/Azure/azure-sdk-for-go)
-* [Java](https://search.maven.org/#search%7Cga%7C1%7Cazure-mgmt-eventgrid)
+* [Java](https://search.maven.org/#search%7Cga%7C1%7Cazure-resourcemanager-eventgrid)
 * [Node](https://www.npmjs.com/package/@azure/arm-eventgrid)
 * [Python](https://pypi.python.org/pypi/azure-mgmt-eventgrid)
 * [Ruby](https://rubygems.org/gems/azure_mgmt_event_grid)

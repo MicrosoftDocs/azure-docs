@@ -1,0 +1,75 @@
+### YamlMime:Hub
+
+title: Azure Dev/Test offer documentation
+summary: Learn how to use your Visual Studio subscription benefits to develop & test on Azure at no extra charge. Tutorials, how-tos, and more.
+
+metadata:
+  title: Azure Dev/Test offer documentation
+  description: Learn how to use your Visual Studio subscription benefits to develop & test on Azure at no extra charge. Tutorials, how-tos, and more.
+ 
+  ms.topic: hub-page
+  ms.collection: collection
+  ms.prod: visual-studio-windows
+  ms.author: nicktrog
+  author: ntrogh
+  ms.date: 10/06/2021
+  ms.custom: devtestoffer
+  adobe-target: true
+
+# highlightedContent section 
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  items:
+    # Card
+    - title: What is the Azure Dev/Test offer?
+      itemType: overview
+      url: overview-what-is-devtest-offer-visual-studio.md
+    # Card
+    - title: Start using Azure credits
+      itemType: quickstart
+      url: quickstart-individual-credit.md
+     # Card
+    - title: Create Enterprise & Organizational subscriptions
+      itemType: quickstart
+      url: concepts-gitops-azure-devtest.md
+
+conceptualContent:
+# Supports up to 3 sections
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  items:
+    # Card
+    - title: Azure Dev/Test offer for individuals
+      links:
+        - url: ../../devtest/offer/quickstart-individual-credit.md
+          itemType: how-to-guide
+          text: Get started using Azure Credits
+        - url: ../../devtest/offer/how-to-add-users-directory.md
+          itemType: how-to-guide
+          text: Add users to your directory
+        - url: ../../devtest/offer/how-to-remove-credit-limits.md
+          itemType: how-to-guide
+          text: Remove credit limits   
+        - url: ../../devtest/offer/how-to-sign-into-azure-with-github.md
+          itemType: how-to-guide
+          text: Sign into Azure with GitHub credentials
+        - url: ../../devtest/offer/how-to-change-directory-tenants-visual-studio-azure.md
+          itemType: how-to-guide
+          text: Change directory tenants with your VSS Azure subscription
+    # Card
+    - title: Azure Dev/Test offer for enterprise
+      links:
+        - url: ../../devtest/offer/quickstart-create-enterprise-devtest-subscriptions.md
+          itemType: how-to-guide
+          text: Create Enterprise and Organizational subscriptions
+        - url: ../../devtest/offer/concepts-gitops-azure-devtest.md
+          itemType: how-to-guide
+          text: Use GitOps with Azure Dev/Test
+        - url: ../../devtest/offer/how-to-manage-monitor-devtest.md
+          itemType: how-to-guide
+          text: Manage your Azure Dev/Test subscriptions
+        - url: ../../devtest/offer/how-to-manage-reliability-performance.md
+          itemType: how-to-guide
+          text: Build reliability into your applications
+        - url: ../../devtest/offer/concepts-security-governance-devtest.md
+          itemType: how-to-guide
+          text: Manage security and governance

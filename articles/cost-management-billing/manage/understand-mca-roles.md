@@ -1,11 +1,12 @@
 ---
 title: Billing roles for Microsoft Customer Agreements - Azure
 description: Learn about billing roles for billing accounts in Azure for Microsoft Customer Agreements.
-author: amberbhargava
+author: bandersmsft
+ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 06/27/2021
+ms.date: 10/10/2022
 ms.author: banders
 ---
 
@@ -25,7 +26,7 @@ The following table describes the billing roles you use to manage your billing a
 
 |Role|Description|
 |---|---|
-|Billing account owner|Manage everything for billing account|
+|Billing account owner |Manage everything for billing account|
 |Billing account contributor|Manage everything except permissions on the billing account|
 |Billing account reader|Read-only view of everything on billing account|
 |Billing profile owner|Manage everything for billing profile|

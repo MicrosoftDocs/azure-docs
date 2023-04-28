@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Timeclock 365 SAML | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Timeclock 365 SAML'
 description: Learn how to configure single sign-on between Azure Active Directory and Timeclock 365 SAML.
 services: active-directory
 author: jeevansd
@@ -9,12 +9,12 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/28/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Timeclock 365 SAML
+# Tutorial: Azure AD SSO integration with Timeclock 365 SAML
 
 In this tutorial, you'll learn how to integrate Timeclock 365 SAML with Azure Active Directory (Azure AD). When you integrate Timeclock 365 SAML with Azure AD, you can:
 
@@ -33,7 +33,8 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Timeclock 365 SAML supports **SP** initiated SSO
+* Timeclock 365 SAML supports **SP** initiated SSO.
+* Timeclock 365 SAML supports [Automated user provisioning](timeclock-365-saml-provisioning-tutorial.md).
 
 ## Adding Timeclock 365 SAML from the gallery
 
@@ -46,6 +47,7 @@ To configure the integration of Timeclock 365 SAML into Azure AD, you need to ad
 1. In the **Add from the gallery** section, type **Timeclock 365 SAML** in the search box.
 1. Select **Timeclock 365 SAML** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Timeclock 365 SAML
 
@@ -140,6 +142,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Create** button to create the test user.
 
+> [!NOTE]
+> Timeclock 365 SAML also supports automatic user provisioning, you can find more details [here](./timeclock-365-saml-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
@@ -148,9 +153,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Timeclock 365 SAML Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Timeclock 365 SAML tile in the My Apps, this will redirect to Timeclock 365 SAML Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
-
+* You can use Microsoft My Apps. When you click the Timeclock 365 SAML tile in the My Apps, this will redirect to Timeclock 365 SAML Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure Timeclock 365 SAML you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Timeclock 365 SAML you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

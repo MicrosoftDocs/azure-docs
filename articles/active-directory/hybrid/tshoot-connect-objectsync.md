@@ -1,96 +1,118 @@
 ---
-title: 'Azure AD Connect: Troubleshoot object synchronization | Microsoft Docs'
-description: This topic provides steps for how to troubleshoot issues with object synchronization using the troubleshooting task.
+title: 'Azure AD Connect: Troubleshoot object synchronization'
+description: Learn how to troubleshoot issues with object synchronization by using the troubleshooting task.
 services: active-directory
-documentationcenter: ''
 author: billmath
-manager: daveba
-editor: curtand
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 04/29/2019
+ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
 # Troubleshoot object synchronization with Azure AD Connect sync
-This article provides steps for troubleshooting issues with object synchronization by using the troubleshooting task. To see how troubleshooting works in Azure Active Directory (Azure AD) Connect, watch [this short video](https://aka.ms/AADCTSVideo).
+
+This article provides steps for troubleshooting issues with object synchronization by using the troubleshooting task. To see how troubleshooting works in Azure AD Connect, watch a [short video](https://aka.ms/AADCTSVideo).
 
 ## Troubleshooting task
-For Azure AD Connect deployment with version 1.1.749.0 or higher, use the troubleshooting task in the wizard to troubleshoot object synchronization issues. For earlier versions, please troubleshoot manually as described [here](tshoot-connect-object-not-syncing.md).
+
+For Azure AD Connect deployments of version 1.1.749.0 or later, use the troubleshooting task in the wizard to troubleshoot object sync issues. For earlier versions, you can [troubleshoot manually](tshoot-connect-object-not-syncing.md).
 
 ### Run the troubleshooting task in the wizard
-To run the troubleshooting task in the wizard, perform the following steps:
 
-1.	Open a new Windows PowerShell session on your Azure AD Connect server with the Run as Administrator option.
-2.	Run `Set-ExecutionPolicy RemoteSigned` or `Set-ExecutionPolicy Unrestricted`.
-3.	Start the Azure AD Connect wizard.
-4.	Navigate to the Additional Tasks page, select Troubleshoot, and click Next.
-5.	On the Troubleshooting page, click Launch to start the troubleshooting menu in PowerShell.
-6.	In the main menu, select Troubleshoot Object Synchronization.
-![Troubleshoot object synchronization](media/tshoot-connect-objectsync/objsynch11.png)
+To run the troubleshooting task:
 
-### Troubleshooting Input Parameters
-The following input parameters are needed by the troubleshooting task:
-1.	**Object Distinguished Name** – This is the distinguished name of the object that needs troubleshooting
-2.	**AD Connector Name** – This is the name of the AD forest where the above object resides.
-3.	Azure AD tenant global administrator credentials
-![global administrator credentials](media/tshoot-connect-objectsync/objsynch1.png)
+1. Open a new Windows PowerShell session on your Azure AD Connect server by using the Run as Administrator option.
+1. Run `Set-ExecutionPolicy RemoteSigned` or `Set-ExecutionPolicy Unrestricted`.
+1. Start the Azure AD Connect wizard.
+1. Go to **Additional Tasks** > **Troubleshoot**, and then select **Next**.
+1. On the **Troubleshooting** page, select **Launch** to start the troubleshooting menu in PowerShell.
+1. In the main menu, select **Troubleshoot Object Synchronization**.
+
+:::image type="content" source="media/tshoot-connect-objectsync/objsynch11.png" alt-text="Screenshot that shows the Troubleshoot object sync option highlighted in Azure AD Connect.":::
+
+### Troubleshoot input parameters
+
+The troubleshooting task requires the following input parameters:
+
+- **Object Distinguished Name**: The distinguished name of the object that needs troubleshooting.
+- **AD Connector Name**: The name of the Windows Server Active Directory (Windows Server AD) forest where the object resides.
+- Azure Active Directory (Azure AD) tenant Hybrid Identity Administrator credentials.
+
+:::image type="content" source="media/tshoot-connect-objectsync/objsynch1.png" alt-text="Screenshot that shows the credentials dialog on a PowerShell terminal background.":::
 
 ### Understand the results of the troubleshooting task
+
 The troubleshooting task performs the following checks:
 
-1.	Detect UPN mismatch if the object is synced to Azure Active Directory
-2.	Check if object is filtered due to domain filtering
-3.	Check if object is filtered due to OU filtering
-4.  Check if object synchronization is blocked due to a linked mailbox
-5. Check if object is dynamic distribution group which is not supposed to be synchronized
+- Detect user principal name (UPN) mismatch if the object is synced to Azure AD.
+- Check whether object is filtered due to domain filtering.
+- Check whether object is filtered due to organizational unit (OU) filtering.
+- Check whether object sync is blocked due to a linked mailbox.
+- Check whether the object is in a dynamic distribution group that isn't intended to be synced.
 
-The rest of this section describes specific results that are returned by the task. In each case, the task provides an analysis followed by recommended actions to resolve the issue.
+The rest of the article describes specific results that are returned by the troubleshooting task. In each case, the task provides an analysis followed by recommended actions to resolve the issue.
 
-## Detect UPN mismatch if object is synced to Azure Active Directory
-### UPN Suffix is NOT verified with Azure AD Tenant
-When UserPrincipalName (UPN)/Alternate Login ID suffix is not verified with the Azure AD Tenant, then Azure Active Directory replaces the UPN suffixes with the default domain name "onmicrosoft.com".
+## Detect UPN mismatch if the object is synced to Azure AD
 
-![Azure AD replaces UPN](media/tshoot-connect-objectsync/objsynch2.png)
+Check for the UPN mismatch issues that are described in the next sections.
 
-### Azure AD Tenant DirSync Feature ‘SynchronizeUpnForManagedUsers’ is disabled
-When the Azure AD Tenant DirSync Feature ‘SynchronizeUpnForManagedUsers’ is disabled, Azure Active Directory does not allow synchronization updates to UserPrincipalName/Alternate Login ID for licensed user accounts with managed authentication.
+### UPN suffix is not verified with the Azure AD tenant
 
-![SynchronizeUpnForManagedUsers](media/tshoot-connect-objectsync/objsynch4.png)
+When the UPN or alternate login ID suffix isn't verified with the Azure AD tenant, Azure AD replaces the UPN suffixes with the default domain name `onmicrosoft.com`.
+
+:::image type="content" source="media/tshoot-connect-objectsync/objsynch2.png" alt-text="Screenshot that shows an example of an unverified UPN suffix error in PowerShell.":::
+
+### Azure AD tenant DirSync feature SynchronizeUpnForManagedUsers is disabled
+
+When the Azure AD tenant DirSync feature SynchronizeUpnForManagedUsers is disabled, Azure AD doesn't allow sync updates to the UPN or alternate login ID for licensed user accounts that use managed authentication.
+
+:::image type="content" source="media/tshoot-connect-objectsync/objsynch4.png" alt-text="Screenshot that shows an example of a UPN sync for managed users error in PowerShell.":::
 
 ## Object is filtered due to domain filtering
+
+Check for the domain filtering issues that are described in the next sections.
+
 ### Domain is not configured to sync
-Object is out of scope due to domain not being configured. In the example below, the object is out of sync scope as the domain that it belongs to is filtered from synchronization.
 
-![Domain is not configured to sync](media/tshoot-connect-objectsync/objsynch5.png)
+The object is out of scope because the domain hasn't been configured. In the example in the following figure, the object is out of sync scope because the domain that it belongs to is filtered from sync.
 
-### Domain is configured to sync but is missing run profiles/run steps
-Object is out of scope as the domain is missing run profiles/run steps. In the example below, the object is out of sync scope as the domain that it belongs to is missing run steps for the Full Import run profile.
-![missing run profiles](media/tshoot-connect-objectsync/objsynch6.png)
+:::image type="content" source="media/tshoot-connect-objectsync/objsynch5.png" alt-text="Screenshot that shows an example of an error caused by a domain that's not in sync scope.":::
+
+### Domain is configured to sync but is missing run profiles or run steps
+
+The object is out of scope because the domain is missing run profiles or run steps. In the example in the following figure, the object is out of sync scope because the domain that it belongs to is missing run steps for the Full Import run profile.
+
+:::image type="content" source="media/tshoot-connect-objectsync/objsynch6.png" alt-text="Screenshot that shows an example of an error caused by missing run steps.":::
 
 ## Object is filtered due to OU filtering
-The object is out of sync scope due to OU filtering configuration. In the example below, the object belongs to OU=NoSync,DC=bvtadwbackdc,DC=com.  This OU is not included in sync scope.</br>
 
-![OU](./media/tshoot-connect-objectsync/objsynch7.png)
+The object is out of sync scope because of the OU filtering configuration. In the example in the following figure, the object belongs to `OU=NoSync,DC=bvtadwbackdc,DC=com`.  This OU is not included in the sync scope.
 
-## Linked Mailbox issue
-A linked mailbox is supposed to be associated with an external master account located in another trusted account forest. If there is no such external master account, then Azure AD Connect will not synchronize the user account corresponds to the linked mailbox in the Exchange forest to the Azure AD tenant.</br>
-![Linked Mailbox](./media/tshoot-connect-objectsync/objsynch12.png)
+:::image type="content" source="media/tshoot-connect-objectsync/objsynch7.png" alt-text="Screenshot that shows an example of an OU filtering error in PowerShell.":::
 
-## Dynamic Distribution Group issue
-Due to various differences between on-premises Active Directory and Azure Active Directory, Azure AD Connect does not synchronize dynamic distribution groups to the Azure AD tenant.
+## Linked mailbox issue
 
-![Dynamic Distribution Group](./media/tshoot-connect-objectsync/objsynch13.png)
+A linked mailbox is supposed to be associated with an external primary account that's located in a different trusted account forest. If the primary account doesn't exist, Azure AD Connect doesn't sync the user account that corresponds to the linked mailbox in the Exchange forest to the Azure AD tenant.
 
-## HTML Report
-In addition to analyzing the object, the troubleshooting task also generates an HTML report that has everything known about the object. This HTML report can be shared with support team to do further troubleshooting, if needed.
+:::image type="content" source="media/tshoot-connect-objectsync/objsynch12.png" alt-text="Screenshot that shows an example of a linked mailbox error in PowerShell.":::
 
-![HTML Report](media/tshoot-connect-objectsync/objsynch8.png)
+## Dynamic distribution group issue
+
+Due to various differences between on-premises Windows Server AD and Azure AD, Azure AD Connect doesn't sync dynamic distribution groups to the Azure AD tenant.
+
+:::image type="content" source="media/tshoot-connect-objectsync/objsynch13.png" alt-text="Screenshot that shows an example of a dynamic distribution group error in PowerShell.":::
+
+## HTML report
+
+In addition to analyzing the object, the troubleshooting task generates an HTML report that includes everything that's known about the object. The HTML report can be shared with the support team for further troubleshooting if needed.
+
+:::image type="content" source="media/tshoot-connect-objectsync/objsynch8.png" alt-text="Screenshot that shows an example of an HTML report in PowerShell.":::
 
 ## Next steps
-Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).
+
+Learn more about [integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Bonusly for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Bonusly for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Bonusly.
 services: active-directory
 author: twimmers
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -29,7 +29,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * A user account in Bonusly with Admin permissions
 
 > [!NOTE]
-> The Azure AD provisioning integration relies on the [Bonusly Rest API](https://konghq.com/solutions/gateway/), which is available to Bonusly developers.
+> The Azure AD provisioning integration relies on the [Bonusly REST API](https://konghq.com/solutions/gateway/), which is available to Bonusly developers.
 
 ## Adding Bonusly from the gallery
 

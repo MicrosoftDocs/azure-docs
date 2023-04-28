@@ -1,13 +1,12 @@
 ---
 title: Copy data between Data Lake Storage Gen1 and Azure SQL - Sqoop | Microsoft Docs
 description: Use Sqoop to copy data between Azure SQL Database and Azure Data Lake Storage Gen1
-services: data-lake-store
-author: twooley
 
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 07/30/2019
-ms.author: twooley
+ms.author: normesta
 
 ---
 # Copy data between Data Lake Storage Gen1 and Azure SQL Database using Sqoop
@@ -27,11 +26,11 @@ Before you begin, you must have the following:
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **An Azure Data Lake Storage Gen1 account**. For instructions on how to create the account, see [Get started with Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Azure HDInsight cluster** with access to a Data Lake Storage Gen1 account. See [Create an HDInsight cluster with Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). This article assumes you have an HDInsight Linux cluster with Data Lake Storage Gen1 access.
-* **Azure SQL Database**. For instructions on how to create a database in Azure SQL Database, see [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md)
+* **Azure SQL Database**. For instructions on how to create a database in Azure SQL Database, see [Create a database in Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart)
 
 ## Create sample tables in the database
 
-1. To start, create two sample tables in the database. Use [SQL Server Management Studio](../azure-sql/database/connect-query-ssms.md) or Visual Studio to connect to the database and then run the following queries.
+1. To start, create two sample tables in the database. Use [SQL Server Management Studio](/azure/azure-sql/database/connect-query-ssms) or Visual Studio to connect to the database and then run the following queries.
 
     **Create Table1**
 
@@ -133,7 +132,7 @@ An HDInsight cluster already has the Sqoop packages available. If you've configu
     sqoop-export --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=user1@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table2 --export-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
     ```
 
-1. Verify that the data was uploaded to the SQL Database table. Use [SQL Server Management Studio](../azure-sql/database/connect-query-ssms.md) or Visual Studio to connect to the Azure SQL Database and then run the following query.
+1. Verify that the data was uploaded to the SQL Database table. Use [SQL Server Management Studio](/azure/azure-sql/database/connect-query-ssms) or Visual Studio to connect to the Azure SQL Database and then run the following query.
 
     ```tsql
     SELECT * FROM TABLE2

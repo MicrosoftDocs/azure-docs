@@ -1,13 +1,12 @@
 ---
 title: Change Azure IoT Central application settings | Microsoft Docs
 description: Learn how to manage your Azure IoT Central application by changing application name, URL, upload image, and delete an application
-author: viv-liu
-ms.author: viviali
-ms.date: 12/19/2020
+author: dominicbetts
+ms.author: dobett
+ms.date: 06/22/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-manager: peterpr
 
 # Administrator
 ---
@@ -16,25 +15,23 @@ manager: peterpr
 
 This article describes how you can manage application by changing application name and URL, upload an image, and delete an application in your Azure IoT Central application.
 
-To access and use the **Administration** section, you must be in the **Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically assigned to the **Administrator** role for that application.
+To access and use the **Settings > Application** and **Settings > Customization** sections, you must be in the **Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically assigned to the **Administrator** role for that application.
 
 ## Change application name and URL
 
-In the **Application Settings** page, you can change the name and URL of your application, then select **Save**.
+In the **Application > Management** page, you can change the name and URL of your application, then select **Save**.
 
-![Application settings page](media/howto-administer/image-a.png)
+:::image type="content" source="media/howto-administer/application-management.png" alt-text="Screenshot that shows how to access the application management page." lightbox="media/howto-administer/application-management.png":::
 
 If your administrator creates a custom theme for your application, this page includes an option to hide the **Application Name** in the UI. This option is useful if the application logo in the custom theme includes the application name. For more information, see [Customize the Azure IoT Central UI](./howto-customize-ui.md).
 
-> [!Note]
-> If you change your URL, your old URL can be taken by another Azure IoT Central customer. If that happens, it is no longer available for you to use. When you change your URL, the old URL no longer works, and you need to notify your users about the new URL to use.
+If you change your URL, your old URL can be taken by another Azure IoT Central customer. If that happens, it is no longer available for you to use. When you change your URL, the old URL no longer works, and you need to notify your users about the new URL to use.
 
 ## Delete an application
 
 Use the **Delete** button to permanently delete your IoT Central application. This action permanently deletes all data that's associated with the application.
 
-> [!Note]
-> To delete an application, you must also have permissions to delete resources in the Azure subscription you chose when you created the application. To learn more, see [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
+To delete an application, you must also have permissions to delete resources in the Azure subscription you chose when you created the application. To learn more, see [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
 
 ## Manage programmatically
 

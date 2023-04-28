@@ -1,15 +1,15 @@
 ---
-title: Delegate application management administrator permissions - Azure AD | Microsoft Docs
+title: Delegate application management administrator permissions
 description: Grant permissions for application access management in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: daveba
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/04/2020
+ms.date: 03/30/2023
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -43,32 +43,11 @@ By default in Azure AD, all users can register applications and manage all aspec
 
 ### Grant individual permissions to create and consent to applications when the default ability is disabled
 
-Assign the Application Developer role to grant the ability to create application registrations when the **Users can register applications** setting is set to No. This role also grants permission to consent on one's own behalf when the **Users can consent to apps accessing company data on their behalf** setting is set to No. As a system behavior, when a user creates a new application registration, they are automatically added as the first owner. Ownership permissions give the user the ability to manage all aspects of an application registration or enterprise application that they own.
+Assign the [Application Developer role](../roles/permissions-reference.md#application-developer) to grant the ability to create application registrations when the **Users can register applications** setting is set to No. This role also grants permission to consent on one's own behalf when the **Users can consent to apps accessing company data on their behalf** setting is set to No.
 
 ## Assign application owners
 
-Assigning owners is a simple way to grant the ability to manage all aspects of Azure AD configuration for a specific application registration or enterprise application. As a system behavior, when a user creates a new application registration they are automatically added as the first owner. Ownership permissions give the user the ability to manage all aspects of an application registration or enterprise application that they own. The original owner can be removed and additional owners can be added.
-
-### Enterprise application owners
-
-As an owner, a user can manage the organization-specific configuration of the enterprise application, such as the single sign-on configuration, provisioning, and user assignments. An owner can also add or remove other owners. Unlike Global Administrators, owners can manage only the enterprise applications they own.
-
-In some cases, enterprise applications created from the application gallery include both an enterprise application and an application registration. When this is true, adding an owner to the enterprise application automatically adds the owner to the corresponding application registration as an owner.
-
-### To assign an owner to an enterprise application
-
-1. Sign in to [your Azure AD organization](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that eligible for the Application Administrator or Cloud Application Administrator for the organization.
-1. On the [Enterprise applications page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) for the organization, select an app to open the Overview page for the app.
-1. Select **Owners** to see the list of the owners for the app.
-1. Select **Add** to select one or more owners to add to the app.
-
-> [!NOTE]
-> If the user setting "[Restrict access to Azure AD administration portal](../fundamentals/users-default-permissions.md)" is set to Yes, non-admin users wil not be able to use the Azure portal to manage the applications they own.
-
-> [!IMPORTANT]
-> Users and service principals can be owners of application registrations. Only users can be owners of enterprise applications. Groups cannot be assigned as owners of either.
->
-> Owners can add credentials to an application and use those credentials to impersonate the application’s identity. The application may have more permissions than the owner, and thus would be an elevation of privilege over what the owner has access to as a user or service principal. An application owner could potentially create or update users or other objects while impersonating the application, depending on the application's permissions.
+Assigning owners is a simple way to grant the ability to manage all aspects of Azure AD configuration for a specific application registration or enterprise application. For more information, see [Assign enterprise application owners](../manage-apps/assign-app-owners.md).
 
 ## Assign built-in application admin roles
 
@@ -100,6 +79,31 @@ Tips when creating and using custom roles for delegating application management:
 - App registrations the user has access to using role assignments only show up in the ‘All applications’ tab on the App registration page. They do not show up in the ‘Owned applications’ tab.
 
 For more information on the basics of custom roles, see the [custom roles overview](custom-overview.md), as well as how to [create a custom role](custom-create.md) and how to [assign a role](custom-assign-powershell.md).
+
+## Troubleshoot
+
+### Symptom - Access denied when you try to register an application
+
+When you try to register an application in Azure AD, you get a message similar to the following:
+
+```
+Access denied
+You do not have access
+You don't have permission to register applications in the <directoryName> directory. To request access, contact your administrator.
+```
+
+:::image type="content" source="media/delegate-app-roles/app-registrations-access-denied.png" alt-text="Screenshot of access denied message when trying to create a new app registration." lightbox="media/delegate-app-roles/app-registrations-access-denied.png":::
+
+**Cause**
+
+You can't register the application in the directory because your directory administrator has [restricted who can create applications](#restrict-who-can-create-applications).
+
+**Solution**
+
+Contact your administrator to do one of the following:
+
+- Grant you permissions to create and consent to applications by [assigning you the Application Developer role](#grant-individual-permissions-to-create-and-consent-to-applications-when-the-default-ability-is-disabled).
+- Create the application registration for you and [assign you as the application owner](#assign-application-owners).
 
 ## Next steps
 

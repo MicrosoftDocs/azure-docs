@@ -2,13 +2,12 @@
 title: Template - HDInsight cluster with Data Lake Storage Gen1
 description: Use Azure Resource Manager templates to create and use Azure HDInsight clusters with Azure Data Lake Storage Gen1.
 
-author: twooley
+author: normesta
 ms.service: data-lake-store
+ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 05/29/2018
-ms.author: twooley 
-ms.custom: devx-track-azurepowershell
-
+ms.author: normesta 
 ---
 # Create an HDInsight cluster with Azure Data Lake Storage Gen1 using Azure Resource Manager template
 > [!div class="op_single_selector"]

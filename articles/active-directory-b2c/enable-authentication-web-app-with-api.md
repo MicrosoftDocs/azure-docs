@@ -2,13 +2,13 @@
 title: Enable authentication in web apps that call a web API by using Azure Active Directory B2C building blocks
 description: This article discusses the building blocks of an ASP.NET web app that calls a web API by using Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/25/2021
-ms.author: mimart
+ms.date: 11/10/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
 ---
@@ -57,6 +57,8 @@ Install-Package Microsoft.Identity.Web
 Install-Package Microsoft.Identity.Web.UI
 ```
 
+---
+
 ## Step 3: Initiate the authentication libraries
 
 The Microsoft Identity Web middleware uses a startup class that runs when the hosting process starts. In this step, you add the necessary code to initiate the authentication libraries.
@@ -82,7 +84,7 @@ public void ConfigureServices(IServiceCollection services)
         // This lambda determines whether user consent for non-essential cookies is needed for a given request.
         options.CheckConsentNeeded = context => true;
         options.MinimumSameSitePolicy = SameSiteMode.Unspecified;
-        // Handling SameSite cookie according to https://docs.microsoft.com/en-us/aspnet/core/security/samesite?view=aspnetcore-3.1
+        // Handling SameSite cookie according to https://learn.microsoft.com/aspnet/core/security/samesite?view=aspnetcore-3.1
         options.HandleSameSiteCookieCompatibility();
     });
 

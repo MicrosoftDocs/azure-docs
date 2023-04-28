@@ -1,16 +1,17 @@
 ﻿### YamlMime:Landing
 
 title: Azure Government documentation
-summary: Azure Government is a cloud platform built upon the foundational principles of security, privacy and control, compliance, and transparency. Public Sector entities receive a physically isolated instance of Azure.
+summary: Azure Government is a cloud services platform built upon the foundational principles of security, privacy, and compliance. Customers eligible
+ for Azure Government benefit from a physically isolated instance of Azure.
 
 metadata:
   title: Azure Government documentation
-  description: Microsoft Azure Government delivers a cloud platform built upon the foundational principles of security, privacy and control, compliance, and transparency. Public Sector entities receive a physically isolated instance of Microsoft Azure that employs world-class security and compliance services critical to U.S. government for all systems and applications built on its architecture.
-  ms.service: Azure-government
+  description: Azure Government provides a physically isolated instance of Azure that employs world-class security and compliance critical to US government.
+  ms.service: azure-government
   ms.topic: landing-page
-  author: rolyon
-  ms.author: rolyon
-  ms.date: 03/05/2020
+  author: stevevi
+  ms.author: stevevi
+  ms.date: 05/07/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -22,20 +23,40 @@ landingContent:
         links:
           - text: What is Azure Government?
             url: documentation-government-welcome.md
-          - text: Compare to global Azure
+          - text: Compare Azure Government and global Azure
             url: compare-azure-government-global-azure.md
 
   # Card
   - title: Get started
     linkLists:
-      - linkListType: video
-        links:
-          - text: Start using Azure Government
-            url: https://channel9.msdn.com/Shows/Azure-Friday/Azure-Government
       - linkListType: quickstart
         links:
           - text: Connect using portal
             url: documentation-government-get-started-connect-with-portal.md
+          - text: Connect using Azure CLI
+            url: documentation-government-get-started-connect-with-cli.md
+          - text: Connect using PowerShell
+            url: documentation-government-get-started-connect-with-ps.md
+          - text: Connect using Visual Studio
+            url: documentation-government-connect-vs.md
+          - text: Deploy STIG-compliant Linux VM
+            url: documentation-government-stig-linux-vm.md
+          - text: Deploy STIG-compliant Windows VM
+            url: documentation-government-stig-windows-vm.md
+
+  # Card
+  - title: Compliance
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Azure Government compliance
+            url: documentation-government-plan-compliance.md
+          - text: Cloud services by audit scope
+            url: ./compliance/azure-services-in-fedramp-auditscope.md
+          - text: Trusted Internet Connections
+            url: ./compliance/compliance-tic.md
+          - text: Accelerate your path to ATO
+            url: ./compliance/documentation-accelerate-compliance.md
 
   # Card
   - title: Deploy and manage
@@ -44,5 +65,73 @@ landingContent:
         links:
           - text: Deploy an Azure App Services app
             url: documentation-government-howto-deploy-webandmobile.md
-          - text: Create Virtual Machines
+          - text: Create virtual machines
             url: documentation-government-quickstarts-vm.md
+          - text: Deploy with Azure Pipelines
+            url: connect-with-azure-pipelines.md
+          - text: Use DISA CAP
+            url: documentation-government-ase-disa-cap.md
+          - text: Monitor with Azure Monitor logs
+            url: documentation-government-manage-oms.md
+          - text: Azure Government Marketplace
+            url: documentation-government-manage-marketplace.md
+
+  # Card
+  - title: How-to guides
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Guidance for developers
+            url: documentation-government-developer-guide.md
+          - text: Impact Level 5 isolation guidance
+            url: documentation-government-impact-level-5.md
+          - text: Azure secure isolation guidance
+            url: azure-secure-isolation-guidance.md
+          - text: Secure Azure computing architecture
+            url: ./compliance/secure-azure-computing-architecture.md
+          - text: Develop with Storage API
+            url: documentation-government-get-started-connect-to-storage.md
+          - text: Develop with Cognitive Services
+            url: documentation-government-cognitiveservices.md
+          - text: Integrate Azure AD authentication
+            url: documentation-government-aad-auth-qs.md
+          - text: Develop with SQL Server Management Studio
+            url: documentation-government-connect-ssms.md
+
+  # Card
+  - title: Concepts
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Considerations for naming Azure resources
+            url: documentation-government-concept-naming-resources.md
+          - text: Security
+            url: documentation-government-plan-security.md
+          - text: Identity
+            url: documentation-government-plan-identity.md
+          - text: Department of Defense
+            url: documentation-government-overview-dod.md
+          - text: Export controls
+            url: documentation-government-overview-itar.md
+          - text: Power and utilities
+            url: documentation-government-overview-nerc.md
+          - text: Public safety and justice
+            url: documentation-government-overview-jps.md
+          - text: Worldwide public sector
+            url: documentation-government-overview-wwps.md
+
+  # Card
+  - title: Resources
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Marketplace image gallery
+            url: documentation-government-image-gallery.md
+          - text: Marketplace VM extensions
+            url: documentation-government-extension.md
+          - text: Marketplace for partners
+            url: documentation-government-manage-marketplace-partners.md
+          - text: CSP application process
+            url: documentation-government-csp-application.md
+          - text: Authorized reseller list
+            url: documentation-government-csp-list.md

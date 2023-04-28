@@ -1,17 +1,11 @@
 ---
 title: Tutorial -  Manage Linux virtual machine configuration in Azure 
 description: In this tutorial, you learn how to identify changes and manage package updates on a Linux virtual machine
-services: virtual-machines
-documentationcenter: virtual-machines
 author: mgoedtel
 manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid:
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
@@ -21,6 +15,8 @@ ms.custom: mvc, devx-track-azurecli
 ---
 # Tutorial: Monitor changes and update a Linux virtual machine in Azure
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 Azure [Change Tracking](../../automation/change-tracking/overview.md) allows you to easily identify changes and [Update Management](../../automation/update-management/overview.md) allows you to manage operating system updates for your Azure Linux VMs.
 
 In this tutorial, you learn how to:
@@ -29,19 +25,19 @@ In this tutorial, you learn how to:
 > * Manage Linux updates
 > * Monitor changes and inventory
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This tutorial requires version 2.0.30 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create VM
 
-To see diagnostics and metrics in action, you need a VM. First, create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroupMonitor* in the *eastus* location.
+To see diagnostics and metrics in action, you need a VM. First, create a resource group with [az group create](/cli/azure/group#az-group-create). The following example creates a resource group named *myResourceGroupMonitor* in the *eastus* location.
 
 ```azurecli-interactive
 az group create --name myResourceGroupMonitor --location eastus
 ```
 
-Now create a VM with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named *myVM* and generates SSH keys if they do not already exist in *~/.ssh/*:
+Now create a VM with [az vm create](/cli/azure/vm#az-vm-create). The following example creates a VM named *myVM* and generates SSH keys if they do not already exist in *~/.ssh/*:
 
 ```azurecli-interactive
 az vm create \

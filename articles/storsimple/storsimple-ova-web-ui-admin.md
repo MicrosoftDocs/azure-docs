@@ -9,15 +9,17 @@ editor: ''
 
 ms.assetid: ea65b4c7-a478-43e6-83df-1d9ea62916a6
 ms.service: storsimple
-ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 12/1/2016
+ms.date: 08/19/2022
 ms.author: alkohli
 
 ---
 # Use the Web UI to administer your StorSimple Virtual Array
+
+[!INCLUDE [storsimple-1200-eol-banner](../../includes/storsimple-1200-eol-banner.md)]
+
 ![setup process flow](./media/storsimple-ova-web-ui-admin/manage4.png)
 
 ## Overview

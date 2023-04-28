@@ -3,7 +3,7 @@ title: Configure cloud metrics and logs for Azure API Management self-hosted gat
 description: Learn how to configure cloud metrics and logs for Azure API Management self-hosted gateway
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: dlepow
 manager: gwallace
 editor: ''
 
@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/30/2020
-ms.author: apimpm
+ms.author: danlep
 
 ---
 
@@ -21,6 +21,8 @@ ms.author: apimpm
 This article provides details for configuring cloud metrics and logs for the [self-hosted gateway](./self-hosted-gateway-overview.md).
 
 The self-hosted gateway has to be associated with an API management service and requires outbound TCP/IP connectivity to Azure on port 443. The gateway leverages the outbound connection to send telemetry to Azure, if configured to do so. 
+
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
 ## Metrics
 By default, the self-hosted gateway emits a number of metrics through [Azure Monitor](https://azure.microsoft.com/services/monitor/), same as the managed gateway [in the cloud](api-management-howto-use-azure-monitor.md). 
@@ -58,8 +60,8 @@ The self-hosted gateway currently does not send [diagnostic logs](./api-manageme
 
 If a gateway is deployed in [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/), you can enable [Azure Monitor for containers](../azure-monitor/containers/container-insights-overview.md) to collect logs from your containers and view them in Log Analytics. 
 
-
 ## Next steps
 
+* To learn more about the [observability capabilities of the Azure API Management gateways](observability.md).
 * To learn more about the self-hosted gateway, see [Azure API Management self-hosted gateway overview](self-hosted-gateway-overview.md)
 * Learn about [configuring and persisting logs locally](how-to-configure-local-metrics-logs.md)

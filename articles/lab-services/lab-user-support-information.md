@@ -1,5 +1,5 @@
 ---
-title: Azure Lab Services - view support information (lab user)
+title: View support information (lab user)
 description: This article explains how a lab user or educator can view support information that he/she can use to get help. 
 ms.date: 06/26/2020
 ms.topic: how-to
@@ -17,7 +17,7 @@ You can use this information to get help when you run into any technical issues 
 
  
 ## View support information
-1. Sign in to [Azure Lab Services portal](https://labs.azure.com).
+1. Sign in to Lab Services web portal: [https://labs.azure.com](https://labs.azure.com).
 2. Select the **lab or virtual machine** for which you need help, and select **?** at the top-right corner of the page. 
 3. Confirm that you see links to the **view support website**, **email support**, and **support phone number**.
 

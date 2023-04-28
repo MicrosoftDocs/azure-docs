@@ -1,0 +1,964 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="107.51557mm"
+   height="129.47046mm"
+   viewBox="0 0 107.51557 129.47046"
+   version="1.1"
+   id="svg225314"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   sodipodi:docname="net-monitor-graph.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview225316"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.4823793"
+     inkscape:cx="237.11879"
+     inkscape:cy="252.97168"
+     inkscape:window-width="1918"
+     inkscape:window-height="1008"
+     inkscape:window-x="-7"
+     inkscape:window-y="900"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs225311">
+    <clipPath
+       id="clip0-3-3">
+      <rect
+         x="591"
+         y="357"
+         width="33"
+         height="33"
+         id="rect213665-8" />
+    </clipPath>
+    <clipPath
+       id="clip4-2">
+      <rect
+         x="575"
+         y="162"
+         width="33"
+         height="33"
+         id="rect9549-9" />
+    </clipPath>
+    <clipPath
+       id="clip5-3">
+      <rect
+         x="575"
+         y="162"
+         width="33"
+         height="33"
+         id="rect9552-7" />
+    </clipPath>
+    <clipPath
+       id="clip6-3">
+      <rect
+         x="574"
+         y="162"
+         width="35"
+         height="33"
+         id="rect9555-5" />
+    </clipPath>
+    <clipPath
+       id="clip7-2">
+      <rect
+         x="574"
+         y="162"
+         width="35"
+         height="33"
+         id="rect9558-1" />
+    </clipPath>
+    <clipPath
+       id="clip8-5">
+      <rect
+         x="574"
+         y="162"
+         width="34"
+         height="33"
+         id="rect9561-2" />
+    </clipPath>
+    <clipPath
+       id="clip9-3">
+      <rect
+         x="574"
+         y="162"
+         width="34"
+         height="33"
+         id="rect9564-2" />
+    </clipPath>
+    <clipPath
+       id="clip10-6">
+      <rect
+         x="574"
+         y="162"
+         width="34"
+         height="33"
+         id="rect9567-6" />
+    </clipPath>
+    <clipPath
+       id="clip11-9">
+      <rect
+         x="574"
+         y="162"
+         width="34"
+         height="33"
+         id="rect9570-1" />
+    </clipPath>
+    <clipPath
+       id="clip4">
+      <rect
+         x="575"
+         y="162"
+         width="33"
+         height="33"
+         id="rect9549" />
+    </clipPath>
+    <clipPath
+       id="clip5">
+      <rect
+         x="575"
+         y="162"
+         width="33"
+         height="33"
+         id="rect9552" />
+    </clipPath>
+    <clipPath
+       id="clip6">
+      <rect
+         x="574"
+         y="162"
+         width="35"
+         height="33"
+         id="rect9555" />
+    </clipPath>
+    <clipPath
+       id="clip7">
+      <rect
+         x="574"
+         y="162"
+         width="35"
+         height="33"
+         id="rect9558" />
+    </clipPath>
+    <clipPath
+       id="clip8">
+      <rect
+         x="574"
+         y="162"
+         width="34"
+         height="33"
+         id="rect9561" />
+    </clipPath>
+    <clipPath
+       id="clip9">
+      <rect
+         x="574"
+         y="162"
+         width="34"
+         height="33"
+         id="rect9564" />
+    </clipPath>
+    <clipPath
+       id="clip10">
+      <rect
+         x="574"
+         y="162"
+         width="34"
+         height="33"
+         id="rect9567" />
+    </clipPath>
+    <clipPath
+       id="clip11">
+      <rect
+         x="574"
+         y="162"
+         width="34"
+         height="33"
+         id="rect9570" />
+    </clipPath>
+    <clipPath
+       id="clip1">
+      <rect
+         x="518"
+         y="30"
+         width="62"
+         height="42"
+         id="rect9540" />
+    </clipPath>
+    <clipPath
+       id="clip2">
+      <rect
+         x="518"
+         y="30"
+         width="62"
+         height="42"
+         id="rect9543" />
+    </clipPath>
+    <clipPath
+       id="clip3">
+      <rect
+         x="518"
+         y="20"
+         width="62"
+         height="62"
+         id="rect9546" />
+    </clipPath>
+    <clipPath
+       id="clip0">
+      <rect
+         x="915"
+         y="110"
+         width="107"
+         height="241"
+         id="rect226414" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-38.429657,-33.164097)">
+    <rect
+       x="38.429657"
+       y="33.164097"
+       width="107.51557"
+       height="129.47046"
+       fill="#ffffff"
+       id="rect9575-4"
+       style="stroke-width:0.375905" />
+    <g
+       id="g223821"
+       transform="matrix(0.26458333,0,0,0.26458333,-135.9638,106.91197)">
+      <path
+         d="M 773.10721,98.543049 H 1058.9986 V 203.43442 H 773.10721 Z"
+         stroke="#262261"
+         stroke-width="1.34999"
+         stroke-miterlimit="8"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path9619-7" />
+      <g
+         clip-path="url(#clip4-2)"
+         id="g9647"
+         transform="translate(196.64221,-65.465278)">
+        <g
+           clip-path="url(#clip5-3)"
+           id="g9645">
+          <g
+             clip-path="url(#clip6-3)"
+             id="g9643">
+            <g
+               clip-path="url(#clip7-2)"
+               id="g9641">
+              <path
+                 d="m 183.097,267.726 h 34.064 v 31.935 h -34.064 z"
+                 fill="#ffffff"
+                 transform="matrix(1.00067,0,0,1,391.237,-105.726)"
+                 id="path9621" />
+              <g
+                 clip-path="url(#clip8-5)"
+                 id="g9639">
+                <g
+                   clip-path="url(#clip9-3)"
+                   id="g9637">
+                  <g
+                     clip-path="url(#clip10-6)"
+                     id="g9635">
+                    <g
+                       clip-path="url(#clip11-9)"
+                       id="g9633">
+                      <path
+                         d="m 19.7543,16.3346 -2.49,-2.1912 -7.90177,9.7277 2.52317,2.1581 z"
+                         fill="#262261"
+                         transform="matrix(1.05141,0,0,1,574.456,162.796)"
+                         id="path9623" />
+                      <path
+                         d="M 9.56175,26.6599 8.23371,25.5975 7.5033,28.8181 10.4913,27.4567 Z"
+                         fill="#262261"
+                         transform="matrix(1.05141,0,0,1,574.456,162.796)"
+                         id="path9625" />
+                      <path
+                         d="M 27.4567,1.59362 29.98,3.75166 31.3081,2.12484 28.7184,0.0332006 Z"
+                         fill="#262261"
+                         transform="matrix(1.05141,0,0,1,574.456,162.796)"
+                         id="path9627" />
+                      <path
+                         d="m 22.5098,15.8698 1.5606,1.2617 3.9509,-4.8474 C 29.3492,10.7569 29.98,8.83133 29.6812,7.2377 29.5485,6.50728 29.2165,5.8765 28.7516,5.34525 l -2.5233,-2.1912 -7.7356,9.46215 2.5232,2.1912 6.4077,-7.90172 c 0.1328,0.19922 0.2324,0.4316 0.2655,0.69725 0.1993,0.99602 -0.2987,2.324 -1.1952,3.38647 z"
+                         fill="#262261"
+                         transform="matrix(1.05141,0,0,1,574.456,162.796)"
+                         id="path9629" />
+                      <path
+                         d="m 1.69322,25.9295 c 0.06641,-0.166 0.1328,-0.332 0.23242,-0.4979 0.1992,-0.332 0.4316,-0.5976 0.73039,-0.8633 0.56441,-0.5311 1.29483,-0.9628 2.05843,-1.3612 0.76359,-0.3984 1.56044,-0.7635 2.39044,-1.1619 0.3984,-0.1993 0.83,-0.4317 1.26161,-0.7306 0.23244,-0.1326 0.43161,-0.2987 0.66399,-0.5311 0.23244,-0.2324 0.46483,-0.4981 0.59762,-0.9296 0.16601,-0.3984 0.1328,-0.9297 0,-1.2948 C 9.49533,18.1607 9.22973,17.8618 8.99734,17.6294 8.49931,17.1979 8.03449,16.9655 7.60293,16.733 6.73967,16.3014 5.90966,16.0358 5.14608,15.6706 4.41566,15.3054 3.78486,14.907 3.41965,14.3758 3.05444,13.8778 2.92165,13.2138 3.02124,12.4834 3.12084,11.7197 3.35325,10.9894 3.75166,10.3585 4.58167,9.09693 6.1421,8.26693 7.8021,7.8021 8.63211,7.56972 9.49533,7.40371 10.3918,7.30407 10.8234,7.2377 11.2881,7.20449 11.7197,7.17133 12.1513,7.13811 12.6162,7.1049 13.081,7.1049 11.2881,6.64008 9.42895,6.54049 7.56972,6.77288 6.64008,6.90568 5.71049,7.13811 4.81407,7.53651 3.91765,7.9349 3.08764,8.53252 2.42363,9.36253 2.09163,9.76092 1.82602,10.2257 1.62682,10.6906 c -0.1992,0.4979 -0.332,0.9628 -0.4316,1.494 -0.0996,0.5312 -0.0996,1.0624 -0.0332,1.6268 0.0996,0.5644 0.2988,1.1288 0.63081,1.6268 0.33201,0.498 0.73041,0.8632 1.16202,1.1953 0.4316,0.332 0.8632,0.5644 1.29481,0.7968 0.86321,0.4315 1.72643,0.7635 2.49001,1.0955 0.36523,0.166 0.69725,0.3653 0.89642,0.5313 0.09959,0.0664 0.1328,0.1328 0.1328,0.1659 0,0.0334 0,0 0,0 0,0 -0.03321,0.0996 -0.1328,0.1993 -0.09958,0.0996 -0.23238,0.1991 -0.36518,0.332 -0.29881,0.2324 -0.66399,0.4315 -1.02923,0.664 -0.76363,0.4316 -1.56042,0.8632 -2.35723,1.328 -0.79681,0.498 -1.59362,1.0624 -2.25763,1.8261 -0.332,0.3651 -0.630805,0.8299 -0.830008,1.2948 -0.099602,0.2324 -0.199203,0.4979 -0.232405,0.7636 -0.0664,0.2656 -0.0664,0.498 -0.099601,0.7304 -0.033201,0.498 -0.033201,0.996 0.132803,1.5272 0.132798,0.498 0.431601,0.996 0.863211,1.3281 0.4316,0.332 0.92961,0.4979 1.39441,0.5644 0.49802,0.0663 0.96282,0.0663 1.42763,0 C 5.21247,29.6812 6.07567,29.4156 6.90568,29.0836 6.0093,29.2496 5.11287,29.3492 4.24966,29.316 3.81805,29.2828 3.38645,29.2496 2.98804,29.1168 2.58964,29.0172 2.22443,28.8181 1.99203,28.5523 1.49402,28.0544 1.42762,27.2576 1.59362,26.4608 c 0,-0.1329 0.0664,-0.3653 0.0996,-0.5313 z"
+                         fill="#262261"
+                         transform="matrix(1.05141,0,0,1,574.456,162.796)"
+                         id="path9631" />
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="14px"
+         id="text9657-4"
+         x="810.10022"
+         y="118.53472">SBOM signature</text>
+      <path
+         d="m 821.15366,172.7621 h -29.49957 v -45.23178 h 0.666 v 45.01962 l -0.333,-0.2128 h 29.16657 z m -1.333,-2.76068 8,2.54852 -8,2.54852 z"
+         fill="#4472c4"
+         id="path9659-2"
+         style="stroke-width:0.798204"
+         sodipodi:nodetypes="cccccccccccc" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none"
+         x="916.95129"
+         y="209.63574"
+         id="text13215-5"><tspan
+           sodipodi:role="line"
+           id="tspan13213-0"
+           x="916.95129"
+           y="209.63574"> </tspan></text>
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="14px"
+         id="text75456-7-31"
+         x="791.78217"
+         y="175.2995"><tspan
+           font-size="14px"
+           x="830.94885"
+           y="175.2995"
+           id="tspan75448-7-1"
+           style="font-weight:bold">signature [blobs]</tspan></text>
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="14px"
+         id="text75456-7-6-41"
+         x="791.74963"
+         y="197.54727"><tspan
+           font-size="14px"
+           x="830.91632"
+           y="197.54727"
+           id="tspan75448-7-2-9"
+           style="font-weight:bold">reference (subject)</tspan></text>
+      <g
+         id="g202427-7"
+         transform="translate(190.53307,-58.841734)">
+        <text
+           fill="#ff0000"
+           font-family="Calibri, Calibri_MSFontService, sans-serif"
+           font-weight="700"
+           font-size="14px"
+           id="text9617-2-6-4"
+           x="624.63873"
+           y="212.2011"><tspan
+             fill="#000000"
+             font-size="14px"
+             x="688.97198"
+             y="212.2011"
+             id="tspan9613-6-8-3">:</tspan></text>
+        <text
+           fill="#ff0000"
+           font-family="Calibri, Calibri_MSFontService, sans-serif"
+           font-weight="700"
+           font-size="14px"
+           id="text9617-2-8-2"
+           x="619.08319"
+           y="212.09267">artifactType<tspan
+   fill="#000000"
+   font-size="14px"
+   x="683.41644"
+   y="212.09267"
+   id="tspan9613-6-2-2" /></text>
+        <text
+           fill="#ff0000"
+           font-family="Calibri, Calibri_MSFontService, sans-serif"
+           font-weight="700"
+           font-size="14px"
+           id="text9617-2-8-9-0"
+           x="623.64856"
+           y="211.91513"><tspan
+             fill="#c00000"
+             font-size="14px"
+             x="694.98181"
+             y="211.91513"
+             id="tspan9615-5-0-7-8">signature/example</tspan></text>
+      </g>
+      <g
+         id="g202427-6-8"
+         transform="translate(189.54697,-76.862811)">
+        <text
+           fill="#ff0000"
+           font-family="Calibri, Calibri_MSFontService, sans-serif"
+           font-weight="700"
+           font-size="14px"
+           id="text9617-2-6-3-9"
+           x="618.63873"
+           y="212.2011"><tspan
+             fill="#000000"
+             font-size="14px"
+             x="682.97198"
+             y="212.2011"
+             id="tspan9613-6-8-2-9">:</tspan></text>
+        <text
+           fill="#ff0000"
+           font-family="Calibri, Calibri_MSFontService, sans-serif"
+           font-weight="700"
+           font-size="14px"
+           id="text9617-2-8-5-09"
+           x="619.08319"
+           y="212.09267">mediaType</text>
+        <text
+           fill="#ff0000"
+           font-family="Calibri, Calibri_MSFontService, sans-serif"
+           font-weight="700"
+           font-size="14px"
+           id="text9617-2-8-9-9-1"
+           x="625.64856"
+           y="211.91513"><tspan
+             fill="#c00000"
+             font-size="14px"
+             x="696.98181"
+             y="211.91513"
+             id="tspan9615-5-0-7-0-1">vnd.oci.artifact.manifest.v1</tspan></text>
+      </g>
+    </g>
+    <path
+       d="m 67.763023,101.23059 3.463131,2.49875 c 0.04842,2.23574 0.09393,4.4712 0.142611,6.70693 l -15.201371,1.90685 -3.040592,-2.1042 c -0.04842,-2.27939 0.04551,-4.82179 0,-7.10144 z"
+       fill="#ffffff"
+       fill-rule="evenodd"
+       id="path9587"
+       style="stroke-width:0.264583" />
+    <path
+       d="M 83.784866,158.6009 H 57.616517 v -27.29389 h 0.529166 v 27.0293 L 57.8811,158.07173 h 25.903766 z m -26.962099,-26.9412 1.058333,-2.11667 1.058333,2.11667 z"
+       fill="#4472c4"
+       id="path9679"
+       style="stroke-width:0.264583" />
+    <g
+       id="g222114"
+       transform="matrix(0.26458333,0,0,0.26458333,-117.28971,84.879658)">
+      <path
+         d="M 654.53796,63.298929 H 942.80881 V 168.18474 H 654.53796 Z"
+         stroke="#262261"
+         stroke-width="1.35556"
+         stroke-miterlimit="8"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path9619-6" />
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="14px"
+         id="text9657-7"
+         x="691.5282"
+         y="83.287819">SBOM</text>
+      <path
+         d="M 702.58164,137.5152 H 673.08207 V 92.283419 h 0.666 v 45.019621 l -0.333,-0.2128 h 29.16657 z m -1.333,-2.76068 8,2.54852 -8,2.54852 z"
+         fill="#4472c4"
+         id="path9659-9"
+         style="stroke-width:0.798204"
+         sodipodi:nodetypes="cccccccccccc" />
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="14px"
+         id="text75456-7-3"
+         x="673.21014"
+         y="140.05261"><tspan
+           font-size="14px"
+           x="712.37683"
+           y="140.05261"
+           id="tspan75448-7-6"
+           style="font-weight:bold">sbom [blobs]</tspan></text>
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="14px"
+         id="text75456-7-6-4"
+         x="673.17761"
+         y="162.30038"><tspan
+           font-size="14px"
+           x="712.3443"
+           y="162.30038"
+           id="tspan75448-7-2-8"
+           style="font-weight:bold">reference (subject)</tspan></text>
+      <g
+         id="g202427-9"
+         transform="translate(71.961045,-94.088635)">
+        <text
+           fill="#ff0000"
+           font-family="Calibri, Calibri_MSFontService, sans-serif"
+           font-weight="700"
+           font-size="14px"
+           id="text9617-2-6-9"
+           x="624.63873"
+           y="212.2011"><tspan
+             fill="#000000"
+             font-size="14px"
+             x="688.97198"
+             y="212.2011"
+             id="tspan9613-6-8-8">:</tspan></text>
+        <text
+           fill="#ff0000"
+           font-family="Calibri, Calibri_MSFontService, sans-serif"
+           font-weight="700"
+           font-size="14px"
+           id="text9617-2-8-3"
+           x="619.08319"
+           y="212.09267">artifactType<tspan
+   fill="#000000"
+   font-size="14px"
+   x="683.41644"
+   y="212.09267"
+   id="tspan9613-6-2-5" /></text>
+        <text
+           fill="#ff0000"
+           font-family="Calibri, Calibri_MSFontService, sans-serif"
+           font-weight="700"
+           font-size="14px"
+           id="text9617-2-8-9-6"
+           x="623.64856"
+           y="211.91513"><tspan
+             fill="#c00000"
+             font-size="14px"
+             x="694.98181"
+             y="211.91513"
+             id="tspan9615-5-0-7-5">example.sbom.v0</tspan></text>
+      </g>
+      <g
+         id="g202427-6-1"
+         transform="translate(70.974947,-112.10971)">
+        <text
+           fill="#ff0000"
+           font-family="Calibri, Calibri_MSFontService, sans-serif"
+           font-weight="700"
+           font-size="14px"
+           id="text9617-2-6-3-1"
+           x="618.63873"
+           y="212.2011"><tspan
+             fill="#000000"
+             font-size="14px"
+             x="682.97198"
+             y="212.2011"
+             id="tspan9613-6-8-2-2">:</tspan></text>
+        <text
+           fill="#ff0000"
+           font-family="Calibri, Calibri_MSFontService, sans-serif"
+           font-weight="700"
+           font-size="14px"
+           id="text9617-2-8-5-0"
+           x="619.08319"
+           y="212.09267">mediaType</text>
+        <text
+           fill="#ff0000"
+           font-family="Calibri, Calibri_MSFontService, sans-serif"
+           font-weight="700"
+           font-size="14px"
+           id="text9617-2-8-9-9-3"
+           x="625.64856"
+           y="211.91513"><tspan
+             fill="#c00000"
+             font-size="14px"
+             x="696.98181"
+             y="211.91513"
+             id="tspan9615-5-0-7-0-3">vnd.oci.artifact.manifest.v1</tspan></text>
+      </g>
+      <g
+         clip-path="url(#clip0-3-3)"
+         transform="matrix(1.4217528,0,0,1.4430472,-195.37206,-461.97162)"
+         id="g213680-5">
+        <path
+           d="M 0,0 H 24.4444 V 17.6428 C 12.2222,17.6428 12.2222,24.365 0,20.5456 Z"
+           stroke="#262261"
+           stroke-width="0.814813"
+           stroke-miterlimit="8"
+           fill="#ffffff"
+           fill-rule="evenodd"
+           transform="matrix(-1.00134,0,0,1,620.351,362.806)"
+           id="path213670-4" />
+        <text
+           font-family="Calibri, Calibri_MSFontService, Arial"
+           font-weight="400"
+           font-size="19px"
+           transform="matrix(0.611933,0,0,0.611111,596.912,371)"
+           id="text213678-8">S<tspan
+   font-size="19px"
+   x="7.4151902"
+   y="4.90909"
+   id="tspan213672-7">B</tspan><tspan
+   font-size="19px"
+   x="15.6819"
+   y="9.8181801"
+   id="tspan213674-8">o</tspan><tspan
+   font-size="16px"
+   x="22.085899"
+   y="18"
+   id="tspan213676-8">M</tspan></text>
+      </g>
+    </g>
+    <path
+       d="m 42.739071,36.696253 h 68.262499 v 29.89778 H 42.739071 Z"
+       stroke="#262261"
+       stroke-width="0.352777"
+       stroke-miterlimit="8"
+       fill="#ffffff"
+       fill-rule="evenodd"
+       id="path9577" />
+    <text
+       font-family="Calibri, Calibri_MSFontService, sans-serif"
+       font-weight="400"
+       font-size="6.35px"
+       id="text9585"
+       x="57.917427"
+       y="42.38678"
+       style="stroke-width:0.264583">net<tspan
+   font-size="6.35px"
+   x="66.52697"
+   y="42.38678"
+   id="tspan9579"
+   style="stroke-width:0.0700043">-</tspan><tspan
+   font-size="6.35px"
+   x="68.467247"
+   y="42.38678"
+   id="tspan9581"
+   style="stroke-width:0.0700043">monitor:</tspan><tspan
+   font-size="6.35px"
+   x="91.027367"
+   y="42.38678"
+   id="tspan9583"
+   style="stroke-width:0.0700043">v1</tspan></text>
+    <path
+       d="m 54.611981,34.711843 3.46313,2.49873 c 0.0484,2.23573 0.0939,4.47119 0.14261,6.70692 l -15.20137,1.90685 -3.04059,-2.1042 c -0.0484,-2.27939 0.0455,-4.82179 0,-7.10142 z"
+       fill="#ffffff"
+       fill-rule="evenodd"
+       id="path9587-6"
+       style="stroke-width:0.264583" />
+    <g
+       clip-path="url(#clip1)"
+       id="g9599"
+       transform="matrix(0.26458333,0,0,0.26458333,-96.55744,26.776363)">
+      <g
+         clip-path="url(#clip2)"
+         id="g9597">
+        <g
+           clip-path="url(#clip3)"
+           id="g9595">
+          <path
+             d="M 60.7237,43.3278 60.1416,23.1513 12.3517,29.6181 12.869,50.0534 Z m -3.6861,-15.8437 0.388,12.6103 -3.4921,0.5174 -0.388,-12.6104 z m -8.8596,1.2287 0.388,12.6103 -3.4921,0.5174 -0.388,-12.6104 z m -8.8596,1.2287 0.388,12.6103 -3.4921,0.5174 -0.388,-12.6104 z m -8.8596,1.2933 0.388,12.6104 -3.4921,0.5173 -0.388,-12.675 z m -8.8595,1.2288 0.388,12.6103 -3.4921,0.5173 -0.388,-12.6103 z"
+             fill="#262261"
+             transform="matrix(1.01346,0,0,1,518,20.4118)"
+             id="path9589" />
+          <path
+             d="M 0.905358,41.9051 9.05358,47.79 8.6009,28.9715 0.323342,23.0866 Z"
+             fill="#262261"
+             transform="matrix(1.01346,0,0,1,518,20.4118)"
+             id="path9591" />
+          <path
+             d="M 58.6543,19.5299 48.566,12.3517 1.16403,19.0125 10.929,25.9967 Z"
+             fill="#262261"
+             transform="matrix(1.01346,0,0,1,518,20.4118)"
+             id="path9593" />
+        </g>
+      </g>
+    </g>
+    <text
+       font-family="Calibri, Calibri_MSFontService, sans-serif"
+       font-weight="700"
+       font-size="3.70417px"
+       id="text9603"
+       x="52.769951"
+       y="58.526352"
+       style="stroke-width:0.264583">layer1 (blob)<tspan
+   font-size="3.70417px"
+   x="52.542442"
+   y="64.347183"
+   id="tspan9601"
+   style="stroke-width:0.0700043" /></text>
+    <path
+       d="m 51.072121,57.361393 h -2.32913 v -11.40274 h 0.17622 v 11.31464 l -0.0881,-0.0884 h 2.24102 z m -0.35269,-1.14643 2.11667,1.05833 -2.11667,1.05833 z"
+       fill="#4472c4"
+       id="path9605"
+       style="stroke-width:0.264583" />
+    <path
+       d="m 50.844581,63.180913 h -2.10159 v -17.22226 h 0.17622 v 17.13415 l -0.0881,-0.0884 h 2.01348 z m -0.35269,-1.14644 2.11667,1.05833 -2.11667,1.05833 z"
+       fill="#4472c4"
+       id="path9607"
+       style="stroke-width:0.264583" />
+    <text
+       font-family="Calibri, Calibri_MSFontService, sans-serif"
+       font-weight="700"
+       font-size="3.70417px"
+       id="text9609"
+       x="52.542412"
+       y="52.970108"
+       style="stroke-width:0.264583">config (blob)</text>
+    <path
+       d="m 50.844581,51.792153 h -2.10159 v -5.83348 h 0.17622 v 5.7453 l -0.0881,-0.0882 h 2.01348 z m -0.35269,-1.14652 2.11667,1.05834 -2.11667,1.05833 z"
+       fill="#4472c4"
+       id="path9611"
+       style="stroke-width:0.264583" />
+    <text
+       fill="#ff0000"
+       font-family="Calibri, Calibri_MSFontService, sans-serif"
+       font-weight="700"
+       font-size="3.70417px"
+       id="text9617"
+       x="58.537331"
+       y="47.149277"
+       style="stroke-width:0.264583">mediaType<tspan
+   fill="#000000"
+   font-size="3.70417px"
+   x="75.558861"
+   y="47.149277"
+   id="tspan9613"
+   style="stroke-width:0.0700043">:</tspan><tspan
+   fill="#c00000"
+   font-size="3.70417px"
+   x="77.410942"
+   y="47.149277"
+   id="tspan9615"
+   style="stroke-width:0.0700043">oci.image.manifest</tspan></text>
+    <path
+       d="M 55.437707,69.642349 H 132.17876 V 97.392287 H 55.437707 Z"
+       stroke="#262261"
+       stroke-width="0.359754"
+       stroke-miterlimit="8"
+       fill="#ffffff"
+       fill-rule="evenodd"
+       id="path9619" />
+    <g
+       clip-path="url(#clip4)"
+       id="g9647-3"
+       transform="matrix(0.26458333,0,0,0.26458333,-97.086607,26.247193)">
+      <g
+         clip-path="url(#clip5)"
+         id="g9645-2">
+        <g
+           clip-path="url(#clip6)"
+           id="g9643-7">
+          <g
+             clip-path="url(#clip7)"
+             id="g9641-8">
+            <path
+               d="m 183.097,267.726 h 34.064 v 31.935 h -34.064 z"
+               fill="#ffffff"
+               transform="matrix(1.00067,0,0,1,391.237,-105.726)"
+               id="path9621-3" />
+            <g
+               clip-path="url(#clip8)"
+               id="g9639-1">
+              <g
+                 clip-path="url(#clip9)"
+                 id="g9637-6">
+                <g
+                   clip-path="url(#clip10)"
+                   id="g9635-1">
+                  <g
+                     clip-path="url(#clip11)"
+                     id="g9633-2">
+                    <path
+                       d="m 19.7543,16.3346 -2.49,-2.1912 -7.90177,9.7277 2.52317,2.1581 z"
+                       fill="#262261"
+                       transform="matrix(1.05141,0,0,1,574.456,162.796)"
+                       id="path9623-2" />
+                    <path
+                       d="M 9.56175,26.6599 8.23371,25.5975 7.5033,28.8181 10.4913,27.4567 Z"
+                       fill="#262261"
+                       transform="matrix(1.05141,0,0,1,574.456,162.796)"
+                       id="path9625-2" />
+                    <path
+                       d="M 27.4567,1.59362 29.98,3.75166 31.3081,2.12484 28.7184,0.0332006 Z"
+                       fill="#262261"
+                       transform="matrix(1.05141,0,0,1,574.456,162.796)"
+                       id="path9627-9" />
+                    <path
+                       d="m 22.5098,15.8698 1.5606,1.2617 3.9509,-4.8474 C 29.3492,10.7569 29.98,8.83133 29.6812,7.2377 29.5485,6.50728 29.2165,5.8765 28.7516,5.34525 l -2.5233,-2.1912 -7.7356,9.46215 2.5232,2.1912 6.4077,-7.90172 c 0.1328,0.19922 0.2324,0.4316 0.2655,0.69725 0.1993,0.99602 -0.2987,2.324 -1.1952,3.38647 z"
+                       fill="#262261"
+                       transform="matrix(1.05141,0,0,1,574.456,162.796)"
+                       id="path9629-3" />
+                    <path
+                       d="m 1.69322,25.9295 c 0.06641,-0.166 0.1328,-0.332 0.23242,-0.4979 0.1992,-0.332 0.4316,-0.5976 0.73039,-0.8633 0.56441,-0.5311 1.29483,-0.9628 2.05843,-1.3612 0.76359,-0.3984 1.56044,-0.7635 2.39044,-1.1619 0.3984,-0.1993 0.83,-0.4317 1.26161,-0.7306 0.23244,-0.1326 0.43161,-0.2987 0.66399,-0.5311 0.23244,-0.2324 0.46483,-0.4981 0.59762,-0.9296 0.16601,-0.3984 0.1328,-0.9297 0,-1.2948 C 9.49533,18.1607 9.22973,17.8618 8.99734,17.6294 8.49931,17.1979 8.03449,16.9655 7.60293,16.733 6.73967,16.3014 5.90966,16.0358 5.14608,15.6706 4.41566,15.3054 3.78486,14.907 3.41965,14.3758 3.05444,13.8778 2.92165,13.2138 3.02124,12.4834 3.12084,11.7197 3.35325,10.9894 3.75166,10.3585 4.58167,9.09693 6.1421,8.26693 7.8021,7.8021 8.63211,7.56972 9.49533,7.40371 10.3918,7.30407 10.8234,7.2377 11.2881,7.20449 11.7197,7.17133 12.1513,7.13811 12.6162,7.1049 13.081,7.1049 11.2881,6.64008 9.42895,6.54049 7.56972,6.77288 6.64008,6.90568 5.71049,7.13811 4.81407,7.53651 3.91765,7.9349 3.08764,8.53252 2.42363,9.36253 2.09163,9.76092 1.82602,10.2257 1.62682,10.6906 c -0.1992,0.4979 -0.332,0.9628 -0.4316,1.494 -0.0996,0.5312 -0.0996,1.0624 -0.0332,1.6268 0.0996,0.5644 0.2988,1.1288 0.63081,1.6268 0.33201,0.498 0.73041,0.8632 1.16202,1.1953 0.4316,0.332 0.8632,0.5644 1.29481,0.7968 0.86321,0.4315 1.72643,0.7635 2.49001,1.0955 0.36523,0.166 0.69725,0.3653 0.89642,0.5313 0.09959,0.0664 0.1328,0.1328 0.1328,0.1659 0,0.0334 0,0 0,0 0,0 -0.03321,0.0996 -0.1328,0.1993 -0.09958,0.0996 -0.23238,0.1991 -0.36518,0.332 -0.29881,0.2324 -0.66399,0.4315 -1.02923,0.664 -0.76363,0.4316 -1.56042,0.8632 -2.35723,1.328 -0.79681,0.498 -1.59362,1.0624 -2.25763,1.8261 -0.332,0.3651 -0.630805,0.8299 -0.830008,1.2948 -0.099602,0.2324 -0.199203,0.4979 -0.232405,0.7636 -0.0664,0.2656 -0.0664,0.498 -0.099601,0.7304 -0.033201,0.498 -0.033201,0.996 0.132803,1.5272 0.132798,0.498 0.431601,0.996 0.863211,1.3281 0.4316,0.332 0.92961,0.4979 1.39441,0.5644 0.49802,0.0663 0.96282,0.0663 1.42763,0 C 5.21247,29.6812 6.07567,29.4156 6.90568,29.0836 6.0093,29.2496 5.11287,29.3492 4.24966,29.316 3.81805,29.2828 3.38645,29.2496 2.98804,29.1168 2.58964,29.0172 2.22443,28.8181 1.99203,28.5523 1.49402,28.0544 1.42762,27.2576 1.59362,26.4608 c 0,-0.1329 0.0664,-0.3653 0.0996,-0.5313 z"
+                       fill="#262261"
+                       transform="matrix(1.05141,0,0,1,574.456,162.796)"
+                       id="path9631-2" />
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <text
+       font-family="Calibri, Calibri_MSFontService, sans-serif"
+       font-weight="400"
+       font-size="3.70417px"
+       id="text9657"
+       x="65.224159"
+       y="74.930527"
+       style="stroke-width:0.264583">signature</text>
+    <path
+       d="m 68.148711,89.278183 h -7.80509 v -11.96757 h 0.17621 v 11.91144 l -0.0881,-0.0563 h 7.71699 z m -0.35269,-0.73043 2.11667,0.6743 -2.11667,0.67429 z"
+       fill="#4472c4"
+       id="path9659"
+       style="stroke-width:0.211191"
+       sodipodi:nodetypes="cccccccccccc" />
+    <path
+       d="m 70.633821,95.257143 h -26.16835 v -27.29389 h 0.52917 v 27.0293 l -0.26458,-0.26458 h 25.90376 z m -26.9621,-26.9412 1.05834,-2.11667 1.05833,2.11667 z"
+       fill="#4472c4"
+       id="path9679-5"
+       style="stroke-width:0.264583" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="93.495171"
+       y="99.034332"
+       id="text13215"><tspan
+         sodipodi:role="line"
+         id="tspan13213"
+         x="93.495171"
+         y="99.034332"
+         style="stroke-width:0.264583"> </tspan></text>
+    <text
+       font-family="Calibri, Calibri_MSFontService, sans-serif"
+       font-weight="700"
+       font-size="3.70417px"
+       id="text70671-3"
+       x="52.790306"
+       y="64.293777"
+       style="stroke-width:0.264583">layer2 (blob)</text>
+    <text
+       font-family="Calibri, Calibri_MSFontService, sans-serif"
+       font-weight="400"
+       font-size="3.70417px"
+       id="text75456-7"
+       x="60.377495"
+       y="89.949539"
+       style="stroke-width:0.264583"><tspan
+         font-size="3.70417px"
+         x="70.740349"
+         y="89.949539"
+         id="tspan75448-7"
+         style="font-weight:bold;stroke-width:0.0700043">signature [blobs]</tspan></text>
+    <text
+       font-family="Calibri, Calibri_MSFontService, sans-serif"
+       font-weight="400"
+       font-size="3.70417px"
+       id="text75456-7-6"
+       x="60.368889"
+       y="95.835922"
+       style="stroke-width:0.264583"><tspan
+         font-size="3.70417px"
+         x="70.731743"
+         y="95.835922"
+         id="tspan75448-7-2"
+         style="font-weight:bold;stroke-width:0.0700043">reference (subject)</tspan></text>
+    <g
+       id="g202427"
+       transform="matrix(0.26458333,0,0,0.26458333,-98.702983,27.999673)">
+      <text
+         fill="#ff0000"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="700"
+         font-size="14px"
+         id="text9617-2-6"
+         x="624.63873"
+         y="212.2011"><tspan
+           fill="#000000"
+           font-size="14px"
+           x="688.97198"
+           y="212.2011"
+           id="tspan9613-6-8">:</tspan></text>
+      <text
+         fill="#ff0000"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="700"
+         font-size="14px"
+         id="text9617-2-8"
+         x="619.08319"
+         y="212.09267">artifactType<tspan
+   fill="#000000"
+   font-size="14px"
+   x="683.41644"
+   y="212.09267"
+   id="tspan9613-6-2" /></text>
+      <text
+         fill="#ff0000"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="700"
+         font-size="14px"
+         id="text9617-2-8-9"
+         x="623.64856"
+         y="211.91513"><tspan
+           fill="#c00000"
+           font-size="14px"
+           x="694.98181"
+           y="211.91513"
+           id="tspan9615-5-0-7">signature/example</tspan></text>
+    </g>
+    <g
+       id="g202427-6"
+       transform="matrix(0.26458333,0,0,0.26458333,-98.963888,23.231593)">
+      <text
+         fill="#ff0000"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="700"
+         font-size="14px"
+         id="text9617-2-6-3"
+         x="618.63873"
+         y="212.2011"><tspan
+           fill="#000000"
+           font-size="14px"
+           x="682.97198"
+           y="212.2011"
+           id="tspan9613-6-8-2">:</tspan></text>
+      <text
+         fill="#ff0000"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="700"
+         font-size="14px"
+         id="text9617-2-8-5"
+         x="619.08319"
+         y="212.09267">mediaType</text>
+      <text
+         fill="#ff0000"
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="700"
+         font-size="14px"
+         id="text9617-2-8-9-9"
+         x="625.64856"
+         y="211.91513"><tspan
+           fill="#c00000"
+           font-size="14px"
+           x="696.98181"
+           y="211.91513"
+           id="tspan9615-5-0-7-0">vnd.oci.artifact.manifest.v1</tspan></text>
+    </g>
+    <g
+       clip-path="url(#clip0)"
+       transform="matrix(0.26458333,0,0,0.26458333,-199.74495,34.713859)"
+       id="g226421">
+      <path
+         d="M 1021.57,350.804 H 923 V 125.667 h 2 v 224.137 l -1,-1 h 97.57 z M 920,127 l 4,-8 4,8 z"
+         fill="#4472c4"
+         id="path226419" />
+    </g>
+  </g>
+</svg>

@@ -3,11 +3,14 @@ title: Enforce job execution on Azure Automation Hybrid Runbook Worker
 description: This article tells how to use a custom Azure Policy definition to enforce job execution on an Azure Automation Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
-ms.date: 05/24/2021
+ms.date: 03/15/2023
 ms.topic: conceptual
 ---
 
 # Use Azure Policy to enforce job execution on Hybrid Runbook Worker
+
+> [!IMPORTANT]
+>  Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) will retire on **31 August 2024** and wouldn't be supported after that date. You must complete migrating existing Agent-based User Hybrid Runbook Workers to Extension-based Workers before 31 August 2024. Moreover, starting **1 October 2023**, creating new Agent-based Hybrid Workers wouldn't be possible. [Learn more](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
 
 Starting a runbook on a Hybrid Runbook Worker uses a **Run on** option that allows you to specify the name of a Hybrid Runbook Worker group when initiating from the Azure portal, with the Azure PowerShell, or REST API. When a group is specified, one of the workers in that group retrieves and runs the runbook. If your runbook does not specify this option, Azure Automation runs the runbook in the Azure sandbox. 
 
@@ -108,7 +111,7 @@ Here we compose the policy rule and then assign it to either a management group 
     az policy definition create --name 'audit-enforce-jobs-on-automation-hybrid-runbook-workers' --display-name 'Audit Enforce Jobs on Automation Hybrid Runbook Workers' --description 'This policy enforces job execution on Automation account user Hybrid Runbook Workers.' --rules 'AuditAutomationHRWJobExecution.json' --mode All
     ```
 
-    The command creates a policy definition named **Audit Enforce Jobs on Automation Hybrid Runbook Workers**. For more information about other parameters that you can use, see [az policy definition create](/cli/azure/policy/definition#az_policy_definition_create).
+    The command creates a policy definition named **Audit Enforce Jobs on Automation Hybrid Runbook Workers**. For more information about other parameters that you can use, see [az policy definition create](/cli/azure/policy/definition#az-policy-definition-create).
 
     When called without location parameters, `az policy definition create` defaults to saving the policy definition in the selected subscription of the sessions context. To save the definition to a different location, use the following parameters:
 
@@ -135,20 +138,20 @@ Here we compose the policy rule and then assign it to either a management group 
     # [Azure CLI](#tab/azure-cli)
 
     ```azurecli
-   az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
-   ```
+    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
+    ```
 
-   The **scope** parameter on `az policy assignment create` works with management group,
-   subscription, resource group, or a single resource. The parameter uses a full resource path. The
-   pattern for **scope** for each container is as follows. Replace `{rName}`, `{rgName}`, `{subId}`,
-   and `{mgName}` with your resource name, resource group name, subscription ID, and management
-   group name, respectively. `{rType}` would be replaced with the **resource type** of the resource,
-   such as `Microsoft.Compute/virtualMachines` for a VM.
+    The **scope** parameter on `az policy assignment create` works with management group,
+    subscription, resource group, or a single resource. The parameter uses a full resource path. The
+    pattern for **scope** for each container is as follows. Replace `{rName}`, `{rgName}`, `{subId}`,
+    and `{mgName}` with your resource name, resource group name, subscription ID, and management
+    group name, respectively. `{rType}` would be replaced with the **resource type** of the resource,
+    such as `Microsoft.Compute/virtualMachines` for a VM.
 
-   - Resource - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
-   - Resource group - `/subscriptions/{subID}/resourceGroups/{rgName}`
-   - Subscription - `/subscriptions/{subID}`
-   - Management group - `/providers/Microsoft.Management/managementGroups/{mgName}`
+    - Resource - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+    - Resource group - `/subscriptions/{subID}/resourceGroups/{rgName}`
+    - Subscription - `/subscriptions/{subID}`
+    - Management group - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
     You can get the Azure Policy Definition ID by using PowerShell with the following command:
     

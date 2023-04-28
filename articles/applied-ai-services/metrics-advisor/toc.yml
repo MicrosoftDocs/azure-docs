@@ -78,8 +78,20 @@
     href: /powershell/module/azurerm.cognitiveservices/
 - name: Resources
   items:
-  - name: Enterprise readiness
+  - name: Blog posts - use cases for Metrics Advisor
     items:
+    - name: Protect your organization's growth by using Azure Metrics Advisor
+      href: https://techcommunity.microsoft.com/t5/azure-ai/protect-your-organization-s-growth-by-using-azure-metrics/ba-p/2564682
+    - name: Supply chain anomaly detection and root cause analysis with Azure Metric Advisor
+      href: https://techcommunity.microsoft.com/t5/azure-ai/supply-chain-anomaly-detection-and-root-cause-analysis-with/ba-p/2871920
+    - name: 'Customer support: how Azure Metrics Advisor can help improve customer satisfaction'
+      href: https://techcommunity.microsoft.com/t5/azure-ai-blog/customer-support-how-azure-metrics-advisor-can-help-improve/ba-p/3038907
+    - name: Detecting methane leaks using Azure Metrics Advisor
+      href: https://techcommunity.microsoft.com/t5/ai-cognitive-services-blog/detecting-methane-leaks-using-azure-metrics-advisor/ba-p/3254005
+    - name: AIOps with Azure Metrics Advisor - OpenDataScience.com 
+      href: https://opendatascience.com/aiops-with-azure-metrics-advisor/
+  - name: Enterprise readiness
+    items: 
     - name: Region support
       href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
     - name: Compliance and certification

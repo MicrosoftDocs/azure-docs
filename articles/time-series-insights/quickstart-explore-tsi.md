@@ -9,11 +9,13 @@ manager: cnovak
 ms.reviewer: orspodek
 ms.topic: quickstart
 ms.workload: big-data
-ms.custom: mvc seodec18
+ms.custom: mvc seodec18, mode-other
 ms.date: 03/01/2021
 ---
 
 # Quickstart: Explore the Azure Time Series Insights Gen2 demo environment
+
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
 
 This quickstart gets you started with an Azure Time Series Insights Gen2 environment. In the free demo, you tour key features that have been added to Azure Time Series Insights Gen2.
 

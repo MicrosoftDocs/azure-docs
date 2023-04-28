@@ -3,17 +3,16 @@ title: Collect on Performance Counters in Azure Cloud Services (classic) | Micro
 description: Learn how to discover, use, and create performance counters in Cloud Services with Azure Diagnostics and Application Insights.
 ms.topic: article
 ms.service: cloud-services
-ms.date: 10/14/2020
+ms.date: 02/21/2023
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
-ms.custom: 
+ms.custom: compute-evergreen
 ---
 
 # Collect performance counters for your Azure Cloud Service (classic)
 
-> [!IMPORTANT]
-> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 Performance counters provide a way for you to track how well your application and the host are performing. Windows Server provides many different performance counters related to hardware, applications, the operating system, and more. By collecting and sending performance counters to Azure, you can analyze this information to help make better decisions. 
 
@@ -76,7 +75,7 @@ A performance counter can be added to your cloud service for either Azure Diagno
 
 ### Application Insights
 
-Azure Application Insights for Cloud Services allows you specify what performance counters you want to collect. After you [add Application Insights to your project](../azure-monitor/app/cloudservices.md#sdk), a config file named **ApplicationInsights.config** is added to your Visual Studio project. This config file defines what type of information Application Insights collects and sends to Azure.
+Azure Application Insights for Cloud Services allows you specify what performance counters you want to collect. After you [add Application Insights to your project](../azure-monitor/app/azure-web-apps-net-core.md), a config file named **ApplicationInsights.config** is added to your Visual Studio project. This config file defines what type of information Application Insights collects and sends to Azure.
 
 Open the **ApplicationInsights.config** file and find the **ApplicationInsights** > **TelemetryModules** element. Each `<Add>` child-element defines a type of telemetry to collect, along with its configuration. The performance counter telemetry module type is `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector`. If this element is already defined, do not add it a second time. Each performance counter to collect is defined under a node named `<Counters>`. Here is an example that collects drive performance counters:
 
@@ -108,7 +107,7 @@ Application Insights automatically collects the following performance counters:
 * \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
 * \Processor(_Total)\% Processor Time
 
-For more information, see [System performance counters in Application Insights](../azure-monitor/app/performance-counters.md) and [Application Insights for Azure Cloud Services](../azure-monitor/app/cloudservices.md#performance-counters).
+For more information, see [System performance counters in Application Insights](../azure-monitor/app/performance-counters.md) and [Application Insights for Azure Cloud Services](../azure-monitor/app/azure-web-apps-net-core.md).
 
 ### Azure Diagnostics
 
@@ -286,7 +285,7 @@ As previously stated, the performance counters you want to collect are defined i
 
 ## More information
 
-- [Application Insights for Azure Cloud Services](../azure-monitor/app/cloudservices.md#performance-counters)
+- [Application Insights for Azure Cloud Services](../azure-monitor/app/azure-web-apps-net-core.md)
 - [System performance counters in Application Insights](../azure-monitor/app/performance-counters.md)
 - [Specifying a Counter Path](/windows/win32/perfctrs/specifying-a-counter-path)
 - [Azure Diagnostics Schema - Performance Counters](../azure-monitor/agents/diagnostics-extension-schema-windows.md#performancecounters-element)

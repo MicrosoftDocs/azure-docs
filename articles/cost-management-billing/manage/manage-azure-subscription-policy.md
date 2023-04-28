@@ -1,13 +1,13 @@
 ---
 title: Manage Azure subscription policies
 description: Learn how to manage Azure subscription policies to control the movement of Azure subscriptions from and into directories.
-author: anuragdalmia
+author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/10/2021
-ms.reviewer: banders
-ms.author: andalmia
+ms.date: 12/06/2022
+ms.reviewer: sgautam
+ms.author: banders
 ---
 
 # Manage Azure subscription policies
@@ -33,7 +33,7 @@ The policy allows or stops users from other directories, who have access in the 
 
 ### Exempted Users
 
-For governance reasons, global administrators can block all subscription directory moves - in to our out of the current directory. However they might want to allow specific users to do either operations. For either situation, they can configure a list of exempted users that allows the users to bypass the policy setting that applies to everyone else.
+For governance reasons, global administrators can block all subscription directory moves - in to or out of the current directory. However they might want to allow specific users to do either operations. For either situation, they can configure a list of exempted users that allows the users to bypass the policy setting that applies to everyone else.
 
 ## Setting subscription policy
 
