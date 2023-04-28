@@ -72,9 +72,9 @@ Delegated Permission: User.Invite.All
    POST https://graph.microsoft.com/v1.0/invitations  
    Content-type: application/json 
     { 
-     "invitedUserDisplayName": "``John Doe``",  
-      "invitedUserEmailAddress": "``john.doe@contoso.com``",  
-      "sendInvitationMessage": ``true``,  
+     "invitedUserDisplayName": "John Doe",  
+      "invitedUserEmailAddress": "john.doe@contoso.com",  
+      "sendInvitationMessage": true, 
       "inviteRedirectUrl": "https://customapp.contoso.com"  
     } 
 ```
