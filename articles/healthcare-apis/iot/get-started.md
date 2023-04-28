@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 04/25/2023
+ms.date: 04/26/2023
 ms.author: jasteppe
 ms.custom: mode-api
 ---
@@ -26,7 +26,7 @@ As a prerequisite, you need an Azure subscription and have been granted the prop
 
 ## Deploy resources
 
-After you obtain the required subscription prerequisites, the first step is to create and deploy the MedTech service prerequisite resources:
+After you obtain the required subscription prerequisites, the first step is to deploy the MedTech service prerequisite resources:
 
 * Azure resource group.
 * Azure Event Hubs namespace and event hub.
@@ -55,11 +55,11 @@ Deploy a [FHIR service](../fhir/fhir-portal-quickstart.md) into your resource gr
 
 ### Deploy a MedTech service
 
-If you have successfully deployed the prerequisite resources, you're now ready to deploy a [MedTech service](deploy-manual-prerequisites.md) using your workspace.
+If you have successfully deployed the prerequisite resources, you're now ready to deploy the [MedTech service](deploy-manual-prerequisites.md) using your workspace.
 
 ## Next steps
 
-This article described the basic steps needed to get started using the MedTech service. 
+This article described the basic steps needed to get started deploying the MedTech service. 
 
 To learn about methods of deploying the MedTech service, see
 
