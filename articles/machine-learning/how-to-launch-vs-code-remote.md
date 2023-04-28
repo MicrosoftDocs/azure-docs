@@ -112,7 +112,7 @@ This option will connect your current VS Code session to a remote compute instan
 1. Expand the **Compute instances** node in your extension.
 1. Right-click the compute instance you want to connect to and select **Connect to Compute Instance**.
 
-:::image type="content" source="media/how-to-launch-vs-code-remote/vs-code-connect-compute-instance.png" alt-text="Connect to compute instance Visual Studio Code Azure Machine Learning Extension" lightbox="media/how-to-launch-vs-code-remote/vs-code-connect-compute-instance.png":::
+:::image type="content" source="media/how-to-launch-vs-code-remote/vs-code-connect-compute-instance.png" alt-text="Screenshot shows how to connect to compute instance" lightbox="media/how-to-launch-vs-code-remote/vs-code-connect-compute-instance.png":::
 
 ### Command Palette
 
@@ -152,7 +152,7 @@ To connect to a compute instance:
 1. Open a Jupyter Notebook in Visual Studio Code.
 1. When the integrated notebook experience loads, select **Jupyter Server**.
 
-    :::image type="content" source="media/how-to-launch-vs-code-remote/media/how-to-launch-vs-code-remote/launch-server-selection-dropdown.png" alt-text="Connect to compute instance Visual Studio Code Azure Machine Learning Extension" lightbox="media/how-to-launch-vs-code-remote/media/how-to-launch-vs-code-remote/launch-server-selection-dropdown.png"::: 
+    :::image type="content" source="media/how-to-launch-vs-code-remote/launch-server-selection-dropdown.png" alt-text="Screenshot shows how to select Jupyter Server" lightbox="media/how-to-launch-vs-code-remote/launch-server-selection-dropdown.png"::: 
 
     Alternatively, use the command palette:
 
