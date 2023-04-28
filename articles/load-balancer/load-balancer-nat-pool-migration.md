@@ -2,12 +2,12 @@
 title: Azure Load Balancer NAT Pool to NAT Rule Migration
 description: Process for migrating NAT Pools to NAT Rules on Azure Load Balancer.
 services: load-balancer
-author: mbender-ms
+author: mbratschun
 ms.service: load-balancer
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 03/20/2023
-ms.author: mbender
+ms.date: 05/01/2023
+ms.author: mbratschun
 ms.custom: template-how-to, engagement-fy23
 ---
 
