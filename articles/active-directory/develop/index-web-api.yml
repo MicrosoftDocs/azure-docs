@@ -24,15 +24,15 @@ landingContent:
             url: web-api-quickstart.md?pivots=devlang-aspnet
           - text: ASP.NET Core
             url: web-api-quickstart.md?pivots=devlang-aspnet-core
-  - title: "Learn by building - ASP.NET Web API"
+  - title: "Learn by building"
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Register your app
+          - text: ASP.NET - Register your API
             url: web-api-tutorial-01-register-app.md
-          - text: Configure your app
+          - text: ASP.NET - Configure your API
             url: web-api-tutorial-02-prepare-api.md
-          - text: Call your web API
+          - text: ASP.NET - Call your web API
             url: web-api-tutorial-03-protect-endpoint.md
         
   - title: "Scenarios in depth"
