@@ -2,7 +2,7 @@
 title: Back up Azure VMs with Enhanced policy
 description: Learn how to configure Enhanced policy to back up VMs.
 ms.topic: how-to
-ms.date: 04/24/2023
+ms.date: 05/02/2023
 ms.reviewer: sharrai
 ms.service: backup
 author: jyothisuri
@@ -83,10 +83,10 @@ Follow these steps:
 
 To create an enhanced backup policy or update the policy, run the following cmdlets:
 
-**Step 1: Create tbe backup policy**
+**Step 1: Create the backup policy**
 
 ```azurepowershell
-$SchPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -
+$SchPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -PolicySubType "Enhanced" -WorkloadType "AzureVM" -ScheduleRunFrequency “Hourly”  
 ```
 
 The parameter `ScheduleRunFrequency:Hourly` now also be an acceptable value for Azure VM workload.
@@ -149,6 +149,11 @@ New-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy" -WorkloadType Azu
 
 For Enhanced policy, the allowed values for snapshot retention are from *1* day to *30* days.
 
+>[!Note]
+>The specific value depends on the hourly frequency. For example, when hourly frequency is *4 hours*, the maximum retention allowed is *17 days*, for 6 hours it is 22 days. Let's add this specific information here.
+
+
+
 **Step 6: Update snapshot retention duration**
 
 ```azurepowershell
@@ -190,23 +195,6 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 
 ```
 
-For parameter `Enable-AzRecoveryServicesBackupProtection`, the additional validations are:
-
-- Trusted lauch VM can only be backed up using Enhanced policies
-- A non-trusted launch VM that was earlier using standard policy can't use Enhanced policy. This is applicable during the preview of enhanced policy feature. Afterwards, this migration will be allowed.
-- A VM that is using Enhanced policy can't be updated to use Standard policy
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -215,7 +203,7 @@ For parameter `Enable-AzRecoveryServicesBackupProtection`, the additional valida
 To create an enhanced backup policy, run the following command:
 
 ```azurecli
-az backup policy create --policy {policy} --resource-group MyResourceGroup --vault-name MyVault --name MyPolicy --backup-management-type AzureIaaSVM
+az backup policy create --policy {policy} --resource-group MyResourceGroup --vault-name MyVault --name MyPolicy --backup-management-type AzureIaaSVM -PolicySubType "Enhanced"
 Policy is passed in JSON format to the create command.
 
 ```
@@ -225,7 +213,7 @@ Policy is passed in JSON format to the create command.
 To update an enhanced backup policy, run the following command: 
 
 ```azurecli
-az backup policy set --policy {policy} --resource-group MyResourceGroup --vault-name MyVault 
+az backup policy set --policy {policy} --resource-group MyResourceGroup --vault-name MyVault  -PolicySubType "Enhanced"
 
 ```
 
@@ -245,7 +233,7 @@ For non-VM workloads, the only allowed value is `Standard`
 
 ### Configure backup for a VM or assign a new policy to a VM
 
-To configure backup for a Trusted Launch VM or assign a new policy to the VM, run the following command:
+To configure backup for a VM or assign a new policy to the VM, run the following command:
 
 ```azurecli
 az backup protection enable-for-vm \
@@ -256,7 +244,7 @@ az backup protection enable-for-vm \
 
 ```
 
-The Enhanced policy command `az backup protection enable-for-vm` allows you to back up Trusted Launch VMs only.
+Trusted Launch VMs can only be backed up using Enhanced policies.
 
 >[!Note]
 >- Currently, a non-Trusted Launch VM that was earlier using Standard policy can't start using Enhanced policy.
