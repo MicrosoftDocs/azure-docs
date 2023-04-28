@@ -41,14 +41,11 @@ Before you create a Defender EASM resource group, we recommend that you are fami
 
 - **Subscription**: Select an Azure subscription.
 - **Resource Group**: Give the resource group a name.
--    - **Region**: Specify an Azure location. This location is where the resource group stores metadata about the resource. For compliance reasons, you may want to specify where that metadata is stored. In general, we recommend that you specify a location where most of your resources will be. Using the same location can simplify your template. The following regions are supported: 
+- **Region**: Specify an Azure location. This location is where the resource group stores metadata about the resource. For compliance reasons, you may want to specify where that metadata is stored. In general, we recommend that you specify a location where most of your resources will be. Using the same location can simplify your template. The following regions are supported: 
 
-      - southcentralus
-
-      - eastus
-
-      - australiaeast
-
+-  southcentralus
+-  eastus
+-  australiaeast
 -  westus3 
 -  swedencentral
 -  eastasia
