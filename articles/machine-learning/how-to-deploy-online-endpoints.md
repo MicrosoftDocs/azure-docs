@@ -331,7 +331,7 @@ The following table describes the key attributes of a deployment:
 | Instance count | The number of instances to use for the deployment. Base the value on the workload you expect. For high availability, we recommend that you set the value to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [managed online endpoint quotas](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).                                |
 
 > [!NOTE]
-> The model and container image (as defined in Environment) can be referenced again at any time by the deployment, when the instances behind the deployment go through security patches and/or other recovery operations. If you used registered model or container image in Azure Container Registry for deployment and removed the model or the container image, the deployments relying on these assets can fail when reimaging happens. If you removed the model or the container image, ensure the dependent deployments are re-created or updated with alternative model or container image.
+> The model and container image (as defined in Environment) can be referenced again at any time by the deployment when the instances behind the deployment go through security patches and/or other recovery operations. If you used a registered model or container image in Azure Container Registry for deployment and removed the model or the container image, the deployments relying on these assets can fail when reimaging happens. If you removed the model or the container image, ensure the dependent deployments are re-created or updated with alternative model or container image.
 
 # [Azure CLI](#tab/azure-cli)
 
