@@ -88,6 +88,13 @@ For reference, your code should look like the following snippet:
 
 For information about security and FIPS, see [Azure AD password hash sync, encryption, and FIPS compliance](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/aad-password-sync-encryption-and-fips-compliance/ba-p/243709).
 
+## Removing the agent
+
+The agent can be removed from the servers using the normal **Apps and Features** uninstallation process.
+Simply uninstall the **Microsoft Azure AD Connect Provisioning Agent Package** to remove the service.
+After 10 days of inactivity the agent will also be removed from the Cloud Sync agents view in the Azure Portal.
+Currently you will need to cleanup the gMSA PrincipalsAllowedToRetrieveManagedPassword attribute manually, using the **Set-ADServiceAccount** cmdlet if you are not decomissioning the server which the agent runs on and want to make sure that no other service on the same server can use the privisioning agents gMSA.
+
 ## Next steps 
 
 - [What is provisioning?](what-is-provisioning.md)
