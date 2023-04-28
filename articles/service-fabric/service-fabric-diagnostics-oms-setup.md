@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
+ms.custom: devx-track-arm-template, devx-track-azurepowershell
 services: service-fabric
 ms.date: 07/14/2022
 ---
@@ -46,7 +47,7 @@ If you are using Windows, continue with the following steps to connect Azure Mon
 
 1. The workspace needs to be connected to the diagnostics data coming from your cluster. Go to the resource group in which you created the Service Fabric Analytics solution. Select **ServiceFabric\<nameOfWorkspace\>** and go to its overview page. From there, you can change solution settings, workspace settings, and access the Log Analytics workspace.
 
-2. On the left navigation menu, under **Workspace Data Sources**, select **Storage accounts logs**.
+2. On the left navigation menu, click on **Overview tab**,under **Connect a Data Source Tab** select **Storage accounts logs**.
 
 3. On the **Storage account logs** page, select **Add** at the top to add your cluster's logs to the workspace.
 

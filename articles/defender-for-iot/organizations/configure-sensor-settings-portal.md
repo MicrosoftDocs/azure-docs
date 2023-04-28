@@ -122,11 +122,19 @@ For a bandwidth cap, define the maximum bandwidth you want the sensor to use for
 
 ### Subnet
 
-To define your sensor's subnets, do any of the following:
+To focus the Azure device inventory on devices that are in your IoT/OT scope, you will need to manually edit the subnet list to include only the locally monitored subnets that are in your IoT/OT scope. Once the subnets have been configured, the network location of the devices is shown in the *Network location* (Public preview) column in the Azure device inventory. All of the devices associated with the listed subnets will be displayed as *local*, while devices associated with detected subnets not included in the list will be displayed as *routed*.
 
-- Select **Import subnets** to import a comma-separated list of subnet IP addresses and masks. Select **Export subnets** to export a list of currently configured data, or **Clear all** to start from scratch.
+**To configure your subnets in the Azure portal**:
 
-- Enter values in the **IP Address**, **Mask**, and **Name** fields to add subnet details manually. Select **Add subnet** to add more subnets as needed.
+1. In the Azure portal, go to **Sites and sensors** > **Sensor settings**.
+
+1. Under **Subnets**, review the detected subnets. To focus the device inventory and view local devices in the inventory, delete any subnets that are not in your IoT/OT scope by selecting the options menu (...) on any subnet you want to delete.
+
+1. To modify additional settings, select any subnet and then select **Edit** for the following options:
+
+    - Select **Import subnets** to import a comma-separated list of subnet IP addresses and masks. Select **Export subnets** to export a list of currently configured data, or **Clear all** to start from scratch.
+
+    - Enter values in the **IP Address**, **Mask**, and **Name** fields to add subnet details manually. Select **Add subnet** to add additional subnets as needed.
 
 ### VLAN naming
 

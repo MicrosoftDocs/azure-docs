@@ -37,11 +37,11 @@ In this article, you'll learn how to use batch endpoints to do batch scoring.
 
 In this example, we're going to deploy a model to solve the classic MNIST ("Modified National Institute of Standards and Technology") digit recognition problem to perform batch inferencing over large amounts of data (image files). In the first section of this tutorial, we're going to create a batch deployment with a model created using Torch. Such deployment will become our default one in the endpoint. In the second half, [we're going to see how we can create a second deployment](#adding-deployments-to-an-endpoint) using a model created with TensorFlow (Keras), test it out, and then switch the endpoint to start using the new deployment as default.
 
-The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, first clone the repo. Then, change directories to either `cli/endpoints/batch` if you're using the Azure CLI or `sdk/endpoints/batch` if you're using the Python SDK.
+The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, first clone the repo. Then, change directories to either `cli/endpoints/batch/deploy-models/mnist-classifier` if you're using the Azure CLI or `sdk/python/endpoints/batch/deploy-models/mnist-classifier` if you're using the Python SDK.
 
 ```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
-cd azureml-examples/cli/endpoints/batch
+cd azureml-examples/cli/endpoints/batch/deploy-models/mnist-classifier
 ```
 
 ### Follow along in Jupyter Notebooks
@@ -119,41 +119,6 @@ ml_client.begin_create_or_update(compute_cluster)
 > [!NOTE]
 > You are not charged for compute at this point as the cluster will remain at 0 nodes until a batch endpoint is invoked and a batch scoring job is submitted. Learn more about [manage and optimize cost for AmlCompute](./how-to-manage-optimize-cost.md#use-azure-machine-learning-compute-cluster-amlcompute).
 
-
-### Registering the model
-
-Batch Deployments can only deploy models registered in the workspace. You can skip this step if the model you're trying to deploy is already registered. In this case, we're registering a Torch model for the popular digit recognition problem (MNIST).
-
-> [!TIP]
-> Models are associated with the deployment rather than with the endpoint. This means that a single endpoint can serve different models or different model versions under the same endpoint as long as they are deployed in different deployments.
-
-   
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli
-MODEL_NAME='mnist'
-az ml model create --name $MODEL_NAME --type "custom_model" --path "./mnist/model/"
-```
-
-# [Python](#tab/python)
-
-```python
-model_name = 'mnist'
-model = ml_client.models.create_or_update(
-    Model(name=model_name, path='./mnist/model/', type=AssetTypes.CUSTOM_MODEL)
-)
-```
-
-# [Studio](#tab/azure-studio)
-
-1. Navigate to the __Models__ tab on the side menu.
-1. Select __Register__ > __From local files__.
-1. In the wizard, leave the option *Model type* as __Unspecified type__.
-1. Select __Browse__ > __Browse folder__ > Select the folder `./mnist/model/` > __Next__.
-1. Configure the name of the model: `mnist`. You can leave the rest of the fields as they are.
-1. Select __Register__.
-
----
 
 ## Create a batch endpoint
 
@@ -252,23 +217,59 @@ A deployment is a set of resources required for hosting the model that does the 
 * The environment in which the model runs.
 * The pre-created compute and resource settings.
 
-1. Batch deployments require a scoring script that indicates how a given model should be executed and how input data must be processed. Batch Endpoints support scripts created in Python. In this case, we're deploying a model that reads image files representing digits and outputs the corresponding digit. The scoring script is as follows:
+1. Let's start by registering the model we want to deploy. Batch Deployments can only deploy models registered in the workspace. You can skip this step if the model you're trying to deploy is already registered. In this case, we're registering a Torch model for the popular digit recognition problem (MNIST).
 
-   > [!NOTE]
-   > For MLflow models, Azure Machine Learning automatically generates the scoring script, so you're not required to provide one. If your model is an MLflow model, you can skip this step. For more information about how batch endpoints work with MLflow models, see the dedicated tutorial [Using MLflow models in batch deployments](how-to-mlflow-batch.md).
+    > [!TIP]
+    > Models are associated with the deployment rather than with the endpoint. This means that a single endpoint can serve different models or different model versions under the same endpoint as long as they are deployed in different deployments.
 
-   > [!WARNING]
-   > If you're deploying an Automated ML model under a batch endpoint, notice that the scoring script that Automated ML provides only works for online endpoints and is not designed for batch execution. Please see [Author scoring scripts for batch deployments](how-to-batch-scoring-script.md) to learn how to create one depending on what your model does.
+   
+    # [Azure CLI](#tab/azure-cli)
 
-   __deployment-torch/code/batch_driver.py__
+    ```azurecli
+    MODEL_NAME='mnist-classifier-torch'
+    az ml model create --name $MODEL_NAME --type "custom_model" --path "deployment-torch/model"
+    ```
 
-   :::code language="python" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/code/batch_driver.py" :::
+    # [Python](#tab/python)
+
+    ```python
+    model_name = 'mnist-classifier-torch'
+    model = ml_client.models.create_or_update(
+        Model(name=model_name, path='deployment-torch/model/', type=AssetTypes.CUSTOM_MODEL)
+    )
+    ```
+
+    # [Studio](#tab/azure-studio)
+
+    1. Navigate to the __Models__ tab on the side menu.
+
+    1. Select __Register__ > __From local files__.
+
+    1. In the wizard, leave the option *Model type* as __Unspecified type__.
+
+    1. Select __Browse__ > __Browse folder__ > Select the folder `deployment-torch/model` > __Next__.
+
+    1. Configure the name of the model: `mnist-classifier-torch`. You can leave the rest of the fields as they are.
+
+    1. Select __Register__.
+
+1. Now it's time to create a scoring script. Batch deployments require a scoring script that indicates how a given model should be executed and how input data must be processed. Batch Endpoints support scripts created in Python. In this case, we're deploying a model that reads image files representing digits and outputs the corresponding digit. The scoring script is as follows:
+
+    > [!NOTE]
+    > For MLflow models, Azure Machine Learning automatically generates the scoring script, so you're not required to provide one. If your model is an MLflow model, you can skip this step. For more information about how batch endpoints work with MLflow models, see the dedicated tutorial [Using MLflow models in batch deployments](how-to-mlflow-batch.md).
+
+    > [!WARNING]
+    > If you're deploying an Automated ML model under a batch endpoint, notice that the scoring script that Automated ML provides only works for online endpoints and is not designed for batch execution. Please see [Author scoring scripts for batch deployments](how-to-batch-scoring-script.md) to learn how to create one depending on what your model does.
+
+    __deployment-torch/code/batch_driver.py__
+
+    :::code language="python" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/code/batch_driver.py" :::
 
 1. Create an environment where your batch deployment will run. Such environment needs to include the packages `azureml-core` and `azureml-dataset-runtime[fuse]`, which are required by batch endpoints, plus any dependency your code requires for running. In this case, the dependencies have been captured in a `conda.yml`:
     
     __deployment-torch/environment/conda.yml__
         
-    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/environment/conda.yml":::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/environment/conda.yaml":::
     
     > [!IMPORTANT]
     > The packages `azureml-core` and `azureml-dataset-runtime[fuse]` are required by batch deployments and should be included in the environment dependencies.
@@ -279,7 +280,7 @@ A deployment is a set of resources required for hosting the model that does the 
    
     The environment definition will be included in the deployment definition itself as an anonymous environment. You'll see in the following lines in the deployment:
     
-    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/deployment.yml" range="10-13":::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/deployment.yml" range="11-14":::
    
     # [Python](#tab/python)
    
@@ -287,6 +288,7 @@ A deployment is a set of resources required for hosting the model that does the 
    
     ```python
     env = Environment(
+        name="batch-torch-py38",
         conda_file="deployment-torch/environment/conda.yml",
         image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
     )
@@ -321,7 +323,7 @@ A deployment is a set of resources required for hosting the model that does the 
 
     # [Azure CLI](#tab/azure-cli)
     
-    __mnist-torch-deployment.yml__
+    __deployment-torch/deployment.yml__
     
     :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/deployment.yml":::
     
@@ -466,11 +468,6 @@ A deployment is a set of resources required for hosting the model that does the 
     :::image type="content" source="./media/how-to-use-batch-endpoints-studio/review-batch-wizard.png" alt-text="Screenshot of batch endpoints/deployment review screen.":::
 
     ---
-    
-    > [!NOTE]
-    > __How is work distributed?__:
-    > 
-    > Batch deployments distribute work at the file level, which means that a folder containing 100 files with mini-batches of 10 files will generate 10 batches of 10 files each. Notice that this will happen regardless of the size of the files involved. If your files are too big to be processed in large mini-batches we suggest to either split the files in smaller files to achieve a higher level of parallelism or to decrease the number of files per mini-batch. At this moment, batch deployment can't account for skews in the file's size distribution.
 
 1. Check batch endpoint and deployment details.
 
@@ -479,7 +476,6 @@ A deployment is a set of resources required for hosting the model that does the 
     Use `show` to check endpoint and deployment details. To check a batch deployment, run the following code:
     
     :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="check_batch_deployment_detail" :::
-    
 
     # [Python](#tab/python)
     
@@ -501,9 +497,16 @@ A deployment is a set of resources required for hosting the model that does the 
         
         :::image type="content" source="./media/how-to-use-batch-endpoints-studio/batch-endpoint-details.png" alt-text="Screenshot of the check batch endpoints and deployment details.":::
     
-## Run endpoint and configure inputs and outputs
+## Run batch endpoints and access results
 
-Invoking a batch endpoint triggers a batch scoring job. A job `name` will be returned from the invoke response and can be used to track the batch scoring progress. The batch scoring job runs for some time. It splits the entire inputs into multiple `mini_batch` and processes in parallel on the compute cluster. The batch scoring job outputs will be stored in cloud storage, either in the workspace's default blob storage, or the storage you specified.
+Invoking a batch endpoint triggers a batch scoring job. A job `name` will be returned from the invoke response and can be used to track the batch scoring progress. 
+
+When running models for scoring in Batch Endpoints, you need to indicate the input data path where the endpoints should look for the data you want to score. The following example shows how to start a new job over a sample data of the MNIST dataset stored in an Azure Storage Account:
+
+> [!NOTE]
+> __How does parallelization work?__:
+> 
+> Batch deployments distribute work at the file level, which means that a folder containing 100 files with mini-batches of 10 files will generate 10 batches of 10 files each. Notice that this will happen regardless of the size of the files involved. If your files are too big to be processed in large mini-batches we suggest to either split the files in smaller files to achieve a higher level of parallelism or to decrease the number of files per mini-batch. At this moment, batch deployment can't account for skews in the file's size distribution.
 
 # [Azure CLI](#tab/azure-cli)
     
@@ -544,15 +547,71 @@ job = ml_client.batch_endpoints.invoke(
 
 ---
 
-### Configure job's inputs
-
-Batch endpoints support reading files or folders that are located in different locations. To learn more about how the supported types and how to specify them read [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md).
+Batch endpoints support reading files or folders that are located in different locations. To learn more about how the supported types and how to specify them read [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md). 
 
 > [!TIP]
 > Local data folders/files can be used when executing batch endpoints from the Azure Machine Learning CLI or Azure Machine Learning SDK for Python. However, that operation will result in the local data to be uploaded to the default Azure Machine Learning Data Store of the workspace you are working on.
 
 > [!IMPORTANT]
 > __Deprecation notice__: Datasets of type `FileDataset` (V1) are deprecated and will be retired in the future. Existing batch endpoints relying on this functionality will continue to work but batch endpoints created with GA CLIv2 (2.4.0 and newer) or GA REST API (2022-05-01 and newer) will not support V1 dataset.
+
+### Monitor batch job execution progress
+
+Batch scoring jobs usually take some time to process the entire set of inputs.
+
+# [Azure CLI](#tab/azure-cli)
+
+You can use CLI `job show` to view the job. Run the following code to check job status from the previous endpoint invoke. To learn more about job commands, run `az ml job -h`.
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="check_job_status" :::
+
+# [Python](#tab/python)
+
+The following code checks the job status and outputs a link to the Azure Machine Learning studio for further details.
+
+```python
+ml_client.jobs.get(job.name)
+```
+
+# [Studio](#tab/azure-studio)
+
+1. Navigate to the __Endpoints__ tab on the side menu.
+
+1. Select the tab __Batch endpoints__.
+
+1. Select the batch endpoint you want to monitor.
+
+1. Select the tab __Jobs__.
+
+    :::image type="content" source="media/how-to-use-batch-endpoints-studio/summary-jobs.png" alt-text="Screenshot of summary of jobs submitted to a batch endpoint.":::
+
+1. You'll see a list of the jobs created for the selected endpoint.
+
+1. Select the last job that is running.
+
+1. You'll be redirected to the job monitoring page.
+
+---
+
+### Check batch scoring results
+
+The job outputs will be stored in cloud storage, either in the workspace's default blob storage, or the storage you specified. See [Configure the output location](#configure-the-output-location) to know how to change the defaults. Follow the following steps to view the scoring results in Azure Storage Explorer when the job is completed:
+
+1. Run the following code to open batch scoring job in Azure Machine Learning studio. The job studio link is also included in the response of `invoke`, as the value of `interactionEndpoints.Studio.endpoint`.
+
+    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="show_job_in_studio" :::
+
+1. In the graph of the job, select the `batchscoring` step.
+
+1. Select the __Outputs + logs__ tab and then select **Show data outputs**.
+
+1. From __Data outputs__, select the icon to open __Storage Explorer__.
+
+    :::image type="content" source="media/how-to-use-batch-endpoint/view-data-outputs.png" alt-text="Studio screenshot showing view data outputs location." lightbox="media/how-to-use-batch-endpoint/view-data-outputs.png":::
+
+    The scoring results in Storage Explorer are similar to the following sample page:
+
+    :::image type="content" source="media/how-to-use-batch-endpoint/scoring-view.png" alt-text="Screenshot of the scoring output." lightbox="media/how-to-use-batch-endpoint/scoring-view.png":::
 
 ### Configure the output location
 
@@ -678,64 +737,6 @@ job = ml_client.batch_endpoints.invoke(
 
 ---
 
-### Monitor batch scoring job execution progress
-
-Batch scoring jobs usually take some time to process the entire set of inputs.
-
-# [Azure CLI](#tab/azure-cli)
-
-You can use CLI `job show` to view the job. Run the following code to check job status from the previous endpoint invoke. To learn more about job commands, run `az ml job -h`.
-
-:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="check_job_status" :::
-
-# [Python](#tab/python)
-
-The following code checks the job status and outputs a link to the Azure Machine Learning studio for further details.
-
-```python
-ml_client.jobs.get(job.name)
-```
-
-# [Studio](#tab/azure-studio)
-
-1. Navigate to the __Endpoints__ tab on the side menu.
-
-1. Select the tab __Batch endpoints__.
-
-1. Select the batch endpoint you want to monitor.
-
-1. Select the tab __Jobs__.
-
-    :::image type="content" source="media/how-to-use-batch-endpoints-studio/summary-jobs.png" alt-text="Screenshot of summary of jobs submitted to a batch endpoint.":::
-
-1. You'll see a list of the jobs created for the selected endpoint.
-
-1. Select the last job that is running.
-
-1. You'll be redirected to the job monitoring page.
-
----
-
-### Check batch scoring results
-
-Follow the following steps to view the scoring results in Azure Storage Explorer when the job is completed:
-
-1. Run the following code to open batch scoring job in Azure Machine Learning studio. The job studio link is also included in the response of `invoke`, as the value of `interactionEndpoints.Studio.endpoint`.
-
-    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="show_job_in_studio" :::
-
-1. In the graph of the job, select the `batchscoring` step.
-
-1. Select the __Outputs + logs__ tab and then select **Show data outputs**.
-
-1. From __Data outputs__, select the icon to open __Storage Explorer__.
-
-    :::image type="content" source="media/how-to-use-batch-endpoint/view-data-outputs.png" alt-text="Studio screenshot showing view data outputs location." lightbox="media/how-to-use-batch-endpoint/view-data-outputs.png":::
-
-    The scoring results in Storage Explorer are similar to the following sample page:
-
-    :::image type="content" source="media/how-to-use-batch-endpoint/scoring-view.png" alt-text="Screenshot of the scoring output." lightbox="media/how-to-use-batch-endpoint/scoring-view.png":::
-
 ## Adding deployments to an endpoint
 
 Once you have a batch endpoint with a deployment, you can continue to refine your model and add new deployments. Batch endpoints will continue serving the default deployment while you develop and deploy new models under the same endpoint. Deployments can't affect one to another.
@@ -748,7 +749,9 @@ In this example, you'll learn how to add a second deployment __that solves the s
 
     # [Azure CLI](#tab/azure-cli)
    
-    *No extra step is required for the Azure Machine Learning CLI. The environment definition will be included in the deployment file as an anonymous environment.*
+    The environment definition will be included in the deployment definition itself as an anonymous environment. You'll see in the following lines in the deployment:
+    
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-keras/deployment.yml" range="11-14":::
    
     # [Python](#tab/python)
    
@@ -756,8 +759,9 @@ In this example, you'll learn how to add a second deployment __that solves the s
    
     ```python
     env = Environment(
-        conda_file="deployment-kera/environment/conda.yml",
-        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
+        name="batch-tensorflow-py38",
+        conda_file="deployment-keras/environment/conda.yml",
+        image="mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest",
     )
     ```
 
@@ -771,9 +775,9 @@ In this example, you'll learn how to add a second deployment __that solves the s
     
     1. On __Select environment type__ select __Use existing docker image with conda__.
     
-    1. On __Container registry image path__, enter `mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04`.
+    1. On __Container registry image path__, enter `mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.0`.
     
-    1. On __Customize__ section copy the content of the file `./mnist-keras/environment/conda.yml` included in the repository into the portal.
+    1. On __Customize__ section copy the content of the file `deployment-keras/environment/conda.yml` included in the repository into the portal.
     
     1. Select __Next__ and then on __Create__.
     
@@ -785,7 +789,7 @@ In this example, you'll learn how to add a second deployment __that solves the s
     
     __deployment-keras/environment/conda.yml__
     
-    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-keras/environment/conda.yml":::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-keras/environment/conda.yaml":::
     
 1. Create a scoring script for the model:
    

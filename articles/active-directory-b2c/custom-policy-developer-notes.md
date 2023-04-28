@@ -177,7 +177,7 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 
 | Feature | Status | Notes |
 | ------- | :--: | ----- |
-| [Go-Local add-on](data-residency.md#go-local-add-on) | Preview | Azure AD B2C's [Go-Local add-on](data-residency.md#go-local-add-on) enables you to create Azure AD B2C tenant within the country you choose when you [create your Azure AD B2C](tutorial-create-tenant.md).  |
+| [Go-Local add-on](data-residency.md#go-local-add-on) | Preview | Azure AD B2C's [Go-Local add-on](data-residency.md#go-local-add-on) enables you to create Azure AD B2C tenant within the country/region you choose when you [create your Azure AD B2C](tutorial-create-tenant.md).  |
 
 ## Responsibilities of custom policy feature-set developers
 

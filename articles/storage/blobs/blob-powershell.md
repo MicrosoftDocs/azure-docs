@@ -49,7 +49,7 @@ All blob data is stored within containers, so you'll need at least one container
 
 ```azurepowershell
 #Create a container object
-$container = New-AzStorageContainer -Name "myContainer" -Context $ctx
+$container = New-AzStorageContainer -Name "mycontainer" -Context $ctx
 ```
 
 When you use the following examples, you'll need to replace the placeholder values in brackets with your own values. For more information about signing into Azure with PowerShell, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
@@ -65,7 +65,7 @@ The following example specifies a `-File` parameter value to upload a single, na
 ```azurepowershell
 #Set variables
 $path          = "C:\temp\" 
-$containerName = "myContainer"
+$containerName = "mycontainer"
 $filename      = "demo-file.txt"
 $imageFiles    = $path + "*.png"
 $file          = $path + $filename
@@ -103,7 +103,7 @@ The following example shows several approaches used to provide a list of blobs. 
 ```azurepowershell
 #Set variables
 $namedContainer  = "named-container"
-$demoContainer   = "myContainer"
+$demoContainer   = "mycontainer"
 $containerPrefix = "demo"
 
 $maxCount = 1000
@@ -190,7 +190,7 @@ The following sample code provides an example of both single and multiple downlo
 
 ```azurepowershell
 #Set variables
-$containerName = "myContainer"
+$containerName = "mycontainer"
 $path          = "C:\temp\downloads\"
 $blobName      = "demo-file.txt"
 $fileList      = "*.png"
@@ -253,7 +253,7 @@ To read blob properties or metadata, you must first retrieve the blob from the s
 The following example retrieves a blob and lists its properties.
 
 ```azurepowershell
-$blob = Get-AzStorageBlob -Blob "blue-moon.mp3" -Container "myContainer" -Context $ctx
+$blob = Get-AzStorageBlob -Blob "blue-moon.mp3" -Container "mycontainer" -Context $ctx
 $properties = $blob.BlobClient.GetProperties()
 Echo $properties.Value
 ```
@@ -288,7 +288,7 @@ The example below first updates and then commits a blob's metadata, and then ret
 
 ```azurepowershell
 #Set variable
-$container = "myContainer"
+$container = "mycontainer"
 $blobName  = "blue-moon.mp3"
 
 #Retrieve blob
@@ -446,7 +446,7 @@ You can delete either a single blob or series of blobs with the `Remove-AzStorag
 
 ```azurepowershell
 #Create variables
-$containerName  = "myContainer"
+$containerName  = "mycontainer"
 $blobName       = "demo-file.txt"
 $prefixName     = "file"
 
@@ -499,7 +499,7 @@ To learn more about the soft delete data protection option, refer to the [Soft d
 ```azurepowershell
 $accountName   ="myStorageAccount"
 $groupName     ="myResourceGroup"
-$containerName ="myContainer"
+$containerName ="mycontainer"
 
 
 $blobSvc = Get-AzStorageBlobServiceProperty `

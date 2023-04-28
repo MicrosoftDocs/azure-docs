@@ -36,7 +36,7 @@ landingContent:
       - linkListType: training
         links:
           - text: Create a hub-spoke network topology with Azure Virtual Network Manager
-            url: /training/modules/hub-and-spoke-network-architecture/4a-create-hub-spoke-virtual-network-managerr
+            url: /training/modules/hub-and-spoke-network-architecture/4a-create-hub-spoke-virtual-network-manager
   # Card
   - title: Get started
     linkLists:
@@ -94,3 +94,15 @@ landingContent:
         links:
         - text: Hub-spoke network topology in Azure
           url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+
+  # Card
+  - title: Monitoring
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Event log 0ptions for Azure Virtual Network Manager
+            url: concept-event-logs.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configure event logs for Azure Virtual Network Manager
+            url: how-to-configure-event-logs.md

@@ -9,8 +9,9 @@ ms.author: eur
 
 | Voice | Styles |Roles |
 | ----- | ----- | ----- |
-|en-GB-RyanNeural<sup>1</sup>|`chat`, `cheerful`|Not supported|
-|en-GB-SoniaNeural<sup>1</sup>|`cheerful`, `sad`|Not supported|
+|de-DE-ConradNeural<sup>1</sup>|`cheerful`|Not supported|
+|en-GB-RyanNeural|`chat`, `cheerful`|Not supported|
+|en-GB-SoniaNeural|`cheerful`, `sad`|Not supported|
 |en-US-AriaNeural|`angry`, `chat`, `cheerful`, `customerservice`, `empathetic`, `excited`, `friendly`, `hopeful`, `narration-professional`, `newscast-casual`, `newscast-formal`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|Not supported|
 |en-US-DavisNeural|`angry`, `chat`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|Not supported|
 |en-US-GuyNeural|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `newscast`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|Not supported|
@@ -20,10 +21,10 @@ ms.author: eur
 |en-US-NancyNeural|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|Not supported|
 |en-US-SaraNeural|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|Not supported|
 |en-US-TonyNeural|`angry`, `cheerful`, `excited`, `friendly`, `hopeful`, `sad`, `shouting`, `terrified`, `unfriendly`, `whispering`|Not supported|
-|es-MX-JorgeNeural<sup>1</sup>|`chat`, `cheerful`|Not supported|
+|es-MX-JorgeNeural|`chat`, `cheerful`|Not supported|
 |fr-FR-DeniseNeural<sup>1</sup>|`cheerful`, `sad`|Not supported|
-|fr-FR-HenriNeural<sup>1</sup>|`cheerful`, `sad`|Not supported|
-|it-IT-IsabellaNeural<sup>1</sup>|`chat`, `cheerful`|Not supported|
+|fr-FR-HenriNeural|`cheerful`, `sad`|Not supported|
+|it-IT-IsabellaNeural|`chat`, `cheerful`|Not supported|
 |ja-JP-NanamiNeural|`chat`, `cheerful`, `customerservice`|Not supported|
 |pt-BR-FranciscaNeural|`calm`|Not supported|
 |zh-CN-XiaohanNeural<sup>5</sup>|`affectionate`, `angry`, `calm`, `cheerful`, `disgruntled`, `embarrassed`, `fearful`, `gentle`, `sad`, `serious`|Not supported|

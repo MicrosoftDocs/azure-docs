@@ -12,14 +12,15 @@ ms.author: eur
 The Speech SDK depends on the following Linux system libraries:
 
 - The shared libraries of the GNU C library, including the POSIX Threads Programming library, `libpthreads`
-- The OpenSSL library (`libssl`) version 1.x
+- The OpenSSL library (`libssl`) version 1.x and certificates (`ca-certificates`)
 - The shared library for ALSA applications (`libasound`)
+- You should also install `ca-certificates` to establish a secure websocket and avoid the `WS_OPEN_ERROR_UNDERLYING_IO_OPEN_FAILED` error.
 
 # [Ubuntu 18.04/20.04/22.04](#tab/ubuntu)
 
 ```Bash
 sudo apt-get update
-sudo apt-get install build-essential libssl-dev libasound2 wget
+sudo apt-get install build-essential libssl-dev ca-certificates libasound2 wget
 ```
 
 > [!IMPORTANT]
@@ -33,7 +34,7 @@ To use the Speech SDK in Alpine Linux, create a Debian chroot environment as doc
 
 ```Bash
 sudo apt-get update
-sudo apt-get install build-essential libssl-dev libasound2 wget
+sudo apt-get install build-essential libssl-dev ca-certificates libasound2 wget
 ```
 
 # [RHEL 7/8 and CentOS 7/8](#tab/rhel-centos)

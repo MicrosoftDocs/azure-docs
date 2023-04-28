@@ -1,4 +1,4 @@
-### Vowels
+### Vowels for hr-HR
 
 | `ipa` | `viseme` | Example 1       | Example 2          | Example 3     |
 |-------|----------|-----------------|--------------------|---------------|
@@ -13,7 +13,7 @@
 | `o`   | 8        | **o**aza        | nan**o**si         | d**o**        |
 | `oː`  | 8        | **O**lgu        | kisel**o**g        | t**o**        |
 
-### Consonant
+### Consonant for hr-HR
 
 | `ipa` | `viseme` | Example 1       | Example 2          | Example 3     |
 |-------|----------|-----------------|--------------------|---------------|

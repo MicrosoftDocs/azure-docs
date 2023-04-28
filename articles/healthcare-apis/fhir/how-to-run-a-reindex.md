@@ -24,9 +24,9 @@ POST {{FHIR_URL}}/$reindex
 
 { 
 
-“resourceType”: “Parameters”,  
+"resourceType": "Parameters",  
 
-“parameter”: [] 
+"parameter": [] 
 
 }
  ```
