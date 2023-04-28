@@ -1,9 +1,9 @@
 ---
 title: Create and configure a dev center for Azure Deployment Envrionments by using the Azure CLI
 titleSuffix: Azure Deployment Environments
-description: Learn how to create and access an environment in an Azure Deployment Environments project by using the Azure CLI.
-author: Renato Marciano
-ms.author: rmarcia
+description: Learn how to create and access an environment in an Azure Deployment Environments project using Azure CLI.
+author: renato-marciano
+ms.author: remarcia
 ms.service: deployment-environments
 ms.custom: devx-track-azurecli
 ms.topic: quickstart
@@ -48,7 +48,7 @@ To create and configure a Dev center in Azure Deployment Environments by using t
    az account set --subscription <name>
    ```
 
-1. Configure the default location as the location in which you want to create the dev center. Make sure to choose an [available regions for Azure Deployment Environments](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=deployment-environments&regions=all):
+1. Configure the default location as the location in which you want to create the dev center. Make sure to choose an [available regions for Azure Deployment Environments](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=deployment-environments&regions=all):
 
    ```azurecli
    az configure --defaults location=eastus

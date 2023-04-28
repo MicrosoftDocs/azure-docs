@@ -1,9 +1,9 @@
 ---
-title: Create and configure a project
+title: Create and configure a project by using the Azure CLI
 titleSuffix: Azure Deployment Environments
-description: Learn how to create a project in Azure Deployment Environments and associate the project with a dev center.
-author: Renato Marciano
-ms.author: rmarcia
+description: Learn how to create a project in Azure Deployment Environments and associate the project with a dev center using Azure CLI.
+author: renato-marciano
+ms.author: remarcia
 ms.service: deployment-environments
 ms.custom: devx-track-azurecli
 ms.topic: quickstart
