@@ -2,7 +2,7 @@
 title: Create an OpenID Connect provider for your Azure Kubernetes Service (AKS) cluster
 description: Learn how to configure the OpenID Connect (OIDC) provider for a cluster in Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.date: 04/10/2023
+ms.date: 04/28/2023
 ---
 
 
@@ -70,9 +70,15 @@ To get the OIDC Issuer URL, run the [az aks show][az-aks-show] command. Replace 
 az aks show -n myAKScluster -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv
 ```
 
+The output should resemble the following:
+
+```output
+https://eastus.oic.prod-aks.azure.com/00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000/
+```
+
 ### Get the discovery document
 
-To get the discovery document, copy the URL https://(OIDC issuer URL).well-known/openid-configuration and open it in browser. 
+To get the discovery document, copy the URL `https://(OIDC issuer URL).well-known/openid-configuration` and open it in browser. 
 
 The output should resemble the following:
 
@@ -93,8 +99,8 @@ The output should resemble the following:
 ```
 
 ### Get the JWK Set document
-  
-To get the JWK Set document, copy the `jwks_uri` from the discovery document and open it in browser.
+
+To get the JWK Set document, copy the `jwks_uri` from the discovery document and past it in your browser's address bar.
 
 The output should resemble the following:
 ```output
@@ -120,7 +126,7 @@ The output should resemble the following:
 }
 ```
 
-During key rotation, there would be one additional key present in the discovery document.
+During key rotation, there is one additional key present in the discovery document.
 
 ## Next steps
 
