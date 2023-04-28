@@ -39,7 +39,7 @@ The Microsoft Threat Intelligence Collection rules are written in partnership wi
 
 > [!NOTE]
 > We suggest you to disable some of the rules while you get started with DRS 2.1 on Application Gateway WAF. Details of the rules are as below. 
-> |Rule ID  |Rule Group|Description  |Details|
+>|Rule ID  |Rule Group|Description  |Details|
 >|---------|---------|---------|---------|
 >|942110      |SQLI|SQL Injection Attack: Common Injection Testing Detected |Replaced by MSTIC rule 99031001 |
 >|942150      |SQLI|SQL Injection Attack|Replaced by MSTIC rule 99031003 |
@@ -493,7 +493,7 @@ The following rule groups and rules are available when using Web Application Fir
 > [!NOTE]
 > When reviewing your WAF's logs, you might see rule ID 949110. The description of the rule might include *Inbound Anomaly Score Exceeded*.
 >
-> This rule indicates that the total anomaly score for the request exceeded the maximum allowable score. For more information, see [Anomaly scoring](#anomaly-scoring-mode).
+> This rule indicates that the total anomaly score for the request exceeded the maximum allowable score. For more information, see [Anomaly scoring](./ag-overview.md#anomaly-scoring-mode).
 
 
 # [OWASP 3.2](#tab/owasp32)
