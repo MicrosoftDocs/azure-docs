@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 Learn about using Azure Active Directory (Azure AD) as the centralized identity management system when implementing Zero Trust principles. See, US Office of Management and Budget (OMB) [M 22-09 Memorandum for the Heads of Executive Departments and Agencies](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf).
 
-The memo requirements are that employees use enterprise-managed identities to access applications, and multi-factor authentication (MFA) protects employees from sophisticated online attacks, such as phishing. This attack method attempts to obtain and compromise credentials, with links to inauthentic sites.
+The memo requirements are that employees use enterprise-managed identities to access applications, and that multi-factor authentication (MFA) protects employees from sophisticated online attacks, such as phishing. This attack method attempts to obtain and compromise credentials, with links to inauthentic sites.
 
 MFA prevents unauthorized access to accounts and data. The memo requirements cite MFA with phishing-resistant methods: authentication processes designed to detect and prevent disclosure of authentication secrets and outputs to a website or application masquerading as a legitimate system. Therefore, establish what MFA methods qualify as phishing-resistant.
 
