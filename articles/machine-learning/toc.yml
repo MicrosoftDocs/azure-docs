@@ -584,12 +584,15 @@
         - name: Azure Container for PyTorch
           displayName: acpt
           href: how-to-azure-container-for-pytorch-environment.md
-        - name: Set up VS Code extension
+        - name: Launch VS Code remote
+          displayName: Visual Studio Code, VSCode, debug, bugs
+          href: how-to-launch-vs-code-remote.md
+        - name: Work in VS Code remote
+          displayName: Visual Studio Code, VSCode, debug, bugs
+          href: how-to-work-in-vs-code-remote.md
+        - name: Set up VS Code (Desktop)
           displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
           href: how-to-setup-vs-code.md
-        - name: Connect to compute instance VS Code
-          displayName: Visual Studio Code, VSCode, debug, bugs
-          href: how-to-set-up-vs-code-remote.md
         - name: Manage environments with SDK and CLI (v2)
           displayName: environment
           href: how-to-manage-environments-v2.md
@@ -762,18 +765,23 @@
             # end v1
         - name: Track & monitor training
           items:
-            - name: Monitor training jobs
-              displayName: cancel, fail, status, child run
-              href: how-to-track-monitor-analyze-runs.md
-            - name: Log metrics, parameters and files
-              displayName: troubleshoot, log, files, tracing, metrics
-              href: how-to-log-view-metrics.md
-            - name: Log MLflow models
-              href: how-to-log-mlflow-models.md
-            - name: Query & compare experiments and runs
+            - name: Log metrics and models with MLflow
+              items:
+                - name: Log metrics, parameters and files
+                  displayName: troubleshoot, log, files, tracing, metrics
+                  href: how-to-log-view-metrics.md
+                - name: Log MLflow models
+                  href: how-to-log-mlflow-models.md
+                - name: Migrate from SDK v1 logging to MLflow
+                  href: reference-migrate-sdk-v1-mlflow-tracking.md
+            - name: Query & compare experiments and runs with MLflow
               href: how-to-track-experiments-mlflow.md
-            - name: Migrate from SDK v1 logging to MLflow
-              href: reference-migrate-sdk-v1-mlflow-tracking.md
+            - name: Organize & manage jobs (preview)
+              href: how-to-track-monitor-organize-jobs.md
+            - name: Visualize training results (preview)
+              href: how-to-visualize-jobs.md
+            - name: Monitor training jobs
+              href: how-to-track-monitor-analyze-runs.md
         - name: Automated machine learning
           displayName: automl, auto ml
           items:

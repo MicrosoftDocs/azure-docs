@@ -130,7 +130,7 @@ sections:
       - question: |
           What is the storage limit associated with each max RU/s option?  
         answer: |
-          The storage limit in GB for each max RU/s is: Max RU/s of database or container / 100. For example, if the max RU/s is 20,000 RU/s, the resource can support 200 GB of storage. 
+          The storage limit in GB for each max RU/s is: Max RU/s of database or container / 10. For example, if the max RU/s is 20,000 RU/s, the resource can support 2000 GB of storage. 
           See the [autoscale limits](provision-throughput-autoscale.md#autoscale-limits) article for the available max RU/s and storage options. 
           
       - question: |
@@ -138,7 +138,7 @@ sections:
         answer: |
           If the storage limit associated with the max throughput of the database or container is exceeded, Azure Cosmos DB automatically increases the max throughput to the next highest RU/s that can support that level of storage.
           
-          For example, if you start with a max RU/s of 50,000 RU/s (scales between 5000 - 50,000 RU/s), you can store up to 500 GB of data. If you exceed 500 GB - for example, storage is now 600 GB, the new maximum RU/s is 60,000 RU/s (scales between 6000 - 60,000 RU/s).
+          For example, if you start with a max RU/s of 50,000 RU/s (scales between 5000 - 50,000 RU/s), you can store up to 5000 GB of data. If you exceed 5000 GB - for example, storage is now 6000 GB, the new maximum RU/s is 60,000 RU/s (scales between 6000 - 60,000 RU/s).
           
       - question: |
           Can I change the max RU/s on the database or container? 
@@ -153,13 +153,13 @@ sections:
       - question: |
           Lowering the max RU/s
         answer: |
-          When you lower the max RU/s, the minimum value you can set it to is: `MAX(1000, highest max RU/s ever provisioned / 10, current storage in GB * 100)`, rounded to the nearest 1000 RU/s. 
+          When you lower the max RU/s, the minimum value you can set it to is: `MAX(1000, highest max RU/s ever provisioned / 10, current storage in GB * 10)`, rounded to the nearest 1000 RU/s. 
           
-          Example #1: Suppose you have an autoscale container with max RU/s of 20,000 RU/s (scales between 2000 - 20,000 RU/s) and 50 GB of storage. The lowest, minimum value you can set max RU/s to is: MAX(1000, 20,000 / 10, **50 * 100**) = 5000 RU/s (scales between 500 - 5000 RU/s).
+          Example #1: Suppose you have an autoscale container with max RU/s of 20,000 RU/s (scales between 2000 - 20,000 RU/s) and 1500 GB of storage. The lowest, minimum value you can set max RU/s to is: MAX(1000, 20,000 / 10, **1500 * 10**) = 15,000 RU/s (scales between 1500 - 15,000 RU/s).
           
-          Example #2: Suppose you have an autoscale container with max RU/s of 100,000 RU/s and 100 GB of storage. Now, you scale max RU/s up to 150,000 RU/s (scales between 15,000 - 150,000 RU/s). The lowest, minimum value you can now set max RU/s to is: MAX(1000, **150,000 / 10**, 100 * 100) = 15,000 RU/s (scales between 1500 - 15,000 RU/s). 
+          Example #2: Suppose you have an autoscale container with max RU/s of 100,000 RU/s and 100 GB of storage. Now, you scale max RU/s up to 150,000 RU/s (scales between 15,000 - 150,000 RU/s). The lowest, minimum value you can now set max RU/s to is: MAX(1000, **150,000 / 10**, 100 * 10) = 15,000 RU/s (scales between 1500 - 15,000 RU/s). 
           
-          For a shared throughput database, when you lower the max RU/s, the minimum value you can set it to is: `MAX(1000, highest max RU/s ever provisioned / 10, current storage in GB * 100,  1000 + (MAX(Container count - 25, 0) * 1000))`, rounded to the nearest 1000 RU/s.  
+          For a shared throughput database, when you lower the max RU/s, the minimum value you can set it to is: `MAX(1000, highest max RU/s ever provisioned / 10, current storage in GB * 10,  1000 + (MAX(Container count - 25, 0) * 1000))`, rounded to the nearest 1000 RU/s.  
           
           The above formulas and examples relate to the minimum autoscale max RU/s you can set, and is distinct from the `0.1 * Tmax` to `Tmax` range the system automatically scales between. No matter what the max RU/s is, the system always scales between `0.1 * Tmax` to `Tmax`. 
           

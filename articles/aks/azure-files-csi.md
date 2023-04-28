@@ -16,9 +16,9 @@ To create an AKS cluster with CSI drivers support, see [Enable CSI drivers on AK
 > [!NOTE]
 > *In-tree drivers* refers to the current storage drivers that are part of the core Kubernetes code versus the new CSI drivers, which are plug-ins.
 
-## Azure File CSI driver new features
+## Azure Files CSI driver new features
 
-In addition to the original in-tree driver features, Azure File CSI driver supports the following new features:
+In addition to the original in-tree driver features, Azure Files CSI driver supports the following new features:
 
 - Network File System (NFS) version 4.1
 - [Private endpoint][private-endpoint-overview]
@@ -34,7 +34,7 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 ## Dynamically create Azure Files PVs by using the built-in storage classes
 
-A storage class is used to define how an Azure file share is created. A storage account is automatically created in the [node resource group][node-resource-group] for use with the storage class to hold the Azure Files shares. Choose one of the following [Azure storage redundancy SKUs][storage-skus] for *skuName*:
+A storage class is used to define how an Azure file share is created. A storage account is automatically created in the [node resource group][node-resource-group] for use with the storage class to hold the Azure files share. Choose one of the following [Azure storage redundancy SKUs][storage-skus] for *skuName*:
 
 * **Standard_LRS**: Standard locally redundant storage
 * **Standard_GRS**: Standard geo-redundant storage
@@ -47,14 +47,14 @@ A storage class is used to define how an Azure file share is created. A storage 
 > [!NOTE]
 > Azure Files supports Azure Premium Storage. The minimum premium file share capacity is 100 GiB.
 
-When you use storage CSI drivers on AKS, there are two more built-in `StorageClasses` that uses the Azure File CSI storage drivers. The other CSI storage classes are created with the cluster alongside the in-tree default storage classes.
+When you use storage CSI drivers on AKS, there are two more built-in `StorageClasses` that uses the Azure Files CSI storage drivers. The other CSI storage classes are created with the cluster alongside the in-tree default storage classes.
 
-- `azurefile-csi`: Uses Azure Standard Storage to create an Azure Files share.
-- `azurefile-csi-premium`: Uses Azure Premium Storage to create an Azure Files share.
+- `azurefile-csi`: Uses Azure Standard Storage to create an Azure file share.
+- `azurefile-csi-premium`: Uses Azure Premium Storage to create an Azure file share.
 
-The reclaim policy on both storage classes ensures that the underlying Azure Files share is deleted when the respective PV is deleted. The storage classes also configure the file shares to be expandable, you just need to edit the [persistent volume claim][persistent-volume-claim-overview] (PVC) with the new size.
+The reclaim policy on both storage classes ensures that the underlying Azure files share is deleted when the respective PV is deleted. The storage classes also configure the file shares to be expandable, you just need to edit the [persistent volume claim][persistent-volume-claim-overview] (PVC) with the new size.
 
-To use these storage classes, create a PVC and respective pod that references and uses them. A PVC is used to automatically provision storage based on a storage class. A PVC can use one of the pre-created storage classes or a user-defined storage class to create an Azure Files share for the desired SKU and size. When you create a pod definition, the PVC is specified to request the desired storage.
+To use these storage classes, create a PVC and respective pod that references and uses them. A PVC is used to automatically provision storage based on a storage class. A PVC can use one of the pre-created storage classes or a user-defined storage class to create an Azure files share for the desired SKU and size. When you create a pod definition, the PVC is specified to request the desired storage.
 
 Create an [example PVC and pod that prints the current date into an `outfile`](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/statefulset.yaml) by running the [kubectl apply][kubectl-apply] commands:
 
@@ -124,7 +124,7 @@ The output of the command resembles the following example:
 storageclass.storage.k8s.io/my-azurefile created
 ```
 
-The Azure File CSI driver supports creating [snapshots of persistent volumes](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html) and the underlying file shares.
+The Azure Files CSI driver supports creating [snapshots of persistent volumes](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html) and the underlying file shares.
 
 > [!NOTE]
 > This driver only supports snapshot creation, restore from snapshot is not supported by this driver. Snapshots can be restored from Azure portal or CLI. For more information about creating and restoring a snapshot, see [Overview of share snapshots for Azure Files][share-snapshots-overview].
@@ -418,7 +418,7 @@ accountname.file.core.windows.net:/accountname/pvc-fa72ec43-ae64-42e4-a8a2-55660
 
 ## Windows containers
 
-The Azure File CSI driver also supports Windows nodes and containers. To use Windows containers, follow the [Windows containers quickstart](./learn/quick-windows-container-deploy-cli.md) to add a Windows node pool.
+The Azure Files CSI driver also supports Windows nodes and containers. To use Windows containers, follow the [Windows containers quickstart](./learn/quick-windows-container-deploy-cli.md) to add a Windows node pool.
 
 After you have a Windows node pool, use the built-in storage classes like `azurefile-csi` or create a custom one. You can deploy an example [Windows-based stateful set](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) that saves timestamps into a file `data.txt` by running the [kubectl apply][kubectl-apply] command:
 

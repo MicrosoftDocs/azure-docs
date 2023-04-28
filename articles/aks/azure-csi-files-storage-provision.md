@@ -9,7 +9,7 @@ ms.date: 01/18/2023
 
 # Create and use a volume with Azure Files in Azure Kubernetes Service (AKS)
 
-A persistent volume represents a piece of storage that has been provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods, and can be dynamically or statically provisioned. If multiple pods need concurrent access to the same storage volume, you can use Azure Files to connect using the [Server Message Block (SMB) protocol][smb-overview]. This article shows you how to dynamically create an Azure Files share for use by multiple pods in an Azure Kubernetes Service (AKS) cluster.
+A persistent volume represents a piece of storage that has been provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods, and can be dynamically or statically provisioned. If multiple pods need concurrent access to the same storage volume, you can use Azure Files to connect using the [Server Message Block (SMB) protocol][smb-overview]. This article shows you how to dynamically create an Azure file share for use by multiple pods in an Azure Kubernetes Service (AKS) cluster.
 
 This article shows you how to:
 
@@ -474,7 +474,7 @@ kubectl apply -f azurefiles-mount-options-pvc.yaml
 
 ## Next steps
 
-For Azure File CSI driver parameters, see [CSI driver parameters][CSI driver parameters].
+For Azure Files CSI driver parameters, see [CSI driver parameters][CSI driver parameters].
 
 For associated best practices, see [Best practices for storage and backups in AKS][operator-best-practices-storage].
 
