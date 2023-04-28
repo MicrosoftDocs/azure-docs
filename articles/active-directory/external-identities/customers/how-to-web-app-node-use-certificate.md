@@ -26,31 +26,62 @@ In this article, you learn to generate a self-signed certificate by using [Azure
 
 When needed, you can also create a self-signed certificate programmatically by using [.NET](/azure/key-vault/certificates/quick-create-net), [Node.js](/azure/key-vault/certificates/quick-create-node), [Go](/azure/key-vault/certificates/quick-create-go), [Python](/azure/key-vault/certificates/quick-create-python) or [Java](/azure/key-vault/certificates/quick-create-java) client libraries.
 
+## Prerequisites
+
+- [Node.js](https://nodejs.org).
+
+- [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
+
+- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-hub-free-trial). 
+
+- [OpenSSL](https://wiki.openssl.org/index.php/Binaries).
+
+- [Windows PowerShell](/powershell/scripting/windows-powershell/install/installing-windows-powershell) or Azure subscription. 
+
 ## Create a self-signed certificate
-
-:
-# [Azure Key Vault - Portal](#tab/azure-key-vault)
-You can use [Azure Key Vault](/azure/key-vault/certificates/quick-create-portal) to generate a self-signed certificate for your app. By using Azure Key Vault, you enjoy benefits, such as, assigning a partner Certificate Authority (CA) and automating certificate rotation.
-
-Follow the steps in [Set and retrieve a certificate from Azure Key Vault using the Azure portal](/azure/key-vault/certificates/quick-create-portal) to create and download your certificate.
 
 If you have an existing self-signed certificate in your local computer, you can skip this step, then proceed to [Upload certificate to your app registration](#upload-certificate-to-your-app-registration).
 
-If you have an existing self-signed certificate in Azure Key Vault, and you want to use it without downloading it, skip this step, then proceed to [Use a self-signed certificate directly from Azure Key Vault](#use-a-self-signed-certificate-directly-from-azure-key-vault). 
+# [Azure Key Vault - Portal](#tab/azure-key-vault)
+You can use [Azure Key Vault](/azure/key-vault/certificates/quick-create-portal) to generate a self-signed certificate for your app. By using Azure Key Vault, you enjoy benefits, such as, assigning a partner Certificate Authority (CA) and automating certificate rotation.
 
+If you have an existing self-signed certificate in Azure Key Vault, and you want to use it without downloading it, skip this step, then proceed to [Use a self-signed certificate directly from Azure Key Vault](#use-a-self-signed-certificate-directly-from-azure-key-vault). Otherwise, use the following steps to generate your certificate 
 
+1. Follow the steps in [Set and retrieve a certificate from Azure Key Vault using the Azure portal](/azure/key-vault/certificates/quick-create-portal) to create and download your certificate.
+
+1. After your create your certificates, download the both the *.cer* format and the *.pfx* format such as *ciam-client-app-cert.pfx* and *ciam-client-app-cert.cer*. The *.cer* file is what you upload to your Microsoft Entra admin center.
+
+1. In your terminal, run the following command to extract the private key from the *.pfx* file. When prompted to type your import password, just press **Enter** key you didn't set a password for the private key. When prompted to type in your pass phrase, type a pass phrase of your choice: 
+
+    ```console
+    openssl pkcs12 -in ciam-client-app-cert.pfx -nocerts -out ciam-client-app-cert.key
+    ```
+    
+    The *ciam-client-app-cert.key* is what you use in your app.
+    
 
 # [Windows PowerShell](#tab/windows-powershell)
 
-Content comes here
+1. Use the steps in [Create a self-signed public certificate to authenticate your application](/azure/active-directory/develop/howto-create-self-signed-certificate). Make sure you export your public certificate with its private key. For the `certificateName`, use *ciam-client-app-cert*. 
+
+1. In your terminal, run the following command to extract the private key from the *.pfx* file. When prompted to type in your pass phrase, type a pass phrase of your choice: 
+
+    ```console
+    openssl pkcs12 -in ciam-client-app-cert.pfx -nocerts -out ciam-client-app-cert.key
+    ```
+After you complete these steps, you have a *.cer* file and a *.key*, such as *ciam-client-app-cert.key* and *ciam-client-app-cert.cer*. The *.key* is what you use in your app. The *.cer* file is what you upload to your Microsoft Entra admin center. 
 
 
 
 # [OpenSSL](#tab/openssl)
 
-Content comes here
+In your terminal, run the following command. When prompted to type in your pass phrase, type a pass phrase of your choice: 
 
+```console
+openssl req -x509 -newkey rsa:2048 -keyout ciam-client-app-cert.key -out ciam-client-app-cert.crt -subj "/CN=ciamclientappcert.com"
+``` 
 
+After the command finishes execution, you should a *.crt* and a *.key* files, such as such as *ciam-client-app-cert.key* and *ciam-client-app-cert.crt*. The *.key* is what you use in your app. The *.cer* file is what you upload to your Microsoft Entra admin center. 
 
 --- 
 
@@ -62,44 +93,65 @@ Content comes here
 
 Once you associate your app registration with the certificate, you need to update your app code to start using the certificate:
 
-1. Locate the file that contains your MSAL configuration object, such as `msalConfig`  in *authConfig.js*.
-    
-    ```javascript
-    const msalConfig = {
-        auth: {
-            clientId: process.env.CLIENT_ID || 'Enter_the_Application_Id_Here', // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
-            authority: process.env.AUTHORITY || `https://${TENANT_NAME}.ciamlogin.com/`, 
-            clientSecret: process.env.CLIENT_SECRET || 'Enter_the_Client_Secret_Here', // Client secret generated from the app registration in Azure portal
-        },
-        //...
-    };
-    ```
-1. Comment the `clientSecret` property, then add the `clientCertificate` object  to look similar to the following code:
+1. Locate the file that contains your MSAL configuration object, such as `msalConfig`  in *authConfig.js*, then update it to look similar to the following code:
 
     ```javascript
+    require('dotenv').config();
     const fs = require('fs'); //// import the fs module for reading the key file
-
-    const msalConfig = {
-        auth: {
-            clientId: process.env.CLIENT_ID || 'Enter_the_Application_Id_Here', // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
-            authority: process.env.AUTHORITY || `https://${TENANT_NAME}.ciamlogin.com/`, 
-            //clientSecret: process.env.CLIENT_SECRET || 'Enter_the_Client_Secret_Here', // Client secret generated from the app registration in Azure portal
-            clientCertificate: {
-                thumbprint: "YOUR_CERT_THUMBPRINT", // replace with thumbprint obtained during step 2 above
-                privateKey: fs.readFileSync('PATH_TO_YOUR_PRIVATE_KEY_FILE'), // such as, c:/Users/your-username/Desktop/ciam-client-app-cert.key
-            }
-        },
-        //...
-    };
-    ```
+    const crypto = require('crypto');
+    const TENANT_NAME = process.env.TENANT_NAME || 'Enter_the_Tenant_Name_Here';
+    const REDIRECT_URI = process.env.REDIRECT_URI || 'http://localhost:3000/auth/redirect';
+    const POST_LOGOUT_REDIRECT_URI = process.env.POST_LOGOUT_REDIRECT_URI || 'http://localhost:3000';
     
-    Make sure you import the file system (fs) module as you need it to read the certificate file. 
-
+    const privateKeySource = fs.readFileSync('PATH_TO_YOUR_PRIVATE_KEY_FILE')
+    
+    const privateKeyObject = crypto.createPrivateKey({
+        key: privateKeySource,
+        passphrase: 'Add_Passphrase_Here',
+        format: 'pem'
+    });
+    
+    const privateKey = privateKeyObject.export({
+        format: 'pem',
+        type: 'pkcs8'
+    });
+    
+    /**
+     * Configuration object to be passed to MSAL instance on creation.
+     * For a full list of MSAL Node configuration parameters, visit:
+     * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/configuration.md
+     */
+        const msalConfig = {
+            auth: {
+                clientId: process.env.CLIENT_ID || 'Enter_the_Application_Id_Here', // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
+                authority: process.env.AUTHORITY || `https://${TENANT_NAME}.ciamlogin.com/`, 
+                //clientSecret: process.env.CLIENT_SECRET || 'Enter_the_Client_Secret_Here', // Client secret generated from the app registration in Azure portal
+                clientCertificate: {
+                    thumbprint: "YOUR_CERT_THUMBPRINT", // replace with thumbprint obtained during step 2 above
+                    privateKey:privateKey
+                }
+            },
+            //... Rest of code in the msalConfig object
+        };
+    
+    module.exports = {
+        msalConfig,
+        REDIRECT_URI,
+        POST_LOGOUT_REDIRECT_URI,
+        TENANT_NAME
+    };
+    ```   
     In your code, replace the placeholders: 
-
+    
+    - `Add_Passphrase_Here` with the pass phrase you used to encrypt your private key.
+    
     - `YOUR_CERT_THUMBPRINT` with the **Thumbprint** value you recorded earlier.
     
-    - `PATH_TO_YOUR_PRIVATE_KEY_FILE` with the file path to your certificate. 
+    - `PATH_TO_YOUR_PRIVATE_KEY_FILE` with the file path to your certificate (the *.key* file). 
+    
+    -  `Enter_the_Application_Id_Here` with the Application (client) ID of the app you registered earlier.
+    
+    - `Enter_the_Tenant_Name_Here` and replace it with the Directory (tenant) name. If you don't have your tenant name, learn how to [read tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
 
 1. Use the steps in [Run and test the web app](how-to-web-app-node-sign-in-sign-in-out.md#run-and-test-the-web-app) to test your app.
 
@@ -179,7 +231,7 @@ You can use your existing certificate directly from Azure Key Vault:
         privateKey: privateKey,
     };
 
-    msalConfig.auth.clientCertificate = clientCert;
+    msalConfig.auth.clientCertificate = clientCert; //For this to work, you can declares your msalConfig using const modifier 
     ```  
 
 1. Then proceed to instantiate your confidential client as shown in the `getMsalInstance` method:

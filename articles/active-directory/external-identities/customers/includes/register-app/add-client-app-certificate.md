@@ -27,7 +27,7 @@ To use your client app certificate, you need to associate the app you registered
 
 1. Select **Certificates**, then select **Upload certificate**.
 
-1. Select the **Select a file** file icon, then select the certificate you want to upload, such as *ciam-client-app-cert.pem*.
+1. Select the **Select a file** file icon, then select the certificate you want to upload, such as *ciam-client-app-cert.pem* or *ciam-client-app-cert.cer* or *ciam-client-app-cert.crt*.
 
 1. For **Description**, type in a description, such as, *CIAM client app certificate*, then select **Add** to upload your certificate. Once the certificate is uploaded, the **Thumbprint**, **Start date**, and *Expires* values are displayed.
 
