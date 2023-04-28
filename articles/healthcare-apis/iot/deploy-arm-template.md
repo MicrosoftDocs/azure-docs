@@ -118,7 +118,7 @@ When deployment is completed, the following resources and access roles are creat
 > [!IMPORTANT]
 > In this quickstart, the ARM template configures the MedTech service to operate in **Create** mode. A patient resource and a device resource are created for each device that sends data to your FHIR service.
 >
-> To learn about the MedTech service resolution types **Create** and **Lookup**, see [Destination properties](deploy-manual-portal.md#configure-the-destination-tab).
+> To learn about the MedTech service resolution types **Create** and **Lookup**, see [Configure the Destination tab](deploy-manual-portal.md#configure-the-destination-tab).
 
 ## Post-deployment mappings
 
