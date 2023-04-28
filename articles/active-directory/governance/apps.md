@@ -22,8 +22,8 @@ ms.reviewer: amycolannino
 
 | Category | Application |
 | :--- | :--- |
-| Human Resources | [SuccessFactors - User Provisioning](../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md) |
-| Human Resources| [Workday - User Provisioning](../../active-directory/saas-apps/workday-inbound-cloud-only-tutorial.md)|
+| HR | [SuccessFactors - User Provisioning](../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md) |
+| HR | [Workday - User Provisioning](../../active-directory/saas-apps/workday-inbound-cloud-only-tutorial.md)|
 |[LDAP](../../active-directory/app-provisioning/on-premises-ldap-connector-configure.md)| OpenLDAP<br>Microsoft Active Directory Lightweight Directory Services<br>389 Directory Server<br>Apache Directory Server<br>IBM Tivoli DS<br>Isode Directory<br>NetIQ eDirectory<br>Novell eDirectory<br>Open DJ<br>Open DS<br>Oracle (previously Sun ONE) Directory Server Enterprise Edition<br>RadiantOne Virtual Directory Server (VDS) |
 | [SQL](../../active-directory/app-provisioning/tutorial-ecma-sql-connector.md)| Microsoft SQL Server and Azure SQL<br>IBM DB2 10.x<br>IBM DB2 9.x<br>Oracle 10g and 11g<br>Oracle 12c and 18c<br>MySQL 5.x|
 | Cloud platform| [AWS IAM Identity Center](../../active-directory/saas-apps/aws-single-sign-on-provisioning-tutorial.md) |
