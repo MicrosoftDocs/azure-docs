@@ -57,7 +57,7 @@ To integrate with Box (using Azure Functions) make sure you have:
 
 **STEP 1 - Configuration of the Box events collection**
 
-See documentation to [setup JWT authentication](https://developer.box.com/guides/applications/custom-apps/jwt-setup/) and [obtain JSON file with credentials](https://developer.box.com/guides/authentication/jwt/with-sdk/#prerequisites).
+See documentation to [setup JWT authentication](https://developer.box.com/guides/authentication/jwt/jwt-setup/) and [obtain JSON file with credentials](https://developer.box.com/guides/authentication/jwt/with-sdk/#prerequisites).
 
 
 **STEP 2 - Choose ONE from the following two deployment options to deploy the connector and the associated Azure Function**
@@ -85,7 +85,7 @@ Use the following step-by-step instructions to deploy the Box data connector man
 
 **1. Deploy a Function App**
 
-> **NOTE:** You will need to [prepare VS code](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-python) for Azure function development.
+> **NOTE:** You will need to [prepare VS code](/azure/azure-functions/create-first-function-vs-code-python) for Azure function development.
 
 1. Download the [Azure Function App](https://aka.ms/sentinel-BoxDataConnector-functionapp) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.
