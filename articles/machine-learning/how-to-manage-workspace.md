@@ -220,7 +220,7 @@ While using a workspace, you have opportunities to provide feedback about Azure 
 * Occasional in-product surveys
 * The smile-frown feedback tool in the banner of the workspace
 
-You can turn off all feedback opportunities for a workspace.  When off, users of the workspace won't see any surveys, and the smile-frown feedback tool is no longer visible. Use the Portal to turn off feedback.
+You can turn off all feedback opportunities for a workspace.  When off, users of the workspace won't see any surveys, and the smile-frown feedback tool is no longer visible. Use the Azure portal to turn off feedback.
 
 * When creating the workspace, turn off feedback from the **Tags** section:
 
