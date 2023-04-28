@@ -50,15 +50,15 @@ Flagged sign-in events can also be reviewed from the Sign-In Diagnostic. Flagged
 You can start the Sign-in Diagnostic from the **Diagnose and Solve Problems** area of Azure AD. From Diagnose and Solve Problems you can review any flagged sign-in events or search for a specific sign-in event. You can also start this process from the Conditional Access Diagnose and Solve Problems area.
 
 **To search for sign-in events**:
-1. Go to **Azure AD** > **Diagnose and Solve Problems**. 
-1. Select the **All Sign-In Events** tab to start the search. 
+1. Go to **Azure AD** or **Azure AD Conditional Access** > **Diagnose and Solve Problems**. 
+1. Select the **All Sign-In Events** tab to start a search. 
 1. Enter as many details as possible into the search fields.
     - **User**: Provide the name or email address of who made the sign-in attempt.
     - **Application**: Provide the application display name or application ID.
     - **correlationId** or **requestId**: These details can be found in the error report or the sign-in log details. 
     - **Date and time**: Provide a date and time to find sign-in events that occurred within 48 hours.
 1. Select the **Next** button.
-1. Explore the results.
+1. Explore the results and take action as necessary.
 
 ### From the Sign-in logs
 
@@ -69,7 +69,7 @@ You can start the Sign-in Diagnostic from a specific sign-in event in the Sign-i
 1. From the Activity Details window that opens, select the **Launch the Sign-in Diagnostic** link.
 
     ![Screenshot showing how to launch sign-in diagnostics from Azure AD.](./media/overview-sign-in-diagnostics/sign-in-logs-link.png)
-1. Explore the results.
+1. Explore the results and take action as necessary.
 
 ### From a support request
 
@@ -80,14 +80,14 @@ If you're in the middle of creating a support request *and* the options you sele
     - **Service type**: Azure Active Directory Sign-in and Multi-Factor Authentication
     - **Problem type**: Multi-Factor Authentication
     - **Problem subtype**: Unable to sign-in to an application due to MFA
-1. After the diagnostics run, explore the results.
+1. Explore the results and take action as necessary.
 
 ## How to use the Diagnostic Results
 
-After the Sign-in Diagnostic as completes its search, a few things appear on the screen:
+After the Sign-in Diagnostic completes its search, a few things appear on the screen:
 
 - The **Authentication Summary** lists all of the events that match the details you provided.
-    - Select the **View Columns** option in the upper-right corner of the summary to change the details that appear.
+    - Select the **View Columns** option in the upper-right corner of the summary to change the columns that appear.
 - The **Diagnostic Results** describe what happened during the sign-in events.
     - Scenarios could include MFA requirements from a Conditional Access policy, sign-in events that may need to have a Conditional Access policy applied, or a large number of failed sign-in attempts over the past 48 hours.
     - Related content and links to troubleshooting tools may be provided. 
@@ -98,3 +98,5 @@ After the Sign-in Diagnostic as completes its search, a few things appear on the
 ## Next steps
 
 - [Sign in diagnostics for Azure AD scenarios](concept-sign-in-diagnostics-scenarios.md)
+- [Learn about flagged sign-ins](overview-flagged-sign-ins.md)
+- [Troubleshoot sign-in errors](howto-troubleshoot-sign-in-errors.md)
