@@ -2,16 +2,16 @@
 title: Entra Identity Governance Integrations
 description: This page provides an overview of the Entra Identity Governance integrations available to automate provisioning and governance controls.
 services: active-directory
-author: jeevansd
-manager: CelesteDG
+author: billmath
+manager: amycolannino
 ms.service: active-directory
-ms.subservice: saas-app-tutorial
-ms.topic: landing-page
+ms.subservice: compliance
+ms.topic: overview
 ms.workload: identity
 ms.date: 04/28/2023
-ms.author: jeedes
+ms.author: billmath
 ms.custom: contperf-fy21q3-portal
-ms.reviewer: celested
+ms.reviewer: amycolannino
 ---
 
 # Entra Identity Governance Integrations
