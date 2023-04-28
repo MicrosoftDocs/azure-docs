@@ -26,8 +26,9 @@ In this article, learn specifics of working within a VS Code remote connection t
 
 ## Prerequisites
 
-1. [!INCLUDE [workspace](includes/prereq-workspace.md)]
-1. [!INCLUDE [compute instance](includes/prereq-compute-instance.md)]
+Before you get started, you will need:
+
+1. [!INCLUDE [workspace and compute instance](includes/prereq-workspace-compute-instance.md)]
 
 ## Set up your remotely connected IDE
 

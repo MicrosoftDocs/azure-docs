@@ -10,4 +10,4 @@ ms.author: sgilley
 ms.custom: include file
 ---
 
-A compute instance. If you don't have one, [create one now](../quickstart-create-resources.md#create-a-compute-instance).
+An Azure Machine Learning workspace and compute instance.  Complete [Create resources you need to get started](../quickstart-create-resources.md) to create them both.

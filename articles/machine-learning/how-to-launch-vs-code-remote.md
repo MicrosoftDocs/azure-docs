@@ -34,9 +34,10 @@ There are two ways you can connect to a compute instance from Visual Studio Code
 
 Before you get started, you will need:
 
-* [!INCLUDE [workspace](includes/prereq-workspace.md)]
-* [!INCLUDE [compute instance](includes/prereq-compute-instance.md)]
-* In the **Manage preview features** panel, scroll down and enable **Connect compute instances to Visual Studio Code for the Web**.
+1. [!INCLUDE [workspace and compute instance](includes/prereq-workspace-compute-instance.md)]
+1. [!INCLUDE [sign in](includes/prereq-sign-in.md)]
+
+1. In the **Manage preview features** panel, scroll down and enable **Connect compute instances to Visual Studio Code for the Web**.
 
     :::image type="content" source="media/how-to-launch-vs-code-remote/enable-web-preview.png" alt-text="Screenshot showing enable the VS Code for the web preview.":::
 
