@@ -131,7 +131,7 @@ The following table summarizes the file fields to fill in:
 **OS version** | No | Server operating system version.
 **OS architecture** | No | Server OS architecture <br/> Valid values are: x64, x86, amd64, 32-bit or 64-bit
 **Server type** | No |Type of server <br/> Valid values are: Virtual, Physical
-**Hypervisor** | No | If server type is Virtual, specify hypervisor name <br/> Valid values are: Vmware, Hyper-V
+**Hypervisor** | No | If server type is Virtual, specify hypervisor name <br/> Valid values are: *Vmware*, *Hyper-V*
 **Number of disks** | No | Not needed if individual disk details are provided.
 **Storage in use (In GB)** | No | You can add how much storage is in use per server.<br/> This field will **only be used in Azure VMware Solution assessment** sizing logic.
 **Disk 1 size**  | No | Maximum size of disk, in GB.<br/>You can add details for more disks by [adding columns](#add-multiple-disks) in the template. You can add up to twenty disks.
