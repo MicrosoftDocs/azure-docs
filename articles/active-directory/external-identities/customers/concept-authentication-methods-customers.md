@@ -26,8 +26,10 @@ Email sign-up is enabled by default in your local account identity provider sett
 - **Sign-in**: After the customer signs up and creates an account, they can sign in by entering their email address and password.
 
 - **Password reset**: The customer enters and verifies their email, after which the customer can reset their password.
- 
-When you [create and customize your sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md#create-and-customize-a-user-flow), **Email with password** is the default option.
+
+   :::image type="content" source="media/concept-authentication-methods-customers/email-password.png" alt-text="Screenshots of the email and password sign-in screens." lightbox="media/concept-authentication-methods-customers/email-password.png" border="false":::
+
+When you [create a sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md#create-and-customize-a-user-flow), **Email with password** is the default option.
 
 ## Email with one-time passcode sign-in
 
@@ -37,17 +39,15 @@ Email with one-time passcode is an option in your local account identity provide
 
 - **Sign-in**: After the customer signs up and creates an account, they can sign in by entering their email address and receiving a one-time passcode.
 
-When you [create and customize your sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md#create-and-customize-a-user-flow), **Email one-time passcode** one of the local account options.
+   :::image type="content" source="media/concept-authentication-methods-customers/email-passcode.png" alt-text="Screenshots of the email and password sign-in screens." lightbox="media/concept-authentication-methods-customers/email-password.png" border="false":::
+
+When you [create a sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md#create-and-customize-a-user-flow), **Email one-time passcode** one of the local account options.
 
 ## Social identity providers: Facebook and Google
 
 For an optimal sign-in experience, federate with social identity providers whenever possible so you can give your customers a seamless sign-up and sign-in experience. In a customer tenant, you can allow a customer to sign up and sign in using their own Facebook or Google account. When a customer signs up for your app using their social account, the social identity provider creates, maintains, and manages identity information while providing authentication services to applications.
 
-When you enable social identity providers, customers can select from the social identity providers options you've made available on the sign-up page.
-
-<!--[Screenshot that shows the Google and Facebook options.](./media/sign-in-with-google/sign-in-with-google-flow.png)-->
-
-To set up social identity providers in your customer tenant, you create an application at the identity provider and configure credentials. You obtain a client or app ID and a client or app secret, which you can then add to your customer tenant.
+When you enable social identity providers, customers can select from the social identity providers options you've made available on the sign-up page. To set up social identity providers in your customer tenant, you create an application at the identity provider and configure credentials. You obtain a client or app ID and a client or app secret, which you can then add to your customer tenant.
 
 ### Google sign-in
 
@@ -55,7 +55,7 @@ By setting up federation with Google, you can allow customers to sign in to your
 
 The following screenshots show the sign-in with Google experience. In the sign-in page, users select **Sign-in options**, and then select **Sign-in with Google**. At that point, the user is redirected to the Google identity provider to complete the sign-in.
 
-<!--[Screenshot that shows the sign-in with Google flow.](./media/sign-in-with-google/sign-in-with-google-flow.png)-->
+   :::image type="content" source="media/concept-authentication-methods-customers/google-sign-up.png" alt-text="Screenshots of the email and password sign-in screens." lightbox="media/concept-authentication-methods-customers/google-sign-up.png" border="false":::
 
 Learn how to [add Google as an identity provider](how-to-google-federation-customers.md).
 ### Facebook sign-in
@@ -64,7 +64,7 @@ By setting up federation with Facebook, you can allow invited users to sign in t
 
 The following screenshots show the sign-in with Facebook experience. In the sign-in page, users select **Sign-in options**, and then select **Sign-in with Facebook**. Then the user is redirected to the Facebook identity provider to complete the sign-in.
 
-<!--[Screenshot that shows the sign-in with Facebook flow.](./media/sign-in-with-facebook/sign-in-with-facebook-flow.png)-->
+   :::image type="content" source="media/concept-authentication-methods-customers/facebook-sign-up.png" alt-text="Screenshots of the email and password sign-in screens." lightbox="media/concept-authentication-methods-customers/facebook-sign-up.png" border="false":::
 
 Learn how to [add Facebook as an identity provider](how-to-facebook-federation-customers.md).
 ## Next steps
