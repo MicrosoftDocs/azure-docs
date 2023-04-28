@@ -77,7 +77,6 @@ Delegated Permission: User.Invite.All
       "sendInvitationMessage": ``true``,  
       "inviteRedirectUrl": "https://customapp.contoso.com"  
     } 
-
 ```
 
 >[!Note] 
@@ -97,9 +96,9 @@ For example:
 Required application permissions (from least to most privileged).
 
 ```
-    User.ReadWrite.All, Directory.ReadWrite.All 
-    PATCH https://graph.microsoft.com/v1.0/users/<user’s object ID> 
-    Content-type: application/json 
+User.ReadWrite.All, Directory.ReadWrite.All 
+  PATCH https://graph.microsoft.com/v1.0/users/<user’s object ID> 
+  Content-type: application/json 
     { 
     "businessPhones": [ 
 
@@ -109,7 +108,6 @@ Required application permissions (from least to most privileged).
     "surname": "Doe", 
     "extension_cf4ff515cbf947218d468c96f9dc9021_appRole": "external" 
     }
-
  ```
 
 For more information, see [Update user - Microsoft Graph v1.0](../graph/api/user-update?view=graph-rest-1.0&tabs=http). 
