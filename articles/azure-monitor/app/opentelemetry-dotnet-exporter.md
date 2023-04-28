@@ -35,12 +35,6 @@ Install the latest [Azure.Monitor.OpenTelemetry.Exporter](https://www.nuget.org/
 dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter 
 ```
 
-If you get an error like "There are no versions available for the package Azure.Monitor.OpenTelemetry.Exporter," it's probably because the setting of NuGet package sources is missing. Try to specify the source with the `-s` option:
-
-```dotnetcli
-# Install the latest package with the NuGet package source specified.
-dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter -s https://api.nuget.org/v3/index.json
-```
 ### Enable Azure Monitor Application Insights
 
 This section provides guidance that shows how to enable OpenTelemetry.
