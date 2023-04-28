@@ -2,15 +2,15 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: radubulboaca
-manager: mariusu
+author: orwatson
+manager: alexokun
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 09/08/2022
+ms.date: 04/28/2023
 ms.topic: include
 ms.custom: include file
-ms.author: antonsamson
+ms.author: orwatson
 ---
 
 ## Prerequisites
@@ -41,8 +41,6 @@ npm init -y
 
 ### Install the packages
 
-You'll need to use the Azure Communication Rooms client library for JavaScript [version 1.0.0-beta.1](https://www.npmjs.com/package/@azure/communication-rooms) or above. 
-
 Use the `npm install` command to install the below Communication Services SDKs for JavaScript.
 
 ```console
@@ -72,15 +70,17 @@ const roomsClient = new RoomsClient(connectionString);
 Create a new `room` with default properties using the code snippet below:
 
 ```javascript
+let validFrom = new Date(Date.now());
+let validForDays = 3;
+let validUntil = validFrom.setDate(validFrom.getTime() + validForDays);
+
 // options payload to create a room
 const createRoomOptions = {
   validFrom: validFrom,
   validUntil: validUntil,
-  roomJoinPolicy: "InviteOnly",
   participants: [
     {
-      id: user1.user,
-      role: "Attendee",
+      id: user1.user
     },
   ]
 };
@@ -103,11 +103,12 @@ const getRoom = await roomsClient.getRoom(roomId);
 
 ### Update the lifetime of a room
 
-The lifetime of a `room` can be modified by issuing an update request for the `ValidFrom` and `ValidUntil` parameters. A room can be valid for a maximum of six months.
+The lifetime of a `room` can be modified by issuing an update request for the `validFrom` and `validUntil` parameters. A room can be valid for a maximum of six months.
 
 ```javascript
-validFrom.setTime(validUntil.getTime());
-validUntil.setTime(validFrom.getTime() + 5 * 60 * 1000);
+validFrom = new Date(Date.now());
+validForDays = 30;
+validUntil = validFrom.setDate(validFrom.getTime() + validForDays);
 
 // request payload to update a room
 const updateRoomOptions = {
@@ -121,7 +122,7 @@ const updateRoom = await roomsClient.updateRoom(roomId, updateRoomOptions);
 
 ### Add new participants
 
-To add new participants to a `room`, use the `addParticipants` method exposed on the client.
+To add new participants to a `room`, use the `addOrUpdateParticipants` method exposed on the client. This method will also update a participant if they already exist in the room.
 
 ```javascript
   // request payload to add participants
@@ -135,7 +136,7 @@ To add new participants to a `room`, use the `addParticipants` method exposed on
   };
 
   // add user2 to the room with the request payload
-  const addParticipants = await roomsClient.addParticipants(roomId, addParticipantsList);
+  const addParticipants = await roomsClient.addOrUpdateParticipants(roomId, addParticipantsList);
 ```
 
 Participants that have been added to a `room` become eligible to join calls.
@@ -145,7 +146,11 @@ Participants that have been added to a `room` become eligible to join calls.
 Retrieve the list of participants for an existing `room` by referencing the `roomId`:
 
 ```javascript
-  const participantsList = await roomsClient.getParticipants(roomId);
+  const participantsList = await roomsClient.listParticipants(roomId);
+  for await (const participant of participantsList) {
+    // access participant data
+    console.log(`The participant's role is ${participant.role}.`);
+  }
 ```
 
 ### Remove participants
@@ -153,13 +158,8 @@ Retrieve the list of participants for an existing `room` by referencing the `roo
 To remove a participant from a `room` and revoke their access, use the `removeParticipants` method.
 
 ```javascript
-  // request payload to delete both users from the room
-  const removeParticipantsList = {
-    participants: [user1.user, user2.user],
-  };
-
-  // remove both users from the room with the request payload
-  await roomsClient.removeParticipants(roomId, removeParticipantsList);
+  const participantsToRemove = [user1.user, user2.user];
+  await roomsClient.removeParticipants(roomId, participantsToRemove);
 ```
 
 ### Delete room
