@@ -16,7 +16,7 @@ ms.reviewer: amycolannino
 
 # Entra Identity Governance Integrations
 
-[Microsoft Entra Identity Governance](/identity-governance-applications-prepare.md) allows you to balance your organization's need for security and employee productivity with the right processes and visibility. This page provides an overview of the hundreds of Entra Identity Governance integrations available. These application integrations are used to automate [identity lifecycle](/what-is-identity-lifecycle-management.md) and implement governance controls across your organization.
+[Microsoft Entra Identity Governance](/identity-governance-applications-prepare.md) allows you to balance your organization's need for security and employee productivity with the right processes and visibility. This page provides an overview of the hundreds of Entra Identity Governance integrations available. These application integrations are used to automate [identity lifecycle management](/what-is-identity-lifecycle-management.md) and implement governance controls across your organization. Through these rich integrations, you can automate providing users access to applications, perform pereodic reviews of who has access to an application, and secure them with capabilities such as multi-factor authentication. 
 
 ## Featured integrations
 
@@ -26,7 +26,7 @@ ms.reviewer: amycolannino
 | Human Resources| [Workday - User Provisioning](../../active-directory/saas-apps/workday-inbound-cloud-only-tutorial.md)|
 |[LDAP](../../active-directory/app-provisioning/on-premises-ldap-connector-configure.md)| OpenLDAP<br>Microsoft Active Directory Lightweight Directory Services<br>389 Directory Server<br>Apache Directory Server<br>IBM Tivoli DS<br>Isode Directory<br>NetIQ eDirectory<br>Novell eDirectory<br>Open DJ<br>Open DS<br>Oracle (previously Sun ONE) Directory Server Enterprise Edition<br>RadiantOne Virtual Directory Server (VDS) |
 | [SQL](../../active-directory/app-provisioning/tutorial-ecma-sql-connector.md)| Microsoft SQL Server and Azure SQL<br>IBM DB2 10.x<br>IBM DB2 9.x<br>Oracle 10g and 11g<br>Oracle 12c and 18c<br>MySQL 5.x|
-| Cloud platform| [Amazon Web Services (AWS) Console - Role Provisioning](../../active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-sso.md) |
+| Cloud platform| [AWS IAM Identity Center](../../active-directory/saas-apps/aws-single-sign-on-provisioning-tutorial.md) |
 | Cloud platform| [Google Cloud Platform - User Provisioning](../../active-directory/saas-apps/g-suite-provisioning-tutorial.md) |
 | Cloud platform|[SAP Cloud Identity Platform - Provisioning](../../active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md) |
 | CRM| [Salesforce - User Provisioning](../../active-directory/saas-apps/salesforce-provisioning-tutorial.md) |
