@@ -51,11 +51,11 @@ Selection of **Config Server Health Check**, **Config Server Health Status**, or
 
 ![Issues options](media/spring-cloud-diagnose/detectors-options.png)
 
-Find your target detector, and select it to execute. A summary of diagnostics will be shown after you execute the detector. You can select **View Full Report** to check diagnostic details or select **Show Tile Menu** button to go back to detector list.
+Find your target detector, and select it to execute. A summary of diagnostics will be shown after you execute the detector. You can select **View details** to check diagnostic details.
 
 ![Summary diagnostics](media/spring-cloud-diagnose/summary-diagnostics.png)
 
-In diagnostic details page, you can change the diagnostic time range with the controller at top-right corner. To see more metrics or logs, toggle each diagnostic. There can be a 15-minute delay for metrics and logs.
+In diagnostic details page, you can change the diagnostic time range with the controller at top-left corner. There can be a 15-minute delay for metrics and logs.
 
 ![Diagnostics details](media/spring-cloud-diagnose/diagnostics-details.png)
 
