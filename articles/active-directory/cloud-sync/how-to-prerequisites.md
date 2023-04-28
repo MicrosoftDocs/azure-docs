@@ -140,6 +140,13 @@ If there's a firewall between your servers and Azure AD, configure the following
 
 You should not enable NTLM on the Windows Server that is running the Azure AD Connect Provisioning Agent and if it is enabled you should make sure you disable it. 
 
+## Domain Admin account
+
+You must have an account readily available that is a member of the **Domain Admins** security group.
+The credentials are not saved by the agent and are solely used during the set up process.
+If the account is also a member of the **Protected Users** security group you will be informed that validation failed for these credentials.
+In this case, you must remove the account temporarily from the **Protected Users** group.
+
 ## Known limitations
 
 The following are known limitations:
