@@ -34,7 +34,7 @@ Before you get started, you will need:
 
 VS Code has multiple extensions that can help you achieve your machine learning goals. Use the Azure extension to connect and work with your Azure subscription. Use the Azure Machine Learning extension to view, update and create workspace assets like computes, data, environments, jobs and more.
 
-When you use [VS Code for the Web](how-to-launch-vs-code-remote.md?tabs=vscode-web#connect-remote-compute-instance-to-vs-code), the latest versions of these extensions are automatically available to you. If you use the [desktop application](how-to-launch-vs-code-remote.md?tabs=vscode-desktop#connect-remote-compute-instance-to-vs-code), you may need to install them.
+When you use [VS Code for the Web](how-to-launch-vs-code-remote.md?tabs=vscode-web#use-vs-code-as-your-workspace-ide), the latest versions of these extensions are automatically available to you. If you use the [desktop application](how-to-launch-vs-code-remote.md?tabs=vscode-desktop#use-vs-code-as-your-workspace-ide), you may need to install them.
 
 When you [launch VS Code connected to a compute instance]((how-to-launch-vs-code-remote.md)) for the first time, make sure you follow these steps and take a few moments to orient yourself to the tools in your integrated development environment.
 

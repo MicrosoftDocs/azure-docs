@@ -22,7 +22,7 @@ In this article, you'll learn how to launch Visual Studio Code remotely connecte
 There are two ways you can connect to a compute instance from Visual Studio Code. We recommend the first approach.
 
 1. **Use VS Code as your workspace's Integrated Development Environment (IDE).** This option provides you with a **full-featured development environment** for building your machine learning projects.
-    * You can open VS Code from your workspace either in the browser [VS Code for the Web](?tabs=vscode-web#connect-remote-compute-instance-to-vs-code) or desktop application [VS Code Desktop](?tabs=vscode-desktop#connect-remote-compute-instance-to-vs-code).
+    * You can open VS Code from your workspace either in the browser [VS Code for the Web](?tabs=vscode-web#use-vs-code-as-your-workspace-ide) or desktop application [VS Code Desktop](?tabs=vscode-desktop#use-vs-code-as-your-workspace-ide).
     * We recommend **VS Code for the Web**, as you can do all your machine learning work directly from the browser, and without any required installations or dependencies.
 
 1. **Remote Jupyter Notebook server**. This option allows you to set a compute instance as a remote Jupyter Notebook server.
