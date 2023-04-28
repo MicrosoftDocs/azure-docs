@@ -23,7 +23,8 @@ You can configure the assignment type of your personal desktop host pool to adju
 If you're using either the Azure portal or PowerShell method, you'll need the following things:
 
 - A personal host pool with at least one session host.
-- An Azure account with administrator permissions
+- An Azure account assigned the [Desktop Virtualization Contributor](rbac.md#desktop-virtualization-contributor) role.
+- If you want to use Azure CLI or Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension or the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
 If you're assigning desktops with PowerShell, you'll need to [download and install the Azure Virtual Desktop PowerShell module](powershell-module.md) if you haven't already.
 
@@ -47,7 +48,7 @@ Users must be assigned to a personal desktop to start their session. There are t
 
 ## Configure automatic assignment
 
-Automatic assignment is the default assignment type for new personal desktop host pools created in your Azure Virtual Desktop environment. Automatically assigning users doesn't require a specific session host.
+Automatic assignment assigns users a personal desktop the first time they connect. It's the default assignment type for new personal desktop host pools you create in your Azure Virtual Desktop environment. Automatically assigning users doesn't require a specific session host.
 
 To automatically assign users, first assign them to the personal desktop host pool so that they can see the desktop in their feed. When an assigned user launches the desktop in their feed, their user session will be load-balanced to an available session host if they haven't already connected to the host pool. You can still [assign a user directly to a session host](#configure-direct-assignment) before they connect, even if the assignment type is set automatic.
 
@@ -63,19 +64,19 @@ To configure automatic assignment in the Azure portal:
 
 1. Next, select **Properties**, then go to the **Assignment** drop-down menu and select **Automatic**.
 
-1. Select **Save**.
-
-<!---How do I automatically assign things? Is there a process for it like the PowerShell side? Should I remove that second PowerShell cmdlet if it's not relevant to the process this section is meant to describe?--->
+2. Select **Save**.
 
 #### [PowerShell](#tab/powershell)
 
-To configure a host pool to automatically assign users to VMs, run the following PowerShell cmdlet:
+Here's how to configure a host pool to automatically assign users to VMs using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module.
+
+[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
+
+1. Use the `Update-AzWvdHostPool` command in the following example to configure a host pool to automatically assign users to VMs. For more information about the parameters,see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
 
 ```powershell
 Update-AzWvdHostPool -ResourceGroupName $resourceGroupName -Name $hostPoolName -PersonalDesktopAssignmentType Automatic
 ```
-
-To assign a user to the personal desktop host pool, run the following PowerShell cmdlet:
 
 ---
 
