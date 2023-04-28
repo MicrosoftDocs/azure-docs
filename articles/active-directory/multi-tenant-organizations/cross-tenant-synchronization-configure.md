@@ -447,11 +447,11 @@ This error indicates the policy to automatically redeem invitations in both the 
 
 Follow the steps in [Step 3: Automatically redeem invitations in the target tenant](#step-3-automatically-redeem-invitations-in-the-target-tenant) and [Step 4: Automatically redeem invitations in the source tenant](#step-4-automatically-redeem-invitations-in-the-source-tenant). 
 
-#### Symptom - Suppress consent prompt check box is disabled
+#### Symptom - Automatic redemption check box is disabled
 
-When configuring cross-tenant synchronization, the suppress consent prompt check box is disabled.
+When configuring cross-tenant synchronization, the **Automatic redemption** check box is disabled.
 
-:::image type="content" source="./media/cross-tenant-synchronization-configure/consent-prompt-setting-disabled.png" alt-text="Screenshot that shows the Suppress consent prompt as disabled." lightbox="./media/cross-tenant-synchronization-configure/consent-prompt-setting-disabled.png":::
+:::image type="content" source="./media/cross-tenant-synchronization-configure/consent-prompt-setting-disabled.png" alt-text="Screenshot that shows the Automatic redemption check box as disabled." lightbox="./media/cross-tenant-synchronization-configure/consent-prompt-setting-disabled.png":::
 
 **Cause**
 
