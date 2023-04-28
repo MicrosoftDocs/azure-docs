@@ -180,6 +180,8 @@ items:
             href: how-to-enable-password-reset-customers.md
       - name: Configure identity providers and auth methods
         items:
+          - name: Multifactor authentication
+            href: how-to-multifactor-authentication-customers.md
           - name: Google federation
             href: how-to-google-federation-customers.md
           - name: Facebook federation
