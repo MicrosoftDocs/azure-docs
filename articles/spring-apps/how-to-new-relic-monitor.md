@@ -159,7 +159,10 @@ You can also get the logs of the New Relic agent from the following locations:
 * Azure Spring Apps Application Insights
 * Azure Spring Apps LogStream
 
-You can use some environment variables provided by New Relic to configure the logging of the New Agent, such as, `NEW_RELIC_LOG_LEVEL` to control the level of logs. For more information, see [New Relic Environment Variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
+You can use some environment variables provided by New Relic to configure the logging of the New Agent, such as, `NEW_RELIC_LOG_LEVEL` to control the level of logs. For more information, see [New Relic logging configuration](https://docs.newrelic.com/docs/apm/agents/java-agent/configuration/java-agent-configuration-config-file/#cfg-log_level).
+
+> [!NOTE]
+> Do not use `finer` or `finest` unless New Relic Support asks you to do that. These logging levels can generate excessive overhead. For most situations, use `info`.
 
 > [!CAUTION]
 > We strongly recommend that you don't override the logging default behavior provided by Azure Spring Apps for New Relic. If you do, the logging scenarios previously described are blocked, and the log file(s) may be lost. For example, you shouldn't pass the following environment variables to your applications. Log file(s) may be lost after restart or redeployment of application(s).
