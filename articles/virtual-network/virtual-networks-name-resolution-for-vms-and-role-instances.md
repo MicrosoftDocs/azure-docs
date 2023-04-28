@@ -5,14 +5,8 @@ description: Name resolution scenarios for Azure IaaS, hybrid solutions, between
 author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
-<<<<<<< HEAD
 ms.date: 04/27/2023
 ms.author: allensu
-=======
-ms.workload: infrastructure-services
-ms.date: 04/27/2023
-ms.author: greglin
->>>>>>> e7ea76c8aeaddb4b2e65f46f938bfa66ef4b2237
 ms.custom: fasttrack-edit
 ---
 
