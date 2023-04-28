@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/26/2023
+ms.date: 04/28/2023
 ms.custom: developer
 
 #Customer intent: As a developer, I want to learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with my CIAM tenant.
@@ -34,11 +34,11 @@ When authorization has been configured, the user interface can be created to all
 
 The main page of the application, *index.html*, is the first page that is loaded when the application is started. It's also the page that is loaded when the user selects the **Sign Out** button. 
 
-1. In your project folder, create a new file named *index.html*. This file will contain the HTML for the main page of the application.
+1. In the *public* folder, create a new file named *index.html*. This file will contain the HTML for the main page of the application.
 1. Open *index.html* and add the following code snippet:
 
    ```html
-   <!DOCTYPE html>
+    <!DOCTYPE html>
     <html lang="en">
     
     <head>
@@ -75,7 +75,6 @@ The main page of the application, *index.html*, is the first page that is loaded
                     <tr>
                         <th>Claim Type</th>
                         <th>Value</th>
-                        <th>Description</th>
                     </tr>
                 </thead>
                 <tbody id="table-body-div">
@@ -101,6 +100,7 @@ The main page of the application, *index.html*, is the first page that is loaded
         <!-- uncomment the above line and comment the line below if you would like to use the redirect flow -->
         <script type="text/javascript" src="./authPopup.js"></script>
     </body>
+    
     </html>
     ```
 
@@ -108,7 +108,7 @@ The main page of the application, *index.html*, is the first page that is loaded
 
 ## Create the *signout.html* file
 
-1. In your project folder, create a new file named *signout.html*. This file will contain the HTML for the sign-out page of the application.
+1. In the *public* folder, create a new file named *signout.html*. This file will contain the HTML for the sign-out page of the application.
 1. Open *signout.html* and add the following code snippet:
 
     ```html
@@ -137,7 +137,7 @@ The main page of the application, *index.html*, is the first page that is loaded
 
 ## Create the *ui.js* file
 
-1. In your project folder, create a new file named *ui.js*. This file will contain the JavaScript code for the UI of the application.
+1. In the *public* folder, create a new file named *ui.js*. This file will contain the JavaScript code for the UI of the application.
 1. Open *ui.js* and add the following code snippet:
 
     ```javascript
@@ -159,17 +159,13 @@ The main page of the application, *index.html*, is the first page that is loaded
     
     function updateTable(account) {
         tableDiv.classList.remove('d-none');
-        
-        const tokenClaims = createClaimsTable(account.idTokenClaims);
     
-        Object.keys(tokenClaims).forEach((key) => {
+        Object.keys(account.idTokenClaims).forEach((key) => {
             let row = tableBody.insertRow(0);
             let cell1 = row.insertCell(0);
             let cell2 = row.insertCell(1);
-            let cell3 = row.insertCell(2);
-            cell1.innerHTML = tokenClaims[key][0];
-            cell2.innerHTML = tokenClaims[key][1];
-            cell3.innerHTML = tokenClaims[key][2];
+            cell1.innerHTML = key;
+            cell2.innerHTML = account.idTokenClaims[key];
         });
     };
     ```
@@ -178,7 +174,7 @@ The main page of the application, *index.html*, is the first page that is loaded
 
 ## Create the styles.css file
 
-1. In your project folder, create a new file named *styles.css*. This file will contain the CSS code for the UI of the application.
+1. In the *public* folder, create a new file named *styles.css*. This file will contain the CSS code for the UI of the application.
 1. Open *styles.css* and add the following code snippet:
 
     ```css
@@ -199,8 +195,7 @@ The main page of the application, *index.html*, is the first page that is loaded
 
 Now that all the required code snippets have been added, the application can be called and tested in a web browser.
 
-1. Open a new terminal by selecting **Terminal** > **New Terminal**.
-1. Run the following command to start your express web server.
+1. Open a new terminal and run the following command to start your express web server.
 
     ```powershell
     npm start
@@ -223,5 +218,5 @@ Now that all the required code snippets have been added, the application can be 
 
 ## Next steps
 
-<!-- > [!div class="nextstepaction"] -->
-<!-- > [Enable self-service password reset](./how-to-enable-password-reset-customers.md) -->
+> [!div class="nextstepaction"]
+> [Enable self-service password reset](./how-to-enable-password-reset-customers.md)

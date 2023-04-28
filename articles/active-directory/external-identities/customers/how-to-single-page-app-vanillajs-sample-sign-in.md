@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/26/2023
+ms.date: 04/28/2023
 ms.custom: developer
 
 #Customer intent: As a dev, devops, I want to learn about how to configure a sample vanilla JS SPA to sign in and sign out users with my Azure Active Directory (Azure AD) for customers tenant
@@ -84,10 +84,8 @@ If you choose to download the `.zip` file, extract the sample app file to a fold
 ## Configure the sample SPA
 
 1. Open `authConfig.js`.
-1. Replace the following values with the values from the Admin center.
-    * `clientId` - The identifier of the application, also referred to as the client. Replace `Enter_the_Application_Id_Here` with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
-    * `authority` - The identity provider instance and sign-in audience for the app. Replace `Enter_the_Tenant_Name_Here` with the name of your CIAM tenant.
-    * The *Tenant ID* is the identifier of the tenant where the application is registered. Replace the `_Enter_the_Tenant_Info_Here` with the **Directory (tenant) ID** value that was recorded earlier from the overview page of the registered application.
+1. Find `Enter_the_Tenant_Name_Here` and replace it with the name of your tenant.
+1. Find the `Enter_the_Application_Id_Here` value and replace it with the application ID (clientId) of the app you registered in the Microsoft Entra admin center.
 1. Save the file.
 
 ## Run your project and sign in

@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/26/2023
+ms.date: 04/28/2023
 ms.custom: developer
 
 #Customer intent: As a developer, I want to learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with my CIAM tenant.
@@ -46,7 +46,7 @@ In this article:
 1. In the **Terminal**, run the following command to install the required dependencies for the project:
 
     ```powershell
-    npm install express morgan
+    npm install express morgan @azure/msal-browser
     ```
 
 ## Create the server file
@@ -93,8 +93,7 @@ In this article:
     app.listen(DEFAULT_PORT, () => {
         console.log(`Sample app listening on port ${DEFAULT_PORT}!`);
     });
-    
-    module.exports = app;
+
     ```
 
 ## Next steps

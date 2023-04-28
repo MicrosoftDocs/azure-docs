@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/26/2023
+ms.date: 04/28/2023
 ms.custom: developer
 
 #Customer intent: As a developer, I want to learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with my CIAM tenant.
@@ -50,7 +50,7 @@ The application uses the [Implicit Grant Flow](../../develop/v2-oauth2-implicit-
     const msalConfig = {
         auth: {
             clientId: 'Enter_the_Application_Id_Here', // This is the ONLY mandatory field that you need to supply.
-            authority: 'https://Enter_the_Tenant_Name_Here.ciamlogin.com/', // Replace "Enter_the_Tenant_Name_Here" with your tenant name
+            authority: 'https://login.microsoftonline.com/Enter_Tenant_Id_here', // Replace "Enter_the_Tenant_Name_Here" with your tenant name
             redirectUri: '/', // You must register this URI on Azure Portal/App Registration. Defaults to window.location.href e.g. http://localhost:3000/
             navigateToLoginRequestUrl: true, // If "true", will navigate back to the original request location before processing the auth code response.
         },
@@ -115,21 +115,19 @@ The application uses the [Implicit Grant Flow](../../develop/v2-oauth2-implicit-
     }
      ```
 
-1. Replace the following values with the values from the Admin center.
-    * `clientId` - The identifier of the application, also referred to as the client. Replace `Enter_the_Application_Id_Here` with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
-    * `authority` - The identity provider instance and sign-in audience for the app. Replace `Enter_the_Tenant_Name_Here` with the name of your CIAM tenant.
-    * The *Tenant ID* is the identifier of the tenant where the application is registered. Replace the `_Enter_the_Tenant_Info_Here` with the **Directory (tenant) ID** value that was recorded earlier from the overview page of the registered application.
+1. Find the `Enter_the_Application_Id_Here` value and replace it with the application ID (clientId) of the app you registered in the Microsoft Entra admin center.
+1. Find `Enter_Tenant_Id_here` and replace it with the name of your tenant.
 1. Save the file.
 
 ## Creating the redirection file
 
 A redirection file is required to handle the response from the Azure AD CIAM sign-in page. The redirection file is used to extract the access token from the URL fragment and use it to call the protected API.
 
-1. Right-click the *public* folder and select **New File**. Name the file *authRedirect.js*.
+1. In the *public* folder, create a new file and name it *authRedirect.js*.
 1. Open *authRedirect.js* and add the following code snippet:
 
     ```javascript
-    // Create the main myMSALObj instance
+   // Create the main myMSALObj instance
     // configuration parameters are located at authConfig.js
     const myMSALObj = new msal.PublicClientApplication(msalConfig);
     
@@ -232,7 +230,7 @@ A redirection file is required to handle the response from the Azure AD CIAM sig
 
 The application uses *authPopup.js* to handle the authentication flow when the user signs in using the pop-up window. The pop-up window is used when the user is already signed in to Azure AD CIAM and the application needs to get an access token for a different resource. 
 
-1. Right-click the **public** folder and select **New File**. Name the file *authPopup.js*.
+1. In the *public* folder, create a new file and name it *authPopup.js*.
 1. Open *authPopup.js* and add the following code snippet:
 
    ```javascript
@@ -242,18 +240,7 @@ The application uses *authPopup.js* to handle the authentication flow when the u
     
     let username = "";
     
-    /**
-     * A promise handler needs to be registered for handling the
-     * response returned from redirect flow. For more information, visit:
-     * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/initialization.md#redirect-apis
-     */
-    myMSALObj.handleRedirectPromise()
-        .then(handleResponse)
-        .catch((error) => {
-            console.error(error);
-        });
-    
-    function selectAccount() {
+    function selectAccount () {
     
         /**
          * See here for more info on account retrieval: 
@@ -262,15 +249,14 @@ The application uses *authPopup.js* to handle the authentication flow when the u
     
         const currentAccounts = myMSALObj.getAllAccounts();
     
-        if (!currentAccounts) {
+        if (!currentAccounts  || currentAccounts.length < 1) {
             return;
         } else if (currentAccounts.length > 1) {
             // Add your account choosing logic here
             console.warn("Multiple accounts detected.");
         } else if (currentAccounts.length === 1) {
-            username = currentAccounts[0].username;
-            welcomeUser(username);
-            updateTable();
+            welcomeUser(currentAccounts[0].username);
+            updateTable(currentAccounts[0]);
         }
     }
     
@@ -280,32 +266,12 @@ The application uses *authPopup.js* to handle the authentication flow when the u
          * To see the full list of response object properties, visit:
          * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/request-response-object.md#response
          */
-    
+        
         if (response !== null) {
-            username = response.account.username;
-            welcomeUser(username);
-            updateTable();
+            welcomeUser(response.account.username);
+            updateTable(response.account);
         } else {
             selectAccount();
-    
-            /**
-             * If you already have a session that exists with the authentication server, you can use the ssoSilent() API
-             * to make request for tokens without interaction, by providing a "login_hint" property. To try this, comment the 
-             * line above and uncomment the section below.
-             */
-    
-            // myMSALObj.ssoSilent(silentRequest).
-            //     then(() => {
-            //         const currentAccounts = myMSALObj.getAllAccounts();
-            //         username = currentAccounts[0].username;
-            //         welcomeUser(username);
-            //         updateTable();
-            //     }).catch(error => {
-            //         console.error("Silent Error: " + error);
-            //         if (error instanceof msal.InteractionRequiredAuthError) {
-            //             signIn();
-            //         }
-            //     });
         }
     }
     
@@ -316,7 +282,11 @@ The application uses *authPopup.js* to handle the authentication flow when the u
          * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/request-response-object.md#request
          */
     
-        myMSALObj.loginRedirect(loginRequest);
+        myMSALObj.loginPopup(loginRequest)
+            .then(handleResponse)
+            .catch(error => {
+                console.error(error);
+            });
     }
     
     function signOut() {
@@ -329,12 +299,13 @@ The application uses *authPopup.js* to handle the authentication flow when the u
         // Choose which account to logout from by passing a username.
         const logoutRequest = {
             account: myMSALObj.getAccountByUsername(username),
-            postLogoutRedirectUri: '/signout', // remove this line if you would like navigate to index page after logout.
-    
+            mainWindowRedirectUri: '/signout'
         };
     
-        myMSALObj.logoutRedirect(logoutRequest);
+        myMSALObj.logoutPopup(logoutRequest);
     }
+    
+    selectAccount();
     ```
 
 1. Save the file.
