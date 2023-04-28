@@ -41,8 +41,8 @@ kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/ht
 
 This creates the following on your cluster:
 - a namespace called `test-infra`
-- 1 services called `echo` in the `test-infra` namespace
-- 1 deployments called `echo` in the `test-infra` namespace
+- 1 service called `echo` in the `test-infra` namespace
+- 1 deployment called `echo` in the `test-infra` namespace
 - 1 secret called `listener-tls-secret` in the `test-infra` namespace
 
 ## Deploy the required gateway api objects

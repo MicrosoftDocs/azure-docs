@@ -17,7 +17,7 @@ ms.author: greglin
 This document helps set up an example application that uses the following resources from Gateway API:
 - [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) - creating a gateway with one https listener
 - [HTTPRoute](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/httproute/) - creating an HTTP route that references a backend service
-- [BackendTLSPolicy](api-specification-kubernetes.md#backendtlspolicy) - creating a backend tls policy that has a client and CA certificate for the backend service referenced in the HTTPRoute
+- [BackendTLSPolicy](api-specification-kubernetes.md#backendtlspolicy) - creating a backend TLS policy that has a client and CA certificate for the backend service referenced in the HTTPRoute
 
 ## Prerequisites
 Ensure you have set up your Traffic Controller and ALB Controller following the [Quickstart guide](quickstart-create-traffic-controller.md).
@@ -42,8 +42,8 @@ kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/ht
 
 This creates the following on your cluster:
 - a namespace called `test-infra`
-- 1 services called `mtls-app` in the `test-infra` namespace
-- 1 deployments called `mtls-app` in the `test-infra` namespace
+- 1 service called `mtls-app` in the `test-infra` namespace
+- 1 deployment called `mtls-app` in the `test-infra` namespace
 - 1 config map called `mtls-app-nginx-cm` in the `test-infra` namespace
 - 4 secrets called `backend.com`, `frontend.com` `gateway-client-cert` and `ca.bundle` in the `test-infra` namespace
 

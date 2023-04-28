@@ -18,7 +18,7 @@ Traffic Controller is the evolution of Application Gateway Ingress Controller (A
 
 The existing Application Gateway Ingress Controller (AGIC) is a Kubernetes application, which makes it possible for Azure Kubernetes Service (AKS) customers to use Azure's native Application Gateway Application load-balancer. In its current form Application Gateway Ingress Controller (AGIC) monitors a subset of Kubernetes Resources for changes and applies them to the Application Gateway utilizing Azure Resource Manager (ARM).
 
-Traffic Controller offers an elastic and scalable ingress to AKS clusters and comprises a new data plane as well as control plane with new set of ARM APIs, different from existing Application Gateway. Traffic controller is outside the AKS cluster data plane. It is responsible for ingress, and is controlled by an ALB controller component running inside the AKS cluster adhering to Kubernete's Gateway APIs.
+Traffic Controller offers an elastic and scalable ingress to AKS clusters and comprises a new data plane as well as control plane with new set of ARM APIs, different from existing Application Gateway. Traffic controller is outside the AKS cluster data plane and is responsible for ingress. It's controlled by an ALB controller component that runs inside the AKS cluster and adheres Kubernetes' Gateway APIs.
 
 ## Features
 
@@ -26,7 +26,7 @@ Traffic Controller offers an elastic and scalable ingress to AKS clusters and co
 
 Traffic Controller supports the following features for traffic management:
 - Performance improvements
-  - Sub-second update times to add/remove pods, routes, probes
+  - Subsecond update times to add/remove pods, routes, probes
 - Layer 7 HTTP/HTTPS request forwarding based on prefix/exact match on:
   - Hostname
   - Path
@@ -66,7 +66,7 @@ ALB Controller supports a few custom CRDs, details on these can be found [here](
 
 ## Reporting Issues
 
-For feedback, or to report incidents please use alias [tcfeedback@microsoft.com](mailto:tcfeedback@microsoft.com). 
+For feedback or to report incidents, use the alias [tcfeedback@microsoft.com](mailto:tcfeedback@microsoft.com). 
 
 ## Pricing and SLA
 
