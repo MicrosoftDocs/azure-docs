@@ -31,7 +31,7 @@ The following section walks through a sample request with cURL. Paste the comman
     > The default maximum length for text submissions is 1000 characters. If you need to analyze longer blocks of text, you can split the input text (for example, using punctuation or spacing) across multiple related submissions. 
 
 ```shell
-curl.exe --location --request POST '<endpoint>/contentsafety/text:analyze?api-version=2023-04-30-preview' \
+curl --location --request POST '<endpoint>/contentsafety/text:analyze?api-version=2023-04-30-preview' \
 --header 'Ocp-Apim-Subscription-Key: <your_subscription_key>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -138,7 +138,7 @@ Paste the command below into a text editor, and make the following changes.
 1. Populate the `"image"` field in the body with either a `"content"` field or a `"url"` field. For example: `{"image": {"content": "<base_64_string>"}` or `{"image": {"url": "<your_storage_url>"}`.
 
 ```shell
-curl.exe --location --request POST '<endpoint>/contentsafety/image:analyze?api-version=2023-04-30-preview' \
+curl --location --request POST '<endpoint>/contentsafety/image:analyze?api-version=2023-04-30-preview' \
 --header 'Ocp-Apim-Subscription-Key: <your_subscription_key>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
