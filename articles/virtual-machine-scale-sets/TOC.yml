@@ -68,15 +68,13 @@
       href: tutorial-autoscale-cli.md
     - name: Azure PowerShell
       href: ../azure-monitor/autoscale/autoscale-using-powershell.md
+      maintainContext: true
 - name: Scale
   items:
   - name: Autoscale
     href: virtual-machine-scale-sets-autoscale-overview.md
-  - name: Configure autoscale - Portal
+  - name: Configure autoscale
     href: virtual-machine-scale-sets-autoscale-portal.md
-  - name: Configure autoscale - PowerShell
-    href: ../azure-monitor/autoscale/autoscale-using-powershell.md
-    maintainContext: true
   - name: Predictive autoscale
     href: ../azure-monitor/autoscale/autoscale-predictive.md
     maintainContext: true
