@@ -323,7 +323,7 @@ You can protect important branches by setting branch protection rules. Protectio
  
 1. Under **Protect matching branches**, select **Require a pull request before merging**.
 
-   :::image type="content" source="media/tutorial-deploy-environments-in-cicd-github/github-require-pr.png" alt-text="Screenshot showing protect matching branches with Require a pull request before merging selected and highlighted.":::
+   :::image type="content" source="media/tutorial-deploy-environments-in-cicd-github/github-require-pull-request.png" alt-text="Screenshot showing protect matching branches with Require a pull request before merging selected and highlighted.":::
 
 1. Optionally, you can enable [more protection rules](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule#creating-a-branch-protection-rule).
 
@@ -371,7 +371,7 @@ Next, create a [fine-grained personal access token](https://docs.github.com/en/a
 
 1. In the left sidebar, under **Personal access tokens**, select **Fine-grained tokens**, and then select **Generate new token**.
    
-   :::image type="content" source="media/tutorial-deploy-environments-in-cicd-github/github-fine-grained-pat.png" alt-text="Screenshot showing the GitHub personal access token options, with Fine-grained tokens and Generate new token highlighted.":::
+   :::image type="content" source="media/tutorial-deploy-environments-in-cicd-github/github-fine-grained-personal-access-token.png" alt-text="Screenshot showing the GitHub personal access token options, with Fine-grained tokens and Generate new token highlighted.":::
 
 1. On the New fine-grained personal access token page, under **Token name**, enter a name for the token.
 
@@ -706,11 +706,11 @@ In this section, you make some changes to the repository and test the CI/CD pipe
 
 1. Stage your changes and push to the `feature1` branch.
 
-``` sh
-git add .
-git commit -m '<commit message>'
-git push
-```
+   ``` azurecli
+   git add .
+   git commit -m '<commit message>'
+   git push
+   ```
 
 1. On your repository's **Actions** page, you see a new Update Environment workflow running.
 
