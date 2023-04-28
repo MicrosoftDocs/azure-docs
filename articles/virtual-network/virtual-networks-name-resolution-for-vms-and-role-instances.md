@@ -357,8 +357,6 @@ When you're using the Azure Resource Manager deployment model, you can specify D
 > [!NOTE]
 > If you opt for custom DNS server for your virtual network, you must specify at least one DNS server IP address; otherwise, virtual network will ignore the configuration and use Azure-provided DNS instead.
 
-When you're using the classic deployment model, you can specify DNS servers for the virtual network in the Azure portal or the [Network Configuration file](/previous-versions/azure/reference/jj157100(v=azure.100)). For cloud services, you can specify DNS servers via the [Service Configuration file](/previous-versions/azure/reference/ee758710(v=azure.100)) or by using PowerShell, with [New-AzVM](/powershell/module/az.compute/new-azvm).
-
 > [!NOTE]
 > If you change the DNS settings for a virtual network or virtual machine that is already deployed, for the new DNS settings to take effect, you must perform a DHCP lease renewal on all affected VMs in the virtual network. For VMs running the Windows OS, you can do this by typing `ipconfig /renew` directly in the VM. The steps vary depending on the OS. See the relevant documentation for your OS type.
 
