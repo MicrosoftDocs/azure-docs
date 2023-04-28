@@ -62,7 +62,7 @@ To get started:
 | Redirect URLs | Enter `https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-B2C-tenant` with your Azure AD B2C tenant. For a custom domain, replace `your-B2C-tenant-name.b2clogin.com` with your custom domain.|
 
 3. Upon registration, a **Client ID** and **Client Secret** appear. 
-4. Record the values. You'll need them later.
+4. Record the values to use later.
 
 ## Configure BindID as an identity provider in Azure AD B2C
 
@@ -138,7 +138,7 @@ Add BindID as a claims provider. To get started, obtain the custom policy starte
        git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
    ```
     
-2. In the files in the **LocalAccounts** directory, replace the string `yourtenant` with the your Azure AD B2C tenant name. 
+2. In the files in the **LocalAccounts** directory, replace the string `yourtenant` with the Azure AD B2C tenant name. 
 3. Open the `LocalAccounts/ TrustFrameworkExtensions.xml`.
 4. Find the **ClaimsProviders** element. If it doesn't appear, add it under the root element.
 5. Add a new **ClaimsProvider** similar to the following example:
@@ -192,7 +192,7 @@ The identity provider isn't on the sign-in pages. If you have a custom user jour
 1. From the starter pack, open the `LocalAccounts/ TrustFrameworkBase.xml` file.
 2. Find and copy the contents of the **UserJourney** element that includes `Id=SignUpOrSignIn`.
 3. Open the `LocalAccounts/ TrustFrameworkExtensions.xml`.
-4. Find the **UserJourneys** element. If there is no element, add one.
+4. Find the **UserJourneys** element. If there's no element, add one.
 5. Paste the UserJourney element as a child of the UserJourneys element.
 6. Rename the user journey **ID**. 
 
