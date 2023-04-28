@@ -16,7 +16,7 @@ ms.custom: mode-other
 > The Calling Video Effects are available starting on the public preview version [1.0.0-beta.1]([https://central.sonatype.com/artifact/com.azure.android/azure-communication-calling/2.5.1-beta.4](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.0.0-beta.1) of the Windows Calling SDK. Please ensure that you use this or a newer SDK when using Video Effects. This API is provided as a preview ('beta') for developers and may change based on feedback that we receive.
 
 > [!Note]
-> In order to use Video Effects on the Windows Calling SDK, a machine learning model is downloaded to the customer's device. We encourage you to review the privacy notes in your app update them accordingly, if necessary.
+> In order to use Video Effects on the Android Calling SDK, a machine learning model is downloaded to the customer's device. We encourage you to review the privacy notes in your application and update them accordingly, if necessary.
 
 You can use the Video Effects feature to add effects to your video in video calls. Background blur provides users with the mechanism to remove distractions behind a participant so that participants can communicate without disruptive activity or confidential information in the background. This feature is especially useful the context of telehealth, where a provider or patient might want to obscure their surroundings to protect sensitive information or personally identifiable information. Background blur can be applied across all virtual appointment scenarios, including telebanking and virtual hearings, to protect user privacy.
 
