@@ -42,6 +42,7 @@ This page provides a single place for the tutorials to the various entra identit
 | [Acunetix 360](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
 | [Adobe Identity Management](https://learn.microsoft.com/azure/active-directory/saas-apps/adobe-identity-management-provisioning-tutorial) | ● | ● |
 | [Adobe Identity Management (OIDC)](https://learn.microsoft.com/azure/active-directory/saas-apps/adobe-identity-management-provisioning-oidc-tutorial) | ● | ● |
+| [Aha!](https://learn.microsoft.com/azure/active-directory/saas-apps/aha-tutorial) |  | ● |
 | [Airstack](https://learn.microsoft.com/azure/active-directory/saas-apps/airstack-provisioning-tutorial) | ● |  |
 | [Akamai Enterprise Application Access](https://learn.microsoft.com/azure/active-directory/saas-apps/akamai-enterprise-application-access-provisioning-tutorial) | ● | ● |
 | [AlertMedia](https://learn.microsoft.com/azure/active-directory/saas-apps/alertmedia-provisioning-tutorial) | ● | ● |
@@ -62,6 +63,7 @@ This page provides a single place for the tutorials to the various entra identit
 | [Autodesk SSO](https://learn.microsoft.com/azure/active-directory/saas-apps/autodesk-sso-provisioning-tutorial) | ● | ● |
 | [Azure Databricks SCIM Connector](https://learn.microsoft.com/azure/databricks/administration-guide/users-groups/scim/aad?bc=%2fazure%2factive-directory%2fsaas-apps%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fsaas-apps%2ftoc.json) | ● | ● |
 | [AWS IAM Identity Center](https://learn.microsoft.com/azure/active-directory/saas-apps/aws-single-sign-on-provisioning-tutorial) | ● | ● |
+| [BambooHR](https://learn.microsoft.com/azure/active-directory/saas-apps/bamboo-hr-tutorial) |  | ● |
 | [BenQ IAM](https://learn.microsoft.com/azure/active-directory/saas-apps/benq-iam-provisioning-tutorial) | ● | ● |
 | [Bentley - Automatic User Provisioning](https://learn.microsoft.com/azure/active-directory/saas-apps/bentley-automatic-user-provisioning-tutorial) | ● | ● |
 | [Better Stack](https://learn.microsoft.com/azure/active-directory/saas-apps/better-stack-provisioning-tutorial) | ● | ● |
@@ -108,6 +110,7 @@ This page provides a single place for the tutorials to the various entra identit
 | [Dropbox Business](https://learn.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial) | ● | ● |
 | [Dynamic Signal](https://learn.microsoft.com/azure/active-directory/saas-apps/dynamic-signal-provisioning-tutorial) | ● | ● |
 | [Dialpad](https://learn.microsoft.com/azure/active-directory/saas-apps/dialpad-provisioning-tutorial) | ● | ● |
+| [DigiCert](https://learn.microsoft.com/azure/active-directory/saas-apps/digicert-tutorial) | | ● |
 | [Directprint.io](https://learn.microsoft.com/azure/active-directory/saas-apps/directprint-io-provisioning-tutorial) | ● | ● |
 | [Druva](https://learn.microsoft.com/azure/active-directory/saas-apps/druva-provisioning-tutorial) | ● | ● |
 | [Embed Signage](https://learn.microsoft.com/azure/active-directory/saas-apps/embed-signage-provisioning-tutorial) | ● | ● |
@@ -189,6 +192,7 @@ This page provides a single place for the tutorials to the various entra identit
 | [Mindtickle](https://learn.microsoft.com/azure/active-directory/saas-apps/mindtickle-provisioning-tutorial) | ● | ● |
 | [Miro](https://learn.microsoft.com/azure/active-directory/saas-apps/miro-provisioning-tutorial) | ● | ● |
 | [Monday.com](https://learn.microsoft.com/azure/active-directory/saas-apps/mondaycom-provisioning-tutorial) | ● | ● |
+| [MongoDB Atlas](https://learn.microsoft.com/azure/active-directory/saas-apps/mongodb-cloud-tutorial) |  | ● |
 | [Mural Identity](https://learn.microsoft.com/azure/active-directory/saas-apps/mural-identity-provisioning-tutorial) | ● | ● |
 | [MX3 Diagnostics](https://learn.microsoft.com/azure/active-directory/saas-apps/mx3-diagnostics-connector-provisioning-tutorial) | ● | ● |
 | [myPolicies](https://learn.microsoft.com/azure/active-directory/saas-apps/mypolicies-provisioning-tutorial) | ● | ● |
@@ -204,6 +208,7 @@ This page provides a single place for the tutorials to the various entra identit
 | [OpenText Directory Services](https://learn.microsoft.com/azure/active-directory/saas-apps/open-text-directory-services-provisioning-tutorial) | ● | ● |
 | [Oracle Cloud Infrastructure Console](https://learn.microsoft.com/azure/active-directory/saas-apps/oracle-cloud-infrastructure-console-provisioning-tutorial) | ● | ● |
 | [Oracle Fusion ERP](https://learn.microsoft.com/azure/active-directory/saas-apps/oracle-fusion-erp-provisioning-tutorial) | ● | ● |
+| [PagerDuty](https://learn.microsoft.com/azure/active-directory/saas-apps/pagerduty-tutorial) |  | ● |
 | [Palo Alto Networks Cloud Identity Engine - Cloud Authentication Service](https://learn.microsoft.com/azure/active-directory/saas-apps/palo-alto-networks-cloud-identity-engine-provisioning-tutorial) | ● | ● |
 | [Palo Alto Networks SCIM Connector](https://learn.microsoft.com/azure/active-directory/saas-apps/palo-alto-networks-scim-connector-provisioning-tutorial) | ● | ● |
 | [PaperCut Cloud Print Management](https://learn.microsoft.com/azure/active-directory/saas-apps/papercut-cloud-print-management-provisioning-tutorial) | ● | ● |
@@ -232,6 +237,7 @@ This page provides a single place for the tutorials to the various entra identit
 | [Samanage](https://learn.microsoft.com/azure/active-directory/saas-apps/samanage-provisioning-tutorial) | ● | ● |
 | [SAP Analytics Cloud](https://learn.microsoft.com/azure/active-directory/saas-apps/sap-analytics-cloud-provisioning-tutorial) | ● | ● |
 | [SAP Cloud Platform Identity Authentication](https://learn.microsoft.com/azure/active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial) | ● | ● |
+| [SAP HANA](https://learn.microsoft.com/azure/active-directory/saas-apps/saphana-tutorial) |  | ● |
 | [SAP SuccessFactors to Active Directory](https://learn.microsoft.com/azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial) | ● | ● |
 | [SAP SuccessFactors to Azure Active Directory](https://learn.microsoft.com/azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial) | ● | ● |
 | [SAP SuccessFactors Writeback ](https://learn.microsoft.com/azure/active-directory/saas-apps/sap-successfactors-writeback-tutorial) | ● | ● |
