@@ -46,7 +46,11 @@ items:
     - name: Manage environments as a developer
       href: how-to-manage-environments.md
     - name: Use Azure CLI devcenter extension
-      href: how-to-install-devcenter-cli-extension.md  
+      href: how-to-install-devcenter-cli-extension.md
+    - name: Create and configure a dev center with the CLI
+      href: how-to-create-and-configure-devcenter.md
+    - name: Create and configure a project with the CLI
+      href: how-to-create-and-configure-projects.md
     - name: Create environments with the CLI
       href: how-to-create-access-environments.md
 - name: Tutorials
