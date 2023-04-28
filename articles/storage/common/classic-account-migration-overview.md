@@ -72,7 +72,7 @@ For step-by-step instructions on performing the migration, see [How to migrate y
     1. Under **Service type**, select **Storage Account Management**.
     1. Under **Resource**, select the resource you want to migrate.
     1. Under **Problem type**, select **Data Migration**.
-    1. Under **Problem subtype**, select **Migrate account to new resource group/subscription/region/tenant**.
+    1. Under **Problem subtype**, select **Migrate a classic storage account to Azure Resource Manager**.
     1. Select **Next**, then follow the instructions to submit your support request.
 
 ## FAQ
@@ -100,13 +100,21 @@ No, Microsoft can't migrate a customer's storage account on their behalf. Custom
 
 ### Will there be downtime when migrating my storage account from Classic to Resource Manager?
 
-There's no downtime to migrate a classic storage account to Resource Manager. However, there may be downtime for other scenarios linked to classic virtual machine (VM) migration.
+There's no downtime for data plane operations while you are migrating a classic storage account to Resource Manager. Management plane operations are blocked during the migration. For more information, see [Understand storage account migration from the classic deployment model to Azure Resource Manager](classic-account-migration-process.md).
+
+There may be downtime for scenarios linked to classic virtual machine (VM) migration or unmanaged disk migration. For more information about those scenarios, see [Migration classic VMs](../../virtual-machines/classic-vm-deprecation.md) and [Migrating unmanaged disks to managed disks](../../virtual-machines/unmanaged-disks-deprecation.md).
 
 ### What operations aren't available during the migration?
 
 Also, during the migration, management operations aren't available on the storage account. Data operations can continue to be performed during the migration.
 
 If you're creating or managing container objects with the Azure Storage resource provider, keep in mind that those operations are blocked while the migration is underway. For more information, see [Understand storage account migration from the classic deployment model to Azure Resource Manager](classic-account-migration-process.md).
+
+### How do I migrate storage accounts that contain classic disk artifacts?
+
+If your classic storage accounts contain classic (unmanaged) disks, virtual machine images, or operating system (OS) images, you'll need to delete these artifacts before you begin the migration. Failing to delete these artifacts may cause the migration to fail. To learn how to delete classic disk artifacts, see [Locate and delete any disk artifacts in a classic account](classic-account-migrate.md#locate-and-delete-any-disk-artifacts-in-a-classic-account).
+
+We recommend migrating unmanaged disks to managed disks. To learn about migrating unmanaged disks to managed disks, see [Migrating unmanaged disks to managed disks](../../virtual-machines/unmanaged-disks-deprecation.md).
 
 ### Are storage account access keys regenerated as part of the migration?
 
