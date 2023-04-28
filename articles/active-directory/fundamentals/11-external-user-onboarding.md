@@ -67,7 +67,8 @@ Once the application has collected the required information and determined any o
 
 For example: 
 
-```Delegated Permission: User.Invite.All 
+```
+Delegated Permission: User.Invite.All 
    POST https://graph.microsoft.com/v1.0/invitations  
    Content-type: application/json 
     { 
@@ -75,7 +76,9 @@ For example:
       "invitedUserEmailAddress": "``john.doe@contoso.com``",  
       "sendInvitationMessage": ``true``,  
       "inviteRedirectUrl": "https://customapp.contoso.com"  
-    } ```
+    } 
+
+```
 
 >[!Note] 
 >To see the full list of available options for the JSON body of the invitation, see [Invitation resource type - Microsoft Graph v1.0](../graph/api/resources/invitation.md?view=graph-rest-1.0) 
@@ -93,7 +96,7 @@ For example:
 
 Required application permissions (from least to most privileged).
 
-    ```
+```
     User.ReadWrite.All, Directory.ReadWrite.All 
     PATCH https://graph.microsoft.com/v1.0/users/<user’s object ID> 
     Content-type: application/json 
@@ -106,7 +109,8 @@ Required application permissions (from least to most privileged).
     "surname": "Doe", 
     "extension_cf4ff515cbf947218d468c96f9dc9021_appRole": "external" 
     }
-    ```
+
+ ```
 
 For more information, see [Update user - Microsoft Graph v1.0](../graph/api/user-update?view=graph-rest-1.0&tabs=http). 
 
