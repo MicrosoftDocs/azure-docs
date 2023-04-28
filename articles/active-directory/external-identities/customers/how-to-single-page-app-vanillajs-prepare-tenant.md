@@ -1,5 +1,5 @@
 ---
-title: Sign in users to a vanilla JavaScript Single-page application using Microsoft Entra - Prepare your tenant
+title: Sign in users to a vanilla JavaScript single-page application using Microsoft Entra - Prepare your tenant
 description: Learn how to register a vanilla JavaScript single-page app (SPA) with your CIAM tenant.
 services: active-directory
 author: OwenRichards1
@@ -16,7 +16,7 @@ ms.custom: developer
 #Customer intent: As a developer, I want to learn how to configure vanilla JavaScript single-page app (SPA) to sign in and sign out users with my CIAM tenant.
 ---
 
-# Sign in users to a vanilla JS Single-page application using Microsoft Entra - Prepare your tenant
+# Sign in users to a vanilla JS single-page application using Microsoft Entra - Prepare your tenant
 
 This how-to guide demonstrates how to prepare your Azure Active Directory (Azure AD) for customers tenant for authentication. You register a single-page application (SPA) in the Microsoft Entra admin center, and record its identifiers. You'll then create a sign in and sign out user flow in the Microsoft Entra admin center and associate your SPA with the user flow.
 
@@ -35,7 +35,7 @@ In this article:
 
 - If you have already registered a SPA in the Microsoft Entra admin center, and associated it with a user flow, you can skip the steps in this article and move to [Sign in users in your own ASP.NET web application by using Microsoft Entra - Prepare your application](how-to-single-page-app-vanillajs-prepare-app.md).
 
-## Register the Single-page application (SPA)
+## Register the SPA
 
 [!INCLUDE [active-directory-b2c-register-app](./includes/register-app/register-client-app-common.md)]
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/register-app/add-platform-redirect-url-vanilla-js.md)]
