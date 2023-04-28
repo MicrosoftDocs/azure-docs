@@ -28,7 +28,7 @@ In order to read secrets from Key Vault, you need to have a vault created and gi
 
 ### Access network-restricted vaults
 
-If your vault is configured with [network restrictions](../key-vault/general/overview-vnet-service-endpoints.md), you will also need to ensure that the application has network access.
+If your vault is configured with [network restrictions](../key-vault/general/overview-vnet-service-endpoints.md), you will also need to ensure that the application has network access. Vaults should not depend upon the app's public outbound IPs, as the origin IP of the secret request could be different. Instead, the vault should be configured to accept traffic from a virtual network used by the app.
 
 1. Make sure the application has outbound networking capabilities configured, as described in [App Service networking features](./networking-features.md) and [Azure Functions networking options](../azure-functions/functions-networking-options.md).
 
@@ -50,11 +50,10 @@ If your vault is configured with [network restrictions](../key-vault/general/ove
 
 2. Make sure that the vault's configuration accounts for the network or subnet through which your app will access it.
 
+
 > [!NOTE]
 > Windows container currently does not support Key Vault references over VNet Integration.
 
-> [!NOTE]
-> Please note that in case of keyvault references the origin IP might not be one of the outbound IPs, that is why it is highly recommended that if you wish to restrict your Key Vault behind an IP Firewall, to use vnet integration either at the app level or through an ASE.
 
 ### Access vaults with a user-assigned identity
 
