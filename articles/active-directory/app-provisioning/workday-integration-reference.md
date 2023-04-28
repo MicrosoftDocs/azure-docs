@@ -485,7 +485,7 @@ It's common for workers to start work at a company as a contingent worker, leave
 * It's January 1, 2023 and John Smith starts work at as a contingent worker. As there's no AD account associated with John's *WorkerID* (matching attribute), the provisioning service creates a new AD account and links John's contingent worker *WID (WorkdayID)* to John's AD account. 
 * John's contract ends on January 31, 2023. In the provisioning cycle that runs after end of day January 31, John's AD account is disabled. 
 * John applies for another position and decides to rejoin the company as full-time employee effective May 1, 2023. HR enters John's information as a prehire employee on April 15, 2023. Now there are two worker profiles in Workday for John. The CW profile is inactive, while the FTE profile is active. The two records have the same *WorkerID* but different *WID*s.  
-* On April 15, during incremental cycle, the Azure AD provisioning service automatically transfers ownership of the AD account to the active worker profile. In this case, it de-links the contingent worker profile from the AD account and establishes a new link between John's active employee worker profile and John's AD account.
+* On April 15, during incremental cycle, the Azure AD provisioning service automatically transfers ownership of the AD account to the active worker profile. In this case, it unlinks the contingent worker profile from the AD account and establishes a new link between John's active employee worker profile and John's AD account.
 * No changes are required in the provisioning app configuration to handle this scenario. 
 
 #### Scenario 4: Future-dated conversion, when worker is an active CW/FTE
