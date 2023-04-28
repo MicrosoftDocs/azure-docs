@@ -126,7 +126,6 @@ For example, assign the **Group Updater** role or a custom role to the Enterpris
   {  
   "@odata.id": "https://graph.microsoft.com/v1.0/directoryObjects/<insert user id>" 
   } 
-
  ```
 For more information, see [Add members - Microsoft Graph v1.0](../graph/api/group-post-members.md?view=graph-rest-1.0&tabs=http).
 
