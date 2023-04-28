@@ -36,7 +36,7 @@ The following architecture diagram illustrates the implementation.
 
 To get started, you need:
 
-* An Azure AD subscription.
+* An Azure AD subscription
   * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
 * An Azure AD B2C tenant linked to the Azure subscription
   * See, [Tutorial: Create an Azure Active Directory B2C tenant](./tutorial-create-tenant.md) 
@@ -51,7 +51,7 @@ To get started, you need:
 
 To get started:
 
-1. Go to developer.bindid.io to [Configure Your Application](https://developer.bindid.io/docs/guides/quickstart/topics/quickstart_web#step-1-configure-your-application)
+1. Go to developer.bindid.io to [Configure Your Application](https://developer.bindid.io/docs/guides/quickstart/topics/quickstart_web#step-1-configure-your-application).
 2. Add an application in [BindID Admin Portal](https://admin.bindid-sandbox.io/console/). Sign-in is required.
 
 | Property | Description |
@@ -70,7 +70,7 @@ For the following instructions, use the directory with your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/#home) as Global Administrator. 
 2. In the portal toolbar, select **Directories + subscriptions**.
-3. On the **Portal settings | Directories + subscriptions** page, in the **Directory name** list, find your Azure AD B2C directory.
+3. On the **Portal settings | Directories + subscriptions** page, in the **Directory name** list, find the Azure AD B2C directory.
 4. Select **Switch**.
 5. In the top-left corner of the Azure portal, select **All services**.
 6. Search for and select **Azure AD B2C**.
