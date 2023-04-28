@@ -3,7 +3,7 @@ title: Add Key Vault support to your ASP.NET project using Visual Studio - Azure
 description: Use this tutorial to help you learn how to add Key Vault support to an ASP.NET or ASP.NET Core web application.
 services: key-vault
 author: ghogen
-manager: jillfra
+manager: jmartens
 ms.service: key-vault
 ms.custom: "vs-azure, devx-track-csharp"
 ms.topic: how-to
@@ -125,6 +125,14 @@ Affects the project file .NET references and `packages.config` (NuGet references
 
 - Added the Connected Services ItemGroup and ConnectedServices.json file.
 - References to the .NET assemblies described in the [Added references](#added-references-for-aspnet-framework) section.
+
+## Accessing the key vault 
+
+Learn how to store secrets safely by following [Safe storage of app secrets in development in ASP.NET Core](/aspnet/core/security/app-secrets?tabs=windows). In particular, to read the connection string from the secrets store, you can add code as in [Read the secret via the configuration API](/aspnet/core/security/app-secrets?tabs=windows#read-the-secret-via-the-configuration-api).
+
+## Store ASP.NET Core configuration in the key vault
+
+If your goal is to store configuration for an ASP.NET Core app in an Azure Key Vault, see [Azure Key Vault configuration provider in ASP.NET Core](/aspnet/core/security/key-vault-configuration).
 
 ## Next steps
 
