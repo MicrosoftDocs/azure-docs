@@ -79,7 +79,7 @@ In some cases, you use the services side by side to fulfill distinct roles. For 
 
 In other cases, you link them together to form an event and data pipeline. You use Event Grid to respond to events in the other services. For an example of using Event Grid with Event Hubs to migrate data to Azure Synapse Analytics, see [Stream big data into a Azure Synapse Analytics](../event-grid/event-hubs-integration.md). The following image shows the workflow for streaming the data.
 
-:::image type="content" source="./media/compare-messaging-services/overview.svg" alt-text="Image showing how Event Hubs, Service Bus, and Event Grid can be connected together.":::
+:::image type="content" source="./media/compare-messaging-services/overview.svg" alt-text="Diagram showing how Event Hubs, Service Bus, and Event Grid can be connected together.":::
 
 ## Next steps
 See the following articles: 
