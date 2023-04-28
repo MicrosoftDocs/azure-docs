@@ -53,8 +53,6 @@ There are a few ways to connect to a Jupyter kernel from VS Code. It's important
 
 If you have already opened this notebook in Azure Machine Learning, we recommend you connect to an **existing session on the compute instance**. This action reconnects to an existing session you had for this notebook in Azure Machine Learning.
 
-:::image type="content" source="media/how-to-work-in-vs-code-remote/vs-code-connect-compute-instance.png" alt-text="Screenshot shows connecting to an existing session on the compute instance from VS Code.":::
-
 1. Locate the kernel picker in the upper right-hand corner of your notebook and select it
 
     :::image type="content" source="media/how-to-work-in-vs-code-remote/choose-kernel-source.png" alt-text="Screenshot shows kernel picker in VS Code.":::
