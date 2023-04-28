@@ -244,8 +244,12 @@ This section explains how to create the `nvidia-gpu-operator` namespace, set up 
    ```bash
    CHANNEL=$(oc get packagemanifest gpu-operator-certified -n openshift-marketplace -o jsonpath='{.status.defaultChannel}')
    ```
-> **_NOTE:_** If your cluster was created without providing the pull secret, the cluster will not include samples or operators from Red Hat or from certified partners. This will result in the following error message: 
-> *Error from server (NotFound): packagemanifests.packages.operators.coreos.com "gpu-operator-certified" not found.* To add your Red Hat pull secret on an Azure Red Hat OpenShift cluster, [follow this guidance](howto-add-update-pull-secret.md).
+> [!NOTE] 
+> If your cluster was created without providing the pull secret, the cluster won't include samples or operators from Red Hat or from certified partners. This will result in the following error message: 
+> 
+> *Error from server (NotFound): packagemanifests.packages.operators.coreos.com "gpu-operator-certified" not found.* 
+>
+> To add your Red Hat pull secret on an Azure Red Hat OpenShift cluster, [follow this guidance](howto-add-update-pull-secret.md).
 
 1. Get latest Nvidia package using the following command:
 
