@@ -21,4 +21,4 @@ To deploy your pipeline as a REST endpoint, you need to first convert your pipel
 
 To learn how to deploy your pipeline as a batch endpoint, see this document:
 
-[to-do: add link to how-to-use-batch-pipeline-deployments.md after it published]
+[to-do: add link to how-to-use-batch-pipeline-deploymen:ts.md after it published]

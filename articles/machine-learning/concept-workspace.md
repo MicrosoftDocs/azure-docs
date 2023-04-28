@@ -110,7 +110,7 @@ Once your workspace is set up, you can interact with it in the following ways:
 
 + On the web:
     + [Azure Machine Learning studio ](https://ml.azure.com) 
-    + [Azure Machine Learning designer](concept-designer.md) 
+    + [Azure Machine Learning designer](concept-designer-v1.md) 
 :::moniker range="azureml-api-2"
 + In any Python environment with the [Azure Machine Learning SDK](https://aka.ms/sdk-v2-install).
 + On the command line using the Azure Machine Learning [CLI extension v2](how-to-configure-cli.md)

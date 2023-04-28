@@ -42,7 +42,7 @@ The building blocks of pipeline are called assets in Azure Machine Learning, whi
  - Model 
  - [Component](./concept-component.md) 
 
-Designer has an asset library on the left side, where you can access all the assets you need to create your pipeline. It shows you the assets you created in your workspace, and the assets shared in [registry]((./how-to-share-models-pipelines-across-workspaces-with-registries.md)) that you have permission to use.
+Designer has an asset library on the left side, where you can access all the assets you need to create your pipeline. It shows you the assets you created in your workspace, and the assets shared in [registry](./how-to-share-models-pipelines-across-workspaces-with-registries.md) that you have permission to use.
 
 
 ![asset-libarary-screenshot](./media/concept-designer/asset-library.png)
@@ -94,12 +94,12 @@ You can create a new pipeline and build from scratch. Remember to select the **C
 
 If you would like to work based on an existing pipeline job in the workspace, you can easily clone it into a new pipeline draft to continue editing.
 
-![Screenshot of a pipeline job in the workspace with the clone button highlighted](./media/how-to-use-pipeline-ui/job-detail-clone.png)
+![Screenshot of a pipeline job in the workspace with the clone button highlighted](./media/how-to-debug-pipeline-failure/job-detail-clone.png)
 
 
 After cloning, you can also know which pipeline job it's cloned from by selecting **Show lineage**.
 
-![Screenshot showing the draft lineage after selecting show lineage button](./media/how-to-use-pipeline-ui/draft-show-lineage.png)
+![Screenshot showing the draft lineage after selecting show lineage button](./media/how-to-debug-pipeline-failure/draft-show-lineage.png)
 
 You can edit your pipeline and then submit again. After submitting, you can see the lineage between the job you submit and the original job by selecting **Show lineage** in the job detail page.
 
