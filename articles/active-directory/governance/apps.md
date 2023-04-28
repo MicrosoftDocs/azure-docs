@@ -102,8 +102,57 @@ This page provides a single place for the tutorials to the various entra identit
 | [Cornerstone OnDemand](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
 | [CybSafe](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
 | [Documo](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
-| [Open LDAP] | ● |  |
-| [Novell eDirectory] | ● |  |
+| [DocuSign](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Dropbox Business](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Dynamic Signal](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Dialpad](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Directprint.io](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Druva](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Embed Signage](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Envoy](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Eletive](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Elium](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Exium](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Evercate](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Facebook Work Accounts](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Federated Directory](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Figma](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Flock](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Foodee](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Fortes Change Cloud](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Frankli.io](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Freshservice Provisioning](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Fuze](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [G Suite](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [Genesys Cloud for Azure](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [getAbstract](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [GHAE](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [GitHub](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [GitHub AE](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [GitHub Enterprise Managed User](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [GitHub Enterprise Managed User (OIDC)](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [GoToMeeting](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [G](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [G](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [G](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [G](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [G](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [G](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [G](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [G](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [G](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [G](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [G](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [G](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [G](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [G](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [G](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [G](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [G](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [G](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| [G](https://learn.microsoft.com/azure/active-directory/saas-apps/acunetix-360-provisioning-tutorial) | ● | ● |
+| Open LDAP | ● |  |
+| Novell eDirectory | ● |  |
 
 ## Partner driven integrations
 Checkout the integrations [partners](https://learn.microsoft.com/azure/active-directory/app-provisioning/partner-driven-integrations) have built on top of Entra IGA.
