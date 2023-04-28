@@ -113,14 +113,16 @@ Host: management.azure.com
 {
   "properties": {
     "templateLink": {
-      "uri": "azuredeploy.json",
+      "uri": "https://example.com/azuretemplates/azuredeploy.json"
     },
-    "parameters": "azuredeploy.parameters.json",
+    "parametersLink": {
+        "uri": "https://example.com/azuretemplates/azuredeploy.parameters.json"
+    },
     "mode": "Incremental"
   }
 }
 ```
-
+For the REST APIs, the value of `uri` can't be a local file or a file that is only available on your local network. Azure Resource Manager must be able to access the template. Provide a URI value that downloadable as HTTP or HTTPS.
 For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../templates/deploy-powershell.md).
 
 ## Deploy a resource group and resources
