@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/10/2023
+ms.date: 04/28/2023
 ms.author: tamram
 ms.subservice: common
 ---
@@ -16,19 +16,25 @@ ms.subservice: common
 
 The [Azure Resource Manager](../../azure-resource-manager/management/overview.md) deployment model now offers extensive functionality for Azure Storage accounts. For this reason, we deprecated the management of classic storage accounts through Azure Service Manager (ASM) on August 31, 2021. Classic storage accounts will be fully retired on August 31, 2024. All data in classic storage accounts must be migrated to Azure Resource Manager storage accounts by that date.
 
-If you have classic storage accounts, start planning your migration now. Complete it by August 31, 2024, to take advantage of Azure Resource Manager. To learn more about the benefits of Azure Resource Manager, see [The benefits of using Resource Manager](../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager).
+If you have classic storage accounts, start planning your migration now. Complete it by August 31, 2024, to take advantage of Azure Resource Manager.
+
+To learn more about the classic versus Azure Resource Manager deployment models, see [Resource Manager and classic deployment](../../azure-resource-manager/management/deployment-models.md#changes-for-compute-network-and-storage).
 
 Storage accounts created using the classic deployment model follow the [Modern Lifecycle Policy](https://support.microsoft.com/help/30881/modern-lifecycle-policy) for retirement.
 
 ## Why is a migration required?
 
-On August 31, 2024, we'll retire classic Azure storage accounts and they'll no longer be accessible. Before that date, you must migrate your storage accounts to Azure Resource Manager, and update your applications to use Azure Storage resource provider APIs.
+On August 31, 2024, we'll retire classic Azure storage accounts and they'll no longer be accessible. Before that date, you must migrate your storage accounts to Azure Resource Manager, and update your applications to use [Azure Storage resource provider](/rest/api/storagerp/) APIs.
+
+The Azure Storage resource provider is the implementation of Azure Resource Manager for Azure Storage. To learn more about resource providers in Azure Resource Manager, see [Resource providers and resource types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 Azure Resource Manager storage accounts provide all of the same functionality, as well as new features, including:
 
-- A management layer that simplifies deployment by enabling you to create, update, and delete resources.
-- Resource grouping, which allows you to deploy, monitor, manage, and apply access control policies to resources as a group.
-- All new features for Azure Storage are implemented for storage account in Azure Resource Manager deployments, so customers that are still using classic resources will no longer have access to new features and updates.
+- A [consistent management layer](../../azure-resource-manager/management/overview.md#consistent-management-layer) that simplifies deployment by enabling you to create, update, and delete resources.
+- [Resource grouping](../../azure-resource-manager/management/overview.md#resource-groups), which allows you to deploy, monitor, manage, and apply access control policies to resources as a group.
+- All new features for Azure Storage are implemented for storage accounts in Azure Resource Manager deployments. Customers that are still using classic resources will not have access to new features and updates.
+
+For more information about the advantages of using Azure Resource Manager, see [The benefits of using Resource Manager](../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager).
 
 ## What happens if I don't migrate my accounts?
 
@@ -46,8 +52,6 @@ To migrate your classic storage accounts, you should:
 1. Identify all classic storage accounts in your subscription.
 1. Migrate any classic storage accounts to Azure Resource Manager.
 1. Check your applications and logs to determine whether you're dynamically creating, updating, or deleting classic storage accounts from your code, scripts, or templates. If you are, then you must update your applications to use Azure Resource Manager APIs for account management.
-
-    The Azure Storage resource provider is the implementation of Azure Resource Manager for Azure Storage. For more information about the Azure Storage resource provider APIs, see [Azure Storage Resource Provider REST API](https://learn.microsoft.com/rest/api/storagerp/).
 
 Before you get started with the migration, read [Understand storage account migration from the classic deployment model to Azure Resource Manager](classic-account-migration-process.md) for an overview of the process.
 
