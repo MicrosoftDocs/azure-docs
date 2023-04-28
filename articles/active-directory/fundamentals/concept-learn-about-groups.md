@@ -1,5 +1,5 @@
 ---
-title: Learn about groups and group membership - Azure Active Directory
+title: Learn about groups and group membership
 description: Information about Azure Active Directory groups and access rights
 services: active-directory
 author: shlipsey3

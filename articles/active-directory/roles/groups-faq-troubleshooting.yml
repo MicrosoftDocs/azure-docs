@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Troubleshoot Azure AD roles assigned to groups - Azure Active Directory
+  title: Troubleshoot Azure AD roles assigned to groups
   description: Learn some common questions and troubleshooting tips for assigning roles to groups in Azure Active Directory.
   services: active-directory
   author: rolyon

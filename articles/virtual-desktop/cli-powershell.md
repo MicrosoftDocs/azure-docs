@@ -125,7 +125,7 @@ Some PowerShell cmdlets require you to provide the object ID of Azure Virtual De
 - To retrieve the object IDs of all RemoteApp applications in an application group, run the following command:
 
    ```azurepowershell
-   Get-AzWvdApplication -ApplicationGroupName <ApplicationGroupName> -ResourceGroupName <ResourceGroupName> | FT Name, FilePath, ObjectId
+   Get-AzWvdApplication -ApplicationGroupName <ApplicationGroupName> -ResourceGroupName <ResourceGroupName> | Select-Object Name, FilePath, ObjectId
    ```
 
 ---
@@ -135,4 +135,4 @@ Some PowerShell cmdlets require you to provide the object ID of Azure Virtual De
 Now that you know how to use Azure CLI and Azure PowerShell with Azure Virtual Desktop, here are some articles that use them:
 
 - [Create an Azure Virtual Desktop host pool with PowerShell or the Azure CLI](create-host-pools-powershell.md)
-- [Manage app groups using PowerShell or the Azure CLI](manage-app-groups-powershell.md)
+- [Manage application groups using PowerShell or the Azure CLI](manage-app-groups-powershell.md)

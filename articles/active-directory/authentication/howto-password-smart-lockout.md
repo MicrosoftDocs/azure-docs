@@ -1,5 +1,5 @@
 ---
-title: Prevent attacks using smart lockout - Azure Active Directory
+title: Prevent attacks using smart lockout
 description: Learn how Azure Active Directory smart lockout helps protect your organization from brute-force attacks that try to guess user passwords.
 
 services: active-directory

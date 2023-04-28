@@ -29,7 +29,7 @@ Every IoT Central REST API call requires an authorization header. To learn more,
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
 
 > [!IMPORTANT]
-> Support for property queries is now deprecated in the IoT Central REST API and will be removed from the existing API releases. 
+> Support for property queries is now deprecated in the IoT Central REST API and will be removed from the existing API releases.
 
 [!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
 
@@ -101,6 +101,9 @@ The query syntax is similar to SQL syntax and is made up of the following clause
 The following sections describe these clauses in more detail.
 
 ## SELECT clause
+
+> [!IMPORTANT]
+> Support for property queries is now deprecated in the IoT Central REST API and will be removed from the existing API releases.
 
 The `SELECT` clause lists the data values to include in the query output and can include the following items:
 
@@ -219,6 +222,9 @@ The time window value uses the [ISO 8601 durations format](https://en.wikipedia.
 > You can only use time windows when you're querying for telemetry.
 
 ### Value comparisons
+
+> [!IMPORTANT]
+> Support for property queries is now deprecated in the IoT Central REST API and will be removed from the existing API releases.
 
 You can get telemetry or property values based on specific values. For example, the following query returns all messages where the temperature is greater than zero, the pressure is greater than 50, and the device ID is one of **sample-002** and **sample-003**:
 

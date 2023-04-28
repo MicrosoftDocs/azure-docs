@@ -13,7 +13,9 @@ ms.date: 03/09/2023
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
-This article explains the Azure Database for PostgreSQL connectivity architecture and how the traffic is directed to your Azure Database for PostgreSQL database instance from clients both within and outside Azure.
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
+This article explains the Azure Database for PostgreSQL connectivity architecture as well as how the traffic is directed to your Azure Database for PostgreSQL database instance from clients both within and outside Azure.
 
 ## Connectivity architecture
 

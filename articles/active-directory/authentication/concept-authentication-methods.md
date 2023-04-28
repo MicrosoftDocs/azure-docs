@@ -1,5 +1,5 @@
 ---
-title: Authentication methods and features - Azure Active Directory
+title: Authentication methods and features
 description: Learn about the different authentication methods and features available in Azure Active Directory to help improve and secure sign-in events
 
 services: active-directory

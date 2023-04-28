@@ -1,5 +1,5 @@
 ---
-title: Assign or remove licenses - Azure Active Directory
+title: Assign or remove licenses
 description: Instructions about how to assign or remove Azure Active Directory licenses from your users or groups.
 services: active-directory
 author: barclayn

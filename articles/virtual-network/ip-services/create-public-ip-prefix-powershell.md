@@ -109,6 +109,26 @@ The removal of the **`-Zone`** parameter in the command is valid in all regions.
 
 The removal of the **`-Zone`** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
+# [**Routing Preference Internet IPv4 prefix**](#tab/ipv4-routing-pref)
+
+To create a IPv4 public IP prefix, enter **IPv4** in the **`-IpAddressVersion`** parameter. Remove the **`-Zone`** parameter to create a non-zonal IP prefix.
+
+```azurepowershell-interactive
+$tagproperty = @{
+IpTagType = 'RoutingPreference'
+Tag = 'Internet'
+}
+$routingprefinternettag = New-Object -TypeName Microsoft.Azure.Commands.Network.Models.PSPublicIpPrefixTag -Property $tagproperty 
+$ipv4 =@{
+    Name = 'myPublicIpPrefix-routingprefinternet'
+    ResourceGroupName = 'QuickStartCreateIPPrefix-rg'
+    Location = 'eastus2'
+    PrefixLength = '28'
+    IpAddressVersion = 'IPv4'
+    IpTag = $routingprefinternettag
+}
+New-AzPublicIpPrefix @ipv4
+```
 ---
 
 ## IPv6

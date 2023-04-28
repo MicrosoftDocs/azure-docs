@@ -5,7 +5,7 @@ ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 03/14/2023
+ms.date: 03/28/2023
 ---
 
 # Use glossaries with Document Translation
@@ -43,7 +43,10 @@ A glossary is a list of terms with definitions that you create for the Document 
 
 1. **Specify your glossary in the translation request.** Include the **`glossary URL`**, **`format`**, and **`version`** in your **`POST`** request:
 
-      :::code language="json" source="../../../../../cognitive-services-rest-samples/curl/Translator/translate-with-glossary.json" range="1-23" highlight="13-15":::
+      :::code language="json" source="../../../../../cognitive-services-rest-samples/curl/Translator/translate-with-glossary.json" range="1-23" highlight="13-14":::
+
+   > [!NOTE]
+   > The example used an enabled [**system-assigned managed identity**](create-use-managed-identities.md#enable-a-system-assigned-managed-identity) with a [**Storage Blob Data Contributor**](create-use-managed-identities.md#grant-storage-account-access-for-your-translator-resource) role assignment for authorization. For more information, *see* [**Managed identities for Document Translation**](./create-use-managed-identities.md).
 
 ### Case sensitivity
 

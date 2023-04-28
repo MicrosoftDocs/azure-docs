@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: manashgoswami 
 ms.author: magoswam
 ms.reviewer: ssalgado 
-ms.date: 03/15/2022
+ms.date: 04/13/2023
 ms.custom: automl, event-tier1-build-2022, ignite-2022
 ---
 
@@ -17,7 +17,7 @@ ms.custom: automl, event-tier1-build-2022, ignite-2022
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 > [!div class="op_single_selector" title1="Select the version of the Azure Machine Learning Python SDK you are using:"]
-> * [v1](./v1/concept-automated-ml-v1.md)
+> * [v1](./v1/concept-automated-ml-v1.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](concept-automated-ml.md)
 
 Automated machine learning, also referred to as automated ML or AutoML, is the process of automating the time-consuming, iterative tasks of machine learning model development. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality. Automated ML in Azure Machine Learning is based on a breakthrough from our [Microsoft Research division](https://www.microsoft.com/research/project/automl/).
@@ -48,7 +48,7 @@ The following diagram illustrates this process.
 
 You can also inspect the logged job information, which [contains metrics](how-to-understand-automated-ml.md) gathered during the job. The training job produces a Python serialized object (`.pkl` file) that contains the model and data preprocessing.
 
-While model building is automated, you can also [learn how important or relevant features are](./v1/how-to-configure-auto-train-v1.md#explain) to the generated models.
+While model building is automated, you can also [learn how important or relevant features are](./v1/how-to-configure-auto-train-v1.md?view=azureml-api-1&preserve-view=true#explain) to the generated models.
 
 ## When to use AutoML: classification, regression, forecasting, computer vision & NLP
 
@@ -154,7 +154,7 @@ Learn how to [configure AutoML experiments to use test data (preview) with the S
 
 Feature engineering is the process of using domain knowledge of the data to create features that help ML algorithms learn better. In Azure Machine Learning, scaling and normalization techniques are applied to facilitate feature engineering. Collectively, these techniques and feature engineering are referred to as featurization.
 
-For automated machine learning experiments, featurization is applied automatically, but can also be customized based on your data. [Learn more about what featurization is included](how-to-configure-auto-features.md#featurization) and how AutoML helps [prevent over-fitting and imbalanced data](concept-manage-ml-pitfalls.md) in your models.  
+For automated machine learning experiments, featurization is applied automatically, but can also be customized based on your data. [Learn more about what featurization is included (SDK v1)](./v1/how-to-configure-auto-features.md?view=azureml-api-1&preserve-view=true#featurization) and how AutoML helps [prevent over-fitting and imbalanced data](concept-manage-ml-pitfalls.md) in your models.  
 
 > [!NOTE]
 > Automated machine learning featurization steps (feature normalization, handling missing data,
@@ -212,7 +212,7 @@ How-to articles provide additional detail into what functionality automated ML o
 
 +  Learn how to [train computer vision models with Python](how-to-auto-train-image-models.md).
 
-+  Learn how to [view the generated code from your automated ML models](how-to-generate-automl-training-code.md).
++  Learn how to [view the generated code from your automated ML models (SDK v1)](./v1/how-to-generate-automl-training-code.md?view=azureml-api-1&preserve-view=true).
    
 ### Jupyter notebook samples 
 

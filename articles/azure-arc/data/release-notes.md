@@ -17,11 +17,32 @@ ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
 
+## April 12, 2023
+
+### Image tag
+
+`v1.18.0_2023-04-11`
+
+For complete release version information, see [Version log](version-log.md#april-11-2023).
+
+New for this release:
+
+- Azure Arc-enabled SQL Managed Instance
+  - Direct mode for failover groups is generally available az CLI
+  - Schedule the HA orchestrator replicas on different nodes when available
+
+- Arc PostgreSQL
+  - Ensure postgres extensions work per database/role
+  - Arc PostgreSQL | Upload metrics/logs to Azure Monitor
+
+- Bug fixes and optimizations in the following areas:
+  - Deploying Arc data controller using the individual create experience has been removed as it sets the auto upgrade parameter incorrectly. Use the all-in-one create experience. This experience creates the extension, custom location, and data controller. It also sets all the parameters correctly. For specific information, see [Create Azure Arc data controller in direct connectivity mode using CLI](create-data-controller-direct-cli.md).
+
 ## March 14, 2023
 
 ### Image tag
 
-`v1.16.0_2023-03-14`
+`v1.17.0_2023-03-14`
 
 For complete release version information, see [Version log](version-log.md#march-14-2023).
 
@@ -435,7 +456,7 @@ For complete release version information, see [Version log](version-log.md#febru
     - Set `--readable-secondaries` to any value between 0 and the number of replicas minus 1.
     - `--readable-secondaries` only applies to Business Critical tier. 
 - Automatic backups are taken on the primary instance in a Business Critical service tier when there are multiple replicas. When a failover happens, backups move to the new primary. 
-- [ReadWriteMany (RWX) capable storage class](../../aks/concepts-storage.md#azure-disks) is required for backups, for both General Purpose and Business Critical service tiers. Specifying a non-ReadWriteMany storage class will cause the SQL Managed Instance to be stuck in "Pending" status during deployment.
+- [ReadWriteMany (RWX) capable storage class](../../aks/concepts-storage.md#azure-disk) is required for backups, for both General Purpose and Business Critical service tiers. Specifying a non-ReadWriteMany storage class will cause the SQL Managed Instance to be stuck in "Pending" status during deployment.
 - Billing support when using multiple read replicas.
 
 For additional information about service tiers, see [High Availability with Azure Arc-enabled SQL Managed Instance (preview)](managed-instance-high-availability.md).
@@ -510,13 +531,12 @@ Install or update `arcdata` extension for `az` CLI to support directly connected
 
 The following `sql` commands now support directly connected mode:
 
-   ```console
-   az arcdata dc create
-   az arcdata dc delete
-   az sql mi-arc create
-   az sql mi-arc delete
-   ```
- 
+```console
+az arcdata dc create
+az arcdata dc delete
+az sql mi-arc create
+az sql mi-arc delete
+```
 ### Data controller
 
 - Directly connected mode generally available
@@ -536,7 +556,6 @@ The following `sql` commands now support directly connected mode:
    AZDATA_METRICSUI_PASSWORD
    ```
 - New command - `az arcdata dc list-upgrades` shows the list of available upgrades from the currently deployed data controller.
-
 
 You can continue to use `AZDATA_USERNAME` and `AZDATA_PASSWORD` environment variables as before. If you only provide `AZDATA_USERNAME` and `AZDATA_PASSWORD` then the deployment uses them for both the logs and metrics dashboards.
 
@@ -562,7 +581,6 @@ For complete list, see [Supported regions](overview.md#supported-regions).
 - Resolved issue where the point in time restore operation did not respect configured time zone 
 - Restore to a point in time from Azure CLI or Azure Data Studio
  
-
 ### Known issues
 
 #### Data controller upgrade
@@ -608,7 +626,6 @@ az arcdata sql mi-arc update
 - When a pod is re-provisioned, SQL Managed Instance starts a new set of full backups for all databases.
 - If your data controller is directly connected, before you can provision a SQL Managed Instance, you must upgrade your data controller to the most recent version first. Attempting to provision a SQL Managed Instance with a data controller imageVersion of `v1.0.0_2021-07-30` will not succeed.
 
-
 ##### Other limitations
 
 - Transaction replication is currently not supported.
@@ -634,7 +651,6 @@ This release announces general availability for Azure Arc-enabled SQL Managed In
 Use the following tools:
 - [Insiders build of Azure Data Studio](https://github.com/microsoft/azuredatastudio#try-out-the-latest-insiders-build-from-main).
 - [`arcdata` extension for Azure (`az`) CLI](install-arcdata-extension.md). 
-
 
 #### Data controller
 
@@ -739,7 +755,6 @@ Use the following tools:
 - Portal does not show Azure Arc-enabled SQL Managed Instance resources created in the June release. Delete the SQL Managed Instance resources from the resource group list view. You may need to delete the custom location resource first.
 
 ##### Point-in-time restore(PITR) supportability and limitations:
-	
 - Doesn't support restore from one Azure Arc-enabled SQL Managed Instance to another Azure Arc-enabled SQL Managed Instance.  The database can only be restored to the same Azure Arc-enabled SQL Managed Instance where the backups were created.
 - Renaming a database is currently not supported, for point in time restore purposes.
 - Currently there is no CLI command or an API to provide the allowed time window information for point-in-time restore. You can provide a time within a reasonable window, since the time the database was created, and if the timestamp is valid the restore would work. If the timestamp is not valid, the allowed time window will be provided via an error message.
@@ -836,7 +851,6 @@ This release introduces `az` CLI extensions for Azure Arc-enabled data services.
 - You can now configure compute parameters (vCore & memory) per role (Coordinator or Worker) when you deploy a PostgreSQL server or after deployment from Azure Data Studio and from the Azure portal.
 - From the Azure portal, you can now view the list of PostgreSQL extensions created on your PostgreSQL server.
 - From the Azure portal, you can delete Azure Arc-enabled PostgreSQL server groups on a data controller that is directly connected to Azure.
-
 
 #### Azure Arc-enabled SQL Managed Instance
 
@@ -1101,3 +1115,4 @@ For instructions see [What are Azure Arc-enabled data services?](overview.md)
 - [Create an Azure SQL Managed Instance on Azure Arc](create-sql-managed-instance.md) (requires creation of an Azure Arc data controller first)
 - [Create an Azure Database for PostgreSQL server on Azure Arc](create-postgresql-server.md) (requires creation of an Azure Arc data controller first)
 - [Resource providers for Azure services](../../azure-resource-manager/management/azure-services-resource-providers.md)
+

@@ -2,12 +2,12 @@
 title: Managed identities in Azure Container Apps
 description: Using managed identities in Container Apps
 services: container-apps
-author: cebundy
+author: lanceleonard
 ms.service: container-apps
 ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: how-to
 ms.date: 09/29/2022
-ms.author: v-bcatherine
+ms.author: v-laleonard
 ---
 
 # Managed identities in Azure Container Apps
@@ -222,7 +222,7 @@ For more code examples of the Azure Identity client library for Java, see [Azure
 
 # [PowerShell](#tab/powershell)
 
-Use the following script to retrieve a token from the local endpoint by specifying a resource URI of an Azure service. Replace the place holder with the resource URI to obtain the token.
+Use the following script to retrieve a token from the local endpoint by specifying a resource URI of an Azure service. Replace the placeholder with the resource URI to obtain the token.
 
 ```powershell
 $resourceURI = "https://<AAD-resource-URI>"
@@ -235,11 +235,11 @@ $accessToken = $tokenResponse.access_token
 
 A raw HTTP GET request looks like the following example.
 
-X-IDENTITY-HEADER contains the GUID that is stored in the IDENTITY_HEADER environment variable.
+Obtain the token endpoint URL from the `IDENTITY_ENDPOINT` environment variable. `x-identity-header` contains the GUID that is stored in the `IDENTITY_HEADER` environment variable.
 
 ```http
 GET http://localhost:42356/msi/token?resource=https://vault.azure.net&api-version=2019-08-01 HTTP/1.1
-X-IDENTITY-HEADER: 853b9a84-5bfa-4b22-a3f3-0b9a43d9ad8a
+x-identity-header: 853b9a84-5bfa-4b22-a3f3-0b9a43d9ad8a
 ```
 
 A response might look like this example:
@@ -262,13 +262,10 @@ This response is the same as the [response for the Azure AD service-to-service a
 
 ### REST endpoint reference
 
-> [!NOTE]
-> An older version of this endpoint, using the "2017-09-01" API version, used the `secret` header instead of `X-IDENTITY-HEADER` and only accepted the `clientid` property for user-assigned. It also returned the `expires_on` in a timestamp format. `MSI_ENDPOINT` can be used as an alias for `IDENTITY_ENDPOINT`, and `MSI_SECRET` can be used as an alias for `IDENTITY_HEADER`. This version of the protocol is currently required for Linux Consumption hosting plans.
-
 A container app with a managed identity exposes the identity endpoint by defining two environment variables:
 
-- IDENTITY_ENDPOINT - local URL from which your container app can request tokens.
-- IDENTITY_HEADER - a header used to help mitigate server-side request forgery (SSRF) attacks. The value is rotated by the platform.
+- `IDENTITY_ENDPOINT` - local URL from which your container app can request tokens.
+- `IDENTITY_HEADER` - a header used to help mitigate server-side request forgery (SSRF) attacks. The value is rotated by the platform.
 
 To get a token for a resource, make an HTTP GET request to the endpoint, including the following parameters:
 
@@ -283,8 +280,6 @@ To get a token for a resource, make an HTTP GET request to the endpoint, includi
 
 > [!IMPORTANT]
 > If you are attempting to obtain tokens for user-assigned identities, you must include one of the optional properties. Otherwise the token service will attempt to obtain a token for a system-assigned identity, which may or may not exist.
-
-For more information on the REST endpoint, see [REST endpoint reference](#rest-endpoint-reference).
 
 ---
 

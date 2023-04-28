@@ -14,45 +14,32 @@ ms.date: 10/21/2021
 
 # Azure Machine Learning Curated Environments
 
-This article lists the curated environments with latest framework versions in Azure Machine Learning. Curated environments are provided by Azure Machine Learning and are available in your workspace by default. They are backed by cached Docker images that use the latest version of the Azure Machine Learning SDK, reducing the run preparation cost and allowing for faster deployment time. Use these environments to quickly get started with various machine learning frameworks.
+This article lists the curated environments with latest framework versions in Azure Machine Learning. Curated environments are provided by Azure Machine Learning and are available in your workspace by default. They're backed by cached Docker images that use the latest version of the Azure Machine Learning SDK, reducing the run preparation cost and allowing for faster deployment time. Use these environments to quickly get started with various machine learning frameworks.
 
 > [!NOTE]
-> Use the [Python SDK](how-to-use-environments.md), [CLI](/cli/azure/ml/environment#az-ml-environment-list), or Azure Machine Learning [studio](how-to-manage-environments-in-studio.md) to get the full list of environments and their dependencies. For more information, see the [environments article](how-to-use-environments.md#use-a-curated-environment). 
+> Use the [Python SDK](how-to-use-environments.md), [CLI](/cli/azure/ml/environment#az-ml-environment-list), or Azure Machine Learning [studio](how-to-manage-environments-in-studio.md) to get the full list of environments and their dependencies. For more information, see the [environments article](how-to-use-environments.md#use-a-curated-environment).
+
 
 ## Why should I use curated environments?
 
 * Reduces training and deployment latency.
 * Improves training and deployment success rate.
 * Avoid unnecessary image builds.
-* Only have required dependencies and access right in the image/container. 
+* Only have required dependencies and access right in the image/container.
 
->[!IMPORTANT] 
-> To view more information about curated environment packages and versions, visit the Environments tab in the Azure Machine Learning [studio](./how-to-manage-environments-in-studio.md). 
+>[!IMPORTANT]
+> To view more information about curated environment packages and versions, visit the Environments tab in the Azure Machine Learning [studio](./how-to-manage-environments-in-studio.md).
 
 ## Curated environments
 
+### Azure Container for PyTorch (ACPT)
 
-> [!IMPORTANT]
-> Items marked (preview) in this article are currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+**Description**: Recommended environment for Deep Learning with PyTorch on Azure containing the Azure Machine Learning SDK with the latest compatible versions of Ubuntu, Python, PyTorch, CUDA\RocM, and NebulaML combined with optimizers like ORT Training, +DeepSpeed+MSCCL+ORT MoE, and checkpointing using NebulaML and more.
 
-### Azure Container for PyTorch (ACPT) (preview)
-
-**Name**: AzureML-ACPT-pytorch-1.12-py39-cuda11.6-gpu  
-**Description**: The Azure Curated Environment for PyTorch is our latest PyTorch curated environment. It is optimized for large, distributed deep learning workloads and comes pre-packaged with the best of Microsoft technologies for accelerated training, e.g., OnnxRuntime Training (ORT), DeepSpeed, MSCCL, etc. 
-
-The following configurations are supported: 
-
-| Environment Name | OS | GPU Version| Python Version | PyTorch Version | ORT-training Version | DeepSpeed Version | torch-ort Version | 
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| AzureML-ACPT-pytorch-1.12-py39-cuda11.6-gpu | Ubuntu 20.04  | cu116 | 3.9 | 1.12.1 | 1.13.1 | 0.7.3 | 1.13.1 |
-| AzureML-ACPT-pytorch-1.12-py38-cuda11.6-gpu | Ubuntu 20.04  | cu116 | 3.8 | 1.12.1 | 1.12.0 | 0.7.3 | 1.12.0 |
-| AzureML-ACPT-pytorch-1.11-py38-cuda11.5-gpu | Ubuntu 20.04  | cu115 | 3.8 | 1.11.0 | 1.11.1 | 0.7.3 | 1.11.0 | 
-| AzureML-ACPT-pytorch-1.11-py38-cuda11.3-gpu | Ubuntu 20.04  | cu113 | 3.8 | 1.11.0 | 1.11.1 | 0.7.3 | 1.11.0 |
+To learn more, see [Azure Container for PyTorch (ACPT)](resource-azure-container-for-pytorch.md).
 
 > [!NOTE]
-> Currently, due to underlying cuda and cluster incompatibilities, on [NC series](../virtual-machines/nc-series.md) only AzureML-ACPT-pytorch-1.11-py38-cuda11.3-gpu with cuda 11.3 can be used.
+> Currently, due to underlying cuda and cluster incompatibilities, on [NC series](../virtual-machines/nc-series.md) only acpt-pytorch-1.11-cuda11.3 with cuda 11.3 and torch 1.11 can be used.
 
 ### PyTorch
 

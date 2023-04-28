@@ -16,11 +16,11 @@ ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022, ignite-2022
 # Set up AutoML to train computer vision models with Python (v1)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
-	
+    
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
 > * [v1](how-to-auto-train-image-models-v1.md)
-> * [v2 (current version)](../how-to-auto-train-image-models.md)
-	
+> * [v2 (current version)](../how-to-auto-train-image-models.md?view=azureml-api-2&preserve-view=true)
+    
 [!INCLUDE [cli-version-info](../../../includes/machine-learning-cli-version-1-only.md)]
 
 
@@ -218,11 +218,11 @@ In addition to controlling the model algorithm, you can also tune hyperparameter
 
 ### Data augmentation 
 
-In general, deep learning model performance can often improve with more data. Data augmentation is a practical technique to amplify the data size and variability of a dataset which helps to prevent overfitting and improve the model’s generalization ability on unseen data. Automated ML applies different data augmentation techniques based on the computer vision task, before feeding input images to the model. Currently, there is no exposed hyperparameter to control data augmentations. 
+In general, deep learning model performance can often improve with more data. Data augmentation is a practical technique to amplify the data size and variability of a dataset which helps to prevent overfitting and improve the model's generalization ability on unseen data. Automated ML applies different data augmentation techniques based on the computer vision task, before feeding input images to the model. Currently, there is no exposed hyperparameter to control data augmentations. 
 
 |Task | Impacted dataset | Data augmentation technique(s) applied |
 |-------|----------|---------|
-|Image classification (multi-class and multi-label) | Training <br><br><br> Validation & Test| Random resize and crop, horizontal flip, color jitter (brightness, contrast, saturation, and hue), normalization using channel-wise ImageNet’s mean and standard deviation <br><br><br>Resize, center crop, normalization |
+|Image classification (multi-class and multi-label) | Training <br><br><br> Validation & Test| Random resize and crop, horizontal flip, color jitter (brightness, contrast, saturation, and hue), normalization using channel-wise ImageNet's mean and standard deviation <br><br><br>Resize, center crop, normalization |
 |Object detection, instance segmentation| Training <br><br> Validation & Test |Random crop around bounding boxes, expand, horizontal flip, normalization, resize <br><br><br>Normalization, resize
 |Object detection using yolov5| Training <br><br> Validation & Test  |Mosaic, random affine (rotation, translation, scale, shear), horizontal flip <br><br><br> Letterbox resizing|
 
@@ -522,4 +522,4 @@ Review detailed code examples and use cases in the [GitHub notebook repository f
 
 * [Tutorial: Train an object detection model with AutoML and Python](../tutorial-auto-train-image-models.md).
 * [Make predictions with ONNX on computer vision models from AutoML](../how-to-inference-onnx-automl-image-models.md) 
-* [Troubleshoot automated ML experiments](../how-to-troubleshoot-auto-ml.md).
+* [Troubleshoot automated ML experiments](how-to-troubleshoot-auto-ml.md).

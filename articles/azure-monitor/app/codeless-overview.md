@@ -8,7 +8,7 @@ ms.reviewer: abinetabate
 
 # What is auto-instrumentation for Azure Monitor Application Insights?
 
-Auto-instrumentation quickly and easily enables [Application Insights](app-insights-overview.md) to make [telemetry](data-model.md) like metrics, requests, and dependencies available in your [Application Insights resource](create-workspace-resource.md).
+Auto-instrumentation quickly and easily enables [Application Insights](app-insights-overview.md) to make [telemetry](data-model-complete.md) like metrics, requests, and dependencies available in your [Application Insights resource](create-workspace-resource.md).
 
 > [!div class="checklist"]
 > - No code changes are required.

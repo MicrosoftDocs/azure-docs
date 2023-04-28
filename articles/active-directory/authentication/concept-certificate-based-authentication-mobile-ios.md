@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory certificate-based authentication on Apple devices - Azure Active Directory
+title: Azure Active Directory certificate-based authentication on Apple devices
 description: Learn about Azure Active Directory certificate-based authentication on Apple devices that run macOS or iOS
 
 services: active-directory

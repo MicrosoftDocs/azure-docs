@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 03/12/2023
+ms.date: 04/27/2023
 ms.custom:
 ---
 # Create, list, update and delete Microsoft Purview DevOps policies
@@ -82,6 +82,8 @@ To delete a DevOps policy, ensure first that you have the Microsoft Purview Poli
 ## Test the DevOps policy
 After creating the policy, any of the Azure AD users in the Subject should now be able to connect to the data sources in the scope of the policy. To test, use SSMS or any SQL client and try to query some DMVs/DMFs. We list here a few examples. For more, you can consult the mapping of popular DMVs/DMFs in the [Microsoft Purview DevOps policies concept guide](./concept-policies-devops.md#mapping-of-popular-dmvs-and-dmfs)
 
+If you require additional troubleshooting, see the [Next steps](#next-steps) section in this guide.
+
 ### Testing SQL Performance Monitor access
 If you provided the Subject(s) of the policy SQL Performance Monitor role, you can issue the following commands
 ```sql
@@ -113,24 +115,60 @@ SELECT * FROM [databaseName].schemaName.tableName
 
 
 ## Role definition detail
-This section contains a reference of how actions in Microsoft Purview data policies map to specific actions in Azure SQL MI.
+This section contains a reference of how relevant Microsoft Purview data policy roles map to specific actions in SQL data sources.
 
-| **DevOps role definition** | **Data source specific actions**     |
+>[!NOTE]
+> The roles below may be expanded in the future to include additional actions that become available as long as they are consistent with the spirit of the role.
+
+| **Microsoft Purview policy role definition** | **Data source specific actions**     |
 |-------------------------------------|--------------------------------------|
 |                                     |                                      |
-| *SQL Performance Monitor* |Microsoft.Sql/sqlservers/Connect |
-||Microsoft.Sql/sqlservers/databases/Connect |
-||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabasePerformanceState/rows/select |
-||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/ServerPerformanceState/rows/select |
+| *SQL Performance Monitor* |Microsoft.Sql/Sqlservers/Connect |
+||Microsoft.Sql/Sqlservers/Databases/Connect |
+||Microsoft.Sql/Sqlservers/Databases/SystemViewsAndFunctions/DatabasePerformanceState/rows/select |
+||Microsoft.Sql/Sqlservers/Databases/SystemViewsAndFunctions/ServerPerformanceState/rows/select |
 |||               
-| *SQL Security Auditor* |Microsoft.Sql/sqlservers/Connect |
-||Microsoft.Sql/sqlservers/databases/Connect |
+| *SQL Security Auditor* |Microsoft.Sql/Sqlservers/Connect |
+||Microsoft.Sql/Sqlservers/Databases/Connect |
 ||Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerSecurityState/rows/select |
-||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabaseSecurityState/rows/select |
+||Microsoft.Sql/Sqlservers/Databases/SystemViewsAndFunctions/DatabaseSecurityState/rows/select |
 ||Microsoft.Sql/sqlservers/SystemViewsAndFunctions/ServerSecurityMetadata/rows/select |
-||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabaseSecurityMetadata/rows/select |
+||Microsoft.Sql/Sqlservers/Databases/SystemViewsAndFunctions/DatabaseSecurityMetadata/rows/select |
 |||
 
+>[!NOTE]
+> The role definition for SQL Performance Monitor will be expanded in the first half of May 2023, to include the following SQL side specific actions.
+
+| **Microsoft Purview policy role definition** | **Data source specific actions**     |
+|-------------------------------------|--------------------------------------|
+|                                     |                                      |
+| *SQL Performance Monitor* |Microsoft.Sql/Sqlservers/Connect |
+||Microsoft.Sql/Sqlservers/Databases/Connect |
+||Microsoft.Sql/Sqlservers/Databases/SystemViewsAndFunctions/DatabasePerformanceState/Rows/Select |
+||Microsoft.Sql/Sqlservers/SystemViewsAndFunctions/ServerPerformanceState/Rows/Select |
+||Microsoft.Sql/Sqlservers/Databases/SystemViewsAndFunctions/DatabaseGeneralMetadata/Rows/Select |
+||Microsoft.Sql/Sqlservers/SystemViewsAndFunctions/ServerGeneralMetadata/Rows/Select |
+||Microsoft.Sql/Sqlservers/Databases/DBCCs/ViewDatabasePerformanceState/Execute |
+||Microsoft.Sql/Sqlservers/DBCCs/ViewServerPerformanceState/Execute |
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/Create |
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/Options/Alter |
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/Events/Add |
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/Events/Drop |
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/State/Enable |
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/State/Disable |
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/Drop
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/Target/Add |
+||Microsoft.Sql/Sqlservers/Databases/ExtendedEventSessions/Target/Drop |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/Create |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/Options/Alter |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/Events/Add |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/Events/Drop |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/State/Enable |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/State/Disable |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/Drop |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/Target/Add |
+||Microsoft.Sql/Sqlservers/ExtendedEventSessions/Target/Drop |
+|||
 
 ## Next steps
 Check the blogs, videos and related documents

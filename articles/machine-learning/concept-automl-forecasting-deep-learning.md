@@ -89,7 +89,7 @@ AutoML executes several preprocessing steps on your data to prepare for model tr
 |Step|Description|
 |--|--|
 Fill missing data|[Impute missing values and observation gaps](./concept-automl-forecasting-methods.md#missing-data-handling) and optionally [pad or drop short time series](./how-to-auto-train-forecast.md#short-series-handling)|
-|Create calendar features|Augment the input data with [features derived from the calendar](./concept-automl-forecasting-calendar-features.md) like day of the week and, optionally, holidays for a specific region or country.|
+|Create calendar features|Augment the input data with [features derived from the calendar](./concept-automl-forecasting-calendar-features.md) like day of the week and, optionally, holidays for a specific country/region.|
 |Encode categorical data|[Label encode](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html) strings and other categorical types; this includes all [time series ID columns](./how-to-auto-train-forecast.md#configuration-settings).|
 |Target transform|Optionally apply the natural logarithm function to the target depending on the results of certain statistical tests.|
 |Normalization|[Z-score normalize](https://en.wikipedia.org/wiki/Standard_score) all numeric data; normalization is performed per feature and per time series group, as defined by the [time series ID columns](./how-to-auto-train-forecast.md#configuration-settings).

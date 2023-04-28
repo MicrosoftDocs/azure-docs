@@ -39,5 +39,4 @@ The following example gets a container URL and a blob URL by accessing the clien
 ## See also
 
 - [Get started with Azure Blob Storage and JavaScript](storage-blob-javascript-get-started.md)
-- [DownloadStreaming]()
 - [Get Blob](/rest/api/storageservices/get-blob) (REST API)

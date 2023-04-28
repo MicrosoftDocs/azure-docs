@@ -41,7 +41,6 @@ As you review your list, you may find you need to either assign an owner for tas
 #### Assigning owners recommended reading
 
 - [Assigning administrator roles in Azure Active Directory](../roles/permissions-reference.md)
-- [Governance in Azure](../../governance/index.yml)
 
 ## On-premises identity synchronization
 

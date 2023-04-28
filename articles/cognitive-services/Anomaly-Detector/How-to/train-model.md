@@ -7,14 +7,14 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/01/2022
 ms.author: mbullwin
 ---
 
 # Train a Multivariate Anomaly Detection model
 
-To test out Multivariate Anomaly Detection quickly, try the [Code Sample](https://github.com/Azure-Samples/AnomalyDetector)! For more instructions on how to run a jupyter notebook, please refer to [Install and Run a Jupyter Notebook](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/install.html#).
+To test out Multivariate Anomaly Detection quickly, try the [Code Sample](https://github.com/Azure-Samples/AnomalyDetector)! For more instructions on how to run a Jupyter notebook, please refer to [Install and Run a Jupyter Notebook](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/install.html#).
 
 ## API Overview
 
@@ -31,9 +31,9 @@ There are 7 APIs provided in Multivariate Anomaly Detection:
 | ------ | ---- | ----------- | ------ | 
 |**Train Model**| POST       |  `{endpoint}`/anomalydetector/v1.1/multivariate/models    |   Create and train a model          |
 |**Get Model Status**|     GET   |   `{endpoint}`anomalydetector/v1.1/multivariate/models/`{modelId}`   |     Get model status and model metadata with `modelId`   |
-|**Batch Inference**|    POST    |  `{endpoint}`/anomalydetector/v1.1/multivariate/models/`{modelId}`: detect-batch    |          Trigger an asynchronous inference with `modelId` which works in a batch scenario   |
+|**Batch Inference**|    POST    |  `{endpoint}`/anomalydetector/v1.1/multivariate/models/`{modelId}`: detect-batch    |          Trigger an asynchronous inference with `modelId`, which works in a batch scenario   |
 |**Get Batch Inference Results**|     GET   |  `{endpoint}`/anomalydetector/v1.1/multivariate/detect-batch/`{resultId}`    |       Get batch inference results with `resultId`      |
-|**Streaming Inference**|   POST     |   `{endpoint}`/anomalydetector/v1.1/multivariate/models/`{modelId}`: detect-last   |      Trigger a synchronous inference with `modelId` which works in a streaming scenario       |
+|**Streaming Inference**|   POST     |   `{endpoint}`/anomalydetector/v1.1/multivariate/models/`{modelId}`: detect-last   |      Trigger a synchronous inference with `modelId`, which works in a streaming scenario       |
 |**List Model**|     GET   |  `{endpoint}`/anomalydetector/v1.1/multivariate/models    |      List all models       |
 |**Delete Model**|     DELET   |  `{endpoint}`/anomalydetector/v1.1/multivariate/models/`{modelId}`    |     Delete model with `modelId`       |
 
@@ -141,7 +141,7 @@ Other parameters for training API are optional:
     | `Zero`       | Fill `nan` values with 0.                                                                           |
     | `Fixed`      | Fill `nan` values with a specified valid value that should be provided in `paddingValue`.          |
 
-* **paddingValue**: Padding value is used to fill `nan` when `fillNAMethod` is `Fixed` and must be provided in that case. In other cases it's optional.
+* **paddingValue**: Padding value is used to fill `nan` when `fillNAMethod` is `Fixed` and must be provided in that case. In other cases, it's optional.
 
 * **displayName**: This is an optional parameter, which is used to identify models. For example, you can use it to mark parameters, data sources, and any other metadata about the model and its input data. The default value is an empty string.
 

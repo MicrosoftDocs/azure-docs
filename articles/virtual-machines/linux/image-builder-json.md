@@ -3,12 +3,12 @@ title: Create an Azure Image Builder Bicep file or ARM JSON template
 description: Learn how to create a Bicep file or ARM JSON template to use with Azure Image Builder.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: cynthn
-ms.date: 09/06/2022
+ms.reviewer: erd
+ms.date: 04/11/2023
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-bicep
 ---
 
 # Create an Azure Image Builder Bicep or ARM JSON template
@@ -149,15 +149,19 @@ The location is the region where the custom image will be created. The following
 - Qatar Central
 - USGov Arizona (Public Preview)
 - USGov Virginia (Public Preview)
+- China North 3 (Public Preview)
 
 > [!IMPORTANT]
 > Register the feature `Microsoft.VirtualMachineImages/FairfaxPublicPreview` to access the Azure Image Builder public preview in Azure Government regions (USGov Arizona and USGov Virginia).
 
-Use the following command to register the feature for Azure Image Builder in Azure Government regions (USGov Arizona and USGov Virginia).
+> [!IMPORTANT]
+> Register the feature `Microsoft.VirtualMachineImages/MooncakePublicPreview` to access the Azure Image Builder public preview in the China North 3 region.
+
+To access the Azure VM Image Builder public preview in the Fairfax regions (USGov Arizona and USGov Virginia), you must register the *Microsoft.VirtualMachineImages/FairfaxPublicPreview* feature. To do so, run the following command in either PowerShell or Azure CLI:
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
+```azurepowershell-interactive
 Register-AzProviderPreviewFeature -ProviderNamespace Microsoft.VirtualMachineImages -Name FairfaxPublicPreview
 ```
 
@@ -165,6 +169,22 @@ Register-AzProviderPreviewFeature -ProviderNamespace Microsoft.VirtualMachineIma
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name FairfaxPublicPreview
+```
+
+---
+
+To access the Azure VM Image Builder public preview in the China North 3 region, you must register the *Microsoft.VirtualMachineImages/MooncakePublicPreview* feature. To do so, run the following command in either PowerShell or Azure CLI:
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Register-AzProviderPreviewFeature -ProviderNamespace Microsoft.VirtualMachineImages -Name MooncakePublicPreview
+```
+
+### [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az feature register --namespace Microsoft.VirtualMachineImages --name MooncakePublicPreview
 ```
 
 ---
@@ -657,7 +677,7 @@ If there's an error trying to download the file, or put it in a specified direct
 
 ### Windows update customizer
 
-The `WindowsUpdate` customizer is built on the [community Windows Update Provisioner](https://packer.io/docs/provisioners/community-supported.html) for Packer, which is an open source project maintained by the Packer community. Microsoft tests and validate the provisioner with the Image Builder service, and will support investigating issues with it, and work to resolve issues, however the open source project isn't officially supported by Microsoft. For detailed documentation on and help with the Windows Update Provisioner, see the project repository.
+The `WindowsUpdate` customizer is built on the [community Windows Update Provisioner](https://developer.hashicorp.com/packer/docs/provisioners/community-supported) for Packer, which is an open source project maintained by the Packer community. Microsoft tests and validate the provisioner with the Image Builder service, and will support investigating issues with it, and work to resolve issues, however the open source project isn't officially supported by Microsoft. For detailed documentation on and help with the Windows Update Provisioner, see the project repository.
 
 # [JSON](#tab/json)
 
@@ -715,7 +735,7 @@ If Azure Image Builder creates a Windows custom image successfully, and you crea
 
 #### Default Sysprep command
 
-```powershell
+```azurepowershell-interactive
 Write-Output '>>> Waiting for GA Service (RdAgent) to start ...'
 while ((Get-Service RdAgent).Status -ne 'Running') { Start-Sleep -s 5 }
 Write-Output '>>> Waiting for GA Service (WindowsAzureTelemetryService) to start ...'
@@ -771,7 +791,7 @@ You can distribute an image to both of the target types in the same configuratio
 
 Because you can have more than one target to distribute to, Image Builder maintains a state for every distribution target that can be accessed by querying the `runOutputName`.  The `runOutputName` is an object you can query post distribution for information about that distribution. For example, you can query the location of the VHD, or regions where the image version was replicated to, or SIG Image version created. This is a property of every distribution target. The `runOutputName` must be unique to each distribution target. Here's an example for querying an Azure Compute Gallery distribution:
 
-```azurecli
+```azurecli-interactive
 subscriptionID=<subcriptionID>
 imageResourceGroup=<resourceGroup of image template>
 runOutputName=<runOutputName>
@@ -783,7 +803,7 @@ az resource show \
 
 Output:
 
-```json
+```output
 {
   "id": "/subscriptions/xxxxxx/resourcegroups/rheltest/providers/Microsoft.VirtualMachineImages/imageTemplates/ImageTemplateLinuxRHEL77/runOutputs/rhel77",
   "identity": null,
@@ -1403,11 +1423,11 @@ vnetConfig: {
 
 To start a build, you need to invoke 'Run' on the Image Template resource, examples of `run` commands:
 
-```PowerShell
+```azurepowershell-interactive
 Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2021-10-01" -Action Run -Force
 ```
 
-```azurecli
+```azurecli-interactive
 az resource invoke-action \
   --resource-group $imageResourceGroup \
   --resource-type  Microsoft.VirtualMachineImages/imageTemplates \
@@ -1423,11 +1443,11 @@ The build can be canceled anytime. If the distribution phase has started you can
 
 Examples of `cancel` commands:
 
-```powerShell
+```azurepowershell-interactive
 Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2021-10-01" -Action Cancel -Force
 ```
 
-```azurecli
+```azurecli-interactive
 az resource invoke-action \
   --resource-group $imageResourceGroup \
   --resource-type  Microsoft.VirtualMachineImages/imageTemplates \
