@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Meet multi-factor authentication requirements of memorandum 22-09
 
-Learn about using Azure Active Directory (Azure AD) as the centralized identity management system when implementing Zero Trust principles. See US Office of Management and Budget (OMB) [M 22-09 Memorandum for the Heads of Executive Departments and Agencies](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf).
+Learn about using Azure Active Directory (Azure AD) as the centralized identity management system when implementing Zero Trust principles. See, US Office of Management and Budget (OMB) [M 22-09 Memorandum for the Heads of Executive Departments and Agencies](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf).
 
 The memo requirements are that employees use enterprise-managed identities to access applications, and multi-factor authentication (MFA) protects employees from sophisticated online attacks, such as phishing. This attack method attempts to obtain and compromise credentials, with links to inauthentic sites.
 
@@ -46,7 +46,7 @@ Some agencies are modernizing their authentication credentials. There are multip
   * This soluion includes smart card implementations: Common Access Card (CAC), Personal Identity Verification (PIV), and derived PIV credentials for mobile devices or security keys
   * See, [Overview of Azure AD certificate-based authentication](../authentication/concept-certificate-based-authentication.md)
 * **Windows Hello for Business** has phishing-resistant MFA
-  * See the [Windows Hello for Business Deployment Overview](/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
+  * See, [Windows Hello for Business Deployment Overview](/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
   * See, [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview)
 
 ### Protection from external phishing
@@ -65,7 +65,7 @@ Learn more:
 * See also, [Common Conditional Access policy: Require a compliant device, hybrid Azure AD joined device, or multifactor authentication for all users](../conditional-access/howto-conditional-access-policy-compliant-device.md)
 
 >[!NOTE]
-> Microsoft Authenticator is not phishing-resistant. Configure Conditional Access policy to require that managed devices get protection from external phishing threats.
+> Microsoft Authenticator isn't phishing-resistant. Configure Conditional Access policy to require that managed devices get protection from external phishing threats.
 
 ### Legacy
 
