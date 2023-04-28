@@ -32,7 +32,7 @@ You'll learn to:
 
 ## About this example
 
-This example deploys a training pipeline that takes input training data (labeled) and produces a predictive model, along with the evaluation results and the transformations applied during preprocessing. The model training component will use tabular data from the [UCI Heart Disease Data Set](https://archive.ics.uci.edu/ml/datasets/Heart+Disease) to train an XGBoost model. During training, the data preprocessing component will perform data transformations, and finally, the model evaluation component will be used for inferencing.
+This example deploys a training pipeline that takes input training data (labeled) and produces a predictive model, along with the evaluation results and the transformations applied during preprocessing. The pipeline will use tabular data from the [UCI Heart Disease Data Set](https://archive.ics.uci.edu/ml/datasets/Heart+Disease) to train an XGBoost model. We use a data preprocessing component to preprocess the data before it is sent to the training component to fit and evaluate the model.
 
 A visualization of the pipeline is as follows:
 

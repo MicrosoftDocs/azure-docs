@@ -18,11 +18,11 @@ ms.custom: how-to, devplatv2, event-tier1-build-2023
 
 [!INCLUDE [ml v2](../../includes/machine-learning-dev-v2.md)]
 
-Batch endpoints allow the deployment of pipeline components, providing a convenient way to operationalize pipelines in Azure Machine Learning. In this article, you'll learn how to create a batch deployment that contains a pipeline component. You'll learn to:
+You can deploy pipeline components under a batch endpoint, providing a convenient way to operationalize them in Azure Machine Learning. In this article, you'll learn how to create a batch deployment that contains a simple pipeline. You'll learn to:
 
 > [!div class="checklist"]
-> * Create a pipeline component
-> * Create a batch endpoint with a deployment to host the component
+> * Create and register a pipeline component
+> * Create a batch endpoint and deploy a pipeline component
 > * Test the deployment
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
