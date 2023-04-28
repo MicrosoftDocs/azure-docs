@@ -56,8 +56,8 @@ With sign-in details gathered, you should explore the results and troubleshoot t
 
 The **Failure reason** and **Additional Details** may provide you with the details and next steps to resolve the issue. The Failure reason describes the error. The Additional Details provides more details and often tells you how to resolve the issue.
 
--  The failure reason **Authentication failed during the strong authentication request** doesn't provide much to troubleshoot, but the additional aetails field says the user didn't complete the MFA prompt. The fix is to have the user sign-in again and complete the MFA prompts.
-- The failure reason **The Federation Service failed to issue an OAuth Primary Refresh Token** provides a good starting point, but the additional aetails briefly explains how authentication works in this scenario and tells you to make sure that device sync is enabled. 
+-  The failure reason **Authentication failed during the strong authentication request** doesn't provide much to troubleshoot, but the additional details field says the user didn't complete the MFA prompt. The fix is to have the user sign-in again and complete the MFA prompts.
+- The failure reason **The Federation Service failed to issue an OAuth Primary Refresh Token** provides a good starting point, but the additional details briefly explains how authentication works in this scenario and tells you to make sure that device sync is enabled. 
 - A common failure reason is **Error validating credentials due to invalid username or password**. The user entered something incorrectly and needs to try again.
 
 ### Sign-in error codes
@@ -69,9 +69,9 @@ If you need more specifics to research, you can use the **sign-in error code** f
 
 The following error codes are associated with sign-in events:
 
-- **50058**: User is authenticated by not yet signed in.
+- **50058**: User is authenticated but not yet signed in.
     - This error code appears for sign-in attempts when the user didn't complete the sign-in process.
-    - Because the user didn't sign-in completely, the User field may display an Object ID or a globally-unique identifier (GUID) instead of a username.
+    - Because the user didn't sign-in completely, the User field may display an Object ID or a globally unique identifier (GUID) instead of a username.
     - In some of these situations, the User ID shows up like "00000000-0000-0000".
 
 - **90025**: An internal Azure AD service hit its retry allowance to sign the user in.
