@@ -592,6 +592,7 @@ In this example, we will add a new source to an existing project. You can also r
 | `ENDPOINT`               | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Alternatively you can find the value in **Language Studio** > **question answering** > **Deploy project** > **Get prediction URL**. An example endpoint is: `https://southcentralus.api.cognitive.microsoft.com/`. If this was your endpoint in the code sample below, you would only need to add the region specific portion of `southcentral` as the rest of the endpoint path is already present.|
 | `API-KEY` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either Key1 or Key2. Always having two valid keys allows for secure key rotation with zero downtime. Alternatively you can find the value in **Language Studio** > **question answering** > **Deploy project** > **Get prediction URL**. The key value is part of the sample request.|
 | `PROJECT-NAME` | The name of project where you would like to update sources.|
+|`METHOD`| PATCH |
 
 ### Example query
 
@@ -606,7 +607,7 @@ curl -X PATCH -H "Ocp-Apim-Subscription-Key: {API-KEY}" -H "Content-Type: applic
       "sourceContentStructureKind": "semistructured"
     }
   }
-]'  -i 'https://{ENDPOINT}.api.cognitive.microsoft.com/language/query-knowledgebases/projects/{PROJECT-NAME}/sources?api-version=2021-10-01'
+]'  -i '{LanguageServiceName}.cognitiveservices.azure.com//language/query-knowledgebases/projects/{projectName}/sources?api-version=2021-10-01'
 ```
 
 A successful call to update a source results in an `Operation-Location` header being returned which can be used to check the status of the import job. In many of our examples, we haven't needed to look at the response headers and thus haven't always been displaying them. To retrieve the response headers our curl command uses `-i`. Without this parameter prior to the endpoint address, the response to this command would appear empty as if no response occurred.

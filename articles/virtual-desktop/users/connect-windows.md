@@ -9,9 +9,11 @@ ms.author: daknappe
 
 # Connect to Azure Virtual Desktop with the Remote Desktop client for Windows
 
-The Microsoft Remote Desktop client is used to connect to Azure Virtual Desktop to access your desktops and applications. This article shows you how to connect to Azure Virtual Desktop with the Remote Desktop client for Windows.
+The Microsoft Remote Desktop client is used to connect to Azure Virtual Desktop to access your desktops and applications. This article shows you how to connect to Azure Virtual Desktop with the Remote Desktop client for Windows, which will only allow you to subscribe to a feed made available to you by your organization administrators.
 
 You can find a list of all the Remote Desktop clients you can use to connect to Azure Virtual Desktop at [Remote Desktop clients overview](remote-desktop-clients-overview.md).
+
+If you want to connect to Remote Desktop Services or a remote PC instead of Azure Virtual Desktop, see [Connect to Remote Desktop Services with the Remote Desktop app for Windows](/windows-server/remote/remote-desktop-services/clients/windows).
 
 ## Prerequisites
 
@@ -61,6 +63,9 @@ Once you've downloaded the Remote Desktop client, you'll need to install it by f
 1. Once installation has completed, select **Finish**.
 
 1. If you left the box for **Launch Remote Desktop when setup exits** selected, the Remote Desktop client will automatically open. Alternatively to launch the client after installation, use the Start menu to search for and select **Remote Desktop**.
+
+> [!IMPORTANT]
+> If you have the Remote Desktop client for Windows and the [Azure Virtual Desktop app](connect-windows-azure-virtual-desktop-app.md) installed on the same device, you may see the message that begins **A version of this application called Azure Virtual Desktop was installed from the Microsoft Store**. Both apps are supported, and you have the option to choose **Continue anyway**, however it could be confusing to use the same remote resource across both apps. We recommend using only one version of the app at a time.
 
 ## Subscribe to a workspace
 
