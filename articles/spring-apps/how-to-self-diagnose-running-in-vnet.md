@@ -63,7 +63,7 @@ In **DNS Resolution Table Renderings**, detailed message information displays fr
 
 ## Required Outbound Traffic
 
-If you select **Required Outbound Traffic**, results indicate whether there are outbound traffic issues with applications. Examples of healthy applications are shown the following examples:
+If you select **Required Outbound Traffic**, results indicate whether there are outbound traffic issues with applications. The following examples are results for healthy applications:
 
 * *Required outbound traffic resolved with no issues in subnet 'subnet01'.
 * *Required outbound traffic resolved with no issues in subnet 'subnet02'.
