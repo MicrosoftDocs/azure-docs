@@ -28,15 +28,15 @@ In this article, learn specifics of working within a VS Code remote connection t
 
 Before you get started, you will need:
 
-1. [!INCLUDE [workspace and compute instance](includes/prereq-workspace-compute-instance.md)]
+* [!INCLUDE [workspace and compute instance](includes/prereq-workspace-compute-instance.md)]
 
 ## Set up your remotely connected IDE
 
 VS Code has multiple extensions that can help you achieve your machine learning goals. Use the Azure extension to connect and work with your Azure subscription. Use the Azure Machine Learning extension to view, update and create workspace assets like computes, data, environments, jobs and more.
 
-When you use VS Code for the Web, the latest versions of these extensions are automatically available to you. If you use the desktop application, you may need to install them.
+When you use [VS Code for the Web](how-to-launch-vs-code-remote.md?tabs=vscode-web#connect-remote-compute-instance-to-vs-code), the latest versions of these extensions are automatically available to you. If you use the [desktop application](how-to-launch-vs-code-remote.md?tabs=vscode-desktop#connect-remote-compute-instance-to-vs-code), you may need to install them.
 
-When you launch VS Code connected to a compute instance for the first time, make sure you follow these steps and take a few moments to orient yourself to the tools in your integrated development environment.
+When you [launch VS Code connected to a compute instance]((how-to-launch-vs-code-remote.md)) for the first time, make sure you follow these steps and take a few moments to orient yourself to the tools in your integrated development environment.
 
 1. Locate the Azure extension and sign in
 1. Once your subscriptions are listed, you can filter to the ones you use frequently. You can also pin workspaces you use most often within the subscriptions.
