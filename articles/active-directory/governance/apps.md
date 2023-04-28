@@ -195,8 +195,10 @@ This page provides a single place for the tutorials to the various entra identit
 | [Netsparker Enterprise](https://learn.microsoft.com/azure/active-directory/saas-apps/netsparker-enterprise-provisioning-tutorial) | ● | ● |
 | [New Relic by Organization](https://learn.microsoft.com/azure/active-directory/saas-apps/new-relic-by-organization-provisioning-tutorial) | ● | ● |
 | [NordPass](https://learn.microsoft.com/azure/active-directory/saas-apps/nordpass-provisioning-tutorial) | ● | ● |
+| Novell eDirectory | ● |  |
 | [Office Space Software](https://learn.microsoft.com/azure/active-directory/saas-apps/officespace-software-provisioning-tutorial) | ● | ● |
 | [Olfeo SAAS](https://learn.microsoft.com/azure/active-directory/saas-apps/olfeo-saas-provisioning-tutorial) | ● | ● |
+| Open LDAP | ● |  |
 | [OpenText Directory Services](https://learn.microsoft.com/azure/active-directory/saas-apps/open-text-directory-services-provisioning-tutorial) | ● | ● |
 | [Oracle Cloud Infrastructure Console](https://learn.microsoft.com/azure/active-directory/saas-apps/oracle-cloud-infrastructure-console-provisioning-tutorial) | ● | ● |
 | [Oracle Fusion ERP](https://learn.microsoft.com/azure/active-directory/saas-apps/oracle-fusion-erp-provisioning-tutorial) | ● | ● |
@@ -255,35 +257,55 @@ This page provides a single place for the tutorials to the various entra identit
 | [Swit](https://learn.microsoft.com/azure/active-directory/saas-apps/swit-provisioning-tutorial) | ● | ● |
 | [Symantec Web Security Service (WSS)](https://learn.microsoft.com/azure/active-directory/saas-apps/symantec-web-security-service) | ● | ● |
 | [Tableau Cloud](https://learn.microsoft.com/azure/active-directory/saas-apps/tableau-online-provisioning-tutorial) | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| Open LDAP | ● |  |
-| Novell eDirectory | ● |  |
+| [Talentech](https://learn.microsoft.com/azure/active-directory/saas-apps/talentech-provisioning-tutorial) | ● | ● |
+| [Tap App Security](https://learn.microsoft.com/azure/active-directory/saas-apps/tap-app-security-provisioning-tutorial) | ● | ● |
+| [Taskize Connect](https://learn.microsoft.com/azure/active-directory/saas-apps/taskize-connect-provisioning-tutorial) | ● | ● |
+| [Teamgo](https://learn.microsoft.com/azure/active-directory/saas-apps/teamgo-provisioning-tutorial) | ● | ● |
+| [TeamViewer](https://learn.microsoft.com/azure/active-directory/saas-apps/teamviewer-provisioning-tutorial) | ● | ● |
+| [TerraTrue](https://learn.microsoft.com/azure/active-directory/saas-apps/terratrue-provisioning-tutorial) | ● | ● |
+| [ThousandEyes](https://learn.microsoft.com/azure/active-directory/saas-apps/thousandeyes-provisioning-tutorial) | ● | ● |
+| [Tic-Tac Mobile](https://learn.microsoft.com/azure/active-directory/saas-apps/tic-tac-mobile-provisioning-tutorial) | ● | ● |
+| [TimeClock 365](https://learn.microsoft.com/azure/active-directory/saas-apps/timeclock-365-provisioning-tutorial) | ● | ● |
+| [TimeClock 365 SAML](https://learn.microsoft.com/azure/active-directory/saas-apps/timeclock-365-saml-provisioning-tutorial) | ● | ● |
+| [Templafy SAML2](https://learn.microsoft.com/azure/active-directory/saas-apps/templafy-saml-2-provisioning-tutorial) | ● | ● |
+| [Templafy OpenID Connect](https://learn.microsoft.com/azure/active-directory/saas-apps/templafy-openid-connect-provisioning-tutorial) | ● | ● |
+| [TheOrgWiki](https://learn.microsoft.com/azure/active-directory/saas-apps/theorgwiki-provisioning-tutorial) | ● | ● |
+| [Thrive LXP](https://learn.microsoft.com/azure/active-directory/saas-apps/thrive-lxp-provisioning-tutorial) | ● | ● |
+| [Torii](https://learn.microsoft.com/azure/active-directory/saas-apps/torii-provisioning-tutorial) | ● | ● |
+| [TravelPerk](https://learn.microsoft.com/azure/active-directory/saas-apps/travelperk-provisioning-tutorial) | ● | ● |
+| [Tribeloo](https://learn.microsoft.com/azure/active-directory/saas-apps/tribeloo-provisioning-tutorial) | ● | ● |
+| [Twingate](https://learn.microsoft.com/azure/active-directory/saas-apps/twingate-provisioning-tutorial) | ● | ● |
+| [Uber](https://learn.microsoft.com/azure/active-directory/saas-apps/uber-provisioning-tutorial) | ● | ● |
+| [UNIFI](https://learn.microsoft.com/azure/active-directory/saas-apps/unifi-provisioning-tutorial) | ● | ● |
+| [uniFlow Online](https://learn.microsoft.com/azure/active-directory/saas-apps/uniflow-online-provisioning-tutorial) | ● | ● |
+| [Velpic](https://learn.microsoft.com/azure/active-directory/saas-apps/velpic-provisioning-tutorial) | ● | ● |
+| [Visibly](https://learn.microsoft.com/azure/active-directory/saas-apps/visibly-provisioning-tutorial) | ● | ● |
+| [Visitly](https://learn.microsoft.com/azure/active-directory/saas-apps/visitly-provisioning-tutorial) | ● | ● |
+| [Vonage](https://learn.microsoft.com/azure/active-directory/saas-apps/vonage-provisioning-tutorial) | ● | ● |
+| [Webroot Security Awareness Training](https://learn.microsoft.com/azure/active-directory/saas-apps/webroot-security-awareness-training-provisioning-tutorial) | ● | ● |
+| [WEDO](https://learn.microsoft.com/azure/active-directory/saas-apps/wedo-provisioning-tutorial) | ● | ● |
+| [Whimsical](https://learn.microsoft.com/azure/active-directory/saas-apps/whimsical-provisioning-tutorial) | ● | ● |
+| [Workday to Active Directory](https://learn.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial) | ● | ● |
+| [Workday to Azure AD](https://learn.microsoft.com/azure/active-directory/saas-apps/workday-inbound-cloud-only-tutorial) | ● | ● |
+| [Workday Writeback](https://learn.microsoft.com/azure/active-directory/saas-apps/workday-writeback-tutorial) | ● | ● |
+| [Workteam](https://learn.microsoft.com/azure/active-directory/saas-apps/workteam-provisioning-tutorial) | ● | ● |
+| [Workplace by Facebook](https://learn.microsoft.com/azure/active-directory/saas-apps/workplace-by-facebook-provisioning-tutorial) | ● | ● |
+| [Workgrid](https://learn.microsoft.com/azure/active-directory/saas-apps/workgrid-provisioning-tutorial) | ● | ● |
+| [Wrike](https://learn.microsoft.com/azure/active-directory/saas-apps/wrike-provisioning-tutorial) | ● | ● |
+| [Yellowbox](https://learn.microsoft.com/azure/active-directory/saas-apps/yellowbox-provisioning-tutorial) | ● | ● |
+| [Zapier](https://learn.microsoft.com/azure/active-directory/saas-apps/zapier-provisioning-tutorial) | ● | ● |
+| [Zendesk](https://learn.microsoft.com/azure/active-directory/saas-apps/zendesk-provisioning-tutorial) | ● | ● |
+| [Zenya](https://learn.microsoft.com/azure/active-directory/saas-apps/zenya-provisioning-tutorial) | ● | ● |
+| [Zero](https://learn.microsoft.com/azure/active-directory/saas-apps/zero-provisioning-tutorial) | ● | ● |
+| [Zip](https://learn.microsoft.com/azure/active-directory/saas-apps/zip-provisioning-tutorial) | ● | ● |
+| [Zoom](https://learn.microsoft.com/azure/active-directory/saas-apps/zoom-provisioning-tutorial) | ● | ● |
+| [Zscaler](https://learn.microsoft.com/azure/active-directory/saas-apps/zscaler-provisioning-tutorial) | ● | ● |
+| [Zscaler Beta](https://learn.microsoft.com/azure/active-directory/saas-apps/zscaler-beta-provisioning-tutorial) | ● | ● |
+| [Zscaler One](https://learn.microsoft.com/azure/active-directory/saas-apps/zscaler-one-provisioning-tutorial) | ● | ● |
+| [Zscaler Private Access](https://learn.microsoft.com/azure/active-directory/saas-apps/zscaler-private-access-provisioning-tutorial) | ● | ● |
+| [Zscaler Two](https://learn.microsoft.com/azure/active-directory/saas-apps/zscaler-two-provisioning-tutorial) | ● | ● |
+| [Zscaler Three](https://learn.microsoft.com/azure/active-directory/saas-apps/zscaler-three-provisioning-tutorial) | ● | ● |
+| [Zscaler ZSCloud](https://learn.microsoft.com/azure/active-directory/saas-apps/zscaler-zscloud-provisioning-tutorial) | ● | ● |
 
 ## Partner driven integrations
 Checkout the integrations [partners](https://learn.microsoft.com/azure/active-directory/app-provisioning/partner-driven-integrations) have built on top of Entra IGA.
