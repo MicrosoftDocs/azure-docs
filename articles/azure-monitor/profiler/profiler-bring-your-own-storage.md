@@ -43,7 +43,7 @@ When you configure BYOS, artifacts are uploaded into a storage account that you 
     - Analyze the incoming blob.
     - Write back the analysis results and log files into blob storage.
   
-    Depending on available compute capacity, this process might occur any time after upload.
+    Depending on available compute capacity, this process might occur anytime after upload.
 
 1. When you view Profiler traces or Snapshot Debugger analysis, the service fetches the analysis results from blob storage.
 
