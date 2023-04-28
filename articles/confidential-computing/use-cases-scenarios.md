@@ -78,6 +78,9 @@ In this use-case we use a combination of Azure Confidential Compute technologies
 
 :::image type="content" source="media/use-cases-scenarios/restricted-workload.jpg" alt-text="Diagram showing workloads protected by Azure Confidential Compute and complemented with Azure configuration including Azure Policy and Conditional Access.":::
 
+
+[ ![Here's a cute kitten.](media/use-cases-scenarios/restricted-workload.jpg)](media/use-cases-scenarios/restricted-workload.jpg#lightbox)
+
 ## Manufacturing – IP Protection
 
 Manufacturing organizations protect the IP around their manufacturing processes and technologies, often manufacturing is outsourced to third parties who deal with the physical production processes, which could be considered ‘hostile’ environments where there are active threats to steal that IP.
