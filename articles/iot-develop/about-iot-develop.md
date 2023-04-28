@@ -5,12 +5,12 @@ author: timlt
 ms.author: timlt
 ms.service: iot-develop
 ms.topic: overview
-ms.date: 12/15/2022
+ms.date: 04/28/2022
 ---
 
 # What is Azure IoT device and application development?
 
-Azure IoT is a collection of managed and platform services that connect, monitor, and control your IoT devices. Azure IoT offers developers a comprehensive set of options. Your options include device platforms, supporting cloud services, SDKs, and tools for building device-enabled cloud applications.
+Azure IoT is a collection of managed and platform services that connect, monitor, and control your IoT devices. Azure IoT offers developers a comprehensive set of options. Your options include device platforms, supporting cloud services, SDKs, MQTT support, and tools for building device-enabled cloud applications.
 
 This article overviews several key considerations for developers who are getting started with Azure IoT.  
 - [Understanding device development paths](#device-development-paths)
@@ -52,7 +52,14 @@ Azure IoT devices are the basic building blocks of an IoT solution and are respo
 For more information on the difference between devices types covered in this article, see [About IoT Device Types](concepts-iot-device-types.md).
 
 ## Choosing an SDK
-As an Azure IoT device developer, you have a diverse set of SDKs to help you build device-enabled cloud applications. The SDKs streamline your development effort and simplify much of the complexity of connecting and managing devices. 
+As an Azure IoT device developer, you have a diverse set of SDKs to help build device-enabled cloud applications. 
+
+There are two main options to connect devices and communicate with IoT Hub:
+- Use the Azure IoT SDKs
+- Use the MQTT protocol directly
+
+> [!NOTE]
+> In most cases, we recommend that you use the Azure IoT SDKs versus using MQTT directly. The SDKs streamline your development effort and simplify the complexity of connecting and managing devices. IoT Hub does support the [MQTT v3.1.1](https://mqtt.org/) protocol. There are some advantages of building an IoT Hub solution to use MQTT directly. For example, a solution that uses MQTT directly without the SDKs can be built on the open MQTT standard. A standards-based approach makes the solution more portable, and gives you more control over how devices connect and communicate.  However, Iot Hub isn't a full-featured MQTT broker and doesn't support all behaviors specified in the MQTT v3.1.1 standard. The partial support for MQTT v3.1.1 adds development cost to build a solution.  Device developers should weigh the trade-offs of using the IoT device SDKs versus using MQTT directly.  For more details, see [Communicate with an IoT hub using the MQTT protocol](../iot/iot-mqtt-connect-to-iot-hub.md). 
 
 There are three sets of IoT SDKs for device development:
 - Device SDKs (for using higher order languages to connect existing general purpose devices to IoT applications)
@@ -64,7 +71,7 @@ To learn more about choosing an Azure IoT device or service SDK, see [Overview o
 ## Selecting a service
 A key step in the development process is selecting a service to connect your devices to. There are two primary Azure IoT service options for connecting and managing devices: IoT Hub, and IoT Central. 
 
-- [Azure IoT Hub](../iot-hub/about-iot-hub.md). You can use Iot Hub to host IoT applications and connect devices. IoT Hub is a platform-as-a-service (PaaS) application that acts as a central message hub for bi-directional communication between IoT applications and connected devices. IoT Hub can scale to support millions of devices. Compared to other Azure IoT services, IoT Hub offers the greatest control and customization over your application design. It also offers the most developer tool options for working with the service, at the cost of some increase in development and management complexity.
+- [Azure IoT Hub](../iot-hub/about-iot-hub.md). Use Iot Hub to host IoT applications and connect devices. IoT Hub is a platform-as-a-service (PaaS) application that acts as a central message hub for bi-directional communication between IoT applications and connected devices. IoT Hub can scale to support millions of devices. Compared to other Azure IoT services, IoT Hub offers the greatest control and customization over your application design. It also offers the most developer tool options for working with the service, at the cost of some increase in development and management complexity.
 - [Azure IoT Central](../iot-central/core/overview-iot-central.md). IoT Central is designed to simplify the process of working with IoT solutions.  You can use it as a proof of concept to evaluate your IoT solutions. IoT Central is a software-as-a-service (SaaS) application that provides a web UI to simplify the tasks of creating applications, and connecting and managing devices. IoT Central uses IoT Hub to create and manage applications, but keeps most details transparent to the user. 
 
 ## Tools to connect and manage devices
