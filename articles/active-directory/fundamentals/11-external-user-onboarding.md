@@ -1,16 +1,18 @@
 ---
 title: Onboard external users to Line-of-business applications using Azure Active Directory B2B
-titleSuffix: Azure AD B2C
 description: Learn how to onboard external users to Line-of-business applications using Azure Active Directory B2B
-services: active-directory-b2B
+services: active-directory
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
-ms.topic: how-to
-ms.date: 5/20/2021
+ms.subservice: fundamentals
+ms.topic: conceptual
+ms.date: 4/28/2023
 ms.author: gasinh
-ms.subservice: B2B
+ms.reviewer: ajburnle
+ms.custom: "it-pro, seodec18"
+ms.collection: M365-identity-device-management
 ---
 
 # Onboard external users to Line-of-business applications using Azure Active Directory B2B 
@@ -65,18 +67,18 @@ Once the application has collected the required information and determined any o
 
 For example: 
 
-      Delegated Permission: User.Invite.All 
-      POST https://graph.microsoft.com/v1.0/invitations  
-      Content-type: application/json 
-      { 
-      "invitedUserDisplayName": "``John Doe``",  
+```Delegated Permission: User.Invite.All 
+   POST https://graph.microsoft.com/v1.0/invitations  
+   Content-type: application/json 
+    { 
+     "invitedUserDisplayName": "``John Doe``",  
       "invitedUserEmailAddress": "``john.doe@contoso.com``",  
       "sendInvitationMessage": ``true``,  
       "inviteRedirectUrl": "https://customapp.contoso.com"  
-      } 
+    } ```
 
 >[!Note] 
->To see the full list of available options for the JSON body of the invitation, see [Invitation resource type - Microsoft Graph v1.0](../graph/api/resources/invitation?view=graph-rest-1.0) 
+>To see the full list of available options for the JSON body of the invitation, see [Invitation resource type - Microsoft Graph v1.0](../graph/api/resources/invitation.md?view=graph-rest-1.0) 
 
 ## Step 2: Write other attributes to Azure AD (optional) 
 
@@ -91,6 +93,7 @@ For example:
 
 Required application permissions (from least to most privileged).
 
+    ```
     User.ReadWrite.All, Directory.ReadWrite.All 
     PATCH https://graph.microsoft.com/v1.0/users/<user’s object ID> 
     Content-type: application/json 
@@ -103,6 +106,7 @@ Required application permissions (from least to most privileged).
     "surname": "Doe", 
     "extension_cf4ff515cbf947218d468c96f9dc9021_appRole": "external" 
     }
+    ```
 
 For more information, see [Update user - Microsoft Graph v1.0](../graph/api/user-update?view=graph-rest-1.0&tabs=http). 
 
@@ -114,13 +118,14 @@ For more information, see [Update user - Microsoft Graph v1.0](../graph/api/user
 If app assignment is required in Azure AD for app access and/or role assignment the user must be assigned to the app, or else the user won't be able to gain access regardless of successful authentication. To achieve this, you should make another API call to add the invited external user to a specific group. The group can be assigned to the app and mapped to a specific app role.  
 For example, assign the **Group Updater** role or a custom role to the Enterprise App and scope the role assignment to only the group(s) this application should be updating. Or assign the `group.readwrite.all` permission in Microsoft Graph API. 
 
+ ``` 
     POST `https://graph.microsoft.com/v1.0/groups/<insert group id>/members/$ref 
     Content-type: application/json` 
     {  
     "@odata.id": "https://graph.microsoft.com/v1.0/directoryObjects/<insert user id>" 
     } 
-
-For more information, see [Add members - Microsoft Graph v1.0](../graph/api/group-post-members?view=graph-rest-1.0&tabs=http).
+ ```
+For more information, see [Add members - Microsoft Graph v1.0](../graph/api/group-post-members.md?view=graph-rest-1.0&tabs=http).
 
 Alternatively, you can apply Azure AD dynamic groups, which can automatically assign users to group based on the user’s attributes. However, if end-user access is time-sensitive it won't be the recommended approach as dynamic groups can take up to 24 hours to populate. 
 
