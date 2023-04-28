@@ -18,16 +18,18 @@ ms.custom: developer
 
 # Use client certificate for authentication in your Node.js web app
 
-Microsoft identity supports two types of authentication for [confidential client applications](../../../active-directory/develop/msal-client-applications.md); password-based authentication (such as client secret) and certificate-based authentication. For a higher level of security, we recommend using a certificate (instead of a client secret) as a credential in your confidential client applications.
+Azure Active Directory (Azure AD) for customers supports two types of authentication for [confidential client applications](../../../active-directory/develop/msal-client-applications.md); password-based authentication (such as client secret) and certificate-based authentication. For a higher level of security, we recommend using a certificate (instead of a client secret) as a credential in your confidential client applications.
 
 In production, you should purchase a certificate signed by a well-known certificate authority, and use [Azure Key Vault](https://azure.microsoft.com/products/key-vault/) to manage certificate access and lifetime for you. However, for testing purposes, you can create a self-signed certificate and configure your apps to authenticate with it.
 
-In this article, you learn to generate a self-signed certificate by using [Azure Key Vault](https://azure.microsoft.com/products/key-vault/) on the Azure Portal.
+In this article, you learn to generate a self-signed certificate by using [Azure Key Vault](https://azure.microsoft.com/products/key-vault/) on the Azure Portal, OpenSSL or Windows PowerShell.  
 
-You can also create a self-signed certificate programmatically by using [.NET](/azure/key-vault/certificates/quick-create-net), [Node.js](/azure/key-vault/certificates/quick-create-node), [Go](/azure/key-vault/certificates/quick-create-go), [Python](/azure/key-vault/certificates/quick-create-python) or [Java](/azure/key-vault/certificates/quick-create-java) client libraries.
+When needed, you can also create a self-signed certificate programmatically by using [.NET](/azure/key-vault/certificates/quick-create-net), [Node.js](/azure/key-vault/certificates/quick-create-node), [Go](/azure/key-vault/certificates/quick-create-go), [Python](/azure/key-vault/certificates/quick-create-python) or [Java](/azure/key-vault/certificates/quick-create-java) client libraries.
 
 ## Create a self-signed certificate
 
+:
+# [Azure Key Vault - Portal](#tab/azure-key-vault)
 You can use [Azure Key Vault](/azure/key-vault/certificates/quick-create-portal) to generate a self-signed certificate for your app. By using Azure Key Vault, you enjoy benefits, such as, assigning a partner Certificate Authority (CA) and automating certificate rotation.
 
 Follow the steps in [Set and retrieve a certificate from Azure Key Vault using the Azure portal](/azure/key-vault/certificates/quick-create-portal) to create and download your certificate.
@@ -35,6 +37,22 @@ Follow the steps in [Set and retrieve a certificate from Azure Key Vault using t
 If you have an existing self-signed certificate in your local computer, you can skip this step, then proceed to [Upload certificate to your app registration](#upload-certificate-to-your-app-registration).
 
 If you have an existing self-signed certificate in Azure Key Vault, and you want to use it without downloading it, skip this step, then proceed to [Use a self-signed certificate directly from Azure Key Vault](#use-a-self-signed-certificate-directly-from-azure-key-vault). 
+
+
+
+# [Windows PowerShell](#tab/windows-powershell)
+
+Content comes here
+
+
+
+# [OpenSSL](#tab/openssl)
+
+Content comes here
+
+
+
+--- 
 
 ## Upload certificate to your app registration
 
@@ -108,6 +126,8 @@ You can use your existing certificate directly from Azure Key Vault:
     ```console
     az login --tenant YOUR_TENANT_ID
     ```
+    Replace the placeholder `YOUR_TENANT_ID` with the Directory (tenant) ID you copied earlier.
+
 1. On your console, type the following command to install the required packages:  
 
     ```console
