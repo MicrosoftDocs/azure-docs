@@ -33,7 +33,8 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
-* A user account in Howspace with Admin permissions.
+* A Howspace subscription with single sign-on and SCIM features enabled.
+* A user account in Howspace with Main User Dashboard privileges.
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
@@ -41,7 +42,55 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Determine what data to [map between Azure AD and Howspace](../app-provisioning/customize-application-attributes.md).
 
 ## Step 2. Configure Howspace to support provisioning with Azure AD
-Contact Howspace support to configure Howspace to support provisioning with Azure AD.
+### Single sign-on configuration
+1. Sign in to the Howspace Main User Dashboard, then select **Settings** from the menu.
+1. In the settings list, select **single sign-on**.
+
+   ![Screenshot of the single sign-on section in the settings list.](media/howspace-provisioning-tutorial/settings-sso.png)
+
+1. Click the **Add SSO configuration** button.
+
+   ![Screenshot of the Add SSO configuration menu in the single sign-on section.](media/howspace-provisioning-tutorial/settings-sso-2.png)
+
+1. Select either **Azure Active Directory (Multi-Tenant)** or **Azure Active Directory** based on your organization's Azure AD topology.
+
+   ![Screenshot of the Azure Active Directory (Multi-Tenant) dialog.](media/howspace-provisioning-tutorial/settings-azure-ad-multi-tenant.png)
+   ![Screenshot of the Azure Active Directory dialog.](media/howspace-provisioning-tutorial/settings-azure-ad-single-tenant.png)
+
+1. Enter your Azure AD Tenant ID, and click **OK** to save the configuration.
+
+### Provisioning configuration
+1. In the settings list, select **System for Cross-domain Identity Management**.
+
+   ![Screenshot of the System for Cross-domain Identity Management section in the settings list.](media/howspace-provisioning-tutorial/settings-scim.png)
+
+1. Check the **Enable user synchronization** checkbox.
+1. Copy the Tenant URL and Secret Token for later use in Azure AD.
+1. Click **Save** to save the configuration.
+
+### Main user dashboard access control configuration
+1. In the settings list, select **Main User Dashboard Access Control**
+
+   ![Screenshot of the Main User Dashboard Access Control section in the settings list.](media/howspace-provisioning-tutorial/settings-access-control.png)
+
+1. Check the **Enable single sign-on for main users** checkbox.
+1. Select the SSO configuration you created in the previous step.
+1. Enter the object IDs of the Azure AD user groups that should have access to the Main User Dashboard to the **Limit to following user groups** field. You can specify multiple groups by separating the object IDs with a comma.
+1. Click **Save** to save the configuration.
+
+### Workspace default access control configuration
+1. In the settings list, select **Workspace default settings**
+
+   ![Screenshot of the Workspace default settings in the settings list.](media/howspace-provisioning-tutorial/settings-workspace-default.png)
+
+1. In the Workspace default settings list, select **Login, registration and SSO**
+
+   ![Screenshot of the Login, registration and SSO section in the Workspace default settings list.](media/howspace-provisioning-tutorial/settings-workspace-sso.png)
+
+1. Check the **Users can login using single sign-on** checkbox.
+1. Select the SSO configuration you created in the previous step.
+1. Enter the object IDs of the Azure AD user groups that should have access to workspaces to the **Limit to following user groups** field. You can specify multiple groups by separating the object IDs with a comma.
+1. You can modify the user groups for each workspace individually after creating the workspace.
 
 ## Step 3. Add Howspace from the Azure AD application gallery
 
@@ -98,7 +147,7 @@ This section guides you through the steps to configure the Azure AD provisioning
    |active|Boolean||
    |name.givenName|String||
    |name.familyName|String||
-   |phoneNumbers[type eq "work"].value|String||
+   |phoneNumbers[type eq "mobile"].value|String||
    |externalId|String||
 
 1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Howspace**.
@@ -108,7 +157,7 @@ This section guides you through the steps to configure the Azure AD provisioning
    |Attribute|Type|Supported for filtering|Required by Howspace|
    |---|---|---|---|
    |displayName|String|&check;|&check;
-   |externalId|String||
+   |externalId|String||&check;
    |members|Reference||
    
 1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

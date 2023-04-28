@@ -35,16 +35,17 @@ The VMAccess extension can be run on these Linux distributions:
 
 | **Linux Distro** | **x64** | **ARM64** |
 |:-----|:-----:|:-----:|
-| Alma Linux |9.x+ |9.x+ |
-| CentOS |7.x+, 8.x+ |7.x+ |
-| Debian |10+ |11.x+ |
-| Flatcar Linux |3374.2.x+ |3374.2.x+ |
-| openSUSE |12.3+ |Not Supported |
-| Oracle Linux |6.4+, 7.x+, 8.x+ |Not Supported |
-| Red Hat Enterprise Linux |6.7+, 7.x+, 8.x+ |8.6+, 9.0+ |
-| Rocky Linux |9.x+ |9.x+ |
-| SLES |12.x+, 15.x+ |15.x SP4+ |
-| Ubuntu |18.04+, 20.04+, 22.04+ |20.04+, 22.04+ |
+| Alma Linux |	9.x+ |	9.x+ |
+| CentOS |	7.x+,  8.x+ |	7.x+ |
+| Debian |	10+ |	11.x+ |
+| Flatcar Linux |	3374.2.x+ |	3374.2.x+ |
+| Mariner | 2.x | 2.x |
+| openSUSE |	12.3+ |	Not Supported |
+| Oracle Linux |	6.4+, 7.x+, 8.x+ |	Not Supported |
+| Red Hat Enterprise Linux |	6.7+, 7.x+,  8.x+ |	8.6+, 9.0+ |
+| Rocky Linux |	9.x+ |	9.x+ |
+| SLES |	12.x+, 15.x+ |	15.x SP4+ |
+| Ubuntu |	18.04+, 20.04+, 22.04+ |	20.04+, 22.04+ |
 
 ## Ways to use the VMAccess extension
 

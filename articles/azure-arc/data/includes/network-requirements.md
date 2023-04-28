@@ -3,7 +3,7 @@ author: MikeRayMSFT
 ms.author: mikeray
 ms.service: azure-arc
 ms.topic: include
-ms.date: 12/13/2022
+ms.date: 04/18/2022
 ---
 
 
@@ -11,7 +11,7 @@ ms.date: 12/13/2022
 |--|--|--|--|--|
 | Helm chart (direct connected mode only) | 443 | `arcdataservicesrow1.azurecr.io` | Outbound |Provisions the Azure Arc data controller bootstrapper and cluster level objects, such as custom resource definitions, cluster roles, and cluster role bindings, is pulled from an Azure Container Registry. | 
 | Azure monitor APIs <sup>*</sup> | 443 |`*.ods.opinsights.azure.com`<br/>`*.oms.opinsights.azure.com`<br/>`*.monitoring.azure.com` | Outbound | Azure Data Studio and Azure CLI connect to the Azure Resource Manager APIs to send and retrieve data to and from Azure for some features. See [Azure Monitor APIs](#azure-monitor-apis).
-| Azure Arc data processing service <sup>*</sup>| 443 |`san-af-<region>-prod.azurewebsites.net` | Outbound<br/> Inbound |
+| Azure Arc data processing service <sup>*</sup>| 443 |`san-af-<region>-prod.azurewebsites.net` | Outbound |
 
 <sup>*</sup> Requirement depends on deployment mode:
 

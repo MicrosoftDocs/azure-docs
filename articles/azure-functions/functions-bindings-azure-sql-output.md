@@ -208,7 +208,7 @@ namespace AzureSQL.ToDo
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "PostFunction")] HttpRequestData req,
                 FunctionContext executionContext)
         {
-            var logger = executionContext.GetLogger("HttpExample");
+            var logger = executionContext.GetLogger("PostToDo");
             logger.LogInformation("C# HTTP trigger function processed a request.");
 
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
@@ -392,23 +392,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
 using Newtonsoft.Json;
 
-public static IActionResult Run(HttpRequest req, ILogger log, out ToDoItem todoItem, out RequestLog requestLog)
+public static IActionResult Run(HttpRequest req, ILogger log, out ToDoItem todoItem)
 {
     log.LogInformation("C# HTTP trigger function processed a request.");
 
     string requestBody = new StreamReader(req.Body).ReadToEnd();
     todoItem = JsonConvert.DeserializeObject<ToDoItem>(requestBody);
 
-    requestLog = new RequestLog();
-    requestLog.RequestTimeStamp = DateTime.Now;
-    requestLog.ItemCount = 1;
-
     return new OkObjectResult(todoItem);
-}
-
-public class RequestLog {
-    public DateTime RequestTimeStamp { get; set; }
-    public int ItemCount { get; set; }
 }
 ```
 
@@ -472,14 +463,23 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
 using Newtonsoft.Json;
 
-public static IActionResult Run(HttpRequest req, ILogger log, out ToDoItem todoItem)
+public static IActionResult Run(HttpRequest req, ILogger log, out ToDoItem todoItem, out RequestLog requestLog)
 {
     log.LogInformation("C# HTTP trigger function processed a request.");
 
     string requestBody = new StreamReader(req.Body).ReadToEnd();
     todoItem = JsonConvert.DeserializeObject<ToDoItem>(requestBody);
 
+    requestLog = new RequestLog();
+    requestLog.RequestTimeStamp = DateTime.Now;
+    requestLog.ItemCount = 1;
+
     return new OkObjectResult(todoItem);
+}
+
+public class RequestLog {
+    public DateTime RequestTimeStamp { get; set; }
+    public int ItemCount { get; set; }
 }
 ```
 

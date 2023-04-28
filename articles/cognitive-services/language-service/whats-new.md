@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: whats-new
-ms.date: 03/09/2023
+ms.date: 04/14/2023
 ms.author: aahi
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
@@ -79,7 +79,7 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
   * China North 2 (Prediction)
 * New model evaluation updates for Conversational language understanding and Orchestration workflow.
 * New model version ('2023-01-01-preview') for Text Analytics for health featuring new [entity categories](./text-analytics-for-health/concepts/health-entity-categories.md) for social determinants of health.
-* New model version ('2023-02-01-preview') for named entity recognition features improved accuracy. 
+* New model version ('2023-02-01-preview') for named entity recognition features improved accuracy and more [language support](./named-entity-recognition/language-support.md) with up to 79 languages.
 
 ## December 2022
 
