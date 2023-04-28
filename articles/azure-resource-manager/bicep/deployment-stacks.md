@@ -15,11 +15,13 @@ Because the deployment stack is a native Azure resource, you can perform all typ
 - Security recommendations surfaced by Microsoft Defender for Cloud.
 - Azure Policy assignments.
 
-Any Azure resource created using a deployment stack is managed by it, and subsequent updates to that deployment stack, combined with value of the newest iteration's `actionOnUnmanage` property, allows you to control the lifecycle of the resources managed by the deployment stack. When a deployment stack is updated, the new set of managed resources will be determined by the resources defined in the template.
+When you create a deployment stack, the stack control the lifecycle of teh resources managed by the stack. When you update the deployment stack, the new set of managed resources will be determined by the resources defined in the updated Bicep file.
 
 To create your first deployment stack, work through [Quickstart: create deployment stack](./quickstart-create-deployment-stacks.md).
 
 ### Known issues
+
+jgao: not sure we need to list the known issues.
 
 The `2022-08-01-preview` private preview API version has the following limitations:
 
@@ -33,7 +35,7 @@ The `2022-08-01-preview` private preview API version has the following limitatio
 
 ## Create deployment stacks
 
-You can create deployment stacks at different scopes.  The create deployment stack commands can also be used to [update a deployment stack](#update-deployment-stack), [add resources to a deployment stack](#add-resources-to-deployment-stack), and [delete managed resources from a deployment stack](#delete-managed-resources-from-deployment-stack).
+You can create deployment stacks at different scopes.  The create deployment stack commands can also be used to [update a deployment stack](#update-deployment-stacks), [add resources to a deployment stack](#add-resources-to-deployment-stack), and [delete managed resources from a deployment stack](#delete-managed-resources-from-deployment-stack).
 
 To create a deployment stack at the resource group scope:
 
@@ -167,9 +169,9 @@ az stack sub list
 
 ## Update deployment stacks
 
-To update a deployment stack, modify the underlying Bicep files and re-run the create deployment stack commands. For more information about the commands, see [Create deployment stack](#create-deployment-stack).
+To update a deployment stack, modify the underlying Bicep files and re-run the create deployment stack commands. For more information about the commands, see [Create deployment stack](#create-deployment-stacks).
 
-You will get a warning similar to the following:
+You get a warning similar to the following:
 
 ```warning
 The deployment stack 'myStack' you're trying to create already already exists in the current subscription. Do you want to overwrite it? Detaching: resources, resourceGroups (Y/N)
@@ -309,11 +311,11 @@ az stack sub show \
 
 ## Add resources to deployment stack
 
-To add a resource to a deployment stack, modify the original Bicep file by adding the resource, and then run the create deployment stack command. For more information, see [Create deployment stack](#create-deployment-stack). This step highlights the modularity and centralized "command and control" offered by Azure deployment stacks. You control your list of managed resources entirely through the infrastructure as code (IaC) design pattern.
+To add a resource to a deployment stack, modify the original Bicep file by adding the resource, and then run the create deployment stack command. For more information, see [Create deployment stack](#create-deployment-stacks). This step highlights the modularity and centralized "command and control" offered by Azure deployment stacks. You control your list of managed resources entirely through the infrastructure as code (IaC) design pattern.
 
 ## Delete managed resources from deployment stack
 
-To instruct Azure to delete detached resources, update the stack with the create stack command with one of the following parameters. For more information, see [Create deployment stack](#create-deployment-stack).
+To instruct Azure to delete detached resources, update the stack with the create stack command with one of the following parameters. For more information, see [Create deployment stack](#create-deployment-stacks).
 
 - `--delete-all`: Flag to indicate delete rather than detach for managed resources and resource groups.
 - `--delete-resources`: Flag to indicate delete rather than attach for managed resources only.
@@ -509,7 +511,7 @@ If a deployment was created and the failure occurred during deployment, you can 
 Get-AzResourceGroupDeployment -Id $stack.DeploymentId
 ```
 
-You can get more information from the [deployment operations](../templates/deployment-history?tabs=azure-portal#get-deployment-operations-and-error-message) as needed.
+You can get more information from the [deployment operations](../templates/deployment-history.md#get-deployment-operations-and-error-message) as needed.
 
 ## Next steps
 

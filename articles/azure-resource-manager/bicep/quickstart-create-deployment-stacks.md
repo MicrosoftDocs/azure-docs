@@ -19,7 +19,7 @@ This quickstart describes how to create a [deployment stack](deployment-stacks.m
 
 ## Create Bicep files
 
-We begin with an Azure deployment that uses two Bicep files to create two resource groups with one public IP address within each resource group. By deploying this Bicep template with parameter default values, you'll create two resource groups (ds-rg1 and ds-rg2) with one public IP address resource (publicIP1 and publicIP2, respectively) in each respective group.
+Create two Bicep files to create two resource groups with one public IP address within each resource group. By deploying these Bicep files, you'll create two resource groups (ds-rg1 and ds-rg2) with one public IP address resource (publicIP1 and publicIP2, respectively) in each respective group.
 
 The main.bicep file looks like:
 
@@ -108,8 +108,6 @@ New-AzSubscriptionDeploymentStack `
    -TemplateFile './main.bicep'
 ```
 
-The `DeploymentResourceGroupName` parameter specifies the resource group used to store the deployment stack resources. If you don't specify a resource group name, the deployment stack service will create a new resource group for you.
-
 # [CLI](#tab/azure-cli)
 
 ```azurecli
@@ -131,7 +129,23 @@ To verify the deployment:
 Get-AzSubscriptionDeploymentStack
 ```
 
-The `DeploymentResourceGroupName` parameter specifies the resource group used to store the deployment stack resources. If you don't specify a resource group name, the deployment stack service will create a new resource group for you.
+The output shows four managed resource - two resource groups and two public IPs:
+
+```output
+Id                          : /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Resources/deploymentStacks/mySubStack
+Name                        : mySubStack
+ProvisioningState           : succeeded
+ResourcesCleanupAction      : detach
+ResourceGroupsCleanupAction : detach
+DenySettingsMode            : none
+Location                    : eastus
+CreationTime(UTC)           : 4/20/2023 7:53:02 PM
+DeploymentId                : /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Resources/deployments/mySubStack-2023-04-20-19-53-02-fdd96
+Resources                   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ds-rg1
+                              /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ds-rg1/providers/Microsoft.Network/publicIPAddresses/pubIP1
+                              /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ds-rg2
+                              /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ds-rg2/providers/Microsoft.Network/publicIPAddresses/pubIP1
+```
 
 # [CLI](#tab/azure-cli)
 
@@ -139,11 +153,83 @@ The `DeploymentResourceGroupName` parameter specifies the resource group used to
 az stack sub list
 ```
 
+The output shows four managed resource - two resource groups and two public IPs:
+
+```output
+[
+  {
+    "actionOnUnmanage": {
+      "managementGroups": "detach",
+      "resourceGroups": "detach",
+      "resources": "detach"
+    },
+    "debugSetting": null,
+    "deletedResources": [],
+    "denySettings": {
+      "applyToChildScopes": false,
+      "excludedActions": null,
+      "excludedPrincipals": null,
+      "mode": "none"
+    },
+    "deploymentId": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Resources/deployments/mySubStack-2023-04-20-19-53-02-fdd96",
+    "deploymentScope": null,
+    "description": null,
+    "detachedResources": [],
+    "duration": "PT21.2281952S",
+    "error": null,
+    "failedResources": [],
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Resources/deploymentStacks/mySubStack",
+    "location": "eastus",
+    "name": "mySubStack",
+    "outputs": null,
+    "parameters": {},
+    "parametersLink": null,
+    "provisioningState": "succeeded",
+    "resources": [
+      {
+        "denyStatus": "none",
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ds-rg1",
+        "status": "managed"
+      },
+      {
+        "denyStatus": "none",
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ds-rg1/providers/Microsoft.Network/publicIPAddresses/pubIP1",
+        "resourceGroup": "ds-rg1",
+        "status": "managed"
+      },
+      {
+        "denyStatus": "none",
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ds-rg2",
+        "status": "managed"
+      },
+      {
+        "denyStatus": "none",
+        "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ds-rg2/providers/Microsoft.Network/publicIPAddresses/pubIP1",
+        "resourceGroup": "ds-rg2",
+        "status": "managed"
+      }
+    ],
+    "systemData": {
+      "createdAt": "2023-04-20T19:53:02.279809+00:00",
+      "createdBy": "someone@microsoft.com",
+      "createdByType": "User",
+      "lastModifiedAt": "2023-04-20T19:53:02.279809+00:00",
+      "lastModifiedBy": "someone@microsoft.com",
+      "lastModifiedByType": "User"
+    },
+    "tags": null,
+    "template": null,
+    "templateLink": null,
+    "type": "Microsoft.Resources/deploymentStacks"
+  }
+]
+```
+
 ---
 
 ## Delete the deployment stack
 
-To delete the deployment stack, and the managed resources
+To delete the deployment stack, and the managed resources:
 
 ```azurepowershell
 Remove-AzSubscriptionDeploymentStack `
