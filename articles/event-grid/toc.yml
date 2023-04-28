@@ -431,3 +431,7 @@ items:
       items:
       - name: Azure Event Grid Namespace MQTT client authentication using certificate chain
         href: mqtt-certificate-chain-client-authentication.md           
+    - name: Reference
+      items:
+      - name: Monitoring data reference (MQTT delivery)
+        href: monitor-mqtt-delivery-reference.md

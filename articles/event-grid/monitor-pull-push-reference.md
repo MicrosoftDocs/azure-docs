@@ -2,7 +2,7 @@
 title: Azure Event Grid - Monitor data reference (push & pull delivery)
 description: This article provides reference documentation for metrics and diagnostic logs for Azure Event Grid's push and pull delivery of events. 
 ms.topic: conceptual
-ms.date: 11/11/2021
+ms.date: 04/28/2023
 ---
 
 # Monitor data reference for Azure Event Grid's push and pull event delivery
