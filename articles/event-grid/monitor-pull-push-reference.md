@@ -23,14 +23,14 @@ This article provides a reference of log and metric data collected to analyze th
 | SuccessfulReleasedEvents | Successful released events | Number of events released by queue subscriber clients. |
 | FailedReleasedEvents | Failed to release event counts | Number of events that failed to be released back to Event Grid. |
 | DeadLetteredEvents | Dead-lettered events | Number of events sent to a dead-letter location. |
-| DroppedEvents | Dropped events | Number of events successfully received by Event Grid but later dropped (deleted) due to one of the following reasons: <ul><li>the maximum delivery count of a queue or push subscription has been reached and a dead-letter destination has not been configured or is not available</li><li>Events have been rejected by queue subscription clients and there is no dead-letter destination configured or is not available.</li><li>The time-to-live configured for the event subscription has been reached and there is no dead-letter destination configured or is not available.</li></ul> |
+| DroppedEvents | Dropped events | Number of events successfully received by Event Grid but later dropped (deleted) due to one of the following reasons: <ul><li>the maximum delivery count of a queue or push subscription has been reached and a dead-letter destination hasn't been configured or isn't available</li><li>Events have been rejected by queue subscription clients and there's no dead-letter destination configured or isn't available.</li><li>The time-to-live configured for the event subscription has been reached and there's no dead-letter destination configured or isn't available.</li></ul> |
 | ReceiveLatencyInMilliseconds | Receive operations latency in milliseconds | Latency in milliseconds for receive message operations |
 | PublishLatencyInMilliseconds | Publish operations latency in milliseconds | Latency in milliseconds for publish event operations |
 | AcknowledgeLatencyInMilliseconds | Acknowledge operations latency in milliseconds | Latency in milliseconds for acknowledge event operations |
 | ReleaseLatencyInMilliseconds | Release operations latency in milliseconds | Latency in milliseconds for release event operations |
 | RejectLatencyInMilliseconds | Reject operations latency in milliseconds | Latency in milliseconds for reject event operations |
 | MatchedEvents | Matched events | Number of events that were successfully published to the service and met all the filtering criteria specified in event subscriptions. |
-| UnMatchedEvents | Unmatched events | Number of events that were successfully published to the service, but did not meet all filtering criteria specified in  event subscriptions. |
+| UnMatchedEvents | Unmatched events | Number of events that were successfully published to the service, but didn't meet all filtering criteria specified in  event subscriptions. |
 
 ### Microsoft.EventGrid/domains  
 
@@ -134,7 +134,7 @@ Diagnostic settings allow Event Grid users to capture and view **publish and del
 | EventSubscriptionName | String | The name of the event subscription <p>**Example value:** "EVENTSUB1"</p> <p>This property exists only for delivery failure logs.</p>  |
 | Category | String | The log category name. <p>**Example values:** "DeliveryFailures" or "PublishFailures" | 
 | OperationName | String | The name of the operation caused the failure.<p>**Example Values:** "Deliver" for delivery failures. |
-| Message | String | The log message for the user explaining the reason for the failure and other additional details. |
+| Message | String | The log message for the user explaining the reason for the failure and more details. |
 | ResourceId | String | The resource ID for the topic/domain resource<p>**Example Values:** `/SUBSCRIPTIONS/SAMPLE-SUBSCRIPTION-ID/RESOURCEGROUPS/SAMPLE-RESOURCEGROUP/PROVIDERS/MICROSOFT.EVENTGRID/TOPICS/TOPIC1` |
 
 #### Example - Schema for publish/delivery failure logs
@@ -159,7 +159,7 @@ The possible values of `Outcome` are `NotFound`, `Aborted`, `TimedOut`, `Generic
 | NetworkAccess | String | Allowed values are: <ul><li>`PublicAccess` - when connecting via public IP</li><li>`PrivateAccess` - when connecting via private link</li></ul> |
 | ClientIpAddress | String | Source IP of incoming requests |
 | TlsVersion | String | The transport layer security (TLS) version used by the client connection. Possible values are: **1.0**, **1.1** and **1.2** |
-| Authentication/Type | String | The type of secret used for authentication when publishing messages. <ul><li>`Key` – request uses the SAS key</li><li>`SASToken` – request uses a SAS token generated from SAS key</li><li>`AADAccessToken` – Azure Active Directory issued JSON Web Token (JWT) token</li><li>`Unknown` – None of the above authentication types. OPTIONS requests will have this authentication type </li></ul> |
+| Authentication/Type | String | The type of secret used for authentication when publishing messages. <ul><li>`Key` – request uses the SAS key</li><li>`SASToken` – request uses a SAS token generated from SAS key</li><li>`AADAccessToken` – Azure Active Directory issued JSON Web Token (JWT) token</li><li>`Unknown` – None of the above authentication types. OPTIONS requests have this authentication type </li></ul> |
 | Authentication/ObjectId | String | ObjectId of the service principal used when the authentication type is set to `AADAccessToken` |
 | OperationResult | String | Result of the publish. Possible values are: <ul><li>Success</li><li>Unauthorized</li><li>Forbidden</li><li>RequestEntityTooLarge</li><li>BadRequest</li><li>InternalServerError</li></ul> |
 | TotalOperations | String | These traces aren't emitted for each publish request. An aggregate for each unique combination of above values is emitted every minute |
@@ -192,7 +192,7 @@ The possible values of `Outcome` are `NotFound`, `Aborted`, `TimedOut`, `Generic
 }
 ```
 
-Once the `DataPlaneRequests` diagnostic setting is selected, Event Grid resources will start publishing audit traces for data plane operations including public and private access operations. This trace may log one or more requests if needed.
+Once the `DataPlaneRequests` diagnostic setting is selected, Event Grid resources start publishing audit traces for data plane operations including public and private access operations. This trace may log one or more requests if needed.
 
 ## Next steps
 
