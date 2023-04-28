@@ -17,7 +17,7 @@ Because the deployment stack is a native Azure resource, you can perform all typ
 
 Any Azure resource created using a deployment stack is managed by it, and subsequent updates to that deployment stack, combined with value of the newest iteration's `actionOnUnmanage` property, allows you to control the lifecycle of the resources managed by the deployment stack. When a deployment stack is updated, the new set of managed resources will be determined by the resources defined in the template.
 
-To create your first deployment stack, work through [Quickstart: create deployment stack](./quickstart-create-deploymentstack.md).
+To create your first deployment stack, work through [Quickstart: create deployment stack](./quickstart-create-deployment-stacks.md).
 
 ### Known issues
 
@@ -33,7 +33,7 @@ The `2022-08-01-preview` private preview API version has the following limitatio
 
 ## Create deployment stack
 
-You can create deployment stacks at different scopes.  The create deployment stack commands can also be used to [update a deployment stack](#update-deployment-stack), [add resources to a deployment stack](#add-managed-resource-to-deployment-stack), and [delete managed resources from a deployment stack](#delete-managed-resources-from-deployment-stack).
+You can create deployment stacks at different scopes.  The create deployment stack commands can also be used to [update a deployment stack](#update-deployment-stack), [add resources to a deployment stack](#add-resources-to-deployment-stack), and [delete managed resources from a deployment stack](#delete-managed-resources-from-deployment-stack).
 
 To create a deployment stack at the resource group scope:
 
@@ -51,7 +51,7 @@ New-AzResourceGroupDeploymentStack `
 ```azurecli
 az stack group create \
   --name <deployment-stack-name> \
-  --resource-group '<resource-group-name>' \
+  --resource-group <resource-group-name> \
   --template-file <bicep-file-name>
 ```
 
@@ -73,11 +73,11 @@ New-AzManagmentGroupDeploymentStack `
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az stack mg create `
-  --name <deployment-stack-name> `
-  --location <location> `
-  --template-file <bicep-file-name>
-  --management-group-id <management-group-id>
+az stack mg create \
+  --name <deployment-stack-name> \
+  --location <location> \
+  --template-file <bicep-file-name> \
+  --management-group-id <management-group-id> \
   --deployment-subscription-id <subscription-id>
 ```
 
@@ -371,14 +371,16 @@ jgao: the last parameter is not found in the help file.  Please verify.
 To apply a `denyDelete` lock to your deployment stack, update your deployment stack definition, specifying the appropriate parameter(s):
 
 ```azurecli
-az stack sub create `
-  --name <deployment-stack-name> `
-  --location <location> `
-  --template-file <bicep-file-name> `
-  --deny-settings-mode "denyDelete"
+az stack sub create \
+  --name <deployment-stack-name> \
+  --location <location> \
+  --template-file <bicep-file-name> \
+  --deny-settings-mode denyDelete
 ```
 
 jgao: denyDelete is not listed in the help.  Please verify.
+
+---
 
 ## Detach managed resource
 
@@ -441,7 +443,7 @@ Export-AzResourceGroupDeploymentStack `
 ```azurecli
 az stack group export \
   --name <deployment-stack-name> \
-  --resource-group '<resource-group-name>'
+  --resource-group <resource-group-name>
 ```
 
 ---
@@ -505,7 +507,7 @@ If a deployment was created and the failure occurred during deployment, you can 
 Get-AzResourceGroupDeployment -Id $stack.DeploymentId
 ```
 
-You can get more information from the [deployment operations](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-history?tabs=azure-portal#get-deployment-operations-and-error-message) as needed.
+You can get more information from the [deployment operations](../templates/deployment-history?tabs=azure-portal#get-deployment-operations-and-error-message) as needed.
 
 ## Next steps
 
