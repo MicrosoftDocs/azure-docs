@@ -1,9 +1,9 @@
 ---
 title: Use Azure Monitor Troubleshooter
 description: detailed instructions on using the on agent monitoring tool to diagnose potential issue.
-ms.topic: Tutorial
-author: jeffwo-ms
-ms.author: jeffwolford
+ms.topic: conceptual
+author: JefferyWolford
+ms.author: jeffwo
 ms.date: 4/28/2023
 ms.custom: references_regions
 ms.reviewer: guywild
@@ -16,19 +16,10 @@ The Azure Monitor Agent isn't a service that runs in the context of an Azure Res
 > Note: Troubleshooter is a command line executable that is shipped with the agent for all versions newer than **1.12.0.0** for Windows and **1.25.1 for Linux**. 
 > If you have a older version of the agent, you can not copy the Troubleshooter on in to a VM to diagnose an older agent.
 
-# Table of Contents
-- [Prerequesets](#Prerequesets)
-- [Windows Troubleshooter](#Windows-troubleshooter)
--[Run Windows Troubleshooter](##Run-Windows-Troubleshooter)
--[Evaluating Windows Results](##Evaluating-Windows-Results)
--[Sharing Windows Results](##Sharing-Windows-Results)
--[Linux Troubleshooter](#Linux-troubleshooter)
--[Running Linux Troubleshooter](##Running-Linux-Troubleshooter)
--[Evaluation Linux Results](##Evaluating-Linux-Results)
--[Sharing Linux Logs](##Sharing-Linux-Logs)
 
 #Prerequesets
 The linux Troubleshooter requires Python 2.6+ or any Python3 installed on the machine. In addition, the following Python packages are required to run (all should be present on a default install of Python2 or Python3):
+
 |Python Package|	Required for Python2?	|Required for Python3?|
 |:---|:---|:---|
 |copy|	                               yes|	yes|
@@ -51,6 +42,7 @@ The linux Troubleshooter requires Python 2.6+ or any Python3 installed on the ma
 
 ##Evaluating the Windows Results
 The Troubleshooter runs two tests and collects several diagnostic logs.
+
 |Test | Description|
 |:---|:---|
        |Machine Network Configuration (Configuration) | This test checks the very basic network connection including IPV 4 and IPV 6 address resolutions.  If IPV6 isn't available on the machine, you'll see a warning.|
@@ -79,6 +71,7 @@ There are six sections that cover different scenarios that customer have histori
 
 ##Evaluating Linux Results
 Here are the details that each scenario covers:
+
 |Secnario | Tests|
 |:---|:---|
 |Agent having installation issues|
@@ -110,10 +103,8 @@ Here are the details that each scenario covers:
 * Custom log configuration being pulled / used
 * Log file paths is valid|
 
-
 ##Sharing Linux Logs
 To create a zip file use this command when running the troubleshooter: sudo sh ama_troubleshooter.sh A L.  You'll asked for a file location to create the zip file.
-
 
 ## Next steps
 - [Install the Azure Monitor Agent](azure-monitor-agent-manage.md) on Windows and Linux virtual machines.
