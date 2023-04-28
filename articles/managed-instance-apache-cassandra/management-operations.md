@@ -38,7 +38,10 @@ Azure Managed Instance for Apache Cassandra provides automated deployment and sc
 * Node health monitoring consists of:
 
   * Actively monitoring each node's membership in the Cassandra ring.
+  * Pro-active monitoring of CPU, disk, node health, quorum loss, and other mitigations.
   * Actively monitoring virtual machines to identify and fix problems with Azure, Virtual Machines, storage, Linux, and the support software.
+  * In-house Java JDK/JVM engineering team support.
+  * Linux Operating System support with software supply chain security.
 
 ## Support
 
@@ -46,11 +49,10 @@ Azure Managed Instance for Apache Cassandra provides an [SLA](https://azure.micr
 
 Our support ativities include:
 
-- Pro-active monitoring of CPU, disk, node health, quorum loss, and many other mitigations.
-- Pro-active advise on performance bottle necks and sizing.
-- 24x7 support coverage.
+- Pro-active advise via email on performance bottle necks, sizing, and other resource constraint issues.
 - Support for additional open source projects including cassandra-ldap, medusa, reaper, lucene, ecaudit (C* 3.11), mcac.
-- Community approved patch support.
+- 24x7 support coverage, including auto-generated incidents for any severe outage issues.
+- Community approved patch support (see [Patching](#patching)).
 
 >[!IMPORTANT]
 > We will investigate and diagnose any issues reported via support case, and resolve or mitigate where possible. 
