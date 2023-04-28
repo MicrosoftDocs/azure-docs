@@ -65,8 +65,8 @@ To create a deployment stack at the management group scope:
 New-AzManagmentGroupDeploymentStack `
   -Name '<deployment-stack-name>' `
   -Location '<location>' `
-  -TemplateFile '<bicep-file-name>'
-  -ManagementGroupId '<management-group-id>'
+  -TemplateFile '<bicep-file-name>' `
+  -ManagementGroupId '<management-group-id>' `
   -DeploymentSubscriptionId '<subscription-id>'
 ```
 
@@ -119,7 +119,7 @@ List deployment stack resources at the resource group scope:
 
 ```azurepowershell
 Get-AzResourceGroupDeploymentStack `
-  -ResourceGroupName <resource-group-name>
+  -ResourceGroupName '<resource-group-name>'
 ```
 
 # [CLI](#tab/azure-cli)
@@ -137,7 +137,7 @@ List deployment stack resources at the management group scope:
 
 ```azurepowershell
 Get-AzManagementGroupDeploymentStack `
-  -ManagementGroupId <management-group-id>
+  -ManagementGroupId '<management-group-id>'
 ```
 
 # [CLI](#tab/azure-cli)
@@ -189,8 +189,8 @@ Delete deployment stack resources at the resource group scope:
 
 ```azurepowershell
 Remove-AzResourceGroupDeploymentStack `
-  -name <deployment-stack-name> `
-  -ResourceGroupName <resource-group-name> `
+  -name '<deployment-stack-name>' `
+  -ResourceGroupName '<resource-group-name>' `
   [-DeleteAll/-DeleteResourceGroups/-DeleteResources]
 ```
 
@@ -211,8 +211,8 @@ Delete deployment stack resources at the management group scope:
 
 ```azurepowershell
 Remove-AzManagementGroupDeploymentStack `
-  -Name <deployment-stack-name> `
-  -ManagementGroupId <management-group-id> `
+  -Name '<deployment-stack-name>' `
+  -ManagementGroupId '<management-group-id>' `
   [-DeleteAll/-DeleteResourceGroups/-DeleteResources]
 ```
 
@@ -233,7 +233,7 @@ Delete deployment stack resources at the subscription scope:
 
 ```azurepowershell
 Remove-AzSubscriptionDeploymentStack `
-  -Name <deployment-stack-name> `
+  -Name '<deployment-stack-name>' `
   [-DeleteAll/-DeleteResourceGroups/-DeleteResources]
 ```
 
@@ -256,7 +256,7 @@ View managed resources at the resource group scope:
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-(Get-AzResourceGroupDeploymentStack -Name <deployment-stack-name> -ResourceGroupName <resource-group-name>).Resources
+(Get-AzResourceGroupDeploymentStack -Name '<deployment-stack-name>' -ResourceGroupName '<resource-group-name>').Resources
 ```
 
 # [CLI](#tab/azure-cli)
@@ -275,7 +275,7 @@ View managed resources at the management group scope:
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-(Get-AzManagementGroupDeploymentStack -Name <deployment-stack-name> -ManagementGroupId <management-group-id>).Resources
+(Get-AzManagementGroupDeploymentStack -Name '<deployment-stack-name>' -ManagementGroupId '<management-group-id>').Resources
 ```
 
 # [CLI](#tab/azure-cli)
@@ -294,7 +294,7 @@ View managed resources at the subscription scope:
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-(Get-AzSubscriptionDeploymentStack -Name <deployment-stack-name>).Resources
+(Get-AzSubscriptionDeploymentStack -Name '<deployment-stack-name>').Resources
 ```
 
 # [CLI](#tab/azure-cli)
@@ -338,7 +338,7 @@ jgao: what is the a default value if -DenySettingmode is not specified?
 
 For example:
 
-```azure powershell
+```azurepowershell
 New-AzSubscriptionDeploymentStack `
   -Name '<deployment-stack-name>' `
   -TemplateFile '<bicep-file-name>' `
@@ -397,7 +397,7 @@ resource by using one of the following switch parameters of the `New-AzSubscript
 
 For example:
 
-```powershell
+```azurepowershell
 New-AzSubscriptionDeploymentStack `
   -Name '<deployment-stack-name' `
   -TemplateFile '<bicep-file-name>' `
@@ -455,7 +455,7 @@ To export a deployment stack at the management group scope:
 ```azurepowershell
 Export-AzManagmentGroupDeploymentStack `
   -Name '<deployment-stack-name>' `
-  -ManagementGroupId '<management-group-id>
+  -ManagementGroupId '<management-group-id>'
 ```
 
 # [CLI](#tab/azure-cli)
@@ -474,7 +474,7 @@ To export a deployment stack at the subscription scope:
 
 ```azurepowershell
 Export-AzSubscriptionDeploymentStack `
-  -name <deployment-stack-name>
+  -name '<deployment-stack-name>'
 ```
 
 # [CLI](#tab/azure-cli)
@@ -487,6 +487,8 @@ az stack sub export \
 ---
 
 ## Troubleshooting
+
+jgao: please provide the cli commands for this section.
 
 Deployment stacks contain some diagnostic information that isn't displayed by default. When troubleshooting problems with an update, save the objects to analyze them further:
 
