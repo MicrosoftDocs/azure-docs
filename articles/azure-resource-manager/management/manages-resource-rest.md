@@ -19,17 +19,21 @@ Other articles about managing resources:
 ## Obtain an access token
 To make a REST API call to Azure, you first need to obtain an access token. Include this access token in the headers of your Azure REST API calls using the "Authorization" header and setting the value to "Bearer {access-token}".
 
-If you will need to programatically retreive new tokens, you can obtain an access token by [Registering your client application with Azure AD](https://learn.microsoft.com/rest/api/azure/#register-your-client-application-with-azure-ad).
+If you will need to programatically retreive new tokens as part of your application, you can obtain an access token by [Registering your client application with Azure AD](https://learn.microsoft.com/rest/api/azure/#register-your-client-application-with-azure-ad).
 
-If you are getting started and want to quickly test Azure REST APIs, you can retrieve your access token from the Azure portal. Note that the specific steps may vary slightly depending on the browser you are using, but the general process should be similar.
+If you are getting started and want to quickly test Azure REST APIs, you can retrieve your current access token quickly with either Azure PowerShell or Azure CLI.
 
-1. Open your web browser (e.g. Microsoft Edge, Google Chrome, Mozilla Firefox, etc.).
-2. Navigate to the [Azure portal](https://portal.azure.com/).
-3. Right-click on the webpage and select "Inspect" or "Inspect Element" from the context menu. Alternatively, you can press F12 (Windows) or Option + Command + I (Mac) to open the devtools.
-4. Refresh the page.
-5. Select the "batch" request in the populated list of network requests. You can filter the requests by name and search for "batch".
-6. Click on the request to view its details.
-7. Under the "Headers" tab, you should see the authorization request headers.
+### [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+token=$(az account get-access-token --query accessToken --output tsv)
+```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+$token = (Get-AzAccessToken).Token
+```
 
 ## Operation scope
 You can call many Azure Resource Manager operations at different scopes:
@@ -56,6 +60,26 @@ curl -X GET \
   'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/resources?api-version=2021-04-01' \
   -H 'Authorization: Bearer {access-token}' \
   -H 'Content-Type: application/json'
+```
+
+
+With the authentication step, this looks like:
+### [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+token=$(az account get-access-token --query accessToken --output tsv)
+curl -X GET \
+  'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/resources?api-version=2021-04-01' \
+  -H 'Authorization: Bearer {access-token}' \
+  -H 'Content-Type: application/json'
+```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+$token = (Get-AzAccessToken).Token
+$headers = @{Authorization="Bearer $token"}
+Invoke-WebRequest -Method GET -Headers $headers -Uri 'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/resources?api-version=2021-04-01'
 ```
 
 ## Deploy resources to an existing resource group
