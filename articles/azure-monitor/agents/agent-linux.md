@@ -79,7 +79,7 @@ Again, only if you're using an older version of the agent, the python2 executabl
 1. Run the following command to create the alias:
 
     ```bash
-    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2
     ```
 
 ### Supported Linux hardening
