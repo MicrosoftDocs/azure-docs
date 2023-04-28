@@ -55,12 +55,8 @@ For more information on the difference between devices types covered in this art
 As an Azure IoT device developer, you have a diverse set of SDKs, protocols and tools to help build device-enabled cloud applications. 
 
 There are two main options to connect devices and communicate with IoT Hub:
-- Use the Azure IoT SDKs
-- Use the MQTT protocol directly
-
-In most cases, we recommend that you use the Azure IoT SDKs versus using MQTT directly. The SDKs streamline your development effort and simplify the complexity of connecting and managing devices. IoT Hub does support the [MQTT v3.1.1](https://mqtt.org/) protocol. There are some advantages of building an IoT Hub solution to use MQTT directly. For example, a solution that uses MQTT directly without the SDKs can be built on the open MQTT standard. A standards-based approach makes the solution more portable, and gives you more control over how devices connect and communicate.  
-
-However, Iot Hub isn't a full-featured MQTT broker and doesn't support all behaviors specified in the MQTT v3.1.1 standard. The partial support for MQTT v3.1.1 adds development cost to build a solution.  Device developers should weigh the trade-offs of using the IoT device SDKs versus using MQTT directly.  For more information, see [Communicate with an IoT hub using the MQTT protocol](../iot/iot-mqtt-connect-to-iot-hub.md). 
+- **Use the Azure IoT SDKs**. In most cases, we recommend that you use the Azure IoT SDKs versus using MQTT directly. The SDKs streamline your development effort and simplify the complexity of connecting and managing devices. IoT Hub supports the [MQTT v3.1.1](https://mqtt.org/) protocol, and the IoT SDKs simplify the process of using MQTT to communicate with IoT Hub. 
+- **Use the MQTT protocol directly**.  There are some advantages of building an IoT Hub solution to use MQTT directly. For example, a solution that uses MQTT directly without the SDKs can be built on the open MQTT standard. A standards-based approach makes the solution more portable, and gives you more control over how devices connect and communicate. However, IoT Hub isn't a full-featured MQTT broker and doesn't support all behaviors specified in the MQTT v3.1.1 standard. The partial support for MQTT v3.1.1 adds development cost and complexity.  Device developers should weigh the trade-offs of using the IoT device SDKs versus using MQTT directly.  For more information, see [Communicate with an IoT hub using the MQTT protocol](../iot/iot-mqtt-connect-to-iot-hub.md). 
 
 There are three sets of IoT SDKs for device development:
 - Device SDKs (for using higher order languages to connect existing general purpose devices to IoT applications)
