@@ -90,22 +90,26 @@ If you choose to download the `.zip` file, extract the sample app file to a fold
 
 ## Run your project and sign in
 
-All the required code snippets have been added, so the application can now be called and tested in a web browser.
-
-1. Open a new terminal by selecting **Terminal** > **New Terminal**.
-1. Run the following command to start your express web server.
+1. Open a new terminal and run the following command to start your express web server.
 
     ```powershell
     npm start
     ```
 
 1. Open a web browser and navigate to `http://localhost:3000/`.
+1. Select **No account? Create one**, which starts the sign-up flow.
+1. In the **Create account** window, enter the email address registered to your CIAM tenant, which starts the sign-up flow as a user for your application.
+1. After entering a one-time passcode from the CIAM tenant, enter a new password and more account details, this sign-up flow is completed.
+1. If a window appears prompting you to **Stay signed in**, choose either **Yes** or **No**.
+1. The SPA will now display a button saying **Request Profile Information**. Select it to display profile data.
 
-1. Sign-in with an account registered to the CIAM tenant.
+    :::image type="content" source="media/how-to-spa-vanillajs-sign-in-sign-in-out/display-vanillajs-welcome.png" alt-text="Screenshot of sign in into a vanilla JS SPA." lightbox="media/how-to-spa-vanillajs-sign-in-sign-in-out/display-vanillajs-welcome.png":::
 
-1. Once signed in the display name is shown next to the **Sign out** button as shown in the following screenshot.
+## Sign out of the application
 
-<!-- SCREENSHOT -->
+1. To sign out of the application, select **Sign out** in the navigation bar.
+1. A window appears asking which account to sign out of.
+1. Upon successful sign out, a final window appears advising you to close all browser windows.
 
 ## Next steps
 

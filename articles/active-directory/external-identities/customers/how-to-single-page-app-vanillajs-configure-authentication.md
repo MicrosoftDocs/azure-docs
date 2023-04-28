@@ -1,5 +1,5 @@
 ---
-title: Sign in users to a Vanilla JS Single-page application using Microsoft Entra - Configure application for authentication
+title: Sign in users to a Vanilla JS single-page application using Microsoft Entra - Configure application for authentication
 description: Learn how to configure vanilla JavaScript single-page app (SPA) for authentication and authorization with Azure AD CIAM.
 
 services: active-directory
@@ -31,7 +31,7 @@ In this article:
 
 ## Prerequisites
 
-* Completion of the prerequisites and steps in [Prepare a Single-page application for authentication](how-to-single-page-app-vanillajs-prepare-app.md).
+* Completion of the prerequisites and steps in [Prepare a single-page application for authentication](how-to-single-page-app-vanillajs-prepare-app.md).
 
 ## Creating the authentication configuration file
 
@@ -283,4 +283,4 @@ The application uses *authPopup.js* to handle the authentication flow when the u
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure a Single-page application User Interface and Sign-In](how-to-single-page-app-vanillajs-sign-in-sign-out.md)
+> [Configure a single-page application User Interface and Sign-In](how-to-single-page-app-vanillajs-sign-in-sign-out.md)
