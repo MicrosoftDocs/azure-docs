@@ -64,29 +64,13 @@ Last year we announced the combined registration user experience for MFA and  se
 
 ---
 
-### General Availability - Microsoft Enterprise SSO plug-in for Apple devices
-
-**Type:** New feature   
-**Service category:** Device Access Management                     
-**Product capability:** SSO            
-
-The Microsoft Enterprise SSO plug-in for Apple devices provides single sign-on (SSO) for Azure Active Directory accounts on macOS, iOS, and iPadOS across all applications that support Apple's [enterprise single sign-on](https://developer.apple.com/documentation/authenticationservices) feature. The plug-in provides SSO for even old applications that your business might depend on but that doesn't yet support the latest identity libraries or protocols. Microsoft worked closely with Apple to develop this plug-in to increase your application's usability while providing the best protection available.
-
-The Enterprise SSO plug-in is currently a built-in feature of the following apps:
-- [Microsoft Authenticator](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc): iOS, iPadOS
-- Microsoft Intune [Company Portal](/mem/intune/apps/apps-company-portal-macos): macOS
-
-For more information, see: [Microsoft Enterprise SSO plug-in for Apple devices](../develop/apple-sso-plugin.md).
-
----
-
 ### Public Preview - Enhanced Create User and Invite User Experiences
 
 **Type:** Changed feature   
 **Service category:** User Management                     
 **Product capability:** User Management            
 
-We have increased the number of properties admins are able to define when creating, and inviting, a user in the Entra admin portal, bringing our UX to parity with our Create User APIs. Additionally, admins can now add users to a group, or administrative unit, and assign roles. For more information, see: [Add or delete users using Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
+Admins can now define more properties when creating and inviting a user in the Entra admin portal. These improvements bring our UX to parity with our [Create User APIS](/graph/api/user-post-users). Additionally, admins can now add users to a group or administrative unit, as well as assign roles.  For more information, see: [Add or delete users using Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
 
 ---
 
@@ -128,17 +112,27 @@ Group secrets are typically created when a group is assigned credentials to an a
 **Service category:** Microsoft Authenticator App                     
 **Product capability:** User Authentication           
 
-Authenticator Lite is an additional surface for AAD users to complete multifactor authentication using push notifications on their Android or iOS device. With Authenticator Lite, users can satisfy a multifactor authentication requirement from the convenience of a familiar app. Authenticator Lite is currently enabled in the Outlook mobile app.   Users may receive a notification in their Outlook mobile app to approve or deny, or use the Outlook app to generate an OATH verification code that can be entered during sign-in. For more information, see: [How to enable Microsoft Authenticator Lite for Outlook mobile (preview)](../authentication/how-to-mfa-authenticator-lite.md).
+Authenticator Lite is an additional surface for AAD users to complete multifactor authentication using push notifications on their Android or iOS device. With Authenticator Lite, users can satisfy a multifactor authentication requirement from the convenience of a familiar app. Authenticator Lite is currently enabled in the Outlook mobile app. Users may receive a notification in their Outlook mobile app to approve or deny, or use the Outlook app to generate an OATH verification code that can be entered during sign-in. The *'Microsoft managed'* setting for this feature will be set to enabled on May 26th, 2023. This will enable the feature for all users in tenants where the feature is set to Microsoft managed. If you wish to change the state of this feature, please do so before May 26th, 2023. For more information, see: [How to enable Microsoft Authenticator Lite for Outlook mobile (preview)](../authentication/how-to-mfa-authenticator-lite.md).
 
 ---
 
-### Public Preview - Report suspicious activity integrated with Identity Protection
+### General Availability - Updated look and feel for Per-user MFA
 
-**Type:** Changed feature   
-**Service category:** Identity Protection                  
-**Product capability:** Identity Security & Protection          
+**Type:** Plan for change   
+**Service category:** MFA                       
+**Product capability:** Identity Security & Protection             
 
-Report suspicious activity is an updated implementation of the MFA fraud alert, where users can report a voice or phone app MFA prompt as suspicious. If enabled, users reporting prompts have their user risk set to high, enabling admins to use Identity Protection risk-based policies, or risk detection APIs, to take remediation actions. Report suspicious activity operates in parallel with the legacy MFA fraud alert at this time. For more information, see: [Configure Azure AD Multi-Factor Authentication settings](../authentication/howto-mfa-mfasettings.md).
+As part of ongoing service improvements, we are making updates to the per-user MFA admin configuration experience to align with the look and feel of Azure. This change does not include any changes to the core functionality and will only include visual improvements.  For more information, see: [Enable per-user Azure AD Multi-Factor Authentication to secure sign-in events](../authentication/howto-mfa-userstates.md).
+
+---
+
+### General Availability - Additional terms of use audit logs will be turned off
+
+**Type:**  Fixed     
+**Service category:** Terms of Use                  
+**Product capability:** AuthZ/Access Delegation          
+
+Due to a technical issue, we have recently started to emit additional audit logs for terms of use. The additional audit logs will be turned off by the first of May and are tagged with the core directory service and the agreement category. If you have built a dependency on the additional audit logs, you must switch to the regular audit logs tagged with the terms of use service.
 
 ---
 
