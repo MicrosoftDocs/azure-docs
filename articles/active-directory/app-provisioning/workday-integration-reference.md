@@ -15,7 +15,7 @@ ms.reviewer: arvinh, chmutali
 
 # How Azure Active Directory provisioning integrates with Workday
 
-[Azure Active Directory user provisioning service](../app-provisioning/user-provisioning.md) integrates with [Workday HCM](https://www.workday.com) to manage the identity life cycle of users. Azure Active Directory offers three pre-built integrations: 
+[Azure Active Directory user provisioning service](../app-provisioning/user-provisioning.md) integrates with [Workday HCM](https://www.workday.com) to manage the identity life cycle of users. Azure Active Directory offers three prebuilt integrations: 
 
 * [Workday to on-premises Active Directory user provisioning](../saas-apps/workday-inbound-tutorial.md)
 * [Workday to Azure Active Directory user provisioning](../saas-apps/workday-inbound-cloud-only-tutorial.md)
