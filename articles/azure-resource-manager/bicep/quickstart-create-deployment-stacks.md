@@ -121,7 +121,7 @@ az stack sub create \
 
 ## Verify the deployment
 
-To verify the deployment:
+To list the deployed deployment stacks at the subscription level:
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -226,6 +226,58 @@ The output shows four managed resource - two resource groups and two public IPs:
 ```
 
 ---
+
+You can also verify the deployment by list the managed resources in the deployment stack:
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+(Get-AzSubscriptionDeploymentStack -Name mySubStack).Resources
+```
+
+# [CLI](#tab/azure-cli)
+
+```azurecli
+az stack sub show --name mySubStack --output json
+```
+
+---
+
+## Update the deployment stack
+
+To update a deployment stack, you can modify the underlying Bicep file and re-running the create deployment stack command.
+
+Edit **pip.bicep** to set the `allocationMethod` parameter to `Static` instead of `Dynamic`:
+
+```bicep
+param allocationMethod string = 'Static'
+```
+
+Re-run the following command:
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzSubscriptionDeploymentStack `
+   -Name 'mySubStack' `
+   -Location 'eastus' `
+   -TemplateFile './main.bicep'
+```
+
+# [CLI](#tab/azure-cli)
+
+```azurecli
+az stack sub create \
+  --name mySubStack \
+  --location eastus \
+  --template-file ./main.bicep
+```
+
+---
+
+From the Azure portal, check the properties of the `publicIP` resource to confirm the change.
+
+Use the same method, you can add a resource to the deployment stack or remove a managed resource from the deployment stack.  For more information, see [Add resources to a deployment stack](./deployment-stacks.md#add-resources-to-deployment-stack) and [Delete managed resources from a deployment stack](./deployment-stacks.md#delete-managed-resources-from-deployment-stack).
 
 ## Delete the deployment stack
 
