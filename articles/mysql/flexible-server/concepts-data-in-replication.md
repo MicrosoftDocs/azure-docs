@@ -14,11 +14,10 @@ ms.topic: conceptual
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-Data-in replication allows you to synchronize data from an external MySQL server into an Azure Database for MySQL flexilbe server. The external server can be on-premises, in virtual machines, Azure Database for MySQL single server, or a database service hosted by other cloud providers. Data-in replication is based on the binary log (binlog) file position-based. To learn more about binlog replication, see the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
+Data-in replication allows you to synchronize data from an external MySQL server into an Azure Database for MySQL flexilbe server. The external server can be on-premises, in virtual machines, Azure Database for MySQL single server, or a database service hosted by other cloud providers. Data-in replication is based on the binary log (binlog) file position or GTID based replication. To learn more about binlog replication, see the [MySQL Replication](https://dev.mysql.com/doc/refman/5.7/en/replication-configuration.html).
 
-> [!NOTE]  
-> GTID-based replication is currently not supported for Azure Database for MySQL - Flexible Servers.<br>
-> Configuring Data-in replication for zone-redundant high-availability servers is not supported.
+> [!NOTE]
+> Configuring Data-in replication for zone-redundant high-availability servers is supported only through GTID based replication
 
 ## When to use Data-in replication
 
@@ -36,12 +35,10 @@ For migration scenarios, use the [Azure Database Migration Service](https://azur
 
 The [*mysql system database*](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) on the source server isn't replicated. In addition, changes to accounts and permissions on the source server aren't replicated. If you create an account on the source server and this account needs to access the replica server, manually create the same account on the replica server. To understand the tables in the system database, see the [MySQL manual](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html).
 
-### Data-in replication not supported on High Availability (HA) enabled servers
+### Data-in replication is supported on High Availability (HA) enabled servers
 
-It isn't supported to configure Data-in replication for servers that have high availability (HA) option enabled. On HA-enabled servers, the stored procedures for replication `mysql.az_replication_*` won't be available.
+Support for data-in replication for a high availability (HA) enabled server is available only through GTID based replication. Stored procedure for replication using GTID will be available on all HA enabled servers by the name `mysql.az_replication_with_gtid*`
 
-> [!TIP]  
-> If you are using the HA server as a source server, MySQL native binary log (binlog) file position-based replication will fail when failover happens on the server. If replica server supports GTID based replication, we should configure GTID based replication.
 
 ### Filter
 
@@ -65,3 +62,5 @@ Parameter `replicate_wild_ignore_table` is used to create replication filter for
 
 - Learn more on how to [set up data-in replication](how-to-data-in-replication.md)
 - Learn more about [replicating in Azure with read replicas](concepts-read-replicas.md)
+
+
