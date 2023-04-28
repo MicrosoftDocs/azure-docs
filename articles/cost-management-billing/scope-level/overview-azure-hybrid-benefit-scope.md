@@ -4,7 +4,7 @@ description: Azure Hybrid Benefit is a licensing benefit that lets you bring you
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 04/20/2023
+ms.date: 04/28/2023
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: ahb
@@ -15,7 +15,9 @@ ms.reviewer: chrisrin
 
 Azure Hybrid Benefit is a licensing benefit that helps you to significantly reduce the costs of running your workloads in the cloud. It works by letting you use your on-premises Software Assurance or subscription-enabled Windows Server and SQL Server licenses on Azure. For more information, see [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-You can centrally manage your Azure Hybrid Benefit for SQL Server across the scope of an entire Azure subscription or overall billing account. 
+You can centrally manage your Azure Hybrid Benefit for SQL Server across the scope of an entire Azure subscription or overall billing account. To quickly learn how it works, watch the following video.
+
+>[!VIDEO https://www.youtube.com/embed/ReoLB9N76Lo]
 
 To use centrally managed licenses, you must have a specific role assigned to you, depending on your Azure agreement type:
 
