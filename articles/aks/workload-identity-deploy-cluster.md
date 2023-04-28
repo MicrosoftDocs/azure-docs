@@ -176,7 +176,7 @@ You can retrieve this information using the Azure CLI command: [az keyvault list
 To disable the Azure AD workload identity on the AKS cluster where it's been enabled and configured, you can run the following command:
 
 ```azurecli
-az aks update --resource-group myResourceGroup --name myAKSCluster --enable-workload-identity false
+az aks update --resource-group myResourceGroup --name myAKSCluster --disable-workload-identity
 ```
 
 ## Next steps
