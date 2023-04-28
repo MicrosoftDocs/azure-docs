@@ -22,7 +22,7 @@ There are two stages in a migration:
 1. Migrate the configuration
 2. Migrate the client traffic
 
-This article primarily helps with the configuration migration. The traffic migration would vary depending on customer’s needs and environment. But we have included some general recommendations further in this [article](#migrate-client-traffic).
+This article primarily helps with the configuration migration. The traffic migration would vary depending on customer’s needs and environment. But we have included some general recommendations further in this [article](#traffic-migration).
 
 ## Configuration migration 
 
@@ -177,6 +177,7 @@ Here are a few scenarios where your current application gateway (Standard) may r
 The pricing models are different for the Application Gateway v1 and v2 SKUs. V2 is charged based on based on consumption. See [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/) before migrating for pricing information. 
 
 ### Cost efficiency guidance
+
 The V2 SKU comes with a range of advantages such as a performance boost of 5x, improved security with Key Vault integration, faster updates of security rules in WAF_V2, WAF Custom rules, Policy associations, and Bot protection. It also offers high scalability, optimized traffic routing, and seamless integration with Azure services. These features can improve the overall user experience, prevent slowdowns during times of heavy traffic, and avoid expensive data breaches.
 
 There are have 5 variants available in V1 SKU based on the Tier and Size - Standard_Small, Standard_Medium, Standard_Large, WAF_Medium and WAF_Large.
@@ -192,7 +193,7 @@ There are have 5 variants available in V1 SKU based on the Tier and Size - Stand
      <td>Standard Medium</td>
     <td>102.2 </td>
     <td>179.58</td>
-     <td rowspan="2">V2 SKU can handle a larger number of requests than a V1 gateway, so we recommend consolidating multiple V1 gateways into a single V2 gateway, to optimize the cost. Ensure that consolidation doesn’t exceed the Application Gateway [limits](../azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits). We recommend 3:1 consolidation.</td>
+     <td rowspan="2">V2 SKU can handle a larger number of requests than a V1 gateway, so we recommend consolidating multiple V1 gateways into a single V2 gateway, to optimize the cost. Ensure that consolidation doesn’t exceed the Application Gateway [limits](https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits). We recommend 3:1 consolidation.</td>
   </tr>
     <td>WAF Medium </td>
     <td>183.96 </td>
@@ -217,7 +218,9 @@ There are have 5 variants available in V1 SKU based on the Tier and Size - Stand
 
 For further concerns regarding the pricing, work with your CSAM or get in touch with our support team for assistance.
 
-## FAQ on migration can be found [here](./retirement-faq.md#faq-on-v1-to-v2-migration)
+## FAQ 
+
+Common questions on migration [here](./retirement-faq.md#faq-on-v1-to-v2-migration)
 
 ## Next steps
 
