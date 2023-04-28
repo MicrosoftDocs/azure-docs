@@ -31,7 +31,7 @@ The `2022-08-01-preview` private preview API version has the following limitatio
 - Deployment stacks are currently limited to the resource group and subscription management scopes for the private preview. At this time management group-scoped Azure PowerShell and Azure CLI commands exist; they just aren't usable yet.
 - A deployment stack doesn't guarantee the protection of `secureString` and `secureObject` parameters; this release returns them in plain text when requested.
 
-## Create deployment stack
+## Create deployment stacks
 
 You can create deployment stacks at different scopes.  The create deployment stack commands can also be used to [update a deployment stack](#update-deployment-stack), [add resources to a deployment stack](#add-resources-to-deployment-stack), and [delete managed resources from a deployment stack](#delete-managed-resources-from-deployment-stack).
 
@@ -165,7 +165,7 @@ az stack sub list
 
 ---
 
-## Update deployment stack
+## Update deployment stacks
 
 To update a deployment stack, modify the underlying Bicep files and re-run the create deployment stack commands. For more information about the commands, see [Create deployment stack](#create-deployment-stack).
 
@@ -175,7 +175,7 @@ You will get a warning similar to the following:
 The deployment stack 'myStack' you're trying to create already already exists in the current subscription. Do you want to overwrite it? Detaching: resources, resourceGroups (Y/N)
 ```
 
-## Delete deployment stack
+## Delete deployment stacks
 
 If you run the delete commands without the delete parameters, the managed resources will be detached but not deleted. To delete the managed resources, use the following switches:
 
