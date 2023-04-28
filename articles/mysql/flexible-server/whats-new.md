@@ -25,6 +25,13 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 > [!NOTE]  
 > This article references the term slave, which Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
+
+## May 2023
+- **Major version upgrades from 5.7 to 8.0 for Azure Database for MySQL - Flexible Server (General Availability)**
+
+    The major version upgrade feature allows you to perform in-place upgrades of existing instances of Azure Database for MySQL - Flexible Server from MySQL 5.7 to MySQL 8.0 with the select of a button, without any data movement or the need to make any application connection string changes. With the ability of upgrading your Azure Database for MySQL - Flexible Server major version from 5.7 to 8.0, you'll gain access to performance enhancements, security improvements, and new features, such as Data Dictionary, JSON enhancements, and Window functions. [Learn more](how-to-upgrade.md)
+
+
 ## April 2023
 
 - **Known issues**
