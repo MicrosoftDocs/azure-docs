@@ -70,21 +70,21 @@ Because of the disk impact, enable Flow trace only when you need to troubleshoot
 The following additional properties can be added: 
 - SYN-ACK
 
-   Ack flag that indicates acknowledgement of SYN packet. 
+   Ack flag that indicates acknowledgment of SYN packet. 
 - FIN
 
-   Finished flag of the original packet flow. No more data will be transmitted in the TCP flow. 
+   Finished flag of the original packet flow. No more data is transmitted in the TCP flow. 
 - FIN-ACK
 
-   Ack flag that indicates acknowledgement of FIN packet. 
+   Ack flag that indicates acknowledgment of FIN packet. 
 
 - RST
 
-   Reset flag that indicates that original sender will not receive more data.
+   Reset flag that indicates that original sender won't receive more data.
 
 - INVALID (flows)
 
-   Indicates packet can’t be identified or don't have any state; TCP packet is landing on a VMSS instance, which does not have any prior history to this packet.
+   Indicates packet can’t be identified or don't have any state; TCP packet is landing on a Virtual Machine Scale Sets instance, which doesn't have any prior history to this packet.
 
 ### Prerequisites
 
