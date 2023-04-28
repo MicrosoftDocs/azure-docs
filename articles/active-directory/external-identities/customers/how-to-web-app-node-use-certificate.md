@@ -231,7 +231,7 @@ You can use your existing certificate directly from Azure Key Vault:
         privateKey: privateKey,
     };
 
-    msalConfig.auth.clientCertificate = clientCert; //For this to work, you can declares your msalConfig using const modifier 
+    msalConfig.auth.clientCertificate = clientCert; //For this to work, you can't declares your msalConfig using const modifier 
     ```  
 
 1. Then proceed to instantiate your confidential client as shown in the `getMsalInstance` method:
