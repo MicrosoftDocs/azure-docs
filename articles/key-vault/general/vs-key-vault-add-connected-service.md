@@ -7,7 +7,7 @@ manager: jmartens
 ms.service: key-vault
 ms.custom: "vs-azure, devx-track-csharp"
 ms.topic: how-to
-ms.date: 11/14/2022
+ms.date: 4/28/2023
 ms.author: ghogen
 ---
 # Add Key Vault to your web application by using Visual Studio Connected Services
