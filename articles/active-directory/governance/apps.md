@@ -254,7 +254,7 @@ The list below provides key integrations between Entra Identity Governance and v
 | [SAP Analytics Cloud](../../active-directory/saas-apps/sap-analytics-cloud-provisioning-tutorial.md) | ● | ● |
 | [SAP Cloud Platform Identity Authentication](../../active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md) | ● | ● |
 | SAP R/3 | ● |  |
-| [SAP HANA](../../active-directory/saas-apps/saphana-tutorial.md) |  | ● |
+| [SAP HANA](../../active-directory/saas-apps/saphana-tutorial.md) | ● | ● |
 | [SAP SuccessFactors to Active Directory](../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md) | ● | ● |
 | [SAP SuccessFactors to Azure Active Directory](../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) | ● | ● |
 | [SAP SuccessFactors Writeback ](../../active-directory/saas-apps/sap-successfactors-writeback-tutorial.md) | ● | ● |
@@ -308,7 +308,6 @@ The list below provides key integrations between Entra Identity Governance and v
 | [Visitly](../../active-directory/saas-apps/visitly-provisioning-tutorial.md) | ● | ● |
 | [Vonage](../../active-directory/saas-apps/vonage-provisioning-tutorial.md) | ● | ● |
 | [Webroot Security Awareness Training](../../active-directory/saas-apps/webroot-security-awareness-training-provisioning-tutorial.md) | ● |  |
-| Web Services Connector | ● |  |
 | [WEDO](../../active-directory/saas-apps/wedo-provisioning-tutorial.md) | ● | ● |
 | [Whimsical](../../active-directory/saas-apps/whimsical-provisioning-tutorial.md) | ● | ● |
 | [Workday to Active Directory](../../active-directory/saas-apps/workday-inbound-tutorial.md) | ● | ● |
