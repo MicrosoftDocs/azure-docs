@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Other areas of Zero Trust addressed in memorandum 22-09
 
-The other articles in this guidance address the identity pillar of Zero Trust principles, as described in the US Office of Management and Budget (OMB) [M 22-09 Memorandum for the Heads of Executive Deptartments and Agencies](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf). This article covers Zero Trust maturity model areas beyond the identity pillar, and it addresses the following themes:
+The other articles in this guidance address the identity pillar of Zero Trust principles, as described in the US Office of Management and Budget (OMB) [M 22-09 Memorandum for the Heads of Executive Departments and Agencies](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf). This article covers Zero Trust maturity model areas beyond the identity pillar, and it addresses the following themes:
 
 * Visibility
 * Analytics
@@ -32,7 +32,7 @@ It's important to monitor your Azure Active Directory (Azure AD) tenant. Assume 
   * Use also to make changes to Azure AD configurations, like modifications to a Conditional Access policy
   * See, [Audit logs in Azure AD](../reports-monitoring/concept-audit-logs.md)
 * **Provisioning logs** have information about objects synchronized from Azure AD to applications like Service Now with Microsoft Identity Manager
-* See, [Provisioning logs in Azure Active Directory](../reports-monitoring/concept-provisioning-logs.md)
+  * See, [Provisioning logs in Azure Active Directory](../reports-monitoring/concept-provisioning-logs.md)
 * **Azure AD sign-in logs** to monitor sign-in activities associated with users, applications, and service principals. 
   * Sign-in logs have categories for differentiation
   * Interactive sign-ins show successful and failed sign-ins, policies applied, and other metadata
@@ -41,9 +41,9 @@ It's important to monitor your Azure Active Directory (Azure AD) tenant. Assume 
   * Managed identities for Azure resource sign-in: Azure resources or applications accessing Azure resources, such as a web application service authenticating to an Azure SQL back end. 
   * See, [Sign-in logs in Azure Active Directory (preview)](../reports-monitoring/concept-all-sign-ins.md)
 
-In Azure AD free tenants, log entries are stored for 7 days. Tenants with an Azure AD premium license retain log entries for 30 days. 
+In Azure AD free tenants, log entries are stored for seven days. Tenants with an Azure AD premium license retain log entries for 30 days. 
 
-Ensure logs are ingested by a security information and event management (SIEM) tool. Use sign-in and audit events to correlate with application, infrastructure, data, device, and network logs. 
+Ensure a security information and event management (SIEM) tool ingests logs. Use sign-in and audit events to correlate with application, infrastructure, data, device, and network logs. 
 
 We recommend you integrate Azure AD logs with Microsoft Sentinel. Configure a connector to ingest Azure AD tenant logs.
 
@@ -73,7 +73,7 @@ You can use analytics in the following tools to aggregate information from Azure
 * **Microsoft Sentinel** analyze information from Azure AD: 
   * Microsoft Sentinel User and Entity Behavior Analytics (UEBA) delivers intelligence on potential threats from user, host, IP address, and application entities. 
   * Use analytics rule templates to hunt for threats and alerts in your Azure AD logs. Your security or operation analyst can triage and remediate threats.
-  * Microsoft Sentinel workbooks help visualize Azure AD data sources. See sign-ins by country, or applications. 
+  * Microsoft Sentinel workbooks help visualize Azure AD data sources. See sign-ins by country, region, or applications. 
   * See, [Commonly used Microsoft Sentinel workbooks](../../sentinel/top-workbooks.md)
   * See, [Visualize collected data](../../sentinel/get-visibility.md)
   * See, [Identify advanced threats with UEBA in Microsoft Sentinel](../../sentinel/identify-threats-with-entity-behavior-analytics.md)
