@@ -39,7 +39,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Call a Web Api with Postman
+          - text: Call a Web API with Postman
             url: howto-call-a-web-api-with-postman.md
           - text: Call a Web API with cURL
             url: howto-call-a-web-api-with-curl.md
