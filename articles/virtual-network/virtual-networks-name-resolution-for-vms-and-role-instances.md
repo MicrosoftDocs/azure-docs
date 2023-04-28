@@ -5,8 +5,14 @@ description: Name resolution scenarios for Azure IaaS, hybrid solutions, between
 author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
+<<<<<<< HEAD
 ms.date: 04/27/2023
 ms.author: allensu
+=======
+ms.workload: infrastructure-services
+ms.date: 04/27/2023
+ms.author: greglin
+>>>>>>> e7ea76c8aeaddb4b2e65f46f938bfa66ef4b2237
 ms.custom: fasttrack-edit
 ---
 
@@ -229,7 +235,7 @@ DNS is primarily a UDP protocol. Because the UDP protocol doesn't guarantee mess
 
 Check the current settings on a Linux VM with `cat /etc/resolv.conf`. Look at the *options* line, for example:
 
-```bash
+```output
 options timeout:1 attempts:5
 ```
 
@@ -359,7 +365,7 @@ When you're using the Azure Resource Manager deployment model, you can specify D
 > [!NOTE]
 > If you opt for custom DNS server for your virtual network, you must specify at least one DNS server IP address; otherwise, virtual network will ignore the configuration and use Azure-provided DNS instead.
 
-When you're using the classic deployment model, you can specify DNS servers for the virtual network in the Azure portal or the [Network Configuration file](/previous-versions/azure/reference/jj157100(v=azure.100)). For cloud services, you can specify DNS servers via the [Service Configuration file](/previous-versions/azure/reference/ee758710(v=azure.100)) or by using PowerShell, with [New-AzureVM](/powershell/module/servicemanagement/azure.service/new-azurevm).
+When you're using the classic deployment model, you can specify DNS servers for the virtual network in the Azure portal or the [Network Configuration file](/previous-versions/azure/reference/jj157100(v=azure.100)). For cloud services, you can specify DNS servers via the [Service Configuration file](/previous-versions/azure/reference/ee758710(v=azure.100)) or by using PowerShell, with [New-AzVM](/powershell/module/az.compute/new-azvm).
 
 > [!NOTE]
 > If you change the DNS settings for a virtual network or virtual machine that is already deployed, for the new DNS settings to take effect, you must perform a DHCP lease renewal on all affected VMs in the virtual network. For VMs running the Windows OS, you can do this by typing `ipconfig /renew` directly in the VM. The steps vary depending on the OS. See the relevant documentation for your OS type.

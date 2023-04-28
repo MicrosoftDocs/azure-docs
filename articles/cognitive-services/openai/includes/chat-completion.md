@@ -30,7 +30,7 @@ response = openai.ChatCompletion.create(
     engine="gpt-35-turbo", # The deployment name you chose when you deployed the ChatGPT or GPT-4 model.
     messages=[
         {"role": "system", "content": "Assistant is a large language model trained by OpenAI."},
-        {"role": "user", "content": "What's the difference between garbanzo beans and chickpeas?"}
+        {"role": "user", "content": "Who were the founders of Microsoft?"}
     ]
 )
 
@@ -48,7 +48,7 @@ print(response['choices'][0]['message']['content'])
       "finish_reason": "stop",
       "index": 0,
       "message": {
-        "content": "There is no difference between garbanzo beans and chickpeas \u2014 the terms are used interchangeably to describe the same round, beige-colored legume. Garbanzo beans are the Spanish name for the legume, while chickpeas are the English name for the same legume. They are a common ingredient in many traditional Middle Eastern and Mediterranean dishes, such as hummus, falafel, and stews.",
+        "content": "The founders of Microsoft are Bill Gates and Paul Allen. They co-founded the company in 1975.",
         "role": "assistant"
       }
     }
@@ -64,7 +64,6 @@ print(response['choices'][0]['message']['content'])
   }
 }
 
-There is no difference between garbanzo beans and chickpeas — the terms are used interchangeably to describe the same round, beige-colored legume. Garbanzo beans are the Spanish name for the legume, while chickpeas are the English name for the same legume. They are a common ingredient in many traditional Middle Eastern and Mediterranean dishes, such as hummus, falafel, and stews.
 ```
 
 > [!NOTE]  
@@ -139,7 +138,7 @@ If you want the ChatGPT model to behave similarly to [chat.openai.com](https://c
 
 ```
 {"role": "system", "content": "Assistant is a large language model trained by OpenAI."},
-{"role": "user", "content": "What's the difference between garbanzo beans and chickpeas?"}
+{"role": "user", "content": "Who were the founders of Microsoft?"}
 ```
 
 #### Example with instructions
