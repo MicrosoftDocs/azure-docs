@@ -1,6 +1,6 @@
 ---
 title: Choose a deployment method for the MedTech service - Azure Health Data Services
-description: In this article, learn about the different methods for deploying the MedTech service.
+description: Learn about the different methods for deploying the MedTech service.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -20,10 +20,10 @@ The MedTech service provides multiple methods for deployment into Azure. Each de
 In this quickstart, learn about these deployment methods:
 
 * Azure Resource Manager template (ARM template) including an Azure Iot Hub using the **Deploy to Azure** button. 
-* ARM template using the **Deploy to Azure** button.
-* ARM template using Azure PowerShell or the Azure CLI.
-* Bicep file using Azure PowerShell or the Azure CLI.
-* Manually in the Azure portal. 
+* ARM template using the **Deploy to Azure** button
+* ARM template using Azure PowerShell or the Azure CLI
+* Bicep file using Azure PowerShell or the Azure CLI
+* Azure portal 
 
 ## Deployment overview
 
@@ -59,11 +59,11 @@ Using a Bicep file with Azure PowerShell or the Azure CLI is a more advanced dep
 
 To learn more about deploying the MedTech service using a Bicep file and Azure PowerShell or the Azure CLI, see [Deploy the MedTech service using a Bicep file and Azure PowerShell or the Azure CLI](deploy-bicep-powershell-cli.md).
 
-## Manually in the Azure portal
+## Azure portal
 
-Using the Azure portal manual deployment allows you to see the details of each deployment step. The manual deployment has many steps, but it provides valuable technical information that may be useful for customizing and troubleshooting your MedTech service.
+Using the Azure portal allows you to see the details of each deployment step. The Azure portal deployment has many steps, but it provides valuable technical information that may be useful for customizing and troubleshooting your MedTech service.
 
-To learn more about deploying the MedTech service manually using the Azure portal, see [Deploy the MedTech service manually using the Azure portal](deploy-manual-prerequisites.md).
+To learn more about deploying the MedTech service using the Azure portal, see [Deploy the MedTech service using the Azure portal](deploy-manual-portal.md).
 
 > [!IMPORTANT]
 > If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group.
