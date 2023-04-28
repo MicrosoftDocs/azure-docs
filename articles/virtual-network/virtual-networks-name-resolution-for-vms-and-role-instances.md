@@ -12,7 +12,7 @@ ms.custom: fasttrack-edit
 
 # Name resolution for resources in Azure virtual networks
 
-Depending on how you use Azure to host IaaS, PaaS, and hybrid solutions, you might need to allow the virtual machines (VMs), and other resources deployed in a virtual network to communicate with each other. Although you can enable communication by using IP addresses, it's much simpler to use names that can be easily remembered, and don't change.
+Azure can be used to host IaaS, PaaS, and hybrid solutions. In order to facilitate communication between the virtual machines (VMs) and other resources deployed in a virtual network, it may be necessary to allow them to communicate with each other. The use of easily remembered and unchanging names simplifies the communication process, rather than relying on IP addresses.
 
 When resources deployed in virtual networks need to resolve domain names to internal IP addresses, they can use one of four methods:
 
@@ -47,9 +47,9 @@ The type of name resolution you use depends on how your resources need to commun
 
 ## Azure-provided name resolution
 
-Azure provided name resolution provides only basic authoritative DNS capabilities. If you use this option the DNS zone names and records will be automatically managed by Azure and you won't be able to control the DNS zone names or the life cycle of DNS records. If you need a fully featured DNS solution for your virtual networks, you can use [Azure DNS private zones](../dns/private-dns-overview.md) with [Customer-managed DNS servers](#name-resolution-that-uses-your-own-dns-server) or an [Azure DNS Private Resolver](../dns/dns-private-resolver-overview.md).
+Azure provided name resolution provides only basic authoritative DNS capabilities. Azure manages the DNS zone names and records if you use the DNS provided by Azure. You aren't able to control the DNS zone names or the life cycle of DNS records. If you need a fully featured DNS solution for your virtual networks, you can use [Azure DNS private zones](../dns/private-dns-overview.md) with [Customer-managed DNS servers](#name-resolution-that-uses-your-own-dns-server) or an [Azure DNS Private Resolver](../dns/dns-private-resolver-overview.md).
 
-Along with resolution of public DNS names, Azure provides internal name resolution for VMs and role instances that reside within the same virtual network or cloud service. VMs and instances in a cloud service share the same DNS suffix, so the host name alone is sufficient. But in virtual networks deployed using the classic deployment model, different cloud services have different DNS suffixes. In this situation, you need the FQDN to resolve names between different cloud services. In virtual networks deployed using the Azure Resource Manager deployment model, the DNS suffix is consistent across the all virtual machines within a virtual network, so the FQDN isn't needed. DNS names can be assigned to both VMs and network interfaces. Although Azure-provided name resolution does not require any configuration, it's not the appropriate choice for all deployment scenarios, as detailed in the previous table.
+Along with resolution of public DNS names, Azure provides internal name resolution for VMs and role instances that reside within the same virtual network or cloud service. VMs and instances in a cloud service share the same DNS suffix, so the host name alone is sufficient. But in virtual networks deployed using the classic deployment model, different cloud services have different DNS suffixes. In this situation, you need the FQDN to resolve names between different cloud services. In virtual networks deployed using the Azure Resource Manager deployment model, the DNS suffix is consistent across the all virtual machines within a virtual network, so the FQDN isn't needed. DNS names can be assigned to both VMs and network interfaces. Although Azure-provided name resolution doesn't require any configuration, it's not the appropriate choice for all deployment scenarios, as detailed in the previous table.
 
 > [!NOTE]
 > When using cloud services web and worker roles, you can also access the internal IP addresses of role instances using the Azure Service Management REST API. For more information, see the [Service Management REST API Reference](/previous-versions/azure/ee460799(v=azure.100)). The address is based on the role name and instance number.
@@ -63,13 +63,13 @@ Azure-provided name resolution includes the following features:
 
 * High availability. You don't need to create and manage clusters of your own DNS servers.
 
-* You can use the service in conjunction with your own DNS servers, to resolve both on-premises and Azure host names.
+* You can use the service with your own DNS servers, to resolve both on-premises and Azure host names.
 
 * You can use name resolution between VMs and role instances within the same cloud service, without the need for an FQDN.
 
 * You can use name resolution between VMs in virtual networks that use the Azure Resource Manager deployment model, without need for an FQDN. Virtual networks in the classic deployment model require an FQDN when you're resolving names in different cloud services.
 
-* You can use host names that best describe your deployments, rather than working with auto-generated names.
+* You can use host names that best describe your deployments, rather than working with autogenerated names.
 
 ### Considerations
 
@@ -81,21 +81,21 @@ Points to consider when you're using Azure-provided name resolution:
 
 * You can't manually register your own records.
 
-* WINS and NetBIOS are not supported. You can't see your VMs in Windows Explorer.
+* WINS and NetBIOS aren't supported. You can't see your VMs in Windows Explorer.
 
 * Host names must be DNS-compatible. Names must use only 0-9, a-z, and '-', and can't start or end with a '-'.
 
-* DNS query traffic is throttled for each VM. Throttling shouldn't impact most applications. If request throttling is observed, ensure that client-side caching is enabled. For more information, see [DNS client configuration](#dns-client-configuration).
+* DNS query traffic is throttled for each VM. Throttling shouldn't affect most applications. If request throttling is observed, ensure that client-side caching is enabled. For more information, see [DNS client configuration](#dns-client-configuration).
 
 * Use a different name for each virtual machine in a virtual network to avoid DNS resolution issues.
 
-* Only VMs in the first 180 cloud services are registered for each virtual network in a classic deployment model. This limit does not apply to virtual networks in Azure Resource Manager.
+* Only VMs in the first 180 cloud services are registered for each virtual network in a classic deployment model. This limit doesn't apply to virtual networks in Azure Resource Manager.
 
-* The Azure DNS IP address is 168.63.129.16. This is a static IP address and won't change.
+* The Azure DNS IP address is 168.63.129.16. This address is a static IP address and doesn't change.
 
 ### Reverse DNS Considerations
 
-Reverse DNS for VMs is supported in all ARM based virtual networks. Azure-managed reverse DNS (PTR) records of form **\[vmname\].internal.cloudapp.net** are automatically added to when you start a VM, and removed when the VM is stopped (deallocated). See the following example:
+Reverse DNS for VMs is supported in all Azure Resource Manager based virtual networks. Azure-managed reverse DNS (PTR) records of form **\[vmname\].internal.cloudapp.net** are automatically added to when you start a VM, and removed when the VM is stopped (deallocated). See the following example:
 
 ```cmd
 C:\>nslookup -type=ptr 10.11.0.4
@@ -105,9 +105,9 @@ Address:  168.63.129.16
 Non-authoritative answer:
 4.0.11.10.in-addr.arpa  name = myeastspokevm1.internal.cloudapp.net
 ```
-The **internal.cloudapp.net** reverse DNS zone is Azure-managed and can't be directly viewed or edited. Forward lookup on the FQDN of form **\[vmname\].internal.cloudapp.net** will also resolve to the IP address assigned to the virtual machine.
+The **internal.cloudapp.net** reverse DNS zone is Azure-managed and can't be directly viewed or edited. Forward lookup on the FQDN of form **\[vmname\].internal.cloudapp.net** resolves to the IP address assigned to the virtual machine.
 
-If an [Azure DNS private zone](../dns/private-dns-overview.md) is linked to the vnet with a [virtual network link](../dns/private-dns-virtual-network-links.md) and [auto-registration](../dns/private-dns-autoregistration.md) is enabled on that link, then reverse DNS queries will return two records. One record is of the form **\[vmname\].[privatednszonename]** and the other is of the form **\[vmname\].internal.cloudapp.net**. See the following example:
+If an [Azure DNS private zone](../dns/private-dns-overview.md) is linked to the virtual network with a [virtual network link](../dns/private-dns-virtual-network-links.md) and [autoregistration](../dns/private-dns-autoregistration.md) is enabled on that link, then reverse DNS queries return two records. One record is of the form **\[vmname\].[privatednszonename]** and the other is of the form **\[vmname\].internal.cloudapp.net**. See the following example:
 
 ```cmd
 C:\>nslookup -type=ptr 10.20.2.4
@@ -119,16 +119,16 @@ Non-authoritative answer:
 4.2.20.10.in-addr.arpa  name = mywestvm1.azure.contoso.com
 ```
 
-When two PTR records are returned as shown above, then forward lookup of either FQDN will return the IP address of the VM.
+When two PTR records are returned as shown previously, then forward lookup of either FQDN returns the IP address of the VM.
 
-Reverse DNS lookups are scoped to a given virtual network, even if it's peered to other virtual networks. Reverse DNS queries for IP addresses of virtual machines located in peered virtual networks will return **NXDOMAIN**.
+Reverse DNS lookups are scoped to a given virtual network, even if it's peered to other virtual networks. Reverse DNS queries for IP addresses of virtual machines located in peered virtual networks return **NXDOMAIN**.
 
 > [!NOTE]
 > Reverse DNS (PTR) records are not stored in a forward private DNS zone. Reverse DNS records are stored in a reverse DNS (in-addr.arpa) zone. The default reverse DNS zone associated with a vnet isn't viewable or editable.
 
-You can disable the reverse DNS function in a virtual network by creating your own reverse lookup zone using [Azure DNS private zones](../dns/private-dns-overview.md), and then linking this zone to your virtual network. For example, if the IP address space of your virtual network is 10.20.0.0/16, then you can create an empty private DNS zone **20.10.in-addr.arpa** and link it to the virtual network. This zone will override the default reverse lookup zones for the virtual network and since this zone is empty you'll get **NXDOMAIN** for your reverse DNS queries, unless you manually create these entries. 
+You can disable the reverse DNS function in a virtual network by creating your own reverse lookup zone using [Azure DNS private zones](../dns/private-dns-overview.md), and then linking this zone to your virtual network. For example, if the IP address space of your virtual network is 10.20.0.0/16, then you can create an empty private DNS zone **20.10.in-addr.arpa** and link it to the virtual network. This zone overrides the default reverse lookup zones for the virtual network. This zone is empty. Reverse DNS returns **NXDOMAIN** unless you manually create these entries.
 
-Auto-registration of PTR records isn't supported, so if you wish to create entries, these must be entered manually. You must also disable auto-registration in the vnet if it's enabled for other zones due to [restrictions](../dns/private-dns-autoregistration.md#restrictions) that permit only one private zone to be linked if autoregistration is enabled. See the [private DNS quickstart guide](../dns/private-dns-getstarted-portal.md) for details on how to create a private DNS zone and link it to a virtual network.
+Autoregistration of PTR records isn't supported. If you wish to create entries, enter them manually. You must disable autoregistration in the virtual network if it's enabled for other zones. This limitation is due to [restrictions](../dns/private-dns-autoregistration.md#restrictions) that permit only one private zone to be linked if autoregistration is enabled. See the [private DNS quickstart guide](../dns/private-dns-getstarted-portal.md) for details on how to create a private DNS zone and link it to a virtual network.
 
 > [!NOTE]
 > Since Azure DNS private zones are global, you can create a reverse DNS lookup to span across multiple virtual networks. To do this, create an [Azure DNS private zone](../dns/private-dns-overview.md) for reverse lookups (an **in-addr.arpa** zone), and link it to the virtual networks. You'll have to manually manage the reverse DNS records for the VMs.
@@ -233,7 +233,7 @@ Check the current settings on a Linux VM with `cat /etc/resolv.conf`. Look at th
 options timeout:1 attempts:5
 ```
 
-The resolv.conf file is usually auto-generated, and should not be edited. The specific steps for adding the *options* line vary by distribution:
+The resolv.conf file is autogenerated, and shouldn't be edited. The specific steps for adding the *options* line vary by distribution:
 
 # [RHEL, CentOS](#tab/redhat)
 
@@ -284,7 +284,7 @@ This section covers VMs, role instances, and web apps.
 
 Your name resolution needs might go beyond the features provided by Azure. For example, you might need to use Microsoft Windows Server Active Directory domains, resolve DNS names between virtual networks. To cover these scenarios, Azure enables you to use your own DNS servers.
 
-DNS servers within a virtual network can forward DNS queries to the recursive resolvers in Azure. This enables you to resolve host names within that virtual network. For example, a domain controller (DC) running in Azure can respond to DNS queries for its domains, and forward all other queries to Azure. Forwarding queries allows VMs to see both your on-premises resources (via the DC) and Azure-provided host names (via the forwarder). Access to the recursive resolvers in Azure is provided via the virtual IP 168.63.129.16.
+DNS servers within a virtual network can forward DNS queries to the recursive resolvers in Azure. This procedure enables you to resolve host names within that virtual network. For example, a domain controller (DC) running in Azure can respond to DNS queries for its domains, and forward all other queries to Azure. Forwarding queries allows VMs to see both your on-premises resources (via the DC) and Azure-provided host names (via the forwarder). Access to the recursive resolvers in Azure is provided via the virtual IP 168.63.129.16.
 
 DNS forwarding also enables DNS resolution between virtual networks, and allows your on-premises machines to resolve Azure-provided host names. In order to resolve a VM's host name, the DNS server VM must reside in the same virtual network, and be configured to forward host name queries to Azure. Because the DNS suffix is different in each virtual network, you can use conditional forwarding rules to send DNS queries to the correct virtual network for resolution. The following image shows two virtual networks and an on-premises network doing DNS resolution between virtual networks, by using this method. An example DNS forwarder is available in the [Azure Quickstart Templates gallery](https://azure.microsoft.com/resources/templates/dns-forwarder) and [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/dns-forwarder).
 
@@ -297,7 +297,7 @@ DNS forwarding also enables DNS resolution between virtual networks, and allows 
 
 ![Diagram of DNS between virtual networks](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
 
-When you're using Azure-provided name resolution, Azure Dynamic Host Configuration Protocol (DHCP) provides an internal DNS suffix (**.internal.cloudapp.net**) to each VM. This suffix enables host name resolution because the host name records are in the **internal.cloudapp.net** zone. When you're using your own name resolution solution, this suffix isn't supplied to VMs because it interferes with other DNS architectures (like domain-joined scenarios). Instead, Azure provides a non-functioning placeholder (*reddog.microsoft.com*).
+When you're using Azure-provided name resolution, Azure Dynamic Host Configuration Protocol (DHCP) provides an internal DNS suffix (**.internal.cloudapp.net**) to each VM. This suffix enables host name resolution because the host name records are in the **internal.cloudapp.net** zone. When you're using your own name resolution solution, this suffix isn't supplied to VMs because it interferes with other DNS architectures (like domain-joined scenarios). Instead, Azure provides a nonfunctioning placeholder (*reddog.microsoft.com*).
 
 If necessary, you can determine the internal DNS suffix by using PowerShell or the API:
 
@@ -319,7 +319,7 @@ If you provide your own DNS solution, it needs to:
 
 > [!NOTE]
 > * For best performance, when you're using Azure VMs as DNS servers, IPv6 should be disabled.
-> * NSGs act as firewalls for you DNS resolver endpoints. You should modify or override your NSG security rules to allow access for UDP Port 53 (and optionally TCP Port 53) to your DNS listener endpoints. Once custom DNS servers are set on a network, then the traffic through port 53 will bypass the NSG's of the subnet.
+> * NSGs act as firewalls for your DNS resolver endpoints. You should modify or override your NSG security rules to allow access for UDP Port 53 (and optionally TCP Port 53) to your DNS listener endpoints. Once custom DNS servers are set on a network, then the traffic through port 53 will bypass the NSG's of the subnet.
 
 ### Web apps
 
