@@ -34,8 +34,8 @@ There are two ways you can connect to a compute instance from Visual Studio Code
 
 Before you get started, you will need:
 
-* A workspace. If you don't already have one, you can create a workspace from the Azure Machine Learning studio, or [Use the Azure Machine Learning Visual Studio Code extension to create a new workspace](how-to-manage-resources-vscode.md#create-a-workspace).
-* A compute instance. An [Azure Machine Learning compute instance](concept-compute-instance.md) is a fully managed cloud-based workstation for data scientists and provides management and enterprise readiness capabilities for IT administrators. You can create a compute instance from the Azure Machine Learning studio, or [Use the Azure Machine Learning Visual Studio Code extension to create a new compute instance](how-to-manage-resources-vscode.md#create-compute-instance).
+* [!INCLUDE [workspace](includes/prereq-workspace.md)]
+* [!INCLUDE [compute instance](includes/prereq-compute-instance.md)]
 * In the **Manage preview features** panel, scroll down and enable **Connect compute instances to Visual Studio Code for the Web**.
 
     :::image type="content" source="media/how-to-launch-vs-code-remote/enable-web-preview.png" alt-text="Screenshot showing enable the VS Code for the web preview.":::
@@ -111,7 +111,7 @@ This option will connect your current VS Code session to a remote compute instan
 1. Expand the **Compute instances** node in your extension.
 1. Right-click the compute instance you want to connect to and select **Connect to Compute Instance**.
 
-:::image type="content" source="media/how-to-launch-vs-code-remote/vs-code-compute-instance-launch.png" alt-text="Connect to compute instance Visual Studio Code Azure Machine Learning Extension" lightbox="media/how-to-launch-vs-code-remote/vs-code-compute-instance-launch.png":::
+:::image type="content" source="media/how-to-launch-vs-code-remote/vs-code-connect-compute-instance.png" alt-text="Connect to compute instance Visual Studio Code Azure Machine Learning Extension" lightbox="media/how-to-launch-vs-code-remote/vs-code-connect-compute-instance.png":::
 
 ### Command Palette
 

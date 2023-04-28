@@ -24,6 +24,11 @@ In this article, learn specifics of working within a VS Code remote connection t
 > [!IMPORTANT]
 > To connect to a compute instance behind a firewall, see [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md#scenario-visual-studio-code).
 
+## Prerequisites
+
+1. [!INCLUDE [workspace](includes/prereq-workspace.md)]
+1. [!INCLUDE [compute instance](includes/prereq-compute-instance.md)]
+
 ## Set up your remotely connected IDE
 
 VS Code has multiple extensions that can help you achieve your machine learning goals. Use the Azure extension to connect and work with your Azure subscription. Use the Azure Machine Learning extension to view, update and create workspace assets like computes, data, environments, jobs and more.
