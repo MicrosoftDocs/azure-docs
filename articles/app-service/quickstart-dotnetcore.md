@@ -165,14 +165,14 @@ If you've already installed Visual Studio 2022:
 1. In **Create a new project**, find, and select **ASP.NET Core Web App**, then select **Next**.
 1. In **Configure your new project**, name the application _MyFirstAzureWebApp_, and then select **Next**.
 
-   :::image type="content" source="./media/quickstart-dotnetcore/configure-webapp-net.png" alt-text="Screenshot of Visual Studio - Configure ASP.NET 7.0 web app." lightbox="media/quickstart-dotnetcore/configure-webapp-net.png" border="true":::
+   :::image type="content" source="./media/quickstart-dotnetcore/configure-web-app-project.png" alt-text="Screenshot of Visual Studio - Configure ASP.NET 7.0 web app." lightbox="media/quickstart-dotnetcore/configure-web-app-project.png" border="true":::
 
 1. Select **.NET 7.0 (Standard-term support)**.
 1. Ensure **Authentication Type** is set to **None**. Select **Create**.
 
    :::image type="content" source="media/quickstart-dotnetcore/vs-additional-info-net70.png" alt-text="Screenshot of Visual Studio - Additional info when selecting .NET 7.0." lightbox="media/quickstart-dotnetcore/vs-additional-info-net70.png" border="true":::
 
-1. From the Visual Studio menu, select **Debug** > **Start Without Debugging** to run the web app locally.
+1. From the Visual Studio menu, select **Debug** > **Start Without Debugging** to run the web app locally. If you see a message asking you to trust a self-signed certificate, select **Yes**.
 
    :::image type="content" source="media/quickstart-dotnetcore/local-webapp-net.png" alt-text="Screenshot of Visual Studio - ASP.NET Core 7.0 running locally." lightbox="media/quickstart-dotnetcore/local-webapp-net.png" border="true":::
 
@@ -187,7 +187,7 @@ If you've already installed Visual Studio 2022:
 1. Select the **MVC** template.
 1. Ensure **Authentication** is set to **No Authentication**. Select **Create**.
 
-   :::image type="content" source="media/quickstart-dotnet/vs-mvc-no-auth-netframework48.png" alt-text="Screenshot of Visual Studio - Select the MVC template." lightbox="media/quickstart-dotnet/vs-mvc-no-auth-netframework48.png" border="true":::
+   :::image type="content" source="media/quickstart-dotnetcore/vs-mvc-no-auth-netframework48.png" alt-text="Screenshot of Visual Studio - Select the MVC template." lightbox="media/quickstart-dotnetcore/vs-mvc-no-auth-netframework48.png" border="true":::
 
 1. From the Visual Studio menu, select **Debug** > **Start Without Debugging** to run the web app locally.
 
@@ -245,7 +245,7 @@ If you've already installed Visual Studio 2022:
     
     You'll see the template ASP.NET Framework 4.8 web app displayed in the page.
     
-    :::image type="content" source="media/quickstart-dotnetcore/local-webapp-net48.png" alt-text="Screenshot of Visual Studio Code - run .NET 4.8 in browser locally." lightbox="media/quickstart-dotnet/local-webapp-net48.png" border="true":::
+    :::image type="content" source="media/quickstart-dotnetcore/vs-local-webapp-netframework48.png" alt-text="Screenshot of Visual Studio Code - run .NET 4.8 in browser locally." lightbox="media/quickstart-dotnetcore/vs-local-webapp-netframework48.png" border="true":::
     
     ---
 
@@ -367,7 +367,7 @@ Follow these steps to create your App Service resources and publish your project
 1. In **Name**, enter a unique app name that includes only the valid characters are `a-z`, `A-Z`, `0-9`, and `-`. You can accept the automatically generated unique name. The URL of the web app is `http://<app-name>.azurewebsites.net`, where `<app-name>` is your app name.
 1. Select **Create** to create the Azure resources.
 
-    :::image type="content" source="media/quickstart-core/web-app-name.png" border="true" alt-text="Screenshot of Visual Studio - Create app resources dialog." lightbox="media/quickstart-dotnetcore/web-app-name.png" :::
+    :::image type="content" source="media/quickstart-dotnetcore/web-app-name.png" border="true" alt-text="Screenshot of Visual Studio - Create app resources dialog." lightbox="media/quickstart-dotnetcore/web-app-name.png" :::
 
    Once the wizard completes, the Azure resources are created for you and you're ready to publish your ASP.NET Core project.
 
@@ -381,7 +381,7 @@ Follow these steps to create your App Service resources and publish your project
 
     You'll see the ASP.NET Core 7.0 web app displayed in the page.
 
-    :::image type="content" source="media/quickstart-dotnet/Azure-webapp-net.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of Visual Studio - ASP.NET Core 7.0 web app in Azure." :::
+    :::image type="content" source="media/quickstart-dotnetcore/Azure-webapp-net.png" lightbox="media/quickstart-dotnetcore/Azure-webapp-net.png" border="true" alt-text="Screenshot of Visual Studio - ASP.NET Core 7.0 web app in Azure." :::
 
     ### [.NET Framework 4.8](#tab/netframework48)
 
@@ -673,7 +673,7 @@ Follow these steps to update and redeploy your web app:
 
 :::zone target="docs" pivot="development-environment-vs"
 
-1. In **Solution Explorer**, under your project, open *Views/Home/Index.cshtml*.
+1. In **Solution Explorer**, under your project, open *Index.cshtml*.
 1. Replace the first `<div>` element with the following code:
 
     ```razor
@@ -694,7 +694,7 @@ Follow these steps to update and redeploy your web app:
 
     You'll see the updated ASP.NET Core 7.0 web app displayed in the page.
 
-    :::image type="content" source="media/quickstart-dotnet/updated-Azure-webapp-net.png" lightbox="media/quickstart-dotnet/updated-Azure-webapp-net.png" border="true" alt-text="Screenshot of Visual Studio - Updated ASP.NET Core 7.0 web app in Azure.":::
+    :::image type="content" source="media/quickstart-dotnetcore/updated-Azure-webapp-net.png" lightbox="media/quickstart-dotnetcore/updated-Azure-webapp-net.png" border="true" alt-text="Screenshot of Visual Studio - Updated ASP.NET Core 7.0 web app in Azure.":::
 
     ### [.NET Framework 4.8](#tab/netframework48)
 
