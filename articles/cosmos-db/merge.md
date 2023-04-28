@@ -255,7 +255,7 @@ If you enroll in the preview, the following connectors fail.
 - Azure Data Factory ¹
 - Azure Stream Analytics ¹
 - Logic Apps ¹
-- Azure Functions < 4.0.0 ¹
+- Azure Functions < 4.0.0
 - Azure Search ¹
 - Azure Cosmos DB Spark connector < 4.18.0
 - Any third party library or tool that has a dependency on an Azure Cosmos DB SDK that isn't .NET v3 SDK >= v3.27.0 or Java v4 SDK >= 4.42.0
