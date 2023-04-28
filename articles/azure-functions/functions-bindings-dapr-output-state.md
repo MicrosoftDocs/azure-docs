@@ -29,8 +29,9 @@ For information on setup and configuration details, see the [overview](./functio
 
 A C# function can be created using one of the following C# modes:
 
-* [In-process class library](../articles/azure-functions/functions-dotnet-class-library.md): compiled C# function that runs in the same process as the Functions runtime. 
-* [Isolated worker process class library](../articles/azure-functions/dotnet-isolated-process-guide.md): compiled C# function that runs in a worker process that is isolated from the runtime. Isolated worker process is required to support C# functions running on non-LTS versions .NET and the .NET Framework.     
+- [In-process class library](./functions-dotnet-class-library.md): compiled C# function that runs in the same process as the Functions runtime. 
+- [Isolated worker process class library](./dotnet-isolated-process-guide.md): compiled C# function that runs in a worker process that is isolated from the runtime. Isolated worker process is required to support C# functions running on non-LTS versions .NET and the .NET Framework.     
+    
 
 # [In-process](#tab/in-process)
 
