@@ -84,19 +84,6 @@ The application uses the [Implicit Grant Flow](../../develop/v2-oauth2-implicit-
     };
     
     /**
-     * Scopes you add here will be prompted for user consent during sign-in.
-     * By default, MSAL.js will add OIDC scopes (openid, profile, email) to any login request.
-     * For more information about OIDC scopes, visit: 
-     * https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#openid-connect-scopes
-     */
-    const loginRequest = {
-        scopes: [],
-        extraQueryParameters: {
-            dc: "ESTS-PUB-EUS-AZ1-FD000-TEST1"
-        }
-    };
-    
-    /**
      * An optional silentRequest object can be used to achieve silent SSO
      * between applications by providing a "login_hint" property.
      */
@@ -176,23 +163,6 @@ A redirection file is required to handle the response from the Azure AD CIAM sig
             updateTable(response.account);
         } else {
             selectAccount();
-    
-            /**
-             * If you already have a session that exists with the authentication server, you can use the ssoSilent() API
-             * to make request for tokens without interaction, by providing a "login_hint" property. To try this, comment the 
-             * line above and uncomment the section below.
-             */
-    
-            // myMSALObj.ssoSilent(silentRequest).
-            //     then((response) => {
-            //         welcomeUser(response.account.username);
-            //         updateTable(response.account);
-            //     }).catch(error => {
-            //         console.error("Silent Error: " + error);
-            //         if (error instanceof msal.InteractionRequiredAuthError) {
-            //             signIn();
-            //         }
-            //     });
         }
     }
     

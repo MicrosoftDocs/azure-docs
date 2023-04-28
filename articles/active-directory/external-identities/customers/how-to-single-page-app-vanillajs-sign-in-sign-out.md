@@ -22,9 +22,11 @@ When authorization has been configured, the user interface can be created to all
 
 > [!div class="checklist"]
 >
-> * Create the project
-> * Create the *index.html* & *styles.css* file
-> * Create the app.js file
+> * Create the *index.html* file
+> * Create the *sign-out.html* file
+> * Create the *ui.js* file
+> * Create the *styles.css* file
+> * Run the project and test the sign-in and sign-out functionality
 
 ## Prerequisites
 
@@ -208,7 +210,7 @@ Now that all the required code snippets have been added, the application can be 
 1. If a window appears prompting you to **Stay signed in**, choose either **Yes** or **No**.
 1. The SPA will now display a button saying **Request Profile Information**. Select it to display profile data.
 
-    :::image type="content" source="media/how-to-spa-vanillajs-sign-in-sign-in-out/display-vanillajs-welcome.png" alt-text="Screenshot of sign in into an ASP.NET web app.":::
+    :::image type="content" source="media/how-to-spa-vanillajs-sign-in-sign-in-out/display-vanillajs-welcome.png" alt-text="Screenshot of sign in into an vanilla JS SPA.":::
 
 ## Sign out of the application
 
