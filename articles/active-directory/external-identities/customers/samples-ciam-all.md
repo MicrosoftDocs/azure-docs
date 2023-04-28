@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: sample
-ms.date: 04/19/2023
+ms.date: 04/28/2023
 ms.author: mimart
 ms.custom: it-pro
 
@@ -44,7 +44,7 @@ These samples and how-to guides demonstrate how to write a web application that 
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
 > | JavaScript, Node/Express | &#8226; [Sign in users](how-to-web-app-node-sample-sign-in.md)<br/> &#8226; [Call an API against a customer tenant](https://github.com/Azure-Samples/active-directory-b2c-msal-node-sign-in-sign-out-webapp)  |  [Node/Express web app](how-to-web-app-node-sign-in-overview.md)  |
-> | ASP.NET Core | &#8226; [Sign in users](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C) <br/> &#8226; [Call an API against a customer tenant](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C)  | [ASP.NET Core web app](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C)   |
+> | ASP.NET Core | &#8226; [Sign in users](how-to-web-app-dotnet-sample-sign-in.md) <br/> &#8226; [Call an API against a customer tenant](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C)  | [ASP.NET Core web app](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C)   |
 
 ### Web API
 
@@ -96,7 +96,7 @@ These samples and how-to guides demonstrate how to write a public client mobile 
 > | ------- | -------- | ------------- | 
 > | Headless | &#8226; [Sign in users](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management) <br/> &#8226; [Call an API against a customer tenant](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management)  | [.NET device code flow](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management)   |
 > | Web API| &#8226; [Protect a web API on a customer tenant](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi)  |  [ASP.NET core web API](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi)  |
-> | Web app | &#8226; [Sign in users](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C) <br/> &#8226; [Call an API against a customer tenant](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C)  [ASP.NET Core web app](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C)    |
+> | Web app | &#8226; [Sign in users](how-to-web-app-dotnet-sample-sign-in.md) <br/> &#8226; [Call an API against a customer tenant](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C)  [ASP.NET Core web app](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C)    |
 
 ### ASP.NET Core MAUI
 
