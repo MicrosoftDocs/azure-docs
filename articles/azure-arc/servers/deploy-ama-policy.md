@@ -18,7 +18,7 @@ Deploying the Azure Monitor Agent through Azure Policy using an ARM template inv
 In this scenario, the Policy definition is used to verify that the AMA is installed on your Arc-enabled servers, and to install it on new servers or on existing servers that are discovered to not have the AMA installed. However, in order for Azure Monitor to work on a machine, it also needs to be associated with a Data Collection Rule. Therefore, you'll need to include the resource ID of the DCR within the Policy definition.
 
 
-## Selecting a Data Collection Rule
+## Select a Data Collection Rule
 
 Data Collection Rules (DCRs) define the data collection process in Azure Monitor. DCRs specify what data should be collected, how to transform that data, and where to send that data. You need to select (or create) a DCR and specify it within the ARM template you'll use for deploying AMA.
 
@@ -38,6 +38,30 @@ Data Collection Rules (DCRs) define the data collection process in Azure Monitor
 1. Locate the **Resource ID** field at the top of the window and click the button to copy the resource ID for the DCR to the clipboard. Save this resource ID; you'll need to use it within the ARM template.
     
     :::image type="content" source="media/deploy-ama-policy/dcr-json-view.png" alt-text="JSON code view for a data collection rule highlight the resource ID copy button.":::
+
+## Create and deploy the Policy definition
+
+In order for Azure Policy to check if AMA is installed on your Arc-enabled, you'll need to create a custom policy definition that does the following:
+
+- Evaluates if new VMs have the AMA installed and the association with the DCR.
+
+- Enforces a remediation task to install the AMA and create the association with the DCR on VMs that are not compliant with the policy.
+
+The **Resource ID**  
+
+
+
+tell Azure Policy what to do. In this scenario, you'll use an ARM template to create and deploy your policy definition. 
+
+
+
+
+
+
+
+
+
+
 
 
 <!--
