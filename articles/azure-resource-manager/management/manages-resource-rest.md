@@ -24,16 +24,16 @@ If you will need to programatically retreive new tokens as part of your applicat
 If you are getting started and want to quickly test Azure REST APIs, you can retrieve your current access token quickly with either Azure PowerShell or Azure CLI.
 
 ### [Azure CLI](#tab/azure-cli)
-
 ```azurecli-interactive
 token=$(az account get-access-token --query accessToken --output tsv)
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
-
 ```azurepowershell-interactive
 $token = (Get-AzAccessToken).Token
 ```
+
+---
 
 ## Operation scope
 You can call many Azure Resource Manager operations at different scopes:
@@ -65,7 +65,6 @@ curl -X GET \
 
 With the authentication step, this looks like:
 ### [Azure CLI](#tab/azure-cli)
-
 ```azurecli-interactive
 token=$(az account get-access-token --query accessToken --output tsv)
 curl -X GET \
@@ -75,12 +74,13 @@ curl -X GET \
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
-
 ```azurepowershell-interactive
 $token = (Get-AzAccessToken).Token
 $headers = @{Authorization="Bearer $token"}
 Invoke-WebRequest -Method GET -Headers $headers -Uri 'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/resources?api-version=2021-04-01'
 ```
+
+---
 
 ## Deploy resources to an existing resource group
 
