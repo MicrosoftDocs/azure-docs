@@ -375,5 +375,5 @@ This error can be ignored and will be clarified in a future release.
 
 ## Next steps
 
-- See [Azure security baseline for Application Gateway](/security/benchmark/azure/baselines/application-gateway-security-baseline.md) for more security best practices.
+- See [Azure security baseline for Application Gateway](/security/benchmark/azure/baselines/application-gateway-security-baseline) for more security best practices.
 
