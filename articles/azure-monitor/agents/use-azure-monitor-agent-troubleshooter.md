@@ -11,7 +11,7 @@ ms.reviewer: guywild
 #customer-intent: As an IT manager, I want to investigate agent issue on a particular virtual machine and determine if I can resolve the issue on my own.
 ---
 # Use the Azure Monitor Agent Troubleshooter
-The Azure Monitor Agent is not a service that runs in the context of an Azure Resource Provider. It may even be running in on premise machines within a customer network boundary. The Azure Monitor Agent Troubleshooter is designed to help diagnose issues with the agent, as well as general agent health checks. It can run checks to verify agent installation, connection, and general heartbeat, as well as collect AMA-related logs automatically from the affected Windows or Linux VM. More scenarios will be added over time to increase the number of issue that can be diagnosed.
+The Azure Monitor Agent isn't a service that runs in the context of an Azure Resource Provider. It may even be running in on premise machines within a customer network boundary. The Azure Monitor Agent Troubleshooter is designed to help diagnose issues with the agent, and general agent health checks. It can run checks to verify agent installation, connection, general heartbeat, and collect AMA-related logs automatically from the affected Windows or Linux VM. More scenarios will be added over time to increase the number of issue that can be diagnosed.
 > [!Note]
 > Note: Troubleshooter is a command line executable that is shipped with the agent for all versions newer than **1.12.0.0** for Windows and **1.25.1 for Linux**. 
 > If you have a older version of the agent, you can not copy the Troubleshooter on in to a VM to diagnose an older agent.
@@ -28,7 +28,7 @@ The Azure Monitor Agent is not a service that runs in the context of an Azure Re
 -[Sharing Linux Logs](##Sharing-Linux-Logs)
 
 #Prerequesets
-The linux Troubleshooter requires Python 2.6+ installed on the machine, but will work with either Python2 or Python3. In addition, the following Python packages are required to run (all should be present on a default install of Python2 or Python3):
+The linux Troubleshooter requires Python 2.6+ or any Python3 installed on the machine. In addition, the following Python packages are required to run (all should be present on a default install of Python2 or Python3):
 |Python Package|	Required for Python2?	|Required for Python3?|
 |:---|:---|:---|
 |copy|	                               yes|	yes|
@@ -47,35 +47,35 @@ The linux Troubleshooter requires Python 2.6+ installed on the machine, but will
 ##Run Windows Troubleshooter
 1. Log into the machine to be diagnosed
 2. Go to the location where the troubleshooter is automatically installed: C:/Packages/Plugins/Microsoft.Azure.Monitor.AzureMonitorWindowsAgent/{version}/Troubleshooter
-3. Run the Troubleshooter: Troubleshooter --ama
+3. Run the Troubleshooter: >Troubleshooter --ama
 
 ##Evaluating the Windows Results
-Currently there are two tests and several diagnostic logs that are collected by the Troubleshooter
+The Troubleshooter runs two tests and collects several diagnostic logs.
 |Test | Description|
 |:---|:---|
-       |Machine Network Configuration (Configuration) | This test checks the very basic network connection including IPV 4 and IPV 6 address resolutions.  If IPV6 is not available on the machine you will see a warning.|
-       |Connection to Control Plan (Mcs)                               | This test checks to see if the agent configuration information can be retrieved from the central data control plan. Controlling information includes which source data to collect and where it should be sent to. All agent configuration is done through Data Collection Rules.
+       |Machine Network Configuration (Configuration) | This test checks the very basic network connection including IPV 4 and IPV 6 address resolutions.  If IPV6 isn't available on the machine, you'll see a warning.|
+       |Connection to Control Plan (MCS)                               | This test checks to see if the agent configuration information can be retrieved from the central data control plan. Controlling information includes which source data to collect and where it should be sent to. All agent configuration is done through Data Collection Rules.
 
 
 ##Sharing the Windows Results
 The detailed data collected by the troubleshooter include system configuration, network configuration, environment variables, and agent configuration that can aid customer support in quickly diagnosing issues.  The troubleshooter make is easy to send this data to customer support by creating a Zip file that should be attached to any customer support request. The file is located in C:/Packages/Plugins/Microsoft.Azure.Monitor.AzureMonitorWindowsAgent/{version}/Troubleshooter.  The agent logs can be cryptic but they can give you insight into problems that you may be experiencing.
 |Logfile                              | Contents|
 |:---|:---|
-|Curl.exe                           | results of basic network connectivity for the agent using the Curl command which is not dependent on any agent software. |
+|Curl.exe                           | results of basic network connectivity for the agent using the Curl command that isn't dependent on any agent software. |
 |AgentProcesses           | checks that all the agent processes are running and collects the environment variables that were used for each process. |
-|NetworkDiagnositcs  | this files has information on the SSL version and certificate information.|
-|Table2csv.exe                | snapshot of all the data streams and tables that are configured in the agent along with general information about time range over which events were seen and how many were seen. |
+|NetworkDiagnositc  | this files has information on the SSL version and certificate information.|
+|Table2csv.exe                | snapshot of all the data streams and tables that are configured in the agent along with general information about the time range over which events were seen. |
 |ImdsMetadataResponse.json | contains the results of the request for Instance Metadata Service that contains information about the VM on which the agent is running. |
 |TroubleshootingLogs | contains a useful table in the Customer Data Statistics section for events that were collected in each local table over different time buckets. |
-|QoS                                    | {Where is the QoS data} |
+
 
 #Linux Troubleshooter
 ##Running Linux Troubleshooter
-1. Log into the machine to be diagnosed
+1. Log in to the machine to be diagnosed
 2. Go to the location where the troubleshooter is automatically installed: cd /var/lib/waagent/Microsoft.Azure.Monitor.AzureMonitorLinuxAgent-<version>/ama_tst
 3. Run the Troubleshooter: sudo sh ama_troubleshooter.sh A
 
-There are 6 sections that cover different scenarios that customer have historically had issues with. By enter 1-6 or A, customer is able to diagnose issues with the agent. Adding an L creates a zip file that can be shared if technical support in needed.  
+There are six sections that cover different scenarios that customer have historically had issues with. By enter 1-6 or A, customer is able to diagnose issues with the agent. Adding an L creates a zip file that can be shared if technical support in needed.  
 
 ##Evaluating Linux Results
 Here are the details that each scenario covers:
@@ -112,7 +112,7 @@ Here are the details that each scenario covers:
 
 
 ##Sharing Linux Logs
-To create a zip file use this command when running the troubleshooter: sudo sh ama_troubleshooter.sh A L.  You will be asked for a file location to create the zip file.
+To create a zip file use this command when running the troubleshooter: sudo sh ama_troubleshooter.sh A L.  You'll asked for a file location to create the zip file.
 
 
 ## Next steps
