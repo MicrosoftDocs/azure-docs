@@ -11,13 +11,13 @@ items:
 - name: Quickstarts
   expanded: true
   items: 
-    - name: Explore a free trial
-      href: quickstart-trial-explore-features.md 
+    - name: Set up a free trial
+      href: quickstart-trial-setup.md 
 - name: Samples
   expanded: true
   items: 
     - name: Samples by app type and language
-      href: quickstart-app-samples-all.md
+      href: samples-ciam-all.md
 - name: Concepts
   expanded: true
   items: 
@@ -27,20 +27,18 @@ items:
       href: concept-supported-features-customers.md
     - name: Customizing the sign-in look and feel
       href: concept-branding-customers.md
-    - name: Building your own customizations
-      items:
-        - name: Custom authentication extensions
-          href: ../../develop/custom-extension-overview.md?context=/azure/active-directory/external-identities/customers/context/customers-context
-        - name: Adding claims from external systems
-          href: ../../develop/custom-claims-provider-overview.md?context=/azure/active-directory/external-identities/customers/context/customers-context
-    - name: Designing the flow of sign-in steps
-      href: concept-user-flows-customers.md
     - name: Collecting info from users
       href: concept-customize-claims-customers.md
     - name: Authentication methods and identity providers
       href: concept-authentication-methods-customers.md
     - name: Security and governance
       href: concept-security-customers.md  	  	  
+    - name: Building your own customizations
+      items:
+        - name: Custom authentication extensions
+          href: ../../develop/custom-extension-overview.md?context=/azure/active-directory/external-identities/customers/context/customers-context
+        - name: Adding claims from external systems
+          href: ../../develop/custom-claims-provider-overview.md?context=/azure/active-directory/external-identities/customers/context/customers-context
 - name: How-to guides
   expanded: true
   items:
@@ -68,7 +66,7 @@ items:
                 - name: ASP.NET
                   items:
                     - name: Sign in users
-                      href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart 
+                      href: how-to-web-app-dotnet-sample-sign-in.md
             - name: Headless app
               href: https://learn.microsoft.com/azure/active-directory/develop/console-app-quickstart
             - name: Desktop app
@@ -133,11 +131,11 @@ items:
                         - name: Overview
                           href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
                         - name: Prepare tenant
-                          href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
+                          href: how-to-web-app-dotnet-sign-in-prepare-tenant.md
                         - name: Prepare app
-                          href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
+                          href: how-to-web-app-dotnet-sign-in-prepare-app.md
                         - name: Sign in and sign out
-                          href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
+                          href: how-to-web-app-dotnet-sign-in-sign-out.md
             - name: Web API
               items: 
                 - name: Protect ASP.NET API
@@ -168,6 +166,7 @@ items:
                 - name: .NET MAUI - Sign in users
                   href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-ios
     - name: Authenticate and authorize
+      expanded: true
       items:
       - name: Add your app
         items:
@@ -181,11 +180,14 @@ items:
             href: how-to-enable-password-reset-customers.md
       - name: Configure identity providers and auth methods
         items:
+          - name: Multifactor authentication
+            href: how-to-multifactor-authentication-customers.md
           - name: Google federation
             href: how-to-google-federation-customers.md
           - name: Facebook federation
             href: how-to-facebook-federation-customers.md
     - name: Customize
+      expanded: true
       items:
         - name: Customize branding
           items:
