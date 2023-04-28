@@ -2021,7 +2021,7 @@ This issue can happen when the base image you specified can't be found.
 <!--/issueDescription-->
 
 **Troubleshooting steps**
-* If you're using a custom base image, ensure that it's spelled and formatted correctly
+* Ensure that the base image is spelled and formatted correctly
 * Ensure that the base image you're using exists in the registry you specified
 
 **Resources**
