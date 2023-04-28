@@ -19,7 +19,8 @@ By default, users in your org will have only read access to shared links. If a u
 ## Considerations
 
 * Shareable Links isn't currently supported for peered VNETs across tenants. 
-* Shareable Links isn't supported for national clouds during preview.
+* Shareable Links isn't currently supported over Virtual WAN.
+* Shareable Links does not support connection to on-premises or non-Azure VMs and VMSS. 
 * The Standard SKU is required for this feature.
 
 ## Prerequisites

@@ -12,7 +12,7 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 05/02/2022
+ms.date: 04/11/2023
 ms.author: mametcal
 ms.custom: mvc, devx-track-java
 
@@ -52,13 +52,10 @@ The easiest way to connect your Spring Boot application to App Configuration is 
 ```xml
 <dependency>
     <groupId>com.azure.spring</groupId>
-    <artifactId>azure-spring-cloud-feature-management-web</artifactId>
-    <version>2.6.0</version>
+    <artifactId>spring-cloud-azure-feature-management-web</artifactId>
+    <version>4.7.0</version>
 </dependency>
 ```
-
-> [!NOTE]
-> If you need to support an older version of Spring Boot see our [old library](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-starter-azure-appconfiguration-config_1.2.9/sdk/appconfiguration/spring-cloud-azure-feature-management/README.md).
 
 ## Feature flag declaration
 
@@ -126,7 +123,7 @@ public String index(Model model) {
 }
 ```
 
-When an MVC controller or action is blocked because the controlling feature flag is *off*, a registered `IDisabledFeaturesHandler` interface is called. The default `IDisabledFeaturesHandler` interface returns a 404 status code to the client with no response body.
+When an MVC controller or action is blocked because the controlling feature flag is *off*, a registered `DisabledFeaturesHandler` interface is called. The default `DisabledFeaturesHandler` interface returns a 404 status code to the client with no response body.
 
 ## MVC filters
 
@@ -142,7 +139,7 @@ public class FeatureFlagFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
-        if(!featureManager.isEnabledAsync("feature-a").block()) {
+        if(!featureManager.isEnabled("feature-a")) {
             chain.doFilter(request, response);
             return;
         }
@@ -171,7 +168,7 @@ public String getOldFeature() {
 
 ## Next steps
 
-In this tutorial, you learned how to implement feature flags in your Spring Boot application by using the `azure-spring-cloud-feature-management-web` libraries.  For further questions see the [reference documentation](https://go.microsoft.com/fwlink/?linkid=2180917), it has all of the details on how the Spring Cloud Azure App Configuration library works.For more information about feature management support in Spring Boot and App Configuration, see the following resources:
+In this tutorial, you learned how to implement feature flags in your Spring Boot application by using the `spring-cloud-azure-feature-management-web` libraries.  For further questions see the [reference documentation](https://go.microsoft.com/fwlink/?linkid=2180917), it has all of the details on how the Spring Cloud Azure App Configuration library works.For more information about feature management support in Spring Boot and App Configuration, see the following resources:
 
 * [Spring Boot feature flag sample code](./quickstart-feature-flag-spring-boot.md)
 * [Manage feature flags](./manage-feature-flags.md)
