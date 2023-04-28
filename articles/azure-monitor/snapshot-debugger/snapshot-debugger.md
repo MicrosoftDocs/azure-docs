@@ -116,7 +116,7 @@ However, in App Service, the Snapshot Collector can deoptimize throwing methods 
 > [!TIP]
 > Install the Application Insights Site extension in your instance of App Service to get deoptimization support.
 
-## Release notes for Microsoft.ApplicationInsights.SnapshotCollector
+## Release notes for `Microsoft.ApplicationInsights.SnapshotCollector`
 
 This article contains the release notes for the `Microsoft.ApplicationInsights.SnapshotCollector` NuGet package for .NET applications, which is used by the Application Insights Snapshot Debugger.
 
@@ -149,7 +149,7 @@ A point release to address user-reported bugs.
 A point release to address a user-reported bug.
 
 #### Bug fixes
-Fixed [ArgumentException: Delegates must be of the same type.](https://github.com/microsoft/ApplicationInsights-SnapshotCollector/issues/16).
+Fixed [ArgumentException: Delegates must be of the same type](https://github.com/microsoft/ApplicationInsights-SnapshotCollector/issues/16).
 
 ### [1.4.1](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.4.1)
 A point release to revert a breaking change introduced in 1.4.0.
