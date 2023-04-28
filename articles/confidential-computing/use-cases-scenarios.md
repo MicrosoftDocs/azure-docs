@@ -76,10 +76,7 @@ In this use-case we use a combination of Azure Confidential Compute technologies
 - Access using administrative protocols (RDP, SSH etc.) is limited to access from the Azure Bastion service that is integrated with Privileged Identity Management (PIM). The PIM policy requires a Conditional Access Policy that validates which sovereign region the administrator is accessing from.
 - All services log actions to Azure Monitor.
 
-:::image type="content" source="media/use-cases-scenarios/restricted-workload.jpg" alt-text="Diagram showing workloads protected by Azure Confidential Compute and complemented with Azure configuration including Azure Policy and Conditional Access.":::
-
-
-[ ![Here's a cute kitten.](media/use-cases-scenarios/restricted-workload.jpg)](media/use-cases-scenarios/restricted-workload.jpg#lightbox)
+[![Diagram showing workloads protected by Azure Confidential Compute and complemented with Azure configuration including Azure Policy and Conditional Access.](media/use-cases-scenarios/restricted-workload.jpg)](media/use-cases-scenarios/restricted-workload.jpg#lightbox)
 
 ## Manufacturing – IP Protection
 
@@ -105,7 +102,8 @@ The Tailspin Toys application itself is coded to periodically make a call to the
 
 The attestation service returns cryptographically signed details from the hardware supporting the Contoso tenant to validate that the workload is running inside a confidential enclave as expected, the attestation is outside the control of the Contoso administrators and is based on the hardware root of trust that Confidential Compute provides.
 
-:::image type="content" source="media/use-cases-scenarios/manufacturing-ip-protection.jpg" alt-text="Diagram showing a service provider running an industrial control suite from a toy manufacturer inside a Trusted Execution Environment (TEE).":::
+[![Diagram showing a service provider running an industrial control suite from a toy manufacturer inside a Trusted Execution Environment (TEE).](media/use-cases-scenarios/manufacturing-ip-protection.jpg)](media/use-cases-scenarios/manufacturing-ip-protection.jpg#lightbox)
+
 
 ## Enhanced customer data privacy
 
