@@ -11,7 +11,7 @@ Pay attention to spacing and indents. They affect formatting.
 <!--replace this with Properties and Tags sections. These are required sections. See "article-metadata.md" under your repo's "contributor-guide" folder. Attributes in each section can be placed on separate lines to make them easier to read and check-->
 
 # Use Azure PowerShell to [task]
-This article shows you how to [task] using Azure and Azure Resource Manager module commands. This is intended to help you learn the new commands and migrate existing scripts to the new commands.
+This article shows you how to [task] by using Azure and Azure Resource Manager module commands. This is intended to help you learn the new commands and migrate existing scripts to the new commands.
 
 ## Prerequisite: Install a Recent Version of Azure PowerShell
 If you still need to do so, install at least the [version number] version of Azure PowerShell on your local computer. Using an earlier version will have different Azure Resource Manager cmdlets described in this article. For details, see:

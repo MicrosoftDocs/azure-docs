@@ -42,7 +42,7 @@ These {errors}|{Issues} occur because {a very general reason}.
 * *Password validation failed.*
 * *Failed to authorize access to the specified subscription.*
 
-*These errors occur because you cannot access the data source.*
+*These errors occur because you don't have permission to access the data source.*
 
 *If it is an article on the billing topic, include the following note (the note below is slightly different from the one at the bottom of this article):*
 

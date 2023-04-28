@@ -4,7 +4,7 @@ description: This string describes the article in 115 to 145 characters. Use SEO
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: Quickstart
+ms.topic: quickstart
 ms.reviewer: jmartens
 ms.author: your-msft-alias
 author: your-github-account-name
@@ -16,7 +16,7 @@ One sentence into the intro about Machine Learning. Intro paragraph to explain t
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-## Login to the Azure portal
+## Log in to the Azure portal
 Open your web browser, and navigate to the [Microsoft Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
 ## Create an Azure Machine Learning Server

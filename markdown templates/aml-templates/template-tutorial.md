@@ -27,7 +27,7 @@ In this tutorial, you use X to do Y, or you learn how to:
 > * Finish something 
 > 
 > [Important!]
-> Avoid notes, tips, and essential boxes. Except for this one, ha!
+> Avoid notes, tips, and important boxes. Except for this one, ha!
 > 
 > Tutorials are typically longer and more complex than quickstarts. They are created from the list of top user tasks identified in milestone one and focus on the best procedure for completing that task. A tutorial usually aligns with one or two customer tasks. At a minimum, you need one tutorial in the Tutorials node of the TOC.
 > 
@@ -35,13 +35,13 @@ In this tutorial, you use X to do Y, or you learn how to:
 
 ## Prerequisites
 
-To complete this tutorial, you need the following:
+To complete this tutorial, you need:
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 * An Azure Machine Learning workspace. Learn how to get create a workspace in the [Get started](quickstart-get-started.md#create-a-workspace) quickstart.
 * A Docker engine installed and running locally. Docker's Community Edition is sufficient. Learn [how to install Docker](https://docs.docker.com/engine/installation/).
 
 
-## Login to the Azure portal
+## Log in to the Azure portal
 Log in to the [Azure portal](https://portal.azure.com).
 
 Don't number H2 and H3 headings. Tutorials are procedure-based, and customers understand that the sections follow in sequence.
@@ -50,7 +50,7 @@ Don't number H2 and H3 headings. Tutorials are procedure-based, and customers un
 Paragraphs here 
 
 Follow these steps to create the thing:
-1. Click the **+ New**  button found in the upper left-hand corner of the Azure portal.
+1. Click the **+ New**  button found in the upper left corner of the Azure portal.
 2. Next step
 3. Next step.
 
@@ -68,7 +68,7 @@ Paragraph and Steps
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 ## Next Steps
-Tutorials should always have a Next Steps H2 that points to the following logical tutorial in a series (one link only here) or, if there are no other tutorials, to some other cool thing, the customer can do with the service. Use the blue box format for tutorials, and note that you can shorten the H1 in the boxes if the original one doesn't fit.
+Tutorials should always have a "Next steps" H2 that points to the following logical tutorial in a series (one link only here) or, if there are no other tutorials, to some other cool thing the customer can do with the service. Use the blue box format for tutorials, and note that you can shorten the H1 in the boxes if the original one doesn't fit.
 
 > [!div class="nextstepaction"]
 > [Azure Windows virtual machine tutorials](../../articles/machine-learning/overview-what-is-azure-ml.md)
