@@ -139,11 +139,12 @@ After you connect to your remote compute instance, use the editor to:
 * [Debug your scripts and applications](https://code.visualstudio.com/Docs/editor/debugging)
 * [Use VS Code to manage your Git repositories](concept-train-model-git-integration.md)
 
-## Configure compute instance as remote notebook server
+## Remote Jupyter Notebook server
 
-In order to configure a compute instance as a remote Jupyter Notebook server you'll need a couple prerequisites:
+This option allows you to use a compute instance as a remote Jupyter Notebook server from Visual Studio Code. You won't see the rest of your workspace when using this option.
 
-* Azure Machine Learning workspace. [Use the Azure Machine Learning Visual Studio Code extension to create a new workspace](how-to-manage-resources-vscode.md#create-a-workspace) if you don't already have one.
+In order to configure a compute instance as a remote Jupyter Notebook server, first install:
+
 * Azure Machine Learning Visual Studio Code extension. For more information, see the [Azure Machine Learning Visual Studio Code Extension setup guide](how-to-setup-vs-code.md).
 
 To connect to a compute instance:
@@ -154,12 +155,12 @@ To connect to a compute instance:
     > [!div class="mx-imgBorder"]
     > ![Launch Azure Machine Learning remote Jupyter Notebook server dropdown](media/how-to-launch-vs-code-remote/launch-server-selection-dropdown.png)
 
-    Alternatively, you also use the command palette:
+    Alternatively, use the command palette:
 
     1. Open the command palette by selecting **View > Command Palette** from the menu bar.
     1. Enter into the text box `AzureML: Connect to Compute instance Jupyter server`.
 
-1. Choose `Azure Machine Learning Compute Instances` from the list of Jupyter server options.
+1. Choose `Azure ML Compute Instances` from the list of Jupyter server options.
 1. Select your subscription from the list of subscriptions. If you have previously configured your default Azure Machine Learning workspace, this step is skipped.
 1. Select your workspace.
 1. Select your compute instance from the list. If you don't have one, select **Create new Azure Machine Learning Compute Instance** and follow the prompts to create one.
