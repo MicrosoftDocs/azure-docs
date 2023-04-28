@@ -1,5 +1,5 @@
 ---
-title: Configure cross-tenant synchronization using PowerShell or Microsoft Graph API (preview)
+title: Configure cross-tenant synchronization using PowerShell or Microsoft Graph API
 description: Learn how to configure cross-tenant synchronization in Azure Active Directory using Microsoft Graph PowerShell or Microsoft Graph API.
 services: active-directory
 author: rolyon
@@ -16,17 +16,11 @@ zone_pivot_groups: multi-tenant-organizations-powershell-graph
 #Customer intent: As a dev, devops, or it admin, I want to
 ---
 
-# Configure cross-tenant synchronization using PowerShell or Microsoft Graph API (preview)
+# Configure cross-tenant synchronization using PowerShell or Microsoft Graph API
 
 ::: zone pivot="ms-powershell"
 > [!IMPORTANT]
-> Cross-tenant synchronization is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-::: zone-end
-
-::: zone pivot="ms-graph"
-> [!IMPORTANT]
-> Cross-tenant synchronization is currently in PREVIEW.
+> Configuring cross-tenant synchronization using Microsoft Graph PowerShell is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 ::: zone-end
 
