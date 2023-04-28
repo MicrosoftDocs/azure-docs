@@ -126,16 +126,11 @@ Affects the project file .NET references and `packages.config` (NuGet references
 - Added the Connected Services ItemGroup and ConnectedServices.json file.
 - References to the .NET assemblies described in the [Added references](#added-references-for-aspnet-framework) section.
 
-## Accessing the key vault 
-
-Learn how to store secrets safely by following [Safe storage of app secrets in development in ASP.NET Core](/aspnet/core/security/app-secrets?tabs=windows). In particular, to read the connection string from the secrets store, you can add code as in [Read the secret via the configuration API](/aspnet/core/security/app-secrets?tabs=windows#read-the-secret-via-the-configuration-api).
-
-## Store ASP.NET Core configuration in the key vault
-
-If your goal is to store configuration for an ASP.NET Core app in an Azure Key Vault, see [Azure Key Vault configuration provider in ASP.NET Core](/aspnet/core/security/key-vault-configuration).
-
 ## Next steps
 
 If you followed this tutorial, your Key Vault permissions are set up to run with your own Azure subscription, but that might not be desirable for a production scenario. You can create a managed identity to manage Key Vault access for your app. See [How to Authenticate to Key Vault](./authentication.md) and [Assign a Key Vault access policy](./assign-access-policy-portal.md).
 
 Learn more about Key Vault development by reading the [Key Vault Developer's Guide](developers-guide.md).
+
+If your goal is to store configuration for an ASP.NET Core app in an Azure Key Vault, see [Azure Key Vault configuration provider in ASP.NET Core](/aspnet/core/security/key-vault-configuration).
+
