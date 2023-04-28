@@ -2,11 +2,10 @@
 title: 'Use Azure Firewall to inspect traffic destined to a private endpoint'
 titleSuffix: Azure Private Link
 description: Learn how you can inspect traffic destined to a private endpoint using Azure Firewall.
-services: private-link
-author: jocortems
+author: asudbring
 ms.service: private-link
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 04/27/2023
 ms.author: allensu
 ms.custom: template-how-to
 ---
@@ -25,13 +24,17 @@ You may need to inspect or block traffic from clients to the services exposed vi
 The following limitations apply:
 
 * Network security groups (NSG) are bypassed by traffic coming from private endpoints
+
 * User-defined routes (UDR) are bypassed by traffic coming from private endpoints. User-defined routes can be used to override traffic destined for the private endpoint.
+
 * A single route table can be attached to a subnet
+
 * A route table supports up to 400 routes
 
 Azure Firewall filters traffic using either:
 
 * [FQDN in network rules](../firewall/fqdn-filtering-network-rules.md) for TCP and UDP protocols
+
 * [FQDN in application rules](../firewall/features.md#application-fqdn-filtering-rules) for HTTP, HTTPS, and MSSQL. 
 
 > [!IMPORTANT] 
@@ -83,6 +86,7 @@ Use this pattern when a migration to a hub and spoke architecture isn't possible
 This architecture can be implemented if you have configured connectivity with your on-premises network using either: 
 
 * [ExpressRoute](..\expressroute\expressroute-introduction.md)
+
 * [Site to Site VPN](../vpn-gateway/tutorial-site-to-site-portal.md) 
 
 If your security requirements require client traffic to services exposed via private endpoints to be routed through a security appliance, deploy this scenario.
@@ -92,10 +96,10 @@ The same considerations as in scenario 2 above apply. In this scenario, there ar
 ## Prerequisites
 
 * An Azure subscription.
+
 * A Log Analytics workspace.  
 
 See, [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md) to create a workspace if you don't have one in your subscription.
-
 
 ## Sign in to Azure
 
@@ -110,7 +114,9 @@ In this section, you'll create a virtual network and subnet to host the VM used 
 Create three virtual networks and their corresponding subnets to:
 
 * Contain the Azure Firewall used to restrict communication between the VM and the private endpoint.
+
 * Host the VM that is used to access your private link resource.
+
 * Host the private endpoint.
 
 Replace the following parameters in the steps with the information below:
@@ -176,7 +182,7 @@ Replace the following parameters in the steps with the information below:
     | Confirm Password | Reenter password. |
     | **Inbound port rules** |  |
     | Public inbound ports | Select **None**. |
-    |||
+
 
 3. Select **Next: Disks**.
 
@@ -368,7 +374,6 @@ In this section, we'll connect virtual networks **myVMVNet** and **myPEVNet** to
     | Allow forwarded traffic from myAzFwVNet to remote virtual network | Select **Enabled**. |
     | **Configure gateway transit settings** | |
     | Allow gateway transit | Leave unchecked |
-    |||
 
 4. Select **OK**.
 
@@ -426,7 +431,6 @@ The link is required for the VM and firewall to resolve the FQDN of database to 
     | **CONFIGURATION** | |
     | Enable auto registration | Leave unchecked.    |
 
-
 6. Select **OK**.
 
 ## Configure an application rule with SQL FQDN in Azure Firewall
@@ -464,7 +468,6 @@ This rule allows communication through the firewall that we created in the previ
     | Source | Enter **10.1.0.0/16**. |
     | Protocol: Port | Enter **mssql:1433**. |
     | Target FQDNs | Enter **mydbserver.database.windows.net**. |
-    |||
 
 7. Select **Add**.
 
@@ -558,7 +561,7 @@ In this section, you'll connect privately to the SQL Database using the private 
     
     You'll receive a message similar to below:
 
-    ```bash
+    ```output
     Server:         127.0.0.53
     Address:        127.0.0.53#53
 
