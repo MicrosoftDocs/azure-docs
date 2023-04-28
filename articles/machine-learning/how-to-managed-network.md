@@ -155,7 +155,7 @@ You can configure a managed VNet using either the `az ml workspace create` or `a
     To create a workspace using a YAML file instead, use the `--file` parameter and specify the YAML file that contains the configuration settings:
 
     ```azurecli
-    az ml workspace create --file workspace.yaml --resource-group rg
+    az ml workspace create --file workspace.yaml --resource-group rg --name ws
     ```
 
     The following YAML example defines a workspace with a managed VNet:
@@ -349,7 +349,7 @@ You can configure a managed VNet using either the `az ml workspace create` or `a
     To create a workspace using the YAML file, use the `--file` parameter:
 
     ```azurecli
-    az ml workspace create --file workspace.yaml --resource-group rg
+    az ml workspace create --file workspace.yaml --resource-group rg --name ws
     ```
 
 * __Update an existing workspace__
@@ -554,6 +554,9 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
 
 1. Provision the managed VNet.
 
+    > [!NOTE]
+    > If your workspace is already configured for a public endpoint (for example, with an Azure Virtual Network), and has [public network access enabled](how-to-configure-private-link.md#enable-public-access), you must disable it before provisioning the managed virtual network. If you don't disable public network access when provisioning the managed virtual network, the private endpoints for the managed endpoint may not be created successfully.
+
     # [Azure CLI](#tab/azure-cli)
 
     The following example shows how to provision a managed VNet for serverless spark jobs by using the `--include-spark` parameter.
@@ -612,7 +615,7 @@ To enable the [serverless spark jobs](how-to-submit-spark-jobs.md) for the manag
     You can use a YAML configuration file with the `az ml workspace update` command by specifying the `--file` parameter and the name of the YAML file. For example, the following command updates an existing workspace using a YAML file named `workspace_pe.yml`:
 
     ```azurecli
-    az ml workspace update --file workspace_pe.yml --resource_group rg
+    az ml workspace update --file workspace_pe.yml --resource_group rg --name ws
     ```
 
     # [Python](#tab/python)
