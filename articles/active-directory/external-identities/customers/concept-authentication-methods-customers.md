@@ -23,7 +23,7 @@ Email sign-up is enabled by default in your local account identity provider sett
 
 - **Sign-up**: Customers are prompted for an email address, which is verified at sign-up with a one-time passcode. The customer then enters any other information requested on the sign-up page, for example, display name, given name, and surname. Then they select Continue to create an account.
 
-- **Sign-in**: After signing up and creating an account, the customer can sign in by entering their email address and password.
+- **Sign-in**: After the customer signs up and creates an account, they can sign in by entering their email address and password.
 
 - **Password reset**: The customer enters and verifies their email, after which the customer can reset their password.
  
@@ -35,7 +35,7 @@ Email with one-time passcode is an option in your local account identity provide
 
 - **Sign-up**: Customers can sign up with their email address and request a temporary code, which is sent to their email address. Then they enter this code to continue signing in.
 
-- **Sign-in**: After signing up and creating an account, the customer can sign in by entering their email address and receiving a one-time passcode.
+- **Sign-in**: After the customer signs up and creates an account, they can sign in by entering their email address and receiving a one-time passcode.
 
 When you [create and customize your sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md#create-and-customize-a-user-flow), **Email one-time passcode** one of the local account options.
 
@@ -47,7 +47,7 @@ When you enable social identity providers, customers can select from the social 
 
 <!--[Screenshot that shows the Google and Facebook options.](./media/sign-in-with-google/sign-in-with-google-flow.png)-->
 
-To set up social identity providers in your customer tenant, you'll create an application at the identity provider and configure credentials. You'll obtain a client or app ID and a client or app secret, which you can then add to your customer tenant.
+To set up social identity providers in your customer tenant, you create an application at the identity provider and configure credentials. You obtain a client or app ID and a client or app secret, which you can then add to your customer tenant.
 
 ### Google sign-in
 
