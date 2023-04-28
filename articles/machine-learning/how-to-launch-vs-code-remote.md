@@ -152,12 +152,11 @@ To connect to a compute instance:
 1. Open a Jupyter Notebook in Visual Studio Code.
 1. When the integrated notebook experience loads, select **Jupyter Server**.
 
-    > [!div class="mx-imgBorder"]
-    > ![Launch Azure Machine Learning remote Jupyter Notebook server dropdown](media/how-to-launch-vs-code-remote/launch-server-selection-dropdown.png)
+    :::image type="content" source="media/how-to-launch-vs-code-remote/media/how-to-launch-vs-code-remote/launch-server-selection-dropdown.png" alt-text="Connect to compute instance Visual Studio Code Azure Machine Learning Extension" lightbox="media/how-to-launch-vs-code-remote/media/how-to-launch-vs-code-remote/launch-server-selection-dropdown.png"::: 
 
     Alternatively, use the command palette:
 
-    1. Open the command palette by selecting **View > Command Palette** from the menu bar.
+    1. Select **View > Command Palette** from the menu bar to open the command palette.
     1. Enter into the text box `AzureML: Connect to Compute instance Jupyter server`.
 
 1. Choose `Azure ML Compute Instances` from the list of Jupyter server options.
