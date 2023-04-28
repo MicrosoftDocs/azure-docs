@@ -34,6 +34,7 @@ NC2 on Azure supports the following regions using AN36P:
 * Southeast Asia
 * Australia East
 * UK South
+* West Europe
 
 ## Next steps
 
