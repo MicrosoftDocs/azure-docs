@@ -13,7 +13,7 @@ ms.custom: engagement-fy23
 
 This article shows how to get started quickly with Azure IoT device development. As a prerequisite, see the introductory articles [What is Azure IoT device and application development?](about-iot-develop.md) and [Overview of Azure IoT Device SDKs](about-iot-sdks.md).  These articles summarize key development options, tools, and SDKs available to device developers. 
 
-In this article, you'll select from a set of device quickstarts to get started with hands-on development.
+In this article, you can select from a set of device quickstarts to get started with hands-on development.
 
 ## Quickstarts for general devices
 See the following articles to start using the Azure IoT device SDKs to connect general, microprocessor unit (MPU) devices to Azure IoT.  Examples of general MPU devices include MPU-based devices with larger compute and memory resources such as PCs, servers, Raspberry Pi, and smartphones. The following quickstarts all provide device simulators and don't require you to have a physical device.

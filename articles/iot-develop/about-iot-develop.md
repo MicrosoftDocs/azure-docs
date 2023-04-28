@@ -26,12 +26,12 @@ This article discusses two common device development paths. Each path includes a
     > [!NOTE]
     > If your device is able to run a general-purpose operating system, we recommend following the [Device application development](#device-application-development) path. It provides a richer set of development options.
 
-* **Embedded device development:** Describes development targeting resource constrained devices. A resource constrained device will often be used to reduce per unit costs, power consumption, or device size. These devices have direct control over the hardware platform they execute on.
+* **Embedded device development:** Describes development targeting resource constrained devices. Often you use a resource-constrained device to reduce per unit costs, power consumption, or device size. These devices have direct control over the hardware platform they execute on.
 
 ### Device application development
 Device application developers are adapting existing devices to connect to the cloud and integrate into their IoT solutions. These devices can support higher-order languages, such as C# or Python, and often support a robust general purpose operating system such as Windows or Linux. Common target devices include PCs, Containers, Raspberry Pis, and mobile devices. 
 
-Rather than develop constrained devices at scale, device application developers focus on enabling a specific IoT scenario required by their cloud solution. Some developers will also work on constrained devices for their cloud solution. For developers working with resource constrained devices, see the [Embedded Device Development](#embedded-device-development) path.
+Rather than develop constrained devices at scale, device application developers focus on enabling a specific IoT scenario required by their cloud solution. Some developers also work on constrained devices for their cloud solution. For developers working with resource constrained devices, see the [Embedded Device Development](#embedded-device-development) path.
 
 > [!IMPORTANT]
 > For information on SDKs to use with device application development, see the [Device SDKs](about-iot-sdks.md#device-sdks).
@@ -41,7 +41,7 @@ Embedded development targets constrained devices that have limited memory and pr
 
 Embedded devices typically use a real-time operating system (RTOS), or no operating system at all. Embedded devices have full control over their hardware, due to the lack of a general purpose operating system. That fact makes embedded devices a good choice for real-time systems.
 
-The current embedded SDKs target the **C** language. The embedded SDKs provide either no operating system, or Azure RTOS support. They're designed with embedded targets in mind. The design considerations include the need for a minimal footprint, and a non-memory allocating design.
+The current embedded SDKs target the **C** language. The embedded SDKs provide either no operating system, or Azure RTOS support. They're designed with embedded targets in mind. The design considerations include the need for a minimal footprint, and a nonmemory allocating design.
 
 > [!IMPORTANT]
 > For information on SDKs to use with embedded device development, see the [Embedded device SDKs](about-iot-sdks.md#embedded-device-sdks).
@@ -59,7 +59,7 @@ There are two main options to connect devices and communicate with IoT Hub:
 - Use the MQTT protocol directly
 
 > [!NOTE]
-> In most cases, we recommend that you use the Azure IoT SDKs versus using MQTT directly. The SDKs streamline your development effort and simplify the complexity of connecting and managing devices. IoT Hub does support the [MQTT v3.1.1](https://mqtt.org/) protocol. There are some advantages of building an IoT Hub solution to use MQTT directly. For example, a solution that uses MQTT directly without the SDKs can be built on the open MQTT standard. A standards-based approach makes the solution more portable, and gives you more control over how devices connect and communicate.  However, Iot Hub isn't a full-featured MQTT broker and doesn't support all behaviors specified in the MQTT v3.1.1 standard. The partial support for MQTT v3.1.1 adds development cost to build a solution.  Device developers should weigh the trade-offs of using the IoT device SDKs versus using MQTT directly.  For more details, see [Communicate with an IoT hub using the MQTT protocol](../iot/iot-mqtt-connect-to-iot-hub.md). 
+> In most cases, we recommend that you use the Azure IoT SDKs versus using MQTT directly. The SDKs streamline your development effort and simplify the complexity of connecting and managing devices. IoT Hub does support the [MQTT v3.1.1](https://mqtt.org/) protocol. There are some advantages of building an IoT Hub solution to use MQTT directly. For example, a solution that uses MQTT directly without the SDKs can be built on the open MQTT standard. A standards-based approach makes the solution more portable, and gives you more control over how devices connect and communicate.  However, Iot Hub isn't a full-featured MQTT broker and doesn't support all behaviors specified in the MQTT v3.1.1 standard. The partial support for MQTT v3.1.1 adds development cost to build a solution.  Device developers should weigh the trade-offs of using the IoT device SDKs versus using MQTT directly.  For more information, see [Communicate with an IoT hub using the MQTT protocol](../iot/iot-mqtt-connect-to-iot-hub.md). 
 
 There are three sets of IoT SDKs for device development:
 - Device SDKs (for using higher order languages to connect existing general purpose devices to IoT applications)
