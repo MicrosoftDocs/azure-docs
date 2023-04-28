@@ -21,6 +21,13 @@ sections:
 
   - name: Performance
     questions:
-      - question: How does Application Gateway support high availability and scalability?
+      - question: How does Traffic Controller support high availability and scalability?
         answer: Traffic Controller automatically ensures underlying components are spread across availability zones for increased resiliency, if the Azure region supports it.  If the region does not support zones, fault domains and update domains be used to help mitigate impact during planned maintainence and unexpected failures.
           
+  - name: Configuration - TLS
+    questions:
+      - question: Does Traffic Controller support reencryption (end-to-end encryption) of traffic to backend targets?
+        answer: Yes. Traffic Controller supports TLS offloading and end-to-end TLS to backend targets.
+
+      - question: Can I configure TLS protocol versions?
+        answer: No. Traffic Controller supports TLS 1.2. SSL 2.0, 3.0, TLS 1.0, and TLS 1.1 are disabled and non-configurable.
