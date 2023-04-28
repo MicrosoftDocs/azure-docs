@@ -105,15 +105,15 @@ Azure Machine Learning managed online endpoints have limits described in the fol
 | --- | --- | --- |
 | Endpoint name| Endpoint names must <li> Begin with a letter <li> Be 3-32 characters in length  <li> Only consist of letters and numbers <sup>1</sup> | - |
 | Deployment name| Deployment names must <li> Begin with a letter <li> Be 3-32 characters in length  <li>  Only consist of letters and numbers <sup>1</sup> | - |
-| Number of endpoints per subscription | 50 | yes |
-| Number of deployments per subscription | 200 | yes |
-| Number of deployments per endpoint | 20 | yes |
-| Number of instances per deployment | 20 <sup>2</sup> | yes |
+| Number of endpoints per subscription | 50 | Yes |
+| Number of deployments per subscription | 200 | Yes |
+| Number of deployments per endpoint | 20 | Yes |
+| Number of instances per deployment | 20 <sup>2</sup> | Yes |
 | Max request time-out at endpoint level  | 90 seconds | - |
-| Total requests per second at endpoint level for all deployments  | 500 <sup>3</sup> | yes |
-| Total connections per second at endpoint level for all deployments  | 500 <sup>3</sup> | yes |
-| Total connections active at endpoint level for all deployments  | 500 <sup>3</sup> | yes |
-| Total bandwidth at endpoint level for all deployments  | 5 MBPS <sup>3</sup> | yes |
+| Total requests per second at endpoint level for all deployments  | 500 <sup>3</sup> | Yes |
+| Total connections per second at endpoint level for all deployments  | 500 <sup>3</sup> | Yes |
+| Total connections active at endpoint level for all deployments  | 500 <sup>3</sup> | Yes |
+| Total bandwidth at endpoint level for all deployments  | 5 MBPS <sup>3</sup> | Yes |
 
 <sup>1</sup> Single dashes like, `my-endpoint-name`, are accepted in endpoint and deployment names.
 
