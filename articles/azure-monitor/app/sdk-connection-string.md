@@ -181,7 +181,7 @@ Connection string: `APPLICATIONINSIGHTS_CONNECTION_STRING`
     ```
 
 > [!NOTE]
-> When deploying applications to Azure in production scenarios, consider placing instrumentation keys or other configuration secrets in secure locations such as App Service configuration settings or Azure Key Vault. Avoid including secrets in your application code or checking them into source control where they might be exposed or misused. The preceding code example will also work if the instrumentation key is stored in App Service configuration settings.
+> When deploying applications to Azure in production scenarios, consider placing instrumentation keys or other configuration secrets in secure locations such as App Service configuration settings or Azure Key Vault. Avoid including secrets in your application code or checking them into source control where they might be exposed or misused. The preceding code example will also work if the instrumentation key is stored in App Service configuration settings. Learn more about [configuring App Service settings](/azure/app-service/configure-common).
 
 # [.NET Framework](#tab/dotnet-framework)
 
