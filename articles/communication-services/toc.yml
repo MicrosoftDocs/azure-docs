@@ -383,6 +383,8 @@ items:
         href: how-tos/call-automation/play-action.md
       - name: Gather user input with recognize action 
         href: how-tos/call-automation/recognize-action.md
+      - name: How to secure webhook endpoint
+        href: how-tos/call-automation/secure-webhook-endpoint.md
     - name: Call recording
       items:
       - name: Record a call

@@ -144,7 +144,7 @@ If a data disk was expanded without downtime using the procedure mentioned previ
 1. Insert a `1` character into the rescan file for this device.  Note the reference to sda, this would change if a different disk device was resized.
 
    ```bash
-   sudo echo 1 > /sys/class/block/sda/device/rescan
+   echo 1 | sudo tee /sys/class/block/sda/device/rescan
    ```
 
 1. Verify that the new disk size has been recognized
