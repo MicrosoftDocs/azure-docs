@@ -226,6 +226,8 @@ items:
           href: delivery-properties.md
       - name: Availability zones and disaster recovery
         href: availability-zones-disaster-recovery.md
+      - name: Scaling with Azure Event Grid
+        href: scaling-with-azure-event-grid.md
       - name: Security
         items:
         - name: Security baseline
@@ -363,6 +365,8 @@ items:
           href: troubleshoot-network-connectivity.md
         - name: Troubleshoot subscription validation
           href: troubleshoot-subscription-validation.md
+      - name: Create and manage namespaces
+        href: create-view-manage-namespaces.md
     - name: Reference
       items:
       - name: Azure CLI
@@ -429,5 +433,7 @@ items:
         href: mqtt-client-authentication.md
     - name: How-to guides
       items:
+      - name: Create and manage namespaces
+        href: create-view-manage-namespaces.md
       - name: Azure Event Grid Namespace MQTT client authentication using certificate chain
         href: mqtt-certificate-chain-client-authentication.md           
