@@ -172,7 +172,7 @@ You can use your existing certificate directly from Azure Key Vault:
     };
     ```
 
-1. Install [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), then on your console, type the following command to sign-in:
+1. Install [Azure CLI](/cli/azure/install-azure-cli), then on your console, type the following command to sign-in:
 
 
     ```console
