@@ -154,7 +154,7 @@ heart_dataset_train = ml_client.data.get(name=dataset_name, label="latest")
 
 ---
 
-## Create the pipeline
+### Create the pipeline
 
 The pipeline we want to operationalize has takes 1 input, the training data, and produces 3 outputs, the trained model, the evaluation results, and the data transformations applied as preprocessing. It is composed of 2 components:
 
@@ -293,9 +293,6 @@ pipeline_job_run
     endpoint = BatchEndpoint(
         name=endpoint_name,
         description="An endpoint to perform training of the Heart Disease Data Set prediction task",
-        properties={
-            "ComponentDeployment.Enabled": True
-        }
     )
     ```
 
@@ -461,7 +458,7 @@ Once the job is completed, we can access some of its outputs. This pipeline prod
 - `preprocess job`: output is `transformations_output`
 - `train job`: outputs are `model` and `evaluation_results`
 
-You can download the associated results using `az ml job download`.
+You can download the associated results using:
 
 # [Azure CLI](#tab/cli)
 
@@ -495,6 +492,35 @@ By default, we used `ordinal` previously. Let's now change the categorical encod
 > [!TIP]
 > Alternatively, we could have exposed the `categorial_encoding` input to clients as an input to the pipeline job itself. However, we chose to change the parameter value in the preprocessing step so that we can hide and control the parameter inside of the deployment and take advantage of the opportunity to have multiple deployments under the same endpoint.
 
+1. Modify the pipeline. It looks as follows: 
+
+    # [Azure CLI](#tab/cli)
+
+    The pipeline configuration is defined in the `deployment-onehot/pipeline.yml` file:
+    
+    __deployment-onehot/pipeline.yml__
+    
+    :::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deployment-onehot/pipeline.yml" highlight="29" :::
+    
+    # [Python](#tab/python)
+    
+    ```python
+    @pipeline()
+    def uci_heart_classifier_onehot(input_data: Input(type=AssetTypes.URI_FOLDER)):
+        prepared_data = prepare_data(data=input_data, categorical_encoding="onehot")
+        trained_model = train_xgb(
+            data=prepared_data.outputs.prepared_data, 
+            target_column="target",
+            register_best_model=False,
+            eval_size=0.3)
+    
+        return {
+            "model": trained_model.outputs.model,
+            "evaluation_results": trained_model.outputs.evaluation_results,
+            "transformations_output": prepared_data.outputs.transformations_output,
+        }
+    ```
+
 1. Configure the deployment:
 
     # [Azure CLI](#tab/cli)
@@ -522,7 +548,8 @@ By default, we used `ordinal` previously. Let's now change the categorical encod
         endpoint_name=endpoint.name,
         component=pipeline_component,
         settings={
-            "continue_on_step_failure": False
+            "continue_on_step_failure": False,
+            "default_compute": "batch-cluster"
         }
     )
     ```
@@ -542,7 +569,7 @@ By default, we used `ordinal` previously. Let's now change the categorical encod
     This command will start the deployment creation and return a confirmation response while the deployment creation continues.
 
     ```python
-    ml_client.batch_deployments.begin_create_or_update(deployment).result()
+    ml_client.batch_deployments.begin_create_or_update(deployment_onehot).result()
     ```
 
     Your deployment is ready for use.
@@ -562,7 +589,7 @@ Once the deployment is created, it's ready to receive jobs. We can test it in th
     ```python
     job = ml_client.batch_endpoints.invoke(
         endpoint_name=endpoint.name, 
-        deployment_name=
+        deployment_name=deployment_onehot.name
         inputs = { 
             "input_data": input_data
             }

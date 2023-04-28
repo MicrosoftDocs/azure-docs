@@ -31,7 +31,7 @@ You'll learn to:
 
 ## About this example
 
-The model will perform predictions on tabular data from the [UCI Heart Disease Data Set](https://archive.ics.uci.edu/ml/datasets/Heart+Disease). In particular, this example shows you how to reuse preprocessing code and the parameters learned during preprocessing before you use your model for inferencing. By reusing the preprocessing code and learned parameters, we can ensure that the same transformations (such as normalization and feature encoding) that were applied to the input data during training are also applied during inferencing.
+This example shows you how to reuse preprocessing code and the parameters learned during preprocessing before you use your model for inferencing. By reusing the preprocessing code and learned parameters, we can ensure that the same transformations (such as normalization and feature encoding) that were applied to the input data during training are also applied during inferencing. The model used for inference will perform predictions on tabular data from the [UCI Heart Disease Data Set](https://archive.ics.uci.edu/ml/datasets/Heart+Disease).
 
 A visualization of the pipeline is as follows:
 
@@ -177,7 +177,7 @@ We're going to register components, models, and transformations that we need to 
     transformation_name = "heart-classifier-transforms"
     transformation_local_path = "transformations"
     
-    model = ml_client.models.create_or_update(
+    transformations = ml_client.models.create_or_update(
         Model(name=transformation_name, path=transformation_local_path, type=AssetTypes.CUSTOM_MODEL)
     )
     ```
@@ -377,7 +377,8 @@ To deploy the pipeline component, we have to create a batch deployment. A deploy
         endpoint_name=endpoint.name,
         component=pipeline_component,
         settings={
-            "continue_on_step_failure": False
+            "continue_on_step_failure": False,
+            "default_compute": "batch-cluster"
         }
     )
     ```
@@ -492,7 +493,7 @@ You can download the associated results using `az ml job download`.
 Download the result:
 
 ```python
-ml_client.jobs.download(name=score_step.name, download_path=".", output_name="scores")```
+ml_client.jobs.download(name=job.name, download_path=".", output_name="scores")
 ```
 
 Read the scored data:
