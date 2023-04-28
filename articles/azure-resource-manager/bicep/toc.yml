@@ -359,6 +359,8 @@
       href: deployment-script-bicep.md
     - name: Template specs
       href: template-specs.md
+    - name: Deployment stacks
+      href: deployment-stacks.md
     - name: Bicep extensibility
       items:
       - name: Kubernetes provider
