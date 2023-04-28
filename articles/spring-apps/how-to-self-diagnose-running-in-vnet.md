@@ -18,11 +18,11 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 This article shows you how to use Azure Spring Apps diagnostics to diagnose and solve problems in Azure Spring Apps running in virtual networks.
 
-Azure Spring Apps diagnostics supports interactive troubleshooting apps running in virtual networks without configuration. Azure Spring Apps diagnostics identifies problems and guides you to information that helps troubleshoot and resolve them.
+Azure Spring Apps diagnostics supports interactive troubleshooting applications running in virtual networks without configuration. Azure Spring Apps diagnostics identifies problems and guides you to information that helps troubleshoot issues and resolve them.
 
 ## Navigate to the diagnostics page
 
-The following procedure starts diagnostics for networked applications.
+Use the following steps to start diagnostics for networked applications.
 
 1. Sign in to the Azure portal.
 1. Go to your Azure Spring Apps instance.
