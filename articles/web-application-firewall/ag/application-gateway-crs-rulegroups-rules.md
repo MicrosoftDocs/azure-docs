@@ -38,8 +38,8 @@ The version number of the DRS increments when new attack signatures are added to
 The Microsoft Threat Intelligence Collection rules are written in partnership with the Microsoft Threat Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.
 
 > [!NOTE]
-> We suggest you to disable some of the rules while you get started with DRS 2.1 on Application Gateway WAF. Details of the rules are as below. 
->|Rule ID  |Rule Group|Description  |Details|
+> We suggest you to disable some of the rules while you get started with 2.1 on Application Gateway WAF. Details of the rules are as below. 
+>|Rule ID |Rule Group|Description  |Details|
 >|---------|---------|---------|---------|
 >|942110      |SQLI|SQL Injection Attack: Common Injection Testing Detected |Replaced by MSTIC rule 99031001 |
 >|942150      |SQLI|SQL Injection Attack|Replaced by MSTIC rule 99031003 |
