@@ -153,8 +153,8 @@ The list below provides key integrations between Entra Identity Governance and v
 | [Hoxhunt](../../active-directory/saas-apps/hoxhunt-provisioning-tutorial.md) | ● | ● |
 | [Howspace](../../active-directory/saas-apps/howspace-provisioning-tutorial.md) | ● |  |
 | [H5mag](../../active-directory/saas-apps/h5mag-provisioning-tutorial.md) | ● |  |
-| IBM DB2 | ● |  |
-| IBM Tivoli Directory Server | ● |  |
+| IBM DB2 ([SQL connector](../../active-directory/app-provisioning/tutorial-ecma-sql-connector.md) ) | ● |  |
+| IBM Tivoli Directory Server ([SQL connector](../../active-directory/app-provisioning/tutorial-ecma-sql-connector.md) ) | ● |  |
 | [Ideo](../../active-directory/saas-apps/ideo-provisioning-tutorial.md) | ● | ● |
 | [Ideagen Cloud](../../active-directory/saas-apps/ideagen-cloud-provisioning-tutorial.md) | ● |  |
 | [Infor CloudSuite](../../active-directory/saas-apps/infor-cloudsuite-provisioning-tutorial.md) | ● | ● |
@@ -180,7 +180,7 @@ The list below provides key integrations between Entra Identity Governance and v
 | [KPN Grip](../../active-directory/saas-apps/kpn-grip-provisioning-tutorial.md) | ● | |
 | [LanSchool Air](../../active-directory/saas-apps/lanschool-air-provisioning-tutorial.md) | ● | ● |
 | [LawVu](../..//active-directory/saas-apps/lawvu-provisioning-tutorial.md) | ● | ● |
-| LDAP | ● |  |
+| [LDAP](../../active-directory/app-provisioning/on-premises-ldap-connector-configure.md) | ● |  |
 | [LimbleCMMS](../../active-directory/saas-apps/limblecmms-provisioning-tutorial.md) | ● |  |
 | [LinkedIn Elevate](../../active-directory/saas-apps/linkedinelevate-provisioning-tutorial.md) | ● | ● |
 | [LinkedIn Sales Navigator](../../active-directory/saas-apps/linkedinsalesnavigator-provisioning-tutorial.md) | ● | ● |
@@ -194,10 +194,10 @@ The list below provides key integrations between Entra Identity Governance and v
 | [MediusFlow](../../active-directory/saas-apps/mediusflow-provisioning-tutorial.md) | ● |  |
 | [MerchLogix](../../active-directory/saas-apps/merchlogix-provisioning-tutorial.md) | ● | ● |
 | [Meta Networks Connector](../../active-directory/saas-apps/meta-networks-connector-provisioning-tutorial.md) | ● | ● |
-| MicroFocus Novell eDirectory | ● |  |
-| Microsoft Lightweight Directory Server (ADAM) | ● |  |
+| MicroFocus Novell eDirectory ([LDAP connector](../../active-directory/app-provisioning/on-premises-ldap-connector-configure.md) ) | ● |  |
+| Microsoft Lightweight Directory Server (ADAM) ([LDAP connector](../../active-directory/app-provisioning/on-premises-ldap-connector-configure.md) ) | ● |  |
 | Microsoft SharePoint Server (SharePoint) | ● |  |
-| Microsoft SQL Server | ● |  |
+| Microsoft SQL Server ([SQL connector](../../active-directory/app-provisioning/tutorial-ecma-sql-connector.md) ) | ● |  |
 | [Mixpanel](../../active-directory/saas-apps/mixpanel-provisioning-tutorial.md) | ● | ● |
 | [Mindtickle](../../active-directory/saas-apps/mindtickle-provisioning-tutorial.md) | ● | ● |
 | [Miro](../../active-directory/saas-apps/miro-provisioning-tutorial.md) | ● | ● |
@@ -206,16 +206,16 @@ The list below provides key integrations between Entra Identity Governance and v
 | [Mural Identity](../../active-directory/saas-apps/mural-identity-provisioning-tutorial.md) | ● | ● |
 | [MX3 Diagnostics](../../active-directory/saas-apps/mx3-diagnostics-connector-provisioning-tutorial.md) | ● |  |
 | [myPolicies](../../active-directory/saas-apps/mypolicies-provisioning-tutorial.md) | ● | ● |
-| Net IQ eDirectory | ● |  |
+| Net IQ eDirectory ([LDAP connector](../../active-directory/app-provisioning/on-premises-ldap-connector-configure.md) ) | ● |  |
 | [Netpresenter Next](../../active-directory/saas-apps/netpresenter-provisioning-tutorial.md) | ● |  |
 | [Netskope User Authentication](../../active-directory/saas-apps/netskope-administrator-console-provisioning-tutorial.md) | ● | ● |
 | [Netsparker Enterprise](../../active-directory/saas-apps/netsparker-enterprise-provisioning-tutorial.md) | ● | ● |
 | [New Relic by Organization](../../active-directory/saas-apps/new-relic-by-organization-provisioning-tutorial.md) | ● | ● |
 | [NordPass](../../active-directory/saas-apps/nordpass-provisioning-tutorial.md) | ● | ● |
-| Novell eDirectory | ● |  |
+| Novell eDirectory ([LDAP connector](../../active-directory/app-provisioning/on-premises-ldap-connector-configure.md) ) | ● |  |
 | [Office Space Software](../../active-directory/saas-apps/officespace-software-provisioning-tutorial.md) | ● | ● |
 | [Olfeo SAAS](../../active-directory/saas-apps/olfeo-saas-provisioning-tutorial.md) | ● | ● |
-| Open LDAP | ● |  |
+| [Open LDAP](../../active-directory/app-provisioning/on-premises-ldap-connector-configure.md) | ● |  |
 | [OpenText Directory Services](../../active-directory/saas-apps/open-text-directory-services-provisioning-tutorial.md) | ● | ● |
 | [Oracle Cloud Infrastructure Console](../../active-directory/saas-apps/oracle-cloud-infrastructure-console-provisioning-tutorial.md) | ● | ● |
 | Oracle Database | ● |  |
