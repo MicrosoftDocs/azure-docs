@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: lagayhar
 author: zhanxia
 ms.author: zhanxia
-ms.date: 4/27/2023
+ms.date: 4/28/2023
 ---
 
 # How to debug pipeline reuse issues in Azure Machine Learning?
@@ -98,11 +98,6 @@ You can compare the input data, parameters, output settings, run settings of the
 
 :::image type="content" source="./media/how-to-debug-pipeline-reuse/compare.png" alt-text="Screenshot showing detail comparison.":::
 
-
 ### Step 6: Contact Microsoft for support
 
 If you follow all above steps, and you still can't find the root cause of unexpected rerun, you can [file a support case ticket](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) to Microsoft to get help.
-
-## Next Steps
-
-- [Build and debug pipelines](how-to-use-pipeline-ui.md)
