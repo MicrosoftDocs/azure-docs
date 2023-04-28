@@ -49,7 +49,7 @@ If you have an existing self-signed certificate in Azure Key Vault, and you want
 
 1. Follow the steps in [Set and retrieve a certificate from Azure Key Vault using the Azure portal](/azure/key-vault/certificates/quick-create-portal) to create and download your certificate.
 
-1. After your create your certificates, download the both the *.cer* format and the *.pfx* format such as *ciam-client-app-cert.pfx* and *ciam-client-app-cert.cer*. The *.cer* file is what you upload to your Microsoft Entra admin center.
+1. After you create your certificate, download the both the *.cer* format file and the *.pfx* format file such as *ciam-client-app-cert.pfx* and *ciam-client-app-cert.cer*. The *.cer* file is what you upload to your Microsoft Entra admin center.
 
 1. In your terminal, run the following command to extract the private key from the *.pfx* file. When prompted to type your import password, just press **Enter** key you didn't set a password for the private key. When prompted to type in your pass phrase, type a pass phrase of your choice: 
 
@@ -69,7 +69,7 @@ If you have an existing self-signed certificate in Azure Key Vault, and you want
     ```console
     openssl pkcs12 -in ciam-client-app-cert.pfx -nocerts -out ciam-client-app-cert.key
     ```
-After you complete these steps, you have a *.cer* file and a *.key*, such as *ciam-client-app-cert.key* and *ciam-client-app-cert.cer*. The *.key* is what you use in your app. The *.cer* file is what you upload to your Microsoft Entra admin center. 
+After you complete these steps, you should have a *.cer* format file and the *.key* format file, such as *ciam-client-app-cert.key* and *ciam-client-app-cert.cer*. The *.key* is what you use in your app. The *.cer* file is what you upload to your Microsoft Entra admin center. 
 
 
 
@@ -81,7 +81,7 @@ In your terminal, run the following command. When prompted to type in your pass 
 openssl req -x509 -newkey rsa:2048 -keyout ciam-client-app-cert.key -out ciam-client-app-cert.crt -subj "/CN=ciamclientappcert.com"
 ``` 
 
-After the command finishes execution, you should a *.crt* and a *.key* files, such as such as *ciam-client-app-cert.key* and *ciam-client-app-cert.crt*. The *.key* is what you use in your app. The *.cer* file is what you upload to your Microsoft Entra admin center. 
+After the command finishes execution, you should have a *.crt* and a *.key* files, such as *ciam-client-app-cert.key* and *ciam-client-app-cert.crt*. The *.key* is what you use in your app. The *.cer* file is what you upload to your Microsoft Entra admin center. 
 
 --- 
 
@@ -147,7 +147,7 @@ Once you associate your app registration with the certificate, you need to updat
     
     - `YOUR_CERT_THUMBPRINT` with the **Thumbprint** value you recorded earlier.
     
-    - `PATH_TO_YOUR_PRIVATE_KEY_FILE` with the file path to your certificate (the *.key* file). 
+    - `PATH_TO_YOUR_PRIVATE_KEY_FILE` with the file path to your private key file. 
     
     -  `Enter_the_Application_Id_Here` with the Application (client) ID of the app you registered earlier.
     
