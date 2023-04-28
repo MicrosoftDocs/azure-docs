@@ -143,9 +143,9 @@ To configure a project, add a [project environment type](how-to-configure-projec
 > [!NOTE]
 > At least one identity (system-assigned or user-assigned) must be enabled for deployment identity. The identity is used to perform the environment deployment on behalf of the developer. Additionally, the identity attached to the dev center should be [assigned the Owner role](how-to-configure-managed-identity.md) for  access to the deployment subscription for each environment type.
 
-## Assign Admin access
+## Assign Environment access
 
-MYOID=$(az ad signed-in-user show --query id -o tsv)
+In this quickstart, you will give access to your own ID. Optionally, you can replace the value of `--assignee` for the commands below with another member's object id.
 
 1. Retrieve your own Object ID:
 
