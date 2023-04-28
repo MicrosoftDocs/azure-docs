@@ -7,7 +7,7 @@
 
 
 ### How to access foundation models in AzureML
-'Model catalog' (preview) provides a catalog view of all models that you have access to via system registries. You can view the complete list of supported foundation models in the [Model catalog](https://ml.azure.com/model/catalog), under the 'azureml' registry.
+'Model catalog' (preview) provides a catalog view of all models that you have access to via system registries. You can view the complete list of supported open source foundation models in the [Model catalog](https://ml.azure.com/model/catalog), under the 'azureml' registry.
 ![image](./media/how-to-use-foundation-models/model_catalog.png)
 
 
