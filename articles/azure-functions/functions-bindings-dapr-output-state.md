@@ -18,11 +18,19 @@ For information on setup and configuration details, see the [overview](./functio
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp"
+::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-python"
 
 ## Example
 
-[!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+
+
+A C# function can be created using one of the following C# modes:
+
+* [In-process class library](../articles/azure-functions/functions-dotnet-class-library.md): compiled C# function that runs in the same process as the Functions runtime. 
+* [Isolated worker process class library](../articles/azure-functions/dotnet-isolated-process-guide.md): compiled C# function that runs in a worker process that is isolated from the runtime. Isolated worker process is required to support C# functions running on non-LTS versions .NET and the .NET Framework.     
 
 # [In-process](#tab/in-process)
 
@@ -55,8 +63,6 @@ TODO: current example has in-proc, need to update with out-of-proc
 ::: zone-end 
 
 ::: zone pivot="programming-language-javascript"
-
-## Example
 
 The following examples show Dapr triggers in a _function.json_ file and JavaScript code that uses those bindings. 
 
@@ -93,7 +99,6 @@ module.exports = async function (context, req) {
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-## Example
 
 The following example shows a Dapr State output binding, which uses the [v1 Python programming model](functions-reference-python.md).
 
@@ -101,6 +106,7 @@ Here's the _function.json_ file for `daprState`:
 
 ```json
 {
+  "scriptFile": "__init__.py",
   "bindings": 
     {
       "type": "daprState",
@@ -134,19 +140,20 @@ def main(payload,
 ::: zone pivot="programming-language-csharp"
 
 ## Attributes
-Both in-process and isolated process C# libraries use the <!--attribute API here--> attribute to define the function. C# script instead uses a function.json configuration file.
+Both in-process and isolated process C# libraries use the <!--attribute API here--> attribute to define the function.
 
 # [In-process](#tab/in-process)
 
-In [C# class libraries], use the [HttpTrigger] to trigger the Dapr State output binding, which supports the following properties.
+In [C# class libraries], use the `HttpTrigger` to trigger the Dapr State output binding, which supports the following properties.
 
 | Parameter | Description | 
 | --------- | ----------- | 
-| **BindingName** | The name of the Dapr trigger. If not specified, the name of the function is used as the trigger name. | 
+| **StateStore** | The name of the state store to save state. | 
+| **Key** | The name of the key to save state within the state store. | 
 
 # [Isolated process](#tab/isolated-process)
 
-The following table explains the parameters for the `DaprPublish`.
+The following table explains the parameters for the `DaprState`.
 
 TODO: table has in-proc parameters - need out-of-proc
 
@@ -168,8 +175,7 @@ The following table explains the binding configuration properties that you set i
 |**direction** | Must be set to `out`. |
 |**name** | The name of the variable that represents the Dapr data in function code. |
 |**stateStore** | The name of the state store. |
-|**key** |  |
-|**daprAddress** |  |
+|**key** | The name of the key to save state within the state store. |
 
 ::: zone-end
 
@@ -224,7 +230,7 @@ TODO: Need usage content.
 
 ## host.json properties
 
-The [host.json] file contains settings that control Dapr trigger behavior. See the [host.json settings](functions-bindings-dapr.md#hostjson-settings) section for details regarding available settings.
+The _host.json_ file contains settings that control Dapr trigger behavior. See the [host.json settings](functions-bindings-dapr.md#hostjson-settings) section for details regarding available settings.
 
 ::: zone-end
 

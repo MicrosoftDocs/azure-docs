@@ -18,12 +18,18 @@ For information on setup and configuration details, see the [overview](./functio
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp"
+::: zone pivot="programming-language-csharp, programming-language-javascript, programming-language-python"
 
 ## Example
 
-<!--Optional intro text goes here, followed by the C# modes include.-->
-[!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+
+A C# function can be created using one of the following C# modes:
+
+* [In-process class library](../articles/azure-functions/functions-dotnet-class-library.md): compiled C# function that runs in the same process as the Functions runtime. 
+* [Isolated worker process class library](../articles/azure-functions/dotnet-isolated-process-guide.md): compiled C# function that runs in a worker process that is isolated from the runtime. Isolated worker process is required to support C# functions running on non-LTS versions .NET and the .NET Framework.     
 
 # [In-process](#tab/in-process)
 
@@ -54,8 +60,6 @@ TODO: current example has in-proc, need to update with out-of-proc
 
 ::: zone pivot="programming-language-javascript"
 
-## Example
-
 The following examples show Dapr triggers in a _function.json_ file and JavaScript code that uses those bindings. 
 
 Here's the _function.json_ file for `daprBinding`:
@@ -85,7 +89,6 @@ module.exports = async function (context) {
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-## Example
 
 The following example shows a Dapr Binding output binding, which uses the [v1 Python programming model](functions-reference-python.md).
 
@@ -93,6 +96,7 @@ Here's the _function.json_ file for `daprBinding`:
 
 ```json
 {
+  "scriptFile": "__init__.py",
   "bindings": 
     {
       "type": "daprBinding",
@@ -123,11 +127,11 @@ def main(args, messages: func.Out[bytes]) -> None:
 ::: zone pivot="programming-language-csharp"
 
 ## Attributes
-Both in-process and isolated process C# libraries use the <!--attribute API here--> attribute to define the function. C# script instead uses a function.json configuration file.
+Both in-process and isolated process C# libraries use the <!--attribute API here--> attribute to define the function.
 
 # [In-process](#tab/in-process)
 
-In [C# class libraries], use the [HttpTrigger] to trigger a Dapr Binding output binding, which supports the following properties.
+In [C# class libraries], use the `HttpTrigger` to trigger a Dapr Binding output binding, which supports the following properties.
 
 | Parameter | Description | 
 | --------- | ----------- | 
@@ -216,7 +220,14 @@ TODO: Need usage content.
 
 ## host.json properties
 
-The [host.json] file contains settings that control Dapr trigger behavior. See the [host.json settings](functions-bindings-dapr.md#hostjson-settings) section for details regarding available settings.
+The _host.json_ file contains settings that control Dapr trigger behavior. See the [host.json settings](functions-bindings-dapr.md#hostjson-settings) section for details regarding available settings.
+
+::: zone-end
+
+::: zone pivot="programming-language-java,programming-language-powershell"
+
+> [!NOTE]
+> Currently, Dapr triggers and bindings are only supported in C#, JavaScript, and Python. 
 
 ::: zone-end
 
@@ -233,9 +244,3 @@ The [host.json] file contains settings that control Dapr trigger behavior. See t
   - [Dapr invoke](./functions-bindings-dapr-output-invoke.md)
   - [Dapr publish](./functions-bindings-dapr-output-publish.md)
 
-::: zone pivot="programming-language-java,programming-language-powershell"
-
-> [!NOTE]
-> Currently, Dapr triggers and bindings are only supported in C#, JavaScript, and Python. 
-
-::: zone-end

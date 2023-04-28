@@ -761,7 +761,7 @@
                 displayName: Dapr
             - name: Output
               items: 
-              - name: Input
+              - name: State
                 href: functions-bindings-dapr-output-state.md
                 displayName: Dapr
               - name: Service Invocation
@@ -770,7 +770,7 @@
               - name: Publish
                 href: functions-bindings-dapr-output-publish.md 
                 displayName: Dapr
-              - name: Output
+              - name: Binding
                 href: functions-bindings-dapr-output.md 
                 displayName: Dapr
         - name: Event Grid

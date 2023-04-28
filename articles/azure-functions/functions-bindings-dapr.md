@@ -87,7 +87,21 @@ dotnet add package Dapr.AzureFunctions.Extension --version 0.10.0-preview01
 
 ::: zone pivot="programming-language-javascript,programming-language-python"
 
-<!-- Do the manual func install extension stuff here. -->
+## Install bundle
+
+You need to manually install the Dapr extension into your project and opt-out to using default extensions. Before you begin, verify you have .NET Core SDK installed.
+
+1. If the `host.json` file in your project has the `extensionBundle` property and values:
+   1. Open the `host.json` file from the root directory of the project. 
+   1. Remove `extensionBundle` propery and values.
+   1. Save file.
+
+1. Run the following command:
+
+   ```powershell
+   func extensions install -p Dapr.AzureFunctions.Extension -v 0.10.0-preview01
+   ```
+
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
