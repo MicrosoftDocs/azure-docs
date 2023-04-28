@@ -614,17 +614,7 @@ In Consumption workflows, the **SAP Application Server** and **SAP Message Serve
 
 1. Save your logic app workflow. On the designer toolbar, select **Save**.
 
-<a name="filter-with-sap-actions"></a>
 
-## Filter messages with SAP actions
-
-You can optionally filter the messages that your logic app workflow receives from your SAP server by providing a list, or array, with a single or multiple SAP actions. By default, this array is empty, which means that your logic app receives all the messages from your SAP server without filtering.
-
-When you set up the array filter, the trigger only receives messages from the specified SAP action types and rejects all other messages from your SAP server. However, this filter doesn't affect whether the typing of the received payload is weak or strong.
-
-Any SAP action filtering happens at the level of the SAP Adapter for your on-premises data gateway. For more information, review [how to send test IDocs to Azure Logic Apps from SAP](#test-sending-idocs-from-sap).
-
-If you can't send IDoc packets from SAP to your logic app workflow's trigger, review the Transactional RFC (tRFC) call rejection message in the SAP tRFC (T-Code SM58) dialog box. In the SAP interface, you might get the following error messages, which are clipped due to the substring limits on the **Status Text** field.
 
 #### The RequestContext on the IReplyChannel was closed without a reply being sent
 
