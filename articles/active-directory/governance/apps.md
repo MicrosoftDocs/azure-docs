@@ -16,7 +16,7 @@ ms.reviewer: amycolannino
 
 # Entra Identity Governance integrations
 
-[Microsoft Entra Identity Governance](identity-governance-applications-prepare.md) allows you to balance your organization's need for security and employee productivity with the right processes and visibility. This page provides an overview of the hundreds of Entra Identity Governance integrations available. These application integrations are used to automate [identity lifecycle management](what-is-identity-lifecycle-management.md) and implement governance controls across your organization. Through these rich integrations, you can automate providing users [access to applications](entitlement-management-overview.md), perform [pereodic reviews](access-reviews-overview.md) of who has access to an application, and secure them with capabilities such as multi-factor authentication. 
+[Microsoft Entra Identity Governance](identity-governance-applications-prepare.md) allows you to balance your organization's need for security and employee productivity with the right processes and visibility. This page provides an overview of the hundreds of Entra Identity Governance integrations available. These application integrations are used to automate [identity lifecycle management](what-is-identity-lifecycle-management.md) and implement governance controls across your organization. Through these rich integrations, you can automate providing users [access to applications](entitlement-management-overview.md), perform [periodic reviews](access-reviews-overview.md) of who has access to an application, and secure them with capabilities such as multi-factor authentication. 
 
 ## Featured integrations
 
