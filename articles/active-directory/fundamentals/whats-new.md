@@ -79,8 +79,8 @@ For more information, see:
 **Service category:** Group Management                   
 **Product capability:** End User Experiences          
 
-A new and improved My Groups experience is now available at https://www.myaccount.microsoft.com/groups. My Groups enables end users to easily manage groups, such as finding groups to join, managing groups they own, and managing existing group memberships. Based on customer feedback, the new My Groups support sorting and filtering on lists of groups and group members, a full list of group members in large groups, and an actionable overview page for membership requests.
-This experience replaces the existing My Groups experience at https://www.mygroups.microsoft.com in May.  
+A new and improved My Groups experience is now available at `https://www.myaccount.microsoft.com/groups`. My Groups enables end users to easily manage groups, such as finding groups to join, managing groups they own, and managing existing group memberships. Based on customer feedback, the new My Groups support sorting and filtering on lists of groups and group members, a full list of group members in large groups, and an actionable overview page for membership requests.
+This experience replaces the existing My Groups experience at `https://www.mygroups.microsoft.com` in May.  
 
 
 For more information, see: [Update your Groups info in the My Apps portal](https://support.microsoft.com/account-billing/update-your-groups-info-in-the-my-apps-portal-bc0ca998-6d3a-42ac-acb8-e900fb1174a4).
