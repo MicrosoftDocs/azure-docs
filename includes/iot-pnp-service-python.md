@@ -38,7 +38,7 @@ To learn more about the sample configuration, see the [sample readme](https://gi
 
 In this tutorial, you use a sample thermostat device, written in Python, as the IoT Plug and Play device. To run the sample device:
 
-1. Open a terminal window in a folder of your choice. Run the following command to clone the [Azure IoT Device Python SDK](https://github.com/Azure/azure-iot-sdk-python) GitHub repository into this location:
+1. Open a terminal window in a folder of your choice. Run the following command to clone the [Azure IoT Device Python SDK](https://github.com/Azure/azure-iot-sdk-python/tree/v2/) GitHub repository into this location:
 
     ```cmd/sh
     git clone --branch v2 https://github.com/Azure/azure-iot-sdk-python
