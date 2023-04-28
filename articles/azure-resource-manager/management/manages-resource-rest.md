@@ -56,10 +56,7 @@ Host: management.azure.com
 
 Here is an example cURL command that you can use to list all resources in a resource group using the Azure Resource Manager API:
 ```curl
-curl -X GET \
-  'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/resources?api-version=2021-04-01' \
-  -H 'Authorization: Bearer {access-token}' \
-  -H 'Content-Type: application/json'
+curl  -H "Authorization: Bearer $token" -H 'Content-Type: application/json' -X GET 'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/resources?api-version=2021-04-01'
 ```
 
 
@@ -67,10 +64,7 @@ With the authentication step, this looks like:
 ### [Azure CLI](#tab/azure-cli)
 ```azurecli-interactive
 token=$(az account get-access-token --query accessToken --output tsv)
-curl -X GET \
-  'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/resources?api-version=2021-04-01' \
-  -H 'Authorization: Bearer {access-token}' \
-  -H 'Content-Type: application/json'
+curl  -H "Authorization: Bearer $token" -H 'Content-Type: application/json' -X GET 'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/resources?api-version=2021-04-01'
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
