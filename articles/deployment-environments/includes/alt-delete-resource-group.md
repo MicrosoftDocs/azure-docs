@@ -1,13 +1,9 @@
 ---
-title: "Include file"
-description: "Include file"
-services: deployment-environments
 ms.service: deployment-environments
-ms.custom: "include file"
-ms.topic: "include"
+ms.topic: include
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 04/21/2023
+ms.date: 04/28/2023
 ---
 
 If you don't plan to use any of the resources that you created, delete them so you don't incur any further charges. If you've deployed the sample application in a different resource group, you might want to repeat the following steps.
