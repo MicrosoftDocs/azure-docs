@@ -61,14 +61,14 @@ To create a project in your dev center:
 1. Retrieve dev center resource id:
 
     ```azurecli
-    DEVCID=$(az devcenter admin devcenter show -n devcenter-sample --query id -o tsv)
+    DEVCID=$(az devcenter admin devcenter show -n <devcenter name> --query id -o tsv)
     echo $DEVCID
     ```
 
 1. Create project in dev center:
 
     ```azurecli
-    az devcenter admin project create -n project-sample \
+    az devcenter admin project create -n <project name> \
     --description "My first project." \
     --dev-center-id $DEVCID
     ```
@@ -76,7 +76,7 @@ To create a project in your dev center:
 1. Confirm that the project was successfully created:
 
     ```azurecli
-    az devcenter admin project show -n project-sample
+    az devcenter admin project show -n <project name>
     ```
 
 ### Assign a managed identity the owner role to the subscription
@@ -94,7 +94,7 @@ In this quickstart you assign the Owner role to the system-assigned managed iden
 1. Retrieve Object ID of Dev Center's Identity using name of dev center resource:
 
     ```azurecli
-    OID=$(az ad sp list --display-name devcenter-sample --query [].id -o tsv)
+    OID=$(az ad sp list --display-name <devcenter name> --query [].id -o tsv)
     echo $SUBID
     ```
 
@@ -120,14 +120,20 @@ To configure a project, add a [project environment type](how-to-configure-projec
     echo $ROID
 
     # Set default resource group again
-    az configure --defaults group=<name>
+    az configure --defaults group=<group name>
     ```
 
-1. Create Enviroment type `dev` for Project:
+1. Show allowed environment type for project:
 
     ```azurecli
-    az devcenter admin project-environment-type create -n dev \
-    --project project-sample \
+    az devcenter admin project-allowed-environment-type list --project <project name> --query [].name
+    ```
+
+1. Choose an environment type and create it for the project:
+
+    ```azurecli
+    az devcenter admin project-environment-type create -n <available env type> \
+    --project <project name> \
     --identity-type "SystemAssigned" \
     --roles "{\"${ROID}\":{}}" \
     --deployment-target-id "/subscriptions/${SUBID}" \

@@ -57,19 +57,19 @@ To create and configure a Dev center in Azure Deployment Environments by using t
 1. Create the resource group in which you want to create the dev center:
 
    ```azurecli
-   az group create -n rg-dev-center
+   az group create -n <group name>
    ```
 
 1. Configure the default resource group as the resource group you created:
 
    ```azurecli
-   az config set defaults.group=rg-dev-center
+   az config set defaults.group=<group name>
    ```
 
 1. Create the dev center:
 
    ```azurecli
-   az devcenter admin devcenter create -n devcenter-sample
+   az devcenter admin devcenter create -n <devcenter name>
    ```
 
    After a few minutes, you will get an output that it is created:
@@ -77,11 +77,11 @@ To create and configure a Dev center in Azure Deployment Environments by using t
    ```output
    {
       "devCenterUri": "https://...",
-      "id": "/subscriptions/.../devcenter-sample",
+      "id": "/subscriptions/.../<devcenter name>",
       "location": "eastus",
-      "name": "devcenter-sample",
+      "name": "<devcenter name>",
       "provisioningState": "Succeeded",
-      "resourceGroup": "rg-dev-center",
+      "resourceGroup": "<group name>",
       "systemData": {
          "createdAt": "...",
          "createdBy": "...",
@@ -101,7 +101,7 @@ You need an Azure Key Vault to store the GitHub personal access token (PAT) that
 
    ```azurecli
    # Change the name to something Globally unique
-   az keyvault create -n kv-sample-unique
+   az keyvault create -n <kv name>
    ```
 
    > [!NOTE]
@@ -111,7 +111,7 @@ You need an Azure Key Vault to store the GitHub personal access token (PAT) that
 1. Add GitHub personal access token (PAT) to Key Vault as a secret:
 
    ```azurecli
-   az keyvault secret set --vault-name kv-sample-unique --name GHPAT --value <PAT> 
+   az keyvault secret set --vault-name <kv name> --name GHPAT --value <PAT> 
    ```
 
 ## Attach an identity to the dev center
@@ -125,7 +125,7 @@ In this quickstart, you configure a system-assigned managed identity for your de
 To attach a system-assigned managed identity to your dev center:
 
    ```azurecli
-   az devcenter admin devcenter update -n devcenter-sample --identity-type SystemAssigned
+   az devcenter admin devcenter update -n <devcenter name> --identity-type SystemAssigned
    ```
 
 ### Assign the system-assigned managed identity access to the key vault secret
@@ -134,14 +134,14 @@ Make sure that the identity has access to the key vault secret that contains the
 1. Retrieve Object ID of your dev center's identity:
 
     ```azurecli
-   OID=$(az ad sp list --display-name devcenter-sample  --query [].id -o tsv)
+   OID=$(az ad sp list --display-name <devcenter name> --query [].id -o tsv)
    echo $OID
    ```
 
 1. Add a Key Vault Policy to allow dev center to get secrets from Key Vault:
 
    ```azurecli
-   az keyvault set-policy -n kv-sample-unique --secret-permissions get --object-id $OID
+   az keyvault set-policy -n <kv name> --secret-permissions get --object-id $OID
    ```
 
 ## Add a catalog to the dev center
@@ -168,7 +168,7 @@ To add a catalog, you must specify the GitHub repo URL, the branch, and the fold
 1. Retrieve the secret identifier:
    
    ```azurecli
-   SECRETID=$(az keyvault secret show --vault-name kv-sample-unique --name GHPAT --query id -o tsv)
+   SECRETID=$(az keyvault secret show --vault-name <kv name> --name GHPAT --query id -o tsv)
    echo $SECRETID
    ```
 
@@ -177,29 +177,29 @@ To add a catalog, you must specify the GitHub repo URL, the branch, and the fold
    ```azurecli
    # Sample Catalog example
    REPO_URL="https://github.com/Azure/deployment-environments.git"
-   az devcenter admin catalog create --git-hub path="/Environments" branch="main" secret-identifier=$SECRETID uri=$REPO_URL -n catalog-sample -d devcenter-sample
+   az devcenter admin catalog create --git-hub path="/Environments" branch="main" secret-identifier=$SECRETID uri=$REPO_URL -n <catalog name> -d <devcenter name>
    ```
 
 1. Confirm that the catalog is successfully added and synced:
 
    ```azurecli
-   az devcenter admin catalog list -d devcenter-sample -o table
+   az devcenter admin catalog list -d <devcenter name> -o table
    ```
 
 ## Create an environment type
 
 Use an environment type to help you define the different types of environments your development teams can deploy. You can apply different settings for each environment type.
 
-1. Create an Environment Type 'dev':
+1. Create an Environment Type:
 
    ```azurecli
-   az devcenter admin environment-type create -d devcenter-sample -n dev 
+   az devcenter admin environment-type create -d <devcenter name> -n <environment type name> 
    ```
 
 1. Confirm that the Environment type is created:
 
    ```azurecli
-   az devcenter admin environment-type list -d devcenter-sample -o table 
+   az devcenter admin environment-type list -d <devcenter name> -o table 
    ```
 
 ## Next steps
