@@ -43,7 +43,7 @@ This article gives you an overview how to set up your customer tenant free trial
 
     :::image type="content" source="media/quickstart-trial-setup/ciam-trial-welcome-page.png" alt-text="Screenshot of the Azure AD for customers welcome page."::: 
 
-1. Select **Continue**. Hang on while we set up your trial. Next, we'll help you create your sign-in experience. 
+1. Select **Continue** and hang on while we set up your trial. Next, we'll help you create your sign-in experience. 
 
     :::image type="content" source="media/quickstart-trial-setup/setting-up-free-trial.png" alt-text="Screenshot of the loading page while setting up the customer tenant free trial."::: 
 
