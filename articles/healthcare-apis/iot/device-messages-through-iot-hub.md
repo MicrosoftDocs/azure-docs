@@ -1,12 +1,12 @@
 ---
 title: Receive device messages through Azure IoT Hub - Azure Health Data Services
-description: Learn how to deploy Azure IoT Hub with message routing to send device messages to the MedTech service in Azure Health Data Services. The tutorial uses an Azure Resource Manager template in the Azure portal and Visual Studio Code with the Azure IoT Hub extension.
+description: Learn how to deploy Azure IoT Hub with message routing to send device messages to the MedTech service. The tutorial uses an Azure Resource Manager template and Visual Studio Code with the Azure IoT Hub extension.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial
-ms.date: 04/25/2023
+ms.date: 04/26/2023
 ms.custom: devx-track-arm-template
 ms.author: jasteppe
 ---
@@ -143,7 +143,7 @@ When deployment is completed, the following resources and access roles are creat
 > [!IMPORTANT]
 > In this tutorial, the ARM template configures the MedTech service to operate in **Create** mode. A Patient resource and a Device resource are created for each device that sends data to your FHIR service.
 >
-> To learn about the MedTech service resolution types **Create** and **Lookup**, see [Destination properties](deploy-manual-config.md#destination-properties).
+> To learn about the MedTech service resolution types **Create** and **Lookup**, see [Configure the Destination tab](deploy-manual-portal.md#configure-the-destination-tab).
 
 ## Create a device and send a test message
 
