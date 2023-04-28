@@ -1,5 +1,5 @@
 ---
-title: Memo 22-09 multi-factor authentication requirements overview
+title: Memo 22-09 multifactor authentication requirements overview
 description: Get guidance on meeting multifactor authentication requirements outlined in the Office of Management and Budget memorandum 22-09.
 services: active-directory 
 ms.service: active-directory
@@ -15,13 +15,13 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Meet multi-factor authentication requirements of memorandum 22-09
+# Meet multifactor authentication requirements of memorandum 22-09
 
 Learn about using Azure Active Directory (Azure AD) as the centralized identity management system when implementing Zero Trust principles. See, US Office of Management and Budget (OMB) [M 22-09 Memorandum for the Heads of Executive Departments and Agencies](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf).
 
-The memo requirements are that employees use enterprise-managed identities to access applications, and that multi-factor authentication (MFA) protects employees from sophisticated online attacks, such as phishing. This attack method attempts to obtain and compromise credentials, with links to inauthentic sites.
+The memo requirements are that employees use enterprise-managed identities to access applications, and that multi-factor authentication protects employees from sophisticated online attacks, such as phishing. This attack method attempts to obtain and compromise credentials, with links to inauthentic sites.
 
-MFA prevents unauthorized access to accounts and data. The memo requirements cite MFA with phishing-resistant methods: authentication processes designed to detect and prevent disclosure of authentication secrets and outputs to a website or application masquerading as a legitimate system. Therefore, establish what MFA methods qualify as phishing-resistant.
+Multifactor authentication prevents unauthorized access to accounts and data. The memo requirements cite multifactor authentication with phishing-resistant methods: authentication processes designed to detect and prevent disclosure of authentication secrets and outputs to a website or application masquerading as a legitimate system. Therefore, establish what multifactor authentication methods qualify as phishing-resistant.
 
 ## Phishing-resistant methods
 
@@ -33,19 +33,19 @@ Learn more:
 * [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview)
 * [Overview of Azure AD certificate-based authentication](../authentication/concept-certificate-based-authentication.md)
 
-Some agencies are modernizing their authentication credentials. There are multiple options for meeting phishing-resistant MFA requirements with Azure AD. Microsoft recommends adopting phishing-resistant MFA method that matches the agency capabilities. Consider what's possible now for phishing-resistance MFA to improve the overall cybersecurity posture. Implement modern credentials. However, if the quickest path isn't a modern approach, take the step to begin the journey toward modern approaches.
+Some agencies are modernizing their authentication credentials. There are multiple options for meeting phishing-resistant multifactor authentication requirements with Azure AD. Microsoft recommends adopting phishing-resistant multifactor authentication method that matches the agency capabilities. Consider what's possible now for phishing-resistance multifactor authentication to improve the overall cybersecurity posture. Implement modern credentials. However, if the quickest path isn't a modern approach, take the step to begin the journey toward modern approaches.
 
-   ![Diagram of Azure AD phishing-resistant MFA methods.](media/memo-22-09/azure-active-directory-pr-methods.png)
+   ![Diagram of Azure AD phishing-resistant multifactor authentication methods.](media/memo-22-09/azure-active-directory-pr-methods.png)
 
 ### Modern approaches
 
-* **FIDO2 security keys** are, according to the Cybersecurity & Infrastructure Security Agency (CISA) the gold standard of MFA
+* **FIDO2 security keys** are, according to the Cybersecurity & Infrastructure Security Agency (CISA) the gold standard of multifactor authentication
   * See, [Passwordless authentication options for Azure AD, FIDO2 security keys](../authentication/concept-authentication-passwordless.md#fido2-security-keys)
   * Go to cisa.gov for [More than a Password](https://www.cisa.gov/mfa)
 * **Azure AD certificate authentication** without dependency on a federated identity provider. 
-  * This soluion includes smart card implementations: Common Access Card (CAC), Personal Identity Verification (PIV), and derived PIV credentials for mobile devices or security keys
+  * This solution includes smart card implementations: Common Access Card (CAC), Personal Identity Verification (PIV), and derived PIV credentials for mobile devices or security keys
   * See, [Overview of Azure AD certificate-based authentication](../authentication/concept-certificate-based-authentication.md)
-* **Windows Hello for Business** has phishing-resistant MFA
+* **Windows Hello for Business** has phishing-resistant multifactor authentication
   * See, [Windows Hello for Business Deployment Overview](/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
   * See, [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview)
 
@@ -79,23 +79,23 @@ Learn more:
 
 ### Phishing-resistant method considerations
 
-Your current device capabilities, user personas, and other requirements might dictate multi-factor methods. For example, FIDO2 security keys with USB-C support require devices with USB-C ports. Consider the following information when evaluating phishing-resistant MFA:
+Your current device capabilities, user personas, and other requirements might dictate multi-factor methods. For example, FIDO2 security keys with USB-C support require devices with USB-C ports. Consider the following information when evaluating phishing-resistant multifactor authentication:
 
 * **Device types and capabilities you can support**: kiosks, laptops, mobile phones, biometric readers, USB, Bluetooth, and near-field communication devices
 * **Organizational user personas**: front-line workers, remote workers with and without company-owned hardware, administrators with privileged access workstations, and business-to-business guest users
-* **Logistics**: distribute, configure, and register MFA methods such as FIDO2 security keys, smart cards, government-furnished equipment, or Windows devices with TPM chips
+* **Logistics**: distribute, configure, and register multifactor authentication methods such as FIDO2 security keys, smart cards, government-furnished equipment, or Windows devices with TPM chips
 * **Federal Information Processing Standards (FIPS) 140 validation at an authenticator assurance level**: some FIDO security keys are FIPS 140 validated at levels for AAL3 set by NIST SP 800-63B 
   * See, [Authenticator assurance levels](nist-about-authenticator-assurance-levels.md)
   * See, [NIST authenticator assurance level 3 by using Azure AD](nist-authenticator-assurance-level-3.md)
   * Go to nist.gov for [NIST Special Publication 800-63B, Digital Identity Guidelines](https://pages.nist.gov/800-63-3/sp800-63b.html)
 
-## Implementation considerations for phishing-resistant MFA
+## Implementation considerations for phishing-resistant multifactor authentication
 
 See the following sections for support of implementing phishing-resistant methods for application and virtual device sign-in.
 
 ### Application sign-in scenarios from various clients
 
-The following table details the availability of phishing-resistant MFA scenarios, based on the device type that's used to sign in to the applications:
+The following table details the availability of phishing-resistant multifactor authentication scenarios, based on the device type that's used to sign in to the applications:
 
 | Device | AD FS as a federated IdP with certificate authentication| Azure AD certificate authentication| FIDO2 security keys| Windows Hello for Business| Microsoft Authenticator with Conditional Access policies enforcing hybrid Azure AD join or compliant devices |
 | - | - | - | - | - | - |
@@ -108,7 +108,7 @@ Learn more: [Browser support for FIDO2 passwordless authentication](../authentic
 
 ### Virtual device sign-in scenarios that require integration
 
-To enforce phishing-resistant MFA, integration might be necessary. Enforce MFA for users accessing applications and devices. For the five phishing-resistant MFA types, use the same features to access the following device types:
+To enforce phishing-resistant multifactor authentication, integration might be necessary. Enforce multifactor authentication for users accessing applications and devices. For the five phishing-resistant multifactor authentication types, use the same features to access the following device types:
 
 | Target system| Integration actions |
 | - | - |
@@ -118,9 +118,9 @@ To enforce phishing-resistant MFA, integration might be necessary. Enforce MFA f
 | VMs hosted on-premises or in other clouds| Enable [Azure Arc](../../azure-arc/overview.md) on the VM and then enable Azure AD sign-in. Currently in private preview for Linux. Support for Windows VMs hosted in these environments is on our roadmap. |
 | Non-Microsoft virtual desktop solution| Integrate the virtual desktop solution as an app in Azure AD|
 
-### Enforcing phishing-resistant MFA
+### Enforcing phishing-resistant multifactor authentication
 
-Use Conditional Access to enforce MFA for users in your tenant. With the addition of cross-tenant access policies, you can enforce it on external users.
+Use Conditional Access to enforce multifactor authentication for users in your tenant. With the addition of cross-tenant access policies, you can enforce it on external users.
 
 Learn more: [Overview: Cross-tenant access with Azure AD External Identities](../external-identities/cross-tenant-access-overview.md)
 
@@ -129,17 +129,17 @@ Learn more: [Overview: Cross-tenant access with Azure AD External Identities](..
 Use Azure AD B2B collaboration to meet requirements that facilitate integration:
 
 - Limit what other Microsoft tenants your users access
-- Allow access to users you don't have to manage in your tenant, but enforce MFA and other access requirements
+- Allow access to users you don't have to manage in your tenant, but enforce multifactor authentication and other access requirements
 
 Learn more: [B2B collaboration overview](../external-identities/what-is-b2b.md)
 
-Enforce MFA for partners and external users who access organizational resources. This is common in inter-agency collaboration scenarios. Use Azure AD cross-tenant access policies to configure MFA for external users who access applications and resources.
+Enforce multifactor authentication for partners and external users who access organizational resources. This action is common in inter-agency collaboration scenarios. Use Azure AD cross-tenant access policies to configure multifactor authentication for external users who access applications and resources.
 
-Configure trust settings in cross-tenant access policies to trust the MFA method the guest user tenant uses. Avoid having users register an MFA method with your tenant. Enable these policies on a per-organization basis. You can determine the MFA methods in the user home tenant and decide if they meet phishing resistance requirements.
+Configure trust settings in cross-tenant access policies to trust the multifactor authentication method the guest user tenant uses. Avoid having users register a multifactor authentication method with your tenant. Enable these policies on a per-organization basis. You can determine the multifactor authentication methods in the user home tenant and decide if they meet phishing resistance requirements.
 
 ## Password policies
 
-The memo requires organizations to change ineffective password policies, such as complex, rotated passwords. This includes removing the requirement for special characters and numbers, with time-based password rotation policies. Instead, consider the following options:
+The memo requires organizations to change ineffective password policies, such as complex, rotated passwords. Enforcement includes removing the requirement for special characters and numbers, with time-based password rotation policies. Instead, consider the following options:
 
 * **Password protection** to enforce a common list of weak passwords that Microsoft maintains
   * In addition, include custom banned passwords
