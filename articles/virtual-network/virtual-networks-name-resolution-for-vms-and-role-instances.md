@@ -2,12 +2,10 @@
 title: Name resolution for resources in Azure virtual networks
 titlesuffix: Azure Virtual Network
 description: Name resolution scenarios for Azure IaaS, hybrid solutions, between different cloud services, Active Directory, and using your own DNS server.
-services: virtual-network
-author: greg-lindsay
-ms.service: dns
+author: asudbring
+ms.service: virtual-network
 ms.topic: how-to
-ms.workload: infrastructure-services
-ms.date: 09/22/2022
+ms.date: 04/27/2023
 ms.author: allensu
 ms.custom: fasttrack-edit
 ---
@@ -19,8 +17,11 @@ Depending on how you use Azure to host IaaS, PaaS, and hybrid solutions, you mig
 When resources deployed in virtual networks need to resolve domain names to internal IP addresses, they can use one of four methods:
 
 * [Azure DNS private zones](../dns/private-dns-overview.md)
+
 * [Azure-provided name resolution](#azure-provided-name-resolution)
+
 * [Name resolution that uses your own DNS server](#name-resolution-that-uses-your-own-dns-server) (which might forward queries to the Azure-provided DNS servers)
+
 * [Azure DNS Private Resolver](../dns/dns-private-resolver-overview.md)
 
 The type of name resolution you use depends on how your resources need to communicate with each other. The following table illustrates scenarios and corresponding name resolution solutions:
@@ -57,24 +58,39 @@ Along with resolution of public DNS names, Azure provides internal name resoluti
 ### Features
 
 Azure-provided name resolution includes the following features:
+
 * Ease of use. No configuration is required.
+
 * High availability. You don't need to create and manage clusters of your own DNS servers.
+
 * You can use the service in conjunction with your own DNS servers, to resolve both on-premises and Azure host names.
+
 * You can use name resolution between VMs and role instances within the same cloud service, without the need for an FQDN.
+
 * You can use name resolution between VMs in virtual networks that use the Azure Resource Manager deployment model, without need for an FQDN. Virtual networks in the classic deployment model require an FQDN when you're resolving names in different cloud services.
+
 * You can use host names that best describe your deployments, rather than working with auto-generated names.
 
 ### Considerations
 
 Points to consider when you're using Azure-provided name resolution:
+
 * The Azure-created DNS suffix can't be modified.
+
 * DNS lookup is scoped to a virtual network. DNS names created for one virtual network can't be resolved from other virtual networks.
+
 * You can't manually register your own records.
+
 * WINS and NetBIOS are not supported. You can't see your VMs in Windows Explorer.
+
 * Host names must be DNS-compatible. Names must use only 0-9, a-z, and '-', and can't start or end with a '-'.
+
 * DNS query traffic is throttled for each VM. Throttling shouldn't impact most applications. If request throttling is observed, ensure that client-side caching is enabled. For more information, see [DNS client configuration](#dns-client-configuration).
+
 * Use a different name for each virtual machine in a virtual network to avoid DNS resolution issues.
+
 * Only VMs in the first 180 cloud services are registered for each virtual network in a classic deployment model. This limit does not apply to virtual networks in Azure Resource Manager.
+
 * The Azure DNS IP address is 168.63.129.16. This is a static IP address and won't change.
 
 ### Reverse DNS Considerations
@@ -129,24 +145,80 @@ The default Windows DNS client has a DNS cache built-in. Some Linux distribution
 
 There are many different DNS caching packages available (such as dnsmasq). Here's how to install dnsmasq on the most common distributions:
 
-* **Ubuntu (uses resolvconf)**:
-  * Install the dnsmasq package with `sudo apt-get install dnsmasq`.
-* **SUSE (uses netconf)**:
-  * Install the dnsmasq package with `sudo zypper install dnsmasq`.
-  * Enable the dnsmasq service with `systemctl enable dnsmasq.service`.
-  * Start the dnsmasq service with `systemctl start dnsmasq.service`.
-  * Edit **/etc/sysconfig/network/config**, and change *NETCONFIG_DNS_FORWARDER=""* to *dnsmasq*.
-  * Update resolv.conf with `netconfig update`, to set the cache as the local DNS resolver.
-* **CentOS (uses NetworkManager)**:
-  * Install the dnsmasq package with `sudo yum install dnsmasq`.
-  * Enable the dnsmasq service with `systemctl enable dnsmasq.service`.
-  * Start the dnsmasq service with `systemctl start dnsmasq.service`.
-  * Add *prepend domain-name-servers 127.0.0.1;* to **/etc/dhclient-eth0.conf**.
-  * Restart the network service with `service network restart`, to set the cache as the local DNS resolver.
+# [RHEL, CentOS](#tab/redhat)
+
+**RHEL/CentOS (uses NetworkManager)**:
+  
+1. Install the dnsmasq package with the following command:
+
+```bash
+sudo yum install dnsmasq
+```
+  
+1. Enable the dnsmasq service with the following command: 
+
+```bash
+systemctl enable dnsmasq.service
+```
+
+1. Start the dnsmasq service with the following command:
+
+```bash
+systemctl start dnsmasq.service
+```
+
+1. Use a text editor to add **`prepend domain-name-servers 127.0.0.1;`**  to **/etc/dhclient-eth0.conf**:
+
+1. Use the following command to restart the network service:
+
+```bash
+service network restart
+```
+
+# [openSUSE, SLES](#tab/suse) 
+
+**openSUSE/SLES (uses netconf)**:
+  
+1. Install the dnsmasq package with the following command:
+
+```bash
+sudo zypper install dnsmasq
+```
+
+1. Enable the dnsmasq service with the following command:
+
+```bash
+systemctl enable dnsmasq.service
+```
+
+1. Start the dnsmasq service with the following command:
+
+```bash
+systemctl start dnsmasq.service
+```
+
+1. Use a text editor to edit **/etc/sysconfig/network/config**. Change **`NETCONFIG_DNS_FORWARDER=""`** to **dnsmasq**.
+
+1. Use the following command to update **resolv.conf** to set the cache as the local DNS resolver:
+
+```bash
+netconfig update
+```
+
+# [Ubuntu, Debian](#tab/ubuntu)
+
+* **Ubuntu/Debian (uses resolvconf)**:
+  
+1. Use the following command to install the dnsmasq package:
+
+```bash
+sudo apt-get install dnsmasq
+```
+
+---
 
 > [!NOTE]
 > The dnsmasq package is only one of many DNS caches available for Linux. Before using it, check its suitability for your particular needs, and check that no other cache is installed.
-
 
 ### Client-side retries
 
@@ -163,22 +235,50 @@ options timeout:1 attempts:5
 
 The resolv.conf file is usually auto-generated, and should not be edited. The specific steps for adding the *options* line vary by distribution:
 
-* **Ubuntu** (uses resolvconf):
-  1. Add the *options* line to **/etc/resolvconf/resolv.conf.d/tail**.
-  2. Run `resolvconf -u` to update.
-* **SUSE** (uses netconf):
-  1. Add *timeout:1 attempts:5* to the **NETCONFIG_DNS_RESOLVER_OPTIONS=""** parameter in **/etc/sysconfig/network/config**.
-  2. Run `netconfig update` to update.
-* **CentOS** (uses NetworkManager):
-  1. Add the line *RES_OPTIONS="options timeout:1 attempts:5"* to the file **/etc/sysconfig/network-scripts/ifcfg-eth0**.
-  2. Update with `systemctl restart NetworkManager.service`.
+# [RHEL, CentOS](#tab/redhat)
+
+**RHEL/CentOS (uses NetworkManager)**:
+
+1. Use a text editor to add the line **`RES_OPTIONS="options timeout:1 attempts:5"`** to the file **/etc/sysconfig/network-scripts/ifcfg-eth0**.
+
+1. Use the following command to restart the NetworkManager service:
+
+```bash
+systemctl restart NetworkManager.service
+```
+
+# [openSUSE, SLES](#tab/suse) 
+
+**openSUSE/SLES (uses netconf)**:
+
+1. Use a text editor to add `**timeout:1 attempts:5**` to the **`NETCONFIG_DNS_RESOLVER_OPTIONS=""`** parameter in **/etc/sysconfig/network/config**.
+
+1. Use the following command to update the netconfig:
+
+```bash
+netconfig update
+```
+
+# [Ubuntu, Debian](#tab/ubuntu)
+
+* **Ubuntu/Debian (uses resolvconf)**:
+
+1. Use a text editor to add the **`options`** line to **/etc/resolvconf/resolv.conf.d/tail**.
+
+1. Use the following command to update the resolvconf:
+
+```bash
+resolvconf -u
+```
+
+---
 
 ## Name resolution that uses your own DNS server
 
 This section covers VMs, role instances, and web apps.
 
 > [!NOTE]
-> [Azure DNS Private Resolver](../dns/dns-private-resolver-overview.md) replaces the need to use VM-based DNS servers in a virtual network.  The following section is provided if you wish to use a VM-based DNS solution, however there are many benefits to using Azure DNS Private Resolver, including cost reduction, built-in high availability, scalability, and flexibility. 
+> [Azure DNS Private Resolver](../dns/dns-private-resolver-overview.md) replaces the need to use VM-based DNS servers in a virtual network. The following section is provided if you wish to use a VM-based DNS solution, however there are many benefits to using Azure DNS Private Resolver, including cost reduction, built-in high availability, scalability, and flexibility. 
 
 ### VMs and role instances
 
@@ -202,6 +302,7 @@ When you're using Azure-provided name resolution, Azure Dynamic Host Configurati
 If necessary, you can determine the internal DNS suffix by using PowerShell or the API:
 
 * For virtual networks in Azure Resource Manager deployment models, the suffix is available via the [network interface REST API](/rest/api/virtualnetwork/networkinterfaces), the [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) PowerShell cmdlet, and the [az network nic show](/cli/azure/network/nic#az-network-nic-show) Azure CLI command.
+
 * In classic deployment models, the suffix is available via the [Get Deployment API](/previous-versions/azure/reference/ee460804(v=azure.100)) call or the [Get-AzureVM -Debug](/powershell/module/servicemanagement/azure.service/get-azurevm) cmdlet.
 
 If forwarding queries to Azure doesn't suit your needs, provide your own DNS solution or deploy an [Azure DNS Private Resolver](../dns/dns-private-resolver-overview.md). 
@@ -209,8 +310,11 @@ If forwarding queries to Azure doesn't suit your needs, provide your own DNS sol
 If you provide your own DNS solution, it needs to:
 
 * Provide appropriate host name resolution, via [DDNS](virtual-networks-name-resolution-ddns.md), for example. If you're using DDNS, you might need to disable DNS record scavenging. Azure DHCP leases are long, and scavenging might remove DNS records prematurely.
+
 * Provide appropriate recursive resolution to allow resolution of external domain names.
+
 * Be accessible (TCP and UDP on port 53) from the clients it serves, and be able to access the internet.
+
 * Be secured against access from the internet, to mitigate threats posed by external agents.
 
 > [!NOTE]
@@ -220,8 +324,10 @@ If you provide your own DNS solution, it needs to:
 ### Web apps
 
 Suppose you need to perform name resolution from your web app built by using App Service, linked to a virtual network, to VMs in the same virtual network. In addition to setting up a custom DNS server that has a DNS forwarder that forwards queries to Azure (virtual IP 168.63.129.16), perform the following steps:
+
 1. Enable virtual network integration for your web app, if not done already, as described in [Integrate your app with a virtual network](../app-service/overview-vnet-integration.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-2. In the Azure portal, for the App Service plan hosting the web app, select **Sync Network** under **Networking**, **Virtual Network Integration**.
+
+1. In the Azure portal, for the App Service plan hosting the web app, select **Sync Network** under **Networking**, **Virtual Network Integration**.
 
     ![Screenshot of virtual network name resolution](./media/virtual-networks-name-resolution-for-vms-and-role-instances/webapps-dns.png)
 
@@ -230,9 +336,13 @@ If you need to perform name resolution from your vnet-linked web app (built by u
 To use custom DNS servers:
 
 * Set up a DNS server in your target virtual network, on a VM that can also forward queries to the recursive resolver in Azure (virtual IP 168.63.129.16). An example DNS forwarder is available in the [Azure Quickstart Templates gallery](https://azure.microsoft.com/resources/templates/dns-forwarder/) and [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/dns-forwarder).
+
 * Set up a DNS forwarder in the source virtual network on a VM. Configure this DNS forwarder to forward queries to the DNS server in your target virtual network.
+
 * Configure your source DNS server in your source virtual network's settings.
+
 * Enable virtual network integration for your web app to link to the source virtual network, following the instructions in [Integrate your app with a virtual network](../app-service/overview-vnet-integration.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
 * In the Azure portal, for the App Service plan hosting the web app, select **Sync Network** under **Networking**, **Virtual Network Integration**.
 
 To use an Azure DNS Private Resolver, see [Ruleset links](../dns/private-resolver-endpoints-rulesets.md#ruleset-links).
@@ -259,10 +369,13 @@ When you're using the classic deployment model, you can specify DNS servers for 
 Azure Resource Manager deployment model:
 
 * [Manage a virtual network](manage-virtual-network.md)
+
 * [Manage a network interface](virtual-network-network-interface.md)
 
 Classic deployment model:
 
 * [Azure Service Configuration Schema](/previous-versions/azure/reference/ee758710(v=azure.100))
+
 * [Virtual Network Configuration Schema](/previous-versions/azure/reference/jj157100(v=azure.100))
+
 * [Configure a Virtual Network by using a network configuration file](/previous-versions/azure/virtual-network/virtual-networks-using-network-configuration-file)
