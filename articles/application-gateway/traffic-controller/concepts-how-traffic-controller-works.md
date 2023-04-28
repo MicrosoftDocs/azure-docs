@@ -17,7 +17,7 @@ ms.author: greglin
 Traffic Controller is made up of three components:
 - Traffic Controller
 - Frontends
-- Asscoations
+- Associations
 
 The following dependencies are also referenced in a Traffic Controller deployment
 - Public IP address
@@ -37,7 +37,7 @@ The following dependencies are also referenced in a Traffic Controller deploymen
 
 ### Traffic Controller Frontends
 - A Traffic Controller Frontend defines the IP address that traffic should be received by a given Traffic Controller
-   - A given frontend cannot be associated to multiple Traffic Controllers
+   - A given frontend can't be associated to multiple Traffic Controllers
    - The frontend resource region should match the same region as the parent
    - For Frontends mapped to public IPs, all Public IPs across all frontends in one Traffic Controller must have the same home region as the traffic controller.
 - Each frontend maps to a single public IP address
@@ -51,7 +51,7 @@ The following dependencies are also referenced in a Traffic Controller deploymen
 - During creation of an association, the underlying data plane is provisioned and connected to a subnet within the defined virtual network's subnet
 - Each association should assume at least 256 addresses are available in the subnet at time of provisioning.
    - A minimum /24 subnet mask for new deployment, assuming nothing has been provisioning in the subnet).
-      - If n number of Traffic Controllers are provisioned, with the assumption each Traffic Controller contains 1 association, and the desired is to share the same subnet, the available required addresses should be n*256.
+      - If n number of Traffic Controllers are provisioned, with the assumption each Traffic Controller contains one association, and the desired is to share the same subnet, the available required addresses should be n*256.
    - All traffic controller association resources should match the same region as the Traffic Controller parent resource
 
 ## Azure / General concepts
@@ -60,11 +60,11 @@ The following dependencies are also referenced in a Traffic Controller deploymen
 - An IP address that is exposed to the internet.
 
 ### Private IP address
-- A private IP address is not explicitly defined as an Azure Resource Manager resource.  A private IP address would refer to a specific host address within a given virtual network's subnet.
+- A private IP address isn't explicitly defined as an Azure Resource Manager resource.  A private IP address would refer to a specific host address within a given virtual network's subnet.
 
 ### Subnet Delegation
 - Microsoft.ServiceNetworking/trafficControllers is the namespace adopted by Traffic Controller and may be delegated to a virtual network's subnet.
-- When delegation occurs, provisioning of traffic controller resources does not happen, nor is there an exclusive mapping to a Traffic controller association resource.
+- When delegation occurs, provisioning of traffic controller resources doesn't happen, nor is there an exclusive mapping to a Traffic controller association resource.
 - Any number of subnets can have a subnet delegation that is the same or different to Traffic Controller.  Once defined, no other resources, other than the defined service, can be provisioned into the subnet unless explicitly defined by the service's implementation.
 
 ### User-assigned Managed Identity
@@ -75,13 +75,13 @@ The following dependencies are also referenced in a Traffic Controller deploymen
 ## How Traffic Controller accepts a request
 Each Traffic Controller frontend provides a generated Fully Qualified Domain Name managed by Azure.  The FQDN may be used as-is or customers may opt to mask the FQDN with a CNAME record.
 
-Before a client sends a request to Traffic Controller, the client resolves a CNAME is define, which will resolve to the frontend's FQDN; or the client may directly resolve the FQDN provided by Traffic Controller by using a Domain Name System (DNS) server.
+Before a client sends a request to Traffic Controller, the client resolves a CNAME that points to the frontend's FQDN; or the client may directly resolve the FQDN provided by Traffic Controller by using a DNS server.
 
 The DNS resolver translates the DNS record to an IP address.
 
-When the client initiates the request, the DNS name specified will be passed as a host header to Traffic Controller on the defined frontend.
+When the client initiates the request, the DNS name specified is passed as a host header to Traffic Controller on the defined frontend.
 
-A set of rules, defined by the Traffic Controller adminsitrator, will evaluate how the request for that hostname shold be intiated to a defined backend resource.
+A set of rules, defined by the Traffic Controller administrator, evaluates how the request for that hostname should be initiated to a defined backend resource.
 
 ## How Traffic Controller routes a request
 
@@ -91,6 +91,6 @@ Traffic Controller inserts two additional headers to all requests before request
 - x-forwarded-proto
 - x-request-id
 
-x-forwarded-proto will return the protocol received by Traffic Controller from the client.  The value will be either http or https.
+x-forwarded-proto returns the protocol received by Traffic Controller from the client.  The value is either http or https.
 X-request-id is a unique guid generated by Traffic Controller for each client request and presented in the forwarded request to the backend target. The guid consists of 32 alphanumeric characters, separated by dashes (for example: d23387ab-e629-458a-9c93-6108d374bc75). This guid can be used to correlate a request received by Traffic Controller and initiated to a backend target as defined in access logs.
 

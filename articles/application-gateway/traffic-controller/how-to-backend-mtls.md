@@ -14,13 +14,13 @@ ms.author: greglin
 
 # Backend MTLS with Traffic Controller
 
-This document will help setup an example application that leverage the following resources from Gateway API:
+This document helps set up an example application that uses the following resources from Gateway API:
 - [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) - creating a gateway with one https listener
-- [HTTPRoute](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/httproute/) - creating a http route that references a backend service
+- [HTTPRoute](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/httproute/) - creating an HTTP route that references a backend service
 - [BackendTLSPolicy](api-specification-kubernetes.md#backendtlspolicy) - creating a backend tls policy that has a client and CA certificate for the backend service referenced in the HTTPRoute
 
 ## Prerequisites
-Ensure you have a setup your Traffic Controller and ALB Controller following the [Quickstart guide](quickstart-create-traffic-controller.md).
+Ensure you have set up your Traffic Controller and ALB Controller following the [Quickstart guide](quickstart-create-traffic-controller.md).
 
 Set the following environment variables
 ```bash
@@ -40,7 +40,7 @@ Apply the following deployment.yaml file on your cluster:
 kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/https-scenario/end-to-end-ssl-with-backend-mtls/deployment.yaml
 ```
 
-This will create the following on your cluster:
+This creates the following on your cluster:
 - a namespace called `test-infra`
 - 1 services called `mtls-app` in the `test-infra` namespace
 - 1 deployments called `mtls-app` in the `test-infra` namespace
@@ -80,7 +80,7 @@ This will create the following on your cluster:
 
     Once the gateway object has been created check the status on the object to ensure that the gateway is valid and the listener is ready. Verify that the address assigned to the gateway is the resource ID of your public IP Address
 
-2. Create a HTTPRoute
+2. Create an HTTPRoute
     ```bash
     kubectl apply -f - <<EOF
     apiVersion: gateway.networking.k8s.io/v1beta1

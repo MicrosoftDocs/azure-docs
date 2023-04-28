@@ -22,7 +22,7 @@ sections:
   - name: Performance
     questions:
       - question: How does Traffic Controller support high availability and scalability?
-        answer: Traffic Controller automatically ensures underlying components are spread across availability zones for increased resiliency, if the Azure region supports it.  If the region does not support zones, fault domains and update domains be used to help mitigate impact during planned maintainence and unexpected failures.
+        answer: Traffic Controller automatically ensures underlying components are spread across availability zones for increased resiliency, if the Azure region supports it.  If the region doesn't support zones, fault domains and update domains be used to help mitigate impact during planned maintainence and unexpected failures.
           
   - name: Configuration - TLS
     questions:

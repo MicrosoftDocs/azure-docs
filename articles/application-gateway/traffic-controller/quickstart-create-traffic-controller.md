@@ -18,7 +18,7 @@ This document provides instructions on how to deploy the 3 types of resources (T
 
 ## Prerequisites
 
-You will need to need to complete the following tasks prior to deploying Traffic Controller on Azure and installing ALB Controller on your cluster:
+You need to complete the following tasks prior to deploying Traffic Controller on Azure and installing ALB Controller on your cluster:
 
 1. Prepare your Azure subscription and your `az-cli` client.
 
@@ -46,7 +46,7 @@ You will need to need to complete the following tasks prior to deploying Traffic
 
 	> **Note**
 	>
-	> The AKS cluster will need to be in the following regions where Traffic Controller is available for Private Preview.
+	> The AKS cluster needs to be in the following regions where Traffic Controller is available for Private Preview.
 	>
 	> - North Central US
 	> - North Europe
@@ -104,11 +104,11 @@ You will need to need to complete the following tasks prior to deploying Traffic
 
 4. Install Helm.
 
-	[Helm](https://github.com/helm/helm) is an open-source packaging tool that will be leveraged to install ALB controller. Ensure that you have the latest version of helm installed. Instructions on installation can be found [here](https://github.com/helm/helm#install).
+	[Helm](https://github.com/helm/helm) is an open-source packaging tool that is used to install ALB controller. Ensure that you have the latest version of helm installed. Instructions on installation can be found [here](https://github.com/helm/helm#install).
 
 ## Deploy Traffic Controller
 
-1. The following command deploy Traffic Controller (along with the Association and Frontend resources) using an [ARM template](./templates/traffic-controller.template.json).
+1. The following commands deploy Traffic Controller (along with the Association and Frontend resources) using an [ARM template](./templates/traffic-controller.template.json).
 
 	```bash
 	TRAFFIC_CONTROLLER_NAME='traffic-controller'
@@ -180,7 +180,7 @@ You will need to need to complete the following tasks prior to deploying Traffic
     ```bash
     kubectl get gatewayclass azure-application-lb -o yaml
     ```
-    You should see that the GatewayClass has a condition that reads **Valid GatewayClass** . This indicates that a default GatewayClass has been setup and that any gateway objects that reference this GatewayClass will be managed by ALB Controller automatically.
+    You should see that the GatewayClass has a condition that reads **Valid GatewayClass** . This indicates that a default GatewayClass has been set up and that any gateway objects that reference this GatewayClass is managed by ALB Controller automatically.
 
     You should also see that the gateway class has a parameterRef section that links this gateway class to an ApplicationLbParam of name `default`
 
@@ -191,7 +191,7 @@ You will need to need to complete the following tasks prior to deploying Traffic
 
 ## Link your ALB Controller to Traffic Controller
 
-Now that you have successfully installed a ALB Controller on your cluster you can link it to an existing Traffic Controller by leveraging the GatewayClass and ApplicationLbParam on the cluster.
+Now that you have successfully installed an ALB Controller on your cluster, you can link it to an existing Traffic Controller by leveraging the GatewayClass and ApplicationLbParam on the cluster.
 
 Update the ApplicationLbParam to contain the resource ID of the traffic controller you wish to associate with your ALB Controller.
 
@@ -216,7 +216,7 @@ EOF
 
 ## Test it out!
 
-Congratulations, you have installed ALB Controller on you cluster!
+Congratulations, you have installed ALB Controller on your cluster!
 
 ## Uninstall Traffic Controller and ALB Controller
 
