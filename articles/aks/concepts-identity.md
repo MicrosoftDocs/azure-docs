@@ -2,7 +2,7 @@
 title: Concepts - Access and identity in Azure Kubernetes Services (AKS)
 description: Learn about access and identity in Azure Kubernetes Service (AKS), including Azure Active Directory integration, Kubernetes role-based access control (Kubernetes RBAC), and roles and bindings.
 ms.topic: conceptual
-ms.date: 09/27/2022
+ms.date: 04/28/2023
 author: palma21
 ms.author: jpalma
 
@@ -97,8 +97,6 @@ There are two levels of access needed to fully operate an AKS cluster:
 
 With Azure RBAC, you can provide your users (or identities) with granular access to AKS resources across one or more subscriptions. For example, you could use the [Azure Kubernetes Service Contributor role](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-contributor-role) to scale and upgrade your cluster. Meanwhile, another user with the [Azure Kubernetes Service Cluster Admin role](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-admin-role) only has permission to pull the Admin `kubeconfig`.
 
-Alternatively, you could give your user the general [Contributor](../role-based-access-control/built-in-roles.md#contributor) role. With the general Contributor role, users can perform the above permissions and every action possible on the AKS resource, except managing permissions.
-
 [Use Azure RBAC to define access to the Kubernetes configuration file in AKS](control-kubeconfig-access.md).
 
 ### Azure RBAC for Kubernetes Authorization
@@ -162,7 +160,7 @@ As shown in the graphic above, the API server calls the AKS webhook server and p
 10. Once authorized, the API server returns a response to `kubectl`.
 11. `kubectl` provides feedback to the user.
 
-Learn how to integrate AKS with Azure AD with our [AKS-managed Azure AD integration how-to guide](managed-aad.md).
+Learn how to integrate AKS with Azure AD with our [AKS-managed Azure AD integration how-to guide](managed-azure-ad.md).
 
 ## AKS service permissions
 
@@ -282,7 +280,7 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [openid-connect]: ../active-directory/develop/v2-protocols-oidc.md
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [azure-rbac]: ../role-based-access-control/overview.md
-[aks-aad]: managed-aad.md
+[aks-aad]: managed-azure-ad.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-security]: concepts-security.md
 [aks-concepts-scale]: concepts-scale.md

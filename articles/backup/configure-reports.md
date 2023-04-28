@@ -54,7 +54,7 @@ Azure Resource Manager resources, such as Recovery Services vaults, record infor
 
 In the monitoring section of your Recovery Services vault, select **Diagnostics settings** and specify the target for the Recovery Services vault's diagnostic data. To learn more about using diagnostic events, see [Use diagnostics settings for Recovery Services vaults](./backup-azure-diagnostic-events.md).
 
-
+:::image type="content" source="./media/backup-azure-configure-backup-reports/recovery-services-vault-diagnostics-settings-inline.png" alt-text="Screenshot of the recovery services vault diagnostics settings." lightbox="./media/backup-azure-configure-backup-reports/recovery-services-vault-diagnostics-settings-expanded.png":::
 
 Azure Backup also provides a built-in Azure Policy definition, which automates the configuration of diagnostics settings for all Recovery Services vaults in a given scope. To learn how to use this policy, see [Configure vault diagnostics settings at scale](./azure-policy-configure-diagnostics.md).
 
@@ -62,7 +62,7 @@ Azure Backup also provides a built-in Azure Policy definition, which automates t
 
 In the monitoring section of your Backup vault, select **Diagnostics settings** and specify the target for the Backup vault's diagnostic data.
 
-
+:::image type="content" source="./media/backup-azure-configure-backup-reports/backup-vault-diagnostics-settings.png" alt-text="Screenshot shows the backup vault diagnostics settings.":::   
 
 ---
 
@@ -73,7 +73,7 @@ In the monitoring section of your Backup vault, select **Diagnostics settings** 
 
 After you've configured your vaults to send data to Log Analytics, view your Backup reports by going to the Backup center and selecting **Backup Reports**. Select the relevant workspace(s) on the **Get started** tab.
 
-
+:::image type="content" source="./media/backup-azure-configure-backup-reports/backup-reports-entry-inline.png" alt-text="Screenshot of backup reports entry." lightbox="./media/backup-azure-configure-backup-reports/backup-reports-entry-expanded.png":::
 
 The report contains various tabs:
 
@@ -81,7 +81,7 @@ The report contains various tabs:
 
 Use this tab to get a high-level overview of your backup estate. You can get a quick glance of the total number of backup items, total cloud storage consumed, the number of protected instances, and the job success rate per workload type. For more detailed information about a specific backup artifact type, go to the respective tabs.
 
-   
+:::image type="content" source="./media/backup-azure-configure-backup-reports/backup-reports-summary-tab-inline.png" alt-text="Screenshot of backup reports summary tab." lightbox="./media/backup-azure-configure-backup-reports/backup-reports-summary-tab-expanded.png":::
 
 ##### Backup Items
 

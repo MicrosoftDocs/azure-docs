@@ -24,16 +24,18 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Configure to identity standards
-            url: standards-overview.md
           - text: NIST AAL overview
             url: nist-overview.md
           - text: FedRAMP High impact overview
             url: configure-azure-active-directory-for-fedramp-high-impact.md
+          - text: Configure Azure Active Directory for Memorandum 22-09 requirements
+            url: memo-22-09-meet-identity-requirements.md
           - text: Configure Azure Active Directory for CMMC compliance
             url: configure-azure-active-directory-for-cmmc-compliance.md
           - text: Configure Azure Active Directory for HIPAA compliance
             url: hipaa-configure-azure-active-directory-for-compliance.md
+          - text: Configure Azure Active Directory for PCI-DSS compliance
+            url: azure-ad-pci-dss-guidance.md
 
   # Card 
   - title: Understand NIST AALs
@@ -113,3 +115,26 @@ landingContent:
           - text: Configure other safeguards
             url: hipaa-other-controls.md
             
+  # Card
+  - title: Achieve PCI-DSS compliance
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Meet PCI-DSS Requirement 1
+            url: pci-requirement-1.md
+          - text: Meet PCI-DSS Requirement 2
+            url: pci-requirement-2.md
+          - text: Meet PCI-DSS Requirement 5
+            url: pci-requirement-5.md  
+          - text: Meet PCI-DSS Requirement 6
+            url: pci-requirement-6.md
+          - text: Meet PCI-DSS Requirement 7
+            url: pci-requirement-7.md
+          - text: Meet PCI-DSS Requirement 8
+            url: pci-requirement-8.md 
+          - text: Meet PCI-DSS Requirement 10
+            url: pci-requirement-10.md
+          - text: Meet PCI-DSS Requirement 11
+            url: pci-requirement-11.md
+          - text: Meet Azure Active Directory PCI-DSS MFA supplemental requirements
+            url: azure-ad-pci-dss-mfa.md
