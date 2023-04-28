@@ -511,7 +511,7 @@ If a deployment was created and the failure occurred during deployment, you can 
 Get-AzResourceGroupDeployment -Id $stack.DeploymentId
 ```
 
-You can get more information from the [deployment operations](../templates/deployment-history.md#get-deployment-operations-and-error-message) as needed.
+You can get more information from the [deployment operations](../templates/deployment-history.md#deployment-operations-and-error-message) as needed.
 
 ## Next steps
 

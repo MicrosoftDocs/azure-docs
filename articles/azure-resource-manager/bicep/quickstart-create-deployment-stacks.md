@@ -97,7 +97,7 @@ Save both bicep file in the same folder.
 
 ## Create a deployment stack
 
-In this quickstart, you'll create the deployment stack at the subscription scope.  You can also create the deployment stack at the resource group scope or the management group scope.  For more information, see [Create deployment stacks](./deployment-stacks.md#create-deployment-stack).
+In this quickstart, you'll create the deployment stack at the subscription scope.  You can also create the deployment stack at the resource group scope or the management group scope.  For more information, see [Create deployment stacks](./deployment-stacks.md#create-deployment-stacks).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -254,4 +254,4 @@ For more information, see [Delete deployment stacks](./deployment-stacks.md#dele
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Deployment stacks](./deployment-stacks.md.md)
+> [Deployment stacks](./deployment-stacks.md)
