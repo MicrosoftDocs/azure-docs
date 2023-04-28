@@ -57,7 +57,7 @@ If you have an existing self-signed certificate in Azure Key Vault, and you want
     openssl pkcs12 -in ciam-client-app-cert.pfx -nocerts -out ciam-client-app-cert.key
     ```
     
-    The *ciam-client-app-cert.key* is what you use in your app.
+    The *ciam-client-app-cert.key* file is what you use in your app.
     
 
 # [Windows PowerShell](#tab/windows-powershell)
@@ -69,7 +69,7 @@ If you have an existing self-signed certificate in Azure Key Vault, and you want
     ```console
     openssl pkcs12 -in ciam-client-app-cert.pfx -nocerts -out ciam-client-app-cert.key
     ```
-After you complete these steps, you should have a *.cer* format file and the *.key* format file, such as *ciam-client-app-cert.key* and *ciam-client-app-cert.cer*. The *.key* is what you use in your app. The *.cer* file is what you upload to your Microsoft Entra admin center. 
+After you complete these steps, you should have a *.cer* format file and the *.key* format file, such as *ciam-client-app-cert.key* and *ciam-client-app-cert.cer*. The *.key* file is what you use in your app. The *.cer* file is what you upload to your Microsoft Entra admin center. 
 
 
 
@@ -81,7 +81,7 @@ In your terminal, run the following command. When prompted to type in your pass 
 openssl req -x509 -newkey rsa:2048 -keyout ciam-client-app-cert.key -out ciam-client-app-cert.crt -subj "/CN=ciamclientappcert.com"
 ``` 
 
-After the command finishes execution, you should have a *.crt* and a *.key* files, such as *ciam-client-app-cert.key* and *ciam-client-app-cert.crt*. The *.key* is what you use in your app. The *.cer* file is what you upload to your Microsoft Entra admin center. 
+After the command finishes execution, you should have a *.crt* and a *.key* files, such as *ciam-client-app-cert.key* and *ciam-client-app-cert.crt*. The *.key* file is what you use in your app. The *.cer* file is what you upload to your Microsoft Entra admin center. 
 
 --- 
 
