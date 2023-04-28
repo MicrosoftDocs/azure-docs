@@ -42,7 +42,7 @@ When needed, you can also create a self-signed certificate programmatically by u
 
 If you have an existing self-signed certificate in your local computer, you can skip this step, then proceed to [Upload certificate to your app registration](#upload-certificate-to-your-app-registration).
 
-# [Azure Key Vault - Portal](#tab/azure-key-vault)
+# [Azure Key Vault - via Azure Portal](#tab/azure-key-vault)
 You can use [Azure Key Vault](/azure/key-vault/certificates/quick-create-portal) to generate a self-signed certificate for your app. By using Azure Key Vault, you enjoy benefits, such as, assigning a partner Certificate Authority (CA) and automating certificate rotation.
 
 If you have an existing self-signed certificate in Azure Key Vault, and you want to use it without downloading it, skip this step, then proceed to [Use a self-signed certificate directly from Azure Key Vault](#use-a-self-signed-certificate-directly-from-azure-key-vault). Otherwise, use the following steps to generate your certificate 
