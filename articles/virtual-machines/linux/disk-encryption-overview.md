@@ -60,8 +60,6 @@ Azure Disk Encryption is supported on a subset of the [Azure-endorsed Linux dist
 
 Linux server distributions that are not endorsed by Azure do not support Azure Disk Encryption; of those that are endorsed, only the following distributions and versions support Azure Disk Encryption:
 
-
-
 | Publisher | Offer | SKU | URN | Volume type supported for encryption |
 | --- | --- |--- | --- |
 | Canonical | Ubuntu | 22.04-LTS | Canonical:0001-com-ubuntu-server-focal:22_04-lts:latest | OS and data disk |
