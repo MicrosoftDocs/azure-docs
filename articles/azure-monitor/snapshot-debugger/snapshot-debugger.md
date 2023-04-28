@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights Snapshot Debugger for .NET apps
+title: Application Insights Snapshot Debugger for .NET apps
 description: Debug snapshots are automatically collected when exceptions are thrown in production .NET apps.
 ms.author: hannahhunter
 author: hhunter-ms
@@ -14,7 +14,7 @@ ms.date: 04/14/2023
 
 When an exception occurs, you can automatically collect a debug snapshot from your live web application. The debug snapshot shows the state of source code and variables at the moment the exception was thrown.
 
-The Snapshot Debugger in [Azure Application Insights](../app/app-insights-overview.md):
+The Snapshot Debugger in [Application Insights](../app/app-insights-overview.md):
 
 - Monitors system-generated logs from your web app.
 - Collects snapshots on your top-throwing exceptions.
@@ -40,7 +40,7 @@ The main process continues to run and serve traffic to users with little interru
 
 Snapshot creation tips:
  * A process snapshot is a suspended clone of the running process.
- * Creating the snapshot takes about 10 to 20 milliseconds.
+ * Creating the snapshot takes about 10 milliseconds to 20 milliseconds.
  * The default value for `ThresholdForSnapshotting` is 1. This value is also the minimum. Your app has to trigger the same exception *twice* before a snapshot is created.
  * Set `IsEnabledInDeveloperMode` to `true` if you want to generate snapshots while you debug in Visual Studio.
  * The snapshot creation rate is limited by the `SnapshotsPerTenMinutesLimit` setting. By default, the limit is one snapshot every 10 minutes.
@@ -80,7 +80,7 @@ If you enabled the Snapshot Debugger but you aren't seeing snapshots, see the [T
 
 Access to snapshots is protected by Azure role-based access control. To inspect a snapshot, you must first be added to the [Application Insights Snapshot Debugger](../../role-based-access-control/role-assignments-portal.md) role. Subscription owners can assign this role to individual users or groups for the target **Application Insights Snapshot**.
 
-For more information, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.md).  
+For more information, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 > [!IMPORTANT]
 > Snapshots might contain personal data or other sensitive information in variable and parameter values. Snapshot data is stored in the same region as your Application Insights resource.
@@ -111,10 +111,10 @@ For more information on the different symbol options that are available, see the
 
 In some cases, local variables can't be viewed in release builds because of optimizations that are applied by the JIT compiler.
 
-However, in App Service, the Snapshot Collector can de-optimize throwing methods that are part of its Collection Plan.
+However, in App Service, the Snapshot Collector can deoptimize throwing methods that are part of its Collection Plan.
 
 > [!TIP]
-> Install the Application Insights Site extension in your instance of App Service to get de-optimization support.
+> Install the Application Insights Site extension in your instance of App Service to get deoptimization support.
 
 ## Release notes for Microsoft.ApplicationInsights.SnapshotCollector
 
@@ -130,7 +130,7 @@ For bug reports and feedback, [open an issue on GitHub](https://github.com/micro
 A point release to address user-reported bugs.
 
 #### Bug fixes
-- Fixed [Exception during native component extraction when using a single file application.](https://github.com/microsoft/ApplicationInsights-SnapshotCollector/issues/21)
+Fixed [Exception during native component extraction when using a single file application.](https://github.com/microsoft/ApplicationInsights-SnapshotCollector/issues/21)
 
 #### Changes
 - Lowered PDB scan failure messages from Error to Warning.
@@ -164,14 +164,14 @@ Addressed multiple improvements and added support for Azure Active Directory (Az
 - Reduced Snapshot Collector package size by 60% from 10.34 MB to 4.11 MB.
 - Targeted netstandard2.0 only in Snapshot Collector.
 - Bumped Application Insights SDK dependency to 2.15.0.
-- Add back `MinidumpWithThreadInfo` when writing dumps.
+- Added back `MinidumpWithThreadInfo` when writing dumps.
 - Added `CompatibilityVersion` to improve synchronization between the Snapshot Collector agent and the Snapshot Uploader on breaking changes.
 - Changed `SnapshotUploader` LogFile naming algorithm to avoid excessive file I/O in App Service.
 - Added pid, role name, and process start time to uploaded blob metadata.
 - Used `System.Diagnostics.Process` where possible in Snapshot Collector and Snapshot Uploader.
 
 #### New features
-Added Azure Active Directory authentication to `SnapshotCollector`. Learn more about Azure AD authentication in Application Insights [here](../app/azure-ad-authentication.md).
+Added Azure AD authentication to `SnapshotCollector`. To learn more about Azure AD authentication in Application Insights, see [Azure AD authentication for Application Insights](../app/azure-ad-authentication.md).
 
 ### [1.3.7.5](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7.5)
 A point release to backport a fix from 1.4.0-pre.
@@ -183,7 +183,7 @@ Fixed [ObjectDisposedException on shutdown](https://github.com/microsoft/Applica
 A point release to address a problem discovered in testing the App Service codeless attach scenario.
 
 #### Changes
-The netcoreapp3.0 target now depends on `Microsoft.ApplicationInsights.AspNetCore` >= 2.1.1 (previously >= 2.1.2).
+The `netcoreapp3.0` target now depends on `Microsoft.ApplicationInsights.AspNetCore` >= 2.1.1 (previously >= 2.1.2).
 
 ### [1.3.7.3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7.3)
 A point release to address a couple of high-impact issues.
@@ -194,13 +194,13 @@ A point release to address a couple of high-impact issues.
 
 ### [1.3.7](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7)
 #### Changes
-The netcoreapp2.0 target of `SnapshotCollector` depends on `Microsoft.ApplicationInsights.AspNetCore` >= 2.1.1 (again). This reverts behavior to how it was before 1.3.5. We tried to upgrade it in 1.3.6, but it broke some App Service scenarios.
+The `netcoreapp2.0` target of `SnapshotCollector` depends on `Microsoft.ApplicationInsights.AspNetCore` >= 2.1.1 (again). This change reverts behavior to how it was before 1.3.5. We tried to upgrade it in 1.3.6, but it broke some App Service scenarios.
 
 #### New features
 Snapshot Collector reads and parses the `ConnectionString` from the APPLICATIONINSIGHTS_CONNECTION_STRING environment variable or from the `TelemetryConfiguration`. Primarily, it's used to set the endpoint for connecting to the Snapshot service. For more information, see the [Connection strings documentation](../app/sdk-connection-string.md).
 
 #### Bug fixes
-Switched to using `HttpClient` for all targets except net45 because `WebRequest` was failing in some environments because of an incompatible `SecurityProtocol` (requires TLS 1.2).
+Switched to using `HttpClient` for all targets except `net45` because `WebRequest` was failing in some environments because of an incompatible `SecurityProtocol` (requires TLS 1.2).
 
 ### [1.3.6](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.6)
 #### Changes
@@ -224,42 +224,42 @@ Switched to using `HttpClient` for all targets except net45 because `WebRequest`
 - Handle `InvalidOperationException` when you're deoptimizing dynamic methods (for example, Entity Framework).
 
 ### [1.3.5](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.5)
-- Added support for Sovereign clouds (older versions won't work in sovereign clouds).
-- Adding snapshot collector made easier by using `AddSnapshotCollector()`. For more information, see [Enable Snapshot Debugger for .NET apps in Azure App Service](./snapshot-debugger-app-service.md).
+- Added support for sovereign clouds (older versions won't work in sovereign clouds).
+- Adding Snapshot Collector made easier by using `AddSnapshotCollector()`. For more information, see [Enable Snapshot Debugger for .NET apps in Azure App Service](./snapshot-debugger-app-service.md).
 - Use the FISMA MD5 setting for verifying blob blocks. This setting avoids the default .NET MD5 crypto algorithm, which is unavailable when the OS is set to FIPS-compliant mode.
 - Ignore .NET Framework frames when deoptimizing function calls. This behavior can be controlled by the `DeoptimizeIgnoredModules` configuration setting.
 - Added the `DeoptimizeMethodCount` configuration setting that allows deoptimization of more than one function call.
 
 ### [1.3.4](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.4)
 - Allowed structured instrumentation keys.
-- Increased SnapshotUploader robustness. Continue startup even if old uploader logs can't be moved.
-- Re-enabled reporting more telemetry when SnapshotUploader.exe exits immediately (was disabled in 1.3.3).
+- Increased Snapshot Uploader robustness. Continue startup even if old uploader logs can't be moved.
+- Reenabled reporting more telemetry when *SnapshotUploader.exe* exits immediately (was disabled in 1.3.3).
 - Simplified internal telemetry.
-- _Experimental feature_: Snappoint collection plans: Add "snapshotOnFirstOccurence". More information available [here](https://gist.github.com/alexaloni/5b4d069d17de0dabe384ea30e3f21dfe).
+- **Experimental feature:** Snappoint collection plans: Add `snapshotOnFirstOccurence`. For more information, see this [GitHub article](https://gist.github.com/alexaloni/5b4d069d17de0dabe384ea30e3f21dfe).
 
 ### [1.3.3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.3)
-Fixed bug that was causing SnapshotUploader.exe to stop responding and not upload snapshots for .NET Core apps.
+Fixed bug that was causing *SnapshotUploader.exe* to stop responding and not upload snapshots for .NET Core apps.
 
 ### [1.3.2](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.2)
-- _Experimental feature_: Snappoint collection plans. More information available [here](https://gist.github.com/alexaloni/5b4d069d17de0dabe384ea30e3f21dfe).
-- SnapshotUploader.exe exits when the runtime unloads the `AppDomain` from which `SnapshotCollector` is loaded, instead of waiting for the process to exit. This improves the collector reliability when hosted in IIS.
+- **Experimental feature:** Snappoint collection plans. For more information, see this [GitHub article](https://gist.github.com/alexaloni/5b4d069d17de0dabe384ea30e3f21dfe).
+- *SnapshotUploader.exe* exits when the runtime unloads the `AppDomain` from which `SnapshotCollector` is loaded, instead of waiting for the process to exit. This action improves the collector reliability when hosted in IIS.
 - Added configuration to allow multiple `SnapshotCollector` instances that are using the same instrumentation key to share the same `SnapshotUploader` process: `ShareUploaderProcess` (defaults to `true`).
-- Reported more telemetry when SnapshotUploader.exe exits immediately.
-- Reduced the number of support files SnapshotUploader.exe needs to write to disk.
+- Reported more telemetry when *SnapshotUploader.exe* exits immediately.
+- Reduced the number of support files *SnapshotUploader.exe* needs to write to disk.
 
 ### [1.3.1](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.1)
 - Removed support for collecting snapshots with the RtlCloneUserProcess API and only support PssCaptureSnapshots API.
 - Increased the default limit on how many snapshots can be captured in 10 minutes from one to three.
-- Allow SnapshotUploader.exe to negotiate TLS 1.1 and 1.2.
-- Reported more telemetry when SnapshotUploader logs a warning or an error.
-- Stop taking snapshots when the back-end service reports the daily quota was reached (50 snapshots per day)
-- Added extra check in SnapshotUploader.exe to not allow two instances to run in the same time.
+- Allow *SnapshotUploader.exe* to negotiate TLS 1.1 and 1.2.
+- Reported more telemetry when `SnapshotUploader` logs a warning or an error.
+- Stop taking snapshots when the back-end service reports the daily quota was reached (50 snapshots per day).
+- Added extra check in *SnapshotUploader.exe* to not allow two instances to run in the same time.
 
 ### [1.3.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.0)
 #### Changes
 - For applications that target .NET Framework, Snapshot Collector now depends on Microsoft.ApplicationInsights version 2.3.0 or above.
 It used to be 2.2.0 or above.
-We believe this won't be an issue for most applications. Let us know if this change prevents you from using the latest Snapshot Collector.
+We believe this change won't be an issue for most applications. Let us know if this change prevents you from using the latest Snapshot Collector.
 - Use exponential back-off delays in the Snapshot Uploader when retrying failed uploads.
 - Use `ServerTelemetryChannel` (if available) for more reliable reporting of telemetry.
 - Use `SdkInternalOperationsMonitor` on the initial connection to the Snapshot Debugger service so that it's ignored by dependency tracking.
@@ -279,8 +279,8 @@ Fixed strong-name signing with Snapshot Uploader binaries.
 
 ### [1.2.2](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.2.2)
 #### Changes
-- The files needed for SnapshotUploader(64).exe are now embedded as resources in the main DLL. That means the `SnapshotCollectorFiles` folder is no longer created, which simplifies build and deployment and reduces clutter in Solution Explorer. Take care when you upgrade to review the changes in your `.csproj` file. The `Microsoft.ApplicationInsights.SnapshotCollector.targets` file is no longer needed.
-- Telemetry is logged to your Application Insights resource even if `ProvideAnonymousTelemetry` is set to false. This is so we can implement a health check feature in the Azure portal. `ProvideAnonymousTelemetry` affects only the telemetry sent to Microsoft for product support and improvement.
+- The files needed for *SnapshotUploader(64).exe* are now embedded as resources in the main DLL. That means the `SnapshotCollectorFiles` folder is no longer created, which simplifies build and deployment and reduces clutter in Solution Explorer. Take care when you upgrade to review the changes in your `.csproj` file. The `Microsoft.ApplicationInsights.SnapshotCollector.targets` file is no longer needed.
+- Telemetry is logged to your Application Insights resource even if `ProvideAnonymousTelemetry` is set to false. This change is so that we can implement a health check feature in the Azure portal. `ProvideAnonymousTelemetry` affects only the telemetry sent to Microsoft for product support and improvement.
 - When `TempFolder` or `ShadowCopyFolder` are redirected to environment variables, keep the collector idle until those environment variables are set.
 - For applications that connect to the internet via a proxy server, Snapshot Collector now autodetects any proxy settings and passes them on to *SnapshotUploader.exe*.
 - Lower the priority of the `SnapshotUploader` process (where possible). This priority can be overridden via the `IsLowPrioirtySnapshotUploader` option.
@@ -300,18 +300,18 @@ Fixed strong-name signing with Snapshot Uploader binaries.
 - Added an `IsEnabledWhenProfiling` configuration property that defaults to true. This is a change from previous versions where snapshot creation was temporarily disabled if the Application Insights Profiler was performing a detailed collection. The old behavior can be recovered by setting this property to `false`.
 
 #### Bug fixes
-- Sign SnapshotUploader64.exe properly.
+- Sign *SnapshotUploader64.exe* properly.
 - Protect against double-initialization of the telemetry processor.
 - Prevent double logging of telemetry in apps with multiple pipelines.
 - Fixed a bug with the expiration time of a collection plan, which could prevent snapshots after 24 hours.
 
 ### [1.2.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.2.0)
-The biggest change in this version (hence the move to a new minor version number) is a rewrite of the snapshot creation and handling pipeline. In previous versions, this functionality was implemented in native code (ProductionBreakpoints*.dll and SnapshotHolder*.exe). The new implementation is all managed code with P/Invokes.
+The biggest change in this version (hence the move to a new minor version number) is a rewrite of the snapshot creation and handling pipeline. In previous versions, this functionality was implemented in native code (*ProductionBreakpoints*.dll* and *SnapshotHolder*.exe*). The new implementation is all managed code with P/Invokes.
 
 For this first version using the new pipeline, we haven't strayed far from the original behavior. The new implementation allows for better error reporting and sets us up for future improvements.
 
 #### Other changes in this version
-- MinidumpUploader.exe has been renamed to SnapshotUploader.exe (or SnapshotUploader64.exe).
+- *MinidumpUploader.exe* has been renamed to *SnapshotUploader.exe* (or *SnapshotUploader64.exe*).
 - Added timing telemetry to DeOptimize/ReOptimize requests.
 - Added gzip compression for minidump uploads.
 - Fixed a problem where PDBs were locked preventing site upgrade.
@@ -326,7 +326,7 @@ For this first version using the new pipeline, we haven't strayed far from the o
 #### Changes
 - Augmented usage telemetry.
 - Detect and report .NET version and OS.
-- Detect and report more Azure environments (Cloud Service, Service Fabric).
+- Detect and report more Azure environments (Azure Cloud Services, Azure Service Fabric).
 - Record and report exception metrics (number of first-chance exceptions and the number of `TrackException` calls) in Heartbeat telemetry.
 
 #### Bug fixes
