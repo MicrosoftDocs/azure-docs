@@ -37,10 +37,15 @@ This article gives you an overview how to set up your customer tenant free trial
 ## Sign up to your customer tenant free trial
 
 1. Open your browser and visit [https://aka.ms/ciam-hub-free-trial](https://aka.ms/ciam-hub-free-trial). <!--   Check with Sameeksha if there's a newer link. -->
-1. You can sign in to the customer trial tenant using your personal account, and your Microsoft account (MSA) or GitHub account. <!--   Check with Namita what will happen if they use an AAD work account. -->
-1. The domain name and the data location can't be changed later in the free trial. If you would like to adjust it, you can do it here on this screen. Edit the  **Domain name** to change it to yours and select your **Location** from the drop-down menu. 
-1. Select **Create**.
-<!--   Correct screenshots have to be added. These contain outdated terminology. -->
+1. You can sign in to the customer trial tenant using your personal account, and your Microsoft account (MSA) or GitHub account.  
+
+1. The domain name and the data location can't be changed later in the free trial. Select **Change settings** if you would like to adjust them.
+
+    :::image type="content" source="media/quickstart-trial-setup/ciam-trial-welcome-page.png" alt-text="Screenshot of the Azure AD for customers welcome page."::: 
+
+1. Select **Continue**. Hang on while we set up your trial. Next, we'll help you create your sign-in experience. 
+
+    :::image type="content" source="media/quickstart-trial-setup/setting-up-free-trial.png" alt-text="Screenshot of the loading page while setting up the customer tenant free trial."::: 
 
 ## Customize your sign-in experience
 
