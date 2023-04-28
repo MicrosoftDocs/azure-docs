@@ -98,7 +98,7 @@ Utilizing community-submitted virtual machine images has several risks. Certain 
  
 ## Best practices
 
-- Images published to the community gallery should be [generalized](generalize.md) images, that have had sensitive or machine specific information removed. For more information about preparing an image, see the OS specific infomation for [Linux](./linux/create-upload-generic.md) or [Windows](./windows/prepare-for-upload-vhd-image.md).
+- Images published to the community gallery should be [generalized](generalize.md) images, that have had sensitive or machine specific information removed. For more information about preparing an image, see the OS specific information for [Linux](./linux/create-upload-generic.md) or [Windows](./windows/prepare-for-upload-vhd-image.md).
 ## FAQ
 
 **Q: What are the charges for using a gallery that is shared to the community?**
