@@ -1,5 +1,5 @@
 ---
-title: Add Facebook as an identity provider
+title: Add Facebook for customer sign-in
 description: Learn how to add Facebook as an identity provider for your customer tenant.
 services: active-directory
 author: msmimart
