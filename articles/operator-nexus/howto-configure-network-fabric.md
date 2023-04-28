@@ -1,6 +1,6 @@
 ---
 title: "Azure Operator Nexus: Configure the network fabric"
-description: Learn commands to create, view, list, update, delete network fabrics.
+description: Learn commands to create, view, list, update, and delete network fabrics.
 author: jdasari
 ms.author: jdasari
 ms.service: azure-operator-nexus
@@ -11,16 +11,16 @@ ms.custom: template-how-to, devx-track-azurecli
 
 # Create and provision a network fabric by using the Azure CLI
 
-This article describes how to create a network fabric by using the Azure CLI. This article also shows you how to check the status of, update, or delete a network fabric.
+This article describes how to create a network fabric for Azure Operator Nexus by using the Azure CLI. This article also shows you how to check the status of, update, and delete a network fabric.
 
 ## Prerequisites
 
 * An Azure account with an active subscription.
-* The latest version of the Azure CLI commands (2.0 or later). For information about installing the CLI commands, see [Install Azure CLI](./howto-install-cli-extensions.md).
+* The latest version of the Azure CLI commands (2.0 or later). For more information, see [Install Azure CLI](./howto-install-cli-extensions.md).
 * A network fabric controller (NFC) that manages multiple network fabrics in the same Azure region.
 * A physical Azure Operator Nexus instance with cabling, as described in the bill of materials (BoM).
 * Azure ExpressRoute connectivity between NFC and Azure Operator Nexus instances.
-* A terminal server preconfigured with a username and password [installed and configured](./howto-platform-prerequisites.md#set-up-terminal-server)
+* A terminal server [installed and configured](./howto-platform-prerequisites.md#set-up-terminal-server) with a username and password.
 * Provider edge (PE) devices preconfigured with necessary VLANs, route targets, and IP addresses.
 * Supported SKUs from Network Fabric Adapter (NFA) Release 1.5 and beyond for fabric:
   * M4-A400-A100-C16-aa for up to four compute racks
@@ -31,14 +31,12 @@ This article describes how to create a network fabric by using the Azure CLI. Th
 1. Create a network fabric by providing racks, server count, SKU, and network configuration.
 1. Create a network-to-network interconnect (NNI) by providing Layer 2 and Layer 3 parameters.
 1. Update the serial number in the network device resource with the actual serial number on the device. The device sends the serial number as part of a DHCP request.
-1. Configure the terminal server with the serial numbers of all the devices (which also hosts the DHCP server).
-1. Provision the network devices via zero-touch provisioning mode, Based on the serial number in the DHCP request, the DHCP server responds with the boot configuration file for the corresponding device.
+1. Configure the terminal server (which also hosts the DHCP server) with the serial numbers of all the devices.
+1. Provision the network devices via zero-touch provisioning mode. Based on the serial number in the DHCP request, the DHCP server responds with the boot configuration file for the corresponding device.
 
 ## Fabric configuration
 
-The following table specifies parameters that you use to create a network fabric.
-
-In the table, `$prefix` is `/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers`.
+The following table specifies parameters that you use to create a network fabric. In the table, `$prefix` is `/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers`.
 
 | Parameter | Description | Example | Required |
 |-----------|-------------|---------|----------|
@@ -54,15 +52,15 @@ In the table, `$prefix` is `/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resour
 |`management-network-config`| Details of the management network. ||True |
 |`infrastructureVpnConfiguration`| Details of the management VPN connection between the network fabric and infrastructure services in the network fabric controller.||True
 |`optionBProperties`| Details of MPLS option 10B, which is used for connectivity between the network fabric and the network fabric controller.||True
-|`importRouteTargets`|Values of import route targets to be configured on customer edges (CEs) for exchanging routes between CE and provider edge (PE) via MPLS option 10B.|`65048:10039`|True(If OptionB enabled)|
-|`exportRouteTargets`|Values of export route targets to be configured on CEs for exchanging routes between CE and PE via MPLS option 10B| `65048:10039`|True(If OptionB enabled)|
+|`importRouteTargets`|Values of import route targets to be configured on customer edges (CEs) for exchanging routes between a CE and provider edge (PE) via MPLS option 10B.|`65048:10039`|True (if Option B is enabled)|
+|`exportRouteTargets`|Values of export route targets to be configured on CEs for exchanging routes between a CE and PE via MPLS option 10B.| `65048:10039`|True (if Option B is enabled)|
 |`workloadVpnConfiguration`| Details of the workload VPN connection between the network fabric and workload services in the network fabric controller.||
 |`optionBProperties`| Details of MPLS option 10B, which is used for connectivity between the network fabric and the network fabric controller.||
-|`importRouteTargets`|Values of import route targets to be configured on CEs for exchanging routes between CE and PE via MPLS option 10B.|`65048:10050`|True(If OptionB enabled)|
-|`exportRouteTargets`|Values of export route targets to be configured on CEs for exchanging routes between CE and PE via MPLS option 10B.|`65048:10050`|True(If OptionB enabled)|
+|`importRouteTargets`|Values of import route targets to be configured on CEs for exchanging routes between a CE and PE via MPLS option 10B.|`65048:10050`|True (if Option B is enabled)|
+|`exportRouteTargets`|Values of export route targets to be configured on CEs for exchanging routes between a CE and PE via MPLS option 10B.|`65048:10050`|True (if Option B is enabled)|
 |`ts-config`| Terminal server configuration details.||True
-|primaryIpv4Prefix| IPv4 prefix for connectivity between the terminal server and the primary PE. The terminal server Net1 interface should be assigned the first usable IP from the prefix. The corresponding interface on the PE should be assigned the second usable address.|`20.0.10.0/30`; TS Net1 interface should be assigned `20.0.10.1`, and PE interface `20.0.10.2`|True|
-|`secondaryIpv4Prefix`|IPv4 prefix for connectivity between the terminal server and the secondary PE. The terminal server Net2 interface should be assigned the first usable IP from the prefix. The corresponding interface on PE should be assigned the second usable address.|`20.0.0.4/30`; TS Net2 interface should be assigned `20.0.10.5`, and PE interface `20.0.10.6`|True|
+|`primaryIpv4Prefix`| IPv4 prefix for connectivity between the terminal server and the primary PE. The terminal server interface for the primary network is assigned the first usable IP from the prefix. The corresponding interface on the PE is assigned the second usable address.|`20.0.10.0/30`; the terminal server interface for the primary network is assigned `20.0.10.1`, and the PE interface is assigned `20.0.10.2`.|True|
+|`secondaryIpv4Prefix`|IPv4 prefix for connectivity between the terminal server and the secondary PE. The terminal server interface for the secondary network is assigned the first usable IP from the prefix. The corresponding interface on the PE is assigned the second usable address.|`20.0.0.4/30`; the terminal server interface for the secondary network is assigned `20.0.10.5`, and the PE interface is assigned `20.0.10.6`.|True|
 |`username`| Username that the services use to configure the terminal server.||True|
 |`password`| Password that the services use to configure the terminal server.||True|
 |`serialNumber`| Serial number of the terminal server.|||
@@ -348,33 +346,33 @@ The following table specifies the parameters that you use to create a network-to
 
 | Parameter | Description | Example | Required |
 |-----------|-------------|---------|----------|
-|`isMangementType`| Configuration to make NNI to be used for management of Fabric. Default value is true. Possible values are True/False |`True`|True
-|`useOptionB`| Configuration to enable optionB. Possible values are True/False |`True`|True
+|`isMangementType`| Configuration to use an NNI for management of the fabric. Possible values are `True` and `False`. The default value is `True`.  |`True`|True
+|`useOptionB`| Configuration to enable Option B. Possible values are `True` and `False`. |`True`|True
 ||
-|`layer2Configuration`| Layer 2 configuration ||
+|`layer2Configuration`| Layer 2 configuration. ||
 ||
-|`portCount`| Number of ports that are part of the port-channel. Maximum value is based on Fabric SKU|`3`||
-|mtu| Maximum transmission unit between CE and PE. |`1500`||
+|`portCount`| Number of ports that are part of the port channel. The maximum value is based on the fabric SKU.|`3`||
+|`mtu`| Maximum transmission unit between CEs and PEs. |`1500`||
 ||
-|`layer3Configuration`| Layer 3 configuration between CEs and PEs||True
+|`layer3Configuration`| Layer 3 configuration between CEs and PEs.||True
 ||
-|`primaryIpv4Prefix`|IPv4 Prefix for connectivity between CE1 and PE1. CE1 port-channel interface is assigned the first usable IP from the prefix and the corresponding interface on PE1 should be assigned the second usable address|10.246.0.124/31, CE1 port-channel interface is assigned 10.246.0.125 and PE1 port-channel interface should be assigned 10.246.0.126||String
-|`secondaryIpv4Prefix`|IPv4 Prefix for connectivity between CE2 and PE2. CE2 port-channel interface is assigned the first usable IP from the prefix and the corresponding interface on PE2 should be assigned the second usable address|10.246.0.128/31, CE2 port-channel interface should be assigned 10.246.0.129 and PE2 port-channel interface 10.246.0.130||String
-|`primaryIpv6Prefix`|IPv6 Prefix for connectivity between CE1 and PE1. CE1 port-channel interface is assigned the first usable IP from the prefix and the corresponding interface on PE1 should be assigned the second usable address|3FFE:FFFF:0:CD30::a1 is assigned to CE1 and 3FFE:FFFF:0:CD30::a2 is assigned to PE1. Default value is 3FFE:FFFF:0:CD30::a0/126||String
-|`secondaryIpv6Prefix`|IPv6 Prefix for connectivity between CE2 and PE2. CE2 port-channel interface is assigned the first usable IP from the prefix and the corresponding interface on PE2 should be assigned the second usable address|3FFE:FFFF:0:CD30::a5 is assigned to CE2 and 3FFE:FFFF:0:CD30::a6 is assigned to PE2. Default value is 3FFE:FFFF:0:CD30::a4/126.||String
-|`fabricAsn`|ASN number assigned on CE for BGP peering with PE|`65048`||
-|`peerAsn`|ASN number assigned on PE for BGP peering with CE. For iBGP between PE/CE, the value should be same as fabricAsn, for eBGP the value should be different from fabricAsn |`65048`|True|
-|`fabricAsn`|ASN number assigned on CE for BGP peering with PE|`65048`||
-|`vlan-Id`|Vlan for NNI.Range is between 501-4095 |`501`||
-|`importRoutePolicy`|Details to import route policy.|||
-|`exportRoutePolicy`|Details to export route policy.|||
+|`primaryIpv4Prefix`|IPv4 prefix for connectivity between the primary CE and the primary PE. The port-channel interface for the primary CE is assigned the first usable IP from the prefix. The corresponding interface on the primary PE is assigned the second usable address.|`10.246.0.124/31`; the port-channel interface for the primary CE is assigned `10.246.0.125`, and the port-channel interface for the primary PE is assigned `10.246.0.126`.||String
+|`secondaryIpv4Prefix`|IPv4 prefix for connectivity between the secondary CE and the secondary PE. The port-channel interface for the secondary CE is assigned the first usable IP from the prefix. The corresponding interface on the secondary PE is assigned the second usable address.|`10.246.0.128/31`; the port-channel interface for the secondary CE is assigned `10.246.0.129`, and the port-channel interface for the secondary PE is assigned `10.246.0.130`.||String
+|`primaryIpv6Prefix`|IPv6 prefix for connectivity between the primary CE and the primary PE. The port-channel interface for the primary CE is assigned the first usable IP from the prefix. The corresponding interface on the primary PE is assigned the second usable address.|`3FFE:FFFF:0:CD30::a1` is assigned to the primary CE, and `3FFE:FFFF:0:CD30::a2` is assigned to the primary PE. Default value is `3FFE:FFFF:0:CD30::a0/126`.||String
+|`secondaryIpv6Prefix`|IPv6 prefix for connectivity between the secondary CE and the secondary PE. The port-channel interface for the secondary CE is assigned the first usable IP from the prefix. The corresponding interface on the secondary PE is assigned the second usable address.|`3FFE:FFFF:0:CD30::a5` is assigned to the secondary CE, and `3FFE:FFFF:0:CD30::a6` is assigned to the secondary PE. Default value is `3FFE:FFFF:0:CD30::a4/126`.||String
+|`fabricAsn`|ASN assigned on the CE for BGP peering with the PE.|`65048`||
+|`peerAsn`|ASN assigned on the PE for BGP peering with the CE. For internal BGP (iBGP) between the PE and the CE, the value should be the same as `fabricAsn`. For external BGP (eBGP), the value should be different from `fabricAsn`. |`65048`|True|
+|`fabricAsn`|ASN assigned on the CE for BGP peering with the PE.|`65048`||
+|`vlan-Id`|VLAN for the NNI. The range is 501 to 4095. |`501`||
+|`importRoutePolicy`|Details to import a route policy.|||
+|`exportRoutePolicy`|Details to export a route policy.|||
 ||||
 
 ## Create an NNI
 
-Resource group and network fabric must be created before Network to Network Interconnect creation.
+You must create the resource group and network fabric before you create a network-to-network interconnect.
 
-Run the following command to create the Network to Network Interconnect:
+Run the following command to create the NNI:
 
 ```azurecli
 
@@ -562,16 +560,16 @@ Expected output:
 }
 ```
 
-The above snapshot only serves as an example. You should update all the devices that are part of both AggRack and computeRacks. 
+The preceding code serves only as an example. You should update all the devices that are part of both `AggrRack` and `computeRacks`.
 
-For example, AggRack consists of:
+For example, `AggrRack` consists of:
 
-* CE01
-* CE02
-* TOR17
-* TOR18
-* Mgmnt Switch01
-* Mgmnt Switch02 and etc.
+* `CE01`
+* `CE02`
+* `TOR17`
+* `TOR18`
+* `Mgmnt Switch01`
+* `Mgmnt Switch02` (and so on for other switches)
 
 ## List or get network fabric devices
 
@@ -765,9 +763,9 @@ Expected output:
 }
 ```
 
-## Provision a fabric
+## Provision a network fabric
 
-After updating the device serial number, the fabric needs to be provisioned by executing the following command
+After you update the device serial number, provision and show the fabric by running the following commands:
 
 ```azurecli
 az nf fabric provision --resource-group "NFResourceGroup"  --resource-name "NFName"
@@ -856,9 +854,9 @@ Expected output:
 }
 ```
 
-## Deprovision a fabric
+## Deprovision a network fabric
 
-To deprovision a fabric ensure Fabric operational state should be in provisioned state
+To deprovision a fabric, ensure that the fabric is in a provisioned operational state and then run this command:
 
 ```azurecli
 az nf fabric deprovision --resource-group "NFResourceGroup" --resource-name "NFName"
@@ -945,10 +943,12 @@ Expected output:
 
 ```
 
-## Delete a fabric
+## Delete a network fabric
 
-To delete the fabric the operational state of Fabric shouldn't be "Provisioned". To change the operational state from Provisioned to Deprovision, run the deprovision command. Ensure there are no racks associated before deleting fabric.
+To delete a fabric, run the following command. Before you do, make sure that:
 
+* The fabric is in a deprovisioned operational state. If it's in a provisioned state, run the `deprovision` command.
+* No racks are associated with the fabric.
 
 ```azurecli
 az nf fabric delete --resource-group "NFResourceGroup" --resource-name "NFName"
@@ -1034,7 +1034,7 @@ Expected output:
 }
 ```
 
-After successfully deleting the network fabric, when you run a show of the same fabric, you won't find any resources available.
+After you successfully delete the network fabric, when you run the command to show the fabric, you won't find any resources available:
 
 ```azurecli
 az nf fabric show --resource-group "NFResourceGroup" --resource-name "NFName"
