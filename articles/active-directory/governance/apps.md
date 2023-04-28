@@ -49,7 +49,7 @@ This page provides an overview of the hundreds of Entra Identity Governance inte
 | [Alexis HR](../../active-directory/saas-apps/alexishr-provisioning-tutorial.md) | ● | ● |
 | [Alinto Protect (renamed Cleanmail)](../../active-directory/saas-apps/alinto-protect-provisioning-tutorial.md) | ● | |
 | [Alvao](../../active-directory/saas-apps/alvao-provisioning-tutorial.md) | ● |  |
-| [Amazon Web Services (AWS) - Role Provisioning](../../active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-sso) | ● | ● |
+| [Amazon Web Services (AWS) - Role Provisioning](../../active-directory/saas-apps/amazon-web-service-tutorial.md) | ● | ● |
 | [Appaegis Isolation Access Cloud](../../active-directory/saas-apps/appaegis-isolation-access-cloud-provisioning-tutorial.md) | ● | ● |
 | [Apple School Manager](../../active-directory/saas-apps/apple-school-manager-provision-tutorial.md) | ● |  |
 | [Apple Business Manager](../../active-directory/saas-apps/apple-business-manager-provision-tutorial.md) | ● |  |
@@ -61,7 +61,7 @@ This page provides an overview of the hundreds of Entra Identity Governance inte
 | [Atmos](../../active-directory/saas-apps/atmos-provisioning-tutorial.md) | ● |  |
 | [AuditBoard](../../active-directory/saas-apps/auditboard-provisioning-tutorial.md) | ● |  |
 | [Autodesk SSO](../../active-directory/saas-apps/autodesk-sso-provisioning-tutorial.md) | ● | ● |
-| [Azure Databricks SCIM Connector](../../databricks/administration-guide/users-groups/scim/aad?bc=%2fazure%2factive-directory%2fsaas-apps%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fsaas-apps%2ftoc.json) | ● |  |
+| [Azure Databricks SCIM Connector](../../databricks/administration-guide/users-groups/scim/aad.md) | ● |  |
 | [AWS IAM Identity Center](../../active-directory/saas-apps/aws-single-sign-on-provisioning-tutorial.md) | ● | ● |
 | [BambooHR](../../active-directory/saas-apps/bamboo-hr-tutorial.md) |  | ● |
 | [BenQ IAM](../../active-directory/saas-apps/benq-iam-provisioning-tutorial.md) | ● | ● |
@@ -177,7 +177,7 @@ This page provides an overview of the hundreds of Entra Identity Governance inte
 | [Kpifire](../../active-directory/saas-apps/kpifire-provisioning-tutorial.md) | ● | ● |
 | [KPN Grip](../../active-directory/saas-apps/kpn-grip-provisioning-tutorial.md) | ● | |
 | [LanSchool Air](../../active-directory/saas-apps/lanschool-air-provisioning-tutorial.md) | ● | ● |
-| [LawVu](https://learn.microsoft.com/en-us/azure/active-directory/saas-apps/lawvu-provisioning-tutorial.md) | ● | ● |
+| [LawVu](../..//active-directory/saas-apps/lawvu-provisioning-tutorial.md) | ● | ● |
 | LDAP | ● |  |
 | [LimbleCMMS](../../active-directory/saas-apps/limblecmms-provisioning-tutorial.md) | ● |  |
 | [LinkedIn Elevate](../../active-directory/saas-apps/linkedinelevate-provisioning-tutorial.md) | ● | ● |
@@ -278,7 +278,7 @@ This page provides an overview of the hundreds of Entra Identity Governance inte
 | [Storegate](../../active-directory/saas-apps/storegate-provisioning-tutorial.md) | ● |  |
 | [SurveyMonkey Enterprise](../../active-directory/saas-apps/surveymonkey-enterprise-provisioning-tutorial.md) | ● | ● |
 | [Swit](../../active-directory/saas-apps/swit-provisioning-tutorial.md) | ● | ● |
-| [Symantec Web Security Service (WSS)](../../active-directory/saas-apps/symantec-web-security-service) | ● | ● |
+| [Symantec Web Security Service (WSS)](../../active-directory/saas-apps/symantec-web-security-service.md) | ● | ● |
 | [Tableau Cloud](../../active-directory/saas-apps/tableau-online-provisioning-tutorial.md) | ● | ● |
 | [Talentech](../../active-directory/saas-apps/talentech-provisioning-tutorial.md) | ● |  |
 | [Tap App Security](../../active-directory/saas-apps/tap-app-security-provisioning-tutorial.md) | ● | ● |
@@ -332,11 +332,11 @@ This page provides an overview of the hundreds of Entra Identity Governance inte
 | [Zscaler ZSCloud](../../active-directory/saas-apps/zscaler-zscloud-provisioning-tutorial.md) | ● | ● |
 
 ## Partner driven integrations
-There is also a healthy partner ecosystem, further expanding the breadth and depth of integrations available with Entra Identity Governance. Explore the [partner integrations](../../active-directory/app-provisioning/partner-driven-integrations) available, including:
+There is also a healthy partner ecosystem, further expanding the breadth and depth of integrations available with Entra Identity Governance. Explore the [partner integrations](../../active-directory/app-provisioning/partner-driven-integrations.md) available, including:
 * Epic
 * Cerner
 * IBM RACF
 
 ## Next steps
 
-To learn more about application management, see [What is application management](../../active-directory/app-provisioning/).
+To learn more about application management, see [What is application management](../../active-directory/app-provisioning.md).
