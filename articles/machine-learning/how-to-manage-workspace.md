@@ -224,8 +224,8 @@ You can turn off all feedback opportunities for a workspace.  When off, users of
 
 * When creating the workspace, turn off feedback from the **Tags** section:
 
-   * Select the **Tags** section
-   * Add the key value pair "ADMIN_HIDE_SURVEY: TRUE"
+   1. Select the **Tags** section
+   1. Add the key value pair "ADMIN_HIDE_SURVEY: TRUE"
 
 * Turn off feedback on an existing workspace:
 
