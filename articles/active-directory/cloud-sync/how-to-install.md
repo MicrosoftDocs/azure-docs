@@ -88,6 +88,14 @@ For reference, your code should look like the following snippet:
 
 For information about security and FIPS, see [Azure AD password hash sync, encryption, and FIPS compliance](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/aad-password-sync-encryption-and-fips-compliance/ba-p/243709).
 
+## gMSA PrincipalsAllowedToRetrieveManagedPassword
+
+If you opted to let the agent installer configure the gMSA account on your behalf, you will not need to manage the PrincipalsAllowedToRetrieveManagedPassword attribute on the group managed service account created in your domain.
+
+The agent installer will handle the list of allowed principals on the gMSA directly on the object using the provided domain admin credentials.
+If the installer fails to do so, you can encounter errors like the service could not be started.
+This can be mitigated by manually adding the servername to the gMSA PrincipalsAllowedToRetrieveManagedPassword attribute using the **Set-ADServiceAccount** cmdlet on a domain controller or a workstation with RSAT installed. See [To add member hosts using the Set-ADServiceAccount cmdlet](https://learn.microsoft.com/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts#to-add-member-hosts-using-the-set-adserviceaccount-cmdlet).
+
 ## Next steps 
 
 - [What is provisioning?](what-is-provisioning.md)
