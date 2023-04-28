@@ -7,7 +7,7 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/01/2023
-ms.author: mbrat2005
+ms.author: mbratschun
 ms.custom: template-how-to, engagement-fy23
 ---
 
