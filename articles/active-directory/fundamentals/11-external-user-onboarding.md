@@ -119,11 +119,12 @@ If app assignment is required in Azure AD for app access and/or role assignment 
 For example, assign the **Group Updater** role or a custom role to the Enterprise App and scope the role assignment to only the group(s) this application should be updating. Or assign the `group.readwrite.all` permission in Microsoft Graph API. 
 
  ``` 
-    POST `https://graph.microsoft.com/v1.0/groups/<insert group id>/members/$ref 
-    Content-type: application/json` 
-    {  
-    "@odata.id": "https://graph.microsoft.com/v1.0/directoryObjects/<insert user id>" 
-    } 
+ POST `https://graph.microsoft.com/v1.0/groups/<insert group id>/members/$ref 
+  Content-type: application/json` 
+  {  
+  "@odata.id": "https://graph.microsoft.com/v1.0/directoryObjects/<insert user id>" 
+  } 
+
  ```
 For more information, see [Add members - Microsoft Graph v1.0](../graph/api/group-post-members.md?view=graph-rest-1.0&tabs=http).
 
