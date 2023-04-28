@@ -185,28 +185,28 @@ This page provides a single place for the tutorials to the various entra identit
 | [Meta Networks Connector](https://learn.microsoft.com/azure/active-directory/saas-apps/meta-networks-connector-provisioning-tutorial) | ● | ● |
 | [Mixpanel](https://learn.microsoft.com/azure/active-directory/saas-apps/mixpanel-provisioning-tutorial) | ● | ● |
 | [Mindtickle](https://learn.microsoft.com/azure/active-directory/saas-apps/mindtickle-provisioning-tutorial) | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
-| []() | ● | ● |
+| [Miro](https://learn.microsoft.com/azure/active-directory/saas-apps/miro-provisioning-tutorial) | ● | ● |
+| [Monday.com](https://learn.microsoft.com/azure/active-directory/saas-apps/mondaycom-provisioning-tutorial) | ● | ● |
+| [Mural Identity](https://learn.microsoft.com/azure/active-directory/saas-apps/mural-identity-provisioning-tutorial) | ● | ● |
+| [MX3 Diagnostics](https://learn.microsoft.com/azure/active-directory/saas-apps/mx3-diagnostics-connector-provisioning-tutorial) | ● | ● |
+| [myPolicies](https://learn.microsoft.com/azure/active-directory/saas-apps/mypolicies-provisioning-tutorial) | ● | ● |
+| [Netpresenter Next](https://learn.microsoft.com/azure/active-directory/saas-apps/netpresenter-provisioning-tutorial) | ● | ● |
+| [Netskope User Authentication](https://learn.microsoft.com/azure/active-directory/saas-apps/netskope-administrator-console-provisioning-tutorial) | ● | ● |
+| [Netsparker Enterprise](https://learn.microsoft.com/azure/active-directory/saas-apps/netsparker-enterprise-provisioning-tutorial) | ● | ● |
+| [New Relic by Organization](https://learn.microsoft.com/azure/active-directory/saas-apps/new-relic-by-organization-provisioning-tutorial) | ● | ● |
+| [NordPass](https://learn.microsoft.com/azure/active-directory/saas-apps/nordpass-provisioning-tutorial) | ● | ● |
+| [Office Space Software](https://learn.microsoft.com/azure/active-directory/saas-apps/officespace-software-provisioning-tutorial) | ● | ● |
+| [Olfeo SAAS](https://learn.microsoft.com/azure/active-directory/saas-apps/olfeo-saas-provisioning-tutorial) | ● | ● |
+| [OpenText Directory Services](https://learn.microsoft.com/azure/active-directory/saas-apps/open-text-directory-services-provisioning-tutorial) | ● | ● |
+| [Oracle Cloud Infrastructure Console](https://learn.microsoft.com/azure/active-directory/saas-apps/oracle-cloud-infrastructure-console-provisioning-tutorial) | ● | ● |
+| [Oracle Fusion ERP](https://learn.microsoft.com/azure/active-directory/saas-apps/oracle-fusion-erp-provisioning-tutorial) | ● | ● |
+| [Palo Alto Networks Cloud Identity Engine - Cloud Authentication Service](https://learn.microsoft.com/azure/active-directory/saas-apps/palo-alto-networks-cloud-identity-engine-provisioning-tutorial) | ● | ● |
+| [Palo Alto Networks SCIM Connector](https://learn.microsoft.com/azure/active-directory/saas-apps/palo-alto-networks-scim-connector-provisioning-tutorial) | ● | ● |
+| [PaperCut Cloud Print Management](https://learn.microsoft.com/azure/active-directory/saas-apps/papercut-cloud-print-management-provisioning-tutorial) | ● | ● |
+| [Parsable](https://learn.microsoft.com/azure/active-directory/saas-apps/parsable-provisioning-tutorial) | ● | ● |
+| [Peripass](https://learn.microsoft.com/azure/active-directory/saas-apps/peripass-provisioning-tutorial) | ● | ● |
+| [Pingboard](https://learn.microsoft.com/azure/active-directory/saas-apps/pingboard-provisioning-tutorial) | ● | ● |
+| [Plandisc](https://learn.microsoft.com/azure/active-directory/saas-apps/plandisc-provisioning-tutorial) | ● | ● |
 | []() | ● | ● |
 | []() | ● | ● |
 | []() | ● | ● |
