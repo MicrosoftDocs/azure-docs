@@ -34,6 +34,8 @@ ms.reviewer: amycolannino
 
 
 ## Entra Identity Governance Integrations
+The list below provides key integrations between Entra Identity Governance and various applications, including both provisioning and SSO integrations. For a full list of applications that Microsoft Entra integrates with specifically for SSO, see [here](../../active-directory/saas-apps/tutorial-list.md). 
+
 | Application | Automated provisioning | Single Sign On (SSO)|
 | :--- | :-:  | :-: |
 | [4me](../../active-directory/saas-apps/4me-provisioning-tutorial.md) | ● | ●| 
@@ -61,7 +63,7 @@ ms.reviewer: amycolannino
 | [Atmos](../../active-directory/saas-apps/atmos-provisioning-tutorial.md) | ● |  |
 | [AuditBoard](../../active-directory/saas-apps/auditboard-provisioning-tutorial.md) | ● |  |
 | [Autodesk SSO](../../active-directory/saas-apps/autodesk-sso-provisioning-tutorial.md) | ● | ● |
-| [Azure Databricks SCIM Connector](../../databricks/administration-guide/users-groups/scim/aad.md) | ● |  |
+| [Azure Databricks SCIM Connector](https://learn.microsoft.com/azure/databricks/administration-guide/users-groups/scim/aad) | ● |  |
 | [AWS IAM Identity Center](../../active-directory/saas-apps/aws-single-sign-on-provisioning-tutorial.md) | ● | ● |
 | [BambooHR](../../active-directory/saas-apps/bamboo-hr-tutorial.md) |  | ● |
 | [BenQ IAM](../../active-directory/saas-apps/benq-iam-provisioning-tutorial.md) | ● | ● |
@@ -341,4 +343,4 @@ There is also a healthy partner ecosystem, further expanding the breadth and dep
 
 ## Next steps
 
-To learn more about application provisioning, see [What is application management](../../active-directory/user-provisioning.md).
+To learn more about application provisioning, see [What is application provisioning](../../active-directory/app-provisioning/user-provisioning.md).
