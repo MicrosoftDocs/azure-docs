@@ -36,7 +36,7 @@ VS Code has multiple extensions that can help you achieve your machine learning 
 
 When you use [VS Code for the Web](how-to-launch-vs-code-remote.md?tabs=vscode-web#use-vs-code-as-your-workspace-ide), the latest versions of these extensions are automatically available to you. If you use the [desktop application](how-to-launch-vs-code-remote.md?tabs=vscode-desktop#use-vs-code-as-your-workspace-ide), you may need to install them.
 
-When you [launch VS Code connected to a compute instance]((how-to-launch-vs-code-remote.md)) for the first time, make sure you follow these steps and take a few moments to orient yourself to the tools in your integrated development environment.
+When you [launch VS Code connected to a compute instance](how-to-launch-vs-code-remote.md) for the first time, make sure you follow these steps and take a few moments to orient yourself to the tools in your integrated development environment.
 
 1. Locate the Azure extension and sign in
 1. Once your subscriptions are listed, you can filter to the ones you use frequently. You can also pin workspaces you use most often within the subscriptions.
