@@ -99,7 +99,13 @@ public void createVideoEffectsFeature() {
 
 ```
 
-- Create a new Background Blur Video Effect object and call `enableEffect` on the `videoEffectsFeature` object:
+- Create a new Background Blur Video Effect object:
+
+```java
+BackgroundBlurEffect backgroundBlurVideoEffect = new BackgroundBlurEffect();
+```
+
+- Call `EnableEffect` on the `videoEffectsFeature` object:
 
 ```java
 public void enableBackgroundBlur() {
@@ -111,6 +117,6 @@ To disable Background Blur Video Effect:
 
 ```java
 public void disableBackgroundBlur() {
-    videoEffectsFeature.disableEffects();
+    videoEffectsFeature.disableEffects(backgroundBlurEffect);
 }
 ```
