@@ -493,7 +493,7 @@ Sometimes, a worker may already be an active contingent worker, when HR initiate
 
 * It's January 1, 2022 and John Smith starts work at as a contingent worker. As there's no AD account associated with John's *WorkerID* (matching attribute), the provisioning service creates a new AD account and links John's contingent worker *WID (WorkdayID)* to John's AD account. 
 * On January 15, HR initiates a transaction to convert John from contingent worker to full-time employee effective February 1, 2022. 
-* Since Azure AD provisioning service automatically processes future-dated hires, it will process John's new full-time employee worker profile on January 15, and update John's profile in AD with full-time employment details even though he is still a contingent worker. 
+* Since Azure AD provisioning service automatically processes future-dated hires, it will process John's new full-time employee worker profile on January 15, and update John's profile in AD with full-time employment details even though he's still a contingent worker. 
 * To avoid this behavior and ensure that John's FTE details get provisioned on February 1, 2022, perform the following configuration changes. 
 
    **Configuration changes**
