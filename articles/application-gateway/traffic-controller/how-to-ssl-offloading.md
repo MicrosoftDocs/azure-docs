@@ -39,7 +39,7 @@ Apply the following deployment.yaml file on your cluster:
 kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/https-scenario/ssl-termination/deployment.yaml
 ```
 
-This creates the following on your cluster:
+This command creates the following on your cluster:
 - a namespace called `test-infra`
 - 1 service called `echo` in the `test-infra` namespace
 - 1 deployment called `echo` in the `test-infra` namespace
@@ -76,7 +76,7 @@ This creates the following on your cluster:
     EOF
     ```
 
-    Once the gateway object has been created check the status on the object to ensure that the gateway is valid and the listener is ready. Verify that the address assigned to the gateway is the resource ID of your public IP Address
+    Once the gateway object has been created check the status on the object to ensure that the gateway is valid, and the listener is ready. Verify that the address assigned to the gateway is the resource ID of your public IP Address
 
 2. Create an HTTPRoute
     ```bash
@@ -101,11 +101,11 @@ This creates the following on your cluster:
 
 ## Test access to the application
 
-Now we're ready to send some traffic to our sample application, via the public IP Address. Use the command below to get the IP address
+Now we're ready to send some traffic to our sample application, via the public IP Address. Use the following command to get the IP address:
 
 Curling this IP should return responses from the backend as configured on the HTTPRoute.
 ```bash
 curl --insecure https://$ip/ -H "host: example.com"
 ```
 
-Congratulations, you have installed ALB controller, deployed a backend application and routed traffic to the application via the ingress on Traffic Controller.
+Congratulations, you have installed ALB controller, deployed a backend application, and routed traffic to the application via the ingress on Traffic Controller.
