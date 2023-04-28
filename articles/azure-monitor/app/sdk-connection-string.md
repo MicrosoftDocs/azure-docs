@@ -163,16 +163,15 @@ Connection string: `APPLICATIONINSIGHTS_CONNECTION_STRING`
 
 # [.NET 5.0+](#tab/dotnet5)
 
-
 1. Set the instrumentation key in the `application.json` file:
 
-```json
-{
-  "ApplicationInsights": {
-    "InstrumentationKey" : "InstrumentationKey=00000000-0000-0000-0000-000000000000;"
+    ```json
+    {
+      "ApplicationInsights": {
+        "InstrumentationKey" : "InstrumentationKey=00000000-0000-0000-0000-000000000000;"
+        }
     }
-}
-```
+    ```
 
 2. Retrieve the instrumentation key in `Program.cs` when registering the `ApplicationInsightsTelemetry` service:
 
@@ -180,6 +179,9 @@ Connection string: `APPLICATIONINSIGHTS_CONNECTION_STRING`
     var options = new ApplicationInsightsServiceOptions { ConnectionString = app.Configuration["ApplicationInsights:InstrumentationKey"] };
     builder.Services.AddApplicationInsightsTelemetry(options: options);
     ```
+
+> [!NOTE]
+> When deploying applications to Azure, consider placing instrumentation keys or other configuration secrets in secure locations such as App Service configuration settings or Azure Key Vault. Avoid including secrets in your application code or checking them into source control where they might be exposed or misused. The preceding code example will also work if the instrumentation key is stored in App Service configuration settings.
 
 # [.NET Framework](#tab/dotnet-framework)
 
