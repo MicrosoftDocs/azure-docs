@@ -25,7 +25,7 @@ Container insights can also scrape Prometheus metrics from your cluster and send
 > You don't need to enable Container insights to configure your AKS cluster to send data to managed Prometheus. See [Collect Prometheus metrics from AKS cluster (preview)](../essentials/prometheus-metrics-enable.md) for details on how to configure your cluster without enabling Container insights.
 
 
-Use the following procedure to add Promtheus collection to your cluster that's already using Container insights.
+Use the following procedure to add Prometheus collection to your cluster that's already using Container insights.
 
 1. Open the **Kubernetes services** menu in the Azure portal and select your AKS cluster.
 2. Click **Insights**.
