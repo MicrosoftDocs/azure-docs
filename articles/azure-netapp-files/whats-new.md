@@ -19,18 +19,16 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-* [Edit network features for existing Azure NetApp Files volumes](configure-network-features.md#edit-network-features-option-for-existing-volumes) (Preview)
+* [Standard network features - Edit volumes](configure-network-features.md#edit-network-features-option-for-existing-volumes) (Preview)
 
-    To date, Azure NetApp Files supports Standard network features for only newly created volumes. Now you can edit *existing* volumes to take advantage of Standard network features, providing you an enhanced virtual networking experience through various security and connectivity features for all workloads relying on Azure NetApp Files.
-
-    Using Standard network features lets you take advantage of the following supported features for Azure NetApp Files volumes and delegated subnets:  
-    * Increased IP limits for the VNets with Azure NetApp Files volumes at par with VMs
-    * Enhanced network security with support for [network security groups](../virtual-network/network-security-groups-overview.md) on the Azure NetApp Files delegated subnet
+    Azure NetApp Files volumes have been supported with Standard network features since [October 2021](#october-2021), but only for newly created volumes. This new *edit volumes* capability lets you change *existing* volumes that were configured with Basic network features to use Standard network features. This capability provides an enhanced, more standard, Azure Virtual Network (VNet) experience through various security and connectivity features that are available on Azure VNets to Azure services. When you edit existing volumes to use Standard network features, you can start taking advantage of networking capabilities, such as (but not limited to): 
+    * Increased number of client IPs in a virtual network (including immediately peered VNets) accessing Azure NetApp Files volumes - the [same as Azure VMs](azure-netapp-files-resource-limits.md#resource-limits)
+    * Enhanced network security with support for [network security groups](../virtual-network/network-security-groups-overview.md) on Azure NetApp Files delegated subnets
     * Enhanced network control with support for [user-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined) to and from Azure NetApp Files delegated subnets
     * Connectivity over Active/Active VPN gateway setup
     * [ExpressRoute FastPath](../expressroute/about-fastpath.md) connectivity to Azure NetApp Files   
 
-    See the [supported regions](azure-netapp-files-network-topologies.md#supported-regions) for this feature in public preview. 
+    This feature is now in public preview, currently available in [16 Azure regions](azure-netapp-files-network-topologies.md#regions-edit-network-features). It will roll out to other regions. Stay tuned for further information as more regions become available.
 
 ## April 2023
 
