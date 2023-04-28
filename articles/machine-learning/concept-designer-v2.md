@@ -1,7 +1,7 @@
 ---
 title: What is the Azure Machine Learning designer?
 titleSuffix: Azure Machine Learning
-description: Learn what the Azure Machine Learning designer is and what tasks you can use it for. The drag-and-drop UI enables to build machine learning pipeline. 
+description: Learn what the Azure Machine Learning designer is and what tasks you can use it for. The drag-and-drop UI enables customer to build machine learning pipeline. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,69 +11,102 @@ ms.reviewer: lagayhar
 author: lgayhardt
 ms.date: 04/26/2023
 ms.custom: designer, training
-monikerRange: 'azureml-api-2 |'
+monikerRange: 'azureml-api-2'
 ---
 
 # What is Azure Machine Learning designer? 
 
-Azure Machine Learning designer is a drag-and-drop interface used to build pipeline in Azure Machine Learning. This article describes the tasks you can do in the designer.
+Azure Machine Learning designer is a drag-and-drop UI interface to build pipeline in Azure Machine Learning. 
 
-The basic building block of pipeline is called component. 
+As shown in below GIF, you can build a pipeline visually by drag and drop your building blocks and connect them. 
 
 ![Azure Machine Learning designer example](./media/concept-designer/designer-drag-and-drop.gif)
 
-The designer uses your Azure Machine Learning [workspace](concept-workspace.md) to organize shared resources such as:
 
-+ [Pipelines](#pipeline)
-+ [Data](#data)
-+ [Compute resources](#compute)
-:::moniker range="azureml-api-2"
-+ [Registered models](concept-model-management-and-deployment.md#register-and-track-machine-learning-models)
-:::moniker-end
-:::moniker range="azureml-api-1"
-+ [Registered models](v1/concept-azure-machine-learning-architecture.md#models)
-:::moniker-end
-+ [Published pipelines](#publish)
-+ [Real-time endpoints](#deploy)
+>[!Note]
+> Designer supports two types of components, classic prebuilt components（v1） and custom components(v2). These two types of components are NOT compatible. 
+>
+>Classic prebuilt components provide prebuilt components majorly for data processing and traditional machine learning tasks like regression and classification. This type of component continues to be supported but will not have any new components added. 
+>
+>Custom components allow you to wrap your own code as a component. It supports sharing components across workspaces and seamless authoring across Studio, CLI v2, and SDK v2 interfaces. 
+>
+>For new projects, we highly suggest you use custom component, which is compatible with AzureML V2 and will keep receiving new updates. 
+>
+>This article applies to custom components.
+
+
+## Assets 
+
+The building blocks of pipeline are called assets in Azure Machine Learning, which includes: 
+ - [Data](./concept-data.md)
+ - Model 
+ - [Component](./concept-component.md) 
+
+Designer has an asset library on the left side, where you can access all the assets you need to create your pipeline. It shows you the assets you created in your workspace, and the assets shared in [registry]((./how-to-share-models-pipelines-across-workspaces-with-registries.md)) that you have permission to use.
+
+
+![asset-libarary-screenshot](./media/concept-designer/asset-library.png)
+
+
+To see assets from a specific registry, click the Registry name filter above the asset library. The assets you created in your current workspace are in the registry = workspace. The assets provided by Azure Machine Learning are in the registry = azureml.
+
+Designer only shows the assets that you created and named in your workspace. You won't see any unnamed assets in the list. To learn how to create data and component assets, read these articles:
+
+- [How to create data asset](./how-to-create-data-assets.md)
+- [How to create component](./how-to-create-component-pipelines-ui.md#register-component-in-your-workspace)
+
 
 
 ## Pipeline
 
-A [pipeline](concept-ml-pipelines.md) consists of data assets and analytical components, which you connect. Pipelines have many uses: you can make a pipeline that trains a single model, or one that trains multiple models. You can create a pipeline that makes predictions in real time or in batch, or make a pipeline that only cleans data. Pipelines let you reuse your work and organize your projects.
+Designer is a tool that lets you create pipelines with your assets in a visual way. When you use designer, you'll encounter two concepts related to pipelines: pipeline draft and pipeline jobs. 
+
+![pipeline-draft-and-pipeline-job-list](./media/concept-designer/pipeline-draft-and-job.png)
 
 ### Pipeline draft
 
 As you edit a pipeline in the designer, your progress is saved as a **pipeline draft**. You can edit a pipeline draft at any point by adding or removing components, configuring compute targets, creating parameters, and so on.
 
-A valid pipeline has these characteristics:
+A valid pipeline draft has these characteristics:
 
 * Data assets can only connect to components.
-* components can only connect to either data assets or other components.
-* All input ports for components must have some connection to the data flow.
+* Components can only connect to either data assets or other components.
+* All required input ports for components must have some connection to the data flow.
 * All required parameters for each component must be set.
 
 When you're ready to run your pipeline draft, you submit a pipeline job.
 
 ### Pipeline job
 
-Each time you run a pipeline, the configuration of the pipeline and its results are stored in your workspace as a **pipeline job**. You can go back to any pipeline job to inspect it for troubleshooting or auditing. **Clone** a pipeline job to create a new pipeline draft for you to edit.
-
-Pipeline jobs are grouped into experiments to organize job history. You can set the experiment for every pipeline job. 
-
-## Data
-
-A machine learning data asset makes it easy to access and work with your data. Several [sample data assets](samples-designer.md#datasets) are included in the designer for you to experiment with. You can [register](how-to-create-register-datasets.md) more data assets as you need them.
-
-## Component
-
-A component is an algorithm that you can perform on your data. The designer has several components ranging from data ingress functions to training, scoring, and validation processes.
-
-A component may have a set of parameters that you can use to configure the component's internal algorithms. When you select a component on the canvas, the component's parameters are displayed in the Properties pane to the right of the canvas. You can modify the parameters in that pane to tune your model. You can set the compute resources for individual components in the designer. 
-
-:::image type="content" source="./media/concept-designer/properties.png" alt-text="Component properties":::
+Each time you run a pipeline, the configuration of the pipeline and its results are stored in your workspace as a **pipeline job**. You can go back to any pipeline job to inspect it for troubleshooting or auditing. **Clone** a pipeline job creates a new pipeline draft for you to continue editing.
 
 
-For some help navigating through the library of machine learning algorithms available, see [Algorithm & component reference overview](component-reference/component-reference.md). For help with choosing an algorithm, see the [Azure Machine Learning Algorithm Cheat Sheet](algorithm-cheat-sheet.md).
+## Approaches to build pipeline in designer
+
+### Create new pipeline from scratch
+
+You can create a new pipeline and build from scratch. Remember to select the **Custom component** option when you create the pipeline in designer. 
+
+![screeshot showing to select custom component](./media/how-to-create-component-pipelines-ui/new-pipeline.png)
+
+
+### Clone an existing pipeline job 
+
+If you would like to work based on an existing pipeline job in the workspace, you can easily clone it into a new pipeline draft to continue editing.
+
+![Screenshot of a pipeline job in the workspace with the clone button highlighted](./media/how-to-use-pipeline-ui/job-detail-clone.png)
+
+
+After cloning, you can also know which pipeline job it's cloned from by selecting **Show lineage**.
+
+![Screenshot showing the draft lineage after selecting show lineage button](./media/how-to-use-pipeline-ui/draft-show-lineage.png)
+
+You can edit your pipeline and then submit again. After submitting, you can see the lineage between the job you submit and the original job by selecting **Show lineage** in the job detail page.
+
+
+
+
+
 
 
 
