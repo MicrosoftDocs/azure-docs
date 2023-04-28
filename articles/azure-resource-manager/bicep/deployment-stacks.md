@@ -181,9 +181,19 @@ The deployment stack 'myStack' you're trying to create already already exists in
 
 If you run the delete commands without the delete parameters, the managed resources will be detached but not deleted. To delete the managed resources, use the following switches:
 
-- `-DeleteAll`
-- `-DeleteResources`
-- `-DeleteResourceGroups`
+# [PowerShell](#tab/azure-powershell)
+
+- `-DeleteAll`: Delete both the resources and the resource groups.
+- `-DeleteResources`: Delete the resources only.
+- `-DeleteResourceGroups`: Delete the resource groups only.
+
+# [CLI](#tab/azure-cli)
+
+- `--delete-all`: Delete both the resources and the resource groups.
+- `--delete-resources`: Delete the resources only.
+- `--delete-resource-groups`: Delete the resource groups only.
+
+---
 
 Delete deployment stack resources at the resource group scope:
 
@@ -336,7 +346,7 @@ To manage deployment stack deny assignments with Azure PowerShell, include one o
 - `DenyDelete`: Prevent delete operations
 - `DenyWriteAndDelete`: Prevent deletion or modification
 
-jgao: what is the a default value if -DenySettingmode is not specified?
+jgao: what is the a default value if -DenySettingMode is not specified?
 
 For example:
 

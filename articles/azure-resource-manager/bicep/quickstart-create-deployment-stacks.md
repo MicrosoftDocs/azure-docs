@@ -231,11 +231,23 @@ The output shows four managed resource - two resource groups and two public IPs:
 
 To delete the deployment stack, and the managed resources:
 
+# [PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
 Remove-AzSubscriptionDeploymentStack `
   -Name mySubStack `
   -DeleteAll
 ```
+
+If you run the delete commands without the **delete all** parameters, the managed resources will be detached but not deleted. The following parameters can be used to control between detach and delete.
+
+- `DeleteAll`: delete both resource groups and the managed resources.
+- `DeleteResources`: delete the managed resources only.
+- `DeleteResourceGroups`: delete the resource groups only.
+
+For more information, see [Delete deployment stacks](./deployment-stacks.md#delete-deployment-stacks).
+
+# [CLI](#tab/azure-cli)
 
 ```azurecli
 az stack sub delete \
@@ -243,13 +255,15 @@ az stack sub delete \
   --delete-all
 ```
 
-If you run the delete commands without the **delete all** parameters, the managed resources will be detached but not deleted. To delete the managed resources, use the following switches:
+If you run the delete commands without the **delete all** parameters, the managed resources will be detached but not deleted. The following parameters can be used to control between detach and delete.
 
-- `DeleteAll`: delete both resource groups and the managed resources.
-- `DeleteResources`: delete the managed resources only.
-- `DeleteResourceGroups`: delete the resource groups only.
+- `--delete-all`: Delete both the resources and the resource groups.
+- `--delete-resources`: Delete the resources only.
+- `--delete-resource-groups`: Delete the resource groups only.
 
 For more information, see [Delete deployment stacks](./deployment-stacks.md#delete-deployment-stacks).
+
+---
 
 ## Next steps
 
