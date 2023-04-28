@@ -50,7 +50,7 @@
     - name:  What is password hash sync?
       href:  connect/whatis-phs.md
     - name:  What is pass-through authenticaion?
-      href:  connect/how-to-connect-pta.m
+      href:  connect/how-to-connect-pta.md
     - name:  What is federation?
       href:  connect/whatis-fed.md
     - name:  Troubleshoot password synchronization
