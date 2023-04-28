@@ -16,7 +16,7 @@ metadata:
   author: Dickson-Mwendia
   manager: CelesteDG
   ms.author: dmwendia
-  ms.date: 04/27/2023
+  ms.date: 04/28/2023
   ms.service: active-directory
   ms.subservice: develop
   ms.topic: hub-page
@@ -162,10 +162,10 @@ tools:
   items:
   ## ROW 1 ######################
   - title: .NET
-    url: https://github.com/AzureAD/microsoft-authentication-library-for-dotnet
+    url: /entra/msal/dotnet
     imageSrc: /media/logos/logo_Csharp.svg
   - title: Android
-    url: /javascript/api/@azure/msal-angular
+    url: https://github.com/AzureAD/microsoft-authentication-library-for-android
     imageSrc: ./media/hub/android.svg
   - title: Angular
     url: /javascript/api/@azure/msal-angular/
@@ -175,7 +175,7 @@ tools:
     url: https://github.com/AzureAD/microsoft-authentication-library-for-objc
     imageSrc: /media/logos/logo_ios.svg
   - title: Java
-    url: https://github.com/AzureAD/microsoft-authentication-library-for-java
+    url: /java/api/com.microsoft.aad.msal4j
     imageSrc: /media/logos/logo_java.svg
   - title: JavaScript
     url: /javascript/api/overview/msal-overview
@@ -185,7 +185,7 @@ tools:
     url: /javascript/api/@azure/msal-node
     imageSrc: ./media/hub/node.svg
   - title: Python
-    url: https://github.com/AzureAD/microsoft-authentication-library-for-python
+    url: /python/api/msal/overview-msal
     imageSrc: /media/logos/logo_python.svg
   - title: React
     url: /javascript/api/@azure/msal-react

@@ -8,7 +8,7 @@ summary: >
 metadata:
   author: Dickson-Mwendia
   ms.author: dmwendia
-  ms.date: 04/27/2023
+  ms.date: 04/28/2023
   ms.service: active-directory
   ms.subservice: develop
   ms.topic: landing-page
@@ -24,15 +24,15 @@ landingContent:
             url: web-api-quickstart.md?pivots=devlang-aspnet
           - text: ASP.NET Core
             url: web-api-quickstart.md?pivots=devlang-aspnet-core
-  - title: "Learn by building"
+  - title: "Learn by building - ASP.NET Web API"
     linkLists:
       - linkListType: tutorial
         links:
-          - text: ASP.NET - Register your app
+          - text: Register your app
             url: web-api-tutorial-01-register-app.md
-          - text: ASP.NET - Configure your app
+          - text: Configure your app
             url: web-api-tutorial-02-prepare-api.md
-          - text: ASP.NET - Call your web API
+          - text: Call your web API
             url: web-api-tutorial-03-protect-endpoint.md
         
   - title: "Scenarios in depth"
