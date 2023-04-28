@@ -35,8 +35,8 @@ Use Microsoft authentication methods to meet required NIST authenticator types.
 | **Recommended methods**|    |
 | Hardware protected certificate (smartcard/security key/TPM) <br> FIDO 2 security key<br>Windows Hello for Business with hardware TPM| Multi-factor cryptographic hardware |
 | **Additional methods**||
-|Password <br>**AND**<br>&nbsp;&nbsp;&nbsp;&nbsp;Azure AD joined with hardware TPM <br>&nbsp;&nbsp;&nbsp;&nbsp;**OR**<br>&nbsp;&nbsp;&nbsp;&nbsp;Hybrid Azure AD joined with hardware TPM|Memorized secret <br>**AND**<br>Single-factor cryptographic hardware|
-|Password <br>**AND**<br> OATH hardware tokens (Preview) <br>**AND**<br>&nbsp;&nbsp;&nbsp;&nbsp;Single-factor software certificate&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;**OR**<br>&nbsp;&nbsp;&nbsp;&nbsp;Hybrid Azure AD Joined or compliant device with software TPM |Memorized secret<br>**AND**<br>Single-factor OTP hardware <br>**AND**<br>Single-factor cryptographic software|
+|Password<br>**AND**<br>- Azure AD joined with hardware TPM <br>- **OR**<br>- Hybrid Azure AD joined with hardware TPM|Memorized secret <br>**AND**<br>Single-factor cryptographic hardware|
+|Password<br>**AND**<br>OATH hardware tokens (Preview) <br>**AND**<br>- Single-factor software certificate<br>- **OR**<br>- Hybrid Azure AD Joined or compliant device with software TPM |Memorized secret<br>**AND**<br>Single-factor OTP hardware <br>**AND**<br>Single-factor cryptographic software|
 
 ### Recommendations
 
