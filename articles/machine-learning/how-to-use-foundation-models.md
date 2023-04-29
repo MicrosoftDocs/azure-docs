@@ -49,7 +49,7 @@ The Evaluate UI wizard described above, allows you to perform basic evaluation b
 
 
 #### Evaluating using code based samples
-To enable users to quickly get started with model evaluation, we have published samples (both Python notebooks as well as CLI examples) in this git repo at [https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system). Each model card also links to Evaluation samples for corresponding tasks
+To enable users to quickly get started with model evaluation, we have published samples (both Python notebooks as well as CLI examples) in the [Evaluation samples in azureml-examples git repo](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system/evaluation). Each model card also links to Evaluation samples for corresponding tasks
 
 
 ### How to finetune foundation models using your own training data
