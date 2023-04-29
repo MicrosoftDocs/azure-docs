@@ -18,6 +18,17 @@ Microsoft will retire classic storage accounts on August 31, 2024. To preserve t
 
 This article describes how to migrate your classic storage accounts to the Azure Resource Manager deployment model. For more information, see [Migrate your classic storage accounts to Azure Resource Manager by August 31, 2024](classic-account-migration-overview.md).
 
+## Overview of the migration process
+
+Before you get started with the migration, read [Understand storage account migration from the classic deployment model to Azure Resource Manager](classic-account-migration-process.md) for an overview of the process.
+
+To migrate your classic storage accounts, you should:
+
+1. [Identify classic storage accounts in your subscription](#identify-classic-storage-accounts-in-your-subscription).
+1. [Locate and delete any disk artifacts in classic accounts](#locate-and-delete-any-disk-artifacts-in-a-classic-account).
+1. [Migrate your classic storage accounts](#migrate-a-classic-storage-account).
+1. [Update your applications to use Azure Resource Manager APIs](#update-your-applications-to-use-azure-resource-manager-apis).
+
 ## Identify classic storage accounts in your subscription
 
 # [Portal](#tab/azure-portal)

@@ -47,15 +47,14 @@ If your applications are using Azure Service Manager classic APIs to access clas
 
 ## What actions should I take?
 
-To migrate your classic storage accounts, you should:
-
-1. Identify all classic storage accounts in your subscription.
-1. Migrate any classic storage accounts to Azure Resource Manager.
-1. Check your applications and logs to determine whether you're dynamically creating, updating, or deleting classic storage accounts from your code, scripts, or templates. If you are, then you must update your applications to use Azure Resource Manager APIs for account management.
-
 Before you get started with the migration, read [Understand storage account migration from the classic deployment model to Azure Resource Manager](classic-account-migration-process.md) for an overview of the process.
 
-For step-by-step instructions on performing the migration, see [How to migrate your classic storage accounts to Azure Resource Manager](classic-account-migrate.md).
+To migrate your classic storage accounts, you should:
+
+1. Identify all classic storage accounts in your subscription. To learn how, see [Identify classic storage accounts in your subscription](classic-account-migrate.md#identify-classic-storage-accounts-in-your-subscription).
+1. Delete any classic (unmanaged) disks or disk artifacts in your classic storage accounts. To learn how to delete classic disk artifacts, see [Locate and delete any disk artifacts in a classic account](classic-account-migrate.md#locate-and-delete-any-disk-artifacts-in-a-classic-account).
+1. Migrate any classic storage accounts to [Azure Resource Manager](../../azure-resource-manager/management/overview.md). For step-by-step instructions on performing the migration, see [How to migrate your classic storage accounts to Azure Resource Manager](classic-account-migrate.md).
+1. Check your applications and logs to determine whether you're dynamically creating, updating, or deleting classic storage accounts from your code, scripts, or templates. If you are, then you must update your applications to use Azure Resource Manager APIs for account management. For more information, see [Update your applications to use Azure Resource Manager APIs](classic-account-migrate.md#update-your-applications-to-use-azure-resource-manager-apis).
 
 ## How to get help
 
