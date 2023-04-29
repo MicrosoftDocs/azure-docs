@@ -61,6 +61,9 @@ Instead of performing these actions from a selected Azure VM or Arc-enabled serv
       - **Image Default**—for Linux machines, it uses the default patching configuration.
       - **OS orchestrated**—the OS automatically updates the machine.
       - **Manual updates**—you control the application of patches to a machine by applying patches manually inside the machine. In this mode, automatic updates are disabled for Windows OS. 
+      - **Azure Managed - Safe Deployment** - enables the automatic guest VM patching on your existing VMs. 
+      - **Customer Managed Schedules (Preview)** - enables schedule patching on your existing VMs.
+ 
 
    For more information about each orchestration method see, [automatic VM guest patching for Azure VMs](../virtual-machines/automatic-vm-guest-patching.md#patch-orchestration-modes). 
 
@@ -97,6 +100,8 @@ The column **Patch Orchestration**, in the machine's patch mode has the followin
    * **Azure orchestrated**—for a group of virtual machines undergoing an update, the Azure platform will orchestrate updates. The VM is set to [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md), and for an Azure virtual machine scale set, it's set to [automatic OS image upgrade](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md).
    * **Image Default**—for Linux machines, its default patching configuration is used.
    * **Manual**—you control the application of patches to a machine by applying patches manually inside the machine. In this mode automatic updates are disabled for Windows OS.
+   * **Azure Managed - Safe Deployment** - enables the automatic guest VM patching on your existing VMs. 
+   * **Customer Managed Schedules (Preview)** - enables schedule patching on your existing VMs.
 
 The machine's status—for an Azure VM, it shows it's [power state](../virtual-machines/states-billing.md#power-states-and-billing), and for an Arc-enabled server, it shows if it's connected or not. 
 
