@@ -75,8 +75,12 @@ If your notebook didn't have an existing session, you can pick from the kernels 
 
 While there are a few ways to connect and manage kernels in VS Code, connecting to an existing kernel session is the recommended way to enable a seamless transition from the Azure Machine Learning studio to VS Code. If you plan to mostly work within VS Code, you can make use of any kernel connection approach that works for you.
 
-For more information on managing Jupyter kernels in VS Code, see [Jupyter kernel management](https://code.visualstudio.com/docs/datascience/jupyter-kernel-management).
+
 
 ## Transition between Azure Machine Learning and VS Code
 
 We recommend not trying to work on the same files in both applications at the same time as you may have conflicts you need to resolve. We'll save your current file in the studio before navigating to VS Code. You can execute many of the actions provided in the Azure Machine Learning studio in VS Code instead, using a YAML-first approach. You may find you prefer to do certain actions (for example, editing and debugging files) in VS Code, and other actions (for example, Creating a training job) in the Azure Machine Learning studio. You should find you can seamlessly navigate back and forth between the two.
+
+## Next steps
+
+For more information on managing Jupyter kernels in VS Code, see [Jupyter kernel management](https://code.visualstudio.com/docs/datascience/jupyter-kernel-management).

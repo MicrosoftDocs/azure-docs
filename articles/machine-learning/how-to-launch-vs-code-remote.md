@@ -21,7 +21,7 @@ In this article, you'll learn how to launch Visual Studio Code remotely connecte
 
 There are two ways you can connect to a compute instance from Visual Studio Code. We recommend the first approach.
 
-1. **Use VS Code as your workspace's Integrated Development Environment (IDE).** This option provides you with a **full-featured development environment** for building your machine learning projects.
+1. **Use VS Code as your workspace's integrated development environment (IDE).** This option provides you with a **full-featured development environment** for building your machine learning projects.
     * You can open VS Code from your workspace either in the browser [VS Code for the Web](?tabs=vscode-web#use-vs-code-as-your-workspace-ide) or desktop application [VS Code Desktop](?tabs=vscode-desktop#use-vs-code-as-your-workspace-ide).
     * We recommend **VS Code for the Web**, as you can do all your machine learning work directly from the browser, and without any required installations or dependencies.
 
@@ -66,7 +66,7 @@ You can create the connection from either the **Notebooks** or **Compute** secti
 * Compute
 
     1. Select the **Compute** tab
-    1. In the *Application URI* column, select **VS Code (Web)** for the compute instance you want to connect to.
+    1. In the *Applications* column, select **VS Code (Web)** for the compute instance you want to connect to.
 
     :::image type="content" source="media/how-to-launch-vs-code-remote/vs-code-from-compute.png" alt-text="Screenshot of how to connect to Compute Instance VS Code Azure Machine Learning studio." lightbox="media/how-to-launch-vs-code-remote/vs-code-from-compute.png":::
 
@@ -135,7 +135,7 @@ Once the connection is established, it's persisted. A token is issued at the sta
 After you connect to your remote compute instance, use the editor to:
 
 * [Author and manage files on your remote compute instance or file share](https://code.visualstudio.com/docs/editor/codebasics).
-* Use the [VS Code integrated terminal](https://code.visualstudio.com/docs/editor/integrated-terminal) to [run commands and applications on your remote compute instance](how-to-access-terminal.md).
+* Use the [VS Code integrated terminal](https://code.visualstudio.com/docs/editor/integrated-terminal) to run commands and applications on your remote compute instance.
 * [Debug your scripts and applications](https://code.visualstudio.com/Docs/editor/debugging)
 * [Use VS Code to manage your Git repositories](concept-train-model-git-integration.md)
 
