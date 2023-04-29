@@ -5,7 +5,7 @@ services: service-name
 documentationcenter: dev-center-name
 author: GitHub-alias-of-only-one-author
 manager: manager-alias
-editor: ''
+editor:"
 tags: comma-separates-additional-tags-if-required
 
 ms.service: required
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: may be required
 ms.workload: required
 ms.date: mm/dd/yyyy
-ms.author: Your MSFT alias or your full email address;semicolon separates two or more
+ms.author: Your MSFT alias or your full email address; semicolon separates two or more
 
 ---
 # Title (Maximum 120 characters, target the primary keyword)
@@ -30,8 +30,8 @@ ms.author: Your MSFT alias or your full email address;semicolon separates two or
 
 ## Summary (Optional, especially when the article is short)
 * *Briefly describe the problem.*
-* *The Summary section is an excellent place to use different keywords from those in the title, but make sure not to make it very wordy. The sentences should flow well and be easy to understand.*
-* *Exceptions (optional) - List the relevant scenarios not covered in this article. For example, ” Linux/OSS scenarios aren't covered in this article”.*
+* *The Summary section is an excellent place to use different keywords from those in the title, but make sure to make it concise. The sentences should flow well and be easy to understand.*
+* *Exceptions (optional) - List the relevant scenarios not covered in this article. For example," Linux/OSS scenarios aren't covered in this article".*
 
 *If it is an article on the billing topic, include the following note (the note below is slightly different from the one at the bottom of this article):*
 
