@@ -120,6 +120,8 @@ If you are looking to use an open source model, that is not included in the Mode
 	<li>text-to-image</li>
 </ul>
 
+NOTE: Models from Hugging Face are subject to third party license terms available on the Hugging Face model details page. It is your responsibility to comply with the model's license terms.
+
 You can click the "Import" button on the top right of the Model Catalog to use the Model Import Notebook.
 
 ![image](./media/model_import.png)
