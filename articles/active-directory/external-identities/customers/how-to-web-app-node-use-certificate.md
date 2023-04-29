@@ -153,7 +153,7 @@ Once you associate your app registration with the certificate, you need to updat
     
     - `Enter_the_Tenant_Name_Here` and replace it with the Directory (tenant) name. If you don't have your tenant name, learn how to [read tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
 
-    We encrypted the key (we recommend that you do so), so we've to decrypt it before we pass it to MSAL config object.
+    We encrypted the key (we recommend that you do so), so we've to decrypt it before we pass it to MSAL configuration object.
 
     ```javascript
     //...
