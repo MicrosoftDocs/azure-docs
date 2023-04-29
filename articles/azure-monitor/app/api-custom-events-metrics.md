@@ -321,7 +321,7 @@ The recommended way to send request telemetry is where the request acts as an <a
 
 You can correlate telemetry items together by associating them with operation context. The standard request-tracking module does this for exceptions and other events that are sent while an HTTP request is being processed. In [Search](./diagnostic-search.md) and [Analytics](../logs/log-query-overview.md), you can easily find any events associated with the request by using its operation ID.
 
-For more information on correlation, see [Telemetry correlation in Application Insights](./correlation.md).
+For more information on correlation, see [Telemetry correlation in Application Insights](distributed-tracing-telemetry-correlation.md).
 
 When you track telemetry manually, the easiest way to ensure telemetry correlation is by using this pattern:
 
