@@ -220,7 +220,7 @@ For information on sampling in OpenCensus, see [Sampling in OpenCensus](sampling
 
 #### Log correlation
 
-For information on how to enrich your logs with trace context data, see OpenCensus Python [logs integration](./correlation.md#log-correlation).
+For information on how to enrich your logs with trace context data, see OpenCensus Python [logs integration](distributed-tracing-telemetry-correlation.md#log-correlation).
 
 #### Modify telemetry
 
@@ -478,7 +478,7 @@ For information on sampling in OpenCensus, see [Sampling in OpenCensus](sampling
 
 #### Trace correlation
 
-For more information on telemetry correlation in your trace data, see OpenCensus Python [telemetry correlation](./correlation.md#telemetry-correlation-in-opencensus-python).
+For more information on telemetry correlation in your trace data, see OpenCensus Python [telemetry correlation](distributed-tracing-telemetry-correlation.md#telemetry-correlation-in-opencensus-python).
 
 #### Modify telemetry
 

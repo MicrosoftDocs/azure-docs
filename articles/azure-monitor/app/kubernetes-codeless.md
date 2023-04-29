@@ -40,4 +40,4 @@ Troubleshoot the following issue.
 ## Next steps
 
 * Learn more about [Azure Monitor](../overview.md) and [Application Insights](./app-insights-overview.md).
-* Get an overview of [distributed tracing](./distributed-tracing.md) and see what [Application Map](./app-map.md?tabs=net) can do for your business.
+* Get an overview of [distributed tracing](distributed-tracing-telemetry-correlation.md) and see what [Application Map](./app-map.md?tabs=net) can do for your business.
