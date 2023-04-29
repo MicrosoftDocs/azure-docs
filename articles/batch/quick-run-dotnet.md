@@ -121,8 +121,12 @@ Review the code to understand the steps in the [Azure Batch .NET Quickstart](htt
 1. To interact with the storage account, the app uses the Azure Storage Blobs client library for .NET to create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient).
 
    ```csharp
-   var blobServiceClient = GetBlobServiceClient(StorageAccountName, StorageAccountKey);
-   ```
+   var sharedKeyCredential = new StorageSharedKeyCredential(storageAccountName, storageAccountKey);
+   string blobUri = "https://" + storageAccountName + ".blob.core.windows.net";
+
+   var blobServiceClient = new BlobServiceClient(new Uri(blobUri), sharedKeyCredential);
+   return blobServiceClient;
+```
 
 1. The app uses the `blobServiceClient` reference to create a container in the storage account and upload data files to the container. The files in storage are defined as Batch [ResourceFile](/dotnet/api/microsoft.azure.batch.resourcefile) objects that Batch can later download to the compute nodes.
 
