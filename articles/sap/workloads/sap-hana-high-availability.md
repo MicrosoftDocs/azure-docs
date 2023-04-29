@@ -47,7 +47,8 @@ On Azure virtual machines (VMs), HANA System Replication on Azure is currently t
 SAP HANA Replication consists of one primary node and at least one secondary node. Changes to the data on the primary node are replicated to the secondary node synchronously or asynchronously.
 
 This article describes how to deploy and configure the virtual machines, install the cluster framework, and install and configure SAP HANA System Replication.
-In the example configurations, installation commands, instance number **03**, and HANA System ID **HN1** are used.
+
+In the example configurations, installation commands, instance number **03** and HANA System ID **HN1** are used.
 
 Read the following SAP Notes and papers first:
 
@@ -93,6 +94,7 @@ The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP
 ### Deploy with a template
 
 You can use one of the quickstart templates that are on GitHub to deploy all the required resources. The template deploys the virtual machines, the load balancer, the availability set, and so on.
+
 To deploy the template, follow these steps:
 
 1. Open the [database template][template-multisid-db] or the [converged template][template-converged] on the Azure portal. 
@@ -192,115 +194,142 @@ The steps in this section use the following prefixes:
 
    List all of the available disks:
 
-   <pre><code>ls /dev/disk/azure/scsi1/lun*
-   </code></pre>
+   ```bash
+   /dev/disk/azure/scsi1/lun*
+   ```
 
    Example output:
 
-   <pre><code>
+   ```output
    /dev/disk/azure/scsi1/lun0  /dev/disk/azure/scsi1/lun1  /dev/disk/azure/scsi1/lun2  /dev/disk/azure/scsi1/lun3
-   </code></pre>
+   ```
 
    Create physical volumes for all of the disks that you want to use:
 
-   <pre><code>sudo pvcreate /dev/disk/azure/scsi1/lun0
+   ```bash   
+   sudo pvcreate /dev/disk/azure/scsi1/lun0
    sudo pvcreate /dev/disk/azure/scsi1/lun1
    sudo pvcreate /dev/disk/azure/scsi1/lun2
    sudo pvcreate /dev/disk/azure/scsi1/lun3
-   </code></pre>
+   ```
 
    Create a volume group for the data files. Use one volume group for the log files and one for the shared directory of SAP HANA:
 
-   <pre><code>sudo vgcreate vg_hana_data_<b>HN1</b> /dev/disk/azure/scsi1/lun0 /dev/disk/azure/scsi1/lun1
-   sudo vgcreate vg_hana_log_<b>HN1</b> /dev/disk/azure/scsi1/lun2
-   sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
-   </code></pre>
+   ```bash
+   sudo vgcreate vg_hana_data_HN1 /dev/disk/azure/scsi1/lun0 /dev/disk/azure/scsi1/lun1
+   sudo vgcreate vg_hana_log_HN1 /dev/disk/azure/scsi1/lun2
+   sudo vgcreate vg_hana_shared_HN1 /dev/disk/azure/scsi1/lun3
+   ```
 
    Create the logical volumes. A linear volume is created when you use `lvcreate` without the `-i` switch. We suggest that you create a striped volume for better I/O performance, and align the stripe sizes to the values documented in [SAP HANA VM storage configurations](./hana-vm-operations-storage.md). The `-i` argument should be the number of the underlying physical volumes and the `-I` argument is the stripe size. In this document, two physical volumes are used for the data volume, so the `-i` switch argument is set to **2**. The stripe size for the data volume is **256KiB**. One physical volume is used for the log volume, so no `-i` or `-I` switches are explicitly used for the log volume commands.  
 
    > [!IMPORTANT]
-   > Use the `-i` switch and set it to the number of the underlying physical volume when you use more than one physical volume for each data, log, or shared volumes. Use the `-I` switch to specify the stripe size, when creating a striped volume.  
+   > Use the `-i` switch and set it to the number of the underlying physical volume when you use more than one physical volume for each data, log, or shared volumes. Use the `-I` switch to specify the stripe size, when creating a striped volume.
+   >
    > See [SAP HANA VM storage configurations](./hana-vm-operations-storage.md) for recommended storage configurations, including stripe sizes and number of disks.  
 
-   <pre><code>sudo lvcreate <b>-i 2</b> <b>-I 256</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
-   sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_<b>HN1</b>
-   sudo lvcreate -l 100%FREE -n hana_shared vg_hana_shared_<b>HN1</b>
-   sudo mkfs.xfs /dev/vg_hana_data_<b>HN1</b>/hana_data
-   sudo mkfs.xfs /dev/vg_hana_log_<b>HN1</b>/hana_log
-   sudo mkfs.xfs /dev/vg_hana_shared_<b>HN1</b>/hana_shared
-   </code></pre>
+   ```bash
+   sudo lvcreate -i 2 -I 256 -l 100%FREE -n hana_data vg_hana_data_HN1
+   sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_HN1
+   sudo lvcreate -l 100%FREE -n hana_shared vg_hana_shared_HN1
+   sudo mkfs.xfs /dev/vg_hana_data_HN1/hana_data
+   sudo mkfs.xfs /dev/vg_hana_log_HN1/hana_log
+   sudo mkfs.xfs /dev/vg_hana_shared_HN1/hana_shared
+   ```
+   
   
    Create the mount directories and copy the UUID of all of the logical volumes:
 
-   <pre><code>sudo mkdir -p /hana/data/<b>HN1</b>
-   sudo mkdir -p /hana/log/<b>HN1</b>
-   sudo mkdir -p /hana/shared/<b>HN1</b>
-   # Write down the ID of /dev/vg_hana_data_<b>HN1</b>/hana_data, /dev/vg_hana_log_<b>HN1</b>/hana_log, and /dev/vg_hana_shared_<b>HN1</b>/hana_shared
+   ```bash
+   sudo mkdir -p /hana/data/HN1
+   sudo mkdir -p /hana/log/HN1
+   sudo mkdir -p /hana/shared/HN1
+   # Write down the ID of /dev/vg_hana_data_HN1/hana_data, /dev/vg_hana_log_HN1/hana_log, and /dev/vg_hana_shared_HN1/hana_shared
    sudo blkid
-   </code></pre>
+   ```
+   
 
    Create `fstab` entries for the three logical volumes:       
 
-   <pre><code>sudo vi /etc/fstab
-   </code></pre>
+   ```bash
+   sudo vi /etc/fstab
+   ```
+   
 
-   Insert the following line in the `/etc/fstab` file:      
+   Insert the following line in the */etc/fstab* file:      
 
-   <pre><code>/dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_data_<b>HN1</b>-hana_data&gt;</b> /hana/data/<b>HN1</b> xfs  defaults,nofail  0  2
-   /dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_log_<b>HN1</b>-hana_log&gt;</b> /hana/log/<b>HN1</b> xfs  defaults,nofail  0  2
-   /dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_shared_<b>HN1</b>-hana_shared&gt;</b> /hana/shared/<b>HN1</b> xfs  defaults,nofail  0  2
-   </code></pre>
+   ```bash
+   /dev/disk/by-uuid/<UUID of /dev/mapper/vg_hana_data_HN1-hana_data> /hana/data/HN1 xfs  defaults,nofail  0  2
+   /dev/disk/by-uuid/<UUID of /dev/mapper/vg_hana_log_HN1-hana_log> /hana/log/HN1 xfs  defaults,nofail  0  2
+   /dev/disk/by-uuid/<UUID of /dev/mapper/vg_hana_shared_HN1-hana_shared> /hana/shared/HN1 xfs  defaults,nofail  0  2
+   ```
+   
 
    Mount the new volumes:
 
-   <pre><code>sudo mount -a
-   </code></pre>
+   ```bash
+   sudo mount -a
+   ```
+   
 
 1. **[A]** Set up the disk layout: **Plain Disks**.
 
    For demo systems, you can place your HANA data and log files on one disk. Create a partition on /dev/disk/azure/scsi1/lun0 and format it with xfs:
 
-   <pre><code>sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/disk/azure/scsi1/lun0'
+   ```bash
+   sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/disk/azure/scsi1/lun0'
    sudo mkfs.xfs /dev/disk/azure/scsi1/lun0-part1
    
    # Write down the ID of /dev/disk/azure/scsi1/lun0-part1
    sudo /sbin/blkid
    sudo vi /etc/fstab
-   </code></pre>
+   ```
+   
 
-   Insert this line in the /etc/fstab file:
+   Insert this line in the */etc/fstab* file:
 
-   <pre><code>/dev/disk/by-uuid/<b>&lt;UUID&gt;</b> /hana xfs  defaults,nofail  0  2
-   </code></pre>
+   ```bash
+   /dev/disk/by-uuid/<UUID> /hana xfs  defaults,nofail  0  2
+   ```
+   
 
    Create the target directory and mount the disk:
 
-   <pre><code>sudo mkdir /hana
+   ```bash
+   sudo mkdir /hana
    sudo mount -a
-   </code></pre>
+   ```
+   
 
 1. **[A]** Set up host name resolution for all hosts.
 
-   You can either use a DNS server or modify the /etc/hosts file on all nodes. This example shows you how to use the /etc/hosts file.
+   You can either use a DNS server or modify the */etc/hosts* file on all nodes. This example shows you how to use the */etc/hosts* file.
    Replace the IP address and the hostname in the following commands:
 
-   <pre><code>sudo vi /etc/hosts
-   </code></pre>
+   ```bash
+   sudo vi /etc/hosts
+   ```
+   
 
-   Insert the following lines in the /etc/hosts file. Change the IP address and hostname to match your environment:
+   Insert the following lines in the */etc/hosts* file. Change the IP address and host name to match your environment:
 
-   <pre><code><b>10.0.0.5 hn1-db-0</b>
-   <b>10.0.0.6 hn1-db-1</b>
-   </code></pre>
+   ```bash
+   10.0.0.5 hn1-db-0
+   10.0.0.6 hn1-db-1
+   ```
+   
 
 1. **[A]** Install the SAP HANA high availability packages:
 
-   <pre><code>sudo zypper install SAPHanaSR
-   </code></pre>
+   ```bash
+   sudo zypper install SAPHanaSR
+   ```
+   
 
 To install SAP HANA System Replication, follow chapter 4 of the [SAP HANA SR Performance Optimized Scenario guide](https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/).
 
 1. **[A]** Run the **hdblcm** program from the HANA DVD. Enter the following values at the prompt:
+
    * Choose installation: Enter **1**.
    * Select additional components for installation: Enter **1**.
    * Enter Installation Path [/hana/shared]: Select Enter.
@@ -331,108 +360,132 @@ To install SAP HANA System Replication, follow chapter 4 of the [SAP HANA SR Per
 
    Download the latest SAP Host Agent archive from the [SAP Software Center][sap-swcenter] and run the following command to upgrade the agent. Replace the path to the archive to point to the file that you downloaded:
 
-   <pre><code>sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive &lt;path to SAP Host Agent SAR&gt;
-   </code></pre>
+   ```bash
+   sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive <path to SAP Host Agent SAR>
+   ```
+   
 
 ## Configure SAP HANA 2.0 System Replication
 
 The steps in this section use the following prefixes:
 
 * **[A]**: The step applies to all nodes.
-* **[1]**: The step applies to node 1 only.
-* **[2]**: The step applies to node 2 of the Pacemaker cluster only.
+* **[1]**: The step applies only to node 1.
+* **[2]**: The step applies only to node 2 of the Pacemaker cluster.
 
 1. **[1]** Create the tenant database.
 
-   If you're using SAP HANA 2.0 or MDC, create a tenant database for your SAP NetWeaver system. Replace **NW1** with the SID of your SAP system.
+   If you're using SAP HANA 2.0 or MDC, create a tenant database for your SAP NetWeaver system. Replace \<NW1\> with the SID of your SAP system.
 
-   Execute the following command as <hanasid\>adm :
+   Execute the following command as \<hanasid\>adm :
 
-   <pre><code>hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
-   </code></pre>
+   ```bash
+   hdbsql -u SYSTEM -p "passwd" -i 03 -d SYSTEMDB 'CREATE DATABASE NW1 SYSTEM USER PASSWORD "passwd"'
+   ```
+   
 
 1. **[1]** Configure System Replication on the first node:
 
-   Back up the databases as <hanasid\>adm:
+   Back up the databases as \<hanasid\>adm:
 
-   <pre><code>hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
-   hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
-   hdbsql -d <b>NW1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupNW1</b>')"
-   </code></pre>
+   ```bash
+   hdbsql -d SYSTEMDB -u SYSTEM -p "passwd" -i 03 "BACKUP DATA USING FILE ('initialbackupSYS')"
+   hdbsql -d HN1 -u SYSTEM -p "passwd" -i 03 "BACKUP DATA USING FILE ('initialbackupHN1')"
+   hdbsql -d NW1 -u SYSTEM -p "passwd" -i 03 "BACKUP DATA USING FILE ('initialbackupNW1')"
+   ```
+   
 
    Copy the system PKI files to the secondary site:
 
-   <pre><code>scp /usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/data/SSFS_<b>HN1</b>.DAT   <b>hn1-db-1</b>:/usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/data/
-   scp /usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/key/SSFS_<b>HN1</b>.KEY  <b>hn1-db-1</b>:/usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/key/
-   </code></pre>
+   ```bash
+   scp /usr/sap/HN1/SYS/global/security/rsecssfs/data/SSFS_HN1.DAT   hn1-db-1:/usr/sap/HN1/SYS/global/security/rsecssfs/data/
+   scp /usr/sap/HN1/SYS/global/security/rsecssfs/key/SSFS_HN1.KEY  hn1-db-1:/usr/sap/HN1/SYS/global/security/rsecssfs/key/
+   ```
+   
 
    Create the primary site:
 
-   <pre><code>hdbnsutil -sr_enable --name=<b>SITE1</b>
-   </code></pre>
+   ```bash
+   hdbnsutil -sr_enable --name=SITE1
+   ```
+   
 
 1. **[2]** Configure System Replication on the second node:
     
-   Register the second node to start the system replication. Run the following command as <hanasid\>adm :
+   Register the second node to start the system replication. Run the following command as \<hanasid\>adm :
 
-   <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
-   hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
-   </code></pre>
+   ```bash
+   sapcontrol -nr 03 -function StopWait 600 10
+   hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=03 --replicationMode=sync --name=SITE2 
+   ```
+   
 
 ## Configure SAP HANA 1.0 System Replication
 
 The steps in this section use the following prefixes:
 
 * **[A]**: The step applies to all nodes.
-* **[1]**: The step applies to node 1 only.
-* **[2]**: The step applies to node 2 of the Pacemaker cluster only.
+* **[1]**: The step applies only to node 1.
+* **[2]**: The step applies only to node 2 of the Pacemaker cluster.
 
 1. **[1]** Create the required users.
 
-   Run the following command as root. Make sure to replace bold strings (HANA System ID **HN1** and instance number **03**) with the values of your SAP HANA installation:
+   Run the following command as root. Replace HANA System ID \<HN1\> and instance number \<03\> with the values of your SAP HANA installation:
 
-   <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
-   hdbsql -u system -i <b>03</b> 'CREATE USER <b>hdb</b>hasync PASSWORD "<b>passwd</b>"'
-   hdbsql -u system -i <b>03</b> 'GRANT DATA ADMIN TO <b>hdb</b>hasync'
-   hdbsql -u system -i <b>03</b> 'ALTER USER <b>hdb</b>hasync DISABLE PASSWORD LIFETIME'
-   </code></pre>
+   ```bash
+   PATH="$PATH:/usr/sap/<HN1>/HDB03/exe"
+   hdbsql -u system -i <03> 'CREATE USER hdbhasync PASSWORD "passwd"'
+   hdbsql -u system -i <03> 'GRANT DATA ADMIN TO hdbhasync'
+   hdbsql -u system -i <03> 'ALTER USER hdbhasync DISABLE PASSWORD LIFETIME'
+   ```
+   
 
 1. **[A]** Create the keystore entry.
 
    Run the following command as root to create a new keystore entry:
 
-   <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
-   hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>passwd</b>
-   </code></pre>
+   ```bash
+   PATH="$PATH:/usr/sap/<HN1>/HDB03/exe"
+   hdbuserstore SET hdbhaloc localhost:30315 hdbhasync passwd
+   ```
+   
 
 1. **[1]** Back up the database.
 
    Back up the databases as root:
 
-   <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
-   hdbsql -d SYSTEMDB -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
-   </code></pre>
+   ```bash
+   PATH="$PATH:/usr/sap/<HN1>/HDB03/exe"
+   hdbsql -d SYSTEMDB -u system -i <03> "BACKUP DATA USING FILE ('initialbackup')"
+   ```
+   
 
    If you use a multi-tenant installation, also back up the tenant database:
 
-   <pre><code>hdbsql -d <b>HN1</b> -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
-   </code></pre>
+   ```bash
+   hdbsql -d <HN1> -u system -i <03> "BACKUP DATA USING FILE ('initialbackup')"
+   ```
+   
 
 1. **[1]** Configure System Replication on the first node.
 
-   Create the primary site as <hanasid\>adm :
+   Create the primary site as \<hanasid\>adm :
 
-   <pre><code>su - <b>hdb</b>adm
-   hdbnsutil -sr_enable –-name=<b>SITE1</b>
-   </code></pre>
+   ```bash
+   su - hdbadm
+   hdbnsutil -sr_enable –-name=SITE1
+   ```
+   
 
 1. **[2]** Configure System Replication on the secondary node.
 
-   Register the secondary site as <hanasid\>adm:
+   Register the secondary site as \<hanasid\>adm:
 
-   <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
-   hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
-   </code></pre>
+   ```bash
+   sapcontrol -nr <03> -function StopWait 600 10
+   hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=03 --replicationMode=sync --name=SITE2 
+   ```
+   
 
 ## Implement HANA hooks SAPHanaSR and susChkSrv
 
@@ -448,15 +501,17 @@ With susChkSrv implemented, an immediate and configurable action is executed, wh
    > SAPHanaSR Python hook can only be implemented for HANA 2.0. Package SAPHanaSR must be at least version 0.153.   
    > susChkSrv Python hook  requires SAP HANA 2.0 SP5 and SAPHanaSR version 0.161.1_BF or higher must be installed.  
 
-   1. Stop HANA on both nodes. Execute as <sid\>adm:  
+   1. Stop HANA on both nodes. Execute as \<sid\>adm:  
    
     ```bash
-    sapcontrol -nr 03 -function StopSystem
+    sapcontrol -nr <03> -function StopSystem
     ```
 
-   2. Adjust `global.ini` on each cluster node. If the requirements for susChkSrv hook are not met, remove the entire block [ha_dr_provider_suschksrv] from below parameters.  
-   You can adjust the behavior of susChkSrv with parameter action_on_lost.  
-   Valid values are [ ignore | stop | kill | fence ].
+   1. Adjust `global.ini` on each cluster node. If the requirements for susChkSrv hook are not met, remove the entire block [ha_dr_provider_suschksrv] from below parameters.
+
+   You can adjust the behavior of `susChkSrv` with parameter `action_on_lost`.  
+   
+   Valid values are [ `ignore` | `stop` | `kill` | `fence` ].
  
     ```bash
     # add to global.ini
@@ -475,9 +530,9 @@ With susChkSrv implemented, an immediate and configurable action is executed, wh
     ha_dr_saphanasr = info
     ```      
 
-Configuration pointing to the standard location /usr/share/SAPHanaSR, brings a benefit, that the python hook code is automatically updated through OS or package updates and it gets used by HANA at next restart. With an optional, own path, such as /hana/shared/myHooks you can decouple OS updates with the used hook version.
+   Configuration pointing to the standard location */usr/share/SAPHanaSR*, brings a benefit, that the Python hook code is automatically updated through OS or package updates and is used by HANA at the next restart. With an optional own path like */hana/shared/myHooks*, you can decouple OS updates with the used hook version.
 
-2. **[A]** The cluster requires sudoers configuration on each cluster node for <sid\>adm. In this example that is achieved by creating a new file. Execute the command as `root` and adapt the values of hn1/HN1 with correct SID.    
+1. **[A]** The cluster requires sudoers configuration on each cluster node for \<sid\>adm. In this example, that's achieved by creating a new file. Execute the command as `root` and adapt the values of hn1/HN1 with the correct SID.    
 
     ```bash
     cat << EOF > /etc/sudoers.d/20-saphana
@@ -486,15 +541,16 @@ Configuration pointing to the standard location /usr/share/SAPHanaSR, brings a b
     hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/SAPHanaSR-hookHelper --sid=HN1 --case=fenceMe
     EOF
     ```
-For more details on the implementation of the SAP HANA system replication hook see [Set up HANA HA/DR providers](https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-15/index.html#_set_up_sap_hana_hadr_providers). 
 
-3. **[A]** Start SAP HANA on both nodes. Execute as <sid\>adm.  
+   For details about implementing the SAP HANA system replication hook, see [Set up HANA HA/DR providers](https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-15/index.html#_set_up_sap_hana_hadr_providers). 
+
+1. **[A]** Start SAP HANA on both nodes. Execute as \<sid\>adm.  
 
     ```bash
     sapcontrol -nr 03 -function StartSystem 
     ```
 
-4. **[1]** Verify the hook installation. Execute as <sid\>adm on the active HANA system replication site.   
+1. **[1]** Verify the hook installation. Execute as \<sid\>adm on the active HANA system replication site.   
 
     ```bash
      cdtrace
@@ -506,7 +562,8 @@ For more details on the implementation of the SAP HANA system replication hook s
      # 2021-04-08 22:21:26.816573 ha_dr_SAPHanaSR SOK
     ```
    
-   Verify the susChkSrv hook installation. Execute as <sid\>adm on all HANA VMs
+    Verify the susChkSrv hook installation. Execute as <sid\>adm on all HANA VMs:
+
     ```bash
      cdtrace
      egrep '(LOST:|STOP:|START:|DOWN:|init|load|fail)' nameserver_suschksrv.trc
@@ -520,20 +577,22 @@ For more details on the implementation of the SAP HANA system replication hook s
 
 First, create the HANA topology. Run the following commands on one of the Pacemaker cluster nodes:
 
-<pre><code>sudo crm configure property maintenance-mode=true
+```bash
+   sudo crm configure property maintenance-mode=true
 
 # Replace the bold string with your instance number and HANA system ID
 
-sudo crm configure primitive rsc_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> ocf:suse:SAPHanaTopology \
-  operations \$id="rsc_sap2_<b>HN1</b>_HDB<b>03</b>-operations" \
+sudo crm configure primitive rsc_SAPHanaTopology_HN1_HDB03 ocf:suse:SAPHanaTopology \
+  operations \$id="rsc_sap2_HN1_HDB03-operations" \
   op monitor interval="10" timeout="600" \
   op start interval="0" timeout="600" \
   op stop interval="0" timeout="300" \
-  params SID="<b>HN1</b>" InstanceNumber="<b>03</b>"
+  params SID="HN1" InstanceNumber="03"
 
-sudo crm configure clone cln_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> rsc_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> \
+sudo crm configure clone cln_SAPHanaTopology_HN1_HDB03 rsc_SAPHanaTopology_HN1_HDB03 \
   meta clone-node-max="1" target-role="Started" interleave="true"
-</code></pre>
+```
+   
 
 Next, create the HANA resources:
 
@@ -543,61 +602,65 @@ Next, create the HANA resources:
 > - For SLES 12 SP4/SP5, the version must be at least resource-agents-4.3.018.a7fb5035-3.30.1.  
 > - For SLES 15/15 SP1, the version must be at least resource-agents-4.3.0184.6ee15eb2-4.13.1.  
 >
-> Note that the change will require brief downtime.  
+> Note that the change will require brief downtime.
+>
 > For existing Pacemaker clusters, if the configuration was already changed to use socat as described in [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128), there is no requirement to switch immediately to azure-lb resource agent.
 
 
 > [!NOTE]
 > This article contains references to the terms *master* and *slave*, terms that Microsoft no longer uses. When these terms are removed from the software, we'll remove them from this article.
 
-<pre><code># Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer. 
+```bash
+   # Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer. 
 
-sudo crm configure primitive rsc_SAPHana_<b>HN1</b>_HDB<b>03</b> ocf:suse:SAPHana \
-  operations \$id="rsc_sap_<b>HN1</b>_HDB<b>03</b>-operations" \
+sudo crm configure primitive rsc_SAPHana_HN1_HDB03 ocf:suse:SAPHana \
+  operations \$id="rsc_sap_HN1_HDB03-operations" \
   op start interval="0" timeout="3600" \
   op stop interval="0" timeout="3600" \
   op promote interval="0" timeout="3600" \
   op monitor interval="60" role="Master" timeout="700" \
   op monitor interval="61" role="Slave" timeout="700" \
-  params SID="<b>HN1</b>" InstanceNumber="<b>03</b>" PREFER_SITE_TAKEOVER="true" \
+  params SID="HN1" InstanceNumber="03" PREFER_SITE_TAKEOVER="true" \
   DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false"
 
-sudo crm configure ms msl_SAPHana_<b>HN1</b>_HDB<b>03</b> rsc_SAPHana_<b>HN1</b>_HDB<b>03</b> \
+sudo crm configure ms msl_SAPHana_HN1_HDB03 rsc_SAPHana_HN1_HDB03 \
   meta notify="true" clone-max="2" clone-node-max="1" \
   target-role="Started" interleave="true"
 
-sudo crm configure primitive rsc_ip_<b>HN1</b>_HDB<b>03</b> ocf:heartbeat:IPaddr2 \
+sudo crm configure primitive rsc_ip_HN1_HDB03 ocf:heartbeat:IPaddr2 \
   meta target-role="Started" \
-  operations \$id="rsc_ip_<b>HN1</b>_HDB<b>03</b>-operations" \
+  operations \$id="rsc_ip_HN1_HDB03-operations" \
   op monitor interval="10s" timeout="20s" \
-  params ip="<b>10.0.0.13</b>"
+  params ip="10.0.0.13"
 
-sudo crm configure primitive rsc_nc_<b>HN1</b>_HDB<b>03</b> azure-lb port=625<b>03</b> \
+sudo crm configure primitive rsc_nc_HN1_HDB03 azure-lb port=62503 \
   op monitor timeout=20s interval=10 \
   meta resource-stickiness=0
 
-sudo crm configure group g_ip_<b>HN1</b>_HDB<b>03</b> rsc_ip_<b>HN1</b>_HDB<b>03</b> rsc_nc_<b>HN1</b>_HDB<b>03</b>
+sudo crm configure group g_ip_HN1_HDB03 rsc_ip_HN1_HDB03 rsc_nc_HN1_HDB03
 
-sudo crm configure colocation col_saphana_ip_<b>HN1</b>_HDB<b>03</b> 4000: g_ip_<b>HN1</b>_HDB<b>03</b>:Started \
-  msl_SAPHana_<b>HN1</b>_HDB<b>03</b>:Master  
+sudo crm configure colocation col_saphana_ip_HN1_HDB03 4000: g_ip_HN1_HDB03:Started \
+  msl_SAPHana_HN1_HDB03:Master  
 
-sudo crm configure order ord_SAPHana_<b>HN1</b>_HDB<b>03</b> Optional: cln_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> \
-  msl_SAPHana_<b>HN1</b>_HDB<b>03</b>
+sudo crm configure order ord_SAPHana_HN1_HDB03 Optional: cln_SAPHanaTopology_HN1_HDB03 \
+  msl_SAPHana_HN1_HDB03
 
 # Clean up the HANA resources. The HANA resources might have failed because of a known issue.
-sudo crm resource cleanup rsc_SAPHana_<b>HN1</b>_HDB<b>03</b>
+sudo crm resource cleanup rsc_SAPHana_HN1_HDB03
 
 sudo crm configure property maintenance-mode=false
 sudo crm configure rsc_defaults resource-stickiness=1000
 sudo crm configure rsc_defaults migration-threshold=5000
-</code></pre>
+```
+   
 
 > [!IMPORTANT]
-> We recommend as a best practice that you only set AUTOMATED_REGISTER to **no**, while performing thorough fail-over tests, to prevent failed primary instance to automatically register as secondary. Once the fail-over tests have completed successfully, set AUTOMATED_REGISTER to **yes**, so that after takeover system replication can resume automatically.
+> We recommend as a best practice that you only set `AUTOMATED_REGISTER` to `no` while you complete thorough failover tests, to prevent a failed primary instance from automatically registering as secondary. When the failover tests have completed successfully, set `AUTOMATED_REGISTER` to `yes`, so that after takeover, system replication can resume automatically.
 
-Make sure that the cluster status is ok and that all of the resources are started. It's not important on which node the resources are running.
+Make sure that the cluster status is `ok` and that all the resources started. Which node the resources are running on isn't important.
 
-<pre><code>sudo crm_mon -r
+```bash
+   sudo crm_mon -r
 
 # Online: [ hn1-db-0 hn1-db-1 ]
 #
@@ -612,51 +675,53 @@ Make sure that the cluster status is ok and that all of the resources are starte
 # Resource Group: g_ip_HN1_HDB03
 #     rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
 #     rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
-</code></pre>
+```
+   
 
 ## Configure HANA active/read enabled system replication in Pacemaker cluster
 
-Starting with SAP HANA 2.0 SPS 01 SAP allows Active/Read-Enabled setup for SAP HANA System Replication, where the secondary systems of SAP HANA system replication can be used actively for read-intense workloads. To support such setup in a cluster a second virtual IP address is required which allows clients to access the secondary read-enabled SAP HANA database. To ensure that the secondary replication site can still be accessed after a takeover has occurred the cluster needs to move the virtual IP address around with the secondary of the SAPHana resource.
+Starting with SAP HANA 2.0 SPS 01 SAP allows an active/read-enabled setup for SAP HANA System Replication, where the secondary systems of SAP HANA system replication can be used actively for read-intense workloads. To support such setup in a cluster a second virtual IP address is required which allows clients to access the secondary read-enabled SAP HANA database. To ensure that the secondary replication site can still be accessed after a takeover has occurred the cluster needs to move the virtual IP address around with the secondary of the SAPHana resource.
 
-This section describes the additional steps that are required to manage HANA Active/Read enabled system replication in a SUSE high availability cluster with second virtual IP.    
-Before proceeding further, make sure you have fully configured SUSE High Availability Cluster managing SAP HANA database as described in the above segments of the documentation.  
+This section describes the additional steps that are required to manage a HANA active/read-enabled system replication in a SUSE high availability cluster with a second virtual IP.
+
+Before going further, make sure that you have fully configured the SUSE High Availability Cluster managing SAP HANA database as described in earlier sections.  
 
 ![SAP HANA high availability with read-enabled secondary](./media/sap-hana-high-availability/ha-hana-read-enabled-secondary.png)
 
 ### Additional setup in Azure load balancer for active/read-enabled setup
 
-To proceed with additional steps on provisioning second virtual IP, make sure you have configured Azure Load Balancer as described in [Manual Deployment](#manual-deployment) section.
+To proceed with additional steps to provision the second virtual IP, make sure you have configured Azure Load Balancer as described in [Manual deployment](#manual-deployment).
 
-1. For **standard** load balancer, follow the additional steps below on the same load balancer that you had created in earlier section.
+For **standard** load balancer, complete these additional steps on the same load balancer that you created earlier.
 
-   a. Create a second front-end IP pool: 
+1. Create a second front-end IP pool: 
 
-   - Open the load balancer, select **frontend IP pool**, and select **Add**.
-   - Enter the name of the second front-end IP pool (for example, **hana-secondaryIP**).
-   - Set the **Assignment** to **Static** and enter the IP address (for example, **10.0.0.14**).
-   - Select **OK**.
-   - After the new front-end IP pool is created, note the frontend IP address.
+   1. Open the load balancer, select **frontend IP pool**, and select **Add**.
+   1. Enter the name of the second front-end IP pool (for example, **hana-secondaryIP**).
+   1. Set the **Assignment** to **Static** and enter the IP address (for example, **10.0.0.14**).
+   1. Select **OK**.
+   1. After the new front-end IP pool is created, note the front-end IP address.
 
-   b. Next, create a health probe:
+1. Create a health probe:
 
-   - Open the load balancer, select **health probes**, and select **Add**.
-   - Enter the name of the new health probe (for example, **hana-secondaryhp**).
-   - Select **TCP** as the protocol and port **62603**. Keep the **Interval** value set to 5, and the **Unhealthy threshold** value set to 2.
-   - Select **OK**.
+   1. Open the load balancer, select **health probes**, and select **Add**.
+   1. Enter the name of the new health probe (for example, **hana-secondaryhp**).
+   1. Select **TCP** as the protocol and port **62603**. Keep the **Interval** value set to 5, and the **Unhealthy threshold** value set to 2.
+   1. Select **OK**.
 
-   c. Next, create the load-balancing rules:
+1. Create the load-balancing rules:
 
-   - Open the load balancer, select **load balancing rules**, and select **Add**.
-   - Enter the name of the new load balancer rule (for example, **hana-secondarylb**).
-   - Select the front-end IP address , the back-end pool, and the health probe that you created earlier (for example, **hana-secondaryIP**, **hana-backend** and **hana-secondaryhp**).
-   - Select **HA Ports**.
-   - Increase the **idle timeout** to 30 minutes.
-   - Make sure to **enable Floating IP**.
-   - Select **OK**.
+   1. Open the load balancer, select **load balancing rules**, and select **Add**.
+   1. Enter the name of the new load balancer rule (for example, **hana-secondarylb**).
+   1. Select the front-end IP address , the back-end pool, and the health probe that you created earlier (for example, **hana-secondaryIP**, **hana-backend** and **hana-secondaryhp**).
+   1. Select **HA Ports**.
+   1. Increase the **idle timeout** to 30 minutes.
+   1. Make sure to **enable Floating IP**.
+   1. Select **OK**.
 
 ### Configure HANA active/read enabled system replication
 
-The steps to configure HANA system replication are described in [Configure SAP HANA 2.0 System Replication](#configure-sap-hana-20-system-replication) section. If you are deploying read-enabled secondary scenario, while configuring system replication on the second node, execute following command as **hanasid**adm:
+The steps to configure HANA system replication are described in [Configure SAP HANA 2.0 System Replication](#configure-sap-hana-20-system-replication). If you are deploying a read-enabled secondary scenario, while configuring system replication on the second node, execute the following command as \<hanasid\>adm:
 
 ```
 sapcontrol -nr 03 -function StopWait 600 10 
@@ -664,11 +729,11 @@ sapcontrol -nr 03 -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=03 --replicationMode=sync --name=SITE2 --operationMode=logreplay_readaccess 
 ```
 
-### Adding a secondary virtual IP address resource for an active/read-enabled setup
+### Add a secondary virtual IP address resource for an active/read-enabled setup
 
-The second virtual IP and the appropriate colocation constraint can be configured with the following commands:
+You can configure the second virtual IP and the appropriate colocation constraint by using the following commands:
 
-```
+```bash
 crm configure property maintenance-mode=true
 
 crm configure primitive rsc_secip_HN1_HDB03 ocf:heartbeat:IPaddr2 \
@@ -688,9 +753,10 @@ crm configure colocation col_saphana_secip_HN1_HDB03 4000: g_secip_HN1_HDB03:Sta
 
 crm configure property maintenance-mode=false
 ```
-Make sure that the cluster status is ok and that all of the resources are started. The second virtual IP will run on the secondary site along with SAPHana secondary resource.
 
-```
+Make sure that the cluster status is `ok` and that all the resources started. The second virtual IP runs on the secondary site along with the SAPHana secondary resource.
+
+```bash
 sudo crm_mon -r
 
 # Online: [ hn1-db-0 hn1-db-1 ]
@@ -712,27 +778,28 @@ sudo crm_mon -r
 
 ```
 
-In next section, you can find the typical set of failover tests to execute.
+In the next section, you can find the typical set of failover tests to execute.
 
-Be aware of the second virtual IP behavior, while testing a HANA cluster configured with read-enabled secondary:
+Considerations when you test a HANA cluster that's configured with a read-enabled secondary:
 
-1. When you migrate **SAPHana_HN1_HDB03** cluster resource to **hn1-db-1**, the second virtual IP will move to the other server **hn1-db-0**. If you have configured AUTOMATED_REGISTER="false" and HANA system replication is not registered automatically, then the second virtual IP will run on **hn1-db-0,** as the server is available and cluster services are online.  
+1. When you migrate the *SAPHana_HN1_HDB03* cluster resource to the *hn1-db-1* virtual machine, the second virtual IP will move to the *hn1-db-0* server. If you have configured `AUTOMATED_REGISTER="false"` and HANA system replication is not registered automatically, the second virtual IP will run on *hn1-db-0* because the server is available and cluster services are online.  
 
-2. When testing a server crash, the second virtual IP resources (**rsc_secip_HN1_HDB03**) and Azure load balancer port resource (**rsc_secnc_HN1_HDB03**) will run on primary server alongside the primary virtual IP resources. While the secondary server is down, the applications that are connected to read-enabled HANA database will connect to the primary HANA database. The behavior is expected as you do not want applications that are connected to read-enabled HANA database to be inaccessible while the secondary server is unavailable.
+1. When you test a server crash, the second virtual IP resources (*rsc_secip_HN1_HDB03*) and the Azure load balancer port resource (*rsc_secnc_HN1_HDB03*) run on the primary server alongside the primary virtual IP resources. While the secondary server is down, the applications that are connected to a read-enabled HANA database connect to the primary HANA database. The behavior is expected because you do not want applications that are connected to a read-enabled HANA database to be inaccessible while the secondary server is unavailable.
   
-3. When the secondary server is available and the cluster services are online, the second virtual IP and port resources will automatically move to the secondary server, even though HANA system replication may not be registered as secondary. You need to make sure that you register the secondary HANA database as read enabled before you start cluster services on that server. You can configure the HANA instance cluster resource to automatically register the secondary by setting parameter AUTOMATED_REGISTER=true.       
+1. When the secondary server is available and the cluster services are online, the second virtual IP and port resources automatically move to the secondary server, even though HANA system replication might not be registered as secondary. Make sure that you register the secondary HANA database as read enabled before you start cluster services on that server. You can configure the HANA instance cluster resource to automatically register the secondary by setting the parameter `AUTOMATED_REGISTER=true`.       
 
-4. During failover and fallback, the existing connections for applications, using the second virtual IP to connect to the HANA database may be interrupted.  
+1. During failover and fallback, the existing connections for applications, using the second virtual IP to connect to the HANA database might be interrupted.  
 
 ## Test the cluster setup
 
-This section describes how you can test your setup. Every test assumes that you are root and the SAP HANA master is running on the **hn1-db-0** virtual machine.
+This section describes how you can test your setup. Every test assumes that you are root and that the SAP HANA master is running on the *hn1-db-0* virtual machine.
 
 ### Test the migration
 
-Before you start the test, make sure that Pacemaker does not have any failed action (via crm_mon -r), there are no unexpected location constraints (for example leftovers of a migration test) and that HANA is sync state, for example with SAPHanaSR-showAttr:
+Before you start the test, make sure that Pacemaker does not have any failed action (by running `crm_mon -r`), that there are no unexpected location constraints (for example, leftovers of a migration test), and that HANA is in sync state, for example, by running `SAPHanaSR-showAttr`:
 
-<pre><code>hn1-db-0:~ # SAPHanaSR-showAttr
+```bash
+   hn1-db-0:~ # SAPHanaSR-showAttr
 Sites    srHook
 ----------------
 SITE2    SOK
@@ -745,18 +812,22 @@ Hosts    clone_state lpa_hn1_lpt node_state op_mode   remoteHost    roles       
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 hn1-db-0 PROMOTED    1534159564  online     logreplay nws-hana-vm-1 4:P:master1:master:worker:master 150   SITE1 sync   PRIM       2.00.030.00.1522209842 nws-hana-vm-0
 hn1-db-1 DEMOTED     30          online     logreplay nws-hana-vm-0 4:S:master1:master:worker:master 100   SITE2 sync   SOK        2.00.030.00.1522209842 nws-hana-vm-1
-</code></pre>
+```
+   
 
 You can migrate the SAP HANA master node by executing the following command:
 
-<pre><code>crm resource move msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-1</b> force
-</code></pre>
+```bash
+   crm resource move msl_SAPHana_HN1_HDB03 hn1-db-1 force
+```
+   
 
 If you set `AUTOMATED_REGISTER="false"`, this sequence of commands should migrate the SAP HANA master node and the group that contains the virtual IP address to hn1-db-1.
 
-Once the migration is done, the crm_mon -r output looks like this
+When the migration is done, the `crm_mon -r` output looks like this example:
 
-<pre><code>Online: [ hn1-db-0 hn1-db-1 ]
+```output
+   Online: [ hn1-db-0 hn1-db-1 ]
 
 Full list of resources:
 
@@ -773,32 +844,40 @@ stonith-sbd     (stonith:external/sbd): Started hn1-db-1
 Failed Actions:
 * rsc_SAPHana_HN1_HDB03_start_0 on hn1-db-0 'not running' (7): call=84, status=complete, exitreason='none',
     last-rc-change='Mon Aug 13 11:31:37 2018', queued=0ms, exec=2095ms
-</code></pre>
+```
+   
 
 The SAP HANA resource on hn1-db-0 fails to start as secondary. In this case, configure the HANA instance as secondary by executing this command:
 
-<pre><code>su - <b>hn1</b>adm
+```bash
+   su - hn1adm
 
 # Stop the HANA instance just in case it is running
-hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> sapcontrol -nr <b>03</b> -function StopWait 600 10
-hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=<b>hn1-db-1</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b>
-</code></pre>
+hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> sapcontrol -nr 03 -function StopWait 600 10
+hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-1 --remoteInstance=03 --replicationMode=sync --name=SITE1
+```
+   
 
 The migration creates location constraints that need to be deleted again:
 
-<pre><code># Switch back to root and clean up the failed state
+```bash
+   # Switch back to root and clean up the failed state
 exit
-hn1-db-0:~ # crm resource clear msl_SAPHana_<b>HN1</b>_HDB<b>03</b>
-</code></pre>
+hn1-db-0:~ # crm resource clear msl_SAPHana_HN1_HDB03
+```
+   
 
 You also need to clean up the state of the secondary node resource:
 
-<pre><code>hn1-db-0:~ # crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
-</code></pre>
+```bash
+   hn1-db-0:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-0
+```
+   
 
 Monitor the state of the HANA resource using crm_mon -r. Once HANA is started on hn1-db-0, the output should look like this
 
-<pre><code>Online: [ hn1-db-0 hn1-db-1 ]
+```bash
+   Online: [ hn1-db-0 hn1-db-1 ]
 
 Full list of resources:
 
@@ -811,36 +890,41 @@ stonith-sbd     (stonith:external/sbd): Started hn1-db-1
  Resource Group: g_ip_HN1_HDB03
      rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-1
      rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
-</code></pre>
+```
+   
 
 ### Test the Azure fencing agent (not SBD)
 
 You can test the setup of the Azure fencing agent by disabling the network interface on the hn1-db-0 node:
 
-<pre><code>sudo ifdown eth0
-</code></pre>
+```bash
+   sudo ifdown eth0
+```
 
 The virtual machine should now restart or stop depending on your cluster configuration.
 If you set the `stonith-action` setting to off, the virtual machine is stopped and the resources are migrated to the running virtual machine.
 
 After you start the virtual machine again, the SAP HANA resource fails to start as secondary if you set `AUTOMATED_REGISTER="false"`. In this case, configure the HANA instance as secondary by executing this command:
 
-<pre><code>su - <b>hn1</b>adm
+```bash
+   su - hn1adm
 
 # Stop the HANA instance just in case it is running
-sapcontrol -nr <b>03</b> -function StopWait 600 10
-hdbnsutil -sr_register --remoteHost=<b>hn1-db-1</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b>
+sapcontrol -nr 03 -function StopWait 600 10
+hdbnsutil -sr_register --remoteHost=hn1-db-1 --remoteInstance=03 --replicationMode=sync --name=SITE1
 
 # Switch back to root and clean up the failed state
 exit
-crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
-</code></pre>
+crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-0
+```
+   
 
 ### Test SBD fencing
 
-You can test the setup of SBD by killing the inquisitor process.
+You can test the setup of SBD by killing the inquisitor process:
 
-<pre><code>hn1-db-0:~ # ps aux | grep sbd
+```bash
+   hn1-db-0:~ # ps aux | grep sbd
 root       1912  0.0  0.0  85420 11740 ?        SL   12:25   0:00 sbd: inquisitor
 root       1929  0.0  0.0  85456 11776 ?        SL   12:25   0:00 sbd: watcher: /dev/disk/by-id/scsi-360014056f268462316e4681b704a9f73 - slot: 0 - uuid: 7b862dba-e7f7-4800-92ed-f76a4e3978c8
 root       1930  0.0  0.0  85456 11776 ?        SL   12:25   0:00 sbd: watcher: /dev/disk/by-id/scsi-360014059bc9ea4e4bac4b18808299aaf - slot: 0 - uuid: 5813ee04-b75c-482e-805e-3b1e22ba16cd
@@ -850,48 +934,57 @@ root       1933  0.0  0.0 102708 28260 ?        SL   12:25   0:00 sbd: watcher: 
 root      13877  0.0  0.0   9292  1572 pts/0    S+   12:27   0:00 grep sbd
 
 hn1-db-0:~ # kill -9 1912
-</code></pre>
+```
+   
 
-Cluster node hn1-db-0 should be rebooted. The Pacemaker service might not get started afterwards. Make sure to start it again.
+Cluster node hn1-db-0 should be rebooted. The Pacemaker service might not restart. Make sure to start it again.
 
 ### Test a manual failover
 
 You can test a manual failover by stopping the `pacemaker` service on the hn1-db-0 node:
 
-<pre><code>service pacemaker stop
-</code></pre>
+```bash
+   service pacemaker stop
+```
 
-After the failover, you can start the service again. If you set `AUTOMATED_REGISTER="false"`, the SAP HANA resource on the hn1-db-0 node fails to start as secondary. In this case, configure the HANA instance as secondary by executing this command:
+After the failover, you can start the service again. If you set `AUTOMATED_REGISTER="false"`, the SAP HANA resource on the hn1-db-0 node fails to start as secondary. 
 
-<pre><code>service pacemaker start
-su - <b>hn1</b>adm
+In this case, configure the HANA instance as secondary by executing this command:
+
+```bash
+   service pacemaker start
+su - hn1adm
 
 # Stop the HANA instance just in case it is running
-sapcontrol -nr <b>03</b> -function StopWait 600 10
-hdbnsutil -sr_register --remoteHost=<b>hn1-db-1</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
+sapcontrol -nr 03 -function StopWait 600 10
+hdbnsutil -sr_register --remoteHost=hn1-db-1 --remoteInstance=03 --replicationMode=sync --name=SITE1 
 
 # Switch back to root and clean up the failed state
 exit
-crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
-</code></pre>
+crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-0
+```
+   
 
 ### SUSE tests
 
 > [!IMPORTANT]
-> Make sure that the OS you select is SAP certified for SAP HANA on the specific VM types you are using. The list  of SAP HANA certified VM types and OS releases for those can be looked up in [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120). Make sure to click into the details of the VM type listed to get the complete list of SAP HANA supported OS releases for the specific VM type
+> Make sure that the OS you select is SAP certified for SAP HANA on the specific VM types you are using. The list of SAP HANA-certified VM types and OS releases for those can be looked up in [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120). Make sure to select the details of the VM type listed to get the complete list of SAP HANA-supported OS releases for the specific VM type.
 
 Run all test cases that are listed in the SAP HANA SR Performance Optimized Scenario or SAP HANA SR Cost Optimized Scenario guide, depending on your use case. You can find the guides on the [SLES for SAP best practices page][sles-for-sap-bp].
 
 The following tests are a copy of the test descriptions of the SAP HANA SR Performance Optimized Scenario SUSE Linux Enterprise Server for SAP Applications 12 SP1 guide. For an up-to-date version, always also read the guide itself. Always make sure that HANA is in sync before starting the test and also make sure that the Pacemaker configuration is correct.
 
-In the following test descriptions we assume PREFER_SITE_TAKEOVER="true" and AUTOMATED_REGISTER="false".
-NOTE: The following tests are designed to be run in sequence and depend on the exit state of the preceding tests.
+In the following test descriptions we assume `PREFER_SITE_TAKEOVER="true"` and `AUTOMATED_REGISTER="false"`.
 
-1. TEST 1: STOP PRIMARY DATABASE ON NODE 1
+> [!NOTE]
+> The following tests are designed to be run in sequence. The tests depend on the exit state of the preceding tests.
+
+1. Test 1: Stop primary database on node 1.
 
    Resource state before starting the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   ```bash
+   Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
    Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
       Masters: [ hn1-db-0 ]
@@ -899,26 +992,32 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
-   </code></pre>
+   ```
+   
 
-   Run the following commands as <hanasid\>adm on node hn1-db-0:
+   Run the following commands as \<hanasid\>adm on node hn1-db-0:
 
-   <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB stop
-   </code></pre>
+   ```bash
+   hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB stop
+   ```
+   
 
    Pacemaker should detect the stopped HANA instance and failover to the other node. Once the failover is done, the HANA instance on node hn1-db-0 is stopped because Pacemaker does not automatically register the node as HANA secondary.
 
    Run the following commands to register node hn1-db-0 as secondary and cleanup the failed resource.
 
-   <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-1 --remoteInstance=03 --replicationMode=sync --name=SITE1
+   ```bash
+   hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-1 --remoteInstance=03 --replicationMode=sync --name=SITE1
    
    # run as root
    hn1-db-0:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-0
-   </code></pre>
+   ```
+   
 
    Resource state after the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   ```bash
+   Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
    Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
       Masters: [ hn1-db-1 ]
@@ -926,13 +1025,15 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-1
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
-   </code></pre>
+   ```
+   
 
-1. TEST 2: STOP PRIMARY DATABASE ON NODE 2
+1. Test 2: Stop primary database on node 2.
 
    Resource state before starting the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   ```bash
+   Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
    Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
       Masters: [ hn1-db-1 ]
@@ -940,26 +1041,32 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-1
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
-   </code></pre>
+   ```
+   
 
-   Run the following commands as <hanasid\>adm on node hn1-db-1:
+   Run the following commands as \<hanasid\>adm on node hn1-db-1:
 
-   <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
-   </code></pre>
+   ```bash
+   hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
+   ```
+   
 
    Pacemaker should detect the stopped HANA instance and failover to the other node. Once the failover is done, the HANA instance on node hn1-db-1 is stopped because Pacemaker does not automatically register the node as HANA secondary.
 
    Run the following commands to register node hn1-db-1 as secondary and cleanup the failed resource.
 
-   <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=03 --replicationMode=sync --name=SITE2
+   ```bash
+   hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=03 --replicationMode=sync --name=SITE2
    
    # run as root
    hn1-db-1:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-1
-   </code></pre>
+   ```
+   
 
    Resource state after the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   ```bash
+   Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
    Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
       Masters: [ hn1-db-0 ]
@@ -967,13 +1074,15 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
-   </code></pre>
+   ```
+   
 
-1. TEST 3: CRASH PRIMARY DATABASE ON NODE
+1. Test 3: Crash primary database on node.
 
    Resource state before starting the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   ```bash
+   Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
    Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
       Masters: [ hn1-db-0 ]
@@ -981,26 +1090,32 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
-   </code></pre>
+   ```
+   
 
-   Run the following commands as <hanasid\>adm on node hn1-db-0:
+   Run the following commands as \<hanasid\>adm on node hn1-db-0:
 
-   <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB kill-9
-   </code></pre>
+   ```bash
+   hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB kill-9
+   ```
+   
    
    Pacemaker should detect the killed HANA instance and failover to the other node. Once the failover is done, the HANA instance on node hn1-db-0 is stopped because Pacemaker does not automatically register the node as HANA secondary.
 
    Run the following commands to register node hn1-db-0 as secondary and cleanup the failed resource.
 
-   <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-1 --remoteInstance=03 --replicationMode=sync --name=SITE1
+   ```bash
+   hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-1 --remoteInstance=03 --replicationMode=sync --name=SITE1
    
    # run as root
    hn1-db-0:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-0
-   </code></pre>
+   ```
+   
 
    Resource state after the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   ```bash
+   Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
    Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
       Masters: [ hn1-db-1 ]
@@ -1008,13 +1123,15 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-1
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
-   </code></pre>
+   ```
+   
 
-1. TEST 4: CRASH PRIMARY DATABASE ON NODE 2
+1. Test 4: Crash primary database on node 2.
 
    Resource state before starting the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   ```bash
+   Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
    Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
       Masters: [ hn1-db-1 ]
@@ -1022,26 +1139,32 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-1
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
-   </code></pre>
+   ```
+   
 
-   Run the following commands as <hanasid\>adm on node hn1-db-1:
+   Run the following commands as \<hanasid\>adm on node hn1-db-1:
 
-   <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
-   </code></pre>
+   ```bash
+   hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
+   ```
+   
 
    Pacemaker should detect the killed HANA instance and failover to the other node. Once the failover is done, the HANA instance on node hn1-db-1 is stopped because Pacemaker does not automatically register the node as HANA secondary.
 
    Run the following commands to register node hn1-db-1 as secondary and cleanup the failed resource.
 
-   <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=03 --replicationMode=sync --name=SITE2
+   ```bash
+   hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=03 --replicationMode=sync --name=SITE2
    
    # run as root
    hn1-db-1:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-1
-   </code></pre>
+   ```
+   
 
    Resource state after the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   ```bash
+   Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
    Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
       Masters: [ hn1-db-0 ]
@@ -1049,13 +1172,15 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
-   </code></pre>
+   ```
+   
 
-1. TEST 5: CRASH PRIMARY SITE NODE (NODE 1)
+1. Test 5: Crash primary site node (node 1).
 
    Resource state before starting the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   ```bash
+   Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
    Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
       Masters: [ hn1-db-0 ]
@@ -1063,18 +1188,22 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
-   </code></pre>
+   ```
+   
 
    Run the following commands as root on node hn1-db-0:
 
-   <pre><code>hn1-db-0:~ #  echo 'b' > /proc/sysrq-trigger
-   </code></pre>
+   ```bash
+   hn1-db-0:~ #  echo 'b' > /proc/sysrq-trigger
+   ```
+   
 
    Pacemaker should detect the killed cluster node and fence the node. Once the node is fenced, Pacemaker will trigger a takeover of the HANA instance. When the fenced node is rebooted, Pacemaker will not start automatically.
 
    Run the following commands to start Pacemaker, clean the SBD messages for node hn1-db-0, register node hn1-db-0 as secondary, and cleanup the failed resource.
 
-   <pre><code># run as root
+   ```bash
+   # run as root
    # list the SBD device(s)
    hn1-db-0:~ # cat /etc/sysconfig/sbd | grep SBD_DEVICE=
    # SBD_DEVICE="/dev/disk/by-id/scsi-36001405772fe8401e6240c985857e116;/dev/disk/by-id/scsi-36001405034a84428af24ddd8c3a3e9e1;/dev/disk/by-id/scsi-36001405cdd5ac8d40e548449318510c3"
@@ -1083,16 +1212,18 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
    
    hn1-db-0:~ # systemctl start pacemaker
    
-   # run as &lt;hanasid&gt;adm
+   # run as <hanasid>adm
    hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-1 --remoteInstance=03 --replicationMode=sync --name=SITE1
    
    # run as root
    hn1-db-0:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-0
-   </code></pre>
+   ```
+   
 
    Resource state after the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   ```bash
+   Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
    Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
       Masters: [ hn1-db-1 ]
@@ -1100,13 +1231,15 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-1
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
-   </code></pre>
+   ```
+   
 
-1. TEST 6: CRASH SECONDARY SITE NODE (NODE 2)
+1. Test 6: Crash secondary site node (node 2).
 
    Resource state before starting the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   ```bash
+   Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
    Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
       Masters: [ hn1-db-1 ]
@@ -1114,18 +1247,22 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-1
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
-   </code></pre>
+   ```
+   
 
    Run the following commands as root on node hn1-db-1:
 
-   <pre><code>hn1-db-1:~ #  echo 'b' > /proc/sysrq-trigger
-   </code></pre>
+   ```bash
+   hn1-db-1:~ #  echo 'b' > /proc/sysrq-trigger
+   ```
+   
 
    Pacemaker should detect the killed cluster node and fence the node. Once the node is fenced, Pacemaker will trigger a takeover of the HANA instance. When the fenced node is rebooted, Pacemaker will not start automatically.
 
    Run the following commands to start Pacemaker, clean the SBD messages for node hn1-db-1, register node hn1-db-1 as secondary, and cleanup the failed resource.
 
-   <pre><code># run as root
+   ```bash
+   # run as root
    # list the SBD device(s)
    hn1-db-1:~ # cat /etc/sysconfig/sbd | grep SBD_DEVICE=
    # SBD_DEVICE="/dev/disk/by-id/scsi-36001405772fe8401e6240c985857e116;/dev/disk/by-id/scsi-36001405034a84428af24ddd8c3a3e9e1;/dev/disk/by-id/scsi-36001405cdd5ac8d40e548449318510c3"
@@ -1134,16 +1271,18 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
    
    hn1-db-1:~ # systemctl start pacemaker
    
-   # run as &lt;hanasid&gt;adm
+   # run as <hanasid>adm
    hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=03 --replicationMode=sync --name=SITE2
    
    # run as root
    hn1-db-1:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-1
-   </code></pre>
+   ```
+   
 
    Resource state after the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   ```bash
+   Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
    Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
       Masters: [ hn1-db-0 ]
@@ -1151,13 +1290,15 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
-   </code></pre>
+   ```
+   
 
-1. TEST 7: STOP THE SECONDARY DATABASE ON NODE 2
+1. Test 7: Stop the secondary database on node 2.
 
    Resource state before starting the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   ```bash
+   Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
    Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
       Masters: [ hn1-db-0 ]
@@ -1165,22 +1306,28 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
-   </code></pre>
+   ```
+   
 
-   Run the following commands as <hanasid\>adm on node hn1-db-1:
+   Run the following commands as \<hanasid\>adm on node hn1-db-1:
 
-   <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
-   </code></pre>
+   ```bash
+   hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
+   ```
+   
 
    Pacemaker will detect the stopped HANA instance and mark the resource as failed on node hn1-db-1. Pacemaker should automatically restart the HANA instance. Run the following command to clean up the failed state.
 
-   <pre><code># run as root
+   ```bash
+   # run as root
    hn1-db-1:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-1
-   </code></pre>
+   ```
+   
 
    Resource state after the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   ```bash
+   Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
    Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
       Masters: [ hn1-db-0 ]
@@ -1188,13 +1335,15 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
-   </code></pre>
+   ```
+   
 
-1. TEST 8: CRASH THE SECONDARY DATABASE ON NODE 2
+1. Test 8: Crash the secondary database on node 2.
 
    Resource state before starting the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   ```bash
+   Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
    Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
       Masters: [ hn1-db-0 ]
@@ -1202,22 +1351,28 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
-   </code></pre>
+   ```
+   
 
-   Run the following commands as <hanasid\>adm on node hn1-db-1:
+   Run the following commands as \<hanasid\>adm on node hn1-db-1:
 
-   <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
-   </code></pre>
+   ```bash
+   hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
+   ```
+   
 
    Pacemaker will detect the killed HANA instance and mark the resource as failed on node hn1-db-1. Run the following command to clean up the failed state. Pacemaker should then automatically restart the HANA instance.
 
-   <pre><code># run as root
+   ```bash
+   # run as root
    hn1-db-1:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-1
-   </code></pre>
+   ```
+   
 
    Resource state after the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   ```bash
+   Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
    Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
       Masters: [ hn1-db-0 ]
@@ -1225,13 +1380,15 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
-   </code></pre>
+   ```
+   
 
 1. TEST 9: CRASH SECONDARY SITE NODE (NODE 2) RUNNING SECONDARY HANA DATABASE
 
    Resource state before starting the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   ```bash
+   Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
    Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
       Masters: [ hn1-db-0 ]
@@ -1239,18 +1396,22 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
-   </code></pre>
+   ```
+   
 
    Run the following commands as root on node hn1-db-1:
 
-   <pre><code>hn1-db-1:~ # echo b > /proc/sysrq-trigger
-   </code></pre>
+   ```bash
+   hn1-db-1:~ # echo b > /proc/sysrq-trigger
+   ```
+   
 
-   Pacemaker should detect the killed cluster node and fence the node. When the fenced node is rebooted, Pacemaker will not start automatically.
+   Pacemaker should detect the killed cluster node and fence the node. When the fenced node is rebooted, Pacemaker doesn't start automatically.
 
-   Run the following commands to start Pacemaker, clean the SBD messages for node hn1-db-1, and cleanup the failed resource.
+   Run the following commands to start Pacemaker, clean the SBD messages for node hn1-db-1, and clean up the failed resource.
 
-   <pre><code># run as root
+   ```bash
+   # run as root
    # list the SBD device(s)
    hn1-db-1:~ # cat /etc/sysconfig/sbd | grep SBD_DEVICE=
    # SBD_DEVICE="/dev/disk/by-id/scsi-36001405772fe8401e6240c985857e116;/dev/disk/by-id/scsi-36001405034a84428af24ddd8c3a3e9e1;/dev/disk/by-id/scsi-36001405cdd5ac8d40e548449318510c3"
@@ -1260,11 +1421,13 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
    hn1-db-1:~ # systemctl start pacemaker  
    
    hn1-db-1:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-1
-   </code></pre>
+   ```
+   
 
    Resource state after the test:
 
-   <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
+   ```bash
+   Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
    Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]
       Masters: [ hn1-db-0 ]
@@ -1272,10 +1435,11 @@ NOTE: The following tests are designed to be run in sequence and depend on the e
    Resource Group: g_ip_HN1_HDB03
       rsc_ip_HN1_HDB03   (ocf::heartbeat:IPaddr2):       Started hn1-db-0
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
-   </code></pre>
+   ```
+   
 
 ## Next steps
 
-* [Azure Virtual Machines planning and implementation for SAP][planning-guide]
-* [Azure Virtual Machines deployment for SAP][deployment-guide]
-* [Azure Virtual Machines DBMS deployment for SAP][dbms-guide]
+- [Azure Virtual Machines planning and implementation for SAP][planning-guide]
+- [Azure Virtual Machines deployment for SAP][deployment-guide]
+- [Azure Virtual Machines DBMS deployment for SAP][dbms-guide]
