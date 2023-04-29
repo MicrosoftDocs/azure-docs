@@ -126,7 +126,7 @@ Review the code to understand the steps in the [Azure Batch .NET Quickstart](htt
    
    var blobServiceClient = new BlobServiceClient(new Uri(blobUri), sharedKeyCredential);
    return blobServiceClient;
-```
+   ```
 
 1. The app uses the `blobServiceClient` reference to create a container in the storage account and upload data files to the container. The files in storage are defined as Batch [ResourceFile](/dotnet/api/microsoft.azure.batch.resourcefile) objects that Batch can later download to the compute nodes.
 
