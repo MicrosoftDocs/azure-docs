@@ -153,6 +153,22 @@ Once you associate your app registration with the certificate, you need to updat
     
     - `Enter_the_Tenant_Name_Here` and replace it with the Directory (tenant) name. If you don't have your tenant name, learn how to [read tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
 
+    We encrypted the key (we recommend that you do so), so we've to decrypt it before we pass it to MSAL config object.
+
+    ```javascript
+    //...
+    const privateKeyObject = crypto.createPrivateKey({
+        key: privateKeySource,
+        passphrase: 'Add_Passphrase_Here',
+        format: 'pem'
+    });
+    
+    const privateKey = privateKeyObject.export({
+        format: 'pem',
+        type: 'pkcs8'
+    });
+    //...
+    ```
 1. Use the steps in [Run and test the web app](how-to-web-app-node-sign-in-sign-in-out.md#run-and-test-the-web-app) to test your app.
 
 ## Use a self-signed certificate directly from Azure Key Vault
