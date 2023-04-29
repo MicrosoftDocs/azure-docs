@@ -105,4 +105,30 @@ Since the scoring script and environment are automatically included with the fou
 
 #### Deploying using code based samples
 To enable users to quickly get started with deployment and inferencing, we have published samples (both Python notebooks as well as CLI examples) in the [Inference samples in the azureml-examples git repo](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system/inference). Each model card also links to Inference samples for Real time and Batch inferencing.
+
 ### Importing foundation models 
+If you are looking to use an open source model, that is not included in the Model Catalog, you can import the model from Hugging Face into your AzureML workspace. Currently, model import supports importing models for the following tasks -
+<ul>
+	<li>fill-mask</li>
+	<li>token-classification</li>
+	<li>question-answering</li>
+	<li>summarization</li>
+	<li>text-generation</li>
+	<li>text-classification</li>
+	<li>translation</li>
+	<li>image-classification</li>
+	<li>text-to-image</li>
+</ul>
+
+You can click the "Import" button on the top right of the Model Catalog to use the Model Import Notebook.
+
+![image](./media/model_import.png)
+
+The model import notebook is also included in the azureml-examples git repo [here](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/system/import/import_model_into_registry.ipynb).
+
+In order to import the model, you need to pass in the MODEL_ID of the model you wish to import from Hugging Face. Browse models on Hugging Face hub and identify the model to import. Make sure the task type of the model is among the supported task types. Copy the model id which is available in the URI of the page or can be copied using the copy icon next to the model name and assign it to the variable 'MODEL_ID' in the Model import notebook. For e.g.,
+
+![image](./media/hugging_face_model_id.png)
+
+You will need to provide compute for the Model import to run. Running the Model Import will result in the specified model being imprted from Hugging Face and registered to your AzureML workspace. You can then finetune this model or deploy it to an endpoint for inferencing.
+
