@@ -204,7 +204,7 @@ The disk type conversion is instantaneous. You can start your VM after the conve
 
 ## Migrate to Premium SSD v2 or Ultra Disk
 
-You can migrate an existing disk to either an Ultra Disk or a Premium SSD v2 through incremental snapshots. Both Premium SSD v2 disks and Ultra Disks have their own set of restrictions. For example, neither can be used as an OS disk, and also aren't available in all regions. See the [Premium SSD v2 limitations](disks-deploy-premium-v2.md#limitations) and [Ultra Disk GA scope and limitations](disks-enable-ultra-ssd.md#ga-scope-and-limitations) sections of their articles for more information.
+Currently, you can only migrate an existing disk to either an Ultra Disk or a Premium SSD v2 through incremental snapshots. Both Premium SSD v2 disks and Ultra Disks have their own set of restrictions. For example, neither can be used as an OS disk, and also aren't available in all regions. See the [Premium SSD v2 limitations](disks-deploy-premium-v2.md#limitations) and [Ultra Disk GA scope and limitations](disks-enable-ultra-ssd.md#ga-scope-and-limitations) sections of their articles for more information.
 
 # [Azure PowerShell](#tab/azure-powershell)
 
@@ -225,8 +225,8 @@ $storageType = 'PremiumV2_LRS'
 #Get-AzLocation
 $location = 'westus'
 
-#To use a 512 sector size, replace 4096 with 512
-$logicalSectorSize=4096
+#To use a 4096 sector size, replace 512 with 4096
+$logicalSectorSize=512
 
 # Get the disk that you need to backup by creating an incremental snapshot
 $yourDisk = Get-AzDisk -DiskName $diskName -ResourceGroupName $resourceGroupName
@@ -251,8 +251,8 @@ resourceGroupName="yourResourceGroupNameHere"
 snapshotName="desiredSnapshotNameHere"
 #Provide the storage type. Use PremiumV2_LRS or UltraSSD_LRS.
 storageType=PremiumV2_LRS
-##Replace 4096 with 512 to deploy a disk with 512 sector size
-logicalSectorSize=4096
+##Replace 512 with 4096 to deploy a disk with 4096 sector size
+logicalSectorSize=512
 
 # Get the disk you need to backup
 yourDiskID=$(az disk show -n $diskName -g $resourceGroupName --query "id" --output tsv)
@@ -278,6 +278,10 @@ Follow these steps:
 1. For **Source Type** select **Snapshot**.
 1. Select the snapshot you just created.
 1. Select **Change size** and select either **Premium SSD v2** or **Ultra Disk** for the **Storage Type**.
+1. Select the performance and capacity you'd like the disk to have.
+1. Continue to the **Advanced** tab.
+1. If the disk you created the snapshot from was either a Premium SSD, Standard SSD, or Standard HDD and select **512** for **Logical sector size (bytes)**.
+    Using the **4096** sector size will only result in a usable disk if the snapshot was of a disk that was either a Premium SSD v2 or Ultra Disk that also used a 4096 sector size. If the snapshot was of a Premium SSD, Standard SSD, or Standard HDD, and you select **4096** for the logical sector size, the disk won't be usable.
 1. Select **Review+Create** and then **Create**.
 ---
 
