@@ -15,13 +15,13 @@ ms.custom: it-pro
 ---
 # Investigate risk with Identity Protection in Azure AD for customers
 
-Azure AD [Identity Protection](../../identity-protection/overview-identity-protection) provides ongoing risk detection for your customer tenant. It allows organizations to discover, investigate, and remediate identity-based risks. Identity Protection comes with risk reports that can be used to investigate identity risks in customer tenants. In this article, you learn how to investigate and mitigate risks.
+Azure AD [Identity Protection](../../identity-protection/overview-identity-protection.md) provides ongoing risk detection for your customer tenant. It allows organizations to discover, investigate, and remediate identity-based risks. Identity Protection comes with risk reports that can be used to investigate identity risks in customer tenants. In this article, you learn how to investigate and mitigate risks.
 
 ## Identity Protection reporting
 
 Identity Protection provides two reports. The *Risky users* report is where administrators can find which users are at risk and details about detections. The *risk detections* report gives information about each risk detection. This report includes the risk type, other risks triggered at the same time, the location of the sign-in attempt, and more.
 
-Each report launches with a list of all detections for the period shown at the top of the report. Reports can be filtered using the filters across the top of the report. Administrators can choose to download the data, or use [MS Graph API and Microsoft Graph PowerShell SDK](../active-directory/identity-protection/howto-identity-protection-graph-api.md) to continuously export the data.
+Each report launches with a list of all detections for the period shown at the top of the report. Reports can be filtered using the filters across the top of the report. Administrators can choose to download the data, or use [MS Graph API and Microsoft Graph PowerShell SDK](../../identity-protection/howto-identity-protection-graph-api.md) to continuously export the data.
 
 ## Service limitations and considerations
 
@@ -29,7 +29,7 @@ Consider the following points when using Identity Protection:
 
 - Identity Protection is on by default.
 - Identity Protection is available for both local and social identities, such as Google or Facebook. Detection is limited because the external identity provider manages the social account credentials.
-- Currently in Azure AD customer tenants, a subset of the [Azure AD Identity Protection risk detections](../active-directory/identity-protection/overview-identity-protection.md) is available. Azure AD for customers supports the following risk detections:  
+- Currently in Azure AD customer tenants, a subset of the [Azure AD Identity Protection risk detections](../../identity-protection/overview-identity-protection.md) is available. Azure AD for customers supports the following risk detections:  
 
 |Risk detection type  |Description  |
 |---------|---------|
@@ -86,12 +86,7 @@ An administrator can choose to dismiss a user's risk in the Microsoft Entra admi
 
 1. Under **Report**, select **Risky users**.
 
-   ![Risky users](media/identity-protection-investigate-risk/risky-users.png)
-
     Selecting individual entries expands a details window below the detections. The details view allows administrators to investigate and perform actions on each detection.
-
-    ![Risky users actions](media/identity-protection-investigate-risk/risky-users-report-actions.png)
-
 
 ## Risk detections report
 
@@ -112,5 +107,3 @@ Administrators can then choose to return to the user's risk or sign-ins report t
 1. Select **Identity Protection**.
 
 1. Under **Report**, select **Risk detections**.
-
-   ![Risk detections](media/identity-protection-investigate-risk/risk-detections.png)
