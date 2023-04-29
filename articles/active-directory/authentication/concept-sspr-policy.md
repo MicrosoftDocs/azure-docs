@@ -22,11 +22,11 @@ In Azure Active Directory (Azure AD), there's a password policy that defines set
 
 When self-service password reset (SSPR) is used to change or reset a password in Azure AD, the password policy is checked. If the password doesn't meet the policy requirements, the user is prompted to try again. Azure administrators have some restrictions on using SSPR that are different to regular user accounts, and there are minor exceptions for trial and free versions of Azure AD.
 
-This article describes the password policy settings and complexity requirements associated with user accounts in your Azure AD tenant, and how you can use PowerShell to check or set password expiration settings.
+This article describes the password policy settings and complexity requirements associated with user accounts. It also covers how to use PowerShell to check or set password expiration settings.
 
 ## Username policies
 
-Every account that signs in to Azure AD must have a unique user principal name (UPN) attribute value associated with their account. In hybrid environments with an on-premises Active Directory Domain Services (AD DS) environment synchronized to Azure AD using Azure AD Connect, by default the Azure AD UPN is set to the on-prem UPN.
+Every account that signs in to Azure AD must have a unique user principal name (UPN) attribute value associated with their account. In hybrid environments with an on-premises Active Directory Domain Services (AD DS) environment synchronized to Azure AD using Azure AD Connect, by default the Azure AD UPN is set to the on-premises UPN.
 
 The following table outlines the username policies that apply to both on-premises AD DS accounts that are synchronized to Azure AD, and for cloud-only user accounts created directly in Azure AD:
 
@@ -40,7 +40,7 @@ The following table outlines the username policies that apply to both on-premise
 
 A password policy is applied to all user accounts that are created and managed directly in Azure AD. Some of these password policy settings can't be modified, though you can [configure custom banned passwords for Azure AD password protection](tutorial-configure-custom-password-protection.md) or account lockout parameters.
 
-By default, an account is locked out after 10 unsuccessful sign-in attempts with the wrong password. The user is locked out for one minute. Further incorrect sign-in attempts lock out the user for increasing durations of time. [Smart lockout](howto-password-smart-lockout.md) tracks the last three bad password hashes to avoid incrementing the lockout counter for the same password. If someone enters the same bad password multiple times, this behavior will not cause the account to lock out. You can define the smart lockout threshold and duration.
+By default, an account is locked out after 10 unsuccessful sign-in attempts with the wrong password. The user is locked out for one minute. Further incorrect sign-in attempts lock out the user for increasing durations of time. [Smart lockout](howto-password-smart-lockout.md) tracks the last three bad password hashes to avoid incrementing the lockout counter for the same password. If someone enters the same bad password multiple times, they won't get locked out. You can define the smart lockout threshold and duration.
 
 The Azure AD password policy doesn't apply to user accounts synchronized from an on-premises AD DS environment using Azure AD Connect, unless you enable *EnforceCloudPasswordPolicyForPasswordSyncedUsers*.
 
@@ -50,7 +50,7 @@ The following Azure AD password policy options are defined. Unless noted, you ca
 | --- | --- |
 | Characters allowed |A – Z<br>a - z<br>0 – 9<br>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ' , . ? / \` ~ " ( ) ; < ><br>Blank space |
 | Characters not allowed | Unicode characters |
-| Password restrictions |A minimum of 8 characters and a maximum of 256 characters.<br>Requires three out of four of the following:<br>- Lowercase characters<br>- Uppercase characters<br>- Numbers (0-9)<br>- Symbols (see the previous password restrictions) |
+| Password restrictions |A minimum of 8 characters and a maximum of 256 characters.<br>Requires three out of four of the following types of characters:<br>- Lowercase characters<br>- Uppercase characters<br>- Numbers (0-9)<br>- Symbols (see the previous password restrictions) |
 | Password expiry duration (Maximum password age) |Default value: **90** days. If the tenant was created after 2021, it has no default expiration value. You can check current policy with [Get-MsolPasswordPolicy](/powershell/module/msonline/get-msolpasswordpolicy).<br>The value is configurable by using the `Set-MsolPasswordPolicy` cmdlet from the Azure Active Directory Module for Windows PowerShell.|
 | Password expiry (Let passwords never expire) |Default value: **false** (indicates that passwords have an expiration date).<br>The value can be configured for individual user accounts by using the `Set-MsolUser` cmdlet. |
 | Password change history | The last password *can't* be used again when the user changes a password. |
