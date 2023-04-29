@@ -2,7 +2,7 @@
 title: 'Quickstart: Use .NET to create a pool and run a job'
 description: Follow this quickstart to run a C# app that uses the Batch .NET client library to create and run Batch pools, nodes, jobs, and tasks.
 ms.topic: quickstart
-ms.date: 04/20/2023
+ms.date: 04/28/2023
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp, mode-api
 ---
@@ -118,36 +118,36 @@ Review the code to understand the steps in the [Azure Batch .NET Quickstart](htt
 
 ### Create service clients and upload resource files
 
-1. To interact with the storage account, the app uses the Azure Storage Client Library for .NET to create a reference to the account with [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount), and from that creates a [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient).
+1. To interact with the storage account, the app uses the Azure Storage Blobs client library for .NET to create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient).
 
    ```csharp
-   CloudBlobClient blobClient = CreateCloudBlobClient(StorageAccountName, StorageAccountKey);
+   var blobServiceClient = GetBlobServiceClient(StorageAccountName, StorageAccountKey);
    ```
 
-1. The app uses the `blobClient` reference to create a container in the storage account and upload data files to the container. The files in storage are defined as Batch [ResourceFile](/dotnet/api/microsoft.azure.batch.resourcefile) objects that Batch can later download to the compute nodes.
+1. The app uses the `blobServiceClient` reference to create a container in the storage account and upload data files to the container. The files in storage are defined as Batch [ResourceFile](/dotnet/api/microsoft.azure.batch.resourcefile) objects that Batch can later download to the compute nodes.
 
    ```csharp
-   List<string> inputFilePaths = new List<string>
+   List<string> inputFilePaths = new()
    {
        "taskdata0.txt",
        "taskdata1.txt",
        "taskdata2.txt"
    };
    
-   List<ResourceFile> inputFiles = new List<ResourceFile>();
+   var inputFiles = new List<ResourceFile>();
    
-   foreach (string filePath in inputFilePaths)
+   foreach (var filePath in inputFilePaths)
    {
-       inputFiles.Add(UploadFileToContainer(blobClient, inputContainerName, filePath));
+       inputFiles.Add(UploadFileToContainer(containerClient, inputContainerName, filePath));
    }
    ```
 
 1. The app creates a [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) object to create and manage Batch pools, jobs, and tasks. The Batch client uses shared key authentication. Batch also supports Azure Active Directory (Azure AD) authentication.
 
    ```csharp
-   BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(BatchAccountUrl, BatchAccountName, BatchAccountKey);
+   var cred = new BatchSharedKeyCredentials(BatchAccountUrl, BatchAccountName, BatchAccountKey);
    
-   using (BatchClient batchClient = BatchClient.Open(cred))
+    using BatchClient batchClient = BatchClient.Open(cred);
    ...
    ```
 
@@ -224,8 +224,10 @@ for (int i = 0; i < inputFiles.Count; i++)
     string inputFilename = inputFiles[i].FilePath;
     string taskCommandLine = String.Format("cmd /c type {0}", inputFilename);
 
-    CloudTask task = new CloudTask(taskId, taskCommandLine);
-    task.ResourceFiles = new List<ResourceFile> { inputFiles[i] };
+    var task = new CloudTask(taskId, taskCommandLine)
+    {
+        ResourceFiles = new List<ResourceFile> { inputFiles[i] }
+    };
     tasks.Add(task);
 }
 
