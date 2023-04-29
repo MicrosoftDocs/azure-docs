@@ -22564,9 +22564,14 @@
           "redirect_document_id": true
         },
         {
-          "source_path_from_root": "/articles/sentinel/data-connectors/azure-information-protection.md",
-          "redirect_url": "/azure/sentinel/data-connectors-reference.md",
+          "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-cast-access-request.md",
+          "redirect_url": "/azure/healthcare-apis/dicom/dicom-cast-overview",
           "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/azure-information-protection.md",
+            "redirect_url": "/azure/sentinel/data-connectors-reference.md",
+            "redirect_document_id": false
         }
     ]
 }

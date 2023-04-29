@@ -40,7 +40,8 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Determine what data to [map between Azure AD and ALVAO](../app-provisioning/customize-application-attributes.md).
 
 ## Step 2. Configure ALVAO to support provisioning with Azure AD
-Contact ALVAO support to configure ALVAO to support provisioning with Azure AD.
+1. Find your **Tenant SCIM Endpoint URL**, which should have the format `{ALVAO REST API address}/scim` (for example, https://app.contoso.com/alvaorestapi/scim).
+1. Generate a new **Secret Token** in **WebApp - Administration - Settings - [Active Directory and Azure Active Directory](https://doc.alvao.com/en/11.1/list-of-windows/alvao-webapp/administration/settings/activedirectory)** and copy its value.
 
 ## Step 3. Add ALVAO from the Azure AD application gallery
 
@@ -115,6 +116,10 @@ This section guides you through the steps to configure the Azure AD provisioning
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String||
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String||
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String||
+   > [!NOTE]
+   >For advanced settings see:
+   > * [Mapping SCIM attributes to user fields](https://doc.alvao.com/en/11.1/alvao-asset-management/implementation/users/authentication/aad/provisioning/person-attribute-mapping)
+   > * [Mapping SCIM attributes to object properties](https://doc.alvao.com/en/11.1/alvao-asset-management/implementation/users/authentication/aad/provisioning/object-attribute-mapping)
 
 1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to ALVAO**.
 
