@@ -27,7 +27,7 @@ Email sign-up is enabled by default in your local account identity provider sett
 
 - **Password reset**: The customer enters and verifies their email, after which the customer can reset their password.
 
-   :::image type="content" source="media/concept-authentication-methods-customers/email-password-sign-in.png" alt-text="Screenshots of the email and password sign-in screens." lightbox="media/concept-authentication-methods-customers/email-password.png" border="false":::
+   :::image type="content" source="media/concept-authentication-methods-customers/email-password-sign-in.png" alt-text="Screenshots of the email with password sign-in screens." lightbox="media/concept-authentication-methods-customers/email-password.png" border="false":::
 
 When you [create a sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md#create-and-customize-a-user-flow), **Email with password** is the default option.
 
@@ -39,7 +39,7 @@ Email with one-time passcode is an option in your local account identity provide
 
 - **Sign-in**: After the customer signs up and creates an account, they can sign in by entering their email address and receiving a one-time passcode.
 
-   :::image type="content" source="media/concept-authentication-methods-customers/email-passcode-sign-in.png" alt-text="Screenshots of the email and password sign-in screens." lightbox="media/concept-authentication-methods-customers/email-password.png" border="false":::
+   :::image type="content" source="media/concept-authentication-methods-customers/email-passcode-sign-in.png" alt-text="Screenshots of the email with one-time passcode sign-in screens." lightbox="media/concept-authentication-methods-customers/email-password.png" border="false":::
 
 When you [create a sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md#create-and-customize-a-user-flow), **Email one-time passcode** one of the local account options.
 
@@ -55,7 +55,7 @@ By setting up federation with Google, you can allow customers to sign in to your
 
 The following screenshots show the sign-in with Google experience. In the sign-in page, users select **Sign-in options**, and then select **Sign-in with Google**. At that point, the user is redirected to the Google identity provider to complete the sign-in.
 
-   :::image type="content" source="media/concept-authentication-methods-customers/google-sign-in.png" alt-text="Screenshots of the email and password sign-in screens." lightbox="media/concept-authentication-methods-customers/google-sign-up.png" border="false":::
+   :::image type="content" source="media/concept-authentication-methods-customers/google-sign-in.png" alt-text="Screenshots of google sign-in screens." lightbox="media/concept-authentication-methods-customers/google-sign-up.png" border="false":::
 
 Learn how to [add Google as an identity provider](how-to-google-federation-customers.md).
 ### Facebook sign-in
@@ -64,7 +64,7 @@ By setting up federation with Facebook, you can allow invited users to sign in t
 
 The following screenshots show the sign-in with Facebook experience. In the sign-in page, users select **Sign-in options**, and then select **Sign-in with Facebook**. Then the user is redirected to the Facebook identity provider to complete the sign-in.
 
-   :::image type="content" source="media/concept-authentication-methods-customers/facebook-sign-in.png" alt-text="Screenshots of the email and password sign-in screens." lightbox="media/concept-authentication-methods-customers/facebook-sign-up.png" border="false":::
+   :::image type="content" source="media/concept-authentication-methods-customers/facebook-sign-in.png" alt-text="Screenshots of Facebook sign-in screens." lightbox="media/concept-authentication-methods-customers/facebook-sign-up.png" border="false":::
 
 Learn how to [add Facebook as an identity provider](how-to-facebook-federation-customers.md).
 ## Next steps
