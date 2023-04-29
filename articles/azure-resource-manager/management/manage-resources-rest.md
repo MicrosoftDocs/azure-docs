@@ -21,7 +21,7 @@ To make a REST API call to Azure, you first need to obtain an access token. Incl
 
 If you will need to programatically retreive new tokens as part of your application, you can obtain an access token by [Registering your client application with Azure AD](https://learn.microsoft.com/rest/api/azure/#register-your-client-application-with-azure-ad).
 
-If you are getting started and want to quickly test Azure REST APIs, you can retrieve your current access token quickly with either Azure PowerShell or Azure CLI.
+If you are getting started and want to test Azure REST APIs using your individual token, you can retrieve your current access token quickly with either Azure PowerShell or Azure CLI.
 
 ### [Azure CLI](#tab/azure-cli)
 ```azurecli-interactive
