@@ -45,7 +45,7 @@ Each model can be evaluated for the specific inference task that the model can b
 Clicking on 'Finish' in the Evaluate wizard will submit your evaluation job. Once the job completes, you can view evaluation metrics for the model. Based on the evaluation metrics, you might decide if you would like to finetune the model using your own training data or if you would like to register the model and deploy it to an endpoint.
 
 <b>Advanced Evaluation Parameters</b>
-The Evaluate UI wizard described above, allows you to perform basic evaluation by providing your own test data. Additionally, there are several advanced evaluation parameters described here ![image](./evaluate_parameters.png), such as evaluation config. Each of these settings have default values, but can be customized via code based samples, if needed.
+The Evaluate UI wizard described above, allows you to perform basic evaluation by providing your own test data. Additionally, there are several advanced evaluation parameters described [here](https://github.com/Azure/azureml-assets/blob/main/training/model_evaluation/components/evaluate_model/README.md), such as evaluation config. Each of these settings have default values, but can be customized via code based samples, if needed.
 
 
 #### Evaluating using code based samples
