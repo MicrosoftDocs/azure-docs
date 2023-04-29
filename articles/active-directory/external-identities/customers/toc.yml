@@ -178,10 +178,8 @@ items:
             href: how-to-user-flow-sign-up-sign-in-customers.md
           - name: Enable password reset
             href: how-to-enable-password-reset-customers.md
-      - name: Configure identity providers and auth methods
+      - name: Configure identity providers
         items:
-          - name: Multifactor authentication
-            href: how-to-multifactor-authentication-customers.md
           - name: Google federation
             href: how-to-google-federation-customers.md
           - name: Facebook federation
@@ -199,6 +197,12 @@ items:
           items:
             - name: Define custom attributes for user flows
               href: how-to-define-custom-attributes.md
+    - name: Secure
+      items:
+      - name: Multifactor authentication
+        href: how-to-multifactor-authentication-customers.md
+      - name: Identity Protection
+        href: how-to-identity-protection-customers.md
     - name: Extend
       items:
       - name: Add claims from external sources
