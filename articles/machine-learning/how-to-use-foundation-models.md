@@ -88,7 +88,7 @@ Currently, AzureML supports finetuning models for the following language tasks -
 * Summarization
 * Translation
 
-To enable users to quickly get started with fine tuning, we have published samples (both Python notebooks as well as CLI examples) for each task in this git repo at [https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system). Each model card links to Finetuning samples for supported finetuning tasks.
+To enable users to quickly get started with fine tuning, we have published samples (both Python notebooks as well as CLI examples) for each task in the [Finetune samples in the azureml-examples git repo](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system/finetune). Each model card links to Finetuning samples for supported finetuning tasks.
 
 ### Deploying foundation models to endpoints for inferencing
 
