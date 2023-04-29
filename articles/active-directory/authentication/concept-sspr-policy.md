@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/25/2023
+ms.date: 04/29/2023
 
 ms.author: justinha
 author: justinha
@@ -60,9 +60,9 @@ The following Azure AD password policy options are defined. Unless noted, you ca
 
 By default, administrator accounts are enabled for self-service password reset, and a strong default *two-gate* password reset policy is enforced. This policy may be different from the one you have defined for your users, and this policy can't be changed. You should always test password reset functionality as a user without any Azure administrator roles assigned.
 
-With a two-gate policy, administrators don't have the ability to use security questions.
+The two-gate policy requires two pieces of authentication data, such as an email address, authenticator app, or a phone number, and it prohibits security questions. Office and mobile voice calls are also prohibited for trial or free versions of Azure AD. 
 
-The two-gate policy requires two pieces of authentication data, such as an email address, authenticator app, or a phone number. A two-gate policy applies in the following circumstances:
+A two-gate policy applies in the following circumstances:
 
 * All the following Azure administrator roles are affected:
   * Application administrator
@@ -110,7 +110,7 @@ A one-gate policy requires one piece of authentication data, such as an email ad
 
 ## Password expiration policies
 
-A *global administrator* or *user administrator* can use the [Microsoft Azure AD Module for Windows PowerShell](/powershell/module/Azuread/) to set user passwords not to expire.
+A *Global Administrator* or *User Administrator* can use the [Microsoft Azure AD Module for Windows PowerShell](/powershell/module/Azuread/) to set user passwords not to expire.
 
 You can also use PowerShell cmdlets to remove the never-expires configuration or to see which user passwords are set to never expire.
 
@@ -127,7 +127,7 @@ After the module is installed, use the following steps to complete each task as 
 
 ### Check the expiration policy for a password
 
-1. Open a PowerShell prompt and [connect to your Azure AD tenant](/powershell/module/azuread/connect-azuread#examples) using a *global administrator* or *user administrator* account.
+1. Open a PowerShell prompt and [connect to your Azure AD tenant](/powershell/module/azuread/connect-azuread#examples) using a *Global Administrator* or *User Administrator* account.
 
 1. Run one of the following commands for either an individual user or for all users:
 
@@ -145,7 +145,7 @@ After the module is installed, use the following steps to complete each task as 
 
 ### Set a password to expire
 
-1. Open a PowerShell prompt and [connect to your Azure AD tenant](/powershell/module/azuread/connect-azuread#examples) using a *global administrator* or *user administrator* account.
+1. Open a PowerShell prompt and [connect to your Azure AD tenant](/powershell/module/azuread/connect-azuread#examples) using a *Global Administrator* or *User Administrator* account.
 
 1. Run one of the following commands for either an individual user or for all users:
 
@@ -163,7 +163,7 @@ After the module is installed, use the following steps to complete each task as 
 
 ### Set a password to never expire
 
-1. Open a PowerShell prompt and [connect to your Azure AD tenant](/powershell/module/azuread/connect-azuread#examples) using a *global administrator* or *user administrator* account.
+1. Open a PowerShell prompt and [connect to your Azure AD tenant](/powershell/module/azuread/connect-azuread#examples) using a *Global Administrator* or *User Administrator* account.
 1. Run one of the following commands for either an individual user or for all users:
 
    * To set the password of one user to never expire, run the following cmdlet. Replace `<user ID>` with the user ID of the user you want to check, such as *driley\@contoso.onmicrosoft.com*
