@@ -1,4 +1,4 @@
-<!--save a copy of this file to your local repo. It's essential that you follow the naming conventions by starting with the service name and using lowercase only for the file name. See "file-names-and-locations.md" under your repo's "contributor-guide" folder.
+<!--save a copy of this file to your local repo. You should follow the naming conventions by starting with the service name and using lowercase only for the file name. See "file-names-and-locations.md" under your repo's "contributor-guide" folder.
 
 Info to help you use the template is enclosed in the Markdown comments using the caret, hyphen, and dash syntax. Delete these from your file.
 
