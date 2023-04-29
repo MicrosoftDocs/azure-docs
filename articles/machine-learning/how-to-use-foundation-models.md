@@ -88,8 +88,21 @@ Currently, AzureML supports finetuning models for the following language tasks -
 * Summarization
 * Translation
 
-To enable users to quickly get started with fine tuning, we have published samples (both Python notebooks as well as CLI examples) for each task in the [Finetune samples in the azureml-examples git repo](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system/finetune). Each model card links to Finetuning samples for supported finetuning tasks.
+To enable users to quickly get started with fine tuning, we have published samples (both Python notebooks as well as CLI examples) for each task in the [Finetune samples in the azureml-examples git repo](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system/finetune). Each model card also links to Finetuning samples for supported finetuning tasks.
 
 ### Deploying foundation models to endpoints for inferencing
+You can deploy foundation models (both pre-trained models from the model catalog, as well as finetuned models, once they are registered to your workspace) to an endpoint that can then be used for inferencing. Deployment to both real time endpoints as well as batch endpoints is supported. You can easily deploy these models by using either the Deploy UI wizard or by using the code based samples linked from the model card.
 
+#### Deploying using the UI wizard
+You can invoke the Deploy UI wizard by clicking on the 'Deploy' button on the model card for any foundation model, and selecting either Real-time endpoint or Batch endpoint
+
+![image](./media/deploy_button.png)
+
+<b>Deployment Settings</b>
+Since the scoring script and environment are automatically included with the foundation model, you only need to specify the Virtual machine SKU to use, number of instances and the endpoint name to use for the deployment.
+
+![image](./media/deploy_options.png)
+
+#### Deploying using code based samples
+To enable users to quickly get started with deployment and inferencing, we have published samples (both Python notebooks as well as CLI examples) in the [Inference samples in the azureml-examples git repo](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system/inference). Each model card also links to Inference samples for Real time and Batch inferencing.
 ### Importing foundation models 
