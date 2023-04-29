@@ -13,7 +13,7 @@ ms.date: 04/10/2018
 
 # Tutorial: Verb ... --> This H1 is the title of the article. It appears in search, appears at the top of the article, and has the second greatest impact on search, 100 chars or less
 
-AUTHORS: A single-sentence intro about AML. Intro paragraph to explain the intent of this tutorial. Lead with a light introduction that describes, in customer-friendly language, what they'll learn, or do, or accomplish. Answer the fundamental "why would I want to do this?" question. Avoid starting the tutorial with a bunch of notes or caveats.
+AUTHORS: A single-sentence intro about AML. Intro paragraph to explain the intent of this tutorial. Lead with a light introduction that describes, in customer-friendly language, what they'll learn, do, or accomplish. Answer the fundamental "why would I want to do this?" question. Avoid starting the tutorial with a bunch of notes or caveats.
 
 In this tutorial, you will do X...
 
@@ -31,17 +31,17 @@ In this tutorial, you use X to do Y, or you learn how to:
 > 
 > Tutorials are typically longer and more complex than quickstarts. They are created from the list of top user tasks identified in milestone one and focus on the best procedure for completing that task. A tutorial usually aligns with one or two customer tasks. At a minimum, you need one tutorial in the Tutorials node of the TOC.
 > 
-> Tutorials are 100 – 200 for an audience new to the service, product, or scenario. Ideally, your tutorials should build on each other using a common theme, resulting in a completed customer scenario. Unlike how-to content, they are not open-ended, complete walkthroughs of a feature.
+> Tutorials are 100 – 200 for an audience new to the service, product, or scenario. Ideally, your tutorials should build on each other using a common theme, resulting in a completed customer scenario. Unlike how-to content, they are not open-ended, complete feature walkthroughs.
 
 ## Prerequisites
 
-To complete this tutorial, you need:
+To complete this tutorial, you need the following:
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
-* An Azure Machine Learning workspace. Learn how to get create a workspace in the [Get started](quickstart-get-started.md#create-a-workspace) quickstart.
+* An Azure Machine Learning workspace. Learn how to create a workspace in the [Get started](quickstart-get-started.md#create-a-workspace) quickstart.
 * A Docker engine installed and running locally. Docker's Community Edition is sufficient. Learn [how to install Docker](https://docs.docker.com/engine/installation/).
 
 
-## Log in to the Azure portal
+## Login to the Azure portal
 Log in to the [Azure portal](https://portal.azure.com).
 
 Don't number H2 and H3 headings. Tutorials are procedure-based, and customers understand that the sections follow in sequence.
@@ -68,7 +68,7 @@ Paragraph and Steps
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 ## Next Steps
-Tutorials should always have a "Next steps" H2 that points to the following logical tutorial in a series (one link only here) or, if there are no other tutorials, to some other cool thing the customer can do with the service. Use the blue box format for tutorials, and note that you can shorten the H1 in the boxes if the original one doesn't fit.
+Tutorials should always have a "Next steps" H2 that points to the following logical tutorial in a series (one link only here) or, if there are no other tutorials, to some other cool thing, the customer can do with the service. Use the blue box format for tutorials, and note that you can shorten the H1 in the boxes if the original one doesn't fit.
 
 > [!div class="nextstepaction"]
 > [Azure Windows virtual machine tutorials](../../articles/machine-learning/overview-what-is-azure-ml.md)
