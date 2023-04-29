@@ -22570,7 +22570,7 @@
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/azure-information-protection.md",
-            "redirect_url": "/azure/sentinel/data-connectors-reference.md",
+            "redirect_url": "/azure/sentinel/data-connectors-reference",
             "redirect_document_id": false
         }
     ]
