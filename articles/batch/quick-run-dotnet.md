@@ -123,7 +123,7 @@ Review the code to understand the steps in the [Azure Batch .NET Quickstart](htt
    ```csharp
    var sharedKeyCredential = new StorageSharedKeyCredential(storageAccountName, storageAccountKey);
    string blobUri = "https://" + storageAccountName + ".blob.core.windows.net";
-
+   
    var blobServiceClient = new BlobServiceClient(new Uri(blobUri), sharedKeyCredential);
    return blobServiceClient;
 ```
