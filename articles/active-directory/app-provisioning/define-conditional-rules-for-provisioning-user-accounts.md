@@ -115,7 +115,7 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 
    f. **IS NOT NULL**. Clause returns "true" if the evaluated attribute isn't empty.
 
-   g. **REGEX MATCH**. Clause returns "true" if the evaluated attribute matches a regular expression pattern. For example: ([1-9][0-9]) matches any number between 10 and 99 (case sensitive).
+   g. **REGEX MATCH**. Clause returns "true" if the evaluated attribute matches a regular expression pattern. For example: `([1-9][0-9])` matches any number between 10 and 99 (case sensitive).
 
    h. **NOT REGEX MATCH**. Clause returns "true" if the evaluated attribute doesn't match a regular expression pattern. It will return "false" if the attribute is null / empty.
    
@@ -145,14 +145,13 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 >[!IMPORTANT] 
 > Saving a new scoping filter triggers a new full sync for the application, where all users in the source system are evaluated again against the new scoping filter. If a user in the application was previously in scope for provisioning, but falls out of scope, their account is disabled or deprovisioned in the application. To override this default behavior, refer to [Skip deletion for user accounts that go out of scope](../app-provisioning/skip-out-of-scope-deletions.md).
 
-
 ## Common scoping filters
 | Target Attribute| Operator | Value | Description|
 |----|----|----|----|
-|userPrincipalName|REGEX MATCH|.\*@domain.com |All users with userPrincipal that has the domain @domain.com will be in scope for provisioning|
-|userPrincipalName|NOT REGEX MATCH|.\*@domain.com|All users with userPrincipal that has the domain @domain.com will be out of scope for provisioning|
-|department|EQUALS|sales|All users from the sales department are in scope for provisioning|
-|workerID|REGEX MATCH|(1[0-9][0-9][0-9][0-9][0-9][0-9])| All employees with workerIDs between 1000000 and 2000000 are in scope for provisioning.|
+|userPrincipalName|REGEX MATCH|`.\*@domain.com`|All users with userPrincipal that has the domain @domain.com will be in scope for provisioning|
+|userPrincipalName|NOT REGEX MATCH|`.\*@domain.com`|All users with userPrincipal that has the domain @domain.com will be out of scope for provisioning|
+|department|EQUALS|`sales`|All users from the sales department are in scope for provisioning|
+|workerID|REGEX MATCH|`(1[0-9][0-9][0-9][0-9][0-9][0-9])`| All employees with workerIDs between 1000000 and 2000000 are in scope for provisioning.|
 
 ## Related articles
 * [Automate user provisioning and deprovisioning to SaaS applications](../app-provisioning/user-provisioning.md)
