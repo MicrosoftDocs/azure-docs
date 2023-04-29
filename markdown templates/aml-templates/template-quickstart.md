@@ -4,7 +4,7 @@ description: This string describes the article in 115 to 145 characters. Use SEO
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: quickstart
+ms.topic: Quickstart
 ms.reviewer: jmartens
 ms.author: your-msft-alias
 author: your-github-account-name
@@ -16,7 +16,7 @@ One sentence into the intro about Machine Learning. Intro paragraph to explain t
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-## Log in to the Azure portal
+## Login to the Azure portal
 Open your web browser, and navigate to the [Microsoft Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
 ## Create an Azure Machine Learning Server
@@ -70,7 +70,7 @@ To delete the entire resource group, including the newly created server:
 2.	On your resource group page, click **Delete**. Then type the name of your resource group, such as our example **myresourcegroup**, in the text box to confirm the deletion, and then click **Delete**.
 
 Or, instead, delete the newly created server:
-1.	Locate your server in the Azure portal if you do not have it open. From the left-hand menu in Azure portal, click **All resources**, and then search for the server you created.
+1.	Locate your server in the Azure portal if you do not have it open. Then, from the left-hand menu in the Azure portal, click **All resources**, and then search for the server you created.
 2.	On the **Overview** page, click the **Delete** button on the top pane.
 3.	Confirm the server name you want to delete.
  
