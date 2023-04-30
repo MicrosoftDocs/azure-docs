@@ -37,7 +37,7 @@ export SERVICE_ACCOUNT_NAMESPACE="default"
 export SERVICE_ACCOUNT_NAME="workload-identity-sa"
 export SUBSCRIPTION="$(az account show --query id --output tsv)"
 export USER_ASSIGNED_IDENTITY_NAME="myIdentity"
-export FEDERATED_IDENTITY_CREDENTIAL="myFedIdentity" 
+export FEDERATED_IDENTITY_CREDENTIAL_NAME="myFedIdentity" 
 ```
 
 ## Create AKS cluster
@@ -45,8 +45,6 @@ export FEDERATED_IDENTITY_CREDENTIAL="myFedIdentity"
 Create an AKS cluster using the [az aks create][az-aks-create] command with the `--enable-oidc-issuer` parameter to use the OIDC Issuer. The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
 
 ```azurecli-interactive
-az group create --name "${RESOURCE_GROUP}" --location "${LOCATION}"
-
 az aks create -g "${RESOURCE_GROUP}" -n myAKSCluster --enable-oidc-issuer --enable-workload-identity
 ```
 
@@ -178,7 +176,7 @@ You can retrieve this information using the Azure CLI command: [az keyvault list
 To disable the Azure AD workload identity on the AKS cluster where it's been enabled and configured, you can run the following command:
 
 ```azurecli
-az aks update --resource-group myResourceGroup --name myAKSCluster --enable-workload-identity false
+az aks update --resource-group myResourceGroup --name myAKSCluster --disable-workload-identity
 ```
 
 ## Next steps

@@ -36,9 +36,9 @@ This tutorial peers virtual networks in the same region. You can also peer virtu
 
 - An Azure account with permissions in both subscriptions or an account in each subscription with the proper permissions to create a virtual network peering. For a list of permissions, see [Virtual network peering permissions](virtual-network-manage-peering.md#permissions).
 
-    - To separate the duty of managing the network belonging to each tenant, add the user from each tenant as a guest in the opposite tenant and assign them a reader role to the virtual network. This procedure applies if the virtual networks are in different subscriptions and Active Directory tenants.
+    - To separate the duty of managing the network belonging to each tenant, add the user from each tenant as a guest in the opposite tenant and assign them the Network Contributor role to the virtual network. This procedure applies if the virtual networks are in different subscriptions and Active Directory tenants.
 
-    - To establish a network peering when you don't intend to separate the duty of managing the network belonging to each tenant, add the user from tenant A as a guest in the opposite tenant. Then, assign them the correct permissions to initiate and connect the network peering from each subscription. With these permissions, the user is able to establish the network peering from each subscription.
+    - To establish a network peering when you don't intend to separate the duty of managing the network belonging to each tenant, add the user from tenant A as a guest in the opposite tenant. Then, assign them the Network Contributor role to initiate and connect the network peering from each subscription. With these permissions, the user is able to establish the network peering from each subscription.
 
     - For more information about guest users, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory).
 
@@ -50,9 +50,9 @@ This tutorial peers virtual networks in the same region. You can also peer virtu
 
 - An Azure account with permissions in both subscriptions or an account in each subscription with the proper permissions to create a virtual network peering. For a list of permissions, see [Virtual network peering permissions](virtual-network-manage-peering.md#permissions).
 
-    - To separate the duty of managing the network belonging to each tenant, add the user from each tenant as a guest in the opposite tenant and assign them a reader role to the virtual network. This procedure applies if the virtual networks are in different subscriptions and Active Directory tenants.
+    - To separate the duty of managing the network belonging to each tenant, add the user from each tenant as a guest in the opposite tenant and assign them the Network Contributor role to the virtual network. This procedure applies if the virtual networks are in different subscriptions and Active Directory tenants.
 
-    - To establish a network peering when you don't intend to separate the duty of managing the network belonging to each tenant, add the user from tenant A as a guest in the opposite tenant. Then, assign them the correct permissions to initiate and connect the network peering from each subscription. With these permissions, the user is able to establish the network peering from each subscription.
+    - To establish a network peering when you don't intend to separate the duty of managing the network belonging to each tenant, add the user from tenant A as a guest in the opposite tenant. Then, assign them the Network Contributor role to initiate and connect the network peering from each subscription. With these permissions, the user is able to establish the network peering from each subscription.
 
     - For more information about guest users, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory).
 
@@ -72,9 +72,9 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 - An Azure account with permissions in both subscriptions or an account in each subscription with the proper permissions to create a virtual network peering. For a list of permissions, see [Virtual network peering permissions](virtual-network-manage-peering.md#permissions).
 
-    - To separate the duty of managing the network belonging to each tenant, add the user from each tenant as a guest in the opposite tenant and assign them a reader role to the virtual network. This procedure applies if the virtual networks are in different subscriptions and Active Directory tenants.
+    - To separate the duty of managing the network belonging to each tenant, add the user from each tenant as a guest in the opposite tenant and assign them the Network Contributor role to the virtual network. This procedure applies if the virtual networks are in different subscriptions and Active Directory tenants.
 
-    - To establish a network peering when you don't intend to separate the duty of managing the network belonging to each tenant, add the user from tenant A as a guest in the opposite tenant. Then, assign them the correct permissions to initiate and connect the network peering from each subscription. With these permissions, the user is able to establish the network peering from each subscription.
+    - To establish a network peering when you don't intend to separate the duty of managing the network belonging to each tenant, add the user from tenant A as a guest in the opposite tenant. Then, assign them the Network Contributor role to initiate and connect the network peering from each subscription. With these permissions, the user is able to establish the network peering from each subscription.
 
     - For more information about guest users, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory).
 

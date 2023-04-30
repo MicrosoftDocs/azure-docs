@@ -79,6 +79,8 @@ The following table is a comparison of the scope options:
 |**Resource Manager object** | - | - | &#10004; |
 |**Requires modifying policy assignment object** | &#10004; | &#10004; | - |
 
+So how do you choose whether to use an exclusion or exemption? Typically exclusions are recommended to permanently bypass evaluation for a broad scope like a test environment which doesn't require the same level of governance. Exemptions are recommended for time-bound or more specific scenarios where a resource or resource hierarchy should still be tracked and would otherwise be evaluated, but there is a specific reason it should not be assessed for compliance.
+
 ## Next steps
 
 - Learn about the [policy definition structure](./definition-structure.md).

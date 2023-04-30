@@ -188,7 +188,7 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 
 | Operating system | Azure Monitor agent | Log Analytics agent (legacy) | Diagnostics extension | 
 |:---|:---:|:---:|:---:|
-| Windows Server 2022                                      | X |   |   |
+| Windows Server 2022                                      | X | X |   |
 | Windows Server 2022 Core                                 | X |   |   |
 | Windows Server 2019                                      | X | X | X |
 | Windows Server 2019 Core                                 | X |   |   |
