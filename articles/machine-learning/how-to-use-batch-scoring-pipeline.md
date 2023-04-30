@@ -394,8 +394,6 @@ To deploy the pipeline component, we have to create a batch deployment. A deploy
     > [!TIP]
     > Notice the use of the `--set-default` flag to indicate that this new deployment is now the default.
 
-    Your deployment is ready for use.
-
     # [Python](#tab/python)
 
     This command will start the deployment creation and return a confirmation response while the deployment creation continues.
@@ -412,7 +410,7 @@ To deploy the pipeline component, we have to create a batch deployment. A deploy
     ml_client.batch_endpoints.begin_create_or_update(endpoint).result()
     ```
 
-    Your deployment is ready for use.
+1. Your deployment is ready for use.
 
 ### Test the deployment
 
