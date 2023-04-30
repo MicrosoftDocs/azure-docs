@@ -22585,7 +22585,7 @@
         },
         {
             "source_path_from_root": "/articles/virtual-network/nat-gateway/nat-availability-zones.md",
-            "redirect_url": "/azure/nat-gateway/nat-available-zones",
+            "redirect_url": "/azure/nat-gateway/nat-availability-zones",
             "redirect_document_id": false
         },
         {
