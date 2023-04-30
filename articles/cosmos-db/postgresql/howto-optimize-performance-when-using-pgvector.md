@@ -191,8 +191,99 @@ EXPLAIN SELECT * FROM t_test ORDER BY embedding <#> '[1,2,3]' LIMIT 5;
 ## Partial indexes
 
 
-
 ## Partitioning
+
+One way to improve performance is to split the dataset over multiple partitions. We can imagine a system when it is natural to refer to data just from the current year or maybe past two years.
+In such a system you can partition your data by a date range and then capitalize on improved performance when the system is able to read only the relevant partitions as defined by the queried year.
+
+Let us define a simple partitioned table:
+
+```postgresql
+CREATE TABLE t_test_partitioned(vec vector(3), vec_date date default now()) partition by range (vec_date);
+```
+
+We can manually create partitions for every year or use the Citus utility function (available on Cosmos DB for PostgreSQL).
+
+```postgresql
+    select create_time_partitions(
+      table_name         := 't_test_partitioned',
+      partition_interval := '1 year',
+      start_from         := '2020-01-01'::timestamptz,
+      end_at             := '2024-01-01'::timestamptz
+    );
+```
+
+Check the created partitions:
+
+```postgresql
+\d+ t_test_partitioned
+```
+
+```text
+awolk=# \d+ t_test_partitioned;
+                                Partitioned table "public.t_test_partitioned"
+  Column  |   Type    | Collation | Nullable | Default | Storage  | Compression | Stats target | Description
+----------+-----------+-----------+----------+---------+----------+-------------+--------------+-------------
+ vec      | vector(3) |           |          |         | extended |             |              |
+ vec_date | date      |           |          | now()   | plain    |             |              |
+Partition key: RANGE (vec_date)
+Partitions: t_test_partitioned_p2020 FOR VALUES FROM ('2020-01-01') TO ('2021-01-01'),
+            t_test_partitioned_p2021 FOR VALUES FROM ('2021-01-01') TO ('2022-01-01'),
+            t_test_partitioned_p2022 FOR VALUES FROM ('2022-01-01') TO ('2023-01-01'),
+            t_test_partitioned_p2023 FOR VALUES FROM ('2023-01-01') TO ('2024-01-01')
+```
+
+To manually create a partition:
+
+```postgresql
+CREATE TABLE t_test_partitioned_p2019 PARTITION OF t_test_partitioned FOR VALUES FROM ('2019-01-01') TO ('2020-01-01');
+```
+
+Then make sure that your queries actually filter down to a subset of available partitions. For example in the query below we have
+filtered down to two partitions:
+
+```postgresql
+explain analyze select * from t_test_partitioned where vec_date between '2022-01-01' and '2024-01-01';
+```
+
+```text
+                                                                  QUERY PLAN
+-----------------------------------------------------------------------------------------------------------------------------------------------
+ Append  (cost=0.00..58.16 rows=12 width=36) (actual time=0.014..0.018 rows=3 loops=1)
+   ->  Seq Scan on t_test_partitioned_p2022 t_test_partitioned_1  (cost=0.00..29.05 rows=6 width=36) (actual time=0.013..0.014 rows=1 loops=1)
+         Filter: ((vec_date >= '2022-01-01'::date) AND (vec_date <= '2024-01-01'::date))
+   ->  Seq Scan on t_test_partitioned_p2023 t_test_partitioned_2  (cost=0.00..29.05 rows=6 width=36) (actual time=0.002..0.003 rows=2 loops=1)
+         Filter: ((vec_date >= '2022-01-01'::date) AND (vec_date <= '2024-01-01'::date))
+ Planning Time: 0.125 ms
+ Execution Time: 0.036 ms
+```
+
+You can of course index a partitioned table.
+
+```postgresql
+CREATE INDEX ON t_test_partitioned USING ivfflat (vec vector_cosine_ops) WITH (lists = 100);
+```
+
+```postgresql
+explain analyze select * from t_test_partitioned where vec_date between '2022-01-01' and '2024-01-01' order by vec <=> '[1,2,3]' limit 5;
+```
+
+```text
+                                                                                         QUERY PLAN
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Limit  (cost=4.13..12.20 rows=2 width=44) (actual time=0.040..0.042 rows=1 loops=1)
+   ->  Merge Append  (cost=4.13..12.20 rows=2 width=44) (actual time=0.039..0.040 rows=1 loops=1)
+         Sort Key: ((t_test_partitioned.vec <=> '[1,2,3]'::vector))
+         ->  Index Scan using t_test_partitioned_p2022_vec_idx on t_test_partitioned_p2022 t_test_partitioned_1  (cost=0.04..4.06 rows=1 width=44) (actual time=0.022..0.023 rows=0 loops=1)
+               Order By: (vec <=> '[1,2,3]'::vector)
+               Filter: ((vec_date >= '2022-01-01'::date) AND (vec_date <= '2024-01-01'::date))
+         ->  Index Scan using t_test_partitioned_p2023_vec_idx on t_test_partitioned_p2023 t_test_partitioned_2  (cost=4.08..8.11 rows=1 width=44) (actual time=0.015..0.016 rows=1 loops=1)
+               Order By: (vec <=> '[1,2,3]'::vector)
+               Filter: ((vec_date >= '2022-01-01'::date) AND (vec_date <= '2024-01-01'::date))
+ Planning Time: 0.167 ms
+ Execution Time: 0.139 ms
+(11 rows)
+```
 
 ## Next steps
 
