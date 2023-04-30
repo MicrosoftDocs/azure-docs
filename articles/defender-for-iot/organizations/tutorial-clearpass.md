@@ -154,7 +154,7 @@ Forwarding alert rules run only on alerts triggered after the forwarding rule is
 
 1. In the **Add forwarding rule** pane, define the rule parameters:
 
-    :::image type="content" source="media/tutorial-clearpass/create-rule.png" alt-text="Screenshot of how to create a Forwarding Rule." lightbox="media/tutorial-clearpass/create-rule.png" lightbox="media/tutorial-clearpass/create-rule.png":::
+    :::image type="content" source="media/tutorial-clearpass/create-rule.png" alt-text="Screenshot of how to create a Forwarding Rule." lightbox="media/tutorial-clearpass/create-rule.png":::
 
     | Parameter | Description |
     |--|--|
