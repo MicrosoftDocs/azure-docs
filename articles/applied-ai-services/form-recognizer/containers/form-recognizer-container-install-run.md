@@ -125,12 +125,18 @@ Feature container | Supporting container(s) |
 
 :::moniker range="form-recog-3.0.0"
 
-##### Read and Layout containers
+##### Form Recognizer containers
 
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
 | `Read` | `8` cores, 16-GB memory | `8` cores, 24-GB memory|
 | `Layout` | `8` cores, 16-GB memory | `8` cores, 24-GB memory |
+| `General Document` | `8` cores, 12-GB memory | `8` cores, 24-GB memory|
+| `ID Document` | `8` cores, 8-GB memory | `8` cores, 24-GB memory |
+| `Invoice` | `8` cores, 16-GB memory | `8` cores, 24-GB memory|
+| `Receipt` | `8` cores, 11-GB memory | `8` cores, 24-GB memory |
+| `Custom Template` | `8` cores, 16-GB memory | `8` cores, 24-GB memory|
+
 :::moniker-end
 
 :::moniker range="form-recog-2.1.0"
@@ -234,6 +240,140 @@ services:
 networks:
   ocrvnet:
     driver: bridge
+```
+
+Now, you can start the service with the [**docker compose**](https://docs.docker.com/compose/) command:
+
+```bash
+docker-compose up
+```
+
+### General Document
+
+The following code sample is a self-contained `docker compose`  example to run the Form Recognizer General Document container.  With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {{FORM_RECOGNIZER_KEY} values for your General Document and Layout container instances.
+
+```yml
+version: "3.9"
+services:
+    azure-cognitive-service-invoice:
+    container_name: azure-cognitive-service-document
+    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/document-3.0
+    environment:
+        - EULA=accept
+        - billing={FORM_RECOGNIZER_ENDPOINT_URI}
+        - apiKey={FORM_RECOGNIZER_KEY}
+        - AzureCognitiveServiceLayoutHost=http://azure-cognitive-service-layout:5000
+  ports:
+      - "5000:5050"
+    azure-cognitive-service-layout:
+      container_name: azure-cognitive-service-layout
+      image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0
+      environment:
+          - EULA=accept
+          - billing={FORM_RECOGNIZER_ENDPOINT_URI}
+          - apiKey={FORM_RECOGNIZER_KEY}
+    
+```
+
+Now, you can start the service with the [**docker compose**](https://docs.docker.com/compose/) command:
+
+```bash
+docker-compose up
+```
+
+### Invoice
+
+The following code sample is a self-contained `docker compose`  example to run the Form Recognizer Invoice container.  With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {{FORM_RECOGNIZER_KEY} values for your Invoice and Layout container instances.
+
+```yml
+version: "3.9"
+services:
+    azure-cognitive-service-invoice:
+    container_name: azure-cognitive-service-invoice
+    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice-3.0
+    environment:
+        - EULA=accept
+        - billing={FORM_RECOGNIZER_ENDPOINT_URI}
+        - apiKey={FORM_RECOGNIZER_KEY}
+        - AzureCognitiveServiceLayoutHost=http://azure-cognitive-service-layout:5000
+  ports:
+      - "5000:5050"
+    azure-cognitive-service-layout:
+      container_name: azure-cognitive-service-layout
+      image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0
+      environment:
+          - EULA=accept
+          - billing={FORM_RECOGNIZER_ENDPOINT_URI}
+          - apiKey={FORM_RECOGNIZER_KEY}
+    
+```
+
+Now, you can start the service with the [**docker compose**](https://docs.docker.com/compose/) command:
+
+```bash
+docker-compose up
+```
+
+### Receipt
+
+The following code sample is a self-contained `docker compose`  example to run the Form Recognizer General Document container.  With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {{FORM_RECOGNIZER_KEY} values for your Receipt and Read container instances.
+
+```yml
+version: "3.9"
+services:
+    azure-cognitive-service-receipt:
+        container_name: azure-cognitive-service-receipt
+        image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/receipt-3.0
+        environment:
+            - EULA=accept
+            - billing={FORM_RECOGNIZER_ENDPOINT_URI}
+            - apiKey={FORM_RECOGNIZER_KEY}
+            - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
+        ports:
+            - "5000:5050"
+    azure-cognitive-service-read:
+        container_name: azure-cognitive-service-read
+        image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/read-3.0
+        environment:
+            - EULA=accept
+            - billing={FORM_RECOGNIZER_ENDPOINT_URI}
+            - apiKey={FORM_RECOGNIZER_KEY}
+
+    
+```
+
+Now, you can start the service with the [**docker compose**](https://docs.docker.com/compose/) command:
+
+```bash
+docker-compose up
+```
+
+### ID Document
+
+The following code sample is a self-contained `docker compose`  example to run the Form Recognizer General Document container.  With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {{FORM_RECOGNIZER_KEY} values for your ID and Read container instances.
+
+```yml
+version: "3.9"
+services:
+    azure-cognitive-service-receipt:
+        container_name: azure-cognitive-service-id-document
+        image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/id-document-3.0
+        environment:
+            - EULA=accept
+            - billing={FORM_RECOGNIZER_ENDPOINT_URI}
+            - apiKey={FORM_RECOGNIZER_KEY}
+            - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
+        ports:
+            - "5000:5050"
+    azure-cognitive-service-read:
+        container_name: azure-cognitive-service-read
+        image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/read-3.0
+        environment:
+            - EULA=accept
+            - billing={FORM_RECOGNIZER_ENDPOINT_URI}
+            - apiKey={FORM_RECOGNIZER_KEY}
+
+    
 ```
 
 Now, you can start the service with the [**docker compose**](https://docs.docker.com/compose/) command:
