@@ -19,7 +19,7 @@ For more on pgvector itself, see [basics of pgvector](#). You may also want to r
 
 ## Performance
 
-You should always start by investigating the query plan. If your query terminates reasonably fast, run `EXPALIN (ANALYZE,VERBOSE, BUFFERS)`.
+You should always start by investigating the query plan. If your query terminates reasonably fast, run `EXPLAIN (ANALYZE,VERBOSE, BUFFERS)`.
 
 ```postgresql
 EXPLAIN (ANALYZE, VERBOSE, BUFFERS) SELECT * FROM t_test ORDER BY embedding <-> '[1,2,3]' LIMIT 5;
