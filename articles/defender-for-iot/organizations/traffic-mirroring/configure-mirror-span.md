@@ -82,8 +82,6 @@ If unidirectional gateways are needed, we recommend deploying your data diodes o
 
 Place your OT sensors outside the electronic perimeter and have them receive traffic from the diode. In this scenario, you’ll be able to manage your Defender for IoT sensors from the cloud, keeping them automatically updated with the latest threat intelligence packages. 
 
-<!--add in the diagram?-->
-
 ## Next steps
 
 > [!div class="step-by-step"]
