@@ -30,6 +30,8 @@ The **Microsoft Sentinel Responder** role is required to create automation rules
 
 The *SecurityIncident* table is an audit table&mdash;it stores not the incidents themselves, but rather records of the life of an incident: its creation and any changes made to it. Any time an incident is created or a change is made to an incident, a record is generated in this table showing the now-current state of the incident.
 
+The addition of tasks details to the schema of this table allows you to audit tasks in greater depth.
+
 1. In the **Logs** page, enter the following query in the query window and run it. This query will return all the incidents that have any tasks assigned.
 
     ```kusto
@@ -74,31 +76,14 @@ The *SecurityIncident* table is an audit table&mdash;it stores not the incidents
 
 1. Now let's return to the **Logs** page and run our query again. 
 
-    In the results you'll see that there's a new record in the table for this same incident (note the timestamps). Expand the record and you'll see that while the record we saw before had two tasks in its *Tasks* array, the new one has three. The newest task is the one we just added, as you can see by its title.
+    In the results you'll see that there's a **new record in the table** for this same incident (note the timestamps). Expand the record and you'll see that while the record we saw before had two tasks in its *Tasks* array, the new one has three. The newest task is the one we just added, as you can see by its title.
 
-    :::image type="content" source="media/audit-track-tasks/incident-with-tasks-query-5.png" alt-text="Screenshot of query results showing an incident with a single task expanded." lightbox="media/audit-track-tasks/incident-with-tasks-query-5.png":::
+    :::image type="content" source="media/audit-track-tasks/incident-with-tasks-query-5.png" alt-text="Screenshot of query results showing an incident with its newly created task." lightbox="media/audit-track-tasks/incident-with-tasks-query-5.png":::
 
-        
+1. Now, if we go back to that new task in the incident details page and mark it as complete, and then come back to **Logs** and rerun the query again, we'll see yet another new record for the same incident, this time showing our task's new status as **Completed**.
 
-## Manually add an ad-hoc task to an incident
+    :::image type="content" source="media/audit-track-tasks/incident-with-tasks-query-6.png" alt-text="Screenshot of query results showing an incident with its newly created task." lightbox="media/audit-track-tasks/incident-with-tasks-query-5.png":::
 
-You can also add tasks for yourself, on the spot, to an incident's task list. This task will apply only to the open incident. This helps if your investigation leads you in new directions and you think of new things you need to check. Adding these as tasks ensures that you won't forget to do them, and that there will be a record of what you did, that other analysts and managers can benefit from.
-
-1. Select **+ Add task** from the top of the **Incident tasks (Preview)** panel.
-
-    :::image type="content" source="media/work-with-tasks/add-task-ad-hoc-1.png" alt-text="Screenshot shows how to manually add a task to your task list.":::
-
-1. Enter a **Title** for your task, and a **Description** if you choose.
-
-    :::image type="content" source="media/work-with-tasks/add-task-ad-hoc-2.png" alt-text="Screenshot shows how to add a title and description to your task.":::
-
-1. Select **Save** when you've finished.
-
-    :::image type="content" source="media/work-with-tasks/add-task-ad-hoc-3.png" alt-text="Screenshot shows how to finish defining and save your task.":::
-
-1. See your new task at the bottom of the task list. Note that manually created tasks have a different color band on the left border, and that your name appears as *Created by:* under the task title and description.
-
-    :::image type="content" source="media/work-with-tasks/view-ad-hoc-added-task.png" alt-text="Screenshot showing your new task at the end of the task list.":::
 
 ## Next steps
 
