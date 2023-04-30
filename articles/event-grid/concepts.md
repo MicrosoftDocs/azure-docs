@@ -88,7 +88,7 @@ Partner topics are a kind of topic used to subscribe to events published by a [p
 
 A subscription tells Event Grid which events on a topic you're interested in receiving. When creating a subscription, you provide an endpoint for handling the event. Endpoints can be a webhook or an Azure service resource. You can filter the events that are sent to an endpoint. You can filter by event type or event subject, for example. For more information, see [Event Subscriptions](subscribe-through-portal.md) and [CloudEvents schema](cloud-event-schema.md).
 
-Event subscriptions for custom, system, and partner topics as well as Domains feature the same resource properties. Event subscriptions for Namespace topic expose a slightly different set of configuration properties. For more information on resource properties, look for control plane operations in the Event Grid [REST API](https://learn.microsoft.com/en-us/rest/api/eventgrid/).
+Event subscriptions for custom, system, and partner topics as well as Domains feature the same resource properties. Event subscriptions for Namespace topic expose a slightly different set of configuration properties. For more information on resource properties, look for control plane operations in the Event Grid [REST API](/rest/api/eventgrid).
 
 For examples of creating subscriptions for custom, system, and partner topics as well as Domains, see:
 
