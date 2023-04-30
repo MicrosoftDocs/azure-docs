@@ -81,7 +81,7 @@ This table compares the advantages and limitations of the two machine learning p
 |**Cost** |Cost of the server on which your notebook or code runs. | Cost of data export and external storage.|
 
 > [!TIP]
-> To benefit from the best of both of the implementation approached described above, create a hybrid pipeline, based on your needs. A common hybrid combination is to export data for model training, which involves large volumes of data, and use the *query data in Azure Monitor Logs* approach to explore data and score new data to reduce to latency.
+> To benefit from the best of both implementation approaches, create a hybrid pipeline, based on your needs. A common hybrid approach is to export data for model training, which involves large volumes of data, and reduce latency by using the *query data in Azure Monitor Logs* approach to explore data and score new data.
 ### Implement the steps of the machine learning lifecycle in Azure Monitor Logs
 
 Setting up a machine learning pipeline typically involves all or some of the steps described below.
