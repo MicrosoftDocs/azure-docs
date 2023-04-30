@@ -22692,6 +22692,11 @@
             "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-protect-nat-gateway-ddos.md",
             "redirect_url": "/azure/nat-gateway/tutorial-protect-nat-gateway-ddos",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/azure-information-protection.md",
+            "redirect_url": "/azure/sentinel/data-connectors-reference",
+            "redirect_document_id": false
         }
     ]
 }
