@@ -95,23 +95,6 @@ This table describes each step and provides high-level guidance and some example
 |**Deploy and score machine learning models**|Scoring is the process of applying a machine learning model on new data to get predictions. Scoring usually needs to be done at scale with minimal latency, processing large sets of new records.|Query new data in Azure Monitor Logs Use [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme).<br>For an example of how to score using an integrated Jupyter Notebook, see [Score new data based on values in a Log Analytics workspace](../logs/jupyter-notebook-ml-azure-monitor-logs.md#score-new-data-using-the-trained-model-and-identify-anomalies).|For examples of how to deploy a trained model and score new data you export out of Azure Monitor Logs, see:<br>-  [Deploy machine learning models to Azure](/azure/machine-learning/v1/how-to-deploy-and-where?tabs=azcli)<br>-  [Score machine learning models with PREDICT in serverless Apache Spark pools](/azure/synapse-analytics/machine-learning/tutorial-score-model-predict-spark-pool)|
 |**Get insights from scored data on schedule**| Automate your pipeline to retrain your model regularly on current data and respond to identified anomalies.|To run your notebook on schedule:<br> 1. Run a notebook as a step in an Azure Machine Learning pipeline using [NotebookRunnerStep](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-with-notebook-runner-step.ipynb).<br>2. [Schedule your machine learning pipeline](/azure/machine-learning/how-to-schedule-pipeline-job?tabs=cliv2).|See [Schedule your machine learning pipeline](/azure/machine-learning/how-to-schedule-pipeline-job?tabs=cliv2).|
  
-#### Convert Azure Monitor Logs data to different formats
-
-Depending on the tools or libraries you use and the way implement your machine learning pipeline, you might need to convert data formats as part of your pipeline. 
-
-For example:
-
-- [Scikit Learn](https://scikit-learn.org/) uses Pandas DataFrames 
-- [Apache Spark in Azure Synapse Analytics](/azure/synapse-analytics/spark/apache-spark-machine-learning-training#apache-sparkml-and-mllib) uses Spark DataFrames 
-- [Azure Machine Learning](/azure/machine-learning/v1/how-to-create-register-datasets) uses Azure Machine Learning datasets and other formats 
-
-Here are some of the available conversion methods:
-
-- [Create an Azure Machine Learning dataset from a Pandas DataFrame](/azure/machine-learning/v1/how-to-create-register-datasets#create-a-dataset-from-pandas-dataframe)  
-- [Convert JSON to Spark DataFrame](https://sparkbyexamples.com/pyspark/different-ways-to-create-dataframe-in-pyspark/#from-json) 
-- [Convert JSON to Azure Machine Learning dataset](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#azureml-data-dataset-factory-tabulardatasetfactory-from-json-lines-files) 
-
-
 ## Next steps
 
 Learn more about:
