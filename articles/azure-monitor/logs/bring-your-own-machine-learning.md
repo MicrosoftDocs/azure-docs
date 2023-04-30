@@ -61,8 +61,12 @@ You can implement custom machine learning models and build your own machine lear
 
 There are three approaches to making data in Azure Monitor Logs available to your machine learning pipeline:
 
-- **Query data from Azure Monitor Logs to an in-memory object** - [Integrate a notebook with Azure Monitor Logs](../logs/jupyter-notebook-ml-azure-monitor-logs.md) or run a script or application on log data using libraries like [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme) or [MSTICPY](https://msticpy.readthedocs.io/en/latest/) to retrieve data from Azure Monitor Logs in tabular form; for example, into a Pandas DataFrame. The data you query is retrieved to an in-memory object on your server, without exporting the data out of your Log Analytics workspace.   
+- **Query data from Azure Monitor Logs to an in-memory object** - [Integrate a notebook with Azure Monitor Logs](../logs/jupyter-notebook-ml-azure-monitor-logs.md) or run a script or application on log data using libraries like [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme) or [MSTICPY](https://msticpy.readthedocs.io/en/latest/) to retrieve data from Azure Monitor Logs in tabular form; for example, into a [Pandas DataFrame](https://pandas.pydata.org/docs/user_guide/dsintro.html#dataframe). The data you query is retrieved to an in-memory object on your server, without exporting the data out of your Log Analytics workspace.   
 - **Export data out of Azure Monitor Logs** - [Export data out of your Log Analytics workspace](../logs/logs-data-export.md), usually to a blob storage account, and [implement your machine learning pipeline using a machine learning library](#implement-the-steps-of-the-machine-learning-lifecycle-in-azure-monitor-logs). 
+
+> [!NOTE]
+> Depending on which library you use, you might need to convert data formats as part of your pipeline. For example, to use libraries built on top of Apache Spark, like [SynapseML](https://microsoft.github.io/SynapseML/), you need to [convert Pandas to PySpark DataFrame](https://sparkbyexamples.com/pyspark/convert-pandas-to-pyspark-dataframe/). 
+
 
 - **Hybrid pipeline** - Export data for model training and use the *bring your own analysis* approach to score new data to reduce to latency in analyzing new data.
 
