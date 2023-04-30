@@ -40,8 +40,8 @@ This table compares the advantages and limitations of using KQL's built-in machi
 ||Built-in KQL machine learning capabilities |Create your own machine learning pipeline|
 |-|-|-|
 |**Scenario**| :white_check_mark: Anomaly detection and root cause analysis <br> | :white_check_mark: Anomaly detection and root cause analysis <br> :white_check_mark: Alerting and automation<br> :white_check_mark: [Advanced analysis and AIOPs scenarios](#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs)  |
-|**Advantages**|- Gets you started very quickly.<br>- Doesn't require data science knowledge and programming skills.<br>- Optimal performance and cost savings. |- Supports larger scales.<br>- Enables advanced, more complex scenarios.<br>- Flexibility in choosing libraries, models, parameters.|
-|**Service limits** |[Azure portal or Query API log query limits](../service-limits.md#azure-portal) depending on whether you're working in the portal or using the API, for example, from a notebook.| [Query API log query limits(../service-limits.md#la-query-api)] depending on how you [implement your machine learning pipeline](#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs).|
+|**Advantages**|🔹Gets you started very quickly.<br>🔹Doesn't require data science knowledge and programming skills.<br>🔹 Optimal performance and cost savings. |🔹Supports larger scales.<br>🔹Enables advanced, more complex scenarios.<br>🔹Flexibility in choosing libraries, models, parameters.|
+|**Service limits** |[Azure portal or Query API log query limits](../service-limits.md#azure-portal) depending on whether you're working in the portal or using the API, for example, from a notebook.| [Query API log query limits](../service-limits.md#la-query-api)] depending on how you [implement your machine learning pipeline](#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs).|
 |**Data volumes**|Supports several GBs of data, or a few million records.|Supports larger data volumes, depending on how you [implement your machine learning pipeline](#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs). |
 |**Integration**|None required.|Requires integration with a tool, such as [Jupyter Notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md), or a machine learning service.|
 |**Performance**|Optimal performance, using the power of the Azure Data Explorer platform, running at high scales in a distributed manner. |Introduces latency when querying or exporting data, depending on how you implement your machine learning pipeline. |
@@ -72,7 +72,7 @@ This table compares the advantages and limitations of the two machine learning p
 
 | |Query data into Azure Monitor Logs|Export data to storage|
 |-|-|-|-|
-|**Advantages**|- Gets you started quickly.<br> - Only basic data science and programming skills required.<br> - Minimal latency and cost savings.|- Supports larger scales.<br>- No query limitations.|
+|**Advantages**|🔹Gets you started quickly.<br>🔹Requires only basic data science and programming skills.<br>🔹Minimal latency and cost savings.|🔹Supports larger scales.<br>🔹No query limitations.|
 |**Data exported?**|No|Yes|
 |**Service limits**|[Query API log query limits](../service-limits.md#log-analytics-workspaces), which you can overcome by [splitting query execution into chunks](https://learn.microsoft.com/samples/azure/azure-sdk-for-python/query-azuremonitor-samples/).| None. |
 |**Data volumes**|Analyze several GBs of data, or a few million records.|Supports large volumes of data.|
