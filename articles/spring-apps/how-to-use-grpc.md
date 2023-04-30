@@ -53,7 +53,7 @@ Use the following steps to deploy the Spring Petclinic microservices project:
 
 To facilitate testing, assign a public endpoint. The public endpoint is used in the grpcurl commands as the hostname. For more information, see [grpcurl](https://github.com/fullstorydev/grpcurl).
 
-You can use either the Azure portal or the Azure CLI to assign a public endpoint. For more information, see [Expose applications on Azure Spring Apps to the internet from a public network](how-to-access-app-from-internet-virtual-network.).
+You can use either the Azure portal or the Azure CLI to assign a public endpoint. For more information, see [Expose applications on Azure Spring Apps to the internet from a public network](how-to-access-app-from-internet-virtual-network.md).
 
 Use the following command to assign a public endpoint.
 
