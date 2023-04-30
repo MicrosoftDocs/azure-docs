@@ -3,11 +3,11 @@ title: 'Routing MQTT Messages'
 description: 'An overview of Routing MQTT Messages and how to configure it.'
 ms.topic: conceptual
 ms.date: 04/30/2023
-author: geguirgu
-ms.author: geguirgu
+author: george-guirguis
+ms.author: george-guirguis
 ---
 # Routing MQTT Messages
-Event Grid allows you to route your MQTT messages to Azure services or webhooks for further processing. Accordingly, you can build end-to-end solutions by leveraging your IoT data for data analysis, storage, and visualizations, among other use cases. The routing configuration enables you to send all your messages from your clients to an [Event Grid topic](https://docs.microsoft.com/en-us/azure/event-grid/custom-topics), and configuring [Event Grid subscriptions](https://docs.microsoft.com/en-us/azure/event-grid/subscribe-through-portal) to route the messages from that Event Grid topic to the [supported event handlers](https://docs.microsoft.com/en-us/azure/event-grid/event-handlers).
+Event Grid allows you to route your MQTT messages to Azure services or webhooks for further processing. Accordingly, you can build end-to-end solutions by leveraging your IoT data for data analysis, storage, and visualizations, among other use cases. 
 
 ## How can I use the routing feature?
 
@@ -19,10 +19,10 @@ Routing the messages from your clients to an Azure service or your custom endpoi
 
 ## Routing  Configuration:
 
-The routing configuration enables you to send all your messages from your clients to an [Event Grid topic](https://docs.microsoft.com/en-us/azure/event-grid/custom-topics), and configuring [Event Grid subscriptions](https://docs.microsoft.com/en-us/azure/event-grid/subscribe-through-portal) to route the messages from that Event Grid topic to the [supported event handlers](https://docs.microsoft.com/en-us/azure/event-grid/event-handlers). Use the following high-level steps to achieve this:
+The routing configuration enables you to send all your messages from your clients to an [Event Grid topic](custom-topics.md), and configuring [Event Grid subscriptions](subscribe-through-portal.md) to route the messages from that Event Grid topic to the [supported event handlers](event-handlers.md). Use the following high-level steps to achieve this:
 
-- [Create an Event Grid custom topic](https://docs.microsoft.com/en-us/azure/event-grid/custom-event-quickstart-portal) where all MQTT messages will be routed. This topic needs to fulfill the [Event Grid topic Requirements for Routing.](#event-grid-topic-requirements-for-routing)
-- Create an [Event Grid subscription](https://docs.microsoft.com/en-us/azure/event-grid/subscribe-through-portal) to route these messages to one of the supported Azure services or a custom endpoint.
+- [Create an Event Grid custom topic](custom-event-quickstart-portal) where all MQTT messages will be routed. This topic needs to fulfill the [Event Grid topic Requirements for Routing.](#event-grid-topic-requirements-for-routing)
+- Create an [Event Grid subscription](subscribe-through-portal) to route these messages to one of the supported Azure services or a custom endpoint.
 - Set the routing configuration as detailed below referring to the topic that you created in the first step.
 
 ### Event Grid topic Requirements for Routing
@@ -46,7 +46,7 @@ Use the following steps to configure routing:
 - Under routing topic, select the Event Grid Topic that you have created where all MQTT messages will be routed.
 - Select Apply.
 
-For enrichments configuration instructions, go to [Enrichment Configuration](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-routing-enrichment.md).
+For enrichments configuration instructions, go to [Enrichment portal configuration](mqtt-routing-enrichment.md#azure-portal-configuration).
 
 ### Azure CLI configuration
 
@@ -64,7 +64,7 @@ NS.json
 }
 ```
 
-For enrichments configuration instructions, go to [Enrichment Configuration](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-routing-enrichment.md).
+For enrichments configuration instructions, go to [Enrichment CLI configuration](mqtt-routing-enrichment.md#azure-cli-configuration).
 
 ## Next steps:
 
@@ -72,11 +72,11 @@ Use the following articles to learn more about routing:
 
 ### QuickStart:
 
-- [Route MQTT messages to Event Hubs](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-routing-to-event-hubs-portal.md)
+- [Route MQTT messages to Event Hubs](mqtt-routing-to-event-hubs-portal.md)
 
 ### Concepts:
 
-- [Routing Event Schema](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-routing-event-schema.md)
-- [Routing Filtering](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-routing-filtering.md)
-- [Routing Enrichments](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-routing-enrichment.md)
+- [Routing Event Schema](mqtt-routing-event-schema.md)
+- [Routing Filtering](mqtt-routing-filtering.md)
+- [Routing Enrichments](mqtt-routing-enrichment.md)
 

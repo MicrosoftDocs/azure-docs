@@ -3,8 +3,8 @@ title: 'Access Control for MQTT Clients'
 description: 'Describes the main concepts for access control for MQTT clients in Azure Event Grid.'
 ms.topic: conceptual
 ms.date: 04/20/2023
-author: geguirgu
-ms.author: geguirgu
+author: george-guirguis
+ms.author: george-guirguis
 ---
 # Access Control for MQTT Clients
 
@@ -103,7 +103,7 @@ With this configuration, only the client with client authentication name “mach
 
 Learn more about authorization and authentication:
 
-- [Client authentication](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-client-authentication.md)
-- [Clients](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-clients.md)
-- [Client groups](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-client-groups.md)
-- [Topic Spaces](articles\event-grid\mqtt-topic-spaces.md)
+- [Client authentication](mqtt-client-authentication.md)
+- [Clients](mqtt-client.md)
+- [Client groups](mqtt-client-groups.md)
+- [Topic Spaces](mqtt-topic-spaces.md)

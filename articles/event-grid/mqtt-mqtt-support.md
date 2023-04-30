@@ -3,8 +3,8 @@ title: 'MQTT Support in Azure Event Grid'
 description: 'Describes the MQTT Support in Azure Event Grid.'
 ms.topic: conceptual
 ms.date: 04/30/2023
-author: geguirgu
-ms.author: geguirgu
+author: george-guirguis
+ms.author: george-guirguis
 ---
 # MQTT Support in Azure Event Grid
 MQTT is a publish-subscribe messaging transport protocol that was designed for constrained environments. It’s efficient, scalable, and reliable, which made it the gold standard for communication in IoT scenarios. Event Grid supports clients that publish and subscribe to messages over MQTT v3.1.1, MQTT v3.1.1 over WebSockets, MQTT v5, and MQTT v5 over WebSockets. Event Grid also supports cross MQTT version (MQTT 3.1.1 and MQTT 5) communication.
@@ -35,8 +35,7 @@ The CONNECT packet should include the  properties:
 - The ClientId field is required, and it should include the session name of the client. The session name needs to be unique across the namespace. You can use the client authentication name as the session name if each client is using one session per client. If one client is using multiple sessions, it needs to use different values for ClientId for each of its sessions.
 - The Username field is required if you didn’t select a value in the  alternativeAuthenticationNameSources during namespace creation. In that case, you need to provide your client’s authentication name in the Username field. That name needs to match the authentication name provided and the value in the client’s certificate field that was specified during the client resource creation.
 
-Learn more about [Client authentication](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-client-authentication.md)
-
+Learn more about [Client authentication](mqtt-client-authentication.md)
 
 ## Multi-session support
 
@@ -99,5 +98,4 @@ Learn more about MQTT:
 - [MQTT v5 Specification](https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html)
 
 Learn more about Event Grid’s MQTT support:
-
-- [Client authentication](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-client-authentication.md)
+- [Client authentication](mqtt-client-authentication.md)

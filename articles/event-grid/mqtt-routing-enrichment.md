@@ -3,8 +3,8 @@ title: 'Enrichments for MQTT Routed Messages'
 description: 'An overview of the Enrichments for MQTT Routed Messages and how to configure them.'
 ms.topic: conceptual
 ms.date: 04/30/2023
-author: geguirgu
-ms.author: geguirgu
+author: george-guirguis
+ms.author: george-guirguis
 ---
 # Enrichments for MQTT Routed Messages
 The enrichments support enables you to add up to 10 custom key-value properties to your messages before they're sent to the Event Grid topic. These enrichments enable you to:
@@ -169,10 +169,10 @@ Use the following articles to learn more about routing:
 
 ### QuickStart:
 
-- [Route MQTT messages to Event Hubs](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-routing-to-event-hubs-portal.md)
+- [Route MQTT messages to Event Hubs](mqtt-routing-to-event-hubs-portal.md)
 
 ### Concepts:
 
-- [Routing Event Schema](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-routing-event-schema.md)
-- [Routing Filtering](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-routing-filtering.md)
-- [Routing Enrichments](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-routing-enrichment.md)
+- [Routing Event Schema](mqtt-routing-event-schema.md)
+- [Routing Filtering](mqtt-routing-filtering.md)
+- [Routing Enrichments](mqtt-routing-enrichment.md)

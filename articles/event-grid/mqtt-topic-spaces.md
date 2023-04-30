@@ -3,8 +3,8 @@ title: 'Topic Spaces'
 description: 'An overview of Topic Spaces and how to configure them.'
 ms.topic: conceptual
 ms.date: 04/30/2023
-author: geguirgu
-ms.author: geguirgu
+author: george-guirguis
+ms.author: george-guirguis
 ---
 # Topic Spaces
 A topic space represents multiple topics through a set of topic templates. Topic templates are an extension of MQTT filters that support variables, along with the MQTT wildcards. Each topic space represents the MQTT topics that the same set of clients need to use to communicate. 
@@ -37,14 +37,14 @@ For more details about wildcards, see [Topic Wilcards in the MQTT spc](https://d
 
 ## Topic templates
 
-Topic templates are an extension of MQTT filters that support variables, along with the MQTT wildcards. Topic spaces configuration also provides granular access control by allowing you to control the authorization of each client within a client group to publish or subscribe to its own topic. [Learn more about how topic templates provide granular access control.](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-access-control.md#granular-access-control)
+Topic templates are an extension of MQTT filters that support variables, along with the MQTT wildcards. Topic spaces configuration also provides granular access control by allowing you to control the authorization of each client within a client group to publish or subscribe to its own topic. [Learn more about how topic templates provide granular access control.](mqtt-access-control.md#granular-access-control)
 
 ## Topic Space Configuration:
 
 Topic Spaces can group up to 10 topic templates. Topic templates support MQTT wildcards (+ and #) and the following variables:
 
-- ${client.authenticationName}: this variable represents the authentication name of the client. [Learn more about client authentication names.](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-client-authentication.md)
-- \${client.attributes.x}: this variable represents an assigned attribute to a client during client creation/update, such as "x" would be equal to the exact string of the attribute key. E.g., if a client has the attribute a topic template “area/${client.attributes.area}/telemetry” will enable only the clients with the client attribute> “area:section1” to publish on the MQTT topic “area/section1/telemetry”. [Learn more about client attributes.](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-clients.md)
+- ${client.authenticationName}: this variable represents the authentication name of the client. [Learn more about client authentication names.](mqtt-client-authentication.md)
+- \${client.attributes.x}: this variable represents an assigned attribute to a client during client creation/update, such as "x" would be equal to the exact string of the attribute key. E.g., if a client has the attribute a topic template “area/${client.attributes.area}/telemetry” will enable only the clients with the client attribute> “area:section1” to publish on the MQTT topic “area/section1/telemetry”. [Learn more about client attributes.](mqtt-clients.md)
 
 **Note:** 
 
@@ -95,11 +95,11 @@ Learn more authorization and authentication:
 
 ### Quickstart:
 
-- [Publish and subscribe to MQTT messages](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-publish-and-subscribe-portal.md)
+- [Publish and subscribe to MQTT messages](mqtt-publish-and-subscribe-portal.md)
 
 ### Concepts:
 
-- [Access control](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-access-control.md)
-- [Clients](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-clients.md)
-- [Client groups](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-client-groups.md)
-- [Client authentication](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-client-authentication.md)
+- [Access control](mqtt-access-control.md)
+- [Clients](mqtt-clients.md)
+- [Client groups](mqtt-client-groups.md)
+- [Client authentication](mqtt-client-authentication.md)

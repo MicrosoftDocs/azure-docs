@@ -3,8 +3,8 @@ title: 'MQTT Clients Life Cycle Events'
 description: 'An overview of the MQTT Client Life Cycle Events and how to configure them.'
 ms.topic: conceptual
 ms.date: 04/30/2023
-author: geguirgu
-ms.author: geguirgu
+author: george-guirguis
+ms.author: george-guirguis
 ---
 # MQTT Clients Life Cycle Events 
 Client Life Cycle events allow applications to react to client connection or disconnection events. For example, you can build an application that updates a database, creates a ticket, and delivers an email notification every time a client is disconnected for mitigating action.
@@ -22,7 +22,7 @@ The Event Grid namespace publishes the following event types:
 
 ## Event schema
 
-The client life cycle events provide you with all the information about the client and session that got connected or disconnected. It also provides a disconnectionReason that you can use for diagnostics scenarios as it enables you to have automated mitigating actions. For more information about how to use Event Grid event properties, see the [Event Grid event schema](https://learn.microsoft.com/en-us/azure/event-grid/event-schema).
+The client life cycle events provide you with all the information about the client and session that got connected or disconnected. It also provides a disconnectionReason that you can use for diagnostics scenarios as it enables you to have automated mitigating actions.
 
 ### MQTT Client Session Connected Schema
 
@@ -119,11 +119,11 @@ Use the following steps to emit the client life cycle events:
 
 1. In the namespace, go to the Events tab.
 2. Select +Event Subscription.
-   c. Provide a name for your Event Grid subscription.
-   a. Select the Event Schema that you prefer for event consumption.
-   a. Filter the events under Event Types.
-   a. Fill your endpoint details.
-3. Select Create.
+    - Provide a name for your Event Grid subscription.
+    - Select the Event Schema that you prefer for event consumption.
+    - Filter the events under Event Types.
+    - Fill your endpoint details.
+1. Select Create.
 
 ### Azure CLI configuration
 
@@ -148,4 +148,4 @@ az eventgrid system-topic create --resource-group <Resource Group > --name <Syst
 
 ## Next steps
 
-Learn more about [System topics in Azure Event Grid](https://learn.microsoft.com/en-us/azure/event-grid/system-topics).
+Learn more about [System topics in Azure Event Grid](system-topics.md)

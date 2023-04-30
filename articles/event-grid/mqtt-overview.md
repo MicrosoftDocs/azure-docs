@@ -3,8 +3,8 @@ title: 'Overview of the MQTT Support in Azure Event Grid'
 description: 'Describes the main concepts for the MQTT Support in Azure Event Grid.'
 ms.topic: conceptual
 ms.date: 04/30/2023
-author: geguirgu
-ms.author: geguirgu
+author: george-guirguis
+ms.author: george-guirguis
 ---
 # Overview of the MQTT Support in Azure Event Grid
 Azure Event Grid enables your clients to communicate with each other and with Azure services, to support your IoT solutions. 
@@ -37,33 +37,32 @@ Event Grid Namespace is a container for the resources that support the MQTT brok
 
 ### Routing
 
-Event Grid allows you to route your MQTT messages to Azure services or webhooks for further processing. Accordingly, you can build end-to-end solutions by using your IoT data for data analysis, storage, and visualizations, among other use cases. The routing configuration enables you to send all your messages from your clients to an [Event Grid topic](https://docs.microsoft.com/en-us/azure/event-grid/custom-topics), and configuring [Event Grid subscriptions](https://docs.microsoft.com/en-us/azure/event-grid/subscribe-through-portal) to route the messages from that Event Grid topic to the [supported event handlers](https://docs.microsoft.com/en-us/azure/event-grid/event-handlers). [Learn more.](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-routing-mqtt-messages.md)
+Event Grid allows you to route your MQTT messages to Azure services or webhooks for further processing. Accordingly, you can build end-to-end solutions by using your IoT data for data analysis, storage, and visualizations, among other use cases. The routing configuration enables you to send all your messages from your clients to an [Event Grid topic](custom-topics.md), and configuring [Event Grid subscriptions](subscribe-through-portal.md) to route the messages from that Event Grid topic to the [supported event handlers](event-handlers.md). [Learn more.](mqtt-routing.md)
 
 ### Authentication
 
-Event Grid has a client registry that stores information about the clients permitted to connect to it. Before a client can connect, there must be an entry for that client in the client registry. As a client connects to Event Grid, it needs to authenticate with Event Grid based on credentials stored in the identity registry. Event Grid supports X.509 certificate authentication that is the gold-standard in IoT scenarios.[ Learn more.](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-client-authentication.md) 
+Event Grid has a client registry that stores information about the clients permitted to connect to it. Before a client can connect, there must be an entry for that client in the client registry. As a client connects to Event Grid, it needs to authenticate with Event Grid based on credentials stored in the identity registry. Event Grid supports X.509 certificate authentication that is the gold-standard in IoT scenarios.[Learn more.](mqtt-client-authentication.md) 
 
 ### Access control
 
 Access control is critical for IoT scenarios considering the enormous scale of IoT environments and the unique security challenges of constrained devices. Event Grid delivers Role-Based Access Control (RBAC) through a flexible access control model that enables you to manage the authorization of clients to publish or subscribe to topics.
 
-Given the enormous scale of IoT environments, assigning permission for each client to each topic is incredibly tedious. Event Grid’s flexible access control tackles this scale challenge through grouping clients and topics into client groups and topic spaces. After creating client groups and topic spaces, you’re able to configure a permission binding to grant access to a client group to either publish or subscribe to a topic space. [Learn more.](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-access-control.md)
+Given the enormous scale of IoT environments, assigning permission for each client to each topic is incredibly tedious. Event Grid’s flexible access control tackles this scale challenge through grouping clients and topics into client groups and topic spaces. After creating client groups and topic spaces, you’re able to configure a permission binding to grant access to a client group to either publish or subscribe to a topic space.
 
-Topic spaces configuration also provides granular access control by allowing you to control the authorization of each client within a client group to publish or subscribe to its own topic. This granular access control is achieved by using variables in topic templates. [Learn more.](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-access-control.md)
-
+Topic spaces configuration also provides granular access control by allowing you to control the authorization of each client within a client group to publish or subscribe to its own topic. This granular access control is achieved by using variables in topic templates. [Learn more.](mqtt-access-control.md) 
 ## Next steps
 
 The following articles will guide you to use the MQTT support in Event Grid and provide a detailed explanation of the main concepts.
 
 ### Quick Start
 
-- [Publish and subscribe to MQTT messages](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-publish-and-subscribe-portal.md)
-- [Route MQTT messages to Event Hubs](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-routing-to-event-hubs-portal.md)
+- [Publish and subscribe to MQTT messages](mqtt-publish-and-subscribe-portal.md)
+- [Route MQTT messages to Event Hubs](mqtt-routing-to-event-hubs-portal.md)
 
 ### Concepts
 
-- [Terminology](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-terminology.md)
-- [Client authentication](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-client-authentication.md)
-- [Access control](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-access-control.md)
-- [MQTT support](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-mqtt-support.md)
-- [Routing MQTT messages](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-routing-mqtt-messages.md)
+- [Terminology](mqtt-terminology.md)
+- [Client authentication](mqtt-client-authentication.md) 
+- [Access control](mqtt-access-control.md) 
+- [MQTT support](mqtt-mqtt-support.md) 
+- [Routing MQTT messages](mqtt-routing.md) 

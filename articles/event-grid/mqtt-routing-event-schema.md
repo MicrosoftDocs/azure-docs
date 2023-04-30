@@ -3,8 +3,8 @@ title: 'Event Schema for MQTT Routed Messages'
 description: 'An overview of the Event Schema for MQTT Routed Messages.'
 ms.topic: conceptual
 ms.date: 04/30/2023
-author: geguirgu
-ms.author: geguirgu
+author: george-guirguis
+ms.author: george-guirguis
 ---
 # Event Schema for MQTT Routed Messages
 MQTT Messages are routed to an Event Grid Topic as CloudEvents according to the following logic:
@@ -68,10 +68,10 @@ Use the following articles to learn more about routing:
 
 ### QuickStart:
 
-- [Route MQTT messages to Event Hubs](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-routing-to-event-hubs-portal.md)
+- [Route MQTT messages to Event Hubs](mqtt-routing-to-event-hubs-portal.md)
 
 ### Concepts:
 
 - Routing
-- [Routing Filtering](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-routing-filtering.md)
-- [Routing Enrichments](https://github.com/MicrosoftDocs/azure-docs-pr/blob/release-build-2023-event-grid/articles/event-grid/mqtt-routing-enrichment.md)
+- [Routing Filtering](mqtt-routing-filtering.md)
+- [Routing Enrichments](mqtt-routing-enrichment.md)
