@@ -118,7 +118,7 @@ PS C:\> Start-AzBasicLoadBalancerUpgrade -FailedMigrationRetryFilePathLB C:\Reco
 
 ### Will this migration cause downtime to my application? 
 
-Yes, because the Basic Load Balancer needs to be removed before the new Standard Load Balancer can be created, there will be downtime to your application. See [How long does the Upgrade take?](#how-long-does-the-upgrade-take).
+Yes, because the Basic Load Balancer needs to be removed before the new Standard Load Balancer can be created, there will be downtime to your application. See [How long does the Upgrade take?](#how-long-does-the-upgrade-take)
 
 ### Will the module migrate my frontend IP address to the new Standard Load Balancer?
 
@@ -130,7 +130,7 @@ The upgrade normally takes a few minutes for the script to finish. The following
 - Complexity of your load balancer configuration
 - Number of backend pool members
 - Instance count of associated Virtual Machine Scale Sets
-- Service Fabric Cluster: Upgrades for Service Fabric Clusters take about an hour in testing. For a more consistent experience, shut down the cluster prior to migrating.
+- Service Fabric Cluster: Upgrades for Service Fabric Clusters take about an hour in testing. For a more consistent experience, shut down the cluster prior to migrating
 
 Keep the downtime in mind and plan for failover if necessary.
 
