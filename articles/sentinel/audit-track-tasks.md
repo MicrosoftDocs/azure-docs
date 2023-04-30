@@ -49,48 +49,36 @@ The *SecurityIncident* table is an audit table&mdash;it stores not the incidents
     | project IncidentName, Title, LastModifiedTime, Tasks
     ```
 
-1. Let's look at the most recent record for this incident, and find the list of tasks associated with it. Select the expander next to the top row in the query results (which have been sorted in descending order of recency).
+1. Let's look at the most recent record for this incident, and find the list of tasks associated with it. 
+    1. Select the expander next to the top row in the query results (which have been sorted in descending order of recency).
 
-    :::image type="content" source="media/audit-track-tasks/incident-with-tasks-query-1.png" alt-text="Screenshot of query results showing an incident with its tasks.":::
+        :::image type="content" source="media/audit-track-tasks/incident-with-tasks-query-1.png" alt-text="Screenshot of query results showing an incident with its tasks." lightbox="media/audit-track-tasks/incident-with-tasks-query-1.png":::
 
-    The *Tasks* field is an array of the current state of all the tasks in this incident. Select the expander to view each item in the array in its own row.
+    1. The *Tasks* field is an array of the current state of all the tasks in this incident. Select the expander to view each item in the array in its own row.
 
-    :::image type="content" source="media/audit-track-tasks/incident-with-tasks-query-2.png" alt-text="Screenshot of query results showing an incident with its tasks expanded.":::
+        :::image type="content" source="media/audit-track-tasks/incident-with-tasks-query-2.png" alt-text="Screenshot of query results showing an incident with its tasks expanded." lightbox="media/audit-track-tasks/incident-with-tasks-query-2.png":::
 
-    Now you see that there are two tasks in this incident. Each one is represented in turn by an expandable array. Select a single task's expander to view its information.
+    1. Now you see that there are two tasks in this incident. Each one is represented in turn by an expandable array. Select a single task's expander to view its information.
 
-    :::image type="content" source="media/audit-track-tasks/incident-with-tasks-query-3.png" alt-text="Screenshot of query results showing an incident with a single task expanded.":::
+        :::image type="content" source="media/audit-track-tasks/incident-with-tasks-query-3.png" alt-text="Screenshot of query results showing an incident with a single task expanded." lightbox="media/audit-track-tasks/incident-with-tasks-query-3.png":::
 
-    Here you see the details for the first task in the array ("0" being the index position of the task in the array). The *title* field shows the name of the task as displayed in the incident.
+    1. Here you see the details for the first task in the array ("0" being the index position of the task in the array). The *title* field shows the name of the task as displayed in the incident.
 
 1. Let's add a task to the incident, and then we'll come back here, run the query again, and see the changes in the results.
 
-    Select **Incidents** from the navigation menu, and in the **Incidents** page, enter the incident ID number in the Search bar.
+    1. On the **Incidents** page, enter the incident ID number in the Search bar.
+    1. Open the incident details page and select **Tasks (Preview)** from the toolbar.
+    1. Add a new task, give it the name "This task is a test task!", then select **Save**. The last task shown below is what you should end up with:
 
-    :::image type="content" source="media/audit-track-tasks/incidents-page-find-incident.png" alt-text="Screenshot shows finding the incident in the query results.":::
+        :::image type="content" source="media/audit-track-tasks/incident-task-list-task-added.png" alt-text="Screenshot shows incident tasks panel.":::
 
-1. Select the incident and select **View full details** in the details pane.
-    
-    :::image type="content" source="media/audit-track-tasks/incidents-page-open-incident.png" alt-text="Screenshot shows opening the incident that you found.":::
+1. Now let's return to the **Logs** page and run our query again. 
 
-1. Select **Tasks (Preview)** from the toolbar on the incident details page. The **Incident tasks (Preview)** panel will open. See the same tasks in the list that we saw in the query of the *SecurityIncidents* table. Select **+ Add task**.
+    In the results you'll see that there's a new record in the table for this same incident (note the timestamps). Expand the record and you'll see that while the record we saw before had two tasks in its *Tasks* array, the new one has three. The newest task is the one we just added, as you can see by its title.
 
-    :::image type="content" source="media/audit-track-tasks/incident-task-list-original.png" alt-text="Screenshot shows incident tasks panel.":::
+    :::image type="content" source="media/audit-track-tasks/incident-with-tasks-query-5.png" alt-text="Screenshot of query results showing an incident with a single task expanded." lightbox="media/audit-track-tasks/incident-with-tasks-query-5.png":::
 
-
-1. Enter the text "This task is a test task!" in the **Title** field, then select **Save**.
-
-    :::image type="content" source="media/audit-track-tasks/incident-task-list-add-task.png" alt-text="Screenshot shows incident tasks panel.":::
-
-1. Now the new added task appears in the list.
-
-    :::image type="content" source="media/audit-track-tasks/incident-task-list-task-added.png" alt-text="Screenshot shows incident tasks panel.":::
-
-
-
-1. Now let's return to the **Logs** page and run our query again. Select **Run**.
-
-    
+        
 
 ## Manually add an ad-hoc task to an incident
 
