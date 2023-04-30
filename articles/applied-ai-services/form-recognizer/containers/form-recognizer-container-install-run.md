@@ -115,6 +115,12 @@ Feature container | Supporting container(s) |
 |---------|-----------|
 | **Read** | None |
 | **Layout** | None|
+| **General Document** | Layout |
+| **Invoice** | Layout|
+| **Receipt** | Read |
+| **ID Document** | Read|
+| **Custom Template** | Layout |
+
 :::moniker-end
 
 #### Recommended CPU cores and memory
@@ -129,7 +135,7 @@ Feature container | Supporting container(s) |
 
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
-| `Read` | `8` cores, 16-GB memory | `8` cores, 24-GB memory|
+| `Read` | `8` cores, 10-GB memory | `8` cores, 24-GB memory|
 | `Layout` | `8` cores, 16-GB memory | `8` cores, 24-GB memory |
 | `General Document` | `8` cores, 12-GB memory | `8` cores, 24-GB memory|
 | `ID Document` | `8` cores, 8-GB memory | `8` cores, 24-GB memory |
@@ -255,7 +261,7 @@ The following code sample is a self-contained `docker compose`  example to run t
 ```yml
 version: "3.9"
 services:
-    azure-cognitive-service-invoice:
+    azure-cognitive-service-document:
     container_name: azure-cognitive-service-document
     image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/document-3.0
     environment:
@@ -353,25 +359,25 @@ docker-compose up
 The following code sample is a self-contained `docker compose`  example to run the Form Recognizer General Document container.  With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {{FORM_RECOGNIZER_KEY} values for your ID and Read container instances.
 
 ```yml
-version: "3.9"
-services:
-    azure-cognitive-service-receipt:
-        container_name: azure-cognitive-service-id-document
-        image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/id-document-3.0
-        environment:
-            - EULA=accept
-            - billing={FORM_RECOGNIZER_ENDPOINT_URI}
-            - apiKey={FORM_RECOGNIZER_KEY}
-            - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
-        ports:
-            - "5000:5050"
-    azure-cognitive-service-read:
-        container_name: azure-cognitive-service-read
-        image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/read-3.0
-        environment:
-            - EULA=accept
-            - billing={FORM_RECOGNIZER_ENDPOINT_URI}
-            - apiKey={FORM_RECOGNIZER_KEY}
+    version: "3.9"
+    services:
+        azure-cognitive-service-receipt:
+            container_name: azure-cognitive-service-id-document
+            image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/id-document-3.0
+            environment:
+                - EULA=accept
+                - billing={FORM_RECOGNIZER_ENDPOINT_URI}
+                - apiKey={FORM_RECOGNIZER_KEY}
+                - AzureCognitiveServiceReadHost=http://azure-cognitive-service-read:5000
+            ports:
+                - "5000:5050"
+        azure-cognitive-service-read:
+            container_name: azure-cognitive-service-read
+            image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/read-3.0
+            environment:
+                - EULA=accept
+                - billing={FORM_RECOGNIZER_ENDPOINT_URI}
+                - apiKey={FORM_RECOGNIZER_KEY}
 
     
 ```
@@ -380,6 +386,270 @@ Now, you can start the service with the [**docker compose**](https://docs.docker
 
 ```bash
 docker-compose up
+```
+
+### Custom Template
+
+In addition to the [prerequisites](#prerequisites), you need to do the following to process a custom document:
+
+#### &bullet; Create a folder to store the following files
+
+  1. [**.env**](#-create-an-environment-file)
+  1. [**nginx.conf**](#-create-an-nginx-file)
+  1. [**docker-compose.yml**](#-create-a-docker-compose-file)
+
+#### &bullet; Create a folder to store your input data
+
+  1. Name this folder **shared**.
+  1. We reference the file path for this folder as  **{SHARED_MOUNT_PATH}**.
+  1. Copy the file path in a convenient location, you need to add it to your **.env** file.
+
+#### &bullet; Create a folder to store the logs  written by the Form Recognizer service on your local machine
+
+  1. Name this folder **output**.
+  1. We reference the file path for this folder as **{OUTPUT_MOUNT_PATH}**.
+  1. Copy the file path in a convenient location, you need to add it to your **.env** file.
+
+#### &bullet; Create an environment file
+
+  1. Name this file **.env**.
+
+  1. Declare the following environment variables:
+
+  ```text
+  SHARED_MOUNT_PATH="<file-path-to-shared-folder>"
+  OUTPUT_MOUNT_PATH="<file -path-to-output-folder>"
+  FORM_RECOGNIZER_ENDPOINT_URI="<your-form-recognizer-endpoint>"
+  FORM_RECOGNIZER_KEY="<your-form-recognizer-key>"
+  NGINX_CONF_FILE="<file-path>"
+  ```
+
+#### &bullet; Create an **nginx** file
+
+  1. Name this file **nginx.conf**.
+
+  1. Enter the following configuration:
+
+```text
+worker_processes 1;
+ 
+events { worker_connections 1024; }
+ 
+http {
+    sendfile on;
+    client_max_body_size 90M;
+    upstream docker-custom {
+        server azure-cognitive-service-custom-template:5000;
+    }
+ 
+    upstream docker-layout {
+        server  azure-cognitive-service-layout:5000;
+    }
+ 
+    server {
+        listen 5000;
+        location = / {
+            proxy_set_header Host $host:$server_port;
+            proxy_set_header Referer $scheme://$host:$server_port;
+            proxy_pass http://docker-custom/;
+ 
+        }
+ 
+        location /status {
+            proxy_pass http://docker-custom/status;
+        }
+ 
+        location /ready {
+            proxy_pass http://docker-custom/ready;
+        }
+ 
+        location /swagger {
+            proxy_pass http://docker-custom/swagger;
+        }
+ 
+        location /formrecognizer/documentModels/prebuilt-layout {
+            if ($request_method = OPTIONS ) {
+                return 200;
+            }        
+            proxy_set_header Host $host:$server_port;
+            proxy_set_header Referer $scheme://$host:$server_port;
+            proxy_pass http://docker-layout/formrecognizer/documentModels/prebuilt-layout;
+        }
+ 
+        location /formrecognizer/documentModels {
+            if ($request_method = OPTIONS ) {
+                return 200;
+            }
+            proxy_set_header Host $host:$server_port;
+            proxy_set_header Referer $scheme://$host:$server_port;
+            proxy_pass http://docker-custom/formrecognizer/documentModels;
+        }
+        
+        location /operations {
+            if ($request_method = OPTIONS ) {
+                return 200;
+            }
+        }
+    }
+}
+
+```
+
+#### &bullet; Create a **docker compose** file
+
+1. Name this file **docker-compose.yml**
+
+2. The following code sample is a self-contained `docker compose` example to run Form Recognizer Layout, Label Tool, Custom API, and Custom Supervised containers together. With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration.
+
+ ```yml
+version: '3.3'
+services:
+nginx:
+  image: nginx:alpine
+  container_name: reverseproxy
+  volumes:
+    - ${NGINX_CONF_FILE}:/etc/nginx/nginx.conf
+  ports:
+    - "5000:5000"
+    
+layout:
+  container_name: azure-cognitive-service-layout
+  image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.0:latest
+  environment:
+    eula: accept
+    apiKey: ${FORM_RECOGNIZER_KEY}
+    billing: ${FORM_RECOGNIZER_ENDPOINT_URI}
+    Mounts:Shared: /shared
+    Mounts:Output: /logs
+    Storage:ObjectStore:AzureBlob:ConnectionString: "${Storage_ObjectStore_AzureBlob_ConnectionString}"
+    queue:azure:connectionstring: "${Queue_Azure_ConnectionString}"
+  volumes:
+    - type: bind
+      source: ${SHARED_MOUNT_PATH}
+      target: /shared
+    - type: bind
+      source: ${OUTPUT_MOUNT_PATH}
+      target: /logs
+  expose:
+    - "5000"
+ 
+custom-template:
+  container_name: azure-cognitive-service-custom-template
+  image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/custom-template-3.0:latest
+  restart: always
+  depends_on:
+    - layout
+  environment:
+    eula: accept
+    AzureCognitiveServiceLayoutHost: http://azure-cognitive-service-layout:5000
+    apiKey: ${FORM_RECOGNIZER_KEY}
+    billing: ${FORM_RECOGNIZER_ENDPOINT_URI}
+    Mounts:Shared: /shared
+    Mounts:Output: /logs
+    Storage:ObjectStore:AzureBlob:ConnectionString: "${Storage_ObjectStore_AzureBlob_ConnectionString}"
+    queue:azure:connectionstring: "${Queue_Azure_ConnectionString}"
+  expose:
+    - "5000"
+  volumes:
+    - type: bind
+      source: ${SHARED_MOUNT_PATH}
+      target: /shared
+    - type: bind
+      source: ${OUTPUT_MOUNT_PATH}
+      target: /logs
+
+ ```
+
+The custom template container can use Azure Storage queues or in memory queues. The `Storage:ObjectStore:AzureBlob:ConnectionString` and `queue:azure:connectionstring` environment variables only need to be set if you are using Azure Storage queues. When running locally, delete these variables.
+
+### Ensure the service is running
+
+To ensure that the service is up and running. Run these commands in an Ubuntu shell.
+
+```bash
+$cd <folder containing the docker-compose file>
+
+$source .env
+
+$docker-compose up
+```
+
+#### Create a new Sample Labeling tool project
+
+* Gather a set of at least five forms of the same type. You use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*). Download the training files to the **shared** folder you created.
+
+* If you want to label your data, download the [Form Recognizer Sample Labeling tool for Windows](https://github.com/microsoft/OCR-Form-Tools/releases). The download imports the labeling tool .exe file that you use to label the data present on your local file system. You can ignore any warnings that occur during the download process.
+
+* Open the labeling tool by double-clicking on the Sample Labeling tool .exe file.
+* On the left pane of the tool, select the connections tab.
+* Select to create a new project and give it a name and description.
+* For the provider, choose the local file system option. For the local folder, make sure you enter the path to the folder where you stored the sample data files.
+### Create a new connection
+
+* On the left pane of the tool, select the **connections** tab.
+* Select **create a new project** and give it a name and description.
+* For the provider, choose the **local file system** option. For the local folder, make sure you enter the path to the folder where you stored the **sample data** files.
+
+The custom template model train API requires a base64 encoded zip file that is the contents of your labeling project. You can omit the PDF or image files and submit only the JSON files.
+
+Once you have your dataset labeled and *.ocr.json, *.labels.json and fields.json files added to a zip, use the PowerShell commands below to generate the base64 encoded string.
+
+```powershell
+$bytes = [System.IO.File]::ReadAllBytes("<your_zip_file>.zip")
+$b64String = [System.Convert]::ToBase64String($bytes, [System.Base64FormattingOptions]::None)
+
+```
+Use the build model API to post the request.
+
+```http
+POST http://localhost:5000/formrecognizer/documentModels:build?api-version=2022-08-31
+
+{
+    "modelId": "mymodel",
+    "description": "test model",
+    "buildMode": "template",
+   
+    "base64Source": "<Your base64 encoded string>",
+    "tags": {
+       "additionalProp1": "string",
+       "additionalProp2": "string",
+       "additionalProp3": "string"
+     }
+}
+```
+
+---
+
+## The Sample Labeling tool and Azure Container Instances (ACI)
+
+To learn how to use the Sample Labeling tool with an Azure Container Instance, *see*, [Deploy the Sample Labeling tool](../deploy-label-tool.md#deploy-with-azure-container-instances-aci).
+
+:::moniker-end
+
+## Validate that the service is running
+
+There are several ways to validate that the container is running:
+
+* The container provides a homepage at `\` as a visual validation that the container is running.
+
+* You can open your favorite web browser and navigate to the external IP address and exposed port of the container in question. Use the listed request URLs to validate the container is running. The listed example request URLs are `http://localhost:5000`, but your specific container may vary. Keep in mind that you're  navigating to your container's **External IP address** and exposed port.
+
+  Request URL    | Purpose
+  ----------- | --------
+  |**http://<span></span>localhost:5000/** | The container provides a home page.
+  |**http://<span></span>localhost:5000/ready**     | Requested with GET, this request provides a verification that the container is ready to accept a query against the model. This request can be used for Kubernetes liveness and readiness probes.
+  |**http://<span></span>localhost:5000/status** | Requested with GET, this request verifies if the api-key used to start the container is valid without causing an endpoint query. This request can be used for Kubernetes liveness and readiness probes.
+  |**http://<span></span>localhost:5000/swagger** | The container provides a full set of documentation for the endpoints and a Try it out feature. With this feature, you can enter your settings into a web-based HTML form and make the query without having to write any code. After the query returns, an example CURL command is provided to demonstrate the HTTP headers and body format that's required.
+  |
+
+:::image type="content" source="../media/containers/container-webpage.png" alt-text="Screenshot: Azure container welcome page.":::
+
+## Stop the containers
+
+To stop the containers, use the following command:
+
+```console
+docker-compose down
 ```
 
 ---
