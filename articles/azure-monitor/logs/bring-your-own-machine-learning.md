@@ -53,22 +53,20 @@ This table compares the advantages and limitations of using KQL's built-in machi
 
 You can implement custom machine learning models and build your own machine learning pipeline on data in Azure Monitor Logs to support advanced scenarios, such as: 
 
-- Detecting performance issues and troubleshooting errors in a web application.
 - Hunting for security attacks with more sophisticated models than those by KQL.
+- Detecting performance issues and troubleshooting errors in a web application.
+- Creating multi-step flows, running code in each step based on the results of the previous step.
 - Automating the analysis of Azure Monitor Log data and providing insights into multiple areas, including infrastructure health and customer behavior.
 - Correlating data in Azure Monitor Logs with data from other sources.
-- Creating multi-step flows, running code in each step based on the results of the previous step.
 
-There are three approaches to making data in Azure Monitor Logs available to your machine learning pipeline:
+There are two approaches to making data in Azure Monitor Logs available to your machine learning pipeline:
 
 - **Query data from Azure Monitor Logs to an in-memory object** - [Integrate a notebook with Azure Monitor Logs](../logs/jupyter-notebook-ml-azure-monitor-logs.md) or run a script or application on log data using libraries like [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme) or [MSTICPY](https://msticpy.readthedocs.io/en/latest/) to retrieve data from Azure Monitor Logs in tabular form; for example, into a [Pandas DataFrame](https://pandas.pydata.org/docs/user_guide/dsintro.html#dataframe). The data you query is retrieved to an in-memory object on your server, without exporting the data out of your Log Analytics workspace.   
 - **Export data out of Azure Monitor Logs** - [Export data out of your Log Analytics workspace](../logs/logs-data-export.md), usually to a blob storage account, and [implement your machine learning pipeline using a machine learning library](#implement-the-steps-of-the-machine-learning-lifecycle-in-azure-monitor-logs). 
 
 > [!NOTE]
-> Depending on which library you use, you might need to convert data formats as part of your pipeline. For example, to use libraries built on top of Apache Spark, like [SynapseML](https://microsoft.github.io/SynapseML/), you need to [convert Pandas to PySpark DataFrame](https://sparkbyexamples.com/pyspark/convert-pandas-to-pyspark-dataframe/). 
+> You might need to convert data formats as part of your pipeline. For example, to use libraries built on top of Apache Spark, like [SynapseML](https://microsoft.github.io/SynapseML/), you need to [convert Pandas to PySpark DataFrame](https://sparkbyexamples.com/pyspark/convert-pandas-to-pyspark-dataframe/). 
 
-
-- **Hybrid pipeline** - Export data for model training and use the *bring your own analysis* approach to score new data to reduce to latency in analyzing new data.
 
 This table compares the advantages and limitations of the two machine learning pipeline implementation approaches:
 
@@ -82,6 +80,8 @@ This table compares the advantages and limitations of the two machine learning p
 |**Latency** | Minimal | Introduces latency in scoring new data.|Minimal|
 |**Cost** |Cost of the server on which your notebook or code runs. | Cost of data export and external storage.|
 
+> [!TIP]
+> To benefit from the best of both of the implementation approached described above, create a hybrid pipeline, based on your needs. A common hybrid combination is to export data for model training, which involves large volumes of data, and use the *query data in Azure Monitor Logs* approach to explore data and score new data to reduce to latency.
 ### Implement the steps of the machine learning lifecycle in Azure Monitor Logs
 
 Setting up a machine learning pipeline typically involves all or some of the steps described below.
