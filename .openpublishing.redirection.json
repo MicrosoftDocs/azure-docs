@@ -966,6 +966,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/aks/managed-aad.md",
+            "redirect_url": "/azure/aks/managed-azure-ad",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/germany/germany-developer-guide.md",
             "redirect_url": "/previous-versions/azure/germany/germany-developer-guide",
             "redirect_document_id": false
@@ -22557,6 +22562,16 @@
           "source_path_from_root": "/articles/azure-monitor/app/java-standalone-arguments.md",
           "redirect_url": "/azure/azure-monitor/app/java-get-started-supplemental",
           "redirect_document_id": true
+        },
+        {
+          "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-cast-access-request.md",
+          "redirect_url": "/azure/healthcare-apis/dicom/dicom-cast-overview",
+          "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/azure-information-protection.md",
+            "redirect_url": "/azure/sentinel/data-connectors-reference",
+            "redirect_document_id": false
         }
     ]
 }

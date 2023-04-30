@@ -1339,6 +1339,16 @@ groups:
     title: Android
   - id: platform-ios
     title: iOS
+- id: acs-plat-web-android-windows
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-web
+    title: Web
+  - id: platform-android
+    title: Android
+  - id: platform-windows
+    title: Windows
 - id: acs-plat-azp-js
   title: Platform
   prompt: Choose a platform
@@ -2272,6 +2282,32 @@ groups:
     title: ASE Pro 2
   - id: ase-pro-gpu
     title: ASE Pro
+# Owner: barclayn, rolyon
+## Zone pivot with Azure portal, Azure AD PowerShell, Microsoft Graph PowerShell, Microsoft Graph
+- id: identity-pivot-portal-aadpowershell-mspowershell-msgraph
+  title: Manage identity
+  prompt: Choose an option
+  pivots:
+  - id: portal
+    title: Azure portal
+  - id: aad-powershell
+    title: Azure AD PowerShell
+  - id: ms-powershell
+    title: Microsoft Graph PowerShell
+  - id: ms-graph
+    title: Microsoft Graph
+# Owner: barclayn, rolyon
+## Zone pivot with Azure portal, Microsoft Graph PowerShell, Microsoft Graph
+- id: identity-pivot-portal-mspowershell-msgraph
+  title: Manage identity
+  prompt: Choose an option
+  pivots:
+  - id: portal
+    title: Azure portal
+  - id: ms-powershell
+    title: Microsoft Graph PowerShell
+  - id: ms-graph
+    title: Microsoft Graph
 # Owner: rolyon
 - id: app-provisioning-cross-tenant-synchronization
   title: Application provisioning or cross-tenant synchronization

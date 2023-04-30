@@ -14,7 +14,7 @@ All Azure services include certain default limits and quotas for resources and f
 
 Availability of compute, memory, and storage resources for Azure Container Instances varies by region and operating system. For details, see [Resource availability for Azure Container Instances](container-instances-region-availability.md).
 
-Use the [List Usage](/rest/api/container-instances/location/listusage) API to review current quota usage in a region for a subscription.
+Use the [List Usage](/rest/api/container-instances/2022-09-01/location/list-usage) API to review current quota usage in a region for a subscription.
 
 ## Service quotas and limits
 
