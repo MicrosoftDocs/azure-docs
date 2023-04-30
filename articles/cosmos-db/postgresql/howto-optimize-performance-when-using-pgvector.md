@@ -57,7 +57,7 @@ EXPLAIN SELECT * FROM t_test ORDER BY embedding <-> '[1,2,3]' LIMIT 3;
          Workers Planned: 1
          ->  Sort  (cost=3214.81..3426.69 rows=84752 width=33)
                Sort Key: ((embedding <-> '[1,2,3]'::vector))
-               ->  Parallel Seq Scan on t_test2  (cost=0.00..2119.40 rows=84752 width=33)
+               ->  Parallel Seq Scan on t_test  (cost=0.00..2119.40 rows=84752 width=33)
 (6 rows)
 ```
 
@@ -83,8 +83,6 @@ The `ivfflat` is an index for approximate nearest neighbor (ANN) search. This me
 If the probes parameter is set to the number of lists in the index, then all lists are searched and the search becomes an exact nearest neighbor search. In this case, the planner won’t use the index because searching all lists is equivalent to performing a brute-force search on the entire dataset.
 
 The indexing method partitions the dataset into multiple lists using the k-means clustering algorithm. Each list contains vectors that are closest to a particular cluster center. During a search, the query vector is compared to the cluster centers to determine which list (or lists) are most likely to contain the nearest neighbors. If the probes parameter is set to 1, then only the list corresponding to the closest cluster center would be searched.
-
-The higher the probes, the better the recall accuracy (at the cost of speed).
 
 Selecting the correct value for the amount of probes to perform and the sizes of the lists may have a significant impact on search performance. Good places to start are:
 
@@ -129,7 +127,7 @@ For cosine similarity search, use the `vector_cosine_ops` access method.
 CREATE INDEX t_test_embedding_cosine_idx ON t_test USING ivfflat (embedding vector_cosine_ops) WITH (lists = 100);
 ```
 
-To use the above index, the query needs to perform a cosine similarity search, which is performed with the `<=>` operator.
+To use the above index, the query needs to perform a cosine similarity search, which is done with the `<=>` operator.
 
 ```postgresql
 EXPLAIN SELECT * FROM t_test ORDER BY embedding <=> '[1,2,3]' LIMIT 5;
@@ -152,7 +150,7 @@ For L2 distance (also known as Euclidean distance), use the `vector_l2_ops` acce
 CREATE INDEX t_test_embedding_l2_idx ON t_test USING ivfflat (embedding vector_l2_ops) WITH (lists = 100);
 ```
 
-To use the above index, the query needs to perform an L2 distance search, which is performed with the `<->` operator.
+To use the above index, the query needs to perform an L2 distance search, which is done with the `<->` operator.
 
 ```postgresql
 EXPLAIN SELECT * FROM t_test ORDER BY embedding <-> '[1,2,3]' LIMIT 5;
@@ -175,7 +173,7 @@ For inner product similarity, use the `vector_ip_ops` access method.
 CREATE INDEX t_test_embedding_ip_idx ON t_test USING ivfflat (embedding vector_ip_ops) WITH (lists = 100);
 ```
 
-To use the above index, the query needs to perform an L2 distance search, which is performed with the `<#>` operator.
+To use the above index, the query needs to perform an inner product similarity search, which is done with the `<#>` operator.
 
 ```postgresql
 EXPLAIN SELECT * FROM t_test ORDER BY embedding <#> '[1,2,3]' LIMIT 5;
