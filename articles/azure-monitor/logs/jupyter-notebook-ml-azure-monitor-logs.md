@@ -39,7 +39,7 @@ In this tutorial, you learn how to:
 >- Experiment with only two models to see which best fits our data set.
 ## Limitations 
 
-- [API-related limitations](/azure/azure-monitor/service-limits#la-query-api), which can be overcome up to curtain degree as suggested later. 
+- [API-related limitations](/azure/azure-monitor/service-limits#la-query-api), which you can be overcome to a certain degree by [splitting larger queries into chunks](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-query/samples/notebooks/sample_large_query.ipynb). 
 - Executing custom code on a copy of data in the Pandas DataFrame leads to downgraded performance and increased latency compared to [running native KQL operators and functions directly in Azure Monitor](../logs/kql-machine-learning-azure-monitor.md). 
 
 ## Prerequisites 
@@ -275,5 +275,4 @@ Send the anomalies you identify to a custom table in your Log Analytics workspac
 Learn more about how to: 
 
 - [Schedule a machine learning pipeline](../../machine-learning/how-to-schedule-pipeline-job.md).
-- [Split query execution into chunks](https://learn.microsoft.com/samples/azure/azure-sdk-for-python/query-azuremonitor-samples/).
 - [Detect and analyze anomalies using KQL](../logs/kql-machine-learning-azure-monitor.md).

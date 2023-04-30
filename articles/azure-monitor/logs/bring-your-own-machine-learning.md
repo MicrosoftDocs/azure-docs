@@ -14,7 +14,7 @@ ms.date: 02/28/2023
 
 Artificial Intelligence for IT Operations (AIOps) offers powerful ways to improve service quality and reliability by using machine learning to process and automatically act on data you collect from applications, services, and IT resources into Azure Monitor.
 
-Azure Monitor's built-in AIOps capabilities provide insights and automate data-driven tasks, such as predicting capacity usage and autoscaling, identifying and analyzing application performance issues, and detecting anomalous behaviors in virtual machines, containers, and other resources. These features let you take advantage of machine learning to gain insights and boost your IT monitoring and operations, without requiring machine learning knowledge and further investment.    
+Azure Monitor's built-in AIOps capabilities provide insights and automate data-driven tasks, such as predicting capacity usage and autoscaling, identifying and analyzing application performance issues, and detecting anomalous behaviors in virtual machines, containers, and other resources. These features use machine learning to provide insights and boost your IT monitoring and operations, without requiring machine learning knowledge and further investment.    
 
 Azure Monitor also provides tools that let you create your own machine learning pipeline to introduce new analysis and response capabilities and act on data in Azure Monitor Logs.    
 
@@ -40,13 +40,13 @@ This table compares the advantages and limitations of using KQL's built-in machi
 ||Built-in KQL machine learning capabilities |Create your own machine learning pipeline|
 |-|-|-|
 |**Scenario**| :white_check_mark: Anomaly detection and root cause analysis <br> | :white_check_mark: Anomaly detection and root cause analysis <br> :white_check_mark: Alerting and automation<br> :white_check_mark: [Advanced analysis and AIOPs scenarios](#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs)  |
-|**Advantages**|🔹Gets you started very quickly.<br>🔹Doesn't require data science knowledge and programming skills.<br>🔹 Optimal performance and cost savings. |🔹Supports larger scales.<br>🔹Enables advanced, more complex scenarios.<br>🔹Flexibility in choosing libraries, models, parameters.|
+|**Advantages**|🔹Gets you started very quickly.<br>🔹No data science knowledge and programming skills required.<br>🔹 Optimal performance and cost savings. |🔹Supports larger scales.<br>🔹Enables advanced, more complex scenarios.<br>🔹Flexibility in choosing libraries, models, parameters.|
 |**Service limits** |[Azure portal or Query API log query limits](../service-limits.md#azure-portal) depending on whether you're working in the portal or using the API, for example, from a notebook.| [Query API log query limits](../service-limits.md#la-query-api) depending on how you [implement your machine learning pipeline](#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs).|
 |**Data volumes**|Supports several GBs of data, or a few million records.|Supports larger data volumes, depending on how you [implement your machine learning pipeline](#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs). |
 |**Integration**|None required.|Requires integration with a tool, such as [Jupyter Notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md), or a machine learning service.|
 |**Performance**|Optimal performance, using the power of the Azure Data Explorer platform, running at high scales in a distributed manner. |Introduces latency when querying or exporting data, depending on how you implement your machine learning pipeline. |
 |**Model type** |Linear regression model with a set of configurable parameters.|Completely customizable machine learning model.  |
-|**Cost**|No extra cost.| Depending on how you [implement your machine learning pipeline](#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs), you might incur charges for exporting data, ingesting data into Azure Monitor Logs, and the use of other Azure services.|
+|**Cost**|No extra cost.| Depending on how you [implement your machine learning pipeline](#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs), you might incur charges for [exporting data](../logs/logs-data-export.md#pricing-model), ingesting data into Azure Monitor Logs, and the use of other Azure services.|
 |**Tutorial**|[Detect and analyze anomalies using KQL machine learning capabilities in Azure Monitor](../logs/kql-machine-learning-azure-monitor.md)|[Train a regression model on data in Azure Monitor Logs by using Jupyter Notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md)|
 
 ## Create your own machine learning pipeline on data in Azure Monitor Logs
@@ -74,11 +74,11 @@ This table compares the advantages and limitations of the two machine learning p
 |-|-|-|-|
 |**Advantages**|🔹Gets you started quickly.<br>🔹Requires only basic data science and programming skills.<br>🔹Minimal latency and cost savings.|🔹Supports larger scales.<br>🔹No query limitations.|
 |**Data exported?**|No|Yes|
-|**Service limits**|[Query API log query limits](../service-limits.md#log-analytics-workspaces) and [user query throttling](../service-limits.md#user-query-throttling).| None from Azure Monitor. |
+|**Service limits**|[Query API log query limits](../service-limits.md#log-analytics-workspaces) and [user query throttling](../service-limits.md#user-query-throttling). You can overcome Query API limits to, a certain degree, by [splitting larger queries into chunks](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-query/samples/notebooks/sample_large_query.ipynb).| None from Azure Monitor. |
 |**Data volumes**|Analyze several GBs of data, or a few million records.|Supports large volumes of data.|
-|**Machine learning library**|Optionally - using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is).|Typically, using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is). |
-|**Latency** | Minimal | Introduces latency in scoring new data.|
-|**Cost** |No extra cost. | [Cost of data export](../logs/logs-data-export.md#pricing-model) and external storage.|
+|**Machine learning library**|||
+|**Latency** | Minimal. | Introduces latency in scoring new data.|
+|**Cost** |No extra charges in Azure Monitor.<br>Cost of Azure Synapse, Azure Machine Learning, or other service, if used.| [Cost of data export](../logs/logs-data-export.md#pricing-model) and external storage.<br>Cost of Azure Synapse, Azure Machine Learning, or other service, if used.|
 
 > [!TIP]
 > To benefit from the best of both implementation approaches, create a hybrid pipeline, based on your needs. A common hybrid approach is to export data for model training, which involves large volumes of data, and reduce latency by using the *query data in Azure Monitor Logs* approach to explore data and score new data.
