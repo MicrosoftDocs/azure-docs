@@ -1316,7 +1316,7 @@ items:
         href: alerts/alerts-troubleshoot-log.md
       - name: Webhook actions
         href: alerts/alerts-log-webhook.md
-      - name: Log analytics alerts legacy API
+      - name: Legacy Log Analytics alerts API
         href: alerts/api-alerts.md
     - name: Prometheus metric alerts
       href: alerts/prometheus-alerts.md
