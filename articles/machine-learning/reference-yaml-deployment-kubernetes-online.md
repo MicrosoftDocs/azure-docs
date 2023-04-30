@@ -43,6 +43,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `app_insights_enabled` | boolean | Whether to enable integration with the Azure Application Insights instance associated with your workspace. | | `false` |
 | `scale_settings` | object | The scale settings for the deployment. The two types of scale settings supported are the `default` scale type and the `target_utilization` scale type. <br><br> With the `default` scale type (`scale_settings.type: default`), you can manually scale the instance count up and down after deployment creation by updating the `instance_count` property. <br><br> To configure the `target_utilization` scale type (`scale_settings.type: target_utilization`), see [TargetUtilizationScaleSettings](#targetutilizationscalesettings) for the set of configurable properties. | | |
 | `scale_settings.type` | string | The scale type. | `default`, `target_utilization` | `target_utilization` |
+| `data_collector.collections` | object | Data collection settings for the deployment. See [DataCollector](#datacollector) for the set of configurable properties.
 | `request_settings` | object | Scoring request settings for the deployment. See [RequestSettings](#requestsettings) for the set of configurable properties. | | |
 | `liveness_probe` | object | Liveness probe settings for monitoring the health of the container regularly. See [ProbeSettings](#probesettings) for the set of configurable properties. | | |
 | `readiness_probe` | object | Readiness probe settings for validating if the container is ready to serve traffic. See [ProbeSettings](#probesettings) for the set of configurable properties. | | |
@@ -94,6 +95,16 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `cpu` | string | The limit for the number of CPU cores for the container. |
 | `memory` | string | The limit for the memory size for the container. |
 | `nvidia.com/gpu` | string | The limit for the number of Nvidia GPU cards for the container |
+
+### DataCollector
+
+| Key | Type | Description | Default value |
+| --- | ---- | ----------- | ------------- |
+| `<collection_name>` | object | Logical grouping of production inference data to collect. There are two reserved names: `request` and `response`, which respectively correspond to HTTP request and response payload data collection. All other names are arbitrary and definable by the user <br><br> **Note**: The `collection_name`(s) should correspond to the name(s) of the `Collector` object used in the deployment `score.py` to collect the production inference data.For more information on payload data collection and data collection with the provided Python SDK, see [Collect data from models in production](how-to-collect-production-data.md). | |
+| `<collection_name>.enabled` | boolean | Whether to enable data collection for the specified `collection_name`. | `false` |
+| `<collection_name>.data.name` | string | The name of the data asset to register with the collected data. | `<endpoint>-<deployment>-<collection_name>` |
+| `<collection_name>.data.path` | string | The full AzureML datastore path where the collected data should be registered as a data asset. | `azureml://datastores/workspaceblobstore/paths/modelDataCollector/<endpoint_name>/<deployment_name>/<collection_name>` |
+| `<collection_name>.data.version` | integer | The version of the data asset to be registered with the collected data in Blob storage. | `1` |
 
 ## Remarks
 
