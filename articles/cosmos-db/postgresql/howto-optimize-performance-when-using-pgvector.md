@@ -190,6 +190,60 @@ EXPLAIN SELECT * FROM t_test ORDER BY embedding <#> '[1,2,3]' LIMIT 5;
 
 ## Partial indexes
 
+In some scenarios, it is beneficial to have an index that covers only a partial set of the data. We may for example build an index just for our premium users.
+
+```postgresql
+CREATE INDEX t_premium ON t_test USING ivfflat (vec vector_ip_ops) WITH (lists = 100) WHERE tier = 'premium';
+```
+
+We can now see the premium tier now uses the index:
+
+```postgresql
+explain select * from t_test where tier = 'premium' order by vec <#> '[2,2,2]';
+```
+
+```text
+                                     QUERY PLAN
+------------------------------------------------------------------------------------
+ Index Scan using t_premium on t_test  (cost=65.57..25638.05 rows=245478 width=39)
+   Order By: (vec <#> '[2,2,2]'::vector)
+(2 rows)
+```
+
+While the free tier users lack the benefit.
+
+```postgresql
+explain select * from t_test where tier = 'free' order by vec <#> '[2,2,2]';
+```
+
+```
+                              QUERY PLAN
+-----------------------------------------------------------------------
+ Sort  (cost=44019.01..44631.37 rows=244941 width=39)
+   Sort Key: ((vec <#> '[2,2,2]'::vector))
+   ->  Seq Scan on t_test  (cost=0.00..15395.25 rows=244941 width=39)
+         Filter: (tier = 'free'::text)
+(4 rows)
+```
+
+Having only a subset of data indexed, means the index takes less space on disk and is faster to search through.
+
+Keep in mind, to make sure that the form used in the WHERE clause of the partial index definition matches the one used in your queries, as PostgreSQL may fail to recognize that the index is safe to use.
+In our example dataset we only have the exact values 'free','test' and 'premium' as the distinct values of the tier column. Even with a query using `tier LIKE 'premium'` PostgreSQL will not use the index.
+
+```postgresql
+explain select * from t_test where tier like 'premium' order by vec <#> '[2,2,2]';
+```
+
+```text
+                              QUERY PLAN
+-----------------------------------------------------------------------
+ Sort  (cost=44086.30..44700.00 rows=245478 width=39)
+   Sort Key: ((vec <#> '[2,2,2]'::vector))
+   ->  Seq Scan on t_test  (cost=0.00..15396.59 rows=245478 width=39)
+         Filter: (tier ~~ 'premium'::text)
+(4 rows)
+```
 
 ## Partitioning
 
@@ -220,7 +274,6 @@ Check the created partitions:
 ```
 
 ```text
-awolk=# \d+ t_test_partitioned;
                                 Partitioned table "public.t_test_partitioned"
   Column  |   Type    | Collation | Nullable | Default | Storage  | Compression | Stats target | Description
 ----------+-----------+-----------+----------+---------+----------+-------------+--------------+-------------
