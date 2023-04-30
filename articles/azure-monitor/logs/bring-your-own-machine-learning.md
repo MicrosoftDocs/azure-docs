@@ -39,27 +39,31 @@ This table compares the advantages and limitations of using KQL's built-in machi
 
 ||Built-in KQL machine learning capabilities |Create your own machine learning pipeline|
 |-|-|-|
-|**Scenario**| :white_check_mark: Anomaly detection and root cause analysis <br> | :white_check_mark: Anomaly detection and root cause analysis <br> :white_check_mark: Alerting and automation |
-|**Integration**|None required.|Requires integration with a tool, such as Jupyter Notebook, or a machine learning service.|
-|**Performance**|Optimal performance, using the power of the Azure Data Explorer platform, running at high scales in a distributed manner. |-  Dependent on the machine learning service you use. <br>-  Introduces latency when querying or exporting data. |
-|**Cost**|No extra cost.|-  Cost of the machine learning service you use.<br>-  Depending on how you [implement your machine learning pipeline](#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs), you might incur charges for exporting data and ingesting data into Azure Monitor Logs.|
+|**Scenario**| :white_check_mark: Anomaly detection and root cause analysis <br> | :white_check_mark: Anomaly detection and root cause analysis <br> :white_check_mark: Alerting and automation<br> :white_check_mark: [Advanced analysis and AIOPs scenarios](#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs)  |
+|**Advantages**|- Gets you started very quickly.<br>- Doesn't require data science knowledge and programming skills.<br>- Optimal performance and cost savings. |- Supports larger scales.<br>- Enables advanced, more complex scenarios.<br>- Flexibility in choosing libraries, models, parameters.|
+|**Service limits** |[Azure portal or Query API log query limits](../service-limits.md#log-analytics-workspaces) depending on whether you're working in the portal or using the API, for example, from a notebook.| Query API log query limits depending on how you [implement your machine learning pipeline](#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs).|
 |**Data volumes**|Supports several GBs of data, or a few million records.|Supports larger data volumes, depending on how you [implement your machine learning pipeline](#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs). |
-|**Model type** |Linear regression model with a set number of configurable parameters.|Completely customizable machine learning model.  |
-|**Query limitations** |[Azure portal or Query API log query limits](../service-limits.md#log-analytics-workspaces) depending on whether you're working in the portal or using the API, for example, from a notebook.| Query API log query limits depending on how you [implement your machine learning pipeline](#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs).|
+|**Integration**|None required.|Requires integration with a tool, such as Jupyter Notebook, or a machine learning service.|
+|**Performance**|Optimal performance, using the power of the Azure Data Explorer platform, running at high scales in a distributed manner. |Introduces latency when querying or exporting data, depending on how you implement your machine learning pipeline. |
+|**Model type** |Linear regression model with a set of configurable parameters.|Completely customizable machine learning model.  |
+|**Cost**|No extra cost.| Depending on how you [implement your machine learning pipeline](#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs), you might incur charges for exporting data, ingesting data into Azure Monitor Logs, and the use of other Azure services.|
 |**Tutorial**|[Detect and analyze anomalies using KQL machine learning capabilities in Azure Monitor](../logs/kql-machine-learning-azure-monitor.md)|[Train a regression model on data in Azure Monitor Logs by using Jupyter Notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md)|
 
 ## Create your own machine learning pipeline on data in Azure Monitor Logs
 
 You can implement custom machine learning models and build your own machine learning pipeline on data in Azure Monitor Logs to support advanced scenarios, such as: 
 
+- Detecting performance issues and troubleshooting errors in a web application.
 - Hunting for security attacks with more sophisticated models than those by KQL.
+- Automating the analysis of Azure Monitor Log data and providing insights into multiple areas, including infrastructure health and customer behavior.
 - Correlating data in Azure Monitor Logs with data from other sources.
 - Creating multi-step flows, running code in each step based on the results of the previous step.
 
-There are three approaches to building making data in Azure Monitor Logs available to your machine learning pipeline:
+There are three approaches to making data in Azure Monitor Logs available to your machine learning pipeline:
 
-- **Bring your own analysis to Azure Monitor Logs** - [Integrate a notebook with Azure Monitor Logs](../logs/jupyter-notebook-ml-azure-monitor-logs.md) or run a script or application on log data using libraries like [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme) or [MSTICPY](https://msticpy.readthedocs.io/en/latest/) to retrieve data from Azure Monitor Logs in a Pandas DataFrame. The data you query is retrieved to an in-memory object on your server, without exporting the data out of your Log Analytics workspace.   
-- **Export data out of Azure Monitor Logs** - [Export data out of your Log Analytics workspace](../logs/logs-data-export.md), usually to a blob storage account in JSON format. Use a machine learning service, like [Azure Machine Learning](../../machine-learning/overview-what-is-azure-machine-learning.md), to train and score data. Import scored data into your Log Analytics workspace using the [Logs Ingestion API](../logs/logs-ingestion-api-overview.md). 
+- **Query data from Azure Monitor Logs to an in-memory object** - [Integrate a notebook with Azure Monitor Logs](../logs/jupyter-notebook-ml-azure-monitor-logs.md) or run a script or application on log data using libraries like [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme) or [MSTICPY](https://msticpy.readthedocs.io/en/latest/) to retrieve data from Azure Monitor Logs in tabular form; for example, into a Pandas DataFrame. The data you query is retrieved to an in-memory object on your server, without exporting the data out of your Log Analytics workspace.   
+- **Export data out of Azure Monitor Logs** - [Export data out of your Log Analytics workspace](../logs/logs-data-export.md), usually to a blob storage account, and [implement your machine learning pipeline using a machine learning library](#implement-the-steps-of-the-machine-learning-lifecycle-in-azure-monitor-logs). 
+
 - **Hybrid pipeline** - Export data for model training and use the *bring your own analysis* approach to score new data to reduce to latency in analyzing new data.
 
 This table compares the advantages and limitations of the various machine learning pipeline implementation approaches:
