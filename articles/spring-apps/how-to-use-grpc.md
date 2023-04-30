@@ -16,7 +16,7 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier (all tiers)
 
-This article shows you how to use the open-source Remote Procedure Call framework (gRPC) in Azure Spring Apps. This article describes using gRPC with the [spring-petclinic-microservices](https://github.com/Azure-Samples/spring-petclinic-microservices) as a sample application.
+This article shows you how to use the Remote Procedure Call framework (gRPC) in Azure Spring Apps. For an example application to modify and deploy, this article uses the [Azure-Samples/spring-petclinic-microservices](https://github.com/Azure-Samples/spring-petclinic-microservices).
 
 From your local environment, you create a gRPC service by modifying the current `customers-service` microservice, deploy it to Azure Spring Apps, and use grpc curl commands to test the service and make calls to gRPC methods.
 
@@ -31,12 +31,11 @@ From your local environment, you create a gRPC service by modifying the current 
 
 ## Deploy Spring Petclinic Microservices
 
-Use the following steps to deploy the Spring Petclinic microservices project:
+An application is required to proceed. Use the following steps to deploy the Spring Petclinic microservices project:
 
-1. In your local environment, use the following commands to create the `source-code` folder and clone the sample app repository to your Azure account.
+1. In your local environment, use the following command to clone the sample app repository to your Azure account.
 
     ```bash
-    mkdir source-code
     git clone https://github.com/azure-samples/spring-petclinic-microservices
     ```
 
@@ -53,17 +52,17 @@ Use the following steps to deploy the Spring Petclinic microservices project:
 
 To facilitate testing, assign a public endpoint. The public endpoint is used in the grpcurl commands as the hostname. For more information, see [grpcurl](https://github.com/fullstorydev/grpcurl).
 
-You can use either the Azure portal or the Azure CLI to assign a public endpoint. For more information, see [Expose applications on Azure Spring Apps to the internet from a public network](how-to-access-app-from-internet-virtual-network.md).
-
 Use the following command to assign a public endpoint.
 
-  ```azurecli
-  az spring app update \
-      --resource-group <resource-group-name> \
-      --service <Azure-Spring-Apps-instance-name> \
-      --name <app-name> \
-      --assign-public-endpoint true
-  ```
+```azurecli
+az spring app update \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --name <app-name> \
+     --assign-public-endpoint true
+```
+
+You can also use the Azure portal to assign a public endpoint. For more information, see [Expose applications on Azure Spring Apps to the internet from a public network](how-to-access-app-from-internet-virtual-network.md).
 
 ## Modify an existing service to be a gRPC service
 
@@ -73,7 +72,7 @@ Use the following steps to change customers-service into a gRPC server.
 
 1. Locate `pom.xml` in the `spring-petclinic-customers-service` folder.
 
-1. Delete from `pom.xml` the following element that defines the `spring-boot-starter-web` dependency:
+1. In the `pom.xml` file, delete the following element that defines the `spring-boot-starter-web` dependency:
 
    ```xml
    <dependency>
@@ -84,7 +83,7 @@ Use the following steps to change customers-service into a gRPC server.
 
    If this dependency isn't removed, gRPC is routed incorrectly using a static server address as the application starts a web server and a gRPC server. Azure Spring Apps would rewrite the server port to 1025.
 
-1. Add the following elements, which define the dependency and build plugins required for gRPC, to `pom.xml`:
+1. Add the following elements, which define the dependency and build plugins required for gRPC, to the `pom.xml` file:
 
    ```xml
    <dependencies>
@@ -162,7 +161,7 @@ Use the following steps to change customers-service into a gRPC server.
 
 Use the following steps to create and run a proto file that defines the message types and RPC interface methods to later implement.
 
-1. Create a new file with a `.proto` extension in the *source-code* folder that has the following content:
+1. Create a new file with a `.proto` extension in the source code folder that has the following content:
 
    ```JSON
    syntax = "proto3";
@@ -227,11 +226,13 @@ Use the following steps to create and run a proto file that defines the message 
     mvn package 
    ```
 
-   The generated files include `CustomersServiceGrpc`, as defined by the gRPC proto plugin. You can implement the gRPC service with the RPC methods defined in the proto file.  
+   You can implement the gRPC service with the RPC methods defined in the proto file. In the sample application, the generated files include `CustomersServiceGrpc`, as defined by the gRPC proto plugin.
 
 ## Implement the gRPC service
 
-In your development environment, create a java class file for the project with the following content that implements the RPC methods defined in the proto file. Use the annotation `@GrpcService` to extend the autogenerated gRPC service base class and implement all its methods.
+In your development environment, create a java class file for the project with the following content that implements the RPC methods defined in the proto file. Use the annotation `@GrpcService` to extend the autogenerated gRPC service base class and implement its methods.
+
+The following example shows an implementation of some of the methods.
 
 ```java
 @GrpcService
@@ -269,7 +270,7 @@ The customers-service is now a gRPC service.
 
 You can now configure the server and deploy the application.
 
-Use the following command to deploy the newly built jar to Azure Spring Apps:
+Use the following command to deploy the jar to file to your Azure Spring Apps instance:
 
    ```azurelcli
     az spring app deploy --name ${CUSTOMERS_SERVICE} \
@@ -283,17 +284,17 @@ Use the following command to deploy the newly built jar to Azure Spring Apps:
 
 The deployment can take a few minutes to completed.
 
-Now that the app is redeployed, call a gRPC service from outside the Azure Spring Apps service instance. Test the endpoint to attempt list all owners by adding `/owners` to the URL path, which should fail as expected because a gRPC service can't be accessed with the HTTP protocol.
+Now that the application is deployed in Azure Spring Apps, call a gRPC service from outside the Azure Spring Apps service instance. Test the endpoint to attempt list all owners by adding `/owners` to the URL path, which should fail as expected because a gRPC service can't be accessed with the HTTP protocol.
 
 ## Set the ingress configuration
 
-Set backend protocol to use gRPC so that you can use grpc curl to test the gRPC server from the developer’s environment. For more information, see [Customize the ingress configuration in Azure Spring Apps](how-to-configure-ingress.md).
+Set the backend protocol to use gRPC so that you can use grpc curl commands to test the gRPC server. For more information, see [Customize the ingress configuration in Azure Spring Apps](how-to-configure-ingress.md).
 
 ## Call customers service from the local environment
 
 You can use grpcurl to test the gRPC server. The only port supported for gRPC calls from outside Azure Spring Apps is port `443`. The traffic is automatically routed to port 1025 on the backend.
 
-1. You can use the following commands to check the gRPC server:
+1. Use the following commands to check the gRPC server:
 
    ```bash
    grpcurl <SERVICE-NAME>-customers-service.azuremicroservices.io:443 list
@@ -301,11 +302,11 @@ You can use grpcurl to test the gRPC server. The only port supported for gRPC ca
        grpcurl -d "{\"ownerId\":7}" <SERVICE-NAME>-customers-service.azuremicroservices.io:443  org.springframework.samples.petclinic.customers.grpc.CustomersService.findOwner
    ```
 
-## Frequently asked questions
+## FAQ
 
-1. How do I test the endpoint?
+- How do I test the endpoint?
 
-   Use the following curl and http commands to test the endpoint of the gRPC server:
+   Use the following curl and HTTP commands to test the endpoint of the gRPC server:
 
    ```bash
    echo -n '0000000000' | xxd -r -p - frame.bin
