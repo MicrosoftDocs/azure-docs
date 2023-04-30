@@ -13,9 +13,11 @@ ms.date: 04/30/2023
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-This article explores the limitations and tradeoffs of [pgvector](https://github.com/pgvector/pgvector) and shows how to use partitioning, indexing and search settings to improve performance.
+The `pgvector` extension adds an open-source vector similarity search to PostgreSQL.
 
-For more on pgvector itself, see [basics of pgvector](#). You may also want to refer to the pgvector official [README](https://github.com/pgvector/pgvector/blob/master/README.md).
+This article explores the limitations and tradeoffs of [`pgvector`](https://github.com/pgvector/pgvector) and shows how to use partitioning, indexing and search settings to improve performance.
+
+For more on the extension itself, see [basics of `pgvector`](#). You may also want to refer to the official [README](https://github.com/pgvector/pgvector/blob/master/README.md) of the project.
 
 ## Performance
 
@@ -25,24 +27,24 @@ You should always start by investigating the query plan. If your query terminate
 EXPLAIN (ANALYZE, VERBOSE, BUFFERS) SELECT * FROM t_test ORDER BY embedding <-> '[1,2,3]' LIMIT 5;
 ```
 
-For queries that take too long to execute, consider dropping the `ANALYZE` keyword. The result will contain less details but will be provided instantly.
+For queries that take too long to execute, consider dropping the `ANALYZE` keyword. The result contains fewer details but is provided instantly.
 
 ```postgresql
 EXPLAIN (VERBOSE, BUFFERS) SELECT * FROM t_test ORDER BY embedding <-> '[1,2,3]' LIMIT 5;
 ```
 
-Third party sites, like [explain.depesz.com](https://explain.depesz.com/) can be extremely helpful in understanding query plans. Some questions that you should try to answer are:
+Third party sites, like [explain.depesz.com](https://explain.depesz.com/) can be helpful in understanding query plans. Some questions that you should try to answer are:
 
 1. [Was the query parallelized](#parallel-execution)?
 1. [Was an index used?](#indexing)
 1. [Did I use the same condition in the WHERE clause as in a partial index definition?](#partial-indexes)
 1. [If I use partitioning, were not-needed partitions pruned?](#partitioning)
 
-If your vectors are normalized to length 1, like in the case of OpenAI embeddings. You should consider using inner product (`<=>`) for best performance.
+If your vectors are normalized to length 1, like OpenAI embeddings. You should consider using inner product (`<=>`) for best performance.
 
 ## Parallel execution
 
-In the output of your explain plan look for `Workers Planned` and `Workers Launched` (latter only when `ANALYZE` keyword was used). The `max_parallel_workers_per_gather` PostgreSQL parameter defines how many background workers the database may launch for every `Gather` and `Gather Merge` plan node. Increasing this value may speed up your exact search queries without having to create indexes. Note however, that the database may not decide to run the plan in parallel even when this value is high.
+In the output of your explain plan, look for `Workers Planned` and `Workers Launched` (latter only when `ANALYZE` keyword was used). The `max_parallel_workers_per_gather` PostgreSQL parameter defines how many background workers the database may launch for every `Gather` and `Gather Merge` plan node. Increasing this value may speed up your exact search queries without having to create indexes. Note however, that the database may not decide to run the plan in parallel even when this value is high.
 
 
 ```postgresql
@@ -63,28 +65,28 @@ EXPLAIN SELECT * FROM t_test ORDER BY embedding <-> '[1,2,3]' LIMIT 3;
 
 ## Indexing
 
-Without indexes present, pgvector performs an exact search, which provides perfect recall at the expense of performance.
+Without indexes present, the extension performs an exact search, which provides perfect recall at the expense of performance.
 
 In order to perform approximate nearest neighbor search you can create indexes on your data, which trades recall for execution performance.
 
-When possible, always load your data before indexing it. It's both faster to create the index this way and the resulting layout will be more optimal.
+When possible, always load your data before indexing it. It's both faster to create the index this way and the resulting layout is more optimal.
 
 ### Limits
 
-1. In order to index a column it has to have dimensions defined. Attempting to index a column defined as `col vector` will result in the error: `ERROR:  column does not have dimensions`.
-1. You can only index a column that has up to 2000 dimensions. Attempting to index a column with more dimensions will result in the error: `ERROR:  column cannot have more than 2000 dimensions for ivfflat index`.
+1. In order to index a column, it has to have dimensions defined. Attempting to index a column defined as `col vector` results in the error: `ERROR:  column does not have dimensions`.
+1. You can only index a column that has up to 2000 dimensions. Attempting to index a column with more dimensions results in the error: `ERROR:  column cannot have more than 2000 dimensions for ivfflat index`.
 
-While you can store vectors with more than 2000 dimensions, you won't be able to index them. You can either use dimensionality reduction of your embeddings or rely on partitioning and/or sharding with Azure Cosmos DB for PostgreSQL to achieve acceptable performance without indexing.
+While you can store vectors with more than 2000 dimensions, you can't index them. You can use dimensionality reduction to fit within the limits. Alternatively rely on partitioning and/or sharding with Azure Cosmos DB for PostgreSQL to achieve acceptable performance without indexing.
 
 #### Lists & Probes
 
-The `ivfflat` is an index for approximate nearest neighbor (ANN) search. This method uses an inverted file index to partition the dataset into multiple lists. During a search, only a subset of these lists is searched, as specified by the probes parameter. By increasing the value of the probes parameter, more lists are searched, which can improve the accuracy of the search results at the cost of slower search speed.
+The `ivfflat` is an index for approximate nearest neighbor (ANN) search. This method uses an inverted file index to partition the dataset into multiple lists. The probes parameter controls how many lists are searched, which can improve the accuracy of the search results at the cost of slower search speed.
 
-If the probes parameter is set to the number of lists in the index, then all lists are searched and the search becomes an exact nearest neighbor search. In this case, the planner won’t use the index because searching all lists is equivalent to performing a brute-force search on the entire dataset.
+If the probes parameter is set to the number of lists in the index, then all lists are searched and the search becomes an exact nearest neighbor search. In this case, the planner isn't using the index because searching all lists is equivalent to performing a brute-force search on the entire dataset.
 
-The indexing method partitions the dataset into multiple lists using the k-means clustering algorithm. Each list contains vectors that are closest to a particular cluster center. During a search, the query vector is compared to the cluster centers to determine which list (or lists) are most likely to contain the nearest neighbors. If the probes parameter is set to 1, then only the list corresponding to the closest cluster center would be searched.
+The indexing method partitions the dataset into multiple lists using the k-means clustering algorithm. Each list contains vectors that are closest to a particular cluster center. During a search, the query vector is compared to the cluster centers to determine which lists are most likely to contain the nearest neighbors. If the probes parameter is set to 1, then only the list corresponding to the closest cluster center would be searched.
 
-Selecting the correct value for the amount of probes to perform and the sizes of the lists may have a significant impact on search performance. Good places to start are:
+Selecting the correct value for the number of probes to perform and the sizes of the lists may affect search performance. Good places to start are:
 
 1. Use `lists` equal to `rows / 1000` for tables with up to 1 million rows and `sqrt(rows)` for larger datasets.
 1. For `probes` start with `lists / 10` for tables up to 1 million rows and `sqrt(lists)` for larger datasets.
@@ -117,7 +119,7 @@ SELECT * FROM t_test ORDER BY embedding <=> '[1,2,3]' LIMIT 5; -- uses default, 
 
 ### Selecting the index type
 
-pgvector allows you to perform three types of searches on the stored vectors. You need to select the correct access function for your index in order to have the database consider your index when executing your queries.
+The `vector` type allows you to perform three types of searches on the stored vectors. You need to select the correct access function for your index in order to have the database consider your index when executing your queries.
 
 #### Cosine distance
 
@@ -190,7 +192,7 @@ EXPLAIN SELECT * FROM t_test ORDER BY embedding <#> '[1,2,3]' LIMIT 5;
 
 ## Partial indexes
 
-In some scenarios, it is beneficial to have an index that covers only a partial set of the data. We may for example build an index just for our premium users.
+In some scenarios, it's beneficial to have an index that covers only a partial set of the data. We may, for example,  build an index just for our premium users:
 
 ```postgresql
 CREATE INDEX t_premium ON t_test USING ivfflat (vec vector_ip_ops) WITH (lists = 100) WHERE tier = 'premium';
@@ -210,7 +212,7 @@ explain select * from t_test where tier = 'premium' order by vec <#> '[2,2,2]';
 (2 rows)
 ```
 
-While the free tier users lack the benefit.
+While the free tier users lack the benefit:
 
 ```postgresql
 explain select * from t_test where tier = 'free' order by vec <#> '[2,2,2]';
@@ -228,8 +230,8 @@ explain select * from t_test where tier = 'free' order by vec <#> '[2,2,2]';
 
 Having only a subset of data indexed, means the index takes less space on disk and is faster to search through.
 
-Keep in mind, to make sure that the form used in the WHERE clause of the partial index definition matches the one used in your queries, as PostgreSQL may fail to recognize that the index is safe to use.
-In our example dataset we only have the exact values 'free','test' and 'premium' as the distinct values of the tier column. Even with a query using `tier LIKE 'premium'` PostgreSQL will not use the index.
+PostgreSQL may fail to recognize that the index is safe to use if the form used in the `WHERE` clause of the partial index definition doesn't match the one used in your queries.
+In our example dataset, we only have the exact values 'free','test' and 'premium' as the distinct values of the tier column. Even with a query using `tier LIKE 'premium'` PostgreSQL isn't using the index.
 
 ```postgresql
 explain select * from t_test where tier like 'premium' order by vec <#> '[2,2,2]';
@@ -247,10 +249,10 @@ explain select * from t_test where tier like 'premium' order by vec <#> '[2,2,2]
 
 ## Partitioning
 
-One way to improve performance is to split the dataset over multiple partitions. We can imagine a system when it is natural to refer to data just from the current year or maybe past two years.
-In such a system you can partition your data by a date range and then capitalize on improved performance when the system is able to read only the relevant partitions as defined by the queried year.
+One way to improve performance is to split the dataset over multiple partitions. We can imagine a system when it's natural to refer to data just from the current year or maybe past two years.
+In such a system, you can partition your data by a date range and then capitalize on improved performance when the system is able to read only the relevant partitions as defined by the queried year.
 
-Let us define a simple partitioned table:
+Let us define a partitioned table:
 
 ```postgresql
 CREATE TABLE t_test_partitioned(vec vector(3), vec_date date default now()) partition by range (vec_date);
@@ -311,7 +313,7 @@ explain analyze select * from t_test_partitioned where vec_date between '2022-01
  Execution Time: 0.036 ms
 ```
 
-You can of course index a partitioned table.
+You can index a partitioned table.
 
 ```postgresql
 CREATE INDEX ON t_test_partitioned USING ivfflat (vec vector_cosine_ops) WITH (lists = 100);
@@ -340,7 +342,7 @@ explain analyze select * from t_test_partitioned where vec_date between '2022-01
 
 ## Next steps
 
-Congratulations, you just learned the tradeoffs, limitations and best practices to achieve the best performance with pgvector.
+Congratulations, you just learned the tradeoffs, limitations and best practices to achieve the best performance with `pgvector`.
 
 Learn how to [build a recommendation system](#) with pgvector.
 
