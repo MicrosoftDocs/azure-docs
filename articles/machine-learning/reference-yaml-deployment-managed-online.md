@@ -43,6 +43,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `app_insights_enabled` | boolean | Whether to enable integration with the Azure Application Insights instance associated with your workspace. | | `false` |
 | `scale_settings` | object | The scale settings for the deployment. Currently only the `default` scale type is supported, so you don't need to specify this property. <br><br> With this `default` scale type, you can either manually scale the instance count up and down after deployment creation by updating the `instance_count` property, or create an [autoscaling policy](how-to-autoscale-endpoints.md). | | |
 | `scale_settings.type` | string | The scale type. | `default` | `default` |
+| `data_collector.collections` | object | Data collection settings for the deployment. See [DataCollector](#datacollector) for the set of configurable properties.
 | `request_settings` | object | Scoring request settings for the deployment. See [RequestSettings](#requestsettings) for the set of configurable properties. | | |
 | `liveness_probe` | object | Liveness probe settings for monitoring the health of the container regularly. See [ProbeSettings](#probesettings) for the set of configurable properties. | | |
 | `readiness_probe` | object | Readiness probe settings for validating if the container is ready to serve traffic. See [ProbeSettings](#probesettings) for the set of configurable properties. | | |
@@ -66,6 +67,19 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `success_threshold` | integer | The minimum consecutive successes for the probe to be considered successful after having failed. Minimum value is `1` for readiness probe. The value for liveness probe is fixed as `1`. | `1` |
 | `failure_threshold` | integer | When a probe fails, the system will try `failure_threshold` times before giving up. Giving up in the case of a liveness probe means the container will be restarted. In the case of a readiness probe the container will be marked Unready. Minimum value is `1`. | `30` |
 
+### DataCollector
+
+Up to five `collections` are supported, each with an arbitrary `collection_name` defined by the user. A `collection_name` represents a logical grouping of production inference data to collect, such as `model_inputs` and `model_outputs`, for example.
+
+There are two reserved `collection_name`s: `request` and `response`, which respectively correspond to HTTP request and response payload data collection. For more information on payload data collection and data collection with the provided Python SDK, see [Collect data from models in production](how-to-collect-production-data.md).
+
+| Key | Type | Description | Default value |
+| --- | ---- | ----------- | ------------- |
+| `<collection_name>.enabled` | boolean | Whether to enable data collection for the specified `collection_name`. | `false` |
+| `<collection_name>.data.name` | st ring | The name of the data asset to register with the collected data. | `<endpoint>-<deployment>-<collection_name>` |
+| `<collection_name>.data.path` | string | The full AzureML datastore path where the collected data should be registered as a data asset. | `azureml://datastores/workspaceblobstore/paths/modelDataCollector/<endpoint_name>/<deployment_name>/<collection_name>` |
+| `<collection_name>.data.version` | integer | The version of the data asset to be registered with the collected data in Blob storage. | `1` |
+
 ## Remarks
 
 The `az ml online-deployment` commands can be used for managing Azure Machine Learning managed online deployments.
@@ -85,6 +99,12 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/managed-identities/2-sai-deployment.yml":::
 
 ## YAML: user-assigned identity
+
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/managed-identities/2-uai-deployment.yml":::
+
+## YAML: data_collector
+
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/managed-identities/2-uai-deployment.yml":::
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/managed-identities/2-uai-deployment.yml":::
 
