@@ -18,6 +18,7 @@ This page provides latest news and updates regarding feature additions, engine v
 
 ## Release: April 2023
 * Public preview of [Query Performance Insight](./concepts-query-performance-insight.md) for Azure Database for PostgreSQL – Flexible Server.
+* General availability: [Power BI integration](./connect-with-power-bi-desktop.md) for Azure Database for PostgreSQL – Flexible Server.
 
 ## Release: March 2023
 * General availability of [Read Replica](concepts-read-replicas.md) for Azure Database for PostgreSQL – Flexible Server.
