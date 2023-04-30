@@ -490,6 +490,8 @@
                   href: azure-files-csi.md
                 - name: Provision Azure Files storage
                   href: azure-csi-files-storage-provision.md
+            - name: Azure Files and Azure NetApp Files comparison
+              href: ../storage/files/storage-files-netapp-comparison.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
             - name: Provision Azure NetApp Files storage
               href: azure-netapp-files.md
         - name: Block storage
@@ -498,6 +500,8 @@
               href: azure-disk-csi.md
             - name: Provision Azure Disks storage
               href: azure-csi-disk-storage-provision.md
+            - name: Use Azure Premium SSD v2 disks
+              href: use-premium-v2-disks.md
             - name: Use Azure ultra disks
               href: use-ultra-disks.md
         - name: Other storage options
