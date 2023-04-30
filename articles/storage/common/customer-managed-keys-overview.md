@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 03/23/2023
+ms.date: 04/28/2023
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -23,7 +23,7 @@ You must use one of the following Azure key stores to store your customer-manage
 - [Azure Key Vault](../../key-vault/general/overview.md)
 - [Azure Key Vault Managed Hardware Security Module (HSM)](../../key-vault/managed-hsm/overview.md)
 
-You can either create your own keys and store them in the key vault or managed HSM, or you can use the Azure Key Vault APIs to generate keys. The storage account and the key vault or managed HSM can be different Azure Active Directory (Azure AD) tenants, regions, and subscriptions.
+You can either create your own keys and store them in the key vault or managed HSM, or you can use the Azure Key Vault APIs to generate keys. The storage account and the key vault or managed HSM can be in different Azure Active Directory (Azure AD) tenants, regions, and subscriptions.
 
 > [!NOTE]
 > Azure Key Vault and Azure Key Vault Managed HSM support the same APIs and management interfaces for configuration of customer-managed keys. Any action that is supported for Azure Key Vault is also supported for Azure Key Vault Managed HSM.

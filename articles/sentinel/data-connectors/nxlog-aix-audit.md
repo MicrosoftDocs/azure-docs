@@ -18,7 +18,7 @@ The NXLog [AIX Audit](https://nxlog.co/documentation/nxlog-user-guide/im_aixaudi
 | --- | --- |
 | **Log Analytics table(s)** | AIX_Audit_CL<br/> |
 | **Data collection rules support** | Not currently supported |
-| **Supported by** | [NXLog](https://nxlog.co/user?destination=node/add/support-ticket) |
+| **Supported by** | [NXLog](https://nxlog.co/community-forum/t/819-support-tickets) |
 
 ## Query samples
 

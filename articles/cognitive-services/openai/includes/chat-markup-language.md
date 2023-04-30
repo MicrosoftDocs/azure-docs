@@ -28,7 +28,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 response = openai.Completion.create(
   engine="gpt-35-turbo", # The deployment name you chose when you deployed the ChatGPT model
-  prompt="<|im_start|>system\nAssistant is a large language model trained by OpenAI.\n<|im_end|>\n<|im_start|>user\nWhat's the difference between garbanzo beans and chickpeas?\n<|im_end|>\n<|im_start|>assistant\n",
+  prompt="<|im_start|>system\nAssistant is a large language model trained by OpenAI.\n<|im_end|>\n<|im_start|>user\nWho were the founders of Microsoft?\n<|im_end|>\n<|im_start|>assistant\n",
   temperature=0,
   max_tokens=500,
   top_p=0.5,
@@ -110,7 +110,7 @@ If you want the ChatGPT and GPT-4 models to behave similarly to [chat.openai.com
 Assistant is a large language model trained by OpenAI.
 <|im_end|>
 <|im_start|>user
-What's the difference between garbanzo beans and chickpeas?
+Who were the founders of Microsoft?
 <|im_end|>
 <|im_start|>assistant
 ```
