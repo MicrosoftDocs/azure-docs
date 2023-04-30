@@ -72,16 +72,15 @@ There are three approaches to making data in Azure Monitor Logs available to you
 
 This table compares the advantages and limitations of the two machine learning pipeline implementation approaches:
 
-| |Query data into memory|Export data|
+| |Query data into Azure Monitor Logs|Export data to storage|
 |-|-|-|-|
-|**Advantages**|-  Gets you started quickly.<br> - Data science and programming skills not required.<br>- No need to install Python or other tools locally because code runs on a server.<br> - Minimal latency and cost savings.|- Supports larger scales.<br>- No query limitations.|
+|**Advantages**|- Gets you started quickly.<br> - Only basic data science and programming skills required.<br> - Minimal latency and cost savings.|- Supports larger scales.<br>- No query limitations.|
 |**Data exported?**|No|Yes|
-|**Uses other Azure services?**|Optionally - using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is).|Typically, using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is). |
-|**Latency** | Minimal | Introduces latency in scoring new data.|Minimal|
+|**Service limits**|[Query API log query limits](../service-limits.md#log-analytics-workspaces), which you can overcome by [splitting query execution into chunks](https://learn.microsoft.com/samples/azure/azure-sdk-for-python/query-azuremonitor-samples/).| None. |
 |**Data volumes**|Analyze several GBs of data, or a few million records.|Supports large volumes of data.|
-|**Query limitations**|[Query API log query limits](../service-limits.md#log-analytics-workspaces), which you can overcome by [splitting query execution into chunks](https://learn.microsoft.com/samples/azure/azure-sdk-for-python/query-azuremonitor-samples/).| None. |
+|**Machine learning library**|Optionally - using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is).|Typically, using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is). |
+|**Latency** | Minimal | Introduces latency in scoring new data.|Minimal|
 |**Cost** |Cost of the server on which your notebook or code runs. | Cost of data export and external storage.|
-
 
 ### Implement the steps of the machine learning lifecycle in Azure Monitor Logs
 
