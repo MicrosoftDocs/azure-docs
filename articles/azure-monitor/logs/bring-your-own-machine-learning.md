@@ -41,9 +41,9 @@ This table compares the advantages and limitations of using KQL's built-in machi
 |-|-|-|
 |**Scenario**| :white_check_mark: Anomaly detection and root cause analysis <br> | :white_check_mark: Anomaly detection and root cause analysis <br> :white_check_mark: Alerting and automation<br> :white_check_mark: [Advanced analysis and AIOPs scenarios](#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs)  |
 |**Advantages**|- Gets you started very quickly.<br>- Doesn't require data science knowledge and programming skills.<br>- Optimal performance and cost savings. |- Supports larger scales.<br>- Enables advanced, more complex scenarios.<br>- Flexibility in choosing libraries, models, parameters.|
-|**Service limits** |[Azure portal or Query API log query limits](../service-limits.md#log-analytics-workspaces) depending on whether you're working in the portal or using the API, for example, from a notebook.| Query API log query limits depending on how you [implement your machine learning pipeline](#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs).|
+|**Service limits** |[Azure portal or Query API log query limits](../service-limits.md#azure-portal) depending on whether you're working in the portal or using the API, for example, from a notebook.| [Query API log query limits(../service-limits.md#la-query-api)] depending on how you [implement your machine learning pipeline](#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs).|
 |**Data volumes**|Supports several GBs of data, or a few million records.|Supports larger data volumes, depending on how you [implement your machine learning pipeline](#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs). |
-|**Integration**|None required.|Requires integration with a tool, such as Jupyter Notebook, or a machine learning service.|
+|**Integration**|None required.|Requires integration with a tool, such as [Jupyter Notebook](../logs/jupyter-notebook-ml-azure-monitor-logs.md), or a machine learning service.|
 |**Performance**|Optimal performance, using the power of the Azure Data Explorer platform, running at high scales in a distributed manner. |Introduces latency when querying or exporting data, depending on how you implement your machine learning pipeline. |
 |**Model type** |Linear regression model with a set of configurable parameters.|Completely customizable machine learning model.  |
 |**Cost**|No extra cost.| Depending on how you [implement your machine learning pipeline](#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs), you might incur charges for exporting data, ingesting data into Azure Monitor Logs, and the use of other Azure services.|
@@ -66,17 +66,17 @@ There are three approaches to making data in Azure Monitor Logs available to you
 
 - **Hybrid pipeline** - Export data for model training and use the *bring your own analysis* approach to score new data to reduce to latency in analyzing new data.
 
-This table compares the advantages and limitations of the various machine learning pipeline implementation approaches:
+This table compares the advantages and limitations of the two machine learning pipeline implementation approaches:
 
-| |Bring your own analysis to Azure Monitor Logs|Export data|Hybrid pipeline|
+| |Query data into memory|Export data|
 |-|-|-|-|
-|**Advantages**|-  Gets you started quickly.<br> - Data science and programming skills not required.<br>- No need to install Python or other tools locally because code runs on a server.<br> - Minimal latency and cost savings.|- Supports larger scales.<br>- No query limitations.|Supports model training on larger data sets, while reducing latency at scoring data. |
-|**Data exported?**|No|Yes|**Training**: Yes<br>**Scoring**: No |
-|**Uses other Azure services?**|Optionally - using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is).|Typically, using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is). |**Training**: Typically, yes.<br>**Scoring**: Optional |
+|**Advantages**|-  Gets you started quickly.<br> - Data science and programming skills not required.<br>- No need to install Python or other tools locally because code runs on a server.<br> - Minimal latency and cost savings.|- Supports larger scales.<br>- No query limitations.|
+|**Data exported?**|No|Yes|
+|**Uses other Azure services?**|Optionally - using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is).|Typically, using [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) or [Azure Synapse](/azure/synapse-analytics/overview-what-is). |
 |**Latency** | Minimal | Introduces latency in scoring new data.|Minimal|
-|**Data volumes**|Analyze several GBs of data, or a few million records.|Supports large volumes of data.|**Scoring**: Large volumes of data.<br>**Training**: Several GBs of data, or a few million records. |
-|**Query limitations**|[Query API log query limits](../service-limits.md#log-analytics-workspaces), which you can overcome by [splitting query execution into chunks](https://learn.microsoft.com/samples/azure/azure-sdk-for-python/query-azuremonitor-samples/).| None. |**Training**: None. **Scoring**: Query API log query limits |
-|**Cost** |Cost of the server on which your notebook or code runs. | Cost of data export and external storage.|Cost of export from Azure Monitor Logs and training in the service you use. |
+|**Data volumes**|Analyze several GBs of data, or a few million records.|Supports large volumes of data.|
+|**Query limitations**|[Query API log query limits](../service-limits.md#log-analytics-workspaces), which you can overcome by [splitting query execution into chunks](https://learn.microsoft.com/samples/azure/azure-sdk-for-python/query-azuremonitor-samples/).| None. |
+|**Cost** |Cost of the server on which your notebook or code runs. | Cost of data export and external storage.|
 
 
 ### Implement the steps of the machine learning lifecycle in Azure Monitor Logs
