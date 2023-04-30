@@ -65,8 +65,6 @@ As part of the communications channel between the two products, Defender for IoT
 
 1. In the **Add Admin User** dialog box, set the following parameters:
 
-    :::image type="content" source="media/tutorial-clearpass/policy-manager.png" alt-text="Screenshot of the administrator user's dialog box view.":::
-
     | Parameter | Description |
     |--|--|
     | **UserID** | Enter the user ID. |
@@ -107,8 +105,6 @@ In order to secure access to the REST API for the API Client, create a restricte
     - **Grant Type**: Set **Client credentials (grant_type = client_credentials)**.
 
 1. Ensure you record the **Client Secret** and the **Client ID**. For example, `defender-rest`.
-
-    :::image type="content" source="media/tutorial-clearpass/aruba.png" alt-text="Screenshot of the Create API Client.":::
 
 1. In the Policy Manager, ensure you collected the following list of information before proceeding to the next step.
 
@@ -158,7 +154,7 @@ Forwarding alert rules run only on alerts triggered after the forwarding rule is
 
 1. In the **Add forwarding rule** pane, define the rule parameters:
 
-    :::image type="content" source="media/tutorial-clearpass/create-rule.png" alt-text="Screenshot of how to create a Forwarding Rule." lightbox="media/tutorial-clearpass/create-rule.png":::
+    :::image type="content" source="media/tutorial-clearpass/create-rule.png" alt-text="Screenshot of how to create a Forwarding Rule." lightbox="media/tutorial-clearpass/create-rule.png" lightbox="media/tutorial-clearpass/create-rule.png":::
 
     | Parameter | Description |
     |--|--|
@@ -197,7 +193,7 @@ Once the sync has started, endpoint data is populated directly into the Policy M
 
 1. Select **System settings** > **Integrations** > **ClearPass**.
 
-    :::image type="content" source="media/tutorial-clearpass/last-sync.png" alt-text="Screenshot of the view the time and date of your last sync.":::
+    :::image type="content" source="media/tutorial-clearpass/last-sync.png" alt-text="Screenshot of the view the time and date of your last sync." lightbox="media/tutorial-clearpass/last-sync.png":::
 
 If Sync isn't working, or shows an error, then it’s likely you’ve missed capturing some of the information. Recheck the data recorded.
 
@@ -205,7 +201,7 @@ Additionally, you can view the API calls between Defender for IoT and ClearPass 
 
 For example, API logs between Defender for IoT and ClearPass:
 
-:::image type="content" source="media/tutorial-clearpass/log.png" alt-text="Screenshot of API logs between Defender for IoT and ClearPass.":::
+:::image type="content" source="media/tutorial-clearpass/log.png" alt-text="Screenshot of API logs between Defender for IoT and ClearPass." lightbox="media/tutorial-clearpass/log.png":::
 
 ## Next steps
 

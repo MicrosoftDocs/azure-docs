@@ -29,13 +29,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. Sign in to QRadar and select **Admin** > **Data Sources**.
 
-1. In the Data Sources window, select **Log Sources**. For example:
+1. In the Data Sources window, select **Log Sources**.
 
-   [:::image type="content" source="media/tutorial-qradar/log.png" alt-text="Screenshot of selecting a log sources from the available options.":::](media/tutorial-qradar/log.png#lightbox)
-
-1. In the **Modal** window, select **Add**. For example:
-
-    [:::image type="content" source="media/tutorial-qradar/modal.png" alt-text="Screenshot of after selecting Syslog the modal window opens.":::](media/tutorial-qradar/modal.png#lightbox)
+1. In the **Modal** window, select **Add**.
 
 1. In the **Add a log source** dialog box, define the following parameters:
 
@@ -50,9 +46,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    > [!NOTE]
    > The Log Source Identifier name must not include white spaces. We recommend replacing any white spaces with an underscore.
 
-1. Select **Save** > **Deploy Changes**. For example,
-
-   :::image type="content" source="media/tutorial-qradar/deploy.png" alt-text="Screenshot of the Deploy Changes view":::
+1. Select **Save**, and then **Deploy Changes**.
 
 ## Deploy a Defender for IoT QID
 

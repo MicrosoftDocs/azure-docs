@@ -89,9 +89,7 @@ An application programming interface (API) key is a uniquely generated code that
     | **CORS Allow Origin** | Toggle the switch to **Enable**. |
     | **Restrict login to trusted hosts** | Add the IP addresses of the sensors and on-premises management consoles that will connect to FortiGate. |
 
-Save the API key when it's generated, as it will not be provided again.
-
-:::image type="content" source="media/tutorial-fortinet/api-key.png" alt-text="Screenshot of the description automatically generates New API Key.":::
+Save the API key when it's generated, as it will not be provided again. The bearer of the generated API key will be granted all access privileges assigned to the account.
 
 ## Set a forwarding rule to block malware-related alerts
 
@@ -107,7 +105,7 @@ Forwarding alert rules run only on alerts triggered after the forwarding rule is
 
 1. In the **Add forwarding rule** pane, define the rule parameters:
 
-    [:::image type="content" source="media/tutorial-fortinet/forward-rule.png" alt-text="Screenshot of the Forwarding window option in a sensor.":::](media/tutorial-fortinet/forward-rule.png#lightbox)
+    :::image type="content" source="media/tutorial-fortinet/forward-rule.png" alt-text="Screenshot of the Forwarding window option in a sensor." lightbox="media/tutorial-fortinet/forward-rule.png":::
 
     | Parameter | Description |
     |--|--|
@@ -150,8 +148,6 @@ The source of suspicious alerts can be blocked in order to prevent further occur
 
 1. To automatically block the suspicious source, select **Block Source**.
 
-    :::image type="content" source="media/tutorial-fortinet/block-source.png" alt-text="Screenshot of the Alert window.":::
-
 1. In the Please Confirm dialog box, select **OK**.
 
 ## Send Defender for IoT alerts to FortiSIEM
@@ -168,13 +164,19 @@ Defender for IoT alerts provide information about an extensive range of security
 
 - Protocol deviations from protocol specifications
 
-You can configure Defender for IoT to send alerts to the FortiSIEM server, where alert information is displayed in the Analytics window:
-
-:::image type="content" source="media/tutorial-fortinet/analytics.png" alt-text="Screenshot of the Analytics window.":::
+You can configure Defender for IoT to send alerts to the FortiSIEM server, where alert information is displayed in the **ANALYTICS** window:
 
 Each Defender for IoT alert is then parsed without any other configuration on the FortiSIEM side, and they're presented in the FortiSIEM as security events. The following event details appear by default:
 
-:::image type="content" source="media/tutorial-fortinet/event-detail.png" alt-text="Screenshot of the view your event details in the Event Details window.":::
+- Application Protocol
+- Application Version
+- Category Type
+- Collector ID
+- Count
+- Device Time
+- Event ID
+- Event Name
+- Event Parse Status
 
 You can then use Defender for IoT's Forwarding Rules to send alert information to FortiSIEM.
 
@@ -188,7 +190,7 @@ Forwarding alert rules run only on alerts triggered after the forwarding rule is
 
 1. In the **Add forwarding rule** pane, define the rule parameters:
 
-    [:::image type="content" source="media/tutorial-fortinet/forwarding-view.png" alt-text="Screenshot of the view of your forwarding rules in the Forwarding window.":::](media/tutorial-fortinet/forwarding-view.png#lightbox)
+    :::image type="content" source="media/tutorial-fortinet/forwarding-view.png" alt-text="Screenshot of the view of your forwarding rules in the Forwarding window." lightbox="media/tutorial-fortinet/forwarding-view.png":::
 
     | Parameter | Description |
     |--|--|
@@ -212,11 +214,9 @@ Forwarding alert rules run only on alerts triggered after the forwarding rule is
 
 You can set policies to automatically block malicious sources in the FortiGate firewall, using alerts in Defender for IoT.
 
-:::image type="content" source="media/tutorial-fortinet/firewall.png" alt-text="Screenshot of the view of the FortiGate Firewall window view.":::
-
 For example, the following alert can block the malicious source:
 
-:::image type="content" source="media/tutorial-fortinet/suspicion.png" alt-text="Screenshot of the NotPetya Malware suspicion window.":::
+:::image type="content" source="media/tutorial-fortinet/suspicion.png" alt-text="Screenshot of the NotPetya Malware suspicion window." lightbox="media/tutorial-fortinet/suspicion.png":::
 
 **To set a FortiGate firewall rule that blocks a malicious source**:
 
@@ -228,15 +228,13 @@ For example, the following alert can block the malicious source:
 
 1. Navigate to the FortiGage **Administrator** window, and locate the malicious source address you blocked.
 
-   :::image type="content" source="media/tutorial-fortinet/administrator.png" alt-text="Screenshot of the FortiGate Administrator window view.":::
-
    The blocking policy is automatically created, and appears in the FortiGate IPv4 Policy window.
 
-   :::image type="content" source="media/tutorial-fortinet/policy.png" alt-text="Screenshot of the FortiGate IPv4 Policy window view.":::
+   :::image type="content" source="media/tutorial-fortinet/policy.png" alt-text="Screenshot of the FortiGate IPv4 Policy window view." lightbox="media/tutorial-fortinet/policy.png":::
 
 1. Select the policy and ensure that **Enable this policy** is toggled on.
 
-   :::image type="content" source="media/tutorial-fortinet/edit.png" alt-text="Screenshot of the FortiGate IPv4 Policy Edit view.":::
+   :::image type="content" source="media/tutorial-fortinet/edit.png" alt-text="Screenshot of the FortiGate IPv4 Policy Edit view." lightbox="media/tutorial-fortinet/edit.png":::
 
     | Parameter | Description|
     |--|--|

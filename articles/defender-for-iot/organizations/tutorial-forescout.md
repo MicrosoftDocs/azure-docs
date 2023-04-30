@@ -76,8 +76,6 @@ To ensure communication from Defender for IoT to Forescout, you must generate an
 
 1. Select **Finish**.
 
-   :::image type="content" source="media/tutorial-forescout/forescout-access-token-added-successfully.png" alt-text="Screenshot of adding token":::
-
 ## Configure the Forescout platform
 
 You can now configure the Forescout platform to communicate with a Defender for IoT sensor.
@@ -91,8 +89,6 @@ You can now configure the Forescout platform to communicate with a Defender for 
 1. From the Tools menu, select **Options**.
 
 1. Navigate to **Modules** > **CyberX Platform**.
-
-   :::image type="content" source="media/tutorial-forescout/settings-for-module.png" alt-text="Screenshot of Microsoft Defender for IoT module settings":::
 
 1. In the Server Address field, enter the IP address of the Defender for IoT sensor that will be queried by the Forescout appliance.
 
@@ -155,11 +151,7 @@ The following table lists all of the attributes that are visible through the For
 
 1. Sign in to the Forescout platform and then navigate to the **Asset Inventory**.
 
-   :::image type="content" source="media/tutorial-forescout/device-firmware-attributes-in-forescout.png" alt-text="Screenshot of how to view the firmware attributes.":::
-
 1. Select the **CyberX Platform**.
-
-   :::image type="content" source="media/tutorial-forescout/vendor-attributes-in-forescout.png" alt-text="Screenshot of how to view the vendors attributes.":::
 
 ### View more details
 
@@ -187,9 +179,16 @@ You can create custom policies in Forescout using Defender for IoT conditional p
 
 1. Navigate to **Policy Conditions** > **Properties Tree**.
 
-1. In the Properties Tree, expand the CyberX Platform folder. The Defender for IoT following properties are available.
+1. In the Properties Tree, expand the **CyberX Platform** folder. The Defender for IoT following properties are available:
 
-    :::image type="content" source="media/tutorial-forescout/forescout-property-tree.png" alt-text="Screenshot of available properties":::
+- Protocols
+- Risk Level
+- Authorized by CyberX
+- Type
+- Firmware
+- Name
+- Operating System
+- Vendor
 
 ## Next steps
 

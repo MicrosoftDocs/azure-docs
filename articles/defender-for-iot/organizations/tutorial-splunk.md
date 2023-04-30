@@ -25,8 +25,8 @@ In this article, you learn how to:
 
 > [!div class="checklist"]
 >
-> * Download the Defender for IoT application in Splunk
-> * Send Defender for IoT alerts to Splunk
+> - Download the Defender for IoT application in Splunk
+> - Send Defender for IoT alerts to Splunk
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -36,18 +36,18 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The following versions are required for the application to run.
 
-* Defender for IoT version 2.4 and above.
+- Defender for IoT version 2.4 and above.
 
-* Splunkbase version 11 and above.
+- Splunkbase version 11 and above.
 
-* Splunk Enterprise version 7.2 and above.
+- Splunk Enterprise version 7.2 and above.
 
 ### Permission requirements
 
 Make sure you have:
 
-* Access to a Defender for IoT OT sensor as an Admin user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
-* Splunk user with an *Admin* level user role.
+- Access to a Defender for IoT OT sensor as an Admin user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
+- Splunk user with an *Admin* level user role.
 
 ## Download the Defender for IoT application in Splunk
 
@@ -67,17 +67,15 @@ To access the Defender for IoT application within Splunk, you need to download t
 
 The Defender for IoT alerts provide information about an extensive range of security events. These events include:
 
-* Deviations from the learned baseline network activity.
+- Deviations from the learned baseline network activity.
 
-* Malware detections.
+- Malware detections.
 
-* Detections based on suspicious operational changes.
+- Detections based on suspicious operational changes.
 
-* Network anomalies.
+- Network anomalies.
 
-* Protocol deviations from protocol specifications.
-
-    :::image type="content" source="media/tutorial-splunk/address-scan.png" alt-text="A screen capture if an Address Scan Detected alert.":::
+- Protocol deviations from protocol specifications.
 
 You can also configure Defender for IoT to send alerts to the Splunk server, where alert information is displayed in the Splunk Enterprise dashboard.
 

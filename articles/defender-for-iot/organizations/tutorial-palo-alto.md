@@ -84,11 +84,9 @@ You'll then need to block any suspicious source.
 
 1. Navigate to the **Alerts** page, and select the alert related to the Palo Alto integration.
 
-1. To automatically block the suspicious source, select **Block Source**. The **Please Confirm** dialog box appears.
+1. To automatically block the suspicious source, select **Block Source**.
 
-    :::image type="content" source="media/tutorial-palo-alto/unauthorized.png" alt-text="Screenshot of the Block Source button, to block the unauthorized source." border="false":::
-
-1. Select **OK**.
+1. In the **Please Confirm** dialog box, select **OK**.
 
 The suspicious source is now blocked by the Palo Alto firewall.
 
@@ -114,7 +112,7 @@ In IT networks, there may be dynamic IP addresses. Therefore, for those subnets,
 
 In addition, Defender for IoT sends an email to the relevant Panorama user to notify that a new policy created by Defender for IoT is waiting for the approval. The figure below presents the Defender for IoT-Panorama Integration Architecture.
 
-:::image type="content" source="media/tutorial-palo-alto/structure.png" alt-text="Screenshot of the Defender for IoT-Panorama Integration Architecture." border="false":::
+:::image type="content" source="media/tutorial-palo-alto/structure.png" alt-text="Screenshot of the Defender for IoT-Panorama Integration Architecture." border="false" lightbox="media/tutorial-palo-alto/structure.png":::
 
 The first step in creating Panorama blocking policies in Defender for IoT is to configure DNS lookup.
 
@@ -147,45 +145,57 @@ Suspicious traffic needs to be blocked with the Palo Alto firewall. You can bloc
 
 Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created aren't affected by the rule.
 
-**To block suspicious traffic with the Palo Alto firewall using a Defender for IoT forwarding rule**:
+1. Sign in to the sensor, and select **Forwarding**.
 
-1. Sign into the OT sensor and select **Forwarding** > **Create Forwarding Rule**.
+1. Select **Create new rule**.
 
-1. From the **Actions** drop down menu, select **Send to Palo Alto Panorama**.
+1. In the **Add forwarding rule** pane, define the rule parameters:
 
-1. In the Actions pane, set the following parameters:
+    :::image type="content" source="media/tutorial-palo-alto/edit.png" alt-text="Screenshot of creating the rules for your Palo Alto Panorama forwarding rule." border="false" lightbox="media/tutorial-palo-alto/forwarding-rule.png":::
 
     | Parameter | Description |
     |--|--|
-    | **Host** | Enter the Panorama server IP address. |
-    | **Port** | Enter the Panorama server port. |
-    | **Username** | Enter the Panorama server username. |
-    | **Password** | Enter the Panorama server password. |
-    | **Report Address** | Define how the blocking is executed, as follows: <br><br> - **By IP Address**: Always creates blocking policies on Panorama based on the IP address. <br> - **By FQDN or IP Address**: Creates blocking policies on Panorama based on FQDN if it exists, otherwise by the IP Address. |
-    | **Email** | Set the email address for the policy notification email. | 
-    | **Execute a DNS lookup upon alert detection (Checkbox)** | When the FQDN, or IP Address option is set in the Report Address. <br> This checkbox is selected by default. <br> If only the IP address is set, this option is disabled. |
-    | **Configure** | Set up the following options to allow blocking of the suspicious sources by the Palo Alto Panorama: <br><br> - **Block illegal function codes**: Protocol violations - Illegal field value violating ICS, protocol specification (potential exploit). <br> - **Block unauthorized PLC programming/firmware updates**: Unauthorized PLC changes. <br> - **Block unauthorized PLC stop**: PLC stop (downtime). <br> - **Block malware-related alerts**: Blocking of industrial malware attempts (TRITON, NotPetya, etc.). <br> You can select the option of **Automatic blocking**. <br> In that case, the blocking is executed automatically and immediately. <br> - **Block unauthorized scanning**: Unauthorized scanning (potential reconnaissance).
+    | **Rule name** | The forwarding rule name. |
+    | **Minimal alert level** | The minimal security level incident to forward. For example, if Minor is selected, minor alerts and any alert above this severity level will be forwarded. |
+    | **Any protocol detected**     |  Toggle off to select the protocols you want to include in the rule.       |
+    | **Traffic detected by any engine**     | Toggle off to select the traffic you want to include in the rule.       |
+
+1. In the **Actions** area, set the following parameters:
+
+    | Parameter | Description |
+    |--|--|
+    | **Server** | Select Palo Alto NGFW. |
+    | **Host** | Enter the NGFW server IP address. |
+    | **Port** | Enter the NGFW server port. |
+    | **Username** | Enter the NGFW server username. |
+    | **Password** | Enter the NGFW server password. |
+    | **Report Addresses** | Define how the blocking is executed, as follows: <br><br> - **By IP Address**: Always creates blocking policies on Panorama based on the IP address. <br> - **By FQDN or IP Address**: Creates blocking policies on Panorama based on FQDN if it exists, otherwise by the IP Address. |
+    | **Email** | Set the email address for the policy notification email. |
 
     > [!NOTE]
     > Make sure you have configured a Mail Server in the Defender for IoT. If no email address is entered, Defender for IoT does not send a notification email.
 
-    For example:
+1. Configure the following options to allow blocking of the suspicious sources by the Palo Alto Panorama::
 
-    :::image type="content" source="media/tutorial-palo-alto/edit.png" alt-text="Screenshot of the Select action screen." border="false":::
+    | Parameter | Description |
+    |--|--|
+    | **Block illegal function codes** | Protocol violations - Illegal field value violating ICS protocol specification (potential exploit). |
+    | **Block unauthorized PLC programming / firmware updates** | Unauthorized PLC changes. |
+    | **Block unauthorized PLC stop** | PLC stop (downtime). |
+    | **Block malware related alerts** | Blocking of industrial malware attempts (TRITON, NotPetya, etc.). <br><br> You can select the option of **Automatic blocking**. <br> In that case, the blocking is executed automatically and immediately. |
+    | **Block unauthorized scanning** | Unauthorized scanning (potential reconnaissance). |
 
-1. Select **Submit**.
+1. Select **Save**.
 
-You'll then need to block the suspicious source.
+You'll then need to block any suspicious source.
 
-**To block the suspicious source**:
+**To block a suspicious source**:
 
-1. In the **Alerts** pane, select the alert related to Palo Alto integration. The **Alert’s Details** dialog box appears.
-
-  :::image type="content" source="media/tutorial-palo-alto/unauthorized.png" alt-text="Screenshot of the alert screen, select the one related to Palo Alto, and then select block source." border="false":::
+1. Navigate to the **Alerts** page, and select the alert related to the Palo Alto integration.
 
 1. To automatically block the suspicious source, select **Block Source**.
 
-1. Select **OK.**
+1. Select **OK**.
 
 ## Next step
 

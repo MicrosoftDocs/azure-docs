@@ -26,7 +26,7 @@ The Defender for IoT appliance is connected to the OT network via a SPAN port (m
 
 A dedicated network interface is also provided in the Defender for IoT appliance for centralized management and API access. This interface is also used for communicating with the CyberArk PSM solution that is deployed in the data center of the organization to manage privileged users and secure remote access connections.
 
-:::image type="content" source="media/tutorial-cyberark/architecture.png" alt-text="The CyberArk PSM solution deployment" border="false":::
+:::image type="content" source="media/tutorial-cyberark/architecture.png" alt-text="The CyberArk PSM solution deployment" border="false" lightbox="media/tutorial-cyberark/architecture.png":::
 
 In this article, you learn how to:
 
@@ -70,9 +70,7 @@ CyberArk must be configured to allow communication with Defender for IoT. This c
 
 1. Open the **Server Central Administration**.
 
-1. Select the **Stop Traffic Light** to stop the server.
-
-    :::image type="content" source="media/tutorial-cyberark/server.png" alt-text="Screenshot of the server central administration stop traffic light.":::
+1. Select the :::image type="icon" source="media/tutorial-cyberark/stoplight.png" border="false"::: **Stop Traffic Light** to stop the server.
 
 1. Select the **Start Traffic Light** to start the server.
 
@@ -106,7 +104,7 @@ Whenever the Defender for IoT platform identifies remote sessions that haven't b
 
 1. From the list of alerts, select the alert titled **Unauthorized Remote Session**.
 
-    :::image type="content" source="media/tutorial-cyberark/unauthorized.png" alt-text="The Unauthorized Remote Session alert.":::
+    :::image type="content" source="media/tutorial-cyberark/unauthorized.png" alt-text="The Unauthorized Remote Session alert." lightbox="media/tutorial-cyberark/unauthorized.png":::
 
 ### Event timeline
 

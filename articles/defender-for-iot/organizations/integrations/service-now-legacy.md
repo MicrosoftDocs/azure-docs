@@ -25,6 +25,9 @@ The Defender for IoT integration with ServiceNow provides centralized visibility
 
 The ServiceNow Configuration Management Database (CMDB) is enriched, and supplemented with a rich set of device attributes that are pushed by the Defender for IoT platform. This ensures a comprehensive, and continuous visibility into the device landscape. This visibility lets you monitor, and respond from a single-pane-of-glass.
 
+> [!NOTE]
+> Microsoft Defender for IoT was formally known as [CyberX](https://blogs.microsoft.com/blog/2020/06/22/microsoft-acquires-cyberx-to-accelerate-and-secure-customers-iot-deployments/). References to CyberX refer to Defender for IoT.
+
 In this article, you learn how to:
 
 > [!div class="checklist"]
@@ -68,15 +71,9 @@ To access the Defender for IoT application within ServiceNow, you need to downlo
 
 1. Search for `Defender for IoT` or `CyberX IoT/ICS Management`.
 
-   :::image type="content" source="../media/tutorial-servicenow/search-results.png" alt-text="Screenshot of the search screen in ServiceNow.":::
-
 1. Select the application.
 
-   :::image type="content" source="../media/tutorial-servicenow/cyberx-app.png" alt-text="Screenshot of the search screen results.":::
-
 1. Select **Request App**.
-
-   :::image type="content" source="../media/tutorial-servicenow/sign-in.png" alt-text="Sign in to the application with your credentials.":::
 
 1. Sign in, and download the application.
 
@@ -90,40 +87,35 @@ Forwarding alert rules run only on alerts triggered after the forwarding rule is
 
 1. Sign in to the on-premises management console, and select **Forwarding**.
 
-1. Select the :::image type="icon" source="../media/tutorial-servicenow/plus-icon.png" border="false"::: button.
+1. Select **+** to create a new rule.
+
+1. In the **Create Forwarding Rule** pane, define the following values:
+
+    | Parameter | Description |
+    |--|--|
+    | **Name** | Enter a meaningful name for the forwarding rule. |
+    | **Warning** | From the drop-down menu, select the minimal security level incident to forward. <br> For example, if **Minor** is selected, minor alerts and any alert above this severity level will be forwarded.|
+    | **Protocols** | To select a specific protocol, select **Specific**, and select the protocol for which this rule is applied. <br> By default, all the protocols are selected. |
+    | **Engines** | To select a specific security engine for which this rule is applied, select **Specific**, and select the engine. <br> By default, all the security engines are involved. |
+    | **System Notifications** | Forward the sensor's *online* and *offline* status. |
+    | **Alert Notifications** | Forward the sensor's alerts. |
+
+1. In the **Actions** area, select **Add**, and then select **ServiceNow**. For example:
 
     :::image type="content" source="../media/tutorial-servicenow/forwarding-rule.png" alt-text="Screenshot of the Create Forwarding Rule window.":::
 
-1. Add a rule name.
-
-1. Define criteria under which Defender for IoT will trigger the forwarding rule. Working with Forwarding rule criteria helps pinpoint and manage the volume of information sent from Defender for IoT to ServiceNow. The following options are available:
-
-    - **Severity levels:** This is the minimum-security level incident to forward. For example, if **Minor** is selected, minor alerts, and any alert above this severity level will be forwarded. Levels are pre-defined by Defender for IoT.
-
-    - **Protocols:** Only trigger the forwarding rule if the traffic detected was running over specific protocols. Select the required protocols from the drop-down list or choose them all.
-
-    - **Engines:** Select the required engines or choose them all. Alerts from selected engines will be sent.
-
 1. Verify that **Report Alert Notifications** is selected.
-
-1. In the Actions section, select **Add** and then select **ServiceNow**.
-
-    :::image type="content" source="../media/tutorial-servicenow/select-servicenow.png" alt-text="Select ServiceNow from the dropdown options.":::
-
-1. Enter the ServiceNow action parameters:
-
-    :::image type="content" source="../media/tutorial-servicenow/parameters.png" alt-text="Fill in the ServiceNow action parameters.":::
 
 1. In the **Actions** pane, set the following parameters:
 
       | Parameter | Description |
       |--|--|
-      | Domain | Enter the ServiceNow server IP address. |
-      | Username | Enter the ServiceNow server username. |
-      | Password | Enter the ServiceNow server password. |
-      | Client ID | Enter the Client ID you received for Defender for IoT in the **Application Registries** page in ServiceNow. |
-      | Client Secret | Enter the client secret string you created for Defender for IoT in the **Application Registries** page in ServiceNow. |
-      | Report Type | **Incidents**: Forward a list of alerts that are presented in ServiceNow with an incident ID and short description of each alert.<br /><br />**Defender for IoT Application**: Forward full alert information, including the  sensor details, the engine, the source, and destination addresses. The information is forwarded to the Defender for IoT on the ServiceNow application. |
+      | **Domain** | Enter the ServiceNow server IP address. |
+      | **Username** | Enter the ServiceNow server username. |
+      | **Password** | Enter the ServiceNow server password. |
+      | **Client ID** | Enter the Client ID you received for Defender for IoT in the **Application Registries** page in ServiceNow. |
+      | **Client Secret** | Enter the client secret string you created for Defender for IoT in the **Application Registries** page in ServiceNow. |
+      | **Select Report Type** | **Incidents**: Forward a list of alerts that are presented in ServiceNow with an incident ID and short description of each alert.<br /><br />**Defender for IoT Application**: Forward full alert information, including the  sensor details, the engine, the source, and destination addresses. The information is forwarded to the Defender for IoT on the ServiceNow application. |
 
 1. Select **SAVE**.
 
@@ -143,9 +135,7 @@ Configure Defender for IoT to push an extensive range of device attributes to th
 
 1. Sign in to your Defender for IoT on-premises management console.
 
-1. Select **System Settings**, and then **ServiceNow** from the on-premises management console Integration section.
-
-      :::image type="content" source="../media/tutorial-servicenow/servicenow.png" alt-text="Screenshot of the select the ServiceNow button.":::
+1. Select **System Settings**, and then **ServiceNow** from the **Management console integrations** section.
 
 1. Enter the following sync parameters in the ServiceNow Sync dialog box.
 
@@ -153,13 +143,13 @@ Configure Defender for IoT to push an extensive range of device attributes to th
 
      Parameter | Description |
     |--|--|
-    | Enable Sync | Enable and disable the sync after defining parameters. |
-    | Sync Frequency (minutes) | By default, information is pushed to ServiceNow every 60 minutes. The minimum is 5 minutes. |
-    | ServiceNow Instance | Enter the ServiceNow instance URL. |
-    | Client ID | Enter the Client ID you received for Defender for IoT in the **Application Registries** page in ServiceNow. |
-    | Client Secret | Enter the Client Secret string you created for Defender for IoT in the **Application Registries** page in ServiceNow. |
-    | Username | Enter the username for this instance. |
-    | Password | Enter the password for this instance. |
+    | **Enable Sync** | Enable and disable the sync after defining parameters. |
+    | **Sync Frequency (minutes)** | By default, information is pushed to ServiceNow every 60 minutes. The minimum is 5 minutes. |
+    | **ServiceNow Instance** | Enter the ServiceNow instance URL. |
+    | **Client ID** | Enter the Client ID you received for Defender for IoT in the **Application Registries** page in ServiceNow. |
+    | **Client Secret** | Enter the Client Secret string you created for Defender for IoT in the **Application Registries** page in ServiceNow. |
+    | **Username** | Enter the username for this instance. |
+    | **Password** | Enter the password for this instance. |
 
 1. Select **SAVE**.
 
@@ -211,15 +201,11 @@ This article describes the device attributes and alert information presented in 
 
 3. Navigate to **Inventory**, or **Alert**.
 
-   [:::image type="content" source="../media/tutorial-servicenow/alert-list.png" alt-text="Screenshot of the Inventory or Alert.":::](../media/tutorial-servicenow/alert-list.png#lightbox)
-
 ## View connected devices
 
 To view connected devices:
 
 1. Select a device, and then select the **Appliance** listed in for that device.
-
-    :::image type="content" source="../media/tutorial-servicenow/appliance.png" alt-text="Screenshot of the desired appliance from the list.":::
 
 1. In the **Device Details** dialog box, select **Connected Devices**.
 
