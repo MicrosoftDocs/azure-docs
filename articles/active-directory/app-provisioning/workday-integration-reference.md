@@ -39,7 +39,7 @@ To further secure the connectivity between Azure AD provisioning service and Wor
 1. Copy all IP address ranges listed within the element *addressPrefixes* and use the range to build your IP address list.
 1. Sign in to Workday admin portal. 
 1. Access the **Maintain IP Ranges** task to create a new IP range for Azure data centers. Specify the IP ranges (using CIDR notation) as a comma-separated list.  
-1. Access the **Manage Authentication Policies** task to create a new authentication policy. In the authentication policy, use the authentication allowlist to specify the Azure AD IP range and the security group that will be allowed access from this IP range. Save the changes. 
+1. Access the **Manage Authentication Policies** task to create a new authentication policy. In the authentication policy, use the authentication allowlist to specify the Azure AD IP range and the security group that is allowed access from this IP range. Save the changes. 
 1. Access the **Activate All Pending Authentication Policy Changes** task to confirm changes.
 
 ### Limiting access to worker data in Workday using constrained security groups
