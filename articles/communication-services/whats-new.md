@@ -5,7 +5,7 @@ author: sroons
 ms.author: serooney
 ms.service: azure-communication-services
 ms.topic: conceptual
-ms.date: 04/26/2023
+ms.date: 05/01/2023
 ms.custom: template-concept, references_regions
 ---
 
