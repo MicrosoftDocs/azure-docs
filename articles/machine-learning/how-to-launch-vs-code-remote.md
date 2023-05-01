@@ -25,7 +25,7 @@ There are two ways you can connect to a compute instance from Visual Studio Code
     * You can open VS Code from your workspace either in the browser [VS Code for the Web](?tabs=vscode-web#use-vs-code-as-your-workspace-ide) or desktop application [VS Code Desktop](?tabs=vscode-desktop#use-vs-code-as-your-workspace-ide).
     * We recommend **VS Code for the Web**, as you can do all your machine learning work directly from the browser, and without any required installations or dependencies.
 
-1. **Remote Jupyter Notebook server**. This option allows you to set a compute instance as a remote Jupyter Notebook server.
+1. **Remote Jupyter Notebook server**. This option allows you to set a compute instance as a remote Jupyter Notebook server. This option is only available in VS Code (Desktop).
 
 > [!IMPORTANT]
 > To connect to a compute instance behind a firewall, see [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md#scenario-visual-studio-code).
@@ -141,7 +141,7 @@ After you connect to your remote compute instance, use the editor to:
 
 ## Remote Jupyter Notebook server
 
-This option allows you to use a compute instance as a remote Jupyter Notebook server from Visual Studio Code. This option connects only to the compute instance, not the rest of the workspace. You won't see your workspace files in VS Code when using this option.
+This option allows you to use a compute instance as a remote Jupyter Notebook server from Visual Studio Code (Desktop). This option connects only to the compute instance, not the rest of the workspace. You won't see your workspace files in VS Code when using this option.
 
 In order to configure a compute instance as a remote Jupyter Notebook server, first install:
 
@@ -150,7 +150,7 @@ In order to configure a compute instance as a remote Jupyter Notebook server, fi
 To connect to a compute instance:
 
 1. Open a Jupyter Notebook in Visual Studio Code.
-1. When the integrated notebook experience loads, select **Jupyter Server**.
+1. When the integrated notebook experience loads, choose **Select Kernel**.
 
     :::image type="content" source="media/how-to-launch-vs-code-remote/launch-server-selection-dropdown.png" alt-text="Screenshot shows how to select Jupyter Server." lightbox="media/how-to-launch-vs-code-remote/launch-server-selection-dropdown.png"::: 
 
@@ -178,4 +178,4 @@ At this point, you can continue to run cells in your Jupyter Notebook.
 
 Now that you've launched Visual Studio Code remotely connected to a compute instance, you can prep your data, edit and debug your code, and submit training jobs with the Azure Machine Learning extension.
 
-To learn more about how to make the most of VS Code integrated with Azure Machine Learning, see [Work in VS Code remotely connected to a compute instance (preview)](how-to-work-in-vs-code-remote.md)
+To learn more about how to make the most of VS Code integrated with Azure Machine Learning, see [Work in VS Code remotely connected to a compute instance (preview)](how-to-work-in-vs-code-remote.md).
