@@ -5,8 +5,7 @@ titlesuffix: Azure Virtual Network
 description: Overview of Azure NAT Gateway features, resources, architecture, and implementation. Learn how Azure NAT Gateway works and how to use NAT gateway resources in Azure.
 services: virtual-network
 author: asudbring
-ms.service: virtual-network
-ms.subservice: nat
+ms.service: nat-gateway
 ms.topic: conceptual
 ms.date: 12/06/2022
 ms.author: allensu
@@ -45,7 +44,7 @@ Azure NAT Gateway is a software defined networking service. A NAT gateway won't 
 
 ### Outbound connectivity
 
-* NAT gateway is the recommended method for outbound connectivity. NAT gateway doesn't have the same limitations of SNAT port exhaustion as does [default outbound access](../ip-services/default-outbound-access.md) and [outbound rules of a load balancer](../../load-balancer/outbound-rules.md).
+* NAT gateway is the recommended method for outbound connectivity. NAT gateway doesn't have the same limitations of SNAT port exhaustion as does [default outbound access](../virtual-network/ip-services/default-outbound-access.md) and [outbound rules of a load balancer](../load-balancer/outbound-rules.md).
 
 * NAT gateway allows flows to be created from the virtual network to the services outside your virtual network. Return traffic from the internet is only allowed in response to an active flow. Services outside your virtual network can’t initiate an inbound connection through NAT gateway.
 
@@ -74,7 +73,7 @@ Virtual appliance UDR / ExpressRoute >> NAT gateway >> Instance-level public IP 
 
 * Multiple NAT gateways can’t be attached to a single subnet.
 
-* A NAT gateway can’t be deployed in a [gateway subnet](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub).
+* A NAT gateway can’t be deployed in a [gateway subnet](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub).
 
 * A NAT gateway resource can use up to 16 IP addresses in any combination of:
 
@@ -82,11 +81,11 @@ Virtual appliance UDR / ExpressRoute >> NAT gateway >> Instance-level public IP 
 
   * Public IP prefixes
 
-  * Public IP addresses and prefixes derived from custom IP prefixes (BYOIP), to learn more, see [Custom IP address prefix (BYOIP)](../ip-services/custom-ip-address-prefix.md).
+  * Public IP addresses and prefixes derived from custom IP prefixes (BYOIP), to learn more, see [Custom IP address prefix (BYOIP)](../virtual-network/ip-services/custom-ip-address-prefix.md).
 
 * NAT gateway can’t be associated to an IPv6 public IP address or IPv6 public IP prefix. It can be associated to a dual stack subnet, but will only be able to direct outbound traffic with an IPv4 address. To set up a dual stack outbound configuration, see [dual stack outbound connectivity with NAT gateway and Load balancer](/azure/virtual-network/nat-gateway/tutorial-dual-stack-outbound-nat-load-balancer?tabs=dual-stack-outbound-portal).
 
-* NAT gateway can be associated to an Azure Firewall subnet in a hub virtual network and provide outbound connectivity from spoke virtual networks peered to the hub. To learn more, see [Azure Firewall integration with NAT gateway](../../firewall/integrate-with-nat-gateway.md).
+* NAT gateway can be associated to an Azure Firewall subnet in a hub virtual network and provide outbound connectivity from spoke virtual networks peered to the hub. To learn more, see [Azure Firewall integration with NAT gateway](../firewall/integrate-with-nat-gateway.md).
 
 ### Availability zones
 
@@ -102,9 +101,9 @@ Virtual appliance UDR / ExpressRoute >> NAT gateway >> Instance-level public IP 
 
 * Basic resources, such as basic load balancer or basic public IPs aren't compatible with NAT gateway.  Basic resources must be placed on a subnet not associated to a NAT gateway. Basic load balancer and basic public IP can be upgraded to standard to work with a NAT gateway
   
-  * Upgrade a load balancer from basic to standard, see [Upgrade a public basic Azure Load Balancer](../../load-balancer/upgrade-basic-standard.md).
+  * Upgrade a load balancer from basic to standard, see [Upgrade a public basic Azure Load Balancer](../load-balancer/upgrade-basic-standard.md).
 
-  * Upgrade a public IP from basic to standard, see [Upgrade a public IP address](../ip-services/public-ip-upgrade-portal.md).
+  * Upgrade a public IP from basic to standard, see [Upgrade a public IP address](../virtual-network/ip-services/public-ip-upgrade-portal.md).
 
 ### NAT gateway timers
 

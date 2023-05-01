@@ -3,8 +3,7 @@ title: Design virtual networks with NAT gateway
 titleSuffix: Azure NAT Gateway
 description: Learn how to design virtual networks that use Network Address Translation (NAT) gateway resources.
 author: asudbring
-ms.service: virtual-network
-ms.subservice: nat
+ms.service: nat-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.custom: ignite-2022, FY23 content-maintenance
@@ -44,9 +43,9 @@ Review this section to familiarize yourself with considerations for designing vi
 
 ### Connect to Azure services with Private Link
 
-Connecting from your Azure virtual network to Azure PaaS services can be done directly over the Azure backbone and bypass the internet. When you bypass the internet to connect to other Azure PaaS services, you free up SNAT ports and reduce the risk of SNAT port exhaustion. [Private Link](../../private-link/private-link-overview.md) should be used when possible to connect to Azure PaaS services in order to free up SNAT port inventory.
+Connecting from your Azure virtual network to Azure PaaS services can be done directly over the Azure backbone and bypass the internet. When you bypass the internet to connect to other Azure PaaS services, you free up SNAT ports and reduce the risk of SNAT port exhaustion. [Private Link](../private-link/private-link-overview.md) should be used when possible to connect to Azure PaaS services in order to free up SNAT port inventory.
 
-Private Link uses the private IP addresses of your virtual machines or other compute resources from your Azure network to directly connect privately and securely to Azure PaaS services over the Azure backbone. See a list of [available Azure services](../../private-link/availability.md) that are supported by Private Link.
+Private Link uses the private IP addresses of your virtual machines or other compute resources from your Azure network to directly connect privately and securely to Azure PaaS services over the Azure backbone. See a list of [available Azure services](../private-link/availability.md) that are supported by Private Link.
 
 ### Connect to the internet with NAT gateway
 
@@ -103,9 +102,9 @@ Any outbound configuration from a load-balancing rule or outbound rules is super
 
 A network security group allows you to filter inbound and outbound traffic to and from a virtual machine. To monitor outbound traffic flowing from the virtual machine behind your NAT gateway, enable NSG flow logs.
 
-To learn more about NSG flow logs, see [NSG Flow Log Overview](../../network-watcher/network-watcher-nsg-flow-logging-overview.md).
+To learn more about NSG flow logs, see [NSG Flow Log Overview](../network-watcher/network-watcher-nsg-flow-logging-overview.md).
 
-For guides on how to enable NSG flow logs, see [Enabling NSG Flow Logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md#enabling-nsg-flow-logs).
+For guides on how to enable NSG flow logs, see [Enabling NSG Flow Logs](../network-watcher/network-watcher-nsg-flow-logging-overview.md#enabling-nsg-flow-logs).
 
 ## Performance
 
@@ -224,9 +223,9 @@ Design recommendations for configuring timers:
 
 - Basic load balancers and basic public IP addresses aren't compatible with NAT. Use standard SKU load balancers and public IPs instead.
   
-  - To upgrade a load balancer from basic to standard, see [Upgrade Azure Public Load Balancer](../../load-balancer/upgrade-basic-standard.md)
+  - To upgrade a load balancer from basic to standard, see [Upgrade Azure Public Load Balancer](../load-balancer/upgrade-basic-standard.md)
   
-  - To upgrade a public IP address from basic to standard, see [Upgrade a public IP address](../ip-services/public-ip-upgrade-portal.md)
+  - To upgrade a public IP address from basic to standard, see [Upgrade a public IP address](../virtual-network/ip-services/public-ip-upgrade-portal.md)
 
 - NAT gateway doesn't support ICMP 
 

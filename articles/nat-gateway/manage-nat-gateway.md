@@ -4,8 +4,7 @@ titleSuffix: Azure NAT Gateway
 description: Learn how to create and remove a NAT gateway resource from a virtual network subnet. Add and remove public IP addresses and prefixes used for outbound connectivity.
 author: asudbring
 ms.author: allensu
-ms.service: virtual-network
-ms.subservice: nat
+ms.service: nat-gateway
 ms.topic: how-to
 ms.date: 03/20/2023
 ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell
@@ -27,7 +26,7 @@ This article explains how to manage the following aspects of NAT gateway:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An existing Azure Virtual Network with a subnet. For more information, see [Quickstart: Create a virtual network using the Azure portal](../quick-create-portal.md).
+- An existing Azure Virtual Network with a subnet. For more information, see [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md).
 
   - The example virtual network that is used in this article is named *myVNet*.
 
