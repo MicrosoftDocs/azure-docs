@@ -135,7 +135,7 @@ Paste the command below into a text editor, and make the following changes.
 
 1. Substitute the `<endpoint>` with your resource endpoint URL.
 1. Replace `<your_subscription_key>` with your key.
-1. Populate the `"image"` field in the body with either a `"content"` field or a `"url"` field. For example: `{"image": {"content": "<base_64_string>"}` or `{"image": {"url": "<your_storage_url>"}`.
+1. Populate the `"image"` field in the body with either a `"content"` field or a `"BlobURL"` field. For example: `{"image": {"content": "<base_64_string>"}` or `{"image": {"BlobURL": "<your_storage_url>"}`.
 
 ```shell
 curl --location --request POST '<endpoint>/contentsafety/image:analyze?api-version=2023-04-30-preview' \
@@ -154,7 +154,7 @@ curl --location --request POST '<endpoint>/contentsafety/image:analyze?api-versi
 > ```
 > {
 >  "image": {
->    "url": "<your_storage_url>"
+>    "BlobURL": "<your_storage_url>"
 >  }
 > }
 > ```

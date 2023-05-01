@@ -38,7 +38,7 @@ The below fields must be included in the url:
 
 > [!NOTE]
 >
-> There is a maximum limit of **5 term lists** per resource, with each list **not to exceed 10,000 terms**.
+> There is a maximum limit of **10,000 terms** in total across all lists.
 
 Copy the cURL command below to a text editor and make the following changes:
 
