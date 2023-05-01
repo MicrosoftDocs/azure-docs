@@ -18,12 +18,14 @@ The purpose of this topic is to walk you through how to configure the attribute 
 For a list of all geos supported by Azure AD Connect see [Microsoft 365 Multi-Geo availability](/microsoft-365/enterprise/microsoft-365-multi-geo#microsoft-365-multi-geo-availability)
 
 ## Enable synchronization of preferred data location
-By default, Microsoft 365 resources for your users are located in the same geo as your Azure AD tenant. For example, if your tenant is located in North America, then the users' Exchange mailboxes are also located in North America. For a multinational organization, this might not be optimal.
+By default, Microsoft 365 resources for your users are located in the same geo as your Azure AD tenant. For example, if the _Tenant_ is located in North America, then the users' Exchange mailboxes are also located in North America. For a multinational organization, this might not be optimal.
 
 By setting the attribute **preferredDataLocation**, you can define a user's geo. You can have the user's Microsoft 365 resources, such as the mailbox and OneDrive, in the same geo as the user, and still have one tenant for your entire organization.
 
 > [!IMPORTANT]
-> Multi-Geo is currently available to customers with an active Enterprise Agreement and a minimum of 250 Microsoft 365 Services subscriptions. Please talk to your Microsoft representative for details.
+> As of June 1, 2023, Multi-Geo is available for CSP partners to purchase, at a minimum of 5% of their customer’s total Microsoft 365 subscription seats. 
+> 
+> Multi-Geo is also available to customers with an active Enterprise Agreement. Please talk to your Microsoft representative for details.
 >
 > For a list of all geos supported by Azure AD Connect see [Microsoft 365 Multi-Geo availability](/microsoft-365/enterprise/microsoft-365-multi-geo#microsoft-365-multi-geo-availability).
 
