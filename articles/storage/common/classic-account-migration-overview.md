@@ -68,10 +68,9 @@ To migrate your classic storage accounts, you should:
     1. Under **Issue type**, select **Technical**.
     1. Under **Subscription**, select your subscription.
     1. Under **Service**, select **My services**.
-    1. Under **Service type**, select **Storage Account Management**.
+    1. Under **Service type**, search for and select **Storage Account Management**.
     1. Under **Resource**, select the resource you want to migrate.
-    1. Under **Problem type**, select **Data Migration**.
-    1. Under **Problem subtype**, select **Migrate a classic storage account to Azure Resource Manager**.
+    1. Under **Problem type**, select **Migrate a classic storage account to Azure Resource Manager**.
     1. Select **Next**, then follow the instructions to submit your support request.
 
 ## FAQ
