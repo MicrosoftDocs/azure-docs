@@ -117,7 +117,7 @@ First, navigate to an existing cluster, then select "Extensions + applications":
 
 You will see your recently installed extensions listed:
 
-:::image type="content" source="./media/deploy-marketplace/verify-inline.png" lightbox="./media/deploy-marketplace/verify.png" alt-text="The Azure portal page for the A K S cluster. 'Extensions + Applications' is selected, and the deployed extension is listed.":::
+:::image type="content" source="./media/deploy-marketplace/verify-inline.png" lightbox="./media/deploy-marketplace/verify.png" alt-text="The Azure portal page for the A K S cluster. 'Extensions + Applications' is selected, and deployed extensions are listed.":::
 
 Select an extension name to navigate to a properties view where you are able to disable auto upgrades, check the provisioning state, delete the extension instance, or modify configuration settings as needed.
 
