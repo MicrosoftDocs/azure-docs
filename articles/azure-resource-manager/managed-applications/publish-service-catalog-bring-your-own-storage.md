@@ -1,10 +1,8 @@
 ---
 title: Bring your own storage to create and publish an Azure Managed Application definition
 description: Describes how to bring your own storage to create and publish an Azure Managed Application definition in your service catalog.
-author: davidsmatlak
-ms.author: davidsmatlak
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps, mode-api, mode-arm, engagement-fy23
+ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps, mode-api, mode-arm, devx-track-arm-template, engagement-fy23
 ms.date: 03/21/2023
 ---
 

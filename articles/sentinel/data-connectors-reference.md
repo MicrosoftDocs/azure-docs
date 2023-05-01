@@ -84,6 +84,7 @@ Data connectors are available as part of the following offerings:
 ## Atlassian
 
 - [Atlassian Confluence Audit (using Azure Function)](data-connectors/atlassian-confluence-audit-using-azure-function.md)
+- [Atlassian Jira Audit (using Azure Function)](data-connectors/atlassian-jira-audit-using-azure-function.md)
 
 ## Auth0
 
@@ -119,6 +120,7 @@ Data connectors are available as part of the following offerings:
 - [Cisco ASA](data-connectors/cisco-asa.md)
 - [Cisco ASA/FTD via AMA (Preview)](data-connectors/cisco-asa-ftd-via-ama.md)
 - [Cisco Duo Security (using Azure Function)](data-connectors/cisco-duo-security-using-azure-function.md)
+- [Cisco Identity Services Engine](data-connectors/cisco-identity-services-engine.md)
 - [Cisco Meraki](data-connectors/cisco-meraki.md)
 - [Cisco Secure Email Gateway](data-connectors/cisco-secure-email-gateway.md)
 - [Cisco Secure Endpoint (AMP) (using Azure Function)](data-connectors/cisco-secure-endpoint-amp-using-azure-function.md)
@@ -186,6 +188,10 @@ Data connectors are available as part of the following offerings:
 
 - [Cybersixgill Actionable Alerts (using Azure Function)](data-connectors/cybersixgill-actionable-alerts-using-azure-function.md)
 
+## Cynerio
+
+- [Cynerio Security Events](data-connectors/cynerio-security-events.md)
+
 ## Darktrace
 
 - [AI Analyst Darktrace](data-connectors/ai-analyst-darktrace.md)
@@ -226,7 +232,7 @@ Data connectors are available as part of the following offerings:
 
 - [ExtraHop Reveal(x)](data-connectors/extrahop-reveal-x.md)
 
-## F5 Networks
+## F5, Inc.
 
 - [F5 BIG-IP](data-connectors/f5-big-ip.md)
 - [F5 Networks](data-connectors/f5-networks.md)
@@ -283,6 +289,10 @@ Data connectors are available as part of the following offerings:
 ## Imperva
 
 - [Imperva Cloud WAF (using Azure Function)](data-connectors/imperva-cloud-waf-using-azure-function.md)
+
+## Infoblox
+
+- [Infoblox NIOS](data-connectors/infoblox-nios.md)
 
 ## Infoblox Inc.
 
@@ -346,7 +356,6 @@ Data connectors are available as part of the following offerings:
 - [Azure Data Lake Storage Gen1](data-connectors/azure-data-lake-storage-gen1.md)
 - [Azure DDoS Protection](data-connectors/azure-ddos-protection.md)
 - [Azure Event Hub](data-connectors/azure-event-hub.md)
-- [Azure Information Protection](data-connectors/azure-information-protection.md)
 - [Azure Key Vault](data-connectors/azure-key-vault.md)
 - [Azure Kubernetes Service (AKS)](data-connectors/azure-kubernetes-service-aks.md)
 - [Azure Logic Apps](data-connectors/azure-logic-apps.md)

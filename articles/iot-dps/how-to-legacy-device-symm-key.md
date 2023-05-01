@@ -84,7 +84,7 @@ An enrollment group that uses [symmetric key attestation](concepts-symmetric-key
 
 ::: zone pivot="programming-language-ansi-c"
 
-In this section, you'll prepare a development environment that's used to build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). The sample code attempts to provision the device during the device's boot sequence.
+In this section, you'll prepare a development environment that's used to build the [Azure IoT Device SDK for C](https://github.com/Azure/azure-iot-sdk-c). The sample code attempts to provision the device during the device's boot sequence.
 
 1. Open a web browser, and go to the [Release page of the Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c/releases/latest).
 
@@ -92,7 +92,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 1. Copy the tag name for the latest release of the Azure IoT C SDK.
 
-1. In a Windows command prompt, run the following commands to clone the latest release of the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository (replace `<release-tag>` with the tag you copied in the previous step).
+1. In a Windows command prompt, run the following commands to clone the latest release of the [Azure IoT Device SDK for C](https://github.com/Azure/azure-iot-sdk-c) GitHub repository. Replace `<release-tag>` with the tag you copied in the previous step, for example: `lts_01_2023`.
 
     ```cmd
     git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
@@ -152,7 +152,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 1. Open a Git CMD or Git Bash command-line environment.
 
-2. Clone the [Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node.git) GitHub repository using the following command:
+2. Clone the [Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub repository using the following command:
 
     ```cmd
     git clone https://github.com/Azure/azure-iot-sdk-node.git --recursive
@@ -164,11 +164,14 @@ In this section, you'll prepare a development environment that's used to build t
 
 1. Open a Git CMD or Git Bash command-line environment.
 
-2. Clone the [Azure IoT SDK for Python](https://github.com/Azure/azure-iot-sdk-python.git) GitHub repository using the following command:
+2. Clone the [Azure IoT Device SDK for Python](https://github.com/Azure/azure-iot-sdk-python/tree/v2) GitHub repository using the following command:
 
-    ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-python.git --recursive
-    ```
+   ```cmd
+   git clone -b v2 https://github.com/Azure/azure-iot-sdk-python.git --recursive
+   ```
+
+   >[!NOTE]
+   >The samples used in this tutorial are in the **v2** branch of the azure-iot-sdk-python repository. V3 of the Python SDK is available to use in beta. For information about updating V2 code samples to use a V3 release of the Python SDK, see [Azure IoT Device SDK for Python migration guide](https://github.com/Azure/azure-iot-sdk-python/blob/main/migration_guide_provisioning.md).
 
 ::: zone-end
 
@@ -176,7 +179,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 1. Open a Git CMD or Git Bash command-line environment.
 
-2. Clone the [Azure IoT SDK for Java](https://github.com/Azure/azure-iot-sdk-java.git) GitHub repository using the following command:
+2. Clone the [Azure IoT SDK for Java](https://github.com/Azure/azure-iot-sdk-java) GitHub repository using the following command:
 
     ```cmd
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
@@ -403,7 +406,7 @@ To update and run the provisioning sample with your device information:
 3. Open a command prompt and go to the *SymmetricKeySample* in the cloned sdk repository:
 
     ```cmd
-    cd .\azure-iot-sdk-csharp\provisioning\device\samples\How To\SymmetricKeySample
+    cd .\azure-iot-sdk-csharp\provisioning\device\samples\how to guides\SymmetricKeySample
     ```
 
 4. In the *SymmetricKeySample* folder, open *Parameters.cs* in a text editor. This file shows the parameters that are supported by the sample. Only the first three required parameters will be used in this article when running the sample. Review the code in this file. No changes are needed.
@@ -431,7 +434,7 @@ To update and run the provisioning sample with your device information:
 7. You should see something similar to the following output. A "TestMessage" string is sent to the hub as a test message.
 
      ```output
-    D:\azure-iot-sdk-csharp\provisioning\device\samples\How To\SymmetricKeySample>dotnet run --s 0ne00000A0A --i sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6 --p sbDDeEzRuEuGKag+kQKV+T1QGakRtHpsERLP0yPjwR93TrpEgEh/Y07CXstfha6dhIPWvdD1nRxK5T0KGKA+nQ==
+    D:\azure-iot-sdk-csharp\provisioning\device\samples\how to guides\SymmetricKeySample>dotnet run --i 0ne00000A0A --r sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6 --p sbDDeEzRuEuGKag+kQKV+T1QGakRtHpsERLP0yPjwR93TrpEgEh/Y07CXstfha6dhIPWvdD1nRxK5T0KGKA+nQ==
 
     Initializing the device provisioning client...
     Initialized for registration Id sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6.
@@ -684,7 +687,7 @@ To update and run the provisioning sample with your device information:
 5. Open a command prompt for building. Go to the provisioning sample project folder of the Java SDK repository.
 
     ```cmd
-    cd azure-iot-sdk-java\provisioning\provisioning-samples\provisioning-symmetrickey-individual-sample
+    cd azure-iot-sdk-java\provisioning\provisioning-device-client-samples\provisioning-symmetrickey-individual-sample
     ```
 
 6. Build the sample.
