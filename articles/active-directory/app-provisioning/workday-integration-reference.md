@@ -473,11 +473,11 @@ Your HR team may backdate a worker conversion transaction in Workday for valid b
 
 * It's January 15, 2023 and Jane Doe is employed as a contingent worker. HR offers Jane a full-time position. 
 * The terms of Jane's contract change require backdating the transaction so it aligns with the start of the current month. HR initiates a backdated worker conversion transaction Workday on January 15, 2023 with effective date as January 1, 2023. Now there are two worker profiles in Workday for Jane. The CW profile is inactive, while the FTE profile is active. 
-* The Azure AD provisioning service detects this change in the Workday transaction log on January 15, 2023 and automatically provision attributes of the new FTE profile in the next sync cycle. 
+* The Azure AD provisioning service detects this change in the Workday transaction log on January 15, 2023. The service automatically provision attributes of the new FTE profile in the next sync cycle. 
 * No changes are required in the provisioning app configuration to handle this scenario. 
 
 #### Scenario 2: Worker employed as CW/FTE today, changes to FTE/CW today
-This scenario is similar to the above scenario, except that instead of backdating the transaction, HR performs a worker conversion that is effective immediately. The Azure AD provisioning service detects this change in the Workday transaction log and automatically provision attributes associated with active FTE profile in the next sync cycle. No changes are required in the provisioning app configuration to handle this scenario.  
+This scenario is similar to the above scenario, except that instead of backdating the transaction, HR performs a worker conversion that is effective immediately. The Azure AD provisioning service detects this change in the Workday transaction log. The service automatically provisions attributes associated with an active FTE profile in the next sync cycle. No changes are required in the provisioning app configuration to handle this scenario.  
 
 #### Scenario 3: Worker employed as CW/FTE is terminated, rejoins as FTE/CW after a significant gap 
 It's common for workers to start work at a company as a contingent worker, leave the company and then rejoin after several months as a full-time employee. Here's an example to illustrate how provisioning is handled for this scenario.
