@@ -45,7 +45,7 @@ There are two different configuration modes for outbound traffic from the manage
 * Allow internet outbound mode: Allow all internet outbound from Azure Machine Learning managed VNet. You can have private endpoint connections to your private Azure resources. This is the mode if your ML engineers need access to machine learning artifacts on the Internet such as python packages, pretrained models.
 * Allow only approved outbound mode: You can allow outbound only to the approved outbound using private endpoint, FQDN and service tag. This is the mode if you want to minimize data exfiltration risk but you need to prepare all required machine learning artifacts in your private locations. -->
 
-The managed virtual network is preconfigured with [required default outbound rules](#list-of-required-outbound-rules) and private endpoint connections to your workspace default storage, container registry and key vault if they're private. After choosing the isolation mode, you only need to consider other outbound requirements you may need to add.
+The managed virtual network is preconfigured with [required default outbound rules](#list-of-required-outbound-rules). It's also configured for private endpoint connections to your workspace default storage, container registry and key vault if they're configured as private. After choosing the isolation mode, you only need to consider other outbound requirements you may need to add.
 
 ## Supported scenarios in preview and to be supported scenarios
 
