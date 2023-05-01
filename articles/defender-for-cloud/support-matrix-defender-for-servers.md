@@ -20,7 +20,7 @@ This table summarizes Azure cloud support for Defender for Servers features.
 --- | --- | --- | --- 
 [Microsoft Defender for Endpoint integration](./integration-defender-for-endpoint.md) | GA | GA | NA
 [Compliance standards](./regulatory-compliance-dashboard.md)<br/><br/> Compliance standards might differ depending on the cloud type.| GA | GA | GA
-[Microsoft Cloud Security Benchmark recommendations for OS hardening](apply-security-baseline) | Preview | NA | NA 
+[Microsoft Cloud Security Benchmark recommendations for OS hardening](apply-security-baseline.md) | Preview | NA | NA 
 [VM vulnerability scanning-agentless](concept-agentless-data-collection.md) |?? | NA | NA
 [VM vulnerability scanning - Microsoft Defender for Endpoint sensor](deploy-vulnerability-assessment-defender-vulnerability-management.md) | GA | NA | NA
 [VM vulnerability scanning - Qualys](deploy-vulnerability-assessment-vm.md) | GA | NA | NA

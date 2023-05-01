@@ -35,13 +35,13 @@ In the support table, **NA** indicates that the feature isn't available.
 [Defender for App Service](defender-for-app-service-introduction.md) | GA | NA | NA
 [Defender for Azure Cosmos DB](concept-defender-for-cosmos.md) | Preview | NA | NA
 [Defender for Azure SQL database servers](defender-for-sql-introduction.md)<br/>Partial GA in Vianet21<br/> - A subset of alerts/vulnerability assessments is available.<br/>- Behavioral threat protection isn't available.| GA | GA | GA
-[Defender for Containers](defender-for-containers-introduction.md)<br/>(Review [detailed feature support](#defender-for-containers-cloud-support) | GA | GA | GA
+[Defender for Containers](defender-for-containers-introduction.md)<br/>(Review [detailed feature support](support-matrix-defender-for-containers.md) | GA | GA | GA
 [Defender for DevOps](defender-for-devops-introduction.md) |Preview | NA | NA
 [Defender for DNS](defender-for-dns-introduction.md) | GA | GA | GA
 [Defender for Key Vault](defender-for-key-vault-introduction.md) | GA | NA | NA
 [Defender for Open-Source Relational Databases](defender-for-databases-introduction.md) | GA | NA | NA  
 [Defender for Resource Manager](defender-for-resource-manager-introduction.md) | GA | GA | GA
-[Defender for Servers](plan-defender-for-servers.md) (Review [detailed feature support](#defender-for-servers-cloud-support) | GA | GA | GA
+[Defender for Servers](plan-defender-for-servers.md) (Review [detailed feature support](support-matrix-defender-for-servers.md) | GA | GA | GA
 [Defender for Storage](defender-for-storage-introduction.md) | GA | GA (activity monitoring) | NA
 [Defender for SQL Servers on Machines](defender-for-sql-introduction.md) | GA | GA | NA
 
