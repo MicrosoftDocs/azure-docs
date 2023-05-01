@@ -59,7 +59,7 @@ To test connectivity to Workday, Azure AD sends the following *Get_Workers* Work
 ```xml
 <!-- Test connection query tries to retrieve one record from the first page -->
 <!-- Replace version with Workday Web Services version present in your connection URL -->
-<!-- Replace timestamps below with the UTC time corresponding to the test connection event -->
+<!-- Replace timestamps with the UTC time corresponding to the test connection event -->
 <Get_Workers_Request p1:version="v21.1" xmlns:p1="urn:com.workday/bsvc" xmlns="urn:com.workday/bsvc">
   <p1:Request_Criteria>
     <p1:Transaction_Log_Criteria_Data>
@@ -94,7 +94,7 @@ Azure AD sends the following *Get_Workers* Workday Web Services request to retri
 ```xml
 <!-- Workday full sync query -->
 <!-- Replace version with Workday Web Services version present in your connection URL -->
-<!-- Replace timestamps below with the UTC time corresponding to full sync run -->
+<!-- Replace timestamps with the UTC time corresponding to full sync run -->
 <!-- Count specifies the number of records to return in each page -->
 <!-- Response_Group flags derived from provisioning attribute mapping -->
 
@@ -192,7 +192,7 @@ The following *Get_Workers* request queries for manual updates that happened bet
 ```xml
 <!-- Workday incremental sync query for manual updates -->
 <!-- Replace version with Workday Web Services version present in your connection URL -->
-<!-- Replace timestamps below with the UTC time corresponding to last execution and current execution time -->
+<!-- Replace timestamps with the UTC time corresponding to last execution and current execution time -->
 <!-- Count specifies the number of records to return in each page -->
 <!-- Response_Group flags derived from provisioning attribute mapping -->
 
@@ -246,7 +246,7 @@ The following *Get_Workers* request queries for effective-dated updates that hap
 ```xml
 <!-- Workday incremental sync query for effective-dated updates -->
 <!-- Replace version with Workday Web Services version present in your connection URL -->
-<!-- Replace timestamps below with the UTC time corresponding to last execution and current execution time -->
+<!-- Replace timestamps with the UTC time corresponding to last execution and current execution time -->
 <!-- Count specifies the number of records to return in each page -->
 <!-- Response_Group flags derived from provisioning attribute mapping -->
 
@@ -305,7 +305,7 @@ If any of the above queries returns a future-dated hire, then the following *Get
 ```xml
 <!-- Workday incremental sync query to get new hire data effective as on hire date/first day of work -->
 <!-- Replace version with Workday Web Services version present in your connection URL -->
-<!-- Replace timestamps below hire date/first day of work -->
+<!-- Replace timestamps hire date/first day of work -->
 <!-- Count specifies the number of records to return in each page -->
 <!-- Response_Group flags derived from provisioning attribute mapping -->
 
@@ -353,7 +353,7 @@ If any of the above queries returns a future-dated hire, then the following *Get
 
 The *Get_Workers* API can return different data sets associated with a worker. Depending on the [XPATH API expressions](workday-attribute-reference.md) configured in the provisioning schema, Azure AD provisioning service determines which data sets to retrieve from Workday. Accordingly, the *Response_Group* flags are set in the *Get_Workers* request. 
 
-The table below provides guidance on mapping configuration to use to retrieve a specific data set. 
+The table provides guidance on mapping configuration to use to retrieve a specific data set. 
 
 | \# | Workday Entity                       | Included by default | XPATH pattern to specify in mapping to fetch nondefault entities             |
 |----|--------------------------------------|---------------------|-------------------------------------------------------------------------------|
@@ -430,7 +430,7 @@ To retrieve these data sets:
      >| CostCenterFlag  |  wd:Worker/wd:Worker_Data/wd:Organization_Data/wd:Worker_Organization_Data[wd:Organization_Data/wd:Organization_Type_Reference/wd:ID[@wd:type='Organization_Type_ID']='COST_CENTER']/wd:Organization_Data/wd:Organization_Code/text() |
      >| PayGroupFlag  |  wd:Worker/wd:Worker_Data/wd:Organization_Data/wd:Worker_Organization_Data[wd:Organization_Data/wd:Organization_Type_Reference/wd:ID[@wd:type='Organization_Type_ID']='PAY_GROUP']/wd:Organization_Data/wd:Organization_Reference_ID/text() |
 
-1. Once the Cost Center and Pay Group data set is available in the *Get_Workers* response, you can use the below XPATH values to retrieve the cost center name, cost center code and pay group. 
+1. Once the Cost Center and Pay Group data set is available in the *Get_Workers* response, you can use the XPATH values to retrieve the cost center name, cost center code and pay group. 
 
      > [!div class="mx-tdCol2BreakAll"]
      >| Attribute Name | XPATH API expression |
@@ -512,7 +512,7 @@ Sometimes, a worker may already be an active contingent worker, when HR initiate
 
 By default, the Workday connector retrieves attributes associated with the worker's primary job. The connector also supports retrieving *Additional Job Data* associated with international job assignments or secondary jobs. 
 
-Use the steps below to retrieve attributes associated with international job assignments: 
+Use the steps to retrieve attributes associated with international job assignments: 
 
 1. Set the Workday connection URL uses Workday Web Service API version 30.0 or above. Accordingly set the [correct XPATH values](workday-attribute-reference.md#xpath-values-for-workday-web-services-wws-api-v30) in your Workday provisioning app. 
 1. Use the selector `@wd:Primary_Job=0` on the `Worker_Job_Data` node to retrieve the correct attribute. 
