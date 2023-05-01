@@ -26,11 +26,27 @@ The **Microsoft Sentinel Responder** role is required to create automation rules
 
 ***YL: IS THIS REQUIRED FOR VIEWING THE SECURITYINCIDENT TABLE IN LOG ANALYTICS AS WELL?***
 
-## View incident tasks in the SecurityIncident table
+## Structure of Tasks array in the SecurityIncident table
 
 The *SecurityIncident* table is an audit table&mdash;it stores not the incidents themselves, but rather records of the life of an incident: its creation and any changes made to it. Any time an incident is created or a change is made to an incident, a record is generated in this table showing the now-current state of the incident.
 
 The addition of tasks details to the schema of this table allows you to audit tasks in greater depth.
+
+The detailed information added to the **Tasks** field consists of key-value pairs taking the following structure:
+
+| Key | Value description |
+| --- | ----- |
+| **createdBy** | The identity that created the task:<br>**- email**: email address of identity<br>**- name**: name of the identity<br>**- objectId**: GUID of the identity<br>**- userPrincipalName**: UPN of the identity |
+| **createdTimeUtc** | Time the task was created, in UTC. |
+| **lastCompletedTimeUtc** | Time the task was marked complete, in UTC.
+| **lastModifiedBy** | The identity that last modified the task:<br>**- email**: email address of identity<br>**- name**: name of the identity<br>**- objectId**: GUID of the identity<br>**- userPrincipalName**: UPN of the identity |
+| **lastModifiedTimeUtc** | Time the task was last modified, in UTC.
+| **status** | Current status of the task: New, Completed, Deleted. |
+| **taskId** | Resource ID of the task. |
+| **title** | Friendly name given to the task by its creator. |
+
+
+## View incident tasks in the SecurityIncident table
 
 1. In the **Logs** page, enter the following query in the query window and run it. This query will return all the incidents that have any tasks assigned.
 
