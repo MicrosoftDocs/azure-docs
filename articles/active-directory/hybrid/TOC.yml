@@ -18,21 +18,23 @@
     href: 
     items: 
     - name:  Common scenarios
-      href:  connect/plan-connect-topologies.md
+      href:  common-scenarios.md
+    - name:  Tools for synchronization
+      href:  sync-tools.md
     - name:  Choosing the right sync tool
       href:  https://setup.microsoft.com/azure/add-or-sync-users-to-azure-ad
     - name:  Steps to start
-      href:  cloud-sync/how-to-install.md
+      href:  get-started.md
     - name:  Prerequisites
-      href:  cloud-sync/how-to-prerequisites.md
+      href:  prerequisites.md
   - name: Managing your deployment
     items: 
     - name:  Install your sync tool
-      href:  cloud-sync/how-to-install.md
+      href:  install.md
     - name:  Configure your synchronization
-      href:  cloud-sync/how-to-configure.md
+      href:  configure.md
     - name:  Configure account settings
-      href:  connect/reference-connect-accounts-permissions.md
+      href:  accounts.md
     - name:  Monitor your environment
       href:  connect/how-to-connect-health-operations.md
     - name:  Migrate your sync tool
@@ -40,11 +42,11 @@
   - name: Managing users and groups
     items: 
     - name:  Provision users on-demand
-      href:  cloud-sync/how-to-on-demand-provision.md
+      href:  on-demand-provision.md
     - name:  Scheduling imports
       href:  connect/how-to-connect-sync-feature-scheduler.md
     - name:  Prevent accidental deletions
-      href:  cloud-sync/how-to-accidental-deletes.md
+      href:  accidental-deletes.md
   - name: Managing passwords
     items: 
     - name:  What is password hash sync?
@@ -60,7 +62,7 @@
     - name:  What is single sign-on?
       href:  connect/how-to-connect-sso.md
     - name:  Get started
-      href:  connect/how-to-connect-sso.md
+      href:  sso.md
     - name:  Single sign-on FAQ
       href:  connect/how-to-connect-sso-faq.yml
   - name: Managing attributes
