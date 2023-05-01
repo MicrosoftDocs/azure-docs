@@ -149,7 +149,7 @@ az k8s-extension delete --name <extension-name> --cluster-name <clusterName> --r
 
 Select an application, then select the uninstall button to remove the extension from your cluster:
 
-:::image type="content" source="./media/deploy-marketplace/uninstall-inline.png" alt-text="Screenshot of the Azure portal page for a resource group, with billing information broken down by offer plan." lightbox="./media/deploy-marketplace/uninstall.png":::
+:::image type="content" source="./media/deploy-marketplace/uninstall-inline.png" alt-text="The Azure portal page for the A K S cluster is shown. 'Extensions + Applications' is selected, and the deployed extension is listed. The 'uninstall' button is highlighted." lightbox="./media/deploy-marketplace/uninstall.png":::
 
 ---
 
