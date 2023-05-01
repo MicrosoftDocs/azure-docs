@@ -402,4 +402,4 @@ To delete the resource:
 Now that you've created an Azure Virtual Network Manager instance, learn how to block network traffic by using a security admin configuration:
 
 > [!div class="nextstepaction"]
-> [Block network traffic with Azure Virtual Network Manager](how-to-block-network-traffic-powershell.md).
+> [Block network traffic with Azure Virtual Network Manager](how-to-block-network-traffic-powershell.md)
