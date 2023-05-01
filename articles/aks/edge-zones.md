@@ -62,13 +62,9 @@ For the latest available Public MEC Edge Zones, please refer to [Azure public ME
 
 * Before you can deploy an AKS for Edge cluster, your subscription needs to have access to the targeted Edge Zone location. This access is provided through our onboarding process, done by creating a support request via the Azure portal or by filling out the [Azure public MEC sign up form][public-mec-sign-up]
 
-* Your cluster must be running Kubernetes version 1.22 or later
+* Your cluster must be running Kubernetes version 1.24 or later
 
 * The identity you're using to create your cluster must have the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](./concepts-identity.md)
-
-<!-- TODO: ADD PREREQUISITES 
-Moushumi can send the dodumentation on the min SDK versions.
--->
 
 ### Limitations
 
@@ -264,9 +260,9 @@ az group create -n $RG_NAME -l $LOCATION
 az aks create -g $RG_NAME -n $CLUSTER_NAME --edge-zone $EDGE_ZONE_NAME --location $LOCATION
 ```
 
-### [Azure Portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
-In this section you will learn how to deploy a Kubernetes cluster in the Edge Zone.
+In this section you'll learn how to deploy a Kubernetes cluster in the Edge Zone.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -282,7 +278,7 @@ In this section you will learn how to deploy a Kubernetes cluster in the Edge Zo
         * Select an Azure **Subscription**.
         * Select or create an Azure **Resource group**, such as *myResourceGroup*.
     - **Cluster details**:
-        * Ensure the the **Preset configuration** is *Standard ($$)*. For more details on preset configurations, see [Cluster configuration presets in the Azure portal][preset-config].
+        * Ensure the **Preset configuration** is *Standard ($$)*. For more details on preset configurations, see [Cluster configuration presets in the Azure portal][preset-config].
 
             :::image type="content" source="./learn/media/quick-kubernetes-deploy-portal/cluster-preset-options.png" alt-text="Screenshot of Create AKS cluster - portal preset options.":::
 
@@ -301,7 +297,6 @@ In this section you will learn how to deploy a Kubernetes cluster in the Edge Zo
     > [!NOTE]
     > You can change the preset configuration when creating your cluster by selecting *Learn more and compare presets* and choosing a different option.
 
-
 5. Select **Next: Node pools** when complete.
 
 6. Keep the default **Node pools** options. At the bottom of the screen, click **Next: Access**.
@@ -317,7 +312,7 @@ In this section you will learn how to deploy a Kubernetes cluster in the Edge Zo
 
 9. It takes a few minutes to create the AKS cluster. When your deployment is complete, navigate to your resource by either:
     * Selecting **Go to resource**
-    * Browsing to the AKS cluster resource group and selecting the AKS resource. In this example you browse for *myResourceGroup* and select the resource *myAKSCluster*. You can see the Edge Zone locationa with the home Azure Region in the Location.
+    * Browsing to the AKS cluster resource group and selecting the AKS resource. In this example you browse for *myResourceGroup* and select the resource *myAKSCluster*. You can see the Edge Zone locations with the home Azure Region in the Location.
 
     :::image type="content" source="./media/edge-zones/edge-zone-portal-dashboard.png" alt-text="Screenshot of AKS dashboard in the Azure portal showing Edge Zone with the home Azure Region.":::
 
@@ -333,7 +328,7 @@ After deploying an AKS for Edge cluster, you can check the status and monitor th
 
 High availability is critical at the edge for a variety of reasons. Edge devices are typically deployed in remote or hard-to-reach locations, making maintenance and repair more difficult and time-consuming. Additionally, these devices handle a large volume of latency-sensitive data and transactions, so any downtime can result in significant losses for businesses. By incorporating traffic management with failover capabilities, organizations can ensure that their edge deployment remains up and running even in the event of disruption, helping to minimize the impact of downtime and maintain business continuity.
 
-For increased availability in the Azure public MEC Edge Zone, it is recommended to deploy your workload with an architecture that incorporates traffic management using Azure Traffic Manager routing profiles. This can help ensure failover to the closest Azure Region in the event of a disruption. To learn more, see [Azure Traffic Manager][traffic-manager] or view a sample deployment architecture for [High Availability in Azure public MEC][public-mec-architecture].
+For increased availability in the Azure public MEC Edge Zone, it's recommended to deploy your workload with an architecture that incorporates traffic management using Azure Traffic Manager routing profiles. This can help ensure failover to the closest Azure Region in the event of a disruption. To learn more, see [Azure Traffic Manager][traffic-manager] or view a sample deployment architecture for [High Availability in Azure public MEC][public-mec-architecture].
 
 ## Next steps
 
