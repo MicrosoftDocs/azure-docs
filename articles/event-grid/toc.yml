@@ -425,9 +425,15 @@ items:
         href: mqtt-routing-to-event-hubs-portal.md
     - name: Concepts
       items:
+      - name: Event Grid namespace terminology
+        href: mqtt-event-grid-namespace-terminology.md
       - name: Azure Event Grid Namespace MQTT client authentication
         href: mqtt-client-authentication.md
+      - name: Clients and client groups
+        href: mqtt-clients-and-client-groups.md
     - name: How-to guides
       items:
       - name: Azure Event Grid Namespace MQTT client authentication using certificate chain
-        href: mqtt-certificate-chain-client-authentication.md           
+        href: mqtt-certificate-chain-client-authentication.md
+      - name: How to configure multiple sessions for an MQTT client
+        href: mqtt-establishing-multiple-sessions-per-client.md
