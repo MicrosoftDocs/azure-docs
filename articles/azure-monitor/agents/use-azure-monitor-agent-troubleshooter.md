@@ -46,7 +46,7 @@ The Troubleshooter runs two tests and collects several diagnostic logs.
 |Test | Description|
 |:---|:---|
        |Machine Network Configuration (Configuration) | This test checks the very basic network connection including IPV 4 and IPV 6 address resolutions.  If IPV6 isn't available on the machine, you'll see a warning.|
-       |Connection to Control Plan (MCS)                               | This test checks to see if the agent configuration information can be retrieved from the central data control plan. Controlling information includes which source data to collect and where it should be sent to. All agent configuration is done through Data Collection Rules.
+       |Connection to Control Plan (MCS)                               | This test checks to see if the agent configuration information can be retrieved from the central data control plan. Controlling information includes which source data to collect and where it should be sent to. All agent configuration is done through Data Collection Rules.|
 
 
 ##Sharing the Windows Results
@@ -64,7 +64,7 @@ The detailed data collected by the troubleshooter include system configuration, 
 #Linux Troubleshooter
 ##Running Linux Troubleshooter
 1. Log in to the machine to be diagnosed
-2. Go to the location where the troubleshooter is automatically installed: cd /var/lib/waagent/Microsoft.Azure.Monitor.AzureMonitorLinuxAgent-<version>/ama_tst
+2. Go to the location where the troubleshooter is automatically installed: cd /var/lib/waagent/Microsoft.Azure.Monitor.AzureMonitorLinuxAgent-{version}/ama_tst
 3. Run the Troubleshooter: sudo sh ama_troubleshooter.sh A
 
 There are six sections that cover different scenarios that customer have historically had issues with. By enter 1-6 or A, customer is able to diagnose issues with the agent. Adding an L creates a zip file that can be shared if technical support in needed.  
