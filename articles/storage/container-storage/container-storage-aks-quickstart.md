@@ -75,6 +75,9 @@ az aks create -g myContainerStorageRG -n myAKSCluster --node-count 1 --generate-
 
 The deployment will take a few minutes to complete.
 
+> [!NOTE]
+> When you create an AKS cluster, AKS automatically creates a second resource group to store the AKS resources. This second resource group follows the naming convention `MC_YourResourceGroup_YourAKSClusterName_Region`. For more information, see [Why are two resource groups created with AKS?](../../aks/faq.md#why-are-two-resource-groups-created-with-aks).
+
 ## Connect to the cluster
 
 To connect to the cluster, use the Kubernetes command-line client, `kubectl`. It's already installed if you're using Azure Cloud Shell, or you can install it locally by running the `az aks install-cli` command.
@@ -122,24 +125,18 @@ az aks nodepool update --resource-group <resource-group> --cluster-name <cluster
 
 ## Assign Contributor role to AKS managed identity
 
-When you create an AKS cluster, AKS automatically creates a second resource group to store the AKS resources. For more information, see [Why are two resource groups created with AKS?](../../aks/faq.md#why-are-two-resource-groups-created-with-aks). This second resource group follows the naming convention `MC_YourResourceGroup_YourAKSClusterName_Region`. In order to allow Azure Container Storage to provision storage, follow these steps to grant Contributor-level access to the AKS managed identity within this resource group.
+In order to allow Azure Container Storage to provision storage, follow these steps to grant Contributor-level access to the AKS managed identity within this resource group. You'll need an Owner role in Azure RBAC for your Azure subscription in order to grant the Contributor role to the managed identity. If you don't have sufficient permissions, you might need to ask your admin to perform these steps.
 
-> [!IMPORTANT]
-> You'll need an Owner role in Azure RBAC for your Azure subscription in order to grant the Contributor role to the managed identity. If you don't have sufficient permissions, you might need to ask your admin to perform these steps.
-
-1. Sign into the [Azure portal](https://portal.azure.com?azure-portal=true) and select **Resource groups**.
-1. Locate the resource group that AKS created. For this Quickstart, it would be `MC_myContainerStorageRG_myAKSCluster_eastus`. Select the resource group.
-1. Locate the managed identity with your cluster name and `-agentpool` appended. For this Quickstart, it would be `myAKSCluster-agentpool`. Copy or take note of the name of this managed identity.
-
-   :::image type="content" source="media/container-storage-aks-quickstart/locate-aks-managed-identity.png" alt-text="Screenshot showing how to locate the AKS managed identity in the Azure portal." lightbox="media/container-storage-aks-quickstart/locate-aks-managed-identity.png":::
-
+1. Sign into the [Azure portal](https://portal.azure.com?azure-portal=true), and search for and select **Kubernetes services**.
+1. Locate and select your AKS cluster (*myAKSCluster*) and select **Settings** > **Properties** from the left navigation.
+1. Under **Infrastructure resource group**, you should see a link to the resource group that AKS created when you created the cluster. Select it.
 1. Select **Access control (IAM)** from the left pane.
 1. Select **Add > Add role assignment**.
-1. Under **Assignment type**, select **Privileged administrator roles** and then **Contributor**.
+1. Under **Assignment type**, select **Privileged administrator roles** and then **Contributor**. If you don't have an Owner role on the subscription, you won't be able to add the Contributor role.
 1. Under **Assign access to**, select **Managed identity**.
 1. Under **Members**, click **+ Select members**. The **Select managed identities** menu will appear.
 1. Under **Managed identity**, select **User-assigned managed identity**.
-1. Under **Select**, search for and select the managed identity that has *agentpool* in it that you identified in step 3.
+1. Under **Select**, search for and select the managed identity with your cluster name and `-agentpool` appended. For this Quickstart, it would be `myAKSCluster-agentpool`.
 1. Select **Review + assign**.
 
 ## Install Azure Container Storage
