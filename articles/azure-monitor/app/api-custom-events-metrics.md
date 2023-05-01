@@ -959,15 +959,7 @@ Individual telemetry calls can override the default values in their property dic
 
 ## Sample, filter, and process telemetry
 
-You can write code to process your telemetry before it's sent from the SDK. The processing includes data that's sent from the standard telemetry modules, such as HTTP request collection and dependency collection.
-
-[Add properties](./api-filtering-sampling.md#add-properties) to telemetry by implementing `ITelemetryInitializer`. For example, you can add version numbers or values that are calculated from other properties.
-
-[Filtering](./api-filtering-sampling.md#filtering) can modify or discard telemetry before it's sent from the SDK by implementing `ITelemetryProcessor`. You control what is sent or discarded, but you have to account for the effect on your metrics. Depending on how you discard items, you might lose the ability to navigate between related items.
-
-[Sampling](./api-filtering-sampling.md) is a packaged solution to reduce the volume of data that's sent from your app to the portal. It does so without affecting the displayed metrics. And it does so without affecting your ability to diagnose problems by navigating between related items like exceptions, requests, and page views.
-
-To learn more, see [Filter and preprocess telemetry in the Application Insights SDK](./api-filtering-sampling.md).
+See [Filter and preprocess telemetry in the Application Insights SDK](./api-filtering-sampling.md).
 
 ## Disable telemetry
 
