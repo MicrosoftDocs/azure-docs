@@ -57,7 +57,7 @@ There are different types of analysis available from this service. The following
 
 The default maximum length for text submissions is 1000 characters. If you need to analyze longer blocks of text, you can split the input text (for example, by punctuation or spacing) across multiple related submissions.
 
-The default maximum size for image submissions is 4MB, and image dimensions must be between 50 x 50 pixels and 10,000 px x 10,000 pixels. Images can be in JPEG, PNG, GIF, or BMP formats.
+The maximum size for image submissions is 4MB, and image dimensions must be between 50 x 50 pixels and 2,048 x 2,048 pixels. Images can be in JPEG, PNG, GIF, or BMP formats.
 
 ## Pricing
 
