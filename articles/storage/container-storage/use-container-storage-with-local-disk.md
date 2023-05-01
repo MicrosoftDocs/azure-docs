@@ -81,7 +81,7 @@ A persistent volume claim (PVC) is used to automatically provision storage based
    spec:
      accessModes:
        - ReadWriteOnce
-     storageClassName: azurenvme # or whatever your storage class is named
+     storageClassName: azurenvme # replace with the name of your storage class if different
      resources:
        requests:
          storage: 100Gi
@@ -163,7 +163,7 @@ Create a pod using Fio (flexible I/O) for benchmarking and workload simulation, 
    kubectl exec -it fiopod -- fio --name=benchtest --size=800m --filename=/volume/test --direct=1 --rw=randrw --ioengine=libaio --bs=4k --iodepth=16 --numjobs=8 --time_based --runtime=60
    ```
 
-You now have a pod with storage that you can use for your Kubernetes workloads.
+You have now deployed a pod that's using Azure Ephemeral OS Disk as its storage, and you can use it for your Kubernetes workloads.
 
 ## See also
 

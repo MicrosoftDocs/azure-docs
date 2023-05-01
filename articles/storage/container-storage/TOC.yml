@@ -16,7 +16,7 @@
   - name: Use with Azure Ephemeral OS disk
     href: use-container-storage-with-local-disk.md
   - name: Use with Azure Elastic SAN
-    href: use-container-storage-with-managed-san.md
+    href: use-container-storage-with-elastic-san.md
 - name: Concepts
   items:
   - name: FAQ

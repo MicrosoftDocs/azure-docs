@@ -47,7 +47,7 @@ landingContent:
           - text: Use Azure Container Storage with Azure Ephemeral OS disk
             url: use-container-storage-with-local-disk.md
           - text: Use Azure Container Storage with Azure Elastic SAN Preview
-            url: use-container-storage-with-managed-san.md
+            url: use-container-storage-with-elastic-san.md
 
 # Card (optional)
   - title: Frequently asked questions

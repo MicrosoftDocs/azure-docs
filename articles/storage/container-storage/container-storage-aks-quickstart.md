@@ -158,7 +158,7 @@ az k8s-extension list --cluster-name myAKSCluster --resource-group myContainerSt
 Now you'll need to create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a YAML file. Follow these steps to create a storage pool for Azure managed disks. 
 
 > [!NOTE]
-> This Quickstart uses Azure managed disks for back-end storage. Depending on your requirements, you can use [Azure Ephemeral OS disk (NVMe)](use-container-storage-with-local-disk.md) or [Azure Elastic SAN Preview](use-container-storage-with-managed-san.md) instead.
+> This Quickstart uses Azure managed disks for back-end storage. Depending on your requirements, you can use [Azure Ephemeral OS disk (NVMe)](use-container-storage-with-local-disk.md) or [Azure Elastic SAN Preview](use-container-storage-with-elastic-san.md) instead.
 
 1. Run `code acstor-storagepool.yaml` to create a YAML file.
 
@@ -223,7 +223,7 @@ A persistent volume claim is used to automatically provision storage based on a 
    spec:
      accessModes:
        - ReadWriteOnce
-     storageClassName: azuredisk # or whatever your storage class is named
+     storageClassName: azuredisk # replace with the name of your storage class if different
      resources:
        requests:
          storage: 100Gi
