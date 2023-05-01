@@ -18,8 +18,6 @@ The pipeline is triggered by commits to a specific branch in your repository. Wh
 
 ## Container Apps Azure Pipelines task
 
-To build and deploy your container app, add the [`AzureContainerApps`](https://marketplace.visualstudio.com/items?itemName=microsoft-oryx.AzureContainerAppsRC) Azure Pipelines task to your pipeline.
-
 The task supports the following scenarios:
 
 * Build from a Dockerfile and deploy to Container Apps
@@ -129,15 +127,6 @@ After your app is created, you can add a managed identity to your app and assign
 
 [!INCLUDE [container-apps-github-devops-setup.md](../../includes/container-apps-github-devops-setup.md)]
 
-### Install the Azure Container Apps task
-
-The Azure Container Apps Azure Pipelines task is currently in preview. Before you use the task, you must install it from the Azure DevOps Marketplace.
-
-1. Open the [Azure Container Apps task](https://marketplace.visualstudio.com/items?itemName=microsoft-oryx.AzureContainerAppsRC) in the Azure DevOps Marketplace.
-
-1. Select **Get it free**.
-
-1. Select your Azure DevOps organization and select **Install**.
 
 ### Create an Azure DevOps service connection
 
