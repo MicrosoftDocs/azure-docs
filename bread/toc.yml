@@ -837,6 +837,9 @@
       - name: Load Balancer
         tocHref: /azure/load-balancer/
         topicHref: /azure/load-balancer/
+      - name: NAT Gateway
+        tocHref: /azure/nat-gateway
+        topicHref: /azure/nat-gateway
       - name: Network Watcher
         tocHref: /azure/network-watcher/
         topicHref: /azure/network-watcher/
@@ -856,9 +859,6 @@
         tocHref: /azure/virtual-network/
         topicHref: /azure/virtual-network/
         items:
-          - name: NAT gateway
-            tocHref: /azure/virtual-network/nat-gateway
-            topicHref: /azure/virtual-network/nat-gateway
           - name: IP services
             tocHref: /azure/virtual-network/ip-services
             topicHref: /azure/virtual-network/ip-services
