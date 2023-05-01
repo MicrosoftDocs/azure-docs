@@ -20,6 +20,5 @@ This article provides a reference of log and metric data collected to analyze th
 | | MQTT. FailedSubscriptionOperations | MQTT: Failed Subscription Operations | Count | Total | The number of subscriptions operations in the namespace. | <ul><li>**OperationType**: Subscribe/Unsubscribe</li><li>**Protocol**: MQTTv3.1.1, MQTTv3.1.1OverWebSockets, MQTTv5, MQTTv5OverWebSockets</li><li>**Error**:<ul><li>Quota_Exceeded: subscriptions/s, subscriptions/connection</li><li>Bad_Request: exceeded limit of subscriptions per packet</li><li>Client_Auth_Error</li><li>Service_Error</li></ul></li></ul> |
 |  | MQTT.throughput | MQTT: Throughput | Count | Total | Total bytes per second published to or delivered by the namespace. | **Direction**: Inbound/Outbound |
 
-
-
-## Resource logs
+## Next steps
+See [Monitor push and pull delivery reference](monitor-pull-push-reference.md).
