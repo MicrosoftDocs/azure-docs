@@ -11,7 +11,7 @@ ms.author: mbratschun
 ms.custom: template-how-to, engagement-fy23
 ---
 
-# Azure Load Balancer Inbound NAT Pools
+# Tutorial: Migrate from Inbound NAT Pools to NAT Rules
 
 Azure Load Balancer NAT Pools are the legacy approach for automatically assigning Load Balancer front end ports to each instance in a Virtual Machine Scale Set. NAT Rules on Standard SKU Load Balancers have replaced this functionality with an approach that is both easier to manage and faster to configure. 
 
@@ -28,17 +28,20 @@ NAT Rules provide the same functionality as NAT Pools, but have the following ad
 The migration process will create a new Backend Pool for each Inbound NAT Pool existing on the target Load Balancer. A corresponding NAT Rule will be created for each NAT Pool and associated with the new Backend Pool. Existing Backend Pool membership will be retained. 
 
 > [!IMPORTANT]
-> The migration process removes the Virtual Machine Scale Set(s) from the NAT Pools before associating the Virtual Machine Scale Set(s) with the new NAT Rules. This requires an update to the Virtual Machine Scale Set(s) model, which may cause a brief downtime while instances are upgraded with the model.   
+> The migration process removes the Virtual Machine Scale Set(s) from the NAT Pools before associating the Virtual Machine Scale Set(s) with the new NAT Rules. This requires an update to the Virtual Machine Scale Set(s) model, which may cause a brief downtime while instances are upgraded with the model.
 
 > [!NOTE]
 > Frontend port mapping to Virtual Machine Scale Set instances may change with the move to NAT Rules, especially in situations where a single NAT Pool has multiple associated Virtual Machine Scale Sets. The new port assignment will align sequentially to instance ID numbers; when there are multiple Virtual Machine Scale Sets, ports will be assigned to all instances in one scale set, then the next, continuing. 
+
+> [!NOTE]
+> Service Fabric Clusters take significantly longer to update the Virtual Machine Scale Set model (up to an hour). 
 
 ### Prerequisites 
 
 * In order to migrate a Load Balancer's NAT Pools to NAT Rules, the Load Balancer SKU must be 'Standard'. To automate this upgrade process, see the steps provided in [Upgrade a basic load balancer used with Virtual Machine Scale Sets](upgrade-basic-standard-virtual-machine-scale-sets.md).
 * Virtual Machine Scale Sets associated with the target Load Balancer must use either a 'Manual' or 'Automatic' upgrade policy--'Rolling' upgrade policy is not supported. For more information, see [Virtual Machine Scale Sets Upgrade Policies](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)
-* Install the latest version of [PowerShell](https://learn.microsoft.com/powershell/scripting/install/installing-powershell)
-* Install the [Azure PowerShell modules](https://learn.microsoft.com/powershell/azure/install-az-ps)
+* Install the latest version of [PowerShell](/powershell/scripting/install/installing-powershell)
+* Install the [Azure PowerShell modules](/powershell/azure/install-az-ps)
 
 ### Install the 'AzureLoadBalancerNATPoolMigration' module
 
@@ -63,6 +66,19 @@ Install-Module -Name AzureLoadBalancerNATPoolMigration -Scope CurrentUser -Repos
    ```azurepowershell
    Get-AzLoadBalancer -ResourceGroupName -ResourceGroupName <loadBalancerResourceGroupName> -Name <LoadBalancerName> | Start-AzNATPoolMigration
    ```
+
+## Common Questions
+
+### Will migration cause downtime to my NAT ports?
+
+Yes, because we must first remove the NAT Pools before we can create the NAT Rules, there will be a brief time where there is no mapping of the front end port to a back end port.
+
+> [!NOTE]
+> Downtime for NAT'ed port on Service Fabric clusters will be significantly longer--up to an hour for a Silver cluster in testing. 
+
+### Do I need to keep both the new Backend Pools created during the migration and my existing Backend Pools if the membership is the same?
+
+No, following the migration, you can review the new backend pools. If the membership is the same between backend pools, you can replace the new backend pool in the NAT Rule with an existing backend pool, then remove the new backend pool. 
 
 ## Next steps
 
