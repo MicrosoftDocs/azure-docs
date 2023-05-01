@@ -432,8 +432,8 @@ You can use these cmdlets to retrieve the TLS 1.2 enablement status or set it as
   - Trace-ADSyncToolsADImport
   - Trace-ADSyncToolsLdapQuery
 - We now use the V2 endpoint for import and export. We fixed an issue in the Get-ADSyncAADConnectorExportApiVersion cmdlet. To learn more about the V2 endpoint, see [Azure AD Connect sync V2 endpoint](how-to-connect-sync-endpoint-api-v2.md).
-- We added the following new user properties to sync from on-premises Active Directory to Azure AD:
-  - employeeType
+- We added the following new user lifecycle workflow attributes to sync from on-premises Active Directory to Azure AD:
+  - EmployeeLeaveDateTime
   - employeeHireDate
     >[!NOTE]
     > There's no corresponding EmployeeHireDate or EmployeeLeaveDateTime attribute in Active Directory. If you're importing from on-premises AD, you'll need to identify an attribute in AD that can be used. This attribute must be a string.  For more information see, [Synchronizing lifecycle workflow attributes](../governance/how-to-lifecycle-workflow-sync-attributes.md)
