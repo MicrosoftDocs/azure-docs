@@ -15,7 +15,6 @@ This article describes how to manage alert rules using the legacy API.
 > As [announced](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), the Log Analytics alert API will be retired on October 1, 2025. You must transition to using the Scheduled Query Rules API for log alerts by that date.
 > Log Analytics workspaces created after June 1, 2019 use the [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules) to manage alert rules. [Switch to the current API](./alerts-log-api-switch.md) in older workspaces to take advantage of Azure Monitor scheduledQueryRules [benefits](./alerts-log-api-switch.md#benefits). 
 
-
 The Log Analytics Alert REST API allows you to create and manage alerts in Log Analytics. This article provides details about the API and several examples for performing different operations.
 
 The Log Analytics Search REST API is RESTful and can be accessed via the Azure Resource Manager REST API. In this article, you'll find examples where the API is accessed from a PowerShell command line by using [ARMClient](https://github.com/projectkudu/ARMClient). This open-source command-line tool simplifies invoking the Azure Resource Manager API.

@@ -1318,7 +1318,7 @@ items:
             href: alerts/alerts-log-webhook.md
           - name: Legacy Log Analytics alerts API
             href: alerts/api-alerts.md
-          - name: Upgrade from the legacy Log Analytics alert API
+          - name: Upgrade from the legacy Log Analytics alerts API
             href: alerts/alerts-log-api-switch.md
     - name: Manage alert instances
       href: alerts/alerts-manage-alert-instances.md

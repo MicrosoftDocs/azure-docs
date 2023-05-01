@@ -6,7 +6,7 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 2/23/2022
 ---
-# Upgrade to the Log Alerts API from the legacy Log Analytics Alert API
+# Upgrade to the Log Alerts API from the legacy Log Analytics alerts API
 
 > [!IMPORTANT]
 > As [announced](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), the Log Analytics alert API will be retired on October 1, 2025. You must transition to using the Scheduled Query Rules API for log alerts by that date.
