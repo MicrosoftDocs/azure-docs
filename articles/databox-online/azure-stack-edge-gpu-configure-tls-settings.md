@@ -47,6 +47,8 @@ If you want to set system-wide TLS 1.2 for your environment, follow the guidelin
     - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
     You can also add these cipher suites by directly editing the registry settings.
+    The variable $HklmSoftwarePath should be defined
+    $HklmSoftwarePath = 'HKLM:\SOFTWARE'
 
     ```azurepowershell
     New-ItemProperty -Path "$HklmSoftwarePath\Policies\Microsoft\Cryptography\Configuration\SSL\00010002" -Name "Functions"  -PropertyType String -Value ("TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384")

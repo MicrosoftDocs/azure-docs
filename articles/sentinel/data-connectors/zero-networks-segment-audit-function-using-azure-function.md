@@ -17,7 +17,7 @@ The [Zero Networks Segment](https://zeronetworks.com/product/) Audit data connec
 | Connector attribute | Description |
 | --- | --- |
 | **Application settings** | APIToken<br/>WorkspaceID<br/>WorkspaceKey<br/>logAnalyticsUri (optional)<br/>uri<br/>tableName |
-| **Azure functions app code** | https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/ZeroNetworks/SegmentFunctionConnector/AzureFunction_ZeroNetworks_Segment_Audit.zip |
+| **Azure functions app code** | https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/ZeroNetworks/Data%20Connectors/SegmentFunctionConnector/AzureFunction_ZeroNetworks_Segment_Audit.zip |
 | **Log Analytics table(s)** | ZNSegmentAudit_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Zero Networks](https://zeronetworks.com) |
@@ -85,7 +85,7 @@ Use the following step-by-step instructions to deploy the Zero Networks Segment 
 
 > **NOTE:** You will need to [prepare VS code](/azure/azure-functions/functions-create-first-function-powershell#prerequisites) for Azure function development.
 
-1. Download the [Azure Function App](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/ZeroNetworks/SegmentFunctionConnector/AzureFunction_ZeroNetworks_Segment_Audit.zip) file. Extract archive to your local development computer.
+1. Download the [Azure Function App](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/ZeroNetworks/Data%20Connectors/SegmentFunctionConnector/AzureFunction_ZeroNetworks_Segment_Audit.zip) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.
 3. Select the top level folder from extracted files.
 4. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose the **Deploy to function app** button.
