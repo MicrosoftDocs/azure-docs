@@ -61,7 +61,7 @@ Next, create a target database and container on the Azure Cosmos DB for NoSQL ac
     accountName="<name-of-existing-account>"
     
     # Variable for resource group name
-    resourceGroupName="<name of existing-resource-group>"
+    resourceGroupName="<name-of-existing-resource-group>"
     ```
 
 1. Create a new database using [`az cosmosdb sql database create`](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create). Name the new database `cosmicworks` and configure the database with 400 RU/s of shared throughput.
@@ -74,7 +74,7 @@ Next, create a target database and container on the Azure Cosmos DB for NoSQL ac
         --throughput 400
     ```
 
-1. Use [`az cosmosdb sql container create`](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) to create a new container named `products` within the `cosmicworks` database. Set the partition key path of the new container to `/categoryId`.
+1. Use [`az cosmosdb sql container create`](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) to create a new container named `products` within the `cosmicworks` database. Set the partition key path of the new container to `/category`.
 
     ```azurecli-interactive
     az cosmosdb sql container create \
@@ -82,7 +82,7 @@ Next, create a target database and container on the Azure Cosmos DB for NoSQL ac
         --account-name $accountName \
         --database-name cosmicworks \
         --name products \
-        --partition-key-path "/categoryId"
+        --partition-key-path "/category"
     ```
 
 1. Find the *primary connection string* from the list of keys for the account with [`az cosmosdb keys list`](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list).
@@ -107,7 +107,7 @@ Next, create a target database and container on the Azure Cosmos DB for NoSQL ac
     $ACCOUNT_NAME = "<name-of-existing-account>"
     
     # Variable for resource group name
-    $RESOURCE_GROUP_NAME = "<name of existing-resource-group>"
+    $RESOURCE_GROUP_NAME = "<name-of-existing-resource-group>"
     ```
 
 1. Create a new database using [`New-AzCosmosDBSqlDatabase`](/powershell/module/az.cosmosdb/new-azcosmosdbsqldatabase). Name the new database `cosmicworks` and configure the database with 400 RU/s of shared throughput.
@@ -122,7 +122,7 @@ Next, create a target database and container on the Azure Cosmos DB for NoSQL ac
     New-AzCosmosDBSqlDatabase @parameters
     ```
 
-1. Use [`New-AzCosmosDBSqlContainer`](/powershell/module/az.cosmosdb/new-azcosmosdbsqlcontainer) to create a new container named `products` within the `cosmicworks` database. Set the partition key path of the new container to `/categoryId`.
+1. Use [`New-AzCosmosDBSqlContainer`](/powershell/module/az.cosmosdb/new-azcosmosdbsqlcontainer) to create a new container named `products` within the `cosmicworks` database. Set the partition key path of the new container to `/category`.
 
     ```azurepowershell-interactive
     $parameters = @{
@@ -130,7 +130,7 @@ Next, create a target database and container on the Azure Cosmos DB for NoSQL ac
         AccountName = $ACCOUNT_NAME
         DatabaseName = "cosmicworks"
         Name = "products"
-        PartitionKeyPath = "/categoryId"
+        PartitionKeyPath = "/category"
     }
     New-AzCosmosDBSqlContainer @parameters
     ```
@@ -154,8 +154,71 @@ Next, create a target database and container on the Azure Cosmos DB for NoSQL ac
 
 Now, migrate data from a JSON array to the newly created Azure Cosmos DB for NoSQL container.
 
-1.
+1. Navigate to an empty directory on your local machine. Within that directory, create a new file named **migration.json**.
+
+1. Within the JSON file, create a new empty JSON object:
+
+    ```json
+    {}
+    ```
+
+1. Create a new property named `Source` with the value `json`. Create another new property named `SourceSettings` with an empty object as the value.
+
+    ```json
+    {
+      "Source": "json",
+      "SourceSettings": {}
+    }
+    ```
+
+1. Within the `SourceSettings` object, create a new property named `FilePath` with the value set to this URI: [https://raw.githubusercontent.com/azure-samples/cosmos-db-migration-sample-data/main/nosql-data.json](https://github.com/azure-samples/cosmos-db-migration-sample-data/blob/main/nosql-data.json).
+
+    ```json
+    {
+      "Source": "json",
+      "SourceSettings": {
+        "FilePath": "https://raw.githubusercontent.com/azure-samples/cosmos-db-migration-sample-data/main/nosql-data.json"
+      }
+    }
+    ```
+
+1. TODO
+
+    ```json
+    ```
+
+1. TODO
+
+    ```json
+    ```
+
+1. TODO
+
+    ```json
+    ```
+
+1. TODO
+
+    ```json
+    ```
+
+1. TODO
+
+    ```json
+    {
+      "Source": "json",
+      "SourceSettings": {
+        "FilePath": "https://raw.githubusercontent.com/azure-samples/cosmos-db-migration-sample-data/main/nosql-data.json"
+      },
+      "SinkSettings": {
+        "ConnectionString": "<connection-string-for-existing-account>",
+        "Database": "cosmicworks",
+        "Container": "products",
+        "PartitionKeyPath": "/category"
+      }
+    }
+    ```
 
 ## Next steps
 
-- Review [options for migrating data to Azure Cosmos DB](migration-options.md).
+- Review [options for migrating data to Azure Cosmos DB](migration-choices.md).
