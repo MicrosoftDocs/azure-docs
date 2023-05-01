@@ -46,10 +46,10 @@ For additional information, see [Supported topologies for cloud sync](cloud-sync
     - Scoping filters in each sync is mutually exclusive
     - If inclusive, don’t have the same attributes values clashing (Precedence isn’t supported)
 - You can sync users & groups using Connect Sync while using Cloud Sync’s net new capabilities (*called out in Roadmap)
-- You can sync objects from a single AD to multiple Azure ADs if writeback capabilities is enabled only in a single Azure AD tenant.
+- You can sync objects from a single AD to multiple Azure ADs if writeback capabilities are enabled only in a single Azure AD tenant.
 
 
-## Running cloud sync and connect sync in parallel
+## Cloud sync and connect sync in parallel
 You can run cloud sync and Azure AD Connect in the same forest.  You can use cloud sync to manage your users and groups and use Azure AD Connect for devices, for example.  You may decide to do allow cloud sync to handle 80% and use Azure AD Connect for some of your more obscure, 20% scenarios.  The tutorial, [Migrate to Azure AD Connect cloud sync for an existing synced AD forest](cloud-sync/tutorial-pilot-aadc-aadccp.md) shows an example of how you would run each.
 
 ## Common authentication methods and scenarios

@@ -1,6 +1,6 @@
 ---
 title: 'Configure accidental deletion prevention with Active Directory'
-description: This article describes the how you can configure accidental deletion prevention for the synchronization tools with Active Directory.
+description: This article describes how you can configure accidental deletion prevention for the synchronization tools with Active Directory.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -18,9 +18,9 @@ ms.collection: M365-identity-device-management
 
 # How to prevent accidental deletions
 
-When installing either cloud sync or Azure AD Connect, prevent accidental deletes is enabled by default and configured to not allow an export with more than 500 deletes. This feature is designed to protect you from accidental configuration changes and changes to your on-premises directory that would affect many users and other objects.
+When installing either cloud sync or Azure AD Connect, the prevent accidental deletions feature is enabled by default and configured to not allow an export with more than 500 deletes. This feature is designed to protect you from accidental configuration changes and changes to your on-premises directory that would affect many users and other objects.
 
-You can change the defualt behavior and tailor it to your organizations needs.
+You can change the default behavior and tailor it to your organizations needs.
 
 ## Configure accidental delete prevention with cloud sync
 To use the new feature, follow the steps below.

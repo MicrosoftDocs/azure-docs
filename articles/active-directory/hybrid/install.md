@@ -42,7 +42,7 @@ Cloud sync uses the Azure AD Connect provisioning agent.  Use the steps below to
 For more information, see [Installing the provisioning agent](cloud-sync/how-to-install.md) in the cloud sync reference section.
 
 ## Install Azure AD Connect with express settings
-Express settings is the default option to install Azure AD Connect, and it's used for the most commonly deployed scenario. 
+Express settings are the default option to install Azure AD Connect, and it's used for the most commonly deployed scenario. 
 
  1. Sign in as Local Administrator on the server you want to install Azure AD Connect on.  The server you sign in on will be the sync server.
  2. Go to *AzureADConnect.msi* and double-click to open the installation file.
