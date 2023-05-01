@@ -55,7 +55,7 @@ Get more conceptual documentation, quickstarts, and examples in the [UI Library 
 |              | Show changes to the chat title                               |
 | Participants | Show a participant roster                               |
 
-**Microsoft Teams allows users to share images by:
+*Microsoft Teams allows users to share images by:
 - Copying & paste into the box at the bottom of the chat - inline images.
 - Drag & drop into the chat area.
 - Upload an image as a file via the "Upload from this device" button.
