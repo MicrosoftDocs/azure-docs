@@ -25,16 +25,14 @@ items:
       href: concept-planning-your-solution.md
     - name: Supported features in customer tenants
       href: concept-supported-features-customers.md
-    - name: Customizing the sign-in look and feel
-      href: concept-branding-customers.md
-    - name: Collecting info from users
-      href: concept-customize-claims-customers.md
     - name: Authentication methods and identity providers
       href: concept-authentication-methods-customers.md
+    - name: Customizing the sign-in look and feel
+      href: concept-branding-customers.md
+    - name: Custom authentication extensions
+      href: concept-custom-extensions.md
     - name: Security and governance
       href: concept-security-customers.md  	  	  
-    - name: Custom extensions
-      href: concept-custom-extensions.md
 - name: How-to guides
   expanded: true
   items:
@@ -196,21 +194,15 @@ items:
     - name: Extend
       expanded: true
       items:
-      - name: Add claims from external sources
+      - name: Token issuance start event
         items:
-        - name: Token issuance start event
-          items:
-          - name: Custom authentication extensions
-            href: ../../develop/custom-extension-overview.md?context=/azure/active-directory/external-identities/customers/context/customers-context
-          - name: Adding claims from external systems
-            href: ../../develop/custom-claims-provider-overview.md?context=/azure/active-directory/external-identities/customers/context/customers-context
-          - name: Create and register a custom claims provider API
-            href: ../../develop/custom-extension-get-started.md?context=/azure/active-directory/external-identities/customers/context/customers-context
-          - name: Configure a SAML app to call a custom claims provider
-            href: ../../develop/custom-extension-configure-saml-app.md?context=/azure/active-directory/external-identities/customers/context/customers-context
-          - name: Troubleshoot your custom claims provider API
-            href: ../../develop/custom-extension-troubleshoot.md?context=/azure/active-directory/external-identities/customers/context/customers-context
-      - name: Pre and post attribute collection events
+        - name: Create and register a custom claims provider API
+          href: ../../develop/custom-extension-get-started.md?context=/azure/active-directory/external-identities/customers/context/customers-context
+        - name: Configure a SAML app to call a custom claims provider
+          href: ../../develop/custom-extension-configure-saml-app.md?context=/azure/active-directory/external-identities/customers/context/customers-context
+        - name: Troubleshoot your custom claims provider API
+          href: ../../develop/custom-extension-troubleshoot.md?context=/azure/active-directory/external-identities/customers/context/customers-context
+      - name: Attribute collection start and submit events
         items:
           - name: Configure custom extensions
             href: how-to-configure-custom-extension.md

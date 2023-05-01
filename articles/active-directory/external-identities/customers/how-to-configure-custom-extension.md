@@ -1,6 +1,6 @@
 ---
 title: Add validation to attribute collection
-description: Learn about how you can perform validation on attributes collected from the user during sign-up, along with showing the user a blocked or validation error page if needed. There are two events enabled, OnAttributeCollectionStart and OnAttributeCollectionSubmit.
+description: Learn about how you can create a custom authentication extension in the authentication flow for your customer-facing application. There are two events enabled, OnAttributeCollectionStart and OnAttributeCollectionSubmit.
 services: active-directory
 author: msmimart
 manager: celestedg
@@ -15,7 +15,7 @@ ms.custom: it-pro
 #Customer intent: As a dev, devops, or it admin, I want to know what information I can collect from customers during sign-up, and how I can customize and extend how I collect information.
 ---
 
-# Configure a custom extension
+# Configure a custom authentication extension
 
 Self-service sign-up user flows can now take advantage of custom extensions in order to provide validation and augmentation capabilities. 
 

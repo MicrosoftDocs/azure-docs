@@ -1,6 +1,6 @@
 ---
 title: OnAttributeCollectionSubmit event
-description: Learn about how you can perform validation on attributes collected from the user during sign-up, along with showing the user a blocked or validation error page if needed. There are two events enabled, OnAttributeCollectionStart and OnAttributeCollectionSubmit.
+description: Learn about how you can create a custom authentication extension in the authentication flow for your customer-facing application using the OnAttributeCollectionSubmit event.
 services: active-directory
 author: msmimart
 manager: celestedg
@@ -17,7 +17,7 @@ ms.custom: it-pro
 
 # Post-attribute collection custom extension: OnAttributeCollectionSubmit
 
-Self-service sign-up user flows can now take advantage of custom extensions in order to provide validation and augmentation capabilities. 
+Self-service sign-up user flows can now take advantage of custom extensions in order to provide validation and augmentation capabilities.
 
 Custom extensions allow you to perform validation on attributes collected from the user during sign-up, along with showing the user a blocked or validation error page if needed. There are two events enabled: OnAttributeCollectionStart and OnAttributeCollectionSubmit.  
 
@@ -27,7 +27,7 @@ OnAttributeCollectionSubmit is fired after the user provides attribute informati
 
 ### Request 
 
-POST https://exampleAzureFunction.azureWebsites.net/api/functionName  
+`POST https://exampleAzureFunction.azureWebsites.net/api/functionName`
 
 ```json
 { 
@@ -76,7 +76,7 @@ POST https://exampleAzureFunction.azureWebsites.net/api/functionName
 
 ### Response 
 
-HTTP/1.1 200 OK 
+`HTTP/1.1 200 OK`
 
 ```json
 { 
