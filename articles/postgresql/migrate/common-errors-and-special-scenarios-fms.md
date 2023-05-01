@@ -41,20 +41,6 @@ ms.topic: conceptual
 
     Customers need to go to the server parameters of the flexible server and allowlist all the extensions they intend to use. At least the ones mentioned in the error message should be allowed to be listed.
 
-## Migrations with TimescaleDB extension
-
-- Error Message
-    EX001: Extension creation failed for one or more extensions:
-    Failed to run `CREATE EXTENSION IF NOT EXISTS "{0}" CASCADE;` with exception XX000: extension "timescaledb" must be preloaded.
-
-- Root Cause
-
-    <!-- TBA -->
-
-- Mitigation/Resolution
-
-    <!-- TBA -->
-
 ## No pg_hba.conf entry for host
 
 - Error Message
