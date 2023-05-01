@@ -37,7 +37,10 @@ The following table contains the differences between these configurations:
 
 You can also use Azure Databricks or HDInsight to train models in a virtual network.
 
-[!INCLUDE [managed-vnet-note](includes/managed-vnet-note.md)]
+> [!TIP]
+> Azure Machine Learning also provides **managed virtual networks** (preview). With a managed virtual network, Azure Machine Learning handles the job of network isolation for your workspace and managed computes. You can also add private endpoints for resources needed by the workspace, such as Azure Storage Account. 
+>
+> At this time, the managed virtual networks preview **doesn't** support no public IP configuration for compute resources. For more information, see [Workspace managed network isolation](how-to-managed-network.md).
 
 > [!IMPORTANT]
 > Items marked (preview) in this article are currently in public preview.
