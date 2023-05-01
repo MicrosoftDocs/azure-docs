@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/20/2023
+ms.date: 05/01/2023
 ms.author: davidmu
 ms.custom: aaddev, curation-claims
 ms.reviewer: rahulnagraj, alamaral, jeedes
@@ -18,7 +18,7 @@ ms.reviewer: rahulnagraj, alamaral, jeedes
 
 The Microsoft identity platform supports [single sign-on (SSO)](../manage-apps/what-is-single-sign-on.md) with most pre-integrated applications in the Azure Active Directory (Azure AD) application gallery and custom applications. When a user authenticates to an application through the Microsoft identity platform using the SAML 2.0 protocol, the Microsoft identity platform sends a token to the application. And then, the application validates and uses the token to log the user in instead of prompting for a username and password.
 
-These SAML tokens contain pieces of information about the user known as *claims*. A claim is information that an identity provider states about a user inside the token they issue for that user. In a [SAML token](https://en.wikipedia.org/wiki/SAML_2.0), claims data is typically contained in the SAML Attribute Statement. The user's unique ID is typically represented in the SAML Subject, which is also referred to as the name identifier (`nameID`).
+These SAML tokens contain pieces of information about the user known as *claims*. A claim is information that an identity provider states about a user inside the token they issue for that user. In a SAML token, claims data is typically contained in the SAML Attribute Statement. The user's unique ID is typically represented in the SAML Subject, which is also referred to as the name identifier (`nameID`).
 
 By default, the Microsoft identity platform issues a SAML token to an application that contains a `NameIdentifier` claim with a value of the user's username (also known as the user principal name) in Azure AD, which can uniquely identify the user. The SAML token also contains other claims that include the user's email address, first name, and last name.
 
