@@ -443,7 +443,7 @@
             - name: Customize JWT claims
               href: active-directory-jwt-claims-customization.md
             - name: Customize SAML claims
-              href: active-directory-saml-claims-customization.md
+              href: saml-claims-customization.md
             - name: Set an access token lifetime policy
               href: configure-token-lifetimes.md
             - name: Directory extension attributes
