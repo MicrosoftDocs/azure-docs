@@ -13,7 +13,7 @@ ms.author: eur
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ---
 
-# Language identification (preview)
+# Language identification
 
 Language identification is used to identify languages spoken in audio when compared against a list of [supported languages](language-support.md?tabs=language-identification).
 
@@ -27,7 +27,7 @@ For speech recognition, the initial latency is higher with language identificati
 ## Configuration options
 
 > [!IMPORTANT]
-> Language Identification (preview) APIs have been simplified in the Speech SDK version 1.25. The 
+> Language Identification APIs are simplified with the Speech SDK version 1.25 and later. The 
 `SpeechServiceConnection_SingleLanguageIdPriority` and `SpeechServiceConnection_ContinuousLanguageIdPriority` properties have
 been removed and replaced by a single property `SpeechServiceConnection_LanguageIdMode`. Prioritizing between low latency and high accuracy is no longer necessary following recent model improvements. Now, you only need to select whether to run at-start or continuous Language Identification when doing continuous speech recognition or translation.
 
