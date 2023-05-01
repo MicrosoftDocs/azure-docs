@@ -125,6 +125,6 @@ You should see something like the following screenshot once your policy. In case
 
 ## Next steps 
 
-- To learn more about NSG flow logs, see [Flow logs for network security groups](./network-watcher-nsg-flow-logging-overview).
-- To learn about using built-in policies with traffic analytics, see [Manage traffic analytics using Azure Policy](./traffic-analytics-policy-portal).
+- To learn more about NSG flow logs, see [Flow logs for network security groups](./network-watcher-nsg-flow-logging-overview.md).
+- To learn about using built-in policies with traffic analytics, see [Manage traffic analytics using Azure Policy](./traffic-analytics-policy-portal.md).
 - To learn how to use an ARM template to deploy flow Logs and traffic analytics, see [Configure NSG flow logs using an Azure Resource Manager (ARM) template](./quickstart-configure-network-security-group-flow-logs-from-arm-template.md).
