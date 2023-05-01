@@ -14,7 +14,7 @@ keywords: ChatGPT
 ## Working with the ChatGPT models (preview)
 
 > [!NOTE]
-> The Chat Completion API is the recommended method of interacting with the ChatGPT (gtp-45-turbo) models.
+> The Chat Completion API is the recommended method of interacting with the ChatGPT (gpt-35-turbo) models. The Chat Completion API is also the only way to work with GPT-4 models.
 
 The following code snippet shows the most basic way to use the ChatGPT models with ChatML. If this is your first time using these models programmatically we recommend starting with our [ChatGPT & GPT-4 Quickstart](../chatgpt-quickstart.md).
 
@@ -28,7 +28,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 response = openai.Completion.create(
   engine="gpt-35-turbo", # The deployment name you chose when you deployed the ChatGPT model
-  prompt="<|im_start|>system\nAssistant is a large language model trained by OpenAI.\n<|im_end|>\n<|im_start|>user\nWhat's the difference between garbanzo beans and chickpeas?\n<|im_end|>\n<|im_start|>assistant\n",
+  prompt="<|im_start|>system\nAssistant is a large language model trained by OpenAI.\n<|im_end|>\n<|im_start|>user\nWho were the founders of Microsoft?\n<|im_end|>\n<|im_start|>assistant\n",
   temperature=0,
   max_tokens=500,
   top_p=0.5,
@@ -110,7 +110,7 @@ If you want the ChatGPT and GPT-4 models to behave similarly to [chat.openai.com
 Assistant is a large language model trained by OpenAI.
 <|im_end|>
 <|im_start|>user
-What's the difference between garbanzo beans and chickpeas?
+Who were the founders of Microsoft?
 <|im_end|>
 <|im_start|>assistant
 ```
@@ -290,4 +290,4 @@ assert tokens == [100264, 882, 198, 9906, 100265, 100264, 78191]
 
 * [Learn more about Azure OpenAI](../overview.md).
 * Get started with the ChatGPT model with [the ChatGPT quickstart](../chatgpt-quickstart.md).
-* For more examples, check out the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples)
+* For more examples, check out the [Azure OpenAI Samples GitHub repository](https://aka.ms/AOAICodeSamples)

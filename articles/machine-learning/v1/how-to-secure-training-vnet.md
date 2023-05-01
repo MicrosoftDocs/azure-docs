@@ -19,7 +19,7 @@ ms.custom: UpdateFrequency5, contperf-fy20q4, tracking-python, contperf-fy21q1, 
 
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
 > * [SDK v1](how-to-secure-training-vnet.md)
-> * [SDK v2 (current version)](../how-to-secure-training-vnet.md)
+> * [SDK v2 (current version)](../how-to-secure-training-vnet.md?view=azureml-api-2&preserve-view=true)
 
 In this article, you learn how to secure training environments with a virtual network in Azure Machine Learning using the Python SDK v1.
 
@@ -57,7 +57,7 @@ In this article you learn how to secure the following training compute resources
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 ## Prerequisites
 
-+ Read the [Network security overview](how-to-network-security-overview.md) article to understand common virtual network scenarios and overall virtual network architecture.
++ Read the [Network security overview](../how-to-network-security-overview.md) article to understand common virtual network scenarios and overall virtual network architecture.
 
 + An existing virtual network and subnet to use with your compute resources. This VNet must be in the same subscription as your Azure Machine Learning workspace.
 
@@ -138,8 +138,8 @@ The following configurations are in addition to those listed in the [Prerequisit
     | `<region>.tundra.azureml.ms` | UDP | 5831 | Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. |
     | `graph.windows.net` | TCP | 443 | Communication with the Microsoft Graph API.|
     | `*.instances.azureml.ms` | TCP | 443/8787/18881 | Communication with Azure Machine Learning. |
-    | `<region>.batch.azure.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. Communication with Azure Batch. |
-    | `<region>.service.batch.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. Communication with Azure Batch. |
+    | `*.<region>.batch.azure.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. Communication with Azure Batch. |
+    | `*.<region>.service.batch.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. Communication with Azure Batch. |
     | `*.blob.core.windows.net` | TCP | 443 | Communication with Azure Blob storage. |
     | `*.queue.core.windows.net` | TCP | 443 | Communication with Azure Queue storage. |
     | `*.table.core.windows.net` | TCP | 443 | Communication with Azure Table storage. |
@@ -210,8 +210,8 @@ The following configurations are in addition to those listed in the [Prerequisit
     | `<region>.tundra.azureml.ms` | UDP | 5831 | Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. |
     | `graph.windows.net` | TCP | 443 | Communication with the Microsoft Graph API.|
     | `*.instances.azureml.ms` | TCP | 443/8787/18881 | Communication with Azure Machine Learning. |
-    | `<region>.batch.azure.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. Communication with Azure Batch. |
-    | `<region>.service.batch.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. Communication with Azure Batch. |
+    | `*.<region>.batch.azure.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. Communication with Azure Batch. |
+    | `*.<region>.service.batch.com` | ANY | 443 | Replace `<region>` with the Azure region that contains your Azure Machine Learning workspace. Communication with Azure Batch. |
     | `*.blob.core.windows.net` | TCP | 443 | Communication with Azure Blob storage. |
     | `*.queue.core.windows.net` | TCP | 443 | Communication with Azure Queue storage. |
     | `*.table.core.windows.net` | TCP | 443 | Communication with Azure Table storage. |
@@ -314,7 +314,7 @@ For information on using a firewall solution, see [Use a firewall with Azure Mac
 
 This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 
-* [Virtual network overview (v1)](how-to-network-security-overview.md)
+* [Virtual network overview (v1)](../how-to-network-security-overview.md)
 * [Secure the workspace resources](../how-to-secure-workspace-vnet.md)
 * [Secure inference environment (v1)](how-to-secure-inferencing-vnet.md)
 * [Enable studio functionality](../how-to-enable-studio-virtual-network.md)

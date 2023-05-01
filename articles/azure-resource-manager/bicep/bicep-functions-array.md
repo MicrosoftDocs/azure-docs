@@ -3,6 +3,7 @@ title: Bicep functions - arrays
 description: Describes the functions to use in a Bicep file for working with arrays.
 author: mumian
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.author: jgao
 ms.date: 12/09/2022
 ---
@@ -197,8 +198,7 @@ The output from the preceding example with the default values is:
 
 ### Quickstart examples
 
-The following example is extracted from a quickstart template, [SQL Server VM with performance optimized storage settings
-](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.attestation/attestation-provider-create/main.bicep):
+The following example is extracted from a quickstart template, [Virtual Network with diagnostic logs settings](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/vnet-create-with-diagnostic-logs/main.bicep):
 
 ```bicep
 @description('Array containing DNS Servers')

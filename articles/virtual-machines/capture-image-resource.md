@@ -8,8 +8,7 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 03/15/2023
 ms.author: cynthn
-ms.custom: legacy
-
+ms.custom: legacy, devx-track-azurepowershell
 ---
 # Create a legacy managed image of a generalized VM in Azure
 

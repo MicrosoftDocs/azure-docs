@@ -59,6 +59,9 @@ Here's what considered idleness of entities (queues, topics, and subscriptions):
 | Topic | <ul><li>No sends</li><li>No updates to the topic</li><li>No scheduled messages</li><li>No operations on the topic's subscriptions (see the next row)</li></ul> |
 | Subscription | <ul><li>No receives</li><li>No updates to the subscription</li><li>No new rules added to the subscription</li><li>No browse/peek</li></ul> |
 
+ > [!IMPORTANT] 
+> If you have auto forwarding setup on the queue or subscription, that is equivalent to having a receiver peform receives on the queue or subscription and they will not be idle.
+ 
 ## SDKs
 
 - To set time-to-live on a message: [.NET](/dotnet/api/azure.messaging.servicebus.servicebusmessage.timetolive), [Java](/java/api/com.azure.messaging.servicebus.servicebusmessage.settimetolive), [Python](/python/api/azure-servicebus/azure.servicebus.servicebusmessage), [JavaScript](/javascript/api/@azure/service-bus/servicebusmessage#@azure-service-bus-servicebusmessage-timetolive)

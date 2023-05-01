@@ -6,7 +6,7 @@ author: anmolbohra
 manager: komivi.agbakpem
 services: azure-communication-services
 ms.author: anmolbohra
-ms.date: 07/09/2022
+ms.date: 03/31/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: email
@@ -14,8 +14,6 @@ ms.subservice: email
 # Quickstart: Handle Email events
 
 Get started with Azure Communication Services by using Azure Event Grid to handle Communication Services Email events. After subscribing to Email events such as delivery reports and engagement reports, you generate and receive these events. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 ## Prerequisites
 

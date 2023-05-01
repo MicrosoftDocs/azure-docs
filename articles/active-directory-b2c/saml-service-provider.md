@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/16/2022
+ms.date: 04/24/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -327,7 +327,7 @@ The following example shows the `entityID` value in the SAML metadata:
 The `identifierUris` property will accept URLs only on the domain `tenant-name.onmicrosoft.com`.
 
 ```json
-"identifierUris":"https://tenant-name.onmicrosoft.com",
+"identifierUris":"https://tenant-name.onmicrosoft.com/app-name",
 ```
 
 #### Share the application's metadata with Azure AD B2C

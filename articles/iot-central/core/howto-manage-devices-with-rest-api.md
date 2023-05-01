@@ -3,7 +3,7 @@ title: How to use the IoT Central REST API to manage devices
 description: How to use the IoT Central REST API to add devices in an application
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/30/2022
+ms.date: 03/23/2023
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -32,6 +32,7 @@ The IoT Central REST API lets you:
 * Get a device by ID
 * Get a device credential
 * Delete a device in your application
+* Filter the list of devices in the application
 
 ### Add a device
 
@@ -203,16 +204,16 @@ If you're adding an IoT Edge device, you can use the API to assign an IoT Edge d
 
 ### Use ODATA filters
 
-You can use ODATA filters to filter the results returned by the list devices API.
+In the preview version of the API (`api-version=2022-10-31-preview`), you can use ODATA filters to filter and sort the results returned by the list devices API.
 
-### $top
+### maxpagesize
 
-Use the **$top** to set the result size, the maximum returned result size is 100, the default size is 25.
+Use the **maxpagesize** to set the result size, the maximum returned result size is 100, the default size is 25.
 
 Use the following request to retrieve a top 10 device from your application:
 
 ```http
-GET https://{your app subdomain}/api/devices?api-version=2022-07-31&$top=10
+GET https://{your app subdomain}/api/devices?api-version=2022-10-31-preview&maxpagesize=10
 ```
 
 The response to this request looks like the following example:
@@ -240,33 +241,33 @@ The response to this request looks like the following example:
         },
         ...
     ],
-    "nextLink": "https://custom-12qmyn6sm0x.azureiotcentral.com/api/devices?api-version=2022-07-31&%24top=1&%24skiptoken=%257B%2522token%2522%253A%2522%252BRID%253A%7EJWYqAOis7THQbBQAAAAAAg%253D%253D%2523RT%253A1%2523TRC%253A1%2523ISV%253A2%2523IEO%253A65551%2523QCF%253A4%2522%252C%2522range%2522%253A%257B%2522min%2522%253A%2522%2522%252C%2522max%2522%253A%252205C1D7F7591D44%2522%257D%257D"
+    "nextLink": "https://{your app subdomain}.azureiotcentral.com/api/devices?api-version=2022-07-31&%24top=1&%24skiptoken=%257B%2522token%2522%253A%2522%252BRID%253A%7EJWYqAOis7THQbBQAAAAAAg%253D%253D%2523RT%253A1%2523TRC%253A1%2523ISV%253A2%2523IEO%253A65551%2523QCF%253A4%2522%252C%2522range%2522%253A%257B%2522min%2522%253A%2522%2522%252C%2522max%2522%253A%252205C1D7F7591D44%2522%257D%257D"
 }
 ```
 
 The response includes a **nextLink** value that you can use to retrieve the next page of results.
 
-### $filter
+### filter
 
-Use **$filter** to create expressions that filter the list of devices. The following table shows the comparison operators you can use:
+Use **filter** to create expressions that filter the list of devices. The following table shows the comparison operators you can use:
 
-| Comparison Operator | Symbol | Example                                 |
-| -------------------- | ------ | --------------------------------------- |
-| Equals               | eq     | `id eq 'device1' and scopes eq 'redmond'` |
-| Not Equals           | ne     | `Enabled ne true`                         |
-| Less than or equals       | le     | `contains(displayName, 'device1') le -1`   |
-| Less than            | lt     | `contains(displayName, 'device1') lt 0`    |
-| Greater than or equals      | ge     | `contains(displayName, 'device1') ge 0`    |
-| Greater than           | gt     | `contains(displayName, 'device1') gt 0`    |
+| Comparison Operator    | Symbol | Example                                   |
+|------------------------|--------|-------------------------------------------|
+| Equals                 | eq     | `id eq 'device1' and scopes eq 'redmond'` |
+| Not Equals             | ne     | `Enabled ne true`                         |
+| Less than or equals    | le     | `id le '26whl7mure6'`                     |
+| Less than              | lt     | `id lt '26whl7mure6'`                     |
+| Greater than or equals | ge     | `id ge '26whl7mure6'`                     |
+| Greater than           | gt     | `id gt '26whl7mure6'`                     |
 
-The following table shows the logic operators you can use in *$filter* expressions:
+The following table shows the logic operators you can use in *filter* expressions:
 
 | Logic Operator | Symbol | Example                               |
 | -------------- | ------ | ------------------------------------- |
 | AND            | and    | `id eq 'device1' and enabled eq true`   |
 | OR             | or     | `id eq 'device1' or simulated eq false` |
 
-Currently, *$filter* works with the following device fields:
+Currently, *filter* works with the following device fields:
 
 | FieldName   | Type    | Description               |
 | ----------- | ------- | ------------------------- |
@@ -278,18 +279,18 @@ Currently, *$filter* works with the following device fields:
 | `template`    | string  | Device template ID        |
 | `scopes`      | string  | organization ID           |
 
-**$filter supported functions:**
+**filter supported functions:**
 
 Currently, the only supported filter function for device lists is the `contains` function:
 
 ```http
-$filter=contains(displayName, 'device1') ge 0
+filter=contains(displayName, 'device1')
 ```
 
 The following example shows how to retrieve all the devices where the display name contains the string `thermostat`:
 
 ```http
-GET https://{your app subdomain}/api/deviceTemplates?api-version=2022-07-31&$filter=contains(displayName, 'thermostat')
+GET https://{your app subdomain}/api/deviceTemplates?api-version=2022-10-31-preview&filter=contains(displayName, 'thermostat')
 ```
 
 The response to this request looks like the following example:
@@ -319,19 +320,19 @@ The response to this request looks like the following example:
 }
 ```
 
-### $orderby
+### orderby
 
-Use **$orderby** to sort the results. Currently, **$orderby** only lets you sort on **displayName**. By default, **$orderby** sorts in ascending order. Use **desc** to sort in descending order, for example:
+Use **orderby** to sort the results. Currently, **orderby** only lets you sort on **displayName**. By default, **orderby** sorts in ascending order. Use **desc** to sort in descending order, for example:
 
 ```http
-$orderby=displayName
-$orderby=displayName desc
+orderby=displayName
+orderby=displayName desc
 ```
 
 The following example shows how to retrieve all the device templates where the result is sorted by `displayName` :
 
 ```http
-GET https://{your app subdomain}/api/devices?api-version=2022-07-31&$orderby=displayName
+GET https://{your app subdomain}/api/devices?api-version=2022-10-31-preview&orderby=displayName
 ```
 
 The response to this request looks like the following example:
@@ -363,40 +364,52 @@ The response to this request looks like the following example:
 
 You can also combine two or more filters.
 
-The following example shows how to retrieve the top two devices where the display name contains the string `thermostat`.
+The following example shows how to retrieve the top three devices where the display name contains the string `Thermostat`.
 
 ```http
-GET https://{your app subdomain}/api/deviceTemplates?api-version=2022-07-31&$filter=contains(displayName, 'thermostat')&$top=2
+GET https://{your app subdomain}/api/deviceTemplates?api-version=2022-10-31-preview&filter=contains(displayName, 'Thermostat')&maxpagesize=3
 ```
 
 The response to this request looks like the following example:
 
 ```json
 {
-    "value": [
-        {
-            "id": "5jcwskdwbm",
-            "etag": "eyJoZWFkZXIiOiJcIjI0MDBlMDdjLTAwMDAtMDMwMC0wMDAwLTYxYjgxYmVlMDAwMFwiIn0",
-            "displayName": "thermostat1",
-            "simulated": false,
-            "provisioned": false,
-            "template": "dtmi:contoso:Thermostat;1",
-            "enabled": true
-        },
-        {
-            "id": "ccc",
-            "etag": "eyJoZWFkZXIiOiJcIjI0MDAwYjdkLTAwMDAtMDMwMC0wMDAwLTYxYjgxZDJjMDAwMFwiIn0",
-            "displayName": "thermostat2",
-            "simulated": true,
-            "provisioned": true,
-            "template": "dtmi:contoso:Thermostat;1",
-            "enabled": true
-        }
-    ]
+  "value": [
+    {
+      "id": "1fpwlahp0zp",
+      "displayName": "Thermostat - 1fpwlahp0zp",
+      "simulated": false,
+      "provisioned": false,
+      "etag": "eyJwZ0luc3RhbmNlIjoiYTRjZGQyMjQtZjIxMi00MTI4LTkyMTMtZjcwMTBlZDhkOWQ0In0=",
+      "template": "dtmi:contoso:mythermostattemplate;1",
+      "enabled": true
+    },
+    {
+      "id": "1yg0zvpz9un",
+      "displayName": "Thermostat - 1yg0zvpz9un",
+      "simulated": false,
+      "provisioned": false,
+      "etag": "eyJwZ0luc3RhbmNlIjoiZGQ1YTY4MDUtYzQxNS00ZTMxLTgxM2ItNTRiYjdiYWQ1MWQ2In0=",
+      "template": "dtmi:contoso:mythermostattemplate;1",
+      "enabled": true
+    },
+    {
+      "id": "20cp9l96znn",
+      "displayName": "Thermostat - 20cp9l96znn",
+      "simulated": false,
+      "provisioned": false,
+      "etag": "eyJwZ0luc3RhbmNlIjoiNGUzNWM4OTItNDBmZi00OTcyLWExYjUtM2I4ZjU5NGZkODBmIn0=",
+      "template": "dtmi:contoso:mythermostattemplate;1",
+      "enabled": true
+    }
+  ],
+  "nextLink": "https://{your app subdomain}.azureiotcentral.com/api/devices?api-version=2022-10-31-preview&filter=contains%28displayName%2C+%27Thermostat%27%29&maxpagesize=3&$skiptoken=aHR0cHM6Ly9pb3RjLXByb2QtbG4taW5ma3YteWRtLnZhdWx0LmF6dXJlLm5ldC9zZWNyZXRzL2FwaS1lbmMta2V5LzY0MzZkOTY2ZWRjMjRmMDQ5YWM1NmYzMzFhYzIyZjZi%3AgWMDkfdpzBF0eYiYCGRdGQ%3D%3D%3ATVTgi5YVv%2FBfCd7Oos6ayrCIy9CaSUVu2ULktGQoHZDlaN7uPUa1OIuW0MCqT3spVXlSRQ9wgNFXsvb6mXMT3WWapcDB4QPynkI%2FE1Z8k7s3OWiBW3EQpdtit3JTCbj8qRNFkA%3D%3D%3Aq63Js0HL7OCq%2BkTQ19veqA%3D%3D"
 }
 ```
 
 ## Device groups
+
+You can create device groups in an IoT Central application to monitor aggregate data, to use with jobs, and to manage access. Device groups are defined by a filter that selects the devices to add to the group. You can create device groups in the IoT Central portal or by using the API.
 
 ### Add a device group
 

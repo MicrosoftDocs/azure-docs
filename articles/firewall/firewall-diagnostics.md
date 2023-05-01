@@ -4,6 +4,7 @@ description: In this article, you learn how to enable and manage Azure Firewall 
 services: firewall
 author: vhorne
 ms.service: firewall
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 11/15/2022
 ms.author: victorh

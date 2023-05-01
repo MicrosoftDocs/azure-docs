@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: how-to
-ms.date: 03/08/2023
+ms.date: 03/31/2023
 ms.author: rolyon
 ms.custom: it-pro
 
@@ -415,6 +415,18 @@ This setting also applies to B2B collaboration and B2B direct connect, so if you
 
 ## Troubleshooting tips
 
+#### Delete a configuration
+
+Follows these steps to delete a configuration on the **Configurations** page.
+
+1. In the source tenant, select **Azure Active Directory** > **Cross-tenant synchronization (Preview)**.
+
+1. On the **Configurations** page, add a check mark next to the configuration you want to delete.
+
+1. Select **Delete** and then **OK** to delete the configuration.
+
+    :::image type="content" source="./media/cross-tenant-synchronization-configure/configurations-delete.png" alt-text="Screenshot of the Configurations page showing how to delete a configuration." lightbox="./media/cross-tenant-synchronization-configure/configurations-delete.png":::
+
 #### Symptom - Test connection fails with AzureDirectoryB2BManagementPolicyCheckFailure
 
 When configuring cross-tenant synchronization in the source tenant and you test the connection, it fails with the following error message:
@@ -461,25 +473,70 @@ Restoring a previously soft-deleted user in the target tenant isn't supported.
 
 Manually restore the soft-deleted user in the target tenant. For more information, see [Restore or remove a recently deleted user using Azure Active Directory](../fundamentals/active-directory-users-restore.md).
 
-#### Symptom - Unable to delete a configuration
-
-On the **Configurations** page, there isn't a way to delete a configuration.
+#### Symptom - Users are skipped because SMS sign-in is enabled on the user
+Users are skipped from synchronization. The scoping step includes the following filter with status false: "Filter external users.alternativeSecurityIds EQUALS 'None'"
 
 **Cause**
 
-Currently, there isn't a way to delete a configuration on the **Configurations** page. Instead, you must delete the configuration in **Enterprise applications**.
+If SMS sign-in is enabled for a user, they will be skipped by the provisioning service.
 
 **Solution**
 
-1. In the source tenant, select **Azure Active Directory** > **Enterprise applications**.
+Disable SMS Sign-in for the users. The script below shows how you can disable SMS Sign-in using PowerShell. 
 
-1. In the list of all applications, find the name of your configuration. If necessary, you can search by the configuration name.
+```powershell
+##### Disable SMS Sign-in options for the users
 
-1. Select the configuration and then select **Properties**.
+#### Import module
+Install-Module Microsoft.Graph.Users.Actions
+Install-Module Microsoft.Graph.Identity.SignIns
+Import-Module Microsoft.Graph.Users.Actions
 
-1. Select **Delete** and then **Yes** to delete the configuration.
+Connect-MgGraph -Scopes "User.Read.All", "Group.ReadWrite.All", "UserAuthenticationMethod.Read.All","UserAuthenticationMethod.ReadWrite","UserAuthenticationMethod.ReadWrite.All"
 
-    :::image type="content" source="./media/cross-tenant-synchronization-configure/enterprise-applications-configuration-delete.png" alt-text="Screenshot of the Enterprise applications Properties page showing how to delete a configuration." lightbox="./media/cross-tenant-synchronization-configure/enterprise-applications-configuration-delete.png":::
+##### The value for phoneAuthenticationMethodId is 3179e48a-750b-4051-897c-87b9720928f7
+
+$phoneAuthenticationMethodId = "3179e48a-750b-4051-897c-87b9720928f7"
+
+#### Get the User Details
+
+$userId = "objectid_of_the_user_in_Azure_AD"
+
+#### validate the value for SmsSignInState
+
+$smssignin = Get-MgUserAuthenticationPhoneMethod -UserId $userId
+
+{
+    if($smssignin.SmsSignInState -eq "ready"){   
+      #### Disable Sms Sign-In for the user is set to ready
+       
+      Disable-MgUserAuthenticationPhoneMethodSmSign -UserId $userId -PhoneAuthenticationMethodId $phoneAuthenticationMethodId
+      Write-Host "SMS sign-in disabled for the user" -ForegroundColor Green
+    }
+    else{
+    Write-Host "SMS sign-in status not set or found for the user " -ForegroundColor Yellow
+    }
+
+}
+
+##### End the script
+```
+
+#### Symptom - Users fail to provision with error "AzureActiveDirectoryForbidden"
+
+Users in scope fail to provision. The provisioning logs details include the following error message:
+
+```
+Guest invitations not allowed for your company. Contact your company administrator for more details.
+```
+
+**Cause**
+
+This error indicates the Guest invite settings in the target tenant are configured with the most restrictive setting: "No one in the organization can invite guest users including admins (most restrictive)".
+
+**Solution**
+
+Change the Guest invite settings in the target tenant to a less restrictive setting. For more information, see [Configure external collaboration settings](../external-identities/external-collaboration-settings-configure.md).
 
 ## Next steps
 

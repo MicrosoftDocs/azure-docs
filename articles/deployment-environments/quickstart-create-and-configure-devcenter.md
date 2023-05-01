@@ -1,16 +1,16 @@
 ---
 title: Create and configure a dev center
 titleSuffix: Azure Deployment Environments
-description: Learn how to create and configure a dev center in Azure Deployment Environments Preview. In the quickstart, you create a dev center, attach an identity, attach a catalog, and create environment types.
+description: Learn how to configure a dev center in Deployment Environments. You'll create a dev center, attach an identity, attach a catalog, and create environment types.
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: quickstart
 ms.service: deployment-environments
 ms.custom: ignite-2022
-ms.date: 02/08/2023
+ms.date: 04/25/2023
 ---
 
-# Quickstart: Create and configure a dev center
+# Quickstart: Create and configure a dev center for Azure Deployment Environments
 
 This quickstart shows you how to create and configure a dev center in Azure Deployment Environments Preview.
 
@@ -65,7 +65,7 @@ If you don't have an existing key vault, use the following steps to create one:
 1.	In the Search box, enter *Key Vault*.
 1.	From the results list, select **Key Vault**.
 1.	On the Key Vault page, select **Create**.
-1.	On the Create key vault page provide the following information:
+1.	On the Create key vault page, provide the following information:
 
     |Name      |Value      |
     |----------|-----------|
@@ -194,19 +194,19 @@ You also need the path to the secret you created in the key vault.
 
     :::image type="content" source="media/quickstart-create-and-configure-devcenter/catalogs-page.png" alt-text="Screenshot that shows the Catalogs pane.":::
 
-1. In the **Add catalog** pane, enter the following information, and then select **Add**.
+1. In **Add catalog**, enter the following information, and then select **Add**:
 
-    | Name | Value |
+    | Field | Value |
     | ----- | ----- |
     | **Name** | Enter a name for the catalog. |
-    | **Git clone URI**  | Enter or paste the clone URL for either your GitHub repository or your Azure DevOps repository.<br/>*Sample Catalog Example:* https://github.com/Azure/deployment-environments.git |
-    | **Branch**  | Enter the repository branch to connect to.<br/>*Sample Catalog Example:* main|
-    | **Folder path**  | Enter the folder path relative to the clone URI that contains subfolders with your catalog items. </br>This folder path should be the path to the folder that contains the subfolders with the catalog item manifests, and not the path to the folder with the catalog item manifest itself.<br/>*Sample Catalog Example:* /Environments </br> The folder path can begin with or without a '/'.|
-    | **Secret identifier**| Enter the secret identifier that contains your personal access token for the repository. When you copy a Secret Identifier, the connection string includes a version identifier at the end, like this: https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat/9376b432b72441a1b9e795695708ea5a. </br>Removing the version identifier ensures that Deployment Environments fetches the latest version of the secret from the key vault. If your PAT expires, only the key vault needs to be updated. </br> *Example secret identifier: https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat*|
+    | **Git clone URI**  | Enter or paste the clone URL for either your GitHub repository or your Azure DevOps repository.<br />*Sample catalog example:* `https://github.com/Azure/deployment-environments.git` |
+    | **Branch**  | Enter the repository branch to connect to.<br />*Sample catalog example:* `main`|
+    | **Folder path**  | Enter the folder path relative to the clone URI that contains subfolders that hold your catalog items. <br /> The folder path is for the folder with subfolders containing catalog item manifests, not for the folder with the catalog item manifest itself. The following image shows the sample catalog folder structure.<br />*Sample catalog example:* `/Environments`<br /> :::image type="content" source="media/how-to-configure-catalog/github-folders.png" alt-text="Screenshot showing Environments sample folder in GitHub."::: The folder path can begin with or without a forward slash (`/`).|
+    | **Secret identifier**| Enter the [secret identifier](#create-a-personal-access-token) that contains your personal access token for the repository.<br /> When you copy a secret identifier, the connection string includes a version identifier at the end, like in this example: `https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat/9376b432b72441a1b9e795695708ea5a`.<br />Removing the version identifier ensures that Deployment Environments fetches the latest version of the secret from the key vault. If your personal access token expires, only the key vault needs to be updated. <br />*Example secret identifier:* `https://contoso-kv.vault.azure.net/secrets/GitHub-repo-pat`|
 
    :::image type="content" source="media/how-to-configure-catalog/add-catalog-form-inline.png" alt-text="Screenshot that shows how to add a catalog to a dev center." lightbox="media/how-to-configure-catalog/add-catalog-form-expanded.png":::
 
-1. Confirm that the catalog is successfully added by checking your Azure portal notifications.
+1. In **Catalogs** for the dev center, verify that your catalog appears. If the connection is successful, **Status** is **Connected**.
 
 ## Create an environment type
 

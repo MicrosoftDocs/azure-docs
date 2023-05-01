@@ -3,12 +3,12 @@ title: Create and manage encryption scopes
 titleSuffix: Azure Storage
 description: Learn how to create an encryption scope to isolate blob data at the container or blob level.
 services: storage
-author: jimmart-dev
+author: tamram
 
 ms.service: storage
 ms.date: 03/10/2023
 ms.topic: conceptual
-ms.author: jammart
+ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.devlang: powershell, azurecli

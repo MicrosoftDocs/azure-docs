@@ -110,7 +110,7 @@ You can read about the service limits of Azure Digital Twins in the [Azure Digit
 
 ### Terminology
 
-You can view a list of common IoT terms and their uses across the Azure IoT services, including Azure Digital Twins, in the [Azure IoT Glossary](../iot-fundamentals/iot-glossary.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json). This resource may be a useful reference while you get started with Azure Digital Twins and building an IoT solution.
+You can view a list of common IoT terms and their uses across the Azure IoT services, including Azure Digital Twins, in the [Azure IoT Glossary](../iot/iot-glossary.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json). This resource may be a useful reference while you get started with Azure Digital Twins and building an IoT solution.
 
 ## Next steps
 

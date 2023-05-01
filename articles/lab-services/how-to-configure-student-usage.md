@@ -25,6 +25,8 @@ By default, access to a lab is restricted. Only users that are in the list of la
 
 You can [add users from an Azure Active Directory (Azure AD) group](#add-users-to-a-lab-from-an-azure-ad-group), or [manually add a list of users by email](#add-users-manually). If you enable Azure Lab Services integration with [Microsoft Teams](./how-to-manage-labs-within-teams.md) or [Canvas](./how-to-manage-labs-within-canvas.md), Azure Lab Services automatically grants user access to the lab and assigns a lab VM based on their membership in Microsoft or Canvas. In this case, you don't have to specify the lab user list, and users don't have to register for the lab.
 
+Azure Lab Services supports up to 400 users per lab.
+
 ## Prerequisites
 
 - To manage users for the lab, your Azure account needs one of the following permissions:
@@ -252,10 +254,10 @@ When users use the registration link to sign in to a classroom, they're prompted
 
 :::image type="content" source="./media/how-to-configure-student-usage/cant-find-account.png" alt-text="Screenshot that shows the sign-in error message for the Azure Lab Services website." lightbox="./media/how-to-configure-student-usage/cant-find-account.png":::
 
-Here's a link for users to [sign up for a Microsoft account](http://signup.live.com).  
+Here's a link for users to [sign up for a Microsoft account](https://signup.live.com).  
 
 > [!IMPORTANT]
-> When users sign in to a lab, they aren't given the option to create a Microsoft account. For this reason, we recommend that you include this sign-up link, `http://signup.live.com`, in the lab registration email that you send to users who are using non-Microsoft accounts.
+> When users sign in to a lab, they aren't given the option to create a Microsoft account. For this reason, we recommend that you include this sign-up link, `https://signup.live.com`, in the lab registration email that you send to users who are using non-Microsoft accounts.
 
 ### Use a GitHub account
 
