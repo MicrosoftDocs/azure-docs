@@ -161,7 +161,7 @@ To add a catalog, you must specify the GitHub repo URL, the branch, and the fold
 1. Take a note of the branch that you're working in.
 1. Take a note of the folder that contains your catalog items. 
  
-     :::image type="content" source="media/how-to-create-configure-devcenter/github-info.png" alt-text="Screenshot that shows the GitHub repo with Code, branch, and folder highlighted.":::
+     :::image type="content" source="media/how-to-create-configure-dev-center/github-info.png" alt-text="Screenshot that shows the GitHub repo with Code, branch, and folder highlighted.":::
 
 ### Add a catalog to your dev center
 
