@@ -54,6 +54,18 @@ Last year we announced the combined registration user experience for MFA and  se
 
 ---
 
+### General Availability - System preferred MFA method
+
+**Type:** Changed feature   
+**Service category:** Authentications (Logins)                       
+**Product capability:** Identity Security & Protection            
+
+Currently, organizations and users rely on a range of authentication methods, each offering varying degrees of security. While Multifactor Authentication (MFA) is crucial, some MFA methods are more secure than others. Despite having access to more secure MFA options, users frequently choose less secure methods for various reasons.
+
+To address this challenge, we're introducing a new system-preferred authentication method for MFA. When users sign in, the system will determine and display the most secure MFA method that the user has registered. This prompts users to switch from the default method to the most secure option. While users may still choose a different MFA method, they'll always be prompted to use the most secure method first for every session that requires MFA. For more information, see: [System-preferred multifactor authentication - Authentication methods policy](../authentication/concept-system-preferred-multifactor-authentication.md).
+
+---
+
 ### General Availability - PIM alert: Alert on active-permanent role assignments in Azure or assignments made outside of PIM
 
 **Type:** Fixed     
@@ -70,7 +82,7 @@ Last year we announced the combined registration user experience for MFA and  se
 **Service category:** User Management                     
 **Product capability:** User Management            
 
-Admins can now define more properties when creating and inviting a user in the Entra admin portal. These improvements bring our UX to parity with our [Create User APIS](/graph/api/user-post-users). Additionally, admins can now add users to a group or administrative unit, as well as assign roles.  For more information, see: [Add or delete users using Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
+Admins can now define more properties when creating and inviting a user in the Entra admin portal. These improvements bring our UX to parity with our [Create User APIS](/graph/api/user-post-users). Additionally, admins can now add users to a group or administrative unit, and assign roles.  For more information, see: [Add or delete users using Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
 
 ---
 
@@ -90,7 +102,7 @@ The protected actions public preview introduces the ability to apply Conditional
 **Service category:** Conditional Access                  
 **Product capability:** User Authentication          
 
-Token Protection for sign-in sessions is our first release on a road-map to combat attacks involving token theft and replay. It provides conditional access enforcement of token proof-of-possession for supported clients and services that ensures that access to specified resources is only from a device to which the user has signed in. For more information, see: [Conditional Access: Token protection (preview)](../conditional-access/concept-token-protection.md).
+Token Protection for sign-in sessions is our first release on a road-map to combat attacks involving token theft and replay. It provides conditional access enforcement of token proof-of-possession for supported clients and services that ensure that access to specified resources is only from a device to which the user has signed in. For more information, see: [Conditional Access: Token protection (preview)](../conditional-access/concept-token-protection.md).
 
 ---
 
