@@ -13,7 +13,7 @@ ms.custom: template-how-to, engagement-fy23
 
 # Tutorial: Migrate from Inbound NAT Pools to NAT Rules
 
-Azure Load Balancer NAT Pools are the legacy approach for automatically assigning Load Balancer front end ports to each instance in a Virtual Machine Scale Set. NAT Rules on Standard SKU Load Balancers have replaced this functionality with an approach that is both easier to manage and faster to configure. 
+Azure Load Balancer NAT Pools are the legacy approach for automatically assigning Load Balancer front end ports to each instance in a Virtual Machine Scale Set. [NAT Rules](inbound-nat-rules.md) on Standard SKU Load Balancers have replaced this functionality with an approach that is both easier to manage and faster to configure. 
 
 ## Why Migrate to NAT Rules?
 
