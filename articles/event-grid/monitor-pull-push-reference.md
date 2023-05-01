@@ -23,7 +23,7 @@ This article provides a reference of log and metric data collected to analyze th
 | SuccessfulReleasedEvents | Successful released events | Number of events released by queue subscriber clients. |
 | FailedReleasedEvents | Failed to release event counts | Number of events that failed to be released back to Event Grid. |
 | DeadLetteredEvents | Dead-lettered events | Number of events sent to a dead-letter location. |
-| DroppedEvents | Dropped events | Number of events successfully received by Event Grid but later dropped (deleted) due to one of the following reasons: <ul><li>the maximum delivery count of a queue or push subscription has been reached and a dead-letter destination hasn't been configured or isn't available</li><li>Events have been rejected by queue subscription clients and there's no dead-letter destination configured or isn't available.</li><li>The time-to-live configured for the event subscription has been reached and there's no dead-letter destination configured or isn't available.</li></ul> |
+| DroppedEvents | Dropped events | Number of events successfully received by Event Grid but later dropped (deleted) due to one of the following reasons: <br>- The maximum delivery count of a queue or push subscription has been reached and a dead-letter destination hasn't been configured or isn't available<br> - Events have been rejected by queue subscription clients and there's no dead-letter destination configured or isn't available. <br> -The time-to-live configured for the event subscription has been reached and there's no dead-letter destination configured or isn't available. |
 | ReceiveLatencyInMilliseconds | Receive operations latency in milliseconds | Latency in milliseconds for receive message operations |
 | PublishLatencyInMilliseconds | Publish operations latency in milliseconds | Latency in milliseconds for publish event operations |
 | AcknowledgeLatencyInMilliseconds | Acknowledge operations latency in milliseconds | Latency in milliseconds for acknowledge event operations |
@@ -156,12 +156,12 @@ The possible values of `Outcome` are `NotFound`, `Aborted`, `TimedOut`, `Generic
 
 | Property name | Data type | Description |
 | ------------- | --------- | ----------- |
-| NetworkAccess | String | Allowed values are: <ul><li>`PublicAccess` - when connecting via public IP</li><li>`PrivateAccess` - when connecting via private link</li></ul> |
+| NetworkAccess | String | Allowed values are: <br>- `PublicAccess` - when connecting via public IP<br>- `PrivateAccess` - when connecting via private link |
 | ClientIpAddress | String | Source IP of incoming requests |
 | TlsVersion | String | The transport layer security (TLS) version used by the client connection. Possible values are: **1.0**, **1.1** and **1.2** |
-| Authentication/Type | String | The type of secret used for authentication when publishing messages. <ul><li>`Key` – request uses the SAS key</li><li>`SASToken` – request uses a SAS token generated from SAS key</li><li>`AADAccessToken` – Azure Active Directory issued JSON Web Token (JWT) token</li><li>`Unknown` – None of the above authentication types. OPTIONS requests have this authentication type </li></ul> |
+| Authentication/Type | String | The type of secret used for authentication when publishing messages. <br>-`Key` – request uses the SAS key<br>- `SASToken` – request uses a SAS token generated from SAS key<br>- `AADAccessToken` – Azure Active Directory issued JSON Web Token (JWT) token<br>- `Unknown` – None of the above authentication types. OPTIONS requests have this authentication type |
 | Authentication/ObjectId | String | ObjectId of the service principal used when the authentication type is set to `AADAccessToken` |
-| OperationResult | String | Result of the publish. Possible values are: <ul><li>Success</li><li>Unauthorized</li><li>Forbidden</li><li>RequestEntityTooLarge</li><li>BadRequest</li><li>InternalServerError</li></ul> |
+| OperationResult | String | Result of the publish. Possible values are: <br>- Success<br>- Unauthorized<br>- Forbidden<br>- RequestEntityTooLarge<br>- BadRequest<br>- InternalServerError |
 | TotalOperations | String | These traces aren't emitted for each publish request. An aggregate for each unique combination of above values is emitted every minute |
 
 #### Example - Schema for data plane requests
