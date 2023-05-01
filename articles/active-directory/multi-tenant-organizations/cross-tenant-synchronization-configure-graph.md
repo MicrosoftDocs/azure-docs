@@ -130,13 +130,13 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     New-MgPolicyCrossTenantAccessPolicyPartner -BodyParameter $params
     ```
 
-1. Use the New-MgX command to enable user synchronization in the target tenant.
+1. Use the [Update-MgPolicyCrossTenantAccessPolicyPartnerIdentitySynchronization](/powershell/module/microsoft.graph.identity.signins/update-mgpolicycrosstenantaccesspolicypartneridentitysynchronization?view=graph-powershell-beta&preserve-view=true&branch=main) command to enable user synchronization in the target tenant.
 
     ```powershell
     $UserSyncInbound=@{
         "IsSyncAllowed"="True"
     }
-    New-MgX
+    Update-MgPolicyCrossTenantAccessPolicyPartnerIdentitySynchronization
         -TenantId "<sourceTenantId>"
         -DisplayName "<sourceTenantName>"
         -UserSyncInbound $UserSyncInbound
