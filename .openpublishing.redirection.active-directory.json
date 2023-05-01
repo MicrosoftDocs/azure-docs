@@ -2666,6 +2666,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/develop/howto-add-branding-in-azure-ad-apps.md",
+      "redirect_url": "/azure/active-directory/develop/howto-add-branding-in-apps.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-java-view-saml-returned-by-access-control.md",
       "redirect_url": "/azure/active-directory/develop/active-directory-saml-protocol-reference",
       "redirect_document_id": false

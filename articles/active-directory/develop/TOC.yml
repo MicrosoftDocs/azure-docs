@@ -538,7 +538,7 @@
           items:
             - name: Follow the branding guidelines
               displayName: Add branding
-              href: howto-add-branding-in-azure-ad-apps.md
+              href: howto-add-branding-in-apps.md
             - name: Configure Terms of Service and Privacy Statement
               href: howto-add-terms-of-service-privacy-statement.md
         - name: Publish app to a marketplace
