@@ -31,3 +31,8 @@ The provisioning agent provides connectivity between Azure Active Directory (Azu
 
 ## How it works
 The provisioning agent uses SCIM ([System for Cross-domain Identity Management (SCIM) 2.0](https://techcommunity.microsoft.com/t5/identity-standards-blog/provisioning-with-scim-getting-started/ba-p/880010)). The SCIM specification provides a common user schema to help users move into, out of, and around apps. SCIM is becoming the de facto standard for provisioning and, when used in conjunction with federation standards like SAML or OpenID Connect, provides administrators an end-to-end standards-based solution for access management.
+
+## Next steps 
+
+- [What is provisioning?](../what-is-provisioning.md)
+- [Install cloud sync](how-to-install.md)
