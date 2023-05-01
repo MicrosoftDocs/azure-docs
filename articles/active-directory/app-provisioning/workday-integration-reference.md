@@ -464,7 +464,7 @@ This section covers how you can customize the provisioning app for the following
 This section describes the Azure AD provisioning service support for scenarios when a worker converts from full-time employee (FTE) to contingent worker (CW) or vice versa. Depending on how worker conversions are processed in Workday, there may be different implementation aspects to consider. 
 
 * [Scenario 1: Backdated conversion from FTE to CW or vice versa](#scenario-1-backdated-conversion-from-fte-to-cw-or-vice-versa) 
-* [Scenario 2: Worker employed as CW/FTE today, will change to FTE/CW today](#scenario-2-worker-employed-as-cwfte-today-will-change-to-ftecw-today)
+* [Scenario 2: Worker employed as CW/FTE today, changes to FTE/CW today](#scenario-2-worker-employed-as-cwfte-today-will-change-to-ftecw-today)
 * [Scenario 3: Worker employed as CW/FTE is terminated, rejoins as FTE/CW after a significant gap](#scenario-3-worker-employed-as-cwfte-is-terminated-rejoins-as-ftecw-after-a-significant-gap)
 * [Scenario 4: Future-dated conversion, when worker is an active CW/FTE](#scenario-4-future-dated-conversion-when-worker-is-an-active-cwfte)
 
@@ -476,7 +476,7 @@ Your HR team may backdate a worker conversion transaction in Workday for valid b
 * The Azure AD provisioning service will detect this change in the Workday transaction log on January 15, 2023 and automatically provision attributes of the new FTE profile in the next sync cycle. 
 * No changes are required in the provisioning app configuration to handle this scenario. 
 
-#### Scenario 2: Worker employed as CW/FTE today, will change to FTE/CW today
+#### Scenario 2: Worker employed as CW/FTE today, changes to FTE/CW today
 This scenario is similar to the above scenario, except that instead of backdating the transaction, HR performs a worker conversion that is effective immediately. The Azure AD provisioning service will detect this change in the Workday transaction log and automatically provision attributes associated with active FTE profile in the next sync cycle. No changes are required in the provisioning app configuration to handle this scenario.  
 
 #### Scenario 3: Worker employed as CW/FTE is terminated, rejoins as FTE/CW after a significant gap 
