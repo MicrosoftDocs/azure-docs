@@ -4,7 +4,7 @@ description: Learn how to configure and use Azure Container Storage Preview with
 author: khdownie
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/20/2023
+ms.date: 05/01/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ---
@@ -103,7 +103,7 @@ To connect to the cluster, use the Kubernetes command-line client, `kubectl`. It
 
 ## Create and label a node pool
 
-You'll need a node pool of at least three virtual machines (VMs). Each VM must have a minimum of four virtual CPUs (vCPUs), so we'll use the standard DS4 VM size.
+You'll need a node pool of at least three virtual machines (VMs). Each VM must have a minimum of four virtual CPUs (vCPUs). We'll use the **standard_ds4_v2** VM size for this Quickstart. However, if you plan to use Ephemeral OS Disk for the storage pool, you should specify an L series VM such as **standard_l8s_v3**.
 
 To create a new node pool, run the following command:
 
@@ -125,7 +125,7 @@ az aks nodepool update --resource-group <resource-group> --cluster-name <cluster
 When you create an AKS cluster, AKS automatically creates a second resource group to store the AKS resources. For more information, see [Why are two resource groups created with AKS?](../../aks/faq.md#why-are-two-resource-groups-created-with-aks). This second resource group follows the naming convention `MC_YourResourceGroup_YourAKSClusterName_Region`. In order to allow Azure Container Storage to provision storage, follow these steps to grant Contributor-level access to the AKS managed identity within this resource group.
 
 > [!IMPORTANT]
-> You'll need an Owner role in Azure RBAC for your subscription in order to grant the Contributor role to the managed identity. If you don't have sufficient permissions, you might need to ask your admin to perform these steps.
+> You'll need an Owner role in Azure RBAC for your Azure subscription in order to grant the Contributor role to the managed identity. If you don't have sufficient permissions, you might need to ask your admin to perform these steps.
 
 1. Sign into the [Azure portal](https://portal.azure.com?azure-portal=true) and select **Resource groups**.
 1. Locate the resource group that AKS created. For this Quickstart, it would be `MC_myContainerStorageRG_myAKSCluster_eastus`. Select the resource group.
@@ -280,7 +280,7 @@ Create a pod using Fio (flexible I/O) for benchmarking and workload simulation, 
            - "1000000"
          volumeMounts:
            - mountPath: "/volume"
-           name: azurediskpv
+             name: azurediskpv
    ```
 
 3. Apply the YAML file to deploy the pod.

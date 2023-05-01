@@ -4,7 +4,7 @@ description: Configure Azure Container Storage Preview for use with Azure Epheme
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/20/2023
+ms.date: 05/01/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ---
@@ -18,12 +18,12 @@ Azure Container Storage is a volume management service built natively for contai
 ## Prerequisites
 
 - This article requires version 2.0.64 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed. If you plan to run the commands locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges.
-- You'll need an Azure Kubernetes Service (AKS) cluster with a node pool of at least three virtual machines (VMs), each with at least four virtual CPUs.
+- You'll need an Azure Kubernetes Service (AKS) cluster with a node pool of at least three L series virtual machines (VMs) such as **standard_l8s_v3**, each with at least four virtual CPUs.
 - Follow the instructions in [Use Azure Container Storage with AKS](container-storage-aks-quickstart.md) to assign Contributor role to the AKS managed identity and install Azure Container Storage Preview.
 
 ## Create a storage pool
 
-First, create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a YAML file. Follow these steps to create a storage pool using local disk. 
+First, create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a YAML file. Follow these steps to create a storage pool using local disk.
 
 1. Use your favorite text editor to create a YAML file such as `code acstor-storagepool.yaml`.
 
@@ -135,7 +135,7 @@ Create a pod using Fio (flexible I/O) for benchmarking and workload simulation, 
            - "1000000"
          volumeMounts:
            - mountPath: "/volume"
-           name: azurenvmepv
+             name: azurenvmepv
    ```
 
 3. Apply the YAML file to deploy the pod.

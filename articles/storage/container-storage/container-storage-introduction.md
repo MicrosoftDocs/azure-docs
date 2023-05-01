@@ -4,7 +4,7 @@ description: An overview of Azure Container Storage Preview, a service built nat
 author: khdownie
 ms.service: storage
 ms.topic: overview
-ms.date: 04/20/2023
+ms.date: 05/01/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ms.custom: references_regions

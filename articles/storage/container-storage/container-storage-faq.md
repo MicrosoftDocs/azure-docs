@@ -3,7 +3,7 @@ title: Frequently asked questions (FAQ) for Azure Container Storage
 description: Get answers to Azure Container Storage frequently asked questions.
 author: khdownie
 ms.service: storage
-ms.date: 04/25/2023
+ms.date: 05/01/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ms.topic: conceptual

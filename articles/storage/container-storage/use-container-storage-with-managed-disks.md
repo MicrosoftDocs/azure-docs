@@ -4,7 +4,7 @@ description: Configure Azure Container Storage Preview for use with Azure manage
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/19/2023
+ms.date: 05/01/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ---
@@ -134,7 +134,7 @@ Create a pod using Fio (flexible I/O) for benchmarking and workload simulation, 
            - "1000000"
          volumeMounts:
            - mountPath: "/volume"
-           name: azurediskpv
+             name: azurediskpv
    ```
 
 3. Apply the YAML file to deploy the pod.
