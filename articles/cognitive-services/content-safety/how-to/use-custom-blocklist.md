@@ -209,7 +209,7 @@ Copy the cURL command below to a text editor and make the following changes:
 1. Replace `<endpoint>` with your endpoint URL.
 1. Replace `<enter_your_key_here>` with your key.
 1. Replace `<your_list_id>` (in the request URL) with the ID value you used in the list creation step.
-1. Replace `<item_id>` (both places) with the ID value for the blockItem. This is the value of the `"blockItems"` field in the **Add** API call.
+1. Replace `<item_id>` (in the request URL) with the ID value for the blockItem. This is the value of the `"blockItems"` field in the **Add** API call.
 
 
 ```shell
