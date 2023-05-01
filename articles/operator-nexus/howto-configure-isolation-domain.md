@@ -47,7 +47,7 @@ The following parameters are available for configuring isolation domains.
 |---|---|---|---|
 |`resource-group`	|Resource group name specifically for the isolation domain of your choice.|`ResourceGroupName`|True
 |`resource-name`	|Resource name of the L2 isolation domain.|`example-l2domain`| True
-|`location`|Azure Operator Distributed Services region used during NFC creation.|`eastus`| True
+|`location`|Azure Operator Nexus region used during NFC creation.|`eastus`| True
 |`nf-Id`	|Network fabric ID.|`/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFresourcegroupname/providers/Microsoft.ManagedNetworkFabric/NetworkFabrics/NFname`| True
 |`Vlan-id` | VLAN identifier value. VLANs 1 to 500 are reserved and can't be used. The VLAN identifier value can't be changed after you specify it. You must delete and re-create the isolation domain if you need to modify the VLAN identifier value. The range is `501` to `4095`.|`501`| True
 |`mtu` | Maximum transmission unit. If you don't specify a value, the default is `1500`.|`1500`|
@@ -257,7 +257,7 @@ The following parameters are available for configuring L3 isolation domains.
 |---|---|---|---|
 |`resource-group`	|Resource group name specifically for the isolation domain of your choice|`ResourceGroupName`|True|
 |`resource-name`	|Resource name of the L3 isolation domain|`example-l3domain`|True|
-|`location`|Azure Operator Distributed Services region used during NFC creation|`eastus`|True|
+|`location`|Azure Operator Nexus region used during NFC creation|`eastus`|True|
 |`nf-Id`	|Azure subscription ID used during NFC creation|`/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/NetworkFabrics/NFName`| True|
 
 The following parameters for isolation domains are optional.
@@ -484,7 +484,7 @@ The following parameters are available for creating internal networks.
 |`vlan-Id` |VLAN identifier with a range from 501 to 4095|`1001`|True|
 |`resource-group`|Corresponding NFC resource group name| `NFCresourcegroupname` | True
 |`l3-isolation-domain-name`|Resource name of the L3 isolation domain|`example-l3domain` | True
-|`location`|Azure Operator Distributed Services region used during NFC creation|`eastus` | True
+|`location`|Azure Operator Nexus region used during NFC creation|`eastus` | True
 
 The following parameters are optional for creating internal networks.
 
@@ -500,7 +500,6 @@ The following parameters are optional for creating internal networks.
 |`allowASOverride`	|Enables or disables `allowAS`.|`Enable`||
 |`ipv4ListenRangePrefixes`| BGP IPv4 listen range; maximum range allowed in /28.| `10.1.0.0/26` | |
 |`ipv6ListenRangePrefixes`| BGP IPv6 listen range; maximum range allowed in /127.| `3FFE:FFFF:0:CD30::/126`| |
-|`ipv4ListenRangePrefixes`| BGP IPv4 listen range; maximum range allowed in /28.| `10.1.0.0/26` | |
 |`ipv4NeighborAddress`| IPv4 neighbor address.|`10.0.0.11`| |
 |`ipv6NeighborAddress`| IPv6 neighbor address.|`10:101:1::11`| |
 
