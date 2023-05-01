@@ -102,7 +102,7 @@ The [ama-metrics-prometheus-config-node configmap](https://aka.ms/azureprometheu
 Example:- The following `node-exporter` config is one of the default targets for the DaemonSet pods. It uses the `$NODE_IP` environment variable, which is already set for every `ama-metrics` add-on container to target a specific port on the node.
 
   ```yaml
-  - job_name: node
+  - job_name: nodesample
     scrape_interval: 30s
     scheme: http
     metrics_path: /metrics
@@ -299,7 +299,7 @@ To scrape certain pods, specify the port, path, and scheme through annotations f
 
 ```yaml
 scrape_configs:
-  - job_name: 'kubernetes-pods'
+  - job_name: 'kubernetespods-sample'
 
     kubernetes_sd_configs:
     - role: pod
