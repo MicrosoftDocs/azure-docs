@@ -1,14 +1,14 @@
 ---
-title: Deploy an Azure container offer from Azure Marketplace 
-description: Learn how to deploy Azure container offers from Azure Marketplace on an Azure Kubernetes Service (AKS) cluster.
+title: Deploy an Kubernetes application from Azure Marketplace 
+description: Learn how to deploy Kubernetes applications from Azure Marketplace on an Azure Kubernetes Service (AKS) cluster.
 author: nickomang
 ms.author: nickoman
 ms.topic: how-to
-ms.date: 09/30/2022
+ms.date: 05/01/2023
 ms.custom: ignite-fall-2022, references_regions
 ---
 
-# Deploy a container offer from Azure Marketplace (preview)
+# Deploy a Kubernetes application from Azure Marketplace (preview)
 
 [Azure Marketplace][azure-marketplace] is an online store that contains thousands of IT software applications and services built by industry-leading technology companies. In Azure Marketplace, you can find, try, buy, and deploy the software and services that you need to build new solutions and manage your cloud infrastructure. The catalog includes solutions for different industries and technical areas, free trials, and consulting services from Microsoft partners.
 
@@ -79,21 +79,51 @@ az provider register --namespace Microsoft.KubernetesConfiguration --wait
 
    :::image type="content" source="./media/deploy-marketplace/deployment-inline.png" alt-text="Screenshot of the Azure portal that shows a successful resource deployment to the cluster." lightbox="./media/deploy-marketplace/deployment-full.png":::
 
+# [Azure CLI](#tab/azure-cli/linux)
+
 1. Verify the deployment by using the following command to list the extensions that are running on your cluster:
 
    ```azurecli-interactive
    az k8s-extension list --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
    ```
 
+# [Portal](#tab/azure-portal)
+
+1. Verify the deployment by using the following command to list the extensions that are running on your cluster or visit the cluster you recently installed the extension on, then navigate to "Extensions + Applications", where you will see the extension status:
+
+   :::image type="content" source="./media/deploy-marketplace/verify-inline.png" lightbox="./media/deploy-marketplace/verify.png" alt-text="The Azure portal page for the A K S cluster is shown. 'Extensions + Applications' is selected, and the deployed extension is listed.":::
+
+---
+
 ## Manage the offer lifecycle
 
 For lifecycle management, an Azure Kubernetes offer is represented as a cluster extension for AKS. For more information, see [Cluster extensions for AKS][cluster-extensions].
 
-Purchasing an offer from Azure Marketplace creates a new instance of the extension on your AKS cluster. You can view the extension instance from the cluster by using the following command:
+Purchasing an offer from Azure Marketplace creates a new instance of the extension on your AKS cluster.
+
+# [Azure CLI](#tab/azure-cli/linux)
+
+You can view the extension instance from the cluster by using the following command:
 
 ```azurecli-interactive
 az k8s-extension show --name <extension-name> --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
 ```
+
+# [Portal](#tab/azure-portal)
+
+First, navigate to an existing cluster, then select "Extensions + applications":
+
+:::image type="content" source="./media/deploy-marketplace/cluster-view.png" alt-text="The Azure portal page for the A K S cluster. 'Extensions + Applications' is highlighted.":::
+
+You will see your recently installed extensions listed:
+
+:::image type="content" source="./media/deploy-marketplace/verify-inline.png" lightbox="./media/deploy-marketplace/verify.png" alt-text="The Azure portal page for the A K S cluster. 'Extensions + Applications' is selected, and the deployed extension is listed.":::
+
+Select an extension name to navigate to a properties view where you are able to disable auto upgrades, check the provisioning state, delete the extension instance, or modify configuration settings as needed.
+
+:::image type="content" source="./media/deploy-marketplace/properties.png" alt-text="The Azure portal page for extension properties.":::
+
+---
 
 ## Monitor billing and usage information
 
@@ -109,9 +139,19 @@ To monitor billing and usage information for the offer that you deployed:
 
 You can delete a purchased plan for an Azure container offer by deleting the extension instance on the cluster. For example:
 
+# [Azure CLI](#tab/azure-cli/linux)
+
 ```azurecli-interactive
 az k8s-extension delete --name <extension-name> --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
 ```
+
+# [Portal](#tab/azure-portal)
+
+Select an application, then select the uninstall button to remove the extension from your cluster:
+
+:::image type="content" source="./media/deploy-marketplace/uninstall-inline.png" alt-text="Screenshot of the Azure portal page for a resource group, with billing information broken down by offer plan." lightbox="./media/deploy-marketplace/uninstall.png":::
+
+---
 
 ## Troubleshooting
 
