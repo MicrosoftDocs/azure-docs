@@ -1,6 +1,6 @@
 ---
 title: Memo 22-09 enterprise-wide identity management system
-description: Get guidance on meeting enterprise-wide identity management system requirements outlined in US government OMB memorandum 22-09.
+description: Guidance on meeting enterprise-wide identity management system requirements outlined in OMB memorandum 22-09.
 services: active-directory 
 ms.service: active-directory
 ms.subservice: standards
@@ -15,9 +15,11 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Enterprise-wide identity management system
+# Memo 22-09 enterprise-wide identity management system
 
 Memorandum 22-09 requires agencies to develop a plan to consolidate their identity platforms to as few agency-managed identity systems as possible within 60 days of the publication date (March 28, 2022). There are several advantages to consolidating your identity platform:
+
+[M 22-09 Memorandum for Heads of Executive Departments and Agencies](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf). 
 
 * Centralized management of identity lifecycle, policy enforcement, and auditable controls
 
