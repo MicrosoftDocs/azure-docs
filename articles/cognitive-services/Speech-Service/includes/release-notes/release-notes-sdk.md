@@ -8,13 +8,17 @@ ms.author: eur
 
 ### Speech SDK 1.28.0: May 2023 release
 
+#### Breaking change
+
+* JavaScript SDK: Online Certificate Status Protocol (OCSP) was removed. This allows clients to better conform to browser and Node standards for certificate handling. Version 1.28 and onward will not longer include our custom OCSP module.
+
 #### New Features
 
-* **Embedded Speech Recognition** now returns `NoMatchReason::EndSilenceTimeout` when a silence timeout occurs at the end of an utterance. This matches the behavior when doing recognition using the on-line speech service.
+* **Embedded Speech Recognition** now returns `NoMatchReason::EndSilenceTimeout` when a silence timeout occurs at the end of an utterance. This matches the behavior when doing recognition using the real-time speech service.
 
 #### Bug fixes
 
-* Fix deadlock when using the audio codec extension on Windows
+* Fix for deadlock in Windows audio extension
 
 #### Samples
 
@@ -34,8 +38,8 @@ ms.author: eur
 
 #### Bug fixes
 
-* **General** - Reliability updates in service reconnection logic (all programing languages except JavaScript).
-* **General** - Fix string conversions leaking memory on Windows (all relevant programing languages except JavaScript).
+* **General** - Reliability updates in service reconnection logic (all programming languages except JavaScript).
+* **General** - Fix string conversions leaking memory on Windows (all relevant programming languages except JavaScript).
 * **Embedded Speech Recognition** - Fix crash in French Speech Recognition when using certain grammar list entries.
 * **Source code documentation** - Corrections to SDK reference documentation comments related to audio logging on the service.
 * **Intent recognition** - Fix Pattern Matcher priorities related to list entities.
