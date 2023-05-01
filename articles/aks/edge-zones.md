@@ -312,9 +312,9 @@ In this section you'll learn how to deploy a Kubernetes cluster in the Edge Zone
 
 9. It takes a few minutes to create the AKS cluster. When your deployment is complete, navigate to your resource by either:
     * Selecting **Go to resource**
-    * Browsing to the AKS cluster resource group and selecting the AKS resource. In this example you browse for *myResourceGroup* and select the resource *myAKSCluster*. You can see the Edge Zone locations with the home Azure Region in the Location.
+    * Browsing to the AKS cluster resource group and selecting the AKS resource. In this example you browse for *myResourceGroup* and select the resource *myAKSCluster*. You can see the Edge Zone locations with the home Azure region in the Location.
 
-    :::image type="content" source="./media/edge-zones/edge-zone-portal-dashboard.png" alt-text="Screenshot of AKS dashboard in the Azure portal showing Edge Zone with the home Azure Region.":::
+    :::image type="content" source="./media/edge-zones/edge-zone-portal-dashboard.png" alt-text="Screenshot of AKS dashboard in the Azure portal showing Edge Zone with the home Azure region.":::
 
 ---
 
@@ -328,7 +328,7 @@ After deploying an AKS for Edge cluster, you can check the status and monitor th
 
 High availability is critical at the edge for a variety of reasons. Edge devices are typically deployed in remote or hard-to-reach locations, making maintenance and repair more difficult and time-consuming. Additionally, these devices handle a large volume of latency-sensitive data and transactions, so any downtime can result in significant losses for businesses. By incorporating traffic management with failover capabilities, organizations can ensure that their edge deployment remains up and running even in the event of disruption, helping to minimize the impact of downtime and maintain business continuity.
 
-For increased availability in the Azure public MEC Edge Zone, it's recommended to deploy your workload with an architecture that incorporates traffic management using Azure Traffic Manager routing profiles. This can help ensure failover to the closest Azure Region in the event of a disruption. To learn more, see [Azure Traffic Manager][traffic-manager] or view a sample deployment architecture for [High Availability in Azure public MEC][public-mec-architecture].
+For increased availability in the Azure public MEC Edge Zone, it's recommended to deploy your workload with an architecture that incorporates traffic management using Azure Traffic Manager routing profiles. This can help ensure failover to the closest Azure region in the event of a disruption. To learn more, see [Azure Traffic Manager][traffic-manager] or view a sample deployment architecture for [High Availability in Azure public MEC][public-mec-architecture].
 
 ## Next steps
 
