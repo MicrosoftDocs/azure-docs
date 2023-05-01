@@ -4,8 +4,7 @@ titleSuffix: Azure Virtual Network
 description: Troubleshoot issues with NAT Gateway.
 services: virtual-network
 author: asudbring
-ms.service: virtual-network
-ms.subservice: nat
+ms.service: nat-gateway
 ms.topic: troubleshooting
 ms.date: 08/29/2022
 ms.author: allensu
@@ -33,7 +32,7 @@ Check the following configurations to ensure that NAT gateway can be used to dir
 
 2. At least one subnet is attached to a NAT gateway. You can attach multiple subnets to a NAT gateway for going outbound, but those subnets must exist within the same virtual network. NAT gateway can't span beyond a single virtual network. 
 
-3. No [NSG rules](../network-security-groups-overview.md#outbound) or [UDRs](./troubleshoot-nat-connectivity.md#virtual-appliance-udrs-and-expressroute-override-nat-gateway-for-routing-outbound-traffic) are blocking NAT gateway from directing traffic outbound to the internet.
+3. No [NSG rules](../virtual-network/network-security-groups-overview.md#outbound) or [UDRs](./troubleshoot-nat-connectivity.md#virtual-appliance-udrs-and-expressroute-override-nat-gateway-for-routing-outbound-traffic) are blocking NAT gateway from directing traffic outbound to the internet.
 
 ### How to validate connectivity
 
@@ -57,11 +56,11 @@ Refer to the table below for which tools to use to validate NAT gateway connecti
 
 To analyze outbound traffic from NAT gateway, use NSG flow logs. NSG flow logs provide connection information for your virtual machines. The connection information contains the source IP and port and the destination IP and port and the state of the connection. The traffic flow direction and the size of the traffic in number of packets and bytes sent is also logged. The source IP and port specified in the NSG flow log will be that of the virtual machine and not of the NAT gateway.
 
-* To learn more about NSG flow logs, see [NSG flow log overview](../../network-watcher/network-watcher-nsg-flow-logging-overview.md).
+* To learn more about NSG flow logs, see [NSG flow log overview](../network-watcher/network-watcher-nsg-flow-logging-overview.md).
 
-* For guides on how to enable NSG flow logs, see [Enabling NSG flow logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md#enabling-nsg-flow-logs).
+* For guides on how to enable NSG flow logs, see [Enabling NSG flow logs](../network-watcher/network-watcher-nsg-flow-logging-overview.md#enabling-nsg-flow-logs).
 
-* For guides on how to read NSG flow logs, see [Working with NSG flow logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md#working-with-flow-logs).
+* For guides on how to read NSG flow logs, see [Working with NSG flow logs](../network-watcher/network-watcher-nsg-flow-logging-overview.md#working-with-flow-logs).
 
 ## NAT gateway in a failed state
 
@@ -93,13 +92,13 @@ A subnet within a virtual network can't have more than one NAT gateway attached 
 
 NAT gateway isn't compatible with basic resources, such as Basic Load Balancer or Basic Public IP. Basic resources must be placed on a subnet not associated with a NAT Gateway. Basic Load Balancer and Basic Public IP can be upgraded to standard to work with NAT gateway. 
 
-* To upgrade a basic load balancer to standard, see [upgrade from basic public to standard public load balancer](../../load-balancer/upgrade-basic-standard.md).
+* To upgrade a basic load balancer to standard, see [upgrade from basic public to standard public load balancer](../load-balancer/upgrade-basic-standard.md).
 
-* To upgrade a basic public IP to standard, see [upgrade from basic public to standard public IP](../ip-services/public-ip-upgrade-portal.md).
+* To upgrade a basic public IP to standard, see [upgrade from basic public to standard public IP](../virtual-network/ip-services/public-ip-upgrade-portal.md).
 
 ### NAT gateway can't be attached to a gateway subnet
 
-NAT gateway can't be deployed in a gateway subnet. A gateway subnet is used by a VPN gateway for sending encrypted traffic between an Azure virtual network and on-premises location. See [VPN gateway overview](../../vpn-gateway/vpn-gateway-about-vpngateways.md) to learn more about how gateway subnets are used by VPN gateway.
+NAT gateway can't be deployed in a gateway subnet. A gateway subnet is used by a VPN gateway for sending encrypted traffic between an Azure virtual network and on-premises location. See [VPN gateway overview](../vpn-gateway/vpn-gateway-about-vpngateways.md) to learn more about how gateway subnets are used by VPN gateway.
 
 ### Can't attach NAT gateway to a subnet that contains a virtual machine NIC in a failed state
 
@@ -169,7 +168,7 @@ The following IP prefix sizes can be used with NAT gateway:
 
 ### Can't use basic SKU public IPs with NAT gateway 
 
-NAT gateway is a standard SKU resource and can't be used with basic SKU resources, including basic public IP addresses. You can upgrade your basic SKU public IP address in order to use with your NAT gateway using the following guidance: [Upgrade a public IP address](../ip-services/public-ip-upgrade-portal.md) 
+NAT gateway is a standard SKU resource and can't be used with basic SKU resources, including basic public IP addresses. You can upgrade your basic SKU public IP address in order to use with your NAT gateway using the following guidance: [Upgrade a public IP address](../virtual-network/ip-services/public-ip-upgrade-portal.md) 
 
 ### Can't mismatch zones of public IP addresses and NAT gateway 
 

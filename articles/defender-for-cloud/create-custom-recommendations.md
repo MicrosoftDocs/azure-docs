@@ -15,9 +15,9 @@ Security teams can use the readily available recommendations and regulatory stan
 
 Microsoft Defender for Cloud provides the option of creating custom recommendations and standards for AWS and GCP using KQL queries. You can use a query editor to build and test queries over your data.  
 
-There are three types of resources to create and manage custom recommendations: 
+There are three elements involved when creating and managing custom recommendations: 
 
-- **Recommendations** – contains: 
+- **Recommendation** – contains: 
     - Recommendation details (name, description, severity, remediation logic, etc.) 
     - Recommendation logic in KQL. 
     - The standard it belongs to. 
@@ -28,19 +28,19 @@ There are three types of resources to create and manage custom recommendations:
 
 |Aspect|Details|
 |----|:----|
-|Required/Preferred Environmental Requirements| This preview includes only AWS and GCP recommendations. <br> This feature is part of the Defender CSPM bundle in the future. |
-| Required Roles & Permissions | Subscription Owner / Contributor |
+|Required/preferred environmental requirements| This preview includes only AWS and GCP recommendations. <br> This feature will bepart of the Defender CSPM plan in the future. |
+| Required roles & permissions | Subscription Owner / Contributor |
 |Clouds:| :::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet) |
 
 ## Create a custom recommendation 
 
-1. In Microsoft Defender for Cloud, select Environment Settings. 
+1. In Microsoft Defender for Cloud, select **Environment Settings**. 
 
 1. Select the relevant account / project. 
 
-1. Select Standards.
+1. Select **Standards**.
 
-1. Select Create and then select Recommendation.
+1. Select **Create** and then select **Recommendation**.
 
     :::image type="content" source="./media/create-custom-recommendations/select-create-recommendation.png" alt-text="Screenshot showing where to select Create and then Recommendation." lightbox="./media/create-custom-recommendations/select-create-recommendation.png":::
 

@@ -4,8 +4,7 @@ titleSuffix: Azure NAT Gateway
 description: Learn how to configure outbound connectivity for a dual stack network with a NAT gateway and a public load balancer.
 author: asudbring
 ms.author: allensu
-ms.service: virtual-network
-ms.subservice: nat
+ms.service: nat-gateway
 ms.topic: tutorial
 ms.date: 02/05/2023
 ms.custom: template-tutorial, devx-track-azurecli
@@ -406,7 +405,7 @@ az network nic create \
 
 ### Add IPv6 to network interface
 
-The support IPv6, the virtual machine must have a IPv6 network configuration added to the network interface. IPv6 can't be the primary IP configuration for a virtual machine network interface. For more information, see [Overview of IPv6](../ip-services/ipv6-overview.md).
+The support IPv6, the virtual machine must have a IPv6 network configuration added to the network interface. IPv6 can't be the primary IP configuration for a virtual machine network interface. For more information, see [Overview of IPv6](../virtual-network/ip-services/ipv6-overview.md).
 
 Use [az network nic ip-config create](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_create) to add the IPv6 configuration to the network interface.
 
