@@ -249,24 +249,88 @@ The example below shows how to create default profile and a recurring autoscale 
 The default profile uses the  `CpuIn` and `CpuOut` Rules. The recurring profile uses the `HTTPRuleIn` and `HTTPRuleOut` rules
 
 ```azurepowershell
-$ResourceGroup="rg-001"
-$TargetResourceId="/subscriptions/abc123456-987-f6e5-d43c-9a8d8e7f6541/resourcegroups/rg-001/providers/Microsoft.Web/serverFarms/ScaleableAppServicePlan"
 
+
+$ResourceGroup="rg-001"
+$TargetResourceId="/subscriptions/abc123456-987-f6e5-d43c-9a8d8e7f6541/resourceGroups/rg-001/providers/Microsoft.Web/serverFarms/ScaleableAppServicePlan"
 $ScaleSettingName="MultipleProfiles-001"
 
-$CpuOut = New-AzAutoscaleRule -MetricName "CpuPercentage" -MetricResourceId $TargetResourceId -Operator GreaterThan -MetricStatistic Average -Threshold 50 -TimeGrain 00:01:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Increase -ScaleActionScaleType ChangeCount -ScaleActionValue "1"
+$CpuOut=New-AzAutoscaleScaleRuleObject `
+    -MetricTriggerMetricName "CpuPercentage" `
+    -MetricTriggerMetricResourceUri "$TargetResourceId"  `
+    -MetricTriggerTimeGrain ([System.TimeSpan]::New(0,1,0)) `
+    -MetricTriggerStatistic "Average" `
+    -MetricTriggerTimeWindow ([System.TimeSpan]::New(0,5,0)) `
+    -MetricTriggerTimeAggregation "Average" `
+    -MetricTriggerOperator "GreaterThan" `
+    -MetricTriggerThreshold 50 `
+    -MetricTriggerDividePerInstance $false `
+    -ScaleActionDirection "Increase" `
+    -ScaleActionType "ChangeCount" `
+    -ScaleActionValue 1 `
+    -ScaleActionCooldown ([System.TimeSpan]::New(0,5,0))
 
-$CpuIn = New-AzAutoscaleRule -MetricName "CpuPercentage" -MetricResourceId $TargetResourceId -Operator GreaterThan -MetricStatistic Average -Threshold 30 -TimeGrain 00:01:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Decrease -ScaleActionScaleType ChangeCount -ScaleActionValue "1"
 
-$DefaultProfile = New-AzAutoscaleProfile -DefaultCapacity "1" -MaximumCapacity "10" -MinimumCapacity "1" -Rule $CpuOut,$CpuIn -Name '{"name":"Default scale condition","for":"WednesdaysFridays"}' -RecurrenceFrequency week  -ScheduleDay "Wednesday","Friday" -ScheduleHour 19 -ScheduleMinute 00   -ScheduleTimeZone "Pacific Standard Time"`
+$CpuIn=New-AzAutoscaleScaleRuleObject `
+    -MetricTriggerMetricName "CpuPercentage" `
+    -MetricTriggerMetricResourceUri "$TargetResourceId"  `
+    -MetricTriggerTimeGrain ([System.TimeSpan]::New(0,1,0)) `
+    -MetricTriggerStatistic "Average" `
+    -MetricTriggerTimeWindow ([System.TimeSpan]::New(0,5,0)) `
+    -MetricTriggerTimeAggregation "Average" `
+    -MetricTriggerOperator "LessThan" `
+    -MetricTriggerThreshold 30 `
+    -MetricTriggerDividePerInstance $false `
+    -ScaleActionDirection "Decrease" `
+    -ScaleActionType "ChangeCount" `
+    -ScaleActionValue 1 `
+    -ScaleActionCooldown ([System.TimeSpan]::New(0,5,0))
 
-$HTTPRuleIn = New-AzAutoscaleRule -MetricName "HttpQueueLength" -MetricResourceId $TargetResourceId -Operator GreaterThan -MetricStatistic Average -Threshold 3 -TimeGrain 00:01:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Decrease -ScaleActionScaleType ChangeCount -ScaleActionValue "1"
 
-$HTTPRuleOut = New-AzAutoscaleRule -MetricName "HttpQueueLength" -MetricResourceId $TargetResourceId -Operator GreaterThan -MetricStatistic Average -Threshold 10 -TimeGrain 00:01:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Increase -ScaleActionScaleType ChangeCount -ScaleActionValue "1"   
+$defaultProfile=New-AzAutoscaleProfileObject `
+    -Name "Default scale condition WednesdaysFridays" `
+    -CapacityDefault 1 `
+    -CapacityMaximum 10 `
+    -CapacityMinimum 1 `
+    -RecurrenceFrequency week `
+    -ScheduleDay "Wednesday","Friday" `
+    -ScheduleHour 19 `
+    -ScheduleMinute 00  `
+    -ScheduleTimeZone "Pacific Standard Time" `
+    -Rule $CpuOut, $CpuIn
 
-$RecurringProfile=New-AzAutoscaleProfile -Name WednesdaysFridays  -DefaultCapacity 2  -MaximumCapacity 12   -MinimumCapacity 2   -RecurrenceFrequency week  -ScheduleDay "Wednesday","Friday"   -ScheduleHour 7   -ScheduleMinute 00   -ScheduleTimeZone  "Pacific Standard Time"   -Rule $HTTPRuleOut, $HTTPRuleIn
 
-Add-AzAutoscaleSetting  -Location "West Central US" -name $ScaleSettingName -ResourceGroup $ResourceGroup -TargetResourceId $TargetResourceId -AutoscaleProfile $DefaultProfile, $RecurringProfile
+$HTTPRuleIn=New-AzAutoscaleScaleRuleObject `
+    -MetricTriggerMetricName "HttpQueueLength" `
+    -MetricTriggerMetricResourceUri "$TargetResourceId"  `
+    -MetricTriggerTimeGrain ([System.TimeSpan]::New(0,1,0)) `
+    -MetricTriggerStatistic "Average" `
+    -MetricTriggerTimeWindow ([System.TimeSpan]::New(0,5,0)) `
+    -MetricTriggerTimeAggregation "Average" `
+    -MetricTriggerOperator "LessThan" `
+    -MetricTriggerThreshold 3 `
+    -MetricTriggerDividePerInstance $false `
+    -ScaleActionDirection "Decrease" `
+    -ScaleActionType "ChangeCount" `
+    -ScaleActionValue 1 `
+    -ScaleActionCooldown ([System.TimeSpan]::New(0,5,0))
+
+
+$HTTPRuleout=New-AzAutoscaleScaleRuleObject `
+    -MetricTriggerMetricName "HttpQueueLength" `
+    -MetricTriggerMetricResourceUri "$TargetResourceId"  `
+    -MetricTriggerTimeGrain ([System.TimeSpan]::New(0,1,0)) `
+    -MetricTriggerStatistic "Average" `
+    -MetricTriggerTimeWindow ([System.TimeSpan]::New(0,5,0)) `
+    -MetricTriggerTimeAggregation "Average" `
+    -MetricTriggerOperator "GreaterThan" `
+    -MetricTriggerThreshold 10 `
+    -MetricTriggerDividePerInstance $false `
+    -ScaleActionDirection "Increase" `
+    -ScaleActionType "ChangeCount" `
+    -ScaleActionValue 1 `
+    -ScaleActionCooldown ([System.TimeSpan]::New(0,5,0))
+
 ```
 
 > [!NOTE]  
