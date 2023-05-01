@@ -33,12 +33,8 @@ items:
       href: concept-authentication-methods-customers.md
     - name: Security and governance
       href: concept-security-customers.md  	  	  
-    - name: Building your own customizations
-      items:
-        - name: Custom authentication extensions
-          href: ../../develop/custom-extension-overview.md?context=/azure/active-directory/external-identities/customers/context/customers-context
-        - name: Adding claims from external systems
-          href: ../../develop/custom-claims-provider-overview.md?context=/azure/active-directory/external-identities/customers/context/customers-context
+    - name: Custom extensions
+      href: concept-custom-extensions.md
 - name: How-to guides
   expanded: true
   items:
@@ -197,28 +193,38 @@ items:
           items:
             - name: Define custom attributes for user flows
               href: how-to-define-custom-attributes.md
+    - name: Extend
+      expanded: true
+      items:
+      - name: Add claims from external sources
+        items:
+        - name: Token issuance start event
+          items:
+          - name: Custom authentication extensions
+            href: ../../develop/custom-extension-overview.md?context=/azure/active-directory/external-identities/customers/context/customers-context
+          - name: Adding claims from external systems
+            href: ../../develop/custom-claims-provider-overview.md?context=/azure/active-directory/external-identities/customers/context/customers-context
+          - name: Create and register a custom claims provider API
+            href: ../../develop/custom-extension-get-started.md?context=/azure/active-directory/external-identities/customers/context/customers-context
+          - name: Configure a SAML app to call a custom claims provider
+            href: ../../develop/custom-extension-configure-saml-app.md?context=/azure/active-directory/external-identities/customers/context/customers-context
+          - name: Troubleshoot your custom claims provider API
+            href: ../../develop/custom-extension-troubleshoot.md?context=/azure/active-directory/external-identities/customers/context/customers-context
+      - name: Pre and post attribute collection events
+        items:
+          - name: Configure custom extensions
+            href: how-to-configure-custom-extension.md
+          - name: OnAttributeCollectionStart
+            href: how-to-onattributecollectionstart.md
+          - name: OnAttributeCollectionSubmit
+            href: how-to-onattributecollectionsubmit.md
     - name: Secure
+      expanded: true
       items:
       - name: Multifactor authentication
         href: how-to-multifactor-authentication-customers.md
       - name: Identity Protection
         href: how-to-identity-protection-customers.md
-    - name: Extend
-      items:
-      - name: Add claims from external sources
-        items:
-          - name: Token issuance start event
-            items:
-              - name: Create and register a custom claims provider API
-                href: ../../develop/custom-extension-get-started.md?context=/azure/active-directory/external-identities/customers/context/customers-context
-              - name: Configure a SAML app to call a custom claims provider
-                href: ../../develop/custom-extension-configure-saml-app.md?context=/azure/active-directory/external-identities/customers/context/customers-context
-              - name: Troubleshoot your custom claims provider API
-                href: ../../develop/custom-extension-troubleshoot.md?context=/azure/active-directory/external-identities/customers/context/customers-context
-      - name: Add logic to attribute collection
-        items:
-          - name: Default branding
-            href: how-to-customize-branding-customers.md
     - name: Manage users
       items:
         - name: Manage admin accounts
