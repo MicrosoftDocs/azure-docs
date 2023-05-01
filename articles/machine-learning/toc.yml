@@ -234,6 +234,10 @@
           href: concept-onnx.md
         - name: Prebuilt docker images for inference
           href: concept-prebuilt-docker-images-inference.md
+    - name: Monitor models
+      items:
+        - name: Model monitoring
+          href: concept-model-monitoring.md
     - name: MLflow
       items:
         - name: MLflow and Azure Machine Learning
@@ -999,6 +1003,11 @@
           displayName: docker file download
           href: ./v1/how-to-deploy-package-models.md
         # end v1
+    - name: Monitor models
+      items: 
+        - name: Perform continuous monitoring
+          displayName: model monitoring, data drift, data quality, model quality
+          herf: how-to-monitor-model-performance.md
     - name: Work with MLflow
       items:
         - name: Configure MLflow for Azure Machine Learning
