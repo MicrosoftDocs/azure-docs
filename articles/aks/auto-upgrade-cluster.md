@@ -38,7 +38,7 @@ If using the `node-image` cluster auto-upgrade channel or the `NodeImage` node i
 
 ## Use cluster auto-upgrade
 
-Automatically completed upgrades are functionally the same as manual upgrades. The timing of upgrades is determined by the [selected auto-upgrade channel][planned-maintenance]. When making changes to auto-upgrade, allow 24 hours for the changes to take effect. Automatically upgrading a cluster follows the same process as manually upgrading a cluster. For more information, see [Upgrade an AKS cluster][upgrade-aks-cluster].
+Automatically completed upgrades are functionally the same as manual upgrades. The [selected auto-upgrade channel][planned-maintenance] determines the timing of upgrades. When making changes to auto-upgrade, allow 24 hours for the changes to take effect. Automatically upgrading a cluster follows the same process as manually upgrading a cluster. For more information, see [Upgrade an AKS cluster][upgrade-aks-cluster].
 
 The following upgrade channels are available:
 
@@ -47,7 +47,7 @@ The following upgrade channels are available:
 | `none`| disables auto-upgrades and keeps the cluster at its current version of Kubernetes.| Default setting if left unchanged.|
 | `patch`| automatically upgrades the cluster to the latest supported patch version when it becomes available while keeping the minor version the same.| For example, if a cluster runs version *1.17.7*, and versions *1.17.9*, *1.18.4*, *1.18.6*, and *1.19.1* are available, the cluster upgrades to *1.17.9*.|
 | `stable`| automatically upgrades the cluster to the latest supported patch release on minor version *N-1*, where *N* is the latest supported minor version.| For example, if a cluster runs version *1.17.7* and versions *1.17.9*, *1.18.4*, *1.18.6*, and *1.19.1* are available, the cluster upgrades to *1.18.6*.|
-| `rapid`| automatically upgrades the cluster to the latest supported patch release on the latest supported minor version.| In cases where the cluster is at a version of Kubernetes that's at an *N-2* minor version where *N* is the latest supported minor version, the cluster first upgrades to the latest supported patch version on *N-1* minor version. For example, if a cluster runs version *1.17.7* and versions *1.17.9*, *1.18.4*, *1.18.6*, and *1.19.1* are available, the cluster first upgrades to *1.18.6*, then upgrades to *1.19.1*.|
+| `rapid`| automatically upgrades the cluster to the latest supported patch release on the latest supported minor version.| In cases where the cluster's Kubernetes version is an *N-2* minor version, where *N* is the latest supported minor version, the cluster first upgrades to the latest supported patch version on *N-1* minor version. For example, if a cluster runs version *1.17.7* and versions *1.17.9*, *1.18.4*, *1.18.6*, and *1.19.1* are available, the cluster first upgrades to *1.18.6*, then upgrades to *1.19.1*.|
 | `node-image`| automatically upgrades the node image to the latest version available.| Microsoft provides patches and new images for image nodes frequently (usually weekly), but your running nodes don't get the new images unless you do a node image upgrade. Turning on the node-image channel automatically updates your node images whenever a new version is available. If you use this channel, Linux [unattended upgrades] are disabled by default.|
 
 > [!NOTE]
