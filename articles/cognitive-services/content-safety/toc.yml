@@ -28,7 +28,7 @@ items:
   - name: Enterprise readiness
     items:
       - name: Set up Virtual Networks
-        href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/content-moderator/context/context
+        href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/content-safety/context/context
 - name: Concepts
   items:
   - name: Content flags

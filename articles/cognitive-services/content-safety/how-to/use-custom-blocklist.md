@@ -29,9 +29,9 @@ The below fields must be included in the url:
 
 | Name         | Description | Type     |
 | :---------------- | :-------------- | ----------- |
-| **BlocklistName** | (Required) Text blocklist Name. Only support following characters: `0-9 A-Z a-z - . _ ~        `      Example: `url = "<Endpoint>/contentmoderator/text/lists/{blocklistName}?api-version=2022-12-30-preview"` | String      |
-| **blockItems**    | (Required) This is the blocklistName to be checked.     Example: `url = "<Endpoint>/contentmoderator/text/lists/{blocklistName}/items/{blockItems}?api-version=2022-12-30-preview"` | BCP 47 code |
-| **API Version**   | (Required) This is the API version to be checked. Current version is: api-version=2022-12-30-preview. Example: `<Endpoint>/contentmoderator/text:analyze?api-version=2022-12-30-preview` | String      |
+| **BlocklistName** | (Required) Text blocklist Name. Only support following characters: `0-9 A-Z a-z - . _ ~        `      Example: `url = "<Endpoint>/contentsafety/text/lists/{blocklistName}?api-version=2022-12-30-preview"` | String      |
+| **blockItems**    | (Required) This is the blocklistName to be checked.     Example: `url = "<Endpoint>/contentsafety/text/lists/{blocklistName}/items/{blockItems}?api-version=2022-12-30-preview"` | BCP 47 code |
+| **API Version**   | (Required) This is the API version to be checked. Current version is: api-version=2022-12-30-preview. Example: `<Endpoint>/contentsafety/text:analyze?api-version=2022-12-30-preview` | String      |
 
 
 ### Create or modify a terms list
@@ -50,7 +50,7 @@ Copy the cURL command below to a text editor and make the following changes:
 
 
 ```shell
-curl --location --request PATCH '<endpoint>/contentmoderator/text/<your_list_id>/1234?api-version=2022-12-30-preview' \
+curl --location --request PATCH '<endpoint>/contentsafety/text/<your_list_id>/1234?api-version=2022-12-30-preview' \
 --header 'Ocp-Apim-Subscription-Key: <enter_your_key_here>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -79,7 +79,7 @@ Copy the cURL command below to a text editor and make the following changes:
 1. Replace the value of the `"text"` field with the term you'd like to add to your blocklist.
 
 ```shell
-curl --location --request PATCH '<endpoint>/contentmoderator/text/lists/<your_list_id>/items/01?api-version=2022-12-30-preview' \
+curl --location --request PATCH '<endpoint>/contentsafety/text/lists/<your_list_id>/items/01?api-version=2022-12-30-preview' \
 --header 'Ocp-Apim-Subscription-Key: <enter_your_key_here>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -100,7 +100,7 @@ The response code should be `201` and the URL to get the created list should be 
 1. Optionally change the value of the `"text"` field to whatever text you want to analyze. 
 
 ```shell
-curl --location --request POST '<endpoint>/contentmoderator/text:analyze?api-version=2022-12-30-preview&' \
+curl --location --request POST '<endpoint>/contentsafety/text:analyze?api-version=2022-12-30-preview&' \
 --header 'Ocp-Apim-Subscription-Key: <enter_your_key_here>' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -146,7 +146,7 @@ Copy the cURL command below to a text editor and make the following changes:
 1. Replace `your_list_id` with the ID value you used in the list creation step.
 
 ```shell
-curl --location --request GET '<endpoint>/contentmoderator/text/lists/<your_list_id>/items?api-version=2022-12-30-preview' \
+curl --location --request GET '<endpoint>/contentsafety/text/lists/<your_list_id>/items?api-version=2022-12-30-preview' \
 --header 'Ocp-Apim-Subscription-Key: <enter_your_key_here>' \
 --header 'Content-Type: application/json'
 ```
@@ -175,7 +175,7 @@ Copy the cURL command below to a text editor and make the following changes:
 
 
 ```shell
-curl --location --request GET '<endpoint>/contentmoderator/text/lists?api-version=2022-12-30-preview' \
+curl --location --request GET '<endpoint>/contentsafety/text/lists?api-version=2022-12-30-preview' \
 --header 'Ocp-Apim-Subscription-Key: <enter_your_key_here>' \
 --header 'Content-Type: application/json'
 ```
@@ -198,7 +198,7 @@ Copy the cURL command below to a text editor and make the following changes:
 
 
 ```shell
-curl --location --request DELETE '<endpoint>/contentmoderator/text/lists/<your_list_id>/items/<item_id>?api-version=2022-12-30-preview' \
+curl --location --request DELETE '<endpoint>/contentsafety/text/lists/<your_list_id>/items/<item_id>?api-version=2022-12-30-preview' \
 --header 'Ocp-Apim-Subscription-Key: <enter_your_key_here>' \
 --header 'Content-Type: application/json'
 --data-raw '{
@@ -223,7 +223,7 @@ Copy the cURL command below to a text editor and make the following changes:
 1. Replace `<your_list_id>` (in both places) with the ID value you used in the list creation step.
 
 ```shell
-curl --location --request DELETE '<endpoint>/contentmoderator/text/lists/<your_list_id>?api-version=2022-12-30-preview' \
+curl --location --request DELETE '<endpoint>/contentsafety/text/lists/<your_list_id>?api-version=2022-12-30-preview' \
 --header 'Ocp-Apim-Subscription-Key: <enter_your_key_here>' \
 --header 'Content-Type: application/json' \
 --data-raw '{"blocklistName":"<your_list_id>"}'

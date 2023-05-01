@@ -7,7 +7,7 @@ author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
-ms.subservice: content-moderator
+ms.subservice: content-safety
 ms.topic: overview
 ms.date: 04/02/2023
 ms.author: pafarley
@@ -42,7 +42,7 @@ The following are a few scenarios in which a software developer or team would re
 - K-12 education solution providers filtering out content that is inappropriate for students and educators.
 
 > [!IMPORTANT]
-> You cannot use Content Moderator to detect illegal child exploitation images. However, qualified organizations can use the [PhotoDNA Cloud Service](https://www.microsoft.com/photodna "Microsoft PhotoDNA Cloud Service") to screen for this type of content.
+> You cannot use Content Safety to detect illegal child exploitation images. However, qualified organizations can use the [PhotoDNA Cloud Service](https://www.microsoft.com/photodna "Microsoft PhotoDNA Cloud Service") to screen for this type of content.
 
 ## Product types
 
@@ -92,7 +92,7 @@ If you need a faster rate, please [contact us](mailto:acm-team@microsoft.com) to
 
 ## Data privacy and security
 
-As with all of the Cognitive Services, developers using the Content Moderator service should be aware of Microsoft's policies on customer data. See the [Cognitive Services page](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center to learn more.
+As with all of the Cognitive Services, developers using the Content Safety service should be aware of Microsoft's policies on customer data. See the [Cognitive Services page](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center to learn more.
 
 ## Contact us
 
