@@ -18,7 +18,7 @@ See these [important announcements](#announcements) about recent changes to feat
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## April 2023
--[RSA announcements)(https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/rsac-2023-microsoft-sentinel-empowering-the-soc-with-next-gen/ba-p/3803613)
+-[RSA announcements](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/rsac-2023-microsoft-sentinel-empowering-the-soc-with-next-gen/ba-p/3803613)
 -[Manage multiple workspaces with workspace manager](#manage-multiple-workspaces-with-workspace-manager-preview)
 
 ### Manage multiple workspaces with workspace manager (Preview)
