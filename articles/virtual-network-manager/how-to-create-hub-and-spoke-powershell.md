@@ -23,7 +23,7 @@ In this article, you'll learn how to create a hub and spoke network topology wit
 ## Prerequisites
 
 * Read about [Hub-and-spoke](concept-connectivity-configuration.md#hub-and-spoke-topology) network topology.
-* Created a [Azure Virtual Network Manager instance](create-virtual-network-manager-powershell.md#create-virtual-network-manager).
+* Created a [Azure Virtual Network Manager instance](create-virtual-network-manager-powershell.md#create-a-virtual-network-manager-instance).
 * Identify virtual networks you want to use in the hub-and-spokes configuration or create new [virtual networks](../virtual-network/quick-create-powershell.md).
 * Version `5.3.0` of `Az.Network` is required to access the required cmdlets for Azure Virtual Network Manager.
 * If you're running PowerShell locally, you need to run `Connect-AzAccount` to create a connection with Azure.
