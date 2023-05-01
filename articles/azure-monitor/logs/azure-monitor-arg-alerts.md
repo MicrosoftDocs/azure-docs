@@ -11,17 +11,17 @@ ms.reviewer: osalzberg
 # Cross-resource alerts on Azure Resource Graph by using Azure Monitor
 Azure Monitor supports cross-service Alerts on Azure Resource Graph, [Application Insights](../app/app-insights-overview.md), and [Log Analytics](../logs/data-platform-logs.md). You can then create alerts based on your Azure Resource Graph tables by using Log Analytics or Application Insights tools and refer to it in a cross-service query. This article shows how to make a cross-service alert.
 
-# Getting Started
+## Getting Started
 ## (Pre-req) Prepare a Log Analytics Workspace
 
 Create a new LA workspace or pick an existing one
 
 > [!TIP]
-> * [How to create a Log Analytics Workspace]("https://learn.microsoft.com/azure/azure-monitor/logs/quick-create-workspace?tabs=azure-portal")
+> * [How to create a Log Analytics Workspace](../logs/quick-create-workspace.md)
 
 ## (pre-req) Prepare a managed identity
 
-The alerting query will run with the permission of the managed identity (MI). [You can use either a user-assigned MI or system-assigned MI]("https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types")
+The alerting query will run with the permission of the managed identity (MI). [You can use either a user-assigned MI or system-assigned MI](../../active-directory/managed-identities-azure-resources/overview#managed-identity-types")
 
 1. Create an empty identity
 User-assigned MI: create it before creating the rule
@@ -48,6 +48,7 @@ arg().Resources
 ```
 to access ARG tables from your LA workspace (Resources in this example)
 If the query doesn’t work at this phase – there is an issue with LA-ARG integration, unrelated to alerts.
+
 ## Create an alert rule
 Create a regular log alert rule.
 * Scope tab: The LA workspace
