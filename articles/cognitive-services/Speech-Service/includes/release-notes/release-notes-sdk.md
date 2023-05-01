@@ -6,12 +6,27 @@ ms.date: 11/01/2022
 ms.author: eur
 ---
 
+### Speech SDK 1.28.0: May 2023 release
+
+#### New Features
+
+* **Embedded Speech Recognition** now returns `NoMatchReason::EndSilenceTimeout` when a silence timeout occurs at the end of an utterance. This matches the behavior when doing recognition using the on-line speech service.
+
+#### Bug fixes
+
+* Fix deadlock when using the audio codec extension on Windows
+
+#### Samples
+
+* Added an embedded speech sample for MAUI.
+* Updated the embedded speech sample for Android Java to include Text-To-Speech.
+
 ### Speech SDK 1.27.0: April 2023 release
 
 #### Notification about upcoming changes
 
 * We plan to remove Online Certificate Status Protocol (OCSP) in the next JavaScript SDK release. This allows clients to better conform to browser and Node standards for certificate handling. Version 1.27 is the last release that includes our custom OCSP module.
-	
+
 #### New Features
 
 * **JavaScript** – Added support for microphone input from the browser with Speaker Identification and Verification.
