@@ -165,13 +165,13 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 | Domain | Feature | Supported Resources | Linux release state  | Windows release state   | Agentless/Agent-based | Pricing tier |
 |--|--| -- | -- | -- | -- | --| 
 | Compliance | Docker CIS | Arc enabled VMs | Preview | - | Log Analytics agent | Defender for Servers Plan 2 |
-| Vulnerability Assessment  | Registry scan - [OS packages](#registries-and-images-support-on-premises) | ACR, Private ACR | GA | Preview | Agentless | Defender for Containers |
-| Vulnerability Assessment | Registry scan - [language specific packages](#registries-and-images-support-on-premises) | ACR, Private ACR | Preview | - | Agentless | Defender for Containers |
+| Vulnerability Assessment  | Registry scan - [OS packages](#registries-and-images-support--on-premises) | ACR, Private ACR | GA | Preview | Agentless | Defender for Containers |
+| Vulnerability Assessment | Registry scan - [language specific packages](#registries-and-images-support-on--premises) | ACR, Private ACR | Preview | - | Agentless | Defender for Containers |
 | Vulnerability Assessment  | View vulnerabilities for running images | - | - | - | - | - |
 | Hardening | Control plane recommendations | - | - | - | - | - |
 | Hardening | Kubernetes data plane recommendations | Arc enabled K8s clusters | Preview | - | Azure Policy extension | Defender for Containers |
 | Runtime protection| Threat detection (control plane)| Arc enabled K8s clusters | Preview | Preview | Defender extension | Defender for Containers |
-| Runtime protection for [supported OS](#registries-and-images-support-on-premises) | Threat detection (workload)| Arc enabled K8s clusters | Preview | - | Defender extension | Defender for Containers |
+| Runtime protection for [supported OS](#registries-and-images-support-on--premises) | Threat detection (workload)| Arc enabled K8s clusters | Preview | - | Defender extension | Defender for Containers |
 | Discovery and provisioning | Discovery of unprotected clusters | Arc enabled K8s clusters | Preview | - | Agentless | Free |
 | Discovery and provisioning | Collection of control plane threat data | Arc enabled K8s clusters | Preview | Preview | Defender extension | Defender for Containers |
 | Discovery and provisioning | Auto provisioning of Defender extension | Arc enabled K8s clusters | Preview | Preview | Agentless | Defender for Containers |
