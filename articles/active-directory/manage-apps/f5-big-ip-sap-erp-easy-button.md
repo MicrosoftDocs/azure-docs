@@ -13,105 +13,93 @@ ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Configure F5’s BIG-IP Easy Button for SSO to SAP ERP
+# Tutorial: Configure F5 BIG-IP Easy Button for SSO to SAP ERP
 
-In this article, learn to secure SAP ERP using Azure Active Directory (Azure AD), through F5’s BIG-IP Easy Button guided configuration.
+In this article, learn to secure SAP ERP using Azure Active Directory (Azure AD), with F5 BIG-IP Easy Button Guided Configuration 16.1. Integrating a BIG-IP with Azure AD has many benefits:
 
-Integrating a BIG-IP with Azure Active Directory (Azure AD) provides many benefits, including:
+* [Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) 
+* [What is Conditional Access?](../conditional-access/overview.md)
+* Single sign-on (SSO) between Azure AD and BIG-IP published services
+* Manage identities and access from the [Azure portal](https://portal.azure.com/)
 
-* [Improved Zero Trust governance](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) through Azure AD pre-authentication   and [Conditional Access](../conditional-access/overview.md)
+Learn more: 
 
-* Full SSO between Azure AD and BIG-IP published services
-
-* Manage identities and access from a single control plane, the [Azure portal](https://portal.azure.com/)
-
-To learn about all of the benefits, see the article on [F5 BIG-IP and Azure AD integration](./f5-aad-integration.md) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
+* [Integrate F5 BIG-IP with Azure AD](./f5-aad-integration.md)
+* [Enable SSO for an enterprise application](add-application-portal-setup-sso.md).
 
 ## Scenario description
 
-This scenario looks at the classic **SAP ERP application using Kerberos authentication** to manage access to protected content.
+This scenario includes the SAP ERP application using Kerberos authentication to manage access to protected content.
 
-Being legacy, the application lacks modern protocols to support a direct integration with Azure AD. The application can be modernized, but it is costly, requires careful planning, and introduces risk of potential downtime. Instead, an F5 BIG-IP Application Delivery Controller (ADC) is used to bridge the gap between the legacy application and the modern ID control plane, through protocol transitioning. 
+Legacy applications lack modern protocols to support integration with Azure AD. Modernization is costly, requires planning, and introduces potential downtime risk. Instead, use an F5 BIG-IP Application Delivery Controller (ADC) to bridge the gap between the legacy application and the modern ID control plane, through protocol transitioning. 
 
-Having a BIG-IP in front of the application enables us to overlay the service with Azure AD pre-authentication and headers-based SSO, significantly improving the overall security posture of the application.
+A BIG-IP in front of the application enables overlay jof the service with Azure AD pre-authentication and headers-based SSO. This configuration improves overall application security posture.
 
 ## Scenario architecture
 
-The SHA solution for this scenario is made up of the following:
+The secure hybrid access (SHA) solution has the following components:
 
-**SAP ERP application:** BIG-IP published service to be protected by and Azure AD SHA.
+* **SAP ERP application** - a BIG-IP published service protected by Azure AD SHA
+* **Azure AD** - Security Assertion Markup Language (SAML) identity provider (IdP) that verifies user credentials, Conditional Access, and SAML-based SSO to the BIG-IP
+* **BIG-IP** - reverse-proxy and SAML service provider (SP) to the application. BIG-IP delegates authentication to the SAML IdP then performs header-based SSO to the SAP service
 
-**Azure AD:** Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access (CA), and SAML based SSO to the BIG-IP.
+SHA supports SP and IdP initiated flows. The following image illustrates the SP-initiated flow.
 
-**BIG-IP:** Reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP before performing header-based SSO to the SAP service.
+![Secure hybrid access, the SP initiated flow.](./media/f5-big-ip-easy-button-sap-erp/sp-initiated-flow.png)
 
-SHA for this scenario supports both SP and IdP initiated flows. The following image illustrates the SP initiated flow.
-
-![Secure hybrid access - SP initiated flow](./media/f5-big-ip-easy-button-sap-erp/sp-initiated-flow.png)
-
-| Steps| Description|
-| -------- |-------|
-| 1| User connects to application endpoint (BIG-IP) |
-| 2| BIG-IP APM access policy redirects user to Azure AD (SAML IdP) |
-| 3| Azure AD pre-authenticates user and applies any enforced Conditional Access policies |
-| 4| User is redirected to BIG-IP (SAML SP) and SSO is performed using issued SAML token |
-| 5| BIG-IP requests Kerberos ticket from KDC |
-| 6| BIG-IP sends request to backend application, along with Kerberos ticket for SSO |
-| 7| Application authorizes request and returns payload |
+1. User connects to application endpoint (BIG-IP)
+2. BIG-IP APM access policy redirects user to Azure AD (SAML IdP)
+3. Azure AD pre-authenticates user and applies enforced Conditional Access policies
+4. User is redirected to BIG-IP (SAML SP) and SSO occurs with issued SAML token 
+5. BIG-IP requests Kerberos ticket from KDC
+6. BIG-IP sends request to back-end application, with the Kerberos ticket for SSO
+7. Application authorizes request and returns payload
 
 ## Prerequisites
-Prior BIG-IP experience isn’t necessary, but you will need:
 
-* An Azure AD free subscription or above
+You need:
 
-* An existing BIG-IP or [deploy a BIG-IP Virtual Edition (VE) in Azure](./f5-bigip-deployment-guide.md)
-
-* Any of the following F5 BIG-IP license offers
-
+* An Azure AD free account, or above
+  * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/active-directory/)
+* An BIG-IP or a BIG-IP Virtual Edition (VE) in Azure
+  * See, [Deploy F5 BIG-IP Virtual Edition VM in Azure](./f5-bigip-deployment-guide.md)
+* Any of the following F5 BIG-IP licenses:
     * F5 BIG-IP® Best bundle
-
     * F5 BIG-IP APM standalone license
-
     * F5 BIG-IP APM add-on license on an existing BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
-
     * 90-day BIG-IP full feature [trial license](https://www.f5.com/trial/big-ip-trial.php).
-
-* User identities [synchronized](../hybrid/how-to-connect-sync-whatis.md) from an on-premises directory to Azure AD, or created directly within Azure AD and flowed back to your on-premises directory
-
-* An account with Azure AD Application admin [permissions](/azure/active-directory/users-groups-roles/directory-assign-admin-roles#application-administrator)
-
-* An [SSL Web certificate](./f5-bigip-deployment-guide.md) for publishing services over HTTPS, or use default BIG-IP certs while testing
-
-* An existing SAP ERP environment configured for Kerberos authentication
+* User identities synchronized from an on-premises directory to Azure AD, or created in Azure AD and flowed back to the on-premises directory
+  * See, [Azure AD Connect sync: Understand and customize synchronization](../hybrid/how-to-connect-sync-whatis.md)
+* An account with Azure AD Application Admin permissions
+  * See, [Azure AD built-in roles](../roles/permissions-reference.md)
+* An SSL Web certificate to publish services over HTTPS, or use default BIG-IP certs for testing
+  * See, [Deploy F5 BIG-IP Virtual Edition VM in Azure](./f5-bigip-deployment-guide.md)
+* An SAP ERP environment configured for Kerberos authentication
 
 ## BIG-IP configuration methods
 
-There are many methods to configure BIG-IP for this scenario, including two template-based options and an advanced configuration. This tutorial covers the latest Guided Configuration 16.1 offering an Easy button template. 
+This tutorial uses Guided Configuration 16.1 with an Easy Button template. With the Easy Button, admins don't go between Azure AD and a BIG-IP to enable services for SHA. The deployment and policy management is handled by the APM Guided Configuration wizard and Microsoft Graph. This integration ensures applications support identity federation, SSO, and Conditional Access.
 
-With the Easy Button, admins no longer go back and forth between Azure AD and a BIG-IP to enable services for SHA. The deployment and policy management is handled directly between the APM’s Guided Configuration wizard and Microsoft Graph. This rich integration between BIG-IP APM and Azure AD ensures that applications can quickly, easily support identity federation, SSO, and Azure AD Conditional Access, reducing administrative overhead.
-
->[!NOTE] 
-> All example strings or values referenced throughout this guide should be replaced with those for your actual environment.
+   >[!NOTE] 
+   > Replace example strings or values in this guide with those in your environment.
 
 ## Register Easy Button
 
-Before a client or service can access Microsoft Graph, it must be trusted by the [Microsoft identity platform.](../develop/quickstart-register-app.md)
+Before a client or service accesses Microsoft Graph, the Microsoft identity platform must trust it. 
 
-The Easy Button client must also be registered in Azure AD, before it is allowed to establish a trust between each SAML SP instance of a BIG-IP published application, and Azure AD as the SAML IdP.
+See, [Quickstart: Register an application with the Microsoft identity platform](../develop/quickstart-register-app.md)
 
-1. Sign-in to the [Azure portal](https://portal.azure.com/) using an account with Application Administrative rights
+Register the Easy Button client in Azure AD, then it's allowed to establish a trust between SAML SP instances of a BIG-IP published application, and Azure AD as the SAML IdP.
 
-2. From the left navigation pane, select the **Azure Active Directory** service
+1. Sign in to the [Azure portal](https://portal.azure.com/) with with Application Administrator permisssions.
+2. In the left navigation pane, select the **Azure Active Directory** service.
+3. Under Manage, select **App registrations > New registration**.
+4. Enter a **Name**. 
+5. In **Accounts in this organizational directory only**, specify who can use the application.
+6. Select **Register**.
 
-3. Under Manage, select **App registrations > New registration**
-
-4. Enter a display name for your application. For example, *F5 BIG-IP Easy Button*
-
-5. Specify who can use the application > **Accounts in this organizational directory only**
-
-6. Select **Register** to complete the initial app registration
-
-7. Navigate to **API permissions** and authorize the following Microsoft Graph **Application permissions**:
+7. Navigate to **API permissions**.
+8. Authorize the following Microsoft Graph Application permissions:
 
    * Application.Read.All
    * Application.ReadWrite.All
@@ -124,11 +112,10 @@ The Easy Button client must also be registered in Azure AD, before it is allowed
    * Policy.ReadWrite.ConditionalAccess
    * User.Read.All
 
-8. Grant admin consent for your organization
-
-9. In the **Certificates & Secrets** blade, generate a new **client secret** and note it down
-
-10. From the **Overview** blade, note the **Client ID** and **Tenant ID**
+9. Grant admin consent for your organization.
+10. In the **Certificates & Secrets** blade, generate a new **client secret**.
+11. Note the secret to use later.
+12. From **Overview**, note the **Client ID** and **Tenant ID**.
 
 ## Configure Easy Button
 
