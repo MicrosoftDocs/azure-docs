@@ -85,4 +85,4 @@ In case you want to enable the MQTT capabilities in the Azure Event Grid namespa
 ## Next steps
 
 - See the [Create, view, and manage namespaces topics](create-view-manage-namespace-topics.md) steps to learn more about the namespaces topics in Azure Event Grid.
-- See the [Client authentication using CA certificate chain](mqtt-certificate-chain-client-authentication.md) section to learn more about namespaces for IoT solutions supported by Azure Event Grid.
+- See the [Quickstart: Publish and subscribe to MQTT messages on Event Grid Namespace with Azure portal](mqtt-publish-and-subscribe-portal.md) section to learn how to use namespaces in IoT solutions supported by Azure Event Grid.
