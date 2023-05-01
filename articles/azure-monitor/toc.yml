@@ -1318,6 +1318,8 @@ items:
         href: alerts/alerts-log-webhook.md
       - name: Legacy Log Analytics alerts API
         href: alerts/api-alerts.md
+      - name: Upgrade from the legacy Log Analytics alert API
+        href: alerts/alerts-log-api-switch.md
     - name: Prometheus metric alerts
       href: alerts/prometheus-alerts.md
     - name: Service health alerts
