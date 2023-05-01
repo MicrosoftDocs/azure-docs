@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/active-directory/develop/active-directory-jwt-claims-customization.md",
+      "redirect_url": "/azure/active-directory/develop/jwt-claims-customization",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-saml-claims-customization.md",
       "redirect_url": "/azure/active-directory/develop/saml-claims-customization",
       "redirect_document_id": false
