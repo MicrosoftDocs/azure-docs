@@ -13,6 +13,8 @@ ms.date: 05/01/2023
 
 # Migrate data to Azure Cosmos DB using the desktop data migration tool
 
+[!INCLUDE[NoSQL, MongoDB, Table](includes/appliesto-nosql-mongodb-table.md)]
+
 The [Azure Cosmos DB desktop data migration tool](https://github.com/azurecosmosdb/data-migration-desktop-tool) is an open-source command-line application to import or export data from Azure Cosmos DB. The tool can migrate data to and from:
 
 - Azure Cosmos DB for NoSQL
@@ -243,13 +245,13 @@ Now, migrate data from a JSON array to the newly created Azure Cosmos DB for NoS
     > [!NOTE]
     > If you did not add the installation path to your `PATH` environment variable, you may need to specify the full path to the `dmt` executable.
 
-1. The tool will ask for the path to the settings file. Specify `migration.json` here.
+1. The tool asks for the path to the settings file. Specify `migration.json` here.
 
     ```output
     Path to settings file? (leave empty to skip):
     ```
 
-1. The tool will now output the source and sink used by the migration
+1. The tool now outputs the sources and sinks used by the migration.
 
     ```output
     Using JSON Source
