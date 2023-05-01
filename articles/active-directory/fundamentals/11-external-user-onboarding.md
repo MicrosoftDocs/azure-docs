@@ -80,7 +80,7 @@ Delegated Permission: User.Invite.All
 ```
 
 >[!Note] 
->To see the full list of available options for the JSON body of the invitation, see [Invitation resource type - Microsoft Graph v1.0](https://learn.microsoft.com/graph/api/resources/invitation?view=graph-rest-1.0) 
+>To see the full list of available options for the JSON body of the invitation, see [Invitation resource type - Microsoft Graph v1.0](https://learn.microsoft.com/graph/api/resources/invitation?view=graph-rest-1.0). 
 
 ## Step 2: Write other attributes to Azure AD (optional) 
 
@@ -110,7 +110,8 @@ User.ReadWrite.All, Directory.ReadWrite.All
     }
  ```
 
-For more information, see [Update user - Microsoft Graph v1.0](https://learn.microsoft.com/graph/api/user-update?view=graph-rest-1.0&tabs=http)
+For more information, see [Update user - Microsoft Graph v1.0](https://learn.microsoft.com/graph/api/user-update?view=graph-rest-1.0&tabs=http).
+
 ## Step 3: Assign the invited user to a group  
 
 >[!NOTE]
