@@ -83,10 +83,10 @@
               href: ./security-controls-policy.md
             - name: Security baseline
               href: /security/benchmark/azure/baselines/api-management-security-baseline?toc=/azure/api-management/&bc=/azure/api-management/breadcrumb/toc.json
-            - name: Authentication and authorization options
-              href: authentication-authorization-overview.md
             - name: API security
               items:
+              - name: Authentication and authorization options
+                href: authentication-authorization-overview.md
               - name: Defender for APIs (preview)
                 href: protect-with-defender-for-apis.md              
               - name: Mitigate OWASP API threats
@@ -206,6 +206,8 @@
                   href: how-to-configure-cloud-metrics-logs.md
                 - name: Configure local metrics and logs for self-hosted gateway
                   href: how-to-configure-local-metrics-logs.md
+                - name: Enable Dapr support on self-hosted gateway
+                  href: self-hosted-gateway-enable-dapr.md  
                 - name: Guidance for running on Kubernetes
                   href: how-to-self-hosted-gateway-on-kubernetes-in-production.md
                 - name: Migrate to self-hosted gateway v2
@@ -333,14 +335,18 @@
                     href: api-management-howto-create-or-invite-developers.md
                   - name: Manage groups
                     href: api-management-howto-create-groups.md
-                  - name: Authenticate with username and password
-                    href: developer-portal-basic-authentication.md
-                  - name: Authenticate with Azure AD
-                    href: api-management-howto-aad.md
-                  - name: Authenticate with Azure AD B2C
-                    href: api-management-howto-aad-b2c.md
-                  - name: Delegate authentication
-                    href: api-management-howto-setup-delegation.md
+                  - name: Secure access to developer portal
+                    items:
+                      - name: Options to secure developer portal access
+                        href: secure-developer-portal-access.md
+                      - name: Authenticate with username and password
+                        href: developer-portal-basic-authentication.md
+                      - name: Authenticate with Azure AD
+                        href: api-management-howto-aad.md
+                      - name: Authenticate with Azure AD B2C
+                        href: api-management-howto-aad-b2c.md
+                      - name: Delegate authentication
+                        href: api-management-howto-setup-delegation.md
                   - name: Email notifications and templates
                     href: api-management-howto-configure-notifications.md
             - name: Monetize APIs
