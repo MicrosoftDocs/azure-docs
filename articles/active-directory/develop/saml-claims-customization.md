@@ -16,7 +16,7 @@ ms.reviewer: rahulnagraj, alamaral, jeedes
 
 # Customize claims issued in the SAML token for enterprise applications
 
-The Microsoft identity platform supports [single sign-on (SSO)](../manage-apps/what-is-single-sign-on.md) with most preintegrated applications in the Azure Active Directory (Azure AD) application gallery and custom applications. When a user authenticates to an application through the Microsoft identity platform using the SAML 2.0 protocol, the Microsoft identity platform sends a token to the application. And then, the application validates and uses the token to log the user in instead of prompting for a username and password.
+The Microsoft identity platform supports [single sign-on (SSO)](../manage-apps/what-is-single-sign-on.md) with most preintegrated applications in the Azure Active Directory (Azure AD) application gallery and custom applications. When a user authenticates to an application through the Microsoft identity platform using the SAML 2.0 protocol, the Microsoft identity platform sends a token to the application. The application validates and uses the token to sign the user in instead of prompting for a username and password.
 
 These SAML tokens contain pieces of information about the user known as *claims*. A claim is information that an identity provider states about a user inside the token they issue for that user. In a SAML token, claims data is typically contained in the SAML Attribute Statement. The user's unique ID is typically represented in the SAML Subject, which is also referred to as the name identifier (`nameID`).
 
