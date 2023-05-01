@@ -28,7 +28,7 @@ Listen to Azure Communication Services PMs Tomas Chladek and David de Matheu tal
 
 [Watch the video](https://www.youtube.com/watch?v=-TPI293h0mY&t=3s&pp=ygUcYXp1cmUgY29tbXVuaWNhdGlvbiBzZXJ2aWNlcw%3D%3D)
 
-[Read the Power Pages documentation](../power-pages/configure/component-framework)
+[Read the Power Pages documentation](https://learn.microsoft.com/power-pages/configure/component-framework)
 
 [Read the tutorial on integrating with Teams](https://aka.ms/mscloud-acs-teams-tutorial)
 
