@@ -80,7 +80,7 @@ Delegated Permission: User.Invite.All
 ```
 
 >[!Note] 
->To see the full list of available options for the JSON body of the invitation, see [Invitation resource type - Microsoft Graph v1.0](../graph/api/resources/invitation.md?view=graph-rest-1.0) 
+>To see the full list of available options for the JSON body of the invitation, see [Invitation resource type - Microsoft Graph v1.0](https://learn.microsoft.com/graph/api/resources/invitation?view=graph-rest-1.0) 
 
 ## Step 2: Write other attributes to Azure AD (optional) 
 
@@ -110,8 +110,7 @@ User.ReadWrite.All, Directory.ReadWrite.All
     }
  ```
 
-For more information, see [Update user - Microsoft Graph v1.0](../graph/api/user-update?view=graph-rest-1.0&tabs=http). 
-
+For more information, see [Update user - Microsoft Graph v1.0](https://learn.microsoft.com/graph/api/user-update?view=graph-rest-1.0&tabs=http)
 ## Step 3: Assign the invited user to a group  
 
 >[!NOTE]
@@ -127,7 +126,7 @@ For example, assign the **Group Updater** role or a custom role to the Enterpris
   "@odata.id": "https://graph.microsoft.com/v1.0/directoryObjects/<insert user id>" 
   } 
  ```
-For more information, see [Add members - Microsoft Graph v1.0](../graph/api/group-post-members.md?view=graph-rest-1.0&tabs=http).
+For more information, see [Add members - Microsoft Graph v1.0](https://learn.microsoft.com/graph/api/group-post-members?view=graph-rest-1.0&tabs=http).
 
 Alternatively, you can apply Azure AD dynamic groups, which can automatically assign users to group based on the user’s attributes. However, if end-user access is time-sensitive it won't be the recommended approach as dynamic groups can take up to 24 hours to populate. 
 
