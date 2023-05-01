@@ -34,7 +34,7 @@ To acquire a lease, create an instance of the [BlobLeaseClient](/javascript/api/
 
 The following example acquires a 30-second lease for a container:
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/LeaseContainer.cs" id="Snippet_AcquireContainerLease":::
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/src/lease-container.js" id="Snippet_AcquireContainerLease":::
 
 ## Renew a lease
 
@@ -46,7 +46,7 @@ To renew a lease, use one of the following methods on a [BlobLeaseClient](/javas
 
 The following example renews a container lease:
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/LeaseContainer.cs" id="Snippet_RenewContainerLease":::
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/src/lease-container.js" id="Snippet_RenewContainerLease":::
 
 ## Release a lease
 
@@ -58,7 +58,7 @@ You can release a lease using one of the following methods on a [BlobLeaseClient
 
 The following example releases a lease on a container:
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/LeaseContainer.cs" id="Snippet_ReleaseContainerLease":::
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/src/lease-container.js" id="Snippet_ReleaseContainerLease":::
 
 ## Break a lease
 
@@ -70,7 +70,7 @@ You can break a lease using one of the following methods on a [BlobLeaseClient](
 
 The following example breaks a lease on a container:
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/LeaseContainer.cs" id="Snippet_BreakContainerLease":::
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/src/lease-container.js" id="Snippet_BreakContainerLease":::
 
 [!INCLUDE [storage-dev-guide-container-lease](../../../includes/storage-dev-guides/storage-dev-guide-container-lease.md)]
 
