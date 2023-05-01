@@ -62,7 +62,7 @@
       displayName: mrg
     - name: Use secret from Key Vault
       href: key-vault-access.md
-    - name: Deploy with Managed Identity
+    - name: Deploy with managed identity
       href: publish-managed-identity.md
     - name: Deploy with notifications
       href: publish-notifications.md
@@ -150,7 +150,7 @@
       items:
       - name: KeyVaultCertificateSelector
         href: microsoft-keyvault-keyvaultcertificateselector.md
-    - name: Managed Identity
+    - name: Managed identity
       items:
       - name: IdentitySelector
         href: microsoft-managedidentity-identityselector.md
