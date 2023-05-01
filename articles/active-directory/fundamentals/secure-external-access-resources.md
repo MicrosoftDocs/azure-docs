@@ -68,5 +68,5 @@ Azure Active Directory (Azure AD) B2B integrates with other tools in Azure AD, a
 * [Control access with sensitivity labels](8-secure-access-sensitivity-labels.md)
 * [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business](9-secure-access-teams-sharepoint.md)
 * [Convert local guest accounts](10-secure-local-guest.md)
-* [Onboard external users to Line-of-business applications](11-external-use-onboarding.md)
+* [Onboard external users to Line-of-business applications](11-external-user-onboarding.md)
 
