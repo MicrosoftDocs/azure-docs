@@ -506,7 +506,7 @@ sections:
         answer: |
           Yes, for experimental use. In the basic pricing plan, your application can send a certain allowance of data each month free of charge. The free allowance is large enough to cover development and publishing an app for a few users. You can set a cap to prevent more than a specified amount of data from being processed.
           
-          Larger volumes of telemetry are charged by the gigabyte. We provide some tips on how to [limit your charges](best-practices-cost.md#data-collection).
+          Larger volumes of telemetry are charged by the gigabyte. We provide some tips on how to [limit your charges](best-practices-cost.md#application-insights).
           
           The Enterprise plan incurs a charge for each day that each web server node sends telemetry. It's suitable if you want to use Continuous Export on a large scale.
           
@@ -1101,9 +1101,9 @@ sections:
       - question: |
           How do I enable multi-line logging?
         answer: |
-          Currently, Container insights don't support multi-line logging, but workarounds are available. You can configure all the services to write in JSON format, and then Docker/Moby writes them as a single line.
+          Container insights now supports multi-line logging (preview), for more information on how to enable, checkout the [Multi-line logging in Container Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/containers/container-insights-logging-v2) docs. 
           
-          For example, you can wrap your log as a JSON object as shown in the following example for a sample Node.js application:
+          As an alternative you can also configure all the services to write in JSON format, and then Docker/Moby writes them as a single line. For example, you can wrap your log as a JSON object as shown in the following example for a sample Node.js application
           
           ```
           console.log(json.stringify({ 

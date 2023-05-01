@@ -3,7 +3,7 @@ title: Azure Video Indexer release notes | Microsoft Docs
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Indexer.
 ms.topic: article
 ms.custom: references_regions
-ms.date: 04/06/2023
+ms.date: 04/25/2023
 ms.author: juliako
 ---
 
@@ -13,19 +13,28 @@ ms.author: juliako
 
 To stay up-to-date with the most recent Azure Video Indexer developments, this article provides you with information about:
 
-* [Important notice](#important-notice) about planned changes
 * The latest releases
 * Known issues
 * Bug fixes
 * Deprecated functionality
 
-## Important notice
-
-[!INCLUDE [announcement](./includes/deprecation-announcement.md)]
-
 ## April 2023
 
-## Observed people tracing improvements  
+### Resource Health support
+
+Azure Video Indexer is now integrated with Azure Resource Health enabling you to see the health and availability of each of your Azure Video Indexer resource. If needed, Azure Resource Health helps with diagnosing and solving problems. You can also set alerts to be notified whenever your resources are affected. For more information, see [Azure Resource Health overview](../service-health/resource-health-overview.md).
+
+### The animation character recognition model has been retired
+
+The **animation character recognition** model has been retired on March 1st, 2023. For any related issues, [open a support ticket via the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+
+### Excluding sensitive AI models
+
+Following the Microsoft Responsible AI agenda, Azure Video Indexer now allows you to exclude specific AI models when indexing media files. The list of sensitive AI models includes: face detection, observed people, emotions, labels identification.
+
+This feature is currently available through the API, and is available in all presets except the Advanced preset.
+
+### Observed people tracing improvements  
 
 For more information, see [Considerations and limitations when choosing a use case](observed-matched-people.md#considerations-and-limitations-when-choosing-a-use-case).
 

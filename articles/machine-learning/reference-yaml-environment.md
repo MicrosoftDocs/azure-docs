@@ -2,12 +2,10 @@
 title: 'CLI (v2) environment YAML schema'
 titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) environment YAML schema.
-services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2, event-tier1-build-2022
-
 author: saachigopal
 ms.author: sagopal
 ms.date: 03/31/2022
