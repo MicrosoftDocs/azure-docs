@@ -4,7 +4,7 @@ description: 'Describes the MQTT Support in Azure Event Grid.'
 ms.topic: conceptual
 ms.date: 04/30/2023
 author: george-guirguis
-ms.author: george-guirguis
+ms.author: geguirgu
 ---
 # MQTT Support in Azure Event Grid
 MQTT is a publish-subscribe messaging transport protocol that was designed for constrained environments. It’s efficient, scalable, and reliable, which made it the gold standard for communication in IoT scenarios. Event Grid supports clients that publish and subscribe to messages over MQTT v3.1.1, MQTT v3.1.1 over WebSockets, MQTT v5, and MQTT v5 over WebSockets. Event Grid also supports cross MQTT version (MQTT 3.1.1 and MQTT 5) communication.

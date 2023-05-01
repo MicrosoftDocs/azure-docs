@@ -4,7 +4,7 @@ description: 'Describes how to filter MQTT Routed Messages.'
 ms.topic: conceptual
 ms.date: 04/30/2023
 author: george-guirguis
-ms.author: george-guirguis
+ms.author: geguirgu
 ---
 # Filtering of MQTT Routed Messages
 You can use the Event Grid Subscription’s filtering capability to filter the routed MQTT messages.

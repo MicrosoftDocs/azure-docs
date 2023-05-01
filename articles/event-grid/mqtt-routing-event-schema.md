@@ -4,7 +4,7 @@ description: 'An overview of the Event Schema for MQTT Routed Messages.'
 ms.topic: conceptual
 ms.date: 04/30/2023
 author: george-guirguis
-ms.author: george-guirguis
+ms.author: geguirgu
 ---
 # Event Schema for MQTT Routed Messages
 MQTT Messages are routed to an Event Grid Topic as CloudEvents according to the following logic:

@@ -4,7 +4,7 @@ description: 'Describes the main concepts for access control for MQTT clients in
 ms.topic: conceptual
 ms.date: 04/20/2023
 author: george-guirguis
-ms.author: george-guirguis
+ms.author: geguirgu
 ---
 # Access Control for MQTT Clients
 
