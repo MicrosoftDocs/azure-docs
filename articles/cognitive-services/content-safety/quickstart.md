@@ -44,7 +44,10 @@ Get started with the Content Studio, REST API, or client SDKs to do basic image 
 
 ## Clean up resources
 
-TBD
+If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+
+- [Portal](/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
+- [Azure CLI](/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources)
 
 ## Next steps
 

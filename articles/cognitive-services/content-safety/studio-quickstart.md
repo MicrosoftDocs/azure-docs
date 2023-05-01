@@ -45,6 +45,13 @@ The **Use blocklist** tab on the right lets you create, edit, and add a custom l
 
 The service returns all the categories that were detected, with the severity level for each. It also returns a binary **Accepted**/**Rejected** result, based on the filters you configure. Use the matrix in the **Configure filters** tab on the right to set your allowed/prohibited severity levels for each category. Then you can run the text again to see how the filter works.
 
+## Clean up resources
+
+If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+
+- [Portal](/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
+- [Azure CLI](/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources)
+
 ## Next steps
 
 Next, get started using Content Safety through the REST APIs or a client SDK, so you can seamlessly integrate the service into you application.
