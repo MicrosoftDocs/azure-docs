@@ -29,10 +29,10 @@ To use the Snapshot Debugger, you:
 
 The Snapshot Debugger is implemented as an [Application Insights telemetry processor](../app/configuration-with-applicationinsights-config.md#telemetry-processors-aspnet). When your application runs, the Snapshot Debugger telemetry processor is added to your application's system-generated logs pipeline.
 
-Each time your application calls [TrackException](../app/asp-net-exceptions.md#exceptions), the Snapshot Debugger computes a Problem ID from the type of exception being thrown and the throwing method.
-Each time your application calls `TrackException`, a counter is incremented for the appropriate Problem ID. When the counter reaches the `ThresholdForSnapshotting` value, the Problem ID is added to a Collection Plan.
+Each time your application calls [TrackException](../app/asp-net-exceptions.md#exceptions), the Snapshot Debugger computes a problem ID from the type of exception being thrown and the throwing method.
+Each time your application calls `TrackException`, a counter is incremented for the appropriate problem ID. When the counter reaches the `ThresholdForSnapshotting` value, the problem ID is added to a collection plan.
 
-The Snapshot Debugger also monitors exceptions as they're thrown by subscribing to the [AppDomain.CurrentDomain.FirstChanceException](/dotnet/api/system.appdomain.firstchanceexception) event. When that event fires, the Problem ID of the exception is computed and compared against the Problem IDs in the Collection Plan.
+The Snapshot Debugger also monitors exceptions as they're thrown by subscribing to the [AppDomain.CurrentDomain.FirstChanceException](/dotnet/api/system.appdomain.firstchanceexception) event. When that event fires, the problem ID of the exception is computed and compared against the problem IDs in the collection plan.
 
 If there's a match, a snapshot of the running process is created. The snapshot is assigned a unique identifier and the exception is stamped with that identifier. After the `FirstChanceException` handler returns, the thrown exception is processed as normal. Eventually, the exception reaches the `TrackException` method again. It's reported to Application Insights, along with the snapshot identifier.
 
@@ -111,12 +111,12 @@ For more information on the different symbol options that are available, see the
 
 In some cases, local variables can't be viewed in release builds because of optimizations that are applied by the JIT compiler.
 
-However, in App Service, the Snapshot Collector can deoptimize throwing methods that are part of its Collection Plan.
+However, in App Service, the Snapshot Collector can deoptimize throwing methods that are part of its collection plan.
 
 > [!TIP]
 > Install the Application Insights Site extension in your instance of App Service to get deoptimization support.
 
-## Release notes for `Microsoft.ApplicationInsights.SnapshotCollector`
+## Release notes for Microsoft.ApplicationInsights.SnapshotCollector
 
 This article contains the release notes for the `Microsoft.ApplicationInsights.SnapshotCollector` NuGet package for .NET applications, which is used by the Application Insights Snapshot Debugger.
 
@@ -235,13 +235,13 @@ Switched to using `HttpClient` for all targets except `net45` because `WebReques
 - Increased Snapshot Uploader robustness. Continue startup even if old uploader logs can't be moved.
 - Reenabled reporting more telemetry when *SnapshotUploader.exe* exits immediately (was disabled in 1.3.3).
 - Simplified internal telemetry.
-- **Experimental feature:** Snappoint collection plans: Add `snapshotOnFirstOccurence`. For more information, see this [GitHub article](https://gist.github.com/alexaloni/5b4d069d17de0dabe384ea30e3f21dfe).
+- **Experimental feature:** Snappoint collection plans: Add `snapshotOnFirstOccurence`. For more information, see [this GitHub article](https://gist.github.com/alexaloni/5b4d069d17de0dabe384ea30e3f21dfe).
 
 ### [1.3.3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.3)
 Fixed bug that was causing *SnapshotUploader.exe* to stop responding and not upload snapshots for .NET Core apps.
 
 ### [1.3.2](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.2)
-- **Experimental feature:** Snappoint collection plans. For more information, see this [GitHub article](https://gist.github.com/alexaloni/5b4d069d17de0dabe384ea30e3f21dfe).
+- **Experimental feature:** Snappoint collection plans. For more information, see [this GitHub article](https://gist.github.com/alexaloni/5b4d069d17de0dabe384ea30e3f21dfe).
 - *SnapshotUploader.exe* exits when the runtime unloads the `AppDomain` from which `SnapshotCollector` is loaded, instead of waiting for the process to exit. This action improves the collector reliability when hosted in IIS.
 - Added configuration to allow multiple `SnapshotCollector` instances that are using the same instrumentation key to share the same `SnapshotUploader` process: `ShareUploaderProcess` (defaults to `true`).
 - Reported more telemetry when *SnapshotUploader.exe* exits immediately.
@@ -268,7 +268,7 @@ We believe this change won't be an issue for most applications. Let us know if t
   - App Service version.
   - Azure compute instances.
   - Containers.
-  - Azure Function app.
+  - Azure Functions app.
 
 #### Bug fixes
 - When the problem counter reset interval is set to 24 days, interpret that as 24 hours.
@@ -319,7 +319,7 @@ For this first version using the new pipeline, we haven't strayed far from the o
 - Adjusted memory limits for 64-bit processes to prevent site restarts due to OOM.
 - Fixed an issue where snapshots were still collected even after disabling.
 - Log heartbeat events to customer's AI resource.
-- Improved snapshot speed by removing "Source" from the Problem ID.
+- Improved snapshot speed by removing "Source" from the problem ID.
 
 ### [1.1.2](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.1.2)
 
@@ -344,7 +344,7 @@ For this first version using the new pipeline, we haven't strayed far from the o
 Enable the Application Insights Snapshot Debugger for your application:
 
 * [Azure App Service](snapshot-debugger-app-service.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Function](snapshot-debugger-function-app.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Functions](snapshot-debugger-function-app.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Virtual Machines and Virtual Machine Scale Sets](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
