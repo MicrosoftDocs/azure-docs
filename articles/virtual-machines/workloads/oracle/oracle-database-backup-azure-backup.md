@@ -442,7 +442,7 @@ There are two main choices when restoring a VM:
 - restore the VM from which the backups were originally taken
 - restore (clone) a new VM without affecting the VM from which the backups were originally taken
 
-The first steps in this exercise, stopping, deleting, and then recovering the VM, are intended to simulate the first use-case, where we are restoring the VM from which the backups were originally taken.  Please be aware that you also have the ability to clone the VM without interrupting or affecting the original VM, if you wish?
+The first steps in this exercise, stopping, deleting, and then recovering the VM, are intended to simulate the first use-case, where we are restoring the VM from which the backups were originally taken.  You also have the ability to clone the VM without interrupting or affecting the original VM, if you wish.
 
 Restoring the entire VM allows you to restore the VM and its attached disks to a new VM from a selected restore point. This will restore all databases that run on the VM and each database will need to be recovered afterwards. 
 
