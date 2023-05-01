@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 04/28/2023
 ---
 
-# Monitor data reference for Azure Event Grid's MQTT (Message Queueing Telementry Transport) delivery
+# Monitor data reference for Azure Event Grid's Message Queueing Telementry Transport (MQTT) delivery
 This article provides a reference of log and metric data collected to analyze the performance and availability of Azure Event Grid's MQTT delivery. 
 
 ## Metrics
