@@ -1,12 +1,12 @@
 ---
 title: What is the MedTech service? - Azure Health Data Services
-description: In this article, you'll learn about the MedTech service, its features, functions, integrations, and next steps.
+description: Learn about the MedTech service, its features, functions, integrations, and next steps.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 04/24/2023
+ms.date: 04/28/2023
 ms.author: jasteppe
 ---
 
@@ -99,7 +99,7 @@ To learn about how the MedTech service processes device data, see
 To learn about the different deployment methods for the MedTech service, see
 
 > [!div class="nextstepaction"]
-> [Choose a deployment method for the MedTech service](deploy-new-choose.md)
+> [Choose a deployment method for the MedTech service](deploy-choose-method.md)
 
 To learn about the MedTech service frequently asked questions (FAQs), see
 
