@@ -7,7 +7,7 @@ ms.author: robece
 ms.date: 04/28/2023
 ---
 
-# Create, view, and manage Azure Event Grid namespaces
+# Create, view, and manage namespaces
 
 A namespace in Azure Event Grid is a logical container for one or more topics, clients, client groups, topic spaces and permission bindings. It provides a unique namespace, allowing you to have multiple resources in the same Azure region. With an Azure Event Grid namespace you can group now together related resources and manage them as a single unit in your Azure subscription.
 
@@ -17,23 +17,23 @@ Please follow the next sections to create, view and manage an Azure Event Grid n
 
 1. Sign-in to the Azure portal.
 
-2. In the search box, enter Event Grid and select Event Grid service.
+2. In the **search box**, enter **Event Grid** and select Event Grid service.
   
     :::image type="content" source="media/create-view-manage-namespaces/search-event-grid.png" alt-text="Screenshot showing Event Grid the search results in the Azure portal.":::
 
-3. In the Overview page, select Create in any of the namespace cards available in the MQTT events or Custom events sections.
+3. In the **Overview** page, select **Create** in any of the namespace cards available in the MQTT events or Custom events sections.
 
     :::image type="content" source="media/create-view-manage-namespaces/overview-create.png" alt-text="Screenshot showing Event Grid overview.":::
 
-4. On the Basics tab, select the Azure subscription, resource group, name, and location for your Event Grid namespace.
+4. On the **Basics** tab, select the Azure subscription, resource group, name, and location for your Event Grid namespace.
 
     :::image type="content" source="media/create-view-manage-namespaces/namespace-creation-basics.png" alt-text="Screenshot showing Event Grid namespace creation basic tab.":::
 
-5. On the Tags tab, add the tags in case you need them.
+5. On the **Tags** tab, add the tags in case you need them.
 
     :::image type="content" source="media/create-view-manage-namespaces/namespace-creation-tags.png" alt-text="Screenshot showing Event Grid namespace creation tags tab.":::
 
-6. On the Review + create tab, review your settings and select create.
+6. On the **Review + create** tab, review your settings and select **Create**.
 
     :::image type="content" source="media/create-view-manage-namespaces/namespace-creation-review.png" alt-text="Screenshot showing Event Grid namespace creation tags tab.":::
 
@@ -41,15 +41,15 @@ Please follow the next sections to create, view and manage an Azure Event Grid n
 
 1. Sign-in to the Azure portal.
 
-2. In the search box, enter Event Grid and select Event Grid service.
+2. In the **search box**, enter **Event Grid** and select Event Grid service.
 
     :::image type="content" source="media/create-view-manage-namespaces/search-event-grid.png" alt-text="Screenshot showing Event Grid the search results in the Azure portal.":::
 
-3. In the Overview page, select View in any of the namespace cards available in the MQTT events or Custom events sections.
+3. In the **Overview** page, select **View** in any of the namespace cards available in the MQTT events or Custom events sections.
 
     :::image type="content" source="media/create-view-manage-namespaces/overview-view.png" alt-text="Screenshot showing Event Grid overview page.":::
 
-4. In the View page, filter by the subscription you want to explore resources and select Apply.
+4. In the **View** page, filter by the subscription you want to explore resources and select Apply.
 
     :::image type="content" source="media/create-view-manage-namespaces/filter-subscription.png" alt-text="Screenshot showing Event Grid filter in resource list.":::
 
@@ -63,7 +63,7 @@ Please follow the next sections to create, view and manage an Azure Event Grid n
 
 ## Enable MQTT
 
-In case you want to enable the MQTT capabilities in the Azure Event Grid namespace, you will need go to **Configuration** and check the option Enable MQTT.
+In case you want to enable the MQTT capabilities in the Azure Event Grid namespace, you will need go to **Configuration** and check the option **Enable MQTT**.
 
   :::image type="content" source="media/create-view-manage-namespaces/enable-MQTT.png" alt-text="Screenshot showing Event Grid MQTT settings":::
 
@@ -84,4 +84,5 @@ In case you want to enable the MQTT capabilities in the Azure Event Grid namespa
 
 ## Next steps
 
-See the [Client authentication using CA certificate chain](mqtt-certificate-chain-client-authentication.md) section to learn more about namespaces for IoT solutions supported by Azure Event Grid.
+- See the [Create, view, and manage namespaces topics](create-view-manage-namespace-topics.md) steps to learn more about the namespaces topics in Azure Event Grid.
+- See the [Client authentication using CA certificate chain](mqtt-certificate-chain-client-authentication.md) section to learn more about namespaces for IoT solutions supported by Azure Event Grid.

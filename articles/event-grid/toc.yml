@@ -365,8 +365,12 @@ items:
           href: troubleshoot-network-connectivity.md
         - name: Troubleshoot subscription validation
           href: troubleshoot-subscription-validation.md
-      - name: Create and manage namespaces
+      - name: Create, view, and manage namespaces
         href: create-view-manage-namespaces.md
+      - name: Create, view, and manage namespace topics
+        href: create-view-manage-namespace-topics.md
+      - name: Create, view, and manage event subscriptions
+        href: create-view-manage-event-subscriptions.md
     - name: Reference
       items:
       - name: Azure CLI
