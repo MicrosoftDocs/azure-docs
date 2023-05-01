@@ -96,6 +96,26 @@ Requests to this endpoint can also occur in accounts that have a hierarchical na
 
 If your account has the hierarchical namespace feature enabled, make sure that the **File Structure** drop-down list is set to **Hierarchical Namespace (NFS v3.0, SFTP Protocol)**. Otherwise, make sure that it is set to **Flat Namespace**.
 
+All requests to the service are made by using REST operations from the Blob Storage REST API. You can use that REST API directly or use a tool or SDK. Any tool you use to interact with Blob Storage translates your interactions to REST operations. The following lists map operations to the type of transaction shown in the pricing page.
+
+<style>
+table {
+    border-collapse: collapse;
+}
+table, th, td {
+   border: 1px solid black;
+   vertical-align: top;
+}
+blockquote {
+    border-left: solid blue;
+    padding-left: 10px;
+}
+</style>
+
+| Write operations | List and create operations | Read operations |
+|----|-|---|
+| PutBlob<br>PutBlock<br>PutBlockList<br>AppendBlock<br>SnapshotBlob<br>CopyBlob<br>SetBlobTier| ListBlobs<br>ListContainers<br>FindBlobsByTags<br>CreateContainer| GetBlob<br>SetBlobTier|
+
 #### Pricing requests to the Data Lake Storage endpoint
 
 The format of the Data Lake Storage endpoint is `https://<storage-account>.dfs.core.windows.net` and is most common endpoint used by analytic workloads and applications. This endpoint is typically used with accounts that have a hierarchical namespace but not always.
@@ -109,6 +129,10 @@ Requests can originate from any of these sources:
 The correct pricing page for these requests is the [Azure Data Lake Storage Gen2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page. 
 
 If your account does not have the hierarchical namespace feature enabled, but you expect clients, workloads, or applications to make requests over the Data Lake Storage endpoint of your account, then set the **File Structure** drop-down list to **Flat Namespace**. Otherwise, make sure that it is set to **Hierarchical Namespace**.
+
+All requests to the service are made by using REST operations from the Blob Storage REST API. You can use that REST API directly or use a tool or SDK. Any tool you use to interact with Blob Storage translates your interactions to REST operations. The following table maps operations to the type of transaction shown in the pricing page.
+
+Show table here.
 
 ### Using Azure Prepayment with Azure Blob Storage
 
