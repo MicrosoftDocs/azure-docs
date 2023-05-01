@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/28/2023
+ms.date: 05/01/2023
 ms.author: kenwith
 ms.reviewer: arvinh, chmutali
 ---
