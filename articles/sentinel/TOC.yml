@@ -321,8 +321,6 @@
         href: data-connectors/azure-event-hub.md
       - name: Azure Firewall
         href: data-connectors/azure-firewall.md
-      - name: Azure Information Protection
-        href: data-connectors/azure-information-protection.md
       - name: Azure Key Vault
         href: data-connectors/azure-key-vault.md
       - name: Azure Kubernetes Service (AKS)
@@ -407,6 +405,8 @@
         href: data-connectors/cyberpion-security-logs.md
       - name: Cybersixgill Actionable Alerts (using Azure Function)
         href: data-connectors/cybersixgill-actionable-alerts-using-azure-function.md
+      - name: Cynerio Security Events
+        href: data-connectors/cynerio-security-events.md
       - name: Darktrace Connector for Microsoft Sentinel REST API
         href: data-connectors/darktrace-connector-for-microsoft-sentinel-rest-api.md
       - name: Delinea Secret Server

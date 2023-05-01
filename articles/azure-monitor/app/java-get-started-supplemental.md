@@ -20,6 +20,10 @@ For more information, see [Application monitoring for Azure App Service and Java
 
 For more information, see [Monitoring Azure Functions with Azure Monitor Application Insights](./monitor-functions.md#distributed-tracing-for-java-applications-preview).
 
+## Azure Spring Apps
+
+For more information, see [Use Application Insights Java In-Process Agent in Azure Spring Apps](../../spring-apps/how-to-application-insights.md).
+
 ## Containers
 
 ### Docker entry point
@@ -54,6 +58,8 @@ ENV APPLICATIONINSIGHTS_CONNECTION_STRING="CONNECTION-STRING"
         
 ENTRYPOINT["java", "-javaagent:applicationinsights-agent-3.4.12.jar", "-jar", "app.jar"]
 ```
+
+In this example we have copied the `applicationinsights-agent-3.4.12.jar` and `applicationinsights.json` files from an `agent` folder (you can choose any folder of your machine). These two files have to be in the same folder in the Docker container.
 
 ### Third-party container images
 

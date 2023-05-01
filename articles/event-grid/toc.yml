@@ -437,3 +437,7 @@ items:
         href: mqtt-certificate-chain-client-authentication.md
       - name: How to configure multiple sessions for an MQTT client
         href: mqtt-establishing-multiple-sessions-per-client.md
+    - name: Reference
+      items:
+      - name: Monitoring data reference (MQTT delivery)
+        href: monitor-mqtt-delivery-reference.md

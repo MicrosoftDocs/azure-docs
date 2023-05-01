@@ -362,7 +362,7 @@ Valid values:
 | `dotnet` | [C# (class library)](functions-dotnet-class-library.md)<br/>[C# (script)](functions-reference-csharp.md) |
 | `dotnet-isolated` | [C# (isolated worker process)](dotnet-isolated-process-guide.md) |
 | `java` | [Java](functions-reference-java.md) |
-| `node` | [JavaScript](functions-reference-node.md)<br/>[TypeScript](functions-reference-node.md#typescript) |
+| `node` | [JavaScript](functions-reference-node.md?tabs=javascript)<br/>[TypeScript](functions-reference-node.md?tabs=typescript) |
 | `powershell` | [PowerShell](functions-reference-powershell.md) |
 | `python` | [Python](functions-reference-python.md) |
 | `custom` | [Other](functions-custom-handlers.md) |
