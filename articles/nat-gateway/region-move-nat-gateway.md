@@ -3,8 +3,7 @@ title: Create and configure NAT gateway after moving resources to another region
 description: Learn how to configure a new NAT gateway for resources moved to another region.
 author: asudbring
 ms.author: allensu
-ms.service: virtual-network
-ms.subservice: nat
+ms.service: nat-gateway
 ms.topic: how-to
 ms.date: 01/04/2022
 ms.custom: template-how-to
@@ -23,7 +22,7 @@ In this article, learn how to configure a NAT gateway after moving resources to 
 
 - **Owner** access in the subscription in which resources you want to move are located. 
 
-- Resources from previous region moved to new region. For more information on moving resources to another region, see [Move resources to another region with Azure Resource Mover](../../resource-mover/move-region-within-resource-group.md). Follow the steps in that article to move the resources in your previous region that are associated with the NAT gateway. After successful move of the resources, continue with the steps in this article.
+- Resources from previous region moved to new region. For more information on moving resources to another region, see [Move resources to another region with Azure Resource Mover](../resource-mover/move-region-within-resource-group.md). Follow the steps in that article to move the resources in your previous region that are associated with the NAT gateway. After successful move of the resources, continue with the steps in this article.
 
 ## Create a new NAT gateway
 
@@ -76,8 +75,8 @@ After you have created new NAT gateway and have tested it, you can delete the so
 
 For more information on moving resources in Azure, see:
 
-- [Move NSGs to another region](../move-across-regions-nsg-portal.md).
-- [Move public IP addresses to another region](../move-across-regions-publicip-portal.md).
-- [Move a storage account to another region](../../storage/common/storage-account-move.md?tabs=azure-portal)
+- [Move NSGs to another region](../virtual-network/move-across-regions-nsg-portal.md).
+- [Move public IP addresses to another region](../virtual-network/move-across-regions-publicip-portal.md).
+- [Move a storage account to another region](../storage/common/storage-account-move.md?tabs=azure-portal)
 
 

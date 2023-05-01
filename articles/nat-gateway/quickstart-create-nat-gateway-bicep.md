@@ -16,7 +16,7 @@ ms.custom: subject-armqs, devx-track-bicep
 
 Get started with Azure NAT Gateway using Bicep. This Bicep file deploys a virtual network, a NAT gateway resource, and Ubuntu virtual machine. The Ubuntu virtual machine is deployed to a subnet that is associated with the NAT gateway resource.
 
-[!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
@@ -139,4 +139,4 @@ To learn more about Azure NAT Gateway and Bicep, continue to the following artic
 
 * Read about the [NAT Gateway resource](nat-gateway-resource.md)
 
-* Learn more about [Bicep](../../azure-resource-manager/bicep/overview.md)
+* Learn more about [Bicep](../azure-resource-manager/bicep/overview.md)

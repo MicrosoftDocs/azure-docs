@@ -4,8 +4,7 @@ titlesuffix: Azure NAT Gateway
 description: Get started creating a NAT gateway using the Azure CLI.
 author: asudbring
 ms.author: allensu
-ms.service: virtual-network
-ms.subservice: nat 
+ms.service: nat-gateway
 ms.topic: quickstart 
 ms.date: 02/04/2022
 ms.custom: template-quickstart, devx-track-azurecli
@@ -15,11 +14,11 @@ ms.custom: template-quickstart, devx-track-azurecli
 
 This quickstart shows you how to use the Azure NAT Gateway service. You'll create a NAT gateway to provide outbound connectivity for a virtual machine in Azure.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../includes/cli-launch-cloud-shell-sign-in.md)]
 
 ## Set parameter values to create resources
 

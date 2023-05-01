@@ -47,7 +47,7 @@ sections:
 
       - question: How can I use custom IP prefixes (BYOIP) with NAT gateway?
         answer: |
-          You can use public IP prefixes and addresses derived from custom IP prefixes (BYOIP) with your NAT gateway resource. See [Custom IP address prefix (BYOIP)](../ip-services/custom-ip-address-prefix.md) to learn more. 
+          You can use public IP prefixes and addresses derived from custom IP prefixes (BYOIP) with your NAT gateway resource. See [Custom IP address prefix (BYOIP)](../virtual-network/ip-services/custom-ip-address-prefix.md) to learn more. 
       
       - question: Can a zone-redundant public IP address be attached to a NAT gateway? 
         answer: |
@@ -74,8 +74,8 @@ sections:
           No. NAT gateway is compatible with standard SKU resources. Learn more from [VNet NAT basics](./nat-overview.md#azure-nat-gateway-basics)
           You can upgrade your basic Load balancer and basic public IP address to standard in order to work with NAT gateway.
           
-          To upgrade a basic Load balancer to standard, see [Upgrade Azure Public Load Balancer](../../load-balancer/upgrade-basic-standard.md)
-          To upgrade a basic public IP to standard, see [Upgrade a public IP address](../ip-services/public-ip-upgrade-portal.md)
+          To upgrade a basic Load balancer to standard, see [Upgrade Azure Public Load Balancer](../load-balancer/upgrade-basic-standard.md)
+          To upgrade a basic public IP to standard, see [Upgrade a public IP address](../virtual-network/ip-services/public-ip-upgrade-portal.md)
       
       - question: Can NAT gateway be attached to multiple virtual networks?  
         answer: |
@@ -91,7 +91,7 @@ sections:
       
       - question: Can NAT gateway be associated with a gateway subnet? 
         answer: |
-          No. NAT gateway can't be associated with a [gateway](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub) subnet.
+          No. NAT gateway can't be associated with a [gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub) subnet.
           
       - question: Can multiple NAT gateways be attached to a single subnet?
         answer: |
@@ -129,19 +129,19 @@ sections:
     questions:  
       - question: Can I use NAT gateway with Azure App Services? 
         answer: |
-          Yes. NAT gateway can be used with Azure App Services in order to allow applications to direct outbound traffic to the internet from a virtual network. To use this integration between NAT gateway and Azure App Services, regional virtual network integration must be enabled. For guidance on how to enable virtual network integration with NAT gateway, see [NAT gateway integration](../../app-service/networking/nat-gateway-integration.md).
+          Yes. NAT gateway can be used with Azure App Services in order to allow applications to direct outbound traffic to the internet from a virtual network. To use this integration between NAT gateway and Azure App Services, regional virtual network integration must be enabled. For guidance on how to enable virtual network integration with NAT gateway, see [NAT gateway integration](../app-service/networking/nat-gateway-integration.md).
       
       - question: Can I use NAT gateway with Azure Kubernetes Service? 
         answer: |
-          Yes. For more information about NAT gateway integration with Azure Kubernetes Service, see [Managed NAT Gateway (preview)](../../aks/nat-gateway.md).
+          Yes. For more information about NAT gateway integration with Azure Kubernetes Service, see [Managed NAT Gateway (preview)](../aks/nat-gateway.md).
 
       - question: Can I use NAT gateway with Azure Firewall?
         answer: |
-          Yes. NAT gateway can be used with Azure Firewall. Azure Firewall when used with NAT gateway should be in a zonal configuration. NAT gateway works with a zone redundant firewall, but it’s not a recommended deployment at this time. For more information about NAT gateway integration with Azure Firewall, see [Scale SNAT ports with Azure NAT Gateway](../../firewall/integrate-with-nat-gateway.md).
+          Yes. NAT gateway can be used with Azure Firewall. Azure Firewall when used with NAT gateway should be in a zonal configuration. NAT gateway works with a zone redundant firewall, but it’s not a recommended deployment at this time. For more information about NAT gateway integration with Azure Firewall, see [Scale SNAT ports with Azure NAT Gateway](../firewall/integrate-with-nat-gateway.md).
 
       - question: Can I use NAT gateway with Virtual Network service endpoints or Private Link?
         answer: | 
-           Yes. The addition of a NAT gateway to a subnet with service endpoints doesn't affect the endpoints. [Virtual Network service endpoints](../virtual-network-service-endpoints-overview.md) enable a more specific route for the destination Azure service traffic they represent. Traffic for the service endpoint traverses the Azure backbone instead of the internet. Private Link is recommended over service endpoints when connecting to Azure PaaS services directly from your Azure network.
+           Yes. The addition of a NAT gateway to a subnet with service endpoints doesn't affect the endpoints. [Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) enable a more specific route for the destination Azure service traffic they represent. Traffic for the service endpoint traverses the Azure backbone instead of the internet. Private Link is recommended over service endpoints when connecting to Azure PaaS services directly from your Azure network.
 
 additionalContent: |
 
