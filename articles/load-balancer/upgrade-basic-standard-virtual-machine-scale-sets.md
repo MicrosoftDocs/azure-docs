@@ -39,7 +39,7 @@ The PowerShell module performs the following functions:
 > If the Virtual Machine Scale Set in the Load Balancer backend pool has Public IP Addresses in its network configuration, the Public IP Addresses will change during migration (the Public IPs must be removed prior to the migration, then added back post migration with a Standard SKU configuration)
 
 >[!NOTE]
-> If the Virtual Machine Scale Set behind the Load Balancer is a **Service Fabric Cluster**, migration with this script will take more time. In testing, a 5-node Bronze cluster was unavailable for about 30 minutes and a 5-node Silver cluster was unavailable for about 45 minutes. _Shutting down the cluster VMSS prior to initiating migration_ will result in a more consistent experience of about 5 minutes to complete the LB migration. For Service Fabric clusters that require minimal / no connectivity downtime, adding a new nodetype with Standard Load Balancer and IP resources is a better solution.
+> If the Virtual Machine Scale Set behind the Load Balancer is a **Service Fabric Cluster**, migration with this script will take more time. In testing, a 5-node Bronze cluster was unavailable for about 30 minutes and a 5-node Silver cluster was unavailable for about 45 minutes. For Service Fabric clusters that require minimal / no connectivity downtime, adding a new nodetype with Standard Load Balancer and IP resources is a better solution.
 
 ### Unsupported Scenarios
 
@@ -130,7 +130,7 @@ The upgrade normally takes a few minutes for the script to finish. The following
 - Complexity of your load balancer configuration
 - Number of backend pool members
 - Instance count of associated Virtual Machine Scale Sets
-- Service Fabric Cluster: Upgrades for Service Fabric Clusters take about an hour in testing. For a more consistent experience, shut down the cluster prior to migrating
+- Service Fabric Cluster: Upgrades for Service Fabric Clusters take about an hour in testing.
 
 Keep the downtime in mind and plan for failover if necessary.
 
