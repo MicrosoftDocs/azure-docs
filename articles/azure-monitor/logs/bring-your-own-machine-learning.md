@@ -70,7 +70,7 @@ There are two approaches to making data in Azure Monitor Logs available to your 
 
 This table compares the advantages and limitations of the two machine learning pipeline implementation approaches:
 
-| |Query data into Azure Monitor Logs|Export data to storage|
+| |Query data to Azure Monitor Logs|Export data to storage|
 |-|-|-|-|
 |**Advantages**|🔹Gets you started quickly.<br>🔹Requires only basic data science and programming skills.<br>🔹Minimal latency and cost savings.|🔹Supports larger scales.<br>🔹No query limitations.|
 |**Data exported?**|No|Yes|
