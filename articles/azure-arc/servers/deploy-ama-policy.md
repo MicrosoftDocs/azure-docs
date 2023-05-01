@@ -1,7 +1,7 @@
 ---
 title: How to deploy Azure Monitor Agent using Azure Policy
 description: Learn how to deploy Azure Monitor Agent using Azure Policy.
-ms.date: 04/26/2023
+ms.date: 05/01/2023
 ms.topic: conceptual
 ---
 
@@ -33,11 +33,11 @@ Data Collection Rules (DCRs) define the data collection process in Azure Monitor
 
 1. Select **Overview**, then select **JSON View** to view the JSON code for the DCR:
     
-    :::image type="content" source="media/deploy-ama-policy/dcr-overview.png" alt-text="Overview window for a data collection rule highlighting the JSON view button.":::
+    :::image type="content" source="media/deploy-ama-policy/dcr-overview.png" alt-text="Screenshot of the Overview window for a data collection rule highlighting the JSON view button.":::
 
 1. Locate the **Resource ID** field at the top of the window and click the button to copy the resource ID for the DCR to the clipboard. Save this resource ID; you'll need to use it within the ARM template.
     
-    :::image type="content" source="media/deploy-ama-policy/dcr-json-view.png" alt-text="JSON code view for a data collection rule highlight the resource ID copy button.":::
+    :::image type="content" source="media/deploy-ama-policy/dcr-json-view.png" alt-text="Screenshot of the Resource JSON window showing the JSON code for a data collection rule and highlighting the resource ID copy button.":::
 
 ## Create and deploy the Policy definition
 
@@ -47,64 +47,19 @@ In order for Azure Policy to check if AMA is installed on your Arc-enabled, you'
 
 - Enforces a remediation task to install the AMA and create the association with the DCR on VMs that are not compliant with the policy.
 
-The **Resource ID**  
+1. Select one of the following policy definition templates (i.e., for Windows or Linux machines):
+    1. Configure Windows machines
+    1. Configure Linus machines
+    These templates are used to create a policy to configure machines to run Azure Monitor Agent and associate those machines to a DCR.
+    For complete instructions on using policy definition templates, see ??.
 
-
-
-tell Azure Policy what to do. In this scenario, you'll use an ARM template to create and deploy your policy definition. 
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
-
-
-Azure Arc-enabled servers allows customers to develop an inventory across hybrid, multicloud, and edge workloads with the organizational and reporting capabilities native to Azure management. Azure Arc-enabled servers supports a breadth of platforms and distributions across Windows and Linux. Arc-enabled servers is also domain agnostic and integrates with Azure Lighthouse for multi-tenant customers.
-
-By projecting resources into the Azure management plane, Azure Arc empowers customers to leverage the organizational, tagging, and querying capabilities native to Azure.
-
-## Organize resources with built-in Azure hierarchies
-
-Azure provides four levels of management scope:
-
-- Management groups
-- Subscriptions
-- Resource groups
-- Resources
-
-These levels of management help to manage access, policies, and compliance more efficiently. For example, if you apply a policy at one level, it propagates down to lower levels, helping improve governance posture. Moreover, these levels can be used to scope policies and security controls. For Arc-enabled servers, the different business units, applications, or workloads can be used to derive the hierarchical structure in Azure. Once resources have been onboarded to Azure Arc, you can seamlessly move an Arc-enabled server between different resource groups and scopes.
-
-:::image type="content" source="media/organize-inventory-servers/management-levels.png" alt-text="Diagram showing the four levels of management scope.":::
-
-## Tagging resources to capture additional, customizable metadata
-
-Tags are metadata elements you apply to your Azure resources. They are key-value pairs that help identify resources, based on settings relevant to your organization. For example, you can tag the environment for a resource as *Production* or *Testing*. Alternatively, you can use tagging to capture the ownership for a resource, separating the *Creator* or *Administrator*. Tags can also capture details on the resource itself, such as the physical datacenter, business unit, or workload. You can apply tags to your Azure resources, resource groups, and subscriptions. This extends to infrastructure outside of Azure as well, through Azure Arc.
-
-
-You can define tags in Azure portal through a simple point and click method. Tags can be defined when onboarding servers to Azure Arc-enabled servers or on a per-server basis. Alternatively, you can use Azure CLI, Azure PowerShell, ARM templates, or Azure policy for scalable tag deployments. Tags can be used to filter operations as well, such as the deployment of extensions or service attachments. This provides not only a more comprehensive inventory of your servers, but also operational flexibility and ease of management.
-
-:::image type="content" source="media/organize-inventory-servers/server-tags.png" alt-text="Screenshot of Azure portal showing tags applied to a server.":::
-
-## Reporting and querying with Azure Resource Graph (ARG)
-
-Numerous types of data are collected with Azure Arc-enabled servers as part of the instance metadata. This includes the platform, operating system, presence of SQL server, or AWS and GCP details. These attributes can be queried at scale using Azure Resource Graph. 
-
-Azure Resource Graph is an Azure service designed to extend Azure Resource Management by providing efficient and performant resource exploration with the ability to query at scale across a given set of subscriptions so that you can effectively govern your environment. These queries provide the ability to query resources with complex filtering, grouping, and sorting by resource properties.
-
-Results can be easily visualized and exported to other reporting solutions. Moreover there are dozens of built-in Azure Resource Graph queries capturing salient information across Azure VMs and Arc-enabled servers, such as their VM extensions, regional breakdown, and operating systems. 
+1. Select **Assign** to begin creating the policy definition. Enter the applicable information for each tab (i.e., **Basics**, **Advanced**, etc.).
+1. On the **Parameters** tab, paste in the **Data Collection Rule Resource ID** that you copied during the previous procedure:
+    :::image type="content" source="media/deploy-ama-policy/resource-id-field.png" alt-text="Screenshot of the Parameters tab of the Configure Windows Machines dialog highlighting the Data Collection Rule Resource ID field.":::
+1. Complete the creation of the policy to deploy it for the applicable machines. Once Azure Monitor Agent is deployed, your Azure Arc-enabled servers can leverage its services and use it for log collection.
 
 ## Additional resources
 
-* [What is Azure Resource Graph?](../../governance/resource-graph/overview.md)
+* [Azure Monitor overview](../../azure-monitor/overview.md)
 
-* [Azure Resource Graph sample queries for Azure Arc-enabled servers](resource-graph-samples.md)
-
-* [Use tags to organize your Azure resources and management hierarchy](../../azure-resource-manager/management/tag-resources.md?tabs=json)
+* [Tutorial: Monitor a hybrid machine with VM insights](learn/tutorial-enable-vm-insights.md)
