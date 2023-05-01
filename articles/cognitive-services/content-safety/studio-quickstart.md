@@ -32,7 +32,7 @@ In this quickstart, get started with the Content Safety service using Content Sa
 1. Add text to the input field, or select sample text from the panels on the page.
 1. Select **Run test**.
 
-The service returns all the categories that were detected, with the severity level for each. It also returns a binary **Accepted**/**Rejected** result, based on the filters you configure. Use the risk matrix in the **Configure filters** tab on the right to set your allowed/prohibited risk levels for each category. Then you can run the text again to see how the filter works.
+The service returns all the categories that were detected, with the severity level for each. It also returns a binary **Accepted**/**Rejected** result, based on the filters you configure. Use the matrix in the **Configure filters** tab on the right to set your allowed/prohibited severity levels for each category. Then you can run the text again to see how the filter works.
 
 The **Use blocklist** tab on the right lets you create, edit, and add a custom list of blocked terms to the moderation workflow. If you have a blocklist enabled when you run the test, you'll get a **Blocklist detection** panel under **Results**. It reports any matched with the blocklist.
 
@@ -43,7 +43,7 @@ The **Use blocklist** tab on the right lets you create, edit, and add a custom l
 1. Select a sample image from the panels on the page, or upload your own image.
 1. Select **Run test**.
 
-The service returns all the categories that were detected, with the severity level for each. It also returns a binary **Accepted**/**Rejected** result, based on the filters you configure. Use the risk matrix in the **Configure filters** tab on the right to set your allowed/prohibited risk levels for each category. Then you can run the text again to see how the filter works.
+The service returns all the categories that were detected, with the severity level for each. It also returns a binary **Accepted**/**Rejected** result, based on the filters you configure. Use the matrix in the **Configure filters** tab on the right to set your allowed/prohibited severity levels for each category. Then you can run the text again to see how the filter works.
 
 ## Next steps
 

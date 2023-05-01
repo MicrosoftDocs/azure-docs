@@ -20,7 +20,7 @@ Get started with the Content Studio, REST API, or client SDKs to do basic image 
 
 > [!NOTE]
 > 
-> The sample data and code may contain offensive content rated by the service as TBD risk level. User discretion is advised.
+> The sample data and code may contain offensive content rated by the service as `2` severity level (tbd verify). User discretion is advised.
 
 ::: zone pivot="programming-language-rest"
 

@@ -1,7 +1,7 @@
 ---
 title: "Content flags in Azure Content Safety"
 titleSuffix: Azure Cognitive Services
-description: Learn about the different content moderation flags and risk levels that the Content Safety service returns.
+description: Learn about the different content moderation flags and severity levels that the Content Safety service returns.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -31,9 +31,9 @@ Content Safety recognizes four distinct categories of objectionable content.
 
 Classification can be multi-labeled. For example, when a text sample goes through the text moderation model, it could be classified as both Sexual content and Violence.
 
-## Risk levels
+## Severity levels
 
-Every content flag the service applies also comes with a risk level rating. The risk level is meant to indicate the severity of the consequences of showing the flagged content.
+Every content flag the service applies also comes with a severity level rating. The severity level is meant to indicate the severity of the consequences of showing the flagged content.
 
 | Severity | Label |
 | -------- | ----------- |
@@ -42,16 +42,16 @@ Every content flag the service applies also comes with a risk level rating. The 
 | 4        | Medium      |
 | 6        | High        |
 
-A risk level of 0 or "Safe" indicates a negative result: no objectionable content was detected in that category.
+A severity of 0 or "Safe" indicates a negative result: no objectionable content was detected in that category.
 
-## Risk level definitions by category
+## Severity level definitions by category
 
-This section describes what each risk level indicates in each category.
+This section describes what each severity level indicates in each category.
 
 > [!CAUTION]
 > The sections below may contain offensive content. User discretion is advised.
 
-### Hate category risk levels
+### Hate category severity levels
 
 | Level                  | Description    | 
 | -------------------- | ------------------------ | 
@@ -60,7 +60,7 @@ This section describes what each risk level indicates in each category.
 | Level 4          | Content that contains insults, bullying, intimidation, dehumanization, or derogation of individuals or groups. Language that mocks and imitates identity group attributes, describing individuals or groups as inferior or deficient, or denying or denigrating their existence. Texts that deny historical, well-documented, and violent events such as the Holocaust, slavery, or colonization. | 
 | Level 6           | Content that contains hate speech as propaganda threatening or calling for violence against identity groups; incendiary, offensive, and vulgar language targeting specific individuals or identity groups; or claims of superiority to justify discrimination, segregation, or exclusion. Texts that contain any form of glorification of Nazi and SS symbolism, KKK, and Confederate flag outside of historical, educational, or artistic settings. Content that radicalizes, recruits, or incites people to join extremist efforts or spread hate speech. Texts that display hate crime preparation, praise, and glorification of violence against identity groups or praise, glorify, and endorse genocide.  |  
 
-### Sexual category risk levels
+### Sexual category severity levels
 
 | Level                  | Description               | 
 | ------------------- | -------------------- | 
@@ -69,7 +69,7 @@ This section describes what each risk level indicates in each category.
 | Level 4          | Content that describes sexual arousal and activity in explicit and graphic terms, including fantasies about sex and sexual abuse. Mentions of sexual stimulation and masturbation. Pornography limited to business and prostitution or escorting as a career, without sex scenes. Advertisement for adult products such as sex toys. Personal experiences and descriptions related to sexual, erotic, or tantric massages, strip clubs, erotic shows, or BDSM attributes and practices. | 
 | Level 6              | Content that offers or asks for adult commercial sexual services, fetish, or crude content; non-consensual situations of voyeurism, sex control, or BDSM activities; sexual violence and assault, rape, or abuse in graphic details. Content that glorifies or endorses sex trafficking. Any depiction of child sexual abuse material (CSAM) including any explicit or potential reference to underage sex, sexual abuse, child grooming, child abuse, and other child exploitation. Explicit or potential references to incest, zoophilia, or necrophilia. Human sex trafficking recruitment, including victim manipulation. |  
 
-### Violence category risk levels
+### Violence category severity levels
 
 | Level                  | Description          | 
 | ----------------------------- | ----------------------------- | 
@@ -78,7 +78,7 @@ This section describes what each risk level indicates in each category.
 | Level 4          | Content that contains graphic depictions of violence and death at medium intensity as well as fantasies about violent acts or threats. Texts that put the victim at fault or depict perpetrators in a positive light. Historical references to genocide and the Holocaust without endorsement or glorification. References to known mass shooting events without endorsement or glorification. References to terrorist and violent extremist groups and events without endorsement or glorification. Texts that seek advice or recommendation or texts that provide instructions on how to perform a violent act against an animal, an individual, a group of individuals, or an object or infrastructure that can result in individual or mass harm. Bullying and intimidation. | 
 | Level 6     | Content that contains terrorist and violent extremist propaganda and violent ideology on the internet; content that describes, praises, supports, endorses, or glorifies killings as part of terroristic activity; aid offers to terrorist organizations or causes. Texts that seek instructions on affiliation with terrorist and violent extremist groups. Instructions on how to recruit followers, influence people toward a terrorist cause or extremist ideology, adopt radical views, or provide training on how terrorist and violent extremist groups operate. Texts that plan and coordinate attacks on individuals or groups of people, including shooting events, use of explosives, and any form of violent attacks that can result in individual or mass harm. Content that praises and glorifies perpetrators of violent acts, including serial killers, mass murderers, and spree killers. |  
 
-### Self-harm category risk levels
+### Self-harm category severity levels
 
 | Level                  | Description            | 
 | ----------------------------- | ----------------------------- | 
