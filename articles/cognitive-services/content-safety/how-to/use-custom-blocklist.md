@@ -34,11 +34,7 @@ The below fields must be included in the url:
 | **API Version**   | (Required) This is the API version to be checked. Current version is: api-version=2022-12-30-preview. Example: `<Endpoint>/contentsafety/text:analyze?api-version=2022-12-30-preview` | String      |
 
 
-### Create or modify a blockItem list
-
-> [!NOTE]
->
-> There is a maximum limit of **10,000 terms** in total across all lists.
+### Create or modify a blocklist
 
 Copy the cURL command below to a text editor and make the following changes:
 
@@ -50,10 +46,10 @@ Copy the cURL command below to a text editor and make the following changes:
 
 
 ```shell
-curl --location --request PATCH '<endpoint>/contentsafety/text/<your_list_id>/1234?api-version=2022-12-30-preview' \
+curl --location --request PATCH '<endpoint>/contentsafety/text/blocklists/<your_list_id>?api-version=2022-12-30-preview' \
 --header 'Ocp-Apim-Subscription-Key: <enter_your_key_here>' \
 --header 'Content-Type: application/json' \
---data-raw '{
+--data-raw '{TBD
     "blocklistName": "<your_list_id>",
     "name": "MyList",
     "description": "This is a violence list"
@@ -66,8 +62,8 @@ The response code should be `201` and the URL to get the created list should be 
 ### Add or modify a blockItem in the list
 
 > [!NOTE]
-> 
-> There will be some delay after you add or edit a blockItem before it takes effect on text analysis, usually **not more than five minutes**.
+>
+> There is a maximum limit of **10,000 terms** in total across all lists.
 
 Copy the cURL command below to a text editor and make the following changes:
 
@@ -105,6 +101,10 @@ curl --location --request PATCH '<endpoint>/contentsafety/text/blocklists/<your_
 
 
 The response code should be `201` and the URL to get the created list should be contained in the header, named **Location**.
+
+> [!NOTE]
+> 
+> There will be some delay after you add or edit a blockItem before it takes effect on text analysis, usually **not more than five minutes**.
 
 ### Analyze text with a custom list
 
@@ -158,10 +158,10 @@ Copy the cURL command below to a text editor and make the following changes:
 
 1. Replace `<endpoint>` with your endpoint URL.
 1. Replace `<enter_your_key_here>` with your key.
-1. Replace `your_list_id` with the ID value you used in the list creation step.
+1. Replace `<your_list_id>` (in the request URL) with the ID value you used in the list creation step.
 
 ```shell
-curl --location --request GET '<endpoint>/contentsafety/text/lists/<your_list_id>/items?api-version=2022-12-30-preview' \
+curl --location --request GET '<endpoint>/contentsafety/text/blocklists/<your_list_id>/blockItems?api-version=2022-12-30-preview' \
 --header 'Ocp-Apim-Subscription-Key: <enter_your_key_here>' \
 --header 'Content-Type: application/json'
 ```
@@ -208,7 +208,7 @@ Copy the cURL command below to a text editor and make the following changes:
 
 1. Replace `<endpoint>` with your endpoint URL.
 1. Replace `<enter_your_key_here>` with your key.
-1. Replace `<your_list_id>` (both places) with the ID value you used in the list creation step.
+1. Replace `<your_list_id>` (in the request URL) with the ID value you used in the list creation step.
 1. Replace `<item_id>` (both places) with the ID value for the blockItem. This is the value of the `"blockItems"` field in the **Add** API call.
 
 
@@ -237,13 +237,13 @@ Copy the cURL command below to a text editor and make the following changes:
 
 1. Replace `<endpoint>` with your endpoint URL.
 1. Replace `<enter_your_key_here>` with your key.
-1. Replace `<your_list_id>` (in both places) with the ID value you used in the list creation step.
+1. Replace `<your_list_id>` (in the request URL) with the ID value you used in the list creation step.
 
 ```shell
 curl --location --request DELETE '<endpoint>/contentsafety/text/lists/<your_list_id>?api-version=2022-12-30-preview' \
 --header 'Ocp-Apim-Subscription-Key: <enter_your_key_here>' \
 --header 'Content-Type: application/json' \
---data-raw '{"blocklistName":"<your_list_id>"}'
+--data-raw '{"description":"TBD"}'
 ```
 
 The response code should be `204`.
