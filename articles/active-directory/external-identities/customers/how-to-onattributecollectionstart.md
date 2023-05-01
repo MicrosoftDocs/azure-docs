@@ -15,13 +15,13 @@ ms.custom: it-pro
 #Customer intent: As a dev, devops, or it admin, I want to know what information I can collect from customers during sign-up, and how I can customize and extend how I collect information.
 ---
 
-# Pre-attribute collection custom extension: OnAttributeCollectionStart
+# Before attribute collection custom extension: OnAttributeCollectionStart
 
 Self-service sign-up user flows can now take advantage of custom extensions in order to provide validation and augmentation capabilities. Custom extensions allow you to perform validation on attributes collected from the user during sign-up, along with showing the user a blocked or validation error page if needed. There are two events enabled: OnAttributeCollectionStart and OnAttributeCollectionSubmit.  
 
-## OnAttributeCollectionStart 
+## OnAttributeCollectionStart
 
-**OnAttributeCollectionStart** is fired at the beginning of the attribute collection process and can be used to prevent the user from signing up (such as based on the domain they are authenticating from) or modify the initial attributes to be collected (such as including additional attributes to collect based on the user’s IdP). 
+**OnAttributeCollectionStart** is fired at the beginning of the attribute collection process and can be used to prevent the user from signing up (for example, based on the domain they're authenticating from) or modify the initial attributes to be collected (for example, collect attributes based on the user’s identity provider).
 
 ### Request 
 
@@ -91,7 +91,7 @@ Self-service sign-up user flows can now take advantage of custom extensions in o
 
 ### Response Actions 
 
-The API response must include a responseAction element as described below. The available actions are: 
+The API response must include a responseAction element. The available actions are: 
 
 #### ContinueWithDefaultBehavior 
 
@@ -112,7 +112,7 @@ This action specifies that the API is returning a continuation response.
 
 #### SetPrefillValues 
 
-This action specifies that the API returns a response to pre-fill attributes with default values.  
+This action specifies that the API returns a response to populate attributes with default values.  
 
 ```json
 { 
@@ -134,7 +134,7 @@ This action specifies that the API returns a response to pre-fill attributes wit
 
 #### showBlockPage 
 
-This action specifies that the API is returning a blocking response for the below cases: User approval is pending. The 
+This action specifies that the API is returning a blocking response for the below cases: User approval is pending. 
 
 ```json
 { 
@@ -150,7 +150,7 @@ This action specifies that the API is returning a blocking response for the belo
 } 
 ``` 
  
-The response action must be only 1 otherwise an error will be thrown. 
+The response action must be only 1, otherwise an error is thrown.
 
 ## Next steps 
 

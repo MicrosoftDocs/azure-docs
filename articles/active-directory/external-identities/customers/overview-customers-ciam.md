@@ -28,7 +28,7 @@ Azure Active Directory (Azure AD) for customers is a seamless way to add secure,
 
 Azure AD for customers is intended for businesses that want to make applications available to their customers using the Microsoft Entra platform for identity and access.
 
-- **Add sign-up and sign-in pages to your apps.** Quickly add intuitive, user-friendly sign-up and sign-up experiences for your customer apps. With a single identity, a customer can securely access all the applications you permit them to use.
+- **Add sign-up and sign-in pages to your apps.** Quickly add intuitive, user-friendly sign-up and sign-up experiences for your customer apps. With a single identity, a customer can securely access all the applications you want them to use.
 
 - **Add single sign-on (SSO) with social and enterprise identities.** Customers can choose a social, enterprise, or managed identity to sign in with a username and password, email, or one-time passcode.
 
@@ -40,6 +40,8 @@ Azure AD for customers is intended for businesses that want to make applications
 
 - **Provide self-service account management.** Customers can register for your online services by themselves, manage their profile, delete their account, enroll in a multifactor authentication (MFA) method, or reset their password with no admin or help desk assistance.
 
+Learn more about [adding sign-in and sign-up to your app](concept-planning-your-solution.md) and [customizing the sign-in look and feel](concept-branding-customers.md). 
+
 ## Create custom extensions to the authentication flow
 
 Azure AD for customers is designed for flexibility. In addition to the built-in authentication events within a sign-up and sign-in user flow, you can define additional actions for events at various points within the authentication flow.
@@ -48,11 +50,15 @@ Azure AD for customers is designed for flexibility. In addition to the built-in 
 
 - **Add logic to attribute collection**. Define validation actions at the start of attribute collection or just before attribute submission.
 
+Learn more about [custom authentication extensions](concept-custom-extensions.md).
+
 ## Manage customer accounts throughout the lifecycle
 
 A customer tenant, separate from your workforce tenant, represents your customer-facing app, resources, and directory of customer accounts.
 
 - **Manage accounts and resources in a dedicated customer tenant.** Create a tenant specifically for your customer-facing apps and services. Register your customer-facing apps in this tenant, and manage customer identities and access in the dedicated directory, separate from your workforce tenant.
+
+Learn more about managing [customer accounts](how-to-manage-customer-accounts.md) and [admin accounts](how-to-manage-admin-accounts.md) in your customer tenant.
 
 ## Get the benefits of Microsoft Entra and Azure Active Directory
 
@@ -62,5 +68,8 @@ Azure AD for customers represents the convergence of business-to-consumer (B2C) 
 
 - **Microsoft Entra reliability and scalability**. Create highly customized sign-in experiences and manage customer accounts at a large scale. Ensure a good customer experience by taking advantage of Microsoft Entra performance, resiliency, business continuity, low-latency, and high throughput.
 
+Learn more about [security and governance](concept-security-customers.md) features available in your customer tenant.
+## Next steps
 
+Learn more about [planning for Azure AD for customers](concept-planning-your-solution.md). 
 
