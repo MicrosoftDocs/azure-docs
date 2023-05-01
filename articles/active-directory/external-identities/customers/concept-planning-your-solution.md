@@ -22,7 +22,7 @@ This article describes the general steps for getting started with Azure AD for c
 
 ## Integrating your app with Azure AD for customers
 
-Adding secure sign-in to your app and setting up a customer identity and access management involves four general steps, as illustrated in the following diagram. This article 
+Adding secure sign-in to your app and setting up a customer identity and access management involves four general steps, as illustrated in the following diagram.
 
 ![Diagram showing an overview of setup steps.](media/concept-planning-your-solution/overview-setup-steps.png)
 
