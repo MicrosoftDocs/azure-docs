@@ -27,9 +27,6 @@ Azure CNI Powered by Cilium can be deployed using two different methods for assi
 
 - assign IP addresses from a VNet (similar to existing Azure CNI with Dynamic Pod IP Assignment)
 - assign IP addresses from an overlay network (similar to Azure CNI Overlay mode)
- 
-> [!NOTE]
-> Azure CNI Overlay networking currently requires the `Microsoft.ContainerService/AzureOverlayPreview` feature and may be available only in certain regions. For more information, see [Azure CNI Overlay networking](./azure-cni-overlay.md).
 
 If you aren't sure which option to select, read ["Choosing a network model to use"](./azure-cni-overlay.md#choosing-a-network-model-to-use).
 
