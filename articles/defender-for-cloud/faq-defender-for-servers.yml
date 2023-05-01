@@ -4,9 +4,7 @@ metadata:
   description: Get answers to common questions about Microsoft Defender for Servers.
   ms.topic: faq
   ms.service: defender-for-cloud
-  author: bmansheim
-  ms.author: benmansheim
-  ms.date: 03/05/2023
+  ms.date: 05/01/2023
 title: Frequently asked questions for Defender for Servers
 summary: Get answers to common questions about Microsoft Defender for Servers.
 
@@ -22,12 +20,22 @@ sections:
       - question: |
           Can I get a discount if I already have a Microsoft Defender for Endpoint license?
         answer: |
-          If you already have a license for Microsoft Defender for Endpoint for Servers, you don't pay for that part of your Microsoft Defender for Servers Plan 2 license. 
+          If you already have a license for Microsoft Defender for Endpoint for Servers, you don't pay for that part of your Microsoft Defender for Servers Plan 1 or Plan 2 license. 
 
-          To request your discount, contact the Defender for Cloud support team through the Azure portal.
+          To request your discount, contact the Defender for Cloud support team through the Azure portal by creating a new support request in the help and support center.
 
-          - Provide the relevant workspace ID, region, and number of Defender for Endpoint for Servers licenses that are applied to machines in the workspace.
-          - The discount is effective starting on the approval date. The discount isn't retroactive.
+          In the 'Problem description' tab, please enter the below information:
+
+          :::image type="content" source="media/faq-defender-for-servers/support-ticket-description.png" alt-text="Support ticket description with the information filled out":::
+
+          In the Additional details section enter the following information:
+          - Customer Org name - enter the name of the organization that is requesting the discount.
+          - Tenant ID - enter the tenant ID of the organization that is requesting the discount.
+          - The number of Microsoft Defender for Endpoint for Servers licenses that were purchased.
+          - The expiration date of the Microsoft Defender for Endpoint for Servers licenses that were purchased.
+
+          >[!NOTE]
+          > The discount becomes effective starting on the approval date. The discount isn't retroactive.
 
       - question: |
           What servers do I pay for in a subscription?
