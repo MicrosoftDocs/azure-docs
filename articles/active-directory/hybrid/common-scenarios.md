@@ -24,19 +24,19 @@ The following table outlines the most common and supported sync scenarios.
 
 |Scenario|Supported with cloud sync|Supported with connect sync|Supported with MIM and the Graph Connector|Supported with ECMA Host connector|
 |-----|-----|-----|-----|-----|
-|New Hybrid customers managing identities|●|●|●||
-|Mergers and acquisitions (disconnected forest)|●||●||
-|High availability - latency (I need high availability)|●||●||
-|Migration from connect sync to cloud sync|●||||
-|Hybrid Azure AD Join||●|||
-|Exchange hybrid||●|||
-|User accounts in one forest / mailboxes in resource forest||●|||
-|Sync large domains with more than 250K objects||●|●||
-|Filter directory objects based on attribute values||●|●||
-|Windows Hello for Business provisioning||●|||
-|Synchronize from cloud to on-premises AD|||●||
-|Synchronize from cloud to on-premises LDAP|||●|●|
-|Synchronize from cloud to on-premises SQL|||●|●|
+|New Hybrid customers managing identities|●|●|●|N/A|
+|Mergers and acquisitions (disconnected forest)|●|N/A|●|N/A|
+|High availability - latency (I need high availability)|●|N/A|●|N/A|
+|Migration from connect sync to cloud sync|●|●|N/A|N/A|
+|Hybrid Azure AD Join|N/A|●|N/A|N/A|
+|Exchange hybrid|N/A|●|N/A|N/A|
+|User accounts in one forest / mailboxes in resource forest|N/A|●|N/A|N/A|
+|Sync large domains with more than 250K objects|N/A|●|●|N/A|
+|Filter directory objects based on attribute values|N/A|●|●|N/A|
+|Windows Hello for Business|N/A|●|N/A|N/A|
+|Synchronize from cloud to on-premises AD|N/A|N/A|●|N/A|
+|Synchronize from cloud to on-premises LDAP|N/A|N/A|●|●|
+|Synchronize from cloud to on-premises SQL|N/A|N/A|●|●|
 
 For additional information, see [Supported topologies for cloud sync](cloud-sync/plan-cloud-sync-topologies.md) and [Supported topologies for connect sync](connect/plan-connect-topologies.md)
 
