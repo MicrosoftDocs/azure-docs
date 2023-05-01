@@ -127,20 +127,9 @@ Function-level retries are supported with the following NuGet packages:
 - [Microsoft.Azure.Functions.Worker.Extensions.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.EventHubs) >= 5.2.0
 - [Microsoft.Azure.Functions.Worker.Extensions.Kafka](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Kafka) >= 3.8.0
 - [Microsoft.Azure.Functions.Worker.Extensions.Timer](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Timer) >= 4.2.0
-- [Microsoft.Azure.Functions.Worker.Extensions.CosmosDb] - TBD
-
-```csharp
-[Function("EventHubsFunction")]
-[FixedDelayRetry(5, "00:00:10")]
-public static string Run([EventHubTrigger("src", Connection = "EventHubConnectionAppSetting")] string[] input,
-    FunctionContext context)
-{
-// ...
-}
-```
 
 |Property  | Description |
-|---------|-------------| 
+|---------|-------------|
 |MaxRetryCount|Required. The maximum number of retries allowed per function execution. `-1` means to retry indefinitely.|
 |DelayInterval|The delay that's used between retries. Specify it as a string with the format `HH:mm:ss`.|
 
@@ -198,20 +187,6 @@ Function-level retries are supported with the following NuGet packages:
 - [Microsoft.Azure.Functions.Worker.Extensions.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.EventHubs) >= 5.2.0
 - [Microsoft.Azure.Functions.Worker.Extensions.Kafka](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Kafka) >= 3.8.0
 - [Microsoft.Azure.Functions.Worker.Extensions.Timer](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Timer) >= 4.2.0
-- [Microsoft.Azure.Functions.Worker.Extensions.CosmosDb] - TBD
-
-```csharp
-[Function("CosmosDBFunction")]
-[ExponentialBackoffRetry(5, "00:00:04", "00:15:00")]
-[CosmosDBOutput("%CosmosDb%", "%CosmosCollOut%", ConnectionStringSetting = "CosmosConnection", CreateIfNotExists = true)]
-public static object Run(
-    [CosmosDBTrigger("%CosmosDb%", "%CosmosCollIn%", ConnectionStringSetting = "CosmosConnection",
-        LeaseCollectionName = "leases", CreateLeaseCollectionIfNotExists = true)] IReadOnlyList<MyDocument> input,
-    FunctionContext context)
-{
-// ...
-}
-```
 
 # [C# script](#tab/csharp-script/exponential-backoff)
 
