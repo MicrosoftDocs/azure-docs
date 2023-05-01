@@ -290,8 +290,6 @@ metric_relabel_configs:
 
 ### Pod annotation-based scraping
 
-If you're currently using Azure Monitor Container insights Prometheus scraping with the setting `monitor_kubernetes_pods = true`, adding this job to your custom config allows you to scrape the same pods and metrics.
-
 The following scrape config uses the `__meta_*` labels added from the `kubernetes_sd_configs` for the `pod` role to filter for pods with certain annotations.
 
 To scrape certain pods, specify the port, path, and scheme through annotations for the pod and the following job scrapes only the address specified by the annotation:
