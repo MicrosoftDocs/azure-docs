@@ -34,7 +34,7 @@ To acquire a lease, create an instance of the JavaScript[BlobLeaseClient](/javas
 
 The following example acquires a 30-second lease for a blob:
 
-:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/src/lease-blob.js" id="Snippet_AcquireBlobLease":::
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/lease-blob.js" id="Snippet_AcquireBlobLease":::
 
 ## Renew a lease
 
@@ -46,7 +46,7 @@ To renew a lease, use one of the following methods on a JavaScript[BlobLeaseClie
 
 The following example renews a lease for a blob:
 
-:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/src/lease-blob.js" id="Snippet_RenewBlobLease":::
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/lease-blob.js" id="Snippet_RenewBlobLease":::
 
 ## Release a lease
 
@@ -58,7 +58,7 @@ You can release a lease using one of the following methods on a JavaScript[BlobL
 
 The following example releases a lease on a blob:
 
-:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/src/lease-blob.js" id="Snippet_ReleaseBlobLease":::
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/lease-blob.js" id="Snippet_ReleaseBlobLease":::
 
 ## Break a lease
 
@@ -70,7 +70,7 @@ You can break a lease using one of the following methods on a JavaScript[BlobLea
 
 The following example breaks a lease on a blob:
 
-:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/src/lease-blob.js" id="Snippet_BreakBlobLease":::
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/lease-blob.js" id="Snippet_BreakBlobLease":::
 
 [!INCLUDE [storage-dev-guide-blob-lease](../../../includes/storage-dev-guides/storage-dev-guide-blob-lease.md)]
 
