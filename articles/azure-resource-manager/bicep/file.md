@@ -81,9 +81,9 @@ module webModule './webApp.bicep' = {
 
 ## Metadata
 
-Metadata in Bicep is a untyped object that can be included in either a Bicep file or module. It allows you to provide additional information about your Bicep file or module, including details like its name, description, author, creation date, and more.
+Metadata in Bicep is an untyped object that can be included in either a Bicep file or module. It allows you to provide additional information about your Bicep file or module, including details like its name, description, author, creation date, and more.
 
-Identifiers for `metadata`, `param`, `var`, `resource`, `module`, and `output` share the same namespace as [decorators](./parameters.md#decorators) and [Bicep functions](./bicep-functions.md). Using an identifier for metadata, such as 'description', can cause confusion if it collides with the decorator '@description('')'. It is recommended to choose an identifier that does not conflict with a decorator or function.
+Identifiers for `metadata`, `param`, `var`, `resource`, `module`, and `output` share the same namespace as [decorators](./parameters.md#decorators) and [Bicep functions](./bicep-functions.md). Using an identifier for metadata, such as 'description', can cause confusion if it collides with the decorator '@description('')'. It's recommended to choose an identifier that does'nt conflict with a decorator or function.
 
 ## Target scope
 
@@ -153,7 +153,7 @@ For more information, see [Variables in Bicep](./variables.md).
 
 ## Resources
 
-Use the `resource` keyword to define a resource to deploy. Your resource declaration includes a symbolic name for the resource. You'll use this symbolic name in other parts of the Bicep file to get a value from the resource.
+Use the `resource` keyword to define a resource to deploy. Your resource declaration includes a symbolic name for the resource. You use this symbolic name in other parts of the Bicep file to get a value from the resource.
 
 The resource declaration includes the resource type and API version. Within the body of the resource declaration, include properties that are specific to the resource type.
 
