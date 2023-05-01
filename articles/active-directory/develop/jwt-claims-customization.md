@@ -8,40 +8,37 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/19/2022
+ms.date: 05/01/2023
 ms.author: davidmu
-ms.custom: aaddev
+ms.custom: aaddev, curation-claims
 ms.reviewer: rahulnagraj, alamaral
 ---
 
 # Customize claims issued in the JSON web token (JWT) for enterprise applications (Preview)
 
-The Microsoft identity platform supports single sign-on (SSO) with most enterprise applications, including both applications pre-integrated in the Azure AD app gallery and custom applications. When a user authenticates to an application
- through the Microsoft identity platform using the OIDC protocol, the Microsoft identity platform sends a token to the application. And then, the application validates and uses the token to log the user in instead of prompting for a username and password.
+The Microsoft identity platform supports [single sign-on (SSO)](../manage-apps/what-is-single-sign-on.md) with most preintegrated applications in the Azure Active Directory (Azure AD) application gallery and custom applications. When a user authenticates to an application through the Microsoft identity platform using the OIDC protocol, the Microsoft identity platform sends a token to the application. The application validates and uses the token to sign the user in instead of prompting for a username and password.
 
-These JSON Web tokens (JWT) used by OIDC & OAuth applications (preview) contain pieces of information about the user known as *claims*. A *claim* is information that an identity provider states about a user inside the token they issue for that user.
-
-In an [OIDC response](v2-protocols-oidc.md), *claims* data is typically contained in the ID Token issued by the identity provider in the form of a JWT.
+These JSON Web tokens (JWT) used by OIDC and OAuth applications (preview) contain pieces of information about the user known as *claims*. A claim is information that an identity provider states about a user inside the token they issue for that user. In an [OIDC response](v2-protocols-oidc.md), claims data is typically contained in the ID Token issued by the identity provider in the form of a JWT.
 
 ## View or edit claims
 
-You can view, create or edit the attributes and claims issued in the JWT token to the application. To edit claims, open the application in Azure portal through the Enterprise Applications experience. Then select **Single sign-on** blade in the left-hand menu and open the **Attributes & Claims** section.
+To view or edit the claims issued in the JWT to the application, open the application in Azure portal. Then select **Single sign-on** blade in the left-hand menu and open the **Attributes & Claims** section.
 
-:::image type="content" source="./media/active-directory-jwt-claims-customization/attributes-claims.png" alt-text="Screenshot of opening the Attributes & Claims section in the Azure portal.":::
+:::image type="content" source="./media/jwt-claims-customization/attributes-claims.png" alt-text="Screenshot of opening the Attributes & Claims section in the Azure portal.":::
 
-Claims customization may be required for various reasons by an application. A good example is when an application has been written to require a different set of claim URIs or claim values. Using the **Attributes & Claims** section you can add or remove a claim for your application. You can also create a custom claim that is specific for an application based on the use case.
+Claims customization may be required for various reasons by an application. For example, when an application is written to require a different set of claim URIs or claim values. You can create a custom claim that is specific for an application based on the use case. You can also assign any constant (static) value to any claims, which you define in Azure AD. 
 
-You can also assign any constant (static) value to any claims, which you define in Azure AD. The following steps outline how to assign a constant value:
+The following steps describe how to assign a constant value:
 
 1. In the [Azure portal](https://portal.azure.com/), on the **Attributes & Claims** section, Select **Edit** to edit the claims.
 1. Select the required claim that you want to modify.
 1. Enter the constant value without quotes in the **Source attribute** as per your organization, and then select **Save**.
 
-:::image type="content" source="./media/active-directory-jwt-claims-customization/customize-claim.png" alt-text="Screenshot of customizing a claim in the Azure portal.":::
+:::image type="content" source="./media/jwt-claims-customization/customize-claim.png" alt-text="Screenshot of customizing a claim in the Azure portal.":::
 
 The constant value is displayed on the Attributes overview.
 
-:::image type="content" source="./media/active-directory-jwt-claims-customization/claims-overview.png" alt-text="Screenshot of displaying claims in the Azure portal.":::
+:::image type="content" source="./media/jwt-claims-customization/claims-overview.png" alt-text="Screenshot of displaying claims in the Azure portal.":::
 
 ## Special claims transformations
 
@@ -49,7 +46,7 @@ You can use the following special claims transformations functions.
 
 | Function | Description |
 |----------|-------------|
-| **ExtractMailPrefix()** | Removes the domain suffix from either the email address or the user principal name. This function extracts only the first part of the user name being passed through (for example, "joe_smith" instead of joe_smith@contoso.com). |
+| **ExtractMailPrefix()** | Removes the domain suffix from either the email address or the user principal name. This function extracts only the first part of the user name being passed through. For example, `joe_smith` instead of `joe_smith@contoso.com`. |
 | **ToLower()** | Converts the characters of the selected attribute into lowercase characters. |
 | **ToUpper()** | Converts the characters of the selected attribute into uppercase characters. |
 
@@ -70,7 +67,7 @@ To apply a transformation to a user attribute:
 1. **Treat source as multivalued** is a checkbox indicating whether the transform should be applied to all values or just the first. By default, transformations are only applied to the first element in a multi-value claim, by checking this box it ensures it's applied to all. This checkbox is only be enabled for multi-valued attributes, for example `user.proxyaddresses`.
 1. To apply multiple transformations, select **Add transformation**. You can apply a maximum of two transformations to a claim. For example, you could first extract the email prefix of the `user.mail`. Then, make the string upper case.
 
-    :::image type="content" source="./media/active-directory-jwt-claims-customization/sso-saml-multiple-claims-transformation.png" alt-text="Screenshot of claims transformation.":::
+    :::image type="content" source="./media/jwt-claims-customization/sso-saml-multiple-claims-transformation.png" alt-text="Screenshot of claims transformation.":::
 
 You can use the following functions to transform claims.
 
@@ -102,52 +99,52 @@ If you need other transformations, submit your idea in the [feedback forum in Az
 
 The following image shows an example of the first level of transformation:
 
-:::image type="content" source="./media/active-directory-jwt-claims-customization/regexreplace-transform1.png" alt-text="Screenshot of the first level of transformation.":::
+:::image type="content" source="./media/jwt-claims-customization/regexreplace-transform1.png" alt-text="Screenshot of the first level of transformation.":::
 
 The following table provides information about the first level of transformations. The actions listed in the table correspond to the labels in the previous image. Select **Edit** to open the claims transformation blade.
 
 | Action | Field | Description |
 | :----- | :---- | :---------- |
-| 1 | Transformation | Select the **RegexReplace()** option from the **Transformation** options to use the regex-based claims transformation method for claims transformation. |
-| 2 | Parameter 1 | The input for the regular expression transformation. For example, user.mail that has a user email address such as `admin@fabrikam.com`. |
-| 3 | Treat source as multivalued | Some input user attributes can be multi-value user attributes. If the selected user attribute supports multiple values and the user wants to use multiple values for the transformation, they need to select **Treat source as multivalued**. If selected, all values are used for the regex match, otherwise only the first value is used. |
-| 4 |  Regex pattern | A regular expression that is evaluated against the value of user attribute selected as *Parameter 1*. For example a regular expression to extract the user alias from the user's email address would be represented as `(?'domain'^.*?)(?i)(\@fabrikam\.com)$`. |
-| 5 | Add additional parameter | More than one user attribute can be used for the transformation. The values of the attributes would then be merged with regex transformation output. Up to five additional parameters are supported. |
-| 6 | Replacement pattern | The replacement pattern is the text template, which contains placeholders for regex outcome. All group names must be wrapped inside the curly braces such as {group-name}. Let's say the administration wants to use user alias with some other domain name, for example `xyz.com` and merge country name with it. In this case, the replacement pattern would be `{country}.{domain}@xyz.com`, where `{country}` is the value of input parameter and `{domain}` is the group output from the regular expression evaluation. In such a case, the expected outcome is `US.swmal@xyz.com`. |
+| 1 | `Transformation` | Select the **RegexReplace()** option from the **Transformation** options to use the regex-based claims transformation method for claims transformation. |
+| 2 | `Parameter 1` | The input for the regular expression transformation. For example, user.mail that has a user email address such as `admin@fabrikam.com`. |
+| 3 | `Treat source as multivalued` | Some input user attributes can be multi-value user attributes. If the selected user attribute supports multiple values and the user wants to use multiple values for the transformation, they need to select **Treat source as multivalued**. If selected, all values are used for the regex match, otherwise only the first value is used. |
+| 4 |  `Regex pattern` | A regular expression that is evaluated against the value of user attribute selected as *Parameter 1*. For example a regular expression to extract the user alias from the user's email address is represented as `(?'domain'^.*?)(?i)(\@fabrikam\.com)$`. |
+| 5 | `Add additional parameter` | More than one user attribute can be used for the transformation. The values of the attributes would then be merged with regex transformation output. Up to five more parameters are supported. |
+| 6 | `Replacement pattern` | The replacement pattern is the text template, which contains placeholders for regex outcome. All group names must be wrapped inside the curly braces such as {group-name}. Let's say the administration wants to use user alias with some other domain name, for example `xyz.com` and merge country name with it. In this case, the replacement pattern would be `{country}.{domain}@xyz.com`, where `{country}` is the value of input parameter and `{domain}` is the group output from the regular expression evaluation. In such a case, the expected outcome is `US.swmal@xyz.com`. |
 
 The following image shows an example of the second  level of transformation:
 
-:::image type="content" source="./media/active-directory-jwt-claims-customization/regexreplace-transform2.png" alt-text="Screenshot of second level of claims transformation.":::
+:::image type="content" source="./media/jwt-claims-customization/regexreplace-transform2.png" alt-text="Screenshot of second level of claims transformation.":::
 
 The following table provides information about the second level of transformations. The actions listed in the table correspond to the labels in the previous image.
 
 | Action | Field | Description |
 | :----- | :---- | :---------- |
-| 1 | Transformation | Regex-based claims transformations aren't limited to the first transformation and can be used as the second level transformation as well. Any other transformation method can be used as the first transformation. |
-| 2 | Parameter 1 | If **RegexReplace()** is selected as a second level transformation, output of first level transformation is used as an input for the second level transformation. The second level regex expression should match the output of the first transformation or the transformation won't be applied. |
-| 3 | Regex pattern | **Regex pattern** is the regular expression for the second level transformation. |
-| 4 | Parameter input | User attribute inputs for the second level transformations. |
-| 5 | Parameter input | Administrators can delete the selected input parameter if they don't need it anymore. |
-| 6 | Replacement pattern | The replacement pattern is the text template, which contains placeholders for regex outcome group name, input parameter group name, and static text value. All group names must be wrapped inside the curly braces such as `{group-name}`. Let's say the administration wants to use user alias with some other domain name, for example `xyz.com` and merge country name with it. In this case, the replacement pattern would be `{country}.{domain}@xyz.com`, where `{country}` is the value of input parameter and `{domain}` is the group output from the regular expression evaluation. In such a case, the expected outcome is `US.swmal@xyz.com`. |
-| 7 | Test transformation | The RegexReplace() transformation is evaluated only if the value of the selected user attribute for *Parameter 1* matches with the regular expression provided in the **Regex pattern** textbox. If they don't match, the default claim value is added to the token. To validate regular expression against the input parameter value, a test experience is available within the transform blade. This test experience operates on dummy values only. When additional input parameters are used, the name of the parameter is added to the test result instead of the actual value. To access the test section, select **Test transformation**. |
+| 1 | `Transformation` | Regex-based claims transformations aren't limited to the first transformation and can be used as the second level transformation as well. Any other transformation method can be used as the first transformation. |
+| 2 | `Parameter 1` | If **RegexReplace()** is selected as a second level transformation, output of first level transformation is used as an input for the second level transformation. The second level regex expression should match the output of the first transformation or the transformation won't be applied. |
+| 3 | `Regex pattern` | **Regex pattern** is the regular expression for the second level transformation. |
+| 4 | `Parameter input` | User attribute inputs for the second level transformations. |
+| 5 | `Parameter input` | Administrators can delete the selected input parameter if they don't need it anymore. |
+| 6 | `Replacement pattern` | The replacement pattern is the text template, which contains placeholders for regex outcome group name, input parameter group name, and static text value. All group names must be wrapped inside the curly braces such as `{group-name}`. Let's say the administration wants to use user alias with some other domain name, for example `xyz.com` and merge country name with it. In this case, the replacement pattern would be `{country}.{domain}@xyz.com`, where `{country}` is the value of input parameter and `{domain}` is the group output from the regular expression evaluation. In such a case, the expected outcome is `US.swmal@xyz.com`. |
+| 7 | `Test transformation` | The RegexReplace() transformation is evaluated only if the value of the selected user attribute for *Parameter 1* matches with the regular expression provided in the **Regex pattern** textbox. If they don't match, the default claim value is added to the token. To validate regular expression against the input parameter value, a test experience is available within the transform blade. This test experience operates on dummy values only. When additional input parameters are used, the name of the parameter is added to the test result instead of the actual value. To access the test section, select **Test transformation**. |
 
 The following image shows an example of testing the transformations:
 
-:::image type="content" source="./media/active-directory-jwt-claims-customization/regexreplace-transform3.png" alt-text="Screenshot of testing the transformation.":::
+:::image type="content" source="./media/jwt-claims-customization/regexreplace-transform3.png" alt-text="Screenshot of testing the transformation.":::
 
 The following table provides information about testing the transformations. The actions listed in the table correspond to the labels in the previous image.
 
 | Action | Field | Description |
 | :----- | :---- | :---------- |
-| 1 | Test transformation | Select the close or (X) button to hide the test section and re-render the **Test transformation** button again on the blade. |
-| 2 | Test regex input | Accepts input that is used for the regular expression test evaluation. In case regex-based claims transformation is configured as a second level transformation, a value is provided that would be the expected output of the first transformation. |
-| 3 | Run test | After the test regex input is provided and the **Regex pattern**, **Replacement pattern** and **Input parameters** are configured, the expression can be evaluated by selecting **Run test**. |
-| 4 | Test transformation result | If evaluation succeeds, an output of test transformation will be rendered against the **Test transformation result** label. |
-| 5 | Remove transformation | The second level transformation can be removed by selecting **Remove transformation**. |
-| 6 | Specify output if no match | When a regex input value is configured against the *Parameter 1* that doesn't match the **Regular expression**, the transformation is skipped. In such cases, the alternate user attribute can be configured, which is added to the token for the claim by checking **Specify output if no match**. |
-| 7 | Parameter 3 | If an alternate user attribute needs to be returned when there's no match and **Specify output if no match** is checked, an alternate user attribute can be selected using the dropdown. This dropdown is available against **Parameter 3 (output if no match)**. |
-| 8 | Summary | At the bottom of the blade, a full summary of the format is displayed that explains the meaning of the transformation in simple text. |
-| 9 | Add | After the configuration settings for the transformation are verified, it can be saved to a claims policy by selecting **Add**. Changes won't be saved unless **Save** is selected on the **Manage Claim** blade. |
+| 1 | `Test transformation` | Select the close or (X) button to hide the test section and re-render the **Test transformation** button again on the blade. |
+| 2 | `Test regex input` | Accepts input that is used for the regular expression test evaluation. In case regex-based claims transformation is configured as a second level transformation, provide a value that is the expected output of the first transformation. |
+| 3 | `Run test` | After the test regex input is provided and the **Regex pattern**, **Replacement pattern** and **Input parameters** are configured, the expression can be evaluated by selecting **Run test**. |
+| 4 | `Test transformation result` | If evaluation succeeds, an output of test transformation is rendered against the **Test transformation result** label. |
+| 5 | `Remove transformation` | The second level transformation can be removed by selecting **Remove transformation**. |
+| 6 | `Specify output if no match` | When a regex input value is configured against the *Parameter 1* that doesn't match the **Regular expression**, the transformation is skipped. In such cases, the alternate user attribute can be configured, which is added to the token for the claim by checking **Specify output if no match**. |
+| 7 | `Parameter 3` | If an alternate user attribute needs to be returned when there's no match and **Specify output if no match** is checked, an alternate user attribute can be selected using the dropdown. This dropdown is available against **Parameter 3 (output if no match)**. |
+| 8 | `Summary` | At the bottom of the blade, a full summary of the format is displayed that explains the meaning of the transformation in simple text. |
+| 9 | `Add` | After the configuration settings for the transformation are verified, it can be saved to a claims policy by selecting **Add**. Select **Save** on the **Manage Claim** blade to save the changes. |
 
 RegexReplace() transformation is also available for the group claims transformations.
 
@@ -185,13 +182,13 @@ The order in which you add the conditions are important. Azure AD first evaluate
 
 For example, Britta Simon is a guest user in the Contoso tenant. Britta belongs to another organization that also uses Azure AD. Given the following configuration for the Fabrikam application, when Britta tries to sign in to Fabrikam, the Microsoft identity platform evaluates the conditions.
 
-First, the Microsoft identity platform verifies whether Britta's user type is **All guests**. Because this is true, the Microsoft identity platform assigns the source for the claim to `user.extensionattribute1`. Second, the Microsoft identity platform verifies whether Britta's user type is **AAD guests**, because this is also true, the Microsoft identity platform assigns the source for the claim to `user.mail`. Finally, the claim is emitted with a value of `user.mail` for Britta.
+First, the Microsoft identity platform verifies whether Britta's user type is **All guests**. Because the type is **All guests**, the Microsoft identity platform assigns the source for the claim to `user.extensionattribute1`. Second, the Microsoft identity platform verifies whether Britta's user type is **AAD guests**. Because the type is **All guests**, the Microsoft identity platform assigns the source for the claim to `user.mail`. Finally, the claim is emitted with a value of `user.mail` for Britta.
 
-:::image type="content" source="./media/active-directory-jwt-claims-customization/sso-saml-user-conditional-claims.png" alt-text="Screenshot of claims conditional configuration.":::
+:::image type="content" source="./media/jwt-claims-customization/sso-saml-user-conditional-claims.png" alt-text="Screenshot of claims conditional configuration.":::
 
 As another example, consider when Britta Simon tries to sign in and the following configuration is used. Azure AD first evaluates all conditions with source `Attribute`. Because Britta's user type is **AAD guests**, `user.mail` is assigned as the source for the claim. Next, Azure AD evaluates the transformations. Because Britta is a guest, `user.extensionattribute1` is now the new source for the claim. Because Britta is in **AAD guests**, `user.othermail` is now the source for this claim. Finally, the claim is emitted with a value of `user.othermail` for Britta.
 
-:::image type="content" source="./media/active-directory-jwt-claims-customization/sso-saml-user-conditional-claims-2.png" alt-text="Screenshot of more claims conditional configuration.":::
+:::image type="content" source="./media/jwt-claims-customization/sso-saml-user-conditional-claims-2.png" alt-text="Screenshot of more claims conditional configuration.":::
 
 As a final example, consider what happens if Britta has no `user.othermail` configured or it's empty. In both cases the condition entry is ignored, and the claim falls back to `user.extensionattribute1` instead.
 
@@ -203,4 +200,4 @@ Advanced claim options can be configured by checking the box under **Advanced Cl
 
 ## Next steps
 
-* [Configure single sign-on on applications that aren't in the Azure AD application gallery](../manage-apps/configure-saml-single-sign-on.md)
+* Learn more about [Security tokens](security-tokens.md) in the Microsoft identity platform.  
