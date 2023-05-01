@@ -3,7 +3,7 @@ title: Agentless Container Posture for Microsoft Defender for Cloud
 description: Learn how Agentless Container Posture offers discovery and visibility for Containers without installing an agent on your machines.
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 04/16/2023
+ms.date: 05/01/2023
 ms.custom: template-concept
 ---
 
@@ -43,15 +43,15 @@ All of these capabilities are available as part of the [Defender Cloud Security 
 
 ## Prerequisites
 
-You need to have a Defender for CSPM plan enabled. There's no dependency on Defender for Containers​.
+Ensure your Defender for CSPM plan is enabled. Defender for Containers is not required.
 
 This feature uses trusted access. Learn more about [AKS trusted access prerequisites](/azure/aks/trusted-access-feature#prerequisites).
 
-## Onboard Agentless Containers for CSPM
+## Enable extension for Agentless Containers Posture for CSPM
 
-Onboarding Agentless Containers for CSPM will allow you to gain wide visibility into Kubernetes and containers registries across SDLC and runtime.
+Defender CSPM includes [two extensions](#what-are-the-extensions-for-agentless-container-posture-management) that allow for agentless visibility into Kubernetes and containers resgistries across your organization's SDLC and runtime.
 
-**To onboard Agentless Containers for CSPM:**
+**To enable the extensions for Agentless Containers Posture in your container environments:**
 
 1. In the Azure portal, navigate to the Defender for Cloud's **Environment Settings** page.
 
@@ -67,25 +67,23 @@ Onboarding Agentless Containers for CSPM will allow you to gain wide visibility 
 
 A notification message pops up in the top right corner that will verify that the settings were saved successfully.
 
-## Agentless Container Posture extensions
+## What are the extensions for Agentless Container Posture management?
 
-### Container registries vulnerability assessments
+There are two extensions that provide agentless CSPM functionality:
 
-For container registries vulnerability assessments, recommendations are available based on the vulnerability assessment timeline.
+- **Container registries vulnerability assessments**: Provides containers registries vulnerability assessments. Recommendations are available based on the vulnerability assessment timeline. Learn more about [image scanning](defender-for-containers-vulnerability-assessment-azure.md).
 
-Learn more about [image scanning](defender-for-containers-vulnerability-assessment-azure.md).
+- **Agentless discovery for Kubernetes**: Provides API-based discovery of information about Kubernetes cluster architecture, workload objects, and setup.
 
-### Agentless discovery for Kubernetes
-
-The system’s architecture is based on a snapshot mechanism at intervals.
+The discovery process is based on snapshots taken at intervals:
 
 :::image type="content" source="media/concept-agentless-containers/diagram-permissions-architecture.png" alt-text="Diagram of the permissions architecture." lightbox="media/concept-agentless-containers/diagram-permissions-architecture.png":::
 
-By enabling the Agentless discovery for Kubernetes extension, the following process occurs:
+When you enable the **Agentless discovery for Kubernetes** extension, the following process occurs:
 
 - **Create**: MDC (Microsoft Defender for Cloud) creates an identity in customer environments called CloudPosture/securityOperator/DefenderCSPMSecurityOperator.
 
-- **Assign**: MDC assigns 1 built-in role called **Kubernetes Agentless Operator** to that identity on subscription scope.
+- **Assign**: MDC assigns a built-in role called **Kubernetes Agentless Operator** to that identity on subscription scope.
 
     The role contains the following permissions:
     - AKS read (Microsoft.ContainerService/managedClusters/read)
@@ -100,11 +98,15 @@ By enabling the Agentless discovery for Kubernetes extension, the following proc
 
 - **Bind**: Upon discovery of an AKS cluster, MDC performs an AKS bind operation between the created identity and the Kubernetes role “Microsoft.Security/pricings/microsoft-defender-operator”. The role is visible via API and gives MDC data plane read permission inside the cluster.
 
-### Refresh intervals
+## FAQs
+
+### What's the refresh interval?
 
 Agentless information in Defender CSPM is updated once an hour through a snapshot mechanism. It can take up to **24 hours** to see results in Cloud Security Explorer and Attack Path.
 
-## FAQs
+### How can I onboard multiple subscriptions at once?
+
+To onboard multiple subscriptions at once, you can use this [script](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Powershell%20scripts/Agentless%20Container%20Posture).
 
 ### Why don't I see results from my clusters?
 
@@ -112,6 +114,7 @@ If you don't see results from your clusters, check the following:
 
 - Do you have [stopped clusters](#what-do-i-do-if-i-have-stopped-clusters)?
 - Are your clusters [Read only (locked)](#what-do-i-do-if-i-have-read-only-clusters-locked)?
+- Are your [resource groups or subscriptions locked](#what-do-i-do-if-i-have-locked-resource-groups)?
 
 ### What do I do if I have stopped clusters?
 
@@ -125,6 +128,26 @@ We suggest that you do one of the following:
 - Perform the bind operation manually by doing an API request.
 
 Learn more about [locked resources](/azure/azure-resource-manager/management/lock-resources?tabs=json).
+
+### What do I do if I have locked resource groups?
+
+We suggest that you unlock the resource, make the relevant requests manually, and then re-lock the resource by doing the following:
+
+1. Enable the feature flag manually via CLI:
+
+    ``` CLI
+    “az feature register --namespace "Microsoft.ContainerService" --name "TrustedAccessPreview”
+    ```
+    
+    Learn more about [Trusted Access](/azure/aks/trusted-access-feature).
+    
+1. Preform the bind operation in the CLI:
+
+    ``` CLI
+    az account set -s <SubscriptionId>
+    az extension add --name aks-preview
+    az aks trustedaccess rolebinding create --resource-group <cluster resource group> --cluster-name <cluster name> --name defender-cloudposture --source-resource-id /subscriptions/<SubscriptionId>/providers/Microsoft.Security/pricings/CloudPosture/securityOperators/DefenderCSPMSecurityOperator --roles  "Microsoft.Security/pricings/microsoft-defender-operator"
+    ```
 
 ## Next steps
 
