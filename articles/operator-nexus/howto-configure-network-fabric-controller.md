@@ -17,15 +17,15 @@ This article describes how to create a network fabric controller (NFC) for Azure
 * Validate Azure ExpressRoute circuits for correct connectivity (`CircuitId` and `AuthId`). NFC provisioning will fail if connectivity is incorrect.
 * Make sure that names, such as for resources, don't contain the underscore (\_) character.
 
-## Attributes for NFC creation
+## Parameters for NFC creation
 
-| Parameter | Description | values | Example | Required     | Type   |
+| Parameter | Description | Values | Example | Required     | Type   |
 |---------|------------------------------|----------------------------|----------------------------|------------|------|
 | `Resource-Group` | A resource group is a container that holds related resources for an Azure solution. | `NFCResourceGroupName` | `XYZNFCResourceGroupName` | True | String |
 | `Location` | The Azure region is mandatory to provision your deployment. | `eastus`, `westus3` | `eastus` | True         | String |
 | `Resource-Name` | The resource name is the name of the fabric. | `nfcname` | `XYZnfcname` | True         | String |
 | `NFC IP Block` | This block is the NFC IP subnet. The default subnet block is 10.0.0.0/19, and it shouldn't overlap with any of the ExpressRoute IPs. | `10.0.0.0/19` | `10.0.0.0/19` | Not required | String |
-| `Express Route Circuits` | The ExpressRoute circuit is a dedicated 10G link that connects Azure and on-premises. You need to know the ExpressRoute circuit ID and authentication key to successfully provision an NFC. There are two ExpressRoute circuits: one for the infrastructure services and one for workload (tenant) services. | `--workload-er-connections '[{"expressRouteCircuitId": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx", "expressRouteAuthorizationKey": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx"}]'` <br /><br /> `--infra-er-connections '[{"expressRouteCircuitId": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx", "expressRouteAuthorizationKey": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx"}]'` | `subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-01", "expressRouteAuthorizationKey": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx"}]` | True         | string |
+| `Express Route Circuits` | The ExpressRoute circuit is a dedicated 10G link that connects Azure and on-premises. You need to know the ExpressRoute circuit ID and authentication key to successfully provision an NFC. There are two ExpressRoute circuits: one for the infrastructure services and one for workload (tenant) services. | `--workload-er-connections '[{"expressRouteCircuitId": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx", "expressRouteAuthorizationKey": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx"}]'` <br /><br /> `--infra-er-connections '[{"expressRouteCircuitId": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx", "expressRouteAuthorizationKey": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx"}]'` | `subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-01", "expressRouteAuthorizationKey": "xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx"}]` | True         | String |
 
 ## Create a network fabric controller
 

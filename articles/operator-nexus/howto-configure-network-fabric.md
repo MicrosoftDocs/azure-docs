@@ -16,7 +16,7 @@ This article describes how to create a network fabric for Azure Operator Nexus b
 ## Prerequisites
 
 * An Azure account with an active subscription.
-* The latest version of the Azure CLI commands (2.0 or later). For more information, see [Install Azure CLI](./howto-install-cli-extensions.md).
+* The latest version of the Azure CLI commands (2.0 or later). For more information, see [Install the Azure CLI](./howto-install-cli-extensions.md).
 * A network fabric controller (NFC) that manages multiple network fabrics in the same Azure region.
 * A physical Azure Operator Nexus instance with cabling, as described in the bill of materials (BoM).
 * Azure ExpressRoute connectivity between NFC and Azure Operator Nexus instances.
@@ -34,38 +34,38 @@ This article describes how to create a network fabric for Azure Operator Nexus b
 1. Configure the terminal server (which also hosts the DHCP server) with the serial numbers of all the devices.
 1. Provision the network devices via zero-touch provisioning mode. Based on the serial number in the DHCP request, the DHCP server responds with the boot configuration file for the corresponding device.
 
-## Fabric configuration
+## Configure a network fabric
 
 The following table specifies parameters that you use to create a network fabric. In the table, `$prefix` is `/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers`.
 
-| Parameter | Description | Example | Required |
-|-----------|-------------|---------|----------|
-| `resource-group` | Name of the resource group. |  `NFResourceGroup` |True |
+| Parameter | Description | Example | Required | Type |
+|-----------|-------------|---------|----------|------|
+| `resource-group` | Name of the resource group. |  `NFResourceGroup` |True ||
 | `location` | Azure Operator Nexus region. | `eastus` |True | 
-| `resource-name` | Name of the fabric resource. | `NF-ResourceName` |True |
-|  `nf-sku`  |Fabric SKU ID, which is the SKU of the ordered BoM. The two supported SKUs are M4-A400-A100-C16-aa and M8-A400-A100-C16-aa. | `M4-A400-A100-C16-aa` |True |
-|`nfc-id`|Azure Resource Manager resource ID for the network fabric controller.|`$prefix/NFCName`|True | 
-|`rackcount`|Number of compute racks per fabric. Possible values are `2` to `8`.|`8`|True | 
-|`serverCountPerRack`|Number of compute servers per rack. Possible values are `4`, `8`, `12`, and `16`.|`16`|True | 
-|`ipv4Prefix`|IPv4 prefix of the management network. This prefix should be unique across all network fabrics in a network fabric controller. Prefix length should be at least 19 (/20 isn't allowed, but /18 and lower are allowed). | `10.246.0.0/19`|True |
-|`ipv6Prefix`|IPv6 prefix of the management network. This prefix should be unique across all network fabrics in a network fabric controller. | `10:5:0:0::/59`|True |
-|`management-network-config`| Details of the management network. ||True |
-|`infrastructureVpnConfiguration`| Details of the management VPN connection between the network fabric and infrastructure services in the network fabric controller.||True|
-|`optionBProperties`| Details of MPLS option 10B, which is used for connectivity between the network fabric and the network fabric controller.||True|
-|`importRouteTargets`|Values of import route targets to be configured on customer edges (CEs) for exchanging routes between a CE and provider edge (PE) via MPLS option 10B.|`65048:10039`|True (if Option B is enabled)|
-|`exportRouteTargets`|Values of export route targets to be configured on CEs for exchanging routes between a CE and a PE via MPLS option 10B.| `65048:10039`|True (if Option B is enabled)|
-|`workloadVpnConfiguration`| Details of the workload VPN connection between the network fabric and workload services in the network fabric controller.|||
-|`optionBProperties`| Details of MPLS option 10B, which is used for connectivity between the network fabric and the network fabric controller.|||
-|`importRouteTargets`|Values of import route targets to be configured on CEs for exchanging routes between a CE and a PE via MPLS option 10B.|`65048:10050`|True (if Option B is enabled)|
-|`exportRouteTargets`|Values of export route targets to be configured on CEs for exchanging routes between a CE and a PE via MPLS option 10B.|`65048:10050`|True (if Option B is enabled)|
-|`ts-config`| Terminal server configuration details.||True|
-|`primaryIpv4Prefix`| IPv4 prefix for connectivity between the terminal server and the primary PE. The terminal server interface for the primary network is assigned the first usable IP from the prefix. The corresponding interface on the PE is assigned the second usable address.|`20.0.10.0/30`; the terminal server interface for the primary network is assigned `20.0.10.1`, and the PE interface is assigned `20.0.10.2`.|True|
-|`secondaryIpv4Prefix`|IPv4 prefix for connectivity between the terminal server and the secondary PE. The terminal server interface for the secondary network is assigned the first usable IP from the prefix. The corresponding interface on the PE is assigned the second usable address.|`20.0.0.4/30`; the terminal server interface for the secondary network is assigned `20.0.10.5`, and the PE interface is assigned `20.0.10.6`.|True|
-|`username`| Username that the services use to configure the terminal server.||True|
-|`password`| Password that the services use to configure the terminal server.||True|
-|`serialNumber`| Serial number of the terminal server.|||
+| `resource-name` | Name of the fabric resource. | `NF-ResourceName` |True ||
+|  `nf-sku`  |Fabric SKU ID, which is the SKU of the ordered BoM. The two supported SKUs are M4-A400-A100-C16-aa and M8-A400-A100-C16-aa. | `M4-A400-A100-C16-aa` |True | String|
+|`nfc-id`|Azure Resource Manager resource ID for the network fabric controller.|`$prefix/NFCName`|True ||
+|`rackcount`|Number of compute racks per fabric. Possible values are `2` to `8`.|`8`|True ||
+|`serverCountPerRack`|Number of compute servers per rack. Possible values are `4`, `8`, `12`, and `16`.|`16`|True ||
+|`ipv4Prefix`|IPv4 prefix of the management network. This prefix should be unique across all network fabrics in a network fabric controller. Prefix length should be at least 19 (/20 isn't allowed, but /18 and lower are allowed). | `10.246.0.0/19`|True ||
+|`ipv6Prefix`|IPv6 prefix of the management network. This prefix should be unique across all network fabrics in a network fabric controller. | `10:5:0:0::/59`|True ||
+|`management-network-config`| Details of the management network. ||True ||
+|`infrastructureVpnConfiguration`| Details of the management VPN connection between the network fabric and infrastructure services in the network fabric controller.||True||
+|`optionBProperties`| Details of MPLS Option 10B, which is used for connectivity between the network fabric and the network fabric controller.||True||
+|`importRouteTargets`|Values of import route targets to be configured on customer edges (CEs) for exchanging routes between a CE and provider edge (PE) via MPLS Option 10B.|`65048:10039`|True (if Option B is enabled)||
+|`exportRouteTargets`|Values of export route targets to be configured on CEs for exchanging routes between a CE and a PE via MPLS Option 10B.| `65048:10039`|True (if Option B is enabled)||
+|`workloadVpnConfiguration`| Details of the workload VPN connection between the network fabric and workload services in the network fabric controller.||||
+|`optionBProperties`| Details of MPLS Option 10B, which is used for connectivity between the network fabric and the network fabric controller.||||
+|`importRouteTargets`|Values of import route targets to be configured on CEs for exchanging routes between a CE and a PE via MPLS Option 10B.|`65048:10050`|True (if Option B is enabled)||
+|`exportRouteTargets`|Values of export route targets to be configured on CEs for exchanging routes between a CE and a PE via MPLS Option 10B.|`65048:10050`|True (if Option B is enabled)||
+|`ts-config`| Terminal server configuration details.||True||
+|`primaryIpv4Prefix`| IPv4 prefix for connectivity between the terminal server and the primary PE. The terminal server interface for the primary network is assigned the first usable IP from the prefix. The corresponding interface on the PE is assigned the second usable address.|`20.0.10.0/30`; the terminal server interface for the primary network is assigned `20.0.10.1`, and the PE interface is assigned `20.0.10.2`.|True||
+|`secondaryIpv4Prefix`|IPv4 prefix for connectivity between the terminal server and the secondary PE. The terminal server interface for the secondary network is assigned the first usable IP from the prefix. The corresponding interface on the PE is assigned the second usable address.|`20.0.0.4/30`; the terminal server interface for the secondary network is assigned `20.0.10.5`, and the PE interface is assigned `20.0.10.6`.|True||
+|`username`| Username that the services use to configure the terminal server.||True||
+|`password`| Password that the services use to configure the terminal server.||True||
+|`serialNumber`| Serial number of the terminal server.||||
 
-## Create a network fabric
+### Create a network fabric
 
 You must create a resource group before you create a network fabric. We recommend that you create a separate resource group for each network fabric. You can create a resource group by using the following command:
 
@@ -168,7 +168,7 @@ Expected output:
 }
 ```
 
-## Show network fabrics
+### Show network fabrics
 
 ```azurecli
 az nf fabric show --resource-group "NFResourceGroupName" --resource-name "NFName"
@@ -255,7 +255,7 @@ Expected output:
 
 ```
 
-## List or get network fabrics
+### List or get network fabrics
 
 ```azurecli
 az nf fabric list --resource-group "NFResourceGroup"  
@@ -340,30 +340,30 @@ Expected output:
   }  
 ```
 
-## NNI configuration
+## Configure an NNI
 
 The following table specifies the parameters that you use to create a network-to-network interconnect.
 
-| Parameter | Description | Example | Required |
-|-----------|-------------|---------|----------|
-|`isMangementType`| Configuration to use an NNI for management of the fabric. Possible values are `True` and `False`. The default value is `True`.  |`True`|True|
-|`useOptionB`| Configuration to enable Option B. Possible values are `True` and `False`. |`True`|True|
-|`layer2Configuration`| Layer 2 configuration. |||
-|`portCount`| Number of ports that are part of the port channel. The maximum value is based on the fabric SKU.|`3`||
-|`mtu`| Maximum transmission unit between CEs and PEs. |`1500`||
-|`layer3Configuration`| Layer 3 configuration between CEs and PEs.||True|
-|`primaryIpv4Prefix`|IPv4 prefix for connectivity between the primary CE and the primary PE. The port-channel interface for the primary CE is assigned the first usable IP from the prefix. The corresponding interface on the primary PE is assigned the second usable address.|`10.246.0.124/31`; the port-channel interface for the primary CE is assigned `10.246.0.125`, and the port-channel interface for the primary PE is assigned `10.246.0.126`.|True|
-|`secondaryIpv4Prefix`|IPv4 prefix for connectivity between the secondary CE and the secondary PE. The port-channel interface for the secondary CE is assigned the first usable IP from the prefix. The corresponding interface on the secondary PE is assigned the second usable address.|`10.246.0.128/31`; the port-channel interface for the secondary CE is assigned `10.246.0.129`, and the port-channel interface for the secondary PE is assigned `10.246.0.130`.|True|
-|`primaryIpv6Prefix`|IPv6 prefix for connectivity between the primary CE and the primary PE. The port-channel interface for the primary CE is assigned the first usable IP from the prefix. The corresponding interface on the primary PE is assigned the second usable address.|`3FFE:FFFF:0:CD30::a1` is assigned to the primary CE, and `3FFE:FFFF:0:CD30::a2` is assigned to the primary PE. Default value is `3FFE:FFFF:0:CD30::a0/126`.|True|
-|`secondaryIpv6Prefix`|IPv6 prefix for connectivity between the secondary CE and the secondary PE. The port-channel interface for the secondary CE is assigned the first usable IP from the prefix. The corresponding interface on the secondary PE is assigned the second usable address.|`3FFE:FFFF:0:CD30::a5` is assigned to the secondary CE, and `3FFE:FFFF:0:CD30::a6` is assigned to the secondary PE. Default value is `3FFE:FFFF:0:CD30::a4/126`.|True|
-|`fabricAsn`|ASN assigned on the CE for BGP peering with the PE.|`65048`||
-|`peerAsn`|ASN assigned on the PE for BGP peering with the CE. For internal BGP between the PE and the CE, the value should be the same as `fabricAsn`. For external BGP, the value should be different from `fabricAsn`. |`65048`|True|
-|`fabricAsn`|ASN assigned on the CE for BGP peering with the PE.|`65048`||
-|`vlan-Id`|VLAN for the NNI. The range is 501 to 4095. |`501`||
-|`importRoutePolicy`|Details to import a route policy.|||
-|`exportRoutePolicy`|Details to export a route policy.|||
+| Parameter | Description | Example | Required | Type |
+|-----------|-------------|---------|----------|------|
+|`isMangementType`| Configuration to use an NNI for management of the fabric. Possible values are `True` and `False`. The default value is `True`.  |`True`|True||
+|`useOptionB`| Configuration to enable Option B. Possible values are `True` and `False`. |`True`|True||
+|`layer2Configuration`| Layer 2 configuration. ||||
+|`portCount`| Number of ports that are part of the port channel. The maximum value is based on the fabric SKU.|`3`|||
+|`mtu`| Maximum transmission unit between CEs and PEs. |`1500`|||
+|`layer3Configuration`| Layer 3 configuration between CEs and PEs.||True||
+|`primaryIpv4Prefix`|IPv4 prefix for connectivity between the primary CE and the primary PE. The port-channel interface for the primary CE is assigned the first usable IP from the prefix. The corresponding interface on the primary PE is assigned the second usable address.|`10.246.0.124/31`; the port-channel interface for the primary CE is assigned `10.246.0.125`, and the port-channel interface for the primary PE is assigned `10.246.0.126`.||String|
+|`secondaryIpv4Prefix`|IPv4 prefix for connectivity between the secondary CE and the secondary PE. The port-channel interface for the secondary CE is assigned the first usable IP from the prefix. The corresponding interface on the secondary PE is assigned the second usable address.|`10.246.0.128/31`; the port-channel interface for the secondary CE is assigned `10.246.0.129`, and the port-channel interface for the secondary PE is assigned `10.246.0.130`.||String|
+|`primaryIpv6Prefix`|IPv6 prefix for connectivity between the primary CE and the primary PE. The port-channel interface for the primary CE is assigned the first usable IP from the prefix. The corresponding interface on the primary PE is assigned the second usable address.|`3FFE:FFFF:0:CD30::a1` is assigned to the primary CE, and `3FFE:FFFF:0:CD30::a2` is assigned to the primary PE. Default value is `3FFE:FFFF:0:CD30::a0/126`.||String|
+|`secondaryIpv6Prefix`|IPv6 prefix for connectivity between the secondary CE and the secondary PE. The port-channel interface for the secondary CE is assigned the first usable IP from the prefix. The corresponding interface on the secondary PE is assigned the second usable address.|`3FFE:FFFF:0:CD30::a5` is assigned to the secondary CE, and `3FFE:FFFF:0:CD30::a6` is assigned to the secondary PE. Default value is `3FFE:FFFF:0:CD30::a4/126`.||String|
+|`fabricAsn`|ASN assigned on the CE for BGP peering with the PE.|`65048`|||
+|`peerAsn`|ASN assigned on the PE for BGP peering with the CE. For internal BGP between the PE and the CE, the value should be the same as `fabricAsn`. For external BGP, the value should be different from `fabricAsn`. |`65048`|True||
+|`fabricAsn`|ASN assigned on the CE for BGP peering with the PE.|`65048`|||
+|`vlan-Id`|VLAN for the NNI. The range is 501 to 4095. |`501`|||
+|`importRoutePolicy`|Details to import a route policy.||||
+|`exportRoutePolicy`|Details to export a route policy.||||
 
-## Create an NNI
+### Create an NNI
 
 You must create the resource group and network fabric before you create a network-to-network interconnect.
 
@@ -422,7 +422,7 @@ Expected output:
 
 ```
 
-## Show network fabric NNIs
+### Show network fabric NNIs
 
 ```azurecli
 az nf nni show -g "NFResourceGroup" --resource-name "NFNNIName" --fabric "NFFabric"
@@ -467,7 +467,7 @@ Expected output:
   "useOptionB": "True"
 ```
 
-## List or get network fabric NNIs
+### List or get network fabric NNIs
 
 ```azurecli
 az nf nni list -g NFResourceGroup --fabric NFFabric
