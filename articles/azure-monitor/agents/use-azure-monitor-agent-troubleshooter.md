@@ -2,7 +2,7 @@
 title: Use Azure Monitor Troubleshooter
 description: detailed instructions on using the on agent monitoring tool to diagnose potential issue.
 ms.topic: conceptual
-author: JefferyWolford
+author: JeffreyWolford
 ms.author: jeffwo
 ms.date: 4/28/2023
 ms.custom: references_regions
