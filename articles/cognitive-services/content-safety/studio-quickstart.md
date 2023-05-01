@@ -27,7 +27,7 @@ In this quickstart, get started with the Content Safety service using Content Sa
 
 ## Analyze text content
 
-1. Sign in to [Content Safety Studio](tbd) with your Azure subscription and Content Safety resource.
+1. Sign in to [Content Safety Studio](https://contentsafety.cognitive.azure.com) with your Azure subscription and Content Safety resource.
 1. Select the **Moderate text content** panel.
 1. Add text to the input field, or select sample text from the panels on the page.
 1. Select **Run test**.
@@ -38,7 +38,7 @@ The **Use blocklist** tab on the right lets you create, edit, and add a custom l
 
 ## Analyze image content
 
-1. Sign in to [Content Safety Studio](tbd) with your Azure subscription and Content Safety resource.
+1. Sign in to [Content Safety Studio](https://contentsafety.cognitive.azure.com) with your Azure subscription and Content Safety resource.
 1. Select the **Moderate image content** panel.
 1. Select a sample image from the panels on the page, or upload your own image. The maximum size for image submissions is 4MB, and image dimensions must be between 50 x 50 pixels and 2,048 x 2,048 pixels. Images can be in JPEG, PNG, GIF, or BMP formats.
 1. Select **Run test**.
