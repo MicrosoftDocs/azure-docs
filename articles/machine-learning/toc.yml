@@ -1240,7 +1240,7 @@
       href: https://aka.ms/sdk-v2-install
     - name: REST API
       href: /rest/api/azureml/
-    - name: CLI (v2)
+    - name: CLI (v2) commands
       displayName: extension, command line, command-line, az, ci/cd, automate, automated
       href: /cli/azure/ml/
     - name: CLI (v2) YAML schemas
