@@ -55,11 +55,10 @@ Use the following values to create a test environment, or refer to these values 
 * **Address space:** 192.168.0.0/16 <br>For this example, we use only one address space. You can have more than one address space for your VNet.
 * **Subnet name:** FrontEnd
 * **Subnet address range:** 192.168.1.0/24
-* **GatewaySubnet:** 10.11.255.0/27
+* **GatewaySubnet:** 192.168.200.0/24
 * **Region:** (US) East US
 * **Client address space:** 172.16.201.0/24 <br> VPN clients that connect to the VNet by using this Point-to-Site connection receive an IP address from the specified pool.
 * **Connection type**: Select **Point-to-site**.
-* **GatewaySubnet Address range (CIDR block):** 192.168.200.0/24
 
 Before you begin, verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial).
 
@@ -166,7 +165,7 @@ When you install a client certificate, you need the password that was created wh
         Physical Address................:
         DHCP Enabled....................: No
         Autoconfiguration Enabled.......: Yes
-        IPv4 Address....................: 192.168.130.2(Preferred)
+        IPv4 Address....................: 172.16.201.11 (Preferred)
         Subnet Mask.....................: 255.255.255.255
         Default Gateway.................:
         NetBIOS over Tcpip..............: Enabled

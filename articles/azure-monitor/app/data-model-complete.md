@@ -16,13 +16,13 @@ ms.reviewer: mmcc
 
 Data collected by Application Insights models this typical application execution pattern.
 
-![Diagram that shows an Application Insights telemetry data model.](./media/data-model-complete/application-insights-data-model.png)
+:::image type="content" source="./media/data-model-complete/application-insights-data-model.png" lightbox="./media/data-model-complete/application-insights-data-model.png" alt-text="Diagram that shows an Application Insights telemetry data model.":::
 
 The following types of telemetry are used to monitor the execution of your app. The Application Insights SDK from the web application framework automatically collects these three types:
 
 * [Request](#request): Generated to log a request received by your app. For example, the Application Insights web SDK automatically generates a Request telemetry item for each HTTP request that your web app receives.
 
-    An *operation* is made up of the threads of execution that process a request. You can also [write code](./api-custom-events-metrics.md#trackrequest) to monitor other types of operation, such as a "wake up" in a web job or function that periodically processes data. Each operation has an ID. The ID can be used to [group](./correlation.md) all telemetry generated while your app is processing the request. Each operation either succeeds or fails and has a duration of time.
+    An *operation* is made up of the threads of execution that process a request. You can also [write code](./api-custom-events-metrics.md#trackrequest) to monitor other types of operation, such as a "wake up" in a web job or function that periodically processes data. Each operation has an ID. The ID can be used to [group](distributed-tracing-telemetry-correlation.md) all telemetry generated while your app is processing the request. Each operation either succeeds or fails and has a duration of time.
 * [Exception](#exception): Typically represents an exception that causes an operation to fail.
 * [Dependency](#dependency): Represents a call from your app to an external service or storage, such as a REST API or SQL. In ASP.NET, dependency calls to SQL are defined by `System.Data`. Calls to HTTP endpoints are defined by `System.Net`.
 
@@ -36,7 +36,7 @@ Every telemetry item can define the [context information](#context) like applica
 
 You can use session ID to calculate an outage or an issue impact on users. Calculating the distinct count of session ID values for a specific failed dependency, error trace, or critical exception gives you a good understanding of an impact.
 
-The Application Insights telemetry model defines a way to [correlate](./correlation.md) telemetry to the operation of which it's a part. For example, a request can make a SQL Database call and record diagnostics information. You can set the correlation context for those telemetry items that tie it back to the request telemetry.
+The Application Insights telemetry model defines a way to [correlate](distributed-tracing-telemetry-correlation.md) telemetry to the operation of which it's a part. For example, a request can make a SQL Database call and record diagnostics information. You can set the correlation context for those telemetry items that tie it back to the request telemetry.
 
 ## Schema improvements
 
@@ -64,7 +64,7 @@ The Application Insights web SDK sends a request name "as is" about letter case.
 
 ### ID
 
-ID is the identifier of a request call instance. It's used for correlation between the request and other telemetry items. The ID should be globally unique. For more information, see [Telemetry correlation in Application Insights](./correlation.md).
+ID is the identifier of a request call instance. It's used for correlation between the request and other telemetry items. The ID should be globally unique. For more information, see [Telemetry correlation in Application Insights](distributed-tracing-telemetry-correlation.md).
 
 **Maximum length:** 128 characters
 
@@ -76,7 +76,7 @@ URL is the request URL with all query string parameters.
 
 ### Source
 
-Source is the source of the request. Examples are the instrumentation key of the caller or the IP address of the caller. For more information, see [Telemetry correlation in Application Insights](./correlation.md).
+Source is the source of the request. Examples are the instrumentation key of the caller or the IP address of the caller. For more information, see [Telemetry correlation in Application Insights](distributed-tracing-telemetry-correlation.md).
 
 **Maximum length:** 1,024 characters
 
@@ -120,7 +120,7 @@ This field is the name of the command initiated with this dependency call. It ha
 
 ### ID
 
-ID is the identifier of a dependency call instance. It's used for correlation with the request telemetry item that corresponds to this dependency call. For more information, see [Telemetry correlation in Application Insights](./correlation.md).
+ID is the identifier of a dependency call instance. It's used for correlation with the request telemetry item that corresponds to this dependency call. For more information, see [Telemetry correlation in Application Insights](distributed-tracing-telemetry-correlation.md).
 
 ### Data
 
@@ -132,7 +132,7 @@ This field is the dependency type name. It has a low cardinality value for logic
 
 ### Target
 
-This field is the target site of a dependency call. Examples are server name and host address. For more information, see [Telemetry correlation in Application Insights](./correlation.md).
+This field is the target site of a dependency call. Examples are server name and host address. For more information, see [Telemetry correlation in Application Insights](distributed-tracing-telemetry-correlation.md).
 
 ### Duration
 
@@ -330,13 +330,13 @@ Originally, this field was used to indicate the type of the device the user of t
 
 ### Operation ID
 
-This field is the unique identifier of the root operation. This identifier allows grouping telemetry across multiple components. For more information, see [Telemetry correlation](./correlation.md). Either a request or a page view creates the operation ID. All other telemetry sets this field to the value for the containing request or page view.
+This field is the unique identifier of the root operation. This identifier allows grouping telemetry across multiple components. For more information, see [Telemetry correlation](distributed-tracing-telemetry-correlation.md). Either a request or a page view creates the operation ID. All other telemetry sets this field to the value for the containing request or page view.
 
 **Maximum length:** 128
 
 ### Parent operation ID
 
-This field is the unique identifier of the telemetry item's immediate parent. For more information, see [Telemetry correlation](./correlation.md).
+This field is the unique identifier of the telemetry item's immediate parent. For more information, see [Telemetry correlation](distributed-tracing-telemetry-correlation.md).
 
 **Maximum length:** 128
 

@@ -5,9 +5,9 @@ author: zeinam
 ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-workflows
-ms.topic: how-to #Required; leave this attribute/value as-is.
+ms.topic: how-to
 ms.date: 03/09/2023
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to
 ---
 
 # Workflow dynamic content

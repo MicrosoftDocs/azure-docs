@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.custom: subject-rbac-steps
-ms.date: 04/03/2022
+ms.date: 04/10/2022
 ms.author: radeltch
 
 ---
@@ -109,7 +109,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Install RHEL HA Add-On
 
-   ```sudo yum install -y pcs pacemaker fence-agents-azure-arm nmap-ncat
+   ```bash
+    sudo yum install -y pcs pacemaker fence-agents-azure-arm nmap-ncat
    ```
  
    > [!IMPORTANT]
@@ -144,7 +145,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. If deploying on RHEL 9, install also the resource agents for cloud deployment: 
    
-    ```
+    ```bash
     sudo yum install -y resource-agents-cloud
     ```
 
