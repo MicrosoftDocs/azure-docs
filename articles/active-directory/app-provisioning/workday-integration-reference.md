@@ -469,7 +469,7 @@ This section describes the Azure AD provisioning service support for scenarios w
 * [Scenario 4: Future-dated conversion, when worker is an active CW/FTE](#scenario-4-future-dated-conversion-when-worker-is-an-active-cwfte)
 
 #### Scenario 1: Backdated conversion from FTE to CW or vice versa
-Your HR team may backdate a worker conversion transaction in Workday for valid business reasons, such as payroll processing, budget compliance, legal requirements or benefits management. Here's an example to illustrate how provisioning is handled for this scenario. 
+Your HR team may backdate a worker conversion transaction in Workday for valid business reasons. Examples include payroll processing, budget compliance, legal requirements and benefits management. Here's an example to illustrate how provisioning is handled for the scenario. 
 
 * It's January 15, 2023 and Jane Doe is employed as a contingent worker. HR offers Jane a full-time position. 
 * The terms of Jane's contract change require backdating the transaction so it aligns with the start of the current month. HR initiates a backdated worker conversion transaction Workday on January 15, 2023 with effective date as January 1, 2023. Now there are two worker profiles in Workday for Jane. The CW profile is inactive, while the FTE profile is active. 
