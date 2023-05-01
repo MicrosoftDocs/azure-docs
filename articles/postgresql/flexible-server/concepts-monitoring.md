@@ -195,6 +195,20 @@ You can use PgBouncer metrics to monitor the performance of the PgBouncer proces
 - On the *Burstable* SKU, the limit is 10 databases that have the DatabaseName dimension.
 - The DatabaseName dimension limit is applied to the OID column, which reflects the order of creation for the database.
 
+## Database availability metric
+
+Is-db-alive is an database server availability metric for Azure Postgres Flexible Server, that returns boolean `[1 for available]` and `[0 for not-available]`. Each metric is emitted at a *1 minute* frequency, and has up to *93 days* of retention. Customers can configure alerts on the metric.
+
+|Display Name                                     |Metric ID                      |Unit   |Description                                                                                             |Dimension   |Default enabled|
+|-------------------------------------------------|-------------------------------|-------|--------------------------------------------------------------------------------------------------------|------------|---------------|
+|**Database Is Alive** (Preview)                  |is-db-alive                    |Boolean|Indicates if the database is up or not				                                                   |N/a		    |Yes            |
+
+#### Considerations when using the Database availability metrics
+
+- Aggregating this metric with `MAX()` will allow customers to determine weather the server has been up or down in the last minute.
+- Customers have option to further aggregate these metrics with any desired frequency (5m, 10m, 30m etc.) to suit their alerting requirements and avoid any false positive.
+- Other possible aggregations are `AVG()` and `MIN()`
+
 ## Filter and split on dimension metrics
 
 In the preceding tables, some metrics have dimensions like DatabaseName or State. You can use [filtering](../../azure-monitor/essentials/metrics-charts.md#filters) and [splitting](../../azure-monitor/essentials/metrics-charts.md#apply-splitting) for the metrics that have dimensions. These features show how various metric segments (or *dimension values*) affect the overall value of the metric. You can use them to identify possible outliers.
