@@ -183,32 +183,36 @@ Now, migrate data from a JSON array to the newly created Azure Cosmos DB for NoS
     }
     ```
 
-1. TODO
+1. Create another new property named `Sink` with the value `cosmos-nosql`. Also, create a property named `SinkSettings` with an empty object.
 
     ```json
+    {
+      "Source": "json",
+      "SourceSettings": {
+        "FilePath": "https://raw.githubusercontent.com/azure-samples/cosmos-db-migration-sample-data/main/nosql-data.json"
+      },
+      "Sink": "cosmos-nosql",
+      "SinkSettings": {
+      }
+    }
     ```
 
-1. TODO
+1. Within `SinkSettings`, create a property named `ConnectionString` with the *primary connection string* you recorded earlier in this guide as its value.
 
     ```json
+    {
+      "Source": "json",
+      "SourceSettings": {
+        "FilePath": "https://raw.githubusercontent.com/azure-samples/cosmos-db-migration-sample-data/main/nosql-data.json"
+      },
+      "Sink": "cosmos-nosql",
+      "SinkSettings": {
+        "ConnectionString": "<connection-string-for-existing-account>"
+      }
+    }
     ```
 
-1. TODO
-
-    ```json
-    ```
-
-1. TODO
-
-    ```json
-    ```
-
-1. TODO
-
-    ```json
-    ```
-
-1. TODO
+1. Add `Database`, `Container`, and `PartitionKeyPath` properties with `cosmicworks`, `products`, and `/category` as their values respectively.
 
     ```json
     {
@@ -224,6 +228,32 @@ Now, migrate data from a JSON array to the newly created Azure Cosmos DB for NoS
         "PartitionKeyPath": "/category"
       }
     }
+    ```
+
+1. **Save** the **migration.json** file.
+
+1. Open a new terminal
+
+1. Run the desktop data migration tool using the `dmt` command.
+
+    ```terminal
+    dmt
+    ```
+
+    > [!NOTE]
+    > If you did not add the installation path to your `PATH` environment variable, you may need to specify the full path to the `dmt` executable.
+
+1. The tool will ask for the path to the settings file. Specify `migration.json` here.
+
+    ```output
+    Path to settings file? (leave empty to skip):
+    ```
+
+1. The tool will now output the source and sink used by the migration
+
+    ```output
+    Using JSON Source
+    Using Cosmos-nosql Sink
     ```
 
 ## Next steps
