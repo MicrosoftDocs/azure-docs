@@ -2006,3 +2006,23 @@ If you've tried installing the command and are experiencing this issue, ensure t
 **Troubleshooting steps**
 
 A rebuild may fix the issue if it's transient
+
+### Image not found
+<!--issueDescription-->
+This issue can happen when the base image you specified can't be found.
+
+**Potential causes:**
+* You specified the image incorrectly
+* The image you specified doesn't exist in the registry you specified
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+* Ensure that the base image is spelled and formatted correctly
+* Ensure that the base image you're using exists in the registry you specified
+
+**Resources**
+* [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers)

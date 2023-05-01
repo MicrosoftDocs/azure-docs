@@ -1,12 +1,12 @@
 ---
 title: Overview of the MedTech service device data processing stages - Azure Health Data Services
-description: This article provides an overview of the MedTech service device data processing stages. The MedTech service ingests, normalizes, groups, transforms, and persists device message data in the FHIR service.
+description: Learn about the MedTech service device data processing stages.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: overview
-ms.date: 04/14/2023
+ms.date: 04/28/2023
 ms.author: jasteppe
 ---
 
@@ -57,7 +57,7 @@ Group is the next *optional* stage where the normalized messages available from 
 Device identity and measurement type grouping are optional and enabled by the use of the [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) measurement type. The SampledData measurement type provides a concise way to represent a time-based series of measurements from a device message into FHIR Observations. When you use the SampledData measurement type, measurements can be grouped into a single FHIR Observation that represents a 1-hour period or a 24-hour period.
 
 ## Transform
-Transform is the next stage where normalized messages are processed using the user-selected/user-created conforming and valid [FHIR destination mapping](how-to-configure-fhir-mappings.md). Normalized messages get transformed into FHIR Observations if a matching FHIR destination mapping has been authored. At this point, the [Device](https://www.hl7.org/fhir/device.html) resource, along with its associated [Patient](https://www.hl7.org/fhir/patient.html) resource, is also retrieved from the FHIR service using the device identifier present in the device message. These resources are added as a reference to the FHIR Observation being created.
+Transform is the next stage where normalized messages are processed using the user-selected/user-created conforming and valid [FHIR destination mapping](overview-of-fhir-destination-mapping.md). Normalized messages get transformed into FHIR Observations if a matching FHIR destination mapping has been authored. At this point, the [Device](https://www.hl7.org/fhir/device.html) resource, along with its associated [Patient](https://www.hl7.org/fhir/patient.html) resource, is also retrieved from the FHIR service using the device identifier present in the device message. These resources are added as a reference to the FHIR Observation being created.
 
 > [!NOTE]
 > All identity look ups are cached once resolved to decrease load on the FHIR service. If you plan on reusing devices with multiple patients, it is advised you create a virtual device resource that is specific to the patient and send the virtual device identifier in the device message payload. The virtual device can be linked to the actual device resource as a parent.
@@ -111,6 +111,6 @@ To get an overview of the MedTech service device and FHIR destination mappings, 
 > [Overview of the MedTech service device mapping](overview-of-device-mapping.md)
 
 > [!div class="nextstepaction"]
-> [Overview of the MedTech service FHIR destination mapping](how-to-configure-fhir-mappings.md)
+> [Overview of the MedTech service FHIR destination mapping](overview-of-fhir-destination-mapping.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
