@@ -17,23 +17,23 @@ ms.collection: M365-identity-device-management
 
 # Onboard external users to Line-of-business applications using Azure Active Directory B2B 
 
-App developers can use Azure Active Directory (Azure AD B2B) to onboard and collaborate with external users within line-of-business (LOB) apps easy. Similar to the **Share** button in many Office 365 applications, app developers can create a one-click invitation experience within any LOB app that is integrated with Azure AD.  
+App developers can use Azure Active Directory B2B (Azure AD B2B) to onboard and collaborate with external users within line-of-business (LOB) apps easy. Similar to the **Share** button in many Office 365 applications, app developers can create a one-click invitation experience within any LOB app that is integrated with Azure AD.  
 
 Benefits include: 
 
-- Simple and easy user onboarding and access to the LOB app with users able to gain access with a few steps
+- Simple and easy user onboarding and access to the LOB apps with users able to gain access with a few steps.
 
-- Enables external users to bring their own identity and get single sign-on (SSO) 
+- Enables external users to bring their own identity and perform Single sign-on (SSO). 
 
-- Automatic provisioning of external identities to Azure AD 
+- Automatic provisioning of external identities to Azure AD. 
 
-- Can apply Azure AD Conditional Access and cross tenant access policies to enforce authorization policies such as requiring multifactor authentication 
+- Apply Azure AD Conditional Access and cross tenant access policies to enforce authorization policies such as requiring multifactor authentication. 
 
 ## Integration flow 
 
-Integrating LOB apps with Azure AD B2B generally follow this pattern: 
+To integrate LOB apps with Azure AD B2B, follow this pattern: 
 
-![Screenshot shows the integration of LOB apps](media/external-user-onboarding/integration-flow.png)
+![Screenshot shows the integration of LOB apps.](media/external-user-onboarding/integration-flow.png)
 
 | Step | Description |
 |:-------|:--------|
