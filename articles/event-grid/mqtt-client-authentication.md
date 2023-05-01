@@ -11,17 +11,17 @@ ms.author: veyaddan
 
 We support authentication of clients using X.509 certificates.  X.509 certificate provides the credentials to associate a particular client with the tenant.  In this model, authentication generally happens once during session establishment.  Then, all future operations using the same session are assumed to come from that identity.  
 
-## Supported authentication credential types
+## Supported authentication modes
 
 - Certificates issued by a Certificate Authority (CA)
-- Certificate thumbprint
+- Self-signed Certificates
 
 **Certificate Authority (CA) signed certificates:**
 In this method, a root or intermediate X.509 certificate is registered with the service. Essentially, the root or intermediary certificate that is used to sign the client certificate, must be registered with the service first.
 
 While registering the clients, you need to identify the certificate field used to hold the client authentication name.  Service matches the authentication name from certificate with the client's authentication name in client metadata to validate the client. Service also validates  the client certificate by verifying whether it's signed by the previously registered root or intermediary certificate.
 
-**Certificate Thumbprint:**
+**Self-signed certificates:**
 Clients are onboarded to the service using the certificate thumbprint alongside the identity record. In this method of authentication, the client registry stores the exact thumbprint of the certificate that the client is going to use to authenticate.  When client tries to connect to the service, service validates the client by comparing the thumbprint presented in the client certificate with the thumbprint stored in client metadata.
 
 ## Key terms of client metadata
@@ -42,7 +42,7 @@ We support five certificate fields:
 - IP Matches Authentication Name
 - Email Matches Authentication Name
 
-Use the "Thumbprint Match" option while using the client certificate thumbprint to authenticate the client.
+Use the "Thumbprint Match" option while using self-signed certificate to authenticate the client.
 
 ### Client authentication source options
 
@@ -54,7 +54,7 @@ Use the "Thumbprint Match" option while using the client certificate thumbprint 
 | Certificate Ip | tls_client_auth_san_ip | The IPv4 or IPv6 address present in the iPAddress SAN entry in the certificate. |
 | Certificate Email | tls_client_auth_san_email | The rfc822Name SAN entry in the certificate. |
 
-## High level flow of how mTLS connection is established
+## High level flow of how mutual transport layer security (mTLS) connection is established
 
 1. The client initiates the handshake with Event Grid MQTT service.  It sends a hello packet with supported TLS version, cipher suites.
 2. Service presents its certificate to the client.  
@@ -63,7 +63,7 @@ Use the "Thumbprint Match" option while using the client certificate thumbprint 
 3. Client validates that it's connected to the correct and trusted service.
 4. Then the client presents its own certificate to prove its authenticity.  
     - Currently, we only support certificate-based authentication, so clients must send their certificate.
-5. Service completes TLS handshake successfully after checking the certificate for proof-of-possession, expiry, etc.
+5. Service completes TLS handshake successfully after validating the certificate.
 6. After completing the TLS handshake and mTLS connection is established, the client sends the MQTT CONNECT packet to the service.
 7. Service authenticates the client and allows the connection.
     - The same client certificate that was used to establish mTLS is used to authenticate the client connection to the service.
