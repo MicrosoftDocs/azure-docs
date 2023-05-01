@@ -1,3 +1,16 @@
+---
+title: How to use Foundation Models in AzureML (preview)
+titleSuffix: Azure Machine Learning
+description: Learn how to use, evaluate, and fine-tune Foundation Models in AzureML
+services: machine-learning
+ms.service: machine-learning
+ms.topic: how-to
+ms.reviewer: ssalgado
+author: swatig007
+ms.author: swatig
+ms.date: 04/25/2023
+---
+
 > [!IMPORTANT]
 > Items marked (preview) in this article are currently in public preview.
 > The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
@@ -8,12 +21,13 @@
 
 ### How to access foundation models in AzureML
 'Model catalog' (preview) provides a catalog view of all models that you have access to via system registries. You can view the complete list of supported open source foundation models in the [Model catalog](https://ml.azure.com/model/catalog), under the 'azureml' registry.
-![image](./media/how-to-use-foundation-models/model_catalog.png)
+
+:::image type="content" source="./media/how-to-use-foundation-models/model_catalog.png" alt-text="Image showing the model catalog section in Azure Machine Learning Studio.":::
 
 
-You can filter the list of models in the Model catalog by Task, or by license. Clicking on a specific model name will take you to the model card for that model, which lists detailed information about that specific model. For e.g. -
-![image](./media/how-to-use-foundation-models/model_card.png)
+You can filter the list of models in the Model catalog by Task, or by license. Clicking on a specific model name will take you to the model card for that model, which lists detailed information about that specific model. For example:
 
+:::image type="content" source="./media/how-to-use-foundation-models/model_card.png" alt-text="Image showing the model card for gpt2 in Azure Machine Learning Studio. The model card shows a description of the model and samples of what the model outputs. ":::
 
 * The 'Task' calls out the inferencing task that this pre-trained model can be used for. 
 * The 'Finetuning-tasks' list the tasks that this model can be fine tuned for. 
@@ -32,16 +46,17 @@ You can evaluate a foundation model against your test dataset, using either the 
 #### Evaluating using UI wizard
 You can invoke the Evaluate UI wizard by clicking on the 'Evaluate' button on the model card for any foundation model. 
 
-<b>Evaluation Settings</b>
+An image of the Evaluation Settings wizard is displayed below:
 
-![image](./media/how-to-use-foundation-models/evaluate_quick_wizard.png)
+:::image type="content" source="./media/how-to-use-foundation-models/evaluate_quick_wizard.png" alt-text="Image showing the evaluation settings wizard after the user selects the evaluate button on a model card for a foundation model.":::
 
 
 Each model can be evaluated for the specific inference task that the model can be used for.
 * <b>Test Data</b> Pass in the test data you would like to use to evaluate your model. You can choose to either upload a local file (in JSONL format) or select an existing regsistered dataset from your workspace. 
 
 	Once you've selected the dataset, you will need to map the columns from your input data, based on the schema needed for the task. For e.g. map the column names that correspond to the 'sentence' and 'label' keys for Text Classification
-![image](./media/how-to-use-foundation-models/evaluate_map_data_columns.png)
+
+:::image type="content" source="./media/how-to-use-foundation-models/evaluate_map_data_columns.png" alt-text="Image showing the evaluation map in the foundation models evaluate wizard.":::
 
 
 * <b>Compute</b> Provide the AzureML Compute cluster you would like to use for finetuning the model. Evaluation needs to run on GPU compute. Please ensure that you have sufficient compute quota for the compute SKUs you wish to use.
@@ -62,16 +77,17 @@ In order to improve model performance in your workload, you might want to fine t
 #### Finetuning using the UI wizard
 You can invoke the Finetune UI wizard by clicking on the 'Finetune' button on the model card for any foundation model. 
 
-<b>Finetuning Settings</b>
+Finetuning Settings:
 
-![image](./media/how-to-use-foundation-models/finetune_quick_wizard.png)
+:::image type="content" source="./media/how-to-use-foundation-models/finetune_quick_wizard.png" alt-text="Image showing the finetune settings options in the foundation models finetune wizard.":::
 
 
 * <b>Finetuning task type</b> Every pre-trained model from the model catalog can be finetuned for a specific set of tasks (e.g. Text classification, Token classification, Question answering, etc). Select the task you would like to use from the drop down.
 * <b>Training Data</b> Pass in the training data you would like to use to finetune your model. You can choose to either upload a local file (in JSONL, CSV or TSV format) or select an existing regsistered dataset from your workspace. 
 
 	Once you've selected the dataset, you will need to map the columns from your input data, based on the schema needed for the task. For e.g. map the column names that correspond to the 'sentence' and 'label' keys for Text Classification
-![image](./media/how-to-use-foundation-models/finetune_map_data_columns.png)
+
+:::image type="content" source="./media/how-to-use-foundation-models/finetune_map_data_columns.png" alt-text="Image showing the finetune map in the foundation models evaluate wizard.":::
 
 
 * <b>Validation data</b> Pass in the data you would like to use to validate your model. Selecting 'Automatic split' will reserve an automatic split of training data for validation. Alternatively, you can provide a different validation dataset.
@@ -100,12 +116,12 @@ You can deploy foundation models (both pre-trained models from the model catalog
 #### Deploying using the UI wizard
 You can invoke the Deploy UI wizard by clicking on the 'Deploy' button on the model card for any foundation model, and selecting either Real-time endpoint or Batch endpoint
 
-![image](./media/deploy_button.png)
+:::image type="content" source="./media/how-to-use-foundation-models/deploy_button.png" alt-text="Image showing the deploy button on the foundation model card.":::
 
 <b>Deployment Settings</b>
 Since the scoring script and environment are automatically included with the foundation model, you only need to specify the Virtual machine SKU to use, number of instances and the endpoint name to use for the deployment.
 
-![image](./media/deploy_options.png)
+:::image type="content" source="./media/how-to-use-foundation-models/deploy_options.png" alt-text="Image showing the deploy options on the foundation model card after user selects the deploy button.":::
 
 #### Deploying using code based samples
 To enable users to quickly get started with deployment and inferencing, we have published samples (both Python notebooks as well as CLI examples) in the [Inference samples in the azureml-examples git repo](https://github.com/Azure/azureml-examples/tree/main/sdk/python/foundation-models/system/inference). Each model card also links to Inference samples for Real time and Batch inferencing.
@@ -128,12 +144,12 @@ NOTE: Models from Hugging Face are subject to third party license terms availabl
 
 You can click the "Import" button on the top right of the Model Catalog to use the Model Import Notebook.
 
-![image](./media/model_import.png)
+:::image type="content" source="./media/how-to-use-foundation-models/model_import.png" alt-text="Image showing the model import button as it is displayed in the top right corner on the foundation model catalog.":::
 
 The model import notebook is also included in the azureml-examples git repo [here](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/system/import/import_model_into_registry.ipynb).
 
-In order to import the model, you need to pass in the MODEL_ID of the model you wish to import from Hugging Face. Browse models on Hugging Face hub and identify the model to import. Make sure the task type of the model is among the supported task types. Copy the model id which is available in the URI of the page or can be copied using the copy icon next to the model name and assign it to the variable 'MODEL_ID' in the Model import notebook. For e.g.,
+In order to import the model, you need to pass in the MODEL_ID of the model you wish to import from Hugging Face. Browse models on Hugging Face hub and identify the model to import. Make sure the task type of the model is among the supported task types. Copy the model id which is available in the URI of the page or can be copied using the copy icon next to the model name and assign it to the variable 'MODEL_ID' in the Model import notebook. For example:
 
-![image](./media/hugging_face_model_id.png)
+:::image type="content" source="./media/how-to-use-foundation-models/hugging_face_model_id.png" alt-text="Image showing an example of a hugging face model id ('bert-base-uncased') as it is displayed in the hugging face model documentation page.":::
 
 You will need to provide compute for the Model import to run. Running the Model Import will result in the specified model being imprted from Hugging Face and registered to your AzureML workspace. You can then finetune this model or deploy it to an endpoint for inferencing.
