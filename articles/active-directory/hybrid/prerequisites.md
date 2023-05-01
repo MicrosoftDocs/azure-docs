@@ -41,7 +41,7 @@ For more information on the cloud sync prerequisites, see [Cloud sync prerequisi
 |Hybrid Identity administrator|Required to configure cloud sync.  This account cannot be a guest account.|
 |gMSA service account|Required to run the agent.| 
 
-For more infromation on the cloud sync accounts, and how to set up a custom gMSA account, see [Cloud sync prerequisites](cloud-sync/how-to-prerequisites.md).
+For more information on the cloud sync accounts, and how to set up a custom gMSA account, see [Cloud sync prerequisites](cloud-sync/how-to-prerequisites.md).
 
 ## Azure AD Connect
 
