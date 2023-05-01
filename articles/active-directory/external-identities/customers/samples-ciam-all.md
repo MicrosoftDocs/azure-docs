@@ -32,7 +32,7 @@ These samples and how-to guides demonstrate how to integrate a single-page appli
 > [!div class="mx-tdCol2BreakAll"]
 > | Language/<br/>Platform | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
-> | JavaScript, Vanilla | &#8226; [Sign in users](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa) <br/> &#8226; [Call an API against a customer tenant](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa) | [Vanilla SPA](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa)    |
+> | JavaScript, Vanilla | &#8226; [Sign in users and call an API](how-to-single-page-app-vanillajs-sample-sign-in) | [Vanilla SPA](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa)    |
 > | JavaScript, Angular | &#8226; [Sign in users](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/3-Authorization-II/2-call-api-b2c) <br/> &#8226; [Call an API against a customer tenant](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/3-Authorization-II/2-call-api-b2c) | [Angular SPA](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/3-Authorization-II/2-call-api-b2c)    |
 > | JavaScript, React | &#8226; [Sign in users](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/3-Authorization-II/2-call-api-b2c)<br/>&#8226; [Call an API against a customer tenant](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/3-Authorization-II/2-call-api-b2c)| [React SPA](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/3-Authorization-II/2-call-api-b2c)   |
 
@@ -110,7 +110,7 @@ These samples and how-to guides demonstrate how to write a public client mobile 
 > [!div class="mx-tdCol2BreakAll"]
 > | App type | Code sample guide | Build and integrate guide  |
 > | ------- | -------- | ------------- | 
-> | Single-page application | &#8226; [Sign in users](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa) <br/> &#8226; [Call an API against a customer tenant](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa) | [Vanilla SPA](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa)  |
+> | Single-page application | &#8226; [Sign in users and call an API](how-to-single-page-app-vanillajs-sample-sign-in) | [Vanilla SPA](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa)  |
 
 ### JavaScript, Angular
 
