@@ -6,7 +6,7 @@ manager: aravindang
 ms.service: site-recovery
 ms.topic: article
 ms.date: 12/07/2022
-ms.author: v-pgaddala
+ms.author: ankitadutta
 ms.custom: references_regions
 ---
 
