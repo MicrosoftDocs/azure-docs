@@ -130,7 +130,7 @@ The upgrade normally takes a few minutes for the script to finish. The following
 - Complexity of your load balancer configuration
 - Number of backend pool members
 - Instance count of associated Virtual Machine Scale Sets
-- Service Fabric Cluster: Upgrades for Service Fabric Clusters take about an hour in testing.
+- Service Fabric Cluster: Upgrades for Service Fabric Clusters take up to an hour in testing.
 
 Keep the downtime in mind and plan for failover if necessary.
 
