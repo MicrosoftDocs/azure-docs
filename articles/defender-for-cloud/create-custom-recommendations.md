@@ -28,7 +28,7 @@ There are three elements involved when creating and managing custom recommendati
 
 |Aspect|Details|
 |----|:----|
-|Required/preferred environmental requirements| This preview includes only AWS and GCP recommendations. <br> This feature will bepart of the Defender CSPM plan in the future. |
+|Required/preferred environmental requirements| This preview includes only AWS and GCP recommendations. <br> This feature will be part of the Defender CSPM plan in the future. |
 | Required roles & permissions | Subscription Owner / Contributor |
 |Clouds:| :::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet) |
 
