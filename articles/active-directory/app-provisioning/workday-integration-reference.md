@@ -44,7 +44,7 @@ To further secure the connectivity between Azure AD provisioning service and Wor
 
 ### Limiting access to worker data in Workday using constrained security groups
 
-The default steps to [configure the Workday integration system user](../saas-apps/workday-inbound-tutorial.md#configure-integration-system-user-in-workday) grants access to retrieve all users in your Workday tenant. In certain integration scenarios, you may want to limit the access, so that users belonging only to certain supervisory organizations are returned by the Get_Workers API call and processed by the Workday Azure AD connector. 
+The default steps to [configure the Workday integration system user](../saas-apps/workday-inbound-tutorial.md#configure-integration-system-user-in-workday) grants access to retrieve all users in your Workday tenant. In certain integration scenarios, you may want to limit access. For example, only return users in certain supervisory organizations from the `Get_Workers` API call.
 
 You can limit access by working with your Workday admin and configuring constrained integration system security groups. For more information about Workday, see [Workday community](https://community.workday.com/forums/customer-questions/620393) (*Workday Community access required for this article*).
 
