@@ -157,7 +157,7 @@ Next, create a target database and container on the Azure Cosmos DB for NoSQL ac
 
 Now, migrate data from a JSON array to the newly created Azure Cosmos DB for NoSQL container.
 
-1. Navigate to an empty directory on your local machine. Within that directory, create a new file named **migration.json**.
+1. Navigate to an empty directory on your local machine. Within that directory, create a new file named **migration-settings.json**.
 
 1. Within the JSON file, create a new empty JSON object:
 
@@ -232,7 +232,7 @@ Now, migrate data from a JSON array to the newly created Azure Cosmos DB for NoS
     }
     ```
 
-1. **Save** the **migration.json** file.
+1. **Save** the **migration-settings.json** file.
 
 1. Open a new terminal
 
@@ -245,7 +245,7 @@ Now, migrate data from a JSON array to the newly created Azure Cosmos DB for NoS
     > [!NOTE]
     > If you did not add the installation path to your `PATH` environment variable, you may need to specify the full path to the `dmt` executable.
 
-1. The tool asks for the path to the settings file. Specify `migration.json` here.
+1. The tool asks for the path to the settings file. Enter the **migration-settings.json** filename here.
 
     ```output
     Path to settings file? (leave empty to skip):
