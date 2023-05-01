@@ -80,7 +80,7 @@ The subnets:
 
 | Source | Destination | Protocol | Port | Description  | 
 | ------ | ----------- | :------: | :---:| ------------ | 
-| Private Cloud DNS server | On-Premises DNS Server | UDP | 53 | DNS Client - Forward requests from Private Cloud vCenter Server for any on-premises DNS queries (check DNS section below) |  
+| Private Cloud DNS server | On-premises DNS Server | UDP | 53 | DNS Client - Forward requests from Private Cloud vCenter Server for any on-premises DNS queries (check DNS section below) |  
 | On-premises DNS Server   | Private Cloud DNS server | UDP | 53 | DNS Client - Forward requests from on-premises services to Private Cloud DNS servers (check DNS section below) |  
 | On-premises network  | Private Cloud vCenter Server  | TCP (HTTP)  | 80 | vCenter Server requires port 80 for direct HTTP connections. Port 80 redirects requests to HTTPS port 443. This redirection helps if you use `http://server` instead of `https://server`.  |  
 | Private Cloud management network | On-premises Active Directory  | TCP  | 389/636 | These ports are open to allow communications for Azure VMware Solutions vCenter Server to communicate to any on-premises Active Directory/LDAP server(s).  These port(s) are optional - for configuring on-premises AD as an identity source on the Private Cloud vCenter. Port 636 is recommended for security purposes. |  
