@@ -1,5 +1,5 @@
 ---
-title: Create and configure a dev center for Azure Deployment Envrionments by using the Azure CLI
+title: Create and configure a dev center for Azure Deployment Environments by using the Azure CLI
 titleSuffix: Azure Deployment Environments
 description: Learn how to create and access an environment in an Azure Deployment Environments project using Azure CLI.
 author: renato-marciano
@@ -24,8 +24,8 @@ An enterprise development infrastructure team typically sets up a dev center, at
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure role-based access control role with permissions to create and manage resources in the subscription, such as [Contributor](../role-based-access-control/built-in-roles.md#contributor) or [Owner](../role-based-access-control/built-in-roles.md#owner).
 - [Install the Azure CLI](/cli/azure/install-azure-cli).
-- [Install dev center cli extension](how-to-install-devcenter-cli-extension.md)
-- A Github Account and a [Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) with Repo Access. 
+- [Install dev center CLI extension](how-to-install-devcenter-cli-extension.md)
+- A GitHub Account and a [Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) with Repo Access. 
 
 ## Create a dev center
 To create and configure a Dev center in Azure Deployment Environments by using the Azure portal:
@@ -72,7 +72,7 @@ To create and configure a Dev center in Azure Deployment Environments by using t
    az devcenter admin devcenter create -n <devcenter name>
    ```
 
-   After a few minutes, you will get an output that it is created:
+   After a few minutes, you'll get an output that it's created:
 
    ```output
    {
@@ -94,7 +94,7 @@ To create and configure a Dev center in Azure Deployment Environments by using t
 > [!NOTE]
 > You can use `--help` to view more details about any command, accepted arguments, and examples. For example, use `az devcenter admin devcenter create --help` to view more details about creating a dev center.
 
-## Adding Personal Access Token to Key Vault
+## Adding personal access token to Key Vault
 You need an Azure Key Vault to store the GitHub personal access token (PAT) that is used to grant Azure access to your GitHub repository. 
 
 1. Create a Key Vault:
@@ -161,7 +161,7 @@ To add a catalog, you must specify the GitHub repo URL, the branch, and the fold
 1. Take a note of the branch that you're working in.
 1. Take a note of the folder that contains your catalog items. 
  
-     :::image type="content" source="media/quickstart-create-and-configure-devcenter/github-info.png" alt-text="Screenshot that shows the GitHub repo with Code, branch, and folder highlighted.":::
+     :::image type="content" source="media/how-to-create-configure-devcenter/github-info.png" alt-text="Screenshot that shows the GitHub repo with Code, branch, and folder highlighted.":::
 
 ### Add a catalog to your dev center
 

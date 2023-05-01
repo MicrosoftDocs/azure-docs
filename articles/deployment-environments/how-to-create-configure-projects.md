@@ -58,7 +58,7 @@ To create a project in your dev center:
    az configure --defaults location=eastus
    ```
 
-1. Retrieve dev center resource id:
+1. Retrieve dev center resource ID:
 
     ```azurecli
     DEVCID=$(az devcenter admin devcenter show -n <devcenter name> --query id -o tsv)
@@ -82,7 +82,7 @@ To create a project in your dev center:
 ### Assign a managed identity the owner role to the subscription
 Before you can create environment types, you must give the managed identity that represents your dev center access to the subscriptions where you configure the [project environment types](concept-environments-key-concepts.md#project-environment-types). 
 
-In this quickstart you assign the Owner role to the system-assigned managed identity that you configured previously: [Attach a system-assigned managed identity](quickstart-create-and-configure-devcenter.md#attach-a-system-assigned-managed-identity).
+In this quickstart, you assign the Owner role to the system-assigned managed identity that you configured previously: [Attach a system-assigned managed identity](quickstart-create-and-configure-devcenter.md#attach-a-system-assigned-managed-identity).
 
 1. Retrieve Subscription ID:
 
@@ -143,9 +143,9 @@ To configure a project, add a [project environment type](how-to-configure-projec
 > [!NOTE]
 > At least one identity (system-assigned or user-assigned) must be enabled for deployment identity. The identity is used to perform the environment deployment on behalf of the developer. Additionally, the identity attached to the dev center should be [assigned the Owner role](how-to-configure-managed-identity.md) for  access to the deployment subscription for each environment type.
 
-## Assign Environment access
+## Assign environment access
 
-In this quickstart, you will give access to your own ID. Optionally, you can replace the value of `--assignee` for the commands below with another member's object id.
+In this quickstart, you give access to your own ID. Optionally, you can replace the value of `--assignee` for the following commands with another member's object ID.
 
 1. Retrieve your own Object ID:
 
