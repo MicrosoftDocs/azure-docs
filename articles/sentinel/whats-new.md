@@ -173,11 +173,11 @@ See which ones, and learn how to use the updated mechanism, in [Customize alert 
 - [Account enrichment fields removed from Azure AD Identity Protection connector](#account-enrichment-fields-removed-from-azure-ad-identity-protection-connector)
 - [Name fields removed from UEBA UserPeerAnalytics table](#name-fields-removed-from-ueba-userpeeranalytics-table)
 
-### Microsoft Defender for Identity alerts now available in Government Community Cloud
+### Microsoft Defender for Identity alerts now available in Government Community Cloud - changes to alert ID fields
 
 Microsoft Defender for Identity alerts are now available in Government Community Cloud (GCC).
 
-If you previously used the MDI alerts connector, with the introduction of the new alerts, the `UniqueExternalId` field is no longer populated. The ID represents the alert, and was formerly located in the `ExternalProperties` field. You can now be obtain the ID through the `AlertName` field, which contains the alert’s name. 
+If you previously used the MDI alerts connector, with the introduction of the feature in GCC, the `UniqueExternalId` field is no longer populated. The ID represents the alert, and was formerly located in the `ExternalProperties` field. You can now be obtain the ID through the `AlertName` field, which contains the alert’s name. 
 
 If you've used this ID in your custom queries, we recommend that you adjust your queries accordingly. Review the [Security alert name mapping and unique external IDs](/defender-for-identity/alerts-overview#security-alert-name-mapping-and-unique-external-ids).
 
