@@ -36,27 +36,27 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/virtual-machines/disk-pools.md",
+            "source_path_from_root": "/articles/virtual-machines/disks-pools.md",
             "redirect_url": "/azure/storage/elastic-san/elastic-san-introduction",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/virtual-machines/disk-pools-manage.md",
+            "source_path_from_root": "/articles/virtual-machines/disks-pools-manage.md",
             "redirect_url": "/azure/storage/elastic-san/elastic-san-introduction",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/virtual-machines/disk-pools-move-resource.md",
+            "source_path_from_root": "/articles/virtual-machines/disks-pools-move-resource.md",
             "redirect_url": "/azure/storage/elastic-san/elastic-san-introduction",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/virtual-machines/disk-pools-planning.md",
+            "source_path_from_root": "/articles/virtual-machines/disks-pools-planning.md",
             "redirect_url": "/azure/storage/elastic-san/elastic-san-introduction",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/virtual-machines/disk-pools-troubleshoot.md",
+            "source_path_from_root": "/articles/virtual-machines/disks-pools-troubleshoot.md",
             "redirect_url": "/azure/storage/elastic-san/elastic-san-introduction",
             "redirect_document_id": false
         },
