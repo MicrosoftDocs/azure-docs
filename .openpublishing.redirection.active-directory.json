@@ -2677,7 +2677,12 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-signing-key-rollover.md",
-      "redirect_url": "/azure/active-directory/develop/active-directory-signing-key-rollover",
+      "redirect_url": "/azure/active-directory/develop/signing-key-rollover",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/active-directory-signing-key-rollover.md",
+      "redirect_url": "/azure/active-directory/develop/signing-key-rollover",
       "redirect_document_id": false
     },
     {

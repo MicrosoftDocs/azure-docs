@@ -812,7 +812,7 @@
             - name: Certificate credentials
               href: active-directory-certificate-credentials.md
             - name: Signing key rollover
-              href: active-directory-signing-key-rollover.md
+              href: signing-key-rollover.md
             - name: UserInfo endpoint (OIDC)
               href: userinfo.md            
         - name: SAML 2.0
