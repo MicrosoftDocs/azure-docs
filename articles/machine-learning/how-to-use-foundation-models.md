@@ -22,6 +22,10 @@ You can filter the list of models in the Model catalog by Task, or by license. C
 Additionally, the model card for each model includes a brief description of the model and links to samples for code based inferencing, finetuning and evaluation of the model.
 
 
+> [!NOTE]
+>If you are using a private workspace, your virtual network needs to allow outbound access in order to use foundation models in AzureML
+
+
 ### How to evaluate foundation models using your own test data
 You can evaluate a foundation model against your test dataset, using either the Evaluate UI wizard or by using the code based samples, linked from the model card.
 
@@ -133,4 +137,3 @@ In order to import the model, you need to pass in the MODEL_ID of the model you 
 ![image](./media/hugging_face_model_id.png)
 
 You will need to provide compute for the Model import to run. Running the Model Import will result in the specified model being imprted from Hugging Face and registered to your AzureML workspace. You can then finetune this model or deploy it to an endpoint for inferencing.
-
