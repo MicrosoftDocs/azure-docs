@@ -421,7 +421,7 @@ The above data sets aren't included by default.
 To retrieve these data sets:
 1. Sign in to the Azure portal and open your Workday to AD/Azure AD user provisioning app. 
 1. In the Provisioning blade, edit the mappings and open the Workday attribute list from the advanced section. 
-1. Add the following attributes definitions and mark them as "Required". These attributes won't be mapped to any attribute in AD or Azure AD. They just serve as signals to the connector to retrieve the Cost Center, Cost Center Hierarchy and Pay Group information. 
+1. Add the following attributes definitions and mark them as "Required". These attributes aren't mapped to any attribute in AD or Azure AD. They serve as signals to the connector to retrieve the Cost Center, Cost Center Hierarchy and Pay Group information. 
 
      > [!div class="mx-tdCol2BreakAll"]
      >| Attribute Name | XPATH API expression |
