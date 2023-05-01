@@ -8,7 +8,7 @@ author: kasun04
 ms.author: kindrasiri
 ---
 
-# Validate schema when streaming events using Event Hubs .NET SDKs (AMQP) 
+# Validate using an Avro schema when streaming events using Event Hubs .NET SDKs (AMQP) 
 In this quickstart, you learn how to send events to and receive events from an event hub with schema validation using the **Azure.Messaging.EventHubs** .NET library. 
 
 > [!NOTE]

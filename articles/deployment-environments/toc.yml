@@ -48,7 +48,12 @@ items:
     - name: Use Azure CLI devcenter extension
       href: how-to-install-devcenter-cli-extension.md  
     - name: Create environments with the CLI
-      href: how-to-create-access-environments.md  
+      href: how-to-create-access-environments.md
+- name: Tutorials
+  expanded: true
+  items:
+    - name: Deploy environments in CI/CD with GitHub
+      href: tutorial-deploy-environments-in-cicd-github.md  
 - name: Reference
   items:
     - name: Azure CLI

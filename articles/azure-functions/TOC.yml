@@ -395,9 +395,9 @@
     - name: Node.js
       items:
         - name: JavaScript
-          href: functions-reference-node.md
+          href: functions-reference-node.md?tabs=javascript
         - name: TypeScript
-          href: functions-reference-node.md#typescript
+          href: functions-reference-node.md?tabs=typescript
         - name: Upgrade to model v4.x
           href: functions-node-upgrade-v4.md
     - name: Java
