@@ -43,14 +43,15 @@ The linux Troubleshooter requires Python 2.6+ or any Python3 installed on the ma
 ##Evaluating the Windows Results
 The Troubleshooter runs two tests and collects several diagnostic logs.
 
-|Test | Description|
+|Test| Description|
 |:---|:---|
-       |Machine Network Configuration (Configuration) | This test checks the very basic network connection including IPV 4 and IPV 6 address resolutions.  If IPV6 isn't available on the machine, you'll see a warning.|
-       |Connection to Control Plan (MCS)                               | This test checks to see if the agent configuration information can be retrieved from the central data control plan. Controlling information includes which source data to collect and where it should be sent to. All agent configuration is done through Data Collection Rules.|
+|Machine Network Configuration (Configuration) | This test checks the very basic network connection including IPV 4 and IPV 6 address resolutions.  If IPV6 isn't available on the machine, you'll see a warning.|
+|Connection to Control Plan (MCS)              | This test checks to see if the agent configuration information can be retrieved from the central data control plan. Controlling information includes which source data to collect and where it should be sent to. All agent configuration is done through Data Collection Rules.|
 
 
 ##Sharing the Windows Results
 The detailed data collected by the troubleshooter include system configuration, network configuration, environment variables, and agent configuration that can aid customer support in quickly diagnosing issues.  The troubleshooter make is easy to send this data to customer support by creating a Zip file that should be attached to any customer support request. The file is located in C:/Packages/Plugins/Microsoft.Azure.Monitor.AzureMonitorWindowsAgent/{version}/Troubleshooter.  The agent logs can be cryptic but they can give you insight into problems that you may be experiencing.
+
 |Logfile                              | Contents|
 |:---|:---|
 |Curl.exe                           | results of basic network connectivity for the agent using the Curl command that isn't dependent on any agent software. |
@@ -74,34 +75,12 @@ Here are the details that each scenario covers:
 
 |Secnario | Tests|
 |:---|:---|
-|Agent having installation issues|
-* Supported OS / version
-* Available disk space
-* Package manager is available (dpkg/rpm)
-* Submodules are installed successfully
-* AMA installed properly
-* Syslog available (rsyslog/syslog-ng)
-* Using newest version of AMA
-* Syslog user generated successfully|
-|Agent doesn't start, can't connect to Log Analytics|
-* AMA parameters set up
-* AMA DCR created successfully
-* Connectivity to endpoints
-* Submodules started
-* IMDS/HIMDS metadata and MSI tokens available|
-|Agent is unhealthy, heartbeat doesn't work properly|
-* Submodule status
-* Parse error files|
-|Agent has high CPU / memory usage| 
-* Check logrotate
-* Monitor CPU/memory usage in 5 minutes (interaction mode only)|
-|Agent syslog collection doesn't work properly|
-* Rsyslog / syslog-ng set up and running
-* Syslog configuration being pulled / used
-* Syslog socket is accessible|
-|Agent custom log collection doesn't work properly|
-* Custom log configuration being pulled / used
-* Log file paths is valid|
+|Agent having installation issues|Supported OS / version, Available disk space, Package manager is available (dpkg/rpm), Submodules are installed successfully, AMA installed properly, Syslog available (rsyslog/syslog-ng), Using newest version of AMA, Syslog user generated successfully|
+|Agent doesn't start, can't connect to Log Analytics|AMA parameters set up, AMA DCR created successfully, Connectivity to endpoints, Submodules started, IMDS/HIMDS metadata and MSI tokens available|
+|Agent is unhealthy, heartbeat doesn't work properly|Submodule status, Parse error files|
+|Agent has high CPU / memory usage|Check logrotate, Monitor CPU/memory usage in 5 minutes (interaction mode only)|
+|Agent syslog collection doesn't work properly|Rsyslog / syslog-ng set up and running, Syslog configuration being pulled / used, Syslog socket is accessible|
+|Agent custom log collection doesn't work properly|Custom log configuration being pulled / used, Log file paths is valid|
 
 ##Sharing Linux Logs
 To create a zip file use this command when running the troubleshooter: sudo sh ama_troubleshooter.sh A L.  You'll asked for a file location to create the zip file.
