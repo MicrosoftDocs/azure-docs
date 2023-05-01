@@ -66,6 +66,8 @@ The addition of tasks details to the schema of this table allows you to audit ta
 
     1. Here you see the details for the first task in the array ("0" being the index position of the task in the array). The *title* field shows the name of the task as displayed in the incident.
 
+### View tasks added to the list
+
 1. Let's add a task to the incident, and then we'll come back here, run the query again, and see the changes in the results.
 
     1. On the **Incidents** page, enter the incident ID number in the Search bar.
@@ -80,9 +82,19 @@ The addition of tasks details to the schema of this table allows you to audit ta
 
     :::image type="content" source="media/audit-track-tasks/incident-with-tasks-query-5.png" alt-text="Screenshot of query results showing an incident with its newly created task." lightbox="media/audit-track-tasks/incident-with-tasks-query-5.png":::
 
-1. Now, if we go back to that new task in the incident details page and mark it as complete, and then come back to **Logs** and rerun the query again, we'll see yet another new record for the same incident, this time showing our task's new status as **Completed**.
+### View status changes to tasks
 
-    :::image type="content" source="media/audit-track-tasks/incident-with-tasks-query-6.png" alt-text="Screenshot of query results showing an incident with its newly created task." lightbox="media/audit-track-tasks/incident-with-tasks-query-5.png":::
+Now, if we go back to that new task in the incident details page and mark it as complete, and then come back to **Logs** and rerun the query again, we'll see yet another new record for the same incident, this time showing our task's new status as **Completed**.
+
+:::image type="content" source="media/audit-track-tasks/incident-with-tasks-query-6.png" alt-text="Screenshot of query results showing an incident with its newly created task." lightbox="media/audit-track-tasks/incident-with-tasks-query-5.png":::
+
+### View deletion of tasks
+
+Let's go back to the task list in the incident details page and delete the task we added earlier.
+
+When we come back to **Logs** and run the query yet again, we'll see another new record, only this time the status for our task&mdash;the one titled "This task is a test task!"&mdash;will be **Deleted**.
+
+**However**&mdash; once the task has appeared one such time in the array (with a **Deleted** status), it will no longer appear in the **Tasks** array in new records for that incident in the **SecurityIncident** table. The existing records, like those we saw above, will continue to preserve the evidence that this task once existed.
 
 
 ## Next steps
