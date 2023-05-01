@@ -1041,6 +1041,12 @@ items:
           href: blobfuse2-commands-version.md?toc=/azure/storage/blobs/toc.json
         - name: BlobFuse2 help
           href: blobfuse2-commands-help.md?toc=/azure/storage/blobs/toc.json
+    - name: Redundancy
+      items:
+      - name: Regions that support ZRS
+        href: ../common/redundancy-regions-zrs.md?toc=/azure/storage/blobs/toc.json
+      - name: Regions that support GZRS
+        href: ../common/redundancy-regions-gzrs.md?toc=/azure/storage/blobs/toc.json
     - name: Resource Manager template
       displayName: ARM
       href: /azure/templates/microsoft.storage/allversions
