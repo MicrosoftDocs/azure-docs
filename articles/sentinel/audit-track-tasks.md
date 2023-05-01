@@ -102,7 +102,7 @@ The detailed information added to the **Tasks** field consists of key-value pair
 
 Now, if we go back to that new task in the incident details page and mark it as complete, and then come back to **Logs** and rerun the query again, we'll see yet another new record for the same incident, this time showing our task's new status as **Completed**.
 
-:::image type="content" source="media/audit-track-tasks/incident-with-tasks-query-6.png" alt-text="Screenshot of query results showing an incident with its newly created task." lightbox="media/audit-track-tasks/incident-with-tasks-query-5.png":::
+:::image type="content" source="media/audit-track-tasks/incident-with-tasks-query-6.png" alt-text="Screenshot of query results showing an incident task with its new status." lightbox="media/audit-track-tasks/incident-with-tasks-query-5.png":::
 
 ### View deletion of tasks
 
