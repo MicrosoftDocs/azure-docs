@@ -309,8 +309,6 @@
           href: ../data-explorer.md
     - name: Migrate data
       items:
-        - name: Migration options
-          href: ../migration-choices.md
         - name: Desktop data migration tool
           href: ../how-to-migrate-desktop-tool.md
     - name: Manage Azure Cosmos DB resources
