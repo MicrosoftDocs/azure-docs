@@ -10,7 +10,7 @@ ms.custom: cliv2
 
 author: fkriti
 ms.author: kritifaujdar
-ms.date: 04/12/2023
+ms.date: 05/23/2023
 ms.reviewer: larryfr
 ---
 
@@ -18,7 +18,7 @@ ms.reviewer: larryfr
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-The source JSON schema can be found at.
+<!-- The source JSON schema can be found at. -->
 
 
 
@@ -41,7 +41,7 @@ The `az ml registry` command can be used for managing Azure Machine Learning reg
 
 ## Examples
 
-Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/resources/registry). Several are shown below.
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/resources/registry). Several are shown in the following sections.
 
 ## YAML: basic
 
