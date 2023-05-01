@@ -230,10 +230,10 @@ If you're using an existing Azure Managed Grafana instance that's already linked
 ### Download and edit templates and the parameter file
 
 1. Download the [main Bicep template](https://aka.ms/azureprometheus-enable-bicep-template). Save it as **FullAzureMonitorMetricsProfile.bicep**.
-1. Download the [parameter file](https://aka.ms/azureprometheus-enable-bicep-template-parameters) and save it as **FullAzureMonitorMetricsProfileParameters.json** in the same directory as the main Bicep template.
-1. Download the [nested_azuremonitormetrics_dcra_clusterResourceId.bicep](https://aka.ms/nested_azuremonitormetrics_dcra_clusterResourceId) and [nested_azuremonitormetrics_profile_clusterResourceId.bicep](https://aka.ms/nested_azuremonitormetrics_profile_clusterResourceId) files into the same directory as the main Bicep template.
-1. Edit the values in the parameter file.
-1. The main Bicep template creates all the required resources. It uses two modules for creating the Data Collection Rule Associations (DCRA) and Azure Monitor metrics profile resources from the other two Bicep files.
+2. Download the [parameter file](https://aka.ms/azureprometheus-enable-bicep-template-parameters) and save it as **FullAzureMonitorMetricsProfileParameters.json** in the same directory as the main Bicep template.
+3. Download the [nested_azuremonitormetrics_dcra_clusterResourceId.bicep](https://aka.ms/nested_azuremonitormetrics_dcra_clusterResourceId) and [nested_azuremonitormetrics_profile_clusterResourceId.bicep](https://aka.ms/nested_azuremonitormetrics_profile_clusterResourceId) files into the same directory as the main Bicep template.
+4. Edit the values in the parameter file.
+5. The main Bicep template creates all the required resources. It uses two modules for creating the Data Collection Rule Associations (DCRA) and Azure Monitor metrics profile resources from the other two Bicep files.
 
     | Parameter | Value |
     |:---|:---|
@@ -402,18 +402,48 @@ As of version `6.4.0-main-02-22-2023-3ee44b9e`, Windows metric collection has be
     ama-metrics-5c974985b8          1         1         1       11h
     ama-metrics-ksm-5fcf8dffcd      1         1         1       11h
     ```
+## Artifacts/Resources provisioned/created as a result of metrics addon enablement for an AKS cluster
 
-## Feature support
+When you enable metrics addon the followig are provisioned
 
-- ARM64 and Mariner nodes are supported.
-- HTTP Proxy is supported and uses the same settings as the HTTP Proxy settings for the AKS cluster configured with [these instructions](../../../articles/aks/http-proxy.md).
+| Resource Name | Resource Type | Resource Group | Region/Location | Description |
+    |:---|:---|:---|:---|:---|
+    | `MSPROM-<aksclusterregion>-<clustername>` | **Data Collection Rule** | Same Resource group as AKS cluster resource | Same region as Azure Monitor Workspace | This datacollection rule is for prometheus metrics collection by metrics addon which has the chosen azure monitor workspace as destination, and also it is associated to the AKS cluster resource |
+    | `MSPROM-<aksclusterregion>-<clustername>` | **Data Collection endpoint** | Same Resource group as AKS cluster resource | Same region as Azure Monitor Workspace | This data collection endpoint is used by the above data collection rule for ingesting Prometheus metrics from the metrics addon|
+    
+When you create a new Azure Monitor workspace the following additonal resources are created as part of it
 
-## Limitations
+| Resource Name | Resource Type | Resource Group | Region/Location | Description |
+    |:---|:---|:---|:---|:---|
+    | `<azuremonitorworkspacename>` | **System Data Collection Rule** | MA_<azuremonitorworkspacename>_<azuremonitorworkspaceregion>_managed | Same region as Azure Monitor Workspace | This is **system** data collection rule that customers can use when they use OSS Prometheus server to Remote Write to Azure Monitor Workspace |
+    | `<azuremonitorworkspacename>` | **System Data Collection endpoint** | MA_<azuremonitorworkspacename>_<azuremonitorworkspaceregion>_managed | Same region as Azure Monitor Workspace | This is **system** data collection endpoint that customers can use when they use OSS Prometheus server to Remote Write to Azure Monitor Workspace |
+    
 
-- CPU and Memory requests and limits can't be changed for the Azure Monitor metrics add-on. If changed, they will be reconciled and replaced by original values in a few seconds.
+## HTTP Proxy
 
-- Azure Monitor Private Links and private AKS clusters aren't currently supported.
-- Only public clouds are currently supported.
+Azure Monitor metrics addon supports HTTP Proxy and uses the same settings as the HTTP Proxy settings for the AKS cluster configured with [these instructions](../../../articles/aks/http-proxy.md).
+
+## Network firewall requirements
+
+**Azure public cloud**
+
+The following table lists the firewall configuration required for azure monitor Prometheus metrics ingestion for Azure Public cloud. All network traffic from the agent is outbound to Azure Monitor.
+
+|Agent resource| Purpose | Port |
+|--------------|------|---|
+| `global.handler.control.monitor.azure.com` | Access control service/ Azure Monitor control plane service | 443 |
+| `*.ingest.monitor.azure.com` | Azure monitor managed service for Prometheus - metrics ingestion endpoint (DCE) | 443 |
+| `*.handler.control.monitor.azure.com` | For querying data collection rules  | 443 |
+
+**Azure US Government cloud**
+
+The following table lists the firewall configuration required for azure monitor Prometheus metrics ingestion for Azure US Government cloud. All network traffic from the agent is outbound to Azure Monitor.
+
+|Agent resource| Purpose | Port |
+|--------------|------|---|
+| `global.handler.control.monitor.azure.us` | Access control service/ Azure Monitor control plane service | 443 |
+| `*.ingest.monitor.azure.us` | Azure monitor managed service for Prometheus - metrics ingestion endpoint (DCE) | 443 |
+| `*.handler.control.monitor.azure.us` | For querying data collection rules  | 443 |
 
 ## Uninstall the metrics add-on
 Currently, the Azure CLI is the only option to remove the metrics add-on and stop sending Prometheus metrics to Azure Monitor managed service for Prometheus.
@@ -438,60 +468,6 @@ Currently, the Azure CLI is the only option to remove the metrics add-on and sto
     ```azurecli
     az aks update --disable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group>
     ```
-
-## Region mappings
-When you allow a default Azure Monitor workspace to be created when you install the metrics add-on, it's created in the region listed in the following table.
-
-| AKS cluster region | Azure Monitor workspace region |
-|-----------------------|------------------------------------|
-|australiacentral |eastus|
-|australiacentral2 |eastus|
-|australiaeast |eastus|
-|australiasoutheast |eastus|
-|brazilsouth |eastus|
-|canadacentral |eastus|
-|canadaeast |eastus|
-|centralus |centralus|
-|centralindia |centralindia|
-|eastasia |westeurope|
-|eastus |eastus|
-|eastus2 |eastus2|
-|francecentral |westeurope|
-|francesouth |westeurope|
-|japaneast |eastus|
-|japanwest |eastus|
-|koreacentral |westeurope|
-|koreasouth |westeurope|
-|northcentralus |eastus|
-|northeurope |westeurope|
-|southafricanorth |westeurope|
-|southafricawest |westeurope|
-|southcentralus |eastus|
-|southeastasia |westeurope|
-|southindia |centralindia|
-|uksouth |westeurope|
-|ukwest |westeurope|
-|westcentralus |eastus|
-|westeurope |westeurope|
-|westindia |centralindia|
-|westus |westus|
-|westus2 |westus2|
-|westus3 |westus|
-|norwayeast |westeurope|
-|norwaywest |westeurope|
-|switzerlandnorth |westeurope|
-|switzerlandwest |westeurope|
-|uaenorth |westeurope|
-|germanywestcentral |westeurope|
-|germanynorth |westeurope|
-|uaecentral |westeurope|
-|eastus2euap |eastus2euap|
-|centraluseuap |westeurope|
-|brazilsoutheast |eastus|
-|jioindiacentral |centralindia|
-|swedencentral |westeurope|
-|swedensouth |westeurope|
-|qatarcentral |westeurope|
 
 ## Next steps
 

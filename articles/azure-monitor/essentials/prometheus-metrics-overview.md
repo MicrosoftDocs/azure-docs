@@ -48,6 +48,7 @@ See [Azure Monitor service limits](../service-limits.md#prometheus-metrics) for 
 - Scraping and storing metrics at frequencies less than 1 second isn't supported.
 - Metrics will same label names but different casing will be rejected by ingestion (ex;- `diskSize(cluster="eastus", node="node1", filesystem="usr_mnt", FileSystem="usr_opt")` is invalid due to `filesystem` and `FileSystem` labels and will be rejected )
 - Azure China cloud and Air gapped clouds are not supported for Azure Monitor managed service for Prometheus
+- To monitor Windows nodes & pods in your cluster(s), please follow steps outlined [here](./prometheus-metrics-enable.md#enable-windows-metrics-collection)
 
 [!INCLUDE [prometheus-case-sensitivity.md](..//includes/prometheus-case-sensitivity.md)]
 ## Prometheus references
