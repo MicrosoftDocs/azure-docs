@@ -155,14 +155,14 @@ You've updated your HTTP triggered function to write data to a Storage queue. No
 ::: zone pivot="programming-language-javascript"  
 + [Examples of complete Function projects in JavaScript](/samples/browse/?products=azure-functions&languages=javascript).
 
-+ [Azure Functions JavaScript developer guide](functions-reference-node.md)  
++ [Azure Functions JavaScript developer guide](functions-reference-node.md?tabs=javascript)  
 
 [previous-quickstart]: create-first-function-cli-javascript.md
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 + [Examples of complete Function projects in TypeScript](/samples/browse/?products=azure-functions&languages=typescript).
 
-+ [Azure Functions TypeScript developer guide](functions-reference-node.md#typescript)  
++ [Azure Functions TypeScript developer guide](functions-reference-node.md?tabs=typescript)  
 
 [previous-quickstart]: create-first-function-cli-typescript.md
 ::: zone-end  

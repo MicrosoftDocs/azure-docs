@@ -43,7 +43,10 @@ When scanning Oracle source, Microsoft Purview supports:
 
 When setting up scan, you can choose to scan an entire Oracle server, or scope the scan to a subset of schemas matching the given name(s) or name pattern(s).
 
-Currently, the Oracle service name isn't captured in the metadata or hierarchy.
+### Known limitations
+
+- Currently, the Oracle service name isn't captured in the metadata or hierarchy.
+- When object is deleted from the data source, currently the subsequent scan won't automatically remove the corresponding asset in Microsoft Purview.
 
 ## Prerequisites
 

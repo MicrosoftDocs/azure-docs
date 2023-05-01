@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 10/21/2022
+ms.date: 04/20/2023
 ms.custom: template-how-to
 ---
 
@@ -26,6 +26,10 @@ When scanning Salesforce source, Microsoft Purview supports extracting technical
 - Objects including the fields, foreign keys, and unique_constraints
 
 When setting up scan, you can choose to scan an entire Salesforce organization, or scope the scan to a subset of objects matching the given name(s) or name pattern(s).
+
+### Known limitations
+
+When object is deleted from the data source, currently the subsequent scan won't automatically remove the corresponding asset in Microsoft Purview.
 
 ## Prerequisites
 

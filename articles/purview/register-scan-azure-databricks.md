@@ -41,6 +41,10 @@ This connector brings metadata from Databricks metastore. Comparing to scan via 
 - The Databricks workspace info is captured.
 - The relationship between tables and storage assets is captured.
 
+### Known limitations
+
+When object is deleted from the data source, currently the subsequent scan won't automatically remove the corresponding asset in Microsoft Purview.
+
 ## Prerequisites
 
 * You must have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

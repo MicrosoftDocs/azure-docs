@@ -5,14 +5,15 @@
  author: rishabv90
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 10/20/2021
+ ms.date: 04/20/2023
  ms.author: risverma
+ ms.reviewer: mattmcinnes
  ms.custom: include file
 ---
 
 Azure Compute offers virtual machine sizes that are Isolated to a specific hardware type and dedicated to a single customer. The Isolated sizes live and operate on specific hardware generation and will be deprecated when the hardware generation is retired or new hardware generation is available.
 
-Isolated virtual machine sizes are best suited for workloads that require a high degree of isolation from other customers’ workloads for reasons that include meeting compliance and regulatory requirements.  Utilizing an isolated size guarantees that your virtual machine is the only one running on that specific server instance. 
+Isolated virtual machine sizes are best suited for workloads that require a high degree of isolation from other customers’ workloads. This is sometimes required to meet compliance and regulatory requirements.  Utilizing an isolated size guarantees that your virtual machine is the only one running on that specific server instance. 
 
 
 Additionally, as the Isolated size VMs are large, customers may choose to subdivide the resources of these VMs by using [Azure support for nested virtual machines](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
@@ -33,7 +34,7 @@ The current Isolated virtual machine offerings include:
 
 
 > [!NOTE]
-> Isolated VM Sizes have a hardware limited lifespan. Please see below for details
+> Isolated VM Sizes have a limited lifespan due to hardware deprecation.
 
 ## Deprecation of Isolated VM Sizes
 
@@ -53,11 +54,11 @@ Isolated VM sizes have a hardware limited lifespan. Azure issues reminders 12 mo
 ### Q: Is the size going to get retired or only its "isolation" feature?
 **A**: Any size that is published as isolated but have no "i" in the name, the isolation feature of the VM sizes is being retired unless communicated differently. Sizes with "i" in the name will be deprecated. 
 
-### Q: Is there a downtime when my vm lands on a non-isolated hardware?
+### Q: Is there a downtime when my vm lands on a nonisolated hardware?
 **A**: For VM sizes, where only isolation is deprecating but not the size, no action is needed and there will be no downtime. 
 On contrary if isolation is required, announcement includes the recommended replacement size. Selecting the replacement size requires customers to resize their VMs.  
 
-### Q: Is there any cost delta for moving to a non-isolated virtual machine?
+### Q: Is there any cost delta for moving to a nonisolated virtual machine?
 **A**: No
 
 ### Q: When are the other isolated sizes going to retire?

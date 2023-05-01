@@ -34,6 +34,10 @@ When scanning SAP HANA source, Microsoft Purview supports extracting technical m
 
 When setting up scan, you can choose to scan an entire SAP HANA database, or scope the scan to a subset of schemas matching the given name(s) or name pattern(s).
 
+### Known limitations
+
+When object is deleted from the data source, currently the subsequent scan won't automatically remove the corresponding asset in Microsoft Purview.
+
 ## Prerequisites
 
 * You must have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -75,7 +79,7 @@ GRANT SELECT ON SCHEMA _SYS_BIC TO <user>;
 
 ## Register
 
-This section describes how to register a SAP HANA in Microsoft Purview by using [the Microsoft Purview governance portal](https://web.purview.azure.com/).
+This section describes how to register an SAP HANA in Microsoft Purview by using [the Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 1. Open the Microsoft Purview governance portal by:
     - Browsing directly to [https://web.purview.azure.com](https://web.purview.azure.com) and selecting your Microsoft Purview account.
@@ -90,7 +94,7 @@ This section describes how to register a SAP HANA in Microsoft Purview by using 
 
    1. For **Name**, enter a name that Microsoft Purview will list as the data source.
 
-   1. For **Server**, enter the host name or IP address used to connect to a SAP HANA source. For example, `MyDatabaseServer.com` or `192.169.1.2`.
+   1. For **Server**, enter the host name or IP address used to connect to an SAP HANA source. For example, `MyDatabaseServer.com` or `192.169.1.2`.
 
    1. For **Port**, enter the port number used to connect to the database server (39013 by default for SAP HANA).
 
@@ -106,7 +110,7 @@ Use the following steps to scan SAP HANA databases to automatically identify ass
 
 ### Authentication for a scan
 
-The supported authentication type for a SAP HANA source is **Basic authentication**.
+The supported authentication type for an SAP HANA source is **Basic authentication**.
 
 ### Create and run scan
 
