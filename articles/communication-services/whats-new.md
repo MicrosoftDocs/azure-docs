@@ -133,7 +133,7 @@ Services features.
 
 ABN AMRO used Azure Communication Services to make it easier for customers to get financial advice from anywhere. And they boosted their NPS in the process!
 
-[Read the full story](https://customers.microsoft.com/en-us/story/1607768338625418317-abnamro-bankingandcapitalmarkets-microsofteams)
+[Read the full story](https://customers.microsoft.com/story/1607768338625418317-abnamro-bankingandcapitalmarkets-microsofteams)
 
 <br>
 <br>
@@ -146,7 +146,7 @@ Use the gold mine of customer conversations to automatically generate customer i
 
 [Read the full blog post](https://techcommunity.microsoft.com/t5/azure-communication-services/get-insights-from-customer-interactions-with-azure-communication/ba-p/3783858)
 
-[Read about the Azure OpenAI service](https://azure.microsoft.com/en-us/products/cognitive-services/openai-service/)
+[Read about the Azure OpenAI service](https://azure.microsoft.com/products/cognitive-services/openai-service/)
 
 <br>
 <br>
