@@ -15,7 +15,7 @@ ms.date: 05/01/2023
 
 [!INCLUDE[NoSQL, MongoDB, Table](includes/appliesto-nosql-mongodb-table.md)]
 
-The [Azure Cosmos DB desktop data migration tool](https://github.com/azurecosmosdb/data-migration-desktop-tool) is an open-source command-line application to import or export data from Azure Cosmos DB. The tool can migrate data to and from:
+The [Azure Cosmos DB desktop data migration tool](https://github.com/azurecosmosdb/data-migration-desktop-tool) is an open-source command-line application to import or export data from Azure Cosmos DB. The tool can migrate data to and from many sources and sinks including, but not limited to:
 
 - Azure Cosmos DB for NoSQL
 - Azure Cosmos DB for MongoDB
