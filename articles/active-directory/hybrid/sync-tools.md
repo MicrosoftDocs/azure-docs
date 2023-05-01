@@ -33,7 +33,7 @@ ms.collection: M365-identity-device-management
 Each of these tools can accomplish similar results.  So selecting the right tool is essential.  For most scenarios, cloud sync is going to be the recommended tool.  Then connect sync and for advanced/complex scenarios, MIM.  For on-premises applications, the ECMA Host would be the preferred tool.  For more information, [see the supported sync scenarios table](common-scenarios.md#supported-sync-scenarios).   To determine which tool is right for you, you should use the wizard at the [Choosing the right sync tool](https://setup.microsoft.com/azure/add-or-sync-users-to-azure-ad) site.
 
 ## Next steps
-[Common scenarios](common-scenarios.md)
-[Choosing the right sync tool](https://setup.microsoft.com/azure/add-or-sync-users-to-azure-ad)
-[Steps to start](get-started.md)
-[Prerequisites](prerequisites.md)
+- [Common scenarios](common-scenarios.md)
+- [Choosing the right sync tool](https://setup.microsoft.com/azure/add-or-sync-users-to-azure-ad)
+- [Steps to start](get-started.md)
+- [Prerequisites](prerequisites.md)

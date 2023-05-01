@@ -68,7 +68,7 @@ For more information on the cloud sync prerequisites, see [Azure AD Connect prer
 For more information on the Azure AD Connect accounts, see [Azure AD Connect: Accounts and permissions](connect/reference-connect-accounts-permissions.md).
 
 ## Next steps
-[Common scenarios](common-scenarios.md)
-[Tools for synchronization](sync-tools.md)
-[Choosing the right sync tool](https://setup.microsoft.com/azure/add-or-sync-users-to-azure-ad)
-[Steps to start](get-started.md)
+- [Common scenarios](common-scenarios.md)
+- [Tools for synchronization](sync-tools.md)
+- [Choosing the right sync tool](https://setup.microsoft.com/azure/add-or-sync-users-to-azure-ad)
+- [Steps to start](get-started.md)

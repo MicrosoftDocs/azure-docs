@@ -40,7 +40,7 @@ To use the new feature, follow the steps below.
 For more information, see [Accidental delete prevention with cloud sync](cloud-sync/how-to-accidental-deletes.md)
 
 
-## Configure accidental delete prevention with Azure AD Connect.
+## Configure accidental delete prevention with Azure AD Connect
 The default value of 500 objects can be changed with PowerShell using `Enable-ADSyncExportDeletionThreshold`, which is part of the [AD Sync module](connect/reference-connect-adsync.md) installed with Azure Active Directory Connect. You should configure this value to fit the size of your organization. Since the sync scheduler runs every 30 minutes, the value is the number of deletes seen within 30 minutes.
 
-For more information, see [Accidental delete prevention with Azure AD Connect](connect/how-to-connect-sync-feature-prevent-accidental-deletes.md)
+For more information, see [Accidental delete prevention with Azure AD Connect](connect/how-to-connect-sync-feature-prevent-accidental-deletes.md).

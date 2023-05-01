@@ -44,6 +44,4 @@ Azure Active Directory (Azure AD) Seamless single sign-on (Seamless single sign-
 |Roll out the feature|Gradually implement single sign-on.|
 |Test single sign-on|Ensure single sign-on is working.|
 
-For more information, see [configuring single sign-on with Azure AD Connect](connect/how-to-connect-sso-quick-start.md).
-
-For more information, see [configuring single sign-on with cloud sync](cloud-sync/how-to-sso.md).
+For more information, see [configuring single sign-on with Azure AD Connect](connect/how-to-connect-sso-quick-start.md) and [configuring single sign-on with cloud sync](cloud-sync/how-to-sso.md).

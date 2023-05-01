@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 The following article describes the accounts that are required for each of the two synchronization tools.  Use these sections as a reference when configuring and setting up your environment.
 
-### Accounts for installing and running cloud sync 
+## Accounts for installing and running cloud sync 
 
 |Requirement|Description and more requirements|
 |-----|-----|
@@ -30,7 +30,7 @@ The following article describes the accounts that are required for each of the t
 
 For more information, on cloud sync accounts, and how to set up a custom gMSA account, see [Cloud sync prerequisites](cloud-sync/how-to-prerequisites.md).
 
-### Accounts for installing and running Azure AD Connect
+## Accounts for installing and running Azure AD Connect
 
 Azure AD Connect uses three accounts to *synchronize information* from on-premises Windows Server Active Directory (Windows Server AD) to Azure Active Directory (Azure AD):
 

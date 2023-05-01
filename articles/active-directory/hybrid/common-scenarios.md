@@ -76,7 +76,7 @@ For additional information, see [Choose the right authentication method for your
 |Support smartcard authentication for my users.| | |●| 
 
 ## Next steps
-[Tools for synchronization](sync-tools.md)
-[Choosing the right sync tool](https://setup.microsoft.com/azure/add-or-sync-users-to-azure-ad)
-[Steps to start](get-started.md)
-[Prerequisites](prerequisites.md)
+- [Tools for synchronization](sync-tools.md)
+- [Choosing the right sync tool](https://setup.microsoft.com/azure/add-or-sync-users-to-azure-ad)
+- [Steps to start](get-started.md)
+- [Prerequisites](prerequisites.md)

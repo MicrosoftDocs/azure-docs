@@ -1,5 +1,5 @@
 ---
-title: 'Get started integrating with Active Directory'
+title: 'Get started integrating with Azure Active Directory'
 description: This article describes the steps required to integrate with Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Steps to start integrating with Active Directory
+# Steps to start integrating with Azure Active Directory
 
 If you're new to hybrid identity, then this documentation is the place that you want to start.  If you haven't done so, it's recommended that you familiarize yourself with the [What is hybrid identity?](whatis-hybrid-identity.md) documentation before jumping in.  
 
@@ -44,14 +44,14 @@ Use these tasks if you're deploying Azure AD Connect to integrate with Active Di
 |[Determine which sync tool is correct for you](https://setup.microsoft.com/azure/add-or-sync-users-to-microsoft-365) |Use the wizard to determine whether cloud sync or Azure AD Connect is the right tool for you.|
 |[Review the Azure AD Connect prerequisites](connect/how-to-connect-install-prerequisites.md)|Review the necessary prerequisites before getting started.|
 |[Review and choose an installation type](connect/how-to-connect-install-select-installation.md)|Determine whether you'll use express or custom installation.|
-|[Download Azure AD Connect](https://www.microsoft.com/en-us/download/details.aspx?id=47594)|Download Azure AD Connect.|
+|[Download Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)|Download Azure AD Connect.|
 |[Install and configure Azure AD Connect express settings](connect/how-to-connect-install-express.md)|If you're using express settings, install and configure Azure AD Connect with express settings.|
 |[Install and configure Azure AD Connect custom settings](connect/how-to-connect-install-custom.md)|If you're using custom settings, install and configure Azure AD Connect with express settings.|
 |[Perform post installation tasks](connect/how-to-connect-post-installation.md)|Perform the post installation tasks.|
 |[Verify users are synchronizing](cloud-sync/tutorial-single-forest.md#verify-users-are-created-and-synchronization-is-occurring)|Make sure it's working.|
 
 ## Next steps
-[Common scenarios](common-scenarios.md)
-[Tools for synchronization](sync-tools.md)
-[Choosing the right sync tool](https://setup.microsoft.com/azure/add-or-sync-users-to-azure-ad)
-[Prerequisites](prerequisites.md)
+- [Common scenarios](common-scenarios.md)
+- [Tools for synchronization](sync-tools.md)
+- [Choosing the right sync tool](https://setup.microsoft.com/azure/add-or-sync-users-to-azure-ad)
+- [Prerequisites](prerequisites.md)
