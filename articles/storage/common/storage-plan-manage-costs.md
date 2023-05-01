@@ -98,23 +98,19 @@ If your account has the hierarchical namespace feature enabled, make sure that t
 
 All requests to the service are made by using REST operations from the Blob Storage REST API. You can use that REST API directly or use a tool or SDK. Any tool you use to interact with Blob Storage translates your interactions to REST operations. The following lists map operations to the type of transaction shown in the pricing page.
 
-<style>
-table {
-    border-collapse: collapse;
-}
-table, th, td {
-   border: 1px solid black;
-   vertical-align: top;
-}
-blockquote {
-    border-left: solid blue;
-    padding-left: 10px;
-}
-</style>
-
 | Write operations | List and create operations | Read operations |
 |----|-|---|
-| PutBlob<br>PutBlock<br>PutBlockList<br>AppendBlock<br>SnapshotBlob<br>CopyBlob<br>SetBlobTier| ListBlobs<br>ListContainers<br>FindBlobsByTags<br>CreateContainer| GetBlob<br>SetBlobTier|
+|PutBlob|ListBlobs|GetBlob|
+|PutBlock|ListContainers|SetBlobTier<sup>1</sup>|
+|PutBlockList|FindBlobsByTags||
+|AppendBlock|CreateContainer||
+|SnapshotBlob|||
+|CopyBlob|||
+|SetBlobTier<sup>2</sup>|||
+
+<sup>1</sup>    Applies only when changing to a cooler tier.
+
+<sup>2</sup>    Applies only when changing to a warmer tier.
 
 #### Pricing requests to the Data Lake Storage endpoint
 
