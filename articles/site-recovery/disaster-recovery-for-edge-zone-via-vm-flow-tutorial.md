@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 04/19/2023
-ms.author: v-pgaddala
+ms.author: ankitadutta
 ---
 
 # Tutorial: Set up disaster recovery for Azure Public MEC using VM Flow
