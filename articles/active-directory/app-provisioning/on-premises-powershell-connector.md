@@ -86,7 +86,7 @@ If you have already downloaded the provisioning agent and configured it for anot
  ## Create the Schema file
  Before you can use the PowerShell connector, you must first create and define a schema that the connector will use.  For this tutorial, a schema is provided.  
 
- 1. Copy the contents of [Appendix B](#apendix-b---schemaxml) in to a text file and save it as ***Schema.xml**.
+ 1. Copy the contents of [Appendix B](#apendix-b---schemaxml) in to a text file and save it as **Schema.xml**.
  2. Put the Schema.xml file in `C:\Program Files\Microsoft ECMA2Host\Service\ECMA`.
 
 ## Create the PowerShell Connector
@@ -101,6 +101,7 @@ If you have already downloaded the provisioning agent and configured it for anot
     -join (((48..90) + (96..122)) * 16 | Get-Random -Count 16 | % {[char]$_})
     ```
  4. On the **Properties** page, all of the information should be populated.  The table below is provided as reference.  Click **Next**.
+     
      |Property|Value|
      |-----|-----|
      |Name|The name you chose for the connector, which should be unique across all connectors in your environment. For example, `PowerShell`.|
@@ -248,8 +249,6 @@ Follow these steps to confirm that the connector host has started and has identi
     |Property|Value|
     |-----|-----|
     |Tenant URL|https://localhost:8585/ecma2host_connectorName/scim|
-
-   :::image type="content" source="media/on-premises-powershell-provisioning/config-1.png" alt-text="Screenshot that shows how to test connectivity." lightbox="media/on-premises-powershell-provisioning/config-1.png":::
 
  3. Enter the **Secret Token** value that you defined when you created the connector.
      >[!NOTE]
