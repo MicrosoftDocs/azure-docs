@@ -68,8 +68,6 @@ items:
         href: vm/monitor-virtual-machine-analyze.md
       - name: Create alerts
         href: vm/monitor-virtual-machine-alerts.md
-      - name: Migrate management pack logic
-        href: vm/monitor-virtual-machine-management-packs.md
   - name: Monitor Azure Monitor
     href: monitor-azure-monitor.md
   - name: Monitor applications
@@ -378,8 +376,7 @@ items:
     - name: Data collector API
       items:
       - name: Overview
-        href: logs/data-collector-api.md
-      - name: Log Analytics Data collector API
+        displayName: data collector api
         href: logs/data-collector-api.md
       - name: Log Analytics Data Collector API Pipeline example
         href: logs/create-pipeline-datacollector-api.md
@@ -475,6 +472,9 @@ items:
     - name: Overview
       displayName: Platform logs, Resource logs, Activity log
       href: logs/data-platform-logs.md
+    - name: Best practices
+      displayName: Logs, WAF, well architected framework
+      href: best-practices-logs.md
     - name: Log Analytics workspaces
       items:
         - name: Overview
@@ -692,33 +692,6 @@ items:
             href: /troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting
         - name: SDK support policy
           href: app/sdk-support-guidance.md
-        - name: Advanced SDK topics
-          items:
-          - name: Distributed tracing and telemetry correlation
-            href: app/distributed-tracing-telemetry-correlation.md
-            displayName: correlation headers, w3c, distributed tracing, tracing
-          - name: TelemetryProcessors
-            displayName: processors, filtering, telemetry filtering, telemetry processor
-            href: app/api-filtering-sampling.md
-          - name: Exceptions
-            href: app/asp-net-exceptions.md
-          - name: Log traces
-            href: app/asp-net-trace-logs.md
-          - name: Statsbeat
-            href: app/statsbeat.md
-          - name: Application Insights API summary
-            displayName: SDK, API, custom events, custom metrics, trackevent, trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency
-            href: app/api-custom-events-metrics.md
-          - name: Application Insights data model
-            href: app/data-model-complete.md
-          - name: Connection strings
-            href: app/sdk-connection-string.md
-            displayName: connection string, instrumentation key
-          - name: Sampling
-            displayName: adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling
-            href: app/sampling.md
-          - name: Remove Application Insights
-            href: app/remove-application-insights.md
       - name: OpenTelemetry instrumentation
         items:
         - name: Overview
@@ -731,6 +704,8 @@ items:
             href: app/java-spring-boot.md
           - name: Profiler
             href: app/java-standalone-profiler.md
+          - name: Get started (supplemental)
+            href: app/java-get-started-supplemental.md
           - name: Configuration
             items:
             - name: General
@@ -745,8 +720,6 @@ items:
                   href: app/java-standalone-telemetry-processors.md
                 - name: Examples
                   href: app/java-standalone-telemetry-processors-examples.md
-          - name: JVM arguments setup
-            href: app/java-standalone-arguments.md
           - name: Upgrade from 2.x
             href: app/java-standalone-upgrade-from-2x.md
         - name: FAQ
@@ -757,6 +730,33 @@ items:
           href: app/convert-classic-resource.md
         - name: Migrate to connection strings
           href: app/migrate-from-instrumentation-keys-to-connection-strings.md
+      - name: Advanced SDK topics
+        items:
+        - name: Distributed tracing and telemetry correlation
+          href: app/distributed-tracing-telemetry-correlation.md
+          displayName: correlation headers, w3c, distributed tracing, tracing
+        - name: TelemetryProcessors
+          displayName: processors, filtering, telemetry filtering, telemetry processor
+          href: app/api-filtering-sampling.md
+        - name: Exceptions
+          href: app/asp-net-exceptions.md
+        - name: Log traces
+          href: app/asp-net-trace-logs.md
+        - name: Statsbeat
+          href: app/statsbeat.md
+        - name: Application Insights API summary
+          displayName: SDK, API, custom events, custom metrics, trackevent, trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency
+          href: app/api-custom-events-metrics.md
+        - name: Application Insights data model
+          href: app/data-model-complete.md
+        - name: Connection strings
+          href: app/sdk-connection-string.md
+          displayName: connection string, instrumentation key
+        - name: Sampling
+          displayName: adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling
+          href: app/sampling.md
+        - name: Remove Application Insights
+          href: app/remove-application-insights.md
     - name: Features
       items:
       - name: Application dashboard
@@ -1162,8 +1162,6 @@ items:
        href: visualize/tutorial-logs-dashboards.md
      - name: Dashboard using application data
        href: app/tutorial-app-dashboards.md
-     - name: Upgrading Log Analytics Dashboards
-       href: logs/dashboard-upgrade.md
   - name: Power BI
     href: logs/log-powerbi.md
   - name: Grafana
@@ -1292,34 +1290,36 @@ items:
       href: alerts/alerts-overview.md
     - name: Alert types
       href: alerts/alerts-types.md
-    - name: Create a new alert rule
-      href: alerts/alerts-create-new-alert-rule.md
-    - name: Manage alert rules
-      href: alerts/alerts-manage-alert-rules.md
+    - name: Alert rules
+      items:
+        - name: Create a new alert rule
+          href: alerts/alerts-create-new-alert-rule.md
+        - name: Manage alert rules
+          href: alerts/alerts-manage-alert-rules.md
+        - name: Metric alert rules
+          items:
+          - name: Dynamic thresholds
+            href: alerts/alerts-dynamic-thresholds.md
+          - name: Single alert for multiple time series
+            href: alerts/alerts-metric-multiple-time-series-single-rule.md
+          - name: Metric alerts on logs
+            href: alerts/alerts-metric-logs.md
+          - name: Troubleshoot metric alerts
+            href: alerts/alerts-troubleshoot-metric.md
+        - name: Log alert rules
+          items:
+          - name: Edit log alerts created in previous versions
+            href: alerts/alerts-manage-alerts-previous-version.md
+          - name: Optimizing alert queries
+            href: alerts/alerts-log-query.md
+          - name: Troubleshoot log alerts
+            href: alerts/alerts-troubleshoot-log.md
+          - name: Webhook actions
+            href: alerts/alerts-log-webhook.md
+          - name: Log analytics alerts legacy API
+            href: alerts/api-alerts.md
     - name: Manage alert instances
       href: alerts/alerts-manage-alert-instances.md
-    - name: Metric alert rules
-      items:
-      - name: Dynamic thresholds
-        href: alerts/alerts-dynamic-thresholds.md
-      - name: Single alert for multiple time series
-        href: alerts/alerts-metric-multiple-time-series-single-rule.md
-      - name: Metric alerts on logs
-        href: alerts/alerts-metric-logs.md
-      - name: Troubleshoot metric alerts
-        href: alerts/alerts-troubleshoot-metric.md
-    - name: Log alert rules
-      items:
-      - name: Edit log alerts created in previous versions
-        href: alerts/alerts-manage-alerts-previous-version.md
-      - name: Optimizing alert queries
-        href: alerts/alerts-log-query.md
-      - name: Troubleshoot log alerts
-        href: alerts/alerts-troubleshoot-log.md
-      - name: Webhook actions
-        href: alerts/alerts-log-webhook.md
-      - name: Log analytics alerts legacy API
-        href: alerts/api-alerts.md
     - name: Prometheus metric alerts
       href: alerts/prometheus-alerts.md
     - name: Service health alerts
@@ -1328,19 +1328,19 @@ items:
         href: ../service-health/service-notifications.md
       - name: Configure alerts on notification events
         href: ../service-health/alerts-activity-log-service-notifications-portal.md
-    - name: Alert processing rules
-      href: alerts/alerts-processing-rules.md
-      displayName: Azure CLI, az monitor action rule
-    - name: Notifications and actions
+    - name: Respond to an alert
       items:
+      - name: Common schema for alerts
+        href: alerts/alerts-common-schema.md
       - name: Create an action group
         href: alerts/action-groups.md
       - name: Notification rate limiting
         href: alerts/alerts-rate-limiting.md
       - name: SMS alert behavior
         href: alerts/alerts-sms-behavior.md
-      - name: Common schema for alerts
-        href: alerts/alerts-common-schema.md
+      - name: Alert processing rules
+        href: alerts/alerts-processing-rules.md
+        displayName: Azure CLI, az monitor action rule
       - name: Configure the schema to get activity log alerts
         href: alerts/activity-log-alerts-webhook.md        
       - name: Non-common alert schema definition
@@ -1437,12 +1437,12 @@ items:
         href: autoscale/autoscale-common-scale-patterns.md
       - name: Scale with custom metrics
         href: autoscale/autoscale-custom-metric.md
+      - name: Autoscale Virtual Machine Scale Sets using PowerShell
+        href: autoscale/autoscale-using-powershell.md
       - name: Scale Virtual Machine Scale Sets using Resource Manager templates
         href: ../virtual-machine-scale-sets/tutorial-autoscale-template.md?toc=/azure/azure-monitor/toc.json
       - name: Scale Virtual Machine Scale Sets using CLI
         href: ../virtual-machine-scale-sets/tutorial-autoscale-cli.md?toc=/azure/azure-monitor/toc.json
-      - name: Scale Virtual Machine Scale Sets using PowerShell
-        href: ../virtual-machine-scale-sets/tutorial-autoscale-powershell.md?toc=/azure/azure-monitor/toc.json
       - name: Use webhooks and email notifications
         href: autoscale/autoscale-webhook-email.md
       - name: Autoscale diagnostics

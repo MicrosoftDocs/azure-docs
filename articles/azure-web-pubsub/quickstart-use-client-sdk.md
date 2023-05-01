@@ -128,7 +128,7 @@ Note that the SDK is available as a [NuGet packet](https://www.nuget.org/package
 
 ### Create and connect to the Web PubSub service
 
-This code example creates a Web PubSub client that connects to the Web PubSub service instance.  A client uses a Client Access URL to connect and authenticate with the service. It's best practice to not hard code the Client Access URL in your code. In the production world, we usually set up an app server to return this URL on demand.  
+This code example creates a Web PubSub client that connects to the Web PubSub service instance.  A client uses a Client Access URL to connect and authenticate with the service. It's best practice to not hard code the Client Access URL in your code. In the production world, we usually set up an app server to return this URL on demand. [Generate Client Access URL](./howto-generate-client-access-url.md) describes the practice in detail.
 
 For this example, you can use the Client Access URL you generated in the portal.
 

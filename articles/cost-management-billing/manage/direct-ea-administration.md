@@ -3,7 +3,7 @@ title: EA Billing administration on the Azure portal
 description: This article explains the common tasks that an enterprise administrator accomplishes in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/06/2023
+ms.date: 04/25/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -20,6 +20,8 @@ This article explains the common tasks that an Enterprise Agreement (EA) adminis
 > As of February 20, 2023 indirect EA customers won’t be able to manage their billing account in the EA portal. Instead, they must use the Azure portal. 
 > 
 > This change doesn’t affect Azure Government EA enrollments. They continue using the EA portal to manage their enrollment.
+> 
+> As of April 24, 2023 EA customers won't be able to manage their Azure Government EA enrollments from [Azure portal](https://portal.azure.com) instead they can manage it from [Azure Government portal](https://portal.azure.us).
 
 ## Manage your enrollment
 
@@ -44,6 +46,21 @@ Enterprise agreements and the customers accessing the agreements can have multip
     :::image type="content" source="./media/direct-ea-administration/search-cost-management.png" alt-text="Screenshot showing search for Cost Management + Billing." lightbox="./media/direct-ea-administration/search-cost-management.png" :::
 1. Select **Billing scopes** from the navigation menu and then select the billing account that you want to work with.  
     :::image type="content" source="./media/direct-ea-administration/select-billing-scope.png" alt-text="Screenshot showing select a billing account." lightbox="./media/direct-ea-administration/select-billing-scope.png" :::
+
+## Activate your enrollment 
+
+To activate your enrollment, the initial enterprise administrator signs in to the Azure portal using their work, school, or Microsoft account.
+If you've been set up as the enterprise administrator, you don't need to receive the activation email. You can login to Azure portal and activate the enrollment.
+
+### To activate an enrollment
+
+1. Sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes).
+1. Search for **Cost Management + Billing** and select it.  
+    :::image type="content" source="./media/direct-ea-administration/search-cost-management.png" alt-text="Screenshot showing search for Cost Management + Billing." lightbox="./media/direct-ea-administration/search-cost-management.png" :::
+1. Select the enrollment that you want to activate.  
+    :::image type="content" source="./media/direct-ea-administration/select-billing-scope.png" alt-text="Screenshot showing select a billing account." lightbox="./media/direct-ea-administration/select-billing-scope.png" :::
+1. Once the enrollment is selected, status of enrollment is changed to active.
+1. You can view the status of enrollment under **Essentials** on Summary view.
 
 ## View enrollment details
 

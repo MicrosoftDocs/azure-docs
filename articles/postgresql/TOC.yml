@@ -433,16 +433,18 @@
     items:
     - name: Create Server and Database
       items:
-      - name: Azure portal
-        href: flexible-server/quickstart-create-server-portal.md
-      - name: Azure CLI
-        href: flexible-server/quickstart-create-server-cli.md
-      - name: Bicep
-        displayName: Resource Manager, ARM
-        href: flexible-server/quickstart-create-server-bicep.md
       - name: ARM template
         displayName: Resource Manager
         href: flexible-server/quickstart-create-server-arm-template.md
+      - name: Azure CLI
+        href: flexible-server/quickstart-create-server-cli.md
+      - name: Azure portal
+        href: flexible-server/quickstart-create-server-portal.md
+      - name: Azure SDK for Python
+        href: flexible-server/quickstart-create-server-python-sdk.md
+      - name: Bicep
+        displayName: Resource Manager, ARM
+        href: flexible-server/quickstart-create-server-bicep.md
     - name: Connect and query
       items:
         - name: Connect to a server in VNET
@@ -455,18 +457,6 @@
           href: flexible-server/connect-java.md
         - name: .NET
           href: flexible-server/connect-csharp.md
-  - name: Tutorials
-    items:
-    - name: Build with AKS
-      items:
-      - name: Deploy Python App on Kubernetes
-        href: flexible-server/tutorial-django-aks-database.md
-    - name: Build with App Services
-      items:
-      - name: Create a web app in a virtual network
-        href: flexible-server/tutorial-webapp-server-vnet.md
-      - name: Deploy a Django app on App Service
-        href: ../app-service/tutorial-python-postgresql-app.md
   - name: Concepts
     items:
     - name: Servers
@@ -554,6 +544,10 @@
           href: flexible-server/concepts-connectivity.md
     - name: Azure Advisor recommendations
       href: flexible-server/concepts-azure-advisor-recommendations.md
+  - name: Integrations
+    items:
+    - name: Power BI
+      href: flexible-server/connect-with-power-bi-desktop.md
   - name: Troubleshooting
     items:  
     - name: Functional troubleshooting
@@ -586,6 +580,18 @@
       - name: Best practices for pg_dump and restore
         href: flexible-server/how-to-pgdump-restore.md
         displayName: Best practices for pg_dump and restore
+  - name: Tutorials
+    items:
+    - name: Build with AKS
+      items:
+      - name: Deploy Python App on Kubernetes
+        href: flexible-server/tutorial-django-aks-database.md
+    - name: Build with App Services
+      items:
+      - name: Create a web app in a virtual network
+        href: flexible-server/tutorial-webapp-server-vnet.md
+      - name: Deploy a Django app on App Service
+        href: ../app-service/tutorial-python-postgresql-app.md
   - name: How-to guides
     items:
     - name: Manage a server
@@ -602,7 +608,7 @@
         href: flexible-server/how-to-create-server-customer-managed-key-cli.md
       - name: Azure portal
         href: flexible-server/how-to-create-server-customer-managed-key-portal.md
-      - name: Azure API
+      - name: Azure REST API
         href: flexible-server/how-to-create-server-customer-managed-key-azure-api.md
     - name: Database deployment
       items:
@@ -693,6 +699,10 @@
         href: flexible-server/howto-alert-on-metrics.md
       - name: Configure and access logs
         href: flexible-server/howto-configure-and-access-logs.md
+    - name: Cost optimization
+      items:
+      - name: How to optimize costs
+        href: flexible-server/how-to-cost-optimization.md
     - name: Troubleshooting guides
       href: flexible-server/how-to-troubleshooting-guides.md
 - name: Hyperscale (Citus)

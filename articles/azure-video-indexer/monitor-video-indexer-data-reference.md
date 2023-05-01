@@ -6,7 +6,7 @@ ms.topic: reference
 ms.author: itnorman
 ms.service: azure-video-indexer
 ms.custom: subject-monitoring
-ms.date: 05/10/2022
+ms.date: 04/17/2023
 ---
 <!-- VERSION 2.3
 Template for monitoring data reference article for Azure services. This article is support for the main "Monitoring [servicename]" article for the service. -->
@@ -305,12 +305,14 @@ The following schemas are in use by Azure Video Indexer
             "ExternalId": null,
             "Filename": "1 Second Video 1.mp4",
             "AnimationModelId": null,
-            "BrandsCategories": null
+            "BrandsCategories": null,
+            "CustomLanguages": "en-US,ar-BH,hi-IN,es-MX",
+            "ExcludedAIs": "Faces",
+            "LogoGroupId": "ea9d154d-0845-456c-857e-1c9d5d925d95"
         }
     }
 }
   ```
-
 
 ## Next steps
 
