@@ -18,24 +18,24 @@ Please follow the next sections to create, view and manage an Azure Event Grid n
 1. Sign-in to the Azure portal.
 
 2. In the search box, enter Event Grid and select Event Grid service.
-
-![](media/create-view-manage-namespaces/search-event-grid.png)
+  
+    :::image type="content" source="media/create-view-manage-namespaces/search-event-grid.png" alt-text="Screenshot showing Event Grid the search results in the Azure portal.":::
 
 3. In the Overview page, select Create in any of the namespace cards available in the MQTT events or Custom events sections.
 
-![](media/create-view-manage-namespaces/overview-create.png)
+    :::image type="content" source="media/create-view-manage-namespaces/overview-create.png" alt-text="Screenshot showing Event Grid overview.":::
 
-4. On the Basics tab, select the Azure subscription, resource group, name, location and throughput units for your Event Grid namespace.
+4. On the Basics tab, select the Azure subscription, resource group, name, and location for your Event Grid namespace.
 
-![](media/create-view-manage-namespaces/namespace-creation-basics.png)
+    :::image type="content" source="media/create-view-manage-namespaces/namespace-creation-basics.png" alt-text="Screenshot showing Event Grid namespace creation basic tab.":::
 
 5. On the Tags tab, add the tags in case you need them.
 
-![](media/create-view-manage-namespaces/namespace-creation-tags.png)
+    :::image type="content" source="media/create-view-manage-namespaces/namespace-creation-tags.png" alt-text="Screenshot showing Event Grid namespace creation tags tab.":::
 
-6. On the Select Review + create tab, review your settings.
+6. On the Review + create tab, review your settings and select create.
 
-7. Select Create.
+    :::image type="content" source="media/create-view-manage-namespaces/namespace-creation-review.png" alt-text="Screenshot showing Event Grid namespace creation tags tab.":::
 
 ## View a namespace
 
@@ -43,44 +43,45 @@ Please follow the next sections to create, view and manage an Azure Event Grid n
 
 2. In the search box, enter Event Grid and select Event Grid service.
 
-![](media/create-view-manage-namespaces/search-event-grid.png)
+    :::image type="content" source="media/create-view-manage-namespaces/search-event-grid.png" alt-text="Screenshot showing Event Grid the search results in the Azure portal.":::
 
 3. In the Overview page, select View in any of the namespace cards available in the MQTT events or Custom events sections.
 
-![](media/create-view-manage-namespaces/overview-view.png)
+    :::image type="content" source="media/create-view-manage-namespaces/overview-view.png" alt-text="Screenshot showing Event Grid overview page.":::
 
 4. In the View page, filter by the subscription you want to explore resources and select Apply.
 
-![](media/create-view-manage-namespaces/filter-subscription.png)
+    :::image type="content" source="media/create-view-manage-namespaces/filter-subscription.png" alt-text="Screenshot showing Event Grid filter in resource list.":::
 
 5. Select the namespace from the list of resources in the subscription.
 
-![](media/create-view-manage-namespaces/namespace-resource-in-list.png)
+    :::image type="content" source="media/create-view-manage-namespaces/namespace-resource-in-list.png" alt-text="Screenshot showing Event Grid resource in list":::
 
-6. Explore the namespace settings and features available.
+6. Explore the namespace settings.
 
-![](media/create-view-manage-namespaces/namespace-features.png)
+    :::image type="content" source="media/create-view-manage-namespaces/namespace-features.png" alt-text="Screenshot showing Event Grid resource settings":::
 
 ## Enable MQTT
 
 In case you want to enable the MQTT capabilities in the Azure Event Grid namespace, you will need go to **Configuration** and check the option Enable MQTT.
 
-![](media/create-view-manage-namespaces/enable-MQTT.png)
+  :::image type="content" source="media/create-view-manage-namespaces/enable-MQTT.png" alt-text="Screenshot showing Event Grid MQTT settings":::
 
 > [!NOTE]
 > Please note once MQTT is enabled it cannot be disabled.
 
 ## Delete a namespace
 
-1. Follow instructions from the [View a namespace](#view-a-namespace) section to view all the namespaces, and select the namespace that you want to delete from the list. 
-2. On the **Overview** page, select **Delete** on the toolbar. 
+1. Follow instructions from the [View a namespace](#view-a-namespace) section to view all the namespaces, and select the namespace that you want to delete from the list.
 
-    ![](./media/create-view-manage-namespaces/delete-namespace.png)
+2. On the **Overview** page, select **Delete** on the toolbar.
+
+    :::image type="content" source="media/create-view-manage-namespaces/delete-namespace.png" alt-text="Screenshot showing how to delete an Event Grid namespace":::
 
 3. On the confirmation page, type the name of the resource and select **Delete** to confirm the deletion. It deletes the namespace and also all the nested topics, subscriptions, and MQTT resources.
 
-    ![](./media/create-view-manage-namespaces/delete-namespace-confirmation.png)
+    :::image type="content" source="media/create-view-manage-namespaces/delete-namespace-confirmation.png" alt-text="Screenshot showing how to confirm an Event Grid namespace deletion":::
 
-# Next steps
+## Next steps
 
-See the [Client authentication using CA certificate chain](mqtt-certificate-chain-client-authentication.md) section to learn more about namespaces for IoT solutions supported by Azure Event Grid. 
+See the [Client authentication using CA certificate chain](mqtt-certificate-chain-client-authentication.md) section to learn more about namespaces for IoT solutions supported by Azure Event Grid.
