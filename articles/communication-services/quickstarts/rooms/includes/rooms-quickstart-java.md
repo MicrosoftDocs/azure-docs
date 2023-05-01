@@ -126,6 +126,22 @@ Retrieve the details of an existing `room` by referencing the `roomId`:
 CommunicationRoom roomResult = roomsClient.getRoom(roomId);
 ```
 
+### List all existing rooms
+
+Retrieve all existing `rooms` under your ACS resource.
+
+```java
+try {
+     PagedIterable<CommunicationRoom> rooms = roomsClient.listRooms();
+      for (CommunicationRoom room : rooms) {
+         System.out.println(room.getRoomId());
+     }
+} catch (Exception ex) {
+    System.out.println(ex);
+}
+```
+
+
 ### Update the lifetime of a room
 
 The lifetime of a `room` can be modified by issuing an update request for the `ValidFrom` and `ValidUntil` parameters. A room can be valid for a maximum of six months.
