@@ -104,7 +104,7 @@ You can also revert the option from *Standard* back to *Basic* network features,
 1. Select **Change network features**. 
 1. The **Edit network features** window displays the volumes that are in the same network sibling set. Confirm whether you want to modify the network features option. 
 
-    :::image type="content" source="../media/azure-netapp-files/edit-network-features.png" alt-text="Screenshot showing the Edit Network Features window" lightbox="../media/azure-netapp-files/edit-network-features.png":::
+    :::image type="content" source="../media/azure-netapp-files/edit-network-features.png" alt-text="Screenshot showing the Edit Network Features window." lightbox="../media/azure-netapp-files/edit-network-features.png":::
 
 ## Next steps  
 
