@@ -477,7 +477,7 @@ Your HR team may backdate a worker conversion transaction in Workday for valid b
 * No changes are required in the provisioning app configuration to handle this scenario. 
 
 #### Scenario 2: Worker employed as CW/FTE today, changes to FTE/CW today
-This scenario is similar to the above scenario, except that instead of backdating the transaction, HR performs a worker conversion that is effective immediately. The Azure AD provisioning service detects this change in the Workday transaction log. The service automatically provisions attributes associated with an active FTE profile in the next sync cycle. No changes are required in the provisioning app configuration to handle this scenario.  
+This scenario is similar to the above scenario, except that instead of backdating the transaction, HR performs a worker conversion that is effective immediately. The Azure AD provisioning service detects this change in the Workday transaction log. In the next sync cycle, the service automatically provisions any associated attributes with an active FTE profile. No changes are required in the provisioning app configuration to handle this scenario.  
 
 #### Scenario 3: Worker employed as CW/FTE is terminated, rejoins as FTE/CW after a significant gap 
 It's common for workers to start work at a company as a contingent worker, leave the company and then rejoin after several months as a full-time employee. Here's an example to illustrate how provisioning is handled for this scenario.
