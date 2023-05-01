@@ -3,7 +3,7 @@ title: Bicep file structure and syntax
 description: Describes the structure and properties of a Bicep file using declarative syntax.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 07/06/2022
+ms.date: 05/01/2023
 ---
 
 # Understand the structure and syntax of Bicep files
@@ -19,6 +19,8 @@ Bicep is a declarative language, which means the elements can appear in any orde
 A Bicep file has the following elements.
 
 ```bicep
+metadata <metadata-name> = {}
+
 targetScope = '<scope>'
 
 @<decorator>(<argument>)
@@ -43,6 +45,10 @@ output <output-name> <output-data-type> = <output-value>
 The following example shows an implementation of these elements.
 
 ```bicep
+metadata bicepDescription = {
+  description: 'Creates a storage account and a web app'
+}
+
 @minLength(3)
 @maxLength(11)
 param storagePrefix string
@@ -52,7 +58,7 @@ param location string = resourceGroup().location
 
 var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 
-resource stg 'Microsoft.Storage/storageAccounts@2019-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2022-09-01' = {
   name: uniqueStorageName
   location: location
   sku: {
@@ -71,9 +77,13 @@ module webModule './webApp.bicep' = {
     location: location
   }
 }
-
-output storageEndpoint object = stg.properties.primaryEndpoints
 ```
+
+## Metadata
+
+Metadata in Bicep is a untyped object that can be included in either a Bicep file or module. It allows you to provide additional information about your Bicep file or module, including details like its name, description, author, creation date, and more.
+
+Identifiers for `metadata`, `param`, `var`, `resource`, `module`, and `output` share the same namespace as [decorators](./parameters.md#decorators) and [Bicep functions](./bicep-functions.md). Using an identifier for metadata, such as 'description', can cause confusion if it collides with the decorator '@description('')'. It is recommended to choose an identifier that does not conflict with a decorator or function.
 
 ## Target scope
 
