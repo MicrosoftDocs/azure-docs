@@ -4,8 +4,7 @@ titleSuffix: Azure NAT Gateway
 description: Key concepts and design guidance on using NAT gateway with availability zones.
 services: virtual-network
 author: asudbring
-ms.service: virtual-network
-ms.subservice: nat
+ms.service: nat-gateway
 ms.topic: conceptual
 ms.date: 09/14/2022
 ms.author: allensu
@@ -77,6 +76,6 @@ If your scenario requires inbound endpoints, you have two options:
 
 ## Next steps
 
-* Learn more about [Azure regions and availability zones](../../availability-zones/az-overview.md)
+* Learn more about [Azure regions and availability zones](../availability-zones/az-overview.md)
 * Learn more about [Azure NAT Gateway](./nat-overview.md)
-* Learn more about [Azure Load balancer](../../load-balancer/load-balancer-overview.md)
+* Learn more about [Azure Load balancer](../load-balancer/load-balancer-overview.md)

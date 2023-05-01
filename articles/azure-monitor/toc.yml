@@ -1290,36 +1290,38 @@ items:
       href: alerts/alerts-overview.md
     - name: Alert types
       href: alerts/alerts-types.md
-    - name: Create a new alert rule
-      href: alerts/alerts-create-new-alert-rule.md
-    - name: Manage alert rules
-      href: alerts/alerts-manage-alert-rules.md
+    - name: Alert rules
+      items:
+        - name: Create a new alert rule
+          href: alerts/alerts-create-new-alert-rule.md
+        - name: Manage alert rules
+          href: alerts/alerts-manage-alert-rules.md
+        - name: Metric alert rules
+          items:
+          - name: Dynamic thresholds
+            href: alerts/alerts-dynamic-thresholds.md
+          - name: Single alert for multiple time series
+            href: alerts/alerts-metric-multiple-time-series-single-rule.md
+          - name: Metric alerts on logs
+            href: alerts/alerts-metric-logs.md
+          - name: Troubleshoot metric alerts
+            href: alerts/alerts-troubleshoot-metric.md
+        - name: Log alert rules
+          items:
+          - name: Edit log alerts created in previous versions
+            href: alerts/alerts-manage-alerts-previous-version.md
+          - name: Optimizing alert queries
+            href: alerts/alerts-log-query.md
+          - name: Troubleshoot log alerts
+            href: alerts/alerts-troubleshoot-log.md
+          - name: Webhook actions
+            href: alerts/alerts-log-webhook.md
+          - name: Legacy Log Analytics alerts API
+            href: alerts/api-alerts.md
+          - name: Upgrade from the legacy Log Analytics alert API
+            href: alerts/alerts-log-api-switch.md
     - name: Manage alert instances
       href: alerts/alerts-manage-alert-instances.md
-    - name: Metric alert rules
-      items:
-      - name: Dynamic thresholds
-        href: alerts/alerts-dynamic-thresholds.md
-      - name: Single alert for multiple time series
-        href: alerts/alerts-metric-multiple-time-series-single-rule.md
-      - name: Metric alerts on logs
-        href: alerts/alerts-metric-logs.md
-      - name: Troubleshoot metric alerts
-        href: alerts/alerts-troubleshoot-metric.md
-    - name: Log alert rules
-      items:
-      - name: Edit log alerts created in previous versions
-        href: alerts/alerts-manage-alerts-previous-version.md
-      - name: Optimizing alert queries
-        href: alerts/alerts-log-query.md
-      - name: Troubleshoot log alerts
-        href: alerts/alerts-troubleshoot-log.md
-      - name: Webhook actions
-        href: alerts/alerts-log-webhook.md
-      - name: Legacy Log Analytics alerts API
-        href: alerts/api-alerts.md
-      - name: Upgrade from the legacy Log Analytics alert API
-        href: alerts/alerts-log-api-switch.md
     - name: Prometheus metric alerts
       href: alerts/prometheus-alerts.md
     - name: Service health alerts
@@ -1328,19 +1330,19 @@ items:
         href: ../service-health/service-notifications.md
       - name: Configure alerts on notification events
         href: ../service-health/alerts-activity-log-service-notifications-portal.md
-    - name: Alert processing rules
-      href: alerts/alerts-processing-rules.md
-      displayName: Azure CLI, az monitor action rule
-    - name: Notifications and actions
+    - name: Respond to an alert
       items:
+      - name: Common schema for alerts
+        href: alerts/alerts-common-schema.md
       - name: Create an action group
         href: alerts/action-groups.md
       - name: Notification rate limiting
         href: alerts/alerts-rate-limiting.md
       - name: SMS alert behavior
         href: alerts/alerts-sms-behavior.md
-      - name: Common schema for alerts
-        href: alerts/alerts-common-schema.md
+      - name: Alert processing rules
+        href: alerts/alerts-processing-rules.md
+        displayName: Azure CLI, az monitor action rule
       - name: Configure the schema to get activity log alerts
         href: alerts/activity-log-alerts-webhook.md        
       - name: Non-common alert schema definition

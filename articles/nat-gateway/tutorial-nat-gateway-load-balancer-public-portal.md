@@ -4,8 +4,7 @@ titleSuffix: Azure NAT Gateway
 description: In this tutorial, learn how to integrate a NAT gateway with a public load Balancer using the Azure portal.
 author: asudbring
 ms.author: allensu
-ms.service: virtual-network
-ms.subservice: nat
+ms.service: nat-gateway
 ms.topic: tutorial
 ms.date: 05/24/2022
 ms.custom: template-tutorial
@@ -127,7 +126,7 @@ During the creation of the load balancer, you'll configure:
 8. Select **IP address** for the **IP type**.
 
     > [!NOTE]
-    > For more information on IP prefixes, see [Azure Public IP address prefix](../ip-services/public-ip-address-prefix.md).
+    > For more information on IP prefixes, see [Azure Public IP address prefix](../virtual-network/ip-services/public-ip-address-prefix.md).
 
 9. Select **Create new** in **Public IP address**.
 
@@ -136,7 +135,7 @@ During the creation of the load balancer, you'll configure:
 11. Select **Zone-redundant** in **Availability zone**.
 
     > [!NOTE]
-    > In regions with [Availability Zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../../availability-zones/az-overview.md).
+    > In regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../availability-zones/az-overview.md).
 
 12. Leave the default of **Microsoft Network** for **Routing preference**.
 

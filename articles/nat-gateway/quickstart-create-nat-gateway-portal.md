@@ -4,8 +4,7 @@ titlesuffix: Azure NAT Gateway
 description: This quickstart shows how to create a NAT gateway by using the Azure portal.
 author: asudbring
 ms.author: allensu
-ms.service: virtual-network
-ms.subservice: nat
+ms.service: nat-gateway
 ms.topic: quickstart 
 ms.date: 02/09/2023
 ms.custom: template-quickstart, FY23 content-maintenance

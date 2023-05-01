@@ -4,8 +4,7 @@ titleSuffix: Azure NAT Gateway
 description: Learn how to integrate a NAT gateway and Azure Firewall in a hub and spoke network.
 author: asudbring
 ms.author: allensu
-ms.service: virtual-network
-ms.subservice: nat
+ms.service: nat-gateway
 ms.topic: tutorial
 ms.date: 01/17/2023
 ms.custom: template-tutorial
@@ -15,7 +14,7 @@ ms.custom: template-tutorial
 
 In this tutorial, you’ll learn how to integrate a NAT gateway with an Azure Firewall in a hub and spoke network
 
-Azure Firewall provides [2,496 SNAT ports per public IP address](../../firewall/integrate-with-nat-gateway.md) configured per backend Virtual Machine Scale Set instance (minimum of two instances). You can associate up to 250 public IP addresses to Azure Firewall. Depending on your architecture requirements and traffic patterns, you may require more SNAT ports than what Azure Firewall can provide. You may also require the use of fewer public IPs while also requiring more SNAT ports. A better method for outbound connectivity is to use NAT gateway. NAT gateway provides 64,512 SNAT ports per public IP address and can be used with up to 16 public IP addresses. 
+Azure Firewall provides [2,496 SNAT ports per public IP address](../firewall/integrate-with-nat-gateway.md) configured per backend Virtual Machine Scale Set instance (minimum of two instances). You can associate up to 250 public IP addresses to Azure Firewall. Depending on your architecture requirements and traffic patterns, you may require more SNAT ports than what Azure Firewall can provide. You may also require the use of fewer public IPs while also requiring more SNAT ports. A better method for outbound connectivity is to use NAT gateway. NAT gateway provides 64,512 SNAT ports per public IP address and can be used with up to 16 public IP addresses. 
 
 NAT gateway can be integrated with Azure Firewall by configuring NAT gateway directly to the Azure Firewall subnet in order to provide a more scalable method of outbound connectivity. For production deployments, a hub and spoke network is recommended, where the firewall is in its own virtual network. The workload servers are peered virtual networks in the same region as the hub virtual network where the firewall resides. In this architectural setup, NAT gateway can provide outbound connectivity from the hub virtual network for all spoke virtual networks peered.
 

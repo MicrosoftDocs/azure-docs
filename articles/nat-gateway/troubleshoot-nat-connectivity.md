@@ -2,8 +2,7 @@
 title: Troubleshoot Azure NAT Gateway connectivity
 description: Troubleshoot connectivity issues with a NAT gateway.
 author: asudbring
-ms.service: virtual-network
-ms.subservice: nat
+ms.service: nat-gateway
 ms.custom: ignite-2022
 ms.topic: troubleshooting
 ms.date: 04/24/2023
@@ -44,7 +43,7 @@ The following table describes a scenario where a long TCP idle timeout timer is 
 
 | Scenario | Evidence | Mitigation | 
 |---|---|---| 
-| You want to ensure that TCP connections stay active for long periods of time without idling and timing out. You increase the TCP idle timeout timer setting. After a period of time, you start to notice that connection failures occur more often. You suspect that you may be exhausting your inventory of SNAT ports since connections are holding on to them longer. | You check the following [NAT gateway metrics](nat-metrics.md) in Azure Monitor to determine if SNAT port exhaustion is happening: **Total SNAT Connection Count**: "Sum" aggregation shows high connection volume. For  **SNAT Connection Count**, "Failed" connection state shows transient or persistent failures over time. **Dropped Packets**: "Sum" aggregation shows packets dropping consistent with high connection volume and connection failures. | Some possible steps you can take to resolve SNAT port exhaustion include: </br></br> **Reduce the TCP idle timeout** to a lower value to free up SNAT port inventory earlier. The TCP idle timeout timer can't be set lower than 4 minutes. </br></br> Consider **[asynchronous polling patterns](/azure/architecture/patterns/async-request-reply)** to free up connection resources for other operations. </br></br> **Use TCP keepalives or application layer keepalives** to avoid intermediate systems timing out. For examples, see [.NET examples](/dotnet/api/system.net.servicepoint.settcpkeepalive). </br></br> Make connections to Azure PaaS services over the Azure backbone using **[Private Link](../../private-link/private-link-overview.md)**. The use of private link frees up SNAT ports for outbound connections to the internet. |
+| You want to ensure that TCP connections stay active for long periods of time without idling and timing out. You increase the TCP idle timeout timer setting. After a period of time, you start to notice that connection failures occur more often. You suspect that you may be exhausting your inventory of SNAT ports since connections are holding on to them longer. | You check the following [NAT gateway metrics](nat-metrics.md) in Azure Monitor to determine if SNAT port exhaustion is happening: **Total SNAT Connection Count**: "Sum" aggregation shows high connection volume. For  **SNAT Connection Count**, "Failed" connection state shows transient or persistent failures over time. **Dropped Packets**: "Sum" aggregation shows packets dropping consistent with high connection volume and connection failures. | Some possible steps you can take to resolve SNAT port exhaustion include: </br></br> **Reduce the TCP idle timeout** to a lower value to free up SNAT port inventory earlier. The TCP idle timeout timer can't be set lower than 4 minutes. </br></br> Consider **[asynchronous polling patterns](/azure/architecture/patterns/async-request-reply)** to free up connection resources for other operations. </br></br> **Use TCP keepalives or application layer keepalives** to avoid intermediate systems timing out. For examples, see [.NET examples](/dotnet/api/system.net.servicepoint.settcpkeepalive). </br></br> Make connections to Azure PaaS services over the Azure backbone using **[Private Link](../private-link/private-link-overview.md)**. The use of private link frees up SNAT ports for outbound connections to the internet. |
 
 ## Connection failures due to idle timeouts 
 
@@ -81,7 +80,7 @@ If you're still having trouble, open a support case for further troubleshooting.
 
 ### Virtual appliance UDRs and ExpressRoute override NAT gateway for routing outbound traffic 
 
-When forced tunneling with a custom UDR is enabled to direct traffic to a virtual appliance or VPN through ExpressRoute, the UDR or ExpressRoute takes precedence over NAT gateway for directing internet bound traffic. To learn more, see [custom UDRs](../virtual-networks-udr-overview.md#custom-routes).  
+When forced tunneling with a custom UDR is enabled to direct traffic to a virtual appliance or VPN through ExpressRoute, the UDR or ExpressRoute takes precedence over NAT gateway for directing internet bound traffic. To learn more, see [custom UDRs](../virtual-network/virtual-networks-udr-overview.md#custom-routes).  
 
 The order of precedence for internet routing configurations is as follows:  
 Virtual appliance UDR / ExpressRoute >> NAT gateway >> instance level public IP addresses >> outbound rules on Load balancer >> default outbound access  
@@ -90,27 +89,27 @@ Test and resolve issues with a virtual appliance UDR or VPN ExpressRoute overrid
 
 1. [Testing that the NAT gateway public IP](./quickstart-create-nat-gateway-portal.md#test-nat-gateway) is used for outbound traffic. If a different IP is being used, it could be because of a custom UDR, follow the remaining steps on how to check for and remove custom UDRs. 
 
-2. Check for UDRs in the virtual network’s route table, refer to [view route tables](../manage-route-table.md#view-route-tables). 
+2. Check for UDRs in the virtual network’s route table, refer to [view route tables](../virtual-network/manage-route-table.md#view-route-tables). 
 
-3. Remove the UDR from the route table by following [create, change, or delete an Azure route table](../manage-route-table.md#change-a-route-table). 
+3. Remove the UDR from the route table by following [create, change, or delete an Azure route table](../virtual-network/manage-route-table.md#change-a-route-table). 
 
 Once the custom UDR is removed from the routing table, the NAT gateway public IP should now take precedence in routing outbound traffic to the internet.  
 
 ### Private IPs are used to connect to Azure services by Private Link 
 
-[Private Link](../../private-link/private-link-overview.md) connects your Azure virtual networks privately to Azure PaaS services such as Azure Storage, Azure SQL, or Azure Cosmos DB over the Azure backbone network instead of over the internet. Private Link uses the private IP addresses of virtual machine instances in your virtual network to connect to these Azure platform services instead of the public IP of NAT gateway. As a result, when looking at the source IP address used to connect to these Azure services, you notice that the private IPs of your instances are used. See [Azure services listed here](../../private-link/availability.md) for all services supported by Private Link.
+[Private Link](../private-link/private-link-overview.md) connects your Azure virtual networks privately to Azure PaaS services such as Azure Storage, Azure SQL, or Azure Cosmos DB over the Azure backbone network instead of over the internet. Private Link uses the private IP addresses of virtual machine instances in your virtual network to connect to these Azure platform services instead of the public IP of NAT gateway. As a result, when looking at the source IP address used to connect to these Azure services, you notice that the private IPs of your instances are used. See [Azure services listed here](../private-link/availability.md) for all services supported by Private Link.
 
 To check which Private Endpoints you have set up with Private Link: 
 
 1. From the Azure portal, search for Private Link in the search box. 
 
-2. In the Private Link center, select Private Endpoints or Private Link services to see what configurations have been set up. For more information, see [Manage private endpoint connections](../../private-link/manage-private-endpoint.md#manage-private-endpoint-connections-on-azure-paas-resources). 
+2. In the Private Link center, select Private Endpoints or Private Link services to see what configurations have been set up. For more information, see [Manage private endpoint connections](../private-link/manage-private-endpoint.md#manage-private-endpoint-connections-on-azure-paas-resources). 
 
 Service endpoints can also be used to connect your virtual network to Azure PaaS services. To check if you have service endpoints configured for your virtual network: 
 
 1. From the Azure portal, navigate to your virtual network and select "Service endpoints" from Settings. 
 
-2. All Service endpoints created are listed along with which subnets they're configured. For more information, see [logging and troubleshooting Service endpoints](../virtual-network-service-endpoints-overview.md#logging-and-troubleshooting). 
+2. All Service endpoints created are listed along with which subnets they're configured. For more information, see [logging and troubleshooting Service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md#logging-and-troubleshooting). 
 
 >[!NOTE] 
 >Private Link is the recommended option over Service endpoints for private access to Azure hosted services. 
@@ -181,7 +180,7 @@ When SNAT ports are exhausted or application failures occur, aggressive or brute
 
 Depending on the configured idle timeout, if retries are too aggressive, connections may not have enough time to close and release SNAT ports for reuse. 
 
-For extra guidance and examples, see [Retry pattern](../../app-service/troubleshoot-intermittent-outbound-connection-errors.md). 
+For extra guidance and examples, see [Retry pattern](../app-service/troubleshoot-intermittent-outbound-connection-errors.md). 
 
 ### Use keepalives to reset the outbound idle timeout 
 
@@ -193,9 +192,9 @@ When possible, Private Link should be used to connect directly from your virtual
 
 To create a Private Link, see the following Quickstart guides to get started: 
 
-* [Create a Private Endpoint](../../private-link/create-private-endpoint-portal.md?tabs=dynamic-ip) 
+* [Create a Private Endpoint](../private-link/create-private-endpoint-portal.md?tabs=dynamic-ip) 
 
-* [Create a Private Link](../../private-link/create-private-link-service-portal.md)
+* [Create a Private Link](../private-link/create-private-link-service-portal.md)
 
 ## Next steps 
 
