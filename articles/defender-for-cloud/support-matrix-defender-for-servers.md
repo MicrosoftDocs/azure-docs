@@ -19,7 +19,7 @@ This table summarizes Azure cloud support for Defender for Servers features.
 **Feature/Plan** | **Azure** | **Azure Government** | **Azure China**<br/>**21Vianet**
 --- | --- | --- | --- 
 [Microsoft Defender for Endpoint integration](./integration-defender-for-endpoint.md) | GA | GA | NA
-[Compliance standards](./regulatory-compliance-dashboard.md)<br/><br/> Compliance standards might differ depending on the cloud type.| GA | GA | GA
+[Compliance standards](./regulatory-compliance-dashboard.md)<br/>Compliance standards might differ depending on the cloud type.| GA | GA | GA
 [Microsoft Cloud Security Benchmark recommendations for OS hardening](apply-security-baseline.md) | Preview | NA | NA 
 [VM vulnerability scanning-agentless](concept-agentless-data-collection.md) |?? | NA | NA
 [VM vulnerability scanning - Microsoft Defender for Endpoint sensor](deploy-vulnerability-assessment-defender-vulnerability-management.md) | GA | NA | NA
@@ -35,7 +35,7 @@ This table summarizes Azure cloud support for Defender for Servers features.
 
 The following table show feature support for Windows machines in Azure, Azure Arc, and other clouds.
 
-| **Feature**                                                                                                                       | **Azure VMs*<br/> [VM Scale Sets (Flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration)** | **Azure Arc-enabled machines** |    **Defender for Servers required**    |
+| **Feature**                                                                                                                       | **Azure VMs*<br/> **[VM Scale Sets (Flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration)** | **Azure Arc-enabled machines** |    **Defender for Servers required**    |
 | --------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------: | :-------------------------------------: |
 | [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md)                                               |                                                                                          ✔</br>(on supported versions)                                                                                          |               ✔               |                   Yes                   |
 | [Virtual machine behavioral analytics (and security alerts)](alerts-reference.md)                                                 |                                                                                                        ✔                                                                                                        |               ✔               |                   Yes                   |
@@ -60,7 +60,7 @@ The following table show feature support for Windows machines in Azure, Azure Ar
 
 The following table show feature support for Linux machines in Azure, Azure Arc, and other clouds.
 
-| **Feature**                                                                                                                       | **Azure Virtual Machines and [Virtual Machine Scale Sets with Flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration)** | **Azure Arc-enabled machines** |    **Defender for Servers required**    |
+| **Feature**                                                                                                                       | **Azure VMs**<br/> **[VM Scale Sets (Flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration)** | **Azure Arc-enabled machines** |    **Defender for Servers required**    |
 | --------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------: | :-------------------------------------: |
 | [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md)                                               |                                                                                                        ✔                                                                                                        |               ✔               |                   Yes                   |
 | [Virtual machine behavioral analytics (and security alerts)](./azure-defender.md)                                                 |                                                                                          ✔</br>(on supported versions)                                                                                          |               ✔               |                   Yes                   |
@@ -132,5 +132,5 @@ The following table provides a matrix of supported endpoint protection solutions
 
 ## Next steps
 
-- Learn how [Defender for Cloud collects data using the Log Analytics agent](monitoring-components.md#log-analytics-agent).
-- Learn how [Defender for Cloud manages and safeguards data](data-security.md).
+Start planning your [Defender for Servers deployment](plan-defender-for-servers.md).
+

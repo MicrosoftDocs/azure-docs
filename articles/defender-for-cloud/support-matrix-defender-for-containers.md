@@ -178,7 +178,7 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 | Discovery and provisioning | Auto provisioning of Azure policy extension | Arc enabled K8s clusters | Preview | - | Agentless | Defender for Containers |
 
 
-### Registries and images support-on-premises
+### Registries and images support -on-premises
 
 | Aspect | Details |
 |--|--|

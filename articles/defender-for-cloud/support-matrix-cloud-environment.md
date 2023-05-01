@@ -18,7 +18,8 @@ In the support table, **NA** indicates that the feature isn't available.
 **GENERAL FEATURES** | | |
 [Continuous data export](continuous-export.md) | GA | GA | GA
 [Response automation with Azure Logic Apps ](./workflow-automation.md) | GA | GA | GA
-[Alert email notifications](configure-email-notifications.md)<br/>Security alerts are available when one or more Defender for Cloud plans is enabled. | GA | GA | GA
+[Security alerts](alerts-overview)<br/> Generated when one or more Defender for Cloud plans is enabled. | GA | GA | GA
+[Alert email notifications](configure-email-notifications.md) | GA | GA | GA
 [Alert suppression rules](alerts-suppression-rules.md) | GA | GA | GA
 [Alert bi-directional synchronization with Microsoft Sentinel](../sentinel/connect-azure-security-center.md) | Preview | NA | NA
 [Azure Workbooks integration for reporting](custom-dashboards-azure-workbooks.md) | GA | GA | GA
@@ -31,17 +32,17 @@ In the support table, **NA** indicates that the feature isn't available.
 [Microsoft Cloud Security Benchmark recommendations](concept-regulatory-compliance.md) | GA | NA | NA
 **DEFENDER FOR CLOUD PLANS** | | |
 [Defender CSPM](concept-cloud-security-posture-management.md)| GA | NA | NA
-[Defender for APIs](defender-for-apis-introduction.md). [Review](defender-for-apis-prepare.md#cloud-and-region-support) the regions supported in preview. | Preview | NA | NA
+[Defender for APIs](defender-for-apis-introduction.md). [Review support preview regions](defender-for-apis-prepare.md#cloud-and-region-support). | Preview | NA | NA
 [Defender for App Service](defender-for-app-service-introduction.md) | GA | NA | NA
 [Defender for Azure Cosmos DB](concept-defender-for-cosmos.md) | Preview | NA | NA
 [Defender for Azure SQL database servers](defender-for-sql-introduction.md)<br/>Partial GA in Vianet21<br/> - A subset of alerts/vulnerability assessments is available.<br/>- Behavioral threat protection isn't available.| GA | GA | GA
-[Defender for Containers](defender-for-containers-introduction.md)<br/>(Review [detailed feature support](support-matrix-defender-for-containers.md) | GA | GA | GA
+[Defender for Containers](defender-for-containers-introduction.md)<br/>[Review detailed feature support](support-matrix-defender-for-containers.md) | GA | GA | GA
 [Defender for DevOps](defender-for-devops-introduction.md) |Preview | NA | NA
 [Defender for DNS](defender-for-dns-introduction.md) | GA | GA | GA
 [Defender for Key Vault](defender-for-key-vault-introduction.md) | GA | NA | NA
 [Defender for Open-Source Relational Databases](defender-for-databases-introduction.md) | GA | NA | NA  
 [Defender for Resource Manager](defender-for-resource-manager-introduction.md) | GA | GA | GA
-[Defender for Servers](plan-defender-for-servers.md) (Review [detailed feature support](support-matrix-defender-for-servers.md) | GA | GA | GA
+[Defender for Servers](plan-defender-for-servers.md)<br/>[Review detailed feature support](support-matrix-defender-for-servers.md). | GA | GA | GA
 [Defender for Storage](defender-for-storage-introduction.md) | GA | GA (activity monitoring) | NA
 [Defender for SQL Servers on Machines](defender-for-sql-introduction.md) | GA | GA | NA
 
