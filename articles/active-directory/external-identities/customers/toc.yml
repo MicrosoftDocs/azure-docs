@@ -50,7 +50,7 @@ items:
                 - name: React
                   items:
                     - name: Sign in users and call an API
-                      href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart 
+                      href: ../../develop/web-api-quickstart 
             - name: Web app
               items:
                 - name: Node.js
@@ -62,13 +62,13 @@ items:
                     - name: Sign in users
                       href: how-to-web-app-dotnet-sample-sign-in.md
             - name: Headless app
-              href: https://learn.microsoft.com/azure/active-directory/develop/console-app-quickstart
+              href: ../../develop/console-app-quickstart
             - name: Desktop app
               items:
                 - name: Electron
                   href: how-to-desktop-app-electron-sample-sign-in.md
             - name: Mobile app
-              href: https://learn.microsoft.com/azure/active-directory/develop/mobile-app-quickstart
+              href: ../../develop/mobile-app-quickstart
         - name: Build and integrate apps
           items: 
             - name: Single-page app (SPA)
@@ -78,7 +78,7 @@ items:
                     - name: Sign in users
                       items:
                         - name: Overview
-                          href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
+                          href: ../../develop/web-api-quickstart
                         - name: Prepare tenant
                           href: how-to-single-page-app-vanillajs-prepare-tenant.md
                         - name: Prepare app
@@ -92,17 +92,17 @@ items:
                     - name: Sign in users
                       items:
                         - name: Overview
-                          href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
+                          href: ../../develop/web-api-quickstart
                         - name: Prepare tenant
-                          href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
+                          href: ../../develop/web-api-quickstart
                         - name: Prepare app
-                          href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
+                          href: ../../develop/web-api-quickstart
                         - name: Configure app for authentication
-                          href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
+                          href: ../../develop/web-api-quickstart
                         - name: Sign in and sign out
-                          href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
+                          href: ../../develop/web-api-quickstart
                 - name: Angular JS - Sign in users and call an API
-                  href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-angular-auth-code
+                  href: ../../develop/tutorial-v2-angular-auth-code
 
             - name: Web app
               items: 
@@ -123,7 +123,7 @@ items:
                     - name: Sign in users
                       items:
                         - name: Overview
-                          href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
+                          href: ../../develop/tutorial-v2-asp-webapp
                         - name: Prepare tenant
                           href: how-to-web-app-dotnet-sign-in-prepare-tenant.md
                         - name: Prepare app
@@ -135,30 +135,30 @@ items:
                 - name: Protect ASP.NET API
                   items:
                     - name: Overview
-                      href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
+                      href: ../../develop/tutorial-v2-asp-webapp
                     - name: Prepare API app
-                      href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
+                      href: ../../develop/tutorial-v2-asp-webapp
                     - name: Protect API endpoints
-                      href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
+                      href: ../../develop/tutorial-v2-asp-webapp
                     - name: Test API
-                      href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
+                      href: ../../develop/tutorial-v2-asp-webapp
 
             - name: Headless app
               items: 
                 - name: Node​ - Sign in users
-                  href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-nodejs-console
+                  href: ../../develop/tutorial-v2-nodejs-console
                 - name: .NET​ - Sign in users
-                  href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-aspnet-daemon-web-app
+                  href: ../../develop/tutorial-v2-aspnet-daemon-web-app
             - name: Desktop app
               items: 
                 - name: .NET MAUI - Sign in users
-                  href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-ios
+                  href: ../../develop/tutorial-v2-ios
                 - name: Electron​ - Sign in users
-                  href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-nodejs-desktop
+                  href: ../../develop/tutorial-v2-nodejs-desktop
             - name: Mobile app
               items: 
                 - name: .NET MAUI - Sign in users
-                  href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-ios
+                  href: ../../develop/tutorial-v2-ios
     - name: Authenticate and authorize
       expanded: true
       items:
