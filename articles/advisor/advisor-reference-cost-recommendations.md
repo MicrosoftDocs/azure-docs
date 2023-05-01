@@ -316,6 +316,18 @@ Apache Spark for Azure Synapse Analytics pool's Autoscale feature automatically 
 
 Learn more about [Synapse workspace - EnableSynapseSparkComputeAutoScaleGuidance (Consider enabling autoscale feature on spark compute.)](https://aka.ms/EnableSynapseSparkComputeAutoScaleGuidance).
 
+## Web
+
+### Right-size underutilized App Service plans
+
+We've analyzed the usage patterns of your app service plan over the past 7 days and identified low CPU usage. While certain scenarios can result in low utilization by design, you can often save money by choosing a less expensive SKU while retaining the same features.
+
+> [!NOTE]
+> - Currently, this recommendation only works for App Service plans running on Windows on a SKU that allows you to downscale to less expensive tiers without losing any features, like from P3v2 to P2v2 or from P2v2 to P1v2. 
+> - CPU bursts that last only a few minutes might not be correctly detected. Please perform a careful analysis in your App Service plan metrics blade before downscaling your SKU.
+
+Learn more about [App Service plans](../app-service/overview-hosting-plans.md).
+
 ## Azure Monitor
 
 For Azure Monitor cost optimization suggestions, please see [Optimize costs in Azure Monitor](../azure-monitor/best-practices-cost.md).

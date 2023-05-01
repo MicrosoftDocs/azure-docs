@@ -55,16 +55,16 @@ To determine if you have the Azure Az modules installed, run `Get-InstalledModul
 ### Install using the Install-Script method
 
 To use this option, you must not have the Azure Az modules installed on your computer. If they're installed, the following command displays an error. You can either uninstall the Azure Az modules, or use the other option to download the script manually and run it.
-  
+
 Run the script with the following command to get the latest version:
 
 `Install-Script -Name AzureAppGWMigration -Force`
 
-This command also installs the required Az modules.  
+This command also installs the required Az modules.
 
 ### Install using the script directly
 
-If you do have some Azure Az modules installed and can't uninstall them (or don't want to uninstall them), you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw nupkg file. To install the script from this nupkg file, see [Manual Package Download](/powershell/scripting/gallery/how-to/working-with-packages/manual-download).
+If you do have some Azure Az modules installed and can't uninstall them (or don't want to uninstall them), you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw nupkg file. To install the script from this nupkg file, see [Manual Package Download](/powershell/gallery/how-to/working-with-packages/manual-download).
 
 To run the script:
 
@@ -93,7 +93,7 @@ To run the script:
      You can also run the following Azure PowerShell commands to get the Resource ID:
 
      ```azurepowershell
-     $appgw = Get-AzApplicationGateway -Name <v1 gateway name> -ResourceGroupName <resource group Name> 
+     $appgw = Get-AzApplicationGateway -Name <v1 gateway name> -ResourceGroupName <resource group Name>
      $appgw.Id
      ```
 
@@ -104,11 +104,11 @@ To run the script:
 
      This parameter is only optional if you don't have HTTPS listeners configured for your v1 gateway or WAF. If you have at least one HTTPS listener setup, you must specify this parameter.
 
-      ```azurepowershell  
+      ```azurepowershell
       $password = ConvertTo-SecureString <cert-password> -AsPlainText -Force
       $mySslCert1 = New-AzApplicationGatewaySslCertificate -Name "Cert01" `
         -CertificateFile <Cert-File-Path-1> `
-        -Password $password 
+        -Password $password
       $mySslCert2 = New-AzApplicationGatewaySslCertificate -Name "Cert02" `
         -CertificateFile <Cert-File-Path-2> `
         -Password $password
@@ -116,7 +116,7 @@ To run the script:
 
      You can pass in `$mySslCert1, $mySslCert2` (comma-separated) in the previous example as values for this parameter in the script.
    * **trustedRootCertificates: [PSApplicationGatewayTrustedRootCertificate]: Optional**. A comma-separated list of PSApplicationGatewayTrustedRootCertificate objects that you create to represent the [Trusted Root certificates](ssl-overview.md) for authentication of your backend instances from your v2 gateway.
-   
+
       ```azurepowershell
       $certFilePath = ".\rootCA.cer"
       $trustedCert = New-AzApplicationGatewayTrustedRootCertificate -Name "trustedCert1" -CertificateFile $certFilePath
@@ -150,7 +150,7 @@ To run the script:
 First, double check that the script successfully created a new v2 gateway with the exact configuration migrated over from your v1 gateway. You can verify this from the Azure portal.
 
 Also, send a small amount of traffic through the v2 gateway as a manual test.
-  
+
 Here are a few scenarios where your current application gateway (Standard) may receive client traffic, and our recommendations for each one:
 
 * **A custom DNS zone (for example, contoso.com) that points to the frontend IP address (using an A record) associated with your Standard v1 or WAF v1 gateway**.
@@ -178,7 +178,7 @@ The pricing models are different for the Application Gateway v1 and v2 SKUs. Ple
 
 Yes. See [Caveats/Limitations](#caveatslimitations).
 
-### Is this article and the Azure PowerShell script applicable for Application Gateway WAF product as well? 
+### Is this article and the Azure PowerShell script applicable for Application Gateway WAF product as well?
 
 Yes.
 
@@ -199,7 +199,7 @@ No. The script doesn't  replicate this configuration for v2. You must add the lo
 No. Currently the script doesn't support certificates in KeyVault. However, this is being considered for a future version.
 
 ### I ran into some issues with using this script. How can I get help?
-  
+
 You can contact Azure Support under the topic "Configuration and Setup/Migrate to V2 SKU". Learn more about [Azure support here](https://azure.microsoft.com/support/options/).
 
 ## Next steps

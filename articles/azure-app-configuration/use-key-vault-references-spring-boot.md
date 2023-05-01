@@ -185,60 +185,6 @@ To add a secret to the vault, you need to take just a few additional steps. In t
     }
     ```
 
-1. Create a new file called *AzureCredentials.java* and add the code below.
-
-    ```java
-    package com.example.demo;
-
-    import com.azure.core.credential.TokenCredential;
-    import com.azure.identity.EnvironmentCredentialBuilder;
-    import com.azure.spring.cloud.config.AppConfigurationCredentialProvider;
-    import com.azure.spring.cloud.config.KeyVaultCredentialProvider;
-
-    public class AzureCredentials implements AppConfigurationCredentialProvider, KeyVaultCredentialProvider{
-
-        @Override
-        public TokenCredential getKeyVaultCredential(String uri) {
-            return getCredential();
-        }
-
-        @Override
-        public TokenCredential getAppConfigCredential(String uri) {
-            return getCredential();
-        }
-
-        private TokenCredential getCredential() {
-            return new EnvironmentCredentialBuilder().build();
-        }
-
-    }
-    ```
-
-1. Create a new file called *AppConfiguration.java*. And add the code below.
-
-    ```java
-    package com.example.demo;
-
-    import org.springframework.context.annotation.Bean;
-    import org.springframework.context.annotation.Configuration;
-
-    @Configuration
-    public class AppConfiguration {
-
-        @Bean
-        public AzureCredentials azureCredentials() {
-            return new AzureCredentials();
-        }
-    }
-    ```
-
-1. Create a new file in your resources META-INF directory called *spring.factories* and add the code below.
-
-    ```factories
-    org.springframework.cloud.bootstrap.BootstrapConfiguration=\
-    com.example.demo.AppConfiguration
-    ```
-
 1. Build your Spring Boot application with Maven and run it, for example:
 
     ```shell

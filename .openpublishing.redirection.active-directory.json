@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/active-directory/develop/active-directory-saml-claims-customization.md",
+      "redirect_url": "/azure/active-directory/develop/saml-claims-customization",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-claims-mapping.md",
       "redirect_url": "/azure/active-directory/develop/active-directory-saml-claims-customization",
       "redirect_document_id": false
@@ -4254,6 +4259,11 @@
     {
       "source_path_from_root": "/articles/active-directory/b2b/user-token.md",
       "redirect_url": "/azure/active-directory/external-identities/user-token",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/certificate-authorities.md",
+      "redirect_url": "/azure/security/fundamentals/azure-CA-details",
       "redirect_document_id": true
     },
     {
