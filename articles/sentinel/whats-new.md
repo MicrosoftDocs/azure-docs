@@ -164,6 +164,7 @@ See which ones, and learn how to use the updated mechanism, in [Customize alert 
 
 ## Announcements
 
+- [Microsoft Defender for Identity alerts now available in Government Community Cloud](#microsoft-defender-for-identity-alerts-now-available-in-government-community-cloud)
 - [Microsoft Defender for Identity alerts will no longer refer to the MDA policies in the Alert ExternalLinks properties](#microsoft-defender-for-identity-alerts-will-no-longer-refer-to-the-mda-policies-in-the-alert-externallinks-properties)
 - [WindowsEvent table enhancements](#windowsevent-table-enhancements)
 - [Out-of-the-box content centralization changes](#out-of-the-box-content-centralization-changes)
