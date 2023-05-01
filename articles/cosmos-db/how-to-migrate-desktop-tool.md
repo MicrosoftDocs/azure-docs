@@ -131,6 +131,7 @@ Next, create a target database and container on the Azure Cosmos DB for NoSQL ac
         DatabaseName = "cosmicworks"
         Name = "products"
         PartitionKeyPath = "/category"
+        PartitionKeyKind = "Hash"
     }
     New-AzCosmosDBSqlContainer @parameters
     ```
@@ -205,11 +206,17 @@ Now, migrate data from a JSON array to the newly created Azure Cosmos DB for NoS
 1. TODO
 
     ```json
+    ```
+
+1. TODO
+
+    ```json
     {
       "Source": "json",
       "SourceSettings": {
         "FilePath": "https://raw.githubusercontent.com/azure-samples/cosmos-db-migration-sample-data/main/nosql-data.json"
       },
+      "Sink": "cosmos-nosql",
       "SinkSettings": {
         "ConnectionString": "<connection-string-for-existing-account>",
         "Database": "cosmicworks",
