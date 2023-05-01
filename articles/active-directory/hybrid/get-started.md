@@ -48,7 +48,7 @@ Use these tasks if you're deploying Azure AD Connect to integrate with Active Di
 |[Install and configure Azure AD Connect express settings](connect/how-to-connect-install-express.md)|If you're using express settings, install and configure Azure AD Connect with express settings.|
 |[Install and configure Azure AD Connect custom settings](connect/how-to-connect-install-custom.md)|If you're using custom settings, install and configure Azure AD Connect with express settings.|
 |[Perform post installation tasks](connect/how-to-connect-post-installation.md)|Perform the post installation tasks.|
-|[Verify users are synchronizing](/cloud-sync/tutorial-single-forest.md#verify-users-are-created-and-synchronization-is-occurring)|Make sure it's working.|
+|[Verify users are synchronizing](cloud-sync/tutorial-single-forest.md#verify-users-are-created-and-synchronization-is-occurring)|Make sure it's working.|
 
 ## Next steps
 [Common scenarios](common-scenarios.md)
