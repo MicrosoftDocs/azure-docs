@@ -19,9 +19,9 @@ ms.collection: M365-identity-device-management
 
 [M 22-09 Memorandum for Heads of Executive Departments and Agencies](https://www.whitehouse.gov/wp-content/uploads/2022/01/M-22-09.pdf) requires agencies to develop a consolidation plan for their identity platforms. The goal is to have as few agency-managed identity systems as possible within 60 days of the publication date (March 28, 2022). There are several advantages to consolidating identity platform:
 
-* Centralized management of identity lifecycle, policy enforcement, and auditable controls
+* Centralize management of identity lifecycle, policy enforcement, and auditable controls
 * Uniform capability and parity of enforcement 
-* Reduced need to train resources across multiple systems
+* Reduce the need to train resources across multiple systems
 * Enable users to sign in once and then access applications and services in the IT environment
 * Integrate with as many agency applications as possible
 * Use shared authentication services and trust relationships to facilitate integration across agencies 
@@ -36,7 +36,7 @@ The memo requires users sign in once and then access applications. With Microsof
 
 ## Integration across agencies
 
-Use Azure AD B2B collaboration to meet the requirement of facilitating integration and collaboration across agencies. Users can reside in a Microsoft tenant in the same cloud. Tenants can be on another Microsoft cloud, or a in a non-Azure AD tenant (SAML/WS-Fed identity provider). 
+Use Azure AD B2B collaboration to meet the requirement of facilitating integration and collaboration across agencies. Users can reside in a Microsoft tenant in the same cloud. Tenants can be on another Microsoft cloud, or in a non-Azure AD tenant (SAML/WS-Fed identity provider). 
 
 With Azure AD cross-tenant access settings, agencies manage how they collaborate with other Azure AD organizations and other Microsoft Azure clouds:
 
@@ -63,7 +63,7 @@ Asset classification:
 * Laws and regulations for confidentiality, integrity, or availability of data and/or information in major systems
   * Said laws and regulations that apply to system information protection requirements
 
-For your application inventory, determine pplications that use cloud-ready protocols or legacy authentication protocols:
+For your application inventory, determine applications that use cloud-ready protocols or legacy authentication protocols:
 
 * Cloud-ready applications support modern protocols for authentication:
   * SAML
@@ -80,7 +80,7 @@ Learn more [Azure AD integrations with authentication protocols](../fundamentals
 
 #### Application and service discovery tools
 
-Microsoft offers the following tools to support applicatin and service discovery.
+Microsoft offers the following tools to support application and service discovery.
 
 | Tool| Usage |
 | - | - |
@@ -109,7 +109,7 @@ For apps that use legacy authentication protocols:
 * For apps without modern authentication, there are two choices:
    * Update the application code to use modern protocols by integrating the Microsoft Authentication Library (MSAL)
    * Use Azure AD Application Proxy or secure hybrid partner access for secure access
-*  Decommission access to apps no longer needed or that aren't supported
+*  Decommission access to apps no longer needed, or that aren't supported
 
 Learn more
 
@@ -122,7 +122,7 @@ Learn more
 
 Part of centralizing an identity management system is enabling users to sign in to physical and virtual devices. You can connect Windows and Linux devices in your centralized Azure AD system, which eliminates multiple, separate identity systems.
 
-During your inventory and scoping, identify the devices and infrastructure to be integrated with Azure AD. Integration centralizes your authentication and management by using Conditional Access policies with multifactor authenticatin enforced through Azure AD. 
+During your inventory and scoping, identify the devices and infrastructure to be integrated with Azure AD. Integration centralizes your authentication and management by using Conditional Access policies with multifactor authentication enforced through Azure AD. 
 
 ### Tools to discover devices
 
@@ -137,7 +137,7 @@ Learn more:
 
 ### Integrate devices with Azure AD
 
-Devices integrated with Azure AD are hybrid joined devices or Azure AD joined devices. Separate device onboarding by client and user devices, and by physical and virtual machines that operate as infrastructure. For more information about deployment strategy for user devices, see the following guidance.
+Devices integrated with Azure AD are hybrid-joined devices or Azure AD joined devices. Separate device onboarding by client and user devices, and by physical and virtual machines that operate as infrastructure. For more information about deployment strategy for user devices, see the following guidance.
 
 * [Plan your Azure AD device deployment](../devices/plan-device-deployment.md)
 * [Hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md)
