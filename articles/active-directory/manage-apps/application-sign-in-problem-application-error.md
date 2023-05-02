@@ -20,7 +20,7 @@ In this scenario, Azure Active Directory (Azure AD) signs the user in. But the a
 
 There are several possible reasons why the app didn't accept the response from Azure AD. If there's an error message or code displayed, use the following resources to diagnose the error:
 
-* [Azure AD Authentication and authorization error codes](../develop/reference-aadsts-error-codes.md)
+* [Azure AD Authentication and authorization error codes](../develop/reference-error-codes.md)
 
 * [Troubleshooting consent prompt errors](application-sign-in-unexpected-user-consent-error.md)
 
@@ -165,6 +165,6 @@ To change the signing algorithm, follow these steps:
 
 * [How to debug SAML-based single sign-on to applications in Azure AD](./debug-saml-sso-issues.md).
 
-* [Azure AD Authentication and authorization error codes](../develop/reference-aadsts-error-codes.md)
+* [Azure AD Authentication and authorization error codes](../develop/reference-error-codes.md)
 
 * [Troubleshooting consent prompt errors](application-sign-in-unexpected-user-consent-error.md)

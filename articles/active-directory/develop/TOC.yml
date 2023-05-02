@@ -538,7 +538,7 @@
           items:
             - name: Follow the branding guidelines
               displayName: Add branding
-              href: howto-add-branding-in-azure-ad-apps.md
+              href: howto-add-branding-in-apps.md
             - name: Configure Terms of Service and Privacy Statement
               href: howto-add-terms-of-service-privacy-statement.md
         - name: Publish app to a marketplace
@@ -805,14 +805,14 @@
                 - name: Refresh tokens
                   href: refresh-tokens.md
                 - name: Token lifetime
-                  href: active-directory-configurable-token-lifetimes.md
+                  href: configurable-token-lifetimes.md
             - name: OAuth 2.0 application types
               displayName: App types, OAuth
               href: v2-app-types.md
             - name: Certificate credentials
               href: active-directory-certificate-credentials.md
             - name: Signing key rollover
-              href: active-directory-signing-key-rollover.md
+              href: signing-key-rollover.md
             - name: UserInfo endpoint (OIDC)
               href: userinfo.md            
         - name: SAML 2.0
@@ -849,7 +849,7 @@
       displayName: MSAL, auth client library, SDK, token validation
       href: reference-v2-libraries.md
     - name: AADSTS error code reference
-      href: reference-aadsts-error-codes.md
+      href: reference-error-codes.md
     - name: "Endpoint reference: Admin consent URI"
       href: v2-admin-consent.md
     - name: "Endpoint reference: National and public cloud URIs"
