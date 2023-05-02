@@ -57,7 +57,7 @@ To run the image stitching operation on a set of images, follow these steps:
 1. Paste your edited `curl` command from the text editor into the command prompt window, and then run the command.
 
 
-## Examine the response
+## Examine the stitching response
 
 `200` tbd
 
@@ -101,7 +101,7 @@ After you complete the stitching operation, we recommend you do the rectificatio
 1. Paste your edited `curl` command from the text editor into the command prompt window, and then run the command.
 
 
-## Examine the response
+## Examine the rectification response
 
 `200` tbd
 

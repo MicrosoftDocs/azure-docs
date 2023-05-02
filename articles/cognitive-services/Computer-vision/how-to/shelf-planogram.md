@@ -285,7 +285,7 @@ Paired planogram position ID and corresponding detected object from product unde
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
 | `positionId` | string | The position ID from the planogram matched to the corresponding detected object. | No |
-| `detectedObject` | [DetectedObjectApiModel](#detected-object-api-model) | Describes a detected object in an image. | No |
+| `detectedObject` | DetectedObjectApiModel | Describes a detected object in an image. | No |
 
 ## Next steps
 
