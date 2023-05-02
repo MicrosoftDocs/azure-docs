@@ -45,9 +45,9 @@ See [Collect Prometheus metrics from AKS cluster (preview)](../essentials/promet
 ## Send metrics to Azure Monitor Logs
 You may want to collect additional data in addition to the predefined set of data collected by Container insights. This data isn't used by Container insights views but is available for log queries and alerts like the other data it collects. This requires configuring the *monitoring addon* for the Azure Monitor agent, which is the one currently used by Container insights to send data to a Log Analytics workspace.
 
-### Prometheus scraping settings
+### Prometheus scraping settings (for metrics stored as logs)
 
-Active scraping of metrics from Prometheus is performed from one of two perspectives:
+Active scraping of metrics from Prometheus is performed from one of two perspectives below and metrics are sent to configured log analytics workspace :
 
 - **Cluster-wide**: Defined in the ConfigMap section *[Prometheus data_collection_settings.cluster]*.
 - **Node-wide**: Defined in the ConfigMap section *[Prometheus_data_collection_settings.node]*.
@@ -75,7 +75,7 @@ When a URL is specified, Container insights only scrapes the endpoint. When Kube
 | Node-wide or cluster-wide | `interval` | String | 60s | The collection interval default is one minute (60 seconds). You can modify the collection for either the *[prometheus_data_collection_settings.node]* and/or *[prometheus_data_collection_settings.cluster]* to time units such as s, m, and h. |
 | Node-wide or cluster-wide | `fieldpass`<br> `fielddrop`| String | Comma-separated array | You can specify certain metrics to be collected or not from the endpoint by setting the allow (`fieldpass`) and disallow (`fielddrop`) listing. You must set the allowlist first. |
 
-### Configure ConfigMaps
+### Configure ConfigMaps to specify Prometheus scrape configuration (for metrics stored as logs)
 Perform the following steps to configure your ConfigMap configuration file for your cluster. ConfigMaps is a global list and there can be only one ConfigMap applied to the agent. You can't have another ConfigMaps overruling the collections.
 
 
