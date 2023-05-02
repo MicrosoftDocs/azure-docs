@@ -254,7 +254,7 @@ Trusted Launch VMs can only be backed up using Enhanced policies.
 
 ...
 
-
+---
 
 >[!Note]
 >- The support for Enhanced policy is available in all Azure Public and US Government regions.

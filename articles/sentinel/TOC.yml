@@ -762,9 +762,7 @@
       - name: Azure Functions API connection
         href: connect-azure-functions-template.md      
       - name: Custom log sources
-        href: connect-custom-logs.md
-      - name: DNS via AMA
-        href: connect-dns-ama.md
+        href: connect-custom-logs.md      
       - name: GCP audit logs
         href: connect-google-cloud-platform.md
       - name: Logstash plugin with Data Collection Rules
