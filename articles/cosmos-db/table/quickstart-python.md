@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: table
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 03/23/2021
+ms.date: 05/02/2023
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.custom: devx-track-python, mode-api, devx-track-azurecli, ignite-2022, py-fresh-zinc
@@ -28,7 +28,7 @@ This quickstart shows how to access the Azure Cosmos DB [API for Table](introduc
 
 ## Prerequisites
 
-The sample application is written in [Python3.6](https://www.python.org/downloads/), though the principles apply to all Python3.6+ applications. You can use [Visual Studio Code](https://code.visualstudio.com/) as an IDE.
+The sample application is written in [Python 3.7 or later](https://www.python.org/downloads/), though the principles apply to all Python 3.7+ applications. You can use [Visual Studio Code](https://code.visualstudio.com/) as an IDE.
 
 If you don't have an [Azure subscription](../../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/dotnet) before you begin.
 
@@ -73,7 +73,6 @@ It typically takes several minutes for the Azure Cosmos DB account creation proc
 LOCATION='eastus'
 RESOURCE_GROUP_NAME='rg-msdocs-tables-sdk-demo'
 COSMOS_ACCOUNT_NAME='cosmos-msdocs-tables-sdk-demo-123'    # change 123 to a unique set of characters for a unique name
-COSMOS_TABLE_NAME='WeatherData'
 
 az group create \
     --location $LOCATION \

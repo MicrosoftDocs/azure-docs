@@ -6,4 +6,4 @@ On the **Create Azure Cosmos DB Account - Azure Table** page, fill out the form 
 1. Select **Standard** performance.
 1. Select **Provisioned throughput** for this example under *Capacity mode*.
 1. Select **Apply** under *Apply Free Tier Discount* for this example.
-1. Select the **Review + create** button at the bottom of the screen and then select "Create" on the summary screen to create your Azure Cosmos DB account. This process may take several minutes.
+1. Select the **Review + create** button at the bottom of the screen and then select **Create** on the summary screen to create your Azure Cosmos DB account. This process may take several minutes.
