@@ -20,6 +20,9 @@ Azure RBAC specifies built-in role definitions that outline the permissions to b
 
 For more information, see [What is Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview)?
 
+> [!NOTE]
+> When you make role assignment changes, it can take a few minutes for these updates to propagate.
+
 ## Built-in roles
 
 In this article, the Azure built-in roles are logically grouped into two role types, based on their scope of influence:
@@ -33,10 +36,10 @@ The following are the built-in roles supported by Azure Lab Services:
 | --------- | ------------- | ----------- |
 | Administrator | Owner | Grant full control to create/manage lab plans and labs, and grant permissions to other users. Learn more about the [Owner role](#owner-role). |
 | Administrator | Contributor | Grant full control to create/manage lab plans and labs, except for assigning roles to other users. Learn more about the [Contributor role](#contributor-role). |
-| Administrator | Lab Services Contributor | Grant the same permissions as the Owner role, except for assigning roles or modifying other users' labs. Learn more about the [Lab Services Contributor role](#lab-services-contributor-role). |
+| Administrator | Lab Services Contributor | Grant the same permissions as the Owner role, except for assigning roles. Learn more about the [Lab Services Contributor role](#lab-services-contributor-role). |
 | Lab management | Lab Creator | Grant permission to create labs and have full control over the labs that they create. Learn more about the [Lab Creator role](#lab-creator-role). |
 | Lab management | Lab Contributor | Grant permission to help manage an existing lab, but not create new labs. Learn more about the [Lab Contributor role](#lab-contributor-role). |
-| Lab management | Lab Assistant | Grant permission to view, start, stop, or reset an existing lab. Learn more about the [Lab Assistant role](#lab-assistant-role). |
+| Lab management | Lab Assistant | Grant permission to view an existing lab. Can also start, stop, or reset any VM in the lab. Learn more about the [Lab Assistant role](#lab-assistant-role). |
 | Lab management | Lab Services Reader | Grant permission to view existing labs. Learn more about the [Lab Services Reader role](#lab-services-reader-role). |
 
 ## Role assignment scope
@@ -57,7 +60,7 @@ For Azure Lab Services, consider the following scopes:
 :::image type="content" source="./media/concept-lab-services-role-based-access-control/lab-services-role-assignment-scopes.png" alt-text="Diagram that shows the role assignment scopes for Azure Lab Services.":::
 
 > [!IMPORTANT]
-> In Azure Lab Services, lab plans and labs are *sibling* resources to each other.  As a result, labs don’t inherit any roles assignments from the lab plan. However, role assignments from the resource group are inherited by lab plans and labs in that resource group.
+> In Azure Lab Services, lab plans and labs are *sibling* resources to each other.  As a result, labs don’t inherit any roles assignments from the *lab plan*. However, role assignments from the *resource group* are inherited by lab plans and labs in that resource group.
 
 ## Roles for common lab activities
 
@@ -68,10 +71,12 @@ The following table shows common lab activities and the role that's needed for a
 | Grant permission to create a resource group. A resource group is a logical container in Azure to hold the lab plans and labs. *Before* you can create a lab plan or lab, this resource group needs to exist. | Administrator | [Owner](#owner-role) or [Contributor](#contributor-role) | Subscription |
 | Grant permission to submit a Microsoft support ticket, including to [request capacity](./capacity-limits.md). | Administrator | [Owner](#owner-role), [Contributor](#contributor-role), [Support Request Contributor](/azure/role-based-access-control/built-in-roles#support-request-contributor) | Subscription |
 | Grant permission to: <br/>- Assign roles to other users.<br/>- Create/manage lab plans, labs, and other resources within the resource group.<br/>- Enable/disable marketplace and custom images on a lab plan.<br/>- Attach/detach compute gallery on a lab plan. | Administrator | [Owner](#owner-role) | Resource group |
-| Grant permission to: <br/>- Create/manage lab plans, labs, and other resources within the resource group.<br/>- Enable or disable Azure Marketplace and custom images on a lab plan.<br/>- Attach or detach a compute gallery on a lab plan.<br/><br/>However, *not* the ability to assign roles to other users. | Administrator | [Contributor](#contributor-role) | Resource group |
-| Grant permission to create or manage your own labs:<br/>- Using *all* lab plans within a resource group.<br/>- Or, only for a specific lab plan. | Lab management | [Lab Creator](#lab-creator-role) | Resource group or Lab plan |
+| Grant permission to: <br/>- Create/manage lab plans, labs, and other resources within the resource group.<br/>- Enable or disable Azure Marketplace and custom images on a lab plan.<br/><br/>However, *not* the ability to assign roles to other users. | Administrator | [Contributor](#contributor-role) | Resource group |
+| Grant permission to create or manage your own labs for *all* lab plans within a resource group. | Lab management | [Lab Creator](#lab-creator-role) | Resource group |
+| Grant permission to create or manage your own labs for a specific lab plan. | Lab management | [Lab Creator](#lab-creator-role) | Lab plan |
 | Grant permission to co-manage a lab, but *not* the ability to create labs. | Lab management | [Lab Contributor](#lab-contributor-role) | Lab |
-| Grant permission to only start/stop/reset VMs for: <br/>- All labs within a resource group.<br/>- Or, only for a specific lab. | Lab management | [Lab Assistant](#lab-assistant-role) | Resource group or Lab |
+| Grant permission to only start/stop/reset VMs for *all* labs within a resource group. | Lab management | [Lab Assistant](#lab-assistant-role) | Resource group |
+| Grant permission to only start/stop/reset VMs for a specific lab. | Lab management | [Lab Assistant](#lab-assistant-role) | Lab |
 
 > [!IMPORTANT]
 > An organization’s subscription is used to manage billing and security for all Azure resources and services. You can assign the Owner or Contributor role on the [subscription](./administrator-guide.md#subscription). Typically, only administrators have subscription-level access because this includes full access to all resources in the subscription.
@@ -109,7 +114,7 @@ Assign the Owner role to give a user full control to create or manage lab plans 
 - View, delete, and change settings for all labs.
 
 > [!CAUTION]
-> When you assign the Owner or Contributor role on the resource group, then these permissions also apply to non-lab related resources that exist in the resource group. For example, resources such as virtual networks, storage account, and more.
+> When you assign the Owner or Contributor role on the resource group, then these permissions also apply to non-lab related resources that exist in the resource group. For example, resources such as virtual networks, storage accounts, compute galleries, and more.
 
 ### Contributor role
 
@@ -123,6 +128,9 @@ The Lab Services Contributor is the most restrictive of the administrator roles.
 
 - Performing role assignments
 - Changing or deleting other users’ labs
+
+> [!NOTE]
+> The Lab Services Contributor role doesn't allow changes to resources that unrelated to Azure Lab Services. On the other hand, the *Contributor* role allows changes to all Azure resources within the resource group.
 
 ## Lab management roles
 
@@ -172,7 +180,7 @@ When you assign the Lab Contributor role on the lab, the user can manage the ass
 
 ### Lab Assistant role
 
-Assign the Lab Assistant role to grant a user permission to start, stop, and reset lab virtual machines.
+Assign the Lab Assistant role to grant a user permission to view a lab, and start, stop, and reset lab virtual machines for the lab.
 
 Assign the Lab Assistant role on the *resource group or lab*.
 
@@ -188,6 +196,8 @@ When you assign the Lab Assistant role on the lab, the user:
 - Can view the assigned lab and start, stop, or reset lab virtual machines.
 - Can’t delete or make any other changes to the lab.
 - Can’t create new labs.
+
+When you have the Lab Assistant role, to view other labs you're granted access to, make sure to choose the **All labs** filter in the Azure Lab Services website.
 
 ### Lab Services Reader role
 
