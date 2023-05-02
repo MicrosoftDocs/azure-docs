@@ -176,6 +176,10 @@ items:
     - name: Authenticate and authorize
       expanded: true
       items:
+      - name: Create a customer tenant
+        items:
+          - name: Create a customer tenant in the admin center
+            href: how-to-create-customer-tenant-portal.md
       - name: Add your app
         items:
           - name: Register an app
