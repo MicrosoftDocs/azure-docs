@@ -100,13 +100,13 @@ All requests to the service are made by using REST operations from the Blob Stor
 
 | Write operations | List and create operations | Read operations |
 |----|-|---|
-|PutBlob|ListBlobs|GetBlob|
-|PutBlock|ListContainers|SetBlobTier<sup>1</sup>|
-|PutBlockList|FindBlobsByTags||
-|AppendBlock|CreateContainer||
-|SnapshotBlob|||
-|CopyBlob|||
-|SetBlobTier<sup>2</sup>|||
+|[PutBlob](/rest/api/storageservices/put-blob)|[ListBlobs](/rest/api/storageservices/list-blobs)|[GetBlob](/rest/api/storageservices/get-blob)|
+|[PutBlock](/rest/api/storageservices/put-blob)|[ListContainers](/rest/api/storageservices/list-containers2)|[SetBlobTier](/rest/api/storageservices/set-blob-tier)<sup>1</sup>|
+|[PutBlockList](/rest/api/storageservices/put-block-list)|[FindBlobsByTags](/rest/api/storageservices/find-blobs-by-tags)||
+|[AppendBlock](/rest/api/storageservices/append-block)|[CreateContainer](/rest/api/storageservices/create-container)||
+|[SnapshotBlob](/rest/api/storageservices/snapshot-blob)|||
+|[CopyBlob](/rest/api/storageservices/copy-blob)|||
+|[SetBlobTier](/rest/api/storageservices/set-blob-tier)<sup>2</sup>|||
 
 <sup>1</sup>    Applies only when changing to a cooler tier.
 
