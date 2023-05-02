@@ -22,7 +22,7 @@ See examples and get inspired by what's being done in the community of Azure Com
 
 
 ### Extend Azure Communication Services with Power Platform Connectors
-:::image type="content" source="./media/whats-new-images/04-23/azure-communication-services-powerplatform.png" alt-text="Screenshot of power platform flow" lightbox="./media/whats-new-images/04-23/azure-communication-services-powerplatform-lightbox.png":::
+:::image type="content" source="./media/whats-new-images/04-23/azure-communication-services-powerplatform.png" alt-text="Screenshot of power platform flow." lightbox="./media/whats-new-images/04-23/azure-communication-services-powerplatform-lightbox.png":::
 
 Listen to Azure Communication Services PMs Tomas Chladek and David de Matheu talk about how to connect your Azure Communication Services app to Microsoft Teams, and extend it with the Microsoft Power Platform.
 
@@ -37,7 +37,7 @@ Listen to Azure Communication Services PMs Tomas Chladek and David de Matheu tal
 <br>
 
 ### Integrate Azure Communication Services calling into a React App 
-:::image type="content" source="./media/whats-new-images/04-23/create-react-app.png" alt-text="Screenshot of code needed to build a react app" lightbox="./media/whats-new-images/04-23/create-react-app-lightbox.png":::
+:::image type="content" source="./media/whats-new-images/04-23/create-react-app.png" alt-text="Screenshot of code needed to build a react app.":::
 
 Learn how to create an app using Azure Communication services front-end components in React.
 
@@ -54,7 +54,7 @@ Learn how to create an app using Azure Communication services front-end componen
 <br>
 
 ### Dynamically create an Azure Communication Services identity and token 
-:::image type="content" source="./media/whats-new-images/04-23/token.png" alt-text="Screenshot of a step in the token creation process" lightbox="./media/whats-new-images/04-23/token-lightbox.png":::
+:::image type="content" source="./media/whats-new-images/04-23/token.png" alt-text="Screenshot of a step in the token creation process." lightbox="./media/whats-new-images/04-23/token-lightbox.png":::
 
 Learn how an external developer can get a token that allows your app to join a teams meeting through Azure Communication Services.
 
@@ -77,7 +77,7 @@ Learn how an external developer can get a token that allows your app to join a t
 <br>
 
 ### Deploy an Azure Communication Services app to Azure 
-:::image type="content" source="./media/whats-new-images/04-23/deploy-to-azure.png" alt-text="Screenshot of a step in the deployment process"  lightbox="./media/whats-new-images/04-23/deploy-to-azure-lightbox.png":::
+:::image type="content" source="./media/whats-new-images/04-23/deploy-to-azure.png" alt-text="Screenshot of a step in the deployment process."  lightbox="./media/whats-new-images/04-23/deploy-to-azure-lightbox.png":::
 
 Learn how to quickly and easily deploy your Azure Communication Services app to Azure. 
 
@@ -103,7 +103,7 @@ Learn how to quickly and easily deploy your Azure Communication Services app to 
 ## New features
 Get detailed information on the latest Azure Communication Services feature launches.
 ### Email service now generally available
-:::image type="content" source="./media/whats-new-images/04-23/email.png" alt-text="Screenshot of azure communication services email logo":::
+:::image type="content" source="./media/whats-new-images/04-23/email.png" alt-text="Screenshot of Azure communication services email logo.":::
 
 Azure Communication Services announces the general availability of our Email service. Email is powered by Exchange Online and meets the security and privacy requirements of enterprises.
 
@@ -114,9 +114,9 @@ Azure Communication Services announces the general availability of our Email ser
 
 
 ### View of April's new features
-:::image type="content" source="./media/whats-new-images/04-23/features.png" alt-text="Screenshot of SMS insights dashboard data graphic" lightbox="./media/whats-new-images/04-23/features-lightbox.png":::
+:::image type="content" source="./media/whats-new-images/04-23/features.png" alt-text="Screenshot of SMS insights dashboard data graphic." lightbox="./media/whats-new-images/04-23/features-lightbox.png":::
 
-In April we launced a host of new features, including:
+In April, we launched a host of new features, including:
 * Troubleshooting capability in UI library for native
 * Toll-free verification
 * SMS insights dashboard
@@ -135,7 +135,7 @@ Services features.
 
 
 ### ABN AMRO case study 
-:::image type="content" source="./media/whats-new-images/04-23/abn-amro.png" alt-text="Screenshot of a financial advisor talking to a customer using a custom ACS app":::
+:::image type="content" source="./media/whats-new-images/04-23/abn-amro.png" alt-text="Screenshot of a financial advisor talking to a customer using a custom ACS app.":::
 
 ABN AMRO used Azure Communication Services to make it easier for customers to get financial advice from anywhere. And they boosted their NPS in the process!
 
@@ -146,7 +146,7 @@ ABN AMRO used Azure Communication Services to make it easier for customers to ge
 
 
 ### Get insights from customer interactions with ACS and OpenAI  
-:::image type="content" source="./media/whats-new-images/04-23/openai.png" alt-text="Graphic with Azure Communication Services and openAI logos":::
+:::image type="content" source="./media/whats-new-images/04-23/openai.png" alt-text="Graphic with Azure Communication Services and openAI logos.":::
 
 Use the gold mine of customer conversations to automatically generate customer insights and create better customer experiences. 
 
@@ -159,7 +159,7 @@ Use the gold mine of customer conversations to automatically generate customer i
 
 
 ### Latest updates to the UI library 
-:::image type="content" source="./media/whats-new-images/04-23/ui-library.png" alt-text="Screenshot of the Ui library chat composite" lightbox="./media/whats-new-images/04-23/ui-library-lightbox.png":::
+:::image type="content" source="./media/whats-new-images/04-23/ui-library.png" alt-text="Screenshot of the UI library chat composite." lightbox="./media/whats-new-images/04-23/ui-library-lightbox.png":::
 
 Get up-to-date on the latest additions to the Azure Communication Services UI library. UI library makes it easier to create custom applications with only a few lines of code. 
 
