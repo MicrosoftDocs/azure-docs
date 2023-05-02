@@ -31,5 +31,6 @@ To use on-demand provisioning, follow these steps:
  6. Enter the distinguished name of a user and select the **Provision** button.
  7. Once the process completes, a success screen appears with four green check marks. Any errors appear on the left side of the screen.
 
+## Next steps
 
 For more information, see [on-demand provisioning in cloud sync](cloud-sync/how-to-on-demand-provision.md)

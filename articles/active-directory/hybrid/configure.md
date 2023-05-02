@@ -30,7 +30,7 @@ After installing the Azure AD Connect provisioning agent, you'll need to configu
 |[Scoping users and groups](cloud-sync/how-to-configure.md#scope-provisioning-to-specific-users-and-groups)|How scope cloud sync to specific users and groups|
 |[Mapping user and group attributes](cloud-sync/how-to-configure.md#attribute-mapping)|Map attributes for users and groups.|
 |[Working with directory extensions and custom attributes](cloud-sync/how-to-configure.md#directory-extensions-and-custom-attribute-mapping)|Use directory extensions and custom attributes|
-|[Configure Single Sign-On](cloud-sync/how-to-sso.md)|Set up cloud sync to use single sign-on|
+|[Configure single sign-on](cloud-sync/how-to-sso.md)|Set up cloud sync to use single sign-on|
 
 
 ## Azure AD Connect
@@ -44,7 +44,7 @@ Several of the configuration tasks used with Azure AD Connect are set up when yo
 |[Post installation tasks](connect/how-to-connect-post-installation.md)|More tasks for managing Azure AD Connect|
 |[Mapping user and group attributes](cloud-sync/how-to-configure.md#attribute-mapping)|Map attributes for users and groups.|
 |[Device writeback](connect/how-to-connect-device-writeback.md)|Configure device writeback.|
-|[Configure Single Sign-On](connect/how-to-connect-sso-quick-start.md)|Set up Azure AD Connect to use single sign-on.|
+|[Configure single sign-on](connect/how-to-connect-sso-quick-start.md)|Set up Azure AD Connect to use single sign-on.|
 
 
 
