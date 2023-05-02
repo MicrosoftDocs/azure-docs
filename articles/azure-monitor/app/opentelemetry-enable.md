@@ -551,11 +551,12 @@ Autocollected requests:
 * Kafka consumers
 * Netty
 * Quartz
+* RabbitMQ
 * Servlets
 * Spring scheduling
 
-  > [!NOTE]
-  > Servlet and Netty auto-instrumentation covers the majority of Java HTTP services, including Java EE, Jakarta EE, Spring Boot, Quarkus, and Micronaut.
+> [!NOTE]
+> Servlet and Netty auto-instrumentation covers the majority of Java HTTP services, including Java EE, Jakarta EE, Spring Boot, Quarkus, and Micronaut.
 
 Autocollected dependencies (plus downstream distributed trace propagation):
 
@@ -572,6 +573,7 @@ Autocollected dependencies (plus downstream distributed trace propagation):
 * Kafka
 * Netty client
 * OkHttp
+* RabbitMQ
 
 Autocollected dependencies (without downstream distributed trace propagation):
 
