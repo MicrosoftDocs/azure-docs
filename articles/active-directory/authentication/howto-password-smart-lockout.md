@@ -93,7 +93,7 @@ Smart lockout tracks the last three bad password hashes to avoid incrementing th
 
 
 ## Default protections
-In addition to Smart lockout, Azure AD also protects against attacks by analyzing signals including IP traffic and identifying anomalous behavior. Azure AD will block these malicious sign-ins by default and return [AADSTS50053 - IdsLocked error code](../develop/reference-aadsts-error-codes.md), regardless of the password validity.
+In addition to Smart lockout, Azure AD also protects against attacks by analyzing signals including IP traffic and identifying anomalous behavior. Azure AD will block these malicious sign-ins by default and return [AADSTS50053 - IdsLocked error code](../develop/reference-error-codes.md), regardless of the password validity.
 
 ## Next steps
 
