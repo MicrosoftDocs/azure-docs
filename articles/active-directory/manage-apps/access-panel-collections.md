@@ -12,6 +12,7 @@ ms.date: 09/02/2021
 ms.author: jomondi
 ms.collection: M365-identity-device-management
 ms.reviewer: lenalepa
+ms.custom: enterprise-apps
 
 #customer intent: As an admin, I want to enable and create collections for My Apps portal in Azure AD so that I can create a simpler My Apps experience for users.
 ---
