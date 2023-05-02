@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Onboard external users to Line-of-business applications using Azure Active Directory B2B 
 
-App developers can use Azure Active Directory B2B (Azure AD B2B) to onboard and collaborate with external users within line-of-business (LOB) apps easy. Similar to the **Share** button in many Office 365 applications, app developers can create a one-click invitation experience within any LOB app that is integrated with Azure AD.  
+App developers can use Azure Active Directory B2B (Azure AD B2B) to onboard and collaborate with external users within line-of-business (LOB) apps. Similar to the **Share** button in many Office 365 applications, app developers can create a one-click invitation experience within any LOB app that is integrated with Azure AD.  
 
 Benefits include: 
 
@@ -37,7 +37,7 @@ To integrate LOB apps with Azure AD B2B, follow this pattern:
 
 | Step | Description |
 |:-------|:--------|
-| 1. | The end user triggers the **invitation** within the LOB application and provides the email address of the external user.|
+| 1. | The end user triggers the **invitation** within the LOB application and provides the email address of the external user. The application checks if the user already exists, and if they don’t, proceeds to step #2|
 | 2. | The application sends a POST to the Microsoft Graph API on behalf of the user providing the redirect URL and external user’s email defined in step #1. |
 | 3. | Microsoft Graph API provisions the guest user in Azure AD. |
 | 4. | Microsoft Graph API returns the success/failure status of the API call. If successful, the response includes the Azure AD user object ID and the invitation link that is sent to the invited user’s email. You can optionally suppress the Microsoft email and send your own custom email. |
@@ -49,38 +49,18 @@ To integrate LOB apps with Azure AD B2B, follow this pattern:
 
 If assignment is required to access the LOB application, the invited guest user must also be assigned to the app with an appropriate app role. This can be done as another API call adding the invited guest to a group (steps #5-7) or by automating group membership with Azure AD dynamic groups. Using Dynamic Groups wouldn't require another API call by the application, but group membership wouldn't be updated as quickly compared to adding a user to a group immediately after user invitation. 
 
-## Step 1: Create and send invitation 
+## Step 1:  Check if the external user already exists 
 
-As an application developer, you need to determine what to include in the invitation request to Microsoft Graph API. At minimum, you need to:  
-
-- Prompt the end user to provide the external user’s email address. 
-
-- Determine the invitation URL. This URL is where the invited user will be redirected to after they authenticate and redeem the B2B invitation. This URL could be a generic landing page for the application or by dynamically determine the LOB application based on where the end user triggered the invitation. 
-
-Other flags and attributes to consider for inclusion in the invitation request: 
-
-- Display name of the invited user. 
-
-- Determine whether you want to use the default Microsoft invitation email or suppress the default email to create your own. 
-
-Once the application has collected the required information and determined any other flags or information to be included, the application must POST the request to the Microsoft Graph API invitation manager. Ensure the application registration has the appropriate permissions in Azure AD.  
+It is possible that the external user has previously been invited and onboarded. The LOB application should check whether the user already exists in the directory. There are many approaches to accomplish this. The simplest involves making an API call to the Microsoft Graph API and presenting the possible matches to the inviting user for them to pick from.    
 
 For example: 
 
 ```
-Delegated Permission: User.Invite.All 
-   POST https://graph.microsoft.com/v1.0/invitations  
-   Content-type: application/json 
-    { 
-     "invitedUserDisplayName": "John Doe",  
-      "invitedUserEmailAddress": "john.doe@contoso.com",  
-      "sendInvitationMessage": true, 
-      "inviteRedirectUrl": "https://customapp.contoso.com"  
-    } 
-```
+Application Permission: User.read.all 
 
->[!Note] 
->To see the full list of available options for the JSON body of the invitation, see [Invitation resource type - Microsoft Graph v1.0](https://learn.microsoft.com/graph/api/resources/invitation?view=graph-rest-1.0). 
+GET https://graph.microsoft.com/v1.0/users?$filter=othermails/any(id:id eq 'userEmail@contoso.com')  
+```
+If you receive a user’s details in the response, then the user already exists. You should present the users returned to the inviting user and allow them to choose which external user they want to grant access. You should proceed to make appropriate API calls or trigger other processes to grant this user access to the app rather than proceeding with the invitation step. 
 
 ## Step 2: Write other attributes to Azure AD (optional) 
 
