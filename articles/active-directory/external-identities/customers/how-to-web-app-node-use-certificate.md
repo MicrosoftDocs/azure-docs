@@ -51,7 +51,7 @@ If you have an existing self-signed certificate in Azure Key Vault, and you want
 
 1. After you create your certificate, download both the *.cer* file and the *.pfx* file such as *ciam-client-app-cert.cer* and  *ciam-client-app-cert.pfx*. The *.cer* file contains the public key and is what you upload to your Microsoft Entra admin center.
 
-1. In your terminal, run the following command to extract the private key from the *.pfx* file. When prompted to type your import password, just press **Enter** key you didn't set a password for the private key. When prompted to type in your pass phrase, type a pass phrase of your choice: 
+1. In your terminal, run the following command to extract the private key from the *.pfx* file. When prompted to type a pass phrase, just press **Enter** key you if you don't want to set one. Otherwise type a pass phrase of your choice: 
 
     ```console
     openssl pkcs12 -in ciam-client-app-cert.pfx -nocerts -out ciam-client-app-cert.key
