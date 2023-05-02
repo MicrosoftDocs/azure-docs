@@ -51,7 +51,7 @@ The web API completes the following events:
 
 - It reads the bearer token from the authorization header of the HTTP request.
 
-- It validates the token.
+- It validates the [access token](/articles/active-directory/develop/access-tokens.md#validate-tokens).
 
 - It validates the permissions (scopes) in the token.
 
