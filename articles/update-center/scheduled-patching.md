@@ -23,7 +23,7 @@ Update management center (preview) uses maintenance control schedule instead of 
 ## Prerequisites for scheduled patching
 
 1. See [Prerequisites for Update management center (preview)](./overview.md#prerequisites)
-1. Patch orchestration of the Azure machines should be set to **Customer Managed Schedules (Preview)**. For Azure Arc-enabled machines, it isn't a requirement.
+1. Patch orchestration of the Azure machines should be set to **Customer Managed Schedules (Preview)**. For more information, see [how to enable schedule patching on existing VMs](prerequsite-for-schedule-patching.md#enable-schedule-patching-on-azure-vms). For Azure Arc-enabled machines, it isn't a requirement.
 
 	> [!Note]
 	> If you set the patch mode to Azure orchestrated (AutomaticByPlatform) but do not enable the **BypassPlatformSafetyChecksOnUserSchedule** flag and do not attach a maintenance configuration to an Azure machine, it is treated as [Automatic Guest patching](../virtual-machines/automatic-vm-guest-patching.md) enabled machine and Azure platform will automatically install updates as per its own schedule. [Learn more](./overview.md#prerequisites).

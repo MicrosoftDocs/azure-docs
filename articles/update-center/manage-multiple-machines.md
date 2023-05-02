@@ -57,8 +57,8 @@ Instead of performing these actions from a selected Azure VM or Arc-enabled serv
 
    - **Patch orchestration configuration of Azure virtual machines** — all the Azure machines inventoried in the subscription are summarized by each update orchestration method. Values are: 
 
-      - **Customer Managed Schedules (Preview)**—enables schedule patching on your existing VMs.
-      - **Azure managed**—this mode enables automatic VM guest patching for the Azure virtual machine. Subsequent patch installation is orchestrated by Azure. 
+      - **Customer Managed Schedules (Preview)**—enables schedule patching on your existing VMs. 
+      - **Azure Managed - Safe Deployment**—this mode enables automatic VM guest patching for the Azure virtual machine. Subsequent patch installation is orchestrated by Azure. 
       - **Image Default**—for Linux machines, it uses the default patching configuration.
       - **OS orchestrated**—the OS automatically updates the machine.
       - **Manual updates**—you control the application of patches to a machine by applying patches manually inside the machine. In this mode, automatic updates are disabled for Windows OS. 
@@ -96,7 +96,7 @@ Update management center (preview) in Azure enables you to browse information ab
 
 The column **Patch Orchestration**, in the machine's patch mode has the following values:
 
-   * **Customer Managed Schedules (Preview)**—enables schedule patching on your existing VMs.
+   * **Customer Managed Schedules (Preview)**—enables schedule patching on your existing VMs. The new patch orchestration option enables the two VM properties - **Patch mode = Azure-orchestrated** and **BypassPlatformSafetyChecksOnUserSchedule = TRUE** on your behalf after receiving your consent.
    * **Azure Managed - Safe Deployment**—for a group of virtual machines undergoing an update, the Azure platform will orchestrate updates. The VM is set to [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md).(i.e), the patch mode is **AutomaticByPlatform**.
    * **Automatic by OS**—the machine is automatically updated by the OS.
    * **Image Default**—for Linux machines, its default patching configuration is used.
