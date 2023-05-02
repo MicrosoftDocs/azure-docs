@@ -365,6 +365,8 @@
       - name: Overview
         href: appliance-catalog/index.yml
         displayName: appliance catalog
+      - name: Hardware support policy
+        href: /DocsLegal/defender-for-iot/hardware-support-policy.md
       - name: Corporate environments
         items:
         - name: HPE ProLiant DL360
