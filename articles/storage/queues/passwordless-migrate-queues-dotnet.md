@@ -122,7 +122,7 @@ Next, you need to grant permissions to the managed identity you created to acces
 
 1. In the flyout, search for the managed identity you created by name and select it from the results. Choose **Select** to close the flyout menu.
 
-    :::image type="content" source="../common/media/migration-select-identity-small.png" alt-text="asef" alt-text="Screenshot showing how to select the assigned managed identity." lightbox="../common/media/migration-select-identity/migration-select-identity.png":::
+    :::image type="content" source="../common/media/migration-select-identity-small.png" alt-text="Screenshot showing how to select the assigned managed identity." lightbox="../common/media/migration-select-identity/migration-select-identity.png":::
 
 1. Select **Next** a couple times until you're able to select **Review + assign** to finish the role assignment.
 
