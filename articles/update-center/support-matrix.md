@@ -122,7 +122,7 @@ The table lists the operating systems supported on [Azure Arc-enabled servers](.
    | SUSE Linux Enterprise Server (SLES) 12 and 15 (x64) |
    | Red Hat Enterprise Linux (RHEL) 7, 8, 9 (x64) |    
    | Amazon Linux 2 (x64)   |
-   | Oracle 7.x , 8.x|
+   | Oracle 7.x, 8.x|
    | Debian 10 and 11|
    | Rocky Linux 8|        
 
@@ -139,7 +139,7 @@ The following table lists the operating systems that aren't supported:
    | Azure Kubernetes Nodes| We recommend the patching described in [Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)](https://learn.microsoft.com/azure/aks/node-updates-kured).|
 
 
-As the Update management center (preview) depends on your machine's OS package manager or update service, ensure that the Linux package manager or Windows Update client are enabled and can connect with an update source or repository. If you're running a Windows Server OS on your machine, see [configure Windows Update settings](configure-wu-agent.md).
+As the Update management center (preview) depends on your machine's OS package manager or update service, ensure that the Linux package manager, or Windows Update client are enabled and can connect with an update source or repository. If you're running a Windows Server OS on your machine, see [configure Windows Update settings](configure-wu-agent.md).
  
 
 ## Next steps

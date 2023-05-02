@@ -80,7 +80,7 @@ We recommend that you execute the Assess Patches API once the VM is provisioned 
 
 ## Limitations
 
-1. Currently,it is only applicable to Azure Compute Gallery (SIG) images and not to non-Azure Compute Gallery custom images. The Azure Compute Gallery images are of two types - generalized and specialized. Following are the supported scenarios for both:
+1. Currently, it is only applicable to Azure Compute Gallery (SIG) images and not to non-Azure Compute Gallery custom images. The Azure Compute Gallery images are of two types - generalized and specialized. Following are the supported scenarios for both:
 
     | Images | **Currently supported scenarios** | **Unsupported scenarios** |
     |--- | --- | ---|
