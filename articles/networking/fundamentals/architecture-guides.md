@@ -38,8 +38,8 @@ The following table includes articles about Azure Networking services that provi
 |[Hybrid geo-distributed architecture](/azure/architecture/example-scenario/hybrid/hybrid-geo-distributed) | Describes how to use Azure Traffic Manager to route traffic to endpoints to meet regional requirements, corporate policies, and international regulations. |
 | [Design a hybrid Domain Name System solution with Azure](/azure/architecture/hybrid/hybrid-dns-infra) | Describes how to design a hybrid Domain Name System (DNS) solution to resolve names for workloads deployed across on-premises and Azure. The solution uses Azure DNS Public for internet users, Azure DNS Private zones for resolution between virtual networks, and DNS servers for on-premises users and Azure systems. |
 | [Choosing between virtual network peering and VPN gateways](/azure/architecture/reference-architectures/hybrid-networking/vnet-peering) | Describes how to choose between virtual network peering and VPN gateways to connect virtual networks in Azure. |
+| [Guide to Private Link and DNS in Azure Virtual WAN](/azure/architecture/guide/networking/private-link-virtual-wan-dns-guide) | This guide describes how to use Azure Private Link and Azure Private DNS to connect to Azure PaaS services over a private endpoint in Azure Virtual WAN. |
  
-
 ## Deploy highly available applications
 
 The following table includes articles that describe how to deploy your applications for high availability using a combination of Azure Networking services.
