@@ -36,7 +36,6 @@ sections:
           How is the NVMe enabled Ebsv5 different from the L series VM that Azure offers?
         answer: |
           The NVMe enabled Ebsv5 series is designed to offer the highest Azure managed disk storage performance while the L series VMs are designed to offer higher IOPS and throughout on the local NVMe disks which are ephemeral. Refer to the [VM sizes documentation](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes) for details on the performance offered by the Ebsv5 and L series. 
-sections:
   - name: Azure Disk Storage Performance with NVMe on Ebsv5 and Ebdsv5
     questions:
       - question: |
@@ -56,7 +55,6 @@ sections:
             - Data warehousing workloads: These are workloads that involve collecting, storing, and analyzing large volumes of data from multiple sources, such as customer data, sales data, and financial data. 
             - Replication and disaster recovery workloads: These are workloads that involve replicating data between multiple databases or sites for backup and disaster recovery purposes. 
             - Database development and testing workloads: These are workloads that involve creating, modifying, and testing database schemas, queries, and applications. 
-sections:
   - name: Enabling NVMe and Compatible VMs and Platforms
     questions:
       - question: |
@@ -81,7 +79,6 @@ sections:
           - Only Gen2 images are supported.  
           - Choose one of the Azure regions where NVMe is enabled. 
           By meeting the five conditions, you'll be able to enable NVMe on the supported VM family in no time. Follow the above conditions while creating and resizing a VM with NVMe to ensure successful launch of feature.
-sections:
   - name: Missing Required Configurations
     questions:
       - question: |
@@ -118,7 +115,6 @@ sections:
           The Azure region I need doesn't support NVMe, when will NVMe be available?     
         answer: |
            Watch out for our product launch announcements in the Azure updates. 
-sections:
   - name: NVMe Supportability
     questions:
       - question: |
@@ -184,7 +180,6 @@ sections:
           In guest output for data disks attached at LUN 0 and LUN 4 (CRP). The LUN ID is equivalent to NAMESPACE ID 
 
           :::image type="content" source="./media/enable-nvme/nvmefaq9.png" alt-text="example of how N V M e disks will be seen in N V M e enabled Windows V M":::
-sections:
   - name: NVMe Pricing
     questions:
       - question: |
@@ -195,7 +190,6 @@ sections:
           How can I try before purchasing this VM series? Is preview still available?  
         answer: |
           The preview period for this offer has ended, and it is now generally available for purchase. You can request a quota for one of the available Azure regions to try out the new NVMe Ebsv5 or Ebdsv5 sizes. Refer to the list of regions in FAQ #22.  
-sections:
   - name: Known Issues
     questions:
       - question: |
@@ -242,7 +236,6 @@ sections:
           Are shared disks in remote disks supported with NVMe VMs? 
         answer: |
           Shared disk feature is currently not supported. However, it's expected to be available on Premium SSD/Premium SSD v2/Ultra disks. 
-sections:
   - name: Reporting Issues
     questions:
       - question: |
