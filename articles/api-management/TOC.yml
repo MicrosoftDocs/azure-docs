@@ -83,15 +83,15 @@
               href: ./security-controls-policy.md
             - name: Security baseline
               href: /security/benchmark/azure/baselines/api-management-security-baseline?toc=/azure/api-management/&bc=/azure/api-management/breadcrumb/toc.json
-            - name: API security
-              items:
-              - name: Authentication and authorization options
-                href: authentication-authorization-overview.md
-              - name: Defender for APIs (preview)
-                href: protect-with-defender-for-apis.md              
-              - name: Mitigate OWASP API threats
-                href: mitigate-owasp-api-threats.md
-                displayName: OWASP top 10, vulnerability, vulnerabilities
+      - name: API security
+        items:
+        - name: Authentication and authorization options
+          href: authentication-authorization-overview.md
+        - name: Defender for APIs (preview)
+          href: protect-with-defender-for-apis.md              
+        - name: Mitigate OWASP API threats
+          href: mitigate-owasp-api-threats.md
+          displayName: OWASP top 10, vulnerability, vulnerabilities
       - name: API authorizations
         href: authorizations-overview.md
         displayName: OAuth
@@ -176,6 +176,8 @@
                   href: private-endpoint.md
                 - name: Retrieve IP addresses
                   href: api-management-howto-ip-addresses.md
+                - name: Defend against DDoS attacks
+                  href: protect-with-ddos-protection.md
             - name: Configuration management
               items:
               - name: Landing zone accelerator
@@ -305,8 +307,6 @@
               href: api-management-howto-ca-certificates.md
             - name: Manage protocols and ciphers
               href: api-management-howto-manage-protocols-ciphers.md
-            - name: Defend against DDoS attacks
-              href: protect-with-ddos-protection.md
           - name: Manage API authorizations
             items:
             - name: Configure common authorization providers

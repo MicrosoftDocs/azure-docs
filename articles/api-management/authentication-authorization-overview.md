@@ -104,7 +104,10 @@ In the following example, a subscription key is used between the client and the 
 
 :::image type="content" source="media/authentication-authorization-overview/oauth-token-authorization.svg" alt-text="Diagraming showing authorization to backend SaaS service using API authorization." border="false":::
 
-With an API authorization, API Management acquires and refreshes the tokens in the OAuth 2.0 flow. Authorizations simplify token management in multiples scenarios, for example, with clients that need to authorize to multiple SaaS backends. 
+With an API authorization, API Management acquires and refreshes the tokens for API access in the OAuth 2.0 flow. Authorizations simplify token management in multiple scenarios. For example:
+
+* A client app might need to authorize to multiple SaaS backends, for example to resolve multiple fields using GraphQL resolvers.
+* Users authenticate to API Management by SSO from their identity provider, but authorize to a backend SaaS provider (such as LinkedIn) using a common organizational account
 
 Examples:
 
