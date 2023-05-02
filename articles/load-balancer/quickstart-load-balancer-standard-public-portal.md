@@ -182,7 +182,7 @@ During the creation of the load balancer, you'll configure:
     | Floating IP | Select **Disabled**. |
     | Outbound source network address translation (SNAT) | Leave the default of **(Recommended) Use outbound rules to provide backend pool members access to the internet.** |
 
-1. Select **Add**.
+1. Select **Save**.
 
 1. Select the blue **Review + create** button at the bottom of the page.
 

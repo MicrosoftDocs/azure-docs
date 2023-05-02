@@ -165,7 +165,7 @@ You can troubleshoot KEDA add-on problems in [this article][keda-troubleshoot].
 [az aks update]: /cli/azure/aks#az-aks-update
 [az-group-delete]: /cli/azure/group#az-group-delete
 [keda-troubleshoot]: /troubleshoot/azure/azure-kubernetes/troubleshoot-kubernetes-event-driven-autoscaling-add-on?context=/azure/aks/context/aks-context
-[aks-firewall-requirements]: limit-egress-traffic.md#azure-global-required-network-rules
+[aks-firewall-requirements]: outbound-rules-control-egress.md#azure-global-required-network-rules
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-show]: /cli/azure/feature#az-feature-show
