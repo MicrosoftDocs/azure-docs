@@ -21,7 +21,7 @@ ms.date: 04/25/2023
 
 This article describes Foundation Models and their benefits within Azure Machine Learning. You will learn how Foundation models are created and what they are used for. You will also learn the benefits of these models over currently used practices. 
 
-## What is 'Foundation Models in AzureML' (preview)?
+## What is Foundation Models in AzureML?
 
 In recent years, advancements in AI have led to the rise of large foundation models that are trained on a vast quantity of data and that can be easily adapted to a wide variety of applications across various industries. This emerging trend gives rise to a unique opportunity for enterprises to build and use these foundation models in their deep learning workloads.
 
