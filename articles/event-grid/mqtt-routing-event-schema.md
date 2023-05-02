@@ -7,7 +7,7 @@ author: george-guirguis
 ms.author: geguirgu
 ---
 # Event Schema for MQTT Routed Messages
-MQTT Messages are routed to an Event Grid Topic as CloudEvents according to the following logic:
+MQTT Messages are routed to an Event Grid topic as CloudEvents according to the following logic:
 
 For MQTT v3 messages or MQTT v5 messages of a payload format indicator=0, the payload will be forwarded in the data_base64 object and encoded as a base 64 string according to the following schema sample.
 
@@ -26,7 +26,7 @@ For MQTT v3 messages or MQTT v5 messages of a payload format indicator=0, the pa
 }
 ```
 
-For MQTT v5 messages of content type= “application/json; charset=utf-8” or of a payload format indicator=1, the payload will be forwarded in the data object, and the message will be serialized as a JSON (or a JSON string if the payload is not a JSON). Setting the content type and/or the payload format indicator enables you to filter on your payload properties as the payload is forwarded within the data field as is. Learn more about [filtering on the message's payload.](mqtt-routing-filtering.md#payload-filtering)
+For MQTT v5 messages of content type= “application/json; charset=utf-8” or of a payload format indicator=1, the payload will be forwarded in the data object, and the message will be serialized as a JSON (or a JSON string if the payload isn't a JSON). Setting the content type and/or the payload format indicator enables you to filter on your payload properties as the payload is forwarded within the data field as is. Learn more about [filtering on the message's payload.](mqtt-routing-filtering.md#payload-filtering)
 
 ```json
 {
