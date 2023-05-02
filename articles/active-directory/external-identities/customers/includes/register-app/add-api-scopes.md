@@ -43,4 +43,4 @@ ms.author: kengaderdus
 
 1. Select **Save**.
 
-Learn more about [the principle of least privilege when publishing permissions](https://learn.microsoft.com/security/zero-trust/develop/protected-api-example) for a web API. 
+Learn more about [the principle of least privilege when publishing permissions](/security/zero-trust/develop/protected-api-example) for a web API. 
