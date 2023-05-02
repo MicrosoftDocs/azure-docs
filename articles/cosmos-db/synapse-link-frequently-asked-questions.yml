@@ -53,7 +53,7 @@ sections:
           No, there's no impact.
 
       - question: |
-          Can I enable4 Synapse Link in Azure Cosmos DB serverless accounts?
+          Can I enable Synapse Link in Azure Cosmos DB serverless accounts?
         answer: |
           Yes, for both the APIs for MongoDB and NoSQLs database accounts. Use CLI or PowerShell for MongoDB accounts.
           

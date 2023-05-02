@@ -11,13 +11,13 @@ items:
 - name: Quickstarts
   expanded: true
   items: 
-    - name: Explore a free trial
-      href: quickstart-trial-explore-features.md 
+    - name: Set up a free trial
+      href: quickstart-trial-setup.md 
 - name: Samples
   expanded: true
   items: 
     - name: Samples by app type and language
-      href: quickstart-app-samples-all.md
+      href: samples-ciam-all.md
 - name: Concepts
   expanded: true
   items: 
@@ -25,20 +25,12 @@ items:
       href: concept-planning-your-solution.md
     - name: Supported features in customer tenants
       href: concept-supported-features-customers.md
-    - name: Customizing the sign-in look and feel
-      href: concept-branding-customers.md
-    - name: Building your own customizations
-      items:
-        - name: Custom authentication extensions
-          href: ../../develop/custom-extension-overview.md?context=/azure/active-directory/external-identities/customers/context/customers-context
-        - name: Adding claims from external systems
-          href: ../../develop/custom-claims-provider-overview.md?context=/azure/active-directory/external-identities/customers/context/customers-context
-    - name: Designing the flow of sign-in steps
-      href: concept-user-flows-customers.md
-    - name: Collecting info from users
-      href: concept-customize-claims-customers.md
     - name: Authentication methods and identity providers
       href: concept-authentication-methods-customers.md
+    - name: Customizing the sign-in look and feel
+      href: concept-branding-customers.md
+    - name: Custom authentication extensions
+      href: concept-custom-extensions.md
     - name: Security and governance
       href: concept-security-customers.md  	  	  
 - name: How-to guides
@@ -54,11 +46,11 @@ items:
                 - name: JavaScript
                   items:
                     - name: Sign in users and call an API
-                      href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart  
+                      href: how-to-single-page-app-vanillajs-sample-sign-in.md  
                 - name: React
                   items:
                     - name: Sign in users and call an API
-                      href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart 
+                      href: ../../develop/web-api-quickstart.md
             - name: Web app
               items:
                 - name: Node.js
@@ -68,15 +60,15 @@ items:
                 - name: ASP.NET
                   items:
                     - name: Sign in users
-                      href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart 
+                      href: how-to-web-app-dotnet-sample-sign-in.md
             - name: Headless app
-              href: https://learn.microsoft.com/azure/active-directory/develop/console-app-quickstart
+              href: ../../develop/console-app-quickstart.md
             - name: Desktop app
               items:
                 - name: Electron
                   href: how-to-desktop-app-electron-sample-sign-in.md
             - name: Mobile app
-              href: https://learn.microsoft.com/azure/active-directory/develop/mobile-app-quickstart
+              href: ../../develop/mobile-app-quickstart.md
         - name: Build and integrate apps
           items: 
             - name: Single-page app (SPA)
@@ -86,31 +78,31 @@ items:
                     - name: Sign in users
                       items:
                         - name: Overview
-                          href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
+                          href: ../../develop/web-api-quickstart.md
                         - name: Prepare tenant
-                          href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
+                          href: how-to-single-page-app-vanillajs-prepare-tenant.md
                         - name: Prepare app
-                          href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
+                          href: how-to-single-page-app-vanillajs-prepare-app.md
                         - name: Configure app for authentication
-                          href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
+                          href: how-to-single-page-app-vanillajs-configure-authentication.md
                         - name: Sign in and sign out
-                          href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
+                          href: how-to-single-page-app-vanillajs-sign-in-sign-out.md
                 - name: React
                   items:
                     - name: Sign in users
                       items:
                         - name: Overview
-                          href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
+                          href: ../../develop/web-api-quickstart.md
                         - name: Prepare tenant
-                          href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
+                          href: ../../develop/web-api-quickstart.md
                         - name: Prepare app
-                          href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
+                          href: ../../develop/web-api-quickstart.md
                         - name: Configure app for authentication
-                          href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
+                          href: ../../develop/web-api-quickstart.md
                         - name: Sign in and sign out
-                          href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart
+                          href: ../../develop/web-api-quickstart.md
                 - name: Angular JS - Sign in users and call an API
-                  href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-angular-auth-code
+                  href: ../../develop/tutorial-v2-angular-auth-code.md
 
             - name: Web app
               items: 
@@ -131,13 +123,13 @@ items:
                     - name: Sign in users
                       items:
                         - name: Overview
-                          href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
+                          href: ../../develop/tutorial-v2-asp-webapp.md
                         - name: Prepare tenant
-                          href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
+                          href: how-to-web-app-dotnet-sign-in-prepare-tenant.md
                         - name: Prepare app
-                          href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
+                          href: how-to-web-app-dotnet-sign-in-prepare-app.md
                         - name: Sign in and sign out
-                          href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
+                          href: how-to-web-app-dotnet-sign-in-sign-out.md
             - name: Web API
               items: 
                 - name: Protect ASP.NET API
@@ -154,20 +146,21 @@ items:
             - name: Headless app
               items: 
                 - name: Node​ - Sign in users
-                  href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-nodejs-console
+                  href: ../../develop/tutorial-v2-nodejs-console.md
                 - name: .NET​ - Sign in users
-                  href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-aspnet-daemon-web-app
+                  href: ../../develop/tutorial-v2-aspnet-daemon-web-app.md
             - name: Desktop app
               items: 
                 - name: .NET MAUI - Sign in users
-                  href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-ios
+                  href: ../../develop/tutorial-v2-ios.md
                 - name: Electron​ - Sign in users
-                  href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-nodejs-desktop
+                  href: ../../develop/tutorial-v2-nodejs-desktop.md
             - name: Mobile app
               items: 
                 - name: .NET MAUI - Sign in users
-                  href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-ios
+                  href: ../../develop/tutorial-v2-ios.md
     - name: Authenticate and authorize
+      expanded: true
       items:
       - name: Add your app
         items:
@@ -179,13 +172,14 @@ items:
             href: how-to-user-flow-sign-up-sign-in-customers.md
           - name: Enable password reset
             href: how-to-enable-password-reset-customers.md
-      - name: Configure identity providers and auth methods
+      - name: Configure identity providers
         items:
           - name: Google federation
             href: how-to-google-federation-customers.md
           - name: Facebook federation
             href: how-to-facebook-federation-customers.md
     - name: Customize
+      expanded: true
       items:
         - name: Customize branding
           items:
@@ -198,24 +192,43 @@ items:
             - name: Define custom attributes for user flows
               href: how-to-define-custom-attributes.md
     - name: Extend
+      expanded: true
       items:
-      - name: Add claims from external sources
+      - name: Token issuance start event
         items:
-          - name: Token issuance start event
-            items:
-              - name: Create and register a custom claims provider API
-                href: ../../develop/custom-extension-get-started.md?context=/azure/active-directory/external-identities/customers/context/customers-context
-              - name: Configure a SAML app to call a custom claims provider
-                href: ../../develop/custom-extension-configure-saml-app.md?context=/azure/active-directory/external-identities/customers/context/customers-context
-              - name: Troubleshoot your custom claims provider API
-                href: ../../develop/custom-extension-troubleshoot.md?context=/azure/active-directory/external-identities/customers/context/customers-context
-      - name: Add logic to attribute collection
+        - name: Create and register a custom claims provider API
+          href: ../../develop/custom-extension-get-started.md?context=/azure/active-directory/external-identities/customers/context/customers-context
+        - name: Configure a SAML app to call a custom claims provider
+          href: ../../develop/custom-extension-configure-saml-app.md?context=/azure/active-directory/external-identities/customers/context/customers-context
+        - name: Troubleshoot your custom claims provider API
+          href: ../../develop/custom-extension-troubleshoot.md?context=/azure/active-directory/external-identities/customers/context/customers-context
+      - name: Attribute collection start and submit events
         items:
-          - name: Default branding
-            href: how-to-customize-branding-customers.md
+          - name: Configure custom extensions
+            href: how-to-configure-custom-extension.md
+          - name: OnAttributeCollectionStart
+            href: how-to-onattributecollectionstart.md
+          - name: OnAttributeCollectionSubmit
+            href: how-to-onattributecollectionsubmit.md
+    - name: Secure
+      expanded: true
+      items:
+      - name: Multifactor authentication
+        href: how-to-multifactor-authentication-customers.md
+      - name: Identity Protection
+        href: how-to-identity-protection-customers.md
     - name: Manage users
       items:
         - name: Manage admin accounts
           href: how-to-manage-admin-accounts.md
         - name: Manage customer accounts
           href: how-to-manage-customer-accounts.md
+- name: Reference
+  expanded: true
+  items:
+    - name: Default user permissions
+      href: reference-user-permissions.md
+    - name: Group and application roles support
+      href: reference-group-app-roles-support.md
+    - name: Help and support options
+      href: ../../develop/developer-support-help-options.md?context=/azure/active-directory/external-identities/customers/context/customers-context

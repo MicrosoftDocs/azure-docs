@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI. 
 ms.service: cognitive-services
 ms.topic: conceptual 
-ms.date: 04/19/2023
+ms.date: 04/26/2023
 ms.custom: event-tier1-build-2022, references_regions
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -15,7 +15,7 @@ keywords:
 
 # Azure OpenAI Service models
 
-Azure OpenAI provides access to many different models, grouped by family and capability. A model family typically associates models by their intended task. The following table describes model families currently available in Azure OpenAI. Not all models are available in all regions currently. Refer to the [model capability table](#model-capabilities) in this article for a full breakdown. 
+Azure OpenAI provides access to many different models, grouped by family and capability. A model family typically associates models by their intended task. The following table describes model families currently available in Azure OpenAI. Not all models are available in all regions currently. Refer to the [model capability table](#model-capabilities) in this article for a full breakdown.
 
 | Model family | Description |
 |--|--|
@@ -180,22 +180,20 @@ These models can be used with Completion API requests. `gpt-35-turbo` is the onl
 
 |  Model ID  |   Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  --------- |  --------------------- | ------------------- | -------------------- | ---------------------- |
-| ada        |	N/A	                  | South Central US, West Europe <sup>2</sup> | 2,049 | Oct 2019|
+| ada        |	N/A	                  | N/A | 2,049 | Oct 2019|
 | text-ada-001 | East US, South Central US, West Europe | N/A | 2,049 | Oct 2019|
-| babbage | N/A | South Central US, West Europe<sup>2</sup> | 2,049 | Oct 2019 |
+| babbage | N/A | N/A | 2,049 | Oct 2019 |
 | text-babbage-001 | East US, South Central US, West Europe | N/A | 2,049 | Oct 2019 |
-| curie | N/A | South Central US, West Europe<sup>2</sup> | 2,049 | Oct 2019 |
+| curie | N/A | N/A | 2,049 | Oct 2019 |
 | text-curie-001  | East US, South Central US, West Europe | N/A | 2,049 | Oct 2019 |
-| davinci<sup>1</sup> | N/A | Currently unavailable | 2,049 | Oct 2019|
+| davinci | N/A | N/A | 2,049 | Oct 2019|
 | text-davinci-001 | South Central US, West Europe | N/A |  |  |
 | text-davinci-002 | East US, South Central US, West Europe | N/A | 4,097 | Jun 2021 |
 | text-davinci-003 | East US, West Europe | N/A | 4,097 | Jun 2021 |
-| text-davinci-fine-tune-002<sup>1</sup>  | N/A | Currently unavailable |  |  |
-| gpt-35-turbo<sup>3</sup> (ChatGPT) (preview) | East US, South Central US, West Europe | N/A | 4,096 | Sep 2021 |
+| text-davinci-fine-tune-002 | N/A | N/A |  |  |
+| gpt-35-turbo<sup>1</sup> (ChatGPT) (preview) | East US, South Central US, West Europe | N/A | 4,096 | Sep 2021 |
 
-<sup>1</sup> The model is available by request only. Currently we aren't accepting new requests to use the model.
-<br><sup>2</sup> East US was previously available, but due to high demand this region is currently unavailable for new customers to use for fine-tuning. Please use the South Central US, and West Europe regions for fine-tuning.
-<br><sup>3</sup> Currently, only version `0301` of this model is available. This version of the model will be deprecated on 8/1/2023 in favor of newer version of the gpt-35-model. See [ChatGPT model versioning](../how-to/chatgpt.md#model-versioning) for more details.
+<br><sup>1</sup> Currently, only version `0301` of this model is available. This version of the model will be deprecated on 8/1/2023 in favor of newer version of the gpt-35-model. See [ChatGPT model versioning](../how-to/chatgpt.md#model-versioning) for more details.
 
 ### GPT-4 Models
 

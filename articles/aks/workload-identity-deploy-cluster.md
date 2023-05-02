@@ -37,7 +37,7 @@ export SERVICE_ACCOUNT_NAMESPACE="default"
 export SERVICE_ACCOUNT_NAME="workload-identity-sa"
 export SUBSCRIPTION="$(az account show --query id --output tsv)"
 export USER_ASSIGNED_IDENTITY_NAME="myIdentity"
-export FEDERATED_IDENTITY_CREDENTIAL="myFedIdentity" 
+export FEDERATED_IDENTITY_CREDENTIAL_NAME="myFedIdentity" 
 ```
 
 ## Create AKS cluster
@@ -176,7 +176,7 @@ You can retrieve this information using the Azure CLI command: [az keyvault list
 To disable the Azure AD workload identity on the AKS cluster where it's been enabled and configured, you can run the following command:
 
 ```azurecli
-az aks update --resource-group myResourceGroup --name myAKSCluster --enable-workload-identity false
+az aks update --resource-group myResourceGroup --name myAKSCluster --disable-workload-identity
 ```
 
 ## Next steps
