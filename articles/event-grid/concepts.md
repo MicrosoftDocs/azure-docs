@@ -44,9 +44,6 @@ An event source is where the event happens. Each event source is related to one 
 
 A partner is a kind of publisher that sends events from its system to make them available to Azure customers. A partner is typically a SaaS or [ERP](https://en.wikipedia.org/wiki/Enterprise_resource_planning?) provider that integrates with Azure Event Grid to help customers realize event-driven use cases across platforms. Partners not only can publish events to Azure Event Grid, but they can also receive events from it. These capabilities are enabled through the [Partner Events](partner-events-overview.md) feature.
 
-## Event sources
-An event source is where the event happens. Each event source is related to one or more event types. For example, Azure Storage is the event source for blob created events. IoT Hub is the event source for device created events. Your application is the event source for custom events that you define. Event sources are responsible for sending events to Event Grid.
-
 ## Namespaces
 An Event Grid Namespace is a management container for the following resources:
 | Resource   | Protocol supported |

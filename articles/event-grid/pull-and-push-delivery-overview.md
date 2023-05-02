@@ -16,11 +16,11 @@ ms.topic: conceptual
 This article builds on [What is Azure Event Grid?](overview.md) to provide essential information before you start using Event Grid’s pull and push delivery over HTTP. It covers fundamental concepts, resource models, and message delivery modes supported. At the end of this document, you will find useful links to articles that guide you on how to use Event Grid and to articles that offer in-depth conceptual information.
 
 >[!Important]
-> This document helps you get started with Event Grid capabilities that use the HTTP protocol. This article is suitable for users who need to integrate applications on the cloud. If you require to communicate IoT device data, you may want to consult Event Grid's MQTT’s [overview](mqtt-overview.md).
+> This document helps you get started with Event Grid capabilities that use the HTTP protocol. This article is suitable for users who need to integrate applications on the cloud. If you require to communicate IoT device data, you may want to consult Event Grid's MQTT’s overview.
 
-# Core concepts
+## Core concepts
 
-## CloudEvents
+### CloudEvents
 
 Event Grid conforms to CNCF’s open standard [CloudEvents 1.0](https://github.com/cloudevents/spec) specification using the [HTTP protocol binding](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md) with [JSON format](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md). This means that your solutions publish and consume event messages using a format like the following:
 
@@ -42,7 +42,7 @@ Event Grid conforms to CNCF’s open standard [CloudEvents 1.0](https://github.c
 }
 ```
 
-### What is an event?
+#### What is an event?
 
 An **event** is the smallest amount of information that fully describes something that happened in a system. We often refer to an event as shown above as a discrete event because it represents a distinct, self-standing fact about a system that provides an insight that can be actionable. Examples include: *com.yourcompany.Orders.OrderCreated*, *org.yourorg.GeneralLedger.AccountChanged*, *io.solutionname.Auth.MaximumNumberOfUserLoginAttemptsReached*.
 
@@ -53,25 +53,25 @@ For more information on events, consult the Event Grid [Terminology](concepts.md
 
 #### Another kind of event
 
-The user community also refers to events to those type of messages that carry a data point, such as a single reading from a device or a single click on a web application page. That kind of event is usually analyzed over a time window or event stream size to derive insights and take an action. In Event Grid’s documentation, we refer to that kind of event as **data point**, **streaming data**, or **telemetry**. They are a kind of data that Event Grid’s [MQTT](mqtt-overview.md) and Azure Event Hubs usually handle.
+The user community also refers to events to those type of messages that carry a data point, such as a single reading from a device or a single click on a web application page. That kind of event is usually analyzed over a time window or event stream size to derive insights and take an action. In Event Grid’s documentation, we refer to that kind of event as **data point**, **streaming data**, or **telemetry**. They are a kind of data that Event Grid’s MQTT support and Azure Event Hubs usually handle.
 
-## Topics and event subscriptions
+### Topics and event subscriptions
 
 Events published to Event Grid land on a **topic**, which is a resource that logically contains all events. An **event subscription** is a configuration resource associated with a single topic. Among other things, you use an event subscription to set event selection criteria to define the event collection available to a subscriber out of the total set of events present in a topic.
 
-:::image type="content" source="media/pull-and-push-delivery-overview/topic-and-event-subscriptions.svg" alt-text="Diagram showing a topic and associated event subscriptions." lightbox="media/pull-and-push-delivery-overview/topic-and-event-subscriptions.svg":::
+:::image type="content" source="media/pull-and-push-delivery-overview/topic-event-subscriptions.svg" alt-text="Diagram showing a topic and associated event subscriptions." lightbox="media/pull-and-push-delivery-overview/topic-event-subscriptions.svg":::
 
 ## Push and pull delivery
 
 Using HTTP, Event Grid supports push and pull event delivery. With **push delivery**, you define a destination in an event subscription, a webhook or an Azure service, to which Event Grid sends events. Push delivery is supported in custom topics, system topics, domain topics and partner topics. With **pull delivery**, subscriber applications connect to Event Grid to consume events. Pull delivery is supported in topics within a namespace.
 
-:::image type="content" source="media/pull-and-push-delivery-overview/push-and-pull-delivery.svg" alt-text="Diagram showing a topic and associated event subscriptions." lightbox="media/pull-and-push-delivery-overview/push-and-pull-delivery.svg":::
+:::image type="content" source="media/pull-and-push-delivery-overview/push-pull-delivery.svg" alt-text="High-level diagram showing push delivery and pull delivery with the kind of resources involved." lightbox="media/pull-and-push-delivery-overview/push-pull-delivery.svg":::
 
-## When to use push or pull
+### When to use push or pull
 
 The following are general guidelines to help you decide when to use pull or push delivery.
 
-### Pull delivery
+#### Pull delivery
 
 - Your applications or services publish events. Event Grid does not yet support pull delivery when the source of the events is an [Azure service](event-schema-api-management.md?tabs=cloud-event-schema) or a [partner](partner-events-overview.md) (SaaS) system.
 - You need full control as to when to receive events. For example, your application may not up all the time, not stable enough, or you process data at certain times.
@@ -79,12 +79,12 @@ The following are general guidelines to help you decide when to use pull or push
 - You want to use [private links](../private-link/private-endpoint-overview.md) when receiving events. This is possible with pull delivery.
 - You do not have the ability to expose an endpoint and use push delivery, but you can connect to Event Grid to consume events.
 
-### Push delivery
+#### Push delivery
 - You need to receive events from Azure services, parner (SaaS) event sources or from your applications. Push delivery supports these types of event sources. 
 - You want to avoid constant polling to determine that a system state change has occurred. You rather use Event Grid to send you events at the time state changes happen.
 - You have an application that cannot make outbound calls. For example, your organization may be concerned about data exfiltration. However, your application can receive events through a public endpoint.
 
-# Pull delivery
+## Pull delivery
 Pull delivery is available through [namespace topics](concepts.md#topics), which are topics that you create inside a [namespace](concepts.md#namespaces). Your application publish CloudEvents to a single namespace HTTP endpoint specifying the target topic.
 
 >[!Note]
@@ -107,7 +107,7 @@ In some other occasions, your consumer application may want to release or reject
 - Your consumer application **releases** a received event to signal Event Grid that it is not ready to process the event and to make it available for redelivery.
 - You may want to **reject** an event if there is a condition, possibly permanent, that prevents your consumer application to process the event. For example, a malformed message can be rejected as it cannot be successfully parsed. Rejected events are dead-lettered, if a dead-letter destination is available. Otherwise, they are dropped.
 
-# Push delivery
+## Push delivery
 
 Push delivery is supported for the following resources. Click on the links to learn more about each of them.
 
@@ -121,17 +121,17 @@ The following diagram illustrates the resources that support push delivery with 
 
 :::image type="content" source="media/pull-and-push-delivery-overview/topic-types-and-push-delivery.svg" alt-text="High-level diagram of a consumer app inside a VNET reading events from Event Grid over a private endpoint inside the VNET." lightbox="media/pull-and-push-delivery-overview/topic-types-and-push-delivery.svg":::
 
-# next steps
+## next steps
 
 The following articles provides you with information on how to use Event Grid or provide you with additional information on concepts.
 
-## Pull delivery
+### Pull delivery
 
 - Learn about [Namespaces](concepts.md#namespaces)
 - Learn about [Namespace Topics](concepts.md#namespace-topics) and [Event Subscriptions](concepts.md#event-subscriptions)
 - [Publish and subscribe to events using Namespace Topics](publish-events-using-namespace-topics.md)
 
-## Push delivery
+### Push delivery
 
 - [Learn about System Topics](system-topics.md)
 - [Learn about Partner Topics](partner-events-overview.md)
@@ -142,7 +142,7 @@ The following articles provides you with information on how to use Event Grid or
 - [Subscribe to storage events](blob-event-quickstart-portal.md)
 - [Subscribe to partner events](subscribe-to-partner-events.md)
 
-## Other useful links
+### Other useful links
 - [Control plane and data plane SDKs](sdk-overview.md)
 - [Data plane SDKs announcement](https://devblogs.microsoft.com/azure-sdk/event-grid-ga/) with a plethora of information, samples, and links
 - [Quotas and limits](quotas-limits.md)

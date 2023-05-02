@@ -177,7 +177,7 @@ Event Grid operations involving Namespaces and its resources, including MQTT and
 
 ### MQTT messaging
 
-- [Overview](mqtt-overview.md) 
+ 
 - [Publish and subscribe to MQTT messages](mqtt-publish-and-subscribe-portal.md)
 - [Route MQTT messages to Event Hubs](mqtt-routing-to-event-hubs-portal.md)
 

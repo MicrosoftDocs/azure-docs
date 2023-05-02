@@ -18,7 +18,7 @@ Follow the steps in this article if you need to send application events to Event
 > - East US          
 
 >[!Important]
-> The Azure [CLI Event Grid extension](.../cli/azure/eventgrid?view=azure-cli-latest) does not yet support namespaces and any of the resources it contains. We will use [Azure CLI resource](.../cli/azure/resource?view=azure-cli-latest) to create Event Grid resources.
+> The Azure [CLI Event Grid extension](/cli/azure/eventgrid) does not yet support namespaces and any of the resources it contains. We will use [Azure CLI resource](/cli/azure/resource) to create Event Grid resources.
 
 >[!Important]
 > Azure Event Grid namespaces currently supports Shared Access Signatures (SAS) token and access keys authentication.
@@ -91,7 +91,7 @@ az resource create --resource-group $resource_group --namespace Microsoft.EventG
 
 ## create an event subscription
 
-Create an event subscription setting its delivery mode to *queue*, which supports [pull delivery](pull-and-push-delivery-overview.md#pull-delivery). For more information on all configuration options, please refer to the latest Event Grid control plane [REST API](.../rest/api/eventgrid/).
+Create an event subscription setting its delivery mode to *queue*, which supports [pull delivery](pull-and-push-delivery-overview.md#pull-delivery). For more information on all configuration options, please refer to the latest Event Grid control plane [REST API](/rest/api/eventgrid).
 
 Set the name of your event subscription on a variable:
 ```azurecli-interactive
