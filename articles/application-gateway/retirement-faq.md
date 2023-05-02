@@ -1,5 +1,6 @@
 ---
 title: FAQ on V1 retirement 
+titleSuffix: Azure Application Gateway
 description: This article lists out commonly added questions on  retirement of Application gateway V1 SKUs and Migration
 services: application-gateway
 author: MJyot
@@ -8,7 +9,9 @@ ms.topic: how-to
 ms.date: 04/19/2023
 ms.author: mjyothish
 ---
-# FAQ on V1 retirement
+# FAQs
+
+## Common questions on V1 retirement
 
 ### What is the official date Application Gateway V1 is cut off from creation?
 
@@ -74,9 +77,9 @@ The Azure PowerShell script creates a new v2 gateway with an appropriate size to
 
 No. The script doesn't  replicate this configuration for v2. You must add the log configuration separately to the migrated v2 gateway.
 
-### Does this script support certificates uploaded to Azure KeyVault ?
+### Does this script support certificates uploaded to Azure Key Vault ?
 
-No. Currently the script doesn't support certificates in KeyVault. However, this is being considered for a future version.
+No. Currently the script doesn't support certificates in Key Vault. 
 
 ### I ran into some issues with using this script. How can I get help?
 
