@@ -256,7 +256,7 @@ To create a dataset:
 
     :::image type="content" source="./media/tutorial-creator-indoor-maps/data-dataset-location-url.png" border="true" alt-text="Screenshot of Postman that shows the value of the Operation-Location key for a dataset in the response header.":::
 
-### Check the status of dataset creation
+### Check the dataset creation status
 
 To check the status of the dataset creation process and retrieve the `datasetId` value:
 
@@ -296,7 +296,7 @@ To create a tileset:
 
 4. Select the **POST** HTTP method.
 
-5. Enter the following URL to the [Tileset service]. Replace `{datasetId}` with the `datasetId` value that you obtained in the [Check the status of dataset creation](#check-the-status-of-dataset-creation) section.
+5. Enter the following URL to the [Tileset service]. Replace `{datasetId}` with the `datasetId` value that you obtained in the [Check the dataset creation status](#check-the-dataset-creation-status) section.
 
     ```http
     https://us.atlas.microsoft.com/tilesets?api-version=2023-03-01-preview&datasetID={datasetId}&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
