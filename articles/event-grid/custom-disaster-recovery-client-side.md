@@ -2,7 +2,7 @@
 title: Build your own customer enabled disaster recovery in Azure Event Grid
 description: This article describes how to build your own customer enabled disaster recovery in Azure Event Grid resources. 
 ms.topic: tutorial
-ms.date: 09/07/2022
+ms.date: 05/02/2023
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
