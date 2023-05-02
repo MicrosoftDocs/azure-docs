@@ -19,7 +19,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ![Flow diagram that shows the steps involved in agent migration and how the migration tools help in generating DCRs and tracking the entire migration process.](media/azure-monitor-agent-migration/mma-to-ama-migration-steps.png)  
 
 > [!IMPORTANT]
-> Do not remove legacy agents being used by other [Azure solutions or services](./azure-monitor-agent-migration.md#services-and-features-migrating-away-from-log-analytics-agent). Use the migration helper to discover which solutions and services you use today.
+> Do not remove legacy agents being used by other [Azure solutions or services](./azure-monitor-agent-migration.md#migrate-additional-services-and-features). Use the migration helper to discover which solutions and services you use today.
 
 [!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
@@ -42,7 +42,7 @@ Azure Monitor Agent relies only on [data collection rules (DCRs)](../essentials/
 Use the DCR Config Generator tool to parse Log Analytics Agent configuration from your workspaces and generate/deploy corresponding data collection rules automatically. You can then associate the rules to machines running the new agent using built-in association policies. 
 
 > [!NOTE]
-> DCR Config Generator does not currently support additional configuration for [Azure solutions or services](./azure-monitor-agent-migration.md#services-and-features-migrating-away-from-log-analytics-agent) dependent on Log Analytics Agent.
+> DCR Config Generator does not currently support additional configuration for [Azure solutions or services](./azure-monitor-agent-migration.md#migrate-additional-services-and-features) dependent on Log Analytics Agent.
 
 ### Prerequisites
 To install DCR Config Generator, you need:

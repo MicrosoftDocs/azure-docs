@@ -37,7 +37,7 @@ Using Azure Monitor agent, you get immediate benefits as shown below:
 
 ## Consolidating legacy agents
 
-Deploy Azure Monitor Agent on all new virtual machines, scale sets, and on-premises servers to collect data for [supported services and features](#supported-services-and-features).
+Deploy Azure Monitor Agent on all new virtual machines, scale sets, and on-premises servers to collect data for [supported services and features](./azure-monitor-agent-migration.md#migrate-additional-services-and-features).
 
 If you have machines already deployed with legacy Log Analytics agents, we recommend you [migrate to Azure Monitor Agent](./azure-monitor-agent-migration.md) as soon as possible. The legacy Log Analytics agent will not be supported after August 2024.
 
@@ -88,7 +88,7 @@ Azure Monitor Agent uses [data collection rules](../essentials/data-collection-r
 
 ## Supported services and features
 
-For a list of features and services that use Azure Monitor Agent for data collection, see [Migrate to Azure Monitor Agent from Log Analytics agent](../agents/azure-monitor-agent-migration.md#services-and-features-migrating-away-from-log-analytics-agent).
+For a list of features and services that use Azure Monitor Agent for data collection, see [Migrate to Azure Monitor Agent from Log Analytics agent](../agents/azure-monitor-agent-migration.md#migrate-additional-services-and-features).
 
 ## Supported regions
 
@@ -126,7 +126,7 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |		|	Azure Storage	|		|		|	X	|
 |		|	Event Hub	|		|		|	X	|
 |	**Services and features supported**	|		|		|		|		|
-|		|	Microsoft Sentinel 	|	X ([View scope](#supported-services-and-features))	|	X	|		|
+|		|	Microsoft Sentinel 	|	X ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	|	X	|		|
 |		|	VM Insights	|	X (Public preview)	|	X	|		|
 |		|	Microsoft Defender for Cloud	|	X (Public preview)	|	X	|		|
 |		|	Automation Update Management	|	|	X	|		|
@@ -152,7 +152,7 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |		|	Azure Storage	|		|		|	X	|		|
 |		|	Event Hub	|		|		|	X	|		|
 |	**Services and features supported**	|		|		|		|		|		|
-|		|	Microsoft Sentinel 	|	X ([View scope](#supported-services-and-features))	|	X	|		|
+|		|	Microsoft Sentinel 	|	X ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	|	X	|		|
 |		|	VM Insights	|	X (Public preview)	|	X 	|		|
 |		|	Microsoft Defender for Cloud	|	X (Public preview)	|	X	|		|
 |		|	Update Management	|	X (Public preview, independent of monitoring agents)	|	X	|		|
