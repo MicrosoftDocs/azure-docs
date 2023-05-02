@@ -17,7 +17,7 @@ items:
         href: pull-and-push-delivery-overview.md
     - name: Quickstarts
       items:
-      - name: Publish and subscribe using mamespace topics
+      - name: Publish and subscribe using namespace topics
         href: publish-events-using-namespace-topics.md
       - name: Publish and subscribe using custom topics
         items:
