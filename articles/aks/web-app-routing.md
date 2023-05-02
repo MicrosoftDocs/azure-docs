@@ -316,7 +316,7 @@ kubectl apply -f ingress.yaml -n hello-web-app-routing
 
 The following example output shows the created resources:
 
-```bash
+```output
 deployment.apps/aks-helloworld created
 service/aks-helloworld created
 ingress.networking.k8s.io/aks-helloworld created
@@ -447,7 +447,7 @@ kubectl apply -f ingressbackend.yaml -n hello-web-app-routing
 
 The following example output shows the created resources:
 
-```bash
+```output
 deployment.apps/aks-helloworld created
 service/aks-helloworld created
 ingress.networking.k8s.io/aks-helloworld created
@@ -532,7 +532,7 @@ kubectl apply -f service.yaml -n hello-web-app-routing
 
 The following example output shows the created resources:
 
-```bash
+```output
 deployment.apps/aks-helloworld created
 service/aks-helloworld created
 ```
@@ -564,7 +564,7 @@ kubectl delete namespace hello-web-app-routing
 
 You can remove the Web Application Routing add-on using the Azure CLI. To do so run the following command, substituting your AKS cluster and resource group name. Be careful if you already have some of the other add-ons (open-service-mesh or azure-keyvault-secrets-provider) enabled on your cluster so that you don't accidentally disable them.
 
-```azurecli
+```azurecli-interactive
 az aks disable-addons --addons web_application_routing --name myAKSCluster --resource-group myResourceGroup 
 ```
 

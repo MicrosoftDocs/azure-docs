@@ -535,7 +535,7 @@ Using a shared kubeconfig requires slightly different steps depending on your Ku
      sudo chmod +x /usr/local/bin/kubelogin 
      ```
 
-5. [Convert](https://azure.github.io/kubelogin/cli/convert-kubeconfig.html) the kubelogin to the appropriate [login mode](https://azure.github.io/kubelogin/concepts/login-modes.html). For example, for [device code login](https://azure.github.io/kubelogin/concepts/login-modes/devicecode.html) with an Azure Active Directory user, the commands would be as follows:
+5. [Convert](https://azure.github.io/kubelogin/cli/convert-kubeconfig.html) the kubelogin to use the appropriate [login mode](https://azure.github.io/kubelogin/concepts/login-modes.html). For example, for [device code login](https://azure.github.io/kubelogin/concepts/login-modes/devicecode.html) with an Azure Active Directory user, the commands would be as follows:
 
    ```bash
    export KUBECONFIG=/path/to/kubeconfig
