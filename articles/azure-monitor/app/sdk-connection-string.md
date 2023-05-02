@@ -161,11 +161,34 @@ Connection string: `APPLICATIONINSIGHTS_CONNECTION_STRING`
 
 ### Code samples
 
-# [.NET/.NetCore](#tab/net)
+# [.NET 5.0+](#tab/dotnet5)
+
+1. Set the instrumentation key in the `appsettings.json` file:
+
+    ```json
+    {
+      "ApplicationInsights": {
+        "InstrumentationKey" : "InstrumentationKey=00000000-0000-0000-0000-000000000000;"
+        }
+    }
+    ```
+
+2. Retrieve the instrumentation key in `Program.cs` when registering the `ApplicationInsightsTelemetry` service:
+
+    ```csharp
+    var options = new ApplicationInsightsServiceOptions { ConnectionString = app.Configuration["ApplicationInsights:InstrumentationKey"] };
+    builder.Services.AddApplicationInsightsTelemetry(options: options);
+    ```
+
+> [!NOTE]
+> When deploying applications to Azure in production scenarios, consider placing instrumentation keys or other configuration secrets in secure locations such as App Service configuration settings or Azure Key Vault. Avoid including secrets in your application code or checking them into source control where they might be exposed or misused. The preceding code example will also work if the instrumentation key is stored in App Service configuration settings. Learn more about [configuring App Service settings](/azure/app-service/configure-common).
+
+# [.NET Framework](#tab/dotnet-framework)
 
 Set the property [TelemetryConfiguration.ConnectionString](https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274) or [ApplicationInsightsServiceOptions.ConnectionString](https://github.com/microsoft/ApplicationInsights-dotnet/blob/81288f26921df1e8e713d31e7e9c2187ac9e6590/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs#L66-L69).
 
-.NET explicitly set:
+Explicitly set the instrumentation key in code:
+
 ```csharp
 var configuration = new TelemetryConfiguration
 {
@@ -173,32 +196,13 @@ var configuration = new TelemetryConfiguration
 };
 ```
 
-.NET config file:
+Set the instrumentation key using a configuration file:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
     <ConnectionString>InstrumentationKey=00000000-0000-0000-0000-000000000000</ConnectionString>
 </ApplicationInsights>
-```
-
-.NET Core explicitly set:
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    var options = new ApplicationInsightsServiceOptions { ConnectionString = "InstrumentationKey=00000000-0000-0000-0000-000000000000;" };
-    services.AddApplicationInsightsTelemetry(options: options);
-}
-```
-
-.NET Core config.json:
-
-```json
-{
-  "ApplicationInsights": {
-    "ConnectionString" : "InstrumentationKey=00000000-0000-0000-0000-000000000000;"
-    }
-  }
 ```
 
 # [Java](#tab/java)

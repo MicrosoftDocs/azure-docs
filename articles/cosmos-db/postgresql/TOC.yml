@@ -204,7 +204,7 @@
         - name: Customer managed keys
           href: how-to-customer-managed-keys.md
           displayName: customer-managed, keys, cmk
-        - name: Configure SSL
+        - name: Configure TLS/SSL
           href: howto-ssl-connection-security.md
           displayName: ssl, tls
     - name: Troubleshoot

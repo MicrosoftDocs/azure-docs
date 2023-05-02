@@ -45,7 +45,12 @@ Although the Business case picks Azure recommendations from certain assessments,
 
 ## How do I build a business case?
 
-Currently, you can create a Business case on servers and workloads discovered using a lightweight Azure Migrate appliance in your VMware, Microsoft Hyper-V and Physical/ Bare-metal environments as well as IaaS services of other public cloud. The appliance discovers on-premises servers and workloads. It then sends server metadata and performance data to Azure Migrate.
+Currently, you can create a Business case with the two discovery sources:
+
+ **Discovery Source** | **Details** | **Migration strategies that can be used to build a business case**
+    --- | --- | ---
+    Use more accurate data insights collected via **Azure Migrate appliance** | You need to set up an Azure Migrate appliance for [VMware](how-to-set-up-appliance-vmware.md) or [Hyper-V](how-to-set-up-appliance-hyper-v.md) or [Physical/Bare-metal or other clouds](how-to-set-up-appliance-physical.md). The appliance discovers servers, SQL Server instance and databases, and ASP.NET webapps and sends metadata and performance (resource utilization) data to Azure Migrate. [Learn more](migrate-appliance.md). | Azure recommended to minimize cost, Migrate to all IaaS (Infrastructure as a Service), Modernize to PaaS (Platform as a Service)
+    Build a quick business case using the **servers imported via a .csv file** | You need to provide the server inventory in a [.CSV file and import in Azure Migrate](tutorial-discover-import.md) to get a quick business case based on the provided inputs. You don't need to set up the Azure Migrate appliance to discover servers for this option. | Migrate to all IaaS (Infrastructure as a Service)
 
 ## How do I use the appliance?
 

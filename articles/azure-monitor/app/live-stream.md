@@ -34,7 +34,7 @@ Live Metrics is currently supported for ASP.NET, ASP.NET Core, Azure Functions, 
 ## Get started
 
 > [!IMPORTANT]
-> Monitoring ASP.NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) applications requires Application Insights version 2.8.0 or above. To enable Application Insights, ensure that it's activated in the Azure portal and that the Application Insights NuGet package is included. Without the NuGet package, some telemetry is sent to Application Insights, but that telemetry won't show in Live Metrics.
+> To enable Application Insights, ensure that it's activated in the Azure portal and your app is using a recent version of the [Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) NuGet package. Without the NuGet package, some telemetry is sent to Application Insights, but that telemetry won't show in Live Metrics.
 
 1. Follow language-specific guidelines to enable Live Metrics:
    * [ASP.NET](./asp-net.md): Live Metrics is enabled by default.
@@ -163,8 +163,10 @@ namespace LiveMetricsDemo
         }
     }
 }
-
 ```
+
+> [!NOTE]
+> This .NET version is no longer supported.
 
 # [.NET Framework](#tab/dotnet-framework)
 
@@ -340,6 +342,9 @@ public void ConfigureServices(IServiceCollection services)
     services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
 }
 ```
+
+> [!NOTE]
+> This .NET version is no longer supported.
 
 # [.NET Framework](#tab/dotnet-framework)
 
