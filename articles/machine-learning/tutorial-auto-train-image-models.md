@@ -46,7 +46,7 @@ You'll write code using the Python SDK in this tutorial and learn the following 
 
 * Download and unzip the [**odFridgeObjects.zip*](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjects.zip) data file. The dataset is annotated in Pascal VOC format, where each image corresponds to an xml file. Each xml file contains information on where its corresponding image file is located and also contains information about the bounding boxes and the object labels. In order to use this data, you first need to convert it to the required JSONL format as seen in the [Convert the downloaded data to JSONL](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb) section of the notebook.
 
-* Use a compute instance to follow this tutorial without further installation. (See how to [create a compute instance](./quickstart-create-resources.md#create-a-compute-instance).)  Or install the CLI/SDK if you will use your own local environment.
+* Use a compute instance to follow this tutorial without further installation. (See how to [create a compute instance](./quickstart-create-resources.md#create-a-compute-instance).)  Or install the CLI/SDK to use your own local environment.
     
     # [Azure CLI](#tab/cli)
     
@@ -522,7 +522,7 @@ hd_job
 
 ## Register and deploy model
 
-Once the job completes, you can register the model that was created from the best trial (configuration that resulted in the best primary metric). You can either register the model after downloading or by specifying the azureml path with corresponding jobid.  
+Once the job completes, you can register the model that was created from the best trial (configuration that resulted in the best primary metric). You can either register the model after downloading or by specifying the `azureml` path with corresponding `jobid`.  
 
 ### Get the best trial
 
@@ -547,7 +547,7 @@ CLI example not available, please use Python SDK.
 
 ### Register the model
 
-Register the model either using the azureml path or your locally downloaded path. 
+Register the model either using the `azureml` path or your locally downloaded path. 
 
 # [Azure CLI](#tab/cli)
 
