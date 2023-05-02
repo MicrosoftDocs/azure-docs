@@ -34,7 +34,7 @@ When needed, you can also create a self-signed certificate programmatically by u
 
 - Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-hub-free-trial). 
 
-- [OpenSSL](https://wiki.openssl.org/index.php/Binaries).
+- [OpenSSL](https://wiki.openssl.org/index.php/Binaries) or you can easily install [OpenSSL](https://community.chocolatey.org/packages/openssl) in Windows via [Chocolatey](https://chocolatey.org/). 
 
 - [Windows PowerShell](/powershell/scripting/windows-powershell/install/installing-windows-powershell) or Azure subscription. 
 
