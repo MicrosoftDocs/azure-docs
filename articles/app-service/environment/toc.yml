@@ -6,8 +6,8 @@
     href: overview.md
   - name: Version comparison
     href: version-comparison.md
-  - name: Getting started with migration
-    href: migration-getting-started.md
+  - name: Getting started with upgrading
+    href: upgrade-getting-started.md
 - name: Quickstarts
   expanded: true
   items:
