@@ -212,7 +212,7 @@ sections:
            
       - question: How can I check if a specific image is deprecated or scheduled for deprecation?
         answer: |
-          You can check if an image is deprecated or scheduled for deprecation using the [REST API](/rest/api/compute/virtual-machine-images/get?tabs=HTTP) and via Azure CLI or Powershell 
+          You can check if an image is deprecated or scheduled for deprecation using the [REST API](/rest/api/compute/virtual-machine-images/get?tabs=HTTP) and via Azure CLI or Powershell.
           
 
           If the image is deprecated,  you'll get a **VM Image is Deprecated** response. If the image is scheduled for deprecation, the response would show the date of the scheduled deprecation.
