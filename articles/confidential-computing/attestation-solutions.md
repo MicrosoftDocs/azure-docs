@@ -1,6 +1,6 @@
 ---
 title: Attestation
-description: Learn about what attestation is and how to use it at Microsoft
+description: Learn what attestation is and how to use it at Microsoft
 author: jl-pm
 ms.service: virtual-machines
 ms.subservice: confidential-computing
