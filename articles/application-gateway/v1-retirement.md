@@ -1,5 +1,6 @@
 ---
 title: We're retiring Application Gateway V1 SKU in April 2026
+titleSuffix: Azure Application Gateway
 description: This article provides a high-level overview of the retirement of Application gateway V1 SKUs 
 services: application-gateway
 author: MJyot
@@ -17,13 +18,13 @@ We announced the deprecation of Application Gateway V1 on **April 28 ,2023**. St
 
 ## Retirement Timelines 
 
-⦁	Deprecation announcement: April 28 ,2023 
+- Deprecation announcement: April 28 ,2023 
 
-⦁	No new subscriptions for V1 deployments: July 1,2023 - Application Gateway V1 is no longer be available for  deployment on new subscriptions from July 1 2023.
+-	No new subscriptions for V1 deployments: July 1,2023 - Application Gateway V1 is no longer be available for  deployment on new subscriptions from July 1 2023.
 
-⦁	No new V1 deployments: August 28, 2024 - V1 creation is stopped completely for all customers 28 August 2024 onwards.
+- No new V1 deployments: August 28, 2024 - V1 creation is stopped completely for all customers 28 August 2024 onwards.
 
-⦁	SKU retirement: April 28 ,2026 - Any Application Gateway V1 that is still running are stopped. Application Gateway V1s that is not migrated to Application Gateway V2 are informed regarding timelines for deleting them and subsequently force deleted.
+- SKU retirement: April 28 ,2026 - Any Application Gateway V1 that is still running are stopped. Application Gateway V1s that is not migrated to Application Gateway V2 are informed regarding timelines for deleting them and subsequently force deleted.
 
 ## Resources available for migration
 
