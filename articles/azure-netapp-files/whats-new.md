@@ -12,12 +12,16 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 03/16/2023
+ms.date: 04/26/2023
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
+
+## April 2023
+
+* [Azure Virtual WAN](configure-virtual-wan.md) is now generally available in [all regions](azure-netapp-files-network-topologies.md#supported-regions) that support standard network features
 
 ## March 2023
 
@@ -195,7 +199,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Azure Application Consistent Snapshot Tool (AzAcSnap) v5.1 Public Preview](azacsnap-release-notes.md)
 
-    [Azure Application Consistent Snapshot Tool](azacsnap-introduction.md) (AzAcSnap) is a command-line tool that enables customers to simplify data protection for third-party databases (SAP HANA) in Linux environments (for example, SUSE and RHEL).  
+    [Azure Application Consistent Snapshot Tool](azacsnap-introduction.md) (AzAcSnap) is a command-line tool that enables customers to simplify data protection for third-party databases (SAP HANA) in Linux environments (for example, `SUSE` and `RHEL`).  
  
     The public preview of v5.1 brings the following new capabilities to AzAcSnap:  
     * Oracle Database support
@@ -316,7 +320,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * Azure NetApp Files Application Consistent Snapshot tool [(AzAcSnap)](azacsnap-introduction.md) is now generally available. 
 
-    AzAcSnap is a command-line tool that enables you to simplify data protection for third-party databases (SAP HANA) in Linux environments (for example, SUSE and RHEL). See [Release Notes for AzAcSnap](azacsnap-release-notes.md) for the latest changes about the tool.   
+    AzAcSnap is a command-line tool that enables you to simplify data protection for third-party databases (SAP HANA) in Linux environments (for example, `SUSE` and `RHEL`). See [Release Notes for AzAcSnap](azacsnap-release-notes.md) for the latest changes about the tool.   
 
 * [Support for capacity pool billing tags](manage-billing-tags.md)   
 
@@ -383,7 +387,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Azure Application Consistent Snapshot Tool](azacsnap-introduction.md) (Preview)    
 
-    Azure Application Consistent Snapshot Tool (AzAcSnap) is a command-line tool that enables you to simplify data protection for third-party databases (SAP HANA) in Linux environments (for example, SUSE and RHEL).   
+    Azure Application Consistent Snapshot Tool (AzAcSnap) is a command-line tool that enables you to simplify data protection for third-party databases (SAP HANA) in Linux environments (for example, `SUSE` and `RHEL`).   
 
     AzAcSnap leverages the volume snapshot and replication functionalities in Azure NetApp Files and Azure Large Instance. It provides the following benefits:
 

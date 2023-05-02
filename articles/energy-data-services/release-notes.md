@@ -25,6 +25,10 @@ Azure Data Manager for Energy Preview is updated on an ongoing basis. To stay up
 
 ## April 2023
 
+### Enabled Monitoring of OSDU Service Logs
+
+Now you can configure diagnostic settings of your Azure Data Manager for Energy Preview to export OSDU Service Logs to Azure Monitor. You can access, query, & analyze the logs in a Log Analytics Workspace. You can archive them in a storage account for later use. 
+
 ### Monitoring and investigating actions with Audit logs
 
 Knowing who is taking what action on which item is critical in helping organizations meet regulatory compliance and record management requirements. Azure Data Manager for Energy captures audit logs for data plane APIs of OSDU services and audit events listed [here](https://community.opengroup.org/osdu/documentation/-/wikis/Releases/R3.0/GCP/GCP-Operation/Logging/Audit-Logging-Status). Learn more about [audit logging in Azure Data Manager for Energy](how-to-manage-audit-logs.md).

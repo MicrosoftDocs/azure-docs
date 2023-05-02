@@ -23,7 +23,7 @@ In this article, you learn how to create a mesh network topology using Azure Vir
 ## Prerequisites
 
 * Read about [mesh](concept-connectivity-configuration.md#mesh-network-topology) network topology.
-* Created a [Azure Virtual Network Manager instance](create-virtual-network-manager-portal.md#create-virtual-network-manager).
+* Created a [Azure Virtual Network Manager instance](create-virtual-network-manager-portal.md#create-a-virtual-network-manager-instance).
 * Identify virtual networks you want to use in the mesh configuration or create new [virtual networks](../virtual-network/quick-create-portal.md).
 
 ## <a name="group"></a> Create a network group

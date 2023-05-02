@@ -872,7 +872,13 @@ items:
           - name: Download blobs
             href: storage-blob-download-python.md
           - name: Copy blobs
-            href: storage-blob-copy-python.md
+            items:
+            - name: Overview of copy operations
+              href: storage-blob-copy-python.md
+            - name: Copy from a source object URL
+              href: storage-blob-copy-url-python.md
+            - name: Copy with asynchronous scheduling
+              href: storage-blob-copy-async-python.md
           - name: List blobs
             href: storage-blobs-list-python.md
           - name: Delete and restore blobs
