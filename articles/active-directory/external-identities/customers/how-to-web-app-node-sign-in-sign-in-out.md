@@ -275,7 +275,7 @@ To extract a specific ID token claim, such as *given name*:
 
 1. In your code editor, open `server.js` file, then add the code from [server.js](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/blob/main/1-Authentication/5-sign-in-express/App/server.js) to it.
 
-1. In your code editor, open *package.json* file, then update the `script` property to:
+1. In your code editor, open *package.json* file, then update the `scripts` property to:
 
     ```json
       "scripts": {
