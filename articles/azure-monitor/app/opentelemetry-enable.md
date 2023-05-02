@@ -70,7 +70,6 @@ Install the latest [Azure.Monitor.OpenTelemetry.AspNetCore](https://www.nuget.or
 dotnet add package --prerelease Azure.Monitor.OpenTelemetry.AspNetCore 
 ```
 
-
 #### [Java](#tab/java)
 
 Download the [applicationinsights-agent-3.4.12.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.4.12/applicationinsights-agent-3.4.12.jar) file.
@@ -133,45 +132,21 @@ This section provides guidance that shows how to enable OpenTelemetry.
 
 ##### [ASP.NET Core](#tab/net)
 
-The following code demonstrates how to enable OpenTelemetry in a C# console application by setting up OpenTelemetry TracerProvider. This code must be in the application startup. For ASP.NET Core, it's done typically in the `ConfigureServices` method of the application `Startup` class. For ASP.NET applications, it's done typically in `Global.asax.cs`.
-
-TODO: NEW CODE SAMPLE  
+The following code demonstrates how to enable OpenTelemetry in an ASP.NET Core application by calling `UseAzureMonitor()`. This code must be in the application startup.
 
 ```csharp
-using System.Diagnostics;
-using Azure.Monitor.OpenTelemetry.Exporter;
-using OpenTelemetry;
-using OpenTelemetry.Trace;
+using Azure.Monitor.OpenTelemetry.AspNetCore;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 
-public class Program
-{
-    private static readonly ActivitySource MyActivitySource = new ActivitySource(
-        "OTel.AzureMonitor.Demo");
+var builder = WebApplication.CreateBuilder(args);
 
-    public static void Main()
-    {
-        using var tracerProvider = Sdk.CreateTracerProviderBuilder()
-            .AddSource("OTel.AzureMonitor.Demo")
-            .AddAzureMonitorTraceExporter(o =>
-            {
-                o.ConnectionString = "<Your Connection String>";
-            })
-            .Build();
+builder.Services.AddOpenTelemetry().UseAzureMonitor(options => options.ConnectionString = "<Your Connection String>");
 
-        using (var activity = MyActivitySource.StartActivity("TestActivity"))
-        {
-            activity?.SetTag("CustomTag1", "Value1");
-            activity?.SetTag("CustomTag2", "Value2");
-        }
+var app = builder.Build();
 
-        System.Console.WriteLine("Press Enter key to exit.");
-        System.Console.ReadLine();
-    }
-}
+app.Run();
 ```
-
-> [!NOTE]
-> The `Activity` and `ActivitySource` classes from the `System.Diagnostics` namespace represent the OpenTelemetry concepts of `Span` and `Tracer`, respectively. You create `ActivitySource` directly by using its constructor instead of by using `TracerProvider`. Each [`ActivitySource`](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/trace/customizing-the-sdk#activity-source) class must be explicitly connected to `TracerProvider` by using `AddSource()`. That's because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. To learn more, see [Introduction to OpenTelemetry .NET Tracing API](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
 
 ##### [Java](#tab/java)
 
@@ -347,22 +322,21 @@ The following libraries are bundled with our distro.
 
 #### [ASP.NET Core](#tab/net)
 
-TODO: UPDATE VERSIONS  
+TODO: MOTHRA: SHOULD WE FOCUS ON ALL SUPPORTED SDKS OR ONLY THOSE SHIPPED BY DISTRO?
+I removed ASP.NET (non-core) from this list.
 
 Requests
-- [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.AspNet-1.0.0-rc9.6/src/OpenTelemetry.Instrumentation.AspNet/README.md) <sup>[1](#FOOTNOTEONE)</sup> version:
-  [1.0.0-rc9.6](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNet/1.0.0-rc9.6)
 - [ASP.NET
-  Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.AspNetCore/README.md) <sup>[1](#FOOTNOTEONE)</sup> version:
-  [1.0.0-rc9.7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNetCore/1.0.0-rc9.7)
+  Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.AspNetCore/README.md) <sup>[1](#FOOTNOTEONE)</sup> version:
+  [1.0.0-rc9.14](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNetCore/1.0.0-rc9.14)
 
 Dependencies
 - [HTTP
-  clients](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.Http/README.md) <sup>[1](#FOOTNOTEONE)</sup> version:
-  [1.0.0-rc9.7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Http/1.0.0-rc9.7)
+  clients](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.Http/README.md) <sup>[1](#FOOTNOTEONE)</sup> version:
+  [1.0.0-rc9.14](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Http/1.0.0-rc9.14)
 - [SQL
-  client](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.SqlClient/README.md) <sup>[1](#FOOTNOTEONE)</sup> version:
-  [1.0.0-rc9.7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.SqlClient/1.0.0-rc9.7)
+  client](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.SqlClient/README.md) <sup>[1](#FOOTNOTEONE)</sup> version:
+  [1.0.0-rc9.14](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.SqlClient/1.0.0-rc9.14)
 
 #### [Java](#tab/java)
 
@@ -494,6 +468,8 @@ You can collect more data automatically when you include instrumentation librari
 > [!NOTE] 
 >  We don't support and cannot guarantee the quality of community instrumentation libraries. If you would like to suggest a community instrumentation library us to include in our distro, post or up-vote an idea in our [feedback community](https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0).
 
+TODO: NO LANGUAGES HAVE CONTRIBUTED HERE. IS THIS TABBED SECTION NEEDED?
+
 ### [ASP.NET Core](#tab/net)
 
 
@@ -511,17 +487,15 @@ You can collect more data automatically when you include instrumentation librari
 
 #### [ASP.NET Core](#tab/net)
 
-TODO: UPDATE VERSIONS ~MOTRHA
+TODO: MOTHRA: SHOULD WE FOCUS ON ALL SUPPORTED SDKS OR ONLY THOSE SHIPPED BY DISTRO?
+I removed ASP.NET (non-core) and Runtime from this list.
 
-- [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.AspNet-1.0.0-rc9.6/src/OpenTelemetry.Instrumentation.AspNet/README.md) version:
-  [1.0.0-rc9.6](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNet/1.0.0-rc9.6)
 - [ASP.NET
-  Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.AspNetCore/README.md) version:
-  [1.0.0-rc9.7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNetCore/1.0.0-rc9.7)
+  Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.AspNetCore/README.md) version:
+  [1.0.0-rc9.14](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNetCore/1.0.0-rc9.14)
 - [HTTP
-  clients](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.Http/README.md) version:
-  [1.0.0-rc9.7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Http/1.0.0-rc9.7)
-- [Runtime](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.Runtime-1.0.0/src/OpenTelemetry.Instrumentation.Runtime/README.md) version: [1.0.0](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Runtime/1.0.0)
+  clients](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.Http/README.md) version:
+  [1.0.0-rc9.14](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Http/1.0.0-rc9.14)
 
 #### [Java](#tab/java)
 
@@ -555,9 +529,15 @@ Autocollected metrics
 
 #### [ASP.NET Core](#tab/net)
 
-TODO: MOTHRA
+```csharp
+var builder = WebApplication.CreateBuilder(args);
 
-Coming soon.
+builder.Services.AddOpenTelemetry().UseAzureMonitor(options => options.ConnectionString = "<Your Connection String>");
+
+var app = builder.Build();
+
+app.Logger.LogInformation("Hello World!");
+```
 
 #### [Java](#tab/java)
 
@@ -657,42 +637,39 @@ describes the instruments and provides examples of when you might use each one.
 
 #### [ASP.NET Core](#tab/net)
 
-TODO: UPDATE CODE SAMPLE  
+Application startup:
 
 ```csharp
-using System.Diagnostics.Metrics;
-using Azure.Monitor.OpenTelemetry.Exporter;
-using OpenTelemetry;
-using OpenTelemetry.Metrics;
-
 public class Program
 {
     private static readonly Meter meter = new("OTel.AzureMonitor.Demo");
 
-    public static void Main()
+    public static void Main(string[] args)
     {
-        using var meterProvider = Sdk.CreateMeterProviderBuilder()
-            .AddMeter("OTel.AzureMonitor.Demo")
-            .AddAzureMonitorMetricExporter(o =>
-            {
-                o.ConnectionString = "<Your Connection String>";
-            })
-            .Build();
+        var builder = WebApplication.CreateBuilder(args);
 
-        Histogram<long> myFruitSalePrice = meter.CreateHistogram<long>("FruitSalePrice");
+        builder.Services.AddOpenTelemetry().UseAzureMonitor(options => options.ConnectionString = "<Your Connection String>");
+        builder.Services.ConfigureOpenTelemetryMeterProvider((sp, builder) => builder.AddMeter("OTel.AzureMonitor.Demo"));
 
-        var rand = new Random();
-        myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "apple"), new("color", "red"));
-        myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "lemon"), new("color", "yellow"));
-        myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "lemon"), new("color", "yellow"));
-        myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "apple"), new("color", "green"));
-        myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "apple"), new("color", "red"));
-        myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "lemon"), new("color", "yellow"));
+        var app = builder.Build();
 
-        System.Console.WriteLine("Press Enter key to exit.");
-        System.Console.ReadLine();
+        app.Run();
     }
 }
+```
+
+Metrics Example:
+
+```csharp
+Histogram<long> myFruitSalePrice = meter.CreateHistogram<long>("FruitSalePrice");
+
+var rand = new Random();
+myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "apple"), new("color", "red"));
+myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "lemon"), new("color", "yellow"));
+myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "lemon"), new("color", "yellow"));
+myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "apple"), new("color", "green"));
+myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "apple"), new("color", "red"));
+myFruitSalePrice.Record(rand.Next(1, 1000), new("name", "lemon"), new("color", "yellow"));
 ```
 
 #### [Java](#tab/java)
@@ -769,41 +746,36 @@ input()
 
 #### [ASP.NET Core](#tab/net)
 
-TODO: UPDATE CODE SAMPLE  
-
 ```csharp
-using System.Diagnostics.Metrics;
-using Azure.Monitor.OpenTelemetry.Exporter;
-using OpenTelemetry;
-using OpenTelemetry.Metrics;
-
 public class Program
 {
     private static readonly Meter meter = new("OTel.AzureMonitor.Demo");
 
-    public static void Main()
+    public static void Main(string[] args)
     {
-        using var meterProvider = Sdk.CreateMeterProviderBuilder()
-            .AddMeter("OTel.AzureMonitor.Demo")
-            .AddAzureMonitorMetricExporter(o =>
-            {
-                o.ConnectionString = "<Your Connection String>";
-            })
-            .Build();
+        var builder = WebApplication.CreateBuilder(args);
 
-        Counter<long> myFruitCounter = meter.CreateCounter<long>("MyFruitCounter");
+        builder.Services.AddOpenTelemetry().UseAzureMonitor(options => options.ConnectionString = "<Your Connection String>");
+        builder.Services.ConfigureOpenTelemetryMeterProvider((sp, builder) => builder.AddMeter("OTel.AzureMonitor.Demo"));
 
-        myFruitCounter.Add(1, new("name", "apple"), new("color", "red"));
-        myFruitCounter.Add(2, new("name", "lemon"), new("color", "yellow"));
-        myFruitCounter.Add(1, new("name", "lemon"), new("color", "yellow"));
-        myFruitCounter.Add(2, new("name", "apple"), new("color", "green"));
-        myFruitCounter.Add(5, new("name", "apple"), new("color", "red"));
-        myFruitCounter.Add(4, new("name", "lemon"), new("color", "yellow"));
+        var app = builder.Build();
 
-        System.Console.WriteLine("Press Enter key to exit.");
-        System.Console.ReadLine();
+        app.Run();
     }
 }
+```
+
+Metrics Example:
+
+```csharp
+Counter<long> myFruitCounter = meter.CreateCounter<long>("MyFruitCounter");
+
+myFruitCounter.Add(1, new("name", "apple"), new("color", "red"));
+myFruitCounter.Add(2, new("name", "lemon"), new("color", "yellow"));
+myFruitCounter.Add(1, new("name", "lemon"), new("color", "yellow"));
+myFruitCounter.Add(2, new("name", "apple"), new("color", "green"));
+myFruitCounter.Add(5, new("name", "apple"), new("color", "red"));
+myFruitCounter.Add(4, new("name", "lemon"), new("color", "yellow"));
 ```
 
 #### [Java](#tab/java)
@@ -883,7 +855,43 @@ input()
 
 #### [ASP.NET Core](#tab/net)
 
-TODO: UPDATE CODE SAMPLE  
+Application startup:
+
+```csharp
+public class Program
+{
+    internal static readonly Meter meter = new("OTel.AzureMonitor.Demo");
+
+    public static void Main(string[] args)
+    {
+        var builder = WebApplication.CreateBuilder(args);
+
+        builder.Services.AddOpenTelemetry().UseAzureMonitor(options => options.ConnectionString = "<Your Connection String>");
+        builder.Services.ConfigureOpenTelemetryMeterProvider((sp, builder) => builder.AddMeter("OTel.AzureMonitor.Demo"));
+
+        var app = builder.Build();
+
+        app.Run();
+    }
+}
+```
+
+Metrics Example:
+
+```csharp
+var process = Process.GetCurrentProcess();
+        
+ObservableGauge<int> myObservableGauge = meter.CreateObservableGauge("Thread.State", () => GetThreadState(process));
+
+private static IEnumerable<Measurement<int>> GetThreadState(Process process)
+{
+    foreach (ProcessThread thread in process.Threads)
+    {
+        yield return new((int)thread.ThreadState, new("ProcessId", process.Id), new("ThreadId", thread.Id));
+    }
+}
+```
+
 
 ```csharp
 using System.Diagnostics.Metrics;
@@ -1014,8 +1022,6 @@ to draw attention in relevant experiences including the failures section and end
 
 #### [ASP.NET Core](#tab/net)
 
-TODO: UPDATE CODE SAMPLE  
-
 ```csharp
 using (var activity = activitySource.StartActivity("ExceptionExample"))
 {
@@ -1124,7 +1130,9 @@ with tracer.start_as_current_span("hello", record_exception=False) as span:
 You may want to add a custom span when there's a dependency request that's not already collected by an instrumentation library or an application process that you wish to model as a span on the end-to-end transaction view.
   
 #### [ASP.NET Core](#tab/net)
-  
+
+TODO: MOTHRA: I THINK THIS WOULD BE A NEW ACTIVITY. WHAT TYPE WOULD WE RECOMMEND HERE?
+
 Coming soon.
 
 #### [Java](#tab/java)
@@ -1402,14 +1410,15 @@ To add span attributes, use either of the following two ways:
 > The advantage of using options provided by instrumentation libraries, when they're available, is that the entire context is available. As a result, users can select to add or filter more attributes. For example, the enrich option in the HttpClient instrumentation library gives users access to the httpRequestMessage itself. They can select anything from it and store it as an attribute.
 
 1. Many instrumentation libraries provide an enrich option. For guidance, see the readme files of individual instrumentation libraries:
-    - [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.AspNet-1.0.0-rc9.6/src/OpenTelemetry.Instrumentation.AspNet/README.md#enrich)
-    - [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#enrich)
-    - [HttpClient and HttpWebRequest](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.Http/README.md#enrich)
+    - [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#enrich)
+    - [HttpClient and HttpWebRequest](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.Http/README.md#enrich)
 
 1. Use a custom processor:
 
 > [!TIP]
 > Add the processor shown here *before* the Azure Monitor Exporter.
+
+TODO: MOTHRA: UPDATE CODE SAMPLE
 
 ```csharp
 using var tracerProvider = Sdk.CreateTracerProviderBuilder()
@@ -1588,6 +1597,8 @@ You can populate the _user_Id_ or _user_AuthenticatedId_ field for requests by u
 
 ##### [ASP.NET Core](#tab/net)
 
+TODO: MOTHRA: FOLLOW UP ON THIS
+
 Coming soon.
 
 ##### [Java](#tab/java)
@@ -1642,7 +1653,9 @@ span._attributes["enduser.id"] = "<User ID>"
 ### Add Log Attributes
   
 #### [ASP.NET Core](#tab/net)
-  
+
+TODO: MOTHRA: FOLLOW UP ON THIS
+
 Coming soon.
 
 #### [Java](#tab/java)
@@ -1676,15 +1689,14 @@ You might use the following ways to filter out telemetry before it leaves your a
 
 #### [ASP.NET Core](#tab/net)
 
-TODO: VERIFY AddProcessor WITH DISTRO  
-
 1. Many instrumentation libraries provide a filter option. For guidance, see the readme files of individual instrumentation libraries:
-    - [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/Instrumentation.AspNet-1.0.0-rc9.6/src/OpenTelemetry.Instrumentation.AspNet/README.md#filter)
-    - [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#filter)
-    - [HttpClient and HttpWebRequest](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.7/src/OpenTelemetry.Instrumentation.Http/README.md#filter)
+    - [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#filter)
+    - [HttpClient and HttpWebRequest](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.Http/README.md#filter)
 
 1. Use a custom processor:
     
+    TODO: MOTHRA: UPDATE CODE SAMPLE
+
     ```csharp
     using var tracerProvider = Sdk.CreateTracerProviderBuilder()
             .AddSource("OTel.AzureMonitor.Demo")
@@ -1852,8 +1864,7 @@ You might want to get the trace ID or span ID. If you have logs that are sent to
 
 #### [ASP.NET Core](#tab/net)
 
-TODO: FOLLOW UP ON THIS  
-I THINK THIS WOULD COME FROM Activity.Current
+TODO: MOTHRA: FOLLOW UP ON THIS. I THINK THIS WOULD COME FROM Activity.Current
 
 Coming soon.
 
