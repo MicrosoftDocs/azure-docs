@@ -9,9 +9,9 @@ ms.custom: devx-track-csharp
 
 # Customer enabled disaster recovery in Azure Event Grid
 
-Customer enabled disaster recovery (CEDR) typically involves creating a backup resource to prevent interruptions when a region becomes unhealty. During this process a primary and secondary region of Azure Event Grid resources will be needed during your production workload.
+Customer enabled disaster recovery (CEDR) typically involves creating a backup resource to prevent interruptions when a region becomes unhealthy. During this process a primary and secondary region of Azure Event Grid resources will be needed during your production workload.
 
-There are different ways to recover from a severe loss of application functionality. In this article we are going to detail the steps you will need to follow to prepare your client to recover from a failure due to an unhealty resource or region.
+There are different ways to recover from a severe loss of application functionality. In this article we are going to detail the steps you will need to follow to prepare your client to recover from a failure due to an unhealthy resource or region.
 
 For simplification, follow the table to identify the kind of disaster recovery supported when publishing events and MQTT messages to Event Grid resources.
 
