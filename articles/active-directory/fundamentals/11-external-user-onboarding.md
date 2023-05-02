@@ -157,7 +157,7 @@ Alternatively, you can leverage Azure AD dynamic groups which can automatically 
 
 If you prefer to use dynamic groups, you do not need to add the users to a group explicitly with an additional API call. Create a dynamic group that will automatically add the user as a member of the group based on available attributes such as userType, email, or a custom attribute. For more information, refer to [Create or edit a dynamic group and get status](https://learn.microsoft.com/azure/active-directory/enterprise-users/groups-create-rule). 
   
-## Step 4: Provision the invited user to the application
+## Step 5: Provision the invited user to the application
 
 Once the invited external user has been provisioned to Azure AD, the Microsoft Graph API returns a response with the necessary user information such as object ID and email. The LOB application can then provision the user to its own directory/database. Depending on the type of application and internal directory type the application uses, the actual implementation of this provisioning can vary. 
 
