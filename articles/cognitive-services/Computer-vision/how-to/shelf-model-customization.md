@@ -1,38 +1,57 @@
 ---
-title: tbd
+title: Train a custom model for shelf analysis
 titleSuffix: Azure Cognitive Services
-description: tbd
+description: Learn how to use the Image Analysis model customization feature to train a model to recognize specific products in a shelf analysis task.
 author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: how-to
-ms.date: 04/26/2023
+ms.date: 05/02/2023
 ms.author: pafarley
 ---
 
 # Train a custom shelf analysis model
 
-You can train a custom model to tbd
+You can train a custom model to recognize specific retail products for use in a shelf analysis scenario. The out-of-box [Shelf Analyze](shelf-analyze.md) operation doesn't differentiate between products, but you can build this capability into your app through custom labeling and training.
 
-## Prerequisites
-* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal. It must be deployed in the **East US** or **West US 2** region. After it deploys, select **Go to resource**.
-  * You'll need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
-* An Azure Storage resource with a blob storage container. [Create one](tbd)
-* [cURL](https://curl.haxx.se/) installed. Or, you can use a different REST platform, like Postman, Swagger, or the REST Client extension for VS Code.
-* A set of training images. You can use our [sample image sets](tbd) or bring your own images. The maximum file size per image is 20MB.
+## Use the model customization feature
 
-## Train
+The [Model customization how-to guide](./model-customization.md) shows you how to train and publish a custom Image Analysis model. You can follow that guide, with a few specifications, to make a model for shelf analysis.
 
-## Analyze with the custom model
+> [!div class="nextstepaction"]
+> [Model customization](model-customization.md)
+
+
+## Dataset specifications
+
+Your training dataset should consist of images of the retail shelves. When you first create the model, you need to set the _ModelKind_ parameter to **ProductRecognitionModel**. 
+
+Also, save the value of the _ModelName_ parameter, so you can use it as a reference later.
+
+## Custom labeling
+
+When you go through the labeling workflow, create labels for each of the products you want to recognize. Then label each product's bounding box, in each image.
+
+## Analyze shelves with a custom model
+
+When your custom model is trained and ready (you've completed the steps in the [Model customization guide](./model-customization.md)), you can use it through the Shelf Analyze operation. Set the _PRODUCT_CLASSIFIER_MODEL_ URL parameter to the name of your custom model (the _ModelName_ value you used in the creation step).
+
+The API call will look like this:
+
+```bash
+curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://<endpoint>/vision/v4.0-preview.1/operations/shelfanalysis-productunderstanding:analyze?PRODUCT_CLASSIFIER_MODEL=myModelName" -d 
+"{
+    'url':'<your_url_string>'
+}"
+```
 
 ## Next steps
 
-In this guide, you learned how to make a basic shelf analysis call using the pre-trained Product Understanding REST API. Next, learn how to use a custom shelf analysis model to better meet your business needs.
+In this guide, you learned how to use a custom shelf analysis model to better meet your business needs. Next, set up planogram matching, which works in conjunction with custom shelf analysis.
 
 > [!div class="nextstepaction"]
-> [tbd](tbd)
+> [Planogram matching](shelf-planogram.md)
 
 * [Image Analysis overview](../overview-image-analysis.md)
