@@ -46,7 +46,9 @@ Before you can enable RDP Shortpath, you'll need to meet the prerequisites. Sele
 - To use TURN, the connection from the client must be within a supported location. For a list of Azure regions that TURN is available, see [supported Azure regions with TURN availability](rdp-shortpath.md#turn-availability-preview).
 
 > [!IMPORTANT]
-> During the preview, TURN is only available for connections to session hosts in a validation host pool. To configure your host pool as a validation environment, see [Define your host pool as a validation environment](create-validation-host-pool.md#define-your-host-pool-as-a-validation-host-pool).
+> - During the preview, TURN is only available for connections to session hosts in a validation host pool. To configure your host pool as a validation environment, see [Define your host pool as a validation environment](create-validation-host-pool.md#define-your-host-pool-as-a-validation-host-pool).
+>
+> - RDP Shortpath for public networks with TURN is only available in the Azure public cloud.
 
 ---
 

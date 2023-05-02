@@ -2,7 +2,7 @@
 title: Monitor applications running on Azure Functions with Application Insights - Azure Monitor | Microsoft Docs
 description: Azure Monitor integrates with your Azure Functions application, allowing performance monitoring and quickly identifying problems.
 ms.topic: conceptual
-ms.date: 02/09/2023
+ms.date: 04/24/2023
 ms.reviewer: abinetabate
 ---
 
@@ -36,12 +36,12 @@ For more advanced use cases, you can modify telemetry by adding spans, updating 
 1. **Option 1**: On the function app **Overview** pane, go to **Application Insights**. Under **Collection Level**, select **Recommended**.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot that shows the how to enable the AppInsights Java Agent.](./media//functions/collection-level.jpg)
+    > :::image type="content" source="./media//functions/collection-level.jpg" lightbox="./media//functions/collection-level.jpg" alt-text="Screenshot that shows the how to enable the AppInsights Java Agent.":::
 
 2. **Option 2**: On the function app **Overview** pane, go to **Configuration**. Under **Application settings**, select **New application setting**.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot that shows the New application setting option.](./media//functions/create-new-setting.png)
+    > :::image type="content" source="./media//functions/create-new-setting.png" lightbox="./media//functions/create-new-setting.png" alt-text="Screenshot that shows the New application setting option.":::
 
     Add an application setting with the following values and select **Save**.
 
@@ -94,7 +94,7 @@ To collect custom telemetry from services such as Redis, Memcached, and MongoDB,
 ## Next steps
 
 * Read more instructions and information about [monitoring Azure Functions](../../azure-functions/functions-monitoring.md).
-* Get an overview of [distributed tracing](./distributed-tracing.md).
+* Get an overview of [distributed tracing](distributed-tracing-telemetry-correlation.md).
 * See what [Application Map](./app-map.md?tabs=net) can do for your business.
 * Read about [requests and dependencies for Java apps](./java-in-process-agent.md).
 * Learn more about [Azure Monitor](../overview.md) and [Application Insights](./app-insights-overview.md).

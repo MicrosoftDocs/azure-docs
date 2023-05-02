@@ -6,7 +6,7 @@ description: Learn how to enable user sign-in to the API Management developer po
 author: dlepow
 ms.service: api-management
 ms.topic: article
-ms.date: 03/17/2023
+ms.date: 04/18/2023
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -152,26 +152,11 @@ Now that you've enabled access for users in an Azure AD tenant, you can:
 * Add Azure AD groups into API Management. 
 * Control product visibility using Azure AD groups.
 
-Follow these steps to grant:
-* `User.Read` **delegated** permission for Microsoft Graph API. 
-* `Directory.ReadAll` **application** permission for Microsoft Graph API. 
-
-1. Update the first 3 lines of the following Azure CLI script to match your environment and run it.
-
-   ```azurecli
-   $subId = "Your Azure subscription ID" # Example: "1fb8fadf-03a3-4253-8993-65391f432d3a"
-   $tenantId = "Your Azure AD Tenant or Organization ID" # Example: 0e054eb4-e5d0-43b8-ba1e-d7b5156f6da8"
-   $appObjectID = "Application Object ID that has been registered in AAD" # Example: "2215b54a-df84-453f-b4db-ae079c0d2619"
-   #Login and Set the Subscription
-   az login
-   az account set --subscription $subId
-   #Assign the following permission: Microsoft Graph Delegated Permission: User.Read, Microsoft Graph Application Permission: Directory.ReadAll
-   az rest --method PATCH --uri "https://graph.microsoft.com/v1.0/$($tenantId)/applications/$($appObjectID)" --body "{'requiredResourceAccess':[{'resourceAccess': [{'id': 'e1fe6dd8-ba31-4d61-89e7-88639da4683d','type': 'Scope'},{'id': '7ab1d382-f21e-4acd-a863-ba3e13f7da61','type': 'Role'}],'resourceAppId': '00000003-0000-0000-c000-000000000000'}]}"
-   ```
-
-1. Sign out and sign back in to the Azure portal.
 1. Navigate to the App Registration page for the application you registered in [the previous section](#enable-user-sign-in-using-azure-ad---portal). 
-1. Select **API Permissions**. You should see the permissions granted by the Azure CLI script in step 1. 
+1. Select **API Permissions**. 
+1. Add the following minimum **application** permissions for Microsoft Graph API:
+    * `User.Read.All` application permission – so API Management can read the user’s group membership to perform group synchronization at the time the user logs in. 
+    * `Group.Read.All` application permission – so API Management can read the Azure AD groups when an administrator tries to add the group to API Management using the **Groups** blade in the portal. 
 1. Select **Grant admin consent for {tenantname}** so that you grant access for all users in this directory. 
 
 Now you can add external Azure AD groups from the **Groups** tab of your API Management instance.

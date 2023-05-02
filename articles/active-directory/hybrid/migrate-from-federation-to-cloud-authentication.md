@@ -6,9 +6,9 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: hybrid
 ms.topic: conceptual
-ms.date: 01/30/2023
+ms.date: 04/04/2023
 ms.author: billmath
-author: jricketts
+author: gargi-sinha
 manager: amycolannino
 ms.collection: M365-identity-device-management
 ---
@@ -42,8 +42,6 @@ Before you begin your migration, ensure that you meet these prerequisites.
 
 For staged rollout, you need to be a Hybrid Identity Administrator on your tenant. 
 
-To enable seamless SSO on a specific Windows Active Directory Forest, you need to be a domain administrator.
-
 ### Step up Azure AD Connect server
 
 Install [Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594) (Azure AD Connect) or [upgrade to the latest version](how-to-upgrade-previous-version.md). When you step up Azure AD Connect server, it reduces the time to migrate from AD FS to the cloud authentication methods from potentially hours to minutes. 
@@ -56,7 +54,7 @@ To find your current federation settings, run [Get-MgDomainFederationConfigurati
 Get-MgDomainFederationConfiguration –DomainID yourdomain.com
 ```
 
-Verify any settings that might have been customized for your federation design and deployment documentation. Specifically, look for customizations in **PreferredAuthenticationProtocol**, **federatedIdpMfaBehavior**, **SupportsMfa** (if **federatedIdpMfaBehavior** is not set), and **PromptLoginBehavior**.
+Verify any settings that might have been customized for your federation design and deployment documentation. Specifically, look for customizations in **PreferredAuthenticationProtocol**, **federatedIdpMfaBehavior**, **SupportsMfa** (if **federatedIdpMfaBehavior** isn't set), and **PromptLoginBehavior**.
 
 ### Back up federation settings
 
@@ -80,17 +78,11 @@ When technology projects fail, it's typically because of mismatched expectations
 
 After migrating to cloud authentication, the user sign-in experience for accessing Microsoft 365 and other resources that are authenticated through Azure AD changes. Users who are outside the network see only the Azure AD sign-in page. 
 
-Proactively communicate with your users how their experience will change, when it will change, and how to gain support if they experience issues.
+Proactively communicate with your users how their experience changes, when it changes, and how to gain support if they experience issues.
 
 ### Plan the maintenance window
 
-After the domain conversion, Azure AD might continue to send some legacy authentication requests from Exchange Online to your AD FS servers for up to four hours. The delay is because the Exchange Online cache for legacy applications authentication can take up to 4 hours to be aware of the cutover from federation to cloud authentication.
-
-During this four-hour window, you may prompt users for credentials repeatedly when reauthenticating to applications that use legacy authentication. Although the user can still successfully authenticate against AD FS, Azure AD no longer accepts the user's issued token because that federation trust is now removed.
-
-Existing Legacy clients (Exchange ActiveSync, Outlook 2010/2013) aren't affected because Exchange Online keeps a cache of their credentials for a set period of time. The cache is used to silently reauthenticate the user. The user doesn't have to return to AD FS. Credentials stored on the device for these clients are used to silently reauthenticate themselves after the cached is cleared. Users aren't expected to receive any password prompts as a result of the domain conversion process.
-
-Modern authentication clients (Office 2016 and Office 2013, iOS, and Android apps) use a valid refresh token to obtain new access tokens for continued access to resources instead of returning to AD FS. These clients are immune to any password prompts resulting from the domain conversion process. The clients will continue to function without extra configuration.
+Modern authentication clients (Office 2016 and Office 2013, iOS, and Android apps) use a valid refresh token to obtain new access tokens for continued access to resources instead of returning to AD FS. These clients are immune to any password prompts resulting from the domain conversion process. The clients continue to function without extra configuration.
 
 >[!NOTE] 
 >When you migrate from federated to cloud authentication, the process to convert the domain from federated to managed may take up to 60 minutes. During this process, users might not be prompted for credentials for any new logins to Azure portal or other browser based applications protected with Azure AD. We recommend that you include this delay in your maintenance window.
@@ -102,7 +94,7 @@ Modern authentication clients (Office 2016 and Office 2013, iOS, and Android app
 
 To plan for rollback, use the [documented current federation settings](#document-current-federation-settings) and check the [federation design and deployment documentation](/windows-server/identity/ad-fs/deployment/windows-server-2012-r2-ad-fs-deployment-guide). 
 
-The rollback process should include converting managed domains to federated domains by using the [Convert-MSOLDomainToFederated](/powershell/module/msonline/convert-msoldomaintofederated) cmdlet. If necessary, configuring extra claims rules.
+The rollback process should include converting managed domains to federated domains by using the [New-MgDomainFederationConfiguration](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdomainfederationconfiguration?view=graph-powershell-1.0&preserve-view=true) cmdlet. If necessary, configuring extra claims rules.
 
 ## Migration considerations 
 
@@ -110,18 +102,18 @@ Here are key migration considerations.
 
 ### Plan for customizations settings 
 
-The onload.js file cannot be duplicated in Azure AD. If your AD FS instance is heavily customized and relies on specific customization settings in the onload.js file, verify if Azure AD can meet your current customization requirements and plan accordingly. Communicate these upcoming changes to your users.
+The onload.js file can't be duplicated in Azure AD. If your AD FS instance is heavily customized and relies on specific customization settings in the onload.js file, verify if Azure AD can meet your current customization requirements and plan accordingly. Communicate these upcoming changes to your users.
 
 #### Sign-in experience
 
-You cannot customize Azure AD sign-in experience. No matter how your users signed-in earlier, you need a fully qualified domain name such as User Principal Name (UPN) or email to sign into Azure AD. 
+You can't customize Azure AD sign-in experience. No matter how your users signed-in earlier, you need a fully qualified domain name such as User Principal Name (UPN) or email to sign into Azure AD. 
 
 #### Organization branding
 
 You can [customize the Azure AD sign-in page](../fundamentals/customize-branding.md). Some visual changes from AD FS on sign-in pages should be expected after the conversion. 
 
 >[!NOTE] 
->Organization branding is not available in free Azure AD licenses unless you have a Microsoft 365 license.
+>Organization branding isn't available in free Azure AD licenses unless you've a Microsoft 365 license.
 
 ### Plan for conditional access policies
 
@@ -133,25 +125,25 @@ Consider replacing AD FS access control policies with the equivalent Azure AD [C
 
 ### Plan support for MFA
 
-For federated domains, MFA may be enforced by Azure AD Conditional Access or by the on-premises federation provider. You can enable protection to prevent bypassing of Azure MFA by configuring the security setting **federatedIdpMfaBehavior**. Enabling the protection for a federated domain in your Azure AD tenant makes sure that Azure MFA is always performed when a federated user accesses an application that is governed by a Conditional Access policy requiring MFA. This includes performing Azure MFA even when federated identity provider has issued federated token claims that on-prem MFA has been performed. Enforcing Azure MFA every time assures that a bad actor cannot bypass Azure MFA by imitating that MFA has already been performed by the identity provider, and is highly recommended unless you perform MFA for your federated users using a third party MFA provider.
+For federated domains, MFA may be enforced by Azure AD Conditional Access or by the on-premises federation provider. You can enable protection to prevent bypassing of Azure AD Multi-Factor Authentication by configuring the security setting **federatedIdpMfaBehavior**. Enable the protection for a federated domain in your Azure AD tenant. Make sure that Azure AD Multi-Factor Authentication is always performed when a federated user accesses an application that is governed by a Conditional Access policy that requires MFA. This includes performing Azure AD Multi-Factor Authentication even when federated identity provider has issued federated token claims that on-premises MFA has been performed. Enforcing Azure AD Multi-Factor Authentication every time assures that a bad actor can't bypass Azure AD Multi-Factor Authentication by imitating that identity provider already performed MFA and is highly recommended unless you perform MFA for your federated users using a third party MFA provider.
 
 The following table explains the behavior for each option. For more information, see **federatedIdpMfaBehavior**.
 
 | Value | Description |
 | :--- | :--- |
-| acceptIfMfaDoneByFederatedIdp | Azure AD accepts MFA that's performed by the federated identity provider. If the federated identity provider didn't perform MFA, Azure AD performs the MFA. |
-| enforceMfaByFederatedIdp | Azure AD accepts MFA that's performed by federated identity provider. If the federated identity provider didn't perform MFA, it redirects the request to federated identity provider to perform MFA. |
-| rejectMfaByFederatedIdp | Azure AD always performs MFA and rejects MFA that's performed by the federated identity provider. |
+| acceptIfMfaDoneByFederatedIdp | Azure AD accepts MFA that federated identity provider performs. If the federated identity provider didn't perform MFA, Azure AD performs the MFA. |
+| enforceMfaByFederatedIdp | Azure AD accepts MFA that federated identity provider performs.  If the federated identity provider didn't perform MFA, it redirects the request to federated identity provider to perform MFA. |
+| rejectMfaByFederatedIdp | Azure AD always performs MFA and rejects MFA that federated identity provider performs. |
 
 >[!NOTE]
-> The **federatedIdpMfaBehavior** setting is an evolved version of the **SupportsMfa** property of the [Set-MsolDomainFederationSettings MSOnline v1 PowerShell cmdlet](/powershell/module/msonline/set-msoldomainfederationsettings). 
+> The **federatedIdpMfaBehavior** setting is an evolved version of the **SupportsMfa** property of the [Set-MsolDomainFederationSettings MSOnline v1 PowerShell cmdlet](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdomainfederationconfiguration?view=graph-powershell-1.0&preserve-view=true). 
 
 For domains that have already set the **SupportsMfa** property, these rules determine how **federatedIdpMfaBehavior** and **SupportsMfa** work together:
 
-- Switching between **federatedIdpMfaBehavior** and **SupportsMfa** is not supported.
+- Switching between **federatedIdpMfaBehavior** and **SupportsMfa** isn't supported.
 - Once **federatedIdpMfaBehavior** property is set, Azure AD ignores the **SupportsMfa** setting.
-- If the **federatedIdpMfaBehavior** property is never set, Azure AD will continue to honor the **SupportsMfa** setting.
-- If neither **federatedIdpMfaBehavior** nor **SupportsMfa** is set, Azure AD will default to `acceptIfMfaDoneByFederatedIdp` behavior.
+- If the **federatedIdpMfaBehavior** property is never set, Azure AD continues to honor the **SupportsMfa** setting.
+- If neither **federatedIdpMfaBehavior** nor **SupportsMfa** is set, Azure AD defaults to `acceptIfMfaDoneByFederatedIdp` behavior.
 
 You can check the status of protection by running [Get-MgDomainFederationConfiguration](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdomainfederationconfiguration?view=graph-powershell-beta&preserve-view=true):
 
@@ -172,19 +164,19 @@ For more information, see **[Migrate from Microsoft MFA Server to Azure Multi-fa
 
 ## Plan for implementation
 
-This section includes pre-work before you switch your sign-in method and convert the domains.
+This section includes prework before you switch your sign-in method and convert the domains.
 
 ### Create necessary groups for staged rollout
 
 *If you're not using staged rollout, skip this step.*
 
-Create groups for staged rollout. You will also need to create groups for conditional access policies if you decide to add them.
+Create groups for staged rollout and also for conditional access policies if you decide to add them.
 
 We recommend you use a group mastered in Azure AD, also known as a cloud-only group. You can use Azure AD security groups or Microsoft 365 Groups for both moving users to MFA and for conditional access policies. For more information, see [creating an Azure AD security group](../fundamentals/active-directory-groups-create-azure-portal.md), and this [overview of Microsoft 365 Groups for administrators](/microsoft-365/admin/create-groups/office-365-groups).
 
-The members in a group are automatically enabled for staged rollout. Nested and dynamic groups are not supported for staged rollout.
+The members in a group are automatically enabled for staged rollout. Nested and dynamic groups aren't supported for staged rollout.
 
-### Pre-work for SSO
+### Prework for SSO
 
 The version of SSO that you use is dependent on your device OS and join state.
 
@@ -192,11 +184,11 @@ The version of SSO that you use is dependent on your device OS and join state.
 
 - **For macOS and iOS devices**, we recommend using SSO via the [Microsoft Enterprise SSO plug-in for Apple devices](../develop/apple-sso-plugin.md). This feature requires that your Apple devices are managed by an MDM. If you use Intune as your MDM then follow the [Microsoft Enterprise SSO plug-in for Apple Intune deployment guide](/mem/intune/configuration/use-enterprise-sso-plug-in-ios-ipados-macos). If you use another MDM then follow the [Jamf Pro / generic MDM deployment guide](/mem/intune/configuration/use-enterprise-sso-plug-in-ios-ipados-macos-with-jamf-pro). 
 
-- **For Windows 7 and 8.1 devices**, we recommend using [seamless SSO](how-to-connect-sso.md) with domain-joined to register the computer in Azure AD. You don't have to sync these accounts like you do for Windows 10 devices. However, you must complete this [pre-work for seamless SSO using PowerShell](how-to-connect-staged-rollout.md#pre-work-for-seamless-sso).
+- **For Windows 7 and 8.1 devices**, we recommend using [seamless SSO](how-to-connect-sso.md) with domain-joined to register the computer in Azure AD. You don't have to sync these accounts like you do for Windows 10 devices. However, you must complete this [prework for seamless SSO using PowerShell](how-to-connect-staged-rollout.md#pre-work-for-seamless-sso).
 
-### Pre-work for PHS and PTA
+### Prework for PHS and PTA
 
-Depending on the choice of sign-in method, complete the [pre-work for PHS](how-to-connect-staged-rollout.md#pre-work-for-password-hash-sync) or [for PTA](how-to-connect-staged-rollout.md#pre-work-for-pass-through-authentication).
+Depending on the choice of sign-in method, complete the [prework for PHS](how-to-connect-staged-rollout.md#pre-work-for-password-hash-sync) or [for PTA](how-to-connect-staged-rollout.md#pre-work-for-pass-through-authentication).
 
 ## Implement your solution
 
@@ -208,11 +200,11 @@ If you're using staged rollout, follow the steps in the links below:
 
 1. [Enable staged rollout of a specific feature on your tenant.](how-to-connect-staged-rollout.md#enable-staged-rollout)
 
-2. Once testing is complete, [convert domains from federated to managed](#convert-domains-from-federated-to-managed).
+2. Once testing is complete, [convert domains from federated to be managed](#convert-domains-from-federated-to-managed).
 
 ### Without using staged rollout 
 
-You have two options for enabling this change:
+You've two options for enabling this change:
 
 - **Option A:** Switch using Azure AD Connect.
   
@@ -259,12 +251,13 @@ Sign in to the [Azure portal](https://portal.azure.com/), browse to **Azure Acti
 
 4. On the **User sign-in** page:
 
-    - If you select **Pass-through authentication** option button, check **Enable single sign-on**, and then select **Next**.
+    - If you select **Pass-through authentication** option button, and if SSO is needed for Windows 7 and 8.1 devices, check **Enable single sign-on**, and then select **Next**.
 
-    -  If you select the **Password hash synchronization** option button, make sure to select the **Do not convert user accounts** check box. The option is deprecated. Check **Enable single sign-on**, and then select **Next**.
+    - If you select the **Password hash synchronization** option button, make sure to select the **Do not convert user accounts** check box. The option is deprecated. If SSO is needed for Windows 7 and 8.1 devices, check **Enable single sign-on**, and then select **Next**.
 
       ![Check enable single sign-on on User sign-in page](media/deploy-cloud-user-authentication/user-sign-in.png)
 
+   Learn more: [Enable seamless SSO by using PowerShell](how-to-connect-staged-rollout.md#pre-work-for-seamless-sso). 
 5. On the **Enable single sign-on** page, enter the credentials of a Domain Administrator account, and then select **Next**.
 
     ![Enable single sign-on page](media/deploy-cloud-user-authentication/enable-single-sign-on.png)
@@ -274,26 +267,28 @@ Sign in to the [Azure portal](https://portal.azure.com/), browse to **Azure Acti
       - The computer account's Kerberos decryption key is securely shared with Azure AD.
       - Two Kerberos service principal names (SPNs) are created to represent two URLs that are used during Azure AD sign-in.
 
-    The domain administrator credentials are not stored in Azure AD Connect or Azure AD and get discarded when the process successfully finishes. They are  used to turn ON this feature.
+    The domain administrator credentials aren't stored in Azure AD Connect or Azure AD and get discarded when the process successfully finishes. They are  used to turn ON this feature.
+
+    Learn more: [Seamless SSO technical deep dive.](how-to-connect-sso-how-it-works.md) 
 
 6. On the **Ready to configure** page, make sure that the **Start the synchronization process when configuration completes** check box is selected. Then, select **Configure**.
 
     ![Ready to configure page](media/deploy-cloud-user-authentication/ready-to-configure.png)
 
- > [!IMPORTANT] 
- > At this point, all your federated domains will change to managed authentication. Your selected User sign-in method is the new method of authentication.
+    > [!IMPORTANT] 
+    > At this point, all your federated domains changes to managed authentication. Your selected User sign-in method is the new method of authentication.
 
-1. In the Azure portal, select **Azure Active Directory**, and then select **Azure AD Connect**.
+7. In the Azure portal, select **Azure Active Directory**, and then select **Azure AD Connect**.
 
-2. Verify these settings:
+8. Verify these settings:
 
       - **Federation** is set to **Disabled**.
       - **Seamless single sign-on** is set to **Enabled**.
       - **Password Hash Sync** is set to **Enabled**.
 
-  ![ Reverify current user settings](media/deploy-cloud-user-authentication/reverify-settings.png)
+   ![ Reverify current user settings](media/deploy-cloud-user-authentication/reverify-settings.png)
 
-3. In case you're switching to PTA, follow the next steps.
+9. In case you're switching to PTA, follow the next steps.
 
 ##### Deploy more authentication agents for PTA
 
@@ -304,7 +299,7 @@ For most customers, two or three authentication agents are sufficient to provide
 
 1. Select **Pass-through authentication**.
 2. On the **Pass-through authentication** page, select the **Download** button.
-3. On the **Download agent** page, select **Accept terms and download**.
+3. On the **Download agent** page, select **Accept terms and download**.f
 
     More authentication agents start to download. Install the secondary authentication agent on a domain-joined server.
 
@@ -320,7 +315,7 @@ For most customers, two or three authentication agents are sufficient to provide
 
 *Available if you didn't initially configure your federated domains by using Azure AD Connect or if you're using third-party federation services.*
 
-On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-a). You will notice that on the User sign-in page, the **Do not configure** option is pre-selected.
+On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-a). Notice that on the User sign-in page, the **Do not configure** option is preselected.
 
 ![ See Do not Configure option on the user sign-in page](media/deploy-cloud-user-authentication/do-not-configure-on-user-sign-in-page.png)
 
@@ -386,7 +381,7 @@ Follow the steps in this link - [Validate sign-in with PHS/ PTA and seamless SSO
 
 ### Remove a user from staged rollout
 
-If you used staged rollout, you should remember to turn off the staged rollout features once you have finished cutting over. 
+If you used staged rollout, you should remember to turn off the staged rollout features once you've finished cutting over. 
 
 **To disable the staged rollout feature, slide the control back to Off.**
 
@@ -394,7 +389,7 @@ If you used staged rollout, you should remember to turn off the staged rollout f
 
 Historically, updates to the **UserPrincipalName** attribute, which uses the sync service from the on-premises environment, are blocked unless both of these conditions are true:
 
-   - The user is in a managed (non-federated) identity domain.
+   - The user is in a managed (nonfederated) identity domain.
    - The user hasn't been assigned a license.
 
 To learn how to verify or turn on this feature, see [Sync userPrincipalName updates](how-to-connect-syncservice-features.md).
@@ -442,13 +437,13 @@ For more information, see –
 
 ### Remove relying party trust
 
-If you have Azure AD Connect Health, you can [monitor usage](how-to-connect-health-adfs.md) from the Azure portal. In case the usage shows no new auth req and you validate that all users and clients are successfully authenticating via Azure AD, it's safe to remove the Microsoft 365 relying party trust.
+If you've Azure AD Connect Health, you can [monitor usage](how-to-connect-health-adfs.md) from the Azure portal. In case the usage shows no new auth req and you validate that all users and clients are successfully authenticating via Azure AD, it's safe to remove the Microsoft 365 relying party trust.
 
 If you don't use AD FS for other purposes (that is, for other relying party trusts), you can decommission AD FS at this point.
 
 ### Remove AD FS
 
-For a full list of steps to take to completely remove AD FS from the environment follow the [Active Directory Federation Services (AD FS) decommision guide](/windows-server/identity/ad-fs/decommission/adfs-decommission-guide). 
+For a full list of steps to take to completely remove AD FS from the environment follow the [Active Directory Federation Services (AD FS) decommission guide](/windows-server/identity/ad-fs/decommission/adfs-decommission-guide). 
 
 ## Next steps
 

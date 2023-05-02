@@ -76,6 +76,8 @@ items:
           href: view-billing-data-in-azure.md
         - name: View data controller (portal)
           href: view-data-controller-in-azure-portal.md
+        - name: Backup data controller
+          href: backup-controller-database.md
         - name: Delete resources
           href: delete-azure-resources.md
         - name: Uninstall Azure Arc data controller
@@ -233,7 +235,11 @@ items:
             - name: Reprovision replica
               href: reprovision-replica.md
         - name: Troubleshoot
-          href: troubleshoot-managed-instance.md
+          items:
+            - name: General
+              href: troubleshoot-managed-instance.md
+            - name: Configuration
+              href: troubleshoot-managed-instance-configuration.md
 - name: Azure Arc-enabled PostgreSQL (preview) 
   items:
     - name: Overview

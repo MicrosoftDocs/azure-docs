@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/22/2023
+ms.date: 04/04/2023
 ms.custom: ignite-fall-2021, engagement-fy23
 
 # Customer intent: As a logic apps developer, I want to create a Standard logic app workflow that runs in single-tenant Azure Logic Apps using Visual Studio Code.
@@ -120,7 +120,7 @@ Install the following tools and versions for your specific operating system: Win
 
     Currently, you can have both Consumption (multi-tenant) and Standard (single-tenant) extensions installed at the same time. The development experiences differ from each other in some ways, but your Azure subscription can include both Standard and Consumption logic app types. Visual Studio Code shows all the deployed logic apps in your Azure subscription, but organizes your apps under each extension, **Azure Logic Apps (Consumption)** and **Azure Logic Apps (Standard)**.
 
-* To use the [Inline Code Operations action](../logic-apps/logic-apps-add-run-inline-code.md) that runs JavaScript, install [Node.js versions 12.x.x or 14.x.x](https://nodejs.org/en/download/releases/).
+* To use the [Inline Code Operations action](../logic-apps/logic-apps-add-run-inline-code.md) that runs JavaScript, install [Node.js version 16.x.x unless a newer version is already installed](https://nodejs.org/en/download/releases/).
 
   > [!TIP]
   > For Windows, download the MSI version. If you use the ZIP version instead, you have to 
@@ -144,26 +144,20 @@ Install the following tools and versions for your specific operating system: Win
 
    1. On the **User** tab, go to **Features** **>** **Extensions**.
 
-   1. Confirm that **Auto Check Updates** and **Auto Update** are selected.
+   1. Confirm that **Auto Check Updates** is selected, and that **Auto Update** is set to **All Extensions**.
 
-By default, the following settings are enabled and set for the Azure Logic Apps (Standard) extension:
+1. Confirm that the **Azure Logic Apps Standard: Project Runtime** setting for the Azure Logic Apps (Standard) extension is set to version **~4**:
 
-* **Azure Logic Apps Standard: Project Runtime**, which is set to version **~3**
+   > [!NOTE]
+   > This version is required to use the [Inline Code Operations actions](../logic-apps/logic-apps-add-run-inline-code.md).
 
-  > [!NOTE]
-  > This version is required to use the [Inline Code Operations actions](../logic-apps/logic-apps-add-run-inline-code.md).
+   1. On the **File** menu, go to **Preferences** **>** **Settings**.
 
-* **Azure Logic Apps Standard: Experimental View Manager**, which enables the latest designer in Visual Studio Code. If you experience problems on the designer, such as dragging and dropping items, turn off this setting.
+   1. On the **User** tab, go to **>** **Extensions** **>** **Azure Logic Apps (Standard)**.
 
-To find and confirm these settings, follow these steps:
+      For example, you can find the **Azure Logic Apps Standard: Project Runtime** setting here or use the search box to find other settings:
 
-1. On the **File** menu, go to **Preferences** **>** **Settings**.
-
-1. On the **User** tab, go to **>** **Extensions** **>** **Azure Logic Apps (Standard)**.
-
-   For example, you can find the **Azure Logic Apps Standard: Project Runtime** setting here or use the search box to find other settings:
-
-   ![Screenshot that shows Visual Studio Code settings for "Azure Logic Apps (Standard)" extension.](./media/create-single-tenant-workflows-visual-studio-code/azure-logic-apps-settings.png)
+      ![Screenshot that shows Visual Studio Code settings for "Azure Logic Apps (Standard)" extension.](./media/create-single-tenant-workflows-visual-studio-code/azure-logic-apps-settings.png)
 
 <a name="connect-azure-account"></a>
 
@@ -173,11 +167,11 @@ To find and confirm these settings, follow these steps:
 
    ![Screenshot that shows Visual Studio Code Activity Bar and selected Azure icon.](./media/create-single-tenant-workflows-visual-studio-code/visual-studio-code-azure-icon.png)
 
-1. In the Azure pane, under **Azure: Logic Apps (Standard)**, select **Sign in to Azure**. When the Visual Studio Code authentication page appears, sign in with your Azure account.
+1. In the Azure pane, under **Logic Apps (Standard)**, select **Sign in to Azure**. When the Visual Studio Code authentication page appears, sign in with your Azure account.
 
    ![Screenshot that shows Azure pane and selected link for Azure sign in.](./media/create-single-tenant-workflows-visual-studio-code/sign-in-azure-subscription.png)
 
-   After you sign in, the Azure pane shows the subscriptions in your Azure account. If you also have the publicly released extension, you can find any logic apps that you created with that extension in the **Logic Apps** section, not the **Logic Apps (Standard)** section.
+   After you sign in, the Azure pane shows the subscriptions in your Azure account. If you also have the publicly released extension, you can find any logic apps that you created with that extension in the **Logic Apps (Consumption)** section, not the **Logic Apps (Standard)** section.
 
    If the expected subscriptions don't appear, or you want the pane to show only specific subscriptions, follow these steps:
 
@@ -199,7 +193,7 @@ Before you can create your logic app, create a local project so that you can man
 
 1. In Visual Studio Code, close all open folders.
 
-1. In the Azure pane, next to **Azure: Logic Apps (Standard)**, select **Create New Project** (icon that shows a folder and lightning bolt).
+1. In the Azure pane, next to **Logic Apps (Standard)**, select **Create New Project** (icon that shows a folder and lightning bolt).
 
    ![Screenshot that shows Azure pane toolbar with "Create New Project" selected.](./media/create-single-tenant-workflows-visual-studio-code/create-new-project-folder.png)
 
@@ -213,7 +207,7 @@ Before you can create your logic app, create a local project so that you can man
 
    ![Screenshot that shows the workflow templates list with "Stateful Workflow" selected.](./media/create-single-tenant-workflows-visual-studio-code/select-stateful-stateless-workflow.png)
 
-1. Provide a name for your workflow and press Enter. This example uses `Fabrikam-Stateful-Workflow` as the name.
+1. Provide a name for your workflow and press Enter. This example uses **Fabrikam-Stateful-Workflow** as the name.
 
    ![Screenshot that shows the "Create new Stateful Workflow (3/4)" box and "Fabrikam-Stateful-Workflow" as the workflow name.](./media/create-single-tenant-workflows-visual-studio-code/name-your-workflow.png)
 
@@ -281,7 +275,7 @@ The authoring capability is currently available only in Visual Studio Code, but 
 
    ![Screenshot that shows Explorer pane with resource groups list and "Create new resource group" selected.](./media/create-single-tenant-workflows-visual-studio-code/create-select-resource-group.png)
 
-1. Provide a name for the resource group, and press Enter. This example uses `Fabrikam-Workflows-RG`.
+1. Provide a name for the resource group, and press Enter. This example uses **Fabrikam-Workflows-RG**.
 
    ![Screenshot that shows Explorer pane and resource group name box.](./media/create-single-tenant-workflows-visual-studio-code/enter-name-for-resource-group.png)
 
@@ -321,7 +315,7 @@ The workflow in this example uses this trigger and these actions:
 
 1. Next to the designer, in the **Add a trigger** pane, under the **Choose an operation** search box, make sure that **Built-in** is selected so that you can select a trigger that runs natively.
 
-1. In the **Choose an operation** search box, enter `when a http request`, and select the built-in Request trigger that's named **When an HTTP request is received**.
+1. In the **Choose an operation** search box, enter **when a http request**, and select the built-in Request trigger that's named **When an HTTP request is received**.
 
    ![Screenshot that shows the workflow designer and **Add a trigger** pane with "When an HTTP request is received" trigger selected.](./media/create-single-tenant-workflows-visual-studio-code/add-request-trigger.png)
 
@@ -371,7 +365,7 @@ The workflow in this example uses this trigger and these actions:
    > [!TIP]
    > To prevent future prompts, select **Don't ask again for this extension**.
 
-   After Visual Studio Code creates your connection, some connectors show the message that `The connection will be valid for {n} days only`. This time limit applies only to the duration while you author your logic app in Visual Studio Code. After deployment, this limit no longer applies because your logic app can authenticate at runtime by using its automatically enabled [system-assigned managed identity](../logic-apps/create-managed-service-identity.md). This managed identity differs from the authentication credentials or connection string that you use when you create a connection. If you disable this system-assigned managed identity, connections won't work at runtime.
+   After Visual Studio Code creates your connection, some connectors show the message that **The connection will be valid for {n} days only**. This time limit applies only to the duration while you author your logic app in Visual Studio Code. After deployment, this limit no longer applies because your logic app can authenticate at runtime by using its automatically enabled [system-assigned managed identity](../logic-apps/create-managed-service-identity.md). This managed identity differs from the authentication credentials or connection string that you use when you create a connection. If you disable this system-assigned managed identity, connections won't work at runtime.
 
 1. On the designer, if the **Send an email** action doesn't appear selected, select that action.
 
@@ -381,9 +375,9 @@ The workflow in this example uses this trigger and these actions:
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **To** | Yes | <*your-email-address*> | The email recipient, which can be your email address for test purposes. This example uses the fictitious email, `sophiaowen@fabrikam.com`. |
-   | **Subject** | Yes | `An email from your example workflow` | The email subject |
-   | **Body** | Yes | `Hello from your example workflow!` | The email body content |
+   | **To** | Yes | <*your-email-address*> | The email recipient, which can be your email address for test purposes. This example uses the fictitious email, **sophiaowen@fabrikam.com**. |
+   | **Subject** | Yes | **An email from your example workflow** | The email subject |
+   | **Body** | Yes | **Hello from your example workflow!** | The email body content |
    ||||
 
    > [!NOTE]
@@ -402,7 +396,7 @@ The workflow in this example uses this trigger and these actions:
 
 ## Enable locally running webhooks
 
-When you use a webhook-based trigger or action, such as **HTTP Webhook**, with a logic app running in Azure, the Logic Apps runtime subscribes to the service endpoint by generating and registering a callback URL with that endpoint. The trigger or action then waits for the service endpoint to call the URL. However, when you're working in Visual Studio Code, the generated callback URL starts with `http://localhost:7071/...`. This URL is for your localhost server, which is private so the service endpoint can't call this URL.
+When you use a webhook-based trigger or action, such as **HTTP Webhook**, with a logic app workflow running in Azure, the Azure Logic Apps runtime subscribes to the service endpoint by generating and registering a callback URL with that endpoint. The trigger or action then waits for the service endpoint to call the URL. However, when you're working in Visual Studio Code, the generated callback URL starts with `http://localhost:7071/...`. This URL is for your localhost server, which is private so the service endpoint can't call this URL.
 
 To locally run webhook-based triggers and actions in Visual Studio Code, you need to set up a public URL that exposes your localhost server and securely forwards calls from the service endpoint to the webhook callback URL. You can use a forwarding service and tool such as [**ngrok**](https://ngrok.com/), which opens an HTTP tunnel to your localhost port, or you can use your own equivalent tool.
 
@@ -436,16 +430,18 @@ To locally run webhook-based triggers and actions in Visual Studio Code, you nee
 
 #### Set up the forwarding URL in your app settings
 
-1. In Visual Studio Code, on the designer, add the **HTTP + Webhook** trigger or action.
+1. In Visual Studio Code, on the designer, add the webhook-based trigger or action that you want to use.
+
+   This example continues with the **HTTP + Webhook** trigger.
 
 1. When the prompt appears for the host endpoint location, enter the forwarding (redirection) URL that you previously created.
 
    > [!NOTE]
    > Ignoring the prompt causes a warning to appear that you must provide the forwarding URL, 
    > so select **Configure**, and enter the URL. After you finish this step, the prompt won't 
-   > reappear for subsequent webhook triggers or actions that you might add.
+   > appear for subsequent webhook triggers or actions that you might add.
    >
-   > To make the prompt reappear, at your project's root level, open the **local.settings.json** 
+   > To make the prompt appear, at your project's root level, open the **local.settings.json** 
    > file's shortcut menu, and select **Configure Webhook Redirect Endpoint**. The prompt now 
    > appears so you can provide the forwarding URL.
 
@@ -471,7 +467,7 @@ To locally run webhook-based triggers and actions in Visual Studio Code, you nee
    > `"FUNCTIONS_WORKER_RUNTIME"` is set to `"dotnet"`. However, to use **Inline Code Operations**, 
    > you must have `"FUNCTIONS_WORKER_RUNTIME"` set to `"node"`
 
-The first time when you start a local debugging session or run the workflow without debugging, the Logic Apps runtime registers the workflow with the service endpoint and subscribes to that endpoint for notifying the webhook operations. The next time that your workflow runs, the runtime won't register or resubscribe because the subscription registration already exists in local storage.
+The first time when you start a local debugging session or run the workflow without debugging, the Azure Logic Apps runtime registers the workflow with the service endpoint and subscribes to that endpoint for notifying the webhook operations. The next time that your workflow runs, the runtime won't register or resubscribe because the subscription registration already exists in local storage.
 
 When you stop the debugging session for a workflow run that uses locally run webhook-based triggers or actions, the existing subscription registrations aren't deleted. To unregister, you have to manually remove or delete the subscription registrations.
 
@@ -555,11 +551,11 @@ To test your logic app, follow these steps to start a debugging session, and fin
 
    1. On the **Create New** pane, under **Building Blocks**, select **Request**.
 
-   1. In the **Save Request** window, under **Request name**, provide a name for the request, for example, `Test workflow trigger`.
+   1. In the **Save Request** window, under **Request name**, provide a name for the request, for example, **Test workflow trigger**.
 
    1. Under **Select a collection or folder to save to**, select **Create Collection**.
 
-   1. Under **All Collections**, provide a name for the collection to create for organizing your requests, press Enter, and select **Save to <*collection-name*>**. This example uses `Logic Apps requests` as the collection name.
+   1. Under **All Collections**, provide a name for the collection to create for organizing your requests, press Enter, and select **Save to <*collection-name*>**. This example uses **Logic Apps requests** as the collection name.
 
       In Postman, the request pane opens so that you can send a request to the callback URL for the Request trigger.
 
@@ -607,7 +603,7 @@ To test your logic app, follow these steps to start a debugging session, and fin
    ![Screenshot that shows each step in the workflow run and their status](./media/create-single-tenant-workflows-visual-studio-code/run-history-action-status.png)
 
    > [!NOTE]
-   > If a run failed and a step in monitoring view shows the `400 Bad Request` error, this problem might result 
+   > If a run failed and a step in monitoring view shows the **400 Bad Request** error, this problem might result 
    > from a longer trigger name or action name that causes the underlying Uniform Resource Identifier (URI) to exceed 
    > the default character limit. For more information, see ["400 Bad Request"](#400-bad-request).
 
@@ -654,7 +650,7 @@ To return a response to the caller that sent a request to your logic app, you ca
 
    The **Choose an operation** prompt appears on the designer, and the **Add an action** pane reopens so that you can select the next action.
 
-1. On the **Add an action** pane, under the **Choose an action** search box, make sure that **Built-in** is selected. In the search box, enter `response`, and select the **Response** action.
+1. On the **Add an action** pane, under the **Choose an action** search box, make sure that **Built-in** is selected. In the search box, enter **response**, and select the **Response** action.
 
    ![Screenshot that shows the workflow designer with the Response action selected.](./media/create-single-tenant-workflows-visual-studio-code/add-response-action.png)
 
@@ -751,19 +747,19 @@ To find the fully qualified domain names (FQDNs) for these connections, follow t
 
 ## Deploy to Azure
 
-From Visual Studio Code, you can directly publish your project to Azure, which deploys your logic app using the **Logic App (Standard)** resource type. You can publish your logic app as a new resource, which automatically creates any necessary resources, such as an [Azure Storage account, similar to function app requirements](../azure-functions/storage-considerations.md). Or, you can publish your logic app to a previously deployed **Logic App (Standard)** resource, which overwrites that logic app.
+From Visual Studio Code, you can directly publish your project to Azure to deploy your Standard logic app. You can publish your logic app as a new resource, which automatically creates any necessary resources, such as an [Azure Storage account, similar to function app requirements](../azure-functions/storage-considerations.md). Or, you can publish your logic app to a previously deployed Standard logic app resource, which overwrites that logic app.
 
-Deployment for the **Logic App (Standard)** resource type requires a hosting plan and pricing tier, which you select during deployment. For more information, review [Hosting plans and pricing tiers](logic-apps-pricing.md#standard-pricing).
+Deployment for the Standard logic app resource requires a hosting plan and pricing tier, which you select during deployment. For more information, review [Hosting plans and pricing tiers](logic-apps-pricing.md#standard-pricing).
 
 <a name="publish-new-logic-app"></a>
 
-### Publish to a new Logic App (Standard) resource
+### Publish to a new Standard logic app resource
 
 1. On the Visual Studio Code Activity Bar, select the Azure icon.
 
-1. On the **Azure: Logic Apps (Standard)** pane toolbar, select **Deploy to Logic App**.
+1. On the **Logic Apps (Standard)** pane toolbar, select **Deploy to Logic App**.
 
-   ![Screenshot that shows the "Azure: Logic Apps (Standard)" pane and pane's toolbar with "Deploy to Logic App" selected.](./media/create-single-tenant-workflows-visual-studio-code/deploy-to-logic-app.png)
+   ![Screenshot that shows the pane "Logic Apps (Standard)" pane and pane's toolbar with "Deploy to Logic App" selected.](./media/create-single-tenant-workflows-visual-studio-code/deploy-to-logic-app.png)
 
 1. If prompted, select the Azure subscription to use for your logic app deployment.
 
@@ -775,17 +771,17 @@ Deployment for the **Logic App (Standard)** resource type requires a hosting pla
 
    This example continues with **Create new Logic App (Standard) in Azure Advanced**.
 
-   ![Screenshot that shows the "Azure: Logic Apps (Standard)" pane with a list with "Create new Logic App (Standard) in Azure" selected.](./media/create-single-tenant-workflows-visual-studio-code/select-create-logic-app-options.png)
+   ![Screenshot that shows the "Logic Apps (Standard)" pane and a list with "Create new Logic App (Standard) in Azure" selected.](./media/create-single-tenant-workflows-visual-studio-code/select-create-logic-app-options.png)
 
-1. To create your new **Logic App (Standard)** resource, follow these steps:
+1. To create your new Standard logic app resource, follow these steps:
 
-   1. Provide a globally unique name for your new logic app, which is the name to use for the **Logic App (Standard)** resource. This example uses `Fabrikam-Workflows-App`.
+   1. Provide a globally unique name for your new logic app, which is the name to use for the **Logic App (Standard)** resource. This example uses **Fabrikam-Workflows-App**.
 
-      ![Screenshot that shows the "Azure: Logic Apps (Standard)" pane and a prompt to provide a name for the new logic app to create.](./media/create-single-tenant-workflows-visual-studio-code/enter-logic-app-name.png)
+      ![Screenshot that shows the "Logic Apps (Standard)" pane and a prompt to provide a name for the new logic app to create.](./media/create-single-tenant-workflows-visual-studio-code/enter-logic-app-name.png)
 
    1. Select a hosting plan for your new logic app. Either create a name for your plan, or select an existing plan (Windows-based App Service plans only). This example selects **Create new App Service Plan**.
 
-      ![Screenshot that shows the "Azure: Logic Apps (Standard)" pane and a prompt to "Create new App Service Plan" or select an existing App Service plan.](./media/create-single-tenant-workflows-visual-studio-code/create-app-service-plan.png)
+      ![Screenshot that shows the "Logic Apps (Standard)" pane and a prompt to "Create new App Service Plan" or select an existing App Service plan.](./media/create-single-tenant-workflows-visual-studio-code/create-app-service-plan.png)
 
    1. Provide a name for your hosting plan, and then select a pricing tier for your selected plan.
 
@@ -800,7 +796,7 @@ Deployment for the **Logic App (Standard)** resource type requires a hosting pla
 
    1. For stateful workflows, select **Create new storage account** or an existing storage account.
 
-      ![Screenshot that shows the "Azure: Logic Apps (Standard)" pane and a prompt to create or select a storage account.](./media/create-single-tenant-workflows-visual-studio-code/create-storage-account.png)
+      ![Screenshot that shows the "Logic Apps (Standard)" pane and a prompt to create or select a storage account.](./media/create-single-tenant-workflows-visual-studio-code/create-storage-account.png)
 
    1. If your logic app's creation and deployment settings support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app. You can do so either when you deploy your logic app from Visual Studio Code or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you deploy your logic app, or after deployment.
 
@@ -861,7 +857,6 @@ Deployment for the **Logic App (Standard)** resource type requires a hosting pla
          | Information | Logs that track the general activity in your logic app or workflow, for example: <p><p>- When a trigger, action, or run starts and ends. <br>- When your logic app starts or ends. |
          | Trace | Logs that contain the most detailed messages, for example, storage requests or dispatcher activity, plus all the messages that are related to workflow execution activity. |
          | Warning | Logs that highlight an abnormal state in your logic app but doesn't prevent its running. |
-         |||
 
          To set the severity level, at your project's root level, open the **host.json** file, and find the `logging` object. This object controls the log filtering for all the workflows in your logic app and follows the [ASP.NET Core layout for log type filtering](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering).
 
@@ -928,7 +923,7 @@ You can have multiple workflows in your logic app project. To add a blank workfl
 
 1. On the Visual Studio Code Activity Bar, select the Azure icon.
 
-1. In the Azure pane, next to **Azure: Logic Apps (Standard)**, select **Create Workflow** (icon for Azure Logic Apps).
+1. In the Azure pane, next to **Logic Apps (Standard)**, select **Create Workflow** (Azure Logic Apps icon).
 
 1. Select the workflow type that you want to add: **Stateful** or **Stateless**
 
@@ -940,9 +935,9 @@ When you're done, a new workflow folder appears in your project along with a **w
 
 ## Manage deployed logic apps in Visual Studio Code
 
-In Visual Studio Code, you can view all the deployed logic apps in your Azure subscription, whether they are the original **Logic Apps** or the **Logic App (Standard)** resource type, and select tasks that help you manage those logic apps. However, to access both resource types, you need both the **Azure Logic Apps** and the **Azure Logic Apps (Standard)** extensions for Visual Studio Code.
+In Visual Studio Code, you can view all the deployed logic apps in your Azure subscription, whether they're Consumption or Standard logic app resources, and select tasks that help you manage those logic apps. However, to access both resource types, you need both the **Azure Logic Apps (Consumption)** and the **Azure Logic Apps (Standard)** extensions for Visual Studio Code.
 
-1. On the left toolbar, select the Azure icon. In the **Azure: Logic Apps (Standard)** pane, expand your subscription, which shows all the deployed logic apps for that subscription.
+1. On the left toolbar, select the Azure icon. In the **Logic Apps (Standard)** pane, expand your subscription, which shows all the deployed logic apps for that subscription.
 
 1. Open the logic app that you want to manage. From the logic app's shortcut menu, select the task that you want to perform.
 
@@ -990,7 +985,7 @@ Stopping a logic app affects workflow instances in the following ways:
   To stop a trigger from firing on unprocessed items since the last run, clear the trigger state before you restart the logic app:
 
   1. In Visual Studio Code, on the left toolbar, select the Azure icon.
-  1. In the **Azure: Logic Apps (Standard)** pane, expand your subscription, which shows all the deployed logic apps for that subscription.
+  1. In the **Logic Apps (Standard)** pane, expand your subscription, which shows all the deployed logic apps for that subscription.
   1. Expand your logic app, and then expand the node that's named **Workflows**.
   1. Open a workflow, and edit any part of that workflow's trigger.
   1. Save your changes. This step resets the trigger's current state.
@@ -1013,9 +1008,9 @@ Deleting a logic app affects workflow instances in the following ways:
 
 ## Manage deployed logic apps in the portal
 
-After you deploy a logic app to the Azure portal from Visual Studio Code, you can view all the deployed logic apps that are in your Azure subscription, whether they are the original **Logic Apps** resource type or the **Logic App (Standard)** resource type. Currently, each resource type is organized and managed as separate categories in Azure. To find logic apps that have the **Logic App (Standard)** resource type, follow these steps:
+After you deploy a logic app to the Azure portal from Visual Studio Code, you can view all the deployed logic apps that are in your Azure subscription, whether they're Consumption or Standard logic app resources. Currently, each resource type is organized and managed as separate categories in Azure. To find Standard logic apps, follow these steps:
 
-1. In the Azure portal search box, enter `logic apps`. When the results list appears, under **Services**, select **Logic apps**.
+1. In the Azure portal search box, enter **logic apps**. When the results list appears, under **Services**, select **Logic apps**.
 
    ![Screenshot that shows the Azure portal search box with the "logic apps" search text.](./media/create-single-tenant-workflows-visual-studio-code/portal-find-logic-app-resource.png)
 
