@@ -36,6 +36,12 @@
     displayName: definitions, concepts, lab, template, lab plan, what is, schedule, quota, compute gallery, virtual machine, VM
   - name: Labs architecture fundamentals
     href: classroom-labs-fundamentals.md
+  - name: Azure role-based access control
+    displayName: RBAC, authorization, security, roles, permissions, admin, lab creator, lab plan
+    href: concept-lab-services-role-based-access-control.md
+  - name: Migrate lab account role assignments
+    displayName: RBAC, authorization, security, roles, permissions, admin, lab creator, lab account, migrate, upgrade
+    href: concept-migrate-from-lab-accounts-roles.md
   - name: Migrate from physical labs
     href: concept-migrating-physical-labs.md
   - name: Nested virtualization on a template VM
