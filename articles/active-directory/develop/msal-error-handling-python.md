@@ -50,7 +50,7 @@ else:
 
 ```
 
-When an error is returned, the `"error_description"` key also contains a human-readable message, and there is typically also an `"error_code"` key which contains a machine-readable Microsoft identity platform error code. For more information about the various Microsoft identity platform error codes, see [Authentication and authorization error codes](./reference-aadsts-error-codes.md).
+When an error is returned, the `"error_description"` key also contains a human-readable message, and there is typically also an `"error_code"` key which contains a machine-readable Microsoft identity platform error code. For more information about the various Microsoft identity platform error codes, see [Authentication and authorization error codes](./reference-error-codes.md).
 
 In MSAL for Python, exceptions are rare because most errors are handled by returning an error value. The `ValueError` exception is only thrown when there's an issue with how you're attempting to use the library, such as when API parameter(s) are malformed.
 

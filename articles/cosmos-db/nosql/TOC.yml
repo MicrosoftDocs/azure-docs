@@ -850,6 +850,8 @@
       items:
         - name: Options to migrate data into Azure Cosmos DB
           href: ../migration-choices.md
+        - name: Desktop data migration tool
+          href: ../how-to-migrate-desktop-tool.md
         - name: Using .NET bulk support
           href: tutorial-dotnet-bulk-import.md
         - name: Migrate hundreds of terabytes of data into Azure Cosmos DB

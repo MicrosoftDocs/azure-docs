@@ -12,6 +12,7 @@ ms.date: 07/29/2021
 ms.author: jomondi
 ms.collection: M365-identity-device-management
 ms.reviewer: bokacevi, dacurwin
+ms.custom: not-enterprise-apps
 ---
 
 # Cloud app visibility and control

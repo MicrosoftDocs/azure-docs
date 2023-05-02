@@ -54,11 +54,11 @@ If you don't have a managed identity created and assigned to your pod, perform t
 
 1. Use the Azure CLI [az account set][az-account-set] command to set a specific subscription to be the current active subscription. Then use the [az identity create][az-identity-create] command to create a managed identity.
 
-    ```azurecli
+    ```azurecli-interactive
     az account set --subscription "subscriptionID"
     ```
 
-    ```azurecli
+    ```azurecli-interactive
     az identity create --name "userAssignedIdentityName" --resource-group "resourceGroupName" --location "location" --subscription "subscriptionID"
     ```
 
@@ -78,7 +78,7 @@ If you don't have a managed identity created and assigned to your pod, perform t
 
 If you don't have a dedicated Kubernetes service account created for this application, perform the following steps to create and then annotate it with the client ID of the managed identity created in the previous step. Use the [az aks get-credentials][az-aks-get-credentials] command and replace the values for the cluster name and the resource group name.
 
-```azurecli
+```azurecli-interactive
 az aks get-credentials -n myAKSCluster -g "${RESOURCE_GROUP}"
 ```
 
@@ -108,7 +108,7 @@ Serviceaccount/workload-identity-sa created
 
 Use the [az identity federated-credential create][az-identity-federated-credential-create] command to create the federated identity credential between the managed identity, the service account issuer, and the subject. Replace the values `resourceGroupName`, `userAssignedIdentityName`, `federatedIdentityName`, `serviceAccountNamespace`, and `serviceAccountName`.
 
-```azurecli
+```azurecli-interactive
 az identity federated-credential create --name federatedIdentityName --identity-name userAssignedIdentityName --resource-group resourceGroupName --issuer ${AKS_OIDC_ISSUER} --subject system:serviceaccount:${SERVICE_ACCOUNT_NAMESPACE}:${SERVICE_ACCOUNT_NAME} --audience api://AzureADTokenExchange
 ```
 
@@ -192,7 +192,7 @@ After you've completed your testing and the application is successfully able to 
 
 1. Run the [az aks pod-identity delete][az-aks-pod-identity-delete] command to remove the identity from your pod. This should only be done after all pods in the namespace using the pod-managed identity mapping have migrated to use the sidecar.
 
-    ```azurecli
+    ```azurecli-interactive
     az aks pod-identity delete --name podIdentityName --namespace podIdentityNamespace --resource-group myResourceGroup --cluster-name myAKSCluster
     ```
 

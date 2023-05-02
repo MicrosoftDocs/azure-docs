@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 12/07/2022
 ms.author: jomondi
 ms.reviewer: ergreenl
+ms.custom: enterprise-apps
 ---
 
 # What is application management in Azure Active Directory?
