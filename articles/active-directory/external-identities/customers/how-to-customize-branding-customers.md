@@ -24,7 +24,7 @@ You can also create user flows programmatically using the Company Branding Graph
 
 - If you haven't already created your own Azure AD customer tenant, create one now.
 - [Register an application](how-to-register-ciam-app.md).  
-- [Create a user flow](concept-user-flows-customers.md)
+- [Create a user flow](how-to-user-flow-sign-up-sign-in-customers.md)
 - Review the file size requirements for each image you want to add. You may need to use a photo editor to create the right-sized images. The preferred image type for all images is PNG, but JPG is accepted.
 
 ## Comparing the default sign-in experiences between the customer tenant and the Azure AD tenant

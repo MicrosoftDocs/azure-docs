@@ -31,7 +31,7 @@ Adding secure sign-in to your app and setting up a customer identity and access 
 |1     |      Create a customer tenant   | If you don't already have an Azure AD tenant, we recommend using the [get started experience](https://aka.ms/ciam-hub-free-trial). Otherwise, you can [create a customer tenant](https://aka.ms/ciam-hub-free-trial) in the Microsoft Entra admin center.   |
 |2     |      Register your application   | In the Microsoft Entra admin center, [register your application](how-to-register-ciam-app.md) with Azure Active Directory.    |
 |3     |    Integrate your app with a sign-in flow     | - Create a user flow </br>- Associate the app with the user flow </br>- Update the app code with your customer tenant info </br>See [Samples and guidance by app type and language](samples-ciam-all.md)   |
-|4     |    Customize and secure your sign-in     |  - [Customize branding](concept-branding-customers.md) </br>- [Add identity providers](concept-authentication-methods-customers.md) </br>- [Add multifactor authentication](concept-security-customers.md) </br>- Use [custom authentication extensions](concept-extensions-customers.md) if you want to extend the authentication flow   |
+|4     |    Customize and secure your sign-in     |  - [Customize branding](concept-branding-customers.md) </br>- [Add identity providers](concept-authentication-methods-customers.md) </br>- [Add multifactor authentication](concept-security-customers.md) </br>- Use [custom authentication extensions](concept-custom-extensions.md) if you want to extend the authentication flow   |
 
 ## Customer tenant and user model
 
@@ -51,7 +51,7 @@ A customer tenant is the first resource you need to create to get started with A
 
 - **User flows**: The customer tenant contains the self-service sign-up, sign-in, and password reset experiences that you enable for your customers.
 
-- **Extensions**: If you need to add user attributes and data from external systems, you can create [custom authentication extensions](concept-extensions-customers.md) for your user flows.
+- **Extensions**: If you need to add user attributes and data from external systems, you can create [custom authentication extensions](concept-custom-extensions.md) for your user flows.
 
 - **Sign-in methods**: You can enable various options for signing in to your app, including username and password, one-time passcode, and Google or Facebook identities. [Learn more](concept-authentication-methods-customers.md)
 
@@ -91,7 +91,7 @@ Azure AD for customers is designed for flexibility. In addition to the built-in 
 
 For each application, you might have different requirements for the information you want to collect during sign-up from your customers.
 
-Learn more about [custom authentication extensions](concept-extensions-customers.md).
+Learn more about [custom authentication extensions](concept-custom-extensions.md).
 ### Built-in attributes
 
 Azure AD comes with a built-in set of information stored in attributes, such as Given Name, Surname, City, and Postal Code. With Azure AD for customers, you can select the built-in attributes you want to collect from customers when they sign up for your app. These attributes are stored with the customer's profile in your directory.

@@ -200,7 +200,7 @@ items:
       items:
       - name: Token issuance start event
         items:
-      - name: About custom authentication extensions
+        - name: About custom authentication extensions
           href: ../../develop/custom-extension-overview.md?context=/azure/active-directory/external-identities/customers/context/customers-context
         - name: Configure a custom claims provider token issuance event
           href: ../../develop/custom-extension-get-started.md?context=/azure/active-directory/external-identities/customers/context/customers-context
