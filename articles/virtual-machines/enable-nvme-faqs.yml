@@ -94,9 +94,9 @@ sections:
       - question: |
          What happens if the OS I use isn't tagged as NVMe support? 
         answer: |         
-        To launch VMs with an NVMe interface in the Ebsv5 or Ebdsv5 VM families, it's essential to choose one of the supported OS images tagged as NVMe. If your current OS image is not supported for NVMe, you will see an error message that reads: “The selected image is not supported for NVMe. See supported VM images”.  
+          To launch VMs with an NVMe interface in the Ebsv5 or Ebdsv5 VM families, it's essential to choose one of the supported OS images tagged as NVMe. If your current OS image is not supported for NVMe, you will see an error message that reads: “The selected image is not supported for NVMe. See supported VM images”.  
                     
-        :::image type="content" source="./media/enable-nvme/nvmefaq2.png" alt-text="choosing one of the supported O S images on N V M e":::
+          :::image type="content" source="./media/enable-nvme/nvmefaq2.png" alt-text="choosing one of the supported O S images on N V M e":::
       - question: |
           When will NVMe support be added to the OS image I currently use?   
         answer: |
@@ -170,7 +170,7 @@ sections:
         answer: |
           Launch PowerShell and use the following command: `wmic disk drive get model,scsilogicalunit`
 
-          :::image type="content" source="./media/enable-nvme/nvmefaq7.png" alt-text="":::
+          :::image type="content" source="./media/enable-nvme/nvmefaq7.png" alt-text="Powershell command example to launch N V M e on Windows":::
         
           The ASAP attached disks are presented in the guest with model string “Virtual_Disk NVME Premium” and the SCSI Logical Unit will have value portal visible LUN ID incremented by 1.   
           Here's a snapshot of how NVMe disks will be seen in NVMe enabled Windows VM: 

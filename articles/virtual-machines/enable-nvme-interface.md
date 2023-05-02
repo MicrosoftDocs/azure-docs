@@ -189,8 +189,8 @@ Then in Review and Create, verify that this feature is enabled.
 ```
  
 
->[!TIP]
-Use the same parameter "DiskControllerType" if you are using the PowerShell or CLI tools to launch the NVMe supported VM.
+>[!TIP] 
+> Use the same parameter "DiskControllerType" if you are using the PowerShell or CLI tools to launch the NVMe supported VM.
 
 ## Next steps
 
