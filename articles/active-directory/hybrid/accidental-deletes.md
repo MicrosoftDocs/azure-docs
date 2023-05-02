@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2023
+ms.date: 05/02/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
