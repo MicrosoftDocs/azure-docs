@@ -456,18 +456,20 @@ The maximum number of private endpoints per Azure SQL Database logical server is
 ## Azure Files and Azure File Sync
 To learn more about the limits for Azure Files and File Sync, see [Azure Files scalability and performance targets](../../storage/files/storage-files-scale-targets.md).
 
-## Storage limits
+## Azure Storage limits
+
+### Standard storage account limits
 
 <!--like # storage accts -->
 [!INCLUDE [azure-storage-account-limits-standard](../../../includes/azure-storage-account-limits-standard.md)]
 
 For more information on limits for standard storage accounts, see [Scalability targets for standard storage accounts](../../storage/common/scalability-targets-standard-account.md).
 
-### Storage resource provider limits
+### Azure Storage resource provider limits
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
-### Azure Blob storage limits
+### Azure Blob Storage limits
 
 [!INCLUDE [storage-blob-scale-targets](../../../includes/storage-blob-scale-targets.md)]
 

@@ -26,6 +26,8 @@
         href: classic-deployment-model-quota-increase-requests.md
       - name: Increase networking quotas
         href: networking-quota-requests.md
+      - name: Increase storage account quotas
+        href: storage-account-quota-requests.md
 - name: Reference
   items:
   - name: Azure CLI
