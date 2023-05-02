@@ -23,7 +23,7 @@ In the past, users used the [legacy Log Analytics Alert API](/azure/azure-monito
 - Support for stateful (preview) and 1-minute log alerts.
 - [PowerShell cmdlets](/azure/azure-monitor/alerts/alerts-manage-alerts-previous-version#manage-log-alerts-by-using-powershell) and [Azure CLI](/azure/azure-monitor/alerts/alerts-log#manage-log-alerts-using-cli) support for switched rules.
 - Alignment of severities with all other alert types and newer rules.
-- Ability to create [cross workspace log alert](/azure/azure-monitor/logs/cross-workspace-query) that span several external resources like Log Analytics workspaces or Application Insights resources for switched rules.
+- Ability to create a [cross workspace log alert](/azure/azure-monitor/logs/cross-workspace-query) that spans several external resources like Log Analytics workspaces or Application Insights resources for switched rules.
 - Users can specify dimensions to split the alerts for switched rules.
 - Log alerts have extended period of up to two days of data (previously limited to one day) for switched rules.
 
