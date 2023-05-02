@@ -49,7 +49,7 @@ These prerequisites cover the submission of a Spark job from Azure Machine Learn
   1. Navigate to Azure Machine Learning studio UI.
   2. Select **Manage preview features** (megaphone icon) from the icons on the top right side of the screen.
   3. In **Managed preview feature** panel, toggle on **Run notebooks and jobs on managed Spark** feature.
-  :::image type="content" source="media/how-to-submit-spark-jobs/how_to_enable_managed_spark_preview.png" alt-text="Screenshot showing option for enabling Managed Spark preview.":::
+  :::image type="content" source="media/how-to-submit-spark-jobs/how-to-enable-managed-spark-preview.png" alt-text="Screenshot showing option for enabling Managed Spark preview.":::
 - [(Optional): An attached Synapse Spark pool in the Azure Machine Learning workspace](./how-to-manage-synapse-spark-pool.md).
 
 ---
