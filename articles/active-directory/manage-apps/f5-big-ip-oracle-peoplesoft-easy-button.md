@@ -1,5 +1,5 @@
 ---
-title: Configure F5 BIG-IP Easy Button for SSO to Oracle PeopleSoft
+title: Tutorial to configure F5 BIG-IP Easy Button for SSO to Oracle PeopleSoft
 description: Implement secure hybrid access with header-based SSO to PeopleSoft using F5 BIG-IP Easy Button Guided Configuration 16.1.
 services: active-directory
 author: gargi-sinha
@@ -18,12 +18,12 @@ ms.custom: not-enterprise-apps
 
 In this article, learn to secure Oracle PeopleSoft (PeopleSoft) using Azure Active Directory (Azure AD), with F5 BIG-IP Easy Button Guided Configuration 16.1.
 
-Integrate BIG-IP with Azure AD for many benefits, including:
+Integrate BIG-IP with Azure AD for many benefits:
 
 * Improved Zero Trust governance through Azure AD preauthentication and Conditional Access
   * See, [Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)  
   * See, [What is Conditional Access?](../conditional-access/overview.md)
-* SSO between Azure AD and BIG-IP published services
+* Single sign-on (SSO) between Azure AD and BIG-IP published services
 * Manage identities and access from the [Azure portal](https://portal.azure.com/)
 
 Learn more: 
@@ -33,26 +33,25 @@ Learn more:
 
 ## Scenario description
 
-For this scenario, we have a **PeopleSoft application using HTTP authorization headers** to manage access to protected content.
+For this tutorial, there's use of a PeopleSoft application using HTTP authorization headers to manage access to protected content.
 
-Being legacy, the application lacks modern protocols to support a direct integration with Azure AD. The application can be modernized, but it is costly, requires careful planning, and introduces risk of potential downtime. Instead, an F5 BIG-IP Application Delivery Controller (ADC) is used to bridge the gap between the legacy application and the modern ID control plane, through protocol transitioning.
+Legacy applications lack modern protocols to support Azure AD integration. Modernization is costly, requires planning, and introduces potential downtime risk. Instead, use an F5 BIG-IP Application Delivery Controller (ADC) to bridge the gap between legacy applications and modern ID control, with protocol transitioning.
 
-Having a BIG-IP in front of the app enables us to overlay the service with Azure AD pre-authentication and header-based SSO, significantly improving the overall security posture of the application.
+With a BIG-IP in front of the app, you overlay the service with Azure AD preauthentication and header-based SSO. This action improves the application's security posture.
 
-> [!NOTE]
-> Organizations can also gain remote access to this type of application with [Azure AD Application Proxy](../app-proxy/application-proxy.md).
+   > [!NOTE]
+   > Gain remote access to this type of application with Azure AD Application Proxy. </br> See, [Remote access to on-premises applications through Azure AD Application Proxy](../app-proxy/application-proxy.md).
 
 ## Scenario architecture
 
-The secure hybrid access solution for this scenario is made up of several components:
+The secure hybrid access (SHA) solution for this tutorial has the following components:
 
-**PeopleSoft Application:** BIG-IP published service to be protected by Azure AD SHA.
+* **PeopleSoft Application** - BIG-IP published service secured by Azure AD SHA
+* **Azure AD** - Security Assertion Markup Language (SAML) identity provider (IdP) that verifies user credentials, Conditional Access, and SAML-based SSO to the BIG-IP
+  * Through SSO, Azure AD provides session attributes to the BIG-IP 
+* **BIG-IP** - reverse-proxy and SAML service provider (SP) to the application. It delegates authentication to the SAML IdP, then performs header-based SSO to the PeopleSoft service.
 
-**Azure AD:** Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access (CA), and SAML based SSO to the BIG-IP. Through SSO, Azure AD provides the BIG-IP with any required session attributes.
-
-**BIG-IP:** Reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP before performing header-based SSO to the PeopleSoft service.
-
-SHA for this scenario supports both SP and IdP initiated flows. The following image illustrates the SP initiated flow.
+For this scenario, SHA supports SP- and IdP-initiated flows. The following diagram illustrates the SP-initiated flow.
 
 ![Secure hybrid access - SP initiated flow](./media/f5-big-ip-easy-button-oracle-peoplesoft/sp-initiated-flow.png)
 
