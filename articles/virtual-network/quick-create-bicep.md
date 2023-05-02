@@ -8,7 +8,7 @@ ms.service: virtual-network
 ms.topic: quickstart
 ms.date: 03/09/2023
 ms.author: allensu
-ms.custom: mode-arm
+ms.custom: mode-arm, devx-track-bicep
 ---
 
 # Quickstart: Use Bicep templates to create a virtual network

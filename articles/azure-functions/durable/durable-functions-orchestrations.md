@@ -54,10 +54,7 @@ When an orchestration function is given more work to do (for example, a response
 
 The event-sourcing behavior of the Durable Task Framework is closely coupled with the orchestrator function code you write. Suppose you have an activity-chaining orchestrator function, like the following orchestrator function:
 
-> [!NOTE]
-> The new programming model for authoring Functions in Node.js (V4) is currently in preview. Compared to the current model, the new experience is designed to be more idiomatic and intuitive for JavaScript and TypeScript developers. To learn more, see the Azure Functions Node.js [developer guide](../functions-reference-node.md?pivots=nodejs-model-v4).
->
-> In the following code snippets, JavaScript (PM4) denotes programming model V4, the new experience.
+[!INCLUDE [functions-nodejs-durable-model-description](../../../includes/functions-nodejs-durable-model-description.md)]
 
 # [C# (InProc)](#tab/csharp-inproc)
 

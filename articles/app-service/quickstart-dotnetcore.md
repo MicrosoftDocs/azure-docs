@@ -90,7 +90,7 @@ If you've already installed Visual Studio 2022:
 :::zone target="docs" pivot="development-environment-azure-portal"
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
-- A GitHub account [Create an account for free](http://github.com/).
+- A GitHub account [Create an account for free](https://github.com/).
 
 :::zone-end
 

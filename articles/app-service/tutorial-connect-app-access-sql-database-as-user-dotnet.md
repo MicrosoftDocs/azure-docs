@@ -1,7 +1,11 @@
 ---
 title: 'Tutorial - Web app accesses SQL Database as the user'
 description: Secure database connectivity with Azure Active Directory authentication from .NET web app, using the signed-in user. Learn how to apply it to other Azure services.
+author: cephalin
 
+ms.service: app-service
+ms.workload: identity
+ms.author: cephalin
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/21/2023
@@ -101,7 +105,7 @@ You enable authentication with Azure Active Directory as the identity provider. 
 
 1. Accept the default settings and select **Add**.
 
-    :::image type="content" source="./media/tutorial-connect-app-access-sql-database-as-user-dotnet/add-aad-provider.png" alt-text="Screenshot showing the add identity provider page.":::
+    :::image type="content" source="./media/tutorial-connect-app-access-sql-database-as-user-dotnet/add-azure-ad-provider.png" alt-text="Screenshot showing the add identity provider page." lightbox="./media/tutorial-connect-app-access-sql-database-as-user-dotnet/add-azure-ad-provider.png":::
 
 > [!TIP]
 > If you run into errors and reconfigure your app's authentication settings, the tokens in the token store may not be regenerated from the new settings. To make sure your tokens are regenerated, you need to sign out and sign back in to your app. An easy way to do it is to use your browser in private mode, and close and reopen the browser in private mode after changing the settings in your apps.
@@ -118,7 +122,7 @@ Currently, your Azure app connects to SQL Database uses SQL authentication (user
 
 1. In the **Request API permissions** page for Azure SQL Database, select **Delegated permissions** and **user_impersonation**, then select **Add permissions**.
 
-    :::image type="content" source="./media/tutorial-connect-app-access-sql-database-as-user-dotnet/select-permission.png" alt-text="Screenshot of the Request API permissions page showing Delegated permissions, user_impersonation, and the Add permission button selected.":::
+    :::image type="content" source="./media/tutorial-connect-app-access-sql-database-as-user-dotnet/select-permission.png" alt-text="Screenshot of the Request API permissions page showing Delegated permissions, user_impersonation, and the Add permission button selected." lightbox="./media/tutorial-connect-app-access-sql-database-as-user-dotnet/select-permission.png":::
 
 ## 4. Configure App Service to return a usable access token
 
@@ -194,7 +198,7 @@ public MyDatabaseContext (DbContextOptions<MyDatabaseContext> options, IHttpCont
 
 1. Publish your changes in Visual Studio. In the **Solution Explorer**, right-click your **DotNetAppSqlDb** project and select **Publish**.
 
-    ![Publish from Solution Explorer](./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png)
+    :::image type="content" source="./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png" alt-text="Screenshot showing how to publish from the Solution Explorer in Visual Studio." lightbox="./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png":::
 
 1. In the publish page, select **Publish**. 
 

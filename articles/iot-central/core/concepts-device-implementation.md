@@ -116,6 +116,8 @@ If the device gets any of the following errors when it connects, it should use a
 
 To learn more about device error codes, see [Troubleshooting device connections](troubleshoot-connection.md).
 
+To learn more about implementing automatic reconnections, see [Manage device reconnections to create resilient applications](../../iot-develop/concepts-manage-device-reconnections.md).
+
 ### Test failover capabilities
 
 The Azure CLI lets you test the failover capabilities of your device code. The CLI command works by temporarily switching a device registration to a different internal IoT hub. To verify the device failover worked, check that the device still sends telemetry and responds to commands.

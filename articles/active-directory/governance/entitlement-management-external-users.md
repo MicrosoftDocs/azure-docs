@@ -92,11 +92,9 @@ To ensure people outside of your organization can request access packages and ge
 
 ### Review your Conditional Access policies (Preview)
 
-- Make sure to exclude guests from any Conditional Access policies that new guest users won't be able to meet as this will block them from being able to sign in to your directory. For example, guests likely don't have a registered device, aren't in a known location, and don't want to re-register for multi-factor authentication (MFA), so adding these requirements in a Conditional Access policy will block guests from using entitlement management. For more information, see [What are conditions in Azure Active Directory Conditional Access?](../conditional-access/concept-conditional-access-conditions.md).
+- Make sure to exclude the Entitlement Management app from any Conditional Access policies that impact guest users. Otherwise, a conditional access policy could block them from accessing MyAccess or being able to sign in to your directory. For example, guests likely don't have a registered device, aren't in a known location, and don't want to re-register for multi-factor authentication (MFA), so adding these requirements in a Conditional Access policy will block guests from using entitlement management. For more information, see [What are conditions in Azure Active Directory Conditional Access?](../conditional-access/concept-conditional-access-conditions.md).
 
-    ![Azure AD Conditional Access policy exclude settings](./media/entitlement-management-external-users/conditional-access-exclude.png)
-
-- A common policy for entitlement management customers is to block all apps from guests except entitlement management for guests. This policy allows guests to enter MyAccess and request an access package. This package should contain a group (it's called Guests from MyAccess in the example below), which should be excluded from the block all apps policy. Once the package is approved, the guest is in the directory. Given that the end user has the access package assignment and is part of the group, the end user is able to access all other apps. Other common policies include excluding entitlement management app from MFA and compliant device.    
+- A common policy for Entitlement Management customers is to block all apps from guests except Entitlement Management for guests. This policy allows guests to enter MyAccess and request an access package. This package should contain a group (it is called Guests from MyAccess in the example below), which should be excluded from the block all apps policy. Once the package is approved, the guest will be in the directory. Given that the end user has the access package assignment and is part of the group, the end user will be able to access all other apps. Other common policies include excluding Entitlement Management app from MFA and compliant device.   
 
     :::image type="content" source="media/entitlement-management-external-users/exclude-app-guests.png" alt-text="Screenshot of exclude app options.":::
 
@@ -105,7 +103,7 @@ To ensure people outside of your organization can request access packages and ge
     :::image type="content" source="media/entitlement-management-external-users/exclude-app-guests-selection.png" alt-text="Screenshot of the exclude guests app selection.":::
 
 > [!NOTE]
-> The entitlement management app includes the entitlement management side of MyAccess, the entitlement management side of Azure Portal and the entitlement management part of MS graph. The latter two require additional permissions for access, hence won't be accessed by guests unless explicit permission is provided. 
+> The Entitlement Management app includes the entitlement management side of MyAccess, the Entitlement Management side of Azure Portal and the Entitlement Management part of MS graph. The latter two require additional permissions for access, hence won't be accessed by guests unless explicit permission is provided. 
 
 ### Review your SharePoint Online external sharing settings
 

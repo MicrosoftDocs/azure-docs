@@ -3,7 +3,7 @@ title: "Netwrix Auditor (formerly Stealthbits Privileged Activity Manager) conne
 description: "Learn how to install the connector Netwrix Auditor (formerly Stealthbits Privileged Activity Manager) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 03/25/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -19,7 +19,7 @@ Netwrix Auditor data connector provides the capability to ingest [Netwrix Audito
 | **Kusto function alias** | NetwrixAuditor |
 | **Kusto function url** | https://aka.ms/sentinel-netwrixauditor-parser |
 | **Log Analytics table(s)** | CommonSecurityLog<br/> |
-| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
+| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
 
 ## Query samples
@@ -59,7 +59,7 @@ Install the Microsoft Monitoring Agent on your Linux machine and configure the m
 
    Run the following command to install and apply the CEF collector:
 
-   sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py {0} {1}
+   sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py python cef_installer.py {0} {1}
 
 2.  Configure Netwrix Auditor to send logs using CEF
 
@@ -81,7 +81,7 @@ If the logs are not received, run the following connectivity validation script:
 
    Run the following command to validate your connectivity:
 
-   sudo wget -O cef_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py  {0}
+   sudo wget -O cef_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py python cef_troubleshoot.py  {0}
 
 4. Secure your machine 
 

@@ -39,7 +39,7 @@ If you don't have an Azure subscription, open a [free account](https://azure.mic
 
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) in the same subscription as Azure Cognitive Search. The key vault must have **soft-delete** and **purge protection** enabled.
 
-+ [Postman desktop app](https://www.getpostman.com/)
++ [Postman app](https://www.postman.com/downloads/)
 
 Custom skill deployment creates an Azure Function app and an Azure Storage account. Since these resources are created for you, they aren't listed as a prerequisite. When you're finished with this tutorial, remember to clean up the resources so that you aren't billed for services you're not using.
 

@@ -96,9 +96,5 @@ For more information on log schemas, see [View diagnostic logs](ddos-view-diagno
 
 ## Next steps
 
-In this guide, you learned how to configure Azure DDoS Protection diagnostic logs, including notifications, mitigation reports and mitigation flow logs.
-
-To learn how to configure attack alerts, continue to the next guide.
-
-> [!div class="nextstepaction"]
-> [Configure DDoS protection alerts](alerts.md)
+* [Test through simulations](test-through-simulations.md)
+* [View logs in Log Analytics workspace](ddos-view-diagnostic-logs.md)

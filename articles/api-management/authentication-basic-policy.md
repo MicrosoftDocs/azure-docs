@@ -28,15 +28,19 @@ Use the `authentication-basic` policy to authenticate with a backend service usi
 
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-|username|Specifies the username of the Basic credential.|Yes|N/A|
-|password|Specifies the password of the Basic credential.|Yes|N/A|
+|username|Specifies the username of the Basic credential. Policy expressions are allowed. |Yes|N/A|
+|password|Specifies the password of the Basic credential. Policy expressions are allowed. |Yes|N/A|
 
 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 - [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+
+### Usage notes
+
+- This policy can only be used once in a policy section.
 
 ## Example
 

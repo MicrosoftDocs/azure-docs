@@ -102,7 +102,7 @@ To investigate why the recommendations are still being generated, verify the fol
 ### We're using a third-party MFA tool to enforce MFA. Why do we still get the Defender for Cloud recommendations?
 Defender for Cloud's MFA recommendations doesn't support third-party MFA tools (for example, DUO).
 
-If the recommendations are irrelevant for your organization, consider marking them as "mitigated" as described in [Exempting resources and recommendations from your secure score](exempt-resource.md). You can also [disable a recommendation](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations).
+If the recommendations are irrelevant for your organization, consider marking them as "mitigated" as described in [Exempting resources and recommendations from your secure score](exempt-resource.md). You can also [disable a recommendation](tutorial-security-policy.md#disable-a-security-recommendation).
 
 ### Why does Defender for Cloud show user accounts without permissions on the subscription as "requiring MFA"?
 Defender for Cloud's MFA recommendations refers to [Azure RBAC](../role-based-access-control/role-definitions-list.md) roles and the [Azure classic subscription administrators](../role-based-access-control/classic-administrators.md) role. Verify that none of the accounts have such roles.
