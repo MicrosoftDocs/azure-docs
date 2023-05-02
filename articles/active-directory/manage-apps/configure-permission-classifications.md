@@ -10,8 +10,8 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 2/24/2023
 ms.author: jomondi
-ms.reviewer: arvindh, luleon, phsignor, jawoods
-ms.custom: contperf-fy21q2, enterprise-apps
+ms.reviewer: phsignor, jawoods
+ms.custom: contperf-fy21q2, devx-track-azurecli, enterprise-apps
 zone_pivot_groups: enterprise-apps-all
 
 #customer intent: As an admin, I want configure permission classifications for applications in Azure AD

@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 03/24/2022
 ms.author: jomondi
 ms.reviewer: alamaral
-ms.custom: mode-other, enterprise-apps-article
+ms.custom: mode-other, enterprise-apps
 #Customer intent: As an administrator of an Azure AD tenant, I want to search for and view the enterprise applications in the tenant.
 ---
 
