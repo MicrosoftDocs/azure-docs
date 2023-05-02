@@ -25,8 +25,8 @@ Routing the messages from your clients to an Azure service or your custom endpoi
 
 The routing configuration enables you to send all your messages from your clients to an [Event Grid topic](custom-topics.md), and configuring [Event Grid subscriptions](subscribe-through-portal.md) to route the messages from that Event Grid topic to the [supported event handlers](event-handlers.md). Use the following high-level steps to achieve this:
 
-- [Create an Event Grid custom topic](custom-event-quickstart-portal) where all MQTT messages will be routed. This topic needs to fulfill the [Event Grid topic Requirements for Routing.](#event-grid-topic-requirements-for-routing)
-- Create an [Event Grid subscription](subscribe-through-portal) to route these messages to one of the supported Azure services or a custom endpoint.
+- [Create an Event Grid custom topic](custom-event-quickstart-portal.md) where all MQTT messages will be routed. This topic needs to fulfill the [Event Grid topic Requirements for Routing.](#event-grid-topic-requirements-for-routing)
+- Create an [Event Grid subscription](subscribe-through-portal.md) to route these messages to one of the supported Azure services or a custom endpoint.
 - Set the routing configuration as detailed below referring to the topic that you created in the first step.
 
 ### Event Grid topic Requirements for Routing
