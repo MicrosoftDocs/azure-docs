@@ -23,7 +23,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [Release of containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender CSPM](#release-of-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-mdvm-in-defender-cspm) | May 2023 |
 |[Renaming container recommendations powered by Qualys](#renaming-container-recommendations-powered-by-qualys) | May 2023 |
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) | June 2023 |
-| [Deprecation of agent-based Container offering in Defender CSPM](#deprecation-of-agent-based-container-offering-in-defender-cspm)
+| [Deprecation of agent-based Container offering in Defender CSPM](#deprecation-of-agent-based-container-offering-in-defender-cspm) | June 2023
 
 ### Deprecation of legacy compliance standards across cloud environments
 
@@ -119,7 +119,7 @@ Customers will have until June 30, 2023 to resolve this issue. After this date, 
 
 **Estimated date for change: June 2023**
 
-The Container offering will move forward with its agentless technology in Defender CSPM is set to be deprecated and will stop supporting legacy agent-based instances in June 2023. The agentless container offering will no longer be dependent on the Defender for Containers plan. Affected users should [enable the relevant extensions](concept-agentless-containers.md#onboard-agentless-containers-for-cspm) as soon as possible in order to continue receiving container-related value with the new agentless capability. 
+As part of the move to the offering of agentless technology for containers in Defender CSPM , the agent-based offering is set to be deprecated and will stop supporting legacy agent-based instances in June 2023. The agentless container offering will no longer be dependent on the Defender for Containers plan. Affected users should [enable the relevant extensions](concept-agentless-containers.md#onboard-agentless-containers-for-cspm) as soon as possible in order to continue receiving container-related value with the new agentless capability. 
 
 ## Next steps
 
