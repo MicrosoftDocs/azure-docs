@@ -13,7 +13,7 @@ ms.author: victorh
 
 There's more than one way to use Azure Firewall Manager to deploy Azure Firewall, but the following general process is recommended.
 
-To review network architecture options, see [What are the Azure Firewall Manager architecture options?](vhubs-and-vnets.md).
+To review network architecture options, see [What are the Azure Firewall Manager architecture options?](vhubs-and-vnets.md)
 
 ## General deployment process
 
