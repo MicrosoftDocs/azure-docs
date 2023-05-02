@@ -35,7 +35,7 @@ In remote attestation, “one peer (the "Attester") produces believable informat
 	4. Passport conforms to policy of a Visa or age requirement.
 6. The Foreign Country Border Patrol Agent approves of the Passport and the Citizen can enter the Foreign Country.
 
-:::image type="content" source="media/confidential-computing-deployment-models/passport_model_immigration.png" alt-text="Diagram of remote attestation with the passport model for an immigration desk.":::
+:::image type="content" source="media/attestation-solutions/passport_model_immigration.png" alt-text="Diagram of remote attestation with the passport model for an immigration desk.":::
 
 
 #### Passport Model - Computing
@@ -53,7 +53,7 @@ In remote attestation, “one peer (the "Attester") produces believable informat
 	4.	Attestation Result conforms to configured administrator policy.
 6.	The Secrets Manager approves of the Attestation Result and exchanges secrets with the TEE.
 
-:::image type="content" source="media/confidential-computing-deployment-models/passport_model_computing.png" alt-text="Diagram of remote attestation with the passport model for computing.":::
+:::image type="content" source="media/attestation-solutions/passport_model_computing.png" alt-text="Diagram of remote attestation with the passport model for computing.":::
 
 ### Background Check Model
 #### Background Check – School Verification
@@ -66,7 +66,7 @@ In remote attestation, “one peer (the "Attester") produces believable informat
 	2. Attestation Result was produced by a trusted School.
 6.	The Employer approves of the Attestation Result and hires the Person.
 
-:::image type="content" source="media/confidential-computing-deployment-models/background_check_model_school.png" alt-text="Diagram of remote attestation with the background check model for education background.":::
+:::image type="content" source="media/attestation-solutions/background_check_model_school.png" alt-text="Diagram of remote attestation with the background check model for education background.":::
 
 
 #### Background Check – Computing
@@ -84,7 +84,7 @@ In remote attestation, “one peer (the "Attester") produces believable informat
 	4. Attestation Result conforms to configured administrator policy.
 6.	The Secrets Manager approves of the Attestation Result and exchanges secrets with the TEE.
 
-:::image type="content" source="media/confidential-computing-deployment-models/background_check_model_computing.png" alt-text="Diagram of remote attestation with the background check model for computing.":::
+:::image type="content" source="media/attestation-solutions/background_check_model_computing.png" alt-text="Diagram of remote attestation with the background check model for computing.":::
 
 ## Types of Attestation
 Attestation services can be utilized in two distinct ways that each provide their own benefits. 
