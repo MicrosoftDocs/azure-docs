@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 05/01/2023
+ms.date: 05/02/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -15,6 +15,20 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 > [!TIP]
 > If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
+
+## May 2023
+
+Updates in May include:
+
+- [New alert in Defender for Key Vault](#new-alert-in-defender-for-key-vault)
+
+### New alert in Defender for Key Vault
+
+Defender for Key Vault has the following new alert:
+
+| Alert (alert type) | Description | MITRE tactics | Severity |
+|---|---|:-:|---|
+| **Key vault unusual IP access - unusual IP accessing key vault**<br><br />(KV_UnusualAccessFromSuspeciousIP) | A user or service principal has attempted anomalous access to key vaults from a non-Microsoft IP in the last 24 hours. This anomalous access pattern may be legitimate activity. It could be an indication of a possible attempt to gain access of the key vault and the secrets contained within it. We recommend further investigations. | Credential Access | Medium |
 
 ## April 2023
 
