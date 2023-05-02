@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 04/19/2023
 ms.author: mjyothish
 ---
-## FAQ on V1 retirement
+# FAQ on V1 retirement
 
 ### What is the official date Application Gateway V1 is cut off from creation?
 
