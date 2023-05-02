@@ -62,9 +62,9 @@ For automated creation of role assignments on your user-assigned managed identit
 > [!TIP]
 > For a workspace with [customer-managed keys for encryption](concept-data-encryption.md), you can pass in a user-assigned managed identity to authenticate from storage to Key Vault. Use the `user-assigned-identity-for-cmk-encryption` (CLI) or `user_assigned_identity_for_cmk_encryption` (SDK) parameters to pass in the managed identity. This managed identity can be the same or different as the workspace primary user assigned managed identity.
 
-To create a workspace with user assigned identity, use one of the following methods:
+#### To create a workspace with user assigned identity, use one of the following methods:
 
-# [Azure CLI](#tab/cli_)
+# [Azure CLI](#tab/azure-cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -90,7 +90,7 @@ image_build_compute: <compute(virtual machine) resource ID>
 primary_user_assigned_identity: <one of the UAI resource IDs in the above list>
 ```
 
-# [Python SDK](#tab/python_)
+# [Python SDK](#tab/azure-python)
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
