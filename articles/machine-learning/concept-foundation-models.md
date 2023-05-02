@@ -5,7 +5,7 @@ description: Learn about machine learning foundation models and how use them at 
 services: machine-learning
 ms.service: machine-learning
 ms.topic: conceptual
-ms.author: swatig007
+ms.author: swatig
 author: swatig007
 ms.reviewer: ssalgado
 ms.date: 04/25/2023
