@@ -48,36 +48,36 @@ You'll write code using the Python SDK in this tutorial and learn the following 
 
 * Use a compute instance to follow this tutorial without further installation. (See how to [create a compute instance](./quickstart-create-resources.md#create-a-compute-instance).)  Or install the CLI/SDK to use your own local environment.
     
-# [Azure CLI](#tab/cli)
-
-  [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-
-
-This tutorial is also available in the [azureml-examples repository on GitHub](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items). If you wish to run it in your own local environment, setup using the following instructions
-
-* Install and [set up CLI (v2)](how-to-configure-cli.md#prerequisites) and make sure you install the `ml` extension.
-
-# [Python SDK](#tab/python)
-
-  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-
-
-This tutorial is also available in the [azureml-examples repository on GitHub](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items). If you wish to run it in your own local environment, setup using the following instructions
-
-* Use the following commands to install Azure Machine Learning Python SDK v2:
-    * Uninstall previous preview version:
-    ```python
-    pip uninstall azure-ai-ml
-    ```
-    * Install the Azure Machine Learning Python SDK v2:
-    ```python
-    pip install azure-ai-ml azure-identity
-    ```
-
-    > [!NOTE]
-    > Only Python 3.6 and 3.7 are compatible with automated ML support for computer vision tasks. 
-
----
+    # [Azure CLI](#tab/cli)
+    
+    [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+    
+    
+    This tutorial is also available in the [azureml-examples repository on GitHub](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items). If you wish to run it in your own local environment, setup using the following instructions
+    
+    * Install and [set up CLI (v2)](how-to-configure-cli.md#prerequisites) and make sure you install the `ml` extension.
+    
+    # [Python SDK](#tab/python)
+    
+    [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+    
+    
+    This tutorial is also available in the [azureml-examples repository on GitHub](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items). If you wish to run it in your own local environment, setup using the following instructions
+    
+    * Use the following commands to install Azure Machine Learning Python SDK v2:
+        * Uninstall previous preview version:
+        ```python
+        pip uninstall azure-ai-ml
+        ```
+        * Install the Azure Machine Learning Python SDK v2:
+        ```python
+        pip install azure-ai-ml azure-identity
+        ```
+    
+        > [!NOTE]
+        > Only Python 3.6 and 3.7 are compatible with automated ML support for computer vision tasks. 
+    
+    ---
 
 ## Compute target setup
 
