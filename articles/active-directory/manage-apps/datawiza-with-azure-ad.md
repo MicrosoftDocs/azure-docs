@@ -11,7 +11,7 @@ ms.workload: identity
 ms.date: 01/23/2023
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.custom: kr2b-contr-experiment
+ms.custom: kr2b-contr-experiment, not-enterprise-apps
 ---
 
 # Tutorial: Configure Secure Hybrid Access with Azure Active Directory and Datawiza

@@ -77,7 +77,7 @@ Azure Health Data Services typically expect a [JSON Web Token](https://en.wikipe
 
 * Header
 * Payload (the claims)
-* Signature, as shown in the image below. For more information, see [Azure access tokens](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
+* Signature, as shown in the image below. For more information, see [Azure access tokens](../active-directory/develop/configurable-token-lifetimes.md).
 
 [ ![JASON web token signature.](media/azure-access-token.png) ](media/azure-access-token.png#lightbox)
 

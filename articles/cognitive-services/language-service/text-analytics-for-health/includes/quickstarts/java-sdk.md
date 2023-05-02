@@ -27,6 +27,11 @@ Use this quickstart to create a Text Analytics for health application with the c
 
 ## Setting up
 
+[!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Language&Product=Text-analytics-for-health&Page=quickstart&Section=Create-environment-variables" target="_target">I ran into an issue</a>
+
 ### Add the client library
 
 Create a Maven project in your preferred IDE or development environment. Then add the following dependency to your project's *pom.xml* file. You can find the implementation syntax [for other build tools](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.2.0) online.
@@ -46,7 +51,7 @@ Create a Maven project in your preferred IDE or development environment. Then ad
 
 ## Code example
 
-Create a Java file named `EntityLinking.java`. Open the file and copy the below code. Remember to replace the `key` variable with the key for your resource, and replace the `endpoint` variable with the endpoint for your resource. Then run the code.  
+Create a Java file named `EntityLinking.java`. Open the file and copy the below code. Then run the code.  
 
 [!INCLUDE [find the key and endpoint for a resource](../../../includes/find-azure-resource-info.md)]
 
@@ -66,11 +71,12 @@ import com.azure.ai.textanalytics.util.*;
 
 public class Example {
 
-    private static String KEY = "replace-with-your-key-here";
-    private static String ENDPOINT = "replace-with-your-endpoint-here";
+    // This example requires environment variables named "LANGUAGE_KEY" and "LANGUAGE_ENDPOINT"
+    private static String KEY = System.getenv("LANGUAGE_KEY");
+    private static String ENDPOINT = System.getenv("LANGUAGE_ENDPOINT");
 
     public static void main(String[] args) {
-        TextAnalyticsClient client = authenticateClient(KEY, ENDPOINT);
+        TextAnalyticsClient client = authenticateClient(languageKey, languageEndpoint);
         healthExample(client);
     }
 

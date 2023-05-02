@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 6/27/2022
 ms.author: gasinh
 ms.collection: M365-identity-device-management
+ms.custom: not-enterprise-apps
 ---
 
 # Tutorial: Configure Cloudflare with Azure Active Directory for secure hybrid access
