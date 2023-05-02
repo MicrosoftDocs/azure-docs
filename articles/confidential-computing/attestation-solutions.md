@@ -1,6 +1,6 @@
 ---
 title: Attestation
-description: Demystifying Attestation
+description: Learn about what attestation is and how to use it at Microsoft
 author: jl-pm
 ms.service: virtual-machines
 ms.subservice: confidential-computing
@@ -11,7 +11,6 @@ ms.author: jl-pm
 ---
 
 # Attestation
-
 Computing is an essential part of our daily lives, powering everything from our smartphones to critical infrastructure. However, increasing regulatory environments, prevalence of cyberattacks, and growing sophistication of attackers have made it difficult to trust the authenticity and integrity of the computing technologies we depend on. Attestation, a technique to verify the software and hardware components of a system, is a critical process for establishing trust and ensuring that computing technologies we rely on are trustworthy.
 
 In this document, we are looking at what attestation is, types of attestation Microsoft offers today, and how customers can utilize these types of attestation scenarios in Microsoft solutions. 
@@ -43,14 +42,14 @@ In remote attestation, “one peer (the "Attester") produces believable informat
 	1. Certificate is valid and has not been altered.
 	2. Issuer of the certificate is trusted
 	3. TEE evidence isn't part of a restricted list
-3.	If the Verifier decides the evidence meets the defined policies, the Verifier will create an Attestation Result and give it to the TEE.
-4.	The TEE wants to exchange secrets with the Secrets Manager, but first must present their Attestation Result to the Secrets Manager for evaluation.
-5.	The Secrets Manager checks a series of rules on the Attestation Result before trusting it  
-	1.	Attestation Result is authentic and hasn't been altered.
-	2.	Attestation Result was produced by a trusted authority.
-	3.	Attestation Result isn't expired or revoked.
-	4.	Attestation Result conforms to configured administrator policy.
-6.	The Secrets Manager approves of the Attestation Result and exchanges secrets with the TEE.
+3. If the Verifier decides the evidence meets the defined policies, the Verifier will create an Attestation Result and give it to the TEE.
+4. The TEE wants to exchange secrets with the Secrets Manager, but first must present their Attestation Result to the Secrets Manager for evaluation.
+5. The Secrets Manager checks a series of rules on the Attestation Result before trusting it  
+	1. Attestation Result is authentic and hasn't been altered.
+	2. Attestation Result was produced by a trusted authority.
+	3. Attestation Result isn't expired or revoked.
+	4. Attestation Result conforms to configured administrator policy.
+6. The Secrets Manager approves of the Attestation Result and exchanges secrets with the TEE.
 
 ![Diagram of remote attestation with the passport model for computing.](media/attestation-solutions/passport_model_computing.png)
 
