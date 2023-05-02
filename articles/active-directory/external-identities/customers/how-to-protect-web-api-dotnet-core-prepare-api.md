@@ -53,7 +53,7 @@ Install the following packages:
 
 ## Configure app registration details
 
-To protect your web API, you need to have the Application (Client) ID, Directory / Tenant ID and Directory / Tenant name that you have obtained during registration on the Microsoft Entra admin center. If you haven't registered your web API yet, kindly follow the [web API registration instructions](how-to-register-ciam-app.md?tabs=webapi) before proceeding.
+To protect your web API, you need to have the Application (Client) ID, Directory / Tenant ID and Directory / Tenant name that you have obtained during registration on the Microsoft Entra admin center. If you haven't registered your web API yet, kindly follow the [web API registration instructions](how-to-register-ciam-app.md?tabs=webapi&preserve-view=true) before proceeding.
 
 Open the *appsettings.json* file in your app folder and add in the app registration details.
 
