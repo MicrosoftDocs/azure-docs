@@ -20,7 +20,7 @@ In this article, you create app projects for both the client web app and web API
 
 ## Prerequisite 
 
-- Install a [.NET SDK](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/install) in your computer.
+- Install [.NET SDK](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/install) v7 or later in your computer.
 
 ##  Build ASP.NET web API
 
