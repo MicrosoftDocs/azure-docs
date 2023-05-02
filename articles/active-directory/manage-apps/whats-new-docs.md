@@ -34,7 +34,6 @@ Welcome to what's new in Azure Active Directory (Azure AD) application managemen
 - [Disable auto-acceleration sign-in](prevent-domain-hints-with-home-realm-discovery.md)
 - [Review permissions granted to enterprise applications](manage-application-permissions.md)
 - [Migrate application authentication to Azure Active Directory](migrate-application-authentication-to-azure-active-directory.md)
-- [Azure Active Directory application management: What's new](whats-new-docs.md)
 - [Configure permission classifications](configure-permission-classifications.md)
 - [Restrict access to a tenant](tenant-restrictions.md)
 - [Tutorial: Migrate Okta sign-on policies to Azure Active Directory Conditional Access](migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access.md)

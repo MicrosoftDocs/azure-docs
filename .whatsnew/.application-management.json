@@ -7,7 +7,7 @@
         "relativeLinkPrefix": "/azure/active-directory/manage-apps"
     },
     "inclusionCriteria": {
-        "omitPullRequestTitles": false,
+        "omitPullRequestTitles": true,
         "minAdditionsToFile": 10,
         "maxFilesChanged": 50,
         "labels": [
