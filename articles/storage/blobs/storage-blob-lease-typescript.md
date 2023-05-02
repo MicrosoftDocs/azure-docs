@@ -1,7 +1,7 @@
 ---
-title: Create and manage blob leases with JavaScript
+title: Create and manage blob leases with TypeScript
 titleSuffix: Azure Storage
-description: Learn how to manage a lock on a blob in your Azure Storage account using the JavaScript client library.
+description: Learn how to manage a lock on a blob in your Azure Storage account with TypeScript using the JavaScript client library.
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
@@ -10,11 +10,11 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 05/01/2023
 ms.subservice: blobs
-ms.devlang: javascript
-ms.custom: devx-track-js, devguide-js
+ms.devlang: typescript
+ms.custom: devx-track-ts, devguide-ts
 ---
 
-# Create and manage blob leases with JavaScript
+# Create and manage blob leases with TypeScript
 
 This article shows how to create and manage blob leases using the [Azure Storage client library for JavaScript](/javascript/api/overview/azure/storage-blob-readme). You can use the client library to acquire, renew, release, and break blob leases.
 
@@ -22,7 +22,7 @@ This article shows how to create and manage blob leases using the [Azure Storage
 
 [!INCLUDE [storage-dev-guide-about-blob-lease](../../../includes/storage-dev-guides/storage-dev-guide-about-blob-lease.md)]
 
-Lease operations are handled by the [BlobLeaseClient](/javascript/api/@azure/storage-blob/blobleaseclient) class, which provides a client containing all lease operations for blobs and containers. To learn more about container leases using the client library, see [Create and manage container leases with JavaScript](storage-blob-container-lease-javascript.md).
+Lease operations are handled by the [BlobLeaseClient](/javascript/api/@azure/storage-blob/blobleaseclient) class, which provides a client containing all lease operations for blobs and containers. To learn more about container leases using the client library, see [Create and manage container leases with TypeScript](storage-blob-container-lease-typescript.md).
 
 ## Acquire a lease
 
@@ -34,7 +34,7 @@ To acquire a lease, create an instance of the [BlobLeaseClient](/javascript/api/
 
 The following example acquires a 30-second lease for a blob:
 
-:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/lease-blob.js" id="Snippet_AcquireBlobLease":::
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/lease-blob.ts" id="Snippet_AcquireBlobLease":::
 
 ## Renew a lease
 
@@ -46,19 +46,19 @@ To renew a lease, use one of the following methods on a [BlobLeaseClient](/javas
 
 The following example renews a lease for a blob:
 
-:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/lease-blob.js" id="Snippet_RenewBlobLease":::
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/lease-blob.ts" id="Snippet_RenewBlobLease":::
 
 ## Release a lease
 
 You can release a blob lease if the lease ID specified on the request matches the lease ID associated with the blob. Releasing a lease allows another client to acquire a lease for the blob immediately after the release is complete.
 
-You can release a lease using one of the following methods on a JavaScript[BlobLeaseClient](/javascript/api/@azure/storage-blob/blobleaseclient) instance:
+You can release a lease using one of the following methods on a [BlobLeaseClient](/javascript/api/@azure/storage-blob/blobleaseclient) instance:
 
 - [releaseLease](/javascript/api/@azure/storage-blob/blobleaseclient#@azure-storage-blob-blobleaseclient-releaselease)
 
 The following example releases a lease on a blob:
 
-:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/lease-blob.js" id="Snippet_ReleaseBlobLease":::
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/lease-blob.ts" id="Snippet_ReleaseBlobLease":::
 
 ## Break a lease
 
@@ -70,7 +70,7 @@ You can break a lease using one of the following methods on a [BlobLeaseClient](
 
 The following example breaks a lease on a blob:
 
-:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/lease-blob.js" id="Snippet_BreakBlobLease":::
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/lease-blob.ts" id="Snippet_BreakBlobLease":::
 
 [!INCLUDE [storage-dev-guide-blob-lease](../../../includes/storage-dev-guides/storage-dev-guide-blob-lease.md)]
 
@@ -86,9 +86,9 @@ The Azure SDK for JavaScript contains libraries that build on top of the Azure R
 
 ### Code samples
 
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/lease-blob.js)
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/lease-blob.ts)
 
-[!INCLUDE [storage-dev-guide-resources-javascript](../../../includes/storage-dev-guides/storage-dev-guide-resources-javascript.md)]
+[!INCLUDE [storage-dev-guide-resources-typescript](../../../includes/storage-dev-guides/storage-dev-guide-resources-typescript.md)]
 
 ### See also
 
