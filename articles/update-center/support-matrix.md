@@ -84,11 +84,11 @@ United States | Central US </br> East US </br> East US 2</br> North Central US <
 
 **Marketplace/PIR images**
 
-We support a combination of Offer, Publisher, and Sku of the image. Ensure that you match all the three to confirm support. For more information, see [list of supported marketplace OS images](../virtual-machines/automatic-vm-guest-patching.md). 
+Currently, we support a combination of Offer, Publisher, and Sku of the image. Ensure that you match all the three to confirm support. For more information, see [list of supported marketplace OS images](../virtual-machines/automatic-vm-guest-patching.md). 
 
 **Custom images**
 
-We support [generalized Azure Compute Gallery (SIG) custom images](../virtual-machines/linux/imaging.md). Refer to the table below for the list of operating system that we support for generalized Azure Compute Gallery images.
+We support [generalized Azure Compute Gallery (SIG) custom images](../virtual-machines/linux/imaging.md). Refer to the following table for the list of operating system that we support for generalized Azure Compute Gallery images. For more information, see [Azure Compute Gallery (SIG) custom images (preview)](manage-updates-customized-images.md).
 
    |**Windows Operating System**|
    |-- |
