@@ -58,7 +58,7 @@ To configure automatic assignment in the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
+1. In the search bar, enter *Azure Virtual Desktop* and select the matching service entry.
 
 1. Select **Host pools**, then select the personal host pool you want to configure automatic assignment.
 
@@ -72,11 +72,11 @@ Here's how to configure a host pool to automatically assign users to VMs using t
 
 [!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
 
-1. Use the `Update-AzWvdHostPool` command in the following example to configure a host pool to automatically assign users to VMs. For more information about the parameters,see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
+1. Run the `Update-AzWvdHostPool` command in the following example to configure a host pool to automatically assign users to VMs. For more information about the parameters,see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
 
-```powershell
-Update-AzWvdHostPool -ResourceGroupName $resourceGroupName -Name $hostPoolName -PersonalDesktopAssignmentType Automatic
-```
+   ```powershell
+   Update-AzWvdHostPool -ResourceGroupName $resourceGroupName -Name $hostPoolName -PersonalDesktopAssignmentType Automatic
+   ```
 
 ---
 
