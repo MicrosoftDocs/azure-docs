@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Respond to threats using automation rules - Microsoft Sentinel
+title: Tutorial - Automate threat response in Microsoft Sentinel
 description: Use this tutorial to help you use playbooks together with automation rules in Microsoft Sentinel to automate your incident response and remediate security threats.
 author: yelevin
 ms.author: yelevin
@@ -7,7 +7,7 @@ ms.topic: tutorial
 ms.date: 01/17/2023
 ---
 
-# Tutorial: Respond to threats automatically by using playbooks in Microsoft Sentinel
+# Tutorial: Respond to threats by using playbooks with automation rules in Microsoft Sentinel
 
 This tutorial shows you how to use playbooks together with automation rules to automate your incident response and remediate security threats detected by Microsoft Sentinel. When you complete this tutorial you will be able to:
 
