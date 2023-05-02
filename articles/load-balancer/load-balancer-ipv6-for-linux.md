@@ -48,15 +48,12 @@ For RHEL, CentOS, and Oracle Linux versions 7.4 or higher, follow these steps:
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
-
-
-Content for Red Hat... 
  
-# [openSUSE_13/SLES_11](#tab/suse)  
+# [openSUSE/SLES](#tab/suse)  
 
-## [SLES11/openSUSE_13](#tab/sles11)
+Recent SUSE Linux Enterprise Server (SLES) and openSUSE images in Azure have been preconfigured with DHCPv6. No other changes are required when you use these images. If you have a VM that's based on an older or custom SUSE image, use one of the following procedures to configure DHCPv6.
 
-Recent SUSE Linux Enterprise Server (SLES) and openSUSE images in Azure have been preconfigured with DHCPv6. No other changes are required when you use these images. If you have a VM that's based on an older or custom SUSE image, follow these steps:
+## OpenSuSE 13 and SLES 11
 
 1. Install the `dhcp-client` package, if needed:
 
@@ -75,10 +72,9 @@ Recent SUSE Linux Enterprise Server (SLES) and openSUSE images in Azure have bee
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ``` 
+## OpenSUSE Leap and SLES 12
 
-## [openSUSE_Leap/SLES_12](#tab/sles12)  
-
-Recent SLES and openSUSE images in Azure have been preconfigured with DHCPv6. No other changes are required when you use these images. If you have a VM that's based on an older or custom SUSE image, follow these steps:
+For openSUSE Leap and SLES 12, follow these steps:
 
 1. Edit the */etc/sysconfig/network/ifcfg-eth0* file, and replace the `#BOOTPROTO='dhcp4'` parameter with the following value:
 
