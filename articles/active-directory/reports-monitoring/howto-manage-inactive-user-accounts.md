@@ -43,7 +43,7 @@ You can detect inactive accounts by evaluating the `lastSignInDateTime` property
     - `https://graph.microsoft.com/v1.0/users?$filter=signInActivity/lastSignInDateTime le 2019-06-01T00:00:00Z`
 
 > [!NOTE]
-> When you request the `signInActivity` property while listing users, the maximum page size is 120 users. Requests with $top set higher than 120 will fail. The `signInActivity` property supports `$filter` (`eq`, `ne`, `not`, `ge`, `le`) *but not with any other filterable properties*. 
+> When you request the `signInActivity` property while listing users, the maximum page size is 999 users. The `signInActivity` property supports `$filter` (`eq`, `ne`, `not`, `ge`, `le`) *but not with any other filterable properties*. 
 
 ### What you need to know
 
@@ -77,7 +77,7 @@ If you need to view the latest sign-in activity for a user you can view the user
 
     ![Screenshot of the user overview page with the sign-in activity tile highlighted.](media/howto-manage-inactive-user-accounts/last-sign-activity-tile.png)
 
-The last sign-in date and time shown on this tile may take up to 24 hours to update, which means the date and time may not be current. If you need to see the activity in near real time, select the **See all sign-ins** link on the **Sign-ins** tile to view all sign-in activity for that user. 
+The last sign-in date and time shown on this tile may take up to 6 hours to update, which means the date and time may not be current. If you need to see the activity in near real time, select the **See all sign-ins** link on the **Sign-ins** tile to view all sign-in activity for that user. 
 
 ## Next steps
 
