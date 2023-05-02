@@ -109,8 +109,10 @@ To install DCR Config Generator:
     ```powershell-interactive
     New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
     ```
-
     ---
+
+    > [!NOTE]
+    > You can include up to 100 'counterSpecifiers' in a data collection rule. 'samplingFrequencyInSeconds' must be between 1 and 300, inclusive.
 
 1. Associate machines to your data collection rules:
 
