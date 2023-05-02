@@ -122,7 +122,7 @@ To retrieve content metadata:
 
 4. Select the **GET** HTTP method.
 
-5. Enter the resource location URL that you copied earlier:
+5. Enter the resource location URL that you copied as the last step in the previous section:
 
     ```http
     https://us.atlas.microsoft.com/mapData/metadata/{udid}?api-version=2.0&subscription-key={Your-Azure-Maps-Subscription-key}
@@ -130,7 +130,7 @@ To retrieve content metadata:
 
 6. Select **Send**.
 
-7. In the response window, select the **Body** tab. The metadata should like the following JSON fragment:
+7. In the response window, select the **Body** tab. The metadata should look like the following JSON fragment:
 
     ```json
     {
