@@ -33,7 +33,7 @@ ms.date: 04/28/2023
 
     :::image type="content" source="media/create-view-manage-namespace-topics/namespace-topics.png" alt-text="Screenshot showing Event Grid namespace topic section":::
 
-3. Search for the topic you want to select and select the topic.
+3. Search for the topic you want to view and select the topic.
 
     :::image type="content" source="media/create-view-manage-namespace-topics/namespace-topic-search.png" alt-text="Screenshot showing Event Grid namespace topic search":::
 

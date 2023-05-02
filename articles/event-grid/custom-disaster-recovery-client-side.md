@@ -22,7 +22,6 @@ For simplification, follow the table to identify the kind of disaster recovery s
 | Domains             | Supported                                 | Enabled automatically         |
 | Partner Namespaces  | Supported                                 | Not supported                 |
 | Namespaces          | Supported                                 | Not supported                 |
-| Namespaces (MQTT)   | Supported                                 | Not supported                 |
 
 > [!NOTE]
 > As you may noticed in the table, some Event Grid resources supports automatic geo disaster recovery (GeoDR) on the server side. You can still implement client-side disaster recovery logic if you want a greater control on the failover process. For details about automatic GeoDR, see [Server-side geo disaster recovery in Azure Event Grid](geo-disaster-recovery.md).

@@ -12,30 +12,62 @@ ms.date: 04/28/2023
 ## Create an event subscription
 
 1. Follow the [create, view, and manage a namespace topics](create-view-manage-namespace-topics.md) steps to identify the topic you want to use to create the event subscription.
+
 2. Click on the **Subscriptions** option in the **Entities** section.
+
+    :::image type="content" source="media/create-view-manage-event-subscriptions/event-subscriptions.png" alt-text="Screenshot showing Event Grid event subscriptions":::
+
 3. Click "**+ Subscription**" button in the **Subscriptions** blade.
+
+    :::image type="content" source="media/create-view-manage-event-subscriptions/event-subscription-create.png" alt-text="Screenshot showing Event Grid event subscription create":::
+
 4. In the **Basics** tab, type the name of the topic you want to create.
-5. In the **Basics** tab, add the names of the event types you want to filter in the subscription.
-6. In the **Filters** tab, add more advanced filters you want to use in the subscription.
-7. In the **Additional features** tab, check "Enable dead-lettering" in case you want to store events that could not be delivered.
-8. Select **Create** to create the subscription.
-9. To view the created subscription, search for the subscription in the list of subscriptions and select it.
+
+    :::image type="content" source="media/create-view-manage-event-subscriptions/event-subscription-create-basics.png" alt-text="Screenshot showing Event Grid event subscription create basics":::
+
+5. In the **Filters** tab, add the names of the event types you want to filter in the subscription and add context attribute filters you want to use in the subscription.
+
+    :::image type="content" source="media/create-view-manage-event-subscriptions/event-subscription-create-filters.png" alt-text="Screenshot showing Event Grid event subscription create filters":::
+
+6. In the **Additional features** tab, set the lock duration in minutes and select **Create**.
+
+    :::image type="content" source="media/create-view-manage-event-subscriptions/event-subscription-create-additional-features.png" alt-text="Screenshot showing Event Grid event subscription create additional features":::
 
 ## View an event subscription
 
 1. Follow the [create, view, and manage a namespace topics](create-view-manage-namespace-topics.md) steps to identify the topic you want to use to view the event subscription.
+
 2. Click on the **Subscriptions** option in the **Entities** section.
-3. Search for the subscription you want to select.
-4. Select the subscription.
+
+    :::image type="content" source="media/create-view-manage-event-subscriptions/event-subscriptions.png" alt-text="Screenshot showing Event Grid event subscriptions":::
+
+3. Search for the subscription you want to view and select the subscription.
+
+    :::image type="content" source="media/create-view-manage-event-subscriptions/event-subscriptions-search.png" alt-text="Screenshot showing Event Grid event subscriptions search":::
+
+4. Explore the event subscription topic settings.
+
+    :::image type="content" source="media/create-view-manage-event-subscriptions/event-subscription.png" alt-text="Screenshot showing Event Grid event subscription":::
 
 ## Delete an event subscription
 
 1. Follow the [create, view, and manage a namespace topics](create-view-manage-namespace-topics.md) steps to identify the topic you want to use to delete the event subscription.
+
 2. Click on the **Subscriptions** option in the **Entities** section.
-3. Search for the subscription you want to delete.
-4. Select the subscription.
-5. On the **Overview** page, select **Delete** on the toolbar.
-6. On the confirmation page, type the name of the resource and select **Delete** to confirm the deletion. It deletes the event subscription.
+
+    :::image type="content" source="media/create-view-manage-event-subscriptions/event-subscriptions.png" alt-text="Screenshot showing Event Grid event subscriptions":::
+
+3. Search for the subscription you want to delete and select the subscription.
+
+    :::image type="content" source="media/create-view-manage-event-subscriptions/event-subscriptions-search.png" alt-text="Screenshot showing Event Grid event subscriptions search":::
+
+4. On the **Overview** page, select **Delete** on the toolbar.
+
+    :::image type="content" source="media/create-view-manage-event-subscriptions/delete-event-subscription.png" alt-text="Screenshot showing Event Grid event subscription deletion":::
+
+5. On the confirmation page, type the name of the resource and select **Delete** to confirm the deletion. It deletes the event subscription.
+
+    :::image type="content" source="media/create-view-manage-event-subscriptions/delete-event-subscription-confirmation.png" alt-text="Screenshot showing Event Grid event subscription deletion confirmation":::
 
 ## Next steps
 
