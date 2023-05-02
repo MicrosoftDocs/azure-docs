@@ -447,7 +447,7 @@ Follow these steps to create your App Service resources and publish your project
     - Under **App Service Plan**, select **Create new** and type *myAppServicePlan* for the name. 
     - Under **Pricing plan**, select **Free F1**.
     
-    :::image type="content" source="./media/quickstart-dotnetcore/app-service-details-net7.png" lighbox="./media/quickstart-dotnetcore/app-service-details-net7.png" alt-text="Screenshot of new App Service app configuration for .NET 7 in the Azure portal.":::
+    :::image type="content" source="./media/quickstart-dotnetcore/app-service-details-net7.png" lightbox="./media/quickstart-dotnetcore/app-service-details-net7.png" alt-text="Screenshot of new App Service app configuration for .NET 7 in the Azure portal.":::
     
     ### [.NET Framework 4.8](#tab/netframework48)
     
@@ -459,7 +459,7 @@ Follow these steps to create your App Service resources and publish your project
     - Under **App Service Plan**, select **Create new** and type *myAppServicePlan* for the name. 
     - Under **Pricing plan**, select **Free F1**.
     
-    :::image type="content" source="./media/quickstart-dotnetcore/app-service-details-net48.png" lighbox="./media/quickstart-dotnetcore/app-service-details-net48.png" alt-text="Screenshot of new App Service app configuration for .NET Framework V4.8 in the Azure portal.":::
+    :::image type="content" source="./media/quickstart-dotnetcore/app-service-details-net48.png" lightbox="./media/quickstart-dotnetcore/app-service-details-net48.png" alt-text="Screenshot of new App Service app configuration for .NET Framework V4.8 in the Azure portal.":::
     -----
 
 1. Select the **Next: Deployment >** button at the bottom of the page.
