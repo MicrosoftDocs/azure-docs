@@ -1240,7 +1240,7 @@
       href: https://aka.ms/sdk-v2-install
     - name: REST API
       href: /rest/api/azureml/
-    - name: CLI (v2)
+    - name: CLI (v2) commands
       displayName: extension, command line, command-line, az, ci/cd, automate, automated
       href: /cli/azure/ml/
     - name: CLI (v2) YAML schemas
@@ -1327,6 +1327,10 @@
           items:
             - name: Command
               href: reference-yaml-component-command.md
+        - name: Registry
+          items:
+            - name: Registry
+              href: reference-yaml-registry.md
     - name: Azure PowerShell
       href: /powershell/module/az.machinelearningservices/
     - name: Service limits
