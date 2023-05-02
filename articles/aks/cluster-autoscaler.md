@@ -160,11 +160,9 @@ You can also configure more granular details of the cluster autoscaler by changi
 | ok-total-unready-count           | Number of allowed unready nodes, irrespective of max-total-unready-percentage            | 3 nodes       |
 
 > [!IMPORTANT]
->
 > When using the autoscaler profile, keep the following information in mind:
 >
 > * The cluster autoscaler profile affects **all node pools** that use the cluster autoscaler. You can't set an autoscaler profile per node pool. When you est the profile, any existing node pools with the cluster autoscaler enabled immediately start using the profile.
->
 > * The cluster autoscaler profile requires version *2.11.1* or greater of the Azure CLI. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ### Set the cluster autoscaler profile on a new cluster
@@ -263,7 +261,7 @@ You can use the cluster autoscaler with [multiple node pools][aks-multiple-node-
 
 ### Re-enable the cluster autoscaler on a node pool
 
-* Re-enable the cluster autoscaler on a node pool using the [az aks nodepool update][az-aks-nodepool-update] command and specifying the `--enable-cluster-autoscaler`, `--min-count`, and `--max-count` parameters.
+Re-enable the cluster autoscaler on a node pool using the [az aks nodepool update][az-aks-nodepool-update] command and specifying the `--enable-cluster-autoscaler`, `--min-count`, and `--max-count` parameters.
 
 > [!NOTE]
 > If you plan on using the cluster autoscaler with node pools that span multiple zones and leverage scheduling features related to zones such as volume topological scheduling, we recommend that you have one node pool per zone and enable the `--balance-similar-node-groups` through the autoscaler profile. This ensure the autoscaler can successfully scale up and keep the sizes of the node pools balanced.
