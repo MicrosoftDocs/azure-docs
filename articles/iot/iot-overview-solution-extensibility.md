@@ -94,4 +94,4 @@ The IoT Central application templates provide a starting point for building IoT 
 Now that you've seen an overview of the extensibility options available to your IoT solution, some suggested next steps include:
 
 - [Analyze and visualize your IoT data](iot-overview-analyze-visualize.md)
-- [Choose the right IoT solution](iot-solution-options.md)
+- [IoT solution options](iot-introduction.md#solution-options)
