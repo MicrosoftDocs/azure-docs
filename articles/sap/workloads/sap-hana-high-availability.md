@@ -33,11 +33,8 @@ ms.author: radeltch
 [2388694]:https://launchpad.support.sap.com/#/notes/2388694
 [401162]:https://launchpad.support.sap.com/#/notes/401162
 
-[hana-ha-guide-replication]:sap-hana-high-availability.md#14c19f65-b5aa-4856-9594-b81c7e4df73d
-[hana-ha-guide-shared-storage]:sap-hana-high-availability.md#498de331-fa04-490b-997c-b078de457c9d
 [sles-for-sap-bp]:https://www.suse.com/documentation/sles-for-sap-12/
 
-[suse-hana-ha-guide]:https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf
 [sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
 [template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
 [template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-converged-md%2Fazuredeploy.json
@@ -85,9 +82,9 @@ To achieve high availability, SAP HANA is installed on two virtual machines. The
 
 ![SAP HANA high availability overview](./media/sap-hana-high-availability/ha-suse-hana.png)
 
-The SAP HANA System Replication setup uses a dedicated virtual host name and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The figure shows an example load balancer that has these configurations:
+The SAP HANA System Replication setup uses a dedicated virtual host name and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The figure shows an *example* load balancer that has these configurations:
 
-- Front-end IP address: 10.0.0.13 for <HANA SID>-db
+- Front-end IP address: 10.0.0.13 for HN1-db
 - Probe port: 62503
 
 ## Deploy for Linux
@@ -104,7 +101,7 @@ To deploy the template:
 
 1. In the Azure portal, open the [database template][template-multisid-db] or the [converged template][template-converged].
 
-   The database template creates the load-balancing rules only for a database. The converged template also creates the load-balancing rules for a SAP ASCS/SCS and SAP ERS (Linux only) instance. If you plan to install a SAP NetWeaver-based system and you want to install the ASCS/SCS instance on the same machines, use the [converged template][template-converged].
+   The database template creates the load-balancing rules only for a database. The converged template also creates the load-balancing rules for an SAP ASCS/SCS and SAP ERS (Linux only) instance. If you plan to install an SAP NetWeaver-based system and you want to install the ASCS/SCS instance on the same machines, use the [converged template][template-converged].
 
 1. Enter the following parameters:
 
@@ -291,7 +288,7 @@ The steps in this section use the following prefixes:
 
    For demo systems, you can place your HANA data and log files on one disk. 
 
-   1. Create a partition on /dev/disk/azure/scsi1/lun0 and format it with xfs:
+   1. Create a partition on */dev/disk/azure/scsi1/lun0* and format it by using XFS:
 
        ```bash
        sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/disk/azure/scsi1/lun0'
@@ -320,7 +317,7 @@ The steps in this section use the following prefixes:
 
 1. **[A]** Set up host name resolution for all hosts.
 
-   You can either use a DNS server or modify the */etc/hosts* file on all nodes. This example shows you how to use the */etc/hosts* file. Replace the IP address and the hostname in the following commands.
+   You can either use a DNS server or modify the */etc/hosts* file on all nodes. This example shows you how to use the */etc/hosts* file. Replace the IP address and the host name in the following commands.
    
    1. Run the following command:
 
@@ -357,7 +354,7 @@ The steps in this section use the following prefixes:
    1. Enter Installation Path: Enter **/hana/shared**, and then select Enter.
    1. Enter Local Host Name: Enter **..**, and then select Enter.
    1. Do you want to add additional hosts to the system? (y/n): Enter **n**, and then select Enter.
-   1. Enter SAP HANA System ID: Enter the SID of HANA, for example: **<HANA SID>**.
+   1. Enter SAP HANA System ID: Enter the SID of HANA, for example: **\<HANA SID\>**.
    1. Enter Instance Number: Enter the HANA Instance number. Enter **03** if you used the Azure template or if you followed the manual deployment section of this article.
    1. Select Database Mode / Enter Index: Enter or select **1**, and then select Enter.
    1. Select System Usage / Enter Index: Select the system usage value **4**.
@@ -472,7 +469,7 @@ Replace the `<placeholder>` values with the values for your SAP HANA installatio
 
    ```bash
    PATH="$PATH:/usr/sap/<HANA SID>/HDB<instance number>/exe"
-   hdbuserstore SET hdbhaloc localhost:30315 hdbhasync passwd
+   hdbuserstore SET hdbhaloc localhost:30315 hdbhasync <password>
    ```
    
 
@@ -735,7 +732,7 @@ For the *standard* load balancer, complete these extra steps on the same load ba
 
    1. Open the load balancer, select **health probes**, and select **Add**.
    1. Enter the name of the new health probe (for example, **hana-secondaryhp**).
-   1. Select **TCP** as the protocol and port **626<instance number>**. Keep the **Interval** value set to 5, and the **Unhealthy threshold** value set to 2.
+   1. Select **TCP** as the protocol and port **626\<instance number\>**. Keep the **Interval** value set to 5, and the **Unhealthy threshold** value set to 2.
    1. Select **OK**.
 
 1. Create the load-balancing rules:
@@ -851,7 +848,7 @@ You can migrate the SAP HANA master node by executing the following command:
 ```
    
 
-If you set `AUTOMATED_REGISTER="false"`, this sequence of commands should migrate the SAP HANA master node and the group that contains the virtual IP address to <HANA SID>-db-1.
+If you set `AUTOMATED_REGISTER="false"`, this sequence of commands should migrate the SAP HANA master node and the group that contains the virtual IP address to \<HANA SID\>-db-1.
 
 When the migration is done, the `crm_mon -r` output looks like this example:
 
@@ -876,7 +873,7 @@ Failed Actions:
 ```
    
 
-The SAP HANA resource on <HANA SID>-db-0 fails to start as secondary. In this case, configure the HANA instance as secondary by executing this command:
+The SAP HANA resource on \<HANA SID\>-db-0 fails to start as secondary. In this case, configure the HANA instance as secondary by executing this command:
 
 ```bash
    su - <HANA SID>adm
@@ -1031,7 +1028,7 @@ In the following test descriptions, we assume `PREFER_SITE_TAKEOVER="true"` and 
    ```
    
 
-   Pacemaker should detect the stopped HANA instance and failover to the other node. When the failover is done, the HANA instance on node <HANA SID>-db-0 is stopped because Pacemaker doesn't automatically register the node as HANA secondary.
+   Pacemaker should detect the stopped HANA instance and failover to the other node. When the failover is done, the HANA instance on node \<HANA SID\>-db-0 is stopped because Pacemaker doesn't automatically register the node as HANA secondary.
 
    Run the following commands to register node \<HANA SID\>-db-0 as secondary and clean up the failed resource.
 
@@ -1288,7 +1285,7 @@ In the following test descriptions, we assume `PREFER_SITE_TAKEOVER="true"` and 
 
    Pacemaker should detect the killed cluster node and fence the node. When the node is fenced, Pacemaker triggers a takeover of the HANA instance. When the fenced node is rebooted, Pacemaker doesn't start automatically.
 
-   Run the following commands to start Pacemaker, clean the SBD messages for node <HANA SID>-db-1, register node <HANA SID>-db-1 as secondary, and clean up the failed resource.
+   Run the following commands to start Pacemaker, clean the SBD messages for node \<HANA SID\>-db-1, register node \<HANA SID\>-db-1 as secondary, and clean up the failed resource.
 
    ```bash
    # run as root
