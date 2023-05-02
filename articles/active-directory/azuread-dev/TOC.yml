@@ -156,7 +156,7 @@
   - name: Application manifest
     href: ../develop/reference-app-manifest.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
   - name: Authentication and authorization error codes
-    href: ../develop/reference-aadsts-error-codes.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
+    href: ../develop/reference-error-codes.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
   - name: Breaking changes
     href: ../develop/reference-breaking-changes.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
 - name: Resources
