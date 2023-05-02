@@ -128,7 +128,7 @@ Once you associate your app registration with the certificate, you need to updat
                 //clientSecret: process.env.CLIENT_SECRET || 'Enter_the_Client_Secret_Here', // Client secret generated from the app registration in Azure portal
                 clientCertificate: {
                     thumbprint: "YOUR_CERT_THUMBPRINT", // replace with thumbprint obtained during step 2 above
-                    privateKey:privateKey
+                    privateKey: privateKey
                 }
             },
             //... Rest of code in the msalConfig object
