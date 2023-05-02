@@ -23,7 +23,7 @@ You can create multiple user flows if you have multiple applications that you wa
 
 ## Prerequisites
 
-- **An Azure AD customer tenant**: Before you begin, create your Azure AD customer tenant. You can set up a [free trial](https://aka.ms/ciam-hub-free-trial), or you can create a new customer tenant in Azure AD.
+- **An Azure AD customer tenant**: Before you begin, create your Azure AD customer tenant. You can set up a [free trial](https://aka.ms/ciam-free-trial), or you can create a new customer tenant in Azure AD.
 - **Email one-time passcode enabled (optional)**: If you want customers to use their email address and a one-time passcode each time they sign in, make sure Email one-time passcode is enabled at the tenant level (in the [Microsoft Entra admin center](https://entra.microsoft.com/), navigate to **External Identities** > **All Identity Providers** > **Email One-time-passcode**).
 - **Custom attributes defined (optional)**: User attributes are values collected from the user during self-service sign-up. Azure AD comes with a built-in set of attributes, but you can [define custom attributes to collect during sign-up](how-to-define-custom-attributes.md). Define custom attributes in advance so they'll be available when you set up your user flow. Or you can create and add them later.
 

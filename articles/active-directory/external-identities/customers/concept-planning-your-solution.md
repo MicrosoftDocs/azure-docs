@@ -29,7 +29,7 @@ Adding secure sign-in to your app and setting up a customer identity and access 
 
 | Step | Action | Description |
 |---------|---------|---------|
-|1     |      Create a customer tenant   | If you don't already have an Azure AD tenant, we recommend using the [get started experience](https://aka.ms/ciam-hub-free-trial). Otherwise, you can [create a customer tenant](https://aka.ms/ciam-hub-free-trial) in the Microsoft Entra admin center.   |
+|1     |      Create a customer tenant   | If you don't already have an Azure AD tenant, we recommend using the [get started experience](https://aka.ms/ciam-free-trial). Otherwise, you can [create a customer tenant](https://aka.ms/ciam-free-trial) in the Microsoft Entra admin center.   |
 |2     |      Register your application   | In the Microsoft Entra admin center, [register your application](how-to-register-ciam-app.md) with Azure Active Directory.    |
 |3     |    Integrate your app with a sign-in flow     | - Create a user flow </br>- Associate the app with the user flow </br>- Update the app code with your customer tenant info </br>See [Samples and guidance by app type and language](samples-ciam-all.md)   |
 |4     |    Customize and secure your sign-in     |  - [Customize branding](concept-branding-customers.md) </br>- [Add identity providers](concept-authentication-methods-customers.md) </br>- [Add multifactor authentication](concept-security-customers.md) </br>- Use [custom authentication extensions](concept-extensions-customers.md) if you want to extend the authentication flow   |

@@ -31,7 +31,7 @@ In this article:
 
 ## Prerequisites
 
-- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-hub-free-trial).
+- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial).
 
 - If you have already registered a SPA in the Microsoft Entra admin center, and associated it with a user flow, you can skip the steps in this article and move to [Sign in users in your own ASP.NET web application by using Microsoft Entra - Prepare your application](how-to-single-page-app-vanillajs-prepare-app.md).
 
