@@ -2,37 +2,49 @@
 title: CIAM security and governance
 description: Learn about CIAM security and governance features.
 services: active-directory
-author: csmulligan
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: conceptual
-ms.date: 03/09/2023
-ms.author: cmulligan
+ms.date: 04/28/2023
+ms.author: mimart
 ms.custom: it-pro
 
-#Customer intent: As a dev, devops, or it admin, I want to know about CIAM security and governance features.
 ---
-<!--   The content is mostly copied from https://learn.microsoft.com/en-us/azure/active-directory/governance/identity-governance-overview. For now the text  is used as a placeholder in the release branch, until further notice. -->
 
-# Identity governance for CIAM
+# Security and governance in Azure AD for customers
 
-CIAM Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility. It provides you with capabilities to ensure that the right people have the right access to the right resources. These and related Azure AD and Enterprise Mobility + Security features allows you to mitigate access risk by protecting, monitoring, and auditing access to critical assets while ensuring employee and business partner productivity.  
+The integration of customer capabilities into Azure Active Directory (Azure AD) means that your customer scenarios benefit from the advanced security and governance features available in Azure AD. Your customers are able to self-service register for your applications using their preferred authentication methods, including social accounts through identity providers like Google and Facebook. And you can use feature like multifactor authentication (MFA), Conditional Access, and Identity Protection to mitigate threats and detect risks.
 
-## Identity lifecycle
+## Multifactor authentication
 
-Identity Governance helps organizations achieve a balance between *productivity* - How quickly can a person have access to the resources they need, such as when they join my organization? And *security* - How should their access change over time, such as due to changes to that person's employment status? 
+Azure AD Multi-Factor Authentication (MFA) helps safeguard access to data and applications while maintaining simplicity for your users. Azure AD for customers integrates directly with Azure AD Multi-Factor Authentication so you can add security to your sign-up and sign-in experiences by requiring a second form of authentication. You can fine-tune multifactor authentication depending on the extent of security you want to apply to your apps. Consider the following scenarios:
 
-## Access lifecycle
+- You offer a single app to customers and you want to enable multi-factor authentication for an extra layer of security. You can enable MFA in a Conditional Access policy that's targeted to all users and your app.
 
-Organizations need a process to manage access beyond what was initially provisioned for a user when that user's identity was created.  Furthermore, enterprise organizations need to be able to scale efficiently to be able to develop and enforce access policy and controls on an ongoing basis.
+- You offer multiple apps to your customers, but you don't require multifactor authentication for every application. For example, the customer can sign into an auto insurance application with a social or local account, but must verify the phone number before accessing the home insurance application registered in the same directory. In your Conditional Access policy, you can target all users but just those apps for which you want to enforce MFA.
 
-## Getting started
+For details, see [how to enable multi-factor authentication](how-to-multifactor-authentication-customers.md).
+## Identity protection
 
-Check out the Getting started tab of **Identity Governance** in the Azure portal to start using entitlement management, access reviews, Privileged Identity Management, and Terms of use, and see some common use cases.
+Azure AD [Identity Protection](../../identity-protection/overview-identity-protection.md) provides ongoing risk detection for your customer tenant. It allows you to discover, investigate, and remediate identity-based risks. Identity Protection allows organizations to accomplish three key tasks:
+
+- Automate the detection and remediation of identity-based risks.
+
+- Investigate risks using data in the portal.
+
+- Export risk detection data to other tools.
+
+Identity Protection comes with risk reports that can be used to investigate identity risks in customer tenants. For details, see [Investigate risk with Identity Protection in Azure AD for customers](how-to-identity-protection-customers.md).
+
+## Identity governance
+
+Identity Governance in a customer tenant enables you to mitigate access risk by protecting, monitoring, and auditing access to your critical assets. It includes identity access lifecycle capabilities that help you manage access over time as needs change. Identity Governance also helps you scale efficiently to be able to develop and enforce access policy and controls on an ongoing basis.
+
+Start using Identity Governance in the [Microsoft Entra admin center](https://entra.microsoft.com) by selecting the **Identity Governance** tile. On the Identity Governance page, find information for getting started with capabilities such as Entitlement Management, access reviews, Privileged Identity Management, and terms of use.  
 
 ## Next steps
+
 - [Planning for CIAM](concept-planning-your-solution.md)
-
-

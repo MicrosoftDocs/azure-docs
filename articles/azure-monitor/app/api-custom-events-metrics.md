@@ -321,7 +321,7 @@ The recommended way to send request telemetry is where the request acts as an <a
 
 You can correlate telemetry items together by associating them with operation context. The standard request-tracking module does this for exceptions and other events that are sent while an HTTP request is being processed. In [Search](./diagnostic-search.md) and [Analytics](../logs/log-query-overview.md), you can easily find any events associated with the request by using its operation ID.
 
-For more information on correlation, see [Telemetry correlation in Application Insights](./correlation.md).
+For more information on correlation, see [Telemetry correlation in Application Insights](distributed-tracing-telemetry-correlation.md).
 
 When you track telemetry manually, the easiest way to ensure telemetry correlation is by using this pattern:
 
@@ -959,15 +959,7 @@ Individual telemetry calls can override the default values in their property dic
 
 ## Sample, filter, and process telemetry
 
-You can write code to process your telemetry before it's sent from the SDK. The processing includes data that's sent from the standard telemetry modules, such as HTTP request collection and dependency collection.
-
-[Add properties](./api-filtering-sampling.md#add-properties) to telemetry by implementing `ITelemetryInitializer`. For example, you can add version numbers or values that are calculated from other properties.
-
-[Filtering](./api-filtering-sampling.md#filtering) can modify or discard telemetry before it's sent from the SDK by implementing `ITelemetryProcessor`. You control what is sent or discarded, but you have to account for the effect on your metrics. Depending on how you discard items, you might lose the ability to navigate between related items.
-
-[Sampling](./api-filtering-sampling.md) is a packaged solution to reduce the volume of data that's sent from your app to the portal. It does so without affecting the displayed metrics. And it does so without affecting your ability to diagnose problems by navigating between related items like exceptions, requests, and page views.
-
-To learn more, see [Filter and preprocess telemetry in the Application Insights SDK](./api-filtering-sampling.md).
+See [Filter and preprocess telemetry in the Application Insights SDK](./api-filtering-sampling.md).
 
 ## Disable telemetry
 
