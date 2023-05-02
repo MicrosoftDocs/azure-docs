@@ -135,7 +135,7 @@ Services features.
 
 
 ### ABN AMRO case study 
-:::image type="content" source="./media/whats-new-images/04-23/abn-amro.png" alt-text="Screenshot of a financial advisor talking to a customer using a custom ACS app.":::
+:::image type="content" source="./media/whats-new-images/04-23/abn-amro.png" alt-text="Screenshot of a financial advisor talking to a customer using a custom Azure Communication Services app.":::
 
 ABN AMRO used Azure Communication Services to make it easier for customers to get financial advice from anywhere. And they boosted their NPS in the process!
 
@@ -145,7 +145,7 @@ ABN AMRO used Azure Communication Services to make it easier for customers to ge
 <br>
 
 
-### Get insights from customer interactions with ACS and OpenAI  
+### Get insights from customer interactions with Azure Communication Services and OpenAI  
 :::image type="content" source="./media/whats-new-images/04-23/openai.png" alt-text="Graphic with Azure Communication Services and openAI logos.":::
 
 Use the gold mine of customer conversations to automatically generate customer insights and create better customer experiences. 
