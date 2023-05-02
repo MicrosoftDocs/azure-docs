@@ -1,6 +1,6 @@
 ---
 title: High availability of SAP HANA on Azure VMs on SLES
-description: Learn how to set up and use high availability of SAP HANA on Azure VMs on SUSE Linux Enterprise Server.
+description: Learn how to set up and use high availability for SAP HANA on Azure VMs on SUSE Linux Enterprise Server.
 services: virtual-machines-linux
 documentationcenter: 
 author: rdeltcheva
@@ -15,7 +15,7 @@ ms.date: 12/07/2022
 ms.author: radeltch
 
 ---
-# High availability of SAP HANA on Azure VMs on SUSE Linux Enterprise Server
+# High availability for SAP HANA on Azure VMs on SUSE Linux Enterprise Server
 
 [dbms-guide]:dbms-guide-general.md
 [deployment-guide]:deployment-guide.md
@@ -394,7 +394,7 @@ Replace `<placeholders>` with the values for your SAP HANA installation.
 
    If you're using SAP HANA 2.0 or SAP HANA MDC, create a tenant database for your SAP NetWeaver system.
 
-   Execute the following command as \<HANA SID\>adm :
+   Run the following command as \<HANA SID\>adm :
 
    ```bash
    hdbsql -u SYSTEM -p "<password>" -i <instance number> -d SYSTEMDB 'CREATE DATABASE <SAP SID> SYSTEM USER PASSWORD "<password>"'
@@ -523,9 +523,9 @@ With susChkSrv implemented, an immediate and configurable action is executed. Th
 
    1. Adjust *global.ini* on each cluster node. If the requirements for the susChkSrv hook aren't met, remove the entire [ha_dr_provider_suschksrv] block from the following parameters.
 
-     You can adjust the behavior of `susChkSrv` by using the `action_on_lost` parameter.  
+      You can adjust the behavior of `susChkSrv` by using the `action_on_lost` parameter.  
    
-     Valid values are [ `ignore` | `stop` | `kill` | `fence` ].
+      Valid values are [ `ignore` | `stop` | `kill` | `fence` ].
  
       ```bash
       # add to global.ini
@@ -544,17 +544,17 @@ With susChkSrv implemented, an immediate and configurable action is executed. Th
       ha_dr_saphanasr = info
       ```      
 
-     If you point to the standard */usr/share/SAPHanaSR* location, the Python hook code updates automatically through OS updates or package updates. HANA uses the hook code updates when it next restarts. With an optional own path like */hana/shared/myHooks*, you can decouple OS updates from the hook version you use.
+      If you point to the standard */usr/share/SAPHanaSR* location, the Python hook code updates automatically through OS updates or package updates. HANA uses the hook code updates when it next restarts. With an optional own path like */hana/shared/myHooks*, you can decouple OS updates from the hook version you use.
 
-1. **[A]** The cluster requires *sudoers* configuration on each cluster node for \<SAP SID\>adm. In this example, that's achieved by creating a new file. Execute the command as root.    
+1. **[A]** The cluster requires *sudoers* configuration on each cluster node for \<SAP SID\>adm. In this example, that's achieved by creating a new file. Run the command as root.    
 
-    ```bash
-    cat << EOF > /etc/sudoers.d/20-saphana
-    # Needed for SAPHanaSR and susChkSrv Python hooks
-    <HANA SID>adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_<HANA SID>_site_srHook_*
-    <HANA SID>adm ALL=(ALL) NOPASSWD: /usr/sbin/SAPHanaSR-hookHelper --sid=<HANA SID> --case=fenceMe
-    EOF
-    ```
+   ```bash
+   cat << EOF > /etc/sudoers.d/20-saphana
+   # Needed for SAPHanaSR and susChkSrv Python hooks
+   <HANA SID>adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_<HANA SID>_site_srHook_*
+   <HANA SID>adm ALL=(ALL) NOPASSWD: /usr/sbin/SAPHanaSR-hookHelper --sid=<HANA SID> --case=fenceMe
+   EOF
+   ```
 
    For details about implementing the SAP HANA system replication hook, see [Set up HANA HA/DR providers](https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-15/index.html#_set_up_sap_hana_hadr_providers). 
 
