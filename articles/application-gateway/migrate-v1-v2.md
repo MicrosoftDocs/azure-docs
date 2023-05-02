@@ -193,7 +193,7 @@ There are 5 variants available in V1 SKU based on the Tier and Size - Standard_S
      <td>Standard Medium</td>
     <td>102.2 </td>
     <td>179.58</td>
-     <td rowspan="2">V2 SKU can handle a larger number of requests than a V1 gateway, so we recommend consolidating multiple V1 gateways into a single V2 gateway, to optimize the cost. Ensure that consolidation doesn’t exceed the Application Gateway <a href="./azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits">limits</a>. We recommend 3:1 consolidation.</td>
+     <td rowspan="2">V2 SKU can handle a larger number of requests than a V1 gateway, so we recommend consolidating multiple V1 gateways into a single V2 gateway, to optimize the cost. Ensure that consolidation doesn’t exceed the Application Gateway <a href="../azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits">limits</a>. We recommend 3:1 consolidation.</td>
   </tr>
     <td>WAF Medium </td>
     <td>183.96 </td>
