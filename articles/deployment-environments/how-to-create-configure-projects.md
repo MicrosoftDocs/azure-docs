@@ -138,7 +138,7 @@ To configure a project, add a [project environment type](how-to-configure-projec
     --roles "{\"${ROID}\":{}}" \
     --deployment-target-id "/subscriptions/${SUBID}" \
     --status Enabled
-    ```azurecli
+    ```
 
 > [!NOTE]
 > At least one identity (system-assigned or user-assigned) must be enabled for deployment identity. The identity is used to perform the environment deployment on behalf of the developer. Additionally, the identity attached to the dev center should be [assigned the Owner role](how-to-configure-managed-identity.md) for  access to the deployment subscription for each environment type.
@@ -152,7 +152,7 @@ In this quickstart, you give access to your own ID. Optionally, you can replace 
     ```azurecli
     MYOID=$(az ad signed-in-user show --query id -o tsv)
     echo $MYOID
-    ```azurecli
+    ```
 
 1. Assign admin access:
 
@@ -160,7 +160,7 @@ In this quickstart, you give access to your own ID. Optionally, you can replace 
     az role assignment create --assignee $MYOID \
     --role "DevCenter Project Admin" \
     --scope "/subscriptions/$SUBID"
-    ```azurecli
+    ```
 
 1. Optionally, you can assign Dev Environment User:
 
@@ -168,7 +168,7 @@ In this quickstart, you give access to your own ID. Optionally, you can replace 
     az role assignment create --assignee $MYOID \
     --role "Deployment Environments User" \
     --scope "/subscriptions/$SUBID"
-    ```azurecli
+    ```
 
 
 > [!NOTE]
