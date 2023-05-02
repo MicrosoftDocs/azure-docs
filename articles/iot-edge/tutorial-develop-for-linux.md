@@ -104,8 +104,9 @@ Use the Docker documentation to install on your development machine:
 ::: zone pivot="iotedge-dev-cli"
 
 Install the Python-based [Azure IoT Edge Dev Tool](https://pypi.org/project/iotedgedev/) to create your IoT Edge solution. There are two options:
-    * Use the pre-built [IoT Edge Dev Container](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/run-devcontainer-docker.md)
-    * Install the tool using the [iotedgedev development setup](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/manual-dev-machine-setup.md)
+
+* Use the pre-built [IoT Edge Dev Container](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/run-devcontainer-docker.md)
+* Install the tool using the [iotedgedev development setup](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/manual-dev-machine-setup.md)
 
 ::: zone-end
 
@@ -365,7 +366,7 @@ The sample C# code that comes with the project template uses the [ModuleClient C
     static int temperatureThreshold { get; set; } = 25;
     ```
 
-1. Add the **MessageBody**, **Machine**, and **Ambient** classes to the **ModuleBackgroundService** class. These classes define the expected schema for the body of incoming messages.
+1. Add the **MessageBody**, **Machine**, and **Ambient** classes. These classes define the expected schema for the body of incoming messages.
 
     ```csharp
     class MessageBody
@@ -386,23 +387,23 @@ The sample C# code that comes with the project template uses the [ModuleClient C
     }
     ```
 
-1. Find the **ExecuteAsync** function. This function creates and configures a **ModuleClient** object, which allows the module to connect to the local Azure IoT Edge runtime to send and receive messages. After creating the **ModuleClient**, the code reads the **temperatureThreshold** value from the module twin's desired properties. The code registers a callback to receive messages from an IoT Edge hub via an endpoint called **input1**.
+1. Find the **ExecuteAsync** function. This function creates and configures a **ModuleClient** object that allows the module to connect to the local Azure IoT Edge runtime to send and receive messages. After creating the **ModuleClient**, the code reads the **temperatureThreshold** value from the module twin's desired properties. The code registers a callback to receive messages from an IoT Edge hub via an endpoint called **input1**.
 
-   Replace the call to the **ProcessMessageAsync** method with a new one that updates the name of the endpoint and the method that's called when input arrives. Also, add a **SetDesiredPropertyUpdateCallbackAsync** method for updates to the desired properties. To make this change, replace the last line of the **ExecuteAsync** method with the following code:
+   Replace the call to the **ProcessMessageAsync** method with a new one that updates the name of the endpoint and the method that's called when input arrives. Also, add a **SetDesiredPropertyUpdateCallbackAsync** method for updates to the desired properties. To make this change, **replace the last line** of the **ExecuteAsync** method with the following code:
 
    ```csharp
    // Register a callback for messages that are received by the module.
-   // await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
+   // await _moduleClient.SetInputMessageHandlerAsync("input1", PipeMessage, cancellationToken);
 
    // Read the TemperatureThreshold value from the module twin's desired properties
-   var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
-   await OnDesiredPropertiesUpdate(moduleTwin.Properties.Desired, ioTHubModuleClient);
+   var moduleTwin = await _moduleClient.GetTwinAsync();
+   await OnDesiredPropertiesUpdate(moduleTwin.Properties.Desired, _moduleClient);
 
    // Attach a callback for updates to the module twin's desired properties.
-   await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertiesUpdate, null);
+   await _moduleClient.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertiesUpdate, null);
 
    // Register a callback for messages that are received by the module. Messages received on the inputFromSensor endpoint are sent to the FilterMessages method.
-   await ioTHubModuleClient.SetInputMessageHandlerAsync("inputFromSensor", FilterMessages, ioTHubModuleClient);
+   await _moduleClient.SetInputMessageHandlerAsync("inputFromSensor", FilterMessages, _moduleClient);
    ```
 
 1. Add the **onDesiredPropertiesUpdate** method to the **ModuleBackgroundService** class. This method receives updates on the desired properties from the module twin, and updates the **temperatureThreshold** variable to match. All modules have their own module twin, which lets you configure the code that's running inside a module directly from the cloud.
@@ -439,9 +440,9 @@ The sample C# code that comes with the project template uses the [ModuleClient C
 1. Add the **FilterMessages** method. This method is called whenever the module receives a message from the IoT Edge hub. It filters out messages that report temperatures below the temperature threshold set via the module twin. It also adds the **MessageType** property to the message with the value set to **Alert**.
 
     ```csharp
-    static async Task<MessageResponse> FilterMessages(Message message, object userContext)
+    async Task<MessageResponse> FilterMessages(Message message, object userContext)
     {
-        var counterValue = Interlocked.Increment(ref counter);
+        var counterValue = Interlocked.Increment(ref _counter);
         try
         {
             ModuleClient moduleClient = (ModuleClient)userContext;
@@ -497,18 +498,18 @@ The sample C# code that comes with the project template uses the [ModuleClient C
 
 1. In the Visual Studio Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace.
 
-1. Since we changed the name of the endpoint that the module listens on, we also need to update the routes in the deployment manifest so that the edgeHub sends messages to the new endpoint.
+1. Since we changed the name of the endpoint that the module listens on, we also need to update the routes in the deployment manifest so that the *edgeHub* sends messages to the new endpoint.
 
-    Find the **routes** section in the **$edgeHub** module twin. Update the **sensorToCSharpModule** route to replace `input1` with `inputFromSensor`:
+    Find the **routes** section in the **$edgeHub** module twin. Update the **sensorTofiltermodule** route to replace `input1` with `inputFromSensor`:
 
     ```json
-    "sensorToCSharpModule": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/CSharpModule/inputs/inputFromSensor\")"
+    "sensorTofiltermodule": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/inputFromSensor\")"
     ```
 
-1. Add the **CSharpModule** module twin to the deployment manifest. Insert the following JSON content at the bottom of the **modulesContent** section, after the **$edgeHub** module twin:
+1. Add the **filtermodule** module twin to the deployment manifest. Insert the following JSON content at the bottom of the **modulesContent** section, after the **$edgeHub** module twin:
 
     ```json
-       "CSharpModule": {
+       "filtermodule": {
            "properties.desired":{
                "TemperatureThreshold":25
            }
@@ -1032,14 +1033,11 @@ If you're using an Azure Container Registry to store your module image, add your
                 "username": "myacr",
                 "password": "<your_acr_password>",
                 "address": "myacr.azurecr.io"
-            },
-            "createOptions": {}
+            }
         }
-      }
-   },
 ```
 
-Add or replace the following stringified content to the *createOptions* value for each system (edgeHub and edgeAgent) and custom module (for example, tempSensor) listed. Change the values if necessary.
+Add or replace the following stringified content to the *createOptions* value for each system (edgeHub and edgeAgent) and custom module (for example, filtermodule) listed. Change the values if necessary.
 
 ```json
 "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
@@ -1097,6 +1095,23 @@ docker push localhost:5000/filtermodule:0.0.1-amd64
 # Or push the Docker image to an Azure Container Registry
 az acr login --name myacr
 docker push myacr.azurecr.io/filtermodule:0.0.1-amd64
+```
+
+#### Update the deployment template
+
+Update the deployment template *deployment.template.json* with the container registry image location. For example, if you're using an Azure Container Registry *myacr.azurecr.io* and your image is *filtermodule:0.0.1-amd64*, update the *filtermodule* configuration to:
+
+```json
+"filtermodule": {
+    "version": "1.0",
+    "type": "docker",
+    "status": "running",
+    "restartPolicy": "always",
+    "settings": {
+        "image": "myacr.azurecr.io/filtermodule:0.0.1-amd64",
+        "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
+    }
+}
 ```
 
 ::: zone-end
@@ -1158,11 +1173,11 @@ Right-click the **deployment.template.json** file again, and again select **Buil
 
 ::: zone-end
 
-Open the **deployment.amd64.json** file again. Notice the build system doesn't create a new file when you run the build and push command again. Rather, the same file updates to reflect the changes. The SampleModule image now points to the 0.0.2 version of the container.
+Open the **deployment.amd64.json** file again. Notice the build system doesn't create a new file when you run the build and push command again. Rather, the same file updates to reflect the changes. The *filtermodule* image now points to the 0.0.2 version of the container.
 
 To further verify what the build and push command did, go to the [Azure portal](https://portal.azure.com) and navigate to your container registry.
 
-In your container registry, select **Repositories** then **samplemodule**. Verify that both versions of the image push to the registry.
+In your container registry, select **Repositories** then **filtermodule**. Verify that both versions of the image push to the registry.
 
 :::image type="content" source="./media/tutorial-develop-for-linux/view-repository-versions.png" alt-text="Screenshot of where to view both image versions in your container registry." lightbox="./media/tutorial-develop-for-linux/view-repository-versions.png":::
 
@@ -1173,8 +1188,8 @@ In your container registry, select **Repositories** then **samplemodule**. Verif
 If you encounter errors when building and pushing your module image, it often has to do with Docker configuration on your development machine. Use the following checks to review your configuration:
 
 * Did you run the `docker login` command using the credentials that you copied from your container registry? These credentials are different than the ones that you use to sign in to Azure.
-* Is your container repository correct? Does it have your correct container registry name and your correct module name? Open the **module.json** file in the SampleModule folder to check. The repository value should look like **\<registry name\>.azurecr.io/samplemodule**.
-* If you used a different name than **SampleModule** for your module, is that name consistent throughout the solution?
+* Is your container repository correct? Does it have your correct container registry name and your correct module name? Open the **module.json** file in the *filtermodule* folder to check. The repository value should look like **\<registry name\>.azurecr.io/filtermodule**.
+* If you used a different name than **filtermodule** for your module, is that name consistent throughout the solution?
 * Is your machine running the same type of containers that you're building? This tutorial is for Linux IoT Edge devices, so Visual Studio Code should say **amd64** or **arm32v7** in the side bar, and Docker Desktop should be running Linux containers.
 
 ## Deploy modules to device
@@ -1183,14 +1198,14 @@ You verified that there are built container images stored in your container regi
 
 ::: zone pivot="iotedge-dev-cli"
 
-Use the [IoT Edge Azure CLI set-modules](/cli/azure/iot/edge#az-iot-edge-set-modules) command to deploy the modules to the Azure IoT Hub. For example, to deploy the modules defined in the *deployment.template.json* file to IoT Hub *my-iot-hub* for the IoT Edge device *my-device*, use the following command:
+Use the [IoT Edge Azure CLI set-modules](/cli/azure/iot/edge#az-iot-edge-set-modules) command to deploy the modules to the Azure IoT Hub. For example, to deploy the modules defined in the *deployment.template.json* file to IoT Hub *my-iot-hub* for the IoT Edge device *my-device*, use the following command. Replace the values for **hub-name**, **device-id**, and **login** IoT Hub connection string with your own.
 
 ```azurecli
-az iot edge set-modules --hub-name my-iot-hub --device-id my-device --content ./deployment.debug.template.json --login "HostName=my-iot-hub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=<SharedAccessKey>"
+az iot edge set-modules --hub-name my-iot-hub --device-id my-device --content ./deployment.template.json --login "HostName=my-iot-hub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=<SharedAccessKey>"
 ```
 
 > [!TIP]
-> You can find your IoT Hub shared access key in the Azure portal in your IoT Hub > **Security settings** > **Shared access policies** > **iothubowner**.
+> You can find your IoT Hub connection string including the shared access key in the Azure portal. Go to your IoT Hub > **Security settings** > **Shared access policies** > **iothubowner**.
 >
 
 ::: zone-end
@@ -1205,13 +1220,13 @@ az iot edge set-modules --hub-name my-iot-hub --device-id my-device --content ./
 
    Don't use the deployment.template.json file, which doesn't have the container registry credentials or module image values in it. If you target a Linux ARM32 device, the deployment manifest's name is **deployment.arm32v7.json**.
 
-1. Under your device, expand **Modules** to see a list of deployed and running modules. Select the refresh button. You should see the new SimulatedTemperatureSensor and SampleModule modules running on your device.
+1. Under your device, expand **Modules** to see a list of deployed and running modules. Select the refresh button. You should see the new *tempSensor* and *filtermodule* modules running on your device.
 
    It may take a few minutes for the modules to start. The IoT Edge runtime needs to receive its new deployment manifest, pull down the module images from the container runtime, then start each new module.
 
 ## View messages from device
 
-The SampleModule code receives messages through its input queue and passes them along through its output queue. The deployment manifest declared routes that passed messages to SampleModule from SimulatedTemperatureSensor, and then forwarded messages from SampleModule to IoT Hub. The Azure IoT Edge and Azure IoT Hub extensions allow you to see messages as they arrive at IoT Hub from your individual devices.
+The sample module code receives messages through its input queue and passes them along through its output queue. The deployment manifest declared routes that passed messages to *filtermodule* from *tempSensor*, and then forwarded messages from *filtermodule* to IoT Hub. The Azure IoT Edge and Azure IoT Hub extensions allow you to see messages as they arrive at IoT Hub from your individual devices.
 
 1. In the Visual Studio Code explorer, right-click the IoT Edge device that you want to monitor, then select **Start Monitoring Built-in Event Endpoint**.
 
@@ -1233,7 +1248,7 @@ The commands in this section are for your IoT Edge device, not your development 
    iotedge list
    ```
 
-   You should see four modules: the two IoT Edge runtime modules, SimulatedTemperatureSensor, and SampleModule. You should see all four listed as running.
+   You should see four modules: the two IoT Edge runtime modules, *tempSensor*, and *filtermodule*. You should see all four listed as running.
 
 * Inspect the logs for a specific module:
 
@@ -1243,7 +1258,7 @@ The commands in this section are for your IoT Edge device, not your development 
 
    IoT Edge modules are case-sensitive.
 
-   The SimulatedTemperatureSensor and SampleModule logs should show the messages they're processing. The edgeAgent module is responsible for starting the other modules, so its logs have information about implementing the deployment manifest. If you find a module is unlisted or not running, the edgeAgent logs likely have the errors. The edgeHub module is responsible for communications between the modules and IoT Hub. If the modules are up and running, but the messages aren't arriving at your IoT hub, the edgeHub logs likely have the errors.
+   The *tempSensor* and *filtermodule* logs should show the messages they're processing. The edgeAgent module is responsible for starting the other modules, so its logs have information about implementing the deployment manifest. If you find a module is unlisted or not running, the edgeAgent logs likely have the errors. The edgeHub module is responsible for communications between the modules and IoT Hub. If the modules are up and running, but the messages aren't arriving at your IoT hub, the edgeHub logs likely have the errors.
 
 ## Clean up resources
 
