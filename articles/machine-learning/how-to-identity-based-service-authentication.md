@@ -128,10 +128,6 @@ image_build_compute: <compute(virtual machine) resource ID>
 primary_user_assigned_identity: <one of the UAI resource IDs in the above list>
 ```
 
-# [Studio](#tab/azure-studio)
-
-Stay tuned please.
-
 ---
 
 ### Compute cluster
