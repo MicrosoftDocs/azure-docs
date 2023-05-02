@@ -40,7 +40,7 @@ This extension works with both Azure deployment models: Azure Resource Manager a
 
 ### Supported Linux distributions
 
-See [Supported agent operating systems](../../azure-monitor/agents/agents-overview#linux).
+See [Supported agent operating systems](../../azure-monitor/agents/agents-overview.md#linux).
 
 ### Python requirement
 
