@@ -17,7 +17,7 @@ The Azure Monitor Agent isn't a service that runs in the context of an Azure Res
 > If you have a older version of the agent, you can not copy the Troubleshooter on in to a VM to diagnose an older agent.
 
 
-# Prerequesets
+## Prerequesets
 The linux Troubleshooter requires Python 2.6+ or any Python3 installed on the machine. In addition, the following Python packages are required to run (all should be present on a default install of Python2 or Python3):
 
 |Python Package|	Required for Python2?	|Required for Python3?|
@@ -34,13 +34,13 @@ The linux Troubleshooter requires Python 2.6+ or any Python3 installed on the ma
 |url lib|	                                yes|	no|
 |xml.dom.minidom|	yes|	yes|
 
-# Windows Troubleshooter
-##Run Windows Troubleshooter
+## Windows Troubleshooter
+### Run Windows Troubleshooter
 1. Log in to the machine to be diagnosed
 2. Go to the location where the troubleshooter is automatically installed: C:/Packages/Plugins/Microsoft.Azure.Monitor.AzureMonitorWindowsAgent/{version}/Troubleshooter
 3. Run the Troubleshooter: > Troubleshooter --ama
 
-## Evaluate the Windows Results
+### Evaluate the Windows Results
 The Troubleshooter runs two tests and collects several diagnostic logs.
 
 |Test| Description|
@@ -49,7 +49,7 @@ The Troubleshooter runs two tests and collects several diagnostic logs.
 |Connection to Control Plan (MCS)              | This test checks to see if the agent configuration information can be retrieved from the central data control plan. Controlling information includes which source data to collect and where it should be sent to. All agent configuration is done through Data Collection Rules.|
 
 
-## Share the Windows Results
+### Share the Windows Results
 The detailed data collected by the troubleshooter include system configuration, network configuration, environment variables, and agent configuration that can aid the customer in finding any issues.  The troubleshooter make is easy to send this data to customer support by creating a Zip file that should be attached to any customer support request. The file is located in C:/Packages/Plugins/Microsoft.Azure.Monitor.AzureMonitorWindowsAgent/{version}/Troubleshooter.  The agent logs can be cryptic but they can give you insight into problems that you may be experiencing.
 
 |Logfile                              | Contents|
@@ -62,15 +62,15 @@ The detailed data collected by the troubleshooter include system configuration, 
 |TroubleshootingLogs | contains a useful table in the Customer Data Statistics section for events that were collected in each local table over different time buckets. |
 
 
-# Linux Troubleshooter
-## Run Linux Troubleshooter
+## Linux Troubleshooter
+### Run Linux Troubleshooter
 1. Log in to the machine to be diagnosed
 2. Go to the location where the troubleshooter is automatically installed: cd /var/lib/waagent/Microsoft.Azure.Monitor.AzureMonitorLinuxAgent-{version}/ama_tst
 3. Run the Troubleshooter: sudo sh ama_troubleshooter.sh A
 
 There are six sections that cover different scenarios that customers' have historically had issues with. By enter 1-6 or A, customer is able to diagnose issues with the agent. Adding an L creates a zip file that can be shared if technical support in needed.  
 
-## Evaluate Linux Results
+### Evaluate Linux Results
 The details for the covered scenarios are below:
 
 |Secnario | Tests|
@@ -82,7 +82,7 @@ The details for the covered scenarios are below:
 |Agent syslog collection doesn't work properly|Rsyslog / syslog-ng setup and running, Syslog configuration being pulled / used, Syslog socket is accessible|
 |Agent custom log collection doesn't work properly|Custom log configuration being pulled / used, Log file paths is valid|
 
-## Share Linux Logs
+### Share Linux Logs
 To create a zip file use this command when running the troubleshooter: sudo sh ama_troubleshooter.sh A L.  You'll be asked for a file location to create the zip file.
 
 ## Next steps
