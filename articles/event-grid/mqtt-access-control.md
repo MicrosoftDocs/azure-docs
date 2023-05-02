@@ -1,12 +1,12 @@
 ---
-title: 'Access Control for MQTT Clients'
+title: 'Access control for MQTT clients'
 description: 'Describes the main concepts for access control for MQTT clients in Azure Event Grid.'
 ms.topic: conceptual
 ms.date: 04/20/2023
 author: george-guirguis
 ms.author: geguirgu
 ---
-# Access Control for MQTT Clients
+# Access control for MQTT clients
 
 Access control enables you to manage the authorization of clients to publish or subscribe to topics, using a role-based access control model. Given the enormous scale of IoT environments, assigning permission for each client to each topic is incredibly tedious. Event Grid’s flexible access control tackles this scale challenge through grouping clients and topics into client groups and topic spaces. The main components of the access control model are:
 
@@ -80,7 +80,7 @@ Let’s assume an extra requirement for the previous example: each area has mana
 | **Area2_ MgmtClient1** | Area2Mgmt | Area2Mgmt-Pub | Area2Commands -Topic Template: areas/area2/mgmt/# |
 | | | Area2Mgmt-Sub | Area2Telemetry -Topic Template: areas/area2/machines/# |
 
-## Granular Access Control
+## Granular access control
 
 Granular access control allows you to control the authorization of each client within a client group to publish or subscribe to its own topic. This granular access control is achieved by using variables in topic templates. 
 
