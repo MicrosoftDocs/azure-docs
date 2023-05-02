@@ -194,7 +194,7 @@ If you modify or delete Azure-created tags and other resource properties in the 
 
 A common scenario where customers want to modify resources is through tags.  AKS allows you to create and modify tags that are propogated to resources in the Node Resource Group, and you can add those tags when [creating or updating][aks-tags] the cluster. You might want to create or modify custom tags, for example, to assign a business unit or cost center. This can also be achieved by creating Azure Policies with a scope on the managed resource group.
 
-Modifying any **Azure-created tags** on resources under the node resource group in the AKS cluster is an unsupported action, which breaks the service-level objective (SLO). For more information, see [Does AKS offer a service-level agreement?](aks-service-level-agreement)
+Modifying any **Azure-created tags** on resources under the node resource group in the AKS cluster is an unsupported action, which breaks the service-level objective (SLO). For more information, see [Does AKS offer a service-level agreement?][aks-service-level-agreement]
 
 To reduce the chance of changes in the node resource group affecting your clusters, you can enable node resource group lockdown to apply a deny assignment to your AKS resources. More information can be found in [Cluster configuration in AKS][configure-nrg].
 
