@@ -18,7 +18,7 @@ To publish a managed application definition to your service catalog, do the foll
 - Create a storage account where you store the managed application definition.
 - Deploy the managed application definition to your own storage account so it's available in your service catalog.
 
-If you're managed application definition is less than 120 MB and you don't want to use your own storage account, go to [Quickstart: Create and publish an Azure Managed Application definition](publish-service-catalog-app.md).
+If your managed application definition is less than 120 MB and you don't want to use your own storage account, go to [Quickstart: Create and publish an Azure Managed Application definition](publish-service-catalog-app.md).
 
 > [!NOTE]
 > You can use Bicep to develop a managed application definition but it must be converted to ARM template JSON before you can publish the definition in Azure. To convert Bicep to JSON, use the Bicep [build](../bicep/bicep-cli.md#build) command. After the file is converted to JSON it's recommended to verify the code for accuracy.

@@ -323,6 +323,9 @@
       - name: New Relic
         tocHref: /azure/partner-solutions/new-relic/
         topicHref: /azure/partner-solutions/new-relic/new-relic-overview
+      - name: Palo Alto Networks
+        tocHref: /azure/partner-solutions/palo-alto/
+        topicHref: /azure/partner-solutions/palo-alto/palo-alto-overview
   - name: SignalR Service
     tocHref: /azure/azure-signalr/
     topicHref: /azure/azure-signalr/
