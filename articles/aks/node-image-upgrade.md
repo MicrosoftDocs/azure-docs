@@ -77,7 +77,7 @@ You can check the status of the node images using the `kubectl get nodes` comman
 >[!NOTE]
 > This command may differ slightly depending on the shell you use. See the [Kubernetes JSONPath documentation][kubernetes-json-path] for more information on Windows/PowerShell environments.
 
-```azurecli-interactive
+```bash
 kubectl get nodes -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.metadata.labels.kubernetes\.azure\.com\/node-image-version}{"\n"}{end}'
 ```
 
@@ -106,7 +106,7 @@ You can check the status of the node images with the `kubectl get nodes` command
 >[!NOTE]
 > This command may differ slightly depending on the shell you use. See the [Kubernetes JSONPath documentation][kubernetes-json-path] for more information on Windows/PowerShell environments.
 
-```azurecli-interactive
+```bash
 kubectl get nodes -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.metadata.labels.kubernetes\.azure\.com\/node-image-version}{"\n"}{end}'
 ```
 
@@ -136,7 +136,7 @@ az aks nodepool update \
 
 You can check the status of the node images with the `kubectl get nodes` command.
 
-```azurecli-interactive
+```bash
 kubectl get nodes -o jsonpath='{range .items[*]}{.metadata.name}{"\t"}{.metadata.labels.kubernetes\.azure\.com\/node-image-version}{"\n"}{end}'
 ```
 
