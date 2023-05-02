@@ -3,12 +3,12 @@ title: Defender EASM | Defender for Cloud in the field
 titleSuffix: Microsoft Defender for Cloud
 description: Learn about Microsoft Defender External Attack Surface Management (Defender EASM)
 ms.topic: reference
-ms.date: 01/24/2023
+ms.date: 04/27/2023
 ---
 
 # Defender EASM | Defender for Cloud in the Field
 
-**Episode description**: In this episode of Defender for Cloud in the Field, Jamil Mirza joins Yuri Diogenes to talk about Microsoft Defender External Attack Surface Management (Defender EASM). Jamil explains how Defender EASM continuously discovers and maps your digital attack surface to provide an external view of your online infrastructure. Jamil also covers the integration with Defender for Cloud, how it works, and he demonstrates different capabilities available in Defender EASM..
+**Episode description**: In this episode of Defender for Cloud in the Field, Jamil Mirza joins Yuri Diogenes to talk about Microsoft Defender External Attack Surface Management (Defender EASM). Jamil explains how Defender EASM continuously discovers and maps your digital attack surface to provide an external view of your online infrastructure. Jamil also covers the integration with Defender for Cloud, how it works, and he demonstrates different capabilities available in Defender EASM.
 <br>
 <br>
 <iframe src="https://aka.ms/docs/player?id=5a3e2eab-52ce-4527-94e0-baae1b9cc81d" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>

@@ -7,7 +7,7 @@ author: seesharprun
 ms.author: sidandrews
 ms.reviewer: dech
 ms.service: cosmos-db
-ms.date: 03/22/2023
+ms.date: 04/28/2023
 ms.custom: event-tier1-build-2022, ignite-2022
 ---
 
@@ -211,7 +211,7 @@ To enroll in the preview, your Azure Cosmos DB account must meet all the followi
   - Azure Data Factory
   - Azure Stream Analytics
   - Logic Apps
-  - Azure Functions
+  - Azure Functions < 4.0.0
   - Azure Search
   - Azure Cosmos DB Spark connector < 4.18.0
   - Any third party library or tool that has a dependency on an Azure Cosmos DB SDK that isn't .NET v3 SDK >= v3.27.0 or Java v4 SDK >= 4.42.0
@@ -255,7 +255,7 @@ If you enroll in the preview, the following connectors fail.
 - Azure Data Factory ¹
 - Azure Stream Analytics ¹
 - Logic Apps ¹
-- Azure Functions ¹
+- Azure Functions < 4.0.0
 - Azure Search ¹
 - Azure Cosmos DB Spark connector < 4.18.0
 - Any third party library or tool that has a dependency on an Azure Cosmos DB SDK that isn't .NET v3 SDK >= v3.27.0 or Java v4 SDK >= 4.42.0

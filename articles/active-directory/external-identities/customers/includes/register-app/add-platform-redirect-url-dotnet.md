@@ -8,12 +8,12 @@ ms.author: kengaderdus
 ---
 To specify your app type to your app registration, follow these steps: 
 
-1. Under **Manage**, select **Authentication** 
+1. Under **Manage**, select **Authentication**.
 
 1. On the **Platform configurations** page, select **Add a platform**, and then select **Web** option.
     
-1. For the **Redirect URIs** enter `https://localhost:44321/signin-oidc`, then select **Configure**.
+1. For the **Redirect URIs** enter `https://localhost:7274/signin-oidc`, then select **Configure**.
 
-1. On the **Platform configurations** page, for  **Front-channel logout URL**, enter `https://localhost:44321/signout-oidc`.
+1. On the **Platform configurations** page, for  **Front-channel logout URL**, enter `https://localhost:7274/signout-callback-oidc` for signing out.
 
 1. Select **Save** to save your changes.
