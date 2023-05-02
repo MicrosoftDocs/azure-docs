@@ -29,7 +29,8 @@ Image import into an Azure container registry has the following benefits over us
 * Access to the target registry doesn't have to use the registry's public endpoint.
 
 > [!IMPORTANT]
->*Importing images from external registries require to be [RFC 7233](https://www.rfc-editor.org/rfc/rfc7233#section-2.3) compliant. We recommend using a registry that supports RFC 7233 ranges while using az acr import command with the registry URI to avoid failures.
+>* Importing images requires the external registry support  [RFC 7233](https://www.rfc-editor.org/rfc/rfc7233#section-2.3). We recommend using a registry that supports RFC 7233 ranges while using az acr import command with the registry URI to avoid failures.
+
 ## Limitations
 
 * The maximum number of manifests for an imported image is 50.
