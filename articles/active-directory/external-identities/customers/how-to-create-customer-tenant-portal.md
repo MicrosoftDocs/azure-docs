@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/25/2023
+ms.date: 05/02/2023
 ms.author: cmulligan
 ms.custom: it-pro
 
@@ -17,7 +17,7 @@ ms.custom: it-pro
 
 # Create a customer identity and access management (CIAM) tenant
 
-Microsoft Entra offers a customer identity access management (CIAM) solution that lets you create secure, customized sign-in experiences for your customer-facing apps and services. With these built-in CIAM features, Microsoft Entra can serve as the identity provider and access management service for your customer scenarios. You'll need to create a customer tenant in the Microsoft Entra admin center to get started. Once the customer tenant is created, you can access it in both the Microsoft Entra admin center and the Azure portal.
+Microsoft Entra offers a customer identity access management (CIAM) solution that lets you create secure, customized sign-in experiences for your customer-facing apps and services. With these built-in CIAM features, Microsoft Entra External Identities can serve as the identity provider and access management service for your customer scenarios. You'll need to create a customer tenant in the Microsoft Entra admin center to get started. Once the customer tenant is created, you can access it in both the Microsoft Entra admin center and the Azure portal.
 
 In this article, you learn how to:
 
@@ -29,6 +29,7 @@ In this article, you learn how to:
 
 - An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - An Azure account that's been assigned at least the [Contributor](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#contributor) role within the subscription or a resource group within the subscription is required.
+- If you don't have an Azure account, sign up for a [30-day free trial](quickstart-trial-setup.md).
 
 ## Create a new customer tenant  <!--  The link https://aka.ms/ciam/create brings me to the correct manage tenants page, but in the Azure portal and not in the MS Entra admin center, even if I'm logged in to the MS Entra admin center. I manually have to copy tht URL to the admin center if I want to see this page there. (https://entra.microsoft.com/?enableNewTenantCreationUX=true&Microsoft_AAD_B2CAdmin_dc=CPIMEUSSU001-PPE-BL6P&Microsoft_AAD_B2CAdmin_slice=001-001#view/Microsoft_AAD_IAM/SelectTenantType.ReactView) -->
 1. Sign in to your organization's [Microsoft Entra admin center](https://entra.microsoft.com/).
@@ -42,7 +43,12 @@ In this article, you learn how to:
 
     :::image type="content" source="media/how-to-create-customer-tenant-portal/select-tenant-type.png" alt-text="Screenshot of the select tenant type screen.":::
 
-1. On the **Basics** tab, in the **Create a tenant for customers** page, enter the following information:
+1. If you're creating a customer tenant for the first time, you have the option to create a trial tenant that doesn't require an Azure subscription. Otherwise, use the Azure Subscription card to continue to the next step.
+ 
+    :::image type="content" source="media/how-to-create-customer-tenant-portal/create-first-customer-tenant.png" alt-text="Screenshot of the two customer tenant options available during the initial CIAM tenant creation.":::
+
+1. If you choose the 30-day free trial, it doesn't require an Azure subscription.
+1. If you choose the second card, **Use Azure Subscription** you'll see the tenant creation page. On the **Basics** tab, in the **Create a tenant for customers** page, enter the following information:
 
     :::image type="content" source="media/how-to-create-customer-tenant-portal/add-basics-to-customer-tenant.png" alt-text="Screenshot of the Basics tab.":::
 
