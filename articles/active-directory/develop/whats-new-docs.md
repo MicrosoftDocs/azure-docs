@@ -60,7 +60,7 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 
 ### New articles
 
-- [Customize claims issued in the JSON web token (JWT) for enterprise applications](active-directory-jwt-claims-customization.md)
+- [Customize claims issued in the JSON web token (JWT) for enterprise applications](jwt-claims-customization.md)
 
 ### Updated articles
 
