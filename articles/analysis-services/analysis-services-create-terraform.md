@@ -83,7 +83,7 @@ In this article, you learn how to:
 1. Run [Get-AzAnalysisServicesServer](/powershell/module/az.analysisservices/get-azanalysisservicesserver) to display information about the new server.
 
     ```azurepowershell
-    Get-AzAnalysisServicesServer -ResourceGroupName $resource_group_name `
+    Get-AzAnalysisServicesServer -ResourceGroupName $resource_group_name
                                  -Name $analysis_services_server_name
     ```
 
