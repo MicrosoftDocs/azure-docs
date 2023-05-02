@@ -20,7 +20,7 @@ ms.custom: developer
 
 In this article, you learn how to create your Node.js web app that calls your web API. You build the web API by using ASP.NET. You secure the web API by using Microsoft Entra. To authorize access to the web API, you must serve requests that include a valid access token. Active Directory (Azure AD) for customers issues this token. 
 
-To simplify adding authentication and authorization, the Node.js client web app and .NET web API use [Microsoft Authentication Library for Node (MSAL Node)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) and [Microsoft Identity Web](/articles/active-directory/develop/microsoft-identity-web.md) respectively.
+To simplify adding authentication and authorization, the Node.js client web app and .NET web API use [Microsoft Authentication Library for Node (MSAL Node)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) and [Microsoft Identity Web](../../develop/microsoft-identity-web.md) respectively.
 
 We've organized this article into four separate articles so it's easy for you to follow:
 
@@ -51,7 +51,7 @@ The web API completes the following events:
 
 - It reads the bearer token from the authorization header of the HTTP request.
 
-- It validates the [access token](/articles/active-directory/develop/access-tokens.md#validate-tokens).
+- It validates the [access token](../../develop/access-tokens.md#validate-tokens).
 
 - It validates the permissions (scopes) in the token.
 
