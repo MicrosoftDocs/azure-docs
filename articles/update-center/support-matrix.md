@@ -4,7 +4,7 @@ description: Provides a summary of supported regions and operating system settin
 ms.service: update-management-center
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 04/21/2022
+ms.date: 05/02/2023
 ms.topic: overview
 ms.custom: references_regions
 ---
@@ -30,7 +30,7 @@ Update management center (preview) supports operating system updates for both Wi
 ### First party updates on Windows
 By default, the Windows Update client is configured to provide updates only for Windows operating system. If you enable the **Give me updates for other Microsoft products when I update Windows** setting, you also receive updates for other Microsoft products, including security patches for Microsoft SQL Server and other Microsoft software. 
 
-Use the following option to perform the settings change at scale:
+Use one of the following options to perform the settings change at scale:
 
 - For Servers configured to patch on a schedule from Update management center (that has the VM PatchSettings set to AutomaticByPlatform = Azure-Orchestrated), and for all Windows Servers running on an earlier operating system than server 2016, Run the following PowerShell script on the server you want to change.
 
@@ -40,6 +40,8 @@ Use the following option to perform the settings change at scale:
     $ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
     $ServiceManager.AddService2($ServiceId,7,"")
     ```
+- For servers running Server 2016 or later which are not using Update management center scheduled patching (which have the VM PatchSettings set to AutomaticByOS = Azure-Orchestrated) you can use Group Policy to control this by downloading and using the latest Group Policy [Administrative template files](https://learn.microsoft.com/troubleshoot/windows-client/group-policy/create-and-manage-central-store).
+
 ### Third-party updates
 
 **Windows**: Update Management relies on the locally configured update repository to update supported Windows systems, either WSUS or Windows Update. Tools such as [System Center Updates Publisher](/mem/configmgr/sum/tools/updates-publisher) allow you to import and publish custom updates with WSUS. This scenario allows update management to update machines that use Configuration Manager as their update repository with third-party software. To learn how to configure Updates Publisher, see [Install Updates Publisher](/mem/configmgr/sum/tools/install-updates-publisher).
