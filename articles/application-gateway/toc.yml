@@ -306,7 +306,9 @@
       - name: About v1 retirement
         href: v1-retirement.md
       - name: Migrate from v1 to v2
-        href: migrate-v1-v2.md   
+        href: migrate-v1-v2.md  
+      - name: FAQ
+        href: retirement-faq.md
   - name: Configure alerts
     href: configure-alerts-with-templates.md
   - name: Classic to Resource Manager
