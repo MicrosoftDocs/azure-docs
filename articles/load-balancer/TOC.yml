@@ -44,6 +44,8 @@
       href: tutorial-load-balancer-port-forwarding-portal.md
     - name: Create a multiple VMs inbound NAT rule
       href: tutorial-nat-rule-multi-instance-portal.md
+    - name: Migrate Inbound NAT Pools to NAT Rules
+      href: load-balancer-nat-pool-migration.md
   - name: Scaling and availability
     items:
     - name: Load balance a VM within a specific availability zone

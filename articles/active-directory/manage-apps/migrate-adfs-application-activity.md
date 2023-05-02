@@ -12,6 +12,7 @@ ms.date: 03/23/2023
 ms.author: jomondi
 ms.collection: M365-identity-device-management
 ms.reviewer: alamaral
+ms.custom: not-enterprise-apps
 ---
 
 # Review the application activity report
