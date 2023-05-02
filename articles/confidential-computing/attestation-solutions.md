@@ -10,7 +10,7 @@ ms.date: 05/02/2023
 ms.author: jl-pm
 ---
 
-# Demystifying Attestation
+# Attestation
 
 Computing is an essential part of our daily lives, powering everything from our smartphones to critical infrastructure. However, increasing regulatory environments, prevalence of cyberattacks, and growing sophistication of attackers have made it difficult to trust the authenticity and integrity of the computing technologies we depend on. Attestation, a technique to verify the software and hardware components of a system, is a critical process for establishing trust and ensuring that computing technologies we rely on are trustworthy.
 
