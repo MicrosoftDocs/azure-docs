@@ -211,7 +211,7 @@ You'll receive an email notification when your application is approved and the `
 
 ### Verifying that you enrolled in the preview
 
-If the the `ColdTier` feature flag is registered on your subscription, then you are enrolled in the preview, and you can begin using the cold tier. Use the following steps to ensure that the feature is registered.
+If the `ColdTier` feature flag is registered on your subscription, then you are enrolled in the preview, and you can begin using the cold tier. Use the following steps to ensure that the feature is registered.
 
 #### [Portal](#tab/azure-portal)
 
@@ -250,7 +250,7 @@ az feature show --namespace Microsoft.Storage --name ColdTier
 
 If you plan to refer to the cold tier by using code in a custom application, you must use a version of the REST API or SDK that supports the cold tier. If your application uses the [REST API](/rest/api/storageservices/blob-service-rest-api), it must use version 2021-21-02 or later. If your application uses an Azure SDK, please the following versions or later. 
 
-| SDK | |
+| SDK | Minimum version |
 |---|---|
 | [.NET](/dotnet/api/azure.storage.blobs) | 12.15.0-beta.1 |
 | [Java](/java/api/overview/azure/storage-blob-readme) | 12.15.0-beta.1 |

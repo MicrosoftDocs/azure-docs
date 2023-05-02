@@ -20,8 +20,8 @@ You can set a blob's access tier in any of the following ways:
 
 - By setting the default online access tier (hot or cool) for the storage account. Blobs in the account inherit this access tier unless you explicitly override the setting for an individual blob.
 - By explicitly setting a blob's tier on upload. You can create a blob in the hot, cool, cold, or archive tier.
-- By changing an existing blob's tier with a Set Blob Tier operation, typically to move from a hotter tier to a cooler one.
-- By copying a blob with a Copy Blob operation, typically to move from a cooler tier to a hotter one.
+- By changing an existing blob's tier with a Set Blob Tier operation. Typically, you would use this operation to move from a hotter tier to a cooler one.
+- By copying a blob with a Copy Blob operation. Typically, you would use this operation to move from a cooler tier to a hotter one.
 
 This article describes how to manage a blob in an online access tier. For more information about how to move a blob to the archive tier, see [Archive a blob](archive-blob.md). For more information about how to rehydrate a blob from the archive tier, see [Rehydrate an archived blob to an online tier](archive-rehydrate-to-online-tier.md).
 
@@ -416,7 +416,7 @@ To copy a blob from cool to hot with AzCopy, use [azcopy copy](..\common\storage
 azcopy copy 'https://mystorageeaccount.blob.core.windows.net/mysourcecontainer/myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mydestinationcontainer/myTextFile.txt' --block-blob-tier=hot
 ```
 
-The copy operation is synchronous so when the command returns, that indicates that all files have been copied.
+The copy operation is synchronous so when the command returns, all files are copied.
 
 ---
 
