@@ -27,7 +27,7 @@ If you use a smaller subnet, be aware of the following limitations:
 
 - Any particular subnet has five addresses reserved for management purposes. In addition to the management addresses, App Service Environment dynamically scales the supporting infrastructure, and uses between 4 and 27 addresses, depending on the configuration and load. You can use the remaining addresses for instances in the App Service plan. The minimal size of your subnet is a `/27` address space (32 addresses).
 
-- If you run out of addresses within your subnet, you can be restricted from scaling out your App Service plans in the App Service Environment. Another possibility is that you can experience increased latency during intensive traffic load, if Microsoft isn't able to scale the supporting infrastructure.
+- If you run out of addresses within your subnet, you can be restricted from scaling out your App Service plans in the App Service Environment. Another possibility is that you can experience increased latency during intensive traffic load, if Microsoft isn't able to scale the supporting infrastructure.  Please note that using a /27 subnet can severely impact your ability to scale reliably to any app service plan instance count greater than one.
 
 ## Addresses
 
