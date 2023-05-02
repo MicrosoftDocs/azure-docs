@@ -94,7 +94,7 @@ Pull delivery is available through [namespace topics](concepts.md#topics), which
 
 You use an event subscription to define the filtering criteria for events and in doing so, you effectively define the set of events that are available for consumption. One or more subscriber (consumer) applications connect to the same namespace endpoint specifying the topic and event subscription from which to receive events.
 
-:::image type="content" source="media/pull-and-push-delivery-overview/pull-delivery.svg" alt-text="High-level diagram of a consumer app inside a VNET reading events from Event Grid over a private endpoint inside the VNET." lightbox="media/pull-and-push-delivery-overview/pull-delivery.svg":::
+:::image type="content" source="media/pull-and-push-delivery-overview/pull-delivery.svg" alt-text="High-level diagram of a publisher and consumer using an event subscription. Consumer uses pull delivery." lightbox="media/pull-and-push-delivery-overview/pull-delivery.svg":::
 
 One or more consumers connects to Event Grid to receive events.
 
@@ -119,7 +119,7 @@ Push delivery is supported for the following resources. Click on the links to le
 Configure an event subscription on a system, custom, or partner topic to specify a filtering criteria for events and to set a destination to one of the supported [event handlers](event-handlers.md).
 The following diagram illustrates the resources that support push delivery with some of the supported event handlers.
 
-:::image type="content" source="media/pull-and-push-delivery-overview/topic-types-and-push-delivery.svg" alt-text="High-level diagram of a consumer app inside a VNET reading events from Event Grid over a private endpoint inside the VNET." lightbox="media/pull-and-push-delivery-overview/topic-types-and-push-delivery.svg":::
+:::image type="content" source="media/pull-and-push-delivery-overview/push-delivery.svg" alt-text="High-level diagram showing all the topic types that support push delivery, namely System, Custom, Domain, and Partner topics." lightbox="media/pull-and-push-delivery-overview/push-delivery.svg":::
 
 ## next steps
 
