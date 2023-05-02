@@ -211,8 +211,7 @@ In the cloud environment, you need rich visibility, control over data travel, an
 - **Cloud Access Security Broker (CASB**) – A [CASB](/cloud-app-security/) typically works alongside your firewall to provide visibility into your employees’ cloud application usage and helps you protect your corporate data from cybersecurity threats. The CASB report can help you determine the most used apps in your organization, and the early targets to migrate to Azure AD.
 - **Cloud Discovery** - By configuring [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery), you gain visibility into the cloud app usage, and can discover unsanctioned or Shadow IT apps.
 - **APIs** - For apps connected to cloud infrastructure, you can use the APIs and tools on those systems to begin to take an inventory of hosted apps. In the Azure environment:
-  - Use the [Get-AzureWebsite](/powershell/module/servicemanagement/azure.service/get-azurewebsite) cmdlet to get information about Azure websites.
-  - Use the [Get-AzureRMWebApp](/powershell/module/azurerm.websites/get-azurermwebapp) cmdlet to get information about your Azure Web Apps.D
+  - Use the [Get-AzureRMWebApp](/powershell/module/azurerm.websites/get-azurermwebapp) cmdlet to get information about your Azure Web Apps.
   - You can find all the apps running on Microsoft IIS from the Windows command line using [AppCmd.exe](/iis/get-started/getting-started-with-iis/getting-started-with-appcmdexe#working-with-sites-applications-virtual-directories-and-application-pools).
   - Use [Applications](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity) and [Service Principals](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity) to get your information on web apps and app instance in a directory in Azure AD.
 
