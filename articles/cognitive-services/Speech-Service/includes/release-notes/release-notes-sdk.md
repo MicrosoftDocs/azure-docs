@@ -10,7 +10,7 @@ ms.author: eur
 
 #### Breaking change
 
-* **JavaScript SDK**: Online Certificate Status Protocol (OCSP) was removed. This allows clients to better conform to browser and Node standards for certificate handling. Version 1.28 and onward will not longer include our custom OCSP module.
+* **JavaScript SDK**: Online Certificate Status Protocol (OCSP) was removed. This allows clients to better conform to browser and Node standards for certificate handling. Version 1.28 and onward will no longer include our custom OCSP module.
 
 #### New Features
 
