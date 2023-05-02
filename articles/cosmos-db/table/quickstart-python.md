@@ -222,7 +222,7 @@ table_name = "WeatherData"
 project_root_path = "Project abs path"
 ```
 
-The Azure SDK communicates with Azure using client objects to execute different operations against Azure. The `TableServiceClient` object is the object used to communicate with the Azure Cosmos DB for Table. An application will typically have a single `TableServiceClient` overall, and it will have a `TableClient` per table.
+The Azure SDK communicates with Azure using client objects to execute different operations against Azure. The [`TableServiceClient`](/python/api/azure-data-tables/azure.data.tables.tableserviceclient) object is the object used to communicate with the Azure Cosmos DB for Table. An application will typically have a single `TableServiceClient` overall, and it will have a [`TableClient`](/python/api/azure-data-tables/azure.data.tables.tableclient) per table.
 
 ```python
 self.conn_str = os.getenv("AZURE_CONNECTION_STRING")
@@ -257,7 +257,7 @@ To filter the rows returned from a table, you can pass an OData style filter str
 PartitionKey eq 'Chicago' and RowKey ge '2021-07-01 12:00 AM' and RowKey le '2021-07-02 12:00 AM'
 ```
 
-You can view related OData filter operators on the azure-data-tables website in the section [Writing Filters](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/tables/azure-data-tables/samples#writing-filters).
+You can view related OData filter operators on the azure-data-tables website in the section [Samples for Azure Tables client library for Python - Writing Filters](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/tables/azure-data-tables/samples#writing-filters).
 
 When request.args parameter is passed to the `query_entity` method in the `TableServiceHelper` class, it creates a filter string for each non-null property value. It then creates a combined filter string by joining all of the values together with an "and" clause. This combined filter string is passed to the `query_entities` method on the `TableClient` object and only rows matching the filter string will be returned. You can use a similar method in your code to construct suitable filter strings as required by your application.
 
@@ -283,7 +283,7 @@ def query_entity(self, params):
 
 ### Insert data using a TableEntity object
 
-The simplest way to add data to a table is by using a `TableEntity` object. In this example, data is mapped from an input model object to a `TableEntity` object. The properties on the input object representing the weather station name and observation date/time are mapped to the `PartitionKey` and `RowKey` properties respectively, which together form a unique key for the row in the table. Then the extra properties on the input model object are mapped to dictionary properties on the TableEntity object. Finally, the `create_entity` method on the `TableClient` object is used to insert data into the table.
+The simplest way to add data to a table is by using a [`TableEntity`](/python/api/azure-data-tables/azure.data.tables.tableentity) object. In this example, data is mapped from an input model object to a `TableEntity` object. The properties on the input object representing the weather station name and observation date/time are mapped to the `PartitionKey` and `RowKey` properties respectively, which together form a unique key for the row in the table. Then the extra properties on the input model object are mapped to dictionary properties on the TableEntity object. Finally, the `create_entity` method on the `TableClient` object is used to insert data into the table.
 
 Modify the `insert_entity` function in the example application to contain the following code.
 
