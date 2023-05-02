@@ -436,6 +436,9 @@ items:
         - name: Azure Active Directory
           displayName: Prometheus,remote-write
           href: essentials/prometheus-remote-write-active-directory.md
+        - name: Azure Active Directory pod identity
+          displayName: Prometheus,remote-write
+          href: essentials\prometheus-remote-write-AAD-pod-identity.md
       - name: Configure Grafana with managed system identity
         displayName: Prometheus
         href: essentials/prometheus-grafana.md
