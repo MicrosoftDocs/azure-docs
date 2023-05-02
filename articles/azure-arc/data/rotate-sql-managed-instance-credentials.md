@@ -12,7 +12,7 @@ ms.topic: how-to
 ---
 # Rotate Azure Arc-enabled SQL Managed Instance service-managed credentials (preview)
 
-This article describes how to rotate service-managed credentials for Azure Arc-enabled SQL Managed Instance. Arc data services generates various service-managed credentials like certificates and SQL logins used for Monitoring, Backup/Restore, High Availability etc. These credentials are considered custom resource credentials managed by Azure Arc data services.
+This article describes how to rotate service-managed credentials for Azure Arc-enabled SQL Managed Instance. Arc data services generate various service-managed credentials like certificates and SQL logins used for Monitoring, Backup/Restore, High Availability etc. These credentials are considered custom resource credentials managed by Azure Arc data services.
 
 Service-managed credential rotation is a user-triggered operation that you initiate during a security issue or when periodic rotation is required for compliance.
 
@@ -20,8 +20,8 @@ Service-managed credential rotation is a user-triggered operation that you initi
 
 Consider the following limitations when you rotate a managed instance service-managed credentials:
 
-- SQL Server failover groups are not supported.
-- Automatic pre-scheduled rotation is not supported.
+- SQL Server failover groups aren't supported.
+- Automatically prescheduled rotation isn't supported.
 - The service-managed DPAPI symmetric keys, keytab, active directory accounts, and service-managed TDE credentials aren't included in this credential rotation.
 
 ## General Purpose tier
@@ -36,7 +36,7 @@ During Business Critical SQL Managed Instance service-managed credential rotatio
 - After the replicas are reprovisioned, the primary will fail over to a reprovisioned replica
 - The previous primary pod is terminated and reprovisioned with the rotated service-managed credentials, and becomes a secondary
 
-There is a brief moment of downtime when the failover occurs.
+There's a brief moment of downtime when the failover occurs.
 
 ## Prerequisites: 
 
@@ -65,10 +65,9 @@ The `managedCredentialsGeneration` identifies the target generation for service-
 ## How to roll back service-managed credentials in a managed instance
 
 > [!NOTE]
-> Rollback is required when credential rotation failed for any reasons. Rollback to previous credentials generation is supported only once to n-1 where n is current generation.
-
-> [!NOTE]
-> If rollback is triggered while credential rotation is in progress and all replica pods have not been reprovisioned yet, the rollback __might__ take around 30 minutes to complete, and for the SQL Managed Instance to return to a "Ready" state.
+> Rollback is required when credential rotation fails. Rollback to previous credentials generation is supported only once to n-1 where n is the current generation.
+>
+> If rollback is triggered while credential rotation is in progress and all the replicas have not been reprovisioned then the rollback __may__ take about 30 minutes to complete for the managed instance to be in a **Ready** state.
 
 Run the following two commands to get current service-managed credentials generation from spec and rollback to the previous generation of service-managed credentials:
 
