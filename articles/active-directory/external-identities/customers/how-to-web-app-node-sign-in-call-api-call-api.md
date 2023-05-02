@@ -51,7 +51,7 @@ You add code in *routes/todos.js*, *controller/todolistController.js* and  *fetc
         module.exports = router;
     ```
 
-    This file contains express routes for create, read and delete resource in the protected API. Each route uses three middleware functions, which executes in that sequence: 
+    This file contains express routes for create, read and delete resource in the protected API. Each route uses three middleware functions, which execute in that sequence: 
 
     - `isAuthenticated`, checks whether the user is authenticated.
     
@@ -115,7 +115,7 @@ You add code in *routes/todos.js*, *controller/todolistController.js* and  *fetc
         };
     ```
 
-    Each of these functions collect all the information required to call an API. It then delegates the work to the `callEndpointWithToken` function and waits for a response. The `callEndpointWithToken` function is defined in the *fetch.js* file. For example, to create a resource in the API, the `postToDo` function passes an endpoint, an access token, an HTTP method and a request body to the `callEndpointWithToken` function and waits for a response. It then redirects the user to the *todo.hbs* view to show all tasks. 
+    Each of these functions collects all the information required to call an API. It then delegates the work to the `callEndpointWithToken` function and waits for a response. The `callEndpointWithToken` function is defined in the *fetch.js* file. For example, to create a resource in the API, the `postToDo` function passes an endpoint, an access token, an HTTP method and a request body to the `callEndpointWithToken` function and waits for a response. It then redirects the user to the *todo.hbs* view to show all tasks. 
 
  1. In your code editor, open *fetch.js* file, then add the following code:
  
