@@ -142,7 +142,7 @@ To use your app registration in the web API sample:
 1. Open a console window, then run the web API by using the following commands:
 
     ```powershell
-    cd 2-Authorization\4-call-api-express\API\TodoListAPI
+    cd 2-Authorization\4-call-api-express\API\ToDoListAPI
     dotnet run
     ``` 
 
