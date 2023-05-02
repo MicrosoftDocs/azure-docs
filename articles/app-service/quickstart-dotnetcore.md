@@ -425,7 +425,7 @@ Follow these steps to create your App Service resources and publish your project
 
     You'll see the ASP.NET Core 7.0 web app displayed in the page.
 
-    :::image type="content" source="media/quickstart-dotnet/Azure-webapp-net.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of Visual Studio Code - ASP.NET Core 7.0 web app in Azure.":::
+    :::image type="content" source="media/quickstart-dotnetcore/Azure-webapp-net.png" lightbox="media/quickstart-dotnetcore/Azure-webapp-net.png" border="true" alt-text="Screenshot of Visual Studio Code - ASP.NET Core 7.0 web app in Azure.":::
 
     ### [.NET Framework 4.8](#tab/netframework48)
 
