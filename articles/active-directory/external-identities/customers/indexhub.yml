@@ -1,0 +1,75 @@
+### YamlMime:Hub
+
+## FRONT MATTER START
+title: Microsoft Entra External Identities documentation # < 60 chars
+summary: >
+  With Microsoft Entra External Identities, you can collaborate with partners and guests (B2B) or add customer identity and access (CIAM) management to your customer-facing apps. 
+brand: azure
+
+metadata:
+  title: Azure AD for customers documentation
+  description: Learn how to use Azure AD for customers to customize and control how customers sign up, sign in when using your applications.
+  services: active-directory
+  ms.service: active-directory
+  ms.subservice: ciam
+  ms.topic: hub-page
+  ms.collection: collection
+  author: csmulligan
+  ms.author: cmulligan
+  ms.date: 05/02/2023
+
+## FRONT MATTER END
+
+## BAND 1 ####################################################################################################################################################
+productDirectory:
+  sections:
+    - title: Azure AD for your partners and guests
+      summary: External Identities is a set of capabilities that enables organizations to secure and manage any external user, including customers and partners. Building on B2B collaboration, External Identities gives you more ways to interact and connect with users outside your organization.
+      items:
+        # Card
+        - title: Get started
+          links:
+          - url: /azure/active-directory/external-identities/what-is-b2b
+            text: B2B collaboration
+          - url: /azure/active-directory/external-identities/b2b-direct-connect-overview
+            text: B2B direct connect
+        # Card
+        - title: Collaborate with users outside your org (B2B)
+          links:
+          - url: /azure/active-directory/external-identities/cross-tenant-access-overview
+            text: Overview of cross-tenant access settings
+          - url: /azure/active-directory/external-identities/user-properties
+            text: B2B collaboration user properties
+        # Card
+        - title: Self-service sign-up flows for B2B guest users
+          links:
+          - url: /azure/active-directory/external-identities/self-service-sign-up-overview
+            text: Self-service sign-up
+## BAND 1 - PRODUCT DIRECTORY END ##########################################################################################################################
+
+## BAND 2 ####################################################################################################################################################
+productDirectory:
+  sections:
+    - title: Azure AD for your partners and guests
+      summary: External Identities is a set of capabilities that enables organizations to secure and manage any external user, including customers and partners. Building on B2B collaboration, External Identities gives you more ways to interact and connect with users outside your organization.
+      items:
+        # Card
+        - title: Get started
+          links:
+          - url: /azure/active-directory/external-identities/what-is-b2b
+            text: B2B collaboration
+          - url: /azure/active-directory/external-identities/b2b-direct-connect-overview
+            text: B2B direct connect
+        # Card
+        - title: Collaborate with users outside your org (B2B)
+          links:
+          - url: /azure/active-directory/external-identities/cross-tenant-access-overview
+            text: Overview of cross-tenant access settings
+          - url: /azure/active-directory/external-identities/user-properties
+            text: B2B collaboration user properties
+        # Card
+        - title: Self-service sign-up flows for B2B guest users
+          links:
+          - url: /azure/active-directory/external-identities/self-service-sign-up-overview
+            text: Self-service sign-up
+## BAND 2 - PRODUCT DIRECTORY END ##########################################################################################################################
