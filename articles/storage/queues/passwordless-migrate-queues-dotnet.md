@@ -1,7 +1,7 @@
 ---
 title: Migrate applications to use passwordless authentication with Azure Queue Storage
 titleSuffix: Azure Storage
-description: Learn to migrate existing applications away from Shared Key authorization with the account key to instead use Azure AD and Azure RBAC for enhanced security.
+description: Learn to migrate existing applications away from Shared Key authorization with the account key to instead use Azure AD and Azure RBAC for enhanced security with Azure Storage Queues.
 author: alexwolfmsft
 ms.author: alexwolf
 ms.reviewer: randolphwest
@@ -114,7 +114,7 @@ Next, you need to grant permissions to the managed identity you created to acces
 
 1. Choose **Add role assignment**
 
-   :::image type="content" source="media/migration-add-role-small.png" alt-text="Screenshot showing how to add a role to a managed identity." lightbox="media/migration-add-role.png":::
+    :::image type="content" source="../common/media/migration-add-role-small.png" alt-text="Screenshot showing how to add a role to a managed identity." lightbox="../common/media/migration-add-role.png" :::
 
 1. In the **Role** search box, search for *Storage Queue Data Contributor*, which is a common role used to manage data operations for queues. You can assign whatever role is appropriate for your use case. Select the *Storage Queue Data Contributor* from the list and choose **Next**.
 
@@ -122,7 +122,7 @@ Next, you need to grant permissions to the managed identity you created to acces
 
 1. In the flyout, search for the managed identity you created by name and select it from the results. Choose **Select** to close the flyout menu.
 
-    :::image type="content" source="../../../includes/passwordless/media/migration-select-identity-small.png" alt-text="Screenshot showing how to select the assigned managed identity." lightbox="../../../includes/passwordless/media/migration-select-identity.png":::
+    :::image type="content" source="../common/media/migration-select-identity-small.png" alt-text="asef" alt-text="Screenshot showing how to select the assigned managed identity." lightbox="../common/media/migration-select-identity/migration-select-identity.png":::
 
 1. Select **Next** a couple times until you're able to select **Review + assign** to finish the role assignment.
 
@@ -168,33 +168,6 @@ You need to configure your application code to look for the specific managed ide
         {
             ManagedIdentityClientId = "<managed-identity-client-id>"
         });
-    ```
-
-    ## [Java](#tab/java)
-    
-    ```java
-    // TODO: Update the <managed-identity-client-id> placeholder.
-    DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
-        .managedIdentityClientId("<managed-identity-client-id>")
-        .build();
-    ```
-    
-    ## [Node.js](#tab/nodejs)
-    
-    ```nodejs
-    // TODO: Update the <managed-identity-client-id> placeholder.
-    const credential = new DefaultAzureCredential({
-      managedIdentityClientId: "<managed-identity-client-id>"
-    });
-    ```
-    
-    ## [Python](#tab/python)
-    
-    ```python
-    # TODO: Update the <managed-identity-client-id> placeholder.
-    credential = DefaultAzureCredential(
-        managed_identity_client_id = "<managed-identity-client-id>"
-    )
     ```
 
     ---
