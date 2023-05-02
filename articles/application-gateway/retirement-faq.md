@@ -56,7 +56,7 @@ Post your issues and questions about migration to our [Microsoft Q&A](https://ak
 
 ### Are there any limitations with the Azure PowerShell script to migrate the configuration from v1 to v2?
 
-Yes. See [Caveats/Limitations](./migrate-v1-v2.md#caveatslimitations).
+Yes. See [Caveats/Limitations](./migrate-v1-v2#caveatslimitations).
 
 ### Is this article and the Azure PowerShell script applicable for Application Gateway WAF product as well?
 
