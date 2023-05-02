@@ -13,17 +13,17 @@ ms.author: mjyothish
 
 **Applies to:** :heavy_check_mark: Application Gateway v1 deployments
 
-We announced the deprecation of Application Gateway V1 on **April 28 ,2023**. Starting from **April 28, 2026**, we will be retiring ApplicationGateway v1 SKU. This means that the service will no longer be supported after this date. If you use Application Gateway V1 SKU, start planning your migration to V2 now. Complete it by April 28, 2026, to take advantage of [Application Gateway V2](./overview-v2.md).
+We announced the deprecation of Application Gateway V1 on **April 28 ,2023**. Starting from **April 28, 2026**, we are retiring ApplicationGateway v1 SKU. This means that the service is not supported after this date. If you use Application Gateway V1 SKU, start planning your migration to V2 now. Complete it by April 28, 2026, to take advantage of [Application Gateway V2](./overview-v2.md).
 
 ## Retirement Timelines 
 
 ⦁	Deprecation announcement: April 28 ,2023 
 
-⦁	No new subscriptions for V1 deployments: July 1,2023 - Application Gateway V1 will no longer be available for  deployments on new subscriptions from July 1 2023.
+⦁	No new subscriptions for V1 deployments: July 1,2023 - Application Gateway V1 is no longer be available for  deployment on new subscriptions from July 1 2023.
 
-⦁	No new V1 deployments: August 28, 2024 - V1 creation will be stopped completely for all customers 28 August 2024 onwards.
+⦁	No new V1 deployments: August 28, 2024 - V1 creation is stopped completely for all customers 28 August 2024 onwards.
 
-⦁	SKU retirement: April 28 ,2026 - Any Application Gateway V1 that is still running will be stopped. Application Gateway V1 that is not migrated to Application Gateway V2 will be informed regarding timelines for deleting them and subsequently force deleted.
+⦁	SKU retirement: April 28 ,2026 - Any Application Gateway V1 that is still running are stopped. Application Gateway V1s that is not migrated to Application Gateway V2 are informed regarding timelines for deleting them and subsequently force deleted.
 
 ## Resources available for migration
 
