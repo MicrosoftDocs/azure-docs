@@ -42,7 +42,7 @@ The Container Apps service provides system log messages at the container app lev
 | Revision Provisioning | Info| Deactivating Old revisions since 'ActiveRevisionsMode=Single' |
 | Revision Provisioning | Error | Error provisioning revision \<revision-name>. ErrorCode: \<[ErrImagePull]\|[Timeout]\|[ContainerCrashing]\> |
 
-The system log data is accessible by querying the `ContainerAppSystemlogs_CL` table. The most used Container Apps specific columns in the table are:
+The system log data is accessible by querying the `ContainerAppSystemLogs_CL` table. The most used Container Apps specific columns in the table are:
 
 | Column  | Description |
 |---|---|
