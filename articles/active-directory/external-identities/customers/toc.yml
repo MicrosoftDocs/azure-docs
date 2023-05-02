@@ -143,13 +143,13 @@ items:
                 - name: Protect ASP.NET API
                   items:
                     - name: Overview
-                      href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
+                      href: how-to-protect-web-api-dotnet-core-overview.md
                     - name: Prepare API app
-                      href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
+                      href: how-to-protect-web-api-dotnet-core-prepare-api.md
                     - name: Protect API endpoints
-                      href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
+                      href: how-to-protect-web-api-dotnet-core-protect-endpoints.md
                     - name: Test API
-                      href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-asp-webapp
+                      href: how-to-protect-web-api-dotnet-core-test-api.md
 
             - name: Headless app
               items: 

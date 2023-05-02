@@ -30,14 +30,16 @@ Before going through this article, ensure you have a [protected web API](how-to-
 
 [!INCLUDE [Add app client secret](./includes/register-app/add-app-client-secret.md)]
 
-## Preauthorize the daemon app
+## Assign app role to your daemon app
 
-1. Navigate to the app registration of your protected API in the Azure portal.
-1. In the app registration window of your API, select *Expose an API* in the *Manage* section.
-1. Under *Authorized client applications*, select *Add a client application*.
-1. In the Client ID box, paste the Application ID of the daemon app.
-1. In the *Authorized scopes section, select the scope that allows you to at least read user data. In our case, we select the `api://<ApplicationID>/ToDoList.ReadWrite.All` and  `api://<ApplicationID>/ToDoList.Read.All` scopes.
-1. Select *Add application*.
+Apps authenticating by themselves require app permissions.
+
+1. In the app's registration screen, select the **API permissions** > **Add a permission** blade in the left.
+1. Select the **My APIs** tab. In the list of APIs, select the protected web API that you created.
+1. Select **Application permissions**, which should be the type of permissions that apps should use when they're authenticating just as themselves and not signing-in users.
+1. In the **Application permissions** section, select the roles you want to assign. In this case, we use *ToDoList.Read.All*, *ToDoList.ReadWrite.All*.
+1. Select the **Add permissions** button at the bottom.
+1. At this stage, the permissions are assigned correctly but since the client app doesn't allow users to interact, the users' themselves can't consent to these permissions. Select the **Grant admin consent for {tenant}** button, and then select **Yes** when you're asked if you want to grant consent for the requested permissions for all accounts in the tenant. You should be a tenant admin to carry out this operation.
 
 ## Write code
 
@@ -66,9 +68,8 @@ Before going through this article, ensure you have a [protected web API](how-to-
     Console.WriteLine("Your response is: " + response.StatusCode);
     ```
 
-    Navigate to the daemon app root directory and run app using the command `dotnet run`. This code sends a request without an access token. You should see the string *Your response is: Unauthorized* printed in your console.
-1. Remove the code in step 4 and replace with the following to test your API by sending a request with a valid access token. You should see the string *Your response is: OK* printed in your console.
-
+    Navigate to the daemon app root directory and run app using the command `dotnet run`. This code sends a request without an access token. You should see the string: *Your response is: Unauthorized* printed in your console.
+1. Remove the code in step 4 and replace with the following to test your API by sending a request with a valid access token.
 
     ```csharp
     using Microsoft.Identity.Client;
@@ -97,4 +98,4 @@ Before going through this article, ensure you have a [protected web API](how-to-
     Console.WriteLine("Your response is: " + response.StatusCode);
     ```
 
-    Navigate to the daemon app root directory and run app using the command `dotnet run`. This code sends a request without an access token. You should see the string *Your response is: Unauthorized* printed in your console.
+    Navigate to the daemon app root directory and run app using the command `dotnet run`. This code sends a request with a valid access token. You should see the string: *Your response is: OK* printed in your console.

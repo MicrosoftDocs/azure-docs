@@ -26,7 +26,7 @@ Controllers handle requests that come in through the API endpoints. Controllers 
 
 ## Add the code
 
-We begin adding controller actions to our controller. In most cases, the controller would have more than one action. Typically Create, Read, Update, and Delete (CRUD) actions. For more information, see the article on [how to create a .NET web API doc](/aspnet/core/tutorials/first-web-api?view=aspnetcore-7.0&tabs=visual-studio-code#scaffold-a-controller). For the purposes of this article, we demonstrate using two action items, a read all action item and a create action item, how to protect your endpoints. For a full example, see the [samples file](https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial/blob/ApiAspNetCoreApiToDoSample/2-Authorization/1-call-own-api-aspnet-core-mvc/ToDoListApi/Controllers/ToDoController.cs).
+We begin adding controller actions to our controller. In most cases, the controller would have more than one action. Typically Create, Read, Update, and Delete (CRUD) actions. For more information, see the article on [how to create a .NET web API doc](/aspnet/core/tutorials/first-web-api?view=aspnetcore-7.0&tabs=visual-studio-code#scaffold-a-controller). For the purposes of this article, we demonstrate using two action items, a read all action item and a create action item, how to protect your endpoints. For a full example, see the [samples file](https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial/blob/main/2-Authorization/3-call-own-api-dotnet-core-daemon/ToDoListAPI/Controllers/ToDoListController.cs).
 
 Our boiler plate code for the controller looks as follows:
 
@@ -72,9 +72,9 @@ public class ToDoListController : ControllerBase
 
 In this section, we go through the code to see we protect our API by adding code into the placeholders we created. The focus here isn't on building the API, but rather protecting it.
 
-1. Import the necessary packages. The [*Microsoft.Identity.Web*](/azure/active-directory/develop/microsoft-identity-web) package is an MSAL wrapper that helps us easily handle authentication logic, for example, by handling token validation. We also use the permissions definitions that we defined in the `appsettings.json` configuration file. To ensure that our endpoints require authorization, we use the inbuilt [*Microsoft.AspNetCore.Authorization*](/dotnet/api/microsoft.aspnetcore.authorization) package.
+1. Import the necessary packages. The [*Microsoft.Identity.Web*](/azure/active-directory/develop/microsoft-identity-web) package is an MSAL wrapper that helps us easily handle authentication logic, for example, by handling token validation. We also use the permissions definitions that we defined in the *appsettings.json* configuration file. To ensure that our endpoints require authorization, we use the inbuilt [*Microsoft.AspNetCore.Authorization*](/dotnet/api/microsoft.aspnetcore.authorization) package.
 
-1. Since we granted permissions for this API to be called either using delegated permissions on behalf of the user or application permissions where the client calls as itself and not on the user's behalf, it's important to know whether the call is being made by the app on its own behalf. To do this, we check the claims to find whether the access token contains the *idtyp* optional claim. This claim is the most accurate way for the API to determine whether a token is an app token or an app + user token. Configure your API to use this [optional claim](/azure/active-directory/develop/active-directory-optional-claims) via your API app registration if you haven't.
+1. Since we granted permissions for this API to be called either using delegated permissions on behalf of the user or application permissions where the client calls as itself and not on the user's behalf, it's important to know whether the call is being made by the app on its own behalf. To do this, we check the claims to find whether the access token contains the `idtyp` optional claim. This claim is the most accurate way for the API to determine whether a token is an app token or an app + user token. Configure your API to use this [optional claim](/azure/active-directory/develop/active-directory-optional-claims) via your API app registration if you haven't.
 
     ```csharp
     private bool IsAppMakingRequest()
@@ -114,7 +114,7 @@ In this section, we go through the code to see we protect our API by adding code
         }
     ```
 
-1. Plug in our permission definitions to protect our routes. We protect our API by adding the `[Authorize]` attribute to the controller class. This ensures the controller actions can be called only if the API is called with an authorized identity. The permission definitions will then help define what kinds of permissions are needed to perform these actions.
+1. Plug in our permission definitions to protect our routes. We protect our API by adding the `[Authorize]` attribute to the controller class. This ensures the controller actions can be called only if the API is called with an authorized identity. The permission definitions define what kinds of permissions are needed to perform these actions.
 
     ```csharp
     [Authorize]

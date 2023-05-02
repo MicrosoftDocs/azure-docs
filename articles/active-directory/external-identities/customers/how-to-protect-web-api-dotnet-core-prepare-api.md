@@ -18,7 +18,7 @@ ms.custom: developer
 
 # Secure an ASP.NET web API by using Microsoft Entra - configure your web API
 
-In this how-to article, we go through the steps you take to configure your web API before securing it's endpoints. When using the Microsoft identity platform to secure your web API, you first need to have it registered before configuring your API.
+In this how-to article, we go through the steps you take to configure your web API before securing its endpoints. When using the Microsoft identity platform to secure your web API, you first need to have it registered before configuring your API.
 
 ## Prerequisites
 
