@@ -6,7 +6,7 @@ ms.date: 04/30/2023
 author: george-guirguis
 ms.author: geguirgu
 ---
-# Topic Spaces
+# Topic Spaces in Azure Event Grid
 
 > [!IMPORTANT]
 > **Early access reviewer**: please note that portal screenshots are not added to the article yet. That should be completed by May 4th, 2023.
@@ -37,7 +37,7 @@ Event Grid supports all the MQTT wildcards defined by the [MQTT specification](h
         - machines/humidity
         - machines/temp/alert etc.
 
-For more details about wildcards, see [Topic Wilcards in the MQTT spc](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html).
+For more details about wildcards, see [Topic Wildcards in the MQTT spc](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html).
 
 ## Topic templates
 
@@ -76,7 +76,7 @@ Use the following commands to create a topic space:
 az resource create --resource-type Microsoft.EventGrid/namespaces/topicSpaces --id /subscriptions/<Subscription ID>/resourceGroups/<Resource Group>/providers/Microsoft.EventGrid/namespaces/<Namespace Name>/topicSpaces/<Topic Space Name> --is-full-object --api-version 2023-06-01-preview --properties @./resources/TS.json
 ```
 
-TS.json:
+**TS.json:**
 ```json
 { 
     "properties": {
@@ -91,7 +91,8 @@ TS.json:
 }
 ```
 
-**Note:** Topic space configuration updates may take a couple of minutes to propagate.
+> [!NOTE]
+> Topic space configuration updates may take a couple of minutes to propagate.
 
 ## Next steps:
 
