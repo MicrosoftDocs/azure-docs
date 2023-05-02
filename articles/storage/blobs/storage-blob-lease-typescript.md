@@ -62,7 +62,7 @@ The following example releases a lease on a blob:
 
 ## Break a lease
 
-You can break a blob lease if the blob has an active lease. Any authorized request can break the lease; the request isn't required to specify a matching lease ID. A lease can't be renewed after it's broken, and breaking a lease prevents a new lease from being acquired for a period of time until the original lease expires or is released.
+You can break a blob lease if the blob has an active lease. Any authorized request can break the lease; the request isn't required to specify a matching lease ID. A lease can't be renewed after it's broken, and breaking a lease prevents a new lease from being acquired until the original lease expires or is released.
 
 You can break a lease using one of the following methods on a [BlobLeaseClient](/javascript/api/@azure/storage-blob/blobleaseclient) instance:
 
