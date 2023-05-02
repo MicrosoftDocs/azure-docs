@@ -182,7 +182,7 @@ You add code in *routes/todos.js*, *controller/todolistController.js* and  *fetc
 
 At this point, you're ready to test your client web app and web API. 
 
-1. Use the steps you learnt in [Secure an ASP.NET web API by using Microsoft Entra](how-to-protect-web-api-dotnet-core-overview.md) article to start your web API. Your web API is now ready to serve client requests.
+1. Use the steps you learned in [Secure an ASP.NET web API by using Microsoft Entra](how-to-protect-web-api-dotnet-core-overview.md) article to start your web API. Your web API is now ready to serve client requests.
 
 1. In your terminal, make sure you're in the project folder such as `ciam-sign-in-call-api-node-express-web-app`, then run the following command:
 

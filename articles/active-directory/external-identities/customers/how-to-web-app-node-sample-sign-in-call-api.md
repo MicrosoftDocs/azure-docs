@@ -163,13 +163,13 @@ To use your app registration in the web API sample:
 
 1. If you choose the sign-up option, after filling in your email, one-time passcode, new password and more account details, you complete the whole sign-up flow. You see a page similar to the following screenshot. You see a similar page if you choose the sign-in option.
 
-    :::image type="content" source="media/how-to-web-app-node-sample-sign-in-call-api/sign-in-call-api-view-todo.png" alt-text="Screenshot of sign in into a node web app and call an A P I.":::
+    :::image type="content" source="media/how-to-web-app-node-sample-sign-in-call-api/sign-in-call-api-view-to-do.png" alt-text="Screenshot of sign in into a node web app and call an API.":::
 
 ### Call API
 
 1. To call the API, select the **View your todolist** link. You see a page similar to the following screenshot.
     
-    :::image type="content" source="media/how-to-web-app-node-sample-sign-in-call-api/sign-in-call-api-manipulate-todo.png" alt-text="Screenshot of manipulate A P I to do list.":::
+    :::image type="content" source="media/how-to-web-app-node-sample-sign-in-call-api/sign-in-call-api-manipulate-to-do.png" alt-text="Screenshot of manipulate API to do list.":::
 
 1. Manipulate the to-do list by creating and removing items.
 
