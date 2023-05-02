@@ -805,7 +805,7 @@
                 - name: Refresh tokens
                   href: refresh-tokens.md
                 - name: Token lifetime
-                  href: active-directory-configurable-token-lifetimes.md
+                  href: configurable-token-lifetimes.md
             - name: OAuth 2.0 application types
               displayName: App types, OAuth
               href: v2-app-types.md

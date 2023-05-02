@@ -108,7 +108,7 @@
       - name: Configure optional claims
         href: ../develop/active-directory-optional-claims.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
       - name: Configure token lifetimes
-        href: ../develop/active-directory-configurable-token-lifetimes.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
+        href: ../develop/configurable-token-lifetimes.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
     - name: ADAL error handling best practices
       href: active-directory-devhowto-adal-error-handling.md
   - name: Application configuration
