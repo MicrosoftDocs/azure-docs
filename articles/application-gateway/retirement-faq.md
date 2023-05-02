@@ -10,6 +10,7 @@ ms.date: 04/19/2023
 ms.author: mjyothish
 ---
 # FAQs
+On April 28,2023 we announced retirement of Application gateway V1 on 28 April 2026.This article lists  the commonly asked questions on V1 retirement and V1-V2 migration.
 
 ## Common questions on V1 retirement
 
