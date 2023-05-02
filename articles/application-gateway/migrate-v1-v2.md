@@ -11,7 +11,7 @@ ms.author: greglin
 
 # Migrate Azure Application Gateway and Web Application Firewall from V1 to V2
 
-We announced the deprecation of Application Gateway V1 SKU (Standard and WAF) on April 28, 2023 and subsequently this SKU will retire on April 28, 2026. Learn more about the V1 retirement [here](./v1-retirement.md).
+We announced the deprecation of Application Gateway V1 SKU (Standard and WAF) on April 28, 2023 and subsequently this SKU retires on April 28, 2026. Learn more about the V1 retirement [here](./v1-retirement.md).
 
 [Azure Application Gateway and Web Application Firewall (WAF) V2](application-gateway-autoscaling-zone-redundant.md)  now offer additional features such as autoscaling, availability, zone redundancy, higher performance, faster operations and improved throughput compared to V1. Moreover, all new features are released for V2 SKU. Hence, we highly recommend you to start planning your migrations now. 
 
@@ -145,7 +145,7 @@ To run the script:
 * [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
 * To  migrate a TLS/SSL configuration, you must specify all the TLS/SSL certs used in your v1 gateway.
 * If you have FIPS mode enabled for your V1 gateway, it won't be migrated to your new v2 gateway. FIPS mode isn't supported in v2.
-* In case of Private IP only V1 gateway, the script will generate a private and public IP address for the new V2 gateway. The Private IP only V2 gateway is currently in public preview. Once it becomes generally available, customers can utilize the script to transfer their private IP only V1 gateway to a private IP only V2 gateway.
+* In case of Private IP only V1 gateway, the script generates a private and public IP address for the new V2 gateway. The Private IP only V2 gateway is currently in public preview. Once it becomes generally available, customers can utilize the script to transfer their private IP only V1 gateway to a private IP only V2 gateway.
 * Headers with names containing anything other than letters, digits, and hyphens are not passed to your application. This only applies to header names, not header values. This is a breaking change from v1.
 * NTLM and Kerberos authentication is not supported by Application Gateway v2. The script is unable to detect if the gateway is serving this type of traffic and may pose as a breaking change from v1 to v2 gateways if run.
 
@@ -174,13 +174,13 @@ Here are a few scenarios where your current application gateway (Standard) may r
 
 ## Pricing considerations
 
-The pricing models are different for the Application Gateway v1 and v2 SKUs. V2 is charged based on based on consumption. See [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/) before migrating for pricing information. 
+The pricing models are different for the Application Gateway v1 and v2 SKUs. V2 is charged based on consumption. See [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/) before migrating for pricing information. 
 
 ### Cost efficiency guidance
 
 The V2 SKU comes with a range of advantages such as a performance boost of 5x, improved security with Key Vault integration, faster updates of security rules in WAF_V2, WAF Custom rules, Policy associations, and Bot protection. It also offers high scalability, optimized traffic routing, and seamless integration with Azure services. These features can improve the overall user experience, prevent slowdowns during times of heavy traffic, and avoid expensive data breaches.
 
-There are have 5 variants available in V1 SKU based on the Tier and Size - Standard_Small, Standard_Medium, Standard_Large, WAF_Medium and WAF_Large.
+There are 5 variants available in V1 SKU based on the Tier and Size - Standard_Small, Standard_Medium, Standard_Large, WAF_Medium and WAF_Large.
 
  <table>
   <tr>
@@ -193,7 +193,7 @@ There are have 5 variants available in V1 SKU based on the Tier and Size - Stand
      <td>Standard Medium</td>
     <td>102.2 </td>
     <td>179.58</td>
-     <td rowspan="2">V2 SKU can handle a larger number of requests than a V1 gateway, so we recommend consolidating multiple V1 gateways into a single V2 gateway, to optimize the cost. Ensure that consolidation doesn’t exceed the Application Gateway <a href="https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits">limits</a>. We recommend 3:1 consolidation.</td>
+     <td rowspan="2">V2 SKU can handle a larger number of requests than a V1 gateway, so we recommend consolidating multiple V1 gateways into a single V2 gateway, to optimize the cost. Ensure that consolidation doesn’t exceed the Application Gateway <a href="../azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits">limits</a>. We recommend 3:1 consolidation.</td>
   </tr>
     <td>WAF Medium </td>
     <td>183.96 </td>
