@@ -182,42 +182,19 @@ The V2 SKU comes with a range of advantages such as a performance boost of 5x, i
 
 There are 5 variants available in V1 SKU based on the Tier and Size - Standard_Small, Standard_Medium, Standard_Large, WAF_Medium and WAF_Large.
 
+
+| SKU      | v1 Fixed Price/mo          | v2 Fixed Price/mo | Recommendation|
+| ------------- |:-------------:|:-----:|:-----: | 
+|Standard Medium     | 102.2 | 179.8|V2 SKU can handle a larger number of requests than a V1 gateway, so we recommend consolidating multiple V1 gateways into a single V2 gateway, to optimize the cost. Ensure that consolidation doesn’t exceed the Application Gateway [limits](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits). We recommend 3:1 consolidation. |
+| WAF Medium    | 183.96     |   262.8 |Same as for Standard Medium |
+| Standard Large | 467.2      |    179.58 | For these variants, in most cases, moving to a V2 gateway can provide you with a better price benefit compared to V1.|
+| WAF Large | 654.08     |    262.8 |Same as for Standard Large |
+
 > [!NOTE]
 > The calculations shown here are based on East US and for a gateway with 2 instances in V1. The variable cost in V2 is based on one of the 3 dimensions with highest usage: New connections (50/sec), Persistent connections (2500 persistent connections/min), Throughput (1 CU can handle 2.22 Mbps). <br>
 > <br>
 > The scenarios described here are examples and are for illustration purposes only. For pricing information according to your region, see the [Pricing page](https://azure.microsoft.com/pricing/details/application-gateway/).
-
- <table>
-  <tr>
-    <th> SKU</th>
-    <th>v1 Fixed Price/mo</th>
-    <th>v2 Fixed Price/mo</th>
-     <th>Recommendation</th>
-  </tr>
-  <tr>
-     <td>Standard Medium</td>
-    <td>102.2 </td>
-    <td>179.58</td>
-     <td rowspan="2">V2 SKU can handle a larger number of requests than a V1 gateway, so we recommend consolidating multiple V1 gateways into a single V2 gateway, to optimize the cost. Ensure that consolidation doesn’t exceed the Application Gateway <a href="../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits">limits</a>. We recommend 3:1 consolidation.</td>
-  </tr>
-    <td>WAF Medium </td>
-    <td>183.96 </td>
-    <td>262.8</td>     
-  </tr>
-   <tr>
-     <td>Standard Large</td>
-    <td>467.2 </td>
-    <td>179.58</td>
-     <td rowspan="2">For these variants, in most cases, moving to a V2 gateway can provide you with a better price benefit compared to V1.</td>
-  </tr>
-    <td>WAF Large </td>
-    <td>654.08 </td>
-    <td>262.8</td>     
-  </tr>
- </table>
  
-
-
 For further concerns regarding the pricing, work with your CSAM or get in touch with our support team for assistance.
 
 ## Common questions 
