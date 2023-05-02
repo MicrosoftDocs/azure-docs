@@ -119,7 +119,7 @@ Customers will have until June 30, 2023 to resolve this issue. After this date, 
 
 **Estimated date for change: June 2023**
 
-With Agentless Container Posture capabilities available in Defender CSPM, the agent-based discovery capabilities are set to be retired in June 2023. If you currently use container capabilities within Defender CSPM, please make sure that the [relevant extensions](concept-agentless-containers.md#onboard-agentless-containers-for-cspm) are enabled before this date to continue receiving container-related value with the new agentless capabilities such as container-related attack paths, insights and inventory.
+With Agentless Container Posture capabilities available in Defender CSPM, the agent-based discovery capabilities are set to be retired in June 2023. If you currently use container capabilities within Defender CSPM, please make sure that the [relevant extensions](concept-agentless-containers.md#onboard-agentless-containers-for-cspm) are enabled before this date to continue receiving container-related value of the new agentless capabilities such as container-related attack paths, insights, and inventory.
 
 ## Next steps
 
