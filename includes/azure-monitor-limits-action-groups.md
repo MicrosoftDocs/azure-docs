@@ -20,7 +20,7 @@ You can have an unlimited number of action groups in a subscription.
 |ITSM |10 ITSM actions in an action group. |Same as Default |
 |Logic app |10 logic app actions in an action group. |Same as Default |
 |Runbook |10 runbook actions in an action group. |Same as Default |
-|Secure Webhook |10 secure webhook actions in an action group.  Maximum number of webhook calls is 1500 per minute per subscription. Other limits are available at [action-specific information](../articles/azure-monitor/alerts/action-groups.md#action-specific-information).  |Same as Default |
+|Secure Webhook |10 secure webhook actions in an action group.  Maximum number of webhook calls is 1500 per minute per subscription. |Same as Default |
 |SMS |10 SMS actions in an action group.<br>In production: No more than 1 SMS message every 5 minutes.<br>In a test action group: No more than 1 SMS every 1 minute.|Same as Default |
 |Voice |10 voice actions in an action group.<br>In production: No more than 1 voice call every 5 minutes.<br>In a test action group: No more than 1 voice call every 1 minute.|Same as Default |
-|Webhook |10 webhook actions in an action group.  Maximum number of webhook calls is 1500 per minute per subscription. Other limits are available at [action-specific information](../articles/azure-monitor/alerts/action-groups.md#action-specific-information).  |Same as Default |
+|Webhook |10 webhook actions in an action group.  Maximum number of webhook calls is 1500 per minute per subscription. |Same as Default |

@@ -1334,12 +1334,8 @@ items:
       items:
       - name: Common schema for alerts
         href: alerts/alerts-common-schema.md
-      - name: Create an action group
+      - name: Action groups
         href: alerts/action-groups.md
-      - name: Notification rate limiting
-        href: alerts/alerts-rate-limiting.md
-      - name: SMS alert behavior
-        href: alerts/alerts-sms-behavior.md
       - name: Alert processing rules
         href: alerts/alerts-processing-rules.md
         displayName: Azure CLI, az monitor action rule

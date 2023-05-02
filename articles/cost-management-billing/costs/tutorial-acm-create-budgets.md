@@ -148,7 +148,7 @@ Budget cost evaluations are based on actual cost. They don't include amortizatio
 
 When you create or edit a budget for a subscription or resource group scope, you can configure it to call an action group. The action group can perform various actions when your budget threshold is met. 
 
-Action Groups are currently only supported for subscription and resource group scopes. For more information about creating action groups, see [Configure basic action group settings](../../azure-monitor/alerts/action-groups.md#configure-basic-action-group-settings). 
+Action Groups are currently only supported for subscription and resource group scopes. For more information about creating action groups, see [action groups](../../azure-monitor/alerts/action-groups.md). 
 
 For more information about using budget-based automation with action groups, see [Manage costs with Azure budgets](../manage/cost-management-budget-scenario.md).
 
