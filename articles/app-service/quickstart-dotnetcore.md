@@ -63,23 +63,7 @@ If you've already installed Visual Studio 2022:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
 - <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio Code</a>.
 - The <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack" target="_blank">Azure Tools</a> extension.
-
-### [.NET 7.0](#tab/net70)
-
-<a href="https://dotnet.microsoft.com/download/dotnet/7.0" target="_blank">
-    Install the latest .NET 7.0 SDK.
-</a>
-
-### [.NET Framework 4.8](#tab/netframework48)
-
-<a href="https://dotnet.microsoft.com/download/dotnet-framework/net48" target="_blank">
-    Install the .NET Framework 4.8 Developer Pack.
-</a>
-
-> [!NOTE]
-> Visual Studio Code is cross-platform code editor, however; .NET Framework is not. If you're developing .NET Framework apps with Visual Studio Code, consider using a Windows machine to satisfy the build dependencies.
-
----
+- <a href="https://dotnet.microsoft.com/download/dotnet/7.0" target="_blank">The latest .NET 7.0 SDK.</a>
 
 :::zone-end
 
@@ -89,26 +73,7 @@ If you've already installed Visual Studio 2022:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
 - The <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a>.
-- The .NET SDK (includes runtime and CLI).
-
-### [.NET 7.0](#tab/net70)
-
-<a href="https://dotnet.microsoft.com/download/dotnet/7.0" target="_blank">
-    Install the latest .NET 7.0 SDK.
-</a>
-
-### [.NET Framework 4.8](#tab/netframework48)
-
-<a href="https://dotnet.microsoft.com/download/dotnet/7.0" target="_blank">
-    Install the latest .NET 7.0 SDK.
-</a> and <a href="https://dotnet.microsoft.com/download/dotnet-framework/net48" target="_blank">
-    the .NET Framework 4.8 Developer Pack.
-</a>
-
-> [!NOTE]
-> The [.NET CLI](/dotnet/core/tools) and .NET 7.0 are both cross-platform, but .NET Framework is not. If you're developing .NET Framework apps with the .NET CLI, consider using a Windows machine to satisfy the build dependencies. .NET 7.0 is cross-platform.
-
----
+- <a href="https://dotnet.microsoft.com/download/dotnet/7.0" target="_blank">The latest .NET 7.0 SDK.</a>
 
 :::zone-end
 
@@ -118,41 +83,15 @@ If you've already installed Visual Studio 2022:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
 - The <a href="/powershell/azure/install-az-ps" target="_blank">Azure PowerShell</a>.
-- The .NET SDK (includes runtime and CLI).
-
-### [.NET 7.0](#tab/net70)
-
-<a href="https://dotnet.microsoft.com/download/dotnet/7.0" target="_blank">
-    Install the latest .NET 7.0 SDK.
-</a>
-
-### [.NET Framework 4.8](#tab/netframework48)
-
-<a href="https://dotnet.microsoft.com/download/dotnet/7.0" target="_blank">
-    Install the latest .NET 7.0 SDK.
-</a> and <a href="https://dotnet.microsoft.com/download/dotnet-framework/net48" target="_blank">
-    the .NET Framework 4.8 Developer Pack.
-</a>
-
-> [!NOTE]
-> [Azure PowerShell](/powershell/azure/) and .NET 7.0 are both cross-platform, but .NET Framework is not. If you're developing .NET Framework apps with the .NET CLI, consider using a Windows machine to satisfy the build dependencies.
-
----
+- <a href="https://dotnet.microsoft.com/download/dotnet/7.0" target="_blank">The latest .NET 7.0 SDK.</a>
 
 :::zone-end
 
 :::zone target="docs" pivot="development-environment-azure-portal"
 
-### [.NET 7.0](#tab/net70)
-
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
 - A GitHub account [Create an account for free](http://github.com/).
 
-### [.NET Framework 4.8](#tab/netframework48)
-
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
-- A GitHub account [Create an account for free](http://github.com/).
-    
 :::zone-end
 
 ## Create an ASP.NET web app
@@ -210,22 +149,9 @@ If you've already installed Visual Studio 2022:
 
 1. In Visual Studio Code terminal, create a new .NET web app using the [`dotnet new webapp`](/dotnet/core/tools/dotnet-new#web-options) command.
 
-    ### [.NET 7.0](#tab/net70)
-    
     ```dotnetcli
     dotnet new webapp -f net7.0
     ```
-    
-    ### [.NET Framework 4.8](#tab/netframework48)
-    
-    ```dotnetcli
-    dotnet new webapp --target-framework-override net48
-    ```
-    
-    > [!IMPORTANT]
-    > The `--target-framework-override` flag is a free-form text replacement of the target framework moniker (TFM) for the project, and makes *no guarantees* that the supporting template exists or compiles. You can only build and run .NET Framework apps on Windows.
-    
-    ---
 
 1. From the **Terminal** in Visual Studio Code, run the application locally using the [`dotnet run`](/dotnet/core/tools/dotnet-run) command.
 
@@ -235,20 +161,10 @@ If you've already installed Visual Studio 2022:
 
 1. Open a web browser, and navigate to the app at `https://localhost:5001`.
 
-    ### [.NET 7.0](#tab/net70)
-    
     You'll see the template ASP.NET Core 7.0 web app displayed in the page.
     
     :::image type="content" source="media/quickstart-dotnetcore/local-webapp-net.png" alt-text="Screenshot of Visual Studio Code - run .NET 7.0 in browser locally." lightbox="media/quickstart-dotnetcore/local-webapp-net.png" border="true":::
     
-    ### [.NET Framework 4.8](#tab/netframework48)
-    
-    You'll see the template ASP.NET Framework 4.8 web app displayed in the page.
-    
-    :::image type="content" source="media/quickstart-dotnetcore/vs-local-webapp-netframework48.png" alt-text="Screenshot of Visual Studio Code - run .NET 4.8 in browser locally." lightbox="media/quickstart-dotnetcore/vs-local-webapp-netframework48.png" border="true":::
-    
-    ---
-
 :::zone-end
 
 <!-- markdownlint-disable MD044 -->
@@ -259,25 +175,11 @@ If you've already installed Visual Studio 2022:
 
     <!-- Please keep the following commands in two lines instead of one && separated line. The latter doesn't work in PowerShell -->
     
-    ### [.NET 7.0](#tab/net70)
-    
     ```dotnetcli
     dotnet new webapp -n MyFirstAzureWebApp --framework net7.0
     cd MyFirstAzureWebApp
     ```
     
-    ### [.NET Framework 4.8](#tab/netframework48)
-    
-    ```dotnetcli
-    dotnet new webapp -n MyFirstAzureWebApp --target-framework-override net48
-    cd MyFirstAzureWebApp
-    ```
-    
-    > [!IMPORTANT]
-    > The `--target-framework-override` flag is a free-form text replacement of the target framework moniker (TFM) for the project, and makes *no guarantees* that the supporting template exists or compiles. You can only build .NET Framework apps on Windows.
-    
-    ---
-
 1. From the same terminal session, run the application locally using the [`dotnet run`](/dotnet/core/tools/dotnet-run) command.
 
     ```dotnetcli
@@ -286,39 +188,29 @@ If you've already installed Visual Studio 2022:
 
 1. Open a web browser, and navigate to the app at `https://localhost:5001`.
 
-    ### [.NET 7.0](#tab/net70)
-    
     You'll see the template ASP.NET Core 7.0 web app displayed in the page.
     
     :::image type="content" source="media/quickstart-dotnet/local-webapp-net.png" alt-text="Screenshot of Visual Studio Code - ASP.NET Core 7.0 in local browser." lightbox="media/quickstart-dotnet/local-webapp-net.png" border="true":::
     
-    ### [.NET Framework 4.8](#tab/netframework48)
-    
-    You'll see the template ASP.NET Framework 4.8 web app displayed in the page.
-    
-    :::image type="content" source="media/quickstart-dotnet/local-webapp-net48.png" alt-text="Screenshot of Visual Studio Code - ASP.NET Framework 4.8 in local browser." lightbox="media/quickstart-dotnet/local-webapp-net48.png" border="true":::
-    
-    ---
-
 :::zone-end
 
 :::zone target="docs" pivot="development-environment-azure-portal"
 
-In this step we will fork a demo project to deploy.
+In this step, you fork a demo project to deploy.
 
 ### [.NET 7.0](#tab/net70)
 
-- Go to the [.NET 7.0 sample app](https://github.com/Azure-Samples/dotnetcore-docs-hello-world).
-- Select the **Fork** button in the upper right on the GitHub page.
-- Select the **Owner** and leave the default **Repository name**.
-- Select **Create fork**.
+1. Go to the [.NET 7.0 sample app](https://github.com/Azure-Samples/dotnetcore-docs-hello-world).
+1. Select the **Fork** button in the upper right on the GitHub page.
+1. Select the **Owner** and leave the default **Repository name**.
+1. Select **Create fork**.
 
 ### [.NET Framework 4.8](#tab/netframework48)
 
-- Go to the [.NET Framework 4.8 sample app](https://github.com/Azure-Samples/app-service-web-dotnet-get-started).
-- Select the **Fork** button in the upper right on the GitHub page.
-- Select the **Owner** and leave the default **Repository name**.
-- Select **Create fork**.
+1. Go to the [.NET Framework 4.8 sample app](https://github.com/Azure-Samples/app-service-web-dotnet-get-started).
+1. Select the **Fork** button in the upper right on the GitHub page.
+1. Select the **Owner** and leave the default **Repository name**.
+1. Select **Create fork**.
     
 :::zone-end
 
@@ -406,11 +298,8 @@ Follow these steps to create your App Service resources and publish your project
     1. Select **Create new Web App... Advanced**.
     1. For **Enter a globally unique name**, use a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A good pattern is to use a combination of your company name and an app identifier.
     1. Select **Create new resource group** and provide a name like `myResourceGroup`.
-    1. When prompted to **Select a runtime stack**:
-      - For *.NET 7.0*, select **.NET 7 (STS)**
-      - For *.NET Framework 4.8*, select **ASP.NET V4.8**
+    1. When prompted to **Select a runtime stack**, select **.NET 7 (STS)**.
     1. Select an operating system (Windows or Linux).
-        - For *.NET Framework 4.8*, Windows will be selected implicitly.
     1. Select a location near you.
     1. Select **Create a new App Service plan**, provide a name, and select the **F1 Free** [pricing tier][app-service-pricing-tier].
     1. Select **Skip for now** for the Application Insights resource.
@@ -421,19 +310,9 @@ Follow these steps to create your App Service resources and publish your project
 1. In the popup **Always deploy the workspace "MyFirstAzureWebApp" to \<app-name>"**, select **Yes** so that Visual Studio Code deploys to the same App Service app every time you're in that workspace.
 1. When publishing completes, select **Browse Website** in the notification and select **Open** when prompted.
 
-    ### [.NET 7.0](#tab/net70)
-
     You'll see the ASP.NET Core 7.0 web app displayed in the page.
 
     :::image type="content" source="media/quickstart-dotnetcore/Azure-webapp-net.png" lightbox="media/quickstart-dotnetcore/Azure-webapp-net.png" border="true" alt-text="Screenshot of Visual Studio Code - ASP.NET Core 7.0 web app in Azure.":::
-
-    ### [.NET Framework 4.8](#tab/netframework48)
-
-    You'll see the ASP.NET Framework 4.8 web app displayed in the page.
-
-    :::image type="content" source="media/quickstart-dotnet/Azure-webapp-net48.png" lightbox="media/quickstart-dotnet/vs-Azure-webapp-net48.png" border="true" alt-text="Screenshot of Visual Studio Code - ASP.NET Framework 4.8 web app in Azure.":::
-
-    ---
 
 :::zone-end
 
@@ -456,7 +335,7 @@ Follow these steps to create your App Service resources and publish your project
     - If the `az` command isn't recognized, ensure you have the Azure CLI installed as described in [Prerequisites](#prerequisites).
     - Replace `<app-name>` with a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A good pattern is to use a combination of your company name and an app identifier.
     - The `--sku F1` argument creates the web app on the **Free** [pricing tier][app-service-pricing-tier]. Omit this argument to use a faster premium tier, which incurs an hourly cost.
-    - Replace `<os>` with either `linux` or `windows`. You must use `windows` when targeting *ASP.NET Framework 4.8*.
+    - Replace `<os>` with either `linux` or `windows`. 
     - You can optionally include the argument `--location <location-name>` where `<location-name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) command.
     
     The command might take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan, and hosting app, configuring logging, then performing ZIP deployment. Then it shows a message with the app's URL:
@@ -467,20 +346,10 @@ Follow these steps to create your App Service resources and publish your project
 
 1. Open a web browser and navigate to the URL:
 
-    ### [.NET 7.0](#tab/net70)
-    
     You'll see the ASP.NET Core 7.0 web app displayed in the page.
     
     :::image type="content" source="media/quickstart-dotnet/Azure-webapp-net.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the CLI - ASP.NET Core 7.0 web app in Azure.":::
     
-    ### [.NET Framework 4.8](#tab/netframework48)
-    
-    You'll see the ASP.NET Framework 4.8 web app displayed in the page.
-    
-    :::image type="content" source="media/quickstart-dotnet/Azure-webapp-net48.png" lightbox="media/quickstart-dotnet/Azure-webapp-net48.png" border="true" alt-text="Screenshot of the CLI - ASP.NET Framework 4.8 web app in Azure.":::
-
-    -----
-
 :::zone-end
 
 <!-- markdownlint-disable MD044 -->
@@ -536,21 +405,10 @@ Follow these steps to create your App Service resources and publish your project
 
 1. Change to the release directory and create a zip file from the contents:
 
-    ### [.NET 7.0](#tab/net70)
-
     ```powershell-interactive
     cd bin\Release\net7.0\publish
     Compress-Archive -Path * -DestinationPath deploy.zip
     ```
-
-    ### [.NET Framework 4.8](#tab/netframework48)
-
-    ```powershell-interactive
-    cd bin\Release\net48\publish
-    Compress-Archive -Path * -DestinationPath deploy.zip
-    ```
-
-    -----
 
 1. Publish the zip file to the Azure app using the [Publish-AzWebApp](/powershell/module/az.websites/publish-azwebapp) command:
 
@@ -563,20 +421,10 @@ Follow these steps to create your App Service resources and publish your project
 
 1. Open a web browser and navigate to the URL:
 
-    ### [.NET 7.0](#tab/net70)
-    
     You'll see the ASP.NET Core 7.0 web app displayed in the page.
     
     :::image type="content" source="media/quickstart-dotnet/Azure-webapp-net.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the CLI - ASP.NET Core 7.0 web app in Azure.":::
     
-    ### [.NET Framework 4.8](#tab/netframework48)
-    
-    You'll see the ASP.NET Framework 4.8 web app displayed in the page.
-    
-    :::image type="content" source="media/quickstart-dotnet/Azure-webapp-net48.png" lightbox="media/quickstart-dotnet/Azure-webapp-net48.png" border="true" alt-text="Screenshot of the CLI - ASP.NET Framework 4.8 web app in Azure.":::
-
-    -----
-
 :::zone-end
 
 :::zone target="docs" pivot="development-environment-azure-portal"
@@ -587,36 +435,32 @@ Follow these steps to create your App Service resources and publish your project
 
 1. In the **App Services** page, select **+ Create**.
 
-1. In the **Basics** tab, under **Project details**, ensure the correct subscription is selected and then select to **Create new** resource group. Type *myResourceGroup* for the name.
-
-    :::image type="content" source="./media/quickstart-dotnet/project-details.png" alt-text="Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the web app.":::
-
-1. Under **Instance details**:
+1. In the **Basics** tab:
 
     ### [.NET 7.0](#tab/net70)
     
+    - Under **Resource group**, select **Create new**. Type *myResourceGroup* for the name.
     - Under **Name**, type a globally unique name for your web app.
     - Under **Publish**, select *Code*.
-    - Under **Runtime stack** select *.NET 6 (LTS)*.
+    - Under **Runtime stack** select *.NET 7 (STS)*.
     - Select an **Operating System**, and a **Region** you want to serve your app from.
+    - Under **App Service Plan**, select **Create new** and type *myAppServicePlan* for the name. 
+    - Under **Pricing plan**, select **Free F1**.
     
-    :::image type="content" source="media/quickstart-dotnet/app-service-dotnet-60.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the App Service Instance Details with a .NET 6 runtime.":::
-        
+    :::image type="content" source="./media/quickstart-dotnetcore/app-service-details-net7.png" lighbox="./media/quickstart-dotnetcore/app-service-details-net7.png" alt-text="Screenshot of new App Service app configuration for .NET 7 in the Azure portal.":::
+    
     ### [.NET Framework 4.8](#tab/netframework48)
     
+    - Under **Resource group**, select **Create new**. Type *myResourceGroup* for the name.
     - Under **Name**, type a globally unique name for your web app.
     - Under **Publish**, select *Code*.
     - Under **Runtime stack** select *ASP.NET V4.8*.
     - Select an **Operating System**, and a **Region** you want to serve your app from.
-
+    - Under **App Service Plan**, select **Create new** and type *myAppServicePlan* for the name. 
+    - Under **Pricing plan**, select **Free F1**.
     
-    :::image type="content" source="media/quickstart-dotnet/app-service-dotnet-48.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the App Service Instance Details with a ASP.NET V4.8 runtime.":::
-    
+    :::image type="content" source="./media/quickstart-dotnetcore/app-service-details-net48.png" lighbox="./media/quickstart-dotnetcore/app-service-details-net48.png" alt-text="Screenshot of new App Service app configuration for .NET Framework V4.8 in the Azure portal.":::
     -----
-
-1. Under **App Service Plan**, select **Create new** App Service Plan. Type *myAppServicePlan* for the name. To change to the Free tier, select **Change size**, select **Dev/Test** tab, select **F1**, and select the **Apply** button at the bottom of the page.
-
-    :::image type="content" source="./media/quickstart-dotnet/app-service-plan-details.png" alt-text="Screenshot of the Administrator account section where you provide the administrator username and password.":::
 
 1. Select the **Next: Deployment >** button at the bottom of the page.
 
@@ -656,17 +500,15 @@ Follow these steps to create your App Service resources and publish your project
 
     ### [.NET 7.0](#tab/net70)
     
-    :::image type="content" source="media/quickstart-dotnet/browse-dotnet-60.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the deployed sample app.":::
+    :::image type="content" source="media/quickstart-dotnetcore/browse-dotnet-70.png" lightbox="media/quickstart-dotnetcore/browse-dotnet-70.png" border="true" alt-text="Screenshot of the deployed .NET 7.0 sample app.":::
         
     ### [.NET Framework 4.8](#tab/netframework48)
        
-    :::image type="content" source="media/quickstart-dotnet/browse-dotnet-48.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the deployed sample app.":::
+    :::image type="content" source="media/quickstart-dotnet/browse-dotnet-48.png" lightbox="media/quickstart-dotnet/browse-dotnet-48.png" border="true" alt-text="Screenshot of the deployed .NET Framework 4.8 sample app.":::
     
     -----
 
 :::zone-end
-
-
 
 ## Update the app and redeploy
 
@@ -726,19 +568,9 @@ Follow these steps to update and redeploy your web app:
 1. Select **Deploy** when prompted.
 1. When publishing completes, select **Browse Website** in the notification and select **Open** when prompted.
 
-    ### [.NET 7.0](#tab/net70)
-
     You'll see the updated ASP.NET Core 7.0 web app displayed in the page.
 
     :::image type="content" source="media/quickstart-dotnet/updated-Azure-webapp-net.png" lightbox="media/quickstart-dotnet/updated-Azure-webapp-net.png" border="true" alt-text="Screenshot of Visual Studio Code - Updated ASP.NET Core 7.0 web app in Azure.":::
-
-    ### [.NET Framework 4.8](#tab/netframework48)
-
-    You'll see the updated ASP.NET Framework 4.8 web app displayed in the page.
-
-    :::image type="content" source="media/quickstart-dotnet/updated-Azure-webapp-net48.png" lightbox="media/quickstart-dotnet/updated-Azure-webapp-net48.png" border="true" alt-text="Screenshot of Visual Studio Code - Updated ASP.NET Framework 4.8 web app in Azure.":::
-
-    ---
 
 :::zone-end
 
@@ -757,44 +589,19 @@ In the local directory, open the *Index.cshtml* file. Replace the first `<div>` 
 
 Save your changes, then redeploy the app using the `az webapp up` command again:
 
-### [.NET 7.0](#tab/net70)
-
 ASP.NET Core 7.0 is cross-platform, based on your previous deployment replace `<os>` with either `linux` or `windows`.
 
 ```azurecli
 az webapp up --os-type <os>
 ```
 
-### [.NET Framework 4.8](#tab/netframework48)
-
-ASP.NET Framework 4.8 has framework dependencies, and must be hosted on Windows.
-
-```azurecli
-az webapp up --os-type windows
-```
-
-> [!TIP]
-> If you're interested in hosting your .NET apps on Linux, consider migrating from [ASP.NET Framework to ASP.NET Core](/aspnet/core/migration/proper-to-2x).
-
----
-
 This command uses values that are cached locally in the *.azure/config* file, including the app name, resource group, and App Service plan.
 
 Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and hit refresh.
 
-### [.NET 7.0](#tab/net70)
-
 You'll see the updated ASP.NET Core 7.0 web app displayed in the page.
 
 :::image type="content" source="media/quickstart-dotnet/updated-Azure-webapp-net.png" lightbox="media/quickstart-dotnet/updated-Azure-webapp-net.png" border="true" alt-text="Screenshot of the CLI - Updated ASP.NET Core 7.0 web app in Azure.":::
-
-### [.NET Framework 4.8](#tab/netframework48)
-
-You'll see the updated ASP.NET Framework 4.8 web app displayed in the page.
-
-:::image type="content" source="media/quickstart-dotnet/updated-Azure-webapp-net48.png" lightbox="media/quickstart-dotnet/updated-Azure-webapp-net48.png" border="true" alt-text="Screenshot of the CLI - Updated ASP.NET Framework 4.8 web app in Azure.":::
-
----
 
 :::zone-end
 
@@ -819,21 +626,10 @@ You'll see the updated ASP.NET Framework 4.8 web app displayed in the page.
 
 1. Change to the release directory and create a zip file from the contents:
 
-    ### [.NET 7.0](#tab/net70)
-
     ```powershell-interactive
     cd bin\Release\net7.0\publish
     Compress-Archive -Path * -DestinationPath deploy.zip
     ```
-
-    ### [.NET Framework 4.8](#tab/netframework48)
-
-    ```powershell-interactive
-    cd bin\Release\net48\publish
-    Compress-Archive -Path * -DestinationPath deploy.zip
-    ```
-
-    -----
 
 1. Publish the zip file to the Azure app using the [Publish-AzWebApp](/powershell/module/az.websites/publish-azwebapp) command:
 
@@ -846,19 +642,9 @@ You'll see the updated ASP.NET Framework 4.8 web app displayed in the page.
 
 1. Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and hit refresh.
 
-    ### [.NET 7.0](#tab/net70)
-    
     You'll see the updated ASP.NET Core 7.0 web app displayed in the page.
     
     :::image type="content" source="media/quickstart-dotnet/updated-Azure-webapp-net.png" lightbox="media/quickstart-dotnet/updated-Azure-webapp-net.png" border="true" alt-text="Screenshot of the CLI - Updated ASP.NET Core 7.0 web app in Azure.":::
-    
-    ### [.NET Framework 4.8](#tab/netframework48)
-    
-    You'll see the updated ASP.NET Framework 4.8 web app displayed in the page.
-    
-    :::image type="content" source="media/quickstart-dotnet/updated-Azure-webapp-net48.png" lightbox="media/quickstart-dotnet/updated-Azure-webapp-net48.png" border="true" alt-text="Screenshot of the CLI - Updated ASP.NET Framework 4.8 web app in Azure.":::
-    
-    ---
     
 :::zone-end
 
@@ -930,7 +716,7 @@ You'll see the updated ASP.NET Framework 4.8 web app displayed in the page.
     
     You'll see the updated ASP.NET Core 7.0 web app displayed in the page.
     
-    :::image type="content" source="media/quickstart-dotnet/updated-Azure-webapp-net.png" lightbox="media/quickstart-dotnet/updated-Azure-webapp-net.png" border="true" alt-text="Screenshot of the CLI - Updated ASP.NET Core 7.0 web app in Azure.":::
+    :::image type="content" source="media/quickstart-dotnetcore/portal-updated-dotnet-7.png" lightbox="media/quickstart-dotnetcore/portal-updated-dotnet-7.png" border="true" alt-text="Screenshot of the CLI - Updated ASP.NET Core 7.0 web app in Azure.":::
     
     ### [.NET Framework 4.8](#tab/netframework48)
     
