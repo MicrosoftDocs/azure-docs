@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 # Customer intent: As an Azure AD administrator, I want to know the scenarios that are supported by the sign in diagnostics for Azure AD so that I can determine whether the tool can help me with a sign-in issue.
 ---
 
-# Sign in diagnostics for Azure AD scenarios<a name="#supported-scenarios"></a>
+# Sign in diagnostics for Azure AD scenarios<a name="##supported-scenarios"></a>
 
 You can use the sign-in diagnostic for Azure AD to analyze what happened during a sign-in attempt and get recommendations for resolving problems without needing to involve Microsoft support.  
 
