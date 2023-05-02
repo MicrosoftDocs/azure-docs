@@ -61,7 +61,7 @@ The following articles will guide you to use the MQTT support in Event Grid and 
 
 ### Concepts
 
-- [Terminology](mqtt-terminology.md)
+- [Terminology](mqtt-event-grid-namespace-terminology.md)
 - [Client authentication](mqtt-client-authentication.md) 
 - [Access control](mqtt-access-control.md) 
 - [MQTT support](mqtt-mqtt-support.md) 
