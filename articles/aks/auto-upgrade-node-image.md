@@ -49,7 +49,7 @@ az provider register --namespace Microsoft.ContainerService
 
 If using the `node-image` cluster auto-upgrade channel or the `NodeImage` node OS auto-upgrade channel, Linux [unattended upgrades][unattended-upgrades] are disabled by default. You can't change node OS auto-upgrade channel value if your cluster auto-upgrade channel is `node-image`. In order to set the node OS auto-upgrade channel values, make sure the [cluster auto-upgrade channel][Autoupgrade] isn't `node-image`. 
 
-The nodeosupgradechannel isn't supported on Windows OS nodepools. Mariner is support is now rolled out and is expected to be available in all regions soon. 
+The nodeosupgradechannel isn't supported on Windows OS nodepools. Mariner support is now rolled out and is expected to be available in all regions soon. 
 
 ## Using node OS auto-upgrade
 
