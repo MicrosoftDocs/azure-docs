@@ -42,7 +42,7 @@ WhoIAM Rampart is built in Azure and runs in the Azure environment. The followin
 
 ## Install Rampart
 
-1. Go to whoiam.ai [Contact us](https://www.whoiam.ai/contact-us/) to get started. 
+Go to whoiam.ai [Contact us](https://www.whoiam.ai/contact-us/) to get started. 
 
 Automated templates deploy Azure resources. Templates configure the DevOps instance with code and configuration.
 
