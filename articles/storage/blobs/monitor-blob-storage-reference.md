@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: storage
 ms.topic: reference
-ms.date: 10/02/2020
+ms.date: 05/02/2023
 ms.author: normesta
 ms.subservice: blobs
 ms.custom: subject-monitoring

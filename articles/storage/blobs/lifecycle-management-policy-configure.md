@@ -5,7 +5,7 @@ description: Configure a lifecycle management policy to automatically move data 
 author: normesta
 
 ms.author: normesta
-ms.date: 01/27/2023
+ms.date: 05/02/2023
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual

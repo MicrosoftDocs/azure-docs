@@ -5,7 +5,7 @@ description: Azure storage offers different access tiers so that you can store y
 author: normesta
 
 ms.author: normesta
-ms.date: 01/27/2023
+ms.date: 05/02/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -240,7 +240,8 @@ az feature show --namespace Microsoft.Storage --name ColdTier
 
 ### Limitations and known issues
 
-- The [change feed](storage-blob-change-feed.md) is not yet compatible with the cold tier.
+- The [change feed](storage-blob-change-feed.md)is not yet compatible with the cold tier.
+- [Point in time restore](point-in-time-restore-overview.md) is not yet compatible with the cold tier. 
 - [Object replication](object-replication-overview.md) is not yet compatible with the cold tier.
 - The default access tier setting of the account can't be set to cold tier.
 - blobs can't be set to the cold tier by using AzCopy. During the preview, you can set the blob's tier to the cold tier by using the Azure portal, PowerShell, or the Azure CLI.
