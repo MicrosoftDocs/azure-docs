@@ -75,7 +75,7 @@ sections:
           - Select the operating system image that is tagged with NVMe support.
           Once supported VM family and OS image is selected, you will be prompted as below to select the NVMe disk controller type.
             
-            :::image type="content" source="./media/enable-nvme/nvmefaq1.png" alt-text="test":::
+            :::image type="content" source="./media/enable-nvme/nvmefaq1.png" alt-text="prompt to select N V M e disk controller type":::
 
           - Opt-in to NVMe by selecting NVMe disk controller type in Azure Portal or ARM/CLI/Power Shell template. For step-by-step instructions, please refer here.
           - Only Gen2 images are supported.  
@@ -99,7 +99,7 @@ sections:
         answer: |         
         To launch VMs with an NVMe interface in the Ebsv5 or Ebdsv5 VM families, it's essential to choose one of the supported OS images tagged as NVMe. If your current OS image is not supported for NVMe, you will see an error message that reads: “The selected image is not supported for NVMe. See supported VM images”.  
                     
-                    :::image type="content" source="./media/enable-nvme/nvmefaq2.png" alt-text="test":::
+        :::image type="content" source="./media/enable-nvme/nvmefaq2.png" alt-text="choosing one of the supported O S images on N V M e":::
       - question: |
           When will NVMe support be added to the OS image I currently use?   
         answer: |
@@ -109,7 +109,7 @@ sections:
         answer: |
           Using a Gen 2 image is a pre-requisite to enable NVMe interface on the Ebsv5 or Ebdsv5 VM series. If you use a Gen 1 VM image, you'll receive an error message that reads:” The selected image is not supported for NVMe. See supported VM images”.
           
-                  :::image type="content" source="./media/enable-nvme/nvmefaq3.png" alt-text="test":::
+                  :::image type="content" source="./media/enable-nvme/nvmefaq3.png" alt-text="choosing one of the supported O S images on N V M e interface for Gen 2":::
       - question: |
           What are the consequences of selecting an Azure region where NVMe is not currently enabled?    
         answer: |
@@ -163,28 +163,28 @@ sections:
           - Get nvme-cli package using the command =” sudo apt install nvme-cli” 
           - Run NVMe list command =” sudo nvme list “to fetch NVMe disk details:  
                          
-             :::image type="content" source="./media/enable-nvme/nvmefaq4.png" alt-text="test":::
+             :::image type="content" source="./media/enable-nvme/nvmefaq4.png" alt-text="instructions to identify N V M e disks on Linux V M ":::
 
-            :::image type="content" source="./media/enable-nvme/nvmefaq5.png" alt-text="test":::
+            :::image type="content" source="./media/enable-nvme/nvmefaq5.png" alt-text="instructions to choose namespace I D in Linux portal":::
           Below is how the data will show in response to Azure PowerShell commands
                      
-            :::image type="content" source="./media/enable-nvme/nvmefaq6.png" alt-text="test":::
+            :::image type="content" source="./media/enable-nvme/nvmefaq6.png" alt-text="example of response to Azure PowerShell command":::
       - question: |
           How can I identify NVMe disks on windows VM?  
         answer: |
           Launch PowerShell and use the following command: 
           PS C:\Users\AzureUser> wmic diskdrive get model,scsilogicalunit  
 
-          :::image type="content" source="./media/enable-nvme/nvmefaq7.png" alt-text="test":::
+          :::image type="content" source="./media/enable-nvme/nvmefaq7.png" alt-text="":::
         
           The ASAP attached disks will be presented in the guest with model string “Virtual_Disk NVME Premium” and the SCSI Logical Unit will have value portal visible LUN ID incremented by 1.   
           Below is a snapshot of how NVMe disks will be seen in NVMe enabled Windows VM: 
 
-          :::image type="content" source="./media/enable-nvme/nvmefaq8.png" alt-text="test":::
+          :::image type="content" source="./media/enable-nvme/nvmefaq8.png" alt-text="PowerShell command to identify the N V M e disk on Windows V M":::
 
           In guest output for data disks attached at LUN 0 and LUN 4 (CRP). The LUN ID is equivalent to NAMESPACE ID 
 
-          :::image type="content" source="./media/enable-nvme/nvmefaq9.png" alt-text="test":::
+          :::image type="content" source="./media/enable-nvme/nvmefaq9.png" alt-text="example of how N V M e disks will be seen in N V M e enabled Windows V M":::
 sections:
   - name: NVMe Pricing
     questions:
@@ -251,15 +251,15 @@ sections:
         answer: |
          If you see performance issues, you can submit a [support ticket](https://azure.microsoft.com/en-us/support/create-ticket). Please provide all relevant information on the ticket, such as the subscription, VM size used, region, logs, and screen shot. 
             
-            :::image type="content" source="./media/enable-nvme/nvmefaq10.png" alt-text="test":::
+            :::image type="content" source="./media/enable-nvme/nvmefaq10.png" alt-text="example of guest output for data disks":::
       - question: |
           How can I get additional help if I run into issues while setting up the VMs with the NVMe interface?  
         answer: |
          If you run into issues while creating or resizing Ebsv5 or Ebdsv5 to NVMe, and need assistance, you can submit a [support ticket](https://azure.microsoft.com/en-us/support/create-ticket).
             
-            :::image type="content" source="./media/enable-nvme/nvmefaq11.png" alt-text="test":::
+            :::image type="content" source="./media/enable-nvme/nvmefaq11.png" alt-text="example for reporting issues for feature by submitting support ticket":::
 
-            :::image type="content" source="./media/enable-nvme/nvmefaq12.png" alt-text="test":::
+            :::image type="content" source="./media/enable-nvme/nvmefaq12.png" alt-text="support ticket selection details":::
 
  
 

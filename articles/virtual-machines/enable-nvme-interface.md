@@ -3,10 +3,11 @@ title: Enable NVMe Interface.
 description: Enable NVMe interface on virtual machine
 author: iamwilliew
 ms.author: wwilliams
-ms.service: #Required; service per approved list. slug assigned by ACOM.
+ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 05/01/2023
-ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
+ms.custom: template-how-to-pattern
 
 
 ---
@@ -34,14 +35,14 @@ By meeting the above five conditions, you'll be able to enable NVMe on the suppo
 ## OS Images supported:
 
 ### Linux
-:::image type="content" source="./media/enable-nvme/linuxosimage1.png" alt-text="test":::
+:::image type="content" source="./media/enable-nvme/linuxosimage1.png" alt-text="list of linux os images supported by NVMe interface":::
 
 
 
 
 > [ !NOTE] 
 > Coming Soon:
-:::image type="content" source="./media/enable-nvme/linuxosimage3.png" alt-text="test":::
+:::image type="content" source="./media/enable-nvme/linuxosimage3.png" alt-text="list of linux os images coming soon for NVMe interface":::
 
 
 ### Windows
@@ -83,17 +84,17 @@ NVMe can be enabled during VM creation using various methods such as: Azure Port
 1. Add Disk Controller Filter
 To find the NVMe eligible sizes, click on "See All Sizes", add the Disk Controller filter, and then select NVMe:
 
-   :::image type="content" source="./media/enable-nvme/azureportal1.png" alt-text="test":::
+   :::image type="content" source="./media/enable-nvme/azureportal1.png" alt-text="instructions to add disk controller filter for N V M e interface":::
 
 1. Enable NVMe Feature
 Then visit the Advanced tab to officially enable NVMe:
 
-   :::image type="content" source="./media/enable-nvme/azureportal2.png" alt-text="test":::
+   :::image type="content" source="./media/enable-nvme/azureportal2.png" alt-text="instructions to enable N V M e interface feature":::
 
 1.  Verify Feature is Enabled
 Then in Review and Create, verify that this feature is enabled. 
 
-    :::image type="content" source="./media/enable-nvme/azureportal3.png" alt-text="test":::
+    :::image type="content" source="./media/enable-nvme/azureportal3.png" alt-text="instructions to review and verify features enablement":::
 
 ## Sample ARM template
 
