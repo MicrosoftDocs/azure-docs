@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 03/23/2023
 ms.author: jomondi
 ms.reviewer: alamaral
+ms.custom: not-enterprise-apps
 ---
 
 # Move application authentication to Azure Active Directory

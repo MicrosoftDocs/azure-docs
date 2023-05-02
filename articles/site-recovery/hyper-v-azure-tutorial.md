@@ -95,7 +95,7 @@ If you're running a Hyper-V Core server, download the setup file and complete th
 
 1. Register the server by running this command:
 
-    ```bash
+    ```cmd
     cd "C:\Program Files\Microsoft Azure Site Recovery Provider"
     "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved"
     ```
