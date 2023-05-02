@@ -2,7 +2,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 07/27/2022
+ ms.date: 04/28/2023
  ms.author: cherylmc
 
 #Customer intent: this file is used for both virtual wan and vpn gateway articles.

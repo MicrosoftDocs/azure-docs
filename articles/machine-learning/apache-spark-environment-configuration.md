@@ -113,14 +113,14 @@ Once the user identity has the appropriate roles assigned, data in the Azure sto
 
 ## Ensuring resource access for Spark jobs
 
-Spark jobs can use either a managed identity or user identity passthrough to access data and other resources. The following table summarizes the different mechanisms for resource access while using Azure Machine Learning Managed (Automatic) Spark compute and attached Synapse Spark pool.
+Spark jobs can use either a managed identity or user identity passthrough to access data and other resources. The following table summarizes the different mechanisms for resource access while using Azure Machine Learning serverless Spark compute (preview) and attached Synapse Spark pool.
 
 |Spark pool|Supported identities|Default identity|
 | ---------- | -------------------- | ---------------- |
-|Managed (Automatic) Spark compute|User identity and managed identity|User identity|
+|Serverless Spark compute (preview)|User identity and managed identity|User identity|
 |Attached Synapse Spark pool|User identity and managed identity|Managed identity - compute identity of the attached Synapse Spark pool|
 
-If the CLI or SDK code defines an option to use managed identity, Azure Machine Learning Managed (Automatic) Spark compute relies on a user-assigned managed identity attached to the workspace. You can attach a user-assigned managed identity to an existing Azure Machine Learning workspace using Azure Machine Learning CLI v2, or with `ARMClient`.
+If the CLI or SDK code defines an option to use managed identity, Azure Machine Learning serverless Spark compute (preview) relies on a user-assigned managed identity attached to the workspace. You can attach a user-assigned managed identity to an existing Azure Machine Learning workspace using Azure Machine Learning CLI v2, or with `ARMClient`.
 
 ## Next steps
 
