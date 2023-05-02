@@ -9,7 +9,7 @@ metadata:
   ms.author: wwilliams
 title: Enable NVMe FAQs
 summary: |
-  This article addresses some common questions about Windows virtual machines created in Azure u
+  This article addresses some common questions about enabling NVMe interface on virtual machines created in Azure.
 
 
 
@@ -94,7 +94,7 @@ sections:
       - question: |
          What happens if the OS I use isn't tagged as NVMe support? 
         answer: |         
-          To launch VMs with an NVMe interface in the Ebsv5 or Ebdsv5 VM families, it's essential to choose one of the supported OS images tagged as NVMe. If your current OS image is not supported for NVMe, you will see an error message that reads: “The selected image is not supported for NVMe. See supported VM images”.  
+          To launch VMs with an NVMe interface in the Ebsv5 or Ebdsv5 VM families, it's essential to choose one of the supported OS images tagged as NVMe. If your current OS image is not supported for NVMe, you'll see an error message that reads: “The selected image isn't supported for NVMe. See supported VM images”.  
                     
           :::image type="content" source="./media/enable-nvme/nvmefaq2.png" alt-text="choosing one of the supported O S images on N V M e":::
       - question: |
@@ -106,7 +106,7 @@ sections:
         answer: |
           Using a Gen 2 image is a pre-requisite to enable NVMe interface on the Ebsv5 or Ebdsv5 VM series. If you use a Gen 1 VM image, you'll receive an error message that reads:” The selected image isn't supported for NVMe. See supported VM images”.
           
-                  :::image type="content" source="./media/enable-nvme/nvmefaq3.png" alt-text="choosing one of the supported O S images on N V M e interface for Gen 2":::
+          :::image type="content" source="./media/enable-nvme/nvmefaq3.png" alt-text="choosing one of the supported O S images on N V M e interface for Gen 2":::
       - question: |
           What are the consequences of selecting an Azure region where NVMe isn't currently enabled?    
         answer: |
@@ -162,7 +162,8 @@ sections:
              :::image type="content" source="./media/enable-nvme/nvmefaq4.png" alt-text="instructions to identify N V M e disks on Linux V M ":::
 
             :::image type="content" source="./media/enable-nvme/nvmefaq5.png" alt-text="instructions to choose namespace I D in Linux portal":::
-          Here's how the data shows in response to Azure PowerShell commands
+            
+            Here's how the data shows in response to Azure PowerShell commands
                      
             :::image type="content" source="./media/enable-nvme/nvmefaq6.png" alt-text="example of response to Azure PowerShell command":::
       - question: |
@@ -203,6 +204,7 @@ sections:
           - The source VM e.g. E48bsv5 in this case should use a NVMe tagged OS image 
           - Ensure to set the destination **diskcontrollertype** of the VM as NVMe also in E112i VMs 
           
+          ```
           $resource_group_name = 
 
           $vm_name =  
@@ -228,6 +230,8 @@ sections:
           $vm.StorageProfile.DiskControllerType = $disk_controller_change_to 
 
           Update-AzVM -ResourceGroupName $resource_group_name -VM $vm 
+          ```
+          
       - question: |
           Can I convert a SCSI Ebv5 or Ebdsv5 VM to NVMe enabled while retaining same VM vCPU size with a NVMe tagged OS image?  
         answer: |

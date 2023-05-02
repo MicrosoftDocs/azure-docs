@@ -12,7 +12,7 @@ ms.custom: template-how-to-pattern
 
 ---
 
-# Enabling NVMe Interface on Virtual Machine
+# Enabling NVMe and SCSI Interface on Virtual Machine
 
 
 NVMe stands for nonvolatile memory express, which is a communication protocol that facilitates faster and more efficient data transfer between servers and storage systems. With NVMe, data can be transferred at the highest throughput and with the fastest response time. Azure now supports the NVMe interface on the Ebsv5 and Ebdsv5 family, offering the highest IOPS and throughput performance for remote disk storage among all the GP v5 VM series.
@@ -31,18 +31,28 @@ To enable the NVMe interface, the following prerequisites must be met:
 - Only Gen2 images are supported
 - Choose one of the Azure regions where NVMe is enabled
 
-By meeting the above five conditions, you'll be able to enable NVMe on the supported VM family in no time. Please follow the above conditions to successfully create or resize a VM with NVMe without any complications. Refer to the FAQ to learn about NVMe enablement.
-## OS Images supported:
+By meeting the above five conditions, you'll be able to enable NVMe on the supported VM family in no time. Please follow the above conditions to successfully create or resize a VM with NVMe without any complications. Refer to the [FAQ](enable-nvme-faqs.yml) to learn about NVMe enablement.
+## OS Images supported
 
 ### Linux
-:::image type="content" source="./media/enable-nvme/linuxosimage1.png" alt-text="list of linux os images supported by NVMe interface":::
+| Distribution | Image |
+|--------------------------------------|------------------------------------------------------------------|
+|       Almalinux 8.x (currently 8.7)  |     almalinux: almalinux:8-gen2: latest                          |
+|     Almalinux 9.x (currently 9.1)    |   almalinux: almalinux:9-gen2: latest                            |
+|     Debian 11                        |   Debian: debian-11:11-gen2: latest                              |
+|     CentOS 7.9                       |   openlogic: centos:7_9-gen2: latest                             |
+|     RHEL 7.9                         |   RedHat: RHEL:79-gen2: latest                                   |
+|     RHEL 8.6                         |   RedHat: RHEL:86-gen2: latest                                   |
+|     RHEL 8.7                         |   RedHat: RHEL:87-gen2: latest                                   |
+|     RHEL 9.1                         |   RedHat: RHEL:91-gen2: latest                                   |
+|     Ubuntu 18.04                     |   Canonical: UbuntuServer:18_04-lts-gen2: latest                 |
+|     Ubuntu 20.04                     |   Canonical:0001-com-ubuntu-server-focal:20_04-lts-gen2: latest  |
+|     Ubuntu 22.04                     |   canonical:0001-com-ubuntu-server-jammy:22_04-lts-gen2: latest  |
 
 
 
 
-> [ !NOTE] 
-> Coming Soon:
-:::image type="content" source="./media/enable-nvme/linuxosimage3.png" alt-text="list of linux os images coming soon for NVMe interface":::
+
 
 
 ### Windows
@@ -77,26 +87,23 @@ By meeting the above five conditions, you'll be able to enable NVMe on the suppo
 - [Azure portal - Plan ID: 2022-datacenter-azure-edition-core](https://portal.azure.com/#create/microsoftwindowsserver.windowsserver2022-datacenter-azure-edition-core)
 - [Azure portal - Plan 2022-datacenter-azure-edition-core-smalldisk](https://portal.azure.com/#create/microsoftwindowsserver.windowsserver2022-datacenter-azure-edition-core-smalldisk)
 
-## Launching a VM with NVMe interface:
+## Launching a VM with NVMe interface
 NVMe can be enabled during VM creation using various methods such as: Azure Portal, CLI, PowerShell, and ARM templates. To create an NVMe VM, you must first enable the NVMe option on a VM and select the NVMe controller disk type for the VM. Note that the NVMe diskcontrollertype can be enabled during creation or updated to NVMe when the VM is stopped and deallocated, provided that the VM size supports NVMe. 
 
-
-1. Add Disk Controller Filter
-To find the NVMe eligible sizes, click on "See All Sizes", add the Disk Controller filter, and then select NVMe:
+### Azure Portal View
+1. Add Disk Controller Filter. To find the NVMe eligible sizes, select **See All Sizes**, select the **Disk Controller** filter, and then select **NVMe**:
 
    :::image type="content" source="./media/enable-nvme/azureportal1.png" alt-text="instructions to add disk controller filter for N V M e interface":::
 
-1. Enable NVMe Feature
-Then visit the Advanced tab to officially enable NVMe:
+1. Enable NVMe feature by visiting the **Advanced** tab.
 
    :::image type="content" source="./media/enable-nvme/azureportal2.png" alt-text="instructions to enable N V M e interface feature":::
 
-1.  Verify Feature is Enabled
-Then in Review and Create, verify that this feature is enabled. 
+1.  Verify Feature is enabled by going to **Review and Create**.
 
     :::image type="content" source="./media/enable-nvme/azureportal3.png" alt-text="instructions to review and verify features enablement":::
 
-## Sample ARM template
+### Sample ARM template
 
 ```json
 
@@ -185,12 +192,12 @@ Then in Review and Create, verify that this feature is enabled.
 
             } 
 
-        }, 
+        }
 ```
  
 
 >[!TIP] 
-> Use the same parameter "DiskControllerType" if you are using the PowerShell or CLI tools to launch the NVMe supported VM.
+> Use the same parameter **DiskControllerType** if you are using the PowerShell or CLI tools to launch the NVMe supported VM.
 
 ## Next steps
 

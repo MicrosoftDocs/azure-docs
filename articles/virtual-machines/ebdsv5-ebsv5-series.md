@@ -16,7 +16,7 @@ ms.custom: template-sizes
 
 The memory-optimized Ebsv5 and Ebdsv5 Azure virtual machine (VM) series deliver higher remote storage performance in each VM size than the [Ev4 series](ev4-esv4-series.md). The increased remote storage performance of the Ebsv5 and Ebdsv5 VMs is ideal for storage throughput-intensive workloads. For example, relational databases and data analytics applications.  
 
-The Ebsv5 and Ebdsv5 VMs offer up to 120000 IOPS and 4000 MBps of remote disk storage throughput. Both series also include up to 512 GiB of RAM. The Ebdsv5 series has local SSD storage up to 2400 GiB. Both series provide a 3X increase in remote storage performance of data-intensive workloads compared to prior VM generations. You can use these series to consolidate existing workloads on fewer VMs or smaller VM sizes while achieving potential cost savings. The Ebdsv5 series comes with a local disk and Ebsv5 is without a local disk. Standard SSDs and Standard HDD disk storage aren't supported in the Ebv5 series. 
+The Ebsv5 and Ebdsv5 VMs offer up to 260000 IOPS and 8000 MBps of remote disk storage throughput. Both series also include up to 672 GiB of RAM. The Ebdsv5 series has local SSD storage up to 3800 GiB. Both series provide a 3X increase in remote storage performance of data-intensive workloads compared to prior VM generations. You can use these series to consolidate existing workloads on fewer VMs or smaller VM sizes while achieving potential cost savings. The Ebdsv5 series comes with a local disk and Ebsv5 is without a local disk. Standard SSDs and Standard HDD disk storage aren't supported in the Ebv5 series. 
 
 The Ebdsv5 and Ebsv5 series run on the Intel® Xeon® Platinum 8370C (Ice Lake) processors in a hyper-threaded configuration. The series are ideal for various memory-intensive enterprise applications. They feature:
 
@@ -31,11 +31,11 @@ The Ebdsv5 and Ebsv5 series run on the Intel® Xeon® Platinum 8370C (Ice Lake) 
 > - Accelerated networking is required and turned on by default on all Ebsv5 and Ebdsv5 VMs. 
 > - Ebsv5 and Ebdsv5-series VMs can [burst their disk performance](disk-bursting.md) and get up to their bursting max for up to 30 minutes at a time.
 > - The E112i size is offered as NVMe only to provide the highest IOPS and throughput performance. If you wish to achieve higher remote storage performance for small sizes, refer to the [instructions](enable-nvme-interface.md) on how to switch to the NVMe interface for sizes ranging from 2-96 vCPU. See the NVMe VM spec table to see the improved performance details.
-> - Please note that the NVMe capability is only available in the following regions: US North, Southeast Asia, West Europe, Australia East, North Europe, West US 3, UK South, Sweden Central, East US, Central US, West US2, East US 2, South Central US. (additional regions will be added soon)
+> - Please note that the NVMe capability is only available in the following regions: US North, Southeast Asia, West Europe, Australia East, North Europe, West US 3, UK South, Sweden Central, East US, Central US, West US2, East US 2, South Central US. 
 
 ## Ebdsv5 series
 
-Ebdsv5-series sizes run on the Intel® Xeon® Platinum 8370C (Ice Lake) processors. The Ebdsv5 VM sizes feature up to 512 GiB of RAM, in addition to fast and large local SSD storage (up to 2400 GiB). These VMs are ideal for memory-intensive enterprise applications and applications that benefit from high remote storage performance, low latency, high-speed local storage. Remote Data disk storage is billed separately from VMs. 
+Ebdsv5-series sizes run on the Intel® Xeon® Platinum 8370C (Ice Lake) processors. The Ebdsv5 VM sizes feature up to 672 GiB of RAM, in addition to fast and large local SSD storage (up to 3800 GiB). These VMs are ideal for memory-intensive enterprise applications and applications that benefit from high remote storage performance, low latency, high-speed local storage. Remote Data disk storage is billed separately from VMs. 
 
 - [Premium Storage](premium-storage-performance.md): Supported
 - [Premium Storage caching](premium-storage-performance.md): Supported
@@ -122,10 +122,10 @@ Ebsv5-series sizes run on the Intel® Xeon® Platinum 8272CL (Ice Lake). These V
 - [High performance compute](sizes-hpc.md)
 - [Previous generations](sizes-previous-gen.md)
 
-Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+
 
 ## Next steps
 
 - [Enabling NVMe Interface](enable-nvme-interface.md)
-- [Enable NVMe FAQs](enable-nvme-faqs.md)
+- [Enable NVMe FAQs](enable-nvme-faqs.yml)
 - Use the Azure [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
