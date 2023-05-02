@@ -21,7 +21,7 @@ Routing the messages from your clients to an Azure service or your custom endpoi
 - Serverless applications: trigger a serverless function based on the routed messages from your clients. For example, when a motion sensor detects a motion, send a notification to security personnel to address it.
 - Data Visualizations: build visualizations of the routed data from your clients to easily represent and understand the data as well as highlight trends and outliers.
 
-## Routing  Configuration:
+## Routing configuration:
 
 The routing configuration enables you to send all your messages from your clients to an [Event Grid topic](custom-topics.md), and configuring [Event Grid subscriptions](subscribe-through-portal.md) to route the messages from that Event Grid topic to the [supported event handlers](event-handlers.md). Use the following high-level steps to achieve this:
 
