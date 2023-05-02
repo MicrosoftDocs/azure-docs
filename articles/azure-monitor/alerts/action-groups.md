@@ -15,7 +15,7 @@ This article shows you how to create and manage action groups in the Azure porta
 
 Each action is made up of the following properties:
 
-- **Type**: The notification that's sent or action that's performed. Examples include sending a voice call, SMS, or email. You can also trigger various types of automated actions. For detailed information about notification and action types, see [Action-specific information](#action-specific-information), later in this article.
+- **Type**: The notification that's sent or action that's performed. Examples include sending a voice call, SMS, or email. You can also trigger various types of automated actions.
 - **Name**: A unique identifier within the action group.
 - **Details**: The corresponding details that vary by type.
 
