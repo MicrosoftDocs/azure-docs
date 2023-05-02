@@ -1,5 +1,5 @@
 ---
-title: Retrieve load balancer information by using Azure Instance Metadata Service
+title: Retrieve load balancer and virtual machine IP information by using Azure Instance Metadata Service
 titleSuffix: Azure Load Balancer
 description: Get started learning about using Azure Instance Metadata Service to retrieve load balancer information.
 services: load-balancer
@@ -19,7 +19,7 @@ When you place virtual machine or virtual machine set instances behind an Azure 
 
 The metadata includes the following information for the virtual machines or virtual machine scale sets:
 
-* Standard SKU public IP.
+* The instance level Public or Private IP of the specific Virtual Machine instance
 * Inbound rule configurations of the load balancer of each private IP of the network interface.
 * Outbound rule configurations of the load balancer of each private IP of the network interface.
 
