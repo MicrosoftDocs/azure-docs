@@ -142,17 +142,29 @@ items:
       items:
       - name: Call the Analyze API
         href: how-to/call-analyze-image-40.md
-      - name: Create a custom model
-        href: how-to/model-customization.md
-      - name: Migrate a Custom Vision project to Image Analysis
-        href: how-to/migrate-from-custom-vision.md
-      - name: Verify a custom model COCO file
-        href: how-to/coco-verification.md
+      - name: Model customization
+        items:
+        - name: Create a custom model
+          href: how-to/model-customization.md
+        - name: Migrate a Custom Vision project to Image Analysis
+          href: how-to/migrate-from-custom-vision.md
+        - name: Verify a custom model COCO file
+          href: how-to/coco-verification.md
+      - name: Shelf analysis
+        items:
+        - name: Prepare images for shelf analysis
+          href: how-to/shelf-modify-images.md
+        - name: Analyze products on a shelf
+          href: how-to/shelf-analyze.md
+        - name: Create a custom shelf analysis model
+          href: how-to/shelf-model-customization.md
+        - name: Match shelf images to a planogram
+          href: how-to/shelf-planogram.md
       - name: Call the Image retrieval APIs
         href: how-to/image-retrieval.md
       - name: Call the Background removal API
         href: how-to/background-removal.md
-      - name: Configure storage account
+      - name: Configure a storage account
         href: how-to/blob-storage-search.md
     - name: Version 3.2
       items:
