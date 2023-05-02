@@ -1,12 +1,12 @@
 ---
-title: 'Routing MQTT Messages'
+title: 'Routing MQTT Messages in  in Azure Event Grid'
 description: 'An overview of Routing MQTT Messages and how to configure it.'
 ms.topic: conceptual
 ms.date: 04/30/2023
 author: george-guirguis
 ms.author: geguirgu
 ---
-# Routing MQTT Messages
+# Routing MQTT Messages in Azure Event Grid
 
 > [!IMPORTANT]
 > **Early access reviewer**: please note that portal screenshots are not added to the article yet. That should be completed by May 4th, 2023.
@@ -57,13 +57,13 @@ For enrichments configuration instructions, go to [Enrichment portal configurati
 ```azurecli-interactive
 az resource create --resource-type Microsoft.EventGrid/namespaces --id /subscriptions/<Subscription ID>/resourceGroups/<Resource Group>/providers/Microsoft.EventGrid/namespaces/<Namespace Name> --is-full-object --api-version 2023-06-01-preview --properties @./resources/NS.json
 ```
-NS.json
+**NS.json**
 ```json
 "properties": {
 	"inputSchema": "CloudEventSchemaV1_0",
 	"topicSpacesConfiguration": {
 	    "state": "Enabled",           
-	    "routeTopicResourceId": "/subscriptions/<Subscription ID>/resourceGroups/<Resource Group>/providers/Microsoft.EventGrid/topics/<Event Grid Topic name>",
+	    "routeTopicResourceId": "/subscriptions/<Subscription ID>/resourceGroups/<Resource Group>/providers/Microsoft.EventGrid/topics/<Event Grid topic name>",
 	}
 }
 ```
