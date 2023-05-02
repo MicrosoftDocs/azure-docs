@@ -22,8 +22,8 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 
 ### New articles
 
-- [Secure applications and APIs by validating claims](claims-validation.md)
 - [Configure token lifetime policies (preview)](configure-token-lifetimes.md)
+- [Secure applications and APIs by validating claims](claims-validation.md)
 
 ### Updated articles
 
