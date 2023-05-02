@@ -107,9 +107,6 @@ This section guides you through the steps to configure the Azure AD provisioning
 > [!TIP]
 > You may also choose to enable SAML-based single sign-on for Infor CloudSuite, following the instructions provided in the [Infor CloudSuite Single sign-on tutorial](./infor-cloud-suite-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
 
-> [!NOTE]
-> To learn more about Infor CloudSuite's SCIM endpoint, refer [this](https://docs.infor.com/mingle/12.0.x/en-us/minceolh/jho1449382121585.html#).
-
 ### To configure automatic user provisioning for Infor CloudSuite in Azure AD:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.

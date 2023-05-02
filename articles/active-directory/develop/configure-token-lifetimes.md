@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/04/2023
+ms.date: 05/01/2023
 ms.author: ryanwi
 ms.custom: identityplatformtop40, contperf-fy21q2, engagement-fy23
 ms.reviewer: ludwignick
@@ -18,7 +18,7 @@ ms.reviewer: ludwignick
 
 In the following steps, you'll implement a common policy scenario that imposes new rules for token lifetime. It's possible to specify the lifetime of an access, SAML, or ID token issued by the Microsoft identity platform. This can be set for all apps in your organization or for a specific service principal. They can also be set for multi-organizations (multi-tenant application). 
 
-For more information, see [configurable token lifetimes](active-directory-configurable-token-lifetimes.md).
+For more information, see [configurable token lifetimes](configurable-token-lifetimes.md).
 
 ## Get started
 
@@ -29,7 +29,9 @@ To get started, download the latest [Microsoft Graph PowerShell SDK](/powershell
 In the following steps, you'll create a policy that requires users to authenticate less frequently in your web app. This policy sets the lifetime of the access/ID tokens for your web app.
 
 ```powershell
-Connect-MgGraph -Scopes  "Policy.ReadWrite.ApplicationConfiguration"
+Install-Module Microsoft.Graph
+
+Connect-MgGraph -Scopes  "Policy.ReadWrite.ApplicationConfiguration","Policy.Read.All","Application.ReadWrite.All"
 
 # Create a token lifetime policy
 $params = @{

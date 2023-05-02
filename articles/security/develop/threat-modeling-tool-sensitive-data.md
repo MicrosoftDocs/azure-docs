@@ -396,7 +396,7 @@ If the application is not an enterprise application, then use platform provided 
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Crypto Obfuscation For .Net](https://www.ssware.com/cryptoobfuscator/obfuscator-net.htm) |
+| **References**              | [Crypto Obfuscation For .NET](https://www.ssware.com/cryptoobfuscator/obfuscator-net.htm) |
 | **Steps** | Generated binaries (assemblies within apk) should be obfuscated to stop reverse engineering of assemblies.Tools like `CryptoObfuscator` may be used for this purpose. |
 
 ## <a id="cert"></a>Set clientCredentialType to Certificate or Windows

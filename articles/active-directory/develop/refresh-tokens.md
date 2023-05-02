@@ -59,5 +59,5 @@ Refresh tokens can be revoked by the server because of a change in credentials, 
 
 ## Next steps
 
-- Learn about [configurable token lifetimes](active-directory-configurable-token-lifetimes.md)
+- Learn about [configurable token lifetimes](configurable-token-lifetimes.md)
 - Check out [Primary Refresh Tokens](../devices/concept-primary-refresh-token.md) for more details on primary refresh tokens.

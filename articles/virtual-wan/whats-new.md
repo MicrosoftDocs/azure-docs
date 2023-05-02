@@ -34,6 +34,7 @@ You can also find the latest Azure Virtual WAN updates and subscribe to the RSS 
 
 | Type |Area |Name |Description | Date added | Limitations |
 | --- |---|---|---|---|---|
+|Feature|Software-as-a-service|Palo Alto Networks Cloud NGFW|Public preview of [Palo Alto Networks Cloud NGFW](https://aka.ms/pancloudngfwdocs), the first software-as-a-serivce security offering deployable within the Virtual WAN hub.|May 2023|Palo Alto Networks Cloud NGFW is only deployable in newly created Virtual WAN hubs in some Azure regions. See [Limitations of Palo Alto Networks Cloud NGFW](how-to-palo-alto-cloud-ngfw.md) for a full list of limitations.|
 | Feature| Network Virtual Appliances (NVAs)/Integrated Third-party solutions in Virtual WAN hubs| [Fortinet SD-WAN](https://docs.fortinet.com/document/fortigate-public-cloud/7.2.2/azure-vwan-sd-wan-deployment-guide/12818/deployment-overview)| General availability of Fortinet SD-WAN solution in Virtual WAN. Next-Generation Firewall use cases  in preview.| October 2022| SD-WAN solution generally available. Next Generation Firewall use cases in preview.|
 |Feature |Network Virtual Appliances (NVAs)/Integrated Third-party solutions in Virtual WAN hubs| [Versa SD-WAN](about-nva-hub.md#partners)|Preview of Versa SD-WAN.|November 2021| |
 |Feature|Network Virtual Appliances (NVAs)/Integrated Third-party solutions in Virtual WAN hubs|[Cisco Viptela, Barracuda and VMware (Velocloud) SD-WAN](about-nva-hub.md#partners) |General Availability of SD-WAN solutions in Virtual WAN.|June/July 2021| |
@@ -42,6 +43,7 @@ You can also find the latest Azure Virtual WAN updates and subscribe to the RSS 
 
 | Type |Area |Name |Description | Date added | Limitations |
 | --- |---|---|---|---|---|
+|Feature |ExpressRoute | [ExpressRoute metrics can be exported as diagnostic logs](monitor-virtual-wan-reference.md#expressroute-gateway-diagnostics)|| April 2023||
 |Feature |ExpressRoute | [ExpressRoute circuit page now shows vWAN connection](virtual-wan-expressroute-portal.md)|| August 2022||
 
 ### Site-to-site
