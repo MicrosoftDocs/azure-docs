@@ -217,7 +217,7 @@ The optional Parse JSON step isn't included in template
                 },
                 "type": "Compose"
             },
-            "Create_blob_(V2)_2": {
+            "Create_blob_(V2)": {
                 "inputs": {
                     "body": "@outputs('Compose')",
                     "headers": {
