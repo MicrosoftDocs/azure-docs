@@ -12,11 +12,11 @@ ms.author: mjyothish
 
 ### What is the official date Application Gateway V1 is cut off from creation?
 
-New Customers will not be able to create v1 from 1 July 2023. However, any existing V1 customers can continue to create resources until August 2024 and manage V1 resources until the retirement date of 28 April 2026.
+New Customers are not allowed to create v1 from 1 July 2023. However, any existing V1 customers can continue to create resources until August 2024 and manage V1 resources until the retirement date of 28 April 2026.
 
 ### What happens to existing Application Gateway V1 after 28 April 2026?
 
-Once the deadline arrives V1 gateways will not be supported. Any V1 SKU resources that are still active will be stopped, and force deleted.
+Once the deadline arrives V1 gateways are not supported. Any V1 SKU resources that are still active are stopped, and force deleted.
 
 ### What is the definition of a new customer on Application Gateway V1 SKU?
 
@@ -28,11 +28,11 @@ Customers who had active or stopped but allocated Application Gateway V1 SKU in 
 
 ### Does this migration plan affect any of my existing workloads that run on Application Gateway V1 SKU?
 
-Until April 28, 2026, existing Application Gateway V1 deployments will be supported. After April 28, 2026, any V1 SKU resources that are still active will be stopped, and force deleted.
+Until April 28, 2026, existing Application Gateway V1 deployments are supported. After April 28, 2026, any V1 SKU resources that are still active are stopped, and force deleted.
 
 ### What happens to my V1 application gateways if I don’t plan on migrating soon?
 
-On April 28, 2026, the V1 gateways will be fully retired and any active AppGateway V1 will be stopped & deleted. To prevent business impact, we highly recommend starting to plan your migration at the earliest and complete it before April 28, 2026.
+On April 28, 2026, the V1 gateways are fully retired and all active AppGateway V1s are stopped & deleted. To prevent business impact, we highly recommend starting to plan your migration at the earliest and complete it before April 28, 2026.
 
 ### How do I migrate my application gateway V1 to V2 SKU?
 
