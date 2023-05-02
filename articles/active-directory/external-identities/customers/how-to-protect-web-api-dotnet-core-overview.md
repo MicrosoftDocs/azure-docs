@@ -22,7 +22,7 @@ Web APIs may contain sensitive information that requires user authentication and
 
 ## Prerequisites
 
-- [An API registration](how-to-register-ciam-app.md?tabs=webapi.md) that exposes scopes (permissions) such as *ToDoList.Read*. If you haven't already, register an API in the Microsoft Entra admin center by following the registration steps.
+- [An API registration](how-to-register-ciam-app.md?tabs=webapi.md&preserve-view=true) that exposes scopes (permissions) such as *ToDoList.Read*. If you haven't already, register an API in the Microsoft Entra admin center by following the registration steps.
 
 ## Protecting a web API
 

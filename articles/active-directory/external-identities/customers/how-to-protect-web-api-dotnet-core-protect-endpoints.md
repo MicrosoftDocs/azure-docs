@@ -26,7 +26,7 @@ Controllers handle requests that come in through the API endpoints. Controllers 
 
 ## Add the code
 
-We begin adding controller actions to our controller. In most cases, the controller would have more than one action. Typically Create, Read, Update, and Delete (CRUD) actions. For more information, see the article on [how to create a .NET web API doc](/aspnet/core/tutorials/first-web-api?view=aspnetcore-7.0&tabs=visual-studio-code#scaffold-a-controller). For the purposes of this article, we demonstrate using two action items, a read all action item and a create action item, how to protect your endpoints. For a full example, see the [samples file](https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial/blob/main/2-Authorization/3-call-own-api-dotnet-core-daemon/ToDoListAPI/Controllers/ToDoListController.cs).
+We begin adding controller actions to our controller. In most cases, the controller would have more than one action. Typically Create, Read, Update, and Delete (CRUD) actions. For more information, see the article on [how to create a .NET web API doc](/aspnet/core/tutorials/first-web-api?view=aspnetcore-7.0&tabs=visual-studio-code&preserve-view=true#scaffold-a-controller). For the purposes of this article, we demonstrate using two action items, a read all action item and a create action item, how to protect your endpoints. For a full example, see the [samples file](https://github.com/Azure-Samples/ms-identity-ciam-dotnet-tutorial/blob/main/2-Authorization/3-call-own-api-dotnet-core-daemon/ToDoListAPI/Controllers/ToDoListController.cs).
 
 Our boiler plate code for the controller looks as follows:
 
