@@ -74,8 +74,8 @@ from azure.core.credentials import AzureKeyCredential
 from azure.ai.language.questionanswering import QuestionAnsweringClient
 
 # This example requires environment variables named "LANGUAGE_KEY" and "LANGUAGE_ENDPOINT"
-endpoint = "$LANGUAGE_ENDPOINT.api.cognitive.microsoft.com/"
-credential = AzureKeyCredential("$LANGUAGE_KEY")
+endpoint = "LANGUAGE_ENDPOINT.api.cognitive.microsoft.com/"
+credential = AzureKeyCredential("LANGUAGE_KEY")
 knowledge_base_project = "{YOUR-PROJECT-NAME}"
 deployment = "production"
 
