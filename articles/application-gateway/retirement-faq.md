@@ -16,7 +16,7 @@ New Customers will not be able to create v1 from 1 July 2023. However, any exist
 
 ### What happens to existing Application Gateway V1 after 28 April 2026?
 
-Once the deadline arrives V1 gateways will not be supported.Any V1 SKU resources that are still active will be stopped, and force deleted.
+Once the deadline arrives V1 gateways will not be supported. Any V1 SKU resources that are still active will be stopped, and force deleted.
 
 ### What is the definition of a new customer on Application Gateway V1 SKU?
 
