@@ -5,8 +5,9 @@ ms.service: virtual-machines
 subservice: sizes
 author: mimckitt
 ms.topic: conceptual
-ms.date: 7/22/2020
+ms.date: 05/01/2023
 ms.author: mimckitt
+ms.reviewer: mattmcinnes
 ms.custom: sttsinar
 ---
 
