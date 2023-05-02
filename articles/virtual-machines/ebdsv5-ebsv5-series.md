@@ -25,13 +25,13 @@ The Ebdsv5 and Ebsv5 series run on the Intel® Xeon® Platinum 8370C (Ice Lake) 
 - [Intel® Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html)
 - [Intel® Advanced Vector Extensions 512 (Intel® AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html)
 - Support for [Intel® Deep Learning Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html) 
-- NVMe interface for higher remote storage IOPS and throughput performance 
+- NVMe interface for higher remote disk storage IOPS and throughput performance 
 
 > [!IMPORTANT]
 > - Accelerated networking is required and turned on by default on all Ebsv5 and Ebdsv5 VMs. 
 > - Ebsv5 and Ebdsv5-series VMs can [burst their disk performance](disk-bursting.md) and get up to their bursting max for up to 30 minutes at a time.
-> - The E112i size is offered as NVMe only to provide the hgihest IOPS and throughput performance. If you wish to achieve better remote storage performance for small sizes, refer to the instructions on how to switch to the NVMe interface for sizes ranging from 2-96 vCPU. See the NVMe VM spec table below to see the improved performance details
-> - Please note that the NVMe capability is only available in the following regions: (additional regions will be included soon)
+> - The E112i size is offered as NVMe only to provide the highest IOPS and throughput performance. If you wish to achieve higher remote storage performance for small sizes, refer to the [instructions](enable-nvme-interface.md) on how to switch to the NVMe interface for sizes ranging from 2-96 vCPU. See the NVMe VM spec table to see the improved performance details.
+> - Please note that the NVMe capability is only available in the following regions: US North, Southeast Asia, West Europe, Australia East, North Europe, West US 3, UK South, Sweden Central, East US, Central US, West US2, East US 2, South Central US. (additional regions will be added soon)
 
 ## Ebdsv5 series
 
@@ -45,7 +45,7 @@ Ebdsv5-series sizes run on the Intel® Xeon® Platinum 8370C (Ice Lake) processo
 - [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported (required)
 - [Ephemeral OS Disks](ephemeral-os-disks.md): Supported
 - Nested virtualization: Supported
-- NVMe interace: Supported only on Generation 2 VMs
+- NVMe Interface: Supported only on Generation 2 VMs
 - SCSI Interface: Supported on Generation 1 and 2 VMs
 
 ## Ebdsv5 Series (SCSI)
@@ -84,8 +84,8 @@ Ebsv5-series sizes run on the Intel® Xeon® Platinum 8272CL (Ice Lake). These V
 - [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported (required)
 - [Ephemeral OS Disks](ephemeral-os-disks.md): Not supported
 - Nested virtualization: Supported
-- NVMe interface: Supported only on Generation 2 VMs
-- SCSi Interface: Supported on Generation 1 and Generation 2 VMs
+- NVMe Interface: Supported only on Generation 2 VMs
+- SCSI Interface: Supported on Generation 1 and Generation 2 VMs
 ## Ebsv5 Series (SCSI)
 | Size | vCPU | Memory: GiB | Max data disks |  Max uncached Premium SSD and Standard SSD/HDD disk throughput: IOPS/MBps  | Max burst uncached Premium SSD and Standard SSD/HDD disk throughput: IOPS/MBps  | Max uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps  | Max burst uncached Ultra Disk and Premium SSD V2 disk throughput: IOPS/MBps  | Max NICs | Network bandwidth |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -126,4 +126,6 @@ Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/cal
 
 ## Next steps
 
+- [Enabling NVMe Interface](enable-nvme-interface.md)
+- [Enable NVMe FAQs](enable-nvme-faqs.md)
 - Use the Azure [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
