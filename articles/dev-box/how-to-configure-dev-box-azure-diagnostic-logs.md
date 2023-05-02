@@ -5,21 +5,21 @@ description: Learn how to use Azure diagnostic logs to see an audit history for 
 services: dev-box
 ms.service: dev-box
 ms.topic: how-to
-author: RoseHJM
-ms.author: rosemalcolm
+author: delvissantos
+ms.author: delvissantos
 ms.date: 04/28/2023
 ---
 
-# Diagnostic logs - Dev Center 
+# Configure Azure diagnostic logs for a dev center 
 
-With Azure diagnostic logs for DevCenter, you can view audit logs for dataplane operations in your DevCenter.  These logs can be routed to any of the following destinations:
+With Azure diagnostic logs for DevCenter, you can view audit logs for dataplane operations in your dev center.  These logs can be routed to any of the following destinations:
 
 * Azure Storage account
 * Log Analytics workspace
 
 This feature is available on all dev centers. 
 
-Diagnostics logs allow you to export basic usage information from your DevCenter to different kinds sources so that you can consume them in a customized way.  The dataplane audit logs expose information around CRUD operations for dev boxes within your dev center.  This includes, for example,  start and stop commands executed on dev boxes. Some sample ways you can choose to export this data:
+Diagnostics logs allow you to export basic usage information from your dev center to different kinds sources so that you can consume them in a customized way.  The dataplane audit logs expose information around CRUD operations for dev boxes within your dev center.  Including, for example,  start and stop commands executed on dev boxes. Some sample ways you can choose to export this data:
 
 * Export data to blob storage, export to CSV.
 * Export data to Azure Monitor logs and view and query data in your own Log Analytics workspace 
@@ -44,7 +44,7 @@ Follow these steps enable logging for your Azure DevCenter resource:
 To use a storage account to store the logs, follow these steps:
 
  >[!NOTE] 
- >A storage account in the same region as your DevCenter is required to complete these steps. Refer to: **[Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)** for more information.
+ >A storage account in the same region as your dev center is required to complete these steps. Refer to: **[Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)** for more information.
 	
 1. For **Diagnostic setting name**, enter a name for your diagnostic log settings.
  
@@ -121,7 +121,7 @@ The following example shows how to enable diagnostic logs via the Azure PowerShe
 ## Analyzing Logs
 This section describes existing tables for DevCenter diagnostic logs and how to query them.
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/resource-logs-schema#top-level-common-schema).
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Common and service-specific schemas for Azure resource logs](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema).
 
 DevCenter stores data in the following tables.
 
@@ -131,11 +131,9 @@ DevCenter stores data in the following tables.
 
 
 ### Sample Kusto Queries
-After enabling diagnostic settings on your devcenter, you should be able to view audit logs for the tables within a log analytics workspace.
+After enabling diagnostic settings on your dev center, you should be able to view audit logs for the tables within a log analytics workspace.
 
 Here are some queries that you can enter into Log search to help your monitor your dev boxes.
-
-#### [Resource-specific table](#tab/resource-specific-diagnostics)
 
 To query for all data-plane logs from DevCenter:
 
@@ -158,13 +156,11 @@ DevCenterDiagnosticLogs
 | render piechart
 ```
 
----
+These examples are just a small sample of the rich queries that can be performed in Monitor using the Kusto Query Language. For more information, see [samples for Kusto queries](/azure/data-explorer/kusto/query/samples?pivots=azuremonitor).
 
-These examples are just a small sampling of the rich queries that can be performed in Monitor using the Kusto Query Language. For more information, see [samples for Kusto queries](/azure/data-explorer/kusto/query/samples?pivots=azuremonitor).
+## Next steps
 
-
-
-## More resources
+To learn more about Azure logs, see the following articles:
 
 * [Azure Diagnostic logs](../azure-monitor/essentials/platform-logs-overview.md)
 * [Azure Monitor logs](../azure-monitor/logs/log-query-overview.md)
