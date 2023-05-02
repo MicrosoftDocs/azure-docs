@@ -53,7 +53,7 @@ You'll write code using the Python SDK in this tutorial and learn the following 
     [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
     
     
-    This tutorial is also available in the [azureml-examples repository on GitHub](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items). If you wish to run it in your own local environment, setup using the following instructions
+    This tutorial is also available in the [azureml-examples repository on GitHub](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items). If you wish to run it in your own local environment:
     
     * Install and [set up CLI (v2)](how-to-configure-cli.md#prerequisites) and make sure you install the `ml` extension.
     
@@ -62,7 +62,7 @@ You'll write code using the Python SDK in this tutorial and learn the following 
     [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
     
     
-    This tutorial is also available in the [azureml-examples repository on GitHub](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items). If you wish to run it in your own local environment, setup using the following instructions
+    This tutorial is also available in the [azureml-examples repository on GitHub](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items). If you wish to run it in your own local environment:
     
     * Use the following commands to install Azure Machine Learning Python SDK v2:
         * Uninstall previous preview version:
