@@ -16,28 +16,24 @@ ms.custom: developer
 #Customer intent: As a dev, devops, I want to learn about how to configure a sample Node.js headless application to authenticate users with my Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Sign in users in your own Node.js web application by using Microsoft Entra - Prepare your tenant
+# Sign in users in your own Node.js headless application by using Microsoft Entra - Prepare your tenant
 
 In this article, you prepare your Azure Active Directory (Azure AD) for customers tenant for authentication. To prepare your tenant, you do the following tasks:
 
-- Register a web application in the Microsoft Entra admin center. 
+- Register a headless application in the Microsoft Entra admin center. 
 
 - Create a sign in and sign out user flow in Microsoft Entra admin center.
 
-- Associate your web application with the user flow. 
+- Associate your headless application with the user flow. 
 
 After you complete the tasks, you'll collect an *Application (client) ID*, a *Client secret* and a *Directory (tenant) ID*.
 
-If you've already registered a web application in the Microsoft Entra admin center, and associated it with a user flow, you can skip the steps in this article and move to [Prepare your Node.js web app](how-to-web-app-node-sign-in-prepare-app.md).
+If you've already registered a headless application in the Microsoft Entra admin center, and associated it with a user flow, you can skip the steps in this article and move to [Prepare your Node.js headless app](how-to-headless-app-node-sign-in-prepare-app.md).
 
-## Register the web app
+## Register the headless app
 
 [!INCLUDE [active-directory-b2c-register-app](./includes/register-app/register-client-app-common.md)]
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/register-app/add-platform-redirect-url-node.md)]  
-
-## Add app client secret 
-
-[!INCLUDE [active-directory-b2c-add-client-secret](./includes/register-app/add-app-client-secret.md)] 
 
 ## Grant API permissions
 
@@ -47,7 +43,7 @@ If you've already registered a web application in the Microsoft Entra admin cent
 
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/configure-user-flow/create-sign-in-sign-out-user-flow.md)] 
 
-## Associate the web application with the user flow
+## Associate the headless application with the user flow
 
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/configure-user-flow/add-app-user-flow.md)]
 

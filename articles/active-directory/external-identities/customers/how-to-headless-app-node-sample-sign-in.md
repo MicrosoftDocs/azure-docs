@@ -18,19 +18,19 @@ ms.custom: developer
 
 # Authenticate users in a sample Node.js headless application by using Microsoft Entra
 
-This how-to guide uses a sample Node.js web application to show how to add authentication to a web application by using Microsoft Entra. The sample application enables users to sign in and sign out. The sample web application uses [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) for Node to handle authentication.
+This how-to guide uses a sample Node.js headless application to show how to add authentication to a headless application by using Microsoft Entra. The sample application uses the device code flow to authenticate users against Azure Active Directory (Azure AD) CIAM.
 
 In this article, you do the following tasks:
 
-- Register a web application in the Microsoft Entra admin center. 
+- Register a headless application in the Microsoft Entra admin center. 
 
 - Create a sign in and sign out user flow in Microsoft Entra admin center.
 
-- Associate your web application with the user flow. 
+- Associate your headless application with the user flow. 
 
-- Update a sample Node.js web application using your own Azure Active Directory (Azure AD) for customers tenant.
+- Update a sample Node.js headless application using your own Azure AD for customers tenant.
 
-- Run and test the sample web application.
+- Run and test the sample headless application.
 
 ## Prerequisites
 
@@ -43,14 +43,10 @@ In this article, you do the following tasks:
 <!--Awaiting this link http://developer.microsoft.com/identity/customers to go live on Developer hub-->
 
 
-## Register the web app
+## Register the headless app
 
 [!INCLUDE [active-directory-b2c-register-app](./includes/register-app/register-client-app-common.md)]
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/register-app/add-platform-redirect-url-node.md)]  
-
-## Add app client secret 
-
-[!INCLUDE [active-directory-b2c-add-client-secret](./includes/register-app/add-app-client-secret.md)] 
 
 ## Grant API permissions
 
@@ -60,15 +56,15 @@ In this article, you do the following tasks:
 
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/configure-user-flow/create-sign-in-sign-out-user-flow.md)] 
 
-## Associate the web application with the user flow
+## Associate the headless application with the user flow
 
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/configure-user-flow/add-app-user-flow.md)]
 
-## Clone or download sample web application
+## Clone or download sample headless application
 
-To get the web app sample code, you can do either of the following tasks:
+To get the headless app sample code, you can do either of the following tasks:
 
-- [Download the .zip file](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/archive/refs/heads/main.zip) or clone the sample web application from GitHub by running the following command:
+- [Download the .zip file](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/archive/refs/heads/main.zip) or clone the sample headless application from GitHub by running the following command:
 
     ```powershell
         git clone https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial.git
@@ -88,7 +84,7 @@ If you choose to download the `.zip` file, extract the sample app file to a fold
         npm install && npm update
     ```
 
-## Configure the sample web app
+## Configure the sample headless app
 
 1. In your code editor, open `App\authConfig.js` file. 
 
@@ -97,12 +93,10 @@ If you choose to download the `.zip` file, extract the sample app file to a fold
     1. `Enter_the_Application_Id_Here` and replace it with the Application (client) ID of the app you registered earlier.
     
     1. `Enter_the_Tenant_Info_Here` and replace it with the Directory (tenant) ID you copied earlier.
-     
-    1. `Enter_the_Client_Secret_Here` and replace it with the app secret value you copied earlier.
 
-## Run and test sample web app 
+## Run and test sample headless app 
 
-You can now test the sample Node.js web app. You need to start the Node.js server and access it through your browser at `http://localhost:3000`.
+You can now test the sample Node.js headless app. You need to start the Node.js server and access it through your browser at `http://localhost:3000`.
 
 1. In your terminal, run the following command:
 
@@ -112,7 +106,6 @@ You can now test the sample Node.js web app. You need to start the Node.js serve
 
 1. Open your browser, then go to http://localhost:3000. You should see the page similar to the following screenshot:
 
-    :::image type="content" source="media/how-to-web-app-node-sample-sign-in/web-app-node-sign-in.png" alt-text="Screenshot of sign in into a node web app.":::
 
 1. After the page completes loading, select **Sign in** link. You're prompted to sign in.
 
@@ -120,18 +113,10 @@ You can now test the sample Node.js web app. You need to start the Node.js serve
 
 1. If you choose the sign-up option, after filling in your email, one-time passcode, new password and more account details, you complete the whole sign-up flow. You see a page similar to the following screenshot. You see a similar page if you choose the sign-in option.
 
-    :::image type="content" source="media/how-to-web-app-node-sample-sign-in/web-app-node-view-claims.png" alt-text="Screenshot of view I D token claims.":::
-
-1. Select **Sign out** to sign user out of the web app or select **View ID token claims** to view ID token claims returned by Microsoft Entra. 
+1. Select **Sign out** to sign user out of the headless app or select **View ID token claims** to view ID token claims returned by Microsoft Entra. 
 
 ## Next steps
 
 Learn how to: 
 
-- [Enable password reset](how-to-enable-password-reset-customers.md)
-
-- [Customize the default branding](how-to-customize-branding-customers.md)
- 
-- [Configure sign-in with Google](how-to-google-federation-customers.md)
-
-- [Sign in users in your own Node.js web application by using Microsoft Entra](how-to-web-app-node-sign-in-overview.md)
+- [Sign in users in your own Node.js headless application by using Microsoft Entra](how-to-headless-app-node-sign-in-overview.md)
