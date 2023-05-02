@@ -500,7 +500,7 @@ Replace `<placeholders>` with the values for your SAP HANA installation.
    hdbnsutil -sr_register --remoteHost=<HANA SID>-db-<database 1> --remoteInstance=<instance number> --replicationMode=sync --name=<site 2> 
    ```
 
-## Implement SAPHanaSR and susChkSrv HANA hooks 
+## Implement HANA hooks SAPHanaSR and susChkSrv 
 
 In this important step, you optimize the integration with the cluster and improve detection when a cluster failover is needed. We highly recommend that you configure the SAPHanaSR Python hook. For HANA 2.0 SP5 and later, we recommend that you implement the SAPHanaSR hook and the susChkSrv hook.  
 
