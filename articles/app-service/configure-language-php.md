@@ -12,13 +12,14 @@ zone_pivot_groups: app-service-platform-windows-linux
 
 # Configure a PHP app for Azure App Service
 
+## Show PHP version
+::: zone pivot="platform-windows"  
+
+[!INCLUDE [php-eol-notice](./includes/php-windows-eol-notice.md)]
+
 This guide shows you how to configure your PHP web apps, mobile back ends, and API apps in Azure App Service.
 
 This guide provides key concepts and instructions for PHP developers who deploy apps to App Service. If you've never used Azure App Service, follow the [PHP quickstart](quickstart-php.md) and [PHP with MySQL tutorial](tutorial-php-mysql-app.md) first.
-
-## Show PHP version
-
-::: zone pivot="platform-windows"  
 
 To show the current PHP version, run the following command in the [Cloud Shell](https://shell.azure.com):
 
@@ -38,6 +39,10 @@ az webapp list-runtimes --os windows | grep PHP
 ::: zone-end
 
 ::: zone pivot="platform-linux"
+
+This guide shows you how to configure your PHP web apps, mobile back ends, and API apps in Azure App Service.
+
+This guide provides key concepts and instructions for PHP developers who deploy apps to App Service. If you've never used Azure App Service, follow the [PHP quickstart](quickstart-php.md) and [PHP with MySQL tutorial](tutorial-php-mysql-app.md) first.
 
 To show the current PHP version, run the following command in the [Cloud Shell](https://shell.azure.com):
 
@@ -60,20 +65,20 @@ az webapp list-runtimes --os linux | grep PHP
 
 ::: zone pivot="platform-windows"  
 
-Run the following command in the [Cloud Shell](https://shell.azure.com) to set the PHP version to 7.4:
+Run the following command in the [Cloud Shell](https://shell.azure.com) to set the PHP version to 8.1:
 
 ```azurecli-interactive
-az webapp config set --resource-group <resource-group-name> --name <app-name> --php-version 7.4
+az webapp config set --resource-group <resource-group-name> --name <app-name> --php-version 8.1
 ```
 
 ::: zone-end
 
 ::: zone pivot="platform-linux"
 
-Run the following command in the [Cloud Shell](https://shell.azure.com) to set the PHP version to 8.0:
+Run the following command in the [Cloud Shell](https://shell.azure.com) to set the PHP version to 8.1:
 
 ```azurecli-interactive
-az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PHP|8.0"
+az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PHP|8.1"
 ```
 
 ::: zone-end

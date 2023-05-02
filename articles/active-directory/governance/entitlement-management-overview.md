@@ -1,5 +1,5 @@
 ---
-title: What is entitlement management? - Azure AD
+title: What is entitlement management?
 description: Get an overview of entitlement management and how you can use it to manage access to groups, applications, and SharePoint Online sites for internal and external users.
 services: active-directory
 documentationCenter: ''

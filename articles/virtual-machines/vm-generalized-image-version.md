@@ -6,9 +6,9 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 02/16/2023
+ms.date: 03/23/2023
 ms.author: saraic
-ms.reviewer: cynthn 
+ms.reviewer: cynthn, mattmcinnes 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 ---
@@ -573,7 +573,18 @@ New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 > [!IMPORTANT]
 > Azure Compute Gallery – community galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
+>To publish a community gallery, you'll need to [set up preview features in your Azure subscription](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal). Creating VMs from community gallery images is open to all Azure users. 
+>
 > Microsoft does not provide support for images in the [community gallery](azure-compute-gallery.md#community).
+
+## Reporting issues with a public image 
+Utilizing community-submitted virtual machine images has several risks. Certain images could harbor malware, security vulnerabilities, or violate someone's intellectual property. To help create a secure and reliable experience for the community, you can report images in which you see these issues.
+
+
+### Reporting images externally:
+- Malicious images: Contact [Abuse Report](https://msrc.microsoft.com/report/abuse).
+
+- Intellectual Property violations: Contact [Infringement Report](https://msrc.microsoft.com/report/infringement).
 
 
 ### [CLI](#tab/cli3)
@@ -584,7 +595,19 @@ To create a VM using an image shared to a community gallery, use the unique ID o
 /CommunityGalleries/<community gallery name, like: ContosoImages-1a2b3c4d-1234-abcd-1234-1a2b3c4d5e6f>/Images/<image name>/Versions/latest
 ```
 
-As an end user, to get the public name of a community gallery, you need to use the portal. Go to **Virtual machines** > **Create** > **Azure virtual machine** > **Image** > **See all images** > **Community Images** > **Public gallery name**.
+Follow these instructions to get the list of Community images using CLI:
+```
+Step 1:  Show all 'Community images' in a specific location
+az sig list-community --location westus2
+
+Step 2: Once you have the public gallery name from Step 1, Get the Image definition (Name) of the image by running the following command
+az sig image-definition list-community --public-gallery-name <<public gallery name>> --location westus2
+
+Step 3: Finally, run the following command to list different image versions available for the specific image
+az sig image-version list-community --public-gallery-name <<galleryname>> --gallery-image-definition <<image name>> --location westus2
+```
+
+To get the public name of a community gallery from portal. Go to **Virtual machines** > **Create** > **Azure virtual machine** > **Image** > **See all images** > **Community Images** > **Public gallery name**.
 
 In this example, we are creating a VM from a Linux image and creating SSH keys for authentication.
 

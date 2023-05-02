@@ -3,7 +3,7 @@ title: Migrate from a Run As account to Managed identities
 description: This article describes how to migrate from a Run As account to managed identities in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/03/2023
+ms.date: 03/14/2023
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -99,9 +99,7 @@ try
 { 
 
     "Logging in to Azure..." 
-
-$identity = Get-AzUserAssignedIdentity -ResourceGroupName <myResourceGroup> -Name <myUserAssignedIdentity> 
-Connect-AzAccount -Identity -AccountId $identity.ClientId 
+    Connect-AzAccount -Identity -AccountId <Client Id of myUserAssignedIdentity>
 } 
 catch { 
     Write-Error -Message $_.Exception 
@@ -163,6 +161,18 @@ foreach ($ResourceGroup in $ResourceGroups)
   ```
 
 ---
+
+### View client ID of user assigned identity
+
+1. In your Automation account, under **Account Settings**, select **Identity**. 
+1. In **User assigned** tab, select user assigned identity.
+
+    :::image type="content" source="./media/migrate-run-as-account-managed-identity/user-assigned-inline.png" alt-text="Screenshot that shows the navigation path to view client ID." lightbox="./media/migrate-run-as-account-managed-identity/user-assigned-expanded.png":::
+
+1. Go to **Overview**> **Essentials**, to view the **Client ID**.
+
+    :::image type="content" source="./media/migrate-run-as-account-managed-identity/view-client-id-inline.png" alt-text="Screenshot that shows how to view a client ID." lightbox="./media/migrate-run-as-account-managed-identity/view-client-id-expanded.png":::
+
 
 ## Graphical runbooks
 

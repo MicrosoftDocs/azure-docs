@@ -1,5 +1,5 @@
 ---
-title: Manage custom security attributes for an application (Preview) - Azure Active Directory
+title: Manage custom security attributes for an application (Preview)
 description: Assign, update, list, or remove custom security attributes for an application that has been registered with your Azure Active Directory (Azure AD) tenant.
 services: active-directory
 author: omondiatieno
@@ -11,6 +11,7 @@ ms.date: 02/28/2023
 ms.author: jomondi
 ms.reviewer: rolyon
 zone_pivot_groups: enterprise-apps-all
+ms.custom: not-enterprise-apps
 
 ---
 

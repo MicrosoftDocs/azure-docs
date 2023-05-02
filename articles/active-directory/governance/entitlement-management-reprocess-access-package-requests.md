@@ -1,5 +1,5 @@
 ---
-title: Reprocess requests for an access package in entitlement management - Azure Active Directory
+title: Reprocess requests for an access package in entitlement management
 description: Learn how to reprocess a request for an access package in entitlement management.
 services: active-directory
 documentationCenter: ''

@@ -2,7 +2,8 @@
 title: Use Bicep linter
 description: Learn how to use Bicep linter.
 ms.topic: conceptual
-ms.date: 01/30/2023
+ms.custom: devx-track-bicep
+ms.date: 03/16/2023
 ---
 
 # Use Bicep linter
@@ -34,15 +35,16 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 - [outputs-should-not-contain-secrets](./linter-rule-outputs-should-not-contain-secrets.md)
 - [prefer-interpolation](./linter-rule-prefer-interpolation.md)
 - [prefer-unquoted-property-names](./linter-rule-prefer-unquoted-property-names.md)
-- [protect-commandtoexecute-secrets](./linter-rule-protect-commandtoexecute-secrets.md)
 - [secure-parameter-default](./linter-rule-secure-parameter-default.md)
 - [secure-params-in-nested-deploy](./linter-rule-secure-params-in-nested-deploy.md)
 - [secure-secrets-in-params](./linter-rule-secure-secrets-in-parameters.md)
 - [simplify-interpolation](./linter-rule-simplify-interpolation.md)
+- [simplify-json-null](./linter-rule-simplify-json-null.md)
 - [use-parent-property](./linter-rule-use-parent-property.md)
 - [use-protectedsettings-for-commandtoexecute-secrets](./linter-rule-use-protectedsettings-for-commandtoexecute-secrets.md)
 - [use-recent-api-versions](./linter-rule-use-recent-api-versions.md)
 - [use-resource-id-functions](./linter-rule-use-resource-id-functions.md)
+- [use-resource-symbol-reference](./linter-rule-use-resource-symbol-reference.md)
 - [use-stable-resource-identifiers](./linter-rule-use-stable-resource-identifier.md)
 - [use-stable-vm-image](./linter-rule-use-stable-vm-image.md)
 

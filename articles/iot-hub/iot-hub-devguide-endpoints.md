@@ -1,12 +1,11 @@
 ---
-title: Understand Azure IoT Hub endpoints | Microsoft Docs
+title: Understand Azure IoT Hub endpoints
 description: This article provides information about IoT Hub device-facing and service-facing endpoints.
 author: kgremban
 
 ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/21/2022
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: System Architecture']
 ---
@@ -95,5 +94,5 @@ Other reference topics in this IoT Hub developer guide include:
 
 * [IoT Hub query language for device and module twins, jobs, and message routing](iot-hub-devguide-query-language.md)
 * [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md)
-* [Communicate with your IoT hub using the MQTT protocol](iot-hub-mqtt-support.md)
+* [Communicate with your IoT hub using the MQTT protocol](../iot/iot-mqtt-connect-to-iot-hub.md)
 * [IoT Hub IP addresses](iot-hub-understand-ip-address.md)

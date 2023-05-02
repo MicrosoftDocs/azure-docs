@@ -26,7 +26,7 @@ Conceptually, a job wraps one of these actions and tracks the progress of execut
 
 Learn more about each of these capabilities in these articles:
 
-* Device twin and properties: [Get started with device twins](iot-hub-python-twin-getstarted.md) and [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md)
+* Device twin and properties: [Get started with device twins](device-twins-python.md) and [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md)
 
 * Direct methods: [IoT Hub developer guide - direct methods](iot-hub-devguide-direct-methods.md) and [Quickstart: direct methods](./quickstart-control-device.md?pivots=programming-language-python)
 

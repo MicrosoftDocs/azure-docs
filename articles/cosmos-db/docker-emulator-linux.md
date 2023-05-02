@@ -20,6 +20,9 @@ The Azure Cosmos DB Linux Emulator provides a local environment that emulates th
 > 
 > We do not recommend use of the emulator (Preview) in production. For heavier workloads, use our [Windows emulator](local-emulator.md).
 
+> [!IMPORTANT]
+> The Linux emulator currently has limited support for developer machines running on M1 and M2 chips. A temporary workaround is to install a Windows virtual machine and run the emulator on that platform.
+
 ## How does the emulator work?
 
 The Azure Cosmos DB Linux Emulator provides a high-fidelity emulation of the Azure Cosmos DB service. The emulator supports equivalent functionality as the Azure Cosmos DB. Functionality includes creating data, querying data, provisioning and scaling containers, and executing stored procedures and triggers. You can develop and test applications using the Azure Cosmos DB Linux Emulator. You can also deploy applications to Azure at global scale by updating the Azure Cosmos DB connection endpoint from the emulator to a live account.
@@ -136,7 +139,7 @@ Use the following steps to run the emulator on Linux:
     For Java-based applications, the certificate must be imported to the [Java trusted store.](local-emulator-export-ssl-certificates.md)
 
     ```bash
-    keytool -keystore ~/cacerts -importcert -alias  emulator_cert -file ~/emulatorcert.crt
+    keytool -import -alias emulator_cert -keystore -file ~/emulatorcert.crt -storepass changeit -noprompt
     java -ea -Djavax.net.ssl.trustStore=~/cacerts -Djavax.net.ssl.trustStorePassword="changeit" $APPLICATION_ARGUMENTS
     ```
 

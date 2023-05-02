@@ -7,6 +7,7 @@ manager: jhubbard
 ms.assetid: d7ac12f7-24b5-4bcd-9e4d-3d76fbd8d297
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ms.topic: article
 ms.date: 09/17/2021
 ms.author: monicar

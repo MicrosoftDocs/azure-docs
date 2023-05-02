@@ -20,20 +20,10 @@
     items:
     - name: Develop with Linux containers
       href: tutorial-develop-for-linux.md
-    - name: Develop with Visual Studio Code
+    - name: Develop and debug with VS Code
       href: how-to-vs-code-develop-module.md
-    - name: Develop with Visual Studio 2022
+    - name: Develop and debug with Visual Studio
       href: how-to-visual-studio-develop-module.md
-    - name: C
-      href: tutorial-c-module.md
-    - name: C#
-      href: tutorial-csharp-module.md
-    - name: Java
-      href: tutorial-java-module.md
-    - name: Node.js
-      href: tutorial-node-module.md
-    - name: Python
-      href: tutorial-python-module.md
   - name: Deploy Azure services as modules
     items:
     - name: Filter data with Azure Functions
@@ -315,9 +305,9 @@
 - name: Resources
   items:
   - name: Support and help options
-    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
+    href: ../iot/iot-support-help.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
   - name: IoT Glossary
-    href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
+    href: ../iot/iot-glossary.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
   - name: Azure IoT services
     items:
     - name: IoT Hub
@@ -360,7 +350,9 @@
     href: https://azure.microsoft.com/develop/iot/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=iot
-  - name: Azure IoT Tools for Visual Studio Code
+  - name: Azure IoT Edge for Visual Studio Code
+    href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge
+  - name: Azure IoT Hub extension for Visual Studio Code
     href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
   - name: Azure IoT Explorer tool
     href: https://github.com/Azure/azure-iot-explorer

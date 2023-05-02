@@ -5,7 +5,7 @@ author: ealsur
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.custom: ignite-2022
-ms.date: 08/30/2022
+ms.date: 03/13/2023
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: mjbrown
@@ -169,14 +169,14 @@ For multiple store results for a single request, be aware of the following:
 * Strong consistency and bounded staleness consistency always have at least two store results.
 * Check the status code of each `StoreResult`. The SDK retries automatically on multiple different [transient failures](troubleshoot-dotnet-sdk-request-timeout.md). The SDK is constantly improved to cover more scenarios. 
 
-### RntbdRequestStats 
+### RequestTimeline
 
 Show the time for the different stages of sending and receiving a request in the transport layer.
 
-* `ChannelAcquisitionStarted`: The time to get or create a new connection. You can create new connections for numerous different regions. For example, let's say that a connection was unexpectedly closed, or too many requests were getting sent through the existing connections. You create a new connection. 
-* *Pipelined time is large* might be caused by a large request.
-* *Transit time is large*, which leads to a networking problem. Compare this number to the `BELatencyInMs`. If `BELatencyInMs` is small, then the time was spent on the network, and not on the Azure Cosmos DB service.
-* *Received time is large* might be caused by a thread starvation problem. This is the time between having the response and returning the result.
+* `ChannelAcquisitionStarted`: The time to get or create a new connection. You can create new connections for numerous different regions. For example, let's say that a connection was unexpectedly closed, or too many requests were getting sent through the existing connections. You create a new connection.
+* `Pipelined` time is large might be caused by a large request.
+* `Transit time` is large, which leads to a networking problem. Compare this number to the `BELatencyInMs`. If `BELatencyInMs` is small, then the time was spent on the network, and not on the Azure Cosmos DB service.
+* `Received` time is large might be caused by a thread starvation problem. This is the time between having the response and returning the result.
 
 ### ServiceEndpointStatistics
 

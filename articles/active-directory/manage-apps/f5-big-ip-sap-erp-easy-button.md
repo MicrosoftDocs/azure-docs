@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 3/1/2022
 ms.author: gasinh
 ms.collection: M365-identity-device-management
+ms.custom: not-enterprise-apps
 ---
 
 # Tutorial: Configure F5’s BIG-IP Easy Button for SSO to SAP ERP

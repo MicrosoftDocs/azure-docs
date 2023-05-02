@@ -73,6 +73,8 @@
       href: /security/benchmark/azure/baselines/network-watcher-security-baseline?toc=/azure/network-watcher/toc.json
   - name: Data residency
     href: data-residency.md
+  - name: Network Watcher FAQ
+    href: frequently-asked-questions.yml
 - name: How-to guides
   items:
   - name: Configure Network Watcher
@@ -89,10 +91,10 @@
     items:
     - name: Portal
       href: connection-monitor-create-using-portal.md
-    - name: ARMClient
-      href: connection-monitor-create-using-template.md
     - name: PowerShell
       href: connection-monitor-create-using-powershell.md
+    - name: ARMClient
+      href: connection-monitor-create-using-template.md
   - name: Migrate to connection monitor
     items:
     - name: From Network performance monitor
@@ -242,8 +244,6 @@
     href: /azure/templates/microsoft.network/networkWatchers/
 - name: Resources
   items:
-  - name: Network Watcher FAQ
-    href: frequently-asked-questions.yml
   - name: Microsoft Q&A
     href: /answers/topics/azure-network-watcher.html
   - name: Pricing

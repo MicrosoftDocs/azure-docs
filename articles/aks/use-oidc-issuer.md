@@ -2,8 +2,10 @@
 title: Create an OpenID Connect provider for your Azure Kubernetes Service (AKS) cluster
 description: Learn how to configure the OpenID Connect (OIDC) provider for a cluster in Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.date: 02/21/2023
+ms.date: 04/28/2023
 ---
+
+
 
 # Create an OpenID Connect provider on Azure Kubernetes Service (AKS)
 
@@ -12,9 +14,12 @@ ms.date: 02/21/2023
 AKS rotates the key automatically and periodically. If you don't want to wait, you can rotate the key manually and immediately. The maximum lifetime of the token issued by the OIDC provider is one day.
 
 > [!WARNING]
-> Enable or disable OIDC Issuer changes the current service account token issuer to a new value, which can cause down time and restarts the API server. If your application pods using a service token remain in a failed state after you enable or disable the OIDC Issuer, we recommend you manually restart the pods.
+> Enable OIDC Issuer on existing cluster changes the current service account token issuer to a new value, which can cause down time and restarts the API server. If your application pods using a service token remain in a failed state after you enable the OIDC Issuer, we recommend you manually restart the pods.
 
 In this article, you learn how to create, update, and manage the OIDC Issuer for your cluster.
+
+> [!Important]
+> After enabling OIDC issuer on the cluster, it's not supported to disable it. 
 
 ## Prerequisites
 
@@ -45,7 +50,7 @@ To get the OIDC Issuer URL, run the [az aks show][az-aks-show] command. Replace 
 az aks show -n myAKScluster -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv
 ```
 
-### Rotate the OIDC key
+## Rotate the OIDC key
 
 To rotate the OIDC key, run the [az aks oidc-issuer][az-aks-oidc-issuer] command. Replace the default values for the cluster name and the resource group name.
 
@@ -55,6 +60,73 @@ az aks oidc-issuer rotate-signing-keys -n myAKSCluster -g myResourceGroup
 
 > [!IMPORTANT]
 > Once you rotate the key, the old key (key1) expires after 24 hours. This means that both the old key (key1) and the new key (key2) are valid within the 24-hour period. If you want to invalidate the old key (key1) immediately, you need to rotate the OIDC key twice. Then key2 and key3 are valid, and key1 is invalid.
+
+## Check the OIDC keys 
+
+### Get the OIDC Issuer URL
+To get the OIDC Issuer URL, run the [az aks show][az-aks-show] command. Replace the default values for the cluster name and the resource group name.
+
+```azurecli-interactive
+az aks show -n myAKScluster -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv
+```
+
+The output should resemble the following:
+
+```output
+https://eastus.oic.prod-aks.azure.com/00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000/
+```
+
+### Get the discovery document
+
+To get the discovery document, copy the URL `https://(OIDC issuer URL).well-known/openid-configuration` and open it in browser. 
+
+The output should resemble the following:
+
+```output
+{
+  "issuer": "https://eastus.oic.prod-aks.azure.com/00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000/",
+  "jwks_uri": "https://eastus.oic.prod-aks.azure.com/00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000/openid/v1/jwks",
+  "response_types_supported": [
+    "id_token"
+  ],
+  "subject_types_supported": [
+    "public"
+  ],
+  "id_token_signing_alg_values_supported": [
+    "RS256"
+  ]
+}
+```
+
+### Get the JWK Set document
+
+To get the JWK Set document, copy the `jwks_uri` from the discovery document and past it in your browser's address bar.
+
+The output should resemble the following:
+```output
+{
+  "keys": [
+    {
+      "use": "sig",
+      "kty": "RSA",
+      "kid": "xxx",
+      "alg": "RS256",
+      "n": "xxxx",
+      "e": "AQAB"
+    },
+    {
+      "use": "sig",
+      "kty": "RSA",
+      "kid": "xxx",
+      "alg": "RS256",
+      "n": "xxxx",
+      "e": "AQAB"
+    }
+  ]
+}
+```
+
+During key rotation, there is one additional key present in the discovery document.
 
 ## Next steps
 

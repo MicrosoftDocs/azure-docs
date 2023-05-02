@@ -4,6 +4,7 @@ description: Describes the recommended workflow when migrating Azure resources a
 author: joshuawaddell
 ms.author: jowaddel
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 03/03/2023
 ---
 # Migrate to Bicep
@@ -33,7 +34,7 @@ The convert phase consists of two steps, which you complete in sequence:
 > [!NOTE]
 > You can import a resource by opening the Visual Studio Code command palette. Use <kbd>Ctrl+Shift+P</kbd> on Windows and Linux and <kbd>⌘+Shift+P</kbd> on macOS.
 >
-> Visual Studio Code enables you to paste JSON as Bicep. For more information, see [Paste JSON as Bicep](./visual-studio-code.md#paste-as-bicep-preview).
+> Visual Studio Code enables you to paste JSON as Bicep. For more information, see [Paste JSON as Bicep](./visual-studio-code.md#paste-as-bicep).
 
 ## Phase 2: Migrate
 

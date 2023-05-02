@@ -17,7 +17,7 @@ In this tutorial you'll learn how to:
 
 > [!div class="checklist"]
 > * Evaluate your regulatory compliance using the regulatory compliance dashboard
-> * Check Microsoft’s compliance offerings for Azure, Dynamics 365 and Power Platform products 
+> * Check Microsoft’s compliance offerings (currently in preview) for Azure, Dynamics 365 and Power Platform products 
 > * Improve your compliance posture by taking action on recommendations
 > * Download PDF/CSV reports as well as certification reports of your compliance status
 > * Setup alerts on changes to your compliance status
@@ -29,8 +29,8 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 To step through the features covered in this tutorial:
 
-- [Enable enhanced security features](defender-for-cloud-introduction.md). You can enable these for free for 30 days.
-- You must be signed in with an account that has reader access to the policy compliance data. The **Global reader** for the subscription has access to the policy compliance data, but the **Security Reader** role doesn't. At a minimum, you'll need to have **Resource Policy Contributor** and **Security Admin** roles assigned.
+- [Enable enhanced security features](enable-enhanced-security.md). You can enable these for free for 30 days.
+- You must be signed in with an account that has reader access to the policy compliance data. The **Reader** role for the subscription has access to the policy compliance data, but the **Security Reader** role doesn't. At a minimum, you'll need to have **Resource Policy Contributor** and **Security Admin** roles assigned.
 
 ## Assess your regulatory compliance
 
@@ -55,7 +55,7 @@ Use the regulatory compliance dashboard to help focus your attention on the gaps
 - Automated assessments show the number of failed resources and resource types, and link you directly to the remediation experience to address those recommendations. (6)
 - The manual assessments can be manually attested, and evidence can be linked to demonstrate compliance. (7)
 
-## Investigate your regulatory compliance issues
+## Investigate regulatory compliance issues
 
 You can use the information in the regulatory compliance dashboard to investigate any issues that may be affecting your compliance posture.
 
@@ -166,7 +166,7 @@ The regulatory compliance has automated and manual assessments that may need to 
 
 ### Check compliance offerings status
 
-Transparency provided by the compliance offerings, allows you to view the certification status for each of the services provided by Microsoft prior to adding your product to the Azure platform.
+Transparency provided by the compliance offerings (currently in preview) , allows you to view the certification status for each of the services provided by Microsoft prior to adding your product to the Azure platform.
 
 **To check the compliance offerings status**:
 
@@ -259,7 +259,7 @@ To add regulatory compliance standards on AWS accounts:
 
 1. Select **Save**.
 
-    :::image type="content" source="media/update-regulatory-compliance-packages/Add-aws-regulatory-compliance.png" alt-text="Screenshot of adding regulatory compliance standard to AWS account." lightbox="media/update-regulatory-compliance-packages/Add-aws-regulatory-compliance.png":::
+    :::image type="content" source="media/update-regulatory-compliance-packages/add-aws-regulatory-compliance.png" alt-text="Screenshot of adding regulatory compliance standard to AWS account." lightbox="media/update-regulatory-compliance-packages/add-aws-regulatory-compliance.png":::
 
 More standards will be added to the dashboard and included in the information on [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
@@ -314,7 +314,10 @@ For other policies, you can create an exemption directly in the policy itself, b
 
 ### What Microsoft Defender plans or licenses do I need to use the regulatory compliance dashboard?
 
-If you've got *any* of the Microsoft Defender plan enabled on *any* of your Azure resources, you can access Defender for Cloud's regulatory compliance dashboard and all of its data.
+If you've got *any* of the Microsoft Defender plans (except for Defender for Servers Plan 1) enabled on *any* of your Azure resources, you can access Defender for Cloud's regulatory compliance dashboard and all of its data.
+
+> [!NOTE]
+> For Defender for Servers you'll get regulatory compliance only for plan 2.
 
 ## Next steps
 

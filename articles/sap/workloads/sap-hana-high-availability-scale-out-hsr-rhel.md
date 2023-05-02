@@ -10,7 +10,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/14/2022
+ms.date: 04/25/2023
 ms.author: radeltch
 
 ---
@@ -39,6 +39,7 @@ ms.author: radeltch
 [2455582]:https://launchpad.support.sap.com/#/notes/2455582
 [2593824]:https://launchpad.support.sap.com/#/notes/2593824
 [2009879]:https://launchpad.support.sap.com/#/notes/2009879
+[3108302]:https://launchpad.support.sap.com/#/notes/3108302
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
 
@@ -61,6 +62,7 @@ Some readers will benefit from consulting a variety of SAP notes and resources b
 * SAP note [2015553]: Lists prerequisites for SAP-supported SAP software deployments in Azure.
 * SAP note [2002167]: Has recommended operating system settings for RHEL.
 * SAP note [2009879]: Has SAP HANA guidelines for RHEL.
+* SAP Note [3108302] has SAP HANA Guidelines for Red Hat Enterprise Linux 9.x.
 * SAP note [2178632]: Contains detailed information about all monitoring metrics reported for SAP in Azure.
 * SAP note [2191498]: Contains the required SAP host agent version for Linux in Azure.
 * SAP note [2243692]: Contains information about SAP licensing on Linux in Azure.
@@ -376,13 +378,13 @@ In this example, the shared HANA file systems are deployed on Azure NetApp Files
 1. **[AH1]** Mount the shared Azure NetApp Files volumes on the SITE1 HANA DB VMs.  
 
     ```bash
-    sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.23.1.7:/HN1-shared-s1 /hana/shared
+    sudo mount -o rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys 10.23.1.7:/HN1-shared-s1 /hana/shared
     ```
 
 1. **[AH2]** Mount the shared Azure NetApp Files volumes on the SITE2 HANA DB VMs.  
 
     ```bash
-    sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.23.1.7:/HN1-shared-s2 /hana/shared
+    sudo mount -o rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys 10.23.1.7:/HN1-shared-s2 /hana/shared
     ```
 
 
@@ -797,12 +799,12 @@ For the next part of this process, you need to create file system resources. Her
     ```bash
     # /hana/shared file system for site 1
     pcs resource create fs_hana_shared_s1 --disabled ocf:heartbeat:Filesystem device=10.23.1.7:/HN1-shared-s1  directory=/hana/shared \
-    fstype=nfs options='defaults,rw,hard,timeo=600,rsize=262144,wsize=262144,proto=tcp,intr,noatime,sec=sys,vers=4.1,lock,_netdev' op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 \
+    fstype=nfs options='defaults,rw,hard,timeo=600,rsize=262144,wsize=262144,proto=tcp,noatime,sec=sys,nfsvers=4.1,lock,_netdev' op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 \
     op start interval=0 timeout=120 op stop interval=0 timeout=120
 
     # /hana/shared file system for site 2	
     pcs resource create fs_hana_shared_s2 --disabled ocf:heartbeat:Filesystem device=10.23.1.7:/HN1-shared-s1 directory=/hana/shared \
-    fstype=nfs options='defaults,rw,hard,timeo=600,rsize=262144,wsize=262144,proto=tcp,intr,noatime,sec=sys,vers=4.1,lock,_netdev' op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 \
+    fstype=nfs options='defaults,rw,hard,timeo=600,rsize=262144,wsize=262144,proto=tcp,noatime,sec=sys,nfsvers=4.1,lock,_netdev' op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 \
     op start interval=0 timeout=120 op stop interval=0 timeout=120
 
 	# clone the /hana/shared file system resources for both site1 and site2

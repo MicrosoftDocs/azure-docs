@@ -1,12 +1,12 @@
 ---
-title: Location condition in Azure Active Directory Conditional Access
-description: Learn about creating location-based Conditional Access policies using Azure AD.
+title: Using networks and countries/regions in Azure Active Directory
+description: Use GPS locations and public IPv4 and IPv6 networks in Conditional Access policy to make access decisions.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/23/2023
+ms.date: 03/17/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -27,15 +27,18 @@ Conditional Access policies are at their most basic an if-then statement combini
 Organizations can use this location for common tasks like: 
 
 - Requiring multifactor authentication for users accessing a service when they're off the corporate network.
-- Blocking access for users accessing a service from specific countries or regions.
+- Blocking access for users accessing a service from specific countries or regions your organization never operates from.
 
 The location found using the public IP address a client provides to Azure Active Directory or GPS coordinates provided by the Microsoft Authenticator app. Conditional Access policies by default apply to all IPv4 and IPv6 addresses. For more information about IPv6 support, see the article [IPv6 support in Azure Active Directory](/troubleshoot/azure/active-directory/azure-ad-ipv6-support).
 
+> [!TIP]
+> Conditional Access policies are enforced after first-factor authentication is completed. Conditional Access isn't intended to be an organization's first line of defense for scenarios like denial-of-service (DoS) attacks, but it can use signals from these events to determine access.
+
 ## Named locations
 
-Locations exist in the Azure portal under **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**. These named network locations may include locations like an organization's headquarters network ranges, VPN network ranges, or ranges that you wish to block. Named locations are defined by IPv4 and IPv6 address ranges or by countries. 
+Locations exist in the Azure portal under **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**. These named network locations may include locations like an organization's headquarters network ranges, VPN network ranges, or ranges that you wish to block. Named locations are defined by IPv4 and IPv6 address ranges or by countries/regions. 
 
-![Named locations in the Azure portal](./media/location-condition/new-named-location.png)
+> [!VIDEO https://www.youtube.com/embed/P80SffTIThY]
 
 ### IPv4 and IPv6 address ranges
 
@@ -52,7 +55,6 @@ Named locations defined by IPv4/IPv6 address ranges are subject to the following
 - Configure up to 195 named locations.
 - Configure up to 2000 IP ranges per named location.
 - Both IPv4 and IPv6 ranges are supported.
-- Private IP ranges can't be configured.
 - The number of IP addresses contained in a range is limited. Only CIDR masks greater than /8 are allowed when defining an IP range. 
 
 #### Trusted locations
@@ -69,22 +71,20 @@ Locations such as your organization's public network ranges can be marked as tru
 
 Organizations can determine country location by IP address or GPS coordinates. 
 
-To define a named location by country, you need to provide: 
+To define a named location by country/region, you need to provide: 
 
 - A **Name** for the location.
 - Choose to determine location by IP address or GPS coordinates.
-- Add one or more countries.
+- Add one or more countries/regions.
 - Optionally choose to **Include unknown countries/regions**.
 
 ![Country as a location in the Azure portal](./media/location-condition/new-named-location-country-region.png)
 
-If you select **Determine location by IP address**, the system collects the IP address of the device the user is signing into. When a user signs in, Azure AD resolves the user's IPv4 or [IPv6](/troubleshoot/azure/active-directory/azure-ad-ipv6-support) address (starting April 3, 2023) to a country or region, and the mapping updates periodically. Organizations can use named locations defined by countries to block traffic from countries where they don't do business. 
+If you select **Determine location by IP address**, the system collects the IP address of the device the user is signing into. When a user signs in, Azure AD resolves the user's IPv4 or [IPv6](/troubleshoot/azure/active-directory/azure-ad-ipv6-support) address (starting April 3, 2023) to a country or region, and the mapping updates periodically. Organizations can use named locations defined by countries/regions to block traffic from countries/regions where they don't do business. 
 
 If you select **Determine location by GPS coordinates**, the user needs to have the Microsoft Authenticator app installed on their mobile device. Every hour, the system contacts the user’s Microsoft Authenticator app to collect the GPS location of the user’s mobile device.
 
-The first time the user must share their location from the Microsoft Authenticator app, the user receives a notification in the app. The user needs to open the app and grant location permissions.
-
-Every hour the user is accessing resources covered by the policy they need to approve a push notification from the app.
+The first time the user must share their location from the Microsoft Authenticator app, the user receives a notification in the app. The user needs to open the app and grant location permissions. Every hour the user is accessing resources covered by the policy they need to approve a push notification from the app.
  
 Every time the user shares their GPS location, the app does jailbreak detection (Using the same logic as the Intune MAM SDK). If the device is jailbroken, the location isn't considered valid, and the user isn't granted access. 
 
@@ -101,6 +101,17 @@ Multiple Conditional Access policies may prompt users for their GPS location bef
 #### Include unknown countries/regions
 
 Some IP addresses don't map to a specific country or region. To capture these IP locations, check the box **Include unknown countries/regions** when defining a geographic location. This option allows you to choose if these IP addresses should be included in the named location. Use this setting when the policy using the named location should apply to unknown locations.
+
+### Define locations
+
+1. Sign in to the **Azure portal** as a Conditional Access Administrator or Security Administrator.
+1. Browse to **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**.
+1. Choose **New location**.
+1. Give your location a name.
+1. Choose **IP ranges** if you know the specific externally accessible IPv4 address ranges that make up that location or **Countries/Regions**.
+   1. Provide the **IP ranges** or select the **Countries/Regions** for the location you're specifying.
+      * If you choose Countries/Regions, you can optionally choose to include unknown areas.
+1. Choose **Save**
 
 ## Location condition in policy
 
@@ -145,6 +156,12 @@ You can also find the client IP by clicking a row in the report, and then going 
 
 ## What you should know
 
+### Cloud proxies and VPNs
+
+When you use a cloud hosted proxy or VPN solution, the IP address Azure AD uses while evaluating a policy is the IP address of the proxy. The X-Forwarded-For (XFF) header that contains the user’s public IP address isn't used because there's no validation that it comes from a trusted source, so would present a method for faking an IP address.
+
+When a cloud proxy is in place, a policy that requires a [hybrid Azure AD joined or compliant device](howto-conditional-access-policy-compliant-device.md#create-a-conditional-access-policy) can be easier to manage. Keeping a list of IP addresses used by your cloud hosted proxy or VPN solution up to date can be nearly impossible.
+
 ### When is a location evaluated?
 
 Conditional Access policies are evaluated when:
@@ -160,15 +177,23 @@ By default, Azure AD issues a token on an hourly basis. After users move off the
 
 The IP address used in policy evaluation is the public IPv4 or IPv6 address of the user. For devices on a private network, this IP address isn't the client IP of the user’s device on the intranet, it's the address used by the network to connect to the public internet.
 
+### When you might block locations?
+
+A policy that uses the location condition to block access is considered restrictive, and should be done with care after thorough testing. Some instances of using the location condition to block authentication may include:
+
+- Blocking countries/regions where your organization never does business.
+- Blocking specific IP ranges like:
+   - Known malicious IPs before a firewall policy can be changed.
+   - For highly sensitive or privileged actions and cloud applications.
+   - Based on user specific IP range like access to accounting or payroll applications.
+
+### User exclusions
+
+[!INCLUDE [active-directory-policy-exclusions](../../../includes/active-directory-policy-exclude-user.md)]
+
 ### Bulk uploading and downloading of named locations
 
 When you create or update named locations, for bulk updates, you can upload or download a CSV file with the IP ranges. An upload replaces the IP ranges in the list with those ranges from the file. Each row of the file contains one IP Address range in CIDR format.
-
-### Cloud proxies and VPNs
-
-When you use a cloud hosted proxy or VPN solution, the IP address Azure AD uses while evaluating a policy is the IP address of the proxy. The X-Forwarded-For (XFF) header that contains the user’s public IP address isn't used because there's no validation that it comes from a trusted source, so would present a method for faking an IP address.
-
-When a cloud proxy is in place, a policy that requires a hybrid Azure AD joined device can be used, or the inside corpnet claim from AD FS.
 
 ### API support and PowerShell
 

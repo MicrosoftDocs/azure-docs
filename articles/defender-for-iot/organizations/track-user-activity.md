@@ -75,7 +75,7 @@ Audit logs include the following data:
 
 
 > [!TIP]
-> You may also want to export your audit logs to send them to the support team for extra troubleshooting. For more information, see [Export logs from the on-premises management console for troubleshooting](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#export-logs-from-the-on-premises-management-console-for-troubleshooting).
+> You may also want to export your audit logs to send them to the support team for extra troubleshooting. For more information, see [Export logs from the on-premises management console for troubleshooting](how-to-troubleshoot-on-premises-management-console.md#export-logs-from-the-on-premises-management-console-for-troubleshooting).
 >
 
 ## Next steps

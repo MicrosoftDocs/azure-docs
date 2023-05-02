@@ -1,5 +1,5 @@
 ---
-title: Add users, groups, or devices to an administrative unit - Azure Active Directory
+title: Add users, groups, or devices to an administrative unit
 description: Add users, groups, or devices to an administrative unit in Azure Active Directory
 services: active-directory
 documentationcenter: ''

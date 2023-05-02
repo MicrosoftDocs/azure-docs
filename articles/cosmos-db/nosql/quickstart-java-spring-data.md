@@ -46,7 +46,7 @@ Azure Cosmos DB is a multi-model database service that lets you quickly create a
 
 * An Azure account with an active subscription.
   * No Azure subscription? You can [try Azure Cosmos DB free](../try-free.md) with no credit card required.
-* [Java Development Kit (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Set the `JAVA_HOME` environment variable to the JDK install folder.
+* [Java Development Kit (JDK) 8](/java/openjdk/download#openjdk-8). Set the `JAVA_HOME` environment variable to the JDK install folder.
 * A [Maven binary archive](https://maven.apache.org/download.cgi). On Ubuntu, run `apt-get install maven` to install Maven.
 * [Git](https://www.git-scm.com/downloads). On Ubuntu, run `sudo apt-get install git` to install Git.
 

@@ -1,5 +1,5 @@
 ---
-title: Manage users or devices for an administrative unit with dynamic membership rules (Preview) - Azure Active Directory
+title: Manage users or devices for an administrative unit with dynamic membership rules (Preview)
 description: Manage users or devices for an administrative unit with dynamic membership rules (Preview) in Azure Active Directory
 services: active-directory
 documentationcenter: ''

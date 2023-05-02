@@ -1,5 +1,5 @@
 ---
-title: Assign a managed identity to an application role using Azure CLI - Azure AD
+title: Assign a managed identity to an application role using Azure CLI
 description: Step-by-step instructions for assigning a managed identity access to another application's role, using Azure CLI.
 services: active-directory
 author: xstof
