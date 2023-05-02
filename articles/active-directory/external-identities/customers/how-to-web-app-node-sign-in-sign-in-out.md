@@ -121,7 +121,7 @@ The `/` route is the entry point to the application. It renders the *views/index
 
 1. In your code editor, open *auth/AuthProvider.js* file, then add the code from [AuthProvider.js](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/blob/main/1-Authentication/5-sign-in-express/App/auth/AuthProvider.js) to it.
 
-    The `/signin`, `/signout` and `/redirect` routes are defined in the *routes/auth.js* file, but their logic live in the *auth/AuthProvider.js* file.
+    The `/signin`, `/signout` and `/redirect` routes are defined in the *routes/auth.js* file, but their logic live in the *auth/AuthProvider.js* class.
 
 - The `login` method handles `/signin` route:
     
