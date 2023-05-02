@@ -39,7 +39,7 @@ In recent years, advancements in AI have led to the rise of large foundation mod
 
 The image below displays a summary of key user benefits, as compared to what is available prior:
 
-:::image type="content" source="media/concept-foundation-models/foundation_models_overview.png" alt-text="Screenshot showing benefits of using foundation models in Azure Machine Learning.":::
+:::image type="content" source="media/concept-foundation-models/foundation-models-overview.png" alt-text="Screenshot showing benefits of using foundation models in Azure Machine Learning.":::
 
 ## Learn more
 
