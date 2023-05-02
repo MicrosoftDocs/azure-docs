@@ -137,13 +137,13 @@ items:
                 - name: Protect ASP.NET API
                   items:
                     - name: Overview
-                      href: ../../develop/tutorial-v2-asp-webapp.md
+                      href: how-to-protect-web-api-dotnet-core-overview.md
                     - name: Prepare API app
-                      href: ../../develop/tutorial-v2-asp-webapp.md
+                      href: how-to-protect-web-api-dotnet-core-prepare-api.md
                     - name: Protect API endpoints
-                      href: ../../develop/tutorial-v2-asp-webapp.md
+                      href: how-to-protect-web-api-dotnet-core-protect-endpoints.md
                     - name: Test API
-                      href: ../../develop/tutorial-v2-asp-webapp.md
+                      href: how-to-protect-web-api-dotnet-core-test-api.md
 
             - name: Headless app
               items: 
