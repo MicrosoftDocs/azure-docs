@@ -20,7 +20,7 @@ The following tutorial explains how to migrate an existing application to connec
 
 ## Configure roles and users for local development authentication
 
-[!INCLUDE [assign-roles](../../../includes/assign-roles-storage-queues.md)]
+[!INCLUDE [assign-roles-storage-queues](../../../includes/assign-roles-storage-queues.md)]
 
 ## Sign-in and migrate the app code to use passwordless connections
 
@@ -69,7 +69,7 @@ Once your application is configured to use passwordless connections and runs loc
 
 ### Create the managed identity
 
-[!INCLUDE [create-managed-identity](../../../includes/passwordless/migration-guide/create-user-assigned-managed-identity.md)]
+[!INCLUDE [create-user-assigned-managed-identity](../../../includes/passwordless/migration-guide/create-user-assigned-managed-identity.md)]
 
 #### Associate the managed identity with your web app
 
@@ -116,13 +116,13 @@ Next, you need to grant permissions to the managed identity you created to acces
 
    :::image type="content" source="media/migration-add-role-small.png" alt-text="Screenshot showing how to add a role to a managed identity." lightbox="media/migration-add-role.png":::
 
-1. In the **Role** search box, search for *Storage Queue Data Contributor*, which is a common role used to manage data operations for blobs. You can assign whatever role is appropriate for your use case. Select the *Storage Queue Data Contributor* from the list and choose **Next**.
+1. In the **Role** search box, search for *Storage Queue Data Contributor*, which is a common role used to manage data operations for queues. You can assign whatever role is appropriate for your use case. Select the *Storage Queue Data Contributor* from the list and choose **Next**.
 
 1. On the **Add role assignment** screen, for the **Assign access to** option, select **Managed identity**. Then choose **+Select members**.
 
 1. In the flyout, search for the managed identity you created by name and select it from the results. Choose **Select** to close the flyout menu.
 
-   :::image type="content" source="media/migration-select-identity-small.png" alt-text="Screenshot showing how to select the assigned managed identity." lightbox="media/migration-select-identity.png":::
+    :::image type="content" source="../../../includes/passwordless/media/migration-select-identity-small.png" alt-text="Screenshot showing how to select the assigned managed identity." lightbox="../../../includes/passwordless/media/migration-select-identity.png":::
 
 1. Select **Next** a couple times until you're able to select **Review + assign** to finish the role assignment.
 
