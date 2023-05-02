@@ -79,7 +79,8 @@ See the [team domain](https://developers.cloudflare.com/cloudflare-one/glossary#
 
 1. On the **Cloudflare Access** screen, under **Essentials**, copy and save the Application (Client) ID and the Directory (Tenant) ID.
 
-   ![Screenshot of the Cloudflare Access screen.](./media/cloudflare-azure-ad-integration/cloudflare-access.png)](./media/cloudflare-azure-ad-integration/cloudflare-access.png#lightbox)
+   [![Screenshot of the Cloudflare Access screen.](./media/cloudflare-azure-ad-integration/cloudflare-access.png)](./media/cloudflare-azure-ad-integration/cloudflare-access.png#lightbox)
+
 
 
 
@@ -116,12 +117,14 @@ See the [team domain](https://developers.cloudflare.com/cloudflare-one/glossary#
 
 5. Under **Manage**, select **+ Add permissions**.
 
-   ![Screenshot options and selections for Request API permissions.](./media/cloudflare-azure-ad-integration/request-api-permissions.png)](./media/cloudflare-azure-ad-integration/request-api-permissions.png#lightbox)
+   [![Screenshot options and selections for Request API permissions.](./media/cloudflare-azure-ad-integration/request-api-permissions.png)](./media/cloudflare-azure-ad-integration/request-api-permissions.png#lightbox)
+
 
 
 6. Select **Grant Admin Consent for ...**.
 
-   ![Screenshot of configured permissions under API permissions.](./media/cloudflare-azure-ad-integration/grant-admin-consent.png)](./media/cloudflare-azure-ad-integration/grant-admin-consent.png#lightbox)
+   [![Screenshot of configured permissions under API permissions.](./media/cloudflare-azure-ad-integration/grant-admin-consent.png)](./media/cloudflare-azure-ad-integration/grant-admin-consent.png#lightbox)
+
 
 
 7. On the Cloudflare Zero Trust dashboard, navigate to **Settings > Authentication**.
