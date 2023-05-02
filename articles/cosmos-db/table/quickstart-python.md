@@ -12,7 +12,7 @@ ms.reviewer: mjbrown
 ms.custom: devx-track-python, mode-api, devx-track-azurecli, ignite-2022, py-fresh-zinc
 ---
 
-# Quickstart: Build a API for Table app with Python SDK and Azure Cosmos DB
+# Quickstart: Build an API for Table app with Python SDK and Azure Cosmos DB
 
 [!INCLUDE[Table](../includes/appliesto-table.md)]
 
@@ -40,13 +40,13 @@ The sample application for this tutorial may be cloned or downloaded from the re
 git clone https://github.com/Azure-Samples/msdocs-azure-tables-sdk-python-flask.git
 ```
 
-The sample application uses weather data as an example to demonstrate the capabilities of the API for Table. Objects representing weather observations are stored and retrieved using the API for Table, including storing objects with additional properties to demonstrate the schemaless capabilities of the API for Table.
+The sample application uses weather data as an example to demonstrate the capabilities of the API for Table. Objects representing weather observations are stored and retrieved using the API for Table, including storing objects with extra properties to demonstrate the schemaless capabilities of the API for Table.
 
-:::image type="content" source="./media/quickstart-python/table-api-app-finished-application-720px.png" alt-text="A screenshot of the finished application showing data stored in an Azure Cosmos DB table using the API for Table." lightbox="./media/quickstart-python/table-api-app-finished-application.png":::
+:::image type="content" source="./media/quickstart-python/table-api-app-finished-application-720px.png" alt-text="A screenshot of the finished application, which shows data stored in an Azure Cosmos DB table using the API for Table." lightbox="./media/quickstart-python/table-api-app-finished-application.png":::
 
 ## 1 - Create an Azure Cosmos DB account
 
-You first need to create an Azure Cosmos DB Tables API account that will contain the table(s) used in your application. This can be done using the Azure portal, Azure CLI, or Azure PowerShell.
+You first need to create an Azure Cosmos DB Tables API account that will contain the table(s) used in your application. Create an account with the Azure portal, Azure CLI, or Azure PowerShell.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -116,7 +116,7 @@ New-AzCosmosDBAccount `
 
 ## 2 - Create a table
 
-Next, you need to create a table within your Azure Cosmos DB account for your application to use. Unlike a traditional database, you only need to specify the name of the table, not the properties (columns) in the table. As data is loaded into your table, the properties (columns) will be automatically created as needed.
+Next, you need to create a table within your Azure Cosmos DB account for your application to use. Unlike a traditional database, you only need to specify the name of the table, not the properties (columns) in the table. As data is loaded into your table, the properties (columns) is automatically created as needed.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -160,7 +160,7 @@ New-AzCosmosDBTable `
 
 ## 3 - Get Azure Cosmos DB connection string
 
-To access your table(s) in Azure Cosmos DB, your app will need the table connection string for the CosmosDB Storage account.  The connection string can be retrieved using the Azure portal, Azure CLI or Azure PowerShell.
+To access your table(s) in Azure Cosmos DB, your app needs the table connection string for the CosmosDB Storage account.  The connection string can be retrieved using the Azure portal, Azure CLI or Azure PowerShell.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -233,7 +233,7 @@ self.table_service = TableServiceClient.from_connection_string(self.conn_str)
 
 ## 6 - Implement Azure Cosmos DB table operations
 
-All Azure Cosmos DB table operations for the sample app are implemented in the `TableServiceHelper` class located in *helper* file under the *webapp* directory. You will need to import the `TableServiceClient` class at the top of this file to work with objects in the `azure.data.tables` SDK package.
+All Azure Cosmos DB table operations for the sample app are implemented in the `TableServiceHelper` class located in *helper* file under the *webapp* directory. You'll need to import the `TableServiceClient` class at the top of this file to work with objects in the `azure.data.tables` SDK package.
 
 ```python
 from azure.data.tables import TableServiceClient
@@ -283,7 +283,7 @@ def query_entity(self, params):
 
 ### Insert data using a TableEntity object
 
-The simplest way to add data to a table is by using a `TableEntity` object. In this example, data is mapped from an input model object to a `TableEntity` object. The properties on the input object representing the weather station name and observation date/time are mapped to the `PartitionKey` and `RowKey` properties respectively which together form a unique key for the row in the table. Then the additional properties on the input model object are mapped to dictionary properties on the TableEntity object. Finally, the `create_entity` method on the `TableClient` object is used to insert data into the table.
+The simplest way to add data to a table is by using a `TableEntity` object. In this example, data is mapped from an input model object to a `TableEntity` object. The properties on the input object representing the weather station name and observation date/time are mapped to the `PartitionKey` and `RowKey` properties respectively, which together form a unique key for the row in the table. Then the extra properties on the input model object are mapped to dictionary properties on the TableEntity object. Finally, the `create_entity` method on the `TableClient` object is used to insert data into the table.
 
 Modify the `insert_entity` function in the example application to contain the following code.
 
@@ -302,7 +302,7 @@ def deserialize():
 
 ### Upsert data using a TableEntity object
 
-If you try to insert a row into a table with a partition key/row key combination that already exists in that table, you will receive an error. For this reason, it is often preferable to use the `upsert_entity` instead of the `create_entity` method when adding rows to a table. If the given partition key/row key combination already exists in the table, the `upsert_entity` method will update the existing row. Otherwise, the row will be added to the table.
+If you try to insert a row into a table with a partition key/row key combination that already exists in that table, you'll receive an error. For this reason, it's often preferable to use the `upsert_entity` instead of the `create_entity` method when adding rows to a table. If the given partition key/row key combination already exists in the table, the `upsert_entity` method updates the existing row. Otherwise, the row is added to the table.
 
 ```python
 def upsert_entity(self):
@@ -319,7 +319,7 @@ def deserialize():
 
 ### Insert or upsert data with variable properties
 
-One of the advantages of using the Azure Cosmos DB for Table is that if an object being loaded to a table contains any new properties then those properties are automatically added to the table and the values stored in Azure Cosmos DB. There is no need to run DDL statements like ALTER TABLE to add columns as in a traditional database.
+One of the advantages of using the Azure Cosmos DB for Table is that if an object being loaded to a table contains any new properties then those properties are automatically added to the table and the values stored in Azure Cosmos DB. There's no need to run DDL statements like ALTER TABLE to add columns as in a traditional database.
 
 This model gives your application flexibility when dealing with data sources that may add or modify what data needs to be captured over time or when different inputs provide different data to your application. In the sample application, we can simulate a weather station that sends not just the base weather data but also some additional values. When an object with these new properties is stored in the table for the first time, the corresponding properties (columns) will be automatically added to the table.
 
@@ -398,7 +398,7 @@ Select the **Filter Results** item in the top menu to be taken to the Filter Res
 
 ## Clean up resources
 
-When you are finished with the sample application, you should remove all Azure resources related to this article from your Azure account.  You can do this by deleting the resource group.
+When you're finished with the sample application, you should remove all Azure resources related to this article from your Azure account.  You can remove all resources by deleting the resource group.
 
 ### [Azure portal](#tab/azure-portal)
 
