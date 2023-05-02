@@ -185,7 +185,7 @@ There are 5 variants available in V1 SKU based on the Tier and Size - Standard_S
 > [!NOTE]
 > The calculations shown here are based on East US and for a gateway with 2 instances in V1. The variable cost in V2 is based on one of the 3 dimensions with highest usage: New connections (50/sec), Persistent connections (2500 persistent connections/min), Throughput (1 CU can handle 2.22 Mbps). <br>
 > <br>
-> The scenarios described here are examples and are for illustration purposes only. For pricing  information according to your region, see the [Pricing page] (https://azure.microsoft.com/pricing/details/application-gateway/).
+> The scenarios described here are examples and are for illustration purposes only. For pricing information according to your region, see the [Pricing page](https://azure.microsoft.com/pricing/details/application-gateway/).
 
  <table>
   <tr>
