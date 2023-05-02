@@ -191,7 +191,7 @@ kubectl get nodes -o=custom-columns="NAME:.metadata.name,ADDRESSES:.status.addre
 
 The output from the `kubectl get nodes` command will show that the nodes have addresses and pod IP assignment space from both IPv4 and IPv6.
 
-```
+```output
 NAME                                ADDRESSES                           PODCIDRS
 aks-nodepool1-14508455-vmss000000   10.240.0.4,2001:1234:5678:9abc::4   10.244.0.0/24,fd12:3456:789a::/80
 aks-nodepool1-14508455-vmss000001   10.240.0.5,2001:1234:5678:9abc::5   10.244.1.0/24,fd12:3456:789a:0:1::/80
@@ -318,7 +318,7 @@ Once the deployment has been exposed and the `LoadBalancer` services have been f
 kubectl get services
 ```
 
-```
+```output
 NAME         TYPE           CLUSTER-IP               EXTERNAL-IP         PORT(S)        AGE
 nginx-ipv4   LoadBalancer   10.0.88.78               20.46.24.24         80:30652/TCP   97s
 nginx-ipv6   LoadBalancer   fd12:3456:789a:1::981a   2603:1030:8:5::2d   80:32002/TCP   63s
@@ -331,7 +331,7 @@ SERVICE_IP=$(kubectl get services nginx-ipv6 -o jsonpath='{.status.loadBalancer.
 curl -s "http://[${SERVICE_IP}]" | head -n5
 ```
 
-```
+```html
 <!DOCTYPE html>
 <html>
 <head>

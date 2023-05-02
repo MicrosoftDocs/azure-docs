@@ -92,7 +92,7 @@ If you need to submit a support incident, provide the request ID and time and da
 | 53003 | BlockedByConditionalAccess |
 | 53004 | ProofUpBlockedDueToRisk |
 
-More information about error codes can be found in the article [Azure AD Authentication and authorization error codes](../develop/reference-aadsts-error-codes.md). Error codes in the list appear with a prefix of `AADSTS` followed by the code seen in the browser, for example `AADSTS53002`.
+More information about error codes can be found in the article [Azure AD Authentication and authorization error codes](../develop/reference-error-codes.md). Error codes in the list appear with a prefix of `AADSTS` followed by the code seen in the browser, for example `AADSTS53002`.
 
 ## Service dependencies
 
