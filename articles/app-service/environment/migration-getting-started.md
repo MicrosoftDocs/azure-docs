@@ -1,26 +1,43 @@
 ---
-title: Getting started with migration to App Service Environment v3
-description: Take the first steps toward migrating to App Service Environment v3.
+title: Getting started with upgrading to App Service Environment v3
+description: Take the first steps toward upgrading to App Service Environment v3.
 ms.author: jordanselig
 author: seligj95
 ms.topic: overview
-ms.date: 4/28/2023
+ms.date: 05/02/2023
 ---
 
-# Getting started with migration to App Service Environment v3
+# Upgrade to App Service Environment v3
 
-## Introduction
+## Why is the upgrade required?
 
-If you're currently using App Service Environment v1 or v2, you must migrate your workloads to [App Service Environment v3](overview.md). [App Service Environment v1 and v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). Failure to migrate by that date will result in the loss of the environments, the applications running on them, and any associated application data. Use the following resources to get started with migration.
+If you're currently using App Service Environment v1 or v2, you must migrate your workloads to [App Service Environment v3](overview.md). [App Service Environment v1 and v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). Failure to migrate by that date will result in the loss of the environments, the applications running on them, and any associated application data.
 
-|Action|Resources|
-|------|---------|
-|**Learn about App Service Environment v3**|- [App Service Environment v3 overview](overview.md)<br>- [Three reasons why you should prioritize migrating to App Service Environment v3 for your business](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/three-reasons-why-you-should-prioritize-migrating-to-app-service/ba-p/3596628)<br>- [Estimate your cost savings by migrating to App Service Environment v3](https://azure.github.io/AppService/2023/03/02/App-service-environment-v3-pricing.html)<br>- [Using App Service Environment v3 in Compliance-Oriented Industries](https://azure.microsoft.com/resources/using-app-service-environment-v3-in-compliance-oriented-industries/)|
-|**Understand differences between App Service Environment versions**|Review what changes when your apps are hosted on App Service Environment v3.<br><br>- [App Service Environment version comparison](version-comparison.md)<br>- [Feature differences](overview.md#feature-differences)|
-|**Review migration options**|Determine if you can use the migration feature to automate your migration or if you need to migrate manually.<br><br>- [Automated migration using the migration feature](migrate.md)<br>- [Manual migration](migration-alternatives.md)|
-|**Plan for migration**|- [Frequently asked questions](migrate.md#frequently-asked-questions)|
-|**Migrate**|Based on your review, either migrate using the migration feature or migrate manually.<br><br>- [Use the migration feature (automated)](how-to-migrate.md)<br>- [Migrate manually](migration-alternatives.md)|
-|**Scale down your App Service plans**|Review the Isolated v2 SKU sizes and scale down your App Service plans as needed once migration completes reducing cost and ensuring you're not over-provisioned.<br><br>- [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/)<br>- [Scale down your App Service plans](migrate.md#pricing)|
+## What are the steps to upgrade?
+
+Microsoft provides automated tooling, guidance, and support to help you successfully complete this upgrade. 
+
+|Step|Action|Resources|
+|----|------|---------|
+|**1**|**Pre-flight check**|Determine if your environment meets the prerequisites to automate your upgrade using the migration feature.<br><br>- [Automated upgrade using the migration feature](migrate.md)<br><br>If not, you can upgrade manually.<br><br>- [Manual migration](migration-alternatives.md)|
+|**2**|**Migrate**|Based on results of your review, either upgrade using the migration feature or follow the manual steps.<br><br>- [Use the automated migration feature](how-to-migrate.md)<br>- [Migrate manually](migration-alternatives.md)|
+|**3**|**Testing and troubleshooting**|Upgrading using the automated migration feature requires a 3-6 hour service window. Support teams are monitoring upgrades to ensure success. If you have a support plan and you need technical help, create a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).|
+|**4**|**Optimize your App Service plans**|Once your upgrade is complete, you can optimize the App Service plans for additional benefits.<br><br>Review the autoselected Isolated v2 SKU sizes and scale up or scale down your App Service plans as needed.<br><br>- [Scale down your App Service plans](../manage-scale-up.md)<br>- [App Service Environment post-migration scaling guidance](migrate.md#pricing)<br><br>Check out the pricing estimates if needed.<br>- [App Service pricing page](https://azure.microsoft.com/pricing/details/app-service/windows/)<br>- [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator)|
+|**5**|**Learn more**|[Frequently asked questions](https://learn.microsoft.com/azure/app-service/environment/migrate#frequently-asked-questions)<br><br>[Community support](https://aka.ms/asev1v2retirement)|
+
+## Additional information
+
+### What are the benefits of upgrading?
+
+- [Three reasons why you should prioritize migrating to App Service Environment v3 for your business](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/three-reasons-why-you-should-prioritize-migrating-to-app-service/ba-p/3596628)
+- [Estimate your cost savings by migrating to App Service Environment v3](https://azure.github.io/AppService/2023/03/02/App-service-environment-v3-pricing.html)
+- [Using App Service Environment v3 in Compliance-Oriented Industries](https://azure.microsoft.com/resources/using-app-service-environment-v3-in-compliance-oriented-industries/)
+
+### What changes when upgrading to App Service Environment v3?
+
+- [App Service Environment v3 overview](overview.md)
+- [App Service Environment version comparison](version-comparison.md)
+- [Feature differences](overview.md#feature-differences)
 
 ## Next steps
 
