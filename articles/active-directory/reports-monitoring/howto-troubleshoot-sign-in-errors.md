@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/27/2023
+ms.date: 05/02/2023
 ms.author: sarahlipsey
 ms.reviewer: dhanyahk 
 ms.collection: M365-identity-device-management
@@ -42,12 +42,14 @@ You need:
     - Search by application if you're troubleshooting issues with a specific app.
     - Select **Failure** from the **Status** menu to display only failed sign-ins. 
 1. Select the failed sign-in you want to investigate to open the details window.
-1. Explore the details on each tab. You may want to save a few details for further troubleshooting, such as:
+1. Explore the details on each tab. You may want to save a few details for further troubleshooting. These details are highlighted in the screenshot following the list.
     - Correlation ID
     - Sign-in error code
     - Failure reason
     - Username, User ID, and Sign-in identifier
 
+    ![Screenshot of the sign-in details, with several details highlighted.](media/howto-troubleshoot-sign-in-errors/sign-in-activity-details.png)
+    
 ## Troubleshoot sign-in errors
 
 With sign-in details gathered, you should explore the results and troubleshoot the issue.
@@ -55,6 +57,10 @@ With sign-in details gathered, you should explore the results and troubleshoot t
 ### Failure reason and additional details
 
 The **Failure reason** and **Additional Details** may provide you with the details and next steps to resolve the issue. The Failure reason describes the error. The Additional Details provides more details and often tells you how to resolve the issue.
+
+![Screenshot of the activity details, with the failure reason and details highlighted.](media/howto-troubleshoot-sign-in-errors/sign-in-activity-details-failure-reason.png)
+
+The following failure reasons and details are common:
 
 -  The failure reason **Authentication failed during the strong authentication request** doesn't provide much to troubleshoot, but the additional details field says the user didn't complete the MFA prompt. The fix is to have the user sign-in again and complete the MFA prompts.
 - The failure reason **The Federation Service failed to issue an OAuth Primary Refresh Token** provides a good starting point, but the additional details briefly explains how authentication works in this scenario and tells you to make sure that device sync is enabled. 
@@ -67,7 +73,7 @@ If you need more specifics to research, you can use the **sign-in error code** f
 - Enter the error code into the **[Error code lookup tool](https://login.microsoftonline.com/error)** to get the error code description and remediation information.
 - Search for an error code in the **[sign-ins error codes reference](../develop/reference-aadsts-error-codes.md)**. 
 
-The following error codes are associated with sign-in events:
+The following error codes are associated with sign-in events, but this list isn't exhaustive:
 
 - **50058**: User is authenticated but not yet signed in.
     - This error code appears for sign-in attempts when the user didn't complete the sign-in process.
