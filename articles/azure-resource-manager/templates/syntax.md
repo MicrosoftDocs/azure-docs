@@ -2,7 +2,7 @@
 title: Template structure and syntax
 description: Describes the structure and properties of Azure Resource Manager templates (ARM templates) using declarative JSON syntax.
 ms.topic: conceptual
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-arm-template
 ms.date: 09/28/2022
 ---
 

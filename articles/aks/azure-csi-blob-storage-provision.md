@@ -3,7 +3,7 @@ title: Create a persistent volume with Azure Blob storage in Azure Kubernetes Se
 titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static or dynamic persistent volume with Azure Blob storage for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.date: 01/18/2023
+ms.date: 03/23/2023
 
 ---
 
@@ -240,7 +240,7 @@ This section provides guidance for cluster administrators who want to create one
 |--- | **Following parameters are only for blobfuse** | --- | --- | --- |
 |volumeAttributes.secretName | Secret name that stores storage account name and key (only applies for SMB).| | No ||
 |volumeAttributes.secretNamespace | Specify namespace of secret to store account key. | `default` | No | Pvc namespace|
-|nodeStageSecretRef.name | Specify secret name that stores one of the following:<br> `azurestorageaccountkey`<br>`azurestorageaccountsastoken`<br>`msisecret`<br>`azurestoragespnclientsecret`. | |Existing Kubernetes secret name |  No  |
+|nodeStageSecretRef.name | Specify secret name that stores one of the following:<br> `azurestorageaccountkey`<br>`azurestorageaccountsastoken`<br>`msisecret`<br>`azurestoragespnclientsecret`. | |  No  |Existing Kubernetes secret name |
 |nodeStageSecretRef.namespace | Specify the namespace of secret. | Kubernetes namespace | Yes ||
 |--- | **Following parameters are only for NFS protocol** | --- | --- | --- |
 |volumeAttributes.mountPermissions | Specify mounted folder permissions. | `0777` | No ||
@@ -300,6 +300,8 @@ The following example demonstrates how to mount a Blob storage container as a pe
     apiVersion: v1
     kind: PersistentVolume
     metadata:
+      annotations:
+        pv.kubernetes.io/provisioned-by: blob.csi.azure.com
       name: pv-blob
     spec:
       capacity:
@@ -388,6 +390,8 @@ Kubernetes needs credentials to access the Blob storage container created earlie
     apiVersion: v1
     kind: PersistentVolume
     metadata:
+      annotations:
+        pv.kubernetes.io/provisioned-by: blob.csi.azure.com
       name: pv-blob
     spec:
       capacity:

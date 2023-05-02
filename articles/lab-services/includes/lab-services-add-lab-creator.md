@@ -1,18 +1,16 @@
 ---
 ms.service: lab-services
-ms.date: 01/17/2023
+ms.date: 04/04/2023
 ms.topic: include
 ms.service: lab-services
 ---
 
-To create or edit a lab in the Azure Lab Services website ([https://labs.azure.com](https://labs.azure.com)), your Azure account must be assigned the Lab Creator role in Azure AD. If you assign the Lab Creator role on the lab plan's resource group, the user can create labs for all lab plans in that resource group.
+To create or edit a lab in the Azure Lab Services website ([https://labs.azure.com](https://labs.azure.com)), your Azure account must be assigned the Lab Creator role in Azure RBAC. If you assign the Lab Creator role on the lab plan's resource group, the user can create labs for all lab plans in the resource group.
 
 > [!NOTE]
 > Owners of a lab plan can automatically create labs and do not need to be assigned the **Lab Creator** role.
 
-1. On the **Overview** page for the lab plan, select **Add lab creators**.
-
-    :::image type="content" source="../media/lab-services-add-lab-creator/lab-plan-overview-add-lab-creators-focused.png" alt-text="Screenshot that shows the **Overview** page of the lab plan." lightbox="../media/lab-services-add-lab-creator/lab-plan-overview-add-lab-creators.png":::
+1. Select the resource group that contains the lab plan.
 
 1. From the **Access control (IAM)** page, select **Add** > **Add role assignment**.
 

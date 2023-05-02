@@ -11,7 +11,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/07/2022
+ms.date: 04/25/2023
 ms.author: ampatel
 
 ---
@@ -241,17 +241,19 @@ For more information about the required ports for SAP HANA, read the chapter [Co
 
 1.**[A]** Create mount points for the HANA database volumes.
 
-  ```
-  mkdir -p /hana/data/HN1/mnt00001
-  mkdir -p /hana/log/HN1/mnt00001
-  mkdir -p /hana/shared/HN1
+  ```bash
+  sudo mkdir -p /hana/data/HN1/mnt00001
+  sudo mkdir -p /hana/log/HN1/mnt00001
+  sudo mkdir -p /hana/shared/HN1
   ```
 
 2.**[A]** Verify the NFS domain setting. Make sure that the domain is configured as the default Azure NetApp Files domain, that is, **defaultv4iddomain.com** and the mapping is set to **nobody**.
 
-   ```
+   ```bash
    sudo cat /etc/idmapd.conf
-   # Example
+   ```
+   Example output
+   ```output
    [General]
    Domain = defaultv4iddomain.com
    [Mapping]
@@ -264,22 +266,28 @@ For more information about the required ports for SAP HANA, read the chapter [Co
 
 3.**[A]** Edit the /etc/fstab on both nodes to permanently mount the volumes relevant to each node.  Below is an example of how you mount the volumes permanently.
 
-   ```
+   ```bash
    sudo vi /etc/fstab
-   
-   # Add the following entries in /etc/fstab on both nodes 
-   # Example for hanadb1
-   
-   10.3.1.4:/hanadb1-data-mnt00001 /hana/data/HN1/mnt00001  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
-   10.3.1.4:/hanadb1-log-mnt00001 /hana/log/HN1/mnt00001  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
-   10.3.1.4:/hanadb1-shared-mnt00001 /hana/shared/HN1  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0 
-   
-   # Example for hanadb2    
-   10.3.1.4:/hanadb2-data-mnt00001 /hana/data/HN1/mnt00001  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
-   10.3.1.4:/hanadb2-log-mnt00001 /hana/log/HN1/mnt00001  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
-   10.3.1.4:/hanadb2-shared-mnt00001 /hana/shared/HN1  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
+   ```
+   Add the following entries in /etc/fstab on both nodes 
 
-   # Mount all volumes
+   Example for hanadb1
+   
+   ```output
+   10.3.1.4:/hanadb1-data-mnt00001 /hana/data/HN1/mnt00001  nfs   rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
+   10.3.1.4:/hanadb1-log-mnt00001 /hana/log/HN1/mnt00001  nfs   rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
+   10.3.1.4:/hanadb1-shared-mnt00001 /hana/shared/HN1  nfs   rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0 
+   ```
+   Example for hanadb2
+   
+   ```output 
+   10.3.1.4:/hanadb2-data-mnt00001 /hana/data/HN1/mnt00001  nfs   rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
+   10.3.1.4:/hanadb2-log-mnt00001 /hana/log/HN1/mnt00001  nfs   rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
+   10.3.1.4:/hanadb2-shared-mnt00001 /hana/shared/HN1  nfs   rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
+   ```
+   Mount all volumes
+   
+   ```bash
    sudo mount -a
    ```
    For workloads, that require higher throughput, consider using the `nconnect` mount option, as described in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md#nconnect-mount-option). Check if `nconnect` is [supported by Azure NetApp Files](../../azure-netapp-files/performance-linux-mount-options.md#nconnect) on your Linux release.        
@@ -287,12 +295,13 @@ For more information about the required ports for SAP HANA, read the chapter [Co
 
 4.**[A]** Verify that all HANA volumes are mounted with NFS protocol version NFSv4.
 
-   ```
+   ```bash
    sudo nfsstat -m
+   ```
+   Verify that flag vers is set to 4.1 
    
-   # Verify that flag vers is set to 4.1 
-   # Example from hanadb1
-   
+   Example from hanadb1
+   ```output
    /hana/log/HN1/mnt00001 from 10.3.1.4:/hanadb1-log-mnt00001
    Flags: rw,noatime,vers=4.1,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.3.0.4,local_lock=none,addr=10.3.1.4
    /hana/data/HN1/mnt00001 from 10.3.1.4:/hanadb1-data-mnt00001
@@ -303,15 +312,17 @@ For more information about the required ports for SAP HANA, read the chapter [Co
 
 5.**[A]** Verify **nfs4_disable_idmapping**. It should be set to **Y**. To create the directory structure where **nfs4_disable_idmapping** is located, execute the mount command. You won't be able to manually create the directory under /sys/modules, because access is reserved for the kernel / drivers.
 
+   Check nfs4_disable_idmapping
+   ```bash
+   sudo cat /sys/module/nfs/parameters/nfs4_disable_idmapping
    ```
-   # Check nfs4_disable_idmapping
-   cat /sys/module/nfs/parameters/nfs4_disable_idmapping
-   
-   # If you need to set nfs4_disable_idmapping to Y
-   echo "Y" > /sys/module/nfs/parameters/nfs4_disable_idmapping
-   
-   # Make the configuration permanent
-   echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
+   If you need to set nfs4_disable_idmapping to Y
+   ```bash
+   sudo echo "Y" > /sys/module/nfs/parameters/nfs4_disable_idmapping
+   ```
+   Make the configuration permanent
+   ```bash
+   sudo echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
    ```
 
 ## SAP HANA Installation
@@ -320,18 +331,22 @@ For more information about the required ports for SAP HANA, read the chapter [Co
 
    You can either use a DNS server or modify the /etc/hosts file on all nodes. This example shows you how to use the /etc/hosts file. Replace the IP address and the hostname in the following commands:
 
-   ```
+   ```bash
    sudo vi /etc/hosts
-   # Insert the following lines in the /etc/hosts file. Change the IP address and hostname to match your environment  
+   ```
+   Insert the following lines in the /etc/hosts file. Change the IP address and hostname to match your environment 
+   ```output
    10.3.0.4   hanadb1
    10.3.0.5   hanadb2
    ```
 
 2.**[A]** Prepare the OS for running SAP HANA on Azure NetApp with NFS, as described in SAP note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346). Create configuration file */etc/sysctl.d/91-NetApp-HANA.conf* for the NetApp configuration settings.  
 
+   ```bash
+   sudo vi /etc/sysctl.d/91-NetApp-HANA.conf
    ```
-   vi /etc/sysctl.d/91-NetApp-HANA.conf
-   # Add the following entries in the configuration file
+   Add the following entries in the configuration file
+   ```config
    net.core.rmem_max = 16777216
    net.core.wmem_max = 16777216
    net.ipv4.tcp_rmem = 4096 131072 16777216
@@ -346,9 +361,11 @@ For more information about the required ports for SAP HANA, read the chapter [Co
 
 3.**[A]** Create configuration file */etc/sysctl.d/ms-az.conf* with additional optimization settings.  
 
+   ```bash
+   sudo vi /etc/sysctl.d/ms-az.conf
    ```
-   vi /etc/sysctl.d/ms-az.conf
    Add the following entries in the configuration file
+   ```config
    net.ipv6.conf.all.disable_ipv6 = 1
    net.ipv4.tcp_max_syn_backlog = 16348
    net.ipv4.conf.all.rp_filter = 0
@@ -361,9 +378,11 @@ For more information about the required ports for SAP HANA, read the chapter [Co
 
 4.**[A]** Adjust the sunrpc settings, as recommended in SAP note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346).  
 
+   ```bash
+   sudo vi /etc/modprobe.d/sunrpc.conf
    ```
-   vi /etc/modprobe.d/sunrpc.conf
-   # Insert the following line
+   Insert the following line
+   ```config
    options sunrpc tcp_max_slot_table_entries=128
    ```
 
@@ -383,7 +402,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
 
 a.	Start the hdblcm program from the HANA installation software directory.
 
-  ```
+  ```bash
   ./hdblcm
   ```
 
@@ -419,7 +438,7 @@ a.	Start the hdblcm program from the HANA installation software directory.
 
    Download the latest SAP Host Agent archive from the [SAP Software Center](https://launchpad.support.sap.com/#/softwarecenter) and run the following command to upgrade the agent. Replace the path to the archive to point to the file that you downloaded:
 
-   ```
+   ```bash
    sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive <path to SAP Host Agent SAR>
    ```
 
@@ -450,9 +469,11 @@ This section describes the necessary steps required to configure the SAP HANA Cl
 
 Follow the steps in [creating SAP HANA cluster resources](./sap-hana-high-availability.md#create-sap-hana-cluster-resources) to create the cluster resources for the HANA server.  Once the resources are created, you should see the status of the cluster with the below command
 
-```
+```bash
 sudo crm_mon -r
-
+```
+Example output
+```output
 # Online: [ hn1-db-0 hn1-db-1 ]
 # Full list of resources:
 # stonith-sbd     (stonith:external/sbd): Started hn1-db-0
@@ -472,18 +493,18 @@ Create a dummy file system cluster resource, which will monitor and report failu
 
 1.**[A]** Create the directory structure on both nodes.
 
-   ```
+   ```bash
    sudo mkdir -p /hana/shared/HN1/check
    sudo mkdir -p /hana/shared/check
    ```
 
 2.**[1]** Configure the cluster to add the directory structure for monitoring
 
-   ```
-   crm configure primitive rsc_fs_check_HN1_HDB03 Filesystem params \
+   ```bash
+   sudo crm configure primitive rsc_fs_check_HN1_HDB03 Filesystem params \
        device="/hana/shared/HN1/check/" \
        directory="/hana/shared/check/" fstype=nfs4  \
-       options="bind,defaults,rw,hard,rsize=262144,wsize=262144,proto=tcp,intr,noatime,_netdev,vers=4,minorversion=1,lock,sec=sys" \
+       options="bind,defaults,rw,hard,rsize=262144,wsize=262144,proto=tcp,noatime,_netdev,nfsvers=4.1,lock,sec=sys" \
        op monitor interval=120 timeout=120 on-fail=fence \
        op_params OCF_CHECK_LEVEL=20 \
        op start interval=0 timeout=120 \
@@ -492,10 +513,14 @@ Create a dummy file system cluster resource, which will monitor and report failu
 
 3.**[1]** Clone and check the newly configured volume in the cluster
 
+   ```bash
+   sudo crm configure clone cln_fs_check_HN1_HDB03 rsc_fs_check_HN1_HDB03 meta clone-node-max=1 interleave=true
    ```
-   crm configure clone cln_fs_check_HN1_HDB03 rsc_fs_check_HN1_HDB03 meta clone-node-max=1 interleave=true
-   
-   crm status
+   ```bash
+  sudo  crm status
+   ```
+   Example output
+   ```output
   #Cluster Summary:
   # Stack: corosync
   # Current DC: hanadb1 (version 2.0.5+20201202.ba59be712-4.9.1-2.0.5+20201202.ba59be712) - partition with quorum
@@ -539,13 +564,13 @@ This section describes how you can test your setup.
 
 1.Before you start a test, make sure that Pacemaker does not have any failed action (via crm status), no unexpected location constraints (for example leftovers of a migration test) and that HANA system replication is sync state, for example with systemReplicationStatus:
 
-   ```
+   ```bash
    sudo su - hn1adm -c "python /usr/sap/HN1/HDB03/exe/python_support/systemReplicationStatus.py"
    ```
 
 2.Verify the status of the HANA Resources using the command below
 
-   ```
+   ```output
    SAPHanaSR-showAttr
    
    # You should see something like below
@@ -566,11 +591,16 @@ This section describes how you can test your setup.
 
 3.Verify the cluster configuration for a failure scenario when a node is shutdown (below, for example shows shutting down node 1)	
 
-   ```
+   ```bash
    sudo crm status
    sudo crm resource move msl_SAPHana_HN1_HDB03 hanadb2 force
    sudo crm resource cleanup
+   ```
+   ```bash
    sudo crm status
+   ```
+   Example output
+   ```output
    #Cluster Summary:
     # Stack: corosync
       # Current DC: hanadb2 (version 2.0.5+20201202.ba59be712-4.9.1-2.0.5+20201202.ba59be712) - partition with quorum
@@ -598,21 +628,31 @@ This section describes how you can test your setup.
       # rsc_st_azure        (stonith:fence_azure_arm):       Started hanadb2
       # Clone Set: cln_fs_check_HN1_HDB03 [rsc_fs_check_HN1_HDB03]:
         # Started: [ hanadb1 hanadb2 ]
-   
-   # Stop the HANA on Node1
+   ```
+   Stop the HANA on Node1
+
+   ```bash
    sudo su - hn1adm
+   ```
+   ```bash
    sapcontrol -nr 03 -function StopWait 600 10
-   
-   #Register Node 1 as the Secondary Node and check status
+   ```
+   Register Node 1 as the Secondary Node and check status
+   ```bash
    hdbnsutil -sr_register --remoteHost=hanadb2 --remoteInstance=03 --replicationMode=sync --name=SITE1 --operationMode=logreplay
-   
+   ```
+   Example output
+   ```output
    #adding site ...
    #nameserver hanadb1:30301 not responding.
    #collecting information ...
    #updating local ini files ...
    #done.
-   
+   ```
+   ```bash
    sudo crm status
+   ```
+   ```bash
    sudo SAPHanaSR-showAttr
    ```
 
@@ -626,9 +666,11 @@ This section describes how you can test your setup.
 
    Resource state before starting the test:
 
-   ```
+   ```bash
    sudo crm  status
-   # Example output
+   ```
+   Example output
+   ```output
    #Cluster Summary:
    	# Stack: corosync
    	# Current DC: hanadb2 (version 2.0.5+20201202.ba59be712-4.9.1-2.0.5+20201202.ba59be712) - partition with quorum
@@ -658,14 +700,17 @@ This section describes how you can test your setup.
 
    You can place /hana/shared in read-only mode on the active cluster node, using below command:
 
-   ```
+   ```bash
    sudo mount -o ro 10.3.1.4:/hanadb1-shared-mnt00001 /hana/shared
    ```
 
    hanadb1 will either reboot or poweroff based on the action set. Once the server (hanadb1) is down, HANA resource move to hanadb2. You can check the status of cluster from hanadb2.
 
    ```
-   crm status
+   sudo crm status
+   ``` 
+   Example output
+   ```output
    #Cluster Summary:
    	# Stack: corosync
    	# Current DC: hanadb2 (version 2.0.5+20201202.ba59be712-4.9.1-2.0.5+20201202.ba59be712) - partition with quorum

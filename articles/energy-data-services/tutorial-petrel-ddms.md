@@ -31,7 +31,7 @@ For more information about DDMS, see [DDMS concepts](concepts-ddms.md).
 - An Azure subscription
 - An instance of [Azure Data Manager for Energy Preview](quickstart-create-microsoft-energy-data-services-instance.md) created in your Azure subscription.
 
-## Get your Azure Data Manager for Energy Services instance details
+## Get your Azure Data Manager for Energy Preview instance details
 
 The first step is to get the following information from your [Azure Data Manager for Energy Preview instance](quickstart-create-microsoft-energy-data-services-instance.md) in the [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_OpenEnergyPlatformHidden):
 
@@ -64,7 +64,7 @@ Next, set up Postman:
 
 ## Generate a token to use in APIs
 
-The Postman collection for Petrel DDMS contains requests you can use to interact with your Petrel Projects. It also contains a request to query current Petrel projects and records in your Azure Data Manager for Energy instance.
+The Postman collection for Petrel DDMS contains requests you can use to interact with your Petrel Projects. It also contains a request to query current Petrel projects and records in your Azure Data Manager for Energy Preview instance.
 
 1. In Postman, in the left menu, select **Collections**, and then select **Petrel DDMS**. Under **Setup**, select **Get Token**.
 
@@ -74,7 +74,7 @@ The Postman collection for Petrel DDMS contains requests you can use to interact
 
 This request will generate an access token and assign it as the authorization method for future requests.
 
-You can also generate a token by using the cURL command in Postman or a terminal to generate a bearer token. Use the values from your Microsoft Energy Data Services instance.
+You can also generate a token by using the cURL command in Postman or a terminal to generate a bearer token. Use the values from your Azure Data Manager for Energy Preview instance.
 
 ```bash
       curl --location --request POST 'https://login.microsoftonline.com/{{TENANT_ID}}/oauth2/v2.0/token' \
@@ -117,7 +117,7 @@ Method: POST
 
 ### Get Project
 
-Given a Project ID, returns the corresponding Petrel Project record in your Azure Data Manager for Energy instance.
+Given a Project ID, returns the corresponding Petrel Project record in your Azure Data Manager for Energy Preview instance.
 
 API: **Project** > **Get Project**.
 
@@ -127,7 +127,7 @@ Method: GET
 
 ### Delete Project
 
-Given a Project ID, deletes the project and the associated Petrel Project record data in your Azure Data Manager for Energy instance.
+Given a Project ID, deletes the project and the associated Petrel Project record data in your Azure Data Manager for Energy Preview instance.
 
 API: **Project** > **Delete Project**
 
@@ -137,7 +137,7 @@ Method: DELETE
 
 ### Get Project Version
 
-Given a `Project ID` and a `Version ID`, gets the Petrel Version record associated with that project/version ID in your Microsoft Energy Data Services instance.
+Given a `Project ID` and a `Version ID`, gets the Petrel Version record associated with that project/version ID in your Azure Data Manager for Energy Preview instance.
 
 API: **Project** > **Project Version**
 
@@ -147,7 +147,7 @@ Method: GET
 
 ### Get a Project Download URL
 
-Given a Project ID, returns a SAS URL to download the data of the corresponding project from your Azure Data Manager for Energy instance.
+Given a Project ID, returns a SAS URL to download the data of the corresponding project from your Azure Data Manager for Energy Preview instance.
 
 API: **Project** > **Download URL**
 
@@ -157,7 +157,7 @@ Method: GET
 
 ### Get a Project Upload URL
 
-Given a Project ID, returns two SAS URLs. One to upload data to and one to download data from the corresponding project in your Azure Data Manager for Energy instance.
+Given a Project ID, returns two SAS URLs. One to upload data to and one to download data from the corresponding project in your Azure Data Manager for Energy Preview instance.
 
 API: **Project** > **Upload URL**
 
@@ -178,7 +178,7 @@ Making a PUT call to this URL uploads the contents of the `body` to the blob sto
 
 ### Update Project
 
-Given a Project ID, SAS upload URL, and a Petrel Project record, updates the Petrel Project record in your Microsoft Energy Data Services with the new values provided. Can also upload data to a given project but doesn't have to.
+Given a Project ID, SAS upload URL, and a Petrel Project record, updates the Petrel Project record in your Azure Data Manager for Energy Preview with the new values provided. Can also upload data to a given project but doesn't have to.
 
 API: **Project** > **Update Project**
 

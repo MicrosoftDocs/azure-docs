@@ -278,11 +278,11 @@ An availability set is used for achieving high availability of:
 
 
 ### Azure Availability Zones
-Azure is in process of rolling out a concepts of [Azure Availability Zones](../../availability-zones/az-overview.md) throughout different [Azure Regions](https://azure.microsoft.com/global-infrastructure/regions/). In Azure regions where Availability Zones are offered, the Azure regions have multiple data centers, which are independent in supply of power source, cooling, and network. Reason for offering different zones within a single Azure region is to enable you to deploy applications across two or three Availability Zones offered. Assuming that issues in power sources and/or network would affect one Availability Zone infrastructure only, your application deployment within an Azure region is still fully functional. Eventually with some reduced capacity since some VMs in one zone might be lost. But VMs in the other two zones are still up and running. The Azure regions that offer zones are listed in [Azure Availability Zones](../../availability-zones/az-overview.md).
+Azure is in process of rolling out a concept of [Azure Availability Zones](../../availability-zones/az-overview.md) throughout different [Azure Regions](https://azure.microsoft.com/global-infrastructure/regions/). In Azure regions where Availability Zones are offered, the Azure regions have multiple data centers, which are independent in supply of power source, cooling, and network. Reason for offering different zones within a single Azure region is to enable you to deploy applications across two or three Availability Zones offered. Assuming that issues in power sources and/or network would affect one Availability Zone infrastructure only, your application deployment within an Azure region is still fully functional. Eventually with some reduced capacity since some VMs in one zone might be lost. But VMs in the other two zones are still up and running. The Azure regions that offer zones are listed in [Azure Availability Zones](../../availability-zones/az-overview.md).
 
-Using Availability Zones, there are some things to consider. The considerations list like:
+When using Availability Zones, there are some things to consider. The considerations list like:
 
-- You can't deploy Azure Availability Sets within an Availability Zone. Only possibility to combine Availability sets and Availability Zones is with [proximity placement groups](../../virtual-machines/co-location.md). For more information see , [combine availability sets and availability zones with proximity placement groups](./proximity-placement-scenarios.md#combine-availability-sets-and-availability-zones-with-proximity-placement-groups)
+- You can't deploy Azure Availability Sets within an Availability Zone. Only possibility to combine Availability sets and Availability Zones is with [proximity placement groups](../../virtual-machines/co-location.md). For more information see article [Combine availability sets and availability zones with proximity placement groups](./proximity-placement-scenarios.md#combine-availability-sets-and-availability-zones-with-proximity-placement-groups)
 - You can't use the [Basic Load Balancer](../../load-balancer/load-balancer-overview.md) to create failover cluster solutions based on Windows Failover Cluster Services or Linux Pacemaker. Instead you need to use the [Azure Standard Load Balancer SKU](../../load-balancer/load-balancer-standard-availability-zones.md)
 - Azure Availability Zones are not giving any guarantees of certain distance between the different zones within one region
 - The network latency between different Azure Availability Zones within the different Azure regions might be different from Azure region to region. There will be cases, where you as a customer can reasonably run the SAP application layer deployed across different zones since the network latency from one zone to the active DBMS VM is still acceptable from a business process impact. Whereas there will be customer scenarios where the latency between the active DBMS VM in one zone and an SAP application instance in a VM in another zone can be too intrusive and not acceptable for the SAP business processes. As a result, the deployment architectures need to be different with an active/active architecture for the application or active/passive architecture if latency is too high.
@@ -317,7 +317,7 @@ We recommend that you use managed disks because they simplify the deployment and
 
 ## Utilizing Azure infrastructure high availability to achieve *higher availability* of SAP applications
 
-If you decide not to use functionalities such as WSFC or Pacemaker on Linux (supported for SUSE Linux Enterprise Server [SLES] 12 and later and Red Hat Enterprise Linux [RHEL] 7 and later ), Azure VM restart is utilized. It protects SAP systems against planned and unplanned downtime of the Azure physical server infrastructure and overall underlying Azure platform.
+If you decide not to use functionalities such as WSFC or Pacemaker on Linux (supported for SUSE Linux Enterprise Server [SLES] 12 and later and Red Hat Enterprise Linux [RHEL] 7 and later), Azure VM restart is utilized. It protects SAP systems against planned and unplanned downtime of the Azure physical server infrastructure and overall underlying Azure platform.
 
 For more information about this approach, see [Utilize Azure infrastructure VM restart to achieve higher availability of the SAP system][sap-higher-availability].
 
@@ -347,7 +347,7 @@ You must place all virtual machines that host SAP application server instances i
 * All virtual machines are not part of the same update domain.  
     An update domain ensures that the virtual machines aren't updated at the same time during planned maintenance downtime.
 
-    The basic functionality, which builds on different update and fault domains within an Azure scale unit, was already introduced in the [update domains][planning-guide-3.2.2] section.
+    The basic functionality, which builds on different update and fault domains within an Azure scale unit, was already introduced in the [update domains](./planning-guide.md#update-domains) section.
 
 * All virtual machines are not part of the same fault domain.  
     A fault domain ensures that virtual machines are deployed so that no single point of failure affects the availability of all virtual machines.
@@ -361,7 +361,7 @@ _**Figure 2:** High availability of SAP application servers in an Azure availabi
 
 For more information, see [Manage the availability of Windows virtual machines in Azure][azure-virtual-machines-manage-availability].
 
-For more information, see the [Azure availability sets][planning-guide-3.2.3] section of the Azure virtual machines planning and implementation for SAP NetWeaver document.
+For more information, see the [Azure availability sets](./planning-guide.md#availability-sets) section of the Azure virtual machines planning and implementation for SAP NetWeaver document.
 
 **Unmanaged disks only:** Because the Azure storage account is a potential single point of failure, it's important to have at least two Azure storage accounts, in which at least two virtual machines are distributed. In an ideal setup, the disks of each virtual machine that is running an SAP dialog instance would be deployed in a different storage account.
 

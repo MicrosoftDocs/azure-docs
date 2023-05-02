@@ -153,10 +153,12 @@
           href: ../online-backup-and-restore.md
         - name: Periodic backup
           items:
-            - name: Configure periodic backup
+            - name: Introduction
               href: ../periodic-backup-restore-introduction.md
-            - name: Update backup storage redundancy
-              href: ../periodic-backup-update-storage-redundancy.md
+            - name: Storage redundancy
+              href: ../periodic-backup-storage-redundancy.md
+            - name: Request data restore
+              href: ../periodic-backup-request-data-restore.md
     - name: Global distribution
       items:
         - name: Global distribution overview
@@ -267,7 +269,7 @@
           href: prevent-rate-limiting-errors.md
         - name: Materialized View (Preview)
           items:
-            - name: Overview            
+            - name: Overview
               href: materialized-views.md
             - name: FAQ
               href: materialized-views-faq.yml
@@ -383,6 +385,14 @@
           href: ../sql/create-support-request-quota-increase.md
         - name: Access preview features
           href: ../access-previews.md
+    - name: Back up and restore
+      items:
+        - name: Periodic backup
+          items:
+            - name: Update storage redundancy
+              href: ../periodic-backup-update-storage-redundancy.md
+            - name: Modify interval retention
+              href: ../periodic-backup-modify-interval-retention.md
     - name: Security
       items:
         - name: Configure IP firewall

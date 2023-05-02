@@ -51,12 +51,16 @@ Follow these steps to add a lab to the lab plan you created earlier:
     | **Virtual machine size** | Select *Medium*. |
     | **Location** | Leave the default value. |
 
+    Some virtual machine sizes might not be available depending on the lab plan region and your [subscription core limit](./how-to-request-capacity-increase.md). Learn more about [virtual machine sizes in the administrator's guide](./administrator-guide.md#vm-sizing).
+
+    You can [enable or disable specific virtual machine images](./specify-marketplace-images.md#enable-and-disable-images) by configuring the lab plan.
+
 1. On the **Virtual machine credentials** page, specify the default **username** and **password**, and then select **Next**.
 
     By default, all the lab VMs use the same credentials.
 
     > [!IMPORTANT]
-    > Make a note of user name and password. They won't be shown again.
+    > Make a note of username and password. They won't be shown again.
 
     :::image type="content" source="./media/quick-create-connect-lab/new-lab-credentials.png" alt-text="Screenshot of the Virtual machine credentials page in the Azure Lab Services website.":::
 

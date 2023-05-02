@@ -45,7 +45,7 @@ From the command line, go inside the root directory of the `ChatQuickstart` iOS 
 Open the Podfile, and add the following dependencies to the `ChatQuickstart` target:
 
 ```
-pod 'AzureCommunicationChat', '~> 1.3.0'
+pod 'AzureCommunicationChat', '~> 1.3.1'
 ```
 
 Install the dependencies with the following command: `pod install`. Note that this also creates an Xcode workspace.
