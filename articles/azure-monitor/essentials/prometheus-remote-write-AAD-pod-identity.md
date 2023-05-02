@@ -18,7 +18,7 @@ ms.reviewer: rapadman
 
 To configure remote write for Azure Monitor managed service for Prometheus using Azure AD pod identity, follow the steps below.
 
-1. Create user assigned identity or use an existing user assigned managed identity. For information on creating the managed identity, see [Configure remote write for Azure Monitor managed service for Prometheus using managed identity authentication](./prometheus-remote-write-managed-identity#get-the-client-id-of-the-user-assigned-identity).
+1. Create user assigned identity or use an existing user assigned managed identity. For information on creating the managed identity, see [Configure remote write for Azure Monitor managed service for Prometheus using managed identity authentication](./prometheus-remote-write-managed-identity.md#get-the-client-id-of-the-user-assigned-identity).
 1. Assign the `Managed Identity Operator` and `Virtual Machine Contributor` roles to the managed identity created/used in the previous step.
 
     ```azurecli
@@ -106,14 +106,13 @@ To configure remote write for Azure Monitor managed service for Prometheus using
         # Optional parameter 
         - name: CLUSTER 
       value: <CLUSTER-NAME> 
-      ```
+    ```
 
       b. Use helm to apply the YAML file to update your Prometheus configuration with the following CLI commands.  
       
-      ```azurecli
-        # set context to your cluster 
-        az aks get-credentials -g <aks-rg-name> -n <aks-cluster-name> 
-
-        # use helm to update your remote write config 
-        helm upgrade -f <YAML-FILENAME>.yml prometheus prometheus-community/kube-prometheus-stack --namespace <namespace where Prometheus pod resides>
-      ```
+    ```azurecli
+    # set context to your cluster 
+    az aks get-credentials -g <aks-rg-name> -n <aks-cluster-name> 
+    # use helm to update your remote write config 
+    helm upgrade -f <YAML-FILENAME>.yml prometheus prometheus-community/kube-prometheus-stack --namespace <namespace where Prometheus pod resides>
+    ```
