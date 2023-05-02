@@ -72,7 +72,7 @@ To add regulatory compliance standards on AWS accounts:
 1. Choose a standard from the drop-down menu.
 1. Select **Save**.
 
-    :::image type="content" source="media/update-regulatory-compliance-packages/Add-aws-regulatory-compliance.png" alt-text="Screenshot of adding regulatory compliance standard to AWS account." lightbox="media/update-regulatory-compliance-packages/Add-aws-regulatory-compliance.png":::
+    :::image type="content" source="media/update-regulatory-compliance-packages/add-aws-regulatory-compliance.png" alt-text="Screenshot of adding regulatory compliance standard to AWS account." lightbox="media/update-regulatory-compliance-packages/add-aws-regulatory-compliance.png":::
 
 **GCP**: When users onboard, every GCP project has the "GCP Default" standard assigned. 
 
@@ -139,7 +139,7 @@ To add regulatory compliance standards on AWS accounts:
 1. Choose a standard from the drop-down menu.
 1. Select **Save**.
 
-    :::image type="content" source="media/update-regulatory-compliance-packages/Add-aws-regulatory-compliance.png" alt-text="Screenshot of adding regulatory compliance standard to AWS account." lightbox="media/update-regulatory-compliance-packages/Add-aws-regulatory-compliance.png":::
+    :::image type="content" source="media/update-regulatory-compliance-packages/add-aws-regulatory-compliance.png" alt-text="Screenshot of adding regulatory compliance standard to AWS account." lightbox="media/update-regulatory-compliance-packages/add-aws-regulatory-compliance.png":::
 
 ## Remove a standard from your dashboard
 

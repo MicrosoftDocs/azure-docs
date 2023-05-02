@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
-ms.topic: conceptual
+ms.topic: whats-new
 ms.date: 03/15/2023
 ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
@@ -36,7 +36,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 > * West US2
 > * East US
 
-* [**Custom classifier model**](concept-custom-classifier.md) is a new capability within Form Recognizer starting with the ```2023-02-28-preview``` API. Try the document classification capability using the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/document-classifier/projects) or the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/GetClassifyDocumentResult).
+* [**Custom classification model**](concept-custom-classifier.md) is a new capability within Form Recognizer starting with the ```2023-02-28-preview``` API. Try the document classification capability using the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/document-classifier/projects) or the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/GetClassifyDocumentResult).
 * [**Query fields**](concept-query-fields.md) capabilities, added to the General Document model, use Azure OpenAI models to extract specific fields from documents. Try the **General documents with query fields** feature using the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio). Query fields are currently only active for resources in the `East US` region.
 * [**Read**](concept-read.md#barcode-extraction) and [**Layout**](concept-layout.md#barcode-extraction) models support **barcode** extraction with the ```2023-02-28-preview``` API.
 * [**Add-on capabilities**](concept-add-on-capabilities.md)
@@ -49,7 +49,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
   * [**Custom template model**](concept-custom-template.md) now has an improved signature detection capability.
 * [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio) updates
   * In addition to support for all the new features like classification and query fields, the Studio now enables project sharing for custom model projects.
-  * New model additions in gated preview: **Vaccination cards**, **Contracts**, **US Tax 1098**, **US Tax 1098-E**, and **US Tax 1095-T**.  To request access to gated preview models, complete and submit the [**Form Recognizer private preview request form**](https://aka.ms/form-recognizer/preview/survey).
+  * New model additions in gated preview: **Vaccination cards**, **Contracts**, **US Tax 1098**, **US Tax 1098-E**, and **US Tax 1098-T**.  To request access to gated preview models, complete and submit the [**Form Recognizer private preview request form**](https://aka.ms/form-recognizer/preview/survey).
 * [**Receipt model updates**](concept-receipt.md)
   * Receipt model has added support for thermal receipts.
   * Receipt model now has added language support for 18 languages and three language dialects (English, French, Portuguese).
@@ -78,7 +78,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
   * Portuguese - Brazil (pt-BR)
 
 * Prebuilt invoice model - added languages supported. The invoice model now supports these added languages and locales
-  * English - United States (en-US), Australia (en-AU), Canada (en-CA), Great Britain (en-GB), India (en-IN)
+  * English - United States (en-US), Australia (en-AU), Canada (en-CA), United Kingdom (en-UK), India (en-IN)
   * Spanish - Spain (es-ES)
   * French - France (fr-FR)
   * Italian - Italy (it-IT)
@@ -113,7 +113,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
   The **prebuilt invoice model** now has added support for the following languages:
 
-  * English - Australia (en-AU), Canada (en-CA), Great Britain (en-GB), India (en-IN)
+  * English - Australia (en-AU), Canada (en-CA), United Kingdom (en-UK), India (en-IN)
   * Portuguese - Brazil (pt-BR)
 
   The **prebuilt invoice model** now has added support for the following field extractions:

@@ -16,7 +16,7 @@ ms.reviewer: dbakevlar
 
 **Applies to:** :heavy_check_mark: Linux VMs 
 
-This article demonstrates the use of Azure Files as a media to back up and restore an Oracle database running on an Azure VM. The steps in this article have been tested against Oracle 12.1 and higher. You will back up the database using Oracle RMAN to an Azure file share mounted to the VM using the SMB protocol. Using Azure Files for backup media is extremely cost effective and performant. However, for very large databases, Azure Backup provides a better solution.
+This article demonstrates the use of Azure Files as a media to back up and restore an Oracle database running on an Azure VM. The steps in this article have been tested against Oracle 12.1 and higher. You'll back up the database using Oracle RMAN to an Azure file share mounted to the VM using the SMB protocol. Using Azure Files for backup media is extremely cost effective and performant. However, for very large databases, Azure Backup provides a better solution.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
@@ -64,10 +64,10 @@ This article demonstrates the use of Azure Files as a media to back up and resto
     echo "export ORACLE_SID=test" >> ~oracle/.bashrc
     ```
     
-6. Start the Oracle listener if it is not already running:
+6. Start the Oracle listener if it isn't already running:
     
    ```bash
-   $ lsnrctl start
+   lsnrctl start
    ```
 
     The output should look similar to the following example:
@@ -116,7 +116,7 @@ This article demonstrates the use of Azure Files as a media to back up and resto
     sqlplus / as sysdba
     ```
 
-9.  Start the database if it is not already running:
+9.  Start the database if it isn't already running:
 
     ```bash
     SQL> startup
@@ -168,14 +168,14 @@ To back up to Azure Files, complete these steps:
 
 1. [Set up Azure Files](#set-up-azure-files).
 1. [Mount the Azure file share to your VM](#mount-the-azure-storage-file-share-to-your-vm).
-1. [Back up the database](#backup-the-database).
+1. [Back up the database](#back-up-the-database).
 1. [Restore and recover the database](#restore-and-recover-the-database).
 
 ### Set up Azure Files
 
-In this step, you will back up the Oracle database using Oracle Recovery Manager (RMAN) to Azure Files. Azure file shares are fully managed file shares that live in the cloud. They can be accessed using either the Server Message Block (SMB) protocol or the Network File System (NFS) protocol. This step covers creating a file share that uses the SMB protocol to mount to your VM. For information about how to mount using NFS, see [How to create an NFS share](../../../storage/files/storage-files-how-to-create-nfs-shares.md).
+In this step, you'll back up the Oracle database using Oracle Recovery Manager (RMAN) to Azure Files. Azure file shares are fully managed file shares that live in the cloud. They can be accessed using either the Server Message Block (SMB) protocol or the Network File System (NFS) protocol. This step covers creating a file share that uses the SMB protocol to mount to your VM. For information about how to mount using NFS, see [How to create an NFS share](../../../storage/files/storage-files-how-to-create-nfs-shares.md).
 
-When mounting the Azure Files, we will use the `cache=none` to disable caching of file share data. And to ensure files created in the share are owned by the oracle user set the `uid=oracle` and `gid=oinstall` options as well. 
+When mounting the Azure Files, we'll use the `cache=none` to disable caching of file share data. And to ensure files created in the share are owned by the oracle user set the `uid=oracle` and `gid=oinstall` options as well. 
 
 # [Portal](#tab/azure-portal)
 
@@ -197,7 +197,7 @@ First, set up your storage account.
     
     ![Screenshot that shows where to select File shares.](./media/oracle-backup-recovery/file-storage-3.png)
     
-5. Click on ***+ File share*** and in the ***New file share*** blade name your file share ***orabkup1***. Set ***Quota*** to ***10240*** GiB and check ***Transaction optimized*** as the tier. The quota reflects an upper boundary that the file share can grow to. As we are using Standard storage, resources are PAYG and not provisioned so setting it to 10 TiB will not incur costs beyond what you use. If your backup strategy requires more storage, you must set the quota to an appropriate level to hold all backups.   When you have completed the New file share blade, click ***Create***.
+5. Click on ***+ File share*** and in the ***New file share*** blade name your file share ***orabkup1***. Set ***Quota*** to ***10240*** GiB and check ***Transaction optimized*** as the tier. The quota reflects an upper boundary that the file share can grow to. As we're using Standard storage, resources are PAYG and not provisioned so setting it to 10 TiB will not incur costs beyond what you use. If your backup strategy requires more storage, you must set the quota to an appropriate level to hold all backups.   When you have completed the New file share blade, click ***Create***.
     
     ![Screenshot that shows where to add a new file share.](./media/oracle-backup-recovery/file-storage-4.png)
     
@@ -319,20 +319,20 @@ To set up your storage account and file share run the following commands in Azur
    //orabackup1.file.core.windows.net/orabackup   10T     0   10T   0% /mnt/orabackup
    ```
 
-### Backup the database
+### Back up the database
 
-In this section, we will be using Oracle Recovery Manager (RMAN) to take a full backup of the database and archive logs and write the backup as a backup set to the Azure File share mounted earlier. 
+In this section, we'll be using Oracle Recovery Manager (RMAN) to take a full backup of the database and archive logs and write the backup as a backup set to the Azure File share mounted earlier. 
 
 1. Configure RMAN to back up to the Azure Files mount point:
 
     ```bash
-    $ rman target /
+    rman target /
     RMAN> configure snapshot controlfile name to '/mnt/orabkup/snapcf_ev.f';
     RMAN> configure channel 1 device type disk format '/mnt/orabkup/%d/Full_%d_%U_%T_%s';
     RMAN> configure channel 2 device type disk format '/mnt/orabkup/%d/Full_%d_%U_%T_%s'; 
     ```
 
-2. In this example, we are limiting the size of RMAN backup pieces to 1 TiB. Please note the RMAN backup MAXPIECESIZE can go upto 4TiB as Azure standard file shares and Premium File Shares have a maximum file size limit of 4 TiB. For more information, see [Azure Files Scalability and Performance Targets](../../../storage/files/storage-files-scale-targets.md).)
+2. In this example, we're limiting the size of RMAN backup pieces to 1 TiB. Please note the RMAN backup MAXPIECESIZE can go upto 4TiB as Azure standard file shares and Premium File Shares have a maximum file size limit of 4 TiB. For more information, see [Azure Files Scalability and Performance Targets](../../../storage/files/storage-files-scale-targets.md).)
 
     ```bash
     RMAN> configure channel device type disk maxpiecesize 4000G;

@@ -129,12 +129,8 @@ Two Kubernetes Services are also created:
 * An internal service for the Redis instance.
 * An external service to access the Azure Vote application from the internet.
 
-1. In the Cloud Shell, use an editor to create a file named `azure-vote.yaml`, such as:
-    * `code azure-vote.yaml`
-    * `nano azure-vote.yaml`, or
-    * `vi azure-vote.yaml`.
-
-1. Copy in the following YAML definition:
+1. In the Cloud Shell, open an editor and create a file named `azure-vote.yaml`.
+2. Paste in the following YAML definition:
 
     ```yaml
     apiVersion: apps/v1

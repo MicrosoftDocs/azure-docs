@@ -7,6 +7,7 @@ author: OliverDoll
 manager: juergent
 editor: ''
 tags: azure-resource-manager
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 keywords: ''
 ms.assetid: 1c4f1951-3613-4a5a-a0af-36b85750c84e
 ms.service: sap-on-azure

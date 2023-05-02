@@ -44,15 +44,15 @@ Prebuilt models help you add Form Recognizer features to your apps without havin
 
 * [**Invoice**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice): extract text, selection marks, tables, key-value pairs, and key information from invoices.
 * [**Receipt**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt): extract text and key information from receipts.
-* [**Health insurance card**](https://formrecognizer-dogfood.appliedai.azure.com/studio/prebuilt?formType=healthInsuranceCard.us): extract insurer, member, prescription, group number and other key information from US health insurance cards.
+* [**Health insurance card**](https://formrecognizer.appliedai.azure.com/studio): extract insurer, member, prescription, group number and other key information from US health insurance cards.
 * [**W-2**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2): extract text and key information from W-2 tax forms.
 * [**ID document**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument): extract text and key information from driver licenses and international passports.
 * [**Business card**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard): extract text and key information from business cards.
 
 #### Custom
 
-* [**Custom extraction models**](https://formrecognizer-dogfood.appliedai.azure.com/studio/custommodel/projects): extract information from forms and documents with custom extraction models. Quickly train a model by labeling as few as five sample documents.
-* [**Custom classifier model**](https://formrecognizer-dogfood.appliedai.azure.com/studio/document-classifier/projects): train a custom classifier to distinguish between the different document types within your applications. Quickly train a model with as few as two classes and five samples per class.
+* [**Custom extraction models**](https://formrecognizer.appliedai.azure.com/studio): extract information from forms and documents with custom extraction models. Quickly train a model by labeling as few as five sample documents.
+* [**Custom classification model**](https://formrecognizer.appliedai.azure.com/studio): train a custom classifier to distinguish between the different document types within your applications. Quickly train a model with as few as two classes and five samples per class.
 
 #### Gated preview models
 

@@ -3,12 +3,12 @@ title: Configure an expiration policy for shared access signatures (SAS)
 titleSuffix: Azure Storage
 description: Configure a policy on the storage account that defines the length of time that a shared access signature (SAS) should be valid. Learn how to monitor policy violations to remediate security risks. 
 services: storage
-author: jimmart-dev
+author: tamram
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 12/12/2022
-ms.author: jammart
+ms.author: tamram
 ms.reviewer: nachakra
 ms.subservice: common
 ms.custom: engagement-fy23

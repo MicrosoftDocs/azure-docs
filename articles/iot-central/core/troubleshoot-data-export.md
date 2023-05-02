@@ -30,4 +30,4 @@ To learn more, see [Export data](howto-export-data.md?tabs=managed-identity).
 
 If you need more help, you can contact the Azure experts on the [Microsoft Q&A and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file an [Azure support ticket](https://portal.azure.com/#create/Microsoft.Support).
 
-For more information, see [Azure IoT support and help options](../../iot-fundamentals/iot-support-help.md).
+For more information, see [Azure IoT support and help options](../../iot/iot-support-help.md).

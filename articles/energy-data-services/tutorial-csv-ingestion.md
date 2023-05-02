@@ -1,12 +1,12 @@
 ---
-title: Microsoft Azure Data Manager for Energy Preview - Steps to perform a CSV parser ingestion #Required; page title is displayed in search results. Include the brand.
-description: This tutorial shows you how to perform CSV parser ingestion #Required; article description that is displayed in search results. 
-author: bharathim #Required; your GitHub user alias, with correct capitalization.
-ms.author: bselvaraj #Required; microsoft alias of author; optional team alias.
-ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
-ms.topic: tutorial #Required; leave this attribute/value as-is.
+title: Microsoft Azure Data Manager for Energy Preview - Steps to perform a CSV parser ingestion
+description: This tutorial shows you how to perform CSV parser ingestion
+author: bharathim
+ms.author: bselvaraj
+ms.service: energy-data-services
+ms.topic: tutorial
 ms.date: 09/19/2022
-ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+ms.custom: template-tutorial
 
 #Customer intent: As a customer, I want to learn how to use CSV parser ingestion so that I can load CSV data into the Azure Data Manager for Energy Preview instance.
 ---

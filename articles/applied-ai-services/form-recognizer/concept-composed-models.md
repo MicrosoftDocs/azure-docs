@@ -42,7 +42,7 @@ With composed models, you can assign multiple custom models to a composed model 
 
 ::: moniker range="form-recog-3.0.0"
 
-With the introduction of [****custom classifier models****](./concept-custom-classifier.md), you can choose to use [**composed models**](./concept-composed-models.md) or the classifier model as an explicit step before analysis. For a deeper understanding  of when to use a classifier or composed model, _see_ [**Custom classifier models**](concept-custom-classifier.md).
+With the introduction of [**custom classification models**](./concept-custom-classifier.md), you can choose to use a [**composed model**](./concept-composed-models.md) or [**classification model**](concept-custom-classifier.md) as an explicit step before analysis. For a deeper understanding of when to use a classification or composed model, _see_ [**Custom classification models**](concept-custom-classifier.md#compare-custom-classification-and-composed-models).
 
 ## Compose model limits
 

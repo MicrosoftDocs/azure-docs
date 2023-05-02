@@ -7,4 +7,4 @@ ms.author: larryfr
 ---
 
 > [!NOTE]
-> Azure Machine Learning Endpoints provide an improved, simpler deployment experience. Endpoints support both real-time and batch inference scenarios. Endpoints provide a unified interface to invoke and manage model deployments across compute types. See [What are Azure Machine Learning endpoints?](../articles/machine-learning/concept-endpoints.md).
+> Azure Machine Learning Endpoints (v2) provide an improved, simpler deployment experience. Endpoints support both real-time and batch inference scenarios. Endpoints provide a unified interface to invoke and manage model deployments across compute types. See [What are Azure Machine Learning endpoints?](../articles/machine-learning/concept-endpoints.md).
