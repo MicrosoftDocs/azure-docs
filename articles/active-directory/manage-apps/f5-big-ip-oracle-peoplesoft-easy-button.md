@@ -1,6 +1,6 @@
 ---
 title: Configure F5 BIG-IP Easy Button for SSO to Oracle PeopleSoft
-description: Learn to implement SHA with header-based SSO to Oracle PeopleSoft using F5 BIG-IP Easy Button guided configuration.
+description: Implement secure hybrid access with header-based SSO to PeopleSoft using F5 BIG-IP Easy Button Guided Configuration 16.1.
 services: active-directory
 author: gargi-sinha
 manager: martinco
@@ -8,25 +8,28 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 02/26/2022
+ms.date: 05/02/2023
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ms.custom: not-enterprise-apps
 ---
 
-# Tutorial: Configure F5’s BIG-IP Easy Button for SSO to Oracle PeopleSoft
+# Tutorial: Configure F5 BIG-IP Easy Button for SSO to Oracle PeopleSoft
 
-In this article, learn to secure Oracle PeopleSoft (PeopleSoft) using Azure Active Directory (Azure AD), through F5’s BIG-IP Easy Button guided configuration.
+In this article, learn to secure Oracle PeopleSoft (PeopleSoft) using Azure Active Directory (Azure AD), with F5 BIG-IP Easy Button Guided Configuration 16.1.
 
-Integrating a BIG-IP with Azure AD provides many benefits, including:
+Integrate BIG-IP with Azure AD for many benefits, including:
 
-* [Improved Zero Trust governance](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) through Azure AD pre-authentication and [Conditional Access](../conditional-access/overview.md)
+* Improved Zero Trust governance through Azure AD preauthentication and Conditional Access
+  * See, [Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)  
+  * See, [What is Conditional Access?](../conditional-access/overview.md)
+* SSO between Azure AD and BIG-IP published services
+* Manage identities and access from the [Azure portal](https://portal.azure.com/)
 
-* Full SSO between Azure AD and BIG-IP published services
+Learn more: 
 
-* Manage Identities and access from a single control plane, the [Azure portal](https://portal.azure.com/)
-
-To learn about all the benefits, see the article on [F5 BIG-IP and Azure AD integration](./f5-aad-integration.md) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
+* [Integrate F5 BIG-IP with Azure AD](./f5-aad-integration.md)
+* [Enable single sign-on for an enterprise application](add-application-portal-setup-sso.md)
 
 ## Scenario description
 
