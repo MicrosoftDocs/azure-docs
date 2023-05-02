@@ -34,6 +34,7 @@ You can also find the latest Azure Virtual WAN updates and subscribe to the RSS 
 
 | Type |Area |Name |Description | Date added | Limitations |
 | --- |---|---|---|---|---|
+|Feature|Software-as-a-service|Palo Alto Networks Cloud NGFW|Public preview of [Palo Alto Networks Cloud NGFW](https://aka.ms/pancloudngfwdocs), the first software-as-a-serivce security offering deployable within the Virtual WAN hub.|May 2023|Palo Alto Networks Cloud NGFW is only deployable in newly created Virtual WAN hubs in some Azure regions. See [Limitations of Palo Alto Networks Cloud NGFW](how-to-palo-alto-cloud-ngfw.md) for a full list of limitations.|
 | Feature| Network Virtual Appliances (NVAs)/Integrated Third-party solutions in Virtual WAN hubs| [Fortinet SD-WAN](https://docs.fortinet.com/document/fortigate-public-cloud/7.2.2/azure-vwan-sd-wan-deployment-guide/12818/deployment-overview)| General availability of Fortinet SD-WAN solution in Virtual WAN. Next-Generation Firewall use cases  in preview.| October 2022| SD-WAN solution generally available. Next Generation Firewall use cases in preview.|
 |Feature |Network Virtual Appliances (NVAs)/Integrated Third-party solutions in Virtual WAN hubs| [Versa SD-WAN](about-nva-hub.md#partners)|Preview of Versa SD-WAN.|November 2021| |
 |Feature|Network Virtual Appliances (NVAs)/Integrated Third-party solutions in Virtual WAN hubs|[Cisco Viptela, Barracuda and VMware (Velocloud) SD-WAN](about-nva-hub.md#partners) |General Availability of SD-WAN solutions in Virtual WAN.|June/July 2021| |
@@ -42,6 +43,7 @@ You can also find the latest Azure Virtual WAN updates and subscribe to the RSS 
 
 | Type |Area |Name |Description | Date added | Limitations |
 | --- |---|---|---|---|---|
+|Feature |ExpressRoute | [ExpressRoute metrics can be exported as diagnostic logs](monitor-virtual-wan-reference.md#expressroute-gateway-diagnostics)|| April 2023||
 |Feature |ExpressRoute | [ExpressRoute circuit page now shows vWAN connection](virtual-wan-expressroute-portal.md)|| August 2022||
 
 ### Site-to-site
@@ -87,8 +89,10 @@ The following features are currently in gated public preview. After working with
 
 |#|Issue|Description |Date first reported|Mitigation|
 |---|---|---|---|---|
-|1|Virtual hub router upgrade: Compatibility with NVA in a hub.|For deployments with an NVA provisioned in the hub, the virtual hub router can't be upgraded to Virtual Machine Scale Sets.| July 2022|The Virtual WAN team is working on a fix that will allow Virtual hub routers to be upgraded to Virtual Machine Scale Sets, even if an NVA is provisioned in the hub. After upgrading, users will have to re-peer the NVA with the hub router’s new IP addresses (instead of having to delete the NVA).|
-|2|Virtual hub router upgrade: Compatibility with NVA in a spoke VNet.|For deployments with an NVA provisioned in a spoke VNet, the customer will have to delete and recreate the BGP peering with the spoke NVA.|March 2022|The Virtual WAN team is working on a fix to remove the need for users to delete and recreate the BGP peering with a spoke NVA after upgrading.|
+|1|Virtual hub upgrade to VMSS-based infrastructure: Compatibility with NVA in a hub.|For deployments with an NVA provisioned in the hub, the virtual hub router can't be upgraded to Virtual Machine Scale Sets.| July 2022|The Virtual WAN team is working on a fix that will allow Virtual hub routers to be upgraded to Virtual Machine Scale Sets, even if an NVA is provisioned in the hub. After upgrading, users will have to re-peer the NVA with the hub router’s new IP addresses (instead of having to delete the NVA).|
+|2|Virtual hub upgrade to VMSS-based infrastructure: Compatibility with NVA in a spoke VNet.|For deployments with an NVA provisioned in a spoke VNet, the customer will have to delete and recreate the BGP peering with the spoke NVA.|March 2022|The Virtual WAN team is working on a fix to remove the need for users to delete and recreate the BGP peering with a spoke NVA after upgrading.|
+|3|Virtual hub upgrade to VMSS-based infrastructure: Compatibility with spoke VNets in different regions |If your Virtual WAN hub is connected to a combination of spoke virtual networks in the same region as the hub and a separate region than the hub, then you may experience a lack of connectivity to these respective spoke virtual networks after upgrading your hub router to VMSS-based infrastructure.|March 2023|To resolve this and restore connectivity to these virtual networks, you can modify any of the virtual network connection properties (For example, you can modify the connection to propagate to a dummy label). We are actively working on removing this requirement. |
+|4|Virtual hub upgrade to VMSS-based infrastructure: Compatibility with more than 100 spoke VNets |If your Virtual WAN hub is connected to more than 100 spoke VNets, then the upgrade may time out, causing your virtual hub to remain on Cloud Services-based infrastructure.|March 2023|The Virtual WAN team is working on a fix to support upgrades when there are more than 100 spoke VNets connected.|
 
 ## Next steps
 

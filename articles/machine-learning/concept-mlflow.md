@@ -18,7 +18,7 @@ ms.custom: devx-track-python, cliv2, sdkv2, event-tier1-build-2022, ignite-2022
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of the Azure Machine Learning developer platform that you're using:"]
-> * [v1](v1/concept-mlflow-v1.md)
+> * [v1](v1/concept-mlflow-v1.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](concept-mlflow.md)
 
 [MLflow](https://www.mlflow.org) is an open-source framework that's designed to manage the complete machine learning lifecycle. Its ability to train and serve models on different platforms allows you to use a consistent set of tools regardless of where your experiments are running: locally on your computer, on a remote compute target, on a virtual machine, or on an Azure Machine Learning compute instance.

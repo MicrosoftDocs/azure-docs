@@ -218,7 +218,7 @@ If you're only planning to use Private Links to support a few machines or server
 
 #### Linux
 
-1. Using an account with the **sudoers** privilege, run `sudo nano /etc/hosts` to open the hosts file.
+1. Open the `/etc/hosts` hosts file in a text editor.
 
 1. Add the private endpoint IPs and hostnames as shown in the table from step 3 under [Manual DNS server configuration](#manual-dns-server-configuration). The hosts file asks for the IP address first followed by a space and then the hostname.
 

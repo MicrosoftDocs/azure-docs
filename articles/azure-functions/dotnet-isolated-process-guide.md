@@ -218,9 +218,15 @@ The following service-specific bindings are currently included in the preview:
 
 | Service | Trigger | Input binding | Output binding |
 |-|-|-|-|
-| [Azure Blobs][blob-sdk-types] | Preview support | Preview support  |  Not yet supported | 
+| [Azure Blobs][blob-sdk-types] | Preview support | Preview support  |  Not yet supported<sup>1</sup> | 
+| [Azure Cosmos DB][cosmos-sdk-types] | SDK types not used<sup>2</sup> | Preview support  |  Not yet supported<sup>1</sup> | 
 
 [blob-sdk-types]: ./functions-bindings-storage-blob.md?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp#binding-types
+[cosmos-sdk-types]: ./functions-bindings-cosmosdb-v2.md?tabs=isolated-process%2Cextensionv4&pivots=programming-language-csharp#binding-types
+
+<sup>1</sup> Support for SDK type bindings does not presently extend to output bindings.
+
+<sup>2</sup> The Cosmos DB trigger uses the [Azure Cosmos DB change feed](../cosmos-db/change-feed.md) and exposes change feed items as JSON-serializable types. The absence of SDK types is by-design for this scenario.
 
 The [SDK type binding samples](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples/WorkerBindingSamples) show examples of working with the various supported types.
 

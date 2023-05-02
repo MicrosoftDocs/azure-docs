@@ -145,7 +145,7 @@ The following YAML creates a pod that uses the persistent volume claim **azure-b
 
     The output of the command resembles the following example:
 
-    ```bash
+    ```output
     test.txt
     ```
 
@@ -179,7 +179,7 @@ In this example, the following manifest configures mounting a Blob storage conta
 
     The output of the command resembles the following example:
 
-    ```bash
+    ```output
     storageclass.storage.k8s.io/blob-nfs-premium created
     ```
 
@@ -220,7 +220,7 @@ In this example, the following manifest configures using blobfuse and mounts a B
 
     The output of the command resembles the following example:
 
-    ```bash
+    ```output
     storageclass.storage.k8s.io/blob-fuse-premium created
     ```
 
@@ -240,7 +240,7 @@ This section provides guidance for cluster administrators who want to create one
 |--- | **Following parameters are only for blobfuse** | --- | --- | --- |
 |volumeAttributes.secretName | Secret name that stores storage account name and key (only applies for SMB).| | No ||
 |volumeAttributes.secretNamespace | Specify namespace of secret to store account key. | `default` | No | Pvc namespace|
-|nodeStageSecretRef.name | Specify secret name that stores one of the following:<br> `azurestorageaccountkey`<br>`azurestorageaccountsastoken`<br>`msisecret`<br>`azurestoragespnclientsecret`. | |Existing Kubernetes secret name |  No  |
+|nodeStageSecretRef.name | Specify secret name that stores one of the following:<br> `azurestorageaccountkey`<br>`azurestorageaccountsastoken`<br>`msisecret`<br>`azurestoragespnclientsecret`. | |  No  |Existing Kubernetes secret name |
 |nodeStageSecretRef.namespace | Specify the namespace of secret. | Kubernetes namespace | Yes ||
 |--- | **Following parameters are only for NFS protocol** | --- | --- | --- |
 |volumeAttributes.mountPermissions | Specify mounted folder permissions. | `0777` | No ||
@@ -268,13 +268,13 @@ When you create an Azure Blob storage resource for use with AKS, you can create 
 
 For this article, create the container in the node resource group. First, get the resource group name with the [az aks show][az-aks-show] command and add the `--query nodeResourceGroup` query parameter. The following example gets the node resource group for the AKS cluster named **myAKSCluster** in the resource group named **myResourceGroup**:
 
-```azurecli
+```azurecli-interactive
 az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
 ```
 
 The output of the command resembles the following example:
 
-```azurecli
+```azurecli-interactive
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
@@ -487,7 +487,7 @@ The following YAML creates a pod that uses the persistent volume or persistent v
 
     The output from the command resembles the following example:
 
-    ```bash
+    ```output
     Filesystem      Size  Used Avail Use% Mounted on
     ...
     blobfuse         14G   41M   13G   1% /mnt/blob

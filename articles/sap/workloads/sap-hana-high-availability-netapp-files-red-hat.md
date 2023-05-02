@@ -10,7 +10,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/07/2022
+ms.date: 04/25/2023
 ms.author: radeltch
 ms.custom: ignite-fall-2021
 ---
@@ -39,6 +39,7 @@ ms.custom: ignite-fall-2021
 [2455582]:https://launchpad.support.sap.com/#/notes/2455582
 [2593824]:https://launchpad.support.sap.com/#/notes/2593824
 [2009879]:https://launchpad.support.sap.com/#/notes/2009879
+[3108302]:https://launchpad.support.sap.com/#/notes/3108302
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
 
@@ -64,6 +65,7 @@ Read the following SAP Notes and papers first:
 - SAP Note [405827](https://launchpad.support.sap.com/#/notes/405827) lists out recommended file system for HANA environment.
 - SAP Note [2002167](https://launchpad.support.sap.com/#/notes/2002167) has recommended OS settings for Red Hat Enterprise Linux.
 - SAP Note [2009879](https://launchpad.support.sap.com/#/notes/2009879) has SAP HANA Guidelines for Red Hat Enterprise Linux.
+- SAP Note [3108302](https://launchpad.support.sap.com/#/notes/3108302) has SAP HANA Guidelines for Red Hat Enterprise Linux 9.x.
 - SAP Note [2178632](https://launchpad.support.sap.com/#/notes/2178632) has detailed information about all monitoring metrics reported for SAP in Azure.
 - SAP Note [2191498](https://launchpad.support.sap.com/#/notes/2191498) has the required SAP Host Agent version for Linux in Azure.
 - SAP Note [2243692](https://launchpad.support.sap.com/#/notes/2243692) has information about SAP licensing on Linux in Azure.
@@ -260,17 +262,19 @@ For more information about the required ports for SAP HANA, read the chapter [Co
 
 1. **[A]** Create mount points for the HANA database volumes. 
 
-    ```
-    mkdir -p /hana/data
-    mkdir -p /hana/log
-    mkdir -p /hana/shared
+    ```bash
+    sudo mkdir -p /hana/data
+    sudo mkdir -p /hana/log
+    sudo mkdir -p /hana/shared
     ```
 
 2. **[A]** Verify the NFS domain setting. Make sure that the domain is configured as the default Azure NetApp Files domain, i.e. **defaultv4iddomain.com** and the mapping is set to **nobody**.
 
-    ```
+    ```bash
     sudo cat /etc/idmapd.conf
-    # Example
+    ```
+    Example output
+    ```output
     [General]
     Domain = defaultv4iddomain.com
     [Mapping]
@@ -284,28 +288,29 @@ For more information about the required ports for SAP HANA, read the chapter [Co
 
 3. **[1]** Mount the node-specific volumes on node1 (**hanadb1**) 
 
-    ```
-    sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.32.2.4:/hanadb1-shared-mnt00001 /hana/shared
-    sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.32.2.4:/hanadb1-log-mnt00001 /hana/log
-    sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.32.2.4:/hanadb1-data-mnt00001 /hana/data
+    ```bash
+    sudo mount -o rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys 10.32.2.4:/hanadb1-shared-mnt00001 /hana/shared
+    sudo mount -o rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys 10.32.2.4:/hanadb1-log-mnt00001 /hana/log
+    sudo mount -o rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys 10.32.2.4:/hanadb1-data-mnt00001 /hana/data
     ```
     
 4.  **[2]** Mount the node-specific volumes on node2 (**hanadb2**)
     
-    ```
-    sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.32.2.4:/hanadb2-shared-mnt00001 /hana/shared
-    sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.32.2.4:/hanadb2-log-mnt00001 /hana/log
-    sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.32.2.4:/hanadb2-data-mnt00001 /hana/data
+    ```bash
+    sudo mount -o rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys 10.32.2.4:/hanadb2-shared-mnt00001 /hana/shared
+    sudo mount -o rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys 10.32.2.4:/hanadb2-log-mnt00001 /hana/log
+    sudo mount -o rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys 10.32.2.4:/hanadb2-data-mnt00001 /hana/data
     ```
 
 5. **[A]** Verify that all HANA volumes are mounted with NFS protocol version NFSv4.
 
-    ```
+    ```bash
     sudo nfsstat -m
+    ```
+    Verify that flag vers is set to 4.1 
+    Example from hanadb1
     
-    # Verify that flag vers is set to 4.1 
-    # Example from hanadb1
-    
+    ```output
     /hana/log from 10.32.2.4:/hanadb1-log-mnt00001
     Flags: rw,noatime,vers=4.1,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.32.0.4,local_lock=none,addr=10.32.2.4
     /hana/data from 10.32.2.4:/hanadb1-data-mnt00001
@@ -316,15 +321,17 @@ For more information about the required ports for SAP HANA, read the chapter [Co
 
 6. **[A]** Verify **nfs4_disable_idmapping**. It should be set to **Y**. To create the directory structure where **nfs4_disable_idmapping** is located, execute the mount command. You won't be able to manually create the directory under /sys/modules, because access is reserved for the kernel / drivers.
 
+    Check nfs4_disable_idmapping 
+    ```bash 
+    sudo cat /sys/module/nfs/parameters/nfs4_disable_idmapping
     ```
-    # Check nfs4_disable_idmapping 
-    cat /sys/module/nfs/parameters/nfs4_disable_idmapping
-    
-    # If you need to set nfs4_disable_idmapping to Y
-    echo "Y" > /sys/module/nfs/parameters/nfs4_disable_idmapping
-    
-    # Make the configuration permanent
-    echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
+    If you need to set nfs4_disable_idmapping to 
+    ```bash
+    sudo echo "Y" > /sys/module/nfs/parameters/nfs4_disable_idmapping
+    ```
+    Make the configuration permanent
+    ```bash
+    sudo echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
     ```
 
    ​For more details on how to change **nfs_disable_idmapping** parameter, see [https://access.redhat.com/solutions/1749883](https://access.redhat.com/solutions/1749883). 
@@ -336,18 +343,23 @@ For more information about the required ports for SAP HANA, read the chapter [Co
 
    You can either use a DNS server or modify the /etc/hosts file on all nodes. This example shows you how to use the /etc/hosts file. Replace the IP address and the hostname in the following commands:
 
-   ```
+   ```bash
    sudo vi /etc/hosts
-   # Insert the following lines in the /etc/hosts file. Change the IP address and hostname to match your environment  
+   ```
+
+   Insert the following lines in the /etc/hosts file. Change the IP address and hostname to match your environment  
+   ```output
    10.32.0.4   hanadb1
    10.32.0.5   hanadb2
    ```
 
 3. **[A]** Prepare the OS for running SAP HANA on Azure NetApp with NFS, as described in SAP note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346). Create configuration file */etc/sysctl.d/91-NetApp-HANA.conf* for the NetApp configuration settings.  
 
-    <pre><code>
-    vi /etc/sysctl.d/91-NetApp-HANA.conf
-    # Add the following entries in the configuration file
+    ```bash
+    sudo vi /etc/sysctl.d/91-NetApp-HANA.conf
+    ```
+    Add the following entries in the configuration file
+    ```output
     net.core.rmem_max = 16777216
     net.core.wmem_max = 16777216
     net.ipv4.tcp_rmem = 4096 131072 16777216
@@ -358,30 +370,35 @@ For more information about the required ports for SAP HANA, read the chapter [Co
     net.ipv4.tcp_moderate_rcvbuf = 1
     net.ipv4.tcp_window_scaling = 1    
     net.ipv4.tcp_sack = 1
-    </code></pre>
+    ```
 
 4. **[A]** Create configuration file */etc/sysctl.d/ms-az.conf* with additional optimization settings.  
 
-    <pre><code>
-    vi /etc/sysctl.d/ms-az.conf
-    # Add the following entries in the configuration file
+    ```bash
+    sudo vi /etc/sysctl.d/ms-az.conf
+    ```
+    Add the following entries in the configuration file
+    ```output
     net.ipv6.conf.all.disable_ipv6 = 1
     net.ipv4.tcp_max_syn_backlog = 16348
     net.ipv4.conf.all.rp_filter = 0
     sunrpc.tcp_slot_table_entries = 128
     vm.swappiness=10
-    </code></pre>
+    ```
 
     > [!TIP]
     > Avoid setting net.ipv4.ip_local_port_range and net.ipv4.ip_local_reserved_ports explicitly in the sysctl configuration files to allow SAP Host Agent to manage the port ranges. For more details see SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).  
 
 5. **[A]** Adjust the sunrpc settings, as recommended in SAP note [3024346 - Linux Kernel Settings for NetApp NFS](https://launchpad.support.sap.com/#/notes/3024346).    
 
-    <pre><code>
-    vi /etc/modprobe.d/sunrpc.conf
-    # Insert the following line
+    ```bash
+    sudo vi /etc/modprobe.d/sunrpc.conf
+    ```
+
+    Insert the following line:
+    ```output
     options sunrpc tcp_max_slot_table_entries=128
-    </code></pre>
+    ```
 
 2. **[A]** RHEL for HANA Configuration
 
@@ -428,7 +445,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
 
    Download the latest SAP Host Agent archive from the [SAP Software Center](https://launchpad.support.sap.com/#/softwarecenter) and run the following command to upgrade the agent. Replace the path to the archive to point to the file that you downloaded:
 
-   ```
+   ```bash
    sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive <path to SAP Host Agent SAR>
    ```
 
@@ -436,7 +453,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
 
    Create the firewall rule for the Azure load balancer probe port.
 
-   ```
+   ```bash
    sudo firewall-cmd --zone=public --add-port=62503/tcp
    sudo firewall-cmd --zone=public --add-port=62503/tcp –permanent
    ```
@@ -465,9 +482,9 @@ This is important step to optimize the integration with the cluster and improve 
    1. Prepare the hook as `root`.  
 
     ```bash
-     mkdir -p /hana/shared/myHooks
-     cp /usr/share/SAPHanaSR/srHook/SAPHanaSR.py /hana/shared/myHooks
-     chown -R hn1adm:sapsys /hana/shared/myHooks
+     sudo mkdir -p /hana/shared/myHooks
+     sudo cp /usr/share/SAPHanaSR/srHook/SAPHanaSR.py /hana/shared/myHooks
+     sudo chown -R hn1adm:sapsys /hana/shared/myHooks
     ```
 
    2. Stop HANA on both nodes. Execute as <sid\>adm:  
@@ -478,7 +495,7 @@ This is important step to optimize the integration with the cluster and improve 
 
    3. Adjust `global.ini` on each cluster node.  
  
-    ```bash
+    ```config
     # add to global.ini
     [ha_dr_provider_SAPHanaSR]
     provider = SAPHanaSR
@@ -492,7 +509,9 @@ This is important step to optimize the integration with the cluster and improve 
 2. **[A]** The cluster requires sudoers configuration on each cluster node for <sid\>adm. In this example that is achieved by creating a new file. Execute the commands as `root`.    
     ```bash
     sudo visudo -f /etc/sudoers.d/20-saphana
-    # Insert the following lines and then save
+    ```
+    Insert the following lines and then save
+    ```output
     Cmnd_Alias SITE1_SOK   = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_SITE1 -v SOK -t crm_config -s SAPHanaSR
     Cmnd_Alias SITE1_SFAIL = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_SITE1 -v SFAIL -t crm_config -s SAPHanaSR
     Cmnd_Alias SITE2_SOK   = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_SITE2 -v SOK -t crm_config -s SAPHanaSR
@@ -513,11 +532,13 @@ This is important step to optimize the integration with the cluster and improve 
      cdtrace
      awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
      { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
-     # Example output
+    ```
+    Example output
+
+    ```output
      # 2021-04-12 21:36:16.911343 ha_dr_SAPHanaSR SFAIL
      # 2021-04-12 21:36:29.147808 ha_dr_SAPHanaSR SFAIL
      # 2021-04-12 21:37:04.898680 ha_dr_SAPHanaSR SOK
-
     ```
 
 For more details on the implementation of the SAP HANA system replication hook see [Enable the SAP HA/DR provider hook](https://access.redhat.com/articles/3004101#enable-srhook).  
@@ -529,23 +550,23 @@ In this example each cluster node has its own HANA NFS filesystems /hana/shared,
 1. **[1]** Put the cluster in maintenance mode.
 
    ```
-   pcs property set maintenance-mode=true
+   sudo pcs property set maintenance-mode=true
    ```
 
 2. **[1]** Create the Filesystem resources for the **hanadb1** mounts.
 
-    ```
-    pcs resource create hana_data1 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb1-data-mnt00001 directory=/hana/data fstype=nfs options=rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 --group hanadb1_nfs
-    pcs resource create hana_log1 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb1-log-mnt00001 directory=/hana/log fstype=nfs options=rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 --group hanadb1_nfs
-    pcs resource create hana_shared1 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb1-shared-mnt00001 directory=/hana/shared fstype=nfs options=rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 --group hanadb1_nfs
+    ```bash
+    sudo pcs resource create hana_data1 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb1-data-mnt00001 directory=/hana/data fstype=nfs options=rw,nfvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 --group hanadb1_nfs
+    sudo pcs resource create hana_log1 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb1-log-mnt00001 directory=/hana/log fstype=nfs options=rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 --group hanadb1_nfs
+    sudo pcs resource create hana_shared1 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb1-shared-mnt00001 directory=/hana/shared fstype=nfs options=rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 --group hanadb1_nfs
     ```
 
 3. **[2]** Create the Filesystem resources for the **hanadb2** mounts.
 
-    ```
-    pcs resource create hana_data2 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb2-data-mnt00001 directory=/hana/data fstype=nfs options=rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 --group hanadb2_nfs
-    pcs resource create hana_log2 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb2-log-mnt00001 directory=/hana/log fstype=nfs options=rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 --group hanadb2_nfs
-    pcs resource create hana_shared2 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb2-shared-mnt00001 directory=/hana/shared fstype=nfs options=rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 --group hanadb2_nfs
+    ```bash
+    sudo pcs resource create hana_data2 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb2-data-mnt00001 directory=/hana/data fstype=nfs options=rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 --group hanadb2_nfs
+    sudo pcs resource create hana_log2 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb2-log-mnt00001 directory=/hana/log fstype=nfs options=rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 --group hanadb2_nfs
+    sudo pcs resource create hana_shared2 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb2-shared-mnt00001 directory=/hana/shared fstype=nfs options=rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=120s OCF_CHECK_LEVEL=20 --group hanadb2_nfs
     ```
 
    `OCF_CHECK_LEVEL=20` attribute is added to the monitor operation so that each monitor performs a read/write test on the filesystem. Without this attribute, the monitor operation only verifies that the filesystem is mounted. This can be a problem because when connectivity is lost, the filesystem may remain mounted despite being inaccessible.
@@ -560,9 +581,9 @@ In this example each cluster node has its own HANA NFS filesystems /hana/shared,
 
    Configure location constraints to ensure that the resources that manage hanadb1 unique mounts can never run on hanadb2, and vice-versa.
 
-    ```
-    pcs constraint location hanadb1_nfs rule score=-INFINITY resource-discovery=never \#uname eq hanadb2
-    pcs constraint location hanadb2_nfs rule score=-INFINITY resource-discovery=never \#uname eq hanadb1
+    ```bash
+    sudo pcs constraint location hanadb1_nfs rule score=-INFINITY resource-discovery=never \#uname eq hanadb2
+    sudo pcs constraint location hanadb2_nfs rule score=-INFINITY resource-discovery=never \#uname eq hanadb1
     ```
 
     The `resource-discovery=never` option is set because the unique mounts for each node share the same mount point. For example, `hana_data1` uses mount point `/hana/data`, and `hana_data2` also uses mount point `/hana/data`. This can cause a false positive for a probe operation, when resource state is checked at cluster startup, and this can in turn cause unnecessary recovery behavior. This can be avoided by setting `resource-discovery=never`
@@ -571,27 +592,27 @@ In this example each cluster node has its own HANA NFS filesystems /hana/shared,
 
    Configure attribute resources. These attributes will be set to true if all of a node's NFS mounts (/hana/data, /hana/log, and /hana/data) are mounted and will be set to false otherwise.
 
-   ```
-   pcs resource create hana_nfs1_active ocf:pacemaker:attribute active_value=true inactive_value=false name=hana_nfs1_active
-   pcs resource create hana_nfs2_active ocf:pacemaker:attribute active_value=true inactive_value=false name=hana_nfs2_active
+   ```bash
+   sudo pcs resource create hana_nfs1_active ocf:pacemaker:attribute active_value=true inactive_value=false name=hana_nfs1_active
+   sudo pcs resource create hana_nfs2_active ocf:pacemaker:attribute active_value=true inactive_value=false name=hana_nfs2_active
    ```
 
 6. **[1]** Configuring Location Constraints
 
    Configure location constraints to ensure that hanadb1’s attribute resource never runs on hanadb2, and vice-versa.
 
-   ```
-   pcs constraint location hana_nfs1_active avoids hanadb2
-   pcs constraint location hana_nfs2_active avoids hanadb1
+   ```bash
+   sudo pcs constraint location hana_nfs1_active avoids hanadb2
+   sudo pcs constraint location hana_nfs2_active avoids hanadb1
    ```
 
 7. **[1]** Creating Ordering Constraints
 
    Configure ordering constraints so that a node's attribute resources start only after all of the node's NFS mounts are mounted.
    
-    ```
-    pcs constraint order hanadb1_nfs then hana_nfs1_active
-    pcs constraint order hanadb2_nfs then hana_nfs2_active
+    ```bash
+    sudo pcs constraint order hanadb1_nfs then hana_nfs1_active
+    sudo pcs constraint order hanadb2_nfs then hana_nfs2_active
     ```
 
    > [!TIP]
@@ -605,23 +626,31 @@ In this example each cluster node has its own HANA NFS filesystems /hana/shared,
 
    Location rule constraints will be set so that the SAP HANA resources can run on a node only if all of the node's NFS mounts are mounted.
 
+    ```bash
+    sudo pcs constraint location SAPHanaTopology_HN1_03-clone rule score=-INFINITY hana_nfs1_active ne true and hana_nfs2_active ne true
     ```
-    pcs constraint location SAPHanaTopology_HN1_03-clone rule score=-INFINITY hana_nfs1_active ne true and hana_nfs2_active ne true
-    # On RHEL 7.x
-    pcs constraint location SAPHana_HN1_03-master rule score=-INFINITY hana_nfs1_active ne true and hana_nfs2_active ne true
-    # On RHEL 8.x
-    pcs constraint location SAPHana_HN1_03-clone rule score=-INFINITY hana_nfs1_active ne true and hana_nfs2_active ne true
-    # Take the cluster out of maintenance mode
+    On RHEL 7.x
+    ```bash
+    sudo pcs constraint location SAPHana_HN1_03-master rule score=-INFINITY hana_nfs1_active ne true and hana_nfs2_active ne true
+    ```
+    On RHEL 8.x
+    ```bash
+    sudo pcs constraint location SAPHana_HN1_03-clone rule score=-INFINITY hana_nfs1_active ne true and hana_nfs2_active ne true
+    ```
+    Take the cluster out of maintenance mode
+    ```bash
     sudo pcs property set maintenance-mode=false
     ```
 
    Check the status of cluster and all the resources
    > [!NOTE]
-   > This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+   > This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
    
-    ```
+    ```bash
     sudo pcs status
-    
+    ```
+    Example output
+    ```output
     Online: [ hanadb1 hanadb2 ]
     
     Full list of resources:
@@ -668,7 +697,7 @@ This section describes how you can test your setup.
 
 1. Before you start a test, make sure that Pacemaker does not have any failed action (via pcs status), there are no unexpected location constraints (for example leftovers of a migration test) and that HANA system replication is sync state, for example with systemReplicationStatus:
 
-    ```
+    ```bash
     sudo su - hn1adm -c "python /usr/sap/HN1/HDB03/exe/python_support/systemReplicationStatus.py"
     ```
 
@@ -683,9 +712,11 @@ This section describes how you can test your setup.
 
    Resource state before starting the test:
 
-    ```
+    ```bash
     sudo pcs status
-    # Example output
+    ```
+    Example output
+    ```output
     Full list of resources:
      rsc_hdb_azr_agt        (stonith:fence_azure_arm):      Started hanadb1
 
@@ -716,15 +747,17 @@ This section describes how you can test your setup.
 
    You can place /hana/shared in read-only mode on the active cluster node, using below command:
 
-    ```
+    ```bash
     sudo mount -o ro 10.32.2.4:/hanadb1-shared-mnt00001 /hana/shared
     ```
 
    hanadb1 will either reboot or poweroff based on the action set on stonith (`pcs property show stonith-action`).  Once the server (hanadb1) is down, HANA resource move to hanadb2. You can check the status of cluster from hanadb2.
 
+    ```bash
+    sudo pcs status
     ```
-    pcs status
-
+    Example output
+    ```output
     Full list of resources:
 
      rsc_hdb_azr_agt        (stonith:fence_azure_arm):      Started hanadb2

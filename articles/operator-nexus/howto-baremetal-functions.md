@@ -3,7 +3,7 @@ title: "Azure Operator Nexus: Platform Functions for Bare Metal Machines"
 description: Learn how to manage Bare Metal Machines (BMM).
 author: harish6724
 ms.author: harishrao
-ms.service: azure 
+ms.service: azure-operator-nexus 
 ms.topic: how-to
 ms.date: 03/06/2023
 ms.custom: template-how-to

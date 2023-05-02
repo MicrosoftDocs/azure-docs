@@ -25,7 +25,7 @@ Emails tasks allow for the customization of the following aspects:
 - Email language
 
 > [!NOTE]
-> To avoid additional security disclaimers, you should opt in to using customized domain and organizational branding.
+> When customizing the subject or message body, we recommend that you also enable the custom sender domain and organizational branding, otherwise an additional security disclaimer will be added to your email.
 
 For more information on these customizable parameters, see: [Common email task parameters](lifecycle-workflow-tasks.md#common-email-task-parameters).
 
@@ -93,6 +93,9 @@ Emails sent out using Lifecycle workflows can be customized to have your own com
 
 - A verified domain. To add a custom domain, see: [Managing custom domain names in your Azure Active Directory](../enterprise-users/domains-manage.md)
 - Custom Branding set within Azure AD if you want to have your custom branding used in emails. To set organizational branding within your Azure tenant, see: [Configure your company branding (preview)](../fundamentals/how-to-customize-branding.md).
+
+> [!NOTE]
+> The recommendation is to use a domain that has the appropriate DNS records to facilitate email validation, like SPF, DKIM, DMARC, and MX as this then complies with the [RFC compliance](https://www.ietf.org/rfc/rfc2142.txt) for sending and receiving email. Please see [Learn more about Exchange Online Email Routing](/exchange/mail-flow-best-practices/mail-flow-best-practices) for more information.
 
 After these prerequisites are satisfied, you'd follow these steps:
 

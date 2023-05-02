@@ -25,9 +25,9 @@ The add-on deploys the following components:
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
-- [Azure CLI installed](/cli/azure/install-azure-cli).
+- Azure CLI version 2.47.0 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 - An Azure Key Vault to store certificates.
-- A DNS solution, such as [Azure DNS](../dns/dns-getstarted-portal.md).
+- (Optional) A DNS solution, such as [Azure DNS](../dns/dns-getstarted-portal.md).
 
 ### Install the `aks-preview` Azure CLI extension
 
@@ -147,20 +147,13 @@ az aks enable-addons -g <ResourceGroupName> -n <ClusterName> --addons azure-keyv
 
 ## Retrieve the add-on's managed identity object ID
 
-Retrieve user managed identity object ID for the add-on. This identity is used in the next steps to grant permissions to manage the Azure DNS zone and retrieve certificates from the Azure Key Vault. Provide your *`<ResourceGroupName>`*, *`<ClusterName>`*, and *`<Location>`* in the script to retrieve the managed identity's object ID.
+Retrieve user managed identity object ID for the add-on. This identity is used in the next steps to grant permissions to manage the Azure DNS zone and retrieve certificates from the Azure Key Vault. Provide your *`<ResourceGroupName>`* and *`<ClusterName>`* in the script to retrieve the managed identity's object ID.
 
 ```azurecli-interactive
 # Provide values for your environment
 RGNAME=<ResourceGroupName>
 CLUSTERNAME=<ClusterName>
-LOCATION=<Location>
-
-# Retrieve user managed identity object ID for the add-on
-SUBSCRIPTION_ID=$(az account show --query id --output tsv)
-MANAGEDIDENTITYNAME="webapprouting-${CLUSTERNAME}"
-MCRGNAME=$(az aks show -g ${RGNAME} -n ${CLUSTERNAME} --query nodeResourceGroup -o tsv)
-USERMANAGEDIDENTITY_RESOURCEID="/subscriptions/${SUBSCRIPTION_ID}/resourceGroups/${MCRGNAME}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/${MANAGEDIDENTITYNAME}"
-MANAGEDIDENTITY_OBJECTID=$(az resource show --id $USERMANAGEDIDENTITY_RESOURCEID --query "properties.principalId" -o tsv | tr -d '[:space:]')
+MANAGEDIDENTITY_OBJECTID=$(az aks show -g ${RGNAME} -n ${CLUSTERNAME} --query ingressProfile.webAppRouting.identity.objectId -o tsv)
 ```
 
 ## Configure the add-on to use Azure DNS to manage creating DNS zones
@@ -323,7 +316,7 @@ kubectl apply -f ingress.yaml -n hello-web-app-routing
 
 The following example output shows the created resources:
 
-```bash
+```output
 deployment.apps/aks-helloworld created
 service/aks-helloworld created
 ingress.networking.k8s.io/aks-helloworld created
@@ -454,7 +447,7 @@ kubectl apply -f ingressbackend.yaml -n hello-web-app-routing
 
 The following example output shows the created resources:
 
-```bash
+```output
 deployment.apps/aks-helloworld created
 service/aks-helloworld created
 ingress.networking.k8s.io/aks-helloworld created
@@ -539,7 +532,7 @@ kubectl apply -f service.yaml -n hello-web-app-routing
 
 The following example output shows the created resources:
 
-```bash
+```output
 deployment.apps/aks-helloworld created
 service/aks-helloworld created
 ```
@@ -571,7 +564,7 @@ kubectl delete namespace hello-web-app-routing
 
 You can remove the Web Application Routing add-on using the Azure CLI. To do so run the following command, substituting your AKS cluster and resource group name. Be careful if you already have some of the other add-ons (open-service-mesh or azure-keyvault-secrets-provider) enabled on your cluster so that you don't accidentally disable them.
 
-```azurecli
+```azurecli-interactive
 az aks disable-addons --addons web_application_routing --name myAKSCluster --resource-group myResourceGroup 
 ```
 

@@ -31,10 +31,6 @@ To connect to TAXII threat intelligence feeds, follow the instructions to [conne
 
 - [Learn about Accenture CTI integration with Microsoft Sentinel](https://www.accenture.com/us-en/services/security/cyber-defense).
 
-### Anomali
-
-- [Learn how to import threat intelligence from Anomali ThreatStream into Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/import-anomali-threatstream-feed-into-microsoft-sentinel/ba-p/3561742#M3787)
-
 ### Cybersixgill Darkfeed
 
 - [Learn about Cybersixgill integration with Microsoft Sentinel @Cybersixgill](https://www.cybersixgill.com/partners/azure-sentinel/)
@@ -130,7 +126,9 @@ To connect to Threat Intelligence Platform (TIP) feeds, follow the instructions 
 
 ## Incident enrichment sources
 
-Besides being used to import threat indicators, threat intelligence feeds can also serve as a source to enrich the information in your incidents and provide more context to your investigations. The following feeds serve this purpose, and provide Logic App playbooks to use in your [automated incident response](automate-responses-with-playbooks.md).
+Besides being used to import threat indicators, threat intelligence feeds can also serve as a source to enrich the information in your incidents and provide more context to your investigations. The following feeds serve this purpose, and provide Logic App playbooks to use in your [automated incident response](automate-responses-with-playbooks.md). Find these enrichment sources in the **Content hub**. 
+
+For more information about how to find and manage the solutions, see [Discover and deploy out-of-the-box content](sentinel-solutions-deploy.md).
 
 ### HYAS Insight
 
@@ -139,7 +137,8 @@ Besides being used to import threat indicators, threat intelligence feeds can al
 
 ### Microsoft Defender Threat Intelligence
 
-- Find and enable incident enrichment playbooks for [Microsoft Defender Threat Intelligence]() in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Microsoft%20Defender%20Threat%20Intelligence/Playbooks).
+- Find and enable incident enrichment playbooks for [Microsoft Defender Threat Intelligence](/defender/threat-intelligence/what-is-microsoft-defender-threat-intelligence-defender-ti) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Microsoft%20Defender%20Threat%20Intelligence/Playbooks).
+- See the [MDTI Tech Community blog post](https://aka.ms/sentinel-playbooks) for more information. 
 
 ### Recorded Future Security Intelligence Platform
 
