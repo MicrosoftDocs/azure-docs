@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 03/03/2023
+ms.date: 04/28/2023
 ms.author: mimart
 ms.custom: it-pro
 
@@ -17,28 +17,24 @@ ms.custom: it-pro
 
 # Add Google as an identity provider
 
-By setting up federation with Google, you can allow invited users to sign in to your applications with their own Gmail accounts. After you've added Google as one of your application's sign-in options, on the sign-in page, users can sign in to Azure AD for customers with a Google account.
-
-The following screenshots show the sign-in with Google experience. In the sign-in page, users select **Sign-in options**, and then select **Sign-in with Google**. At that point, the user is redirected to the Google identity provider to complete the sign-in.
-
-<!--[Screenshot that shows the sign-in with Google flow.](./media/sign-in-with-google/sign-in-with-google-flow.png)-->
+By setting up federation with Google, you can allow customers to sign in to your applications with their own Gmail accounts. After you've added Google as one of your application's sign-in options, on the sign-in page, customers can sign in to Azure AD for customers with a Google account. (Learn more about [authentication methods and identity providers for customers](concept-authentication-methods-customers.md).)
 
 ## Create a Google application
 
-To enable sign-in for users with a Google account in Azure Active Directory for customers, you need to create an application in [Google Developers Console](https://console.developers.google.com/). For more information, see [Setting up OAuth 2.0](https://support.google.com/googleapi/answer/6158849). If you don't already have a Google account, you can sign up at [`https://accounts.google.com/signup`](https://accounts.google.com/signup).
+To enable sign-in for customers with a Google account, you need to create an application in [Google Developers Console](https://console.developers.google.com/). For more information, see [Setting up OAuth 2.0](https://support.google.com/googleapi/answer/6158849). If you don't already have a Google account, you can sign up at [`https://accounts.google.com/signup`](https://accounts.google.com/signup).
 
 1. Sign in to the [Google Developers Console](https://console.developers.google.com/) with your Google account credentials.
 1. Accept the terms of service if you're prompted to do so.
 1. In the upper-left corner of the page, select the project list, and then select **New Project**.
 1. Enter a **Project Name**, select **Create**.
 1. Make sure you're using the new project by selecting the project drop-down in the top-left of the screen. Select your project by name, then select **Open**.
-1. Under the **Quick access**, or in the left menu, select **APIs & services** and then **OAuth consent screen**. 
+1. Under the **Quick access**, or in the left menu, select **APIs & services** and then **OAuth consent screen**.
 1. For the **User Type**, select **External** and then select **Create**.
 1. On the **OAuth consent screen**, under **App information**
-    1. Enter a **Name** for your application. 
+    1. Enter a **Name** for your application.
     2. Select a **User support email** address.
-1. Under the **Authorized domains** section, select **Add domain**, and then type *microsoftonline.com*. 
-1. In the **Developer contact information** section, enter comma separated emails for Google to notify you about any changes to your project. 
+1. Under the **Authorized domains** section, select **Add domain**, and then type *microsoftonline.com*.
+1. In the **Developer contact information** section, enter comma separated emails for Google to notify you about any changes to your project.
 1. Select **Save and Continue**.
 1. From the left menu, select **Credentials**
 1. Select **Create credentials**, and then **OAuth client ID**.
@@ -49,18 +45,18 @@ To enable sign-in for users with a Google account in Azure Active Directory for 
         -  `https://login.microsoftonline.com/te/<tenant ID>/oauth2/authresp`. Replace the tenant ID with your Azure AD for customers tenant ID. To find your tenant ID, go to the Azure portal. Under **Azure Active Directory**, select **Properties** and copy the **Tenant ID**.
         - `https://login.microsoftonline.com/te/<tenant name>.onmicrosoft.com/oauth2/authresp`. Replace the tenant name with your Azure AD for customers tenant name.
 1. Select **Create**.
-1. Copy the values of **Client ID** and **Client secret**. You need both values to configure Google as an identity provider in your tenant. **Client secret** is an important security credential. 
+1. Copy the values of **Client ID** and **Client secret**. You need both values to configure Google as an identity provider in your tenant. **Client secret** is an important security credential.
 
 > [!NOTE]
 > In some cases, your app might require verification by Google (for example, if you update the application logo). For more information, check out the [Google's verification status guid](https://support.google.com/cloud/answer/10311615#verification-status).
 
-## Configure Google federation in Azure AD
+## Configure Google federation in Azure AD for customers
 
-After you create the Google application, in this step you set the Google client ID and client secret in Azure AD. You can use the Azure portal or PowerShell to do so. To configure Google federation in the Azure portal, follow these steps:
+After you create the Google application, in this step you set the Google client ID and client secret in Azure AD. You can use the Azure portal or PowerShell to do so. To configure Google federation in the Microsoft Entra admin center, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD tenant.
-1. Go to **Azure Active Directory**.
-1. Select **External Identities** > **All identity providers**, then select **Google**.
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) as the global administrator of your customer tenant.
+1. Go to **Azure Active Directory** > **External Identities** > **All identity providers**.
+2. Select **+ Google**.
 
    <!-- ![Screenshot that shows how to add Google identity provider in Azure AD.](./media/sign-in-with-google/configure-google-idp.png)-->
 
@@ -85,9 +81,10 @@ To configure Google federation by using PowerShell, follow these steps:
 
 At this point, the Google identity provider has been set up in your Azure AD, but it's not yet available in any of the sign-in pages. To add the Google identity provider to a user flow:
 
-1. In your Azure AD tenant, select **External Identities** > **User flows**.
-1. Select the user flow that you want to add the Google identity provider to.
-1. Under the **Identity providers**, select **Google**.
+1. In your customer tenant, go to **Azure Active Directory** > **External Identities** > **User flows**.
+1. Select the user flow where you want to add the Facebook identity provider.
+1. Under Settings, select **Identity providers**
+1. Under **Other Identity Providers**, select **Google**.
 
    <!-- ![Screenshot that shows how to add Google identity provider a user flow.](./media/sign-in-with-google/add-google-idp-to-user-flow.png)-->
 

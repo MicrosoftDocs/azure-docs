@@ -8,4 +8,4 @@ ms.author: kengaderdus
 ---
 1. Under the **Implicit grant and hybrid flows** section, select the **ID tokens** option.
 
-1. Select **Save**. 
+1. Select **Save**.

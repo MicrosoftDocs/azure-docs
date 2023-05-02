@@ -407,7 +407,7 @@
       items:
         - name: Manage the hosting plan
           href: app-service-plan-manage.md
-        - name: Back up and restore
+        - name: Backup and restore
           href: manage-backup.md
         - name: Clone an app
           href: app-service-web-app-cloning.md

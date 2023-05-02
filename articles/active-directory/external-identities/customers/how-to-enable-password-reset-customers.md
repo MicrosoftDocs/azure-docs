@@ -30,7 +30,7 @@ The following screenshots show the self-service password rest flow. From the app
 ## Prerequisites
 
 - If you haven't already created your own Azure AD customer tenant, create one now.
-- If you haven't already created a User flow, [create one](how-to-user-flow-sign-up-sign-in-customers.md#create-a-user-flow) now.
+- If you haven't already created a User flow, [create one](how-to-user-flow-sign-up-sign-in-customers.md) now.
 
 ## Enable self-service password reset for customers
 
@@ -85,4 +85,5 @@ To go through the self-service password reset flow:
 
 ## Next steps
 
-- [Customize the default branding](how-to-customize-branding-customers.md)
+- [Add Google as an identity provider](how-to-google-federation-customers.md)
+- [Add Facebook as an identity provider](how-to-facebook-federation-customers.md)
