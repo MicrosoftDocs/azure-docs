@@ -22,13 +22,13 @@ This article shows how to create and manage blob leases using the [Azure Storage
 
 [!INCLUDE [storage-dev-guide-about-blob-lease](../../../includes/storage-dev-guides/storage-dev-guide-about-blob-lease.md)]
 
-Lease operations are handled by the JavaScript[BlobLeaseClient](/javascript/api/@azure/storage-blob/blobleaseclient) class, which provides a client containing all lease operations for blobs and containers. To learn more about container leases using the client library, see [Create and manage container leases with JavaScript](storage-blob-container-lease-javascript.md).
+Lease operations are handled by the [BlobLeaseClient](/javascript/api/@azure/storage-blob/blobleaseclient) class, which provides a client containing all lease operations for blobs and containers. To learn more about container leases using the client library, see [Create and manage container leases with JavaScript](storage-blob-container-lease-javascript.md).
 
 ## Acquire a lease
 
 When you acquire a blob lease, you obtain a lease ID that your code can use to operate on the blob. If the blob already has an active lease, you can only request a new lease by using the active lease ID. However, you can specify a new lease duration. 
 
-To acquire a lease, create an instance of the JavaScript[BlobLeaseClient](/javascript/api/@azure/storage-blob/blobleaseclient) class, and then use one of the following methods:
+To acquire a lease, create an instance of the [BlobLeaseClient](/javascript/api/@azure/storage-blob/blobleaseclient) class, and then use one of the following methods:
 
 - [acquireLease](/javascript/api/@azure/storage-blob/blobleaseclient#@azure-storage-blob-blobleaseclient-acquirelease)
 
@@ -40,7 +40,7 @@ The following example acquires a 30-second lease for a blob:
 
 You can renew a blob lease if the lease ID specified on the request matches the lease ID associated with the blob. The lease can be renewed even if it has expired, as long as the blob hasn't been modified or leased again since the expiration of that lease. When you renew a lease, the duration of the lease resets.
 
-To renew a lease, use one of the following methods on a JavaScript[BlobLeaseClient](/javascript/api/@azure/storage-blob/blobleaseclient) instance:
+To renew a lease, use one of the following methods on a [BlobLeaseClient](/javascript/api/@azure/storage-blob/blobleaseclient) instance:
 
 - [renewLease](/javascript/api/@azure/storage-blob/blobleaseclient#@azure-storage-blob-blobleaseclient-renewlease)
 
@@ -64,7 +64,7 @@ The following example releases a lease on a blob:
 
 You can break a blob lease if the blob has an active lease. Any authorized request can break the lease; the request isn't required to specify a matching lease ID. A lease can't be renewed after it's broken, and breaking a lease prevents a new lease from being acquired for a period of time until the original lease expires or is released.
 
-You can break a lease using one of the following methods on a JavaScript[BlobLeaseClient](/javascript/api/@azure/storage-blob/blobleaseclient) instance:
+You can break a lease using one of the following methods on a [BlobLeaseClient](/javascript/api/@azure/storage-blob/blobleaseclient) instance:
 
 - [breakLease](/javascript/api/@azure/storage-blob/blobleaseclient#@azure-storage-blob-blobleaseclient-breaklease)
 
