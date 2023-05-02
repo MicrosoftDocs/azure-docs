@@ -58,7 +58,7 @@ To install DCR Config Generator:
 
 1. Run the script:
 
-	Option 1: Outputs **ready-to-deploy ARM template files** only that will create the generated DCR in the specified subscription and resource group, when deployed.
+	Option 1: Outputs **ready-to-deploy ARM template files** only, which creates the generated DCR in the specified subscription and resource group, when deployed.
 
 	```powershell
 	.\WorkspaceConfigToDCRMigrationTool.ps1 -SubscriptionId $subId -ResourceGroupName $rgName -WorkspaceName $workspaceName -DCRName $dcrName -Location $location -FolderPath $folderPath
@@ -86,7 +86,7 @@ To install DCR Config Generator:
 	- Windows ARM template and parameter files - if the target workspace contains Windows performance counters or Windows events.
 	- Linux ARM template and parameter files - if the target workspace contains Linux performance counters or Linux Syslog events.
 	
-	If the Log Analytics workspace was not [configured to collect data](./log-analytics-agent.md#data-collected) from connected agents, the generated files will be empty. This is a scenario in which the agent was connected to a Log Analytics workspace, but was not configured to send any data from the host machine.
+	If the Log Analytics workspace wasn't [configured to collect data](./log-analytics-agent.md#data-collected) from connected agents, the generated files will be empty. This is a scenario in which the agent was connected to a Log Analytics workspace, but wasn't configured to send any data from the host machine.
 
 1. Deploy the generated ARM templates:
     
