@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/01/2023
+ms.date: 05/02/2023
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
@@ -56,8 +56,6 @@ SHA supports SP and IdP initiated flows. The following image illustrates the SP-
 7. Application authorizes request and returns payload
 
 ## Prerequisites
-
-You need:
 
 * An Azure AD free account, or above
   * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/active-directory/)
@@ -126,12 +124,12 @@ Register the Easy Button client in Azure AD, then it's allowed to establish a tr
 
   ![Screenshot of the Azure AD Application option on Guided Configuration.](./media/f5-big-ip-easy-button-ldap/easy-button-template.png)
 
-3. Review the configuration list.
-4. Select **Next**
+6. Review the configuration list.
+7. Select **Next**.
 
   ![Screenshot of the configuration list and the Next button.](./media/f5-big-ip-easy-button-ldap/config-steps.png)
 
-4. Follow the configuration sequence under **Azure AD Application Configuration**.
+8. Follow the configuration sequence under **Azure AD Application Configuration**.
 
   ![Screenshot of configuration sequence.](./media/f5-big-ip-easy-button-ldap/config-steps-flow.png#lightbox)
    
@@ -146,7 +144,7 @@ The **Configuration Properties** tab has service account properties and creates 
 2. For **Single Sign-On (SSO) & HTTP Headers**, select **On**.
 3. For **Tenant ID, Client ID,** and **Client Secret**, enter the Tentant ID, Client ID, and Client Secret you noted during tenant registration.
 4. Click **Test Connection**. This action confirms the BIG-IP connects to your tenant.
-5. Select **Next**
+5. Select **Next**.
 
    ![Screenshot of options and selections for Configuration Properties.](./media/f5-big-ip-easy-button-sap-erp/configuration-general-and-service-account-properties.png)
    
@@ -167,14 +165,14 @@ Use the Service Provider settings to define SAML SP instance properties of the a
 5.	Select **OK**. 
 6.	The **Import SSL Certificate and Keys** dialog appears in a new tab. 
 
-5.	To import the certificate and private key, select **PKCS 12 (IIS)**. 
-6.	Close the browser tab to return to the main tab.
+7.	To import the certificate and private key, select **PKCS 12 (IIS)**. 
+8.	Close the browser tab to return to the main tab.
 
    ![Screenshot of options and selections for Import SSL Certificates and Keys.](./media/f5-big-ip-easy-button-sap-erp/import-ssl-certificates-and-keys.png)
 
-7.	For **Enable Encrypted Assertion**, check the box.
-8.	If you enabled encryption, from the **Assertion Decryption Private Key** list, select the key. This is the private key for certificate BIG-IP APM uses to decrypt Azure AD assertions.
-9.	If you enabled encryption, from the **Assertion Decryption Certificate** list, select the certificate. This is the certificate BIG-IP uploads to Azure AD to encrypt the issued SAML assertions.
+9.	For **Enable Encrypted Assertion**, check the box.
+10. If you enabled encryption, from the **Assertion Decryption Private Key** list, select the key. This is the private key for certificate BIG-IP APM uses to decrypt Azure AD assertions.
+11. If you enabled encryption, from the **Assertion Decryption Certificate** list, select the certificate. This is the certificate BIG-IP uploads to Azure AD to encrypt the issued SAML assertions.
 
    ![Screenshot of options and selections for Service Provider.](./media/f5-big-ip-easy-button-ldap/service-provider-security-settings.png)
 
@@ -210,159 +208,179 @@ Easy Button has application templates for Oracle PeopleSoft, Oracle E-Business S
 
 #### User Attributes & Claims
 
-When a user successfully authenticates to Azure AD, it issues a SAML token with a default set of claims and attributes uniquely identifying the user. The **User Attributes & Claims tab** shows the default claims to issue for the new application. It also lets you configure more claims.
+When users authenticate to Azure AD, it issues a SAML token with default claims and attributes identifying the user. The **User Attributes & Claims** tab shows the default claims to issue for the new application. Use it to configure more claims.
 
-As our example AD infrastructure is based on a .com domain suffix used both, internally and externally, we don’t require any additional attributes to achieve a functional KCD SSO implementation. See the [advanced tutorial](./f5-big-ip-kerberos-advanced.md) for cases where you have multiple domains or user’s login using an alternate suffix. 
+This tutorial is based on a .com domain suffix used internally and externally. No additional attributes are required to achieve a functional Kerberos constrained delegation (KCD) SSO implementation.
 
-   ![Screenshot for user attributes and claims](./media/f5-big-ip-easy-button-sap-erp/user-attributes-claims.png)
+   ![Screenshot of the User Attributes & Claims tab](./media/f5-big-ip-easy-button-sap-erp/user-attributes-claims.png)
    
-You can include additional Azure AD attributes, if necessary, but for this scenario SAP ERP only requires the default attributes.
+You can include additional Azure AD attributes. For this tutorial, SAP ERP requires the default attributes.
+
+Learn more: [Tutorial: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication](./f5-big-ip-kerberos-advanced.md). See, instructions on multiple domains or user sign in with alternate suffixes. 
 
 #### Additional User Attributes
 
-The **Additional User Attributes** tab can support a variety of distributed systems requiring attributes stored in other directories, for session augmentation. Attributes fetched from an LDAP source can then be injected as additional SSO headers to further control access based on roles, Partner IDs, etc.
+The **Additional User Attributes** tab supports distributed systems requiring attributes stored in other directories, for session augmentation. Thus, attributes from an LDAP source are injected as more SSO headers to control role-based access, Partner IDs, etc.
 
-   ![Screenshot for additional user attributes](./media/f5-big-ip-easy-button-header/additional-user-attributes.png)
+   ![Screenshot of the Addtional User Attributes tab](./media/f5-big-ip-easy-button-header/additional-user-attributes.png)
 
->[!NOTE] 
->This feature has no correlation to Azure AD but is another source of attributes.
+   >[!NOTE] 
+   >This feature has no correlation to Azure AD but is another attribute source.
 
 #### Conditional Access Policy
 
-CA policies are enforced post Azure AD pre-authentication, to control access based on device, application, location, and risk signals.
+Conditional Access policies are enforced after Azure AD pre-authentication. This action controls access based on device, application, location, and risk signals.
 
-The **Available Policies** view, by default, will list all CA policies that do not include user based actions.
+The **Available Policies** view lists Conditional Access policies without user-based actions.
 
-The **Selected Policies** view, by default, displays all policies targeting All cloud apps. These policies cannot be deselected or moved to the Available Policies list as they are enforced at a tenant level.
+The **Selected Policies** view lists policies targeting cloud apps. You can't deselect these policies, nor move them to the Available Policies list because they are enforced at the tenant level.
 
-To select a policy to be applied to the application being published:
+To select a policy for the application being published:
 
-1.	Select the desired policy in the **Available Policies** list
-2.	Select the right arrow and move it to the **Selected Policies** list
+1.	From the **Available Policies** list, select the policy.
+2.	Select the right arrow.
+3.	Move the policy to the **Selected Policies** list.
 
-Selected policies should either have an **Include** or **Exclude** option checked. If both options are checked, the selected policy is not enforced.
+Selected policies have an **Include** or **Exclude** option checked. If both options are checked, the selected policy is not enforced.
 
-![ Screenshot for CA policies](./media/f5-big-ip-easy-button-ldap/conditional-access-policy.png)
+   ![Screenshot of excluded policies in Selected Policies.](./media/f5-big-ip-easy-button-ldap/conditional-access-policy.png)
 
->[!NOTE]
->The policy list is enumerated only once when first switching to this tab. A refresh button is available to manually force the wizard to query your tenant, but this button is displayed only when the application has been deployed. 
+   >[!NOTE]
+   >The policy list appears when you initially select this tab. Use the **refresh** button to query your tenant. Refresh appears when the application is deployed. 
 
 ### Virtual Server Properties
 
-A virtual server is a BIG-IP data plane object represented by a virtual IP address listening for client requests to the application. Any received traffic is processed and evaluated against the APM profile associated with the virtual server, before being directed according to the policy results and settings.
+A virtual server is a BIG-IP data plane object represented by a virtual IP address. This server listens for client requests to the application. Received traffic is processed and evaluated against the APM profile associated with the virtual server. Traffic is then directed according to policy.
 
-1. Enter **Destination Address**. This is any available IPv4/IPv6 address that the BIG-IP can use to receive client traffic. A corresponding record should also exist in DNS, enabling clients to resolve the external URL of your BIG-IP published application to this IP, instead of the appllication itself. Using a test PC's localhost DNS is fine for testing
+1. Enter a **Destination Address**. Use the IPv4/IPv6 address BIG-IP uses to receive client traffic. A corresponding record is in DNS, which enables clients to resolve the external URL of BIG-IP published application to this IP. You can use a test computer localhost DNS for testing.
+2. For **Service Port**, enter **443**.
+3. Select **HTTPS**.
+4. For **Enable Redirect Port**, check the box.
+5. For **Redirect Port**, enter a number and select **HTTP**. This option redirects incoming HTTP client traffic to HTTPS.
+6. Select the **Client SSL Profile** you created. Or, leave the default for testing. The Client SSL Profile enables the virtual server for HTTPS, so client connections are encrypted over TLS. 
 
-2. Enter **Service Port** as *443* for HTTPS
-
-3. Check **Enable Redirect Port** and then enter **Redirect Port**. It redirects incoming HTTP client traffic to HTTPS
-
-4. The Client SSL Profile enables the virtual server for HTTPS, so that client connections are encrypted over TLS. Select the **Client SSL Profile** you created as part of the prerequisites or leave the default whilst testing
-
-  ![ Screenshot for Virtual server](./media/f5-big-ip-easy-button-ldap/virtual-server.png)
+  ![Screenshot of options and selections for Virtual Server Properties.](./media/f5-big-ip-easy-button-ldap/virtual-server.png)
 
 ### Pool Properties
 
-The **Application Pool tab** details the services behind a BIG-IP, represented as a pool containing one or more application servers.
+The **Application Pool** tab has services behind a BIG-IP, represented as a pool with application servers.
 
-1. Choose from **Select a Pool.** Create a new pool or select an existing one
+1. For **Select a Pool**, select **Create New**, or select a pool.
+2. For **Load Balancing Method**, select **Round Robin**.
+3. For **Pool Servers** select a server node, or enter an IP and port for the back-end node hosting the header-based application.
 
-2. Choose the **Load Balancing Method** as *Round Robin*
-
-3. For **Pool Servers** select an existing server node or specify an IP and port for the backend node hosting the header-based application
-
-   ![ Screenshot for Application pool](./media/f5-big-ip-easy-button-ldap/application-pool.png)
+   ![Screenshot of options and selections for Application Pool.](./media/f5-big-ip-easy-button-ldap/application-pool.png)
 
 #### Single Sign-On & HTTP Headers
 
-Enabling SSO allows users to access BIG-IP published services without having to enter credentials. The **Easy Button wizard** supports Kerberos, OAuth Bearer, and HTTP authorization headers for SSO. You will need the Kerberos delegation account created earlier to complete this step. 
+Use SSO to enable access BIG-IP published services without entering credentials. The Easy Button wizard supports Kerberos, OAuth Bearer, and HTTP authorization headers for SSO. For the following instructions, you need the Kerberos delegation account you created. 
 
-Enable **Kerberos** and **Show Advanced Setting** to enter the following:
+1. On **Single Sign-On & HTTP Headers**, for **Advanced Settings**, select **On**. 
+2. For **Selected Single Sign-On Type**, select **Kerberos**.
+3. For **Username Source**, enter a session variable as the user ID source. `session.saml.last.identity` holds the Azure AD claim with the signed-in user ID.
+4. The **User Realm Source** option is equired if the user domain differs from the BIG-IP kerberos realm. Thus, the APM session variable contains the signed in user domain. For example, `session.saml.last.attr.name.domain`. 
 
-* **Username Source:** Specifies the preferred username to cache for SSO. You can provide any session variable as the source of the user ID, but *session.saml.last.identity* tends to work best as it holds the Azure AD claim containing the logged in user ID
+   ![Screenshot of options and selections for Single Sign-On & HTTP Headers.](./media/f5-big-ip-kerberos-easy-button/sso-headers.png)
 
-* **User Realm Source:** Required if the user domain is different to the BIG-IP’s kerberos realm. In that case, the APM session variable would contain the logged in user domain. For example,*session.saml.last.attr.name.domain*
+5. For **KDC**, enter a domain controller IP, or FQDN if the DNS is configured.
+6. For **UPN Support**, check the box. The APM uses the UPN for kerberos ticketing.
+7. For **SPN Pattern**, enter **HTTP/%h**. This action informs the APM to use the client-request host header and build the SPN for which it's requesting a kerberos token.
+8. For **Send Authorization,** disable the option for applications that negotiate authentication. For example, **Tomcat**.
 
-   ![Screenshot for SSO and HTTP headers](./media/f5-big-ip-kerberos-easy-button/sso-headers.png)
-
-* **KDC:** IP of a Domain Controller (Or FQDN if DNS is configured & efficient)
-
-* **UPN Support:** Enable for the APM to use the UPN for kerberos ticketing 
-
-* **SPN Pattern:** Use HTTP/%h to inform the APM to use the host header of the client request and build the SPN that it is requesting a kerberos token for.
-
-* **Send Authorization:** Disable for applications that prefer negotiating authentication instead of receiving the kerberos token in the first request. For example, *Tomcat.*
-
-   ![Screenshot for SSO method configuration](./media/f5-big-ip-kerberos-easy-button/sso-method-config.png)
+   ![Screenshot of options and selections for SSO Method Configuration.](./media/f5-big-ip-kerberos-easy-button/sso-method-config.png)
    
 ### Session Management
 
-The BIG-IPs session management settings are used to define the conditions under which user sessions are terminated or allowed to continue, limits for users and IP addresses, and corresponding user info. Consult [F5 documentation]( https://support.f5.com/csp/article/K18390492) for details on these settings.
+Use BIG-IP session management settings to define conditions when user sessions terminate or continue. Conditions include limits for users and IP addresses, and corresponding user info. 
 
-What isn’t covered however is Single Log-Out (SLO) functionality, which ensures all sessions between the IdP, the BIG-IP, and the user agent are terminated as users log off.
- When the Easy Button deploys a SAML application to your Azure AD tenant, it also populates the Logout Url with the APM’s SLO endpoint. That way IdP initiated sign-outs from the Microsoft [MyApps portal]( https://support.microsoft.com/en-us/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) also terminate the session between the BIG-IP and a client.
+To learn more, go to my.f5.com for [K18390492: Security | BIG-IP APM operations guide]( https://support.f5.com/csp/article/K18390492) 
 
-During deployment, the SAML federation metadata for the published application is imported from your tenant, providing the APM the SAML logout endpoint for Azure AD. This helps SP initiated sign-outs terminate the session between a client and Azure AD.
+The operations guide doesn't cover Single Log-Out (SLO). This feature ensures sessions between the IdP, the BIG-IP, and the user agent terminate when users sign out. The Easy Button deploys a SAML application to the Azure AD tenant. It populates the Logout URL with the APM SLO endpoint. IdP initiated sign out from the [My Apps]( https://support.microsoft.com/en-us/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) portal terminates the BIG-IP and client session.
 
-## Summary
+During deployment, the published-application SAML federation metadata is imported from the tenant. This action provides the APM the SAML sign out endpoint for Azure AD. This helps SP initiated sign-out terminate the client and Azure AD session.
 
-This last step provides a breakdown of your configurations. Select **Deploy** to commit all settings and verify that the application now exists in your tenants list of Enterprise applications.
+## Deployment
 
-## Next steps
+1. Select **Deploy**.
+2. Verify the application is in the tenant **Enterprise applications** list.
+3. With a browser, connect to the application external URL or select the application **icon** in [My Apps](https://myapps.microsoft.com/). 
+4. Authenticate to Azure AD.
+5. You're redirected to the BIG-IP virtual server and signed in through SSO.
 
-From a browser, **connect** to the application’s external URL or select the **application’s icon** in the [Microsoft MyApps portal](https://myapps.microsoft.com/). After authenticating to Azure AD, you’ll be redirected to the BIG-IP virtual server for the application and automatically signed in through SSO.
-
-For increased security, organizations using this pattern could also consider blocking all direct access to the application, thereby forcing a strict path through the BIG-IP.
+For increased security, you can block direct access to the application, thereby enforcing a path through the BIG-IP.
 
 ## Advanced deployment
 
-There may be cases where the Guided Configuration templates lacks the flexibility to achieve more specific requirements. For those scenarios, see [Advanced Configuration for kerberos-based SSO](./f5-big-ip-kerberos-advanced.md).
+The Guided Configuration templates sometimes lack flexibility. 
 
-Alternatively, the BIG-IP gives you the option to disable **Guided Configuration’s strict management mode**. This allows you to manually tweak your configurations, even though bulk of your configurations are automated through the wizard-based templates.
+Learn more: [Tutorial: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication](./f5-big-ip-kerberos-advanced.md).
 
-You can navigate to **Access > Guided Configuration** and select the **small padlock icon** on the far right of the row for your applications’ configs. 
+### Disable strict management mode
+
+Alternatively, in BIG-IP you can disable Guided Configuration strict management mode. You can change your configurations manually, although most configurations are automated with wizard templates.
+
+1. Navigate to **Access > Guided Configuration**.
+2. At the end of the row for your application configuration, select the **padlock**. 
+3. BIG-IP objects associated with the published application are unlocked for management. Changes via the wizard UI are no longer possible. 
  
-   ![Screenshot for Configure Easy Button - Strict Management](./media/f5-big-ip-oracle/strict-mode-padlock.png)
+   ![Screenshot of the padlock icon.](./media/f5-big-ip-oracle/strict-mode-padlock.png)
 
-At that point, changes via the wizard UI are no longer possible, but all BIG-IP objects associated with the published instance of the application will be unlocked for direct management.
-
->[!NOTE]
->Re-enabling strict mode and deploying a configuration will overwrite any settings performed outside of the Guided Configuration UI, therefore we recommend the advanced configuration method for production services.
+   >[!NOTE]
+   >To re-enable strict management mode and deploye a configuration overwrites settings outside the Guided Configuration UI. Therefore, we recommend the advanced configuration method for production services.
 
 ## Troubleshooting
 
-You can fail to access the SHA protected application due to any number of factors, including a misconfiguration.
+If you're unable to access the SHA-secured application see the following troubleshooting guidance.
 
-* Kerberos is time sensitive, so requires that servers and clients be set to the correct time and where possible synchronized to a reliable time source
+* Kerberos is time sensitive. Ensure servers and clients are set to the correct time, and synchronized to a reliable time source.
+* Ensure the domain controller and web app hostname resolve in DNS.
+* Confirm no duplicate SPNs in the environment. 
+  * On a domain computer, at the command line, use the query: `setspn -q HTTP/my_target_SPN`
 
-* Ensure the hostname for the domain controller and web application are resolvable in DNS
+To validate an IIS application KCD configuration, see [Troubleshoot KCD configurations for Application Proxy](../app-proxy/application-proxy-back-end-kerberos-constrained-delegation-how-to.md) 
 
-* Ensure there are no duplicate SPNs in your AD environment by executing the following query at the command line on a domain PC: setspn -q HTTP/my_target_SPN
-
-You can refer to our [App Proxy guidance](../app-proxy/application-proxy-back-end-kerberos-constrained-delegation-how-to.md) to validate an IIS application is configured appropriately for KCD. F5’s article on [how the APM handles Kerberos SSO](https://techdocs.f5.com/en-us/bigip-15-1-0/big-ip-access-policy-manager-single-sign-on-concepts-configuration/kerberos-single-sign-on-method.html) is also a valuable resource.
+Go to techdocs.f5.com for [Kerberos Single Sign-On Method](https://techdocs.f5.com/en-us/bigip-15-1-0/big-ip-access-policy-manager-single-sign-on-concepts-configuration/kerberos-single-sign-on-method.html)
 
 ### Log analysis
 
-BIG-IP logging can help quickly isolate all sorts of issues with connectivity, SSO, policy violations, or misconfigured variable mappings. Start troubleshooting by increasing the log verbosity level.
+#### Log verbosity
 
-1. Navigate to **Access Policy > Overview > Event Logs > Settings**
+BIG-IP logging isolates issues with connectivity, SSO, policy violations, or misconfigured variable mappings. To start troubleshooting, increase log verbosity.
 
-2. Select the row for your published application, then **Edit > Access System Logs**
+1. Navigate to **Access Policy > Overview**.
+2. Select **Event Logs**.
+3. Select **Settings**.
+4. Select the row for your published application.
+5. Select **Edit**.
+6. Select **Access System Logs**
+7. From the SSO list, select **Debug**.
+8. Select **OK**.
+9. Reproduce your issue.
+10. Inspect the logs.
 
-3. Select **Debug** from the SSO list, and then select **OK**
+When inspection is complete, revert log verbosity because this mode generates excessive data. 
 
-Reproduce your issue, then inspect the logs, but remember to switch this back when finished as verbose mode generates lots of data. 
+#### BIG-IP error message
 
-If you see a BIG-IP branded error immediately after successful Azure AD pre-authentication, it’s possible the issue relates to SSO from Azure AD to the BIG-IP.
+If a BIG-IP error message appears after Azure AD pre-authentication, the issue might relate to Azure AD to BIG-IP SSO.
 
-1. Navigate to **Access > Overview > Access reports**
+1. Navigate to **Access > Overview**.
+2. Select **Access reports**.
+3. Run the report for the last hour.
+4. Inspect the logs. 
 
-2. Run the report for the last hour to see logs provide any clues. The **View session variables** link for your session will also help understand if the APM is receiving the expected claims from Azure AD.
+Use the current session's **View session variables** link to see if APM receives expected Azure AD claims.
 
-If you don’t see a BIG-IP error page, then the issue is probably more related to the backend request or SSO from the BIG-IP to the application. 
+#### No BIG-IP error message
 
-1. Navigate to **Access Policy > Overview > Active Sessions**
+If no BIG-IP error message appeared, the issue might be related to the back-end request, or BIG-IP to application SSO. 
 
-2. Select the link for your active session. The **View Variables** link in this location may also help determine root cause KCD issues, particularly if the BIG-IP APM fails to obtain the right user and domain identifiers from session variables
+1. Navigate to **Access Policy > Overview**.
+2. Select **Active Sessions**.
+3. Select the link for the current session. 
+4. Use the **View Variables** link to identify KCD issues, particularly if the BIG-IP APM doesn't obtain correct user and domain identifiers from session variables.
 
-See [BIG-IP APM variable assign examples]( https://devcentral.f5.com/s/articles/apm-variable-assign-examples-1107) and [F5 BIG-IP session variables reference]( https://techdocs.f5.com/en-us/bigip-15-0-0/big-ip-access-policy-manager-visual-policy-editor/session-variables.html) for more info.
+Learn more:
+
+* Go to devcentral.f5.com for [APM variable assign examples](https://devcentral.f5.com/s/articles/apm-variable-assign-examples-1107)
+* Go to techdocs.f5.com for [Session variables](https://techdocs.f5.com/en-us/bigip-15-0-0/big-ip-access-policy-manager-visual-policy-editor/session-variables.html)
