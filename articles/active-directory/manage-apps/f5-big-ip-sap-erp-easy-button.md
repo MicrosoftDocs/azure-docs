@@ -1,6 +1,6 @@
 ---
 title: Configure F5 BIG-IP Easy Button for SSO to SAP ERP
-description: Learn to secure SAP ERP using Azure Active Directory (Azure AD), through F5’s BIG-IP Easy Button guided configuration.
+description: Learn to secure SAP ERP using Azure AD with F5 BIG-IP Easy Button Guided Gonfiguration.
 services: active-directory
 author: gargi-sinha
 manager: martinco
@@ -33,7 +33,7 @@ This scenario includes the SAP ERP application using Kerberos authentication to 
 
 Legacy applications lack modern protocols to support integration with Azure AD. Modernization is costly, requires planning, and introduces potential downtime risk. Instead, use an F5 BIG-IP Application Delivery Controller (ADC) to bridge the gap between the legacy application and the modern ID control plane, through protocol transitioning. 
 
-A BIG-IP in front of the application enables overlay jof the service with Azure AD pre-authentication and headers-based SSO. This configuration improves overall application security posture.
+A BIG-IP in front of the application enables overlay of the service with Azure AD preauthentication and headers-based SSO. This configuration improves overall application security posture.
 
 ## Scenario architecture
 
@@ -57,15 +57,15 @@ SHA supports SP and IdP initiated flows. The following image illustrates the SP-
 
 ## Prerequisites
 
-* An Azure AD free account, or above
+* An Azure AD free account, or higher
   * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/active-directory/)
-* An BIG-IP or a BIG-IP Virtual Edition (VE) in Azure
+* A BIG-IP or a BIG-IP Virtual Edition (VE) in Azure
   * See, [Deploy F5 BIG-IP Virtual Edition VM in Azure](./f5-bigip-deployment-guide.md)
 * Any of the following F5 BIG-IP licenses:
     * F5 BIG-IP® Best bundle
     * F5 BIG-IP APM standalone license
     * F5 BIG-IP APM add-on license on an existing BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
-    * 90-day BIG-IP full feature [trial license](https://www.f5.com/trial/big-ip-trial.php).
+    * 90-day BIG-IP full feature [trial license](https://www.f5.com/trial/big-ip-trial.php)
 * User identities synchronized from an on-premises directory to Azure AD, or created in Azure AD and flowed back to the on-premises directory
   * See, [Azure AD Connect sync: Understand and customize synchronization](../hybrid/how-to-connect-sync-whatis.md)
 * An account with Azure AD Application Admin permissions
@@ -76,7 +76,7 @@ SHA supports SP and IdP initiated flows. The following image illustrates the SP-
 
 ## BIG-IP configuration methods
 
-This tutorial uses Guided Configuration 16.1 with an Easy Button template. With the Easy Button, admins don't go between Azure AD and a BIG-IP to enable services for SHA. The deployment and policy management is handled by the APM Guided Configuration wizard and Microsoft Graph. This integration ensures applications support identity federation, SSO, and Conditional Access.
+This tutorial uses Guided Configuration 16.1 with an Easy Button template. With the Easy Button, admins don't go between Azure AD and a BIG-IP to enable services for SHA. The APM Guided Configuration wizard and Microsoft Graph handle deployment and policy management. This integration ensures applications support identity federation, SSO, and Conditional Access.
 
    >[!NOTE] 
    > Replace example strings or values in this guide with those in your environment.
@@ -89,7 +89,7 @@ See, [Quickstart: Register an application with the Microsoft identity platform](
 
 Register the Easy Button client in Azure AD, then it's allowed to establish a trust between SAML SP instances of a BIG-IP published application, and Azure AD as the SAML IdP.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with with Application Administrator permisssions.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with Application Administrator permissions.
 2. In the left navigation pane, select the **Azure Active Directory** service.
 3. Under Manage, select **App registrations > New registration**.
 4. Enter a **Name**. 
@@ -110,7 +110,7 @@ Register the Easy Button client in Azure AD, then it's allowed to establish a tr
    * User.Read.All
 
 9. Grant admin consent for your organization.
-10. In the **Certificates & Secrets** blade, generate a new **client secret**.
+10. On **Certificates & Secrets**, generate a new **client secret**.
 11. Note the secret to use later.
 12. From **Overview**, note the **Client ID** and **Tenant ID**.
 
@@ -142,8 +142,8 @@ The **Configuration Properties** tab has service account properties and creates 
 
 1. Enter a **Configuration Name**. Unique names differentiate Easy Button configurations.
 2. For **Single Sign-On (SSO) & HTTP Headers**, select **On**.
-3. For **Tenant ID, Client ID,** and **Client Secret**, enter the Tentant ID, Client ID, and Client Secret you noted during tenant registration.
-4. Click **Test Connection**. This action confirms the BIG-IP connects to your tenant.
+3. For **Tenant ID, Client ID,** and **Client Secret**, enter the Tenant ID, Client ID, and Client Secret you noted during tenant registration.
+4. Select **Test Connection**. This action confirms the BIG-IP connects to your tenant.
 5. Select **Next**.
 
    ![Screenshot of options and selections for Configuration Properties.](./media/f5-big-ip-easy-button-sap-erp/configuration-general-and-service-account-properties.png)
@@ -171,8 +171,8 @@ Use the Service Provider settings to define SAML SP instance properties of the a
    ![Screenshot of options and selections for Import SSL Certificates and Keys.](./media/f5-big-ip-easy-button-sap-erp/import-ssl-certificates-and-keys.png)
 
 9.	For **Enable Encrypted Assertion**, check the box.
-10. If you enabled encryption, from the **Assertion Decryption Private Key** list, select the key. This is the private key for certificate BIG-IP APM uses to decrypt Azure AD assertions.
-11. If you enabled encryption, from the **Assertion Decryption Certificate** list, select the certificate. This is the certificate BIG-IP uploads to Azure AD to encrypt the issued SAML assertions.
+10. If you enabled encryption, from the **Assertion Decryption Private Key** list, select the private key for the certificate BIG-IP APM uses to decrypt Azure AD assertions.
+11. If you enabled encryption, from the **Assertion Decryption Certificate** list, select the certificate BIG-IP uploads to Azure AD to encrypt the issued SAML assertions.
 
    ![Screenshot of options and selections for Service Provider.](./media/f5-big-ip-easy-button-ldap/service-provider-security-settings.png)
 
@@ -210,11 +210,11 @@ Easy Button has application templates for Oracle PeopleSoft, Oracle E-Business S
 
 When users authenticate to Azure AD, it issues a SAML token with default claims and attributes identifying the user. The **User Attributes & Claims** tab shows the default claims to issue for the new application. Use it to configure more claims.
 
-This tutorial is based on a .com domain suffix used internally and externally. No additional attributes are required to achieve a functional Kerberos constrained delegation (KCD) SSO implementation.
+This tutorial is based on a .com domain suffix used internally and externally. No other attributes are required to achieve a functional Kerberos constrained delegation (KCD) SSO implementation.
 
    ![Screenshot of the User Attributes & Claims tab](./media/f5-big-ip-easy-button-sap-erp/user-attributes-claims.png)
    
-You can include additional Azure AD attributes. For this tutorial, SAP ERP requires the default attributes.
+You can include more Azure AD attributes. For this tutorial, SAP ERP requires the default attributes.
 
 Learn more: [Tutorial: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication](./f5-big-ip-kerberos-advanced.md). See, instructions on multiple domains or user sign in with alternate suffixes. 
 
@@ -229,11 +229,11 @@ The **Additional User Attributes** tab supports distributed systems requiring at
 
 #### Conditional Access Policy
 
-Conditional Access policies are enforced after Azure AD pre-authentication. This action controls access based on device, application, location, and risk signals.
+Conditional Access policies are enforced after Azure AD preauthentication. This action controls access based on device, application, location, and risk signals.
 
 The **Available Policies** view lists Conditional Access policies without user-based actions.
 
-The **Selected Policies** view lists policies targeting cloud apps. You can't deselect these policies, nor move them to the Available Policies list because they are enforced at the tenant level.
+The **Selected Policies** view lists policies targeting cloud apps. You can't deselect these policies, nor move them to the Available Policies list because they're enforced at the tenant level.
 
 To select a policy for the application being published:
 
@@ -241,7 +241,7 @@ To select a policy for the application being published:
 2.	Select the right arrow.
 3.	Move the policy to the **Selected Policies** list.
 
-Selected policies have an **Include** or **Exclude** option checked. If both options are checked, the selected policy is not enforced.
+Selected policies have an **Include** or **Exclude** option checked. If both options are checked, the selected policy isn't enforced.
 
    ![Screenshot of excluded policies in Selected Policies.](./media/f5-big-ip-easy-button-ldap/conditional-access-policy.png)
 
@@ -278,7 +278,7 @@ Use SSO to enable access BIG-IP published services without entering credentials.
 1. On **Single Sign-On & HTTP Headers**, for **Advanced Settings**, select **On**. 
 2. For **Selected Single Sign-On Type**, select **Kerberos**.
 3. For **Username Source**, enter a session variable as the user ID source. `session.saml.last.identity` holds the Azure AD claim with the signed-in user ID.
-4. The **User Realm Source** option is equired if the user domain differs from the BIG-IP kerberos realm. Thus, the APM session variable contains the signed in user domain. For example, `session.saml.last.attr.name.domain`. 
+4. The **User Realm Source** option is required if the user domain differs from the BIG-IP kerberos realm. Thus, the APM session variable contains the signed in user domain. For example, `session.saml.last.attr.name.domain`. 
 
    ![Screenshot of options and selections for Single Sign-On & HTTP Headers.](./media/f5-big-ip-kerberos-easy-button/sso-headers.png)
 
@@ -297,7 +297,7 @@ To learn more, go to my.f5.com for [K18390492: Security | BIG-IP APM operations 
 
 The operations guide doesn't cover Single Log-Out (SLO). This feature ensures sessions between the IdP, the BIG-IP, and the user agent terminate when users sign out. The Easy Button deploys a SAML application to the Azure AD tenant. It populates the Logout URL with the APM SLO endpoint. IdP initiated sign out from the [My Apps]( https://support.microsoft.com/en-us/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) portal terminates the BIG-IP and client session.
 
-During deployment, the published-application SAML federation metadata is imported from the tenant. This action provides the APM the SAML sign out endpoint for Azure AD. This helps SP initiated sign-out terminate the client and Azure AD session.
+During deployment, the published-application SAML federation metadata is imported from the tenant. This action provides the APM the SAML sign out endpoint for Azure AD  and helps SP-initiated sign out terminate the client and Azure AD session.
 
 ## Deployment
 
@@ -330,7 +330,7 @@ Alternatively, in BIG-IP you can disable Guided Configuration strict management 
 
 ## Troubleshooting
 
-If you're unable to access the SHA-secured application see the following troubleshooting guidance.
+If you're unable to access the SHA-secured application, see the following troubleshooting guidance.
 
 * Kerberos is time sensitive. Ensure servers and clients are set to the correct time, and synchronized to a reliable time source.
 * Ensure the domain controller and web app hostname resolve in DNS.
@@ -362,7 +362,7 @@ When inspection is complete, revert log verbosity because this mode generates ex
 
 #### BIG-IP error message
 
-If a BIG-IP error message appears after Azure AD pre-authentication, the issue might relate to Azure AD to BIG-IP SSO.
+If a BIG-IP error message appears after Azure AD preauthentication, the issue might relate to Azure AD to BIG-IP SSO.
 
 1. Navigate to **Access > Overview**.
 2. Select **Access reports**.
