@@ -34,7 +34,7 @@ We've organized this article into four separate articles so it's easy for you to
 
 ## Overview
 
-Token-based authentication ensures that requests to a web API includes a valid access token.
+Token-based authentication ensures that requests to a web API include a valid access token.
 
 The client web app completes the following events:
 
