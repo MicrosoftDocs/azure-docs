@@ -30,9 +30,7 @@ In Azure, there are two main licensing pricing options: 'pay-as-you-go' (PAYG) a
 
 Virtual machines deployed from pay-as-you-go images on Azure without Azure Hybrid Benefit incur *both* an infrastructure fee and a software fee. You can either convert these VMs to standard BYOS, Azure Hybrid Benefit BYOS, or Azure Hybrid Benefit PAYG. 
 
-After you apply Azure Hybrid Benefit to your RHEL or SLES virtual machine, you're no longer charged a software fee. Your virtual machine is charged a BYOS fee instead. You can use Azure Hybrid Benefit to switch back to pay-as-you-go billing at any time.
-
-After you apply Azure Hybrid Benefit to your RHEL or SLES virtual machine you are no longer charged for PAYG licensing.
+After you apply Azure Hybrid Benefit to your RHEL or SLES virtual machine, you're no longer charged for PAYG licensing. Your virtual machine is charged a BYOS fee instead. You can use Azure Hybrid Benefit to switch back to pay-as-you-go billing at any time.
 
 
 ## Which Linux virtual machines qualify for Azure Hybrid Benefit?
@@ -393,7 +391,7 @@ If you use Azure Hybrid Benefit BYOS to PAYG capability for SLES and want more i
 
 - **Q: Can I use a license type of RHEL_BYOS with a SLES image, or vice versa?**
 
-    - A: No, you can't. Trying to enter a license type that incorrectly matches the distribution running on your virtual machine will not update any billing metadata. But if you accidentally enter the wrong license type, updating your virtual machine again to the correct license type will still enable Azure Hybrid Benefit.
+    - A: No, you can't. Trying to enter a license type that incorrectly matches the distribution running on your virtual machine won't update any billing metadata. But if you accidentally enter the wrong license type, updating your virtual machine again to the correct license type still enables Azure Hybrid Benefit.
 
 - **Q: I've registered with Red Hat Cloud Access but still can't enable Azure Hybrid Benefit on my RHEL virtual machines. What should I do?**
 
