@@ -458,6 +458,14 @@ To learn more about the limits for Azure Files and File Sync, see [Azure Files s
 
 ## Azure Storage limits
 
+This section lists the following limits for Azure Storage:
+
+- [Standard storage account limits](#standard-storage-account-limits)
+- [Azure Storage resource provider limits](#azure-storage-resource-provider-limits)
+- [Azure Blob Storage limits](#azure-blob-storage-limits)
+- [Azure Queue storage limits](#azure-queue-storage-limits)
+- [Azure Table storage limits](#azure-table-storage-limits)
+
 ### Standard storage account limits
 
 <!--like # storage accts -->
