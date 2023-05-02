@@ -22,7 +22,7 @@ zone_pivot_groups: app-provisioning-cross-tenant-synchronization
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 ::: zone-end
 
-This article describes how to use scoping filters in the Azure Active Directory (Azure AD) provisioning service to define attribute-based rules that determine which users or groups are provisioned.
+Learn how to use scoping filters in the Azure Active Directory (Azure AD) provisioning service to define attribute based rules. The rules are used to determine which users or groups are provisioned.
 
 ## Scoping filter use cases
 
