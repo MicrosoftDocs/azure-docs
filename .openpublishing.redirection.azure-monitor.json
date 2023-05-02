@@ -6027,11 +6027,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-log-api-switch.md",
-            "redirect_url": "/previous-versions/azure/azure-monitor/alerts/alerts-log-api-switch",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/azure-monitor/visualize/view-designer.md",
             "redirect_url": "/previous-versions/azure/azure-monitor/visualize/view-designer",
             "redirect_document_id": false
