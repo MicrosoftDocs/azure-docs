@@ -60,7 +60,7 @@ Depending on the type of client app and scenarios, different *authorization flow
 
 A common authorization scenario is when the calling application requests access to the backend API directly and presents an OAuth 2.0 token in an authorization header to the gateway. Azure API Management then acts as a "transparent" proxy between the caller and backend API, and passes the token through unchanged to the backend. The scope of the access token is between the calling application and backend API. 
 
-The following image shows an example where Azure AD is the authorization provider. The client app could be a 
+The following image shows an example where Azure AD is the authorization provider. The client app might be a single-page app (SPA). 
 
 :::image type="content" source="media/authentication-authorization-overview/oauth-token-backend.svg" alt-text="Diagram showing OAuth communication where audience is the backend." border="false":::
 
