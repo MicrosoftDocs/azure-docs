@@ -35,10 +35,14 @@ The [Azure Cosmos DB desktop data migration tool](https://github.com/azurecosmos
   - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
   - Alternatively, you can [try Azure Cosmos DB free](try-free.md) before you commit.
 - Latest version of [Azure CLI](/cli/azure/install-azure-cli).
+- [.NET 6.0](https://dotnet.microsoft.com/download/dotnet/6.0) or later.
 
 ## Install the desktop data migration tool
 
 First, install the latest version of the desktop data migration tool from the GitHub repository.
+
+> [!NOTE]
+> The desktop data migration tool requires [.NET 6.0](https://dotnet.microsoft.com/download/dotnet/6.0) or later on your local machine.
 
 1. In your browser, navigate to the **Releases** section of the repository: [azurecosmosdb/data-migration-desktop-tool/releases](https://github.com/azurecosmosdb/data-migration-desktop-tool/releases).
 

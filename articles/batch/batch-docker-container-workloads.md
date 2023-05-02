@@ -2,7 +2,7 @@
 title: Container workloads on Azure Batch
 description: Learn how to run and scale apps from container images on Azure Batch. Create a pool of compute nodes that support running container tasks.
 ms.topic: how-to
-ms.date: 04/05/2023
+ms.date: 05/01/2023
 ms.devlang: csharp, python
 ms.custom: "seodec18, devx-track-csharp"
 ---
@@ -326,7 +326,9 @@ If the container image for a Batch task is configured with an [ENTRYPOINT](https
 
 - To use the default ENTRYPOINT of the container image, set the task command line to the empty string `""`.
 
-- To override the default ENTRYPOINT, or if the image doesn't have an ENTRYPOINT, set a command line appropriate for the container, for example, `/app/myapp` or `/bin/sh -c python myscript.py`.
+- To override the default ENTRYPOINT, add the `--entrypoint` argument for example: `--endpoint "/bin/sh - python"`
+
+- If the image doesn't have an ENTRYPOINT, set a command line appropriate for the container, for example, `/app/myapp` or `/bin/sh -c python myscript.py`
 
 Optional [ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions) are additional arguments you provide to the `docker create` command that Batch uses to create and run the container. For example, to set a working directory for the container, set the `--workdir <directory>` option. See the [docker create](https://docs.docker.com/engine/reference/commandline/create/) reference for additional options.
 
