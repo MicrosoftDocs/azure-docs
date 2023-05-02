@@ -443,9 +443,9 @@
             - name: Configure role claim
               href: active-directory-enterprise-app-role-management.md
             - name: Customize JWT claims
-              href: active-directory-jwt-claims-customization.md
+              href: jwt-claims-customization.md
             - name: Customize SAML claims
-              href: active-directory-saml-claims-customization.md
+              href: saml-claims-customization.md
             - name: Set an access token lifetime policy
               href: configure-token-lifetimes.md
             - name: Directory extension attributes
@@ -538,7 +538,7 @@
           items:
             - name: Follow the branding guidelines
               displayName: Add branding
-              href: howto-add-branding-in-azure-ad-apps.md
+              href: howto-add-branding-in-apps.md
             - name: Configure Terms of Service and Privacy Statement
               href: howto-add-terms-of-service-privacy-statement.md
         - name: Publish app to a marketplace
@@ -812,7 +812,7 @@
             - name: Certificate credentials
               href: active-directory-certificate-credentials.md
             - name: Signing key rollover
-              href: active-directory-signing-key-rollover.md
+              href: signing-key-rollover.md
             - name: UserInfo endpoint (OIDC)
               href: userinfo.md            
         - name: SAML 2.0

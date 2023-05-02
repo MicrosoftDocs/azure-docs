@@ -28,7 +28,7 @@ There are three elements involved when creating and managing custom recommendati
 
 |Aspect|Details|
 |----|:----|
-|Required/preferred environmental requirements| This preview includes only AWS and GCP recommendations. <br> This feature will bepart of the Defender CSPM plan in the future. |
+|Required/preferred environmental requirements| This preview includes only AWS and GCP recommendations. <br> This feature will be part of the Defender CSPM plan in the future. |
 | Required roles & permissions | Subscription Owner / Contributor |
 |Clouds:| :::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet) |
 
@@ -64,7 +64,7 @@ There are three elements involved when creating and managing custom recommendati
 
 1. Select the relevant account / project. 
 
-1. Select Standards 
+1. Select Standards.
 
 1. Select Add and then select Standard.
 
@@ -90,7 +90,7 @@ To create a new query using the query editor, select the 'open query editor' but
 1. The last row should return all the original columns: "| project Id, Name, Environment, Identifiers, AdditionalData, Record, HealthStatus".
 
     >[!Note]
-    >The Record field contains the data structure as it is returned from the AWS / GCP API. Use this field to define conditions which will determine if the resource is healthy or unhealthy. <br> You can access internal properties of Record filed using a dot notation. <br>
+    >The Record field contains the data structure as it is returned from the AWS / GCP API. Use this field to define conditions which will determine if the resource is healthy or unhealthy. <br> You can access internal properties of the Record field using a dot notation. <br>
     For example: | extend EncryptionType = Record.Encryption.Type.
 
 #### Additional instructions
