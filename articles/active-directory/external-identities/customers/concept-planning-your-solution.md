@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: conceptual
-ms.date: 05/01/2023
+ms.date: 05/02/2023
 ms.author: cmulligan
 ms.custom: it-pro
 
@@ -24,8 +24,7 @@ This article describes the general steps for getting started with Azure AD for c
 
 Adding secure sign-in to your app and setting up a customer identity and access management involves four general steps, as illustrated in the following diagram.
 
-![Diagram showing an overview of setup steps.](media/concept-planning-your-solution/overview-setup-steps.png)
-
+:::image type="content" source="media/concept-planning-your-solution/overview-setup-steps-inline.png" alt-text="Diagram showing an overview of setup steps." lightbox="media/concept-planning-your-solution/overview-setup-steps-expanded.png" border="false":::
 
 | Step | Action | Description |
 |---------|---------|---------|
@@ -82,7 +81,7 @@ Learn how to [create a sign-up and sign-in user flow for customers](how-to-user-
 
 Azure AD for customers is designed for flexibility. In addition to the built-in authentication events within a sign-up and sign-in user flow, you can define additional actions for events at various points within the authentication flow.
 
-![Diagram showing extensibility points in the authentication flow.](media/concept-planning-your-solution/authentication-flow-events.png)
+:::image type="content" source="media/concept-planning-your-solution/authentication-flow-events-inline.png" alt-text="Diagram showing extensibility points in the authentication flow." lightbox="media/concept-planning-your-solution/authentication-flow-events-expanded.png" border="false":::
 
 - **Use custom authentication extensions to enrich tokens**.  Add claims from external systems to the application token just before the token is issued to the application.
 
@@ -90,7 +89,7 @@ Azure AD for customers is designed for flexibility. In addition to the built-in 
 
 ## Collecting attributes from users during sign-up
 
-For each application, you might have different requirements for the information you want to collect during sign-up from your customers. 
+For each application, you might have different requirements for the information you want to collect during sign-up from your customers.
 
 Learn more about [custom authentication extensions](concept-extensions-customers.md).
 ### Built-in attributes
@@ -116,4 +115,6 @@ You can also enable application access security by enforcing multifactor authent
 Learn more about [security and governance](concept-security-customers.md) features available in your customer tenant.
 
 ## Next steps
-- [Get started with creating your customer tenant](https://aka.md/ciam-hub-free-trial)
+- [Start a free trial](https://aka.md/ciam-hub-free-trial) or [create your customer tenant](how-to-create-customer-tenant-portal.md).
+- [Find samples and guidance for integrating your app](samples-ciam-all.md).
+- See also the [Azure AD for customers Developer Center](https://aka.ms/ciam/dev) for the latest developer content and resources.

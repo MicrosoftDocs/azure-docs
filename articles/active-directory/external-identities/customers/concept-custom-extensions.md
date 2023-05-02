@@ -24,7 +24,7 @@ Custom authentication extensions in Azure Active Directory let you interact with
 
 Custom authentication extensions are triggered at particular parts of the authentication flow. The following diagram shows the currently supported trigger points during the authentication flow:
 
-![Diagram showing extensibility points in the authentication flow.](media/concept-custom-extensions/authentication-flow-events.png)
+:::image type="content" source="media/concept-planning-your-solution/authentication-flow-events-inline.png" alt-text="Diagram showing extensibility points in the authentication flow." lightbox="media/concept-planning-your-solution/authentication-flow-events-expanded.png" border="false":::
 
 You can extend the authentication flow at three points:
 
@@ -36,15 +36,23 @@ You can extend the authentication flow at three points:
 
 This article provides an overview of custom authentication extensions for Azure Active Directory (Azure AD) for customers.
 
-## OnAttributeCollectionStart
+## OnAttributeCollectionStart event
 
-The *OnAttributeCollectionStart* event occurs at the beginning of the attribute collection process during sign-up for a new user. You can use this event to block sign-up (for example, based on the domain they're authenticating from) or modify the initial attributes to be collected.
+The *OnAttributeCollectionStart* event occurs at the beginning of the attribute collection process during sign-up for a new user. You can use this event to block sign-up (for example, based on the domain they're authenticating from) or modify the initial attributes to be collected. 
 
-## OnAttributeCollectionSubmit
+For details, see:
+- [How to configure a custom authentication extension](how-to-configure-custom-extension.md)
+- [OnAttributeCollectionStart event](how-to-onattributecollectionstart.md)
+
+## OnAttributeCollectionSubmit event
 
 The *OnAttributeCollectionSubmit* event is fired after the user provides attribute information during signing up and can be used to validate the information provided by the user (such as an invitation code or partner number), modify the collected attributes (such as address validation), and either allow the user to continue in the journey or show a validation or block page.
 
-## OnTokenIssuanceStart
+For details, see:
+- [How to configure a custom authentication extension](how-to-configure-custom-extension.md)
+- [OnAttributeCollectionSubmit event](how-to-onattributecollectionsubmit.md)
+
+## Token issuance start event
 
 The token issuance start event is triggered once a user completes all of their authentication challenges, and a security token is about to be issued.
 
@@ -60,10 +68,14 @@ A token issuance event extension involves the following components:
 
    The REST API returns an HTTP response, or action, back to Azure AD containing the attributes. Attributes that return by your REST API aren't automatically added to a token. Instead, an application's claims mapping policy must be configured for any attribute to be included in the token.
 
-Learn more about [Custom authentication extensions](../../develop/custom-extension-overview.md?context=/azure/active-directory/external-identities/customers/context/customers-context) and [Adding claims from external systems](../../develop/custom-claims-provider-overview.md?context=/azure/active-directory/external-identities/customers/context/customers-context).
+For details, see:
+
+- [About custom authentication extensions](../../develop/custom-extension-overview.md?context=/azure/active-directory/external-identities/customers/context/customers-context)  
+- [Configure a custom claims provider token issuance event](../../develop/custom-extension-get-started.md?context=/azure/active-directory/external-identities/customers/context/customers-context) using a custom claims provider.
 
 ## Next steps
 
-- To learn how custom extensions work, see [Custom authentication extensions](../../develop/custom-extension-overview.md).
-- See how to [configure a custom authentication extension](how-to-configure-custom-extension.md) for the OnAttributeCollectionStart or OnAttributeCollectionSubmit event.
-- See how to [configure an OnTokenIssuanceStart custom authentication extension](../../develop/custom-extension-get-started.md?context=/azure/active-directory/external-identities/customers/context/customers-context) using a custom claims provider.
+- To learn more about how custom extensions work, see [Custom authentication extensions](../../develop/custom-extension-overview.md?context=/azure/active-directory/external-identities/customers/context/customers-context).
+- Configure an [OnAttributeCollectionStart or OnAttributeCollectionSubmit event](how-to-configure-custom-extension.md).
+- Configure a [custom claims provider token issuance event](../../develop/custom-extension-get-started.md?context=/azure/active-directory/external-identities/customers/context/customers-context).
+- See the [Azure AD for customers Developer Center](https://aka.ms/ciam/dev) for the latest developer content and resources.

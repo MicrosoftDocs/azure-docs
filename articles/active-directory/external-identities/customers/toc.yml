@@ -21,7 +21,7 @@ items:
 - name: Concepts
   expanded: true
   items: 
-    - name: Planning and deploying a customer app
+    - name: Planning for customer identity and access
       href: concept-planning-your-solution.md
     - name: Supported features in customer tenants
       href: concept-supported-features-customers.md
@@ -200,10 +200,10 @@ items:
       items:
       - name: Token issuance start event
         items:
-        - name: Create and register a custom claims provider API
+      - name: About custom authentication extensions
+          href: ../../develop/custom-extension-overview.md?context=/azure/active-directory/external-identities/customers/context/customers-context
+        - name: Configure a custom claims provider token issuance event
           href: ../../develop/custom-extension-get-started.md?context=/azure/active-directory/external-identities/customers/context/customers-context
-        - name: Configure a SAML app to call a custom claims provider
-          href: ../../develop/custom-extension-configure-saml-app.md?context=/azure/active-directory/external-identities/customers/context/customers-context
         - name: Troubleshoot your custom claims provider API
           href: ../../develop/custom-extension-troubleshoot.md?context=/azure/active-directory/external-identities/customers/context/customers-context
       - name: Attribute collection start and submit events
