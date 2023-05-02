@@ -72,7 +72,7 @@ Supported customizations include:
 
 ### Settings
 
-Expand **Settings** to set an email address to receive notifications and whether to receive alerts on errors. You can also select the scope of users to sync. You can choose to sync all users and groups or only those that are assigned.
+Expand **Settings** to set an email address to receive notifications and whether to receive alerts on errors. Also select the scope of users to sync. Choose to sync all users and groups or only users that are assigned.
 
 ### Provisioning Status 
 
