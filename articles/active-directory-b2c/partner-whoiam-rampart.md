@@ -1,14 +1,14 @@
 ---
-title: Configure Azure Active Directory B2C with WhoIAM Rampart
+title: Configure WhoIAM Rampart with Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with WhoIAM Rampart
 services: active-directory-b2c
 author: gargi-sinha
-manager: CelesteDG
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/20/2022
+ms.date: 05/02/2023
 ms.author: gasinh
 ms.reviewer: kengaderdus
 ms.subservice: B2C
