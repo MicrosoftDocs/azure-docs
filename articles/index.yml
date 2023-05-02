@@ -1432,7 +1432,7 @@ productDirectory:
       url: web-application-firewall/index.yml
     # Card
     - title: NAT Gateway
-      summary: Provide highly reliable, secure, and scalable outbound connectivity to the internet.’
+      summary: Provide highly reliable, secure, and scalable outbound connectivity to the internet
       imageSrc: nat-gateway/media/icon/nat-gateway.svg
       azureCategories:
         - networking
