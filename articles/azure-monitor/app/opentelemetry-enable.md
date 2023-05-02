@@ -287,8 +287,6 @@ You can set the connection string either programatically or by setting the envir
 
 1. Hover over the connection string and select the **Copy to clipboard** icon.
 
-1. Configure the Application Insights SDK by following [How to set connection strings](sdk-connection-string.md#set-a-connection-string).
-
 The following instructions detail where to paste your unique connection string.
 
 #### [ASP.NET Core](#tab/net)
