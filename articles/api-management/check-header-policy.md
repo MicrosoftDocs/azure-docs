@@ -41,10 +41,13 @@ Use the `check-header` policy  to enforce that a request has a specified HTTP he
 | value        | Add one or more of these elements to specify allowed HTTP header values. When multiple `value` elements are specified, the check is considered a success if any one of the values is a match. | No       |
 
 
+
+
+
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
+- **[Policy sections:](./api-management-howto-policies.md#sections)** inbound
+- **[Policy scopes:](./api-management-howto-policies.md#scopes)** global, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
 
 ## Example

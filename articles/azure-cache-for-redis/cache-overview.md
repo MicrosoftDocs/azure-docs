@@ -15,7 +15,7 @@ Azure Cache for Redis provides an in-memory data store based on the [Redis](http
 
 Azure Cache for Redis offers both the Redis open-source (OSS Redis) and a commercial product from Redis Inc. (Redis Enterprise) as a managed service. It provides secure and dedicated Redis server instances and full Redis API compatibility. The service is operated by Microsoft, hosted on Azure, and usable by any application within or outside of Azure.
 
-Azure Cache for Redis can be used as a distributed data or content cache, a session store, a message broker, and more. It can be deployed as a standalone. Or, it can be deployed along with other Azure database services, such as Azure SQL or Azure Cosmos DB.
+Azure Cache for Redis can be used as a distributed data or content cache, a session store, a message broker, and more. It can be deployed standalone. Or, it can be deployed along with other Azure database services, such as Azure SQL or Azure Cosmos DB.
 
 ## Key scenarios
 
@@ -54,18 +54,19 @@ The [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/
 | [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) |-|✔|✔|✔|✔|
 | Data encryption in transit |✔|✔|✔|✔|✔|
 | [Network isolation](cache-private-link.md) |✔|✔|✔|✔|✔|
-| [Scaling](cache-how-to-scale.md) |✔|✔|✔|-|-|
+| [Scaling](cache-how-to-scale.md) |✔|✔|✔|Preview|Preview|
 | [OSS clustering](cache-how-to-premium-clustering.md) |-|-|✔|✔|✔|
 | [Data persistence](cache-how-to-premium-persistence.md) |-|-|✔|Preview|Preview|
 | [Zone redundancy](cache-how-to-zone-redundancy.md) |-|-|✔|✔|✔|
-| [Geo-replication](cache-how-to-geo-replication.md) |-|-|✔|✔|✔|
+| [Geo-replication](cache-how-to-geo-replication.md) |-|-|✔ (Passive) |✔ (Active) |✔ (Active) |
+| [Connection audit logs](cache-monitor-diagnostic-settings.md) |-|-|✔ (Poll-based)|✔ (Event-based)|✔ (Event-based)|
 | [Redis Modules](cache-redis-modules.md) |-|-|-|✔|Preview|
 | [Import/Export](cache-how-to-import-export-data.md) |-|-|✔|✔|✔|
 | [Reboot](cache-administration.md#reboot) |✔|✔|✔|-|-|
 | [Scheduled updates](cache-administration.md#schedule-updates) |✔|✔|✔|-|-|
 
 > [!NOTE]
-> The Enterprise Flash tier currently supports only the RedisJSON and RediSearch modules in preview. 
+> The Enterprise Flash tier currently supports only the RediSearch module (in preview) and the RedisJSON module. 
 
 ### Choosing the right tier
 

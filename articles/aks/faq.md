@@ -60,7 +60,7 @@ Microsoft provides guidance for other actions you can take to secure your worklo
 
 ## How does the managed Control Plane communicate with my Nodes?
 
-AKS uses a secure tunnel communication to allow the api-server and individual node kubelets to communicate even on separate virtual networks. The tunnel is secured through TLS encryption. The current main tunnel that is used by AKS is [Konnectivity, previously known as apiserver-network-proxy](https://kubernetes.io/docs/tasks/extend-kubernetes/setup-konnectivity/). Verify all network rules follow the [Azure required network rules and FQDNs](limit-egress-traffic.md).
+AKS uses a secure tunnel communication to allow the api-server and individual node kubelets to communicate even on separate virtual networks. The tunnel is secured through mTLS encryption. The current main tunnel that is used by AKS is [Konnectivity, previously known as apiserver-network-proxy](https://kubernetes.io/docs/tasks/extend-kubernetes/setup-konnectivity/). Verify all network rules follow the [Azure required network rules and FQDNs](limit-egress-traffic.md).
 
 ## Why are two resource groups created with AKS?
 
@@ -176,6 +176,18 @@ Most clusters are deleted upon user request; in some cases, especially where cus
 ## Can I restore my cluster after deleting it?
 
 No, you're unable to restore your cluster after deleting it. When you delete your cluster, the associated resource group and all its resources will also be deleted. If you want to keep any of your resources, move them to another resource group before deleting your cluster. If you have the **Owner** or **User Access Administrator** built-in role, you can lock Azure resources to protect them from accidental deletions and modifications. For more information, see [Lock your resources to protect your infrastructure][lock-azure-resources].
+
+## What is platform support, and what does it include?
+
+Platform support is a reduced support plan for unsupported "N-3" version clusters. Platform support only includes Azure infrastructure support. Platform support does not include anything related to Kubernetes functionality and components, cluster or node pool creation, hotfixes, bug fixes, security patches, retired components, etc. See [platform support policy][supported-kubernetes-versions] for additional restrictions.
+
+AKS relies on the releases and patches from [Kubernetes](https://kubernetes.io/releases/), which is an Open Source project that only supports a sliding window of 3 minor versions. AKS can only guarantee [full support](./supported-kubernetes-versions.md#kubernetes-version-support-policy) while those versions are being serviced upstream. Since there's no more patches being produced upstream, AKS can either leave those versions unpatched or fork. Due to this limitation, platform support will not support anything from relying on kubernetes upstream.
+
+## Will AKS automatically upgrade my unsupported clusters?
+
+AKS will initiate auto-upgrades for unsupported clusters. When a cluster in an n-3 version (where n is the latest supported AKS GA minor version) is about to drop to n-4, AKS will automatically upgrade the cluster to n-2 to remain in an AKS support [policy][supported-kubernetes-versions]. Automatically upgrading a platform supported cluster to a supported version is enabled by default.
+
+For example, kubernetes v1.25 will be upgraded to v1.26 during the v1.29 GA release. To minimize disruptions, set up [maintenance windows][planned-maintenance]. See [auto-upgrade][auto-upgrade-cluster] for details on automatic upgrade channels.
 
 ## If I have pod / deployments in state 'NodeLost' or 'Unknown' can I still upgrade my cluster?
 
@@ -333,6 +345,8 @@ The extension **does not** require any additional outbound access to any URLs, I
 <!-- LINKS - internal -->
 
 [aks-upgrade]: ./upgrade-cluster.md
+[auto-upgrade-cluster]: ./auto-upgrade-cluster.md
+[planned-maintenance]: ./planned-maintenance.md
 [aks-cluster-autoscale]: ./cluster-autoscaler.md
 [aks-advanced-networking]: ./configure-azure-cni.md
 [aks-rbac-aad]: ./azure-ad-integration-cli.md
@@ -349,6 +363,7 @@ The extension **does not** require any additional outbound access to any URLs, I
 [multi-node-pools]: ./use-multiple-node-pools.md
 [availability-zones]: ./availability-zones.md
 [private-clusters]: ./private-clusters.md
+[supported-kubernetes-versions]: ./supported-kubernetes-versions.md
 [bcdr-bestpractices]: ./operator-best-practices-multi-region.md#plan-for-multiregion-deployment
 [availability-zones]: ./availability-zones.md
 [az-regions]: ../availability-zones/az-region.md

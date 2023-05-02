@@ -4,11 +4,11 @@ Welcome to the open-source [documentation](/azure) of [Microsoft Azure](https://
 
 ## Getting Started
 
-Contributing to open source is more than just providing updates, it's also about letting us know when there is an issue. Read our [Contributing guidance](CONTRIBUTING.md) to find out more.
+Contributing to open source is more than just providing updates. It's also about letting us know when there is an issue. Read our [Contributing guidance](CONTRIBUTING.md) to find out more.
 
 ### Prerequisites
 
-You've decided to contribute, that's great! To contribute to the documentation, you need a few tools.
+You've decided to contribute. That's great! To contribute to the documentation, you need a few tools.
 
 #### GitHub
 
@@ -16,11 +16,11 @@ Contributing to the documentation requires a GitHub account. If you don't have a
 
 #### Tools
 
-To install necessary tools, follow the instructions for [Install content authoring tools](https://learn.microsoft.com/contribute/get-started-setup-tools) from our contributor guide.
+To install the necessary tools, follow the instructions for [Install content authoring tools](https://learn.microsoft.com/contribute/get-started-setup-tools) from our contributor guide.
 
 ## License
 
-Please refer to [LICENSE](LICENSE), [LICENSE-CODE](LICENSE-CODE) and [ThirdPartyNotices](ThirdPartyNotices.md) for all Licensing information.
+Please refer to [LICENSE](LICENSE), [LICENSE-CODE](LICENSE-CODE), and [ThirdPartyNotices](ThirdPartyNotices.md) for all Licensing information.
 
 ## Code of Conduct
 

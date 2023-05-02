@@ -4,7 +4,7 @@ description: Onboard on-premises servers in VMware virtual environment to Azure 
 author: vijain
 ms.author: vijain
 ms.topic: how-to
-ms.date: 10/10/2022
+ms.date: 01/31/2023
 ms.custom: engagement-fy23
 ---
 

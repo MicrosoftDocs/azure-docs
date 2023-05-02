@@ -1,18 +1,18 @@
 ---
 title: Add and configure a catalog item 
 titleSuffix: Azure Deployment Environments
-description: Learn how to add and configure a catalog item in your repository to use in your Azure Deployment Environments Preview dev center projects.
+description: Learn how to add and configure a catalog item to use in your dev center projects. Catalog items contain an IaC template that defines the environment. 
 services: Azure Deployment Environments
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: deployment-environments
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 04/25/2023
 ms.custom: devdivchpfy22, ignite-2022
 
 ---
 
-# Add and configure a catalog item
+# Add and configure a catalog item in Azure Deployment Environments
 
 In Azure Deployment Environments Preview, you can use a [catalog](concept-environments-key-concepts.md#catalogs) to provide your development teams with a curated set of predefined [infrastructure as code (IaC)](/devops/deliver/what-is-infrastructure-as-code) templates called [*catalog items*](concept-environments-key-concepts.md#catalog-items).
 

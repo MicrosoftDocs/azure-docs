@@ -8,7 +8,7 @@ ms.author: stevevi
 author: stevevi
 ms.custom: references_regions
 recommendations: false
-ms.date: 12/05/2022
+ms.date: 04/02/2023
 ---
 
 # Azure Government compliance
@@ -45,7 +45,7 @@ For current Azure Government regions and available services, see [Products avail
 > [!NOTE]
 >
 > - Some Azure services deployed in Azure Government regions (US Gov Arizona, US Gov Texas, and US Gov Virginia) require extra configuration to meet DoD IL5 compute and storage isolation requirements, as explained in **[Isolation guidelines for Impact Level 5 workloads](./documentation-government-impact-level-5.md).**
-> - For DoD IL5 PA compliance scope in Azure Government DoD regions (US DoD Central and US DoD East), see **[Azure Government DoD regions IL5 audit scope](./documentation-government-overview-dod.md#azure-government-dod-regions-il5-audit-scope).**
+> - For DoD IL5 PA compliance scope in Azure Government DoD regions (US DoD Central and US DoD East), see **[Azure Government DoD regions IL5 audit scope](./documentation-government-overview-dod.md#us-dod-regions-il5-audit-scope).**
 
 ## Services in audit scope
 

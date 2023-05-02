@@ -185,7 +185,7 @@ If the previous steps didn't help, try:
 
 * Verify that your devices are **Enabled** in the Azure portal > your IoT hub > IoT devices.
 
-* If your device uses MQTT protocol, verify that port 8883 is open. For more information, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* If your device uses MQTT protocol, verify that port 8883 is open. For more information, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
 
 * Get help from [Microsoft Q&A question page for Azure IoT Hub](/answers/topics/azure-iot-hub.html), [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-hub), or [Azure support](https://azure.microsoft.com/support/options/).
 
@@ -195,4 +195,4 @@ To help improve the documentation for everyone, leave a comment in the feedback 
 
 * To learn more about resolving transient issues, see [Transient fault handling](/azure/architecture/best-practices/transient-faults).
 
-* To learn more about the Azure IoT device SDKs and managing retries, see [Retry patterns](../iot-develop/how-to-use-reliability-features-in-sdks.md#retry-patterns).
+* To learn more about the Azure IoT device SDKs and managing retries, see [Retry patterns](../iot-develop/concepts-manage-device-reconnections.md#retry-patterns).

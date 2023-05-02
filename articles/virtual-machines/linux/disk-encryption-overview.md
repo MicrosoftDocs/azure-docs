@@ -7,7 +7,7 @@ ms.subservice: disks
 ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin
-ms.date: 01/04/2023
+ms.date: 04/18/2023
 ms.custom: seodec18
 
 ---
@@ -62,15 +62,14 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 
 | Publisher | Offer | SKU | URN | Volume type supported for encryption |
 | --- | --- |--- | --- |
+| Canonical | Ubuntu | 22.04-LTS | Canonical:0001-com-ubuntu-server-focal:22_04-lts:latest | OS and data disk |
+| Canonical | Ubuntu | 22.04-LTS Gen2 | Canonical:0001-com-ubuntu-server-focal:22_04-lts-gen2:latest | OS and data disk |
 | Canonical | Ubuntu | 20.04-LTS | Canonical:0001-com-ubuntu-server-focal:20_04-lts:latest | OS and data disk |
 | Canonical | Ubuntu | 20.04-DAILY-LTS | Canonical:0001-com-ubuntu-server-focal-daily:20_04-daily-lts:latest | OS and data disk |
 | Canonical | Ubuntu | 20.04-LTS Gen2 | Canonical:0001-com-ubuntu-server-focal:20_04-lts-gen2:latest | OS and data disk |
 | Canonical | Ubuntu | 20.04-DAILY-LTS Gen2 |Canonical:0001-com-ubuntu-server-focal-daily:20_04-daily-lts-gen2:latest | OS and data disk |
 | Canonical | Ubuntu | 18.04-LTS | Canonical:UbuntuServer:18.04-LTS:latest | OS and data disk |
 | Canonical | Ubuntu 18.04 | 18.04-DAILY-LTS | Canonical:UbuntuServer:18.04-DAILY-LTS:latest | OS and data disk |
-| Canonical | Ubuntu 16.04 | 16.04-DAILY-LTS | Canonical:UbuntuServer:16.04-DAILY-LTS:latest | OS and data disk |
-| Canonical | Ubuntu 14.04.5</br>[with Azure tuned kernel updated to 4.15 or later](disk-encryption-troubleshooting.md) | 14.04.5-LTS | Canonical:UbuntuServer:14.04.5-LTS:latest | OS and data disk |
-| Canonical | Ubuntu 14.04.5</br>[with Azure tuned kernel updated to 4.15 or later](disk-encryption-troubleshooting.md) | 14.04.5-DAILY-LTS | Canonical:UbuntuServer:14.04.5-DAILY-LTS:latest | OS and data disk |
 | Oracle | Oracle Linux 8.6 | 8.6 | Oracle:Oracle-Linux:ol86-lvm:latest | OS and data disk (see note below) |
 | Oracle | Oracle Linux 8.6 Gen 2 | 8.6 | Oracle:Oracle-Linux:ol86-lvm-gen2:latest | OS and data disk (see note below) |
 | Oracle | Oracle Linux 8.5 | 8.5 | Oracle:Oracle-Linux:ol85-lvm:latest | OS and data disk (see note below) |
@@ -93,8 +92,6 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 | RedHat | RHEL 7.6 | 7.6 | RedHat:RHEL:7.6:latest | OS and data disk (see note below) |
 | RedHat | RHEL 7.5 | 7.5 | RedHat:RHEL:7.5:latest | OS and data disk (see note below) |
 | RedHat | RHEL 7.4 | 7.4 | RedHat:RHEL:7.4:latest | OS and data disk (see note below) |
-| RedHat | RHEL 7.3 | 7.3 | RedHat:RHEL:7.3:latest | OS and data disk (see note below) |
-| RedHat | RHEL 7.2 | 7.2 | RedHat:RHEL:7.2:latest | OS and data disk (see note below) |
 | RedHat | RHEL 6.8 | 6.8 | RedHat:RHEL:6.8:latest | Data disk (see note below) |
 | RedHat | RHEL 6.7 | 6.7 | RedHat:RHEL:6.7:latest | Data disk (see note below) |
 | OpenLogic | CentOS 8-LVM | 8-LVM | OpenLogic:CentOS-LVM:8-LVM:latest | OS and data disk |
@@ -109,10 +106,6 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 | OpenLogic | CentOS 7.6 | 7.6 | OpenLogic:CentOS:7.6:latest | OS and data disk |
 | OpenLogic | CentOS 7.5 | 7.5 | OpenLogic:CentOS:7.5:latest | OS and data disk |
 | OpenLogic | CentOS 7.4 | 7.4 | OpenLogic:CentOS:7.4:latest | OS and data disk |
-| OpenLogic | CentOS 7.3 | 7.3 | OpenLogic:CentOS:7.3:latest | OS and data disk |
-| OpenLogic | CentOS 7.2n | 7.2n | OpenLogic:CentOS:7.2n:latest | OS and data disk |
-| OpenLogic | CentOS 7.1 | 7.1 | OpenLogic:CentOS:7.1:latest | Data disk only |
-| OpenLogic | CentOS 7.0 | 7.0 | OpenLogic:CentOS:7.0:latest | Data disk only |
 | OpenLogic | CentOS 6.8 | 6.8 | OpenLogic:CentOS:6.8:latest | Data disk only |
 | SUSE | openSUSE 42.3 | 42.3 | SUSE:openSUSE-Leap:42.3:latest | Data disk only |
 | SUSE | SLES 12-SP4 | 12-SP4 | SUSE:SLES:12-SP4:latest | Data disk only |
@@ -155,6 +148,7 @@ sudo mount -a
 ## Networking requirements
 
 To enable the Azure Disk Encryption feature, the Linux VMs must meet the following network endpoint configuration requirements:
+
   - To get a token to connect to your key vault, the Linux VM must be able to connect to an Azure Active Directory endpoint, \[login.microsoftonline.com\].
   - To write the encryption keys to your key vault, the Linux VM must be able to connect to the key vault endpoint.
   - The Linux VM must be able to connect to an Azure storage endpoint that hosts the Azure extension repository and an Azure storage account that hosts the VHD files.

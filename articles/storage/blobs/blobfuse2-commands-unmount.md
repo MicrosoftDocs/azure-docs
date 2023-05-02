@@ -53,7 +53,7 @@ There are no flags only supported by the unmount command.
 1. Unmount a BlobFuse2 mount instance:
 
     ```bash
-    blobfuse2 unmount ./mount_path
+    sudo blobfuse2 unmount ./mount_path
     ```
 
     (Alternatively, you can use a native Linux command to do the same):
@@ -65,7 +65,7 @@ There are no flags only supported by the unmount command.
 1. Unmount all BlobFuse2 mount points (see also [The BlobFuse2 unmount all command](blobfuse2-commands-unmount-all.md)):
 
     ```bash
-    blobfuse2 unmount all
+    sudo blobfuse2 unmount all
     ```
 
 ## See also

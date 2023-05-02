@@ -1,5 +1,3 @@
-- name: Enabling data connections
-  href: data-connections.md
 - name: Concepts
   expanded: true
   items:
@@ -17,10 +15,12 @@
     href: understanding-dashboards.md
   - name: Using and managing discovery
     href: using-and-managing-discovery.md
-  - name: Understand billable assets
-    href: understanding-billable-assets.md
   - name: Labeling inventory assets 
     href: labeling-inventory-assets.md
+  - name: Understand billable assets
+    href: understanding-billable-assets.md
+  - name: Leveraging data connections
+    href: data-connections.md
   - name: Inventory filters 
     expanded: true
     items: 

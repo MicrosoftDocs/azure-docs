@@ -8,7 +8,7 @@ ms.author: mbaldwin
 ms.topic: quickstart
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.date: 09/12/2022
+ms.date: 03/25/2023
 ---
 
 # Quickstart: Create an Azure Payment HSM with the Azure CLI
@@ -21,7 +21,10 @@ This article describes how to create, update, and delete an Azure Payment HSM by
 
 - You must register the "Microsoft.HardwareSecurityModules" and "Microsoft.Network" resource providers, as well as the Azure Payment HSM features. Steps for doing so are at [Register the Azure Payment HSM resource provider and resource provider features](register-payment-hsm-resource-providers.md).
 
-  To quickly ascertain if the resource providers and features are already registered, use the Azure CLI [az provider show](/cli/azure/provider#az-provider-show) command. (You will find the output of this command more readable if you display it in table-format.)
+  > [!WARNING]
+  > You must apply the "FastPathEnabled" feature flag to **every** subscription ID, and add the "fastpathenabled" tag to **every** virtual network. For more information, see [Fastpathenabled](fastpathenabled.md).
+
+  To quickly ascertain if the resource providers and features are already registered, use the Azure CLI [az provider show](/cli/azure/provider#az-provider-show) command. (The output of this command is more readable if you display it in table-format.)
 
   ```azurecli-interactive
   az provider show --namespace "Microsoft.HardwareSecurityModules" -o table
@@ -69,7 +72,7 @@ To verify that the VNet and subnet were created correctly, use the Azure CLI [az
 az network vnet show -n "myVNet" -g "myResourceGroup"
 ```
 
-Make note of the value returned as "id", as you will need it for the next step.  The "id" will be in the format:
+Make note of the value returned as `id`, as it is used in the next step.  The `id` is in the format:
 
 ```json
 "id": "/subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/myPHSMSubnet",
@@ -97,7 +100,7 @@ To see your payment HSM and its properties, use the Azure CLI [az dedicated-hsm 
 az dedicated-hsm show --resource-group "myResourceGroup" --name "myPaymentHSM"
 ```
 
-To list all of your payment HSMs, use the [az dedicated-hsm list](/cli/azure/dedicated-hsm#az-dedicated-hsm-list) command. (You will find the output of this command more readable if you display it in table-format.)
+To list all of your payment HSMs, use the [az dedicated-hsm list](/cli/azure/dedicated-hsm#az-dedicated-hsm-list) command. (The output of this command is more readable if you display it in table-format.)
 
 ```azurecli-interactive
 az dedicated-hsm list --resource-group "myResourceGroup" -o table
@@ -117,7 +120,7 @@ az dedicated-hsm delete --name "myPaymentHSM" -g "myResourceGroup"
 
 ## Next steps
 
-In this quickstart, you created a payment HSM, viewed and updated its properties, and deleted it. To learn more about Payment HSM and how to integrate it with your applications, continue on to the articles below.
+In this quickstart, you created a payment HSM, viewed and updated its properties, and deleted it. To learn more about Payment HSM and how to integrate it with your applications, continue on to these articles.
 
 - Read an [Overview of Payment HSM](overview.md)
 - Find out how to [get started with Azure Payment HSM](getting-started.md)
