@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/26/2023
+ms.date: 05/02/2023
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -27,7 +27,7 @@ Before you install Azure AD Connect, there are a few things that you need.
 * You need an Azure AD tenant. You get one with an [Azure free trial](https://azure.microsoft.com/pricing/free-trial/). You can use one of the following portals to manage Azure AD Connect:
   * The [Azure portal](https://portal.azure.com).
   * The [Office portal](https://portal.office.com).
-* [Add and verify the domain](../../fundamentals/add-custom-domain.md) you plan to use in Azure AD. For example, if you plan to use contoso.com for your users, make sure this domain has been verified and you're not using only the contoso.onmicrosoft.com default domain.
+* [Add and verify the domain](../fundamentals/add-custom-domain.md) you plan to use in Azure AD. For example, if you plan to use contoso.com for your users, make sure this domain has been verified and you're not using only the contoso.onmicrosoft.com default domain.
 * An Azure AD tenant allows, by default, 50,000 objects. When you verify your domain, the limit increases to 300,000 objects. If you need even more objects in Azure AD, open a support case to have the limit increased even further. If you need more than 500,000 objects, you need a license, such as Microsoft 365, Azure AD Premium, or Enterprise Mobility + Security.
 
 ### Prepare your on-premises data
@@ -103,7 +103,7 @@ We recommend that you harden your Azure AD Connect server to decrease the securi
 * Azure AD Connect requires network connectivity to all configured domains
 * Azure AD Connect requires network connectivity to the root domain of all configured forest
 * If you have firewalls on your intranet and you need to open ports between the Azure AD Connect servers and your domain controllers, see [Azure AD Connect ports](reference-connect-ports.md) for more information.
-* If your proxy or firewall limit which URLs can be accessed, the URLs documented in [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) must be opened. Also see [Safelist the Azure portal URLs on your firewall or proxy server](../../../azure-portal/azure-portal-safelist-urls.md).
+* If your proxy or firewall limit which URLs can be accessed, the URLs documented in [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) must be opened. Also see [Safelist the Azure portal URLs on your firewall or proxy server](../../azure-portal/azure-portal-safelist-urls.md?tabs=public-cloud).
   * If you're using the Microsoft cloud in Germany or the Microsoft Azure Government cloud, see [Azure AD Connect sync service instances considerations](reference-connect-instances.md) for URLs.
 * Azure AD Connect (version 1.1.614.0 and after) by default uses TLS 1.2 for encrypting communication between the sync engine and Azure AD. If TLS 1.2 isn't available on the underlying operating system, Azure AD Connect incrementally falls back to older protocols (TLS 1.1 and TLS 1.0). From Azure AD Connect version 2.0 onwards. TLS 1.0 and 1.1 are no longer supported and installation will fail if TLS 1.2 is not enabled.
 * Prior to version 1.1.614.0, Azure AD Connect by default uses TLS 1.0 for encrypting communication between the sync engine and Azure AD. To change to TLS 1.2, follow the steps in [Enable TLS 1.2 for Azure AD Connect](#enable-tls-12-for-azure-ad-connect).
@@ -234,4 +234,4 @@ The minimum requirements for computers running AD FS or Web Application Proxy se
 * Azure VM: A2 configuration or higher
 
 ## Next steps
-Learn more about [Integrating your on-premises identities with Azure Active Directory](../whatis-hybrid-identity.md).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).
