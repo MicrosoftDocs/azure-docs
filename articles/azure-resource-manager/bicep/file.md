@@ -82,9 +82,9 @@ module webModule './webApp.bicep' = {
 
 ## Metadata
 
-Metadata in Bicep is an untyped object that can be included in Bicep files. It allows you to provide additional information about your Bicep files, including details like its name, description, author, creation date, and more.
+Metadata in Bicep is an untyped object that can be included in Bicep files. It allows you to provide supplementary information about your Bicep files, including details like its name, description, author, creation date, and more.
 
-Identifiers for `metadata`, [`param`](#parameters), [`var`](#variables), [`resource`](#resources), [`module`](#modules), and [`output`](#outputs) share the same namespace as [decorators](./parameters.md#decorators) and [Bicep functions](./bicep-functions.md). Using an identifier for metadata, such as 'description', can cause confusion if it collides with the decorator `@description('')`. It's recommended to choose an identifier that doesn't conflict with a decorator or function. For example, **bicepDescription** is used instead of **description** in the preceding example to distinguish the name from the `@description` decorator.
+When assigning identifiers for `metadata`, [`param`](#parameters), [`var`](#variables), [`resource`](#resources), [`module`](#modules), and [`output`](#outputs), it's important to note that they share the same namespace as [decorators](./parameters.md#decorators) and [Bicep functions](./bicep-functions.md). Therefore, using the same identifier for metadata and a decorator can cause confusion. It's advisable to choose a unique identifier that doesn't conflict with a decorator or function. For instance, instead of using 'description' as the metadata identifier, you could use 'bicepDescription' to differentiate it from the '@description' decorator in the preceding example.
 
 ## Target scope
 
