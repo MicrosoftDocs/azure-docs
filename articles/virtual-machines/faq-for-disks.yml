@@ -335,7 +335,7 @@ sections:
       - question: |
           Can I switch from server-side encryption with customer-managed keys to Azure Disk Encryption?
         answer: |
-          Yes. First, disable customer-managed keys, and then encrypt your current disk with Azure Disk Encryption.
+          Yes. First, switch your disk to use platform-managed keys, and then encrypt your current disk with Azure Disk Encryption.
 
   - name: "Premium disks: Managed and unmanaged"
     questions:
