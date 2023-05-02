@@ -38,7 +38,7 @@ In this article, you do the following tasks:
 
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 
-- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-hub-free-trial). 
+- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial). 
 
 <!--Awaiting this link http://developer.microsoft.com/identity/customers to go live on Developer hub-->
 
@@ -94,7 +94,7 @@ If you choose to download the `.zip` file, extract the sample app file to a fold
  
     1. `Enter_the_Application_Id_Here` and replace it with the Application (client) ID of the app you registered earlier.
     
-    1. `Enter_the_Tenant_Info_Here` and replace it with the Directory (tenant) ID you copied earlier.
+    1. `Enter_the_Tenant_Name_Here` and replace it with the Directory (tenant) name. If you don't have your tenant name, learn how to [read tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
 
 
 ## Run and test sample web app

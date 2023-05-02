@@ -16,7 +16,6 @@ ms.author: kengaderdus
 1. Accept the proposed Application ID URI such as `api://{clientId}`, and select **Save**. When your web application requests an access token for the web API, it adds the URI as the prefix for each scope that you define for the API.
  
 1. Under **Scopes defined by this API**, select **Add a scope**.
-1. For **Scope name**, enter *ToDoList.Read*.
     
     1. For **Scope name**, enter *ToDoList.Read*.
     
@@ -44,4 +43,4 @@ ms.author: kengaderdus
 
 1. Select **Save**.
 
-Learn more about [the principle of least privilege when publishing permissions](https://learn.microsoft.com/security/zero-trust/develop/protected-api-example) for a web API. 
+Learn more about [the principle of least privilege when publishing permissions](/security/zero-trust/develop/protected-api-example) for a web API. 
