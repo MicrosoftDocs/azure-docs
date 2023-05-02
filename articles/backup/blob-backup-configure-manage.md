@@ -78,7 +78,7 @@ To create a backup policy, follow these steps:
 
 1. Go to **Backup center**, and then select **+ Policy**. This takes you to the create policy experience.
 
-   :::image type="content" source="./media/blob-backup-configure-manage/add-policy.png" alt-text="Screenshot shows how to initiate adding backuo policy for vaulted blob backup.":::
+   :::image type="content" source="./media/blob-backup-configure-manage/add-policy-inline.png" alt-text="Screenshot shows how to initiate adding backup policy for vaulted blob backup." lightbox="./media/blob-backup-configure-manage/add-policy-expanded.png":::
 
 2. Select the *data source type* as **Azure Blobs (Azure Storage)**, and then select **Continue**.
 
@@ -130,7 +130,7 @@ To configure backup for storage accounts, follow these steps:
 
 5. On the **Datasources** tab, select the *storage accounts* you want to back up.
 
-   :::image type="content" source="./media/blob-backup-configure-manage/select-storage-accoubt-for-vaulted-backup.png" alt-text="Screenshot shows how to select storage account for vaulted blob backup.":::
+   :::image type="content" source="./media/blob-backup-configure-manage/select-storage-account-for-vaulted-backup.png" alt-text="Screenshot shows how to select storage account for vaulted blob backup.":::
 
    You can select multiple storage accounts in the region to back up using the selected policy. Search or filter the storage accounts, if required.
   
@@ -150,7 +150,7 @@ To configure backup for storage accounts, follow these steps:
 
         To do this, select the storage accounts, and then select **Download role assignment template** to download the template. Once the role assignments are complete, select **Revalidate** to validate the permissions again, and then configure backup.
 
-        :::image type="content" source="./media/blob-backup-configure-manage/vaulted-backup-role-assignment-succes.png" alt-text="Screenshot shows that the role assignment is successful.":::
+        :::image type="content" source="./media/blob-backup-configure-manage/vaulted-backup-role-assignment-success.png" alt-text="Screenshot shows that the role assignment is successful.":::
 
         >[!Note]
         >The template contains details for selected storage accounts only. So, if there are multiple users that need to assign roles for different storage accounts, you can select and download different templates accordingly.
