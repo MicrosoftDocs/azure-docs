@@ -9,9 +9,9 @@ ms.custom: references_regions
 ---
 # Action groups
 
-When Azure Monitor data indicates that there might be a problem with your infrastructure or application, an alert is triggered. Azure Monitor, Azure Service Health, and Azure Advisor then use *action groups* to notify users about the alert and take an action. An action group is a collection of notification preferences defined by the owner of an Azure subscription.
+When Azure Monitor data indicates that there might be a problem with your infrastructure or application, an alert is triggered. Alerts can contain action groups, which are a collection of notification preferences. Azure Monitor, Azure Service Health, and Azure Advisor use action groups to notify users about the alert and take an action.
 
-This article shows you how to create and manage action groups in the Azure portal. Depending on your requirements, you can configure various alerts to use the same action group or different action groups.
+This article shows you how to create and manage action groups. Depending on your requirements, you can configure various alerts to use the same action group or different action groups.
 
 Each action is made up of the following properties:
 
@@ -19,17 +19,8 @@ Each action is made up of the following properties:
 - **Name**: A unique identifier within the action group.
 - **Details**: The corresponding details that vary by type.
 
-For information about how to use Azure Resource Manager templates to configure action groups, see [Action group Resource Manager templates](./action-groups-create-resource-manager-template.md).
-
 An action group is a global service, so there's no dependency on a specific Azure region. Requests from clients are processed by action group services in any region. For instance, if one region of the action group service is down, the traffic is automatically routed and processed in other regions. As a global service, an action group helps provide a disaster recovery solution.
 
-## Rate limiting
-
-Azure Monitor uses rate limiting to suspend notifications when too many notifications are sent to a particular phone number, email address or device. Rate limiting ensures that alerts are manageable and actionable. Rate limiting applies to SMS, voice, and email notifications. All other notification actions aren't rate limited. For information about rate limits, see [Azure Monitor service limits](../service-limits.md).
-
-A phone number or email can be included in action groups in many subscriptions. Rate limiting applies across all subscriptions. Rate limiting is applied as soon as the threshold is reached, even if messages are sent from multiple subscriptions.
-
-When an email address is rate limited, a notification is sent to communicate that rate limiting was applied and when the rate limiting expires.
 ## Create an action group in the Azure portal
 
 1. Go to the [Azure portal](https://portal.azure.com).
@@ -323,7 +314,6 @@ The first template describes how to create a Resource Manager template for an ac
   }
 }
 ```
-
 ## Manage action groups
 
 After you create an action group, you can view it in the portal:
@@ -336,6 +326,15 @@ After you create an action group, you can view it in the portal:
    - Add, edit, or remove actions.
    - Delete the action group.
 
+## Service limits for notifications
+
+A phone number or email can be included in action groups in many subscriptions. Azure Monitor uses rate limiting to suspend notifications when too many notifications are sent to a particular phone number, email address or device. Rate limiting ensures that alerts are manageable and actionable.
+
+Rate limiting applies to SMS, voice, and email notifications. All other notification actions aren't rate limited. For information about rate limits, see [Azure Monitor service limits](../service-limits.md).
+
+Rate limiting applies across all subscriptions. Rate limiting is applied as soon as the threshold is reached, even if messages are sent from multiple subscriptions.
+
+When an email address is rate limited, a notification is sent to communicate that rate limiting was applied and when the rate limiting expires.
 ## SMS replies
 
 These replies are supported for SMS notifications. The recipient of the SMS can reply to the SMS with these values:
