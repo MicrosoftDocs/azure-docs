@@ -43,7 +43,6 @@ Install the client library by right-clicking on the solution in the **Solution E
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CSHARP&Pillar=Language&Product=Text-analytics-for-health&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
 
-
 ## Code example
 
 Copy the following code into your *program.cs* file. Then run the code.  
@@ -62,8 +61,8 @@ namespace Example
     class Program
     {
         // This example requires environment variables named "LANGUAGE_KEY" and "LANGUAGE_ENDPOINT"
-        private static readonly AzureKeyCredential credentials = new AzureKeyCredential("LANGUAGE_KEY");
-        private static readonly Uri endpoint = new Uri("LANGUAGE_ENDPOINT");
+        private static readonly AzureKeyCredential credentials = Environment.GetEnvironmentVariable("LANGUAGE_KEY");
+        private static readonly Uri endpoint = Environment.GetEnvironmentVariable("LANGUAGE_ENDPOINT");
         
         // Example method for extracting information from healthcare-related text 
         static async Task healthExample(TextAnalyticsClient client)

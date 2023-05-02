@@ -11,6 +11,7 @@ ms.topic: reference
 ms.date: 03/03/2023
 ms.author: jomondi
 ms.reviewer: sureshja, saumadan
+ms.custom: enterprise-apps
 ---
 
 # Application Management certificates frequently asked questions
@@ -82,3 +83,7 @@ To renew an application token signing certificate, see [How to renew a token sig
 ## How do I update Azure AD after changing my federation certificates?
 
 To update Azure AD after changing your federation certificates, see [Renew federation certificates for Microsoft 365 and Azure Active Directory](../hybrid/how-to-connect-fed-o365-certs.md).
+
+## Can I use the same SAML certificate across different apps?
+
+When it's the first time configuring SSO on an enterprise app, we do provide a default SAML certificate that is used across Azure AD. However, if you need to use the same certificate across multiple apps that aren't the default Azure AD one, then you need to use an external Certificate Authority and upload the PFX file. The reason is that Azure AD doesn't provide access to private keys from internally issued certificates.

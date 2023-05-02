@@ -1124,23 +1124,6 @@
     href: disks-shared.md
   - name: Enable shared disks
     href: disks-shared-enable.md
-  - name: Disk pools
-    items:
-    - name: Overview
-      displayName: Disk pools overview
-      href: disks-pools.md
-    - name: Plan for disk pools
-      href: disks-pools-planning.md
-    - name: Deploy a disk pool
-      href: disks-pools-deploy.md
-    - name: Move a disk pool to a different subscription
-      href: disks-pools-move-resource.md
-    - name: Manage a disk pool
-      href: disks-pools-manage.md
-    - name: Deprovision a disk pool
-      href: disks-pools-deprovision.md
-    - name: Troubleshoot a disk pool
-      href: disks-pools-troubleshoot.md
   - name: Encryption
     items:
     - name: Disk encryption overview

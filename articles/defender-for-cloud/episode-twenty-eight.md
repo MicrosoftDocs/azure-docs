@@ -3,7 +3,7 @@ title: Zero Trust and Defender for Cloud | Defender for Cloud in the Field
 titleSuffix: Microsoft Defender for Cloud
 description: Learn about Zero Trust best practices and Zero Trust visibility and analytics tools
 ms.topic: reference
-ms.date: 04/20/2023
+ms.date: 04/27/2023
 ---
 
 # Zero Trust and Defender for Cloud | Defender for Cloud in the field 
@@ -39,4 +39,4 @@ ms.date: 04/20/2023
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [Security Policy Enhancements in Defender for Cloud](episode-twenty-nine.md)
