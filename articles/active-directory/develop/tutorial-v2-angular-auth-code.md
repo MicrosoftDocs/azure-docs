@@ -464,7 +464,7 @@ In order to render certain User Interface (UI) only for authenticated users, com
 
 The `MsalGuard` class is one you can use to protect routes and require authentication before accessing the protected route. The following steps add the `MsalGuard` to the `Profile` route. Protecting the `Profile` route means that even if a user doesn't sign in using the `Login` button, if they try to access the `Profile` route or select the `Profile` button, the `MsalGuard` prompts the user to authenticate via pop-up or redirect before showing the `Profile` page.
 
-`MsalGuard` is a convenience class you can use improve the user experience, but it shouldn't be relied upon for security. Attackers can potentially get around client-side guards, and you should ensure that the server doesn't return any data the user shouldn't access.
+`MsalGuard` is a convenience class you can use to improve the user experience, but it shouldn't be relied upon for security. Attackers can potentially get around client-side guards, and you should ensure that the server doesn't return any data the user shouldn't access.
 
 1. Add the `MsalGuard` class as a provider in your application in *src/app/app.module.ts*, and add the configurations for the `MsalGuard`. Scopes needed for acquiring tokens later can be provided in the `authRequest`, and the type of interaction for the Guard can be set to `Redirect` or `Popup`. Your code should look like the following:
 
