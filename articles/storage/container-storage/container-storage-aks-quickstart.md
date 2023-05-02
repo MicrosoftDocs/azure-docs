@@ -125,7 +125,7 @@ az aks nodepool update --resource-group <resource-group> --cluster-name <cluster
 
 ## Assign Contributor role to AKS managed identity
 
-In order to allow Azure Container Storage to provision storage, follow these steps to grant Contributor-level access to the AKS managed identity within this resource group. You'll need an Owner role in Azure RBAC for your Azure subscription in order to grant the Contributor role to the managed identity. If you don't have sufficient permissions, you might need to ask your admin to perform these steps.
+In order to allow Azure Container Storage to provision storage, you must assign the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) Azure RBAC built-in role to the AKS managed identity. You'll need an [Owner](../../role-based-access-control/built-in-roles.md#owner) role for your Azure subscription in order to do this. If you don't have sufficient permissions, ask your admin to perform these steps.
 
 1. Sign into the [Azure portal](https://portal.azure.com?azure-portal=true), and search for and select **Kubernetes services**.
 1. Locate and select your AKS cluster (*myAKSCluster*) and select **Settings** > **Properties** from the left navigation.
