@@ -91,32 +91,32 @@ Attestation services can be utilized in two distinct ways that each provide thei
 
 ### Cloud Provider 
 At Microsoft, we provide [Microsoft Azure Attestation (MAA)](https://azure.microsoft.com/products/azure-attestation) as customer-facing service and a framework for attesting Trusted Execution Environments (TEEs) like Intel Software Guard Extensions (SGX) enclaves, virtualization-based security (VBS) enclaves, Trusted Platform Modules (TPMs), Trusted Launch and Confidential Virtual Machines. Benefits from using a cloud provider’s attestation service such as Azure Attestation includes,
-	- Freely available 
-	- Source code is available for government customers via the Microsoft Code Center Premium Tool 
-	- Protects data while in use by operating within an Intel SGX enclave.
-	- Attests multiple TEEs in one single solution.
-	- Offers a strong Service Level Agreement (SLA)
+ - Freely available 
+ - Source code is available for government customers via the Microsoft Code Center Premium Tool 
+ - Protects data while in use by operating within an Intel SGX enclave.
+ - Attests multiple TEEs in one single solution.
+ - Offers a strong Service Level Agreement (SLA)
 
 ### Build Your Own
 Customers can create their own attestation mechanisms to trust their computing infrastructure from tools provided by cloud and hardware providers. Building your own attestation processes for Microsoft solutions may require the use of [Trusted Hardware Identity Management (THIM)](https://learn.microsoft.com/en-us/azure/security/fundamentals/trusted-hardware-identity-management), a solution that handles cache management of certificates for all trusted execution environments (TEE) residing in Azure and provides trusted computing base (TCB) information to enforce a minimum baseline for attestation solutions. Benefits from building and using your own attestation service includes,
-	- 100% control over the attestation processes to meet regulatory and compliance requirements
-	- Customization of integrations with other computing technologies 
+ - 100% control over the attestation processes to meet regulatory and compliance requirements
+ - Customization of integrations with other computing technologies 
 
 ## Attestation Scenarios at Microsoft
 There are many attestation scenarios at Microsoft that enable customers to choose between the Cloud Provider and Build Your own attestation service scenarios. For each section, we’ll look at Azure offerings and the attestation scenarios available. 
 
 ### VMs with Application Enclaves
 [VMs with Application Enclaves](https://learn.microsoft.com/azure/confidential-computing/confidential-computing-enclaves) are enabled by Intel SGX, which allows organizations to create enclaves that protect data, and keep data encrypted while the CPU processes the data. Customers can attest Intel SGX enclaves in Azure with MAA and on their own. 
-	- [Intel SGX Attestation Home Page](https://learn.microsoft.com/azure/confidential-computing/attestation)
-	- [Cloud Provider: Intel SGX Sample Code Attestation with MAA](https://learn.microsoft.com/samples/azure-samples/microsoft-azure-attestation/sample-code-for-intel-sgx-attestation-using-microsoft-azure-attestation/)
-	- [Build Your Own: Open Enclave Attestation](https://github.com/openenclave/openenclave/blob/master/samples/attestation/README.md) 
+ - [Intel SGX Attestation Home Page](https://learn.microsoft.com/azure/confidential-computing/attestation)
+ - [Cloud Provider: Intel SGX Sample Code Attestation with MAA](https://learn.microsoft.com/samples/azure-samples/microsoft-azure-attestation/sample-code-for-intel-sgx-attestation-using-microsoft-azure-attestation/)
+ - [Build Your Own: Open Enclave Attestation](https://github.com/openenclave/openenclave/blob/master/samples/attestation/README.md) 
 	
 ### Confidential Virtual Machines
 [Confidential Virtual Machines](https://learn.microsoft.com/azure/confidential-computing/confidential-vm-overview) are enabled by AMD SEV-SNP, which allows organizations to have hardware-based isolation between virtual machines, and underlying host management code (including hypervisor). Customers can attest their managed confidential virtual machines in Azure with MAA and on their own. 
-	- [Confidential VMs Attestation Home Page](https://github.com/Azure/confidential-computing-cvm-guest-attestation/blob/main/cvm-guest-attestation.md#azure-confidential-vms-attestation-guidance--faq) 
-	- [Cloud Provider: What is guest attestation for confidential VMs?](https://learn.microsoft.com/azure/confidential-computing/guest-attestation-confidential-vms)
-	- [Build Your Own: Fetch and verify raw AMD SEV-SNP report on your own](https://github.com/Azure/confidential-computing-cvm-guest-attestation/blob/main/cvm-guest-attestation.md#i-dont-trust-maa-or-the-library-you-are-asking-me-to-install-in-my-vm-but-i-do-trust-the-underlying-hcl-firmware-how-can-i-fetch-and-verify-raw-amd-sev-snp-report-on-my-own)
+ - [Confidential VMs Attestation Home Page](https://github.com/Azure/confidential-computing-cvm-guest-attestation/blob/main/cvm-guest-attestation.md#azure-confidential-vms-attestation-guidance--faq) 
+ - [Cloud Provider: What is guest attestation for confidential VMs?](https://learn.microsoft.com/azure/confidential-computing/guest-attestation-confidential-vms)
+ - [Build Your Own: Fetch and verify raw AMD SEV-SNP report on your own](https://github.com/Azure/confidential-computing-cvm-guest-attestation/blob/main/cvm-guest-attestation.md#i-dont-trust-maa-or-the-library-you-are-asking-me-to-install-in-my-vm-but-i-do-trust-the-underlying-hcl-firmware-how-can-i-fetch-and-verify-raw-amd-sev-snp-report-on-my-own)
 
 ### Confidential Containers on Azure Container Instances
 [Confidential Containers on Azure Container Instances](https://learn.microsoft.com/azure/confidential-computing/confidential-containers) provide a set of features and capabilities to further secure your standard container workloads to achieve higher data security, data privacy and runtime code integrity goals. Confidential containers run in a hardware backed Trusted Execution Environment (TEE) that provide intrinsic capabilities like data integrity, data confidentiality and code integrity.
-	- [Cloud Provider: Attestation in Confidential containers on Azure Container Instances](https://learn.microsoft.com/azure/container-instances/confidential-containers-attestation-concepts) 
+ - [Cloud Provider: Attestation in Confidential containers on Azure Container Instances](https://learn.microsoft.com/azure/container-instances/confidential-containers-attestation-concepts) 
