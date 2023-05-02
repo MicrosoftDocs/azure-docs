@@ -116,18 +116,16 @@ sections:
           No, in general 90025 errors are resolved by an automatic retry without the user noticing the error. This error can occur when an internal Azure AD subservice hits its retry allowance and doesn't indicate your tenant is being throttled. These errors are usually resolved by Azure AD internally without any user impact. If the user is unable to sign in due to this error, manually trying again should resolve the issue. 
 
       - question: |
-          In Service Principal sign-in logs, what does it mean if I see “00000000-0000-0000-0000-000000000000” or “” for Service Principal ID or Resource Service Principal ID in my sign-in logs?
+          In the Service Principal sign-in logs, what does it mean if I see “00000000-0000-0000-0000-000000000000” or “” for Service Principal ID or Resource Service Principal ID in my sign-in logs?
         answer: |
-          If the Service Principal ID has the value “0000000-0000-0000-0000-000000000000", it means that there's no Service Principal for the client application in that instance of authentication (Azure AD no longer issues access tokens without a client Service Principal except for a few Microsoft and third party applications).
+          If the Service Principal ID has the value “0000000-0000-0000-0000-000000000000", it means that there's no Service Principal for the client application in that instance of authentication. Azure AD no longer issues access tokens without a client Service Principal, except for a few Microsoft and third party applications.
 
           If the Resource Service Principal ID has the value “0000000-0000-0000-0000-000000000000", it means that there's no Service Principal for the resource application in that instance of authentication.
 
-          > [!NOTE]
-          > Authentication without a client Service Principal is a deprecated behavior in Azure AD and isn't commonly expected. This behavior is currently allowed only for a limited number of resource apps.
+          This behavior is currently allowed only for a limited number of resource apps.
  
-      - question: |
-          In Service Principal sign-in logs, how can I query for instances of authentication without a client or resource Service Principal in my tenant? (That is, Service Principal ID or Resource Service Principal ID is “00000000-0000-0000-0000-000000000000” or “”)
-        answer: |
+          You can query for instances of authentication without a client or resource Service Principal in your tenant.
+
           - To find instances of sign-in logs for your tenant where a client Service Principal is missing, use the following query:
             ```http
             https://graph.microsoft.com/beta/auditLogs/signIns?$filter=signInEventTypes/any(t: t eq 'servicePrincipal') and servicePrincipalId eq '00000000-0000-0000-0000-000000000000'
@@ -136,14 +134,13 @@ sections:
             ```http
             https://graph.microsoft.com/beta/auditLogs/signIns?$filter=signInEventTypes/any(t: t eq 'servicePrincipal') and resourceServicePrincipalId eq '00000000-0000-0000-0000-000000000000'
             ```
-          
           You can also find these sign-in logs in Azure AD Portal.
 
           - Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Active Directory**.
           - Navigate to Sign in Logs under **Monitoring**,
-          - Select the **Service Principal Sign ins**. 
-          - Make sure you select an appropriate time frame in the Date field (last 24 hours, 7 days etc.).
-          -	Add a filter and select **Service Principal ID** and provide the value ‘00000000-0000-0000-0000-000000000000' to get instances of authentication with no client Service Principal.
+          - Select the **Service Principal Sign-ins**. 
+          - Select an appropriate time frame in the Date field (last 24 hours, 7 days etc.).
+          -	Add a filter and select **Service Principal ID** and provide the value '00000000-0000-0000-0000-000000000000' to get instances of authentication with no client Service Principal.
             
       - question: |
           How can I restrict sign-in (authentication) for various apps that I see in the Service Principal sign-in logs?
