@@ -62,9 +62,9 @@ For automated creation of role assignments on your user-assigned managed identit
 > [!TIP]
 > For a workspace with [customer-managed keys for encryption](concept-data-encryption.md), you can pass in a user-assigned managed identity to authenticate from storage to Key Vault. Use the `user-assigned-identity-for-cmk-encryption` (CLI) or `user_assigned_identity_for_cmk_encryption` (SDK) parameters to pass in the managed identity. This managed identity can be the same or different as the workspace primary user assigned managed identity.
 
-#### To create a workspace with user assigned identity, use one of the following methods:
+To create a workspace with user assigned identity, use one of the following methods:
 
-# [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -90,7 +90,7 @@ image_build_compute: <compute(virtual machine) resource ID>
 primary_user_assigned_identity: <one of the UAI resource IDs in the above list>
 ```
 
-# [Python SDK](#tab/azure-python)
+# [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
@@ -127,6 +127,12 @@ key_vault: <key vault resource ID>
 image_build_compute: <compute(virtual machine) resource ID>
 primary_user_assigned_identity: <one of the UAI resource IDs in the above list>
 ```
+
+# [Studio](#tab/azure-studio)
+
+Stay tuned please.
+
+---
 
 ### Compute cluster
 
@@ -416,7 +422,7 @@ az ml workspace create -w <workspace name> \
 
 To access the workspace ACR, create machine learning compute cluster with system-assigned managed identity enabled. You can enable the identity from Azure portal or Studio when creating compute, or from Azure CLI using the below. For more information, see [using managed identity with compute clusters](how-to-create-attach-compute-cluster.md#set-up-managed-identity).
 
-# [Azure CLI](#tab/new-cli)
+# [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -424,7 +430,7 @@ To access the workspace ACR, create machine learning compute cluster with system
 az ml compute create --name cpu-cluster --type <cluster name>  --identity-type systemassigned
 ```
 
-# [Python](#tab/new-python)
+# [Python](#tab/python)
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
