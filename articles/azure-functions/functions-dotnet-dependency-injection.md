@@ -75,6 +75,8 @@ A series of registration steps run before and after the runtime processes the st
 
 - *The dependency injection container only holds explicitly registered types*. The only services available as injectable types are what are setup in the `Configure` method. As a result, Functions-specific types like `BindingContext` and `ExecutionContext` aren't available during setup or as injectable types.
 
+- *Configuring ASP.NET authentication is not supported*. The Functions host configures ASP.NET authentication services in order to properly expose APIs to infrastucture services, such as the Azure portal. Additional configuration in a custom Startup class can override this configuration, causing unintended consequences. For example, calling `builder.Services.AddAuthentication()` can break authentication between the portal and the host, leading to messages such as "Azure Functions runtime is unreachable".
+
 ## Use injected dependencies
 
 Constructor injection is used to make your dependencies available in a function. The use of constructor injection requires that you do not use static classes for injected services or for your function classes.
