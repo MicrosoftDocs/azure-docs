@@ -49,13 +49,13 @@ Here's a list of currently available management-specific libraries. None of thes
 
 ### Client libraries
 
-- **Azure.Messaging.EventHubs**: It's the current version of the library, conforming to the unified Azure SDK design guidelines and under active development for new features. It supports the NetStandard platform, allowing it to be used by both the full .NET Framework and .NET Core.  There's feature parity at a high level with Microsoft.Azure.EventHubs, with details and the client hierarchy taking a different form. This library is the one that we recommend you to use. 
-- **Microsoft.Azure.EventHubs**: It was the initial library to break out Event Hubs into a dedicated client that isn’t bundled with Service Bus. It supports the NetStandard platform, allowing it to be used by both the full .NET Framework and .NET Core. It's still the dominant version of the library with respect to usage and third-party blog entries, extensions, and such. The baseline functionality is the same as the current library, though there are some minor bits that one offers and the other doesn’t. It's currently receiving bug fixes and critical updates but is no longer receiving new features.
+- **Azure.Messaging.EventHubs**: It's the current version of the library, conforming to the unified Azure SDK design guidelines and under active development for new features. It supports the .NET Standard platform, allowing it to be used by both the full .NET Framework and .NET Core.  There's feature parity at a high level with Microsoft.Azure.EventHubs, with details and the client hierarchy taking a different form. This library is the one that we recommend you to use.
+- **Microsoft.Azure.EventHubs**: It was the initial library to break out Event Hubs into a dedicated client that isn’t bundled with Service Bus. It supports the .NET Standard 2.0 platform, allowing it to be used by both the full .NET Framework and .NET Core. It's still the dominant version of the library with respect to usage and third-party blog entries, extensions, and such. The baseline functionality is the same as the current library, though there are some minor bits that one offers and the other doesn’t. It's currently receiving bug fixes and critical updates but is no longer receiving new features.
 - **Windows.Azure.ServiceBus**: It was the original library, back when Event Hubs was still more entangled with Service Bus. It supports only the full .NET Framework, because it predates .NET Core. This library offers some corollary functionality that isn’t supported by the newer libraries.   
 
 ### Management libraries
 
-- **Microsoft.Azure.Management.EventHub**:  It's the current GA version of the management library for Event Hubs. It supports the NetStandard platform, allowing it to be used by both the full .NET Framework and .NET Core.  
+- **Microsoft.Azure.Management.EventHub**:  It's the current GA version of the management library for Event Hubs. It supports the .NET Standard 2.0 platform, allowing it to be used by both the full .NET Framework and .NET Core.
 
 
 ## Next steps
