@@ -107,7 +107,7 @@ Because risk and policy are evaluated in real time, clients that negotiate conti
 
 Token lifetime is increased to long lived, up to 28 hours, in CAE sessions. Revocation is driven by critical events and policy evaluation, not just an arbitrary time period. This change increases the stability of applications without affecting security posture. 
 
-If you aren't using CAE-capable clients, your default access token lifetime will remain 1 hour. The default only changes if you configured your access token lifetime with the [Configurable Token Lifetime (CTL)](../develop/active-directory-configurable-token-lifetimes.md) preview feature.
+If you aren't using CAE-capable clients, your default access token lifetime will remain 1 hour. The default only changes if you configured your access token lifetime with the [Configurable Token Lifetime (CTL)](../develop/configurable-token-lifetimes.md) preview feature.
 
 ## Example flow diagrams
 

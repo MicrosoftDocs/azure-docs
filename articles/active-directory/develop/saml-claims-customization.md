@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/19/2022
+ms.date: 05/01/2023
 ms.author: davidmu
-ms.custom: aaddev
+ms.custom: aaddev, curation-claims
 ms.reviewer: rahulnagraj, alamaral, jeedes
 ---
 
 # Customize claims issued in the SAML token for enterprise applications
 
-The Microsoft identity platform supports single sign-on (SSO) with most enterprise applications, including both applications pre-integrated in the Azure Active Directory (Azure AD) application gallery and custom applications. When a user authenticates to an application through the Microsoft identity platform using the SAML 2.0 protocol, the Microsoft identity platform sends a token to the application. And then, the application validates and uses the token to log the user in instead of prompting for a username and password.
+The Microsoft identity platform supports [single sign-on (SSO)](../manage-apps/what-is-single-sign-on.md) with most preintegrated applications in the Azure Active Directory (Azure AD) application gallery and custom applications. When a user authenticates to an application through the Microsoft identity platform using the SAML 2.0 protocol, the Microsoft identity platform sends a token to the application. The application validates and uses the token to sign the user in instead of prompting for a username and password.
 
-These SAML tokens contain pieces of information about the user known as *claims*. A *claim* is information that an identity provider states about a user inside the token they issue for that user. In a [SAML token](https://en.wikipedia.org/wiki/SAML_2.0), *claims* data is typically contained in the SAML Attribute Statement. The user's unique ID is typically represented in the SAML Subject also referred to as the name identifier (nameID).
+These SAML tokens contain pieces of information about the user known as *claims*. A claim is information that an identity provider states about a user inside the token they issue for that user. In a SAML token, claims data is typically contained in the SAML Attribute Statement. The user's unique ID is typically represented in the SAML Subject, which is also referred to as the name identifier (`nameID`).
 
 By default, the Microsoft identity platform issues a SAML token to an application that contains a `NameIdentifier` claim with a value of the user's username (also known as the user principal name) in Azure AD, which can uniquely identify the user. The SAML token also contains other claims that include the user's email address, first name, and last name.
 
@@ -26,82 +26,82 @@ By default, the Microsoft identity platform issues a SAML token to an applicatio
 
 To view or edit the claims issued in the SAML token to the application, open the application in Azure portal. Then open the **Attributes & Claims** section.
 
-:::image type="content" source="./media/active-directory-saml-claims-customization/sso-saml-user-attributes-claims.png" alt-text="Screenshot of opening the Attributes & Claims section in the Azure portal.":::
+:::image type="content" source="./media/saml-claims-customization/sso-saml-user-attributes-claims.png" alt-text="Screenshot of opening the Attributes & Claims section in the Azure portal.":::
 
-There are two possible reasons why you might need to edit the claims issued in the SAML token:
+You might need to edit the claims issued in the SAML token for the following reasons:
 
-* The application requires the `NameIdentifier` or NameID claim to be something other than the username (or user principal name) stored in Azure AD.
+* The application requires the `NameIdentifier` or `nameID` claim to be something other than the username (or user principal name) stored in Azure AD.
 * The application has been written to require a different set of claim URIs or claim values.
 
 ## Edit nameID
 
-To edit the NameID (name identifier value):
+To edit the `nameID` (name identifier value) claim:
 
 1. Open the **Name identifier value** page.
-1. Select the attribute or transformation you want to apply to the attribute. Optionally, you can specify the format you want the NameID claim to have.
+1. Select the attribute or transformation that you want to apply to the attribute. Optionally, you can specify the format that you want the `nameID` claim to have.
 
-    :::image type="content" source="./media/active-directory-saml-claims-customization/saml-sso-manage-user-claims.png" alt-text="Screenshot of editing the NameID (name identifier) value in the Azure portal.":::
+    :::image type="content" source="./media/saml-claims-customization/saml-sso-manage-user-claims.png" alt-text="Screenshot of editing the nameID (name identifier) value in the Azure portal.":::
 
 ### NameID format
 
-If the SAML request contains the element NameIDPolicy with a specific format, then the Microsoft identity platform honors the format in the request.
+If the SAML request contains the element `NameIDPolicy` with a specific format, then the Microsoft identity platform honors the format in the request.
 
-If the SAML request doesn't contain an element for NameIDPolicy, then the Microsoft identity platform issues the NameID with the  format you specify. If no format is specified, the Microsoft identity platform uses the default source format associated with the claim source selected. If a transformation results in a null or illegal value, Azure AD sends a persistent pairwise identifier in the nameIdentifier.
+If the SAML request doesn't contain an element for `NameIDPolicy`, then the Microsoft identity platform issues the `nameID` with the  format you specify. If no format is specified, the Microsoft identity platform uses the default source format associated with the claim source selected. If a transformation results in a null or illegal value, Azure AD sends a persistent pairwise identifier in the `nameID`.
 
 From the **Choose name identifier format** dropdown, select one of the options in the following table.
 
-| NameID format | Description |
+| `nameID` format | Description |
 |---------------|-------------|
 | **Default** | Microsoft identity platform uses the default source format. |
-| **Persistent** | Microsoft identity platform uses Persistent as the NameID format. |
-| **Email address** | Microsoft identity platform uses EmailAddress as the NameID format. |
-| **Unspecified** | Microsoft identity platform uses Unspecified as the NameID format. |
-|**Windows domain qualified name**| Microsoft identity platform uses the WindowsDomainQualifiedName format.|
+| **Persistent** | Microsoft identity platform uses `Persistent` as the `nameID` format. |
+| **Email address** | Microsoft identity platform uses `EmailAddress` as the `nameID` format. |
+| **Unspecified** | Microsoft identity platform uses `Unspecified` as the `nameID` format. |
+|**Windows domain qualified name**| Microsoft identity platform uses the `WindowsDomainQualifiedName` format.|
 
-Transient NameID is also supported, but isn't available in the dropdown and can't be configured on Azure's side. To learn more about the NameIDPolicy attribute, see [Single sign-On SAML protocol](single-sign-on-saml-protocol.md).
+Transient `nameID` is also supported, but isn't available in the dropdown and can't be configured on Azure's side. To learn more about the `NameIDPolicy` attribute, see [Single sign-On SAML protocol](single-sign-on-saml-protocol.md).
 
 ### Attributes
 
-Select the desired source for the `NameIdentifier` (or NameID) claim. You can select from the following options.
+Select the desired source for the `NameIdentifier` (or `nameID`) claim. You can select from the options in the following table.
 
 | Name | Description |
 |------|-------------|
-| Email | Email address of the user |
-| userprincipalName | User principal name (UPN) of the user |
-| onpremisessamaccountname | SAM account name that has been synced from on-premises Azure AD |
-| objectid | Objectid of the user in Azure AD |
-| employeeid | Employee ID of the user |
-| Directory extensions | Directory extensions [synced from on-premises Active Directory using Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
-| Extension Attributes 1-15 | On-premises extension attributes used to extend the Azure AD schema |
-| pairwiseid | Persistent form of user identifier |
+| `Email` | The email address of the user. |
+| `userprincipalName` | The user principal name (UPN) of the user. |
+| `onpremisessamaccountname` | The SAM account name that has been synced from on-premises Azure AD. |
+| `objectid` | The object ID of the user in Azure AD. |
+| `employeeid` | The employee ID of the user. |
+| `Directory extensions` | The directory extensions [synced from on-premises Active Directory using Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md). |
+| `Extension Attributes 1-15` | The on-premises extension attributes used to extend the Azure AD schema. |
+| `pairwiseid` | The persistent form of user identifier. |
 
-For more information about identifier values, see [Table 3: Valid ID values per source](reference-claims-mapping-policy-type.md#table-3-valid-id-values-per-source).
+For more information about identifier values, see the table that lists the valid ID values per source later in this page.
 
-Any constant (static) value can be assigned to any claim that is defined in Azure AD. The following steps outline how to assign a constant value:
+Any constant (static) value can be assigned to any claim that is defined in Azure AD. Use the following steps to assign a constant value:
 
-1. In the [Azure portal](https://portal.azure.com/), in the **Attributes & Claims** section, select **Edit** to edit the claims.
+1. In the [Azure portal](https://portal.azure.com/), in the **User Attributes & Claims** section, select **Edit** to edit the claims.
 1. Select the required claim that you want to modify.
-1. Enter the constant value without quotes in the **Source attribute** as per your organization and click **Save**.
+1. Enter the constant value without quotes in the **Source attribute** as per your organization and select **Save**.
 
-    :::image type="content" source="./media/active-directory-saml-claims-customization/organization-attribute.png" alt-text="Screenshot of the organization Attributes & Claims section in the Azure portal.":::
+    :::image type="content" source="./media/saml-claims-customization/organization-attribute.png" alt-text="Screenshot of the organization Attributes & Claims section in the Azure portal.":::
 
-1. The constant value will be displayed as shown in the following image.
+1. The constant value is displayed as shown in the following image.
 
-    :::image type="content" source="./media/active-directory-saml-claims-customization/edit-attributes-claims.png" alt-text="Screenshot of editing in the Attributes & Claims section in the Azure portal.":::
+    :::image type="content" source="./media/saml-claims-customization/edit-attributes-claims.png" alt-text="Screenshot of editing in the Attributes & Claims section in the Azure portal.":::
 
 ### Directory Schema extensions (Preview)
 
-You can also configure directory schema extension attribute as non-conditional/conditional attribute in Azure AD. The following steps outline how to configure the single or multi-valued directory schema extension attribute as claim:
+You can also configure directory schema extension attributes as non-conditional/conditional attributes in Azure AD. Use the following steps to configure the single or multi-valued directory schema extension attribute as a claim:
 
-1.  In the [Azure portal](https://portal.azure.com/), in the **Attributes & Claims** section, select **Edit** to edit the claims.  
-2. Click **Add new claim** or edit an existing claim. 
+1.  In the [Azure portal](https://portal.azure.com/), in the **User Attributes & Claims** section, select **Edit** to edit the claims.
+1. Select **Add new claim** or edit an existing claim.
 
-    :::image type="content" source="./media/active-directory-saml-claims-customization/mv-extension-1.jpg" alt-text="Screenshot of the MultiValue extension configuration section in the Azure portal.":::
+    :::image type="content" source="./media/saml-claims-customization/mv-extension-1.jpg" alt-text="Screenshot of the MultiValue extension configuration section in the Azure portal.":::
 
-3. Select source application from application picker where extension property is defined. 
-    :::image type="content" source="./media/active-directory-saml-claims-customization/mv-extension-2.jpg" alt-text="Screenshot of the source application selection in MultiValue extension configuration section in the Azure portal.":::
+1. Select source application from application picker where extension property is defined. 
+    :::image type="content" source="./media/saml-claims-customization/mv-extension-2.jpg" alt-text="Screenshot of the source application selection in MultiValue extension configuration section in the Azure portal.":::
 
-4. Click **Add** to add the selection to the claims.
+1. Select **Add** to add the selection to the claims.
 
 <!---
 5. To select single or multi-valued directory schema extension attribute as conditional attribute select **Directory schema extension** option from the source dropdown.
@@ -135,10 +135,10 @@ To add application-specific claims:
 To apply a transformation to a user attribute:
 
 1. In **Manage claim**, select *Transformation* as the claim source to open the **Manage transformation** page.
-1. Select the function from the transformation dropdown. Depending on the function selected, you'll have to provide parameters and a constant value to evaluate in the transformation. Refer to the following table for more information about the available functions.
+1. Select the function from the transformation dropdown. Depending on the function selected, provide parameters and a constant value to evaluate in the transformation.
 1. Select the source of the attribute by clicking on the appropriate radio button. Directory schema extension source is in preview currently.
 
-    :::image type="content" source="./media/active-directory-saml-claims-customization/mv-extension-4.png" alt-text="Screenshot of claims transformation.":::
+    :::image type="content" source="./media/saml-claims-customization/mv-extension-4.png" alt-text="Screenshot of claims transformation.":::
 
 1. Select the attribute name from the dropdown.
 
@@ -165,8 +165,8 @@ You can use the following functions to transform claims.
 | **ExtractAlpha() - Suffix** | Returns the suffix alphabetical part of the string.<br/>For example, if the input's value is "123_Simon", then it returns "Simon". |
 | **ExtractNumeric() - Prefix** | Returns the prefix numerical part of the string.<br/>For example, if the input's value is "123_BSimon", then it returns "123". |
 | **ExtractNumeric() - Suffix** | Returns the suffix numerical part of the string.<br/>For example, if the input's value is "BSimon_123", then it returns "123". |
-| **IfEmpty()** | Outputs an attribute or constant if the input is null or empty.<br/>For example, if you want to output an attribute stored in an extensionattribute if the employee ID for a given user is empty. To perform this function, you configure the following values:<br/>Parameter 1(input): user.employeeid<br/>Parameter 2 (output): user.extensionattribute1<br/>Parameter 3 (output if there's no match): user.employeeid |
-| **IfNotEmpty()** | Outputs an attribute or constant if the input isn't null or empty.<br/>For example, if you want to output an attribute stored in an extensionattribute if the employee ID for a given user isn't empty. To perform this function, you configure the following values:<br/>Parameter 1(input): user.employeeid<br/>Parameter 2 (output): user.extensionattribute1 |
+| **IfEmpty()** | Outputs an attribute or constant if the input is null or empty.<br/>For example, if you want to output an attribute stored in an extension attribute if the employee ID for a given user is empty. To perform this function, you configure the following values:<br/>Parameter 1(input): user.employeeid<br/>Parameter 2 (output): user.extensionattribute1<br/>Parameter 3 (output if there's no match): user.employeeid |
+| **IfNotEmpty()** | Outputs an attribute or constant if the input isn't null or empty.<br/>For example, if you want to output an attribute stored in an extension attribute if the employee ID for a given user isn't empty. To perform this function, you configure the following values:<br/>Parameter 1(input): user.employeeid<br/>Parameter 2 (output): user.extensionattribute1 |
 | **Substring() - Fixed Length** (Preview)| Extracts parts of a string claim type, beginning at the character at the specified position, and returns the specified number of characters.<br/>SourceClaim - The claim source of the transform that should be executed.<br/>StartIndex - The zero-based starting character position of a substring in this instance.<br/>Length - The length in characters of the substring.<br/>For example:<br/>sourceClaim - PleaseExtractThisNow<br/>StartIndex - 6<br/>Length - 11<br/>Output: ExtractThis |
 | **Substring() - EndOfString** (Preview) | Extracts parts of a string claim type, beginning at the character at the specified position, and returns the rest of the claim from the specified start index. <br/>SourceClaim - The claim source of the transform that should be executed.<br/>StartIndex - The zero-based starting character position of a substring in this instance.<br/>For example:<br/>sourceClaim - PleaseExtractThisNow<br/>StartIndex - 6<br/>Output: ExtractThisNow |
 | **RegexReplace()** (Preview) |  RegexReplace() transformation accepts as input parameters:<br/>- Parameter 1: a user attribute as regex input<br/>- An option to trust the source as multivalued<br/>- Regex pattern<br/>- Replacement pattern. The replacement pattern may contain static text format along with a reference that points to regex output groups and more input parameters.<br/><br/>More instructions about how to use the RegexReplace() transformation are described later in this article.   |
@@ -177,52 +177,52 @@ If you need other transformations, submit your idea in the [feedback forum in Az
 
 The following image shows an example of the first level of transformation:
 
-:::image type="content" source="./media/active-directory-jwt-claims-customization/regexreplace-transform1.png" alt-text="Screenshot of the first level of transformation.":::
+:::image type="content" source="./media/saml-claims-customization/regexreplace-transform1.png" alt-text="Screenshot of the first level of transformation.":::
 
 The following table provides information about the first level of transformations. The actions listed in the table correspond to the labels in the previous image. Select **Edit** to open the claims transformation blade.
 
 | Action | Field | Description |
 | :----- | :---- | :---------- |
-| 1 | Transformation | Select the **RegexReplace()** option from the **Transformation** options to use the regex-based claims transformation method for claims transformation. |
-| 2 | Parameter 1 | The input for the regular expression transformation. For example, user.mail that has a user email address such as `admin@fabrikam.com`. |
-| 3 | Treat source as multivalued | Some input user attributes can be multi-value user attributes. If the selected user attribute supports multiple values and the user wants to use multiple values for the transformation, they need to select **Treat source as multivalued**. If selected, all values are used for the regex match, otherwise only the first value is used. |
-| 4 |  Regex pattern | A regular expression that is evaluated against the value of user attribute selected as *Parameter 1*. For example a regular expression to extract the user alias from the user's email address would be represented as `(?'domain'^.*?)(?i)(\@fabrikam\.com)$`. |
-| 5 | Add additional parameter | More than one user attribute can be used for the transformation. The values of the attributes would then be merged with regex transformation output. Up to five additional parameters are supported. |
-| 6 | Replacement pattern | The replacement pattern is the text template, which contains placeholders for regex outcome. All group names must be wrapped inside the curly braces such as `{group-name}`. Let's say the administration wants to use user alias with some other domain name, for example `xyz.com` and merge country name with it. In this case, the replacement pattern would be `{country}.{domain}@xyz.com`, where `{country}` is the value of input parameter and `{domain}` is the group output from the regular expression evaluation. In such a case, the expected outcome is `US.swmal@xyz.com`. |
+| 1 | `Transformation` | Select the **RegexReplace()** option from the **Transformation** options to use the regex-based claims transformation method for claims transformation. |
+| 2 | `Parameter 1` | The input for the regular expression transformation. For example, user.mail that has a user email address such as `admin@fabrikam.com`. |
+| 3 | `Treat source as multivalued` | Some input user attributes can be multi-value user attributes. If the selected user attribute supports multiple values and the user wants to use multiple values for the transformation, they need to select **Treat source as multivalued**. If selected, all values are used for the regex match, otherwise only the first value is used. |
+| 4 |  `Regex pattern` | A regular expression that is evaluated against the value of user attribute selected as *Parameter 1*. For example, a regular expression to extract the user alias from the user's email address would be represented as `(?'domain'^.*?)(?i)(\@fabrikam\.com)$`. |
+| 5 | `Add additional parameter` | More than one user attribute can be used for the transformation. The values of the attributes would then be merged with regex transformation output. Up to five more parameters are supported. |
+| 6 | `Replacement pattern` | The replacement pattern is the text template, which contains placeholders for regex outcome. All group names must be wrapped inside the curly braces such as `{group-name}`. Let's say the administration wants to use user alias with some other domain name, for example `xyz.com` and merge country name with it. In this case, the replacement pattern would be `{country}.{domain}@xyz.com`, where `{country}` is the value of input parameter and `{domain}` is the group output from the regular expression evaluation. In such a case, the expected outcome is `US.swmal@xyz.com`. |
 
 The following image shows an example of the second  level of transformation:
 
-:::image type="content" source="./media/active-directory-jwt-claims-customization/regexreplace-transform2.png" alt-text="Screenshot of second level of claims transformation.":::
+:::image type="content" source="./media/saml-claims-customization/regexreplace-transform2.png" alt-text="Screenshot of second level of claims transformation.":::
 
 The following table provides information about the second level of transformations. The actions listed in the table correspond to the labels in the previous image.
 
 | Action | Field | Description |
 | :----- | :---- | :---------- |
-| 1 | Transformation | Regex-based claims transformations aren't limited to the first transformation and can be used as the second level transformation as well. Any other transformation method can be used as the first transformation. |
-| 2 | Parameter 1 | If **RegexReplace()** is selected as a second level transformation, output of first level transformation is used as an input for the second level transformation. The second level regex expression should match the output of the first transformation or the transformation won't be applied. |
-| 3 | Regex pattern | **Regex pattern** is the regular expression for the second level transformation. |
-| 4 | Parameter input | User attribute inputs for the second level transformations. |
-| 5 | Parameter input | Administrators can delete the selected input parameter if they don't need it anymore. |
-| 6 | Replacement pattern | The replacement pattern is the text template, which contains placeholders for regex outcome group name, input parameter group name, and static text value. All group names must be wrapped inside the curly braces such as `{group-name}`. Let's say the administration wants to use user alias with some other domain name, for example `xyz.com` and merge country name with it. In this case, the replacement pattern would be `{country}.{domain}@xyz.com`, where `{country}` is the value of input parameter and {domain} is the group output from the regular expression evaluation. In such a case, the expected outcome is `US.swmal@xyz.com`. |
-| 7 | Test transformation | The RegexReplace() transformation is evaluated only if the value of the selected user attribute for *Parameter 1* matches with the regular expression provided in the **Regex pattern** textbox. If they don't match, the default claim value is added to the token. To validate regular expression against the input parameter value, a test experience is available within the transform blade. This test experience operates on dummy values only. When additional input parameters are used, the name of the parameter is added to the test result instead of the actual value. To access the test section, select **Test transformation**. |
+| 1 | `Transformation` | Regex-based claims transformations aren't limited to the first transformation and can be used as the second level transformation as well. Any other transformation method can be used as the first transformation. |
+| 2 | `Parameter 1` | If **RegexReplace()** is selected as a second level transformation, output of first level transformation is used as an input for the second level transformation. To apply the transformation, the second level regex expression should match the output of the first transformation. |
+| 3 | `Regex pattern` | **Regex pattern** is the regular expression for the second level transformation. |
+| 4 | `Parameter input` | User attribute inputs for the second level transformations. |
+| 5 | `Parameter input` | Administrators can delete the selected input parameter if they don't need it anymore. |
+| 6 | `Replacement pattern` | The replacement pattern is the text template, which contains placeholders for regex outcome group name, input parameter group name, and static text value. All group names must be wrapped inside the curly braces such as `{group-name}`. Let's say the administration wants to use user alias with some other domain name, for example `xyz.com` and merge country name with it. In this case, the replacement pattern would be `{country}.{domain}@xyz.com`, where `{country}` is the value of input parameter and {domain} is the group output from the regular expression evaluation. In such a case, the expected outcome is `US.swmal@xyz.com`. |
+| 7 | `Test transformation` | The RegexReplace() transformation is evaluated only if the value of the selected user attribute for *Parameter 1* matches with the regular expression provided in the **Regex pattern** textbox. If they don't match, the default claim value is added to the token. To validate regular expression against the input parameter value, a test experience is available within the transform blade. This test experience operates on dummy values only. When more input parameters are used, the name of the parameter is added to the test result instead of the actual value. To access the test section, select **Test transformation**. |
 
 The following image shows an example of testing the transformations:
 
-:::image type="content" source="./media/active-directory-jwt-claims-customization/regexreplace-transform3.png" alt-text="Screenshot of testing the transformation.":::
+:::image type="content" source="./media/saml-claims-customization/regexreplace-transform3.png" alt-text="Screenshot of testing the transformation.":::
 
 The following table provides information about testing the transformations. The actions listed in the table correspond to the labels in the previous image.
 
 | Action | Field | Description |
 | :----- | :---- | :---------- |
-| 1 | Test transformation | Select the close or (X) button to hide the test section and re-render the **Test transformation** button again on the blade. |
-| 2 | Test regex input | Accepts input that is used for the regular expression test evaluation. In case regex-based claims transformation is configured as a second level transformation, a value is provided that would be the expected output of the first transformation. |
-| 3 | Run test | After the test regex input is provided and the **Regex pattern**, **Replacement pattern** and **Input parameters** are configured, the expression can be evaluated by selecting **Run test**. |
-| 4 | Test transformation result | If evaluation succeeds, an output of test transformation will be rendered against the **Test transformation result** label. |
-| 5 | Remove transformation | The second level transformation can be removed by selecting **Remove transformation**. |
-| 6 | Specify output if no match | When a regex input value is configured against the *Parameter 1* that doesn't match the **Regular expression**, the transformation is skipped. In such cases, the alternate user attribute can be configured, which is added to the token for the claim by checking **Specify output if no match**. |
-| 7 | Parameter 3 | If an alternate user attribute needs to be returned when there's no match and **Specify output if no match** is checked, an alternate user attribute can be selected using the dropdown. This dropdown is available against **Parameter 3 (output if no match)**. |
-| 8 | Summary | At the bottom of the blade, a full summary of the format is displayed that explains the meaning of the transformation in simple text. |
-| 9 | Add | After the configuration settings for the transformation are verified, it can be saved to a claims policy by selecting **Add**. Changes won't be saved unless **Save** is selected on the **Manage Claim** blade. |
+| 1 | `Test transformation` | Select the close or (X) button to hide the test section and re-render the **Test transformation** button again on the blade. |
+| 2 | `Test regex input` | Accepts input that is used for the regular expression test evaluation. In case regex-based claims transformation is configured as a second level transformation, provide a value that is the expected output of the first transformation. |
+| 3 | `Run test` | After the test regex input is provided and the **Regex pattern**, **Replacement pattern** and **Input parameters** are configured, the expression can be evaluated by selecting **Run test**. |
+| 4 | `Test transformation result` | If evaluation succeeds, an output of test transformation is rendered against the **Test transformation result** label. |
+| 5 | `Remove transformation` | The second level transformation can be removed by selecting **Remove transformation**. |
+| 6 | `Specify output if no match` | When a regex input value is configured against the *Parameter 1* that doesn't match the **Regular expression**, the transformation is skipped. In such cases, the alternate user attribute can be configured, which is added to the token for the claim by checking **Specify output if no match**. |
+| 7 | `Parameter 3` | If an alternate user attribute needs to be returned when there's no match and **Specify output if no match** is checked, an alternate user attribute can be selected using the dropdown. This dropdown is available against **Parameter 3 (output if no match)**. |
+| 8 | `Summary` | At the bottom of the blade, a full summary of the format is displayed that explains the meaning of the transformation in simple text. |
+| 9 | `Add` | After the configuration settings for the transformation are verified, it can be saved to a claims policy by selecting **Add**. Select **Save** on the **Manage Claim** blade to save the changes. |
 
 RegexReplace() transformation is also available for the group claims transformations.
 
@@ -260,19 +260,19 @@ To add a claim condition:
 1. In **Manage claim**, expand the Claim conditions.
 1. Select the user type.
 1. Select the group(s) to which the user should belong. You can select up to 50 unique groups across all claims for a given application.
-1. Select the **Source** where the claim is going to retrieve its value. You can either select a user attribute from the source attribute dropdown or apply a transformation to the user attribute or a directory schema extension (preview) before emitting it as a claim.
+1. Select the **Source** where the claim is going to retrieve its value. You can either select a user attribute from the dropdown for the source attribute or apply a transformation to the user attribute. You can also select a directory schema extension (preview) before emitting it as a claim.
 
 The order in which you add the conditions are important. Azure AD first evaluates all conditions with source `Attribute` and then evaluates all conditions with source `Transformation` to decide which value to emit in the claim. Conditions with the same source are evaluated from top to bottom. The last value, which matches the expression is emitted in the claim. Transformations such as `IsNotEmpty` and `Contains` act like  restrictions.
 
 For example, Britta Simon is a guest user in the Contoso tenant. Britta belongs to another organization that also uses Azure AD. Given the following configuration for the Fabrikam application, when Britta tries to sign in to Fabrikam, the Microsoft identity platform evaluates the conditions.
 
-First, the Microsoft identity platform verifies whether Britta's user type is **All guests**. Because this is true, the Microsoft identity platform assigns the source for the claim to `user.extensionattribute1`. Second, the Microsoft identity platform verifies whether Britta's user type is **AAD guests**, because this is also true, the Microsoft identity platform assigns the source for the claim to `user.mail`. Finally, the claim is emitted with a value of `user.mail` for Britta.
+First, the Microsoft identity platform verifies whether Britta's user type is **All guests**. Because the type is **All guests**, the Microsoft identity platform assigns the source for the claim to `user.extensionattribute1`. Second, the Microsoft identity platform verifies whether Britta's user type is **AAD guests**. Because the type is **All guests**, the Microsoft identity platform assigns the source for the claim to `user.mail`. Finally, the claim is emitted with a value of `user.mail` for Britta.
 
-:::image type="content" source="./media/active-directory-saml-claims-customization/mv-extension-3.png" alt-text="Screenshot of claims conditional configuration.":::
+:::image type="content" source="./media/saml-claims-customization/mv-extension-3.png" alt-text="Screenshot of claims conditional configuration.":::
 
 As another example, consider when Britta Simon tries to sign in and the following configuration is used. Azure AD first evaluates all conditions with source `Attribute`. Because Britta's user type is **AAD guests**, `user.mail` is assigned as the source for the claim. Next, Azure AD evaluates the transformations. Because Britta is a guest, `user.extensionattribute1` is now the new source for the claim. Because Britta is in **AAD guests**, `user.othermail` is now the source for this claim. Finally, the claim is emitted with a value of `user.othermail` for Britta.
 
-:::image type="content" source="./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims-2.png" alt-text="Screenshot of more claims conditional configuration.":::
+:::image type="content" source="./media/saml-claims-customization/sso-saml-user-conditional-claims-2.png" alt-text="Screenshot of more claims conditional configuration.":::
 
 As a final example, consider what happens if Britta has no `user.othermail` configured or it's empty. In both cases the condition entry is ignored, and the claim falls back to `user.extensionattribute1` instead.
 
