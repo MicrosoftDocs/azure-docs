@@ -1,6 +1,6 @@
 ---
 title: User default permissions in customer tenants
-description: Find out which core Azure AD features related to the user and group management model and application assignment are available in customer tenants.
+description: Learn about the default permissions for users in a customer tenant.
 services: active-directory
 author: msmimart
 manager: celestedg
