@@ -56,9 +56,9 @@ If you don’t see SARIF file in the expected path, you may have chosen a differ
 
 ### I don’t see the results for my ADO projects in Microsoft Defender for Cloud 
 
-Currently, OSS vulnerabilities, IaC scanning vulnerabilities, and Total code scanning vulnerabilities are only available for GitHub repositories. 
+Currently, OSS vulnerability findings are only available for GitHub repositories. 
 
-Azure DevOps repositories only have the total exposed secrets available and will show `N/A` for all other fields. You can learn more about how to [Review your findings](defender-for-devops-introduction.md).
+Azure DevOps repositories will have the total exposed secrets, IaC misconfigurations, and code security findings available. It will show `N/A` for OSS vulnerabilities. You can learn more about how to [Review your findings](defender-for-devops-introduction.md).
 
 ### Why is my Azure DevOps repository not refreshing to healthy? 
 
