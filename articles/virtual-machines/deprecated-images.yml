@@ -227,7 +227,7 @@ sections:
               "message": "VM Image from publisher: MicrosoftWindowsServer with - Offer: WindowsServer, Sku: 2016-Datacenter, Version: 14393.4169.2101090332 is deprecated."
             }
          
-          ```
+          
           
           To check if an image is deprecated via Azure CLI or Powershell:
           
