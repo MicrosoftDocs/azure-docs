@@ -4,7 +4,7 @@ description: When you access file data using the Azure portal, the portal makes 
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/27/2023
+ms.date: 05/02/2023
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -49,15 +49,18 @@ For information about the built-in roles that support access to file data, see [
 
 Custom roles can support different combinations of the same permissions provided by the built-in roles. For more information about creating Azure custom roles, see [Azure custom roles](../../role-based-access-control/custom-roles.md) and [Understand role definitions for Azure resources](../../role-based-access-control/role-definitions.md).
 
-## Determine the current authentication method
+## Specify how to authorize operations on a specific file share
 
-To view file data in the portal, navigate to your storage account and select **Data storage** > **File shares** from the left navigation. When you select a file share, the Azure portal indicates whether you're currently using the storage account access key or your Azure AD account to authenticate.
+You can change the authentication method for individual file shares. By default, the portal uses the current authentication method. To determine the current authentication method, follow these steps.
+
+1. Navigate to your storage account in the Azure portal and select **Data storage** > **File shares** from the left navigation.
+1. Select a file share.
+1. Select **Browse**.
+1. The **Authentication method** indicates whether you're currently using the storage account access key or your Azure AD account to authenticate and authorize file share operations. If you're currently authenticating using the storage account access key, you'll see **Access Key** specified as the authentication method, as in the following image. If you're authenticating using your Azure AD account, you'll see **Azure AD User Account** specified instead.
+
+:::image type="content" source="media/authorize-data-operations-portal/auth-method-access-key.png" alt-text="Screenshot showing the authentication method set to access key.":::
 
 ### Authenticate with the storage account access key
-
-If you're authenticating using the storage account access key, you'll see **Access Key** specified as the authentication method:
-
-:::image type="content" source="media/authorize-data-operations-portal/auth-method-access-key.png" alt-text="Screenshot showing user currently accessing file share with the account key.":::
 
 To switch to using your Azure AD account, select the link highlighted in the image that says **Switch to Azure AD User Account**. If you have the appropriate permissions via the Azure roles that are assigned to you, you'll be able to proceed. However, if you lack the necessary permissions, you'll see an error message that you don't have permissions to list the data using your user account with Azure AD.
 
@@ -65,23 +68,9 @@ No file shares will appear in the list if your Azure AD account lacks permission
 
 ### Authenticate with your Azure AD account
 
-If you're authenticating using your Azure AD account, you'll see **Azure AD User Account** specified as the authentication method in the portal.
-
 To switch to using the account access key, select the link that says **Switch to access key.** If you have access to the storage account key, then you'll be able to proceed. However, if you lack access to the account key, you'll see an error message that you don't have permissions to use the access key to list data.
 
 No file shares appear in the list if you don't have access to the storage account access key. Select **Switch to Azure AD User Account** to use your Azure AD account for authentication again.
-
-## Specify how to authorize a specific file share operation
-
-By default, the portal uses the current authentication method, as shown in [Determine the current authentication method](#determine-the-current-authentication-method). You can change the authentication method for individual file shares under the **Browse** menu.
-
-To specify how to authorize a specific file share, follow these steps:
-
-1. In the Azure portal, navigate to the file share where you wish to select the authentication method.
-2. Select the **Browse** option from the menu.
-3. Under **Authentication method**, indicate whether you want to authorize the file share operations (listing data in the file share, upload file, and create directory) by using your Azure AD account or with the storage account access key, as shown in the following image.
-
-    :::image type="content" source="media/authorize-data-operations-portal/choose-auth-file-share.png" alt-text="Screenshot showing how to change authorization method on a specific file share.":::
 
 ## Default to Azure AD authorization in the Azure portal
 
@@ -101,8 +90,6 @@ To update this setting for an existing storage account, follow these steps:
 1. Navigate to the storage account overview in the Azure portal.
 1. Under **Settings**, select **Configuration**.
 1. Set **Default to Azure Active Directory authorization in the Azure portal** to **Enabled**.
-
-    :::image type="content" source="media/authorize-data-operations-portal/default-auth-account-update-portal.png" alt-text="Screenshot showing how to configure default Azure AD authorization in Azure portal for existing account":::
 
 ## See also
 

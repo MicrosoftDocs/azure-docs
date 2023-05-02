@@ -4,7 +4,7 @@ description: Authorize access to Azure file shares and directories via the OAuth
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/24/2023
+ms.date: 05/02/2023
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -198,7 +198,7 @@ This feature is available currently available in the Az.Storage preview module. 
 
 2. Install the latest Az.Storage preview module:
    
-   `Install-Module Az.Storage -Repository PsGallery -RequiredVersion 5.4.2-preview -AllowClobber -AllowPrerelease -Force`  
+   `Install-Module Az.Storage -Repository PsGallery -RequiredVersion 5.6.1-preview -AllowClobber -AllowPrerelease -Force`  
 
 ## Authorize access to file data
 
