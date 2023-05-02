@@ -62,57 +62,101 @@ GET https://graph.microsoft.com/v1.0/users?$filter=othermails/any(id:id eq 'user
 ```
 If you receive a user’s details in the response, then the user already exists. You should present the users returned to the inviting user and allow them to choose which external user they want to grant access. You should proceed to make appropriate API calls or trigger other processes to grant this user access to the app rather than proceeding with the invitation step. 
 
-## Step 2: Write other attributes to Azure AD (optional) 
+## Step 2: Create and send invitation
+
+If the external user does not already exist in the directory, you can use Azure AD B2B to invite the user and onboard them to your Azure AD tenant. As an application developer, you will need to determine what to include in the invitation request to Microsoft Graph API. 
+
+At minimum, you will need to:  
+
+- Prompt the end user to provide the external user’s email address. 
+
+- Determine the invitation URL. This URL is where the invited user will be redirected to after they authenticate and redeem the B2B invitation. This URL could be a generic landing page for the application or be dynamically determined by the LOB application based on where the end user triggered the invitation. 
+
+Additional flags and attributes to consider for inclusion in the invitation request: 
+
+- Display name of the invited user. 
+- Determine whether you want to use the default Microsoft invitation email or suppress the default email to create your own. 
+
+Once the application has collected the required information and determined any other flags or information to be included, the application must POST the request to the Microsoft Graph API invitation manager. Ensure the application registration has the appropriate permissions in Azure AD.  
+
+For example: 
+
+```
+Delegated Permission: User.Invite.All 
+
+POST https://graph.microsoft.com/v1.0/invitations  
+
+Content-type: application/json 
+
+{ 
+
+"invitedUserDisplayName": "John Doe",  
+
+"invitedUserEmailAddress": "john.doe@contoso.com",  
+
+"sendInvitationMessage": true,  
+
+"inviteRedirectUrl": "https://customapp.contoso.com"  
+
+} 
+```
+
+>[!NOTE]
+> To see the full list of available options for the JSON body of the invitation, check out [invitation resource type - Microsoft Graph v1.0](https://learn.microsoft.com/graph/api/resources/invitation?view=graph-rest-1.0). 
+
+App developers can alternatively onboard external users using Azure AD Self Service Sign Up or Entitlement Management Access Packages. You can create your “invitation” button in your LOB application that will trigger a a custom email containing a pre-defined Self-service sign up URL or Access Package URL. The invited user can then self-service onboard and access the application.  
+
+## Step 3: Write additional attributes to Azure AD (optional)  
 
 >[!IMPORTANT]
 >Granting an application permission to update users in your directory is a highly privileged action. You should take steps to secure and monitor your LOB app if you grant the app these highly privileged permissions. 
 
-If your organization or the LOB application requires more information be stored for future use, such as claims emittance in tokens or granular authorization policies, your app can make another API call to update the external user after they’ve been invited/created in Azure AD. Doing so requires your application to have extra API permissions and would require a second call to the Microsoft Graph API.  
+If your organization or the LOB application requires additional information be stored for future use, such as claims emittance in tokens or granular authorization policies, your app can make an additional API call to update the external user after they’ve been invited/created in Azure AD. Doing so requires your application to have additional API permissions and would require a 2nd call to the Microsoft Graph API.  
 
-To update the user, you need to use the Object ID of the newly created guest user received in the response from the invitation API call. This is the **ID** value in the response. You can write to any standard attribute or custom extension attributes you may have created. 
+To update the user you will need to use the Object ID of the newly created guest user received in the response from the invitation API call. This will be the “id” value in the response. You can write to any standard sttribute or custom extension attributes you may have created. 
 
-For example: 
+For example:
 
-Required application permissions (from least to most privileged).
-
-```
+``` 
+Required Application Permissions (from least to most privileged) 
 User.ReadWrite.All, Directory.ReadWrite.All 
-  PATCH https://graph.microsoft.com/v1.0/users/<user’s object ID> 
-  Content-type: application/json 
-    { 
-    "businessPhones": [ 
-
+PATCH https://graph.microsoft.com/v1.0/users/<user’s object ID> 
+Content-type: application/json 
+{ 
+"businessPhones": [ 
         "+1 234 567 8900" 
     ], 
-    "givenName": "John" 
-    "surname": "Doe", 
-    "extension_cf4ff515cbf947218d468c96f9dc9021_appRole": "external" 
-    }
- ```
+"givenName": "John" 
+"surname": "Doe", 
+"extension_cf4ff515cbf947218d468c96f9dc9021_appRole": "external" 
+} 
+```
+For more details, see [Update user - Microsoft Graph v1.0](https://learn.microsoft.com//graph/api/user-update?view=graph-rest-1.0&tabs=http). 
 
-For more information, see [Update user - Microsoft Graph v1.0](https://learn.microsoft.com/graph/api/user-update?view=graph-rest-1.0&tabs=http).
-
-## Step 3: Assign the invited user to a group  
+## Steo 4: Assign the invited user to a group 
 
 >[!NOTE]
 >If user assignment is not required for the application, you may skip this step. 
 
-If app assignment is required in Azure AD for app access and/or role assignment the user must be assigned to the app, or else the user won't be able to gain access regardless of successful authentication. To achieve this, you should make another API call to add the invited external user to a specific group. The group can be assigned to the app and mapped to a specific app role.  
-For example, assign the **Group Updater** role or a custom role to the Enterprise App and scope the role assignment to only the group(s) this application should be updating. Or assign the `group.readwrite.all` permission in Microsoft Graph API. 
+If app assignment is required in Azure AD for app access and/or role assignment the user must be assigned to the app or else the user will not be able to gain access regardless of successful authentication. To achieve this, you should make an additional API call to add the invited external user to a specific group. The group can be assigned to the app and mapped to a specific app role.  
 
- ``` 
- POST `https://graph.microsoft.com/v1.0/groups/<insert group id>/members/$ref 
-  Content-type: application/json` 
-  {  
-  "@odata.id": "https://graph.microsoft.com/v1.0/directoryObjects/<insert user id>" 
-  } 
- ```
-For more information, see [Add members - Microsoft Graph v1.0](https://learn.microsoft.com/graph/api/group-post-members?view=graph-rest-1.0&tabs=http).
+For example:
 
-Alternatively, you can apply Azure AD dynamic groups, which can automatically assign users to group based on the user’s attributes. However, if end-user access is time-sensitive it won't be the recommended approach as dynamic groups can take up to 24 hours to populate. 
+Assign the Group Updater role or a custom role to the Enterprise App and scope the role assignment to only the group(s) this application should be updating. Or assign the group.readwrite.all permission in Microsoft Graph API. 
 
-If you prefer to use dynamic groups, you don't need to add the users to a group explicitly with an extra API call. Create a dynamic group that automatically adds the user as a member of the group based on available attributes such as userType, email, or a custom attribute. For more information, see [create or edit a dynamic group and get status](../azure/active-directory/enterprise-users/groups-create-rule) 
+```
+POST https://graph.microsoft.com/v1.0/groups/<insert group id>/members/$ref 
+Content-type: application/json 
+{ 
+"@odata.id": "https://graph.microsoft.com/v1.0/directoryObjects/<insert user id>" 
+} 
+```
+For more information refer to [Add members - Microsoft Graph v1.0](https://learn.microsoft.com/graph/api/group-post-members?view=graph-rest-1.0&tabs=http). 
+  
+Alternatively, you can leverage Azure AD dynamic groups which can automatically assign users to group based on the user’s attributes. However, if end-user access is time-sensitive this would not be the recommended approach as dynamic groups can take up to 24 hours to populate. 
 
+If you prefer to use dynamic groups, you do not need to add the users to a group explicitly with an additional API call. Create a dynamic group that will automatically add the user as a member of the group based on available attributes such as userType, email, or a custom attribute. For more information, refer to [Create or edit a dynamic group and get status](https://learn.microsoft.com/azure/active-directory/enterprise-users/groups-create-rule). 
+  
 ## Step 4: Provision the invited user to the application
 
 Once the invited external user has been provisioned to Azure AD, the Microsoft Graph API returns a response with the necessary user information such as object ID and email. The LOB application can then provision the user to its own directory/database. Depending on the type of application and internal directory type the application uses, the actual implementation of this provisioning can vary. 
