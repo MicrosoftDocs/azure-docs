@@ -87,7 +87,7 @@ To complete registration, provide the application a name, specify the supported 
 
 ## Configure the application and edit the base UI
 
-1. Open *src/app/app.module.ts*. The`MsalModule` and `MsalInterceptor` need to be added to `imports` along with the `isIE` constant. You'll also add the material modules. Replace the entire contents of the file with the following snippet:
+1. Open *src/app/app.module.ts*. The `MsalModule` and `MsalInterceptor` need to be added to `imports` along with the `isIE` constant. You'll also add the material modules. Replace the entire contents of the file with the following snippet:
 
     ```javascript
     import { BrowserModule } from '@angular/platform-browser';
@@ -219,11 +219,7 @@ To complete registration, provide the application a name, specify the supported 
       }
     ```
 
-## Sign in a user
-
-Add the code from the following sections to invoke sign in using a pop-up window or a full-frame redirect.
-
-### Sign in using pop-ups
+## Sign in using pop-ups
 
 1. Open *src/app/app.component.ts* and replace the contents of the file to the following to sign in a user using a pop-up window:
 
@@ -264,10 +260,7 @@ Add the code from the following sections to invoke sign in using a pop-up window
     }
     ```
 
-> [!NOTE]
-> The rest of this tutorial uses the `loginRedirect` method with Microsoft Internet Explorer because of a [known issue](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/internet-explorer.md) related to the handling of pop-up windows by Internet Explorer.
-
-### Sign in using redirects
+## Sign in using redirects
 
 1. Update *src/app/app.module.ts* to bootstrap the `MsalRedirectComponent`. This is a dedicated redirect component, which handles redirects. Change the `MsalModule` import and `AppComponent` bootstrap to resemble the following:
 
@@ -360,7 +353,7 @@ Add the code from the following sections to invoke sign in using a pop-up window
 
 ## Conditional rendering
 
-In order to render certain UI only for authenticated users, components have to subscribe to the `MsalBroadcastService` to see if users have been signed in, and interaction has completed.
+In order to render certain User Interface (UI) only for authenticated users, components have to subscribe to the `MsalBroadcastService` to see if users have been signed in, and interaction has completed.
 
 1. Add the `MsalBroadcastService` to *src/app/app.component.ts* and subscribe to the `inProgress$` observable to check if interaction is complete and an account is signed in before rendering UI. Your code should now look like this:
 
@@ -467,9 +460,7 @@ In order to render certain UI only for authenticated users, components have to s
     </div>
     ```
 
-## Guarding routes
-
-### Angular Guard
+## Implement Angular Guard
 
 The `MsalGuard` class is one you can use to protect routes and require authentication before accessing the protected route. The following steps add the `MsalGuard` to the `Profile` route. Protecting the `Profile` route means that even if a user doesn't sign in using the `Login` button, if they try to access the `Profile` route or select the `Profile` button, the `MsalGuard` prompts the user to authenticate via pop-up or redirect before showing the `Profile` page.
 
@@ -761,163 +752,163 @@ MSAL Angular provides an `Interceptor` class that automatically acquires tokens 
 
 ## Sign out
 
-Update the code in *src/app/app.component.html* to conditionally display a `Logout` button:
+1. Update the code in *src/app/app.component.html* to conditionally display a `Logout` button:
 
-```HTML
-<mat-toolbar color="primary">
-  <a class="title" href="/">{{ title }}</a>
-
-  <div class="toolbar-spacer"></div>
-
-  <a mat-button [routerLink]="['profile']">Profile</a>
-
-  <button mat-raised-button *ngIf="!loginDisplay" (click)="login()">Login</button>
-  <button mat-raised-button *ngIf="loginDisplay" (click)="logout()">Logout</button>
-
-</mat-toolbar>
-<div class="container">
-  <!--This is to avoid reload during acquireTokenSilent() because of hidden iframe -->
-  <router-outlet *ngIf="!isIframe"></router-outlet>
-</div>
-```
+    ```HTML
+    <mat-toolbar color="primary">
+      <a class="title" href="/">{{ title }}</a>
+    
+      <div class="toolbar-spacer"></div>
+    
+      <a mat-button [routerLink]="['profile']">Profile</a>
+    
+      <button mat-raised-button *ngIf="!loginDisplay" (click)="login()">Login</button>
+      <button mat-raised-button *ngIf="loginDisplay" (click)="logout()">Logout</button>
+    
+    </mat-toolbar>
+    <div class="container">
+      <!--This is to avoid reload during acquireTokenSilent() because of hidden iframe -->
+      <router-outlet *ngIf="!isIframe"></router-outlet>
+    </div>
+    ```
 
 ### Sign out using redirects
 
-Update the code in *src/app/app.component.ts* to sign out a user using redirects:
+1. Update the code in *src/app/app.component.ts* to sign out a user using redirects:
 
-```javascript
-import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
-import { MsalService, MsalBroadcastService, MSAL_GUARD_CONFIG, MsalGuardConfiguration } from '@azure/msal-angular';
-import { InteractionStatus, RedirectRequest } from '@azure/msal-browser';
-import { Subject } from 'rxjs';
-import { filter, takeUntil } from 'rxjs/operators';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent implements OnInit, OnDestroy {
-  title = 'msal-angular-tutorial';
-  isIframe = false;
-  loginDisplay = false;
-  private readonly _destroying$ = new Subject<void>();
-
-  constructor(@Inject(MSAL_GUARD_CONFIG) private msalGuardConfig: MsalGuardConfiguration, private broadcastService: MsalBroadcastService, private authService: MsalService) { }
-
-  ngOnInit() {
-    this.isIframe = window !== window.parent && !window.opener;
-
-    this.broadcastService.inProgress$
-    .pipe(
-      filter((status: InteractionStatus) => status === InteractionStatus.None),
-      takeUntil(this._destroying$)
-    )
-    .subscribe(() => {
-      this.setLoginDisplay();
+    ```javascript
+    import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
+    import { MsalService, MsalBroadcastService, MSAL_GUARD_CONFIG, MsalGuardConfiguration } from '@azure/msal-angular';
+    import { InteractionStatus, RedirectRequest } from '@azure/msal-browser';
+    import { Subject } from 'rxjs';
+    import { filter, takeUntil } from 'rxjs/operators';
+    
+    @Component({
+      selector: 'app-root',
+      templateUrl: './app.component.html',
+      styleUrls: ['./app.component.css']
     })
-  }
-
-  login() {
-    if (this.msalGuardConfig.authRequest){
-      this.authService.loginRedirect({...this.msalGuardConfig.authRequest} as RedirectRequest);
-    } else {
-      this.authService.loginRedirect();
+    export class AppComponent implements OnInit, OnDestroy {
+      title = 'msal-angular-tutorial';
+      isIframe = false;
+      loginDisplay = false;
+      private readonly _destroying$ = new Subject<void>();
+    
+      constructor(@Inject(MSAL_GUARD_CONFIG) private msalGuardConfig: MsalGuardConfiguration, private broadcastService: MsalBroadcastService, private authService: MsalService) { }
+    
+      ngOnInit() {
+        this.isIframe = window !== window.parent && !window.opener;
+    
+        this.broadcastService.inProgress$
+        .pipe(
+          filter((status: InteractionStatus) => status === InteractionStatus.None),
+          takeUntil(this._destroying$)
+        )
+        .subscribe(() => {
+          this.setLoginDisplay();
+        })
+      }
+    
+      login() {
+        if (this.msalGuardConfig.authRequest){
+          this.authService.loginRedirect({...this.msalGuardConfig.authRequest} as RedirectRequest);
+        } else {
+          this.authService.loginRedirect();
+        }
+      }
+    
+      logout() { // Add log out function here
+        this.authService.logoutRedirect({
+          postLogoutRedirectUri: 'http://localhost:4200'
+        });
+      }
+    
+      setLoginDisplay() {
+        this.loginDisplay = this.authService.instance.getAllAccounts().length > 0;
+      }
+    
+      ngOnDestroy(): void {
+        this._destroying$.next(undefined);
+        this._destroying$.complete();
+      }
     }
-  }
-
-  logout() { // Add log out function here
-    this.authService.logoutRedirect({
-      postLogoutRedirectUri: 'http://localhost:4200'
-    });
-  }
-
-  setLoginDisplay() {
-    this.loginDisplay = this.authService.instance.getAllAccounts().length > 0;
-  }
-
-  ngOnDestroy(): void {
-    this._destroying$.next(undefined);
-    this._destroying$.complete();
-  }
-}
-```
+    ```
 
 ### Sign out using pop-ups
 
-Update the code in *src/app/app.component.ts* to sign out a user using pop-ups:
+1. Update the code in *src/app/app.component.ts* to sign out a user using pop-ups:
 
-```javascript
-import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
-import { MsalService, MsalBroadcastService, MSAL_GUARD_CONFIG, MsalGuardConfiguration } from '@azure/msal-angular';
-import { InteractionStatus, PopupRequest } from '@azure/msal-browser';
-import { Subject } from 'rxjs';
-import { filter, takeUntil } from 'rxjs/operators';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent implements OnInit, OnDestroy {
-  title = 'msal-angular-tutorial';
-  isIframe = false;
-  loginDisplay = false;
-  private readonly _destroying$ = new Subject<void>();
-
-  constructor(@Inject(MSAL_GUARD_CONFIG) private msalGuardConfig: MsalGuardConfiguration, private broadcastService: MsalBroadcastService, private authService: MsalService) { }
-
-  ngOnInit() {
-    this.isIframe = window !== window.parent && !window.opener;
-
-    this.broadcastService.inProgress$
-    .pipe(
-      filter((status: InteractionStatus) => status === InteractionStatus.None),
-      takeUntil(this._destroying$)
-    )
-    .subscribe(() => {
-      this.setLoginDisplay();
+    ```javascript
+    import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
+    import { MsalService, MsalBroadcastService, MSAL_GUARD_CONFIG, MsalGuardConfiguration } from '@azure/msal-angular';
+    import { InteractionStatus, PopupRequest } from '@azure/msal-browser';
+    import { Subject } from 'rxjs';
+    import { filter, takeUntil } from 'rxjs/operators';
+    
+    @Component({
+      selector: 'app-root',
+      templateUrl: './app.component.html',
+      styleUrls: ['./app.component.css']
     })
-  }
-
-  login() {
-    if (this.msalGuardConfig.authRequest){
-      this.authService.loginPopup({...this.msalGuardConfig.authRequest} as PopupRequest)
-        .subscribe({
-          next: (result) => {
-            console.log(result);
-            this.setLoginDisplay();
-          },
-          error: (error) => console.log(error)
+    export class AppComponent implements OnInit, OnDestroy {
+      title = 'msal-angular-tutorial';
+      isIframe = false;
+      loginDisplay = false;
+      private readonly _destroying$ = new Subject<void>();
+    
+      constructor(@Inject(MSAL_GUARD_CONFIG) private msalGuardConfig: MsalGuardConfiguration, private broadcastService: MsalBroadcastService, private authService: MsalService) { }
+    
+      ngOnInit() {
+        this.isIframe = window !== window.parent && !window.opener;
+    
+        this.broadcastService.inProgress$
+        .pipe(
+          filter((status: InteractionStatus) => status === InteractionStatus.None),
+          takeUntil(this._destroying$)
+        )
+        .subscribe(() => {
+          this.setLoginDisplay();
+        })
+      }
+    
+      login() {
+        if (this.msalGuardConfig.authRequest){
+          this.authService.loginPopup({...this.msalGuardConfig.authRequest} as PopupRequest)
+            .subscribe({
+              next: (result) => {
+                console.log(result);
+                this.setLoginDisplay();
+              },
+              error: (error) => console.log(error)
+            });
+        } else {
+          this.authService.loginPopup()
+            .subscribe({
+              next: (result) => {
+                console.log(result);
+                this.setLoginDisplay();
+              },
+              error: (error) => console.log(error)
+            });
+        }
+      }
+    
+      logout() { // Add log out function here
+        this.authService.logoutPopup({
+          mainWindowRedirectUri: "/"
         });
-    } else {
-      this.authService.loginPopup()
-        .subscribe({
-          next: (result) => {
-            console.log(result);
-            this.setLoginDisplay();
-          },
-          error: (error) => console.log(error)
-        });
+      }
+    
+      setLoginDisplay() {
+        this.loginDisplay = this.authService.instance.getAllAccounts().length > 0;
+      }
+    
+      ngOnDestroy(): void {
+        this._destroying$.next(undefined);
+        this._destroying$.complete();
+      }
     }
-  }
-
-  logout() { // Add log out function here
-    this.authService.logoutPopup({
-      mainWindowRedirectUri: "/"
-    });
-  }
-
-  setLoginDisplay() {
-    this.loginDisplay = this.authService.instance.getAllAccounts().length > 0;
-  }
-
-  ngOnDestroy(): void {
-    this._destroying$.next(undefined);
-    this._destroying$.complete();
-  }
-}
-```
+    ```
 
 ## Test your code
 
@@ -931,22 +922,17 @@ export class AppComponent implements OnInit, OnDestroy {
 
     :::image type="content" source="media/tutorial-v2-angular-auth-code/angular-01-not-signed-in.png" alt-text="Web browser displaying sign-in dialog":::
 
+1. Select **Accept** to grant the app permissions to your profile. This will happen the first time that you start to sign in.
 
-### Provide consent for application access
+    :::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-02-consent-dialog.png" alt-text="Content dialog displayed in web browser":::
 
-The first time that you start to sign in to your application, you're prompted to grant it access to your profile and allow it to sign you in:
+1. After consenting, the following If you consent to the requested permissions, the web application shows a successful login page. 
 
-:::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-02-consent-dialog.png" alt-text="Content dialog displayed in web browser":::
+    :::image type="content" source="media/tutorial-v2-angular-auth-code/angular-02-signed-in.png" alt-text="Results of a successful sign-in in the web browser":::
 
-If you consent to the requested permissions, the web application shows a successful login page:
+1. Select **Profile** to view the user profile information returned in the response from the call to the Microsoft Graph API:
 
-:::image type="content" source="media/tutorial-v2-angular-auth-code/angular-02-signed-in.png" alt-text="Results of a successful sign-in in the web browser":::
-
-### Call the Graph API
-
-After you sign in, select **Profile** to view the user profile information returned in the response from the call to the Microsoft Graph API:
-
-:::image type="content" source="media/tutorial-v2-angular-auth-code/angular-03-profile-data.png" alt-text="Profile information from Microsoft Graph displayed in the browser":::
+    :::image type="content" source="media/tutorial-v2-angular-auth-code/angular-03-profile-data.png" alt-text="Profile information from Microsoft Graph displayed in the browser":::
 
 ## Add scopes and delegated permissions
 
