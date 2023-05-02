@@ -705,20 +705,14 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{rg}/
 
 ### [Portal](#tab/portal3)
 
-1. Type **virtual machines** in the search.
-1. Under **Services**, select **Virtual machines**.
-1. In the **Virtual machines** page, select **Create** and then **Virtual machine**.  The **Create a virtual machine** page opens.
-1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group or select one from the drop-down. 
-1. Under **Instance details**, type a name for the **Virtual machine name**.
-1. For **Security type**, make sure *Standard* is selected.
-1. For your **Image**, select **See all images**. The **Select an image** page will open.
-   :::image type="content" source="media/shared-image-galleries/see-all-images.png" alt-text="Screenshot showing the link to select to see more image options.":::
-1. In the left menu, under **Other Items**, select **Community images (PREVIEW)**. The **Other Items | Community Images (PREVIEW)** page will open.
-   :::image type="content" source="media/shared-image-galleries/community.png" alt-text="Screenshot showing where to select community gallery images.":::
-1. Select an image from the list. Make sure that the **OS state** is *Generalized*. If you want to use a specialized image, see [Create a VM using a specialized image version](vm-specialized-image-version.md). Depending on the image choose, the **Region** the VM will be created in will change to match the image.
+1. Type **Community images** in the search.
+1. Under **Services**, select **Community images**.
+2. Select the image from the list of available images. You can use the filter to narrow the list as needed.
+3. On the page for the image, select **Create VM**. The **Create a virtual machine** page opens with the **Image** value pre-selected.
+5. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group or select one from the drop-down. 
+6. Under **Instance details**, type a name for the **Virtual machine name**.
 1. Complete the rest of the options and then select the **Review + create** button at the bottom of the page.
 1. On the **Create a virtual machine** page, you can see the details about the VM you're about to create. When you're ready, select **Create**.
-
 
 ---
 
