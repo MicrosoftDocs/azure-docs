@@ -12,6 +12,7 @@ ms.date: 01/26/2023
 ms.author: jomondi
 ms.reviewer: ergreenl
 zone_pivot_groups: enterprise-apps-minus-aad-powershell
+ms.custom: enterprise-apps
 
 #Customer intent: As an administrator of an Azure AD tenant, I want to configure the properties of an enterprise application.
 ---
