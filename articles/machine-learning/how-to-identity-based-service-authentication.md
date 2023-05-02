@@ -416,7 +416,7 @@ az ml workspace create -w <workspace name> \
 
 To access the workspace ACR, create machine learning compute cluster with system-assigned managed identity enabled. You can enable the identity from Azure portal or Studio when creating compute, or from Azure CLI using the below. For more information, see [using managed identity with compute clusters](how-to-create-attach-compute-cluster.md#set-up-managed-identity).
 
-# [Azure CLI](#tab/cli)
+# [Azure CLI](#tab/new-cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -424,7 +424,7 @@ To access the workspace ACR, create machine learning compute cluster with system
 az ml compute create --name cpu-cluster --type <cluster name>  --identity-type systemassigned
 ```
 
-# [Python](#tab/python)
+# [Python](#tab/new-python)
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
