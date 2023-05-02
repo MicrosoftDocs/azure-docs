@@ -27,7 +27,7 @@ First, create a storage pool, which is a logical grouping of storage for your Ku
 
 1. Use your favorite text editor to create a YAML file such as `code acstor-storagepool.yaml`.
 
-2. Paste in the following code. The storage pool `name` value can be whatever you want.
+1. Paste in the following code. The storage pool `name` value can be whatever you want.
 
    ```yml
    apiVersion: containerstorage.azure.com/v1alpha1
@@ -41,7 +41,7 @@ First, create a storage pool, which is a logical grouping of storage for your Ku
          replicas: 1 
    ```
 
-3. Apply the YAML file to create the storage pool.
+1. Apply the YAML file to create the storage pool.
    
    ```azurecli-interactive
    kubectl apply -f acstor-storagepool.yaml 
@@ -71,7 +71,7 @@ A persistent volume claim (PVC) is used to automatically provision storage based
 
 1. Use your favorite text editor to create a YAML file such as `code acstor-pvc.yaml`.
 
-2. Paste in the following code. The PVC `name` value can be whatever you want.
+1. Paste in the following code. The PVC `name` value can be whatever you want.
 
    ```yml
    apiVersion: v1
@@ -87,7 +87,7 @@ A persistent volume claim (PVC) is used to automatically provision storage based
          storage: 100Gi
    ```
 
-3. Apply the YAML file to create the PVC.
+1. Apply the YAML file to create the PVC.
    
    ```azurecli-interactive
    kubectl apply -f acstor-pvc.yaml
@@ -113,7 +113,7 @@ Create a pod using Fio (flexible I/O) for benchmarking and workload simulation, 
 
 1. Use your favorite text editor to create a YAML file such as `code acstor-pod.yaml`.
 
-2. Paste in the following code.
+1. Paste in the following code.
 
    ```yml
    kind: Pod
@@ -138,7 +138,7 @@ Create a pod using Fio (flexible I/O) for benchmarking and workload simulation, 
              name: azurenvmepv
    ```
 
-3. Apply the YAML file to deploy the pod.
+1. Apply the YAML file to deploy the pod.
    
    ```azurecli-interactive
    kubectl apply -f acstor-pod.yaml
@@ -150,20 +150,20 @@ Create a pod using Fio (flexible I/O) for benchmarking and workload simulation, 
    pod/fiopod created
    ```
 
-4. Check that the pod is running and that the persistent volume claim has been bound successfully to the pod:
+1. Check that the pod is running and that the persistent volume claim has been bound successfully to the pod:
 
    ```azurecli-interactive
    kubectl describe pod fiopod
    kubectl describe pvc azurenvmepvc
    ```
 
-5. Check fio testing to see its current status:
+1. Check fio testing to see its current status:
 
    ```azurecli-interactive
    kubectl exec -it fiopod -- fio --name=benchtest --size=800m --filename=/volume/test --direct=1 --rw=randrw --ioengine=libaio --bs=4k --iodepth=16 --numjobs=8 --time_based --runtime=60
    ```
 
-You have now deployed a pod that's using Azure Ephemeral OS Disk as its storage, and you can use it for your Kubernetes workloads.
+You've now deployed a pod that's using Azure Ephemeral OS Disk as its storage, and you can use it for your Kubernetes workloads.
 
 ## See also
 
