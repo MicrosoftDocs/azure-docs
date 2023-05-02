@@ -64,7 +64,7 @@ Use the following steps to configure routing enrichments:
   - Add up to 20 key-value pairs and select their type appropriately.
 - Select Apply
 
-For more information about the routing configuration, go to Routing Configuration.
+For more information about the routing configuration, go to [Routing Azure portal configuration](mqtt-routing.md#azure-portal-configuration).
 
 
 ### Azure CLI configuration
@@ -133,7 +133,7 @@ NS.json
 }
 ```
 
-For more information about the routing configuration, go to [Routing Configuration.](mqtt-routing.md#routing-configuration)
+For more information about the routing configuration, go to [Routing Azure CLI configuration.](mqtt-routing.md#azure-cli-configuration)
 
 ### Sample Output
 
