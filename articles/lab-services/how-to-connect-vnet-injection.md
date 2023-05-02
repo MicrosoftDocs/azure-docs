@@ -1,7 +1,7 @@
 ---
 title: Connect to a virtual network
 titleSuffix: Azure Lab Services
-description: Learn how to connect a lab plan to a virtual network in Azure Lab Services with VNET injection.
+description: Learn how to connect a lab plan in Azure Lab Services to a virtual network with advanced networking. Advanced networking uses VNET injection.
 services: lab-services
 ms.service: lab-services
 author: ntrogh
@@ -14,12 +14,14 @@ ms.date: 04/25/2023
 
 [!INCLUDE [preview focused article](./includes/lab-services-new-update-focused-article.md)]
 
-This article describes how to connect a lab plan to a virtual network in Azure Lab Services. With lab plans, you can take control of the virtual network for labs by using virtual network (VNET) injection. With VNET injection, you can connect to on premise resources such as licensing servers and use user defined routes (UDRs).  VNET injection replaces the [Azure Lab Services virtual network peering](how-to-connect-peer-virtual-network.md) that was used with lab accounts.
+This article describes how to connect a lab plan to a virtual network in Azure Lab Services. With lab plans, you have more control over the virtual network for labs by using advanced networking. You can connect to on premise resources such as licensing servers and use user defined routes (UDRs).
 
 Some organizations have advanced network requirements and configurations that they want to apply to labs. For example, network requirements can include a network traffic control, ports management, access to resources in an internal network, and more.  Certain on-premises networks are connected to Azure Virtual Network either through [ExpressRoute](../expressroute/expressroute-introduction.md) or [Virtual Network Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). These services must be set up outside of Azure Lab Services. To learn more about connecting an on-premises network to Azure using ExpressRoute, see [ExpressRoute overview](../expressroute/expressroute-introduction.md). For on-premises connectivity using a Virtual Network Gateway, the gateway, specified virtual network, network security group, and the lab plan all must be in the same region.
 
+Azure Lab Services advanced networking uses virtual network (VNET) injection to connect a lab plan to your virtual network. VNET injection replaces the [Azure Lab Services virtual network peering](how-to-connect-peer-virtual-network.md) that was used with lab accounts.
+
 > [!IMPORTANT]
-> Advanced networking (VNet injection) must be configured when you create a lab plan. You can't enable advanced networking at a later stage.
+> You must configure advanced networking when you create a lab plan. You can't enable advanced networking at a later stage.
 
 > [!NOTE]
 > If your organization needs to perform content filtering, such as for compliance with the [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act), you will need to use 3rd party software.  For more information, read guidance on [content filtering with Lab Services](./administrator-guide.md#content-filtering).
@@ -33,7 +35,7 @@ Some organizations have advanced network requirements and configurations that th
 
 ## Delegate the virtual network subnet to lab plans
 
-To use your virtual network subnet for VNET injection with Azure Lab Services, you need to [delegate the subnet](../virtual-network/subnet-delegation-overview.md) to Azure Lab Services lab plans.
+To use your virtual network subnet for advanced networking in Azure Lab Services, you need to [delegate the subnet](../virtual-network/subnet-delegation-overview.md) to Azure Lab Services lab plans.
 
 You can delegate only one lab plan at a time for use with one subnet.
 
@@ -122,7 +124,7 @@ Lab users and lab managers can now connect to their lab virtual machines or lab 
 You can now create the lab plan and connect it to the virtual network. As a result, the template VM and lab VMs are injected in your virtual network.
 
 > [!IMPORTANT]
-> Advanced networking (VNet injection) must be configured when you create a lab plan. You can't enable advanced networking at a later stage.
+> You must configure advanced networking when you create a lab plan. You can't enable advanced networking at a later stage.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
