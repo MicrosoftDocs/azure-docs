@@ -48,4 +48,5 @@ Blog: [Take advantage of Application gateway V2](https://azure.microsoft.com/blo
 ## Next steps
   
   * [Migration Guidance](./migrate-v1-v2.md)
+  * [Common questions on Migration](./retirement-faq.md)
   
