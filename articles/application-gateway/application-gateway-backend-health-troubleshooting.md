@@ -31,6 +31,9 @@ The status retrieved by any of these methods can be any one of the following sta
 If the backend health status for a server is healthy, it means that Application Gateway will forward the requests to that server. But if the backend health for all the servers in a backend pool is unhealthy or unknown, you might encounter problems when you try to access
 applications. This article describes the symptoms, cause, and resolution for each of the errors shown.
 
+> [!NOTE]
+> If your user doesn't have permission to see backend health statuses, `No results.` will be shown.
+
 ## Backend health status: Unhealthy
 
 If the backend health status is **Unhealthy**, the portal view will resemble the following screenshot:
