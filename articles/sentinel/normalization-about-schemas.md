@@ -19,10 +19,10 @@ Schema references outline the fields that comprise each schema. ASIM currently d
 | ------ | ------- | ------ |
 | [Audit Event](normalization-schema-audit.md) | 0.1 | Preview |
 | [Authentication Event](normalization-schema-authentication.md) | 0.1.3 | Preview |
-| [DNS Activity](normalization-schema-dns.md) | 0.1.6 | Preview |
+| [DNS Activity](normalization-schema-dns.md) | 0.1.7 | Preview |
 | [DHCP Activity](normalization-schema-dhcp.md) | 0.1 | Preview |
-| [File Activity](normalization-schema-file-event.md) | 0.2 | Preview |
-| [Network Session](normalization-schema.md) | 0.2.5 | Preview |
+| [File Activity](normalization-schema-file-event.md) | 0.2.1 | Preview |
+| [Network Session](normalization-schema.md) | 0.2.6 | Preview |
 | [Process Event](normalization-schema-process-event.md) | 0.1.4 | Preview |
 | [Registry Event](normalization-schema-registry-event.md) | 0.1.2 | Preview |
 | [User Management](normalization-schema-user-management.md) | 0.1 | Preview |
@@ -143,7 +143,7 @@ The allowed values for a username type are:
 
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
-| <a name="usertype"></a>**UserType** | Optional | UserType | The type of source user. Supported values include: `Regular`, `Machine`, `Admin`, `System`, `Application`, `Service Principal`, and `Other`. The value might be provided in the source record by using different terms, which should be normalized to these values. Store the original value in the [OriginalUserType](#originalusertype) field. |
+| <a name="usertype"></a>**UserType** | Optional | UserType | The type of source user. Supported values include:<br> - `Regular`<br> - `Machine`<br> - `Admin`<br> - `System`<br> - `Application`<br> - `Service Principal`<br> - `Service`<br> - `Anonymous`<br> - `Other`.<br><br> The value might be provided in the source record by using different terms, which should be normalized to these values. Store the original value in the [OriginalUserType](#originalusertype) field. |
 | <a name="originalusertype"></a>**OriginalUserType** | Optional | String | The original destination user type, if provided by the reporting device. |
 
 
