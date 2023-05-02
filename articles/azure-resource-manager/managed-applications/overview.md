@@ -1,8 +1,6 @@
 ---
 title: Overview of Azure Managed Applications
 description: Describes the concepts for Azure Managed Applications that provide cloud solutions that are easy for customers to deploy and operate.
-author: davidsmatlak
-ms.author: davidsmatlak
 ms.topic: overview
 ms.date: 08/19/2022
 ---
