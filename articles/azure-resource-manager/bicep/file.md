@@ -84,7 +84,7 @@ module webModule './webApp.bicep' = {
 
 Metadata in Bicep is an untyped object that can be included in Bicep files. It allows you to provide supplementary information about your Bicep files, including details like its name, description, author, creation date, and more.
 
-When assigning identifiers for metadata, [`param`](#parameters), [`var`](#variables), [`resource`](#resources), [`module`](#modules), and [`output`](#outputs), it's important to note that they share the same namespace as [decorators](./parameters.md#decorators) and [Bicep functions](./bicep-functions.md). Therefore, using the same identifier for metadata and a decorator (or a Bicep function) can cause confusion. It's advisable to choose a unique identifier that doesn't conflict with a decorator or a function. For instance, instead of using **description** as the metadata identifier, you could use **bicepDescription** to differentiate it from the '@description' decorator in the preceding example.
+When assigning identifiers for metadata, [`param`](#parameters), [`var`](#variables), [`resource`](#resources), [`module`](#modules), and [`output`](#outputs), it's important to note that they share the same namespace as [decorators](./parameters.md#decorators) and [Bicep functions](./bicep-functions.md). Therefore, using the same identifier for metadata and a decorator (or a Bicep function) can cause confusion. It's advisable to choose a unique identifier that doesn't conflict with a decorator or a function. For instance, instead of using **description** as the metadata identifier, you could use **bicepDescription** to differentiate it from the **@description** decorator in the preceding example.
 
 ## Target scope
 
