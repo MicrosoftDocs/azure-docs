@@ -2,7 +2,7 @@
 title: Create & deploy deployment stacks in Bicep
 description: Describes how to create deployment stacks in Bicep .
 ms.topic: conceptual
-ms.date: 04/27/2023
+ms.date: 05/02/2023
 ---
 
 # Deployment stacks (Preview)

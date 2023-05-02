@@ -1,7 +1,7 @@
 ---
 title: Create and deploy a deployment stack with Bicep
 description: Learn how to use Bicep to create and deploy a deployment stack in your Azure subscription.
-ms.date: 04/28/2023
+ms.date: 05/02/2023
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
 # Customer intent: As a developer I want to use Bicep to create a deployment stack.
@@ -277,7 +277,7 @@ az stack sub create \
 
 From the Azure portal, check the properties of the `publicIP` resource to confirm the change.
 
-Use the same method, you can add a resource to the deployment stack or remove a managed resource from the deployment stack.  For more information, see [Add resources to a deployment stack](./deployment-stacks.md#add-resources-to-deployment-stack) and [Delete managed resources from a deployment stack](./deployment-stacks.md#delete-managed-resources-from-deployment-stack).
+Using the same method, you can add a resource to the deployment stack or remove a managed resource from the deployment stack.  For more information, see [Add resources to a deployment stack](./deployment-stacks.md#add-resources-to-deployment-stack) and [Delete managed resources from a deployment stack](./deployment-stacks.md#delete-managed-resources-from-deployment-stack).
 
 ## Delete the deployment stack
 
@@ -291,7 +291,14 @@ Remove-AzSubscriptionDeploymentStack `
   -DeleteAll
 ```
 
-If you run the delete commands without the **delete all** parameters, the managed resources will be detached but not deleted. The following parameters can be used to control between detach and delete.
+If you run the delete commands without the **delete all** parameters, the managed resources will be detached but not deleted. For example:
+
+```azurepowershell
+Remove-AzSubscriptionDeploymentStack `
+  -Name mySubStack
+```
+
+The following parameters can be used to control between detach and delete.
 
 - `DeleteAll`: delete both resource groups and the managed resources.
 - `DeleteResources`: delete the managed resources only.
@@ -307,7 +314,14 @@ az stack sub delete \
   --delete-all
 ```
 
-If you run the delete commands without the **delete all** parameters, the managed resources will be detached but not deleted. The following parameters can be used to control between detach and delete.
+If you run the delete commands without the **delete all** parameters, the managed resources will be detached but not deleted. For example:
+
+```azurecli
+az stack sub delete \
+  --name mySubStack
+```
+
+The following parameters can be used to control between detach and delete.
 
 - `--delete-all`: Delete both the resources and the resource groups.
 - `--delete-resources`: Delete the resources only.
