@@ -19,7 +19,7 @@ The fastest way to start using Shelf Analysis is to use the built-in pre-trained
 ## Prerequisites
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal. It must be deployed in the **East US** or **West US 2** region. After it deploys, select **Go to resource**.
-  * You'll need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
+  * You'll need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the guide.
 * An Azure Storage resource with a blob storage container. [Create one](tbd)
 * [cURL](https://curl.haxx.se/) installed. Or, you can use a different REST platform, like Postman, Swagger, or the REST Client extension for VS Code.
 * A set of training images. You can use our [sample image sets](tbd) or bring your own images. The maximum file size per image is 20MB.
