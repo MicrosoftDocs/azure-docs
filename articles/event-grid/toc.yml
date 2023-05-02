@@ -315,7 +315,7 @@ items:
         href: input-mappings.md
       - name: Manage topics with Event Domains
         href: how-to-event-domains.md
-      - name: Build your own client-side disaster recovery
+      - name: Customer enabled disaster recovery
         href: custom-disaster-recovery-client-side.md
       - name: Track asynchronous REST operations
         href: ../azure-resource-manager/management/async-operations.md?toc=/azure/event-grid/toc.json
@@ -440,4 +440,6 @@ items:
       - name: Create and manage namespaces
         href: create-view-manage-namespaces.md
       - name: Azure Event Grid Namespace MQTT client authentication using certificate chain
-        href: mqtt-certificate-chain-client-authentication.md           
+        href: mqtt-certificate-chain-client-authentication.md
+      - name: Customer enabled disaster recovery
+        href: custom-disaster-recovery-client-side.md
