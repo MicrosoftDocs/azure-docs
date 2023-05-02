@@ -37,7 +37,7 @@ export SERVICE_ACCOUNT_NAMESPACE="default"
 export SERVICE_ACCOUNT_NAME="workload-identity-sa"
 export SUBSCRIPTION="$(az account show --query id --output tsv)"
 export USER_ASSIGNED_IDENTITY_NAME="myIdentity"
-export FEDERATED_IDENTITY_CREDENTIAL="myFedIdentity" 
+export FEDERATED_IDENTITY_CREDENTIAL_NAME="myFedIdentity" 
 ```
 
 ## Create AKS cluster

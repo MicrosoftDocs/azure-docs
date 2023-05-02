@@ -59,6 +59,7 @@ az eventgrid event-subscription create --name contosoEventSubscription \
 ## Configure routing in the Event Grid Namespace
 - Save the Namespace object in namespace.json file in resources folder.
 
+```json
 {
     "properties": {
         "inputSchema": "CloudEventSchemaV1_0",
@@ -69,6 +70,7 @@ az eventgrid event-subscription create --name contosoEventSubscription \
     },
     "location": "`region name`"
 }
+```
 
 Use the az resource command to create a namespace.  Update the command with your subscription ID, Resource group ID, and a Namespace name.
 
