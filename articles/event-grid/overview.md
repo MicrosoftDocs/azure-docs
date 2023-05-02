@@ -8,15 +8,15 @@ ms.topic: conceptual
 ---
 
 # What is Azure Event Grid?
-
+<i><b style="color:#b30000; font-size: 16px">Early access reviewer</b></i>
 >[!Important]
-> <i><b style="color:#b30000; font-size: 16px">Early access reviewer</b></i> : please note that the following aspects of this article are still in construction. They should be completed by May 4th, 2023.
+> **Early access reviewer**: please note that the following aspects of this article are still in construction. They should be completed by May 4th, 2023.
 >* Regions where new features are available needs to be corrected and augmented.
->* Images might appear broken. If they show, some of them are being updated by the Conceptual Artist.
+>* Images might appear broken. If you get an emoji face with a pencil, that means that it not yet available and we are working on it. Event if the the image shows, please note that some the imgages may still being worked on by the Conceptual Artist given some comments that we provided.
 
 Azure Event Grid is a highly scalable, fully managed Pub Sub message distribution service that offers flexible message consumption patterns using the MQTT and HTTP protocols. With Azure Event Grid, you can build data pipelines with device data, integrate applications, and build event-driven serverless architectures. Event Grid enables clients to publish and subscribe to messages over the MQTT v3.1.1 and v5.0 protocols to support Internet of Things (IoT) solutions. Using HTTP, Event Grid enables you to build event-driven solutions where a publisher service announces its system state changes (events) to subscriber applications. Event Grid can be configured to send events to subscribers (push delivery) or subscribers can connect to Event Grid to read events (pull delivery). Event Grid supports [CloudEvents 1.0](https://github.com/cloudevents/spec) specification to provide interoperability across systems. 
 
-:::image type="content" source="media/overview/general-event-grid-diagram.svg" alt-text="High-level diagram of Event Grid that shows publishers and subscribers using MQTT and HTTP protocols."media/overview/general-event-grid-diagram.svg":::
+:::image type="content" source="media/overview/ic_fluent_emoji_edit_24_regular.svg" alt-text="High-level diagram of Event Grid that shows publishers and subscribers using MQTT and HTTP protocols." lightbox="media/overview/ic_fluent_emoji_edit_24_regular.svg":::
 
 Azure Event Grid is a generally available service deployed across availability zones in all regions that support them. For a list of regions supported by Event Grid see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all). 
 
@@ -36,7 +36,7 @@ The initial regions where these features are available are:
 
 Azure Event Grid is used at different stages of data pipelines to achieve a diverse set of integration goals. 
 
-**MQTT messaging** - <i><b style="color:#b30000; font-size: 16px">new</b></i>. IoT devices and applications can publish and subscribe to MQTT messages to form data pipelines that start with data ingestion from devices, for example. Event Grid can also be used to route MQTT messages to Azure services or custom endpoints for further data analysis, visualization, or storage.
+**MQTT messaging** - <i><b style="color:#b30000; font-size: 16px">new</b></i>. IoT devices and applications can communicate with each other over MQTT. Event Grid can also be used to route MQTT messages to Azure services or custom endpoints for further data analysis, visualization, or storage. This integration with Azure services enable you to build data pipelines that start with data ingestion from your IoT devices.
 
 **Data distribution using push and pull (<i><b style="color:#b30000; font-size: 16px">new</b></i>) delivery modes**. At any point in a data pipeline, HTTP applications can consume messages using push or pull APIs. The source of the data may include MQTT clients’ data, but also includes the following data sources that send their events over HTTP:
 
@@ -52,12 +52,12 @@ Event Grid offers a rich mixture of features. These include:
 
 ### MQTT messaging
 
-- **[MQTT v3.1.1](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html)** and **[MQTT v5.0](http://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html)** support – use any open source MQTT client library to communicate with the service.
-- **Custom topics with wildcards support** - leverage your current topic structure.
+- **[MQTT v3.1.1 and MQTT v5.0](mqtt-mqtt-support.md)** support – use any open source MQTT client library to communicate with the service.
+- **Custom topics with wildcards support** - leverage your own topic structure.
 - **Publish-subscribe messaging model** - communicate efficiently using one-to-many, many-to-one, and one-to-one messaging patterns.
-- **Built-in cloud integration** - route your MQTT messages to Azure services or custom webhooks for further processing.
-- **Flexible and fine-grained access control model** - group clients and topic for ease access control management using fine-grained access control through attribute-based authorization.
-- **X.509 certificate authentication** - authenticate your devices the standard mechanism for device authentication in the IoT industry.
+- **[Built-in cloud integration](mqtt-routing.md) ** - route your MQTT messages to Azure services or custom webhooks for further processing.
+- **Flexible and fine-grained [access control model](mqtt-access-control.md)** - group clients and topic to simplify access control management, and use the variable support in topic templates for a fine-grained access control.
+- **X.509 certificate [authentication](mqtt-client-authentication.md) ** - authenticate your devices the standard mechanism for device authentication in the IoT industry.
 - **TLS 1.2 and TLS 1.3 support** - secure your client communication using robust encryption protocols.
 - **Multi-session support** - connect your applications as MQTT clients in a reliable and scalable way.
 - **MQTT over WebSockets** - receive MQTT data directly into a web browser.
@@ -81,7 +81,7 @@ Event Grid offers a rich mixture of features. These include:
 
 ## MQTT Messaging
 
-Azure Event Grid enables your clients to communicate on custom MQTT topics using a publish-subscribe messaging model. Azure Event Grid supports clients that publish and subscribe to messages over MQTT v3.1.1, MQTT v3.1.1 over WebSockets, MQTT v5, and MQTT v5 over WebSockets. Event Grid authenticates clients and authorizes publish and subscribe requests according to configured permissions. Event Grid allows you to send MQTT messages to the cloud for data analysis, storage, and visualizations, among other use cases.
+Event Grid enables your clients to communicate on custom MQTT topics using a publish-subscribe messaging model. Event Grid supports clients that publish and subscribe to messages over MQTT v3.1.1, MQTT v3.1.1 over WebSockets, MQTT v5, and MQTT v5 over WebSockets. Event Grid authenticates clients and authorizes publish and subscribe requests according to configured permissions. Event Grid allows you to send MQTT messages to the cloud for data analysis, storage, and visualizations, among other use cases.
 <br/>
 
 :::image type="content" source="media/overview/mqtt-messaging.svg" alt-text="High-level diagram of Event Grid that shows bidirectional MQTT communication with publisher and subscriber clients." lightbox="media/overivew/mqtt-messaging.svg":::
@@ -141,7 +141,7 @@ A multi-tenant SaaS provider or platform can publish their events to Event Grid 
 
 ### Event Handlers
 
-An event subscription is a generic configuration resource that allows you to define the event handler or destination to which events are sent using push delivery.  The following [event handlers](https://learn.microsoft.com/en-us/azure/event-grid/event-handlers) are supported: 
+An event subscription is a generic configuration resource that allows you to define the event handler or destination to which events are sent using push delivery.  The following [event handlers](event-handlers.md) are supported: 
 
 - [Webhooks](handler-webhooks.md). Azure Automation runbooks and Logic Apps are supported via webhooks.
 - [Azure functions](handler-functions.md)
@@ -178,8 +178,8 @@ Event Grid operations involving Namespaces and its resources, including MQTT and
 ### MQTT messaging
 
 - [Overview](mqtt-overview.md) 
-- [Concepts](mqtt-concepts.md)
-- Quickstart: [Publish and subscribe to messages on a MQTT topic](mqtt-publish-and-subscribe-on-mqtt-topic.md).
+- [Publish and subscribe to MQTT messages](mqtt-publish-and-subscribe-portal.md)
+- [Route MQTT messages to Event Hubs](mqtt-routing-to-event-hubs-portal.md)
 
 ### Data distribution using pull or push  delivery
 

@@ -29,7 +29,7 @@ The maximum allowed size for an event is 1 MB. Events over 64 KB are charged in 
 
 
 #### Other formats
-Event Grid also supports the proprietary [Event Grid schema](https://learn.microsoft.com/en-us/azure/event-grid/event-schema) format for [system events publishers](https://learn.microsoft.com/en-us/azure/event-grid/event-schema-api-management?tabs=cloud-event-schema). You can configure Event Grid to [deliver events using the CloudEvents](https://learn.microsoft.com/en-us/azure/event-grid/cloud-event-schema#event-grid-for-cloudevents) format.
+Event Grid also supports the proprietary [Event Grid schema](event-schema.md) format for [system events publishers](event-schema-api-management.md?tabs=cloud-event-schema). You can configure Event Grid to [deliver events using the CloudEvents](cloud-event-schema.md#event-grid-for-cloudevents) format.
 
 
 ## Publishers
@@ -44,10 +44,6 @@ An event source is where the event happens. Each event source is related to one 
 
 A partner is a kind of publisher that sends events from its system to make them available to Azure customers. A partner is typically a SaaS or [ERP](https://en.wikipedia.org/wiki/Enterprise_resource_planning?) provider that integrates with Azure Event Grid to help customers realize event-driven use cases across platforms. Partners not only can publish events to Azure Event Grid, but they can also receive events from it. These capabilities are enabled through the [Partner Events](partner-events-overview.md) feature.
 
-## Topics
-
-A topic holds events that have been published to Event Grid. You typically use a topic resource for a collection of related events. To respond to certain types of events, subscribers (an Azure service or other applications) decide which topics to subscribe to. There are several kind of topics: Namespace topics, custom topics, system topics, and partner topics.
-
 ## Namespaces
 An Event Grid Namespace is a management container for the following resources:
 | Resource   | Protocol supported |
@@ -60,11 +56,20 @@ An Event Grid Namespace is a management container for the following resources:
 | Permission bindings | MQTT |
 |  |   |
 
+With an Azure Event Grid namespace you can group now together related resources and manage them as a single unit in your Azure subscription.
+
 A Namespace exposes two endpoints:
 - An HTTP endpoint to support general messaging requirements using  Namespace Topics 
 - An MQTT endpoint for IoT messaging or solutions that use MQTT.
   
 A Namespace also provides DNS-integrated network endpoints and a range of access control and network integration management features such as IP ingress filtering,private links. It is also the container of managed identities used for all contained resources that use them.
+
+### Throughput units
+The throughput units are pre-purchased units of capacity billed per hour. Once purchased, throughput units are billed for a minimum of one hour. Up to 5 throughput units can be purchased per Azure Event Grid namespace and shared across all the resources in that namespace.
+
+## Topics
+
+A topic holds events that have been published to Event Grid. You typically use a topic resource for a collection of related events. To respond to certain types of events, subscribers (an Azure service or other applications) decide which topics to subscribe to. There are several kind of topics: Namespace topics, custom topics, system topics, and partner topics.
 
 ### Namespace topics
 

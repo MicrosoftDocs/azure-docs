@@ -11,14 +11,14 @@ ms.date: 04/27/2023
 
 This article describes the steps to publish and consume events using the [CloudEvents](https://github.com/cloudevents/spec) with [JSON format](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md) using namespace topics and event subscriptions.
 
-Follow the steps in this article if you need to send application events to Event Grid so that they can be received by consumer clients that connect to Event Grid to read the events ([pull delivery](pull-and-push-delivery-overview)).
+Follow the steps in this article if you need to send application events to Event Grid so that they can be received by consumer clients that connect to Event Grid to read the events ([pull delivery](pull-and-push-delivery-overview.md)).
 
 >[!Important]
 > Namespaces, namespace topics, and event subscriptions associated to namespace topics are currently available in the following regions:
 > - East US          
 
 >[!Important]
-> The Azure [CLI Event Grid extension](https://learn.microsoft.com/en-us/cli/azure/eventgrid?view=azure-cli-latest) does not yet support namespaces and any of the resources it contains. We will use [Azure CLI resource](https://learn.microsoft.com/en-us/cli/azure/resource?view=azure-cli-latest) to create Event Grid resources.
+> The Azure [CLI Event Grid extension](.../cli/azure/eventgrid?view=azure-cli-latest) does not yet support namespaces and any of the resources it contains. We will use [Azure CLI resource](.../cli/azure/resource?view=azure-cli-latest) to create Event Grid resources.
 
 >[!Important]
 > Azure Event Grid namespaces currently supports Shared Access Signatures (SAS) token and access keys authentication.
@@ -27,7 +27,7 @@ Follow the steps in this article if you need to send application events to Event
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-- This article requires version 2.0.70 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.  **FIX ME** check if the version is correct
+- This article requires version 2.0.70 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.  
 
 ## Create a resource group
 
@@ -91,7 +91,7 @@ az resource create --resource-group $resource_group --namespace Microsoft.EventG
 
 ## create an event subscription
 
-Create an event subscription setting its delivery mode to *queue*, which supports [pull delivery](pull-and-push-delivery-overview.md#pull-delivery). For more information on all configuration options, please refer to the latest Event Grid control plane [REST API](https://learn.microsoft.com/en-us/rest/api/eventgrid/).
+Create an event subscription setting its delivery mode to *queue*, which supports [pull delivery](pull-and-push-delivery-overview.md#pull-delivery). For more information on all configuration options, please refer to the latest Event Grid control plane [REST API](.../rest/api/eventgrid/).
 
 Set the name of your event subscription on a variable:
 ```azurecli-interactive
