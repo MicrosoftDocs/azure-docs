@@ -17,7 +17,7 @@ The Azure Monitor Agent isn't a service that runs in the context of an Azure Res
 > If you have a older version of the agent, you can not copy the Troubleshooter on in to a VM to diagnose an older agent.
 
 
-## Prerequesets
+## Prerequisites
 The linux Troubleshooter requires Python 2.6+ or any Python3 installed on the machine. In addition, the following Python packages are required to run (all should be present on a default install of Python2 or Python3):
 
 |Python Package|	Required for Python2?	|Required for Python3?|
@@ -68,12 +68,12 @@ The detailed data collected by the troubleshooter include system configuration, 
 2. Go to the location where the troubleshooter is automatically installed: cd /var/lib/waagent/Microsoft.Azure.Monitor.AzureMonitorLinuxAgent-{version}/ama_tst
 3. Run the Troubleshooter: sudo sh ama_troubleshooter.sh A
 
-There are six sections that cover different scenarios that customers' have historically had issues with. By enter 1-6 or A, customer is able to diagnose issues with the agent. Adding an L creates a zip file that can be shared if technical support in needed.  
+There are six sections that cover different scenarios that customers have historically had issues with. By enter 1-6 or A, customer is able to diagnose issues with the agent. Adding an L creates a zip file that can be shared if technical support in needed.  
 
 ### Evaluate Linux Results
 The details for the covered scenarios are below:
 
-|Secnario | Tests|
+|Scenario | Tests|
 |:---|:---|
 |Agent having installation issues|Supported OS / version, Available disk space, Package manager is available (dpkg/rpm), Submodules are installed successfully, AMA installed properly, Syslog available (rsyslog/syslog-ng), Using newest version of AMA, Syslog user generated successfully|
 |Agent doesn't start, can't connect to Log Analytics|AMA parameters set up, AMA DCR created successfully, Connectivity to endpoints, Submodules started, IMDS/HIMDS metadata and MSI tokens available|
