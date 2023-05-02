@@ -166,8 +166,6 @@ items:
         items:
           - name: Create a customer tenant in the admin center
             href: how-to-create-customer-tenant-portal.md
-          - name: Create a customer tenant with Microsoft Graph
-            href: how-to-create-customer-tenant-graph.md
       - name: Add your app
         items:
           - name: Register an app

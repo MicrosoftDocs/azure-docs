@@ -28,7 +28,7 @@ In this article, you learn how to:
 ## Prerequisites
 
 - An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- An Azure account that's been assigned at least the [Contributor](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#contributor) role within the subscription or a resource group within the subscription is required.
+- An Azure account that's been assigned at least the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role within the subscription or a resource group within the subscription is required.
 - If you don't have an Azure account, sign up for a [30-day free trial](quickstart-trial-setup.md).
 
 ## Create a new customer tenant  <!--  The link https://aka.ms/ciam/create brings me to the correct manage tenants page, but in the Azure portal and not in the MS Entra admin center, even if I'm logged in to the MS Entra admin center. I manually have to copy tht URL to the admin center if I want to see this page there. (https://entra.microsoft.com/?enableNewTenantCreationUX=true&Microsoft_AAD_B2CAdmin_dc=CPIMEUSSU001-PPE-BL6P&Microsoft_AAD_B2CAdmin_slice=001-001#view/Microsoft_AAD_IAM/SelectTenantType.ReactView) -->
