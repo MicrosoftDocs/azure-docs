@@ -1,5 +1,5 @@
 ---
-title: Demystifying Attestation
+title: Attestation
 description: Demystifying Attestation
 author: jl-pm
 ms.service: virtual-machines
