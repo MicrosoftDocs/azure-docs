@@ -10,15 +10,16 @@ ms.author: eur
 
 #### Breaking change
 
-* JavaScript SDK: Online Certificate Status Protocol (OCSP) was removed. This allows clients to better conform to browser and Node standards for certificate handling. Version 1.28 and onward will not longer include our custom OCSP module.
+* **JavaScript SDK**: Online Certificate Status Protocol (OCSP) was removed. This allows clients to better conform to browser and Node standards for certificate handling. Version 1.28 and onward will not longer include our custom OCSP module.
 
 #### New Features
 
 * **Embedded Speech Recognition** now returns `NoMatchReason::EndSilenceTimeout` when a silence timeout occurs at the end of an utterance. This matches the behavior when doing recognition using the real-time speech service.
+* **JavaScript SDK**: Set properties on `SpeechTranslationConfig` using `PropertyId` enum values.
 
 #### Bug fixes
 
-* Fix for deadlock in Windows audio extension
+* **C# on Windows** - Fix potential race condition/deadlock in Windows audio extension. In scenarios that both dispose of the audio renderer quickly and also use the Synthesizer method to stop speaking, the underlying event was not reset by stop, and could cause the renderer object to never be disposed, all while it could be holding a global lock for disposal, freezing the dotnet GC thread.
 
 #### Samples
 
