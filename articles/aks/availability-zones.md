@@ -94,7 +94,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 Next, use the [kubectl describe][kubectl-describe] command to list the nodes in the cluster and filter on the `topology.kubernetes.io/zone` value. The following example is for a Bash shell.
 
-```azurecli-interactive
+```bash
 kubectl describe nodes | grep -e "Name:" -e "topology.kubernetes.io/zone"
 ```
 
@@ -113,7 +113,7 @@ As you add more nodes to an agent pool, the Azure platform automatically distrib
 
 With Kubernetes versions 1.17.0 and later, AKS uses the newer label `topology.kubernetes.io/zone` and the deprecated `failure-domain.beta.kubernetes.io/zone`. You can get the same result from running the `kubelet describe nodes` command in the previous step, by running the following script:
 
- ```azurecli-interactive
+ ```bash
 kubectl get nodes -o custom-columns=NAME:'{.metadata.name}',REGION:'{.metadata.labels.topology\.kubernetes\.io/region}',ZONE:'{metadata.labels.topology\.kubernetes\.io/zone}'
 ```
 
@@ -154,7 +154,7 @@ Name:       aks-nodepool1-28993262-vmss000004
 
 You now have two more nodes in zones 1 and 2. You can deploy an application consisting of three replicas. The following example uses NGINX:
 
-```azurecli-interactive
+```bash
 kubectl create deployment nginx --image=mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
 kubectl scale deployment nginx --replicas=3
 ```
