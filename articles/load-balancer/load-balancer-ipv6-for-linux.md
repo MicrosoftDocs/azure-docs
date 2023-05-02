@@ -28,6 +28,8 @@ This document describes how to enable DHCPv6 so that your Linux virtual machine 
 
 # [RHEL/CentOS/Oracle](#tab/redhat) 
 
+For RHEL, CentOS, and Oracle Linux versions 7.4 or higher, follow these steps:
+
 1. Edit the */etc/sysconfig/network* file, and add the following parameter:
 
     ```config
@@ -52,6 +54,8 @@ Content for Red Hat...
  
 # [openSUSE_13/SLES_11](#tab/suse)  
 
+## [SLES11/openSUSE_13](#tab/sles11)
+
 Recent SUSE Linux Enterprise Server (SLES) and openSUSE images in Azure have been preconfigured with DHCPv6. No other changes are required when you use these images. If you have a VM that's based on an older or custom SUSE image, follow these steps:
 
 1. Install the `dhcp-client` package, if needed:
@@ -72,7 +76,7 @@ Recent SUSE Linux Enterprise Server (SLES) and openSUSE images in Azure have bee
     sudo ifdown eth0 && sudo ifup eth0
     ``` 
 
-# [openSUSE_Leap/SLES_12](#tab/sles12)  
+## [openSUSE_Leap/SLES_12](#tab/sles12)  
 
 Recent SLES and openSUSE images in Azure have been preconfigured with DHCPv6. No other changes are required when you use these images. If you have a VM that's based on an older or custom SUSE image, follow these steps:
 
@@ -96,7 +100,7 @@ Recent SLES and openSUSE images in Azure have been preconfigured with DHCPv6. No
 
 # [Ubuntu](#tab/ubuntu) 
 
-For Ubuntu versions 17.10 or higher
+For Ubuntu versions 17.10 or higher, follow these steps:
 
 1. Edit the **`/etc/dhcp/dhclient.conf`** file, and add the following line:
 
