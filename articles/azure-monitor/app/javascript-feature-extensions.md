@@ -112,7 +112,7 @@ The following sections describe how to use the plug-in.
 
 ### Telemetry data storage
 Telemetry data generated from the click events are stored as `customEvents` in the Azure portal > Application Insights > Logs section.
-### `name` column
+### `name`
 The `name` column of the `customEvent` is populated based on the following rules:
   1. The `id` provided in the `data-*-id`, which means it must start with `data` and end with `id`, is used as the `customEvent` name. For example, if the clicked HTML element has the attribute `"data-sample-id"="button1"`, then `"button1"` is the `customEvent` name.
   1. If no such attribute exists and if the `useDefaultContentNameOrId` is set to `true` in the configuration, the clicked element's HTML attribute `id` or content name of the element is used as the `customEvent` name. If both `id` and the content name are present, precedence is given to `id`.
