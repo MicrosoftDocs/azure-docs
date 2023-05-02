@@ -34,14 +34,12 @@ landingContent:
             url: samples-ciam-all.md 
   - title: Create and edit user flows
     linkLists:
-      - linkListType: concept
-        links:
-          - text: Designing the flow of sign-in steps
-            url: concept-user-flows-customers.md
       - linkListType: how-to-guide
         links:
           - text: Add a sign-up and sign-in user flow
-            url: how-to-user-flow-sign-up-sign-in-customers.md            
+            url: how-to-user-flow-sign-up-sign-in-customers.md
+          - text: Enable self-service password reset
+            url: how-to-enable-password-reset-customers.md           
   - title: Customize branding
     linkLists:
       - linkListType: how-to-guide

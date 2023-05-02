@@ -92,3 +92,4 @@ At this point, the Facebook identity provider has been set up in your customer t
 ## Next steps
 
 - [Add Google as an identity provider](how-to-google-federation-customers.md)
+- [Customize the branding for customer sign-in experiences](how-to-customize-branding-customers.md)

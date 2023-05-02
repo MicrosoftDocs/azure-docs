@@ -27,6 +27,7 @@ Each report launches with a list of all detections for the period shown at the t
 
 Consider the following points when using Identity Protection:
 
+- Identity Protection is not available in trial tenants.
 - Identity Protection is on by default.
 - Identity Protection is available for both local and social identities, such as Google or Facebook. Detection is limited because the external identity provider manages the social account credentials.
 - Currently in Azure AD customer tenants, a subset of the [Azure AD Identity Protection risk detections](../../identity-protection/overview-identity-protection.md) is available. Azure AD for customers supports the following risk detections:  
@@ -40,20 +41,6 @@ Consider the following points when using Identity Protection:
 |Admin confirmed user compromised    | An admin has indicated that a user was compromised.             |
 |Password spray     | Sign-in through a password spray attack.      |
 |Azure AD threat intelligence     | Microsoft's internal and external threat intelligence sources have identified a known attack pattern.        |
-
-## Pricing tier
-<!--TBD - applicability to Azure AD customer tenant? -->
-The following table summarizes Identity Protection features and the required pricing tier.  
-
-|Feature   |P1   |P2|
-|----------|:-----------:|:------------:|
-|Risky users report     |&#x2713; |&#x2713; |
-|Risky users report details  | |&#x2713; |
-|Risky users report remediation    | &#x2713; |&#x2713; |
-|Risk detections report   |&#x2713;|&#x2713;|
-|Risk detections report details  ||&#x2713;|
-|Report download |  &#x2713;| &#x2713;|
-|MS Graph API access |  &#x2713;| &#x2713;|
 
 ## Investigate risky users
 

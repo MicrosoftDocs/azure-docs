@@ -93,3 +93,4 @@ At this point, the Google identity provider has been set up in your Azure AD, bu
 ## Next steps
 
 - [Add Facebook as an identity provider](how-to-facebook-federation-customers.md)
+- [Customize the branding for customer sign-in experiences](how-to-customize-branding-customers.md)
