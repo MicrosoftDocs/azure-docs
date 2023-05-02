@@ -1,6 +1,6 @@
 ---
 title: Configure F5 BIG-IP Easy Button for SSO to SAP ERP
-description: Learn to secure SAP ERP using Azure AD with F5 BIG-IP Easy Button Guided Gonfiguration.
+description: Learn to secure SAP ERP using Azure AD with F5 BIG-IP Easy Button Guided Configuration.
 services: active-directory
 author: gargi-sinha
 manager: martinco
@@ -45,7 +45,7 @@ The secure hybrid access (SHA) solution has the following components:
 
 SHA supports SP and IdP initiated flows. The following image illustrates the SP-initiated flow.
 
-   ![Secure hybrid access, the SP initiated flow.](./media/f5-big-ip-easy-button-sap-erp/sp-initiated-flow.png)
+   ![Diagram of secure hybrid access, the SP initiated flow.](./media/f5-big-ip-easy-button-sap-erp/sp-initiated-flow.png)
 
 1. User connects to application endpoint (BIG-IP)
 2. BIG-IP APM access policy redirects user to Azure AD (SAML IdP)
@@ -212,7 +212,7 @@ When users authenticate to Azure AD, it issues a SAML token with default claims 
 
 This tutorial is based on a .com domain suffix used internally and externally. No other attributes are required to achieve a functional Kerberos constrained delegation (KCD) SSO implementation.
 
-   ![Screenshot of the User Attributes & Claims tab](./media/f5-big-ip-easy-button-sap-erp/user-attributes-claims.png)
+   ![Screenshot of the User Attributes & Claims tab.](./media/f5-big-ip-easy-button-sap-erp/user-attributes-claims.png)
    
 You can include more Azure AD attributes. For this tutorial, SAP ERP requires the default attributes.
 
@@ -222,7 +222,7 @@ Learn more: [Tutorial: Configure F5 BIG-IP Access Policy Manager for Kerberos au
 
 The **Additional User Attributes** tab supports distributed systems requiring attributes stored in other directories, for session augmentation. Thus, attributes from an LDAP source are injected as more SSO headers to control role-based access, Partner IDs, etc.
 
-   ![Screenshot of the Addtional User Attributes tab](./media/f5-big-ip-easy-button-header/additional-user-attributes.png)
+   ![Screenshot of the Addtional User Attributes tab.](./media/f5-big-ip-easy-button-header/additional-user-attributes.png)
 
    >[!NOTE] 
    >This feature has no correlation to Azure AD but is another attribute source.
@@ -295,7 +295,7 @@ Use BIG-IP session management settings to define conditions when user sessions t
 
 To learn more, go to my.f5.com for [K18390492: Security | BIG-IP APM operations guide]( https://support.f5.com/csp/article/K18390492) 
 
-The operations guide doesn't cover Single Log-Out (SLO). This feature ensures sessions between the IdP, the BIG-IP, and the user agent terminate when users sign out. The Easy Button deploys a SAML application to the Azure AD tenant. It populates the Logout URL with the APM SLO endpoint. IdP initiated sign out from the [My Apps]( https://support.microsoft.com/en-us/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) portal terminates the BIG-IP and client session.
+The operations guide doesn't cover Single Log-Out (SLO). This feature ensures sessions between the IdP, the BIG-IP, and the user agent terminate when users sign out. The Easy Button deploys a SAML application to the Azure AD tenant. It populates the Logout URL with the APM SLO endpoint. IdP initiated sign out from the [My Apps]( https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) portal terminates the BIG-IP and client session.
 
 During deployment, the published-application SAML federation metadata is imported from the tenant. This action provides the APM the SAML sign out endpoint for Azure AD  and helps SP-initiated sign out terminate the client and Azure AD session.
 
