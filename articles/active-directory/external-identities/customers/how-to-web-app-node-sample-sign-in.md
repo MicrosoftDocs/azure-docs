@@ -128,7 +128,7 @@ You can now test the sample Node.js web app. You need to start the Node.js serve
 
 ### How it works
 
-When users select the **Sign in** link, the app initiates an authentication request and redirects users to Azure AD for customers. On the sign in or sign up page that appears, onces users successfully signs in or creates an account, Azure AD for customers returns an ID token to the app. The app validates the ID token, reads the claims, and returns a secure page to the users.  
+When users select the **Sign in** link, the app initiates an authentication request and redirects users to Azure AD for customers. On the sign-in or sign-up page that appears, once a user successfully signs in or creates an account, Azure AD for customers returns an ID token to the app. The app validates the ID token, reads the claims, and returns a secure page to the users.  
 
 When the users select the **Sign out** link, the app clears its session, the redirect the user to Azure AD for customers sign-out endpoint to notify it that the user has signed out.   
 
