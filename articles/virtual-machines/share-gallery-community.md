@@ -91,9 +91,12 @@ As a content publisher, you might want to share a gallery to the community:
 ## Reporting issues with a public image 
 Utilizing community-submitted virtual machine images has several risks. Certain images could harbor malware, security vulnerabilities, or violate someone's intellectual property. To help create a secure and reliable experience for the community, you can report images in which you see these issues.
 
-### Reporting images externally:
-- Malicious images: Contact [Abuse Report](https://msrc.microsoft.com/report/abuse).
+The easiest way to report issues with a community gallery is to use the portal, which will pre-fill information for the report:
+- For issues with links or other information in the fields of an image definition, select **Report community image**.
+- If an image version contains malicious code or there are other issues with a specific version of an image, select **Report** under the **Report version** column in the table of image versions.
 
+You can also use the following links to report issues, but the forms will not be pre-filled:
+- Malicious images: Contact [Abuse Report](https://msrc.microsoft.com/report/abuse).
 - Intellectual Property violations: Contact [Infringement Report](https://msrc.microsoft.com/report/infringement).
  
 ## Best practices
