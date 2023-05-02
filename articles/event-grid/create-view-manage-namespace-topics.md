@@ -12,27 +12,54 @@ ms.date: 04/28/2023
 ## Create a namespace topic
 
 1. Follow the [create, view and manage namespaces](create-view-manage-namespaces.md) steps to identify the namespace you want to use to create the topic.
+
 2. Once you are in the resource, click on the **Topics** option in the **Eventing** section.
+
+    :::image type="content" source="media/create-view-manage-namespace-topics/namespace-topics.png" alt-text="Screenshot showing Event Grid namespace topic section":::
+
 3. Click "**+ Topic**" button in the **Topics** blade.
-4. In the **Basics** tab, type the name of the topic you want to create.
-5. Select **Create** to create the topic.
-6. If you want to see the previously created topic, search for the topic in the list of topics and select it.
+
+    :::image type="content" source="media/create-view-manage-namespace-topics/namespace-topic-creation.png" alt-text="Screenshot showing Event Grid namespace topic creation":::
+
+4. In the **Basics** tab, type the name of the topic you want to create and select **Create**.
+
+    :::image type="content" source="media/create-view-manage-namespace-topics/namespace-topic-creation-basics.png" alt-text="Screenshot showing Event Grid namespace topic creation basics":::
 
 ## View a namespace topic
 
 1. Follow the [create, view, and manage namespaces](create-view-manage-namespaces.md) steps to identify the namespace you want to use to view the topic.
+
 2. Click on the **Topics** option in the **Eventing** section.
-3. Search for the topic you want to select.
-4. Select the topic.
+
+    :::image type="content" source="media/create-view-manage-namespace-topics/namespace-topics.png" alt-text="Screenshot showing Event Grid namespace topic section":::
+
+3. Search for the topic you want to select and select the topic.
+
+    :::image type="content" source="media/create-view-manage-namespace-topics/namespace-topic-search.png" alt-text="Screenshot showing Event Grid namespace topic search":::
+
+4. Explore the namespace topic settings.
+
+    :::image type="content" source="media/create-view-manage-namespace-topics/namespace-topic-overview.png" alt-text="Screenshot showing Event Grid namespace topic creation basics":::
 
 ## Delete a namespace topic
 
 1. Follow the [create, view, and manage namespaces](create-view-manage-namespaces.md) steps to identify the namespace you want to use to delete the topic.
+
 2. Click on the **Topics** option in the **Eventing** section.
-3. Search for the topic you want to delete.
-4. Select the topic.
-5. On the **Overview** page, select **Delete** on the toolbar.
-6. On the confirmation page, type the name of the resource and select **Delete** to confirm the deletion. It deletes the topic and also all the nested subscriptions.
+
+    :::image type="content" source="media/create-view-manage-namespace-topics/namespace-topics.png" alt-text="Screenshot showing Event Grid namespace topic section":::
+
+3. Search for the topic you want to delete and select the topic.
+
+    :::image type="content" source="media/create-view-manage-namespace-topics/namespace-topic-search.png" alt-text="Screenshot showing Event Grid namespace topic search":::
+
+4. On the **Overview** page, select **Delete** on the toolbar.
+
+    :::image type="content" source="media/create-view-manage-namespace-topics/delete-namespace-topic.png" alt-text="Screenshot showing Event Grid namespace topic deletion":::
+
+5. On the confirmation page, type the name of the resource and select **Delete** to confirm the deletion. It deletes the topic and also all the nested subscriptions.
+
+    :::image type="content" source="media/create-view-manage-namespace-topics/delete-namespace-topic-confirmation.png" alt-text="Screenshot showing how to confirm an Event Grid namespace topic deletion":::
 
 ## Next steps
 
