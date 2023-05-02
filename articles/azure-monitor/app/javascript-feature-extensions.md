@@ -120,8 +120,8 @@ The `name` column of the `customEvent` is populated based on the following rules
 
   > [!TIP]
   > We recommend setting `useDefaultContentNameOrId` to `true` for generating meaningful data.
-### `parentId` column
-To populate the `parentId` column of the `customEvent` table in the logs, declare the tag `parentDataTag` or define the `data-parentid` attribute.
+### `parentId` key
+To populate the `parentId` key within `customDimensions` of the `customEvent` table in the logs, declare the tag `parentDataTag` or define the `data-parentid` attribute.
      
 When you declare the `parentDataTag`, the plug-in fetches the value of `id` or `data-*-id` defined within the element that is closest to the clicked element as `parentId`. If both `data-*-id` and `id` are defined, precedence is given to `data-*-id`. `parentDataTag` behaves like a boolean, so you only need to declare it with a string value to set it to `true`. However, we recommend defining the `data-{parentDataTag}` or `customDataPrefix-{parentDataTag}` attribute to reduce the number of loops needed to find `parentId`. Declaring `parentDataTag` is useful when you need to use the plug-in with customized options.
 
