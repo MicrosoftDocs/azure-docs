@@ -11,7 +11,7 @@ ms.date: 04/25/2023
 Customer intent: As a dev infra admin, I want to install the Deployment Environments CLI extension so that I can create Deployment Environments resources from the command line.
 ---
 
-# Azure Deployment Environments Preview Azure CLI extension
+# Azure Deployment Environments Azure CLI extension
 
 In addition to the Azure admin portal and the developer portal, you can use the Deployment Environments Azure CLI extension to create resources. Azure Deployment Environments and Microsoft Dev Box use the same Azure CLI extension, which is called `devcenter`.
 

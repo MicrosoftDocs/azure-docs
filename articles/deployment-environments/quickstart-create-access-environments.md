@@ -12,7 +12,7 @@ ms.date: 04/25/2023
 
 # Quickstart: Create and access Azure Deployment Environments by using the developer portal
 
-This quickstart shows you how to create and access an [environment](concept-environments-key-concepts.md#environments) in an existing Azure Deployment Environments Preview project.
+This quickstart shows you how to create and access an [environment](concept-environments-key-concepts.md#environments) in an existing Azure Deployment Environments project.
 
 In this quickstart, you learn how to:
 
@@ -20,9 +20,6 @@ In this quickstart, you learn how to:
 >
 > - Create an environment
 > - Access an environment
-
-> [!IMPORTANT]
-> Azure Deployment Environments currently is in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, go to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 

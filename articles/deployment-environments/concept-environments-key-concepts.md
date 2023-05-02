@@ -10,12 +10,9 @@ author: RoseHJM
 ms.date: 04/25/2023
 ---
 
-# Key concepts for Azure Deployment Environments Preview
+# Key concepts for Azure Deployment Environments
 
-Learn about the key concepts and components of Azure Deployment Environments Preview. This knowledge can help you more effectively deploy environments for your scenarios.
-
-> [!IMPORTANT]
-> Azure Deployment Environments is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Learn about the key concepts and components of Azure Deployment Environments. This knowledge can help you more effectively deploy environments for your scenarios.
 
 ## Dev centers
 
@@ -64,7 +61,7 @@ Deployment environments scan the specified folder of the repository to find [cat
 A catalog item is a combination of an IaC template and a manifest file. The template defines the environment, and the manifest provides metadata about the template. Your development teams will use the items that you provide in the catalog to create environments in Azure.
 
 > [!NOTE]
-> During public preview, Azure Deployment Environments uses Azure Resource Manager (ARM) templates.
+> Azure Deployment Environments uses Azure Resource Manager (ARM) templates.
 
 ## ARM templates
 
