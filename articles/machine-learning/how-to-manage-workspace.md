@@ -44,7 +44,7 @@ As your needs change or requirements for automation increase you can also manage
             DefaultAzureCredential(interactive_browser_tenant_id="<TENANT_ID>")
             ```
                 
-        * (Optional) If you're working on a [sovereign cloud](reference-machine-learning-cloud-parity.md)**, specify the sovereign cloud to authenticate with into the `DefaultAzureCredential`..
+        * (Optional) If you're working on a [sovereign cloud](reference-machine-learning-cloud-parity.md), specify the sovereign cloud to authenticate with into the `DefaultAzureCredential`..
                 
             ```python
             from azure.identity import AzureAuthorityHosts
@@ -172,7 +172,7 @@ Use the following steps to provide your own key:
 > Before following these steps, you must first perform the following actions:
 >
 > Follow the steps in [Configure customer-managed keys](how-to-setup-customer-managed-keys.md) to:
-
+>
 > * Register the Azure Cosmos DB provider
 > * Create and configure an Azure Key Vault
 > * Generate a key
