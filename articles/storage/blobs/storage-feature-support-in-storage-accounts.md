@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/23/2023
+ms.date: 05/02/2023
 ms.author: normesta
 ---
 
@@ -42,9 +42,7 @@ The following table describes whether a feature is supported in a standard gener
 
 | Storage feature | Default | HNS   | NFS  | SFTP |
 |---------------|-------------------|---|---|--|
-| [Access tier - archive](access-tiers-overview.md) | &#x2705; | &#x2705;<sup>3</sup> | &#x2705;<sup>3</sup> | &#x2705;<sup>3</sup> |
-| [Access tier - cool](access-tiers-overview.md)	| &#x2705; | &#x2705;<sup>3</sup> | &#x2705;<sup>3</sup>| &#x2705;<sup>3</sup> |
-| [Access tier - hot](access-tiers-overview.md) | &#x2705; | &#x2705;<sup>3</sup> | &#x2705;<sup>3</sup> | &#x2705;<sup>3</sup> |
+| [Access tiers (hot, cool, cold, and archive)](access-tiers-overview.md) | &#x2705; | &#x2705;<sup>3</sup> | &#x2705;<sup>3</sup> | &#x2705;<sup>3</sup> |
 | [Azure Active Directory security](authorize-access-azure-active-directory.md) | &#x2705; | &#x2705; | &#x2705;<sup>1</sup>  | &#x2705;<sup>1</sup>  |
 | [Azure DNS Zone endpoints (preview)](../common/storage-account-overview.md?toc=/azure/storage/blobs/toc.json#storage-account-endpoints) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Blob inventory](blob-inventory.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
@@ -94,9 +92,7 @@ The following table describes whether a feature is supported in a premium block 
 
 | Storage feature | Default | HNS   | NFS  | SFTP |
 |---------------|-------------------|---|---|--|
-| [Access tier - archive](access-tiers-overview.md)  | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
-| [Access tier - cool](access-tiers-overview.md) | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
-| [Access tier - hot](access-tiers-overview.md) | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
+| [Access tiers (hot, cool, cold, and archive)](access-tiers-overview.md)  | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Azure Active Directory security](authorize-access-azure-active-directory.md) | &#x2705; | &#x2705; | &#x2705;<sup>1</sup>  | &#x2705;<sup>1</sup> |
 | [Azure DNS Zone endpoints (preview)](../common/storage-account-overview.md?toc=/azure/storage/blobs/toc.json#storage-account-endpoints) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Blob inventory](blob-inventory.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
