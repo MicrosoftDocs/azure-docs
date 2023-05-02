@@ -113,13 +113,17 @@ Your function app might be in an unresponsive state due to conflicting port assi
 
 By default, the container in which your function app runs uses port `:80`. When other services in the same container are also trying to using port `:80`, the function app can fail to start. If your logs show port conflicts, change the default ports.
 
-## Host ID collision 
+### Host ID collision 
 
 Starting with version 3.x of the Functions runtime, [host ID collision](storage-considerations.md#host-id-considerations) are detected and logged as a warning. In version 4.x, an error is logged and the host is stopped. If the runtime can't start for your function app, [review the logs](analyze-telemetry-data.md). If there's a warning or an error about host ID collisions, follow the mitigation steps in [Host ID considerations](storage-considerations.md#host-id-considerations).  
 
-## Read-only app settings
+### Read-only app settings
 
-Changing any _read-only_ [App Service application settings](../app-service/reference-app-settings.md#app-environment) can put your function app into an unreachable state. 
+Changing any _read-only_ [App Service application settings](../app-service/reference-app-settings.md#app-environment) can put your function app into an unreachable state.
+
+### ASP.NET authentication overrides
+
+Configuring ASP.NET authentication in a Functions startup class can override services that are required for the Azure portal to communicate with the host. This includes, but is not limited to, any calls to `AddAuthentication()`. If the host's authentication services are overridden and the portal cannot communicate with the host, it will consider the app unreachable. This may result in errors such as `No authentication handler is registered for the scheme 'ArmToken'.`.
 
 ## Next steps
 
