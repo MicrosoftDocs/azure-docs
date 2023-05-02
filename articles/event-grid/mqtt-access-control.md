@@ -104,6 +104,5 @@ With this configuration, only the client with client authentication name “mach
 Learn more about authorization and authentication:
 
 - [Client authentication](mqtt-client-authentication.md)
-- [Clients](mqtt-client.md)
-- [Client groups](mqtt-client-groups.md)
+- [Clients and client groups](mqtt-clients-and-client-groups.md)
 - [Topic Spaces](mqtt-topic-spaces.md)
