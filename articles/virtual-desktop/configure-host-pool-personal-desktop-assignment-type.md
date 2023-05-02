@@ -3,7 +3,7 @@ title: Configure personal desktop assignment in Azure Virtual Desktop  - Azure
 description: How to configure automatic or direct assignment for an Azure Virtual Desktop personal desktop host pool.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/26/2023
+ms.date: 05/03/2023
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
 manager: femila
@@ -64,7 +64,7 @@ To configure automatic assignment in the Azure portal:
 
 1. Next, select **Properties**, then go to the **Assignment** drop-down menu and select **Automatic**.
 
-2. Select **Save**.
+1. Select **Save**.
 
 #### [PowerShell](#tab/powershell)
 
@@ -88,19 +88,13 @@ Unlike automatic assignment, when you use direct assignment, you assign a specif
 
 To configure direct assignment in the Azure portal:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. Enter **Azure Virtual Desktop** into the search bar.
+1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
 
-1. Under **Services**, select **Azure Virtual Desktop**.
+1. Select **Host pools**, then select the personal host pool you want to configure automatic assignment.
 
-1. At the Azure Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
-
-1. Select the host pool you want to assign users to.
-
-1. Next, go to the menu on the left side of the window and select **Properties**.
-
-1. In the **Basics** tab, go to the **Assignment** drop-down menu and select **Direct**.
+1. Next, select **Properties**, then go to the **Assignment** drop-down menu and select **Direct**.
 
 1. Select **Save**.
 
@@ -110,12 +104,6 @@ To configure a host pool to require direct assignment of users to session hosts,
 
 ```powershell
 Update-AzWvdHostPool -ResourceGroupName $resourceGroupName -Name $hostPoolName -PersonalDesktopAssignmentType Direct
-```
-
-To assign a user to the personal desktop host pool, run the following PowerShell cmdlet:
-
-```powershell
-New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <appgroupname> -ResourceGroupName $resourceGroupName -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
 ```
 ---
 
@@ -260,33 +248,28 @@ Invoke-AzRestMethod @reassignDesktopParams
 
 ## Give session hosts in a personal host pool a friendly name
 
-You can give personal desktops you create *friendly names* to help users distinguish them in their feeds.
+You can give personal desktops you create *friendly names* to help users distinguish them in their feeds. You need a [REST API](/rest/api/desktopvirtualization/session-hosts/update?tabs=HTTP) to configure the friendly name.
 
-You can configure a friendly name by using a [REST API](/rest/api/desktopvirtualization/session-hosts/update?tabs=HTTP).
+Run the following command in PowerShell to use the REST API to give your session host a friendly name:
+
+```powershell
+$body = '{ "properties": {
+"friendlyName": "friendlyName"
+} }'
+$parameters = @{
+    Method = 'Patch'
+    Path = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DesktopVirtualization/hostPools/$hostPoolName/sessionHosts/$($sessionHostName)?api-version=2022-02-10-preview"
+    Payload = $body
+}
+
+Invoke-AzRestMethod @parameters
+```
+
+The Azure portal doesn't currently have a way to give session host friendly names.
 
 ### Get the session host friendly name
 
-#### [Azure portal](#tab/azure)
-
-To view the session host friendly name in the Azure portal:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Enter **Azure Virtual Desktop** into the search bar.
-
-1. Under **Services**, select **Azure Virtual Desktop**.
-
-1. At the Azure Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
-
-1. Select the host pool you want to view.
-
-1. Next, go to the menu on the left side of the window and select **Properties**.
-
-1. In the **Basics** tab, you should see a field that says **Friendly name**. If the host pool has a friendly name, you'll be able to see it in the field.
-
-#### [PowerShell](#tab/powershell)
-
-To get the session host friendly name, run this command in PowerShell:
+To get the session host friendly name, run the following command in PowerShell:
 
 ```powershell
 $getParams = @{
@@ -295,7 +278,8 @@ $getParams = @{
 }
 Invoke-AzRestMethod @getParams
 ```
----
+
+There isn't currently a way to get the session host friendly name in the Azure portal.
 
 ## Next steps
 
