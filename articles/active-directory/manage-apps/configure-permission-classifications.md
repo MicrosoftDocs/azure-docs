@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 2/24/2023
 ms.author: jomondi
 ms.reviewer: phsignor, jawoods
-ms.custom: contperf-fy21q2,
+ms.custom: contperf-fy21q2
 zone_pivot_groups: enterprise-apps-all
 
 #customer intent: As an admin, I want configure permission classifications for applications in Azure AD
