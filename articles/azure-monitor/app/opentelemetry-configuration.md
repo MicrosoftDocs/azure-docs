@@ -20,7 +20,7 @@ A connection string in Application Insights defines the target location for send
 
 ### [Java](#tab/java)
 
-
+See the [Java supplemental documentation](java-standalone-config.md) for more information.
 ### [Node.js](#tab/nodejs)
 
 
@@ -330,7 +330,7 @@ You might want to enable the OpenTelemetry Protocol (OTLP) Exporter alongside yo
 
 #### [Java](#tab/java)
 
-Coming soon.
+See the [Java supplemental documentation](java-standalone-config.md) for more information.
 
 #### [Node.js](#tab/nodejs)
 
