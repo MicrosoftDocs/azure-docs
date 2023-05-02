@@ -11,7 +11,7 @@ ms.workload: identity
 ms.date: 11/24/2022
 ms.author: jomondi
 ms.reviewer: saibandaru
-ms.custom: contperf-fy23q1
+ms.custom: contperf-fy23q1, enterprise-apps
 #Customer intent: As an Azure AD administrator, I want to make applications available to users in the My Apps portal.
 
 ---
