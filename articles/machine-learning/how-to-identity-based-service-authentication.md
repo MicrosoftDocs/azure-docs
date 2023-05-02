@@ -64,7 +64,7 @@ For automated creation of role assignments on your user-assigned managed identit
 
 To create a workspace with user assigned identity, use one of the following methods:
 
-# [Azure CLI](#tab/cli)
+# [Azure CLI](#tab/cli_)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -90,7 +90,7 @@ image_build_compute: <compute(virtual machine) resource ID>
 primary_user_assigned_identity: <one of the UAI resource IDs in the above list>
 ```
 
-# [Python SDK](#tab/python)
+# [Python SDK](#tab/python_)
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
