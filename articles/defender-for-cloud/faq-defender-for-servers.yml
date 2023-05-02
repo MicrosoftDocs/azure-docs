@@ -4,7 +4,7 @@ metadata:
   description: Get answers to common questions about Microsoft Defender for Servers.
   ms.topic: faq
   ms.service: defender-for-cloud
-  ms.date: 05/01/2023
+  ms.date: 05/02/2023
 title: Frequently asked questions for Defender for Servers
 summary: Get answers to common questions about Microsoft Defender for Servers.
 
@@ -28,7 +28,7 @@ sections:
 
           :::image type="content" source="media/faq-defender-for-servers/support-ticket-description.png" alt-text="Support ticket description with the information filled out":::
 
-          In the *Additional details* section enter the following information:
+          In the *Additional details* tab enter the following information:
           - Customer Org name - enter the name of the organization that is requesting the discount.
           - Tenant ID - enter the tenant ID of the organization that is requesting the discount.
           - The number of Microsoft Defender for Endpoint for Servers licenses that were purchased.
