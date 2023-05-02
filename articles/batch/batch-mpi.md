@@ -59,8 +59,9 @@ myCloudPool.InterComputeNodeCommunicationEnabled = true;
 myCloudPool.TaskSlotsPerNode = 1;
 ```
 
-> [!NOTES]
+> [!NOTE]
 > If you try to run a multi-instance task in a pool with internode communication disabled, or with a *taskSlotsPerNode* value greater than 1, the task is never scheduled--it remains indefinitely in the "active" state.
+> 
 > Pools with InterComputeNodeCommunication enabled will not allow automatically the deprovision of the node.
 
 ### Use a StartTask to install MPI
