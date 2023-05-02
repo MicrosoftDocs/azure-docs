@@ -73,7 +73,7 @@ To complete registration, provide the application a name, specify the supported 
 1. Open Visual Studio Code, select **File** > **Open Folder...**. Navigate to and select the location in which to create your project.
 1. Open a new terminal by selecting **Terminal** > **New Terminal**.
     1. You may need to switch terminal types. Select the down arrow next to the **+** icon in the terminal and select **Command Prompt**. 
-1. Run the following commands to install the create a new Angular project with the name *msal-angular-tutorial*, install Angular Material component libraries, MSAL Browser, MSAL Angular and generate home and profile components.
+1. Run the following commands to create a new Angular project with the name *msal-angular-tutorial*, install Angular Material component libraries, MSAL Browser, MSAL Angular and generate home and profile components.
 
     ```cmd
     npm install -g @angular/cli                        
@@ -221,7 +221,7 @@ To complete registration, provide the application a name, specify the supported 
 
 ## Sign in a user
 
-Add the code from the following sections to invoke login using a pop-up window or a full-frame redirect.
+Add the code from the following sections to invoke sign in using a pop-up window or a full-frame redirect.
 
 ### Sign in using pop-ups
 
@@ -269,7 +269,7 @@ Add the code from the following sections to invoke login using a pop-up window o
 
 ### Sign in using redirects
 
-1. Update *src/app/app.module.ts* to bootstrap the `MsalRedirectComponent`. This is a dedicated redirect component which will handle redirects. Change the `MsalModule` import and `AppComponent` bootstrap to resemble the following:
+1. Update *src/app/app.module.ts* to bootstrap the `MsalRedirectComponent`. This is a dedicated redirect component, which handles redirects. Change the `MsalModule` import and `AppComponent` bootstrap to resemble the following:
 
     ```javascript
     ...
@@ -360,7 +360,7 @@ Add the code from the following sections to invoke login using a pop-up window o
 
 ## Conditional rendering
 
-In order to render certain UI only for authenticated users, components have to subscribe to the `MsalBroadcastService` to see if users have been signed in and interaction has completed.
+In order to render certain UI only for authenticated users, components have to subscribe to the `MsalBroadcastService` to see if users have been signed in, and interaction has completed.
 
 1. Add the `MsalBroadcastService` to *src/app/app.component.ts* and subscribe to the `inProgress$` observable to check if interaction is complete and an account is signed in before rendering UI. Your code should now look like this:
 
@@ -471,9 +471,9 @@ In order to render certain UI only for authenticated users, components have to s
 
 ### Angular Guard
 
-The `MsalGuard` class is one you can use to protect routes and require authentication before accessing the protected route. The following steps add the `MsalGuard` to the `Profile` route. Protecting the `Profile` route means that even if a user does not sign in using the `Login` button, if they try to access the `Profile` route or click the `Profile` button, the `MsalGuard` will prompt the user to authenticate via pop-up or redirect before showing the `Profile` page.
+The `MsalGuard` class is one you can use to protect routes and require authentication before accessing the protected route. The following steps add the `MsalGuard` to the `Profile` route. Protecting the `Profile` route means that even if a user doesn't sign in using the `Login` button, if they try to access the `Profile` route or select the `Profile` button, the `MsalGuard` prompts the user to authenticate via pop-up or redirect before showing the `Profile` page.
 
-`MsalGuard` is a convenience class you can use improve the user experience, but it should not be relied upon for security. Attackers can potentially get around client-side guards, and you should ensure that the server does not return any data the user should not access.
+`MsalGuard` is a convenience class you can use improve the user experience, but it shouldn't be relied upon for security. Attackers can potentially get around client-side guards, and you should ensure that the server doesn't return any data the user shouldn't access.
 
 1. Add the `MsalGuard` class as a provider in your application in *src/app/app.module.ts*, and add the configurations for the `MsalGuard`. Scopes needed for acquiring tokens later can be provided in the `authRequest`, and the type of interaction for the Guard can be set to `Redirect` or `Popup`. Your code should look like the following:
 
@@ -626,7 +626,7 @@ The `MsalGuard` class is one you can use to protect routes and require authentic
 
 MSAL Angular provides an `Interceptor` class that automatically acquires tokens for outgoing requests that use the Angular `http` client to known protected resources.
 
-1. Add the `Interceptor` class as a provider to your application in *src/app/app.module.ts*, with its configurations. Your code should now look like this:
+1. Add the `Interceptor` class as a provider to your application in *src/app/app.module.ts*, with its configurations. Your code should now look like the following:
 
     ```javascript
     import { BrowserModule } from '@angular/platform-browser';
@@ -706,12 +706,9 @@ MSAL Angular provides an `Interceptor` class that automatically acquires tokens 
     * `["<Application ID URL>/scope"]` for custom web APIs (that is, `api://<Application ID>/access_as_user`)
     
     Modify the values in the `protectedResourceMap` as described here:
+    - `Enter_the_Graph_Endpoint_Here` is the instance of the Microsoft Graph API the application should communicate with. For the **global** Microsoft Graph API endpoint, replace this string with `https://graph.microsoft.com`. For endpoints in **national** cloud deployments, see [National cloud deployments](/graph/deployments) in the Microsoft Graph documentation.
 
-    |Value name| About|
-    |----------|------|
-    |`Enter_the_Graph_Endpoint_Here`| The instance of the Microsoft Graph API the application should communicate with. For the **global** Microsoft Graph API endpoint, replace both instances of this string with `https://graph.microsoft.com`. For endpoints in **national** cloud deployments, see [National cloud deployments](/graph/deployments) in the Microsoft Graph documentation.|
-
-2. Replace the code in *src/app/profile/profile.component.ts* to retrieve a user's profile with an HTTP request:
+2. Replace the code in *src/app/profile/profile.component.ts* to retrieve a user's profile with an HTTP request, and replace the `GRAPH_ENDPOINT` with the Microsoft Graph endpoint:
 
     ```JavaScript
     import { Component, OnInit } from '@angular/core';
@@ -953,9 +950,9 @@ After you sign in, select **Profile** to view the user profile information retur
 
 ## Add scopes and delegated permissions
 
-The Microsoft Graph API requires the _User.Read_ scope to read a user's profile. The _User.Read_ scope is added automatically to every app registration you create in the Azure portal. Other APIs for Microsoft Graph, as well as custom APIs for your back-end server, might require additional scopes. For example, the Microsoft Graph API requires the _Mail.Read_ scope in order to list the user's email.
+The Microsoft Graph API requires the _User.Read_ scope to read a user's profile. The _User.Read_ scope is added automatically to every app registration you create in the Azure portal. Other APIs for Microsoft Graph, and custom APIs for your back-end server, might require other scopes. For example, the Microsoft Graph API requires the _Mail.Read_ scope in order to list the user's email.
 
-As you add scopes, your users might be prompted to provide additional consent for the added scopes.
+As you add scopes, your users might be prompted to provide extra consent for the added scopes.
 
 >[!NOTE]
 >The user might be prompted for additional consents as you increase the number of scopes.
@@ -964,7 +961,7 @@ As you add scopes, your users might be prompted to provide additional consent fo
 
 ## Next steps
 
-Delve deeper into single-page application (SPA) development on the Microsoft identity platform in our the multi-part article series.
+Delve deeper into single-page application (SPA) development on the Microsoft identity platform in our multi-part article series.
 
 > [!div class="nextstepaction"]
 > [Scenario: Single-page application](scenario-spa-overview.md)
