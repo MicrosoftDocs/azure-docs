@@ -152,11 +152,11 @@ items:
           href: how-to/coco-verification.md
       - name: Shelf Analysis
         items:
-        - name: Prepare images for shelf analysis
+        - name: Prepare images for Shelf Analysis
           href: how-to/shelf-modify-images.md
         - name: Analyze products on a shelf
           href: how-to/shelf-analyze.md
-        - name: Create a custom shelf analysis model
+        - name: Create a custom Shelf Analysis model
           href: how-to/shelf-model-customization.md
         - name: Check planogram compliance
           href: how-to/shelf-planogram.md

@@ -15,7 +15,7 @@ ms.author: pafarley
 
 # Shelf Analysis (version 4.0 preview)
 
-The Shelf Analysis APIs let you analyze photos of shelves in a retail store. You can detect the presence of products and get their bounding box coordinates. Use it in combination with model customization to train a model to identify your specific products. You can also compare shelf analysis results to your store's planogram document.
+The Shelf Analysis APIs let you analyze photos of shelves in a retail store. You can detect the presence of products and get their bounding box coordinates. Use it in combination with model customization to train a model to identify your specific products. You can also compare Shelf Analysis results to your store's planogram document.
 
 Try out the capabilities of Shelf Analysis quickly and easily in your browser using Vision Studio. TbD
 

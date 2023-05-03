@@ -14,12 +14,12 @@ ms.author: pafarley
 
 # Check planogram compliance with Image Analysis
 
-A planogram is a diagram that indicates the correct placement of retail products on shelves. The Image Analysis Planogram Matching API lets you compare shelf analysis results from a photo to the store's planogram input. It returns an account of all the positions in the planogram, and whether a product was found in each position.
+A planogram is a diagram that indicates the correct placement of retail products on shelves. The Image Analysis Planogram Matching API lets you compare analysis results from a photo to the store's planogram input. It returns an account of all the positions in the planogram, and whether a product was found in each position.
 
 :::image type="content" source="../media/shelf/planogram.png" alt-text="Photo of a retail shelf with detected products oulined and planogram position rectangles outlined separately.":::
 
 ## Prerequisites
-* You must have already set up and run basic [shelf analysis](./shelf-analyze.md) with the Product Understanding API.
+* You must have already set up and run basic [Product Understanding analysis](./shelf-analyze.md) with the Product Understanding API.
 * [cURL](https://curl.haxx.se/) installed. Or, you can use a different REST platform, like Postman, Swagger, or the REST Client extension for VS Code.
 
 ## Prepare a planogram schema
@@ -108,9 +108,9 @@ Describes a product's position in a planogram.
 | `x` | double | Left offset from the origin, in units of in inches or centimeters. | Yes |
 | `y` | double | Top offset from the origin, in units of inches or centimeters. | Yes |
 
-## Get shelf analysis results
+## Get analysis results
 
-Next, you need to do a [shelf analysis](./shelf-analyze.md) API call with a [custom model](./shelf-model-customization.md). 
+Next, you need to do a [Product Understanding](./shelf-analyze.md) API call with a [custom model](./shelf-model-customization.md). 
 
 The returned JSON text should be a `"detectedProducts"` structure. It shows all the products that were detected on the shelf, with the product-specific labels you used in the training stage.
 
@@ -159,7 +159,7 @@ The returned JSON text should be a `"detectedProducts"` structure. It shows all 
 
 ## Prepare the matching request
 
-Join the JSON content of your planogram schema with the JSON content of the shelf analysis results, like this:
+Join the JSON content of your planogram schema with the JSON content of the analysis results, like this:
 
 ```json
 "planogram": {

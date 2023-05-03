@@ -1,7 +1,7 @@
 ---
-title: Train a custom model for shelf analysis
+title: Train a custom model for Shelf Analysis
 titleSuffix: Azure Cognitive Services
-description: Learn how to use the Image Analysis model customization feature to train a model to recognize specific products in a shelf analysis task.
+description: Learn how to use the Image Analysis model customization feature to train a model to recognize specific products in a Shelf Analysis task.
 author: PatrickFarley
 manager: nitinme
 
@@ -12,15 +12,15 @@ ms.date: 05/02/2023
 ms.author: pafarley
 ---
 
-# Train a custom shelf analysis model
+# Train a custom Shelf Analysis model
 
-You can train a custom model to recognize specific retail products for use in a shelf analysis scenario. The out-of-box [Shelf Analyze](shelf-analyze.md) operation doesn't differentiate between products, but you can build this capability into your app through custom labeling and training.
+You can train a custom model to recognize specific retail products for use in a Shelf Analysis scenario. The out-of-box [Shelf Analyze](shelf-analyze.md) operation doesn't differentiate between products, but you can build this capability into your app through custom labeling and training.
 
 :::image type="content" source="../media/shelf/shelf-analysis-custom.png" alt-text="Photo of a retail shelf with product names and gaps highlighted with rectangles.":::
 
 ## Use the model customization feature
 
-The [Model customization how-to guide](./model-customization.md) shows you how to train and publish a custom Image Analysis model. You can follow that guide, with a few specifications, to make a model for shelf analysis.
+The [Model customization how-to guide](./model-customization.md) shows you how to train and publish a custom Image Analysis model. You can follow that guide, with a few specifications, to make a model for Shelf Analysis.
 
 > [!div class="nextstepaction"]
 > [Model customization](model-customization.md)
@@ -50,7 +50,7 @@ curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: app
 
 ## Next steps
 
-In this guide, you learned how to use a custom shelf analysis model to better meet your business needs. Next, set up planogram matching, which works in conjunction with custom shelf analysis.
+In this guide, you learned how to use a custom Shelf Analysis model to better meet your business needs. Next, set up planogram matching, which works in conjunction with custom Shelf Analysis.
 
 > [!div class="nextstepaction"]
 > [Planogram matching](shelf-planogram.md)

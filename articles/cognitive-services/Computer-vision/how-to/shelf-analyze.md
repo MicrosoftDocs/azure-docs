@@ -146,9 +146,9 @@ Describes the image classification confidence of a label.
 
 ## Next steps
 
-In this guide, you learned how to make a basic shelf analysis call using the pre-trained Product Understanding REST API. Next, learn how to use a custom shelf analysis model to better meet your business needs.
+In this guide, you learned how to make a basic analysis call using the pre-trained Product Understanding REST API. Next, learn how to use a custom Shelf Analysis model to better meet your business needs.
 
 > [!div class="nextstepaction"]
-> [Train a custom model for shelf analysis](../how-to/shelf-model-customization.md)
+> [Train a custom model for Shelf Analysis](../how-to/shelf-model-customization.md)
 
 * [Image Analysis overview](../overview-image-analysis.md)
