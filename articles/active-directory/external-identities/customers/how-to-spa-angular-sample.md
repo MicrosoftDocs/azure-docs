@@ -82,8 +82,7 @@ npm install
 
 ## Configure the sample SPA
 
-1. Open `SPA\src\authConfig.js`.
-1. Replace the following values with the values from the Admin center.
+1. Open `SPA\src\authConfig.js` and replace the following with the values obtained from the Microsoft Entra admin center
     * `clientId` - The identifier of the application, also referred to as the client. Replace `Enter_the_Application_Id_Here` with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
     * `authority` - The identity provider instance and sign-in audience for the app. Replace `Enter_the_Tenant_Name_Here` with the name of your CIAM tenant.
     * The *Tenant ID* is the identifier of the tenant where the application is registered. Replace the `_Enter_the_Tenant_Info_Here` with the **Directory (tenant) ID** value that was recorded earlier from the overview page of the registered application.
@@ -97,15 +96,15 @@ All the required code snippets have been added, so the application can now be ca
 1. Run the following command to start your express web server.
 
     ```powershell
-        cd 1-Authentication\2-sign-in-angular\SPA
-        npm start
+cd 1-Authentication\2-sign-in-angular\SPA
+npm start
     ```
 
 1. Open a web browser and navigate to `http://localhost:3000/`.
 
-1. Sign-in with an account registered to the CIAM tenant.
+1. Sign-in with an account registered to the Azure AD for customers tenant.
 
-1. Once signed in the display name is shown next to the **Sign out** button as shown in the following screenshot.
+1. Once you successfully sign-in, the display name is shown next to the **Sign out** button similar to the following screenshot.
 
 ## Next steps
 
