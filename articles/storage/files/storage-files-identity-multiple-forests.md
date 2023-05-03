@@ -107,8 +107,15 @@ Instead, we recommend using the icacls command-line utility to configure directo
 If icacls fails with an *Access is denied* error, follow these steps to configure directory and file-level permissions by mounting the share with the storage account key.
 
 1. Delete the existing share mount: `net use * /delete /y`
-1. Re-mount the share using the storage account key: `net use <driveletter> \\storageaccount.file.core.windows.net\sharename /user:AZURE\<storageaccountname> <storageaccountkey>`
+
+1. Re-mount the share using the storage account key:
+   
+   ```
+   net use <driveletter> \\storageaccount.file.core.windows.net\sharename /user:AZURE\<storageaccountname> <storageaccountkey>
+   ```
+   
 1. Set icacls permissions for user in **Forest2** on storage account joined to **Forest1** from client in **Forest1**.
+
 1. Repeat the same steps for user in **Forest2** on storage account joined to **Forest1** from client in **Forest2**.
 
 ## Configure domain suffixes
