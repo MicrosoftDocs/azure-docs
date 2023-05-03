@@ -28,7 +28,7 @@ ms.date: 05/04/2023
 
 ### What are the benefits of upgrading?
 
-App Service Environment v3 is the latest version of App Service Environment. It's easier to use, runs on more powerful infrastructure that can go up to 64 cores and 256 GB RAM with faster scaling speeds for both Windows and Linux, and has simpler network topology. For more details about these and other benefits, see the following resources.
+App Service Environment v3 is the latest version of App Service Environment. It's easier to use, runs on more powerful infrastructure that can go up to 64 cores and 256-GB RAM with faster scaling speeds for both Windows and Linux, and has simpler network topology. For more information about these and other benefits, see the following resources.
 
 - [Three reasons why you should prioritize migrating to App Service Environment v3 for your business](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/three-reasons-why-you-should-prioritize-migrating-to-app-service/ba-p/3596628)
 - [Estimate your cost savings by migrating to App Service Environment v3](https://azure.github.io/AppService/2023/03/02/App-service-environment-v3-pricing.html)
