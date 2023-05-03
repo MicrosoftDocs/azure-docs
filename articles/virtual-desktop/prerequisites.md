@@ -15,8 +15,8 @@ At a high level, you'll need:
 
 > [!div class="checklist"]
 > - An Azure account with an active subscription
-> - An identity provider
-> - A supported operating system
+> - A supported identity provider
+> - A supported operating system for session host virtual machines
 > - Appropriate licenses
 > - Network connectivity
 > - A Remote Desktop client
