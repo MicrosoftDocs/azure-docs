@@ -44,7 +44,7 @@ The [sample solution](https://github.com/Azure-Samples/container-apps-store-api-
 
 In the console, set the following environment variables:
 
-# [azurecli](#tab/azurecli)
+# [Azure CLI](#tab/azure-cli)
 
 Replace \<PLACEHOLDERS\> with your values.
 
@@ -70,7 +70,7 @@ $SubscriptionId="<SubscriptionId>"
 
 Sign in to Azure from the CLI using the following command, and follow the prompts in your browser to complete the authentication process.
 
-# [azurecli](#tab/azurecli)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az login
@@ -86,7 +86,7 @@ Connect-AzAccount
 
 Ensure you're running the latest version of the CLI via the upgrade command.
 
-# [azurecli](#tab/azurecli)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az upgrade
@@ -108,7 +108,7 @@ Now that you've validated your Azure CLI setup, bring the application code to yo
 
 1. Use the following [git](https://git-scm.com/downloads) command with your GitHub username to clone **your fork** of the repo to your development environment:
 
-    # [azurecli](#tab/azurecli)
+    # [Azure CLI](#tab/azure-cli)
 
     ```git
     git clone https://github.com/$GITHUB_USERNAME/container-apps-store-api-microservice.git
@@ -158,7 +158,7 @@ The following resources are deployed via the bicep template in the `/deploy` pat
 
 The workflow requires a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) to authenticate to Azure. In the console, run the following command and replace `<SERVICE_PRINCIPAL_NAME>` with your own unique value.
 
-# [azurecli](#tab/azurecli)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az ad sp create-for-rbac \
@@ -280,7 +280,7 @@ To demonstrate the inner-loop experience for creating revisions via GitHub actio
 
 1. Return to the console, and navigate into the *node-service/views* directory in the forked repository.
 
-    # [azurecli](#tab/azurecli)
+    # [Azure CLI](#tab/azure-cli)
 
     ```bash
    cd node-service/views
@@ -295,7 +295,7 @@ To demonstrate the inner-loop experience for creating revisions via GitHub actio
 
 1. Open the *index.jade* file in your editor of choice.
 
-   # [azurecli](#tab/azurecli)
+   # [Azure CLI](#tab/azure-cli)
 
     ```bash
    code index.jade .
@@ -325,7 +325,7 @@ To demonstrate the inner-loop experience for creating revisions via GitHub actio
 
 1. Stage the changes and push to the `main` branch of your fork using git. 
 
-   # [azurecli](#tab/azurecli)
+   # [Azure CLI](#tab/azure-cli)
    
    ```git
    git add .
@@ -374,7 +374,7 @@ To demonstrate the inner-loop experience for creating revisions via GitHub actio
 
 Once you've finished the tutorial, run the following command to delete your resource group, along with all the resources you created in this tutorial.
 
-# [azurecli](#tab/azurecli)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az group delete \
