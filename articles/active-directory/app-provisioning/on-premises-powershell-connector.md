@@ -23,7 +23,7 @@ For additional information see [Windows PowerShell Connector technical reference
 The following sections detail the prerequisites for this tutorial.
 
 ###  Download the PowerShell setup files
-Download the PowerShell setup files from Github.  The setup files consist of the configuration file, the input file, schema file and the scripts used.  The files are located [here for downlaod](https://github.com/microsoft/MIMPowerShellConnectors/tree/master/src/ECMA2HostCSV). 
+Download the PowerShell setup files from GitHub.  The setup files consist of the configuration file, the input file, schema file and the scripts used.  The files are located [here for download](https://github.com/microsoft/MIMPowerShellConnectors/tree/master/src/ECMA2HostCSV). 
 
 
 ### On-premises prerequisites
@@ -118,7 +118,7 @@ If you have already downloaded the provisioning agent and configured it for anot
 :::image type="content" source="media/on-premises-powershell-connector/pshell-1.png" alt-text="Screenshot of general screen." lightbox="media/on-premises-powershell-connector/pshell-1.png":::
 
 ### Connectivity
-The connectivity tab allows you to supply configuration parameters for connecting to a remote system. Configure the connectivty tab with the information provided in the table below.
+The connectivity tab allows you to supply configuration parameters for connecting to a remote system. Configure the connectivity tab with the information provided in the table below.
 
  1. On the **Connectivity** page, all of the information should be populated.  The table below is provided as reference.  Click **Next**.
 
