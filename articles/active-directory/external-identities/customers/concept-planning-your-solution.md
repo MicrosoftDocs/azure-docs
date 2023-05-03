@@ -28,7 +28,7 @@ Adding secure sign-in to your app and setting up a customer identity and access 
 
 | Step | Action | Description |
 |---------|---------|---------|
-|1     |      Create a customer tenant   | If you don't already have an Azure AD tenant, we recommend using the [get started experience](https://aka.ms/ciam-free-trial). Otherwise, you can [create a customer tenant](https://aka.ms/ciam-free-trial) in the Microsoft Entra admin center.   |
+|1     |      Create a customer tenant   | If you don't already have an Azure AD tenant, we recommend using the [get started experience](https://aka.ms/ciam-free-trial). Otherwise, you can [create a customer tenant](https://aka.ms/ciam-free-trial) in the Microsoft Entra admin center. You can set your correct geographic location and your domain name at this step. |
 |2     |      Register your application   | In the Microsoft Entra admin center, [register your application](how-to-register-ciam-app.md) with Azure Active Directory.    |
 |3     |    Integrate your app with a sign-in flow     | - Create a user flow </br>- Associate the app with the user flow </br>- Update the app code with your customer tenant info </br>See [Samples and guidance by app type and language](samples-ciam-all.md)   |
 |4     |    Customize and secure your sign-in     |  - [Customize branding](concept-branding-customers.md) </br>- [Add identity providers](concept-authentication-methods-customers.md) </br>- [Add multifactor authentication](concept-security-customers.md) </br>- Use [custom authentication extensions](concept-custom-extensions.md) if you want to extend the authentication flow   |
@@ -40,6 +40,8 @@ Azure AD for customers uses the standard tenant model and overlays it with custo
 - A **workforce tenant** contains your employees and the apps and resources that are internal to your organization. If you've worked with Azure Active Directory, a workforce tenant is the type of tenant you're already familiar with. You might already have an existing workforce tenant for your organization.
 
 - A **customer tenant** represents your customer-facing app, resources, and directory of customer accounts. A customer tenant is distinct and separate from your workforce tenant.
+
+This new model won't affect your already existing B2C tenants.  
 
 ### Components of a customer tenant
 
@@ -115,6 +117,6 @@ You can also enable application access security by enforcing multifactor authent
 Learn more about [security and governance](concept-security-customers.md) features available in your customer tenant.
 
 ## Next steps
-- [Start a free trial](https://aka.md/ciam-hub-free-trial) or [create your customer tenant](how-to-create-customer-tenant-portal.md).
+- [Start a free trial](https://aka.ms/ciam-free-trial) or [create your customer tenant](how-to-create-customer-tenant-portal.md).
 - [Find samples and guidance for integrating your app](samples-ciam-all.md).
 - See also the [Azure AD for customers Developer Center](https://aka.ms/ciam/dev) for the latest developer content and resources.
