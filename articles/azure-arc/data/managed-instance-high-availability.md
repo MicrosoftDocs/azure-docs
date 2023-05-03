@@ -183,7 +183,7 @@ Example output:
 
 You can connect to the above primary endpoint using SQL Server Management Studio and verify using DMVs as:
 
-```tsql
+```sql
 SELECT * FROM sys.dm_hadr_availability_replica_states
 ```
 

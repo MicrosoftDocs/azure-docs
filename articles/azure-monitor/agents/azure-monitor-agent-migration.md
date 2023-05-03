@@ -74,7 +74,7 @@ Before you begin migrating from the Log Analytics agent to Azure Monitor Agent, 
     
     Use the [AMA Migration Helper](./azure-monitor-agent-migration-tools.md#using-ama-migration-helper) to **monitor the at-scale migration** across your machines.  
     
-1. **Verify** that Azure Monitor Agent is collecting data as expected and all **downstream dependencies**, such as dashboards, alerts, and workbooks, function properly:
+1. **Validate** that Azure Monitor Agent is collecting data as expected and all **downstream dependencies**, such as dashboards, alerts, and workbooks, function properly:
     1. Look at the **Overview** and **Usage** tabs of [Log Analytics Workspace Insights](../logs/log-analytics-workspace-overview.md) for spikes or dips in ingestion rates following the migration. Check both the overall workspace ingestion and the table-level ingestion rates.  
     1. Check your workbooks, dashboards, and alerts for variances from typical behavior following the migration.   
     
