@@ -3,7 +3,7 @@ title: Prerequisites for Azure Virtual Desktop
 description: Find what prerequisites you need to complete to successfully connect your users to their Windows desktops and applications.
 author: dknappettmsft
 ms.topic: overview
-ms.date: 08/08/2022
+ms.date: 05/03/2023
 ms.author: daknappe
 manager: femila
 ---
@@ -25,18 +25,69 @@ At a high level, you'll need:
 
 You'll need an Azure account with an active subscription to deploy Azure Virtual Desktop. If you don't have one already, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Your account must be assigned the [contributor or owner role](../role-based-access-control/built-in-roles.md) on your subscription.
 
-You also need to make sure you've registered the *Microsoft.DesktopVirtualization* resource provider for your subscription. To check the status of the resource provider and register if needed:
+You also need to make sure you've registered the *Microsoft.DesktopVirtualization* resource provider for your subscription. To check the status of the resource provider and register if needed, select the relevant tab for your scenario and follow the steps.
 
 > [!IMPORTANT]
 > You must have permission to register a resource provider, which requires the `*/register/action` operation. This is included if your account is assigned the [contributor or owner role](../role-based-access-control/built-in-roles.md) on your subscription.
 
+# [Azure portal](#tab/portal)
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
+
 1. Select **Subscriptions**.
+
 1. Select the name of your subscription.
+
 1. Select **Resource providers**.
+
 1. Search for **Microsoft.DesktopVirtualization**.
+
 1. If the status is *NotRegistered*, select **Microsoft.DesktopVirtualization**, and then select **Register**.
+
 1. Verify that the status of Microsoft.DesktopVirtualization is **Registered**.
+
+# [Azure CLI](#tab/cli)
+
+> [!IMPORTANT]
+> In the following examples, you'll need to change the `<placeholder>` values for your own.
+
+[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
+
+2. Use the `az desktopvirtualization applicationgroup create` command to register the **Microsoft.DesktopVirtualization** resource provider by running the following command. You can run this even if the resource provider is already registered.
+
+   ```azurecli-interactive
+   az provider register --namespace Microsoft.DesktopVirtualization
+   ```
+
+3. Verify that the Microsoft.DesktopVirtualization resource provider is registered by running the following command:
+
+   ```azurecli-interactive
+   az provider show \
+       --namespace Microsoft.DesktopVirtualization \
+       --query [registrationState] \
+       --output table
+   ```
+
+# [Azure PowerShell](#tab/powershell)
+
+> [!IMPORTANT]
+> In the following examples, you'll need to change the `<placeholder>` values for your own.
+
+[!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
+
+2. Use the `Register-AzResourceProvider` cmdlet to register the **Microsoft.DesktopVirtualization** resource provider by running the following command. You can run this even if the resource provider is already registered.
+
+   ```azurepowershell-interactive
+   Register-AzResourceProvider -ProviderNamespace Microsoft.DesktopVirtualization
+   ```
+
+3. In the output, verify that the parameter **RegistrationState** is set to **Registered**. You can also run the following command:
+
+   ```azurepowershell-interactive
+   Get-AzResourceProvider -ProviderNamespace Microsoft.DesktopVirtualization
+   ```
+
+---
 
 ## Identity
 
@@ -117,6 +168,8 @@ You can deploy virtual machines (VMs) to be used as session hosts from these ima
 - Automatically, as part of the [host pool setup process](create-host-pools-azure-marketplace.md).
 - Manually, in the Azure portal and [adding to a host pool after you've created it](expand-existing-host-pool.md).
 - Programmatically, with [Azure CLI, PowerShell](create-host-pools-powershell.md), or [REST API](/rest/api/desktopvirtualization/).
+
+You don't need to install or apply a license for Azure Virtual Desktop, but you will need to make sure the Windows license used on your session hosts is correctly assigned in Azure and is the operating system is activated. For more information, see [Apply Windows license to session host virtual machines](apply-windows-license.md).
 
 There are different automation and deployment options available depending on which operating system and version you choose, as shown in the following table:
 
