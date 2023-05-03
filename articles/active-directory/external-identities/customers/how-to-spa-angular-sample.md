@@ -77,7 +77,7 @@ If you choose to download the `.zip` file, extract the sample app file to a fold
 1. Install the project dependencies:
 
     ```powershell
-        npm install
+npm install
     ```
 
 ## Configure the sample SPA
