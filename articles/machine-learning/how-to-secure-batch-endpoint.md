@@ -19,7 +19,7 @@ When deploying a machine learning model to a batch endpoint, you can secure thei
 
 ## Securing batch endpoints
 
-Batch endpoints inherent the networking configuration from the workspace where they are deployed. All the batch endpoints created inside of private link-enabled workspace are deployed as private batch endpoints by default. When the workspace is correctly configured, no further configuration is required.
+Batch endpoints inherit the networking configuration from the workspace where they are deployed. All the batch endpoints created inside of private link-enabled workspace are deployed as private batch endpoints by default. When the workspace is correctly configured, no further configuration is required.
 
 To verify that your workspace is correctly configured for batch endpoints to work with private networking , ensure the following:
 
