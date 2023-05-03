@@ -16,6 +16,8 @@ ms.author: pafarley
 
 A planogram is a diagram that indicates the correct placement of retail products on shelves. The Image Analysis Planogram Matching API lets you compare shelf analysis results from a photo to the store's planogram input. It returns an account of all the positions in the planogram, and whether a product was found in each position.
 
+:::image type="content" source="../media/shelf/planogram.png" alt-text="Photo of a retail shelf with detected products oulined and planogram position rectangles outlined separately.":::
+
 ## Prerequisites
 * You must have already set up and run basic [shelf analysis](./shelf-analyze.md) with the Product Understanding API.
 * [cURL](https://curl.haxx.se/) installed. Or, you can use a different REST platform, like Postman, Swagger, or the REST Client extension for VS Code.
