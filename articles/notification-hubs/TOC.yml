@@ -19,6 +19,8 @@
   - name: Create notification hub - Template
     displayName: Resource Manager
     href: create-notification-hub-template.md
+  - name: Create notification hub - Terraform
+    href: create-notification-hub-terraform.md
   - name: Configure a notification hub
     href: configure-notification-hub-portal-pns-settings.md  
 - name: Tutorials

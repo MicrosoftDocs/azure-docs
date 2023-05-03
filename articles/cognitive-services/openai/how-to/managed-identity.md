@@ -9,7 +9,7 @@ ms.date: 06/24/2022
 author: ChrisHMSFT
 ms.author: chrhoder
 recommendations: false
-ms.custom: 
+ms.custom: devx-track-azurecli
 ---
 
 # How to Configure Azure OpenAI Service with Managed Identities

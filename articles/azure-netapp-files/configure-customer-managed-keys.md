@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.custom: references_regions 
-ms.date: 03/07/2023
+ms.date: 05/03/2023
 ms.author: anfdocs
 ---
 
@@ -36,7 +36,16 @@ The following diagram demonstrates how customer-managed keys work with Azure Net
 ## Considerations
 
 > [!IMPORTANT]
-> Customer-managed keys for Azure NetApp Files volume encryption is currently in preview. You need to submit a waitlist request for accessing the feature through the **[Customer-managed keys for Azure NetApp Files volume encryption](https://aka.ms/anfcmkpreviewsignup)** page. The customer-managed keys feature is expected to be enabled within a week from submitting waitlist request.
+> Customer-managed keys for Azure NetApp Files volume encryption is currently in preview. You need to submit a waitlist request for accessing the feature through the **[Customer-managed keys for Azure NetApp Files volume encryption](https://aka.ms/anfcmkpreviewsignup)** page. Customer-managed keys feature is expected to be enabled within a week after you submit the waitlist request. You can check the status of feature registration by using the following command: 
+>
+> ```azurepowershell-interactive
+> Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAzureKeyVaultEncryption                                                      
+> 
+> FeatureName                ProviderName     RegistrationState   
+> -----------                ------------     -----------------   
+> ANFAzureKeyVaultEncryption Microsoft.NetApp Registered
+> ```
+
 * Customer-managed keys can only be configured on new volumes. You can't migrate existing volumes to customer-managed key encryption. 
 * To create a volume using customer-managed keys, you must select the *Standard* network features. You can't use customer-managed key volumes with volume configured using Basic network features. Follow instructions in to [Set the Network Features option](configure-network-features.md#set-the-network-features-option) in the volume creation page.
 * Customer-managed keys private endpoints do not support the **Disable public access** option. You must choose one of the **Allow public access** options.
@@ -219,9 +228,9 @@ If you have already configured your NetApp account for customer-managed keys and
 
 1. Select **OK** to save. The rekey operation may take several minutes. 
 
-## Switch from user-assigned to system-assigned identity
+## Switch from system-assigned to user-assigned identity
 
-To switch from user-assigned to system-assigned identity, you must grant the target identity access to the key vault being used with read/get, encrypt, and decrypt permissions. 
+To switch from system-assigned to user-assigned identity, you must grant the target identity access to the key vault being used with read/get, encrypt, and decrypt permissions. 
 
 1. Update the NetApp account by sending a PATCH request using the `az rest` command:
     ```azurecli

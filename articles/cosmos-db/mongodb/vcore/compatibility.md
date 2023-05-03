@@ -2,13 +2,13 @@
 title: Compatibility and feature support
 titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: Review Azure Cosmos DB for MongoDB vCore supported features and syntax including; commands, query support, datatypes, aggregation, and operators.
-author: nayakshweta
-ms.author: shwetn
+author: seesharprun
+ms.author: sidandrews
 ms.reviewer: gahllevy
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: conceptual
-ms.date: 03/09/2023
+ms.date: 04/11/2023
 ---
 
 # MongoDB compatibility and feature support with Azure Cosmos DB for MongoDB vCore
@@ -636,6 +636,9 @@ Azure Cosmos DB for MongoDB supports documents encoded in MongoDB BSON format.
 ## Indexes and index properties
 
 Azure Cosmos DB for MongoDB vCore supports the following indexes and index properties:
+
+> [!NOTE]
+> Creating a **unique index** obtains an exclusive lock on the collection for the entire duration of the build process. This blocks read and write operations on the collection until the operation is completed.
 
 ### Indexes
 

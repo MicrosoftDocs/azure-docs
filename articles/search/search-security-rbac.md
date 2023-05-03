@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 01/26/2023
+ms.date: 04/14/2023
 ms.custom: subject-rbac-steps, references_regions
 ---
 
@@ -330,6 +330,41 @@ More details about using [Azure AD authentication with the Azure SDK for .NET](h
 > If you get a 403 error, verify that your search service is enrolled in the preview program and that your service is configured for preview role assignments.
 
 ---
+
+## Test as current user
+
+If you're already a Contributor or Owner of your search service, you can present a bearer token for your user identity for authentication to Azure Cognitive Search. The following instructions explain how to set up a Postman collection to send requests as the current user.
+
+1. Get a bearer token for the current user:
+
+    ```azurecli
+    az account get-access-token https://search.azure.com/.default
+    ```
+
+1. Start a new Postman collection and edit its properties. In the **Variables** tab, create the following variable:
+
+    | Variable | Description |
+    |----------|-------------|
+    | bearerToken | (copy-paste from get-access-token output on the command line) |
+
+1. In the Authorization tab, select **Bearer Token** as the type.
+
+1. In the **Token** field, specify the variable placeholder `{{bearerToken}}`.
+
+1. Save the collection.
+
+1. Send a request to confirm access. Here's one that queries the hotels-quickstart index:
+
+   ```http
+   POST https://<service-name>.search.windows.net/indexes/hotels-quickstart/docs/search?api-version=2020-06-30
+   {
+    "queryType": "simple",
+    "search": "motel",
+    "filter": "",
+    "select": "HotelName,Description,Category,Tags",
+    "count": true
+    }
+   ```
 
 <a name="rbac-single-index"></a>
 

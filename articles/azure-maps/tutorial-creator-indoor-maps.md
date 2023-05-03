@@ -12,7 +12,7 @@ services: azure-maps
 
 # Tutorial: Use Creator to create indoor maps
 
-This tutorial describes how to create indoor maps for use in Microsoft Azure Maps. In this tutorial, you'll learn how to:
+This tutorial describes how to create indoor maps for use in Microsoft Azure Maps. This tutorial demonstrates how to:
 
 > [!div class="checklist"]
 >
@@ -37,7 +37,7 @@ This tutorial uses the [Postman] application, but you can use a different API de
 >[!IMPORTANT]
 >
 > * This article uses the `us.atlas.microsoft.com` geographical URL. If your Creator service wasn't created in the United States, you must use a different geographical URL.  For more information, see [Access to Creator services].
-> * In the URL examples in this article you will need to replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
+> * Replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key in the URL examples.
 
 ## Upload a drawing package
 
@@ -75,7 +75,7 @@ To upload the drawing package:
 
 11. Select **Select File**, and then select a drawing package.
 
-    :::image type="content" source="./media/tutorial-creator-indoor-maps/data-upload-body.png" alt-text="A screenshot of Postman showing the body tab in the POST window, with Select File highlighted, this is used to select the drawing package to import into Creator.":::
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/data-upload-body.png" alt-text="A screenshot of Postman showing the body tab in the POST window, with Select File highlighted, it's used to select the drawing package to import into Creator.":::
 
 12. Select **Send**.
 
@@ -97,7 +97,7 @@ To check the status of the drawing package and retrieve its unique ID (`udid`):
 
 4. Select the **GET** HTTP method.
 
-5. Enter the `status URL` you copied as the last step in the previous section of this article. The request should look like the following URL:
+5. Enter the `status URL` you copied as the last step in the previous section. The request should look like the following URL:
 
     ```http
     https://us.atlas.microsoft.com/mapData/operations/{operationId}?api-version=2.0&subscription-key={Your-Azure-Maps-Subscription-key}
@@ -125,7 +125,7 @@ To retrieve content metadata:
 
 4. . Select the **GET** HTTP method.
 
-5. Enter the `resource Location URL` you copied as the last step in the previous section of this article:
+5. Enter the `resource Location URL` you copied as the last step in the previous section:
 
     ```http
     https://us.atlas.microsoft.com/mapData/metadata/{udid}?api-version=2.0&subscription-key={Your-Azure-Maps-Subscription-key}
@@ -148,7 +148,7 @@ To retrieve content metadata:
 
 ## Convert a drawing package
 
-Now that the drawing package is uploaded, you'll use the `udid` for the uploaded package to convert the package into map data. The [Conversion API] uses a long-running transaction that implements the pattern defined in the [Creator Long-Running Operation] article.
+Now that the drawing package is uploaded, you use the `udid` for the uploaded package to convert the package into map data. The [Conversion API] uses a long-running transaction that implements the pattern defined in the [Creator Long-Running Operation] article.
 
 To convert a drawing package:
 
@@ -170,7 +170,7 @@ To convert a drawing package:
 
 7. In the response window, select the **Headers** tab.
 
-8. Copy the value of the **Operation-Location** key. This is the `status URL` that you'll use to check the status of the conversion.
+8. Copy the value of the **Operation-Location** key, it contains the `status URL` that you use to check the status of the conversion.
 
     :::image type="content" source="./media/tutorial-creator-indoor-maps/data-convert-location-url.png" border="true" alt-text="A screenshot of Postman showing the URL value of the operation location key in the responses header.":::
 
@@ -198,7 +198,7 @@ To check the status of the conversion process and retrieve the `conversionId`:
 
 7. In the response window, select the **Headers** tab.
 
-8. Copy the value of the **Resource-Location** key, which is the `resource location URL`. The `resource location URL` contains the unique identifier (`conversionId`), which can be used by other APIs to access the converted map data.
+8. Copy the value of the **Resource-Location** key, which is the `resource location URL`. The `resource location URL` contains the unique identifier (`conversionId`), which is used by other APIs to access the converted map data.
 
       :::image type="content" source="./media/tutorial-creator-indoor-maps/data-conversion-id.png" alt-text="A screenshot of Postman highlighting the conversion ID value that appears in the resource location key in the responses header.":::
 
@@ -255,7 +255,7 @@ To create a dataset:
 
 7. In the response window, select the **Headers** tab.
 
-8. Copy the value of the **Operation-Location** key. This is the `status URL` that you'll use to check the status of the dataset.
+8. Copy the value of the **Operation-Location** key, it contains the `status URL` that you use to check the status of the dataset.
 
     :::image type="content" source="./media/tutorial-creator-indoor-maps/data-dataset-location-url.png" border="true" alt-text="A screenshot of Postman showing the value of the operation location key for dataset in the responses header.":::
 
@@ -299,7 +299,7 @@ To create a tileset:
 
 4. Select the **POST** HTTP method.
 
-5. Enter the following URL to the [Tileset service]. The request should look like the following URL (replace `{datasetId`} with the `datasetId` obtained in the [Check the dataset creation status](#check-the-dataset-creation-status) section above:
+5. Enter the following URL to the [Tileset service]. The request should look like the following URL (replace `{datasetId`} with the `datasetId` obtained in the [Check the dataset creation status](#check-the-dataset-creation-status) section:
 
     ```http
     https://us.atlas.microsoft.com/tilesets?api-version=2023-03-01-preview&datasetID={datasetId}&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
@@ -309,7 +309,7 @@ To create a tileset:
 
 7. In the response window, select the **Headers** tab.
 
-8. Copy the value of the **Operation-Location** key, this is the `status URL`, which you'll use to check the status of the tileset.
+8. Copy the value of the **Operation-Location** key, it contains the `status URL`, which you use to check the status of the tileset.
 
     :::image type="content" source="./media/tutorial-creator-indoor-maps/data-tileset-location-url.png" border="true" alt-text="A screenshot of Postman highlighting the status URL that is the value of the operation location key in the responses header.":::
 
@@ -357,7 +357,7 @@ Once your tileset creation completes, you can get the `mapConfigurationId` using
 
 6. Select **Send**.
 
-7. The tileset JSON will appear in the body of the response, scroll down to see the `mapConfigurationId`:
+7. The tileset JSON appears in the body of the response, scroll down to see the `mapConfigurationId`:
 
     ```json
     "defaultMapConfigurationId": "5906cd57-2dba-389b-3313-ce6b549d4396"

@@ -5,6 +5,7 @@ description: Learn how to add additional instances (scale units) to Azure Bastio
 services: bastion
 author: cherylmc
 ms.service: bastion
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 11/29/2021
 ms.author: cherylmc
@@ -39,4 +40,3 @@ This article helps you add additional scale units (instances) to Azure Bastion t
 ## Next steps
 
 For more information about configuration settings, see [Azure Bastion configuration settings](configuration-settings.md).
-

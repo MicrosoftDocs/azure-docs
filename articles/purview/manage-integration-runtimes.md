@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 03/01/2023
+ms.date: 04/20/2023
 ---
 
 # Create and manage a self-hosted integration runtime
@@ -232,7 +232,7 @@ There are two supported configuration options by Microsoft Purview:
 - **Use custom proxy**: Configure the HTTP proxy setting to use for the self-hosted integration runtime, instead of using configurations in diahost.exe.config and diawp.exe.config. **Address** and **Port** values are required. **User Name** and **Password** values are optional, depending on your proxy's authentication setting. All settings are encrypted with Windows DPAPI on the self-hosted integration runtime and stored locally on the machine.
 
 > [!NOTE]
-> Proxy is supported when scanning Azure data sources and SQL Server; scanning other sources doesn't support proxy.
+> Connecting to data sources via proxy is not supported for connectors other than Azure data sources and Power BI.
 
 The integration runtime host service restarts automatically after you save the updated proxy settings.
 

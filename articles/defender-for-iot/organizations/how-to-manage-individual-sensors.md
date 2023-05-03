@@ -143,9 +143,9 @@ The following procedures describe how to deploy updated SSL/TLS certificates, su
 
     If an upload fails, contact your security or IT administrator. For more information, see [SSL/TLS certificate requirements for on-premises resources](best-practices/certificate-requirements.md) and [Create SSL/TLS certificates for OT appliances](ot-deploy/create-ssl-certificates.md).
 
-1. In the **Validation for on-premises management console certificates** area, select **Required** if SSL/TLS certificate validation is required. Otherwise, select **None**.
+1. In the **Validation of on-premises management console certificate** area, select **Mandatory** if SSL/TLS certificate validation is required. Otherwise, select **None**.
 
-    If you've selected **Required** and validation fails, communication between relevant components is halted, and a validation error is shown on the sensor. For more information, see [CRT file requirements](best-practices/certificate-requirements.md#crt-file-requirements).
+    If you've selected **Mandatory** and validation fails, communication between relevant components is halted, and a validation error is shown on the sensor. For more information, see [CRT file requirements](best-practices/certificate-requirements.md#crt-file-requirements).
 
 1. Select **Save** to save your certificate settings.
 
@@ -177,7 +177,7 @@ When you're done, use the following procedures to validate your certificate file
 
 1. Select the **Confirm** option to confirm the warning.
 
-1. In the **Validation for on-premises management console certificates** area, select **Required** if SSL/TLS certificate validation is required. Otherwise, select **None**.
+1. In the **Validation of on-premises management console certificate** area, select **Mandatory** if SSL/TLS certificate validation is required. Otherwise, select **None**.
 
     If this option is toggled on and validation fails, communication between relevant components is halted, and a validation error is shown on the sensor. For more information, see [CRT file requirements](best-practices/certificate-requirements.md#crt-file-requirements).
 

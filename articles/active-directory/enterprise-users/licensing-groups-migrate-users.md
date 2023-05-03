@@ -44,7 +44,7 @@ The most important thing to keep in mind is that you should avoid a situation wh
 
 1. Verify that no license assignments failed by checking each group for users in error state. For more information, see [Identifying and resolving license problems for a group](licensing-groups-resolve-problems.md).
 
-Consider removing the original direct assignments. We recommend that you do it gradually, and monitor the outcome on a subset of users first. If you could leave the original direct assignments on users, but when the users leave their licensed groups they retain the directly assigned licenses, which might not be what you want.
+Consider removing the original direct assignments. We recommend that you do it gradually, and monitor the outcome on a subset of users first. You could leave the original direct assignments on users, but when the users leave their licensed groups they retain the directly assigned licenses, which might not be what you want.
 
 ## An example
 

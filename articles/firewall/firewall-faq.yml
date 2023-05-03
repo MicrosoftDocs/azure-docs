@@ -293,3 +293,9 @@ sections:
 
       - question: Is Azure Firewall in secured virtual hubs (vWAN) supported in Qatar?
         answer: No, currently Azure Firewall in secured virtual hubs (vWAN) is not supported in Qatar.
+
+      - question: How many parallel connections can Azure Firewall support?
+        answer: |
+          Azure Firewall uses Azure Virtual Machines underneath that have a [hard limit number of connections](/azure/virtual-network/virtual-machine-network-throughput#flow-limits-and-active-connections-recommendations). The total number of flows per virtual machine is 250k.
+
+          The total limit per firewall is the virtual machine connection limit (250k) x the number of virtual machines in the firewall backend pool. Azure Firewall starts with two virtual machines and scales out based on CPU usage and throughput.

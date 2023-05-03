@@ -7,7 +7,7 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 09/27/2022
 ms.author: greglin
-ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+ms.custom: template-tutorial
 #Customer intent: As an experienced network administrator, I want to configure Azure DNS, so I can host DNS zones.
 ---
 
