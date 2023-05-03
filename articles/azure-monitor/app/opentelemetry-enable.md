@@ -320,9 +320,6 @@ The following libraries are bundled with our distro.
 
 #### [ASP.NET Core](#tab/net)
 
-TODO: MOTHRA: SHOULD WE FOCUS ON ALL SUPPORTED SDKS OR ONLY THOSE SHIPPED BY DISTRO?
-I removed ASP.NET (non-core) from this list.
-
 Requests
 - [ASP.NET
   Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.AspNetCore/README.md) <sup>[1](#FOOTNOTEONE)</sup> version:
@@ -466,10 +463,9 @@ You can collect more data automatically when you include instrumentation librari
 > [!NOTE] 
 >  We don't support and cannot guarantee the quality of community instrumentation libraries. If you would like to suggest a community instrumentation library us to include in our distro, post or up-vote an idea in our [feedback community](https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0).
 
-TODO: NO LANGUAGES HAVE CONTRIBUTED HERE. IS THIS TABBED SECTION NEEDED?
-
 ### [ASP.NET Core](#tab/net)
 
+TODO: MOTHRA: CODE EXAMPLE OF HOW TO ADD A COMMUNITY LIBRARY. Runtime or Redis
 
 ### [Java](#tab/java)
 
@@ -527,15 +523,9 @@ Autocollected metrics
 
 #### [ASP.NET Core](#tab/net)
 
-```csharp
-var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddOpenTelemetry().UseAzureMonitor(options => options.ConnectionString = "<Your Connection String>");
-
-var app = builder.Build();
-
-app.Logger.LogInformation("Hello World!");
-```
+* OpenTelemetry uses .NET's ILogger. 
+  For more information about ILogger see [Logging in C# and .NET](https://learn.microsoft.com/dotnet/core/extensions/logging). 
+  For examples see [this](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/logs).
 
 #### [Java](#tab/java)
 
@@ -640,7 +630,7 @@ Application startup:
 ```csharp
 public class Program
 {
-    private static readonly Meter meter = new("OTel.AzureMonitor.Demo");
+    internal static readonly Meter meter = new("OTel.AzureMonitor.Demo");
 
     public static void Main(string[] args)
     {
@@ -747,7 +737,7 @@ input()
 ```csharp
 public class Program
 {
-    private static readonly Meter meter = new("OTel.AzureMonitor.Demo");
+    internal static readonly Meter meter = new("OTel.AzureMonitor.Demo");
 
     public static void Main(string[] args)
     {
@@ -899,7 +889,7 @@ using OpenTelemetry.Metrics;
 
 public class Program
 {
-    private static readonly Meter meter = new("OTel.AzureMonitor.Demo");
+    internal static readonly Meter meter = new("OTel.AzureMonitor.Demo");
 
     public static void Main()
     {
