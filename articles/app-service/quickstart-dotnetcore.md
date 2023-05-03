@@ -211,6 +211,8 @@ In this step, you fork a demo project to deploy.
 1. Select the **Fork** button in the upper right on the GitHub page.
 1. Select the **Owner** and leave the default **Repository name**.
 1. Select **Create fork**.
+
+-----
     
 :::zone-end
 
@@ -460,6 +462,7 @@ Follow these steps to create your App Service resources and publish your project
     - Under **Pricing plan**, select **Free F1**.
     
     :::image type="content" source="./media/quickstart-dotnetcore/app-service-details-net48.png" lightbox="./media/quickstart-dotnetcore/app-service-details-net48.png" alt-text="Screenshot of new App Service app configuration for .NET Framework V4.8 in the Azure portal.":::
+
     -----
 
 1. Select the **Next: Deployment >** button at the bottom of the page.
@@ -665,6 +668,8 @@ You'll see the updated ASP.NET Core 7.0 web app displayed in the page.
 
     ![Screenshot of forked app-service-web-dotnet-get-started GitHub repo with an annotation to Press the period key.](media/quickstart-dotnetcore/github-forked-app-service-web-dotnet-get-started-repo-press-period.png)
 
+    -----
+
 1. Open *Index.cshtml*.
 
     ### [.NET 7.0](#tab/net70)
@@ -678,6 +683,8 @@ You'll see the updated ASP.NET Core 7.0 web app displayed in the page.
     Index.cshtml is located in the `aspnet-get-started/Views/Home` folder
 
     ![Screenshot of the Explorer window from Visual Studio Code in the browser, highlighting the Index.cshtml in the app-service-web-dotnet-get-started repo.](media/quickstart-dotnetcore/index-cshtml-in-explorer-dotnet-framework.png)
+
+    -----
 
 2. Replace the first `<div>` element with the following code:
 
@@ -700,6 +707,8 @@ You'll see the updated ASP.NET Core 7.0 web app displayed in the page.
 
     ![Screenshot of Visual Studio Code in the browser, highlighting the Source Control navigation in the sidebar, then highlighting the Stage Changes button in the Source Control panel.](media/quickstart-dotnetcore/visual-studio-code-in-browser-stage-changes-dotnet-framework.png)
 
+    -----
+
 4. Enter a commit message such as `We love Azure`. Then, select **Commit and Push**.
 
     ### [.NET 7.0](#tab/net70)
@@ -709,6 +718,8 @@ You'll see the updated ASP.NET Core 7.0 web app displayed in the page.
     ### [.NET Framework 4.8](#tab/netframework48)
 
     ![Screenshot of Visual Studio Code in the browser, Source Control panel with a commit message of 'We love Azure' and the Commit and Push button highlighted.](media/quickstart-dotnetcore/visual-studio-code-in-browser-commit-push-dotnet-framework.png)
+
+    -----
 
 5. Once deployment has completed, return to the browser window that opened during the **Browse to the app** step, and refresh the page.
     
@@ -723,6 +734,8 @@ You'll see the updated ASP.NET Core 7.0 web app displayed in the page.
     You'll see the updated ASP.NET Framework 4.8 web app displayed in the page.
     
     :::image type="content" source="media/quickstart-dotnet/updated-Azure-webapp-net48.png" lightbox="media/quickstart-dotnet/updated-Azure-webapp-net48.png" border="true" alt-text="Screenshot of the CLI - Updated ASP.NET Framework 4.8 web app in Azure.":::
+
+    -----
     
 :::zone-end
 
