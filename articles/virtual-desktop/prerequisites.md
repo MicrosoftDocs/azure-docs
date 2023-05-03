@@ -64,7 +64,7 @@ You also need to make sure you've registered the *Microsoft.DesktopVirtualizatio
    ```azurecli-interactive
    az provider show \
        --namespace Microsoft.DesktopVirtualization \
-       --query {State:registrationState}
+       --query {RegistrationState:registrationState}
    ```
 
 # [Azure PowerShell](#tab/powershell)
