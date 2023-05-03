@@ -16,7 +16,7 @@ ms.author: pafarley
 
 Part of the shelf analysis workflow involves fixing and modifying the input images so the service can perform correctly. 
 
-This guide shows you how to use the Stitching API to combine multiple images of the same physical shelf: this gives you a composite image of the entire retail shelf, even if it's only viewed partially by multiple different cameras. A 50% overlap between images is recommended.
+This guide shows you how to use the Stitching API to combine multiple images of the same physical shelf: this gives you a composite image of the entire retail shelf, even if it's only viewed partially by multiple different cameras.
 
 This guide also shows you how to use the Rectification API to correct for perspective distortion when you stitch together different images.
 
@@ -26,6 +26,8 @@ This guide also shows you how to use the Rectification API to correct for perspe
   * You'll need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
 * An Azure Storage resource with a blob storage container. [Create one](/azure/storage/common/storage-account-create?tabs=azure-portal)
 * [cURL](https://curl.haxx.se/) installed. Or, you can use a different REST platform, like Postman, Swagger, or the REST Client extension for VS Code.
+* A set of photos that show adjacent parts of the same shelf. A 50% overlap between images is recommended. You can download and use the sample images from [GitHub](tbd)
+
 
 ## Use the Stitching API
 
