@@ -28,9 +28,9 @@ Text Translation SDK supports the following languages and platforms:
 | Language → SDK version | Package|Client library| Supported API version|
 |:----------------------:|:----------|:----------|:-------------|
 |[.NET/C# → 1.0.0-beta.1](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.Translation.Text/1.0.0-beta.1/index.html)|[NuGet](https://www.nuget.org/packages/Azure.AI.Translation.Text/1.0.0-beta.1)|[Azure SDK for .NET](/dotnet/api/overview/azure/ai.translation.text-readme?view=azure-dotnet-preview)|Translator v3.0|
-|[Java → 1.0.0-beta.1](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-translation-text/1.0.0-beta.1/index.html) → ]|[MVN repository](https://mvnrepository.com/artifact/com.azure/azure-ai-translation-text/1.0.0-beta.1)|[Azure SDK for Java](/java/api/overview/azure/ai-translation-text-readme?view=azure-java-preview)|Translator v3.0|
+|[Java → 1.0.0-beta.1](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-translation-text/1.0.0-beta.1/index.html)|[MVN repository](https://mvnrepository.com/artifact/com.azure/azure-ai-translation-text/1.0.0-beta.1)|[Azure SDK for Java](/java/api/overview/azure/ai-translation-text-readme?view=azure-java-preview)|Translator v3.0|
 |[JavaScript → 1.0.0-beta.1](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-cognitiveservices-translatortext/1.0.0/index.html)|[npm](https://www.npmjs.com/package/@azure-rest/ai-translation-text/v/1.0.0-beta.1)|[Azure SDK for JavaScript](/javascript/api/overview/azure/text-translation?view=azure-node-preview) |Translator v3.0 |
-|[Python → 1.0.0b1](/python/api/azure-ai-translation-text/azure.ai.translation.text?view=azure-python-preview&preserve-view=true)|[PyPi](https://pypi.org/project/azure-ai-translation-text/1.0.0b1/)| [Azure SDK for Python]() |Translator v3.0|
+|[Python → 1.0.0b1](/python/api/azure-ai-translation-text/azure.ai.translation.text?view=azure-python-preview&preserve-view=true)|[PyPi](https://pypi.org/project/azure-ai-translation-text/1.0.0b1/)| |Translator v3.0|
 
 ## Changelog and release history
 
@@ -100,7 +100,7 @@ This release includes the following updates:
 
 ## Use Text Translation SDK in your applications
 
-The Text Translation SDK enables the use and management of the Text Translation service in your application. The SDK builds on the underlying Text Translation REST API allowing you to easily use those APIs within your programming language paradigm. Here's how you use the Text Translation SDK for your preferred language:
+The Text Translation SDK enables the use and management of the Text Translation service in your application. The SDK builds on the underlying Text Translation REST API allowing you to easily use those APIs within your programming language paradigm. Here's how you use the Text Translation SDK for your preferred programming language:
 
 ### 1. Install the SDK client library
 
@@ -154,8 +154,11 @@ using Azure.AI.Translation.Text;
 ### [Java](#tab/java)
 
 ```java
+import java.util.List;
+import java.util.ArrayList;
 import com.azure.ai.translation.text.models.*;
-import com.azure.ai.translation.text.models.Translation;
+import com.azure.ai.translation.text.TextTranslationClientBuilder;
+import com.azure.ai.translation.text.TextTranslationClient;
 
 import com.azure.core.credential.AzureKeyCredential;
 ```
@@ -175,83 +178,76 @@ from azure-ai-translation-text import TextTranslationClient
 
 ---
 
-### 3. Authenticate the client 
+### 3. Authenticate the client
 
-Interaction with the Translator service using the client library begins with creating an instance of the `TextTranslationClient`class. You will need your API key and region to instantiate a client object.
+Interaction with the Translator service using the client library begins with creating an instance of the `TextTranslationClient`class. You need your API key and region to instantiate a client object.
 The Text Translation API key is found in the Azure portal:
 
-:::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of the keys and endpoint location in the Azure portal.":::
+:::image type="content" source="media/keys-and-endpoint-text-sdk.png" alt-text="Screenshot of the keys and endpoint location in the Azure portal.":::
 
 ### [C#/.NET](#tab/csharp)
 
-**Using a regional endpoint**
+**Using the global endpoint (default)**
+
+```csharp
+string key = "<your-key>";
+
+AzureKeyCredential credential = new(key);
+TextTranslationClient client = new(credential);
+```
+
+**Using a regional endpoint (ex. `westus`)**
 
 ```csharp
 
-Uri endpoint = new("<your-endpoint>);
+Uri endpoint = new("<your-endpoint>");
 string key = "<your-key>";
 string region = "<region>";
+
 AzureKeyCredential credential = new(key);
 TextTranslationClient client = new(credential, region);
 ```
 
-**Using the global endpoint**
-
-```csharp
-Uri endpoint = new("<your-endpoint>");
-string key = "<your-key>";
-string region = "<region>";
-AzureKeyCredential credential = new(key);
-TextTranslationClient client = new(credential, endpoint);
-```
-
 ### [Java](#tab/java)
+
+**Using the global endpoint (default)**
+
+```java
+
+String apiKey = "<your-key>";
+AzureKeyCredential credential = new AzureKeyCredential(apiKey);
+
+TextTranslationClient client = new TextTranslationClientBuilder()
+            .credential(credential)
+            .buildClient();
+```
 
 **Using a regional endpoint**
 
 ```java
+String apiKey = "<your-key>";
+String endpoint = "<your-endpoint>";
+String region = "<region>";
 
-String apiKey = System.getenv("TEXT_TRANSLATOR_API_KEY");
-String region = System.getenv("TEXT_TRANSLATOR_API_REGION");
 AzureKeyCredential credential = new AzureKeyCredential(apiKey);
 
 TextTranslationClient client = new TextTranslationClientBuilder()
 .credential(credential)
 .region(region)
+.endpoint(endpoint)
 .buildClient();
 
 ```
 
-**Using the global endpoint**
-
-```java
-
-TextTranslationClient client = new TextTranslationClientBuilder()
-            .credential(new AzureKeyCredential("<your-key>"))
-            .endpoint("<your-endpoint>")
-            .buildClient();
-```
-
 ### [JavaScript](#tab/javascript)
 
-**Using a regional endpoint**
-
-```javascript
-const translateCredential = new TranslatorCredential(apiKey, region);
-const translationClient = TextTranslationClient(endpoint, translateCredential);
-```
-
-**Using the global endpoint**
-
 ```javascript
 
-const endpoint = "<your-endpoint>";
+const TextTranslationClient = require("@azure-rest/ai-translation-text").default,
+
 const apiKey = "<your-key>";
+const endpoint = "<your-endpoint>";
 const region = "<region>";
-
-const translateCredential = {key: apiKey, region: region};
-
-const translationClient = new TextTranslationClient(endpoint, translateCredential"));
 
 ```
 
@@ -259,143 +255,24 @@ const translationClient = new TextTranslationClient(endpoint, translateCredentia
 
 ```python
 
-  translator_credential = TranslatorCredential("<apiKey>", "<region>")
-  text_translator_client = TextTranslationClient(endpoint="<endpoint>", credential=translator_credential)
+from azure.ai.translation.text import TextTranslationClient, TranslatorCredential
+from azure.ai.translation.text.models import InputTextItem
+from azure.core.exceptions import HttpResponseError
+
+key = "<your-key>"
+endpoint = "<your-endpoint>"
+region = "region"
+
+
+credential = TranslatorCredential(key, region)
+text_translator = TextTranslationClient(endpoint=endpoint, credential=credential)
 ```
-
----
-
-#### Use an Azure Active Directory (Azure AD) token credential
-
-> [!NOTE]
-> Regional endpoints do not support AAD authentication. Create a [custom subdomain](../../cognitive-services/authentication.md?tabs=powershell#create-a-resource-with-a-custom-subdomain) for your resource in order to use this type of authentication.
-
-Authorization is easiest using the `DefaultAzureCredential`. It provides a default token credential, based upon the running environment, capable of handling most Azure authentication scenarios.
-
-### [C#/.NET](#tab/csharp)
-
-Here's how to acquire and use the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet&preserve-view=true) for .NET applications:
-
-1. Install the [Azure Identity library for .NET](/dotnet/api/overview/azure/identity-readme):
-
-    ```console
-        dotnet add package Azure.Identity
-    ```
-
-    ```powershell
-        Install-Package Azure.Identity
-    ```
-
-1. [Register an Azure AD application and create a new service principal](../../cognitive-services/authentication.md?tabs=powershell#assign-a-role-to-a-service-principal).
-
-1. Grant access to Text Translation by assigning the **`Cognitive Services User`** role to your service principal.
-
-1. Set the values of the client ID, tenant ID, and client secret in the Azure AD application as environment variables: **`AZURE_CLIENT_ID`**, **`AZURE_TENANT_ID`**, and **`AZURE_CLIENT_SECRET`**, respectively.
-
-1. Create your **`TextTranslationClient`** instance including the **`DefaultAzureCredential`**:
-
-    ```csharp
-    string endpoint = "<your-endpoint>";
-    var client = new TextTranslationClient(new Uri(endpoint), new DefaultAzureCredential());
-    ```
-
-For more information, *see* [Authenticate the client]())
-
-### [Java](#tab/java)
-
-Here's how to acquire and use the [DefaultAzureCredential](/java/api/com.azure.identity.defaultazurecredential?view=azure-java-stable&preserve-view=true) for Java applications:
-
-1. Install the [Azure Identity library for Java](/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true):
-
-    ```xml
-    <dependency>
-        <groupId>com.azure</groupId>
-        <artifactId>azure-identity</artifactId>
-        <version>1.5.3</version>
-    </dependency>
-    ```
-
-1. [Register an Azure AD application and create a new service principal](../../cognitive-services/authentication.md?tabs=powershell#assign-a-role-to-a-service-principal).
-
-1. Grant access to Text Translation by assigning the **`Cognitive Services User`** role to your service principal.
-
-1. Set the values of the client ID, tenant ID, and client secret of the Azure AD application as environment variables: **`AZURE_CLIENT_ID`**, **`AZURE_TENANT_ID`**, and **`AZURE_CLIENT_SECRET`**, respectively.
-
-1. Create your **`TextTranslationClient`** instance and **`TokenCredential`** variable:
-
-    ```java
-    TokenCredential credential = new DefaultAzureCredentialBuilder().build();
-    TextTranslationClient TextTranslationClient = new TextTranslationClientBuilder()
-        .endpoint("{your-endpoint}")
-        .credential(credential)
-        .buildClient();
-    ```
-
-For more information, *see* [Authenticate the client]()
-
-### [JavaScript](#tab/javascript)
-
-Here's how to acquire and use the [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential?view=azure-node-latest&preserve-view=true) for JavaScript applications:
-
-1. Install the [Azure Identity library for JavaScript](/javascript/api/overview/azure/identity-readme?view=azure-node-latest&preserve-view=true):
-
-    ```javascript
-    npm install @azure/identity
-    ```
-
-1. [Register an Azure AD application and create a new service principal](../../cognitive-services/authentication.md?tabs=powershell#assign-a-role-to-a-service-principal).
-
-1. Grant access to Text Translation by assigning the **`Cognitive Services User`** role to your service principal.
-
-1. Set the values of the client ID, tenant ID, and client secret of the Azure AD application as environment variables: **`AZURE_CLIENT_ID`**, **`AZURE_TENANT_ID`**, and **`AZURE_CLIENT_SECRET`**, respectively.
-
-1. Create your **`TextTranslationClient`** instance including the **`DefaultAzureCredential`**:
-
-    ```javascript
-    const { TextTranslationClient } = require("@azure/ai-translation-text");
-    const { DefaultAzureCredential } = require("@azure/identity");
-
-    const client = new TextTranslationClient("<your-endpoint>", new DefaultAzureCredential());
-    ```
-
-For more information, *see* [Create and authenticate a client]().
-
-### [Python](#tab/python)
-
-Here's how to acquire and use the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python&preserve-view=true) for Python applications.
-
-1. Install the [Azure Identity library for Python](/python/api/overview/azure/identity-readme?view=azure-python&preserve-view=true):
-
-    ```python
-    pip install azure-identity
-    ```
-
-1. [Register an Azure AD application and create a new service principal](../../cognitive-services/authentication.md?tabs=powershell#assign-a-role-to-a-service-principal).
-
-1. Grant access to Text Translation by assigning the **`Cognitive Services User`** role to your service principal.
-
-1. Set the values of the client ID, tenant ID, and client secret of the Azure AD application as environment variables: **`AZURE_CLIENT_ID`**, **`AZURE_TENANT_ID`**, and **`AZURE_CLIENT_SECRET`**, respectively.
-
-1. Create your **`TextTranslationClient`** instance including the **`DefaultAzureCredential`**:
-
-    ```python
-    from azure.identity import DefaultAzureCredential
-    from azure.ai.translation-text import TextTranslationClient
-
-    credential = DefaultAzureCredential()
-    text_translation_client = TextTranslationClient(
-        endpoint="https://<my-custom-subdomain>.cognitiveservices.azure.com/",
-        credential=credential
-    )
-    ```
-
-For more information, *see* [Authenticate the client]()
 
 ---
 
 ### 4. Build your application
 
-Create a client object to interact with the Text Translation SDK, and then call methods on that client object to interact with the service. The SDKs provide both synchronous and asynchronous methods. For more insight, try the Text Translation [quickstart]() in a language of your choice.
+Create a client object to interact with the Text Translation SDK, and then call methods on that client object to interact with the service. The SDKs provide both synchronous and asynchronous methods. For more insight, try the Text Translation [quickstart](quickstart-translator-sdk.md) in a language of your choice.
 
 ## Help options
 
