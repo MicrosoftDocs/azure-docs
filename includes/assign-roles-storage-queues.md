@@ -39,7 +39,10 @@ The following example assigns the **Storage Queue Data Contributor** role to you
 To assign a role at the resource level using the Azure CLI, you first must retrieve the resource id using the `az storage account show` command. You can filter the output properties using the `--query` parameter.
 
 ```azurecli
-az storage account show --resource-group '<your-resource-group-name>' --name '<your-storage-account-name>' --query id
+az storage account show \
+    --resource-group '<your-resource-group-name>' \
+    --name '<your-storage-account-name>' \
+    --query id
 ```
 
 Copy the output `Id` from the preceding command. You can then assign roles using the [az role](/cli/azure/role) command of the Azure CLI.
