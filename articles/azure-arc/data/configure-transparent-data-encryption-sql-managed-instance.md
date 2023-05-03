@@ -63,6 +63,41 @@ Example:
 ```console
 kubectl patch sqlmi contososqlmi --namespace arc --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": "ServiceManaged" } } } }'
 ```
+
+### [Customer-managed mode](#tab/customer-managed-mode)
+
+1. Create a certificate. 
+
+   To generate a certificate, follow the steps at [Generate certificate request using `openssl`](rotate-user-tls-certificate.md#generate-certificate-request-using-openssl).
+
+1. Create a secret for the certificate.
+
+   To create a secret, follow the steps at [Create Kubernetes secret yaml specification for your service certificate](rotate-user-tls-certificate.md#create-kubernetes-secret-yaml-specification-for-your-service-certificate).
+
+   > [!IMPORTANT]
+   > Store the secret in the same namespace as the managed instance
+
+1. If the service is encrypted using service-managed key mode, go to `Disabled` mode. 
+
+   > [!NOTE]
+   > This step only applies to instances where TDE is previously enabled in `ServiceManaged` mode.
+
+   ```console
+   kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": "Disabled" } } } }'
+   ```
+
+1. Run `kubectl patch ...` to enable customer-managed TDE
+
+   ```console
+   kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": "CustomerManaged", "protectorSecret": "sqlmi-tde-protector-cert-secret" } } } }'
+   ```
+
+   Example:
+
+   ```console
+   kubectl patch sqlmi sqlmi-tde --namespace arc --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": "CustomerManaged", "protectorSecret": "sqlmi-tde-protector-cert-secret" } } } }'
+   ```
+
 ---
 
 ## Turn off transparent data encryption on the managed instance
