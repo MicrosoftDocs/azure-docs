@@ -12,6 +12,7 @@ ms.date: 09/06/2022
 ms.author: jomondi
 ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
+ms.custom: enterprise-apps
 ---
 
 # An app page shows an error message after the user signs in

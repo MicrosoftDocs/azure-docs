@@ -755,6 +755,8 @@ items:
             href: storage-blob-container-delete-javascript.md
           - name: List containers
             href: storage-blob-containers-list-javascript.md
+          - name: Manage container leases
+            href: storage-blob-container-lease-javascript.md
           - name: Manage properties and metadata
             href: storage-blob-container-properties-metadata-javascript.md
         - name: Blob actions
@@ -773,6 +775,8 @@ items:
             href: storage-blob-delete-javascript.md
           - name: Find blobs using tags
             href: storage-blob-tags-javascript.md
+          - name: Manage blob leases
+            href: storage-blob-lease-javascript.md
           - name: Manage blob properties and metadata
             href: storage-blob-properties-metadata-javascript.md
           - name: Use access tiers
@@ -813,6 +817,8 @@ items:
             href: storage-blob-container-delete-typescript.md
           - name: List containers
             href: storage-blob-containers-list-typescript.md
+          - name: Manage container leases
+            href: storage-blob-container-lease-typescript.md
           - name: Manage properties and metadata
             href: storage-blob-container-properties-metadata-typescript.md
         - name: Blob actions
@@ -831,6 +837,8 @@ items:
             href: storage-blob-delete-typescript.md
           - name: Find blobs using tags
             href: storage-blob-tags-typescript.md
+          - name: Manage blob leases
+            href: storage-blob-lease-typescript.md
           - name: Manage blob properties and metadata
             href: storage-blob-properties-metadata-typescript.md
           - name: Use access tiers
