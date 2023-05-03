@@ -84,10 +84,10 @@ By specifying interactive applications at job creation, you can connect directly
          ),
          "My_tensorboard": TensorBoardJobService(
            nodes="all",
-           log_Dir="output/tblogs"  # relative path of Tensorboard logs (same as in your training script)         
+           log_dir="output/tblogs"  # relative path of Tensorboard logs (same as in your training script)         
          ),
          "My_ssh": SshJobService(
-           ssh_Public_Keys="<add-public-key>",
+           ssh_public_keys="<add-public-key>",
            nodes="all"  
          ),
        }
