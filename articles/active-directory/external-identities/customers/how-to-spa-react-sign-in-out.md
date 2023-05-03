@@ -284,4 +284,13 @@ All the required code snippets have been added, so the application can now be ca
 1. For **Stay signed in**, you can select either **No** or **Yes**.
 1. The app will now ask for permission to sign-in and access data. Select **Accept** to continue.
 
+## Sign out of the application
 
+1. To sign out of the application, select **Sign out** in the navigation bar.
+1. A window appears asking which account to sign out of.
+1. Upon successful sign out, a final window appears advising you to close all browser windows.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Enable self-service password reset](./how-to-enable-password-reset-customers.md)
