@@ -122,7 +122,7 @@ The connectivity tab allows you to supply configuration parameters for connectin
 
  1. On the **Connectivity** page, all of the information should be populated.  The table is provided as reference.  Click **Next**.
 
- :::image type="content" source="media/on-premises-powershell-connector/pshell-8.png" alt-text="Screenshot of the connectivity screen." lightbox="media/on-premises-powershell-connector/pshell-2.png":::
+ :::image type="content" source="media/on-premises-powershell-connector/pshell-2.png" alt-text="Screenshot of the connectivity screen." lightbox="media/on-premises-powershell-connector/pshell-2.png":::
 
 |Parameter|Value|Purpose|
 |----|-----|-----|
