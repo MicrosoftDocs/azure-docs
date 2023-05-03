@@ -49,7 +49,7 @@ To integrate LOB apps with Azure AD B2B, follow this pattern:
 
 If assignment is required to access the LOB application, the invited guest user must also be assigned to the app with an appropriate app role. This can be done as another API call adding the invited guest to a group (steps #5-7) or by automating group membership with Azure AD dynamic groups. Using Dynamic Groups wouldn't require another API call by the application, but group membership wouldn't be updated as quickly compared to adding a user to a group immediately after user invitation. 
 
-## Step 1:  Check if the external user already exists 
+## Step 1: Check if the external user already exists 
 
 It is possible that the external user has previously been invited and onboarded. The LOB application should check whether the user already exists in the directory. There are many approaches to accomplish this. The simplest involves making an API call to the Microsoft Graph API and presenting the possible matches to the inviting user for them to pick from.    
 
