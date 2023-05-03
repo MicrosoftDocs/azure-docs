@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/23/2022
+ms.date: 05/03/2023
 ms.author: henrymbugua
 ms.reviewer:
 ms.custom: aaddev, engagement-fy23
@@ -24,8 +24,6 @@ The Microsoft Authentication Library (MSAL) for macOS and iOS supports single si
 This type of SSO works between multiple apps distributed by the same Apple Developer. It provides silent SSO (that is, the user isn't prompted for credentials) by reading refresh tokens written by other apps from the keychain, and exchanging them for access tokens silently.
 
 - [SSO through Authentication broker](#sso-through-authentication-broker-on-ios)
-
-The SSO through authentication broker isn't available on macOS.
 
 Microsoft provides apps called brokers, that enable SSO between applications from different vendors as long as the mobile device is registered with Azure Active Directory (Azure AD). This type of SSO requires a broker application be installed on the user's device.
 
