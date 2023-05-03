@@ -5,9 +5,8 @@ services: notification-hubs
 author: sethmanheim
 ms.author: sethm
 manager: femila
-ms.reviewer: thsomasu
-ms.date: 08/04/2020
-ms.lastreviewed: 02/14/2019
+ms.reviewer: rebpen
+ms.date: 04/07/2023
 ms.topic: quickstart
 ms.service: notification-hubs
 ms.workload: mobile
