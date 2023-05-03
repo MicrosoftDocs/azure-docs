@@ -4,7 +4,7 @@ description: This tutorial walks through setting up your development machine and
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 04/25/2023
+ms.date: 05/02/2023
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -20,8 +20,8 @@ This tutorial walks through developing and deploying your own code to an IoT Edg
 
 This article includes steps for two IoT Edge development tools.
 
- * **Azure IoT Edge Dev Tool** command-line tool (CLI). This is the preferred tool for development.
- * **Azure IoT Edge tools for Visual Studio Code** extension. The extension is in [maintenence mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
+ * *Azure IoT Edge Dev Tool* command-line tool (CLI). This is the preferred tool for development.
+ * *Azure IoT Edge tools for Visual Studio Code* extension. The extension is in [maintenence mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
 
 Use the tool selector button at the beginning of this article to select the tool version.
 
@@ -140,7 +140,7 @@ Install tools specific to the language you're developing in:
 # [C](#tab/c)
 
 * [C/C++ Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
-* Installing the Azure IoT C SDK isn't required for this tutorial, but can provide helpful functionality like intellisense and reading program definitions. For installation information, see [Azure IoT C SDKs and Libraries](https://github.com/Azure/azure-iot-sdk-c).
+* Installing the Azure IoT C SDK isn't required for this tutorial, but can provide helpful functionality like IntelliSense and reading program definitions. For installation information, see [Azure IoT C SDKs and Libraries](https://github.com/Azure/azure-iot-sdk-c).
 
 # [Java](#tab/java)
 
@@ -1127,6 +1127,8 @@ This process may take several minutes the first time, but is faster the next tim
 ::: zone-end
 
 #### Update the build and image
+
+If you make changes to your module code, you need to rebuild and push the module image to your container registry. Use the steps in this section to update the build and image. You can skip this section if you didn't make any changes to your module code.
 
 ::: zone pivot="iotedge-dev-ext"
 

@@ -1,10 +1,10 @@
 ---
 title: Debug Azure IoT Edge modules using Visual Studio Code
-description: Use Visual Studio Code to debug an Azure IoT Edge custom module written in supported development languages.
+description: Use Visual Studio Code to debug an Azure IoT Edge custom module written in a supported development language.
 services: iot-edge
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/25/2023
+ms.date: 05/02/2023
 ms.topic: conceptual
 ms.service: iot-edge
 zone_pivot_groups: iotedge-dev
@@ -18,8 +18,8 @@ This article shows you how to use Visual Studio Code to debug IoT Edge modules i
 
 This article includes steps for two IoT Edge development tools.
 
- * **Azure IoT Edge Dev Tool** command-line tool (CLI). This is the preferred tool for development.
- * **Azure IoT Edge tools for Visual Studio Code** extension. The extension is in [maintenence mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
+ * *Azure IoT Edge Dev Tool* command-line tool (CLI). This is the preferred tool for development.
+ * *Azure IoT Edge tools for Visual Studio Code* extension. The extension is in [maintenence mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
 
 Use the tool selector button at the beginning of this article to select the tool version.
 
