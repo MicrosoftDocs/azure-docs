@@ -195,11 +195,51 @@ To start a job execution using the ARM REST API, make a *POST* request to the jo
 
 ```http
 POST https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/my-resource-group/providers/Microsoft.App/jobs/my-job/start?api-version=2022-11-01-preview
+Authorization: Bearer <token>
 ```
 
 Replace `<subscription_id>` with your subscription ID.
 
-To authenticate the request, add an `Authorization` header with a valid bearer token. For more information, see [Azure REST API reference](/rest/api/azure).
+To authenticate the request, replace `<token>` in the `Authorization header with a valid bearer token. For more information, see [Azure REST API reference](/rest/api/azure).
+
+---
+
+When starting a job execution, you can optionally override the job's configuration. For example, you can override an environment variable or the startup commmand to pass data that is specific to the execution you're starting.
+
+# [Azure CLI](#tab/azure-cli)
+
+Azure CLI doesn't support overriding a job's configuration when starting a job execution.
+
+# [Azure Resource Manager](#tab/azure-resource-manager)
+
+To override the job's configuration, include a template in the request body. The following example overrides the startup command to run a different command:
+
+```http
+POST https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/my-resource-group/providers/Microsoft.App/jobs/my-job/start?api-version=2022-11-01-preview
+Content-Type: application/json
+Authorization: Bearer <token>
+
+{
+    "template": {
+        "containers": [
+            {
+                "image": "mcr.microsoft.com/k8se/quickstart-jobs:latest",
+                "name": "main",
+                "resources": {
+                    "cpu": 0.25,
+                    "memory": "0.5Gi"
+                },
+                "command": [
+                    "echo",
+                    "Hello, Azure Container Apps jobs!"
+                ]
+            }
+        ]
+    }
+}
+```
+
+Replace `<subscription_id>` with your subscription ID and `<token>` in the `Authorization header with a valid bearer token. For more information, see [Azure REST API reference](/rest/api/azure).
 
 ---
 
@@ -251,7 +291,7 @@ The following table includes the job settings that you can configure:
 | Replica timeout | `replicaTimeout` | `--replica-timeout` | The maximum time in seconds to wait for a replica to complete. |
 | Replica retry limit | `replicaRetryLimit` | `--replica-retry-limit` | The maximum number of times to retry a failed replica. |
 
-### <a name="advanced-example"></a>Example
+### Example
 
 # [Azure CLI](#tab/azure-cli)
 
