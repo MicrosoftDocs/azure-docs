@@ -41,8 +41,7 @@ When your custom model is trained and ready (you've completed the steps in the [
 The API call will look like this:
 
 ```bash
-curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://<endpoint>/vision/v4.0-preview.1/operations/shelfanalysis-productunderstanding:analyze?PRODUCT_CLASSIFIER_MODEL=myModelName" -d 
-"{
+curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://<endpoint>/vision/v4.0-preview.1/operations/shelfanalysis-productunderstanding:analyze?PRODUCT_CLASSIFIER_MODEL=myModelName" -d "{
     'url':'<your_url_string>'
 }"
 ```
