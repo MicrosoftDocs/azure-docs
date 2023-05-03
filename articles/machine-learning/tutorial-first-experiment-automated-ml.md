@@ -123,7 +123,7 @@ After you load and configure your data, you can set up your experiment. This set
     
     1. Select **compute cluster** as your compute type.
     1.  A compute target is a local or cloud-based resource environment used to run your training script or host your service deployment. For this experiment, you can either try a cloud-based serverless compute (preview) or create your own cloud-based compute.
-        1. To use serverless compute, [enable the preview feature](./how-to-use-serverless-compute.md#how-to-use-serverless-compute), then select **Serverless*.
+        1. To use serverless compute, [enable the preview feature](./how-to-use-serverless-compute.md#how-to-use-serverless-compute), select **Serverless**, and skip the rest of this step.
         1.  To create your own compute target, select **+New** to configure your compute target. 
             1. Populate the **Select virtual machine** form to set up your compute.
     
