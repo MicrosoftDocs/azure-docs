@@ -78,8 +78,6 @@ $region_code="WEEU"
 
 $env:TF_VAR_app_registration_app_id = (az ad app create `
     --display-name $region_code-webapp-registration     `
-    --enable-id-token-issuance true                     `
-    --sign-in-audience AzureADMyOrg                     `
     --required-resource-accesses ./manifest.json        `
     --query "appId").Replace('"',"")
 
