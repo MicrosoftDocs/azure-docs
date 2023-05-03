@@ -75,6 +75,8 @@ items:
 - name: How-to guides
   expanded: true
   items: 
+    - name: Manage authentication
+      href: how-to-manage-authentication.md
     - name: Store secrets in Key Vault
       href: tutorial-portal-key-vault.md
     - name: Connect a container app to Blob Storage

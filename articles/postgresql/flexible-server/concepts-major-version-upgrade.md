@@ -11,10 +11,12 @@ ms.custom: references_regions
 ms.topic: conceptual
 ---
 
-# Major Version Upgrade with PostgreSQL Flexible Server Preview
+# Major Version Upgrade for PostgreSQL Flexible Server Preview
 
 [!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
 
+> [!NOTE]
+> Major Version Upgrade for PostgreSQL Flexible Server is currently in preview.
 
 ## Overview
 Azure Database for PostgreSQL Flexible server supports PostgreSQL versions 11, 12,13, and 14. Postgres community releases a new major version containing new features about once a year. Additionally, major version receives periodic bug fixes in the form of minor releases. Minor version upgrades include changes that are backward-compatible with existing applications. Azure Database for PostgreSQL Flexible service periodically updates the minor versions during customer’s maintenance window. Major version upgrades are more complicated than minor version upgrades as they can include internal changes and new features that may not be backward-compatible with existing applications. 

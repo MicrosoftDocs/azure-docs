@@ -34,6 +34,9 @@ In this tutorial, you learn how to:
 
 - You must register the "Microsoft.HardwareSecurityModules" and "Microsoft.Network" resource providers, as well as the Azure Payment HSM features. Steps for doing so are at [Register the Azure Payment HSM resource provider and resource provider features](register-payment-hsm-resource-providers.md).
 
+  > [!WARNING]
+  > You must apply the "FastPathEnabled" feature flag to **every** subscription ID, and add the "fastpathenabled" tag to **every** virtual network. For more details, see [Fastpathenabled](fastpathenabled.md).
+
   To quickly ascertain if the resource providers and features are already registered, use the Azure CLI [az provider show](/cli/azure/provider#az-provider-show) command. (You will find the output of this command more readable if you display it in table-format.)
 
   ```azurecli-interactive
@@ -54,6 +57,9 @@ In this tutorial, you learn how to:
 # [Azure PowerShell](#tab/azure-powershell)
 
 - You must register the "Microsoft.HardwareSecurityModules" and "Microsoft.Network" resource providers, as well as the Azure Payment HSM features. Steps for doing so are at [Register the Azure Payment HSM resource provider and resource provider features](register-payment-hsm-resource-providers.md).
+
+  > [!WARNING]
+  > You must apply the "FastPathEnabled" feature flag to **every** subscription ID, and add the "fastpathenabled" tag to **every** virtual network. For more details, see [Fastpathenabled](fastpathenabled.md).
 
   To quickly ascertain if the resource providers and features are already registered, use the Azure PowerShell [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) cmdlet:
 

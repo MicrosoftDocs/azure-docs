@@ -3,7 +3,7 @@ title: Windows Server node pools FAQ
 titleSuffix: Azure Kubernetes Service
 description: See the frequently asked questions when you run Windows Server node pools and application workloads in Azure Kubernetes Service (AKS).
 ms.topic: article
-ms.date: 10/12/2020
+ms.date: 04/13/2023
 
 #Customer intent: As a cluster operator, I want to see frequently asked questions when running Windows node pools and application workloads.
 ---
@@ -37,6 +37,10 @@ Azure Disks and Azure Files are the supported volume types, and are accessed as 
 ## Can I run Windows only clusters in AKS?
 
 The master nodes (the control plane) in an AKS cluster are hosted by the AKS service. You won't be exposed to the operating system of the nodes hosting the master components. All AKS clusters are created with a default first node pool, which is Linux-based. This node pool contains system services that are needed for the cluster to function. We recommend that you run at least two nodes in the first node pool to ensure the reliability of your cluster and the ability to do cluster operations. The first Linux-based node pool can't be deleted unless the AKS cluster itself is deleted.
+
+In some cases, if you are planning to run Windows-based workloads on an AKS cluster, you should consider deploying a Linux node pool for the following reasons:
+- If you are planning to run Windows and Linux workloads, you can deploy a Windows and Linux node pool on the same AKS cluster to run the workloads side by side.
+- When deploying infrastructure-related components based on Linux, such as Ngix and others, these workloads require a Linux node pool alongside your Windows node pools. For development and test scenarios, you can use control plane nodes. For production workloads, we recommend deploying separate Linux node pools for performance and reliability.
 
 ## How do I patch my Windows nodes?
 

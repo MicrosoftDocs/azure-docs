@@ -31,7 +31,7 @@ dotnet new web -n MyApplication
 
 ## Install the NuGet package
 
-During the preview phase, the NuGet package can be obtained by configuring your package manager to use the Azure SDK Dev Feed from [here](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed).
+The NuGet package can be obtained by configuring your package manager to use the Azure SDK Dev Feed from [here](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed) and locate **Azure.Communication.CallAutomation** package.
 
 ## (Optional) Prepare your audio file if you wish to use audio files for playing prompts
 
@@ -71,7 +71,7 @@ FileSource playSource = new FileSource (new Uri(<audioUri>));
 
 ### Play source - Text-To-Speech
 
-To play audio using Text-To-Speech through Azure Cognitive Services you need to provide the text you wish to play, as well either the SourceLocale, and VoiceGender or the VoiceName you wish to use. We support all voice names supported by Cognitive Services, full list [here]().
+To play audio using Text-To-Speech through Azure Cognitive Services you need to provide the text you wish to play, as well either the SourceLocale, and VoiceGender or the VoiceName you wish to use. We support all voice names supported by Cognitive Services, full list [here](../../../../cognitive-services/Speech-Service/language-support.md?tabs=tts).
 
 ```csharp
 String textToPlay = "Welcome to Contoso";

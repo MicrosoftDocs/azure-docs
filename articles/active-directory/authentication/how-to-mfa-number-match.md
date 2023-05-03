@@ -4,7 +4,7 @@ description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/16/2023
+ms.date: 04/10/2023
 ms.author: justinha
 author: justinha
 ms.collection: M365-identity-device-management
@@ -68,13 +68,13 @@ AD FS adapter will require number matching on supported versions of Windows Serv
 
 ### NPS extension
 
-Although NPS doesn't support number matching, the latest NPS extension does support One-Time Password (OTP) methods such as the OTP available in Microsoft Authenticator, other software tokens, and hardware FOBs. OTP sign-in provides better security than the alternative **Approve**/**Deny** experience. Make sure you run the latest version of the [NPS extension](https://www.microsoft.com/download/details.aspx?id=54688). 
+Although NPS doesn't support number matching, the latest NPS extension does support time-based one-time password (TOTP) methods such as the TOTP available in Microsoft Authenticator, other software tokens, and hardware FOBs. TOTP sign-in provides better security than the alternative **Approve**/**Deny** experience. Make sure you run the latest version of the [NPS extension](https://www.microsoft.com/download/details.aspx?id=54688). 
 
-After May 8, 2023, when number matching is enabled for all users, anyone who performs a RADIUS connection with NPS extension version 1.2.2216.1 or later will be prompted to sign in with an OTP method instead. 
+After May 8, 2023, when number matching is enabled for all users, anyone who performs a RADIUS connection with NPS extension version 1.2.2216.1 or later will be prompted to sign in with a TOTP method instead. 
 
-Users must have an OTP authentication method registered to see this behavior. Without an OTP method registered, users continue to see **Approve**/**Deny**. 
+Users must have a TOTP authentication method registered to see this behavior. Without a TOTP method registered, users continue to see **Approve**/**Deny**. 
  
-Prior to the release of NPS extension version 1.2.2216.1 after May 8, 2023, organizations that run any of these earlier versions of NPS extension can modify the registry to require users to enter an OTP:
+Prior to the release of NPS extension version 1.2.2216.1 after May 8, 2023, organizations that run any of these earlier versions of NPS extension can modify the registry to require users to enter a TOTP:
 
 - 1.2.2131.2
 - 1.2.1959.1
@@ -85,29 +85,30 @@ Prior to the release of NPS extension version 1.2.2216.1 after May 8, 2023, orga
 - 1.0.1.40
 
 >[!NOTE] 
->NPS extensions versions earlier than 1.0.1.40 don't support OTP enforced by number matching. These versions will continue to present users with **Approve**/**Deny**.
+>NPS extensions versions earlier than 1.0.1.40 don't support TOTP enforced by number matching. These versions will continue to present users with **Approve**/**Deny**.
 
-To create the registry entry to override the **Approve**/**Deny** options in push notifications and require an OTP instead:
+To create the registry entry to override the **Approve**/**Deny** options in push notifications and require a TOTP instead:
 
 1. On the NPS Server, open the Registry Editor.
 1. Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa.
 1. Create the following String/Value pair:
-   Name: OVERRIDE_NUMBER_MATCHING_WITH_OTP
-   Value = TRUE
+   - Name: OVERRIDE_NUMBER_MATCHING_WITH_OTP
+   - Value = TRUE
 1. Restart the NPS Service. 
 
 In addition:
 
-- Users who perform OTP must have either Microsoft Authenticator registered as an authentication method, or some other hardware or software OATH token. A user who can't use an OTP method will always see **Approve**/**Deny** options with push notifications if they use a version of NPS extension earlier than 1.2.2216.1.
+- Users who perform TOTP must have either Microsoft Authenticator registered as an authentication method, or some other hardware or software OATH token. A user who can't use an OTP method will always see **Approve**/**Deny** options with push notifications if they use a version of NPS extension earlier than 1.2.2216.1.
 - Users must be [enabled for number matching](#enable-number-matching-in-the-portal). 
 - The NPS Server where the NPS extension is installed must be configured to use PAP protocol. For more information, see [Determine which authentication methods your users can use](howto-mfa-nps-extension.md#determine-which-authentication-methods-your-users-can-use). 
 
   >[!IMPORTANT] 
-  >MSCHAPv2 doesn't support OTP. If the NPS Server isn't configured to use PAP, user authorization will fail with events in the **AuthZOptCh** log of the NPS Extension server in Event Viewer:<br>
+  >MSCHAPv2 doesn't support TOTP. If the NPS Server isn't configured to use PAP, user authorization will fail with events in the **AuthZOptCh** log of the NPS Extension server in Event Viewer:<br>
   >NPS Extension for Azure MFA: Challenge requested in Authentication Ext for User npstesting_ap. 
   >You can configure the NPS Server to support PAP. If PAP is not an option, you can set OVERRIDE_NUMBER_MATCHING_WITH_OTP = FALSE to fall back to Approve/Deny push notifications.
 
-If your organization uses Remote Desktop Gateway and the user is registered for OTP code along with Microsoft Authenticator push notifications, the user won't be able to meet the Azure AD MFA challenge and Remote Desktop Gateway sign-in will fail. In this case, you can set OVERRIDE_NUMBER_MATCHING_WITH_OTP = FALSE to fall back to **Approve**/**Deny** push notifications with Microsoft Authenticator.
+If your organization uses Remote Desktop Gateway and the user is registered for a TOTP code along with Microsoft Authenticator push notifications, the user won't be able to meet the Azure AD MFA challenge and Remote Desktop Gateway sign-in will fail. In this case, you can set OVERRIDE_NUMBER_MATCHING_WITH_OTP = FALSE to fall back to **Approve**/**Deny** push notifications with Microsoft Authenticator.
+This is because TOTP will be preferred over the **Approve**/**Deny** push notification and Remote Desktop Gateway doesn't provide the option to enter a verification code with Azure AD Multi-Factor Authentication. For more information, see [Configure accounts for two-step verification](howto-mfa-nps-extension-rdg.md#configure-accounts-for-two-step-verification).
 
 ### Apple Watch supported for Microsoft Authenticator
 
@@ -310,9 +311,7 @@ Number match will be enabled for all users of Microsoft Authenticator push notif
 
 Relevant services will begin deploying these changes after May 8, 2023 and users will start to see number match in approval requests. As services deploy, some may see number match while others don't. To ensure consistent behavior for all your users, we highly recommend you use the Azure portal or Graph API to roll out number match for all Microsoft Authenticator users. 
 
-### Will the changes after May 8th, 2023, override number matching settings that are configured for a group in the Authentication methods policy?
-
-No, the changes after May 8th won't affect the **Enable and Target** tab for Microsoft Authenticator in the Authentication methods policy. Administrators can continue to target specific users and groups or **All Users** for Microsoft Authenticator **Push** or **Any** authentication mode. 
+### What happens to number matching settings that are currently configured for a group in the Authentication methods policy after number matching is enabled for Authenticator push notifications after May 8th, 2023?
 
 When Microsoft begins protecting all organizations by enabling number matching after May 8th, 2023, administrators will see the **Require number matching for push notifications** setting on the **Configure** tab of the Microsoft Authenticator policy is set to **Enabled** for **All users** and can't be disabled. In addition, the **Exclude** option for this setting will be removed.
 
@@ -329,24 +328,24 @@ Here are differences in sign-in scenarios that Microsoft Authenticator users wil
 - Authentication flows will require users to do number match when using Microsoft Authenticator. If their version of Microsoft Authenticator doesn’t support number match, their authentication will fail.
 - Self-service password reset (SSPR) and combined registration will also require number match when using Microsoft Authenticator. 
 - AD FS adapter will require number matching on [supported versions of Windows Server](#ad-fs-adapter). On earlier versions, users will continue to see the **Approve**/**Deny** experience and won’t see number matching until you upgrade. 
-- NPS extension versions beginning 1.2.2131.2 will require users to do number matching. Because the NPS extension can’t show a number, the user will be asked to enter a One-Time Passcode (OTP). The user must have an OTP authentication method such as Microsoft Authenticator or software OATH tokens registered to see this behavior. If the user doesn’t have an OTP method registered, they’ll continue to get the **Approve**/**Deny** experience.  
+- NPS extension versions beginning 1.2.2131.2 will require users to do number matching. Because the NPS extension can’t show a number, the user will be asked to enter a TOTP. The user must have a TOTP authentication method such as Microsoft Authenticator or software OATH tokens registered to see this behavior. If the user doesn’t have a TOTP method registered, they’ll continue to get the **Approve**/**Deny** experience.  
  
   To create a registry entry that overrides this behavior and prompts users with **Approve**/**Deny**: 
 
   1. On the NPS Server, open the Registry Editor.
   1. Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa.
   1. Create the following String/Value:
-     Name: OVERRIDE_NUMBER_MATCHING_WITH_OTP
-     Value = FALSE
+     - Name: OVERRIDE_NUMBER_MATCHING_WITH_OTP
+     - Value = FALSE
   1. Restart the NPS Service. 
 
 - Apple Watch will remain unsupported for number matching. We recommend you uninstall the Microsoft Authenticator Apple Watch app because you have to approve notifications on your phone.
 
-### How can users enter an OTP with the NPS extension?
+### How can users enter a TOTP with the NPS extension?
 
-The VPN and NPS server must be using PAP protocol for OTP prompts to appear. If they're using a protocol that doesn't support OTP, such as MSCHAPv2, they'll continue to see the **Approve/Deny** notifications.
+The VPN and NPS server must be using PAP protocol for TOTP prompts to appear. If they're using a protocol that doesn't support TOTP, such as MSCHAPv2, they'll continue to see the **Approve/Deny** notifications.
 
-### Will users get a prompt similar to a number matching prompt, but will need to enter an OTP?
+### Will users get a prompt similar to a number matching prompt, but will need to enter a TOTP?
 
 They'll see a prompt to supply a verification code. They must select their account in Microsoft Authenticator and enter the random generated code that appears there.
 
@@ -371,21 +370,15 @@ No, number matching isn't enforced because it's not a supported feature for MFA 
 
 ### What happens if a user runs an older version of Microsoft Authenticator?  
 
-If a user is running an older version of Microsoft Authenticator that doesn't support number matching, authentication won't work if number matching is enabled. Users need to upgrade to the latest version of Microsoft Authenticator to use it for sign-in if they use Android versions prior to 6.2006.4198, or iOS versions prior to 6.4.12.
+If a user is running an older version of Microsoft Authenticator that doesn't support number matching, authentication won't work if number matching is enabled. Users need to upgrade to the latest version of Microsoft Authenticator to use it for sign-in.
 
 ### Why is my user prompted to tap on one of three numbers rather than enter the number in their Microsoft Authenticator app?
 
-Older versions of Microsoft Authenticator prompt users to tap and select a number rather than enter the number in Microsoft Authenticator. These authentications won't fail, but Microsoft highly recommends that users upgrade to the latest version of Microsoft Authenticator if they use Android versions prior to 6.2108.5654, or iOS versions prior to 6.5.82, so they can use number match.
+Older versions of Microsoft Authenticator prompt users to tap and select a number rather than enter the number in Microsoft Authenticator. These authentications won't fail, but Microsoft highly recommends that users upgrade to the latest version of Microsoft Authenticator.
 
-Minimum Microsoft Authenticator version supporting number matching:
+### How can users recheck the number on mobile iOS devices after the match request appears?
 
-- Android: 6.2006.4198
-- iOS: 6.4.12
-
-Minimum Microsoft Authenticator version for number matching which prompts to enter a number:
-
-- Android 6.2111.7701
-- iOS 6.5.85
+During mobile iOS broker flows, the number match request appears over the number after a two-second delay. To recheck the number, click **Show me the number again**. This action only occurs in mobile iOS broker flows. 
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: "VMware ESXi connector for Microsoft Sentinel"
 description: "Learn how to install the connector VMware ESXi to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 03/25/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -16,10 +16,8 @@ The [VMware ESXi](https://www.vmware.com/products/esxi-and-esx.html) connector a
 
 | Connector attribute | Description |
 | --- | --- |
-| **Kusto function alias** | VMwareESXi |
-| **Kusto function url** | https://aka.ms/sentinel-vmwareesxi-parser |
 | **Log Analytics table(s)** | Syslog (VMwareESXi)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
+| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
 
 ## Query samples
@@ -52,7 +50,8 @@ To integrate with VMware ESXi make sure you have:
 ## Vendor installation instructions
 
 
->This data connector depends on a parser based on a Kusto Function to work as expected. [Follow the steps](https://aka.ms/sentinel-vmwareesxi-parser) to use the Kusto function alias, **VMwareESXi**
+> [!NOTE]
+   >  This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias VMwareESXi and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/VMWareESXi/Parsers/VMwareESXi.txt), on the second line of the query, enter the hostname(s) of your VMwareESXi device(s) and any other unique identifiers for the logstream. The function usually takes 10-15 minutes to activate after solution installation/update.
 
 1. Install and onboard the agent for Linux
 

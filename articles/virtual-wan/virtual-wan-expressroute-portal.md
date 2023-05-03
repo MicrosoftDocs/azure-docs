@@ -4,13 +4,13 @@ description: In this tutorial, learn how to use Azure Virtual WAN to create Expr
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 05/25/2022
+ms.date: 04/28/2023
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
 ---
 # Tutorial: Create an ExpressRoute association to Virtual WAN - Azure portal
 
-This tutorial shows you how to use Virtual WAN to connect to your resources in Azure over an ExpressRoute circuit. For more conceptual information about ExpressRoute in Virtual WAN, see [About ExpressRoute in Virtual WAN](virtual-wan-expressroute-about.md).
+This tutorial shows you how to use Virtual WAN to connect to your resources in Azure over an ExpressRoute circuit. For more conceptual information about ExpressRoute in Virtual WAN, see [About ExpressRoute in Virtual WAN](virtual-wan-expressroute-about.md). You can also create this configuration using the [PowerShell](expressroute-powershell.md) steps.
 
 In this tutorial, you learn how to:
 

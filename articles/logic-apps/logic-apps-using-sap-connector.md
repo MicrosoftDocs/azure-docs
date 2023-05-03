@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, azla
 ms.topic: how-to
-ms.date: 02/28/2023
+ms.date: 04/03/2023
 tags: connectors
 ---
 
@@ -1041,9 +1041,9 @@ To send IDocs from SAP to your logic app workflow, you need the following minimu
 > [!IMPORTANT]
 > Use these steps only when you test your SAP configuration with your logic app workflow. Production environments require additional configuration.
 
-1. [Configure an RFC destination in SAP.](#create-rfc-destination)
+1. [Create an RFC destination.](#create-rfc-destination)
 
-1. [Create an ABAP connection to your RFC destination.](#create-abap-connection)
+1. [Create an ABAP connection.](#create-abap-connection)
 
 1. [Create a receiver port.](#create-receiver-port)
 
@@ -1056,6 +1056,8 @@ To send IDocs from SAP to your logic app workflow, you need the following minimu
 1. [Test sending messages.](#test-sending-messages)
 
 #### Create RFC destination
+
+This destination will identify your logic app workflow for the receiver port.
 
 1. To open the **Configuration of RFC Connections** settings, in your SAP interface, use the **sm59** transaction code (T-Code) with the **/n** prefix.
 
@@ -1101,11 +1103,15 @@ To send IDocs from SAP to your logic app workflow, you need the following minimu
 
 #### Create ABAP connection
 
+This destination will identify your SAP system for the sender port.
+
 1. To open the **Configuration of RFC Connections** settings, in your SAP interface, use the **sm59*** transaction code (T-Code) with the **/n** prefix.
 
 1. Select **ABAP Connections** > **Create**.
 
-1. For **RFC Destination**, enter the identifier for [your test SAP system](#create-rfc-destination).
+1. For **RFC Destination**, enter the identifier for your test SAP system.
+
+1. By leaving the target host empty in the Technical Settings, you are creating a local connection to the SAP system itself.
 
 1. Save your changes.
 

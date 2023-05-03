@@ -19,12 +19,9 @@ Get started quickly with the [SAP on Azure Deployment Automation Framework](depl
 
 - An Azure subscription. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Ability to [download of the SAP software](software.md) in your Azure environment.
-- A [Terraform](https://www.terraform.io/) installation. For more information, also see the [Terraform on Azure documentation](/azure/developer/terraform/).
 - An [Azure CLI](/cli/azure/install-azure-cli) installation on your local computer.
+- An [Azure PowerShell](/powershell/azure/install-az-ps#update-the-azure-powershell-module) installation on your local computer.
 - A Service Principal to use for the control plane deployment
-- Optionally, if you want to use PowerShell:
-    - An [Azure PowerShell](/powershell/azure/install-az-ps#update-the-azure-powershell-module) installation on your local computer.
-    - The latest PowerShell modules. [Update the PowerShell module](/powershell/azure/install-az-ps#update-the-azure-powershell-module) if needed.
 
 Some of the prerequisites may already be installed in your deployment environment. Both Cloud Shell and the deployer have Terraform and the Azure CLI installed.
 ## Clone the repository

@@ -3,7 +3,7 @@ title: Azure Monitor Logs cost calculations and options
 description: Cost details for data stored in a Log Analytics workspace in Azure Monitor, including commitment tiers and data size calculation.
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
-ms.date: 03/24/2022
+ms.date: 04/06/2023
 ms.reviwer: dalek git 
 ---
  
@@ -83,6 +83,8 @@ When you link workspaces to a cluster, the pricing tier is changed to cluster, a
 
 If your linked workspace is using the legacy Per Node pricing tier, it will be billed based on data ingested against the cluster's commitment tier, and no longer Per Node. Per-node data allocations from Microsoft Defender for Cloud will continue to be applied.
 
+If a cluster is deleted, billing for the cluster will stop even if the cluster is within it's 31-day commitment period. 
+
 For more information on how to create a dedicated cluster and specify its billing type, see [Create a dedicated cluster](logs-dedicated-clusters.md#create-a-dedicated-cluster).
 
 ## Basic Logs
@@ -150,9 +152,9 @@ The count of monitored servers is calculated on an hourly granularity. The daily
 Subscriptions that contained a Log Analytics workspace or Application Insights resource on April 2, 2018, or are linked to an Enterprise Agreement that started before February 1, 2019, and is still active, will continue to have access to use the following legacy pricing tiers:
 
 - Standalone (Per GB)
-- Per Node (Operations Management Suite [OMS])
+- Per Node (Operations Management Suite [OMS]) 
 
-Access to the legacy Free Trial pricing tier was limited on July 1, 2022.
+Access to the legacy Free Trial pricing tier was limited on July 1, 2022. Pricing information for the Standalone and Per Node pricing tiers is available [here](https://aka.ms/OMSpricing). 
 
 ### Free Trial pricing tier
 
@@ -167,7 +169,7 @@ Usage on the Standalone pricing tier is billed by the ingested data volume. It's
 
 ### Per Node pricing tier
 
-The Per Node pricing tier charges per monitored VM (node) on an hour granularity. For each monitored node, the workspace is allocated 500 MB of data per day that's not billed. This allocation is calculated with hourly granularity and is aggregated at the workspace level each day. Data ingested above the aggregate daily data allocation is billed per GB as data overage.
+The Per Node pricing tier charges per monitored VM (node) on an hour granularity. For each monitored node, the workspace is allocated 500 MB of data per day that's not billed. This allocation is calculated with hourly granularity and is aggregated at the workspace level each day. Data ingested above the aggregate daily data allocation is billed per GB as data overage. The Per Node pricing tier should only be used by customers with active Operations Management Suite (OMS) licenses. 
 
 On your bill, the service will be **Insight and Analytics** for Log Analytics usage if the workspace is in the Per Node pricing tier. Workspaces in the Per Node pricing tier have user-configurable retention from 30 to 730 days. Workspaces in the Per Node pricing tier don't support the use of [Basic Logs](basic-logs-configure.md). Usage is reported on three meters:
 

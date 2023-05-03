@@ -1,16 +1,17 @@
 ---
-title: "Microservices communication using Dapr Pub/sub messaging"
+title: "Microservices communication using Dapr Publish and Subscribe"
+titleSuffix: "Azure Container Apps"
 description: Enable two sample Dapr applications to send and receive messages and leverage Azure Container Apps.
 author: hhunter-ms
 ms.author: hannahhunter
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 03/16/2023
+ms.date: 04/11/2023
 zone_pivot_group_filename: container-apps/dapr-zone-pivot-groups.json
 zone_pivot_groups: dapr-languages-set
 ---
 
-# Microservices communication using Dapr Pub/sub messaging 
+# Microservices communication using Dapr Publish and Subscribe 
 
 In this tutorial, you'll:
 > [!div class="checklist"]
@@ -680,3 +681,4 @@ azd down
 
 - Learn more about [deploying Dapr applications to Azure Container Apps](./microservices-dapr.md).
 - Learn more about [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) and [making your applications compatible with `azd`](/azure/developer/azure-developer-cli/make-azd-compatible).
+- [Scale your Dapr applications using KEDA scalers](./dapr-keda-scaling.md)

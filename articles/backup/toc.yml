@@ -122,6 +122,8 @@
       href: protect-backups-from-ransomware-faq.yml
   - name: Backup center
     href: backup-center-overview.md
+  - name: Azure VM backup
+    href: backup-azure-vms-introduction.md
   - name: SAP HANA database on Azure VM backup
     items:
     - name: About HANA database backup
@@ -190,8 +192,6 @@
       href: backup-center-actions.md
   - name: Azure VM backup
     items:
-    - name: Overview
-      href: backup-azure-vms-introduction.md
     - name: Backup
       items:
       - name: Back up and restore Azure VMs with Azure Backup Instant Restore
@@ -452,8 +452,10 @@
     items:
     - name: Protection matrices
       items:
-      - name: MABS V3 UR1 (and later) protection matrix
+      - name: MABS V4 (and later) protection matrix
         href: backup-mabs-protection-matrix.md
+      - name: MABS V3 UR1 (and later)
+        href: microsoft-azure-backup-server-protection-v3-ur1.md
       - name: MABS V3 RTM protection matrix
         href: microsoft-azure-backup-server-protection-v3.md
     - name: Install or upgrade
@@ -675,6 +677,8 @@
       href: backup-azure-encrypted-vm-troubleshoot.md
     - name: Azure Backup agent
       href: backup-azure-mars-troubleshoot.md
+    - name: Azure Blob backup
+      href: backup-azure-troubleshoot-blob-backup.md
     - name: Files and folders backup is slow
       href: backup-azure-troubleshoot-slow-backup-performance-issue.md
     - name: Azure Backup Server

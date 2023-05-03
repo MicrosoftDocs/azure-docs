@@ -24,6 +24,20 @@ You must store customer-managed keys in [Azure Key Vault](../key-vault/general/o
 > [!NOTE]
 > Currently, customer-managed keys are available only for new Azure Cosmos DB accounts. You should configure them during account creation.
 
+> [!WARNING]
+> The following field names are reserved on Cassandra API tables in accounts using Customer-managed Keys:
+>
+> - `id`
+> - `ttl`
+> - `_ts`
+> - `_etag`
+> - `_rid`
+> - `_self`
+> - `_attachments`
+> - `_epk`
+> 
+> When Customer-managed Keys are not enabled, only field names beginning with `__sys_` are reserved.
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -554,7 +568,7 @@ Use the Azure CLI to restore a continuous account that is already configured usi
         --resource-group $resourceGroupName \
         --account-name $sourceAccountName \
         --target-database-account-name $targetAccountName \
-        --locations regionName=$location \
+        --location $location \
         --restore-timestamp $timestamp \
         --assign-identity $identityId \
         --default-identity "UserAssignedIdentity=$identityId" \
@@ -715,9 +729,14 @@ The only operation possible when the encryption key has been revoked is account 
 
 ### Assign a new managed-identity to the restored database account to continue accessing or recover access to the database account
 
-- [Create a new user-assigned managed identity.](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity)
-- [Grant KeyVault key access to this identity.](#choosing-the-preferred-security-model)
-- [Assign this new identity to your restored database account.](/cli/azure/cosmosdb/identity#az-cosmosdb-identity-assign)
+User-Assigned Identity is tied to a specified Cosmos DB account, whenever we assign a User-Assigned Identity to an account, ARM forwards the request to managed service identities to make this connection. Currently we carry over user-identity information from the source database account to the target database account during the restore (for both Continuous and Periodic backup restore) of CMK + User-Assigned Identity,  
+ 
+Since the identity metadata is bound with the source database account and restore workflow doesn't re-scope identity to the target database account. This will cause the restored database accounts to be in a bad state, and become inaccessible after the source account is deleted and identity’s renew time is expired. 
+
+Steps to assign a new managed-identity:
+1. [Create a new user-assigned managed identity.](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity)
+2. [Grant KeyVault key access to this identity.](#choosing-the-preferred-security-model)
+3. [Assign this new identity to your restored database account.](/cli/azure/cosmosdb/identity#az-cosmosdb-identity-assign)
 
 ## Next steps
 

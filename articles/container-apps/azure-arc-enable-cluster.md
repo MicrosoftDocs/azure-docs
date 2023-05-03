@@ -2,12 +2,12 @@
 title: 'Tutorial: Enable Azure Container Apps on Azure Arc-enabled Kubernetes'
 description: 'Tutorial: learn how to set up Azure Container Apps in your Azure Arc-enabled Kubernetes clusters.'
 services: container-apps
-author: cebundy
+author: lanceleonard
 ms.service: container-apps
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 12/16/2022
-ms.author: v-bcatherine
+ms.date: 3/24/2023
+ms.author: v-laleonard
 ---
 ---
 # Tutorial: Enable Azure Container Apps on Azure Arc-enabled Kubernetes (Preview)
@@ -48,7 +48,7 @@ az extension add --name connectedk8s  --upgrade --yes
 az extension add --name k8s-extension --upgrade --yes
 az extension add --name customlocation --upgrade --yes
 az extension remove --name containerapp
-az extension add --source https://download.microsoft.com/download/5/c/2/5c2ec3fc-bd2a-4615-a574-a1b7c8e22f40/containerapp-0.0.1-py2.py3-none-any.whl --yes
+az extension add --source https://aka.ms/acaarccli/containerapp-latest-py2.py3-none-any.whl --yes
 ```
 
 # [PowerShell](#tab/azure-powershell)
@@ -57,8 +57,8 @@ az extension add --source https://download.microsoft.com/download/5/c/2/5c2ec3fc
 az extension add --name connectedk8s  --upgrade --yes
 az extension add --name k8s-extension --upgrade --yes
 az extension add --name customlocation --upgrade --yes
-az extension az extension remove --name containerapp
-az extension add --source https://download.microsoft.com/download/5/c/2/5c2ec3fc-bd2a-4615-a574-a1b7c8e22f40/containerapp-0.0.1-py2.py3-none-any.whl --yes
+az extension remove --name containerapp
+az extension add --source https://aka.ms/acaarccli/containerapp-latest-py2.py3-none-any.whl --yes
 ```
 
 ---
@@ -428,6 +428,10 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) is an Azure l
     ```
 
     ---
+
+    > [!NOTE]
+    > If you experience issues creating a custom location on your cluster, you may need to [enable the custom location feature on your cluster](../azure-arc/kubernetes/custom-locations.md#enable-custom-locations-on-your-cluster).  This is required if logged into the CLI using a Service Principal or if you are logged in with an Azure Active Directory user with restricted permissions on the cluster resource.
+    >
 
 1. Validate that the custom location is successfully created with the following command. The output should show the `provisioningState` property as `Succeeded`. If not, rerun the command after a minute.
 

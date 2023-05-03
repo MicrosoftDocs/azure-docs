@@ -8,6 +8,7 @@ ms.date: 11/17/2021
 ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+ms.custom: devx-track-azurecli
 ---
 
 # Deploy the control plane
@@ -77,8 +78,6 @@ $region_code="WEEU"
 
 $env:TF_VAR_app_registration_app_id = (az ad app create `
     --display-name $region_code-webapp-registration     `
-    --enable-id-token-issuance true                     `
-    --sign-in-audience AzureADMyOrg                     `
     --required-resource-accesses ./manifest.json        `
     --query "appId").Replace('"',"")
 
@@ -135,6 +134,9 @@ cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
 
     export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
     export ARM_SUBSCRIPTION_ID="${subscriptionId}"
+    export CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation-samples/Terraform/WORKSPACES"
+    export SAP_AUTOMATION_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
+
 
     ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                                                       \
         --deployer_parameter_file DEPLOYER/${env_code}-${region_code}-DEP00-INFRASTRUCTURE/${env_code}-${region_code}-DEP00-INFRASTRUCTURE.tfvars  \

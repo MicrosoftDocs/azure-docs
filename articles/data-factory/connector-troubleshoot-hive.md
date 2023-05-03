@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 01/25/2023
+ms.date: 01/28/2023
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -33,9 +33,9 @@ This article provides suggestions to troubleshoot common problems with the Hive 
 - **Cause**: You use the Kerberos authentication that is not supported in Azure Data Factory.
 
 - **Recommendation**: Try the following steps. If they do not work, check the provided driver to resolve this issue.
-    1. The **kr5.ini** file is in the **C:\Program Files\MIT\Kerberos\bin** folder.
+    1. The **krb5.ini** file is in the **C:\Program Files\MIT\Kerberos\bin** folder.
     2. Add the `KRB5_CONFIG` and `KRB5CCNAME` to the system variable as well.
-    3. Edit the **krb.ini** file.
+    3. Edit the **krb5.ini** file.
     4. Shut down and restart the VM and the SHIR from the machine.
 
 ## Next steps

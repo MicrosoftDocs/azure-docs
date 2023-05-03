@@ -1,8 +1,6 @@
 ---
 title: SMS alert behavior in action groups
 description: SMS message format and responding to SMS messages to unsubscribe, resubscribe, or request help.
-author: jacegummersall
-ms.author: jagummersall
 services: monitoring
 ms.topic: conceptual
 ms.date: 2/23/2022

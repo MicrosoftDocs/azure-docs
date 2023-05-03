@@ -1,8 +1,8 @@
 ---
 title: Set a map style in Android maps | Microsoft Azure Maps
 description: Learn two ways of setting the style of a map. See how to use the Azure Maps Android SDK in either the layout file or the activity class to adjust the style.
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
@@ -135,7 +135,7 @@ map.setCamera(
 
 ::: zone-end
 
-Often it is desirable to focus the map over a set of data. A bounding box can be calculated from features using the `MapMath.fromData` method and can be passed into the `bounds` option of the map camera. When setting a map view based on a bounding box, it's often useful to specify a `padding` value to account for the pixel size of points being rendered as bubbles or symbols. The following code shows how to set all optional camera options when using a bounding box to set the position of the camera.
+Often it's desirable to focus the map over a set of data. A bounding box can be calculated from features using the `MapMath.fromData` method and can be passed into the `bounds` option of the map camera. When setting a map view based on a bounding box, it's often useful to specify a `padding` value to account for the pixel size of points being rendered as bubbles or symbols. The following code shows how to set all optional camera options when using a bounding box to set the position of the camera.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -205,7 +205,7 @@ When setting the camera options of the map, animation options can also be used t
 
 | Option | Description |
 |--------|-------------|
-| `animationDuration(Integer durationMs)` | Specifies how long the camera will animate between the views in milliseconds (ms). |
+| `animationDuration(Integer durationMs)` | Specifies how long the camera animates between the views in milliseconds (ms). |
 | `animationType(AnimationType animationType)` | Specifies the type of animation transition to perform.<br/><br/> - `JUMP` - an immediate change.<br/> - `EASE` - gradual change of the camera's settings.<br/> - `FLY` - gradual change of the camera's settings following an arc resembling flight. |
 
 The following code shows how to animate the map view using a `FLY` animation over a duration of three seconds.

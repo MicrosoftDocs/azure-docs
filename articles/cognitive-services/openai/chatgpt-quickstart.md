@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart - Using the ChatGPT API'
+title: 'Quickstart - Get started using ChatGPT (Preview) and GPT-4 (Preview) with Azure OpenAI Service'
 titleSuffix: Azure OpenAI Service
-description: Walkthrough on how to get started with Azure OpenAI Service ChatGPT API.
+description: Walkthrough on how to get started with ChatGPT and GPT-4 on Azure OpenAI Service.
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: openai
 ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 02/07/2023
+ms.date: 03/21/2023
 zone_pivot_groups: openai-quickstart
 recommendations: false
 ---
 
-# Quickstart: Get started using ChatGPT with Azure OpenAI Service
+# Quickstart: Get started using ChatGPT (preview) and GPT-4 (preview) with Azure OpenAI Service
 
 Use this article to get started using Azure OpenAI.
 

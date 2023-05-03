@@ -160,7 +160,7 @@ credspec:
     HostAccountConfig:
       PluginGUID: '{CCC2A336-D7F3-4818-A213-272B7924213E}'
       PortableCcgVersion: "1"
-      PluginInput: ObjectId=$MANAGED_ID;SecretUri=$SECRET_URI  # SECRET_URI takes the form https://$akvName.vault.azure.net/secrets/$akvSecretName
+      PluginInput: "ObjectId=$MANAGED_ID;SecretUri=$SECRET_URI"  # SECRET_URI takes the form https://$akvName.vault.azure.net/secrets/$akvSecretName
   CmsPlugins:
   - ActiveDirectory
   DomainJoinConfig:
