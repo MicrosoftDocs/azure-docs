@@ -116,6 +116,11 @@ App roles enable the client app to obtain an access token as themselves. This is
 # [Daemon app](#tab/daemonapp)
 ## How to register your Daemon app?
 
+[!INCLUDE [register daemon app](../customers/includes/register-app/register-daemon-app.md)]
+
+### If you want to call an API follow the steps below (optional):
+[!INCLUDE [register daemon app](../customers/includes/register-app/grant-api-permissions-app-permissions.md)]
+
 ## Next steps
  
 - [Create a sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md)
