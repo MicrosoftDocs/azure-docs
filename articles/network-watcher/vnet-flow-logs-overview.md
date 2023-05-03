@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: conceptual
-ms.date: 04/11/2023
+ms.date: 05/03/2023
 ms.custom: template-concept, engagement-fy23
 ---
 
@@ -187,13 +187,13 @@ In the following example of VNet flow logs, multiple records that follow the pro
 
 :::image type="content" source="media/vnet-flow-logs-overview/vnet-flow-log-format.png" alt-text="Table showing the format of a virtual network flow log."lightbox="media/vnet-flow-logs-overview/vnet-flow-log-format.png"
 
-Here's an example bandwidth calculation for flow tuples from a TCP conversation between `185.170.185.105:35370` and `10.2.0.4:23`:
+Here's an example bandwidth calculation for flow tuples from a TCP conversation between **185.170.185.105:35370** and **10.2.0.4:23**:
 
-1493763938,185.170.185.105,10.2.0.4,35370,23,6,I,B,NX,,,,
-1493695838,185.170.185.105,10.2.0.4,35370,23,6,I,C,NX,1021,588096,8005,4610880
-1493696138,185.170.185.105,10.2.0.4,35370,23,6,I,E,NX,52,29952,47,27072
+`1493763938,185.170.185.105,10.2.0.4,35370,23,6,I,B,NX,,,,`
+`1493695838,185.170.185.105,10.2.0.4,35370,23,6,I,C,NX,1021,588096,8005,4610880`
+`1493696138,185.170.185.105,10.2.0.4,35370,23,6,I,E,NX,52,29952,47,27072`
 
-For continuation (C) and end (E) flow states, byte and packet counts are aggregate counts from the time of the previous flow's tuple record. In the example conversation, the total number of packets transferred is 1021+52+8005+47 = 9125. The total number of bytes transferred is 588096+29952+4610880+27072 = 5256000.
+For continuation (`C`) and end (`E`) flow states, byte and packet counts are aggregate counts from the time of the previous flow's tuple record. In the example conversation, the total number of packets transferred is 1021+52+8005+47 = 9125. The total number of bytes transferred is 588096+29952+4610880+27072 = 5256000.
 
 ## Considerations for VNet flow logs
 
