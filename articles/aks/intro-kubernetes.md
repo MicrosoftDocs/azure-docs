@@ -170,7 +170,7 @@ Learn more about deploying and managing AKS.
 [aad]: managed-azure-ad.md
 [aks-monitor]: monitor-aks.md
 [azure-monitor-overview]: ../azure-monitor/overview.md
-[container-insights]: ../azure-monitor/insights/containers/container-insights-overview.md
+[container-insights]: ../azure-monitor/containers/container-insights-overview.md
 [azure-monitor-managed-prometheus]: ../azure-monitor/essentials/prometheus-metrics-overview.md
 [collect-resource-logs]: monitor-aks.md#collect-resource-logs
 [azure-monitor-logs]: ../azure-monitor/logs/data-platform-logs.md
