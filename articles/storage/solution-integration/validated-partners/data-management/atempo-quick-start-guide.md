@@ -1,5 +1,5 @@
 ---
-title: Migrate Data to Azure with Atempo Miria
+title: Migrate data to Azure with Atempo Miria
 description: Getting started guide to implement Atempo Miria infrastructure with Azure Storage. This article helps you integrate the Atempo Miria Infrastructure with Azure storage.
 author: timkresler
 ms.author: timkresler
@@ -88,16 +88,21 @@ This section provides a brief guide for how to add Azure BLOB to an on-premises-
 - Select the Redundancy that meets your data protection requirements
 :::image type="content" source="./media/atempo-quick-start-guide/storage-creation.png" alt-text="Screenshot of the Basics panel for creating a new storage account.":::
 
+
 3. Next, we recommend the default settings from the Advanced screen
 :::image type="content" source="./media/atempo-quick-start-guide/advanced.png" alt-text="Screenshot of the Advanced Options panel when creating a new storage account.":::
+
 
 4. Keep the default networking options for now and move on to Data protection. You can select to enable soft delete, which allows you to recover accidentally deleted data within the defined retention period. Soft delete offers protection against accidental or malicious deletion
 :::image type="content" source="./media/atempo-quick-start-guide/data-protection.png" alt-text="Screenshot of the Data Protection Options panel when creating a new Storage Account.":::
 
+
 5. Add tags for organization if you use tagging and Create your account
 
-6. Another quick step is mandatory before you can add the account to your Miria environment. Navigate to the Access keys item under Security + Networking and copy the Storage account name and one of the two access keys.
+6. Another step is mandatory before you can add the account to your Miria environment. Navigate to the Access keys item under Security + Networking and copy the Storage account name and one of the two access keys.
+   
 :::image type="content" source="./media/atempo-quick-start-guide/access-keys.png" alt-text="Screenshot of the Access Keys configuration panel in the Miria software.":::
+
 
 7. Under Data Storage, create a Container with a unique name
 :::image type="content" source="./media/atempo-quick-start-guide/new-container.png" alt-text="Screenshot of the New Container Creation dialog box in the Miria software.":::
@@ -141,7 +146,7 @@ Once the Storage Manager is successfully created, we need to create the Miria co
 Access tier “Default” matches the one chosen during the Azure storage account creation (Step 3 above).
 
 Then select Create at the bottom. Your SMC is successfully created, select Back to get back to the home screen
-:::image type="content" source="./media/atempo-quick-start-guide/storagemanagers-2.png" alt-text="Screenshot of the fully configured Azure Storage Managers.":::
+:::image type="content" source="./media/atempo-quick-start-guide/storage-managers-2.png" alt-text="Screenshot of the fully configured Azure Storage Managers.":::
 
 Congratulations! Your Azure storage and bucket are now fully declared and ready to use.
 
@@ -150,30 +155,30 @@ Congratulations! Your Azure storage and bucket are now fully declared and ready 
 In this example, we're moving data from an SMB/CIFS share of a Windows file server (our source storage) to Azure (our target storage).
 To create the source storage in Miria:
 
-- Navigate to the Infrastructure item on the left pane, then select NAS
+1. Navigate to the Infrastructure item on the left pane, then select NAS
 :::image type="content" source="./media/atempo-quick-start-guide/infrastructure-pane.png" alt-text="Screenshot of the Miria configuration menu with the Infrastructure menu selected.":::
 
-Select the New NAS button in the top right
+2. Select the New NAS button in the top right
 :::image type="content" source="./media/atempo-quick-start-guide/network-attached-storage.png" alt-text="Screenshot of the Create new Network Attached Storage button.":::
 
-- In the NAS Type drop-down list, select Other
-- In the "Protocol" radio button, select Windows (CIFS)
+3. In the NAS Type drop-down list, select Other
+4. In the "Protocol" radio button, select Windows (CIFS)
 :::image type="content" source="./media/atempo-quick-start-guide/network-attached-storage-type.png" alt-text="Screenshot of the Network Attached Storage Type interface, with the Other type selected.":::
 
-- Under Data Movers, select Single agent or Pool (depending on your setup) and add a Windows Data Mover
-- then select Next at the bottom right
+5. Under Data Movers, select Single agent or Pool (depending on your setup) and add a Windows Data Mover
+6. Select Next at the bottom right
 :::image type="content" source="./media/atempo-quick-start-guide/data-movers.png" alt-text="Screenshot of the Data Movers configuration panel, with an agent selected.":::
 
-- In the Stream option text box, add “host=” followed by FQDN (or IP address) of your NAS
-- Select Next
+7. In the Stream option text box, add “host=” followed by FQDN (or IP address) of your NAS
+8. Select Next
 :::image type="content" source="./media/atempo-quick-start-guide/stream-option.png" alt-text="Screenshot of the Stream Options configuration panel, with an IP address configured for the Network Attached Storage.":::
 
-- Select a NAS name
-- Add the credentials you want to use for Data migration accessing this share
+9. Select a NAS name
+10. Add the credentials you want to use for Data migration accessing this share
 - Select Create
 :::image type="content" source="./media/atempo-quick-start-guide/summary-of-the-network-attached-storage.png" alt-text="Screenshot of the Summary of Network Attached Storage Configuration dialog box.":::
 
-Your Windows file server is now ready to be used as a source
+Congratulations!  Your Windows file server is now ready to be used as a source
 :::image type="content" source="./media/atempo-quick-start-guide/network-attached-storage-windows-file-server.png" alt-text="Screenshot of the Windows Fileserver displayed as Ready to migrate.":::
 
 ## Start your migration
@@ -236,7 +241,7 @@ To access the logs or more details on the tasks in this project, select on the t
 The above screenshot provides an overview of all iterations of the migration tasks in your project. We currently have only one iteration for our task. We can easily launch a new iteration of the same task to collect all the latest and changed files since the last run. Select the task in the bottom part of the panel and select Start Task. Each iteration of the task is shown on the above interface.
 
 The bottom part of the screen is listing the tasks created in this project.
-:::image type="content" source="./media/atempo-quick-start-guide/taskcompleted-2.png" alt-text="Screenshot of the dialog box showing the completed tasks.":::
+:::image type="content" source="./media/atempo-quick-start-guide/task-completed-2.png" alt-text="Screenshot of the dialog box showing the completed tasks.":::
 
 To drill down on an individual task, just apply a similar process, select the three-dot menu at the end of the task line to display the task-related submenu
 :::image type="content" source="./media/atempo-quick-start-guide/show-logs-integrity-check.png" alt-text="Screenshot of the dialog box showing the logs collected.":::
@@ -261,7 +266,7 @@ More tasks can be added to a Migration project going back to the project level, 
 
 To add a task, use the top menu with the three horizontal dots, select New Task and follow a similar process to create your task within the project
 
-:::image type="content" source="./media/atempo-quick-start-guide/start-button-new-task.png" alt-text="Screenshot of the Create New Task diaglog box.":::
+:::image type="content" source="./media/atempo-quick-start-guide/start-button-new-task.png" alt-text="Screenshot of the Create New Task dialog box.":::
 
 After the administrator adds multiple tasks to the project, the Start menu on the top provides a way to start new iterations for all the tasks in this project at once.
 
