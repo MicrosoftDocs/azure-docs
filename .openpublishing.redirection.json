@@ -5754,6 +5754,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/quotas/classic-deployment-model-quota-increase-requests.md",
+            "redirect_url": "/azure/quotas",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/app-service-mobile-net-upgrading-from-mobile-services.md",
             "redirect_url": "/azure/app-service-mobile",
             "redirect_document_id": false
