@@ -82,6 +82,9 @@ To install Oracle ASM, complete the following steps.
 
 For more information about installing Oracle ASM, see [Oracle ASMLib Downloads for Oracle Linux 6](https://www.oracle.com/technetwork/server-storage/linux/asmlib/ol6-1709075.html).  
 
+> [!IMPORTANT]
+> Keep in consideration Oracle Linux 6.x is already EOL. Oracle Linux version 6.10 has available [ELS support](https://www.oracle.com/a/ocom/docs/linux/oracle-linux-extended-support-ds.pdf), which [will end on 07/2024](https://www.oracle.com/a/ocom/docs/elsp-lifetime-069338.pdf).
+
 1. You need to login as root in order to continue with ASM installation:
 
    ```bash
@@ -131,7 +134,7 @@ For more information about installing Oracle ASM, see [Oracle ASMLib Downloads f
 
     The output of this command should list the following users and groups:
 
-    ```bash
+    ```output
     uid=3000(grid) gid=54321(oinstall) groups=54321(oinstall),54322(dba),54345(asmadmin),54346(asmdba),54347(asmoper)
     ```
  

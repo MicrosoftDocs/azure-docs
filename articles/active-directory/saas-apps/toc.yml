@@ -104,6 +104,8 @@
         href: akashi-tutorial.md
       - name: AlacrityLaw
         href: alacritylaw-tutorial.md
+      - name: Alchemer
+        href: alchemer-tutorial.md
       - name: Alcumus Info Exchange
         href: alcumus-info-tutorial.md
       - name: AlertMedia
@@ -524,6 +526,8 @@
         href: cloudsign-tutorial.md
       - name: Kion
         href: cloudtamer-io-tutorial.md
+      - name: CMD+CTRL Base Camp
+        href: cmd-ctrl-base-camp-tutorial.md
       - name: Cobalt
         href: cobalt-tutorial.md
       - name: Coda
@@ -702,6 +706,8 @@
         href: displayr-tutorial.md
       - name: dmarcian
         href: dmarcian-tutorial.md
+      - name: Document360
+        href: document360-tutorial.md
       - name: Documo
         href: documo-tutorial.md
       - name: DocuSign
@@ -2327,6 +2333,8 @@
         href: snackmagic-tutorial.md  
       - name: Snowflake
         href: snowflake-tutorial.md
+      - name: SOC SST
+        href: soc-sst-tutorial.md
       - name: Softeon WMS
         href: softeon-tutorial.md
       - name: Software AG Cloud
@@ -2633,6 +2641,8 @@
         href: v-client-tutorial.md  
       - name: VECOS Releezme Locker management system
         href: vecos-releezme-locker-management-system-tutorial.md  
+      - name: VEDA Cloud
+        href: veda-cloud-tutorial.md
       - name: Velpic SAML
         href: velpicsaml-tutorial.md
       - name: Venafi Control Plane - Datacenter
