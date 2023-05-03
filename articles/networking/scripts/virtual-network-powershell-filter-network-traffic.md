@@ -1,17 +1,11 @@
 ---
-title: Azure PowerShell script sample - Filter VM network traffic | Microsoft Docs
+title: Azure PowerShell script sample - Filter VM network traffic
 description: Azure PowerShell script sample - Filter inbound and outbound VM network traffic.
-services: virtual-network
-documentationcenter: virtual-network
-author: mbender-ms
-manager: kumudD
+author: asudbring
 ms.service: virtual-network
-ms.devlang: powershell
 ms.topic: article
-ms.tgt_pltfrm:
-ms.workload: infrastructure
-ms.date: 05/16/2017
-ms.author: mbender 
+ms.date: 05/02/2023
+ms.author: allensu
 ms.custom: devx-track-azurepowershell
 
 ---
