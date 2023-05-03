@@ -80,7 +80,9 @@ Act on alerts to mitigate threats and risk. Defender for Cloud alerts and recomm
 
 **When Defender for APIs is enabled together with the Defender CSPM plan**, you can use Cloud Security Explorer to proactively and efficiently query your organizational information to locate, identify, and remediate API assets, security issues, and risks.
 
+:::image type="content" source="media/defender-for-apis-introduction/cloud-security-explorer.png" alt-text="Screenshot that shows the cloud security explorer.":::
 
 ## Next steps
 
 [Review support and prerequisites](defender-for-apis-prepare.md) for Defender for APIs deployment.
+p
