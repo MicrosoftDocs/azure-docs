@@ -131,6 +131,9 @@ az network custom-ip prefix update \
 
 It is possible to commission the global custom IPv6 prefix prior to the regional custom IPv6 prefixes; however, note that this will mean the global range is being advertised to the Internet before the regional prefixes are ready, so this is not recommended for migrations of active ranges.  Additionally, it is possible to decommission a global custom IPv6 prefix while there are still active (commissioned) regional custom IPv6 prefixes or to decommission a regional custom IP prefix while the global prefix is still active (commissioned).
 
+> [!IMPORTANT]
+> As the global custom IPv6 prefix transitions to a **Commissioned** state, the range is being advertised with Microsoft from the local Azure region and globally to the Internet by Microsoft's wide area network under Autonomous System Number (ASN) 8075. Advertising this same range to the Internet from a location other than Microsoft at the same time could potentially create BGP routing instability or traffic loss. For example, a customer on-premises building. Plan any migration of an active range during a maintenance period to avoid impact.
+
 ## Next steps
 
 - To learn about scenarios and benefits of using a custom IP prefix, see [Custom IP address prefix (BYOIP)](custom-ip-address-prefix.md).
