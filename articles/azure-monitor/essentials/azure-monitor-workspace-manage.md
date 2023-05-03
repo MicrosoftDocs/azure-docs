@@ -59,7 +59,10 @@ Use one of the following Resource Manager templates with any of the [standard de
         }
     ]
 }
+
 ```
+### [Bicep](#tab/Bicep)
+Use the following Bicep template to create an Azure Monitor workspace.
 
 ```bicep
 @description('Specify the name of the workspace.')
@@ -80,10 +83,8 @@ When you create an Azure Monitor workspace, a new resource group is created. The
  
 To connect your Azure Monitor managed service for Prometheus to your Azure Monitor workspace, see [Collect Prometheus metrics from AKS cluster](./prometheus-metrics-enable.md)
 
-
 ## Delete an Azure Monitor workspace
 When you delete an Azure Monitor workspace, no soft-delete operation is performed like with a [Log Analytics workspace](../logs/delete-workspace.md). The data in the workspace is immediately deleted, and there's no recovery option.
-
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -94,7 +95,7 @@ When you delete an Azure Monitor workspace, no soft-delete operation is performe
     :::image type="content" source="media/azure-monitor-workspace-overview/delete-azure-monitor-workspace.png" lightbox="media/azure-monitor-workspace-overview/delete-azure-monitor-workspace.png" alt-text="Screenshot of Azure Monitor workspaces delete button.":::
 
 ### [CLI](#tab/cli)
-To delete an AzureMonitor workspace use [az resource delete](https://learn.microsoft.com/cli/azure/resource#az-resource-delete)
+To delete an AzureMonitor workspace use [az resource delete](../../../cli/azure/resource#az-resource-delete.md)
 
 For example:
 ```azurecli
