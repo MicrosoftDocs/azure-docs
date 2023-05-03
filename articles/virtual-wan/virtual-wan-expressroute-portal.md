@@ -138,7 +138,7 @@ If you would like the Azure virtual hub to advertise the default route 0.0.0.0/0
 
 ## To see your Virtual WAN connection from the ExpressRoute circuit blade
 
-To see each ExpressRoute gateway that your ExpressRoute circuit is connected to, you can navigate to the **Connections** blade for your ExpressRoute circuit. 
+Navigate to the **Connections** blade for your ExpressRoute circuit to see each ExpressRoute gateway that your ExpressRoute circuit is connected to. 
    :::image type="content" source="./media/virtual-wan-expressroute-portal/view-expressroute-connection.png" alt-text="Screenshot shows the initial container page." lightbox="./media/virtual-wan-expressroute-portal/view-expressroute-connection.png":::
 
 ## <a name="cleanup"></a>Clean up resources

@@ -175,7 +175,7 @@ This is a two step configuration:
 
 2. Configure which Connections (Vnet and Branch) can route traffic to the internet (0.0.0.0/0) via the Azure FW in the hub or Trusted Security Provider. This step ensures that the default route is propagated to selected branches and Vnets that are attached to the Virtual WAN hub via the Connections. 
 
-### Force Tunneling Traffic to On-Premises Firewall in a Secured Virtual Hub
+### Force tunneling traffic to on-premises firewall in a Secured Virtual Hub
 
 If there is already a default route learned (via BGP) by the Virtual Hub from one of the Branches (VPN or ER sites), this default route is overridden by the default route learned from Azure Firewall Manager setting. In this case, all traffic that is entering the hub from Vnets and branches destined to internet, will be routed to the Azure Firewall or Trusted Security Provider.
 
