@@ -59,13 +59,12 @@ You also need to make sure you've registered the *Microsoft.DesktopVirtualizatio
    az provider register --namespace Microsoft.DesktopVirtualization
    ```
 
-3. Verify that the Microsoft.DesktopVirtualization resource provider is registered by running the following command:
+3. Verify that the Microsoft.DesktopVirtualization resource provider is set to **Registered** by running the following command:
 
    ```azurecli-interactive
    az provider show \
        --namespace Microsoft.DesktopVirtualization \
-       --query [registrationState] \
-       --output table
+       --query {State:registrationState}
    ```
 
 # [Azure PowerShell](#tab/powershell)
