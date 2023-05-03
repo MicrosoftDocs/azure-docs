@@ -43,4 +43,4 @@ The image below displays a summary of key user benefits, as compared to what is 
 
 ## Learn more
 
-Learn [how to use foundation models in Azure Machine Learning](./how-to-use-foundation-models.md) for fine-tuning, evaluation and deployment using Azure Machine Learning Studio UI or code based methods.
+Learn [how to use foundation models in Azure Machine Learning](./how-to-use-foundation-models.md) for fine-tuning, evaluation and deployment using Azure Machine Learning studio UI or code based methods.
