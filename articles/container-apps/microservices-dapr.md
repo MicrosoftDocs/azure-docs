@@ -387,7 +387,7 @@ New-AzContainerApp @ClientArgs
 
 ---
 
-## Verify the result
+## Verify the results
 
 ### Confirm successful state persistence
 
