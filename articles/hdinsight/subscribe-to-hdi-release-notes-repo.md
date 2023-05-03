@@ -16,7 +16,7 @@ Learn how to subscribe to HDInsight release notes GitHub repo to get email notif
 
 **Steps to subscribe to HDInsight release notes GitHub repo**
 
-1. Go to [HDInsight GitGub repository](https://github.com/Azure/HDInsight/releases).
+1. Go to [HDInsight GitHub repository](https://github.com/Azure/HDInsight/releases).
 1. Click **watch** and then **Custom**
 1. Select **Releases** and click **Apply**
 
