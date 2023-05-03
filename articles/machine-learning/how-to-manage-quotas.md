@@ -40,7 +40,7 @@ Along with managing quotas, you can learn how to [plan and manage costs for Azur
 In this section, you learn about the default and maximum quota limits for the following resources:
 
 + Azure Machine Learning assets
-    + Azure Machine Learning compute
+    + Azure Machine Learning computes
     + Azure Machine Learning managed online endpoints
     + Azure Machine Learning pipelines
 + Virtual machines
@@ -117,7 +117,7 @@ Azure Machine Learning managed online endpoints have limits described in the fol
 
 <sup>1</sup> Single dashes like, `my-endpoint-name`, are accepted in endpoint and deployment names.
 
-<sup>2</sup> We reserve 20% extra compute resources for performing upgrades. For example, if you request 10 instances in a deployment, you must have a quota for 12. Otherwise, you'll receive an error.
+<sup>2</sup> We reserve 20% extra compute resources for performing upgrades. For example, if you request 10 instances in a deployment, you must have a quota for 12. Otherwise, you receive an error.
 
 <sup>3</sup> If you request a limit increase, be sure to calculate related limit increases you might need. For example, if you request a limit increase for requests per second, you might also want to compute the required connections and bandwidth limits and include these limit increases in the same request.
 
@@ -138,7 +138,7 @@ Azure Machine Learning kubernetes online endpoints have limits described in the 
 | Number of deployments per endpoint | 20 |
 | Max request time-out at endpoint level  | 300 seconds |
 
-The sum of kubernetes online endpoints and managed online endpoints under each subscription cannot exceed 50. Similarly, the sum of kubernetes online deployments and managed online deployments under each subscription cannot exceed 200.
+The sum of kubernetes online endpoints and managed online endpoints under each subscription can't exceed 50. Similarly, the sum of kubernetes online deployments and managed online deployments under each subscription can't exceed 200.
 
 ### Azure Machine Learning pipelines
 [Azure Machine Learning pipelines](concept-ml-pipelines.md) have the following limits.
@@ -193,7 +193,7 @@ You can't set a negative value or a value higher than the subscription-level quo
 
 ## View quotas in the studio
 
-1. When you create a new compute resource, by default you'll see only VM sizes that you already have quota to use.  Switch the view to **Select from all options**.  
+1. When you create a new compute resource, by default you see only VM sizes that you already have quota to use.  Switch the view to **Select from all options**.  
 
     :::image type="content" source="media/how-to-manage-quotas/select-all-options.png" alt-text="Screenshot shows select all options to see compute resources that need more quota":::
 
