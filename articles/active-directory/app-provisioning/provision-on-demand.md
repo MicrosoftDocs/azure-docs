@@ -125,7 +125,7 @@ In this step, the service attempts to match the user that was retrieved in the i
 
 #### View details
 
-The **View details** page shows the properties of the users that were matched in the target system. The properties that you see in the context pane varies as follows:
+The **View details** page shows the properties of the users that were matched in the target system. The context pane changes as follows:
 
 * If no users are matched in the target system, you won't see any properties.
 * If there's one user matched in the target system, you'll see the properties of that matched user from the target system.
