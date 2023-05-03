@@ -122,11 +122,11 @@ The following instructions help you create a tenant app registration to authoriz
 
 1. Initiate the APM Guided Configuration.
 2. Launch the Easy Button template.
-3. Navigate to **Access > Guided Configuration.
+3. Navigate to **Access > Guided Configuration**.
 4. Select **Microsoft Integration**.
 5. Select **Azure AD Application**.
 
-   ![Screenshot of the Azure AD Application option under Guided Configuration](./media/f5-big-ip-easy-button-ldap/easy-button-template.png)
+   ![Screenshot of the Azure AD Application option under Guided Configuration.](./media/f5-big-ip-easy-button-ldap/easy-button-template.png)
 
 6. Review the configuration sequence.
 7. Select **Next**
@@ -144,12 +144,12 @@ Use the **Configuration Properties** tab to creat new application configurations
    > [!NOTE]
    > Some of the following settings are global. You can reuse them to publish more applications.
 
-2. For **Single Sign-On (SSO) & HTTP Headers**, select **On**.
-3. Enter the **Tenant ID, Client ID**, and **Client Secret** you noted.
+1. For **Single Sign-On (SSO) & HTTP Headers**, select **On**.
+2. Enter the **Tenant ID, Client ID**, and **Client Secret** you noted.
 4. Confirm the BIG-IP connects to the tenant.
 5. Select **Next**
 
-   ![Screenshot of options and selections for Configuration Properties](./media/f5-big-ip-easy-button-oracle-jde/configuration-general-and-service-account-properties.png)
+   ![Screenshot of options and selections for Configuration Properties.](./media/f5-big-ip-easy-button-oracle-jde/configuration-general-and-service-account-properties.png)
    
 ### Service Provider
 
@@ -176,7 +176,7 @@ The Service Provider settings define the properties for the SAML SP instance of 
 10. If you enabled encryption, from the **Assertion Decryption Private Key** list, select your certificate. This private key is for the certificate that BIG-IP APM uses to decrypt Azure AD assertions.
 11. If you enabled encryption, from the **Assertion Decryption Certificate** list, select your certificate. BIG-IP uploads this certificate to Azure AD to encrypt issued SAML assertions.
 
-   ![Screenshot of options and selections for Security Settings.](./media/f5-big-ip-easy-button-ldap/service-provider-security-settings.png](./media/f5-big-ip-easy-button-ldap/service-provider-security-settings.png)
+   ![Screenshot of options and selections for Security Settings.](./media/f5-big-ip-easy-button-ldap/service-provider-security-settings.png)
 
 ### Azure Active Directory
 
@@ -190,7 +190,7 @@ The Easy Button has templates for Oracle PeopleSoft, Oracle E-Business Suite, Or
 #### Azure Configuration
 
 1. Enter **Display Name** for the app BIG-IP creates in the tenant. The name appears on an icon in [My Apps](https://myapplications.microsoft.com/).
-2. (Optional) For **Sign On URL** enter the PeopleSoft application public FQDN..
+2. (Optional) For **Sign On URL** enter the PeopleSoft application public FQDN.
 
     ![Screenshot of Display Name and Sign On URL options under Azure Configuration.](./media/f5-big-ip-easy-button-oracle-jde/azure-configuration-add-display-info.png)
 
@@ -257,7 +257,7 @@ The **Application Pool** tab has services behind a BIG-IP, represented as a pool
 
 1. For **Select a Pool**, select **Create New**, or select one.
 2. For **Load Balancing Method**, select **Round Robin**.
-3. For **Pool Servers**, in **IP Address/Node Name** select a node, or enter an IP and port for servers hosting the Oracle JDE application.n. 
+3. For **Pool Servers**, in **IP Address/Node Name** select a node, or enter an IP and port for servers hosting the Oracle JDE application.
 
    ![Screenshot of IP Address/Node Name and Port options on Pool Properties.](./media/f5-big-ip-easy-button-ldap/application-pool.png)
 
@@ -283,9 +283,9 @@ To learn more, go to support.f5.com for [K18390492: Security | BIG-IP APM operat
 
 Not covered in the operations guide is single log-out (SLO) functionality, which ensures IdP, BIG-IP, and user agent sessions terminate when users sign out. When the Easy Button instantiates a SAML application in the Azure AD tenant, it populates the Logout URL with the APM SLO endpoint. IdP-initiated sign out from [My Apps](https://myapplications.microsoft.com/) terminates BIG-IP and client sessions.
  
-Published-application SAML federation data is imported from the tenant. This action provides the APM with the SAML sign-out endpoint for Azure AD, whicn ensures SP-initiated sign out terminates client and Azure AD sessions. The APM needs to know when a user signs out.
+Published-application SAML federation data is imported from the tenant. This action provides the APM with the SAML sign out endpoint for Azure AD, which ensures SP-initiated sign out terminates client and Azure AD sessions. The APM needs to know when a user signs out.
 
-When the BIG-IP webtop portal accesses published applications, the APM processes a sign out to call the Azure AD sign-out endpoint. If the BIG-IP webtop portal isn’t used, the user can't instruct the APM to sign out. If the user signs out of the application, the BIG-IP is oblivious. SP-initiated sign out needs secure session termination. Add an SLO function to your application **Sign out** button, to redirect your client to the Azure AD SAML or BIG-IP sign out endpoint. The SAML sign out endpoint URL for your tenant in **App Registrations > Endpoints**.
+When the BIG-IP webtop portal accesses published applications, the APM processes a sign out to call the Azure AD sign out endpoint. If the BIG-IP webtop portal isn’t used, the user can't instruct the APM to sign out. If the user signs out of the application, the BIG-IP is oblivious. SP-initiated sign out needs secure session termination. Add an SLO function to your application **Sign out** button, to redirect your client to the Azure AD SAML or BIG-IP sign out endpoint. The SAML sign out endpoint URL for your tenant in **App Registrations > Endpoints**.
 
 If you can't change the app, consider having the BIG-IP listen for application sign out calls, and then trigger SLO. 
 
@@ -334,7 +334,7 @@ Use BIG-IP logging to isolate issues with connectivity, SSO, policy violations, 
 
 ### Log verbosity
 
-1. Navigate to **Access Policy > Overview.
+1. Navigate to **Access Policy > Overview**.
 2. Select **Event Logs**.
 3. Select **Settings**.
 4. Select the row of your published application. 
@@ -351,7 +351,7 @@ When complete, revert this feature because verbose mode generates lots of data.
 
 If a BIG-IP error appears after Azure AD preauthentication, it’s possible the issue relates to Azure AD to BIG-IP SSO.
 
-1. Navigate to **Access > Overview.
+1. Navigate to **Access > Overview**.
 2. Select **Access reports**.
 3. Run the report for the last hour.
 4. Review the logs for clues. 
@@ -362,7 +362,7 @@ Use the session's **View session** link to confirm the APM receives expected Azu
 
 If no BIG-IP error message appears, the issue might be related to the back-end request, or BIG-IP to application SSO.
 
-1. Navigate to **Access Policy > Overview.
+1. Navigate to **Access Policy > Overview**.
 2. Select **Active Sessions**.
 3. Select the active session link.
 
