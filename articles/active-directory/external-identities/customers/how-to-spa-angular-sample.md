@@ -59,7 +59,7 @@ To get the sample SPA, you can choose one of the following options:
 * Clone the repository using Git:
 
     ```powershell
-        git clone https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial.git
+git clone https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial.git
     ```
 
 * [Download the sample](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/archive/refs/heads/main.zip)
