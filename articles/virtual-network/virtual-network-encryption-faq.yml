@@ -25,7 +25,7 @@ sections:
 
       - question: What certificate is used for the DTLS establishment on the Azure Host? 
         answer: |
-          Microsoft will manage and has created certificates for each region. Customer provided certificates are a feature on the road map.
+          Microsoft manages and has created certificates for each region. Customer provided certificates are a feature on the road map.
       
       - question: What is the performance effect?
         answer: |
