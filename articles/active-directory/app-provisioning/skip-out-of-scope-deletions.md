@@ -36,7 +36,7 @@ Because this configuration is widely used with the *Workday to Active Directory 
 
     ![Screenshot of Microsoft Graph Explorer Sign-in.](./media/skip-out-of-scope-deletions/wd_export_02.png)
 
-1. Upon successful sign-in, you'll see the user account details in the left-hand pane.
+1. Upon successful sign-in, the user account details appear in the left-hand pane.
 
 ## Step 3: Get existing app credentials and connectivity details
 
