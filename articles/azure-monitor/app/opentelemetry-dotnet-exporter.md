@@ -418,8 +418,23 @@ using (var activity = activitySource.StartActivity("ExceptionExample"))
 ### Add Custom Spans
 
 You may want to add a custom span when there's a dependency request that's not already collected by an instrumentation library or an application process that you wish to model as a span on the end-to-end transaction view.
-  
-Coming soon.
+
+> [!NOTE]
+> The `Activity` and `ActivitySource` classes from the `System.Diagnostics` namespace represent the OpenTelemetry concepts of `Span` and `Tracer`, respectively. You create `ActivitySource` directly by using its constructor instead of by using `TracerProvider`. Each [`ActivitySource`](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/trace/customizing-the-sdk#activity-source) class must be explicitly connected to `TracerProvider` by using `AddSource()`. That's because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. To learn more, see [Introduction to OpenTelemetry .NET Tracing API](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
+
+```csharp
+using var tracerProvider = Sdk.CreateTracerProviderBuilder()
+        .AddSource("ActivitySourceName")
+        .AddAzureMonitorTraceExporter(o => o.ConnectionString = "<Your Connection String>")
+        .Build();
+
+var activitySource = new ActivitySource("ActivitySourceName");
+
+using (var activity = activitySource.StartActivity("CustomActivity"))
+{
+    // your code here
+}
+```
 
 ### Send custom telemetry using the Application Insights Classic API
   
@@ -505,11 +520,16 @@ You can populate the _user_Id_ or _user_AuthenticatedId_ field for requests by u
 > [!IMPORTANT]
 > Consult applicable privacy laws before you set the Authenticated User ID.
 
-Coming soon.
+Use the add [custom property example](#add-a-custom-property-to-a-span).
+
+```csharp
+activity?.SetTag("enduser.id", "<User Id>");
+```
 
 ### Add Log Attributes
-  
-Coming soon.
+
+OpenTelemetry uses .NET's ILogger.
+Attaching custom dimensions to logs can be accomplished using a [message template](https://learn.microsoft.com/dotnet/core/extensions/logging?tabs=command-line#log-message-template).
 
 ### Filter telemetry
 
@@ -559,7 +579,14 @@ You might use the following ways to filter out telemetry before it leaves your a
 
 You might want to get the trace ID or span ID. If you have logs that are sent to a different destination besides Application Insights, you might want to add the trace ID or span ID to enable better correlation when you debug and diagnose issues.
 
-Coming soon.
+> [!NOTE]
+> The `Activity` and `ActivitySource` classes from the `System.Diagnostics` namespace represent the OpenTelemetry concepts of `Span` and `Tracer`, respectively. That's because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. To learn more, see [Introduction to OpenTelemetry .NET Tracing API](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
+
+```csharp
+Activity activity = Activity.Current;
+string traceId = activity?.TraceId.ToHexString();
+string spanId = activity?.SpanId.ToHexString();
+```
 
 ## Enable the OTLP Exporter
 

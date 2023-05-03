@@ -1131,6 +1131,10 @@ You may want to add a custom span when there's a dependency request that's not a
   
 #### [ASP.NET Core](#tab/aspnetcore)
 
+> [!NOTE]
+> The `Activity` and `ActivitySource` classes from the `System.Diagnostics` namespace represent the OpenTelemetry concepts of `Span` and `Tracer`, respectively. You create `ActivitySource` directly by using its constructor instead of by using `TracerProvider`. Each [`ActivitySource`](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/trace/customizing-the-sdk#activity-source) class must be explicitly connected to `TracerProvider` by using `AddSource()`. That's because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. To learn more, see [Introduction to OpenTelemetry .NET Tracing API](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
+
+
 ```csharp
 internal static readonly ActivitySource activitySource = new("ActivitySourceName");
 
@@ -1620,9 +1624,13 @@ You can populate the _user_Id_ or _user_AuthenticatedId_ field for requests by u
 
 ##### [ASP.NET Core](#tab/aspnetcore)
 
-TODO: MOTHRA: FOLLOW UP ON THIS
+TODO: MOTHRA: FOLLOW UP ON THIS, What should happen when a user sets this? Today it goes to CustomDimensions.
 
-Coming soon.
+Use the add [custom property example](#add-a-custom-property-to-a-span).
+
+```csharp
+activity?.SetTag("enduser.id", "<User Id>");
+```
 
 ##### [Java](#tab/java)
 
