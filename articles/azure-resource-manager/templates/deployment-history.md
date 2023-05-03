@@ -4,7 +4,7 @@ description: Describes how to view Azure Resource Manager deployment operations 
 tags: top-support-issue
 ms.topic: conceptual
 ms.date: 12/03/2021
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ---
 
 # View deployment history with Azure Resource Manager

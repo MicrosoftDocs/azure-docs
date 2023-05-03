@@ -421,11 +421,7 @@ Otherwise, you can delete the local configurations and the Azure resources that 
 
 ## Next steps
 
-In this tutorial, you set up Visual Studio on your development machine and deployed and debugged your first IoT Edge module from it. Now that you know the basic concepts, try adding functionality to a module so that it can analyze the data passing through it. Choose your preferred language:
+In this tutorial, you set up Visual Studio on your development machine and deployed and debugged your first IoT Edge module from it. Now that you know the basic concepts, try adding functionality to a module so that it can analyze the data passing through it.
 
 > [!div class="nextstepaction"]
-> [C](tutorial-c-module.md)
-> [C#](tutorial-csharp-module.md)
-> [Java](tutorial-java-module.md)
-> [Node.js](tutorial-node-module.md)
-> [Python](tutorial-python-module.md)
+> [Tutorial: Develop IoT Edge modules with Linux containers](tutorial-develop-for-linux.md)

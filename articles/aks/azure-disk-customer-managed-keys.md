@@ -78,7 +78,7 @@ az keyvault set-policy -n myKeyVaultName -g myResourceGroup --object-id $desIden
 Create a **new resource group** and AKS cluster, then use your key to encrypt the OS disk.
 
 > [!IMPORTANT]
-> Ensure you create a new resoruce group for your AKS cluster
+> Ensure you create a new resource group for your AKS cluster
 
 ```azurecli-interactive
 # Retrieve the DiskEncryptionSet value and set a variable
@@ -126,9 +126,9 @@ someuser@Azure:~$ az account list
 ]
 ```
 
-Create a file called **byok-azure-disk.yaml** that contains the following information.  Replace myAzureSubscriptionId, myResourceGroup, and myDiskEncrptionSetName with your values, and apply the yaml.  Make sure to use the resource group where your DiskEncryptionSet is deployed.  If you use the Azure Cloud Shell, this file can be created using vi or nano as if working on a virtual or physical system:
+Create a file called **byok-azure-disk.yaml** that contains the following information.  Replace *myAzureSubscriptionId*, *myResourceGroup*, and *myDiskEncrptionSetName* with your values, and apply the yaml.  Make sure to use the resource group where your DiskEncryptionSet is deployed.  
 
-```
+```yaml
 kind: StorageClass
 apiVersion: storage.k8s.io/v1  
 metadata:

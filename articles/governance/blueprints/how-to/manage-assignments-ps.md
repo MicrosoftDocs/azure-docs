@@ -24,7 +24,7 @@ The Azure Blueprints module requires the following software:
 - Azure PowerShell 1.5.0 or higher. If it isn't yet installed, follow
   [these instructions](/powershell/azure/install-az-ps).
 - PowerShellGet 2.0.1 or higher. If it isn't installed or updated, follow
-  [these instructions](/powershell/scripting/gallery/installing-psget).
+  [these instructions](/powershell/gallery/powershellget/install-powershellget).
 
 ### Install the module
 

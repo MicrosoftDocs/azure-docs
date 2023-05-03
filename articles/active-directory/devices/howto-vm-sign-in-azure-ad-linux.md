@@ -450,10 +450,10 @@ To uninstall old packages:
 
 1. Log in as a local user with admin privileges.
 1. Make sure there are no logged-in Azure AD users. Call the `who -u` command to see who is logged in. Then use `sudo kill <pid>` for all session processes that the previous command reported.
-1. Run `sudo apt remove --purge aadlogin` (Ubuntu/Debian), `sudo yum erase aadlogin` (RHEL or CentOS), or `sudo zypper remove aadlogin` (openSUSE or SLES).
+1. Run `sudo apt remove --purge aadlogin` (Ubuntu/Debian), `sudo yum remove aadlogin` (RHEL or CentOS), or `sudo zypper remove aadlogin` (openSUSE or SLES).
 1. If the command fails, try the low-level tools with scripts disabled:
    1. For Ubuntu/Debian, run `sudo dpkg --purge aadlogin`. If it's still failing because of the script, delete the `/var/lib/dpkg/info/aadlogin.prerm` file and try again.
-   1. For everything else, run `rpm -e –noscripts aadogin`.
+   1. For everything else, run `rpm -e --noscripts aadogin`.
 1.	Repeat steps 3-4 for package `aadlogin-selinux`.
 
 ### Extension installation errors
@@ -510,6 +510,27 @@ If *sshd_config* contains either `AllowGroups` or `DenyGroups` statements, the f
 One solution is to remove `AllowGroups` and `DenyGroups` statements from *sshd_config*.
 
 Another solution is to move `AllowGroups` and `DenyGroups` to a `match user` section in *sshd_config*. Make sure the match template excludes Azure AD users.
+
+### Getting Permission Denied when trying to connect from Azure Shell to Linux Red Hat/Oracle/Centos 7.X VM.
+
+The OpenSSH server version in the target VM 7.4 is too old. Version incompatible with OpenSSH client version 8.8. Refer to [RSA SHA256 certificates no longer work](https://bugzilla.mindrot.org/show_bug.cgi?id=3351) for more information.
+
+Workaround:  
+
+- Adding option `"PubkeyAcceptedKeyTypes= +ssh-rsa-cert-v01@openssh.com"` in the `az ssh vm ` command.
+
+```azurecli-interactive
+az ssh vm -n myVM -g MyResourceGroup -- -A -o "PubkeyAcceptedKeyTypes= +ssh-rsa-cert-v01@openssh.com"
+```
+- Adding the option `"PubkeyAcceptedKeyTypes= +ssh-rsa-cert-v01@openssh.com"` in the `/home/<user>/.ssh/config file`.
+
+
+Add the `"PubkeyAcceptedKeyTypes +ssh-rsa-cert-v01@openssh.com"` into the client config file.
+
+```config
+Host *
+PubkeyAcceptedKeyTypes +ssh-rsa-cert-v01@openssh.com
+```
 
 ## Next steps
 

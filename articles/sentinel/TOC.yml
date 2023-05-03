@@ -17,20 +17,14 @@
     href: forward-syslog-monitor-agent.md
   - name: Configure data retention policy
     href: configure-data-retention.md
-  - name: Investigate with UEBA
-    href: investigate-with-ueba.md
-  - name: Use automation to respond to threats
-    href: tutorial-respond-threats-playbook.md
+  - name: Detect threats using analytics rules
+    href: tutorial-log4j-detection.md
   - name: Automatically enrich incident information
     href: tutorial-enrich-ip-information.md
-  - name: Detect Log4j vulnerability exploits
-    href: tutorial-log4j-detection.md
-  - name: Get started with notebooks and MSTICPy
-    href: notebook-get-started.md
-  - name: Create a Power BI report from Microsoft Sentinel
-    href: powerbi.md
-  - name: Deploy and monitor decoy honeytokens
-    href: monitor-key-vault-honeytokens.md
+  - name: Respond to threats using automation 
+    href: tutorial-respond-threats-playbook.md
+  - name: Investigate with UEBA
+    href: investigate-with-ueba.md
   - name: Build and monitor Zero Trust
     href: sentinel-solution.md
   - name: Integrate with Microsoft Defender for IoT
@@ -175,8 +169,14 @@
     href: microsoft-365-defender-sentinel-integration.md
   - name: Integrate SAP
     items:
-    - name: Solution overview
+    - name: SAP solution overview
       href: sap/solution-overview.md
+    - name: Working with the SAP solution across multiple workspaces
+      href: sap/cross-workspace.md
+    - name: SAP BTP solution
+      items:
+      - name: Overview
+        href: sap/sap-btp-solution-overview.md
 - name: How-tos
   items:
   - name: Plan architecture
@@ -295,6 +295,8 @@
         href: data-connectors/aruba-clearpass.md
       - name: Atlassian Confluence Audit (using Azure Function)
         href: data-connectors/atlassian-confluence-audit-using-azure-function.md
+      - name: Atlassian Jira Audit (using Azure Function)
+        href: data-connectors/atlassian-jira-audit-using-azure-function.md
       - name: Auth0 Access Management (using Azure Function)
         href: data-connectors/auth0-access-management-using-azure-function.md
       - name: Automated Logic WebCTRL
@@ -319,8 +321,6 @@
         href: data-connectors/azure-event-hub.md
       - name: Azure Firewall
         href: data-connectors/azure-firewall.md
-      - name: Azure Information Protection
-        href: data-connectors/azure-information-protection.md
       - name: Azure Key Vault
         href: data-connectors/azure-key-vault.md
       - name: Azure Kubernetes Service (AKS)
@@ -343,7 +343,7 @@
         href: data-connectors/blackberry-cylanceprotect.md
       - name: Box (using Azure Function)
         href: data-connectors/box-using-azure-function.md
-      - name: Braodcom Symantec DLP
+      - name: Broadcom Symantec DLP
         href: data-connectors/braodcom-symantec-dlp.md
       - name: Cisco Application Centric Infrastructure
         href: data-connectors/cisco-application-centric-infrastructure.md
@@ -355,6 +355,8 @@
         href: data-connectors/cisco-duo-security-using-azure-function.md
       - name: Cisco Firepower eStreamer
         href: data-connectors/cisco-firepower-estreamer.md
+      - name: Cisco Identity Services Engine
+        href: data-connectors/cisco-identity-services-engine.md
       - name: Cisco Meraki
         href: data-connectors/cisco-meraki.md
       - name: Cisco Secure Email Gateway
@@ -401,6 +403,10 @@
         href: data-connectors/cyberarkepm.md
       - name: Cyberpion Security Logs
         href: data-connectors/cyberpion-security-logs.md
+      - name: Cybersixgill Actionable Alerts (using Azure Function)
+        href: data-connectors/cybersixgill-actionable-alerts-using-azure-function.md
+      - name: Cynerio Security Events
+        href: data-connectors/cynerio-security-events.md
       - name: Darktrace Connector for Microsoft Sentinel REST API
         href: data-connectors/darktrace-connector-for-microsoft-sentinel-rest-api.md
       - name: Delinea Secret Server
@@ -483,6 +489,8 @@
         href: data-connectors/imperva-cloud-waf-using-azure-function.md
       - name: Infoblox Cloud Data Connector
         href: data-connectors/infoblox-cloud-data-connector.md
+      - name: Infoblox NIOS
+        href: data-connectors/infoblox-nios.md
       - name: InfoSecGlobal Data Connector
         href: data-connectors/infosecglobal-data-connector.md
       - name: ISC Bind
@@ -649,6 +657,8 @@
         href: data-connectors/symantec-vip.md
       - name: Syslog
         href: data-connectors/syslog.md
+      - name: Talon Insights
+        href: data-connectors/talon-insights.md
       - name: Tenable.io Vulnerability Management (using Azure Function)
         href: data-connectors/tenable-io-vulnerability-management-using-azure-function.md
       - name: TheHive Project - TheHive (using Azure Function)
@@ -729,30 +739,42 @@
           href: connect-azure-virtual-desktop.md
       - name: AMA migration for Microsoft Sentinel
         href: ama-migrate.md
-      - name: Azure Functions API connection
-        href: connect-azure-functions-template.md
-      - name: CEF over Syslog sources
-        href: connect-common-event-format.md
-      - name: CEF via AMA
-        href: connect-cef-ama.md
-      - name: Custom log sources
-        href: connect-custom-logs.md
+      - name: CEF/Syslog        
+        items:
+        - name: CEF/Syslog options
+          href: connect-cef-syslog-options.md
+        - name: CEF via AMA
+          href: connect-cef-ama.md        
+        - name: CEF and Syslog
+          href: connect-cef-syslog.md
+        - name: CEF over Syslog sources (legacy)
+          href: connect-common-event-format.md
+        - name: Deploy a log forwarder (legacy)
+          href: connect-log-forwarder.md
+        - name: Syslog (raw) sources (legacy)
+          href: connect-syslog.md
       - name: DNS via AMA
-        href: connect-dns-ama.md
+        href: connect-dns-ama.md      
+      - name: Microsoft Purview Information Protection
+        href: connect-microsoft-purview.md
+      - name: Microsoft Sentinel Data Collector API
+        href: connect-rest-api-template.md      
+      - name: Azure Functions API connection
+        href: connect-azure-functions-template.md      
+      - name: Custom log sources
+        href: connect-custom-logs.md      
+      - name: GCP audit logs
+        href: connect-google-cloud-platform.md
       - name: Logstash plugin with Data Collection Rules
         href: connect-logstash-data-connection-rules.md
       - name: Logstash plugin (legacy)
         href: connect-logstash.md
       - name: Microsoft Sentinel Data Collector API
-        href: connect-rest-api-template.md
-      - name: Syslog (raw) sources
-        href: connect-syslog.md
+        href: connect-rest-api-template.md      
     - name: Configure ingestion-time transformation
       href: configure-data-transformation.md
     - name: Configure RDP login detection
-      href: configure-connector-login-detection.md
-    - name: Deploy a log forwarder
-      href: connect-log-forwarder.md    
+      href: configure-connector-login-detection.md        
     - name: Create a custom connector
       href: create-custom-connector.md
     - name: Create a codeless connector
@@ -773,6 +795,8 @@
       href: normalization-modify-content.md
   - name: Integrate threat intelligence
     items:
+    - name: Enable MDTI data connector
+      href: connect-mdti-data-connector.md
     - name: Connect threat intelligence platforms
       href: connect-threat-intelligence-tip.md
     - name: Connect to STIX/TAXII feeds
@@ -793,6 +817,8 @@
       href: get-visibility.md
     - name: Use Azure Monitor workbooks
       href: ./monitor-your-data.md
+    - name: Create a Power BI report
+      href: powerbi.md
   - name: Detect threats and analyze data
     items:
     - name: MITRE ATT&CK coverage
@@ -825,6 +851,8 @@
       href: work-with-anomaly-rules.md
     - name: Configure multistage attack (Fusion) rules
       href: configure-fusion-rules.md
+    - name: Deploy and monitor decoy honeytokens
+      href: monitor-key-vault-honeytokens.md
     - name: Handle false positives
       href: false-positives.md
     - name: Create incidents from Microsoft Security alerts
@@ -841,6 +869,8 @@
     items:
     - name: Hunt with Jupyter notebooks
       items:
+      - name: Get started with notebooks and MSTICPy
+        href: notebook-get-started.md
       - name: Launch Jupyter notebook
         href: notebooks-hunt.md      
       - name: Advanced MSTICPy settings for Jupyter notebooks
@@ -901,6 +931,8 @@
       href: create-tasks-playbook.md
   - name: Manage Microsoft Sentinel
     items:
+    - name: Manage multiple workspaces
+      href: workspace-manager.md
     - name: Microsoft Sentinel for MSSPs
       items:
       - name: Manage multiple tenants (MSSP)
@@ -931,7 +963,7 @@
       href: offboard.md
   - name: Integrate SAP
     items: 
-    - name: Deployment guide
+    - name: SAP solution deployment guide
       items: 
       - name: Deployment overview
         href: sap/deployment-overview.md
@@ -964,6 +996,10 @@
         href: sap/configure-audit-log-rules.md
       - name: Select SAP ingestion profile
         href: sap/select-ingestion-profiles.md 
+    - name: SAP BTP solution
+      items:
+      - name: Deploy SAP BTP
+        href: sap/deploy-sap-btp-solution.md
 - name: Troubleshoot
   items:
   - name: Troubleshoot CEF/Syslog data collection
@@ -979,19 +1015,25 @@
 - name: Reference
   items:
   - name: SAP solution
-    items:
+    items:    
     - name: SAP solution data reference
       href: sap/sap-solution-log-reference.md
     - name: SAP solution content overview
       href: sap/sap-solution-security-content.md
+    - name: Monitored SAP security parameters
+      href: sap/sap-suspicious-configuration-security-parameters.md
     - name: SAP audit log workbook
-      href: sap/sap-audit-log-workbook.md
+      href: sap/sap-audit-log-workbook.md    
     - name: Kickstart script reference
       href: sap/reference-kickstart.md
     - name: Container update script reference
       href: sap/reference-update.md
     - name: Systemconfig.ini file reference
       href: sap/reference-systemconfig.md
+    - name: SAP BTP
+      items:
+      - name: SAP BTP solution content overview
+        href: sap/sap-btp-security-content.md
   - name: Service limits
     href: sentinel-service-limits.md
   - name: Microsoft Sentinel REST-API
@@ -1099,11 +1141,13 @@
   - name: Sample workspace architecture
     href: sample-workspace-designs.md
   - name: Microsoft Sentinel blog
-    href: https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog
+    href: https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/bg-p/MicrosoftSentinelBlog
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-sentinel/
+  - name: Feature availability
+    href: feature-availability.md
   - name: Feature availability for US Government clouds
     href: ../security/fundamentals/feature-availability.md
   - name: Build your skills for Microsoft Sentinel

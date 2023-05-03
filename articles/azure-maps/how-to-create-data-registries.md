@@ -109,11 +109,11 @@ Once you've created an Azure storage account with files uploaded into one or mor
 
     :::image type="content" source="./media/data-registry/add-datastore.png" lightbox="./media/data-registry/add-datastore.png" alt-text="A screenshot showing the add datastore screen.":::
 
-The new datastore will now appear in the list of datastores.
+The new datastore now appears in the list of datastores.
 
 ### Assign roles to managed identities and add them to the datastore
 
-Once your managed identities and datastore are created, you can add the managed identities to the datastore and simultaneously assign them the **Contributor** and **Storage Blob Data Reader** roles. While it's possible to add roles to your managed identities directly in your managed identities or storage account, you can easily do this while simultaneously associating them with your Azure Maps datastore directly in the datastore pane.
+Once your managed identities and datastore are created, you can add the managed identities to the datastore, and simultaneously assign them the **Contributor** and **Storage Blob Data Reader** roles. While it's possible to add roles to your managed identities directly in your managed identities or storage account, which you can easily do while simultaneously associating them with your Azure Maps datastore directly in the datastore pane.
 
 > [!NOTE]
 > Each managed identity associated with the datastore will need the **Contributor** and **Storage Blob Data Reader** roles granted to them. If you do not have the required permissions to grant roles to managed identities, consult your Azure administrator.
@@ -132,7 +132,7 @@ To assign roles to your managed identities and associate them with a datastore:
 
 With a datastore created in your Azure Maps account, you're ready to gather the properties required to create the data registry.
 
-There are the AzureBlob properties that you'll pass in the body of the HTTP request, and [The user data ID](#the-user-data-id) passed in the URL.
+There are the AzureBlob properties that you pass in the body of the HTTP request, and [The user data ID](#the-user-data-id) passed in the URL.
 
 ### The AzureBlob
 
@@ -146,7 +146,7 @@ The `AzureBlob` is a JSON object that defines properties required to create the 
 |`linkedResource`| The ID of the datastore registered in the Azure Maps account.<BR>The datastore contains a link to the file being registered. |
 | `blobUrl`      | A URL pointing to the Location of the AzurebBlob, the file imported into your container. |
 
-The following two sections will provide you with details how to get the values to use for the [msiClientId](#the-msiclientid-property), [blobUrl](#the-bloburl-property) properties.
+The following two sections provide you with details how to get the values to use for the [msiClientId](#the-msiclientid-property), [blobUrl](#the-bloburl-property) properties.
 
 #### The msiClientId property
 
@@ -154,7 +154,7 @@ The `msiClientId` property is the ID of the managed identity used to create the 
 
 # [system-assigned](#tab/System-assigned)
 
-When using System-assigned managed identities, you don't need to provide a value for the `msiClientId` property. The data registry service will automatically use the system assigned identity of the Azure Maps account when `msiClientId` is null.
+When using System-assigned managed identities, you don't need to provide a value for the `msiClientId` property. The data registry service automatically uses the system assigned identity of the Azure Maps account when `msiClientId` is null.
 
 # [user-assigned](#tab/User-assigned)
 
@@ -177,7 +177,7 @@ The `blobUrl` property is the path to the file being registered. You can get thi
 [data registry]
 1. Select your **storage account** in the **Azure portal**.
 1. Select **Containers** from the left menu.
-1. A list of containers will appear. Select the container that contains the file you wish to register.
+1. A list of containers appear. Select the container that contains the file you wish to register.
 1. The container opens, showing a list of the files previously uploaded.
 1. Select the desired file, then copy the URL.
 
@@ -196,7 +196,7 @@ The user data ID (`udid`) of the data registry is a user-defined GUID that must 
 
 ## Create a data registry
 
-Now that you have your storage account with the desired files linked to your Azure Maps account through the datastore and have gathered all required properties, you're ready to use the [data registry] API to register those files. If you have multiple files in your Azure storage account that you want to register, you'll need to run the register request for each file (`udid`).
+Now that you have your storage account with the desired files linked to your Azure Maps account through the datastore and have gathered all required properties, you're ready to use the [data registry] API to register those files. If you have multiple files in your Azure storage account that you want to register, you need to run the register request for each file (`udid`).
 
 > [!NOTE]
 > The maximum size of a file that can be registered with an Azure Maps datastore is one gigabyte.
@@ -246,13 +246,13 @@ https://us.atlas.microsoft.com/dataRegistries/operations/{udid}?api-version=2022
 
 ## Get a list of all files in the data registry
 
-To get a list of all files registered in an Azure Maps account using the [List][list] request:
+Use the [List][list] request to get a list of all files registered in an Azure Maps account:
 
 ```http
 https://us.atlas.microsoft.com/dataRegistries?api-version=2022-12-01-preview&subscription-key={Azure-Maps-Subscription-key}
 ```
 
-The following is a sample response showing three possible statuses, completed, running and failed:
+The following sample demonstrates three possible statuses, completed, running and failed:
 
 ```json
 {
@@ -325,7 +325,7 @@ Use the `udid` to get the content of a file registered in an Azure Maps account:
 https://us.atlas.microsoft.com/dataRegistries/{udid}/content?api-version=2022-12-01-preview&subscription-key={Your-Azure-Maps-Subscription-key} 
 ```
 
-The contents of the file will appear in the body of the response. For example, a text based GeoJSON file will appear similar to the following example:
+The contents of the file appear in the body of the response. For example, a text based GeoJSON file appears similar to the following example:
 
 ```json
 {
@@ -359,18 +359,19 @@ If you need to replace a previously registered file with another file, rerun the
 
 ## Data validation
 
-When you register a file in Azure Maps using the data registry API, an MD5 hash is created from the contents of the file, encoding it into a 128-bit fingerprint and saving it in the `AzureBlob` as the `contentMD5` property. The MD5 hash stored in the `contentMD5` property is used to ensure the data integrity of the file. Since the MD5 hash algorithm always produces the same output given the same input, the data validation process can compare the `contentMD5` property of the file when it was registered against a hash of the file in the Azure storage account to check that it's intact and unmodified. If the hash isn't the same, the validation fails. If the file in the underlying storage account changes, the validation will fail. If you need to modify the contents of a file that has been registered in Azure Maps, you'll need to register it again.
+When you register a file in Azure Maps using the data registry API, an MD5 hash is created from the contents of the file, encoding it into a 128-bit fingerprint and saving it in the `AzureBlob` as the `contentMD5` property. The MD5 hash stored in the `contentMD5` property is used to ensure the data integrity of the file. Since the MD5 hash algorithm always produces the same output given the same input, the data validation process can compare the `contentMD5` property of the file when it was registered against a hash of the file in the Azure storage account to check that it's intact and unmodified. If the hash isn't the same, the validation fails. If the file in the underlying storage account changes, the validation fails. If you need to modify the contents of a file that has been registered in Azure Maps, you need to register it again.
 
+<!-------------   end-style links    ---------------------->
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[Azure portal]: https://portal.azure.com/
+[create storage account]: /azure/storage/common/storage-account-create?tabs=azure-portal
+[geographic scope]: geographic-scope.md
+[managed identity]: /azure/active-directory/managed-identities-azure-resources/overview
+[storage account overview]: /azure/storage/common/storage-account-overview
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
+[Visual Studio]: https://visualstudio.microsoft.com/downloads/
+<!-------------   REST API Links     ------------------>
 [data registry]: /rest/api/maps/data-registry
+[Get operation]: /rest/api/maps/data-registry/get-operation
 [list]: /rest/api/maps/data-registry/list
 [Register]: /rest/api/maps/data-registry/register-or-replace
-[Get operation]: /rest/api/maps/data-registry/get-operation
-
-[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[storage account overview]: /azure/storage/common/storage-account-overview
-[create storage account]: /azure/storage/common/storage-account-create?tabs=azure-portal
-[managed identity]: /azure/active-directory/managed-identities-azure-resources/overview
-[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
-[Azure portal]: https://portal.azure.com/
-[Visual Studio]: https://visualstudio.microsoft.com/downloads/
-[geographic scope]: geographic-scope.md

@@ -55,8 +55,11 @@ We provide a variety of container images for self-hosted gateways to meet your n
 | `v{major}` | Use this tag to always run a major version of the gateway with every new feature and patch. |`v2` | ✔️ |  ❌ |
 | `v{major}-preview` | Use this tag if you always want to run our latest preview container image. | `v2-preview` | ✔️ |  ❌ |
 | `latest` | Use this tag if you want to evaluate the self-hosted gateway. | `latest` | ✔️ |  ❌ |
+| `beta`<sup>1</sup> | Use this tag if you want to evaluate preview versions of the self-hosted gateway. | `beta` | ✔️ |  ❌ |
 
 You can find a full list of available tags [here](https://mcr.microsoft.com/product/azure-api-management/gateway/tags).
+
+<sup>1</sup>Preview versions are not officially supported and are for experimental purposes only.<br/> 
 
 ### Use of tags in our official deployment options
 

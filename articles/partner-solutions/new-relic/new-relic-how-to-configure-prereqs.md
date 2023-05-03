@@ -12,7 +12,7 @@ This article describes the prerequisites that you must complete in your Azure su
 
 ## Access control
 
-To set up New Relic on Azure, you must have owner access on the Azure subscription. [Confirm that you have the appropriate access](../../role-based-access-control/check-access.md) before you start the setup.
+To set up Azure Native New Relic Service Preview, you must have owner access on the Azure subscription. [Confirm that you have the appropriate access](../../role-based-access-control/check-access.md) before you start the setup.
 
 ## Resource provider registration
 

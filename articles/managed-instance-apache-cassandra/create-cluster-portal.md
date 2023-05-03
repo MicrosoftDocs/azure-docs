@@ -36,6 +36,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    * **Resource Group**- Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group](../azure-resource-manager/management/overview.md) overview article.
    * **Cluster name** - Enter a name for your cluster.
    * **Location** - Location where your cluster will be deployed to.
+   * **Cassandra version** - Version of Apache Cassandra that will be deployed
+   * **Extention** - Extensions that will be added, including [Cassandra Lucene Index](search-lucene-index.md).
    * **Initial Cassandra admin password** - Password that is used to create the cluster.
    * **Confirm Cassandra admin password** - Reenter your password.
    * **Virtual Network** - Select an Exiting Virtual Network and Subnet, or create a new one. 
@@ -84,16 +86,25 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Scale a datacenter
 
-1. Now that you have deployed a cluster with a single data center, you can scale the nodes up or down by highlighting the data center, and selecting the `Scale` button:
+Now that you have deployed a cluster with a single data center, you can either scale horizontally or vertically by highlighting the data center, and selecting the `Scale` button:
 
-   :::image type="content" source="./media/create-cluster-portal/datacenter-scale-1.png" alt-text="Screenshot of scaling datacenter nodes." lightbox="./media/create-cluster-portal/datacenter-scale-1.png" border="true":::
+:::image type="content" source="./media/create-cluster-portal/datacenter-scale-1.png" alt-text="Screenshot of scaling datacenter nodes." lightbox="./media/create-cluster-portal/datacenter-scale-1.png" border="true":::
 
-1. Next, move the slider to the desired number, or just edit the value. When finished, hit `Scale`. 
+### Horizontal scale
 
-   :::image type="content" source="./media/create-cluster-portal/datacenter-scale-2.png" alt-text="Screenshot of selecting number of datacenter nodes." lightbox="./media/create-cluster-portal/datacenter-scale-2.png" border="true":::
+To scale out on nodes, move the slider to the desired number, or just edit the value. When finished, hit `Scale`. 
 
-   > [!NOTE]
-   > The length of time it takes for nodes to scale depends on various factors, it may take several minutes. When Azure notifies you that the scale operation has completed, this does not mean that all your nodes have joined the Cassandra ring. Nodes will be fully commissioned when they all display a status of "healthy", and the datacenter status reads "succeeded".
+:::image type="content" source="./media/create-cluster-portal/datacenter-scale-2.png" alt-text="Screenshot of selecting number of datacenter nodes." lightbox="./media/create-cluster-portal/datacenter-scale-2.png" border="true":::
+
+
+### Vertical scale
+
+To scale up to a more powerful SKU size for your nodes, select from the `Sku Size` dropdown. When finished, hit `Scale`. 
+
+:::image type="content" source="./media/create-cluster-portal/datacenter-scale-3.png" alt-text="Screenshot of selecting Sku Size." lightbox="./media/create-cluster-portal/datacenter-scale-3.png" border="true":::
+
+> [!NOTE]
+> The length of time it takes for a scaling operation depends on various factors, it may take several minutes. When Azure notifies you that the scale operation has completed, this does not mean that all your nodes have joined the Cassandra ring. Nodes will be fully commissioned when they all display a status of "healthy", and the datacenter status reads "succeeded".
 
 ## Add a datacenter
 
@@ -176,6 +187,15 @@ The service allows update to Cassandra YAML configuration on a datacenter via th
    > - cdc_raw_directory
    > - saved_caches_directory 
 
+## De-allocate cluster
+
+1. For non-production environments, you can pause/de-allocate resources in the cluster in order to avoid being charged for them (you will continue to be charged for storage). First change cluster type to `NonProduction`, then `deallocate`.
+
+> [!WARNING] 
+> Do not execute any schema or write operations during de-allocation - this can lead to data loss and in rare cases schema corruption requiring manual intervention from the support team.
+
+   :::image type="content" source="./media/create-cluster-portal/pause-cluster.png" alt-text="Screenshot of pausing a cluster." lightbox="./media/create-cluster-portal/pause-cluster.png" border="true":::
+
 ## Troubleshooting
 
 If you encounter an error when applying permissions to your Virtual Network using Azure CLI, such as *Cannot find user or service principal in graph database for 'e5007d2c-4b13-4a74-9b6a-605d99f03501'*, you can apply the same permission manually from the Azure portal. Learn how to do this [here](add-service-principal.md).
@@ -218,7 +238,24 @@ As with CQLSH, connecting from an application using one of the supported [Apache
 
 Disabling certificate verification is recommended because certificate verification will not work unless you map I.P addresses of your cluster nodes to the appropriate domain. If you have an internal policy which mandates that you do SSL certificate verification for any application, you can facilitate this by adding entries like `10.0.1.5 host1.managedcassandra.cosmos.azure.com` in your hosts file for each node. If taking this approach, you would also need to add new entries whenever scaling up nodes. 
 
+### Configuring client certificates
 
+Configuring client certificates is optional. In general, there are two ways of creating certificates:
+
+- Self signed certs. This means a private and public (no CA) certificate for each node - in this case we need all public certificates.
+- Certs signed by a CA. This can be a self-signed CA or even a public one. In this case we need the root CA certificate (refer to [instructions on preparing SSL certificates](https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/configuration/secureSSLCertWithCA.html) for production), and all intermediaries (if applicable).
+
+If you want to implement client-to-node certificate authentication or mutual Transport Layer Security (mTLS), you need to provide the certificates via Azure CLI. The below command will upload and apply your client certificates to the truststore for your Cassandra Managed Instance cluster (i.e. you do not need to edit `cassandra.yaml` settings). Once applied, your  cluster will require Cassandra to verify the certificates when a client connects (see `require_client_auth: true` in Cassandra [client_encryption_options](https://cassandra.apache.org/doc/latest/cassandra/configuration/cass_yaml_file.html#client_encryption_options )).
+
+   ```azurecli-interactive
+   resourceGroupName='<Resource_Group_Name>'
+   clusterName='<Cluster Name>'
+
+   az managed-cassandra cluster update \
+     --resource-group $resourceGroupName \
+     --cluster-name $clusterName \
+     --client-certificates /usr/csuser/clouddrive/rootCert.pem /usr/csuser/clouddrive/intermediateCert.pem
+   ```
 
 
 ## Clean up resources

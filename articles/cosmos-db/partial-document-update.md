@@ -1,13 +1,13 @@
 ---
 title: Partial document update
-titleSuffix: Azure Cosmos DB
-description: Learn how to conditionally modify a document using the partial document update feature in Azure Cosmos DB.
+titleSuffix: Azure Cosmos DB for NoSQL
+description: Learn how to conditionally modify a document using the partial document update feature in Azure Cosmos DB for NoSQL.
+ms.author: sidandrews
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: conceptual
-ms.date: 04/29/2022
-ms.author: sidandrews
+ms.date: 04/03/2023
 ms.custom: ignite-fall-2021, ignite-2022
 ---
 
@@ -30,14 +30,17 @@ An example target JSON document:
 
 ```json
 {
- "id": "e379aea5-63f5-4623-9a9b-4cd9b33b91d5",
- "name": "R-410 Road Bicycle",
- "price": 455.95,
- "inventory": {
-   "quantity": 15
- },
- "used": false,
- "categoryId": "road-bikes"
+  "id": "e379aea5-63f5-4623-9a9b-4cd9b33b91d5",
+  "name": "R-410 Road Bicycle",
+  "price": 455.95,
+  "inventory": {
+    "quantity": 15
+  },
+  "used": false,
+  "categoryId": "road-bikes",
+  "tags": [
+    "r-series"
+  ]
 }
 ```
 
@@ -45,10 +48,11 @@ A JSON Patch document:
 
 ```json
 [
- { "op": "add", "path": "/color", "value": "silver" },
- { "op": "remove", "path": "/used" },
- { "op": "set", "path": "/price", "value": 355.45 }
- { "op": "incr", "path": "/inventory/quantity", "value": 10 }
+  { "op": "add", "path": "/color", "value": "silver" },
+  { "op": "remove", "path": "/used" },
+  { "op": "set", "path": "/price", "value": 355.45 }
+  { "op": "incr", "path": "/inventory/quantity", "value": 10 },
+  { "op": "add", "path": "/tags/-", "value": "featured-bikes" }
 ]
 ```
 
@@ -56,14 +60,18 @@ The resulting JSON document:
 
 ```json
 {
- "id": "e379aea5-63f5-4623-9a9b-4cd9b33b91d5",
- "name": "R-410 Road Bicycle",
- "price": 355.45,
- "inventory": {
-   "quantity": 25
- },
- "categoryId": "road-bikes",
- "color": "silver"
+  "id": "e379aea5-63f5-4623-9a9b-4cd9b33b91d5",
+  "name": "R-410 Road Bicycle",
+  "price": 355.45,
+  "inventory": {
+    "quantity": 25
+  },
+  "categoryId": "road-bikes",
+  "color": "silver",
+  "tags": [
+    "r-series",
+    "featured-bikes"
+  ]
 }
 ```
 
@@ -90,7 +98,7 @@ Partial document update feature supports the following modes of operation. Refer
 
 - **Multi-document patch**: Multiple documents within the same partition key can be patched as a [part of a transaction](transactional-batch.md). This multi-document transaction is committed only if all the operations succeed in the order they're described. If any operation fails, the entire transaction is rolled back.
 
-- **Conditional Update**: For the aforementioned modes, it's also possible to add a SQL-like filter predicate (for example, `from c where c.taskNum = 3`) such that the operation fails if the pre-condition specified in the predicate isn't satisfied.
+- **Conditional Update**: For the aforementioned modes, it's also possible to add a SQL-like filter predicate (for example, `from c where c.taskNum = 3`) such that the operation fails if the precondition specified in the predicate isn't satisfied.
 
 - You can also use the bulk APIs of supported SDKs to execute one or more patch operations on multiple documents.
 
@@ -172,7 +180,7 @@ Different clients issue Patch operations concurrently across different regions:
 
 :::image type="content" source="./media/partial-document-update/patch-multi-region-conflict-resolution.png" alt-text="An image that shows conflict resolution in concurrent multi-region partial update operations." border="false" lightbox="./media/partial-document-update/patch-multi-region-conflict-resolution.png":::
 
-Since Patch requests were made to non-conflicting paths within the document, these requests are conflict resolved automatically and transparently (as opposed to Last Writer Wins at a document level).
+Since Patch requests were made to nonconflicting paths within the document, these requests are conflict resolved automatically and transparently (as opposed to Last Writer Wins at a document level).
 
 The client will see the following document after conflict resolution:
 

@@ -236,7 +236,7 @@ sections:
           Yes, you can download files partially as documented [here](sap-hana-db-restore.md#partial-restore-as-files).
 
       - question: |
-          Do I've to disable the HSR on SAP HANA native environment during "SYSTEMDB + Tenant DB" restore for HSR setup?
+          Do I have to disable the HSR on SAP HANA native environment during "SYSTEMDB + Tenant DB" restore for HSR setup?
         answer: |
           Yes, you need to disable the HANA System Replication (HSR) on target system, and then perform restore. You can't restore an HSR-enabled system, as per SAP.
           

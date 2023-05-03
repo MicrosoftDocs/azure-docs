@@ -72,7 +72,10 @@ To enable the certificate-based authentication and configure user bindings in th
 1. To delete a CA certificate, select the certificate and click **Delete**.
 1. Click **Columns** to add or delete columns.
 
-### Configure certification authorities using PowerShell
+>[!NOTE]
+>Upload of new CAs will fail when any of the existing CAs are expired. Tenant Admin should delete the expired CAs and then upload the new CA.
+
+### Configure certification authorities(CA) using PowerShell
 
 Only one CRL Distribution Point (CDP) for a trusted CA is supported. The CDP can only be HTTP URLs. Online Certificate Status Protocol (OCSP) or Lightweight Directory Access Protocol (LDAP) URLs aren't supported.
 
@@ -86,6 +89,9 @@ Only one CRL Distribution Point (CDP) for a trusted CA is supported. The CDP can
 
 [!INCLUDE [Get-AzureAD](../../../includes/active-directory-authentication-get-trusted-azuread.md)]
 ### Add
+
+>[!NOTE]
+>Upload of new CAs will fail when any of the existing CAs are expired. Tenant Admin should delete the expired CAs and then upload the new CA.
 
 [!INCLUDE [New-AzureAD](../../../includes/active-directory-authentication-new-trusted-azuread.md)]
 
@@ -192,6 +198,9 @@ To enable Azure AD CBA and configure user bindings in the Azure portal, complete
       :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/multifactor-policy-oid.png" alt-text="Screenshot of mapping to Policy OID.":::
 
 1. Click **Ok** to save any custom rule.
+
+>[!IMPORTANT]
+>PolicyOID should be in object identifier format as per https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.4. For ex: If the certificate policies says "All Issuance Policies" you should enter the OID as 2.5.29.32.0 in the add rules editor. Entering the string "All Issuance Policies" in rules editor is invalid and will not take effect.
 
 ## Step 4: Configure username binding policy
 

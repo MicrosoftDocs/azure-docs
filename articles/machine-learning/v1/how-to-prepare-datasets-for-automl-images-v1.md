@@ -17,7 +17,7 @@ ms.date: 10/13/2021
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning you are using:"]
 > * [v1](how-to-prepare-datasets-for-automl-images-v1.md)
-> * [v2 (current version)](../how-to-prepare-datasets-for-automl-images.md)
+> * [v2 (current version)](../how-to-prepare-datasets-for-automl-images.md?view=azureml-api-2&preserve-view=true)
   
 [!INCLUDE [cli-version-info](../../../includes/machine-learning-cli-version-1-only.md)]
 

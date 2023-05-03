@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/03/2023
+ms.date: 04/25/2023
 ms.author: lajanuar
 ms.custom: references_regions
 monikerRange: 'form-recog-3.0.0'
@@ -16,7 +16,12 @@ recommendations: false
 
 # Custom classification model
 
-**This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
+**This article applies to:** ![Form Recognizer checkmark](media/yes-icon.png) **The latest [public preview SDK](sdk-preview.md) supported by Form Recognizer REST API version [2023-02-28-preview](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/AnalyzeDocument)**.
+
+> [!IMPORTANT]
+>
+> Custom classification model is currently in public preview. Features, approaches, and processes may change, prior to General Availability (GA), based on user feedback.
+>
 
 Custom classification models are deep-learning-model types that combine layout and language features to accurately detect and identify documents you process within your application. Custom classification models can classify each page in an input file to identify the document(s) within and can also identify multiple documents or multiple instances of a single document within an input file.
 

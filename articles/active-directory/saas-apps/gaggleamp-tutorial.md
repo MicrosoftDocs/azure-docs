@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 04/27/2023
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with GaggleAMP
@@ -78,14 +78,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     In the **Identifier** text box, type the URL:
     `https://accounts.gaggleamp.com/auth/saml/callback`
-
-5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-    In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://gaggleamp.com/i/<customerid>`
-
-	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-on URL. Contact [GaggleAMP Client support team](mailto:sales@gaggleamp.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 

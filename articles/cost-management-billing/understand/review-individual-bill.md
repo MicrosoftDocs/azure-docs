@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 03/22/2022
+ms.date: 04/05/2023
 ms.author: banders
 ms.custom: contperf-fy21q2
 ---

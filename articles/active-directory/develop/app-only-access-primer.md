@@ -30,7 +30,7 @@ In most cases, application-only access is broader and more powerful than [delega
 
 In contrast, you should never use application-only access where a user would normally sign in to manage their own resources. These types of scenarios must use delegated access to be least privileged.
 
-![Diagram shows illustration of application permissions vs delegated permissions.](./media/permissions-consent-overview/delegated-app-only-permissions.png)
+![Diagram shows illustration of application permissions vs delegated permissions.](./media/app-only-access-primer/app-only-access.png)
 
 
 

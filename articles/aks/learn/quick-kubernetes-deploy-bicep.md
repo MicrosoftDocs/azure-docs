@@ -3,7 +3,7 @@ title: Quickstart - Create an Azure Kubernetes Service (AKS) cluster by using Bi
 description: Learn how to quickly create a Kubernetes cluster using a Bicep file and deploy an application in Azure Kubernetes Service (AKS)
 ms.topic: quickstart
 ms.date: 11/01/2022
-ms.custom: mvc, subject-armbicep
+ms.custom: mvc, subject-armbicep, devx-track-bicep
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
 
@@ -179,7 +179,7 @@ Two [Kubernetes Services][kubernetes-service] are also created:
 * An external service to access the Azure Vote application from the internet.
 
 1. Create a file named `azure-vote.yaml`.
-    * If you use the Azure Cloud Shell, this file can be created using `code`, `vi`, or `nano` as if working on a virtual or physical system
+    
 1. Copy in the following YAML definition:
 
     ```yaml

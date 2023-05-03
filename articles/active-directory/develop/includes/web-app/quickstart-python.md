@@ -74,15 +74,11 @@ You can also use an integrated development environment to open the folder.
 
 1. Create a *.env* file in the root folder of the project using *.env.sample* as a guide.
 
-    ```python
-    TENANT_ID=<tenant id>
-    CLIENT_ID=<client id>
-    CLIENT_SECRET=<client secret>
-    ```
+    :::code language="python" source="~/ms-identity-python-webapp/.env.sample":::
 
-    * Set the value of `TENANT_ID` to the **Directory (tenant) ID** of the registered application, also available on the overview page.
     * Set the value of `CLIENT_ID` to the **Application (client) ID** for the registered application, available on the overview page.
     * Set the value of `CLIENT_SECRET` to the client secret you created in **Certificates & Secrets** for the registered application.
+    * Set the value of `TENANT_ID` to the **Directory (tenant) ID** of the registered application, also available on the overview page.
     
     The environment variables are referenced in *app_config.py*, and are kept in a separate *.env* file to keep them out of source control. The provided *.gitignore* file prevents the *.env* file from being checked in.
 
@@ -101,7 +97,7 @@ You can also use an integrated development environment to open the folder.
 2. Run the app from the command line, specifying the host and port to match the redirect URI:
 
     ```shell
-    python3 -m flask run --host=localhost --port=5000
+    python3 -m flask run --debug --host=localhost --port=5000
     ```
 
    > [!IMPORTANT]

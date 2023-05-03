@@ -142,7 +142,7 @@ The following example shows how to access certificates in Python 2 runbooks.
 
 ```python
 # get a reference to the Azure Automation certificate
-cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
+cert = automationassets.get_automation_certificate("MyCertificate")
 
 # returns the binary cert content  
 print cert
@@ -154,7 +154,7 @@ The following example shows how to access certificates in Python 3 runbooks (pre
 
 ```python
 # get a reference to the Azure Automation certificate
-cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
+cert = automationassets.get_automation_certificate("MyCertificate")
 
 # returns the binary cert content  
 print (cert)

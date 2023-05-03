@@ -6,10 +6,10 @@ author: greg-lindsay
 manager: kumudD
 ms.service: traffic-manager
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/15/2020
 ms.author: greglin
+ms.custom: template-tutorial
 ---
 
 # Tutorial: Configure the geographic traffic routing method using Traffic Manager
