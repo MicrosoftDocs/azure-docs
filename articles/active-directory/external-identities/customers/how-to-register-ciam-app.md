@@ -118,7 +118,9 @@ App roles enable the client app to obtain an access token as themselves. This is
 
 [!INCLUDE [register daemon app](../customers/includes/register-app/register-daemon-app.md)]
 
-### If you want to call an API follow the steps below (optional):
+### If you want to call an API follow the steps below (optional)
+A daemon app signs-in as itself using the [OAuth 2.0 client credentials flow](../../[develop/v2-oauth2-client-creds-grant-flow.md), you add application permissions, which is required by apps that authenticate as themselves:
+
 [!INCLUDE [register daemon app](../customers/includes/register-app/grant-api-permissions-app-permissions.md)]
 
 ## Next steps
