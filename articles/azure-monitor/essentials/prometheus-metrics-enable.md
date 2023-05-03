@@ -57,7 +57,7 @@ Use `az aks update` with the `-enable-azuremonitormetrics` option to install the
 
 - **Create a new default Azure Monitor workspace.**<br>
 If no Azure Monitor workspace is specified, a default Azure Monitor workspace is created in a resource group with the name `DefaultRG-<cluster_region>` and is named `DefaultAzureMonitorWorkspace-<mapped_region>`.
-This Azure Monitor workspace is in the region specified in [Region mappings](#region-mappings).
+
 
     ```azurecli
     az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group>
@@ -344,7 +344,7 @@ Afterwards, if you create a new Managed Grafana instance, you can link it with t
 
 Deploy the template with the parameter file by using any valid method for deploying ARM templates. For examples of different methods, see [Deploy the sample templates](../resource-manager-samples.md#deploy-the-sample-templates).
 
-### Limitations
+### Limitations during enablement/deployment
 
 - Ensure that you update the `kube-state metrics` Annotations and Labels list with proper formatting. There's a limitation in the ARM template deployments that require exact values in the `kube-state` metrics pods. If the Kubernetes pod has any issues with malformed parameters and isn't running, the feature won't work as expected.
 - A data collection rule and data collection endpoint are created with the name `MSProm-\<short-cluster-region\>-\<cluster-name\>`. Currently, these names can't be modified.

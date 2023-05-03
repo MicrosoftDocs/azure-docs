@@ -43,12 +43,14 @@ Alerts fired by alert rules can trigger actions or notifications, as defined in 
 
 See [Azure Monitor service limits](../service-limits.md#prometheus-metrics) for service limits & quotas for Azure Monitor Managed service for Prometheus.
 
-## Limitations/Known issues
+## Limitations/Known issues - Azure Monitor managed Service for Prometheus
 
 - Scraping and storing metrics at frequencies less than 1 second isn't supported.
 - Metrics will same label names but different casing will be rejected by ingestion (ex;- `diskSize(cluster="eastus", node="node1", filesystem="usr_mnt", FileSystem="usr_opt")` is invalid due to `filesystem` and `FileSystem` labels and will be rejected )
 - Azure China cloud and Air gapped clouds are not supported for Azure Monitor managed service for Prometheus
 - To monitor Windows nodes & pods in your cluster(s), please follow steps outlined [here](./prometheus-metrics-enable.md#enable-windows-metrics-collection)
+- Azure Managed Grafana is not available in the Azure US Government cloud currently
+- Usage metrics (metrics under `Metrics` menu for the Azure Monitor workspace) - Ingestion quota limits and current usage for any Azure monitor Workspace are not available yet in US Government cloud
 
 ## Prometheus references
 Following are links to Prometheus documentation.
