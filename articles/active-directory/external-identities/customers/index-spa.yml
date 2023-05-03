@@ -1,0 +1,35 @@
+
+### YamlMime:Landing
+
+title: Single-page app (SPA) authentication documentation
+summary: >
+  Choose your target language to learn how to sign in users and access web APIs in your single-page apps with our quickstarts and how-to guides.
+
+metadata:
+  author: csmulligan
+  manager: CelesteDG
+  ms.author: cmulligan
+  ms.date: 05/02/2023
+  ms.service: active-directory
+  ms.subservice: ciam
+  ms.topic: landing-page
+ 
+landingContent:
+
+## ROW 1 ################################################### ROW 1 ##
+  - title: "Configure code samples"
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: JavaScript
+            url: how-to-single-page-app-vanillajs-sample-sign-in.md  
+          - text: React
+            url: ../../develop/web-api-quickstart.md
+  - title: "Build and integrate apps"
+    linkLists:
+      - linkListType: how-to-guide
+        links: 
+          - text: JavaScript
+            url: ../../develop/web-api-quickstart.md
+          - text: React
+            url: ../../develop/web-api-quickstart.md

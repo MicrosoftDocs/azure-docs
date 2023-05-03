@@ -20,22 +20,45 @@ metadata:
 
 ## FRONT MATTER END
 
-##HIGHLIGHTED CONTENT #############################################################################################################################
-# highlightedContent section (Optional; Remove if not applicable.)
-# Maximum of 8 items
+## BAND 1 - HIGHLIGHTED CONTENT START #############################################################################################################################
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | tutorial | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
     # Card
-    - title: Azure AD for your partners and guests - Get started 
+    - title: B2B - Get started 
       itemType: overview
       url: /azure/active-directory/external-identities/external-identities-overview
     # Card
-    - title: Azure AD for your partners and guests - B2B collaboration
+    - title: B2B collaboration
       itemType: overview
       url: /azure/active-directory/external-identities/what-is-b2b
     # Card
-    - title: Azure AD for your partners and guests - B2B direct connect
+    - title: B2B direct connect
       itemType: concept
       url: /azure/active-directory/external-identities/b2b-direct-connect-overview
-##HIGHLIGHTED CONTENT END #############################################################################################################################
+    # Card
+    - title: CIAM - Get started 
+      itemType: overview
+      url: /azure/active-directory/external-identities/customers/overview-customers-ciam
+    # Card
+    - title: CIAM - Set up a customer tenant free trial
+      itemType: quickstart
+      url: /azure/active-directory/external-identities/customers/quickstart-trial-setup
+    # Card
+    - title: CIAM - Planning for customer identity and access management
+      itemType: concept
+      url: /azure/active-directory/external-identities/customers/concept-planning-your-solution
+## BAND 1 - HIGHLIGHTED CONTENT END ##########################################################################################################################
+
+## BAND 2 - PRODUCT DIRECTORY START ####################################################################################################################################################
+productDirectory:
+  sections:
+    - title: Authentication and authorization for any application
+      summary: Focus on documentation for the app you're building or extending with customer identity and access management (CIAM) support by selecting its type.
+      items:
+        ## ROW 1 ######################
+        - title: Single-page app (SPA)
+          url: index-spa.yml
+          imageSrc: ../active-directory/develop/media/hub/app-type-spa.svg
+          summary: A web application whose code is downloaded and run in the browser itself such as vanilla JavaScript and React
+## BAND 2 - PRODUCT DIRECTORY END ##########################################################################################################################
