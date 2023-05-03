@@ -152,11 +152,11 @@ For your customer tenant, you might have different requirements for the informat
 1.	On the **Text** tab select **Add Custom Text**.
 1.	Select any of the options:
 
-   - Select **Attributes** to override the default values. 
-   - Select **Attribute collection** to add a new attribute option that you would like to collect during the sign-up process.
-   - Select **Sign in** to add custom text for the sign-in page.
-   - Select **Sign up** to add custom text for the sign-in page.
-   - Select **Sign-in/up one time code (SISU OTC)** to add a custom title.
+      - Select **Attributes** to override the default values. 
+      - Select **Attribute collection** to add a new attribute option that you would like to collect during the sign-up process.
+      - Select **Sign in** to add custom text for the sign-in page.
+      - Select **Sign up** to add custom text for the sign-in page.
+      - Select **Sign-in/up one time code (SISU OTC)** to add a custom title.
 
       :::image type="content" source="media/how-to-customize-branding-customers/custom-text.png" alt-text="Screenshot of the company branding text tab." lightbox="media/how-to-customize-branding-customers/custom-text.png":::
 
