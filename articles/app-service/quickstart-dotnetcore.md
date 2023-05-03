@@ -3,7 +3,7 @@ title: "Quickstart: Deploy an ASP.NET web app"
 description: Learn how to run web apps in Azure App Service by deploying your first ASP.NET app.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 04/24/2023
+ms.date: 05/03/2023
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1, devdivchpfy22, devx-track-azurepowershell
 zone_pivot_groups: app-service-ide
 adobe-target: true
@@ -31,7 +31,7 @@ target cross-platform with .NET 7.0.
 
 # Quickstart: Deploy an ASP.NET web app
 
-In this quickstart, you'll learn how to create and deploy your first ASP.NET web app to [Azure App Service](overview.md). App Service supports various versions of .NET apps, and provides a highly scalable, self-patching web hosting service. ASP.NET web apps are cross-platform and can be hosted on Linux or Windows. When you're finished, you'll have an Azure resource group consisting of an App Service hosting plan and an App Service with a deployed web application.
+In this quickstart, you learn how to create and deploy your first ASP.NET web app to [Azure App Service](overview.md). App Service supports various versions of .NET apps, and provides a highly scalable, self-patching web hosting service. ASP.NET web apps are cross-platform and can be hosted on Linux or Windows. When you're finished, you have an Azure resource group consisting of an App Service hosting plan and an App Service with a deployed web application.
 
 Alternatively, you can deploy an ASP.NET web app as part of a [Windows or Linux container in App Service](quickstart-custom-container.md).
 
@@ -51,7 +51,7 @@ Alternatively, you can deploy an ASP.NET web app as part of a [Windows or Linux 
 
 -----
 
-If you've already installed Visual Studio 2022:
+If you have already installed Visual Studio 2022:
 
 1. Install the latest updates in Visual Studio by selecting **Help** > **Check for Updates**.
 1. Add the workload by selecting **Tools** > **Get Tools and Features**.
@@ -94,7 +94,7 @@ If you've already installed Visual Studio 2022:
 
 :::zone-end
 
-## Create an ASP.NET web app
+## 1. Create an ASP.NET web app
 
 :::zone target="docs" pivot="development-environment-vs"
 
@@ -132,7 +132,7 @@ If you've already installed Visual Studio 2022:
 
    :::image type="content" source="media/quickstart-dotnetcore/vs-local-webapp-netframework48.png" alt-text="Screenshot of Visual Studio - ASP.NET Framework 4.8 running locally." lightbox="media/quickstart-dotnetcore/vs-local-webapp-netframework48.png" border="true":::
 
----
+-----
 
 :::zone-end
 
@@ -161,7 +161,7 @@ If you've already installed Visual Studio 2022:
 
 1. Open a web browser, and navigate to the app at `https://localhost:5001`.
 
-    You'll see the template ASP.NET Core 7.0 web app displayed in the page.
+    You see the template ASP.NET Core 7.0 web app displayed in the page.
     
     :::image type="content" source="media/quickstart-dotnetcore/local-webapp-net.png" alt-text="Screenshot of Visual Studio Code - run .NET 7.0 in browser locally." lightbox="media/quickstart-dotnetcore/local-webapp-net.png" border="true":::
     
@@ -188,7 +188,7 @@ If you've already installed Visual Studio 2022:
 
 1. Open a web browser, and navigate to the app at `https://localhost:5001`.
 
-    You'll see the template ASP.NET Core 7.0 web app displayed in the page.
+    You see the template ASP.NET Core 7.0 web app displayed in the page.
     
     :::image type="content" source="media/quickstart-dotnet/local-webapp-net.png" alt-text="Screenshot of Visual Studio Code - ASP.NET Core 7.0 in local browser." lightbox="media/quickstart-dotnet/local-webapp-net.png" border="true":::
     
@@ -216,11 +216,11 @@ In this step, you fork a demo project to deploy.
     
 :::zone-end
 
-## Publish your web app
+## 2. Publish your web app
 
 To publish your web app, you must first create and configure a new App Service that you can publish your app to.
 
-As part of setting up the App Service, you'll create:
+As part of setting up the App Service, you create:
 
 - A new [resource group](../azure-resource-manager/management/overview.md#terminology) to contain all of the Azure resources for the service.
 - A new [Hosting Plan](overview-hosting-plans.md) that specifies the location, size, and features of the web server farm that hosts your app.
@@ -263,7 +263,7 @@ Follow these steps to create your App Service resources and publish your project
 
     :::image type="content" source="media/quickstart-dotnetcore/web-app-name.png" border="true" alt-text="Screenshot of Visual Studio - Create app resources dialog." lightbox="media/quickstart-dotnetcore/web-app-name.png" :::
 
-   Once the wizard completes, the Azure resources are created for you and you're ready to publish your ASP.NET Core project.
+   Once the wizard completes, the Azure resources are created for you, and you're ready to publish your ASP.NET Core project.
 
 1. In the **Publish** dialog, ensure your new App Service app is selected, then select **Finish**, then select **Close**. Visual Studio creates a publish profile for you for the selected App Service app.
 
@@ -273,17 +273,17 @@ Follow these steps to create your App Service resources and publish your project
 
     ### [.NET 7.0](#tab/net70)
 
-    You'll see the ASP.NET Core 7.0 web app displayed in the page.
+    You see the ASP.NET Core 7.0 web app displayed in the page.
 
     :::image type="content" source="media/quickstart-dotnetcore/Azure-webapp-net.png" lightbox="media/quickstart-dotnetcore/Azure-webapp-net.png" border="true" alt-text="Screenshot of Visual Studio - ASP.NET Core 7.0 web app in Azure." :::
 
     ### [.NET Framework 4.8](#tab/netframework48)
 
-    You'll see the ASP.NET Framework 4.8 web app displayed in the page.
+    You see the ASP.NET Framework 4.8 web app displayed in the page.
 
     :::image type="content" source="media/quickstart-dotnetcore/vs-Azure-webapp-net48.png" lightbox="media/quickstart-dotnet/vs-Azure-webapp-net48.png" border="true" alt-text="Screenshot of Visual Studio - ASP.NET Framework 4.8 web app in Azure.":::
 
-    ---
+    -----
 
 :::zone-end
 
@@ -312,7 +312,7 @@ Follow these steps to create your App Service resources and publish your project
 1. In the popup **Always deploy the workspace "MyFirstAzureWebApp" to \<app-name>"**, select **Yes** so that Visual Studio Code deploys to the same App Service app every time you're in that workspace.
 1. When publishing completes, select **Browse Website** in the notification and select **Open** when prompted.
 
-    You'll see the ASP.NET Core 7.0 web app displayed in the page.
+    You see the ASP.NET Core 7.0 web app displayed in the page.
 
     :::image type="content" source="media/quickstart-dotnetcore/Azure-webapp-net.png" lightbox="media/quickstart-dotnetcore/Azure-webapp-net.png" border="true" alt-text="Screenshot of Visual Studio Code - ASP.NET Core 7.0 web app in Azure.":::
 
@@ -340,7 +340,7 @@ Follow these steps to create your App Service resources and publish your project
     - Replace `<os>` with either `linux` or `windows`. 
     - You can optionally include the argument `--location <location-name>` where `<location-name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) command.
     
-    The command might take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan, and hosting app, configuring logging, then performing ZIP deployment. Then it shows a message with the app's URL:
+    The command might take a few minutes to complete. While it's running, the command provides messages about creating the resource group, the App Service plan, and hosting app, configuring logging, then performing ZIP deployment. Then it shows a message with the app's URL:
     
     ```azurecli
     You can launch the app at http://<app-name>.azurewebsites.net
@@ -348,7 +348,7 @@ Follow these steps to create your App Service resources and publish your project
 
 1. Open a web browser and navigate to the URL:
 
-    You'll see the ASP.NET Core 7.0 web app displayed in the page.
+    You see the ASP.NET Core 7.0 web app displayed in the page.
     
     :::image type="content" source="media/quickstart-dotnet/Azure-webapp-net.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the CLI - ASP.NET Core 7.0 web app in Azure.":::
     
@@ -378,7 +378,7 @@ Follow these steps to create your App Service resources and publish your project
     - Replace `<app-name>` with a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A combination of your company name and an app identifier is a good pattern.
     - You can optionally include the parameter `-Location <location-name>` where `<location-name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [`Get-AzLocation`](/powershell/module/az.resources/get-azlocation) command.
 
-    The command might take a few minutes to complete. While running, it creates a resource group, an App Service plan, and the App Service resource.
+    The command might take a few minutes to complete. While it's running, the command creates a resource group, an App Service plan, and the App Service resource.
 
     <!-- ### [Deploy to Linux](#tab/linux)
     
@@ -423,7 +423,7 @@ Follow these steps to create your App Service resources and publish your project
 
 1. Open a web browser and navigate to the URL:
 
-    You'll see the ASP.NET Core 7.0 web app displayed in the page.
+    You see the ASP.NET Core 7.0 web app displayed in the page.
     
     :::image type="content" source="media/quickstart-dotnet/Azure-webapp-net.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Screenshot of the CLI - ASP.NET Core 7.0 web app in Azure.":::
     
@@ -513,7 +513,7 @@ Follow these steps to create your App Service resources and publish your project
 
 :::zone-end
 
-## Update the app and redeploy
+## 3. Update the app and redeploy
 
 Follow these steps to update and redeploy your web app:
 
@@ -538,17 +538,17 @@ Follow these steps to update and redeploy your web app:
 
     ### [.NET 7.0](#tab/net70)
 
-    You'll see the updated ASP.NET Core 7.0 web app displayed in the page.
+    You see the updated ASP.NET Core 7.0 web app displayed in the page.
 
     :::image type="content" source="media/quickstart-dotnetcore/updated-Azure-webapp-net.png" lightbox="media/quickstart-dotnetcore/updated-Azure-webapp-net.png" border="true" alt-text="Screenshot of Visual Studio - Updated ASP.NET Core 7.0 web app in Azure.":::
 
     ### [.NET Framework 4.8](#tab/netframework48)
 
-    You'll see the updated ASP.NET Framework 4.8 web app displayed in the page.
+    You see the updated ASP.NET Framework 4.8 web app displayed in the page.
 
     :::image type="content" source="media/quickstart-dotnetcore/vs-updated-Azure-webapp-net48.png" lightbox="media/quickstart-dotnetcore/vs-updated-Azure-webapp-net48.png" border="true" alt-text="Screenshot of Visual Studio - Updated ASP.NET Framework 4.8 web app in Azure.":::
 
-    ---
+    -----
 
 :::zone-end
 
@@ -571,7 +571,7 @@ Follow these steps to update and redeploy your web app:
 1. Select **Deploy** when prompted.
 1. When publishing completes, select **Browse Website** in the notification and select **Open** when prompted.
 
-    You'll see the updated ASP.NET Core 7.0 web app displayed in the page.
+    You see the updated ASP.NET Core 7.0 web app displayed in the page.
 
     :::image type="content" source="media/quickstart-dotnet/updated-Azure-webapp-net.png" lightbox="media/quickstart-dotnet/updated-Azure-webapp-net.png" border="true" alt-text="Screenshot of Visual Studio Code - Updated ASP.NET Core 7.0 web app in Azure.":::
 
@@ -602,7 +602,7 @@ This command uses values that are cached locally in the *.azure/config* file, in
 
 Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and hit refresh.
 
-You'll see the updated ASP.NET Core 7.0 web app displayed in the page.
+You see the updated ASP.NET Core 7.0 web app displayed in the page.
 
 :::image type="content" source="media/quickstart-dotnet/updated-Azure-webapp-net.png" lightbox="media/quickstart-dotnet/updated-Azure-webapp-net.png" border="true" alt-text="Screenshot of the CLI - Updated ASP.NET Core 7.0 web app in Azure.":::
 
@@ -645,7 +645,7 @@ You'll see the updated ASP.NET Core 7.0 web app displayed in the page.
 
 1. Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and hit refresh.
 
-    You'll see the updated ASP.NET Core 7.0 web app displayed in the page.
+    You see the updated ASP.NET Core 7.0 web app displayed in the page.
     
     :::image type="content" source="media/quickstart-dotnet/updated-Azure-webapp-net.png" lightbox="media/quickstart-dotnet/updated-Azure-webapp-net.png" border="true" alt-text="Screenshot of the CLI - Updated ASP.NET Core 7.0 web app in Azure.":::
     
@@ -725,13 +725,13 @@ You'll see the updated ASP.NET Core 7.0 web app displayed in the page.
     
     ### [.NET 7.0](#tab/net70)
     
-    You'll see the updated ASP.NET Core 7.0 web app displayed in the page.
+    You see the updated ASP.NET Core 7.0 web app displayed in the page.
     
     :::image type="content" source="media/quickstart-dotnetcore/portal-updated-dotnet-7.png" lightbox="media/quickstart-dotnetcore/portal-updated-dotnet-7.png" border="true" alt-text="Screenshot of the CLI - Updated ASP.NET Core 7.0 web app in Azure.":::
     
     ### [.NET Framework 4.8](#tab/netframework48)
     
-    You'll see the updated ASP.NET Framework 4.8 web app displayed in the page.
+    You see the updated ASP.NET Framework 4.8 web app displayed in the page.
     
     :::image type="content" source="media/quickstart-dotnet/updated-Azure-webapp-net48.png" lightbox="media/quickstart-dotnet/updated-Azure-webapp-net48.png" border="true" alt-text="Screenshot of the CLI - Updated ASP.NET Framework 4.8 web app in Azure.":::
 
@@ -739,7 +739,7 @@ You'll see the updated ASP.NET Core 7.0 web app displayed in the page.
     
 :::zone-end
 
-## Manage the Azure app
+## 4. Manage the Azure app
 
 To manage your web app, go to the [Azure portal](https://portal.azure.com), and search for and select **App Services**.
 
@@ -784,8 +784,6 @@ The **Overview** page for your web app, contains options for basic management li
 
 ## Next steps
 
-In this quickstart, you created and deployed an ASP.NET web app to Azure App Service.
-
 ### [.NET 7.0](#tab/net70)
 
 Advance to the next article to learn how to create a .NET Core app and connect it to a SQL Database:
@@ -812,6 +810,6 @@ Advance to the next article to learn how to create a .NET Framework app and conn
 > [!div class="nextstepaction"]
 > [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
 
----
+-----
 
 [app-service-pricing-tier]: https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
