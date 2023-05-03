@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/10/2023
+ms.date: 05/02/2023
 ms.author: tamram
 ms.subservice: common
 ---
@@ -16,34 +16,45 @@ ms.subservice: common
 
 The [Azure Resource Manager](../../azure-resource-manager/management/overview.md) deployment model now offers extensive functionality for Azure Storage accounts. For this reason, we deprecated the management of classic storage accounts through Azure Service Manager (ASM) on August 31, 2021. Classic storage accounts will be fully retired on August 31, 2024. All data in classic storage accounts must be migrated to Azure Resource Manager storage accounts by that date.
 
-If you have classic storage accounts, start planning your migration now. Complete it by August 31, 2024, to take advantage of Azure Resource Manager. To learn more about the benefits of Azure Resource Manager, see [The benefits of using Resource Manager](../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager).
+If you have classic storage accounts, start planning your migration now. Complete it by August 31, 2024, to take advantage of Azure Resource Manager.
+
+To learn more about the classic versus Azure Resource Manager deployment models, see [Resource Manager and classic deployment](../../azure-resource-manager/management/deployment-models.md#changes-for-compute-network-and-storage).
 
 Storage accounts created using the classic deployment model follow the [Modern Lifecycle Policy](https://support.microsoft.com/help/30881/modern-lifecycle-policy) for retirement.
 
 ## Why is a migration required?
 
-On August 31, 2024, we'll retire classic Azure storage accounts and they'll no longer be accessible. Before that date, you must migrate them to Azure Resource Manager, which provides all of the same functionality, as well as new features, including:
+On August 31, 2024, we'll retire classic Azure storage accounts and they'll no longer be accessible. Before that date, you must migrate your storage accounts to Azure Resource Manager, and update your applications to use [Azure Storage resource provider](/rest/api/storagerp/) APIs.
 
-- A management layer that simplifies deployment by enabling you to create, update, and delete resources.
-- Resource grouping, which allows you to deploy, monitor, manage, and apply access control policies to resources as a group.
-- All new features for Azure Storage are implemented for storage account in Azure Resource Manager deployments, so customers that are still using classic resources will no longer have access to new features and updates.
+The Azure Storage resource provider is the implementation of Azure Resource Manager for Azure Storage. To learn more about resource providers in Azure Resource Manager, see [Resource providers and resource types](../../azure-resource-manager/management/resource-providers-and-types.md).
+
+Azure Resource Manager storage accounts provide all of the same functionality, as well as new features, including:
+
+- A [consistent management layer](../../azure-resource-manager/management/overview.md#consistent-management-layer) that simplifies deployment by enabling you to create, update, and delete resources.
+- [Resource grouping](../../azure-resource-manager/management/overview.md#resource-groups), which allows you to deploy, monitor, manage, and apply access control policies to resources as a group.
+- All new features for Azure Storage are implemented for storage accounts in Azure Resource Manager deployments. Customers that are still using classic resources will not have access to new features and updates.
+
+For more information about the advantages of using Azure Resource Manager, see [The benefits of using Resource Manager](../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager).
 
 ## What happens if I don't migrate my accounts?
 
 Starting on September 1, 2024, customers will no longer be able to connect to classic storage accounts by using Azure Service Manager. Any data still contained in these accounts will no longer be accessible through Azure Service Manager.
+
+If your applications are using Azure Service Manager classic APIs to access classic accounts, then those applications will no longer be able to access those storage accounts after August 31, 2024.
 
 > [!WARNING]
 > If you do not migrate your classic storage accounts to Azure Resource Manager by August 31, 2024, you will permanently lose access to the data in those accounts.
 
 ## What actions should I take?
 
+Before you get started with the migration, read [Understand storage account migration from the classic deployment model to Azure Resource Manager](classic-account-migration-process.md) for an overview of the process.
+
 To migrate your classic storage accounts, you should:
 
-1. Identify all classic storage accounts in your subscription.
-1. Migrate any classic storage accounts to Azure Resource Manager.
-1. Check your applications and logs to determine whether you're dynamically creating, updating, or deleting classic storage accounts from your code, scripts, or templates. If you are, then you need to update your applications to use Azure Resource Manager accounts instead.
-
-For step-by-step instructions, see [How to migrate your classic storage accounts to Azure Resource Manager](classic-account-migrate.md). For an in-depth overview of the migration process, see [Understand storage account migration from the classic deployment model to Azure Resource Manager](classic-account-migration-process.md).
+1. Identify all classic storage accounts in your subscription. To learn how, see [Identify classic storage accounts in your subscription](classic-account-migrate.md#identify-classic-storage-accounts-in-your-subscription).
+1. Delete any classic (unmanaged) disks or disk artifacts in your classic storage accounts. To learn how to delete classic disk artifacts, see [Locate and delete any disk artifacts in a classic account](classic-account-migrate.md#locate-and-delete-any-disk-artifacts-in-a-classic-account).
+1. Migrate any classic storage accounts to [Azure Resource Manager](../../azure-resource-manager/management/overview.md). For step-by-step instructions on performing the migration, see [How to migrate your classic storage accounts to Azure Resource Manager](classic-account-migrate.md).
+1. Check your applications and logs to determine whether you're dynamically creating, updating, or deleting classic storage accounts from your code, scripts, or templates. If you are, then you must update your applications to use Azure Resource Manager APIs for account management. For more information, see [Update your applications to use Azure Resource Manager APIs](classic-account-migrate.md#update-your-applications-to-use-azure-resource-manager-apis).
 
 ## How to get help
 
@@ -53,14 +64,14 @@ For step-by-step instructions, see [How to migrate your classic storage accounts
 
     1. Search for **Help + support** in the [Azure portal](https://portal.azure.com#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
     1. Select **Create a support request**.
-    1. Under **Summary**, type a description of your issue.
-    1. Under **Issue type**, select **Technical**.
-    1. Under **Subscription**, select your subscription.
-    1. Under **Service**, select **My services**.
-    1. Under **Service type**, select **Storage Account Management**.
-    1. Under **Resource**, select the resource you want to migrate.
-    1. Under **Problem type**, select **Data Migration**.
-    1. Under **Problem subtype**, select **Migrate account to new resource group/subscription/region/tenant**.
+    1. For **Summary**, type a description of your issue.
+    1. For **Issue type**, select **Technical**.
+    1. For **Subscription**, select your subscription.
+    1. For **Service**, select **My services**.
+    1. For **Service type**, select **Storage Account Management**.
+    1. For **Resource**, select the resource you want to migrate.
+    1. For **Problem type**, select **Data Migration**.
+    1. For **Problem subtype**, select **Migrate account to new resource group/subscription/region/tenant**.
     1. Select **Next**, then follow the instructions to submit your support request.
 
 ## FAQ
@@ -88,13 +99,21 @@ No, Microsoft can't migrate a customer's storage account on their behalf. Custom
 
 ### Will there be downtime when migrating my storage account from Classic to Resource Manager?
 
-There's no downtime to migrate a classic storage account to Resource Manager. However, there may be downtime for other scenarios linked to classic virtual machine (VM) migration.
+There's no downtime for data plane operations while you are migrating a classic storage account to Resource Manager. Management plane operations are blocked during the migration. For more information, see [Understand storage account migration from the classic deployment model to Azure Resource Manager](classic-account-migration-process.md).
+
+There may be downtime for scenarios linked to classic virtual machine (VM) migration or unmanaged disk migration. For more information about those scenarios, see [Migration classic VMs](../../virtual-machines/classic-vm-deprecation.md) and [Migrating unmanaged disks to managed disks](../../virtual-machines/unmanaged-disks-deprecation.md).
 
 ### What operations aren't available during the migration?
 
 Also, during the migration, management operations aren't available on the storage account. Data operations can continue to be performed during the migration.
 
 If you're creating or managing container objects with the Azure Storage resource provider, keep in mind that those operations are blocked while the migration is underway. For more information, see [Understand storage account migration from the classic deployment model to Azure Resource Manager](classic-account-migration-process.md).
+
+### How do I migrate storage accounts that contain classic disk artifacts?
+
+If your classic storage accounts contain classic (unmanaged) disks, virtual machine images, or operating system (OS) images, you'll need to delete these artifacts before you begin the migration. Failing to delete these artifacts may cause the migration to fail. To learn how to delete classic disk artifacts, see [Locate and delete any disk artifacts in a classic account](classic-account-migrate.md#locate-and-delete-any-disk-artifacts-in-a-classic-account).
+
+We recommend migrating unmanaged disks to managed disks. To learn about migrating unmanaged disks to managed disks, see [Migrating unmanaged disks to managed disks](../../virtual-machines/unmanaged-disks-deprecation.md).
 
 ### Are storage account access keys regenerated as part of the migration?
 

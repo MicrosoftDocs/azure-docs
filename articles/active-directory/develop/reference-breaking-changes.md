@@ -65,7 +65,7 @@ Error 50105 (the current designation) is emitted when an unassigned user attempt
 
 The error scenario has been updated, so that during non-interactive authentication (where `prompt=none` is used to hide UX), the app will be instructed to perform interactive authentication using an `interaction_required` error response. In the subsequent interactive authentication, Azure AD will now hold the user and show an error message directly, preventing a loop from occurring.
 
-As a reminder, your application code shouldn't make decisions based on error code strings like `AADSTS50105`. Instead, [follow our error-handling guidance](reference-aadsts-error-codes.md#handling-error-codes-in-your-application) and use the [standardized authentication responses](https://openid.net/specs/openid-connect-core-1_0.html#AuthError) like `interaction_required` and `login_required` found in the standard `error` field in the response. The other response fields are intended for consumption only by humans troubleshooting their issues.
+As a reminder, your application code shouldn't make decisions based on error code strings like `AADSTS50105`. Instead, [follow our error-handling guidance](reference-error-codes.md#handling-error-codes-in-your-application) and use the [standardized authentication responses](https://openid.net/specs/openid-connect-core-1_0.html#AuthError) like `interaction_required` and `login_required` found in the standard `error` field in the response. The other response fields are intended for consumption only by humans troubleshooting their issues.
 
 You can review the current text of the 50105 error and more on the error lookup service: https://login.microsoftonline.com/error?code=50105.
 

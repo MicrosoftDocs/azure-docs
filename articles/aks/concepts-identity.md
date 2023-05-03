@@ -261,7 +261,8 @@ In the Azure portal, you can find:
 - To get started with Azure AD and Kubernetes RBAC, see [Integrate Azure Active Directory with AKS][aks-aad].
 - For associated best practices, see [Best practices for authentication and authorization in AKS][operator-best-practices-identity].
 - To get started with Azure RBAC for Kubernetes Authorization, see [Use Azure RBAC to authorize access within the Azure Kubernetes Service (AKS) Cluster](manage-azure-rbac.md).
-- To get started securing your `kubeconfig` file, see [Limit access to cluster configuration file](control-kubeconfig-access.md)
+- To get started securing your `kubeconfig` file, see [Limit access to cluster configuration file](control-kubeconfig-access.md).
+- To get started with managed identities in AKS, see [Use a managed identity in AKS](./use-managed-identity.md).
 
 For more information on core Kubernetes and AKS concepts, see the following articles:
 
