@@ -56,11 +56,11 @@ The following steps walk you through how to configure a route map.
 
 1. Select **Add** to complete rule configuration. Clicking "Add" stores the rule temporarily on the Azure portal, but isn't saved to the route map yet. Select "Okay" on the Reminder dialog box to acknowledge that the rule isn't completely saved yet and proceed to the next-step.
 
-1. Repeat steps 6 - 8 to add additional rules as required. On the **Create Route-map** page, after all the rules are added, ensure that the order of the rules is as desired. To adjust the order, follow the instructions in the screenshot below. Then, select **Save** to save all the rules to the route map.
+1. Repeat steps 6 - 8 to add additional rules as required. On the **Create Route-map** page, after all the rules are added, ensure that the order of the rules is as desired. To adjust the order, follow the instructions in the following screenshot. Then, select **Save** to save all the rules to the route map.
 
    :::image type="content" source="./media/route-maps-how-to/adjust-order.png" alt-text="Screenshot shows how to adjust the order of rules." lightbox="./media/route-maps-how-to/adjust-order.png":::
 
-1. It will take a few minutes to save the route map and the route map rules. Once saved, the **Provisioning state** shows **Succeeded**.
+1. It takes a few minutes to save the route map and the route map rules. Once saved, the **Provisioning state** shows **Succeeded**.
 
    :::image type="content" source="./media/route-maps-how-to/provisioning.png" alt-text="Screenshot shows Provisioning state is Succeeded." lightbox="./media/route-maps-how-to/provisioning.png":::
 
@@ -94,7 +94,7 @@ Once the route map is saved, you may apply the route map to the desired connecti
 
 ## Modify or remove a route map from a connection
 
-To modify or remove an existing Route-map rule, follow the steps below.
+To modify or remove an existing Route-map rule, use the following steps.
 
 1. On the **Route-maps page**, on the line for the route-map that you want to edit, select **… > Edit**.
 1. On **Edit Route-map** page, select **… > Edit** to edit the route-map rule.
