@@ -127,7 +127,7 @@ In this step, the service attempts to match the user that was retrieved in the i
 
 The **View details** page shows the properties of the users that were matched in the target system. The context pane changes as follows:
 
-* If no users are matched in the target system, you won't see any properties.
+* If no users are matched in the target system, no properties are shown.
 * If there's one user matched in the target system, you'll see the properties of that matched user from the target system.
 * If multiple users are matched, you'll see the properties of both matched users.
 * If multiple matching attributes are part of your attribute mappings, each matching attribute is evaluated sequentially and the matched users for that attribute are shown.
