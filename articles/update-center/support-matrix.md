@@ -5,7 +5,6 @@ ms.service: update-management-center
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.date: 05/02/2023
-ms.date: 04/26/2023
 ms.topic: overview
 ms.custom: references_regions
 ---
