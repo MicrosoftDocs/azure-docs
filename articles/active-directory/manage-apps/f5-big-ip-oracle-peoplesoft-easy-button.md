@@ -120,13 +120,13 @@ The following instructions help you create a tenant app registration to authoriz
 8. Grant admin consent to your organization.
 9. Go to **Certificates & Secrets**.
 10. Generate a new **Client Secret** and note it.
-11. Go to **Overview** and note the **Client ID** and **Tenant ID**
+11. Go to **Overview** and note the **Client ID** and **Tenant ID**.
 
 ## Configure the Easy Button
 
 1. Initiate the APM Guided Configuration.
 2. Launch the Easy Button template.
-3. Navigate to **Access > Guided Configuration.
+3. Navigate to **Access > Guided Configuration**.
 4. Select **Microsoft Integration**.
 5. Select **Azure AD Application**.
 
@@ -152,7 +152,7 @@ Use the **Configuration Properties** tab to creat new application configurations
 2. For **Single Sign-On (SSO) & HTTP Headers**, select **On**.
 3. Enter the **Tenant ID, Client ID**, and **Client Secret** you noted.
 4. Confirm the BIG-IP connects to the tenant.
-5. Select **Next**
+5. Select **Next**.
 
    ![Screenshot of options and selections for Configuration Properties](./media/f5-big-ip-easy-button-oracle-peoplesoft/configuration-general-and-service-account-properties.png)
  
@@ -188,7 +188,7 @@ Use the **Service Provider** settings to define SAML SP properties for the APM i
 
 The Easy Button has templates for Oracle PeopleSoft, Oracle E-Business Suite, Oracle JD Edwards, SAP ERP and a generic SHA template. 
 
-1. Select **Oracle PeopleSoft.
+1. Select **Oracle PeopleSoft**.
 2. Select **Add**.
 
    ![Screenshot of the Oracle PeopleSoft option under Azure Configuration.](./media/f5-big-ip-easy-button-oracle-peoplesoft/azure-configuration-add-big-ip-application.png)
@@ -316,7 +316,7 @@ Configure Oracle Access Manager to accept SSO from the BIG-IP.
 
    ![Screenshot of the Oracle console.](./media/f5-big-ip-easy-button-oracle-peoplesoft/peoplesoft-console.png)
  
-2. Navigate to **PeopleTools > Security.
+2. Navigate to **PeopleTools > Security**.
 3. Select **User Profiles**.
 4. Select **User Profiles**.
 5. Create a new user profile.
@@ -349,8 +349,8 @@ Configure Oracle Access Manager to accept SSO from the BIG-IP.
  
 21.	Save the record. 
 22.	Navigate to **PeopleTools > Security.
-23.	Select **Security Objects**
-24.	Select **Sign on PeopleCode** 
+23.	Select **Security Objects**.
+24.	Select **Sign on PeopleCode**.
 25.	Enable **OAMSSO_AUTHENTICATION**.
  
 ### PeopleSoft Single Logout
@@ -363,7 +363,7 @@ Add SLO support for PeopleSoft users.
 2.	Open the portal with a web browser.
 3.	Enable the debug tools. 
 4.	Locate the element with the **PT_LOGOUT_MENU** ID.
-5.	Save the URL path with the query parameters. In this example: /psp/ps/?cmd=logout.
+5.	Save the URL path with the query parameters. In this example: `/psp/ps/?cmd=logout`.
 
    ![Screenshot of PeopleSoft logout URL](./media/f5-big-ip-easy-button-oracle-peoplesoft/peoplesoft-logout-url.png)
  
@@ -466,7 +466,7 @@ When complete, revert this feature because verbose mode generates lots of data.
 
 If a BIG-IP error appears after Azure AD preauthentication, it’s possible the issue relates to Azure AD to BIG-IP SSO.
 
-1. Navigate to **Access > Overview.
+1. Navigate to **Access > Overview**.
 2. Select **Access reports**.
 3. Run the report for the last hour.
 4. Review the logs for clues. 
@@ -477,7 +477,7 @@ Use the session's **View session** link to confirm the APM receives expected Azu
 
 If no BIG-IP error message appears, the issue might be related to the back-end request, or BIG-IP to application SSO.
 
-1. Navigate to **Access Policy > Overview.
+1. Navigate to **Access Policy > Overview**.
 2. Select **Active Sessions**.
 3. Select the active session link.
 
