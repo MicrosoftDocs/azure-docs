@@ -2,7 +2,7 @@
 title: Dapr trigger and bindings for Azure Functions
 description: Learn to use the Dapr trigger and bindings in Azure Functions.
 ms.topic: reference
-ms.date: 04/17/2023
+ms.date: 05/03/2023
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -43,9 +43,7 @@ Functions execute in an isolated C# worker process. To learn more, see [Guide fo
 
 The functionality of the extension varies depending on the extension version:
 
-# [Extension 5.x and higher](#tab/extensionv5/in-process)
-
-[!INCLUDE [functions-bindings-supports-identity-connections-note](../../includes/functions-bindings-supports-identity-connections-note.md)]
+# [Functions 2.x and higher](#tab/functionsv2/in-process)
 
 This extension is available by installing the [Dapr.AzureFunction.Extension NuGet package](https://www.nuget.org/packages/Dapr.AzureFunctions.Extension#dotnet-cli), version 0.10.x.
 
@@ -55,17 +53,7 @@ Using the .NET CLI:
 dotnet add package Dapr.AzureFunctions.Extension --version 0.10.0-preview01
 ``` 
 
-# [Functions 2.x and higher](#tab/functionsv2/in-process)
-
-
-
-# [Functions 1.x](#tab/functionsv1/in-process)
-
-Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x.
-
-# [Extension 5.x and higher](#tab/extensionv5/isolated-process)
-
-[!INCLUDE [functions-bindings-supports-identity-connections-note](../../includes/functions-bindings-supports-identity-connections-note.md)]
+# [Functions 2.x and higher](#tab/functionsv2/isolated-process)
 
 Add the extension to your project by installing the [Dapr.AzureFunction.Extension NuGet package](https://www.nuget.org/packages/Dapr.AzureFunctions.Extension#dotnet-cli), version 0.10.x.
 
@@ -75,12 +63,6 @@ Using the .NET CLI:
 dotnet add package Dapr.AzureFunctions.Extension --version 0.10.0-preview01
 ``` 
 
-# [Functions 2.x and higher](#tab/functionsv2/isolated-process)
-
-
-# [Functions 1.x](#tab/functionsv1/isolated-process)
-
-
 ---
 
 ::: zone-end
@@ -89,7 +71,7 @@ dotnet add package Dapr.AzureFunctions.Extension --version 0.10.0-preview01
 
 ## Install bundle
 
-You need to manually install the Dapr extension into your project and opt-out to using default extensions. Before you begin, verify you have .NET Core SDK installed.
+You need to manually install the Dapr extension into your project and opt-out of using default extensions. Before you begin, verify you have .NET Core SDK installed.
 
 1. If the `host.json` file in your project has the `extensionBundle` property and values:
    1. Open the `host.json` file from the root directory of the project. 
@@ -122,7 +104,7 @@ An isolated worker process class library compiled C# function runs in a process 
 
 Choose a version to see binding type details for the mode and version. 
 
-# [Extension 5.x and higher](#tab/extensionv5/in-process)
+# [Functions 2.x and higher](#tab/functionsv2/in-process)
 
 The Dapr extension supports parameter types according to the table below.
 
@@ -134,13 +116,8 @@ The Dapr extension supports parameter types according to the table below.
 
 For examples using these types, see [the GitHub repository for the extension](https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/dotnet-azurefunction). 
 
-# [Functions 2.x and higher](#tab/functionsv2/in-process)
 
-
-# [Functions 1.x](#tab/functionsv1/in-process)
-
-
-# [Extension 5.x and higher](#tab/extensionv5/isolated-process)
+# [Functions 2.x and higher](#tab/functionsv2/isolated-process)
 
 The isolated worker process supports parameter types according to the table below. Binding to string parameters is currently the only option that is generally available. 
 
@@ -149,13 +126,6 @@ The isolated worker process supports parameter types according to the table belo
 | Dapr trigger | `string` | [daprBindingTrigger]<br/>[daprServiceInvocationTrigger]<br/>[daprTopicTrigger]|
 | Dapr input | `string` | [daprState]<br/>[daprSecret] |
 | Dapr output | `string` | [daprState][dapr-state-output]<br/>[daprInvoke]<br/>[daprPublish]<br/>[daprBinding] |
-
-
-# [Functions 2.x and higher](#tab/functionsv2/isolated-process)
-
-
-# [Functions 1.x](#tab/functionsv1/isolated-process)
-
 
 ---
 
