@@ -393,6 +393,70 @@ To remove Node Restriction from a cluster.
 az aks update -n aks -g myResourceGroup --disable-node-restriction
 ```
 
+## Fully managed resource group (Preview)
+
+AKS deploys infrastructure into your subscription for connecting to and running your applications.  Changes made directly to resources in the [node resource group][whatis-nrg] can affect cluster operations or cause issues later.  For example, scaling, storage, or network configuration should be through the Kubernetes API, and not directly on these resources.
+
+To prevent changes from being made to the Node Resource Group, you can apply a deny assignment and block users from modifying resources created as part of the AKS cluster.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+### Before you begin
+
+You must have the following resources installed:
+
+* The Azure CLI version 2.44.0 or later. Run `az --version` to find the current version, and if you need to install or upgrade, see [Install Azure CLI][azure-cli-install]. 
+* The `aks-preview` extension version 0.5.126 or later
+
+#### Install the aks-preview CLI extension
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+#### Register the 'NRGLockdownPreview' feature flag
+
+Register the `NRGLockdownPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "NRGLockdownPreview"
+```
+
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
+
+```azurecli-interactive
+az feature show --namespace "Microsoft.ContainerService" --name "NRGLockdownPreview"
+```
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+### Create an AKS cluster with node resource group lockdown
+
+To create a cluster using node resource group lockdown, set the `--nrg-lockdown-restriction-level` to **ReadOnly**. This allows you to view the resources, but not modify them.
+
+```azurecli-interactive
+az aks create -n aksTest -g aksTest –-nrg-lockdown-restriction-level ReadOnly
+```
+
+### Update an existing cluster with node resource group lockdown
+
+```azurecli-interactive
+az aks update -n aksTest -g aksTest –-nrg-lockdown-restriction-level ReadOnly
+```
+
+### Remove node resource group lockdown from a cluster
+
+```azurecli-interactive
+az aks update -n aksTest -g aksTest –-nrg-lockdown-restriction-level Unrestricted
+```
+
 
 ## Next steps
 
@@ -423,3 +487,4 @@ az aks update -n aks -g myResourceGroup --disable-node-restriction
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-update]: /cli/azure/aks#az-aks-update
 [baseline-reference-architecture-aks]: /azure/architecture/reference-architectures/containers/aks/baseline-aks
+[whatis-nrg]: ./concepts-clusters-workloads.md#node-resource-group

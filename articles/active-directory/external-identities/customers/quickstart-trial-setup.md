@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: quickstart
-ms.date: 04/13/2023
+ms.date: 05/03/2023
 ms.author: cmulligan
 ms.custom: it-pro
 
@@ -36,9 +36,9 @@ This article gives you an overview how to set up your customer tenant free trial
 
 ## Sign up to your customer tenant free trial
 
-1. Open your browser and visit [https://aka.ms/ciam-hub-free-trial](https://aka.ms/ciam-hub-free-trial). <!--   Check with Sameeksha if there's a newer link. -->
+1. Open your browser and visit [https://aka.ms/ciam-free-trial](https://aka.ms/ciam-free-trial).
 1. You can sign in to the customer trial tenant using your personal account, and your Microsoft account (MSA) or GitHub account.  
-1. You will notice that a domain name and location have been set for you. The domain name and the data location can't be changed later in the free trial. Select **Change settings** if you would like to adjust them.
+1. You'll notice that a domain name and location have been set for you. The domain name and the data location can't be changed later in the free trial. Select **Change settings** if you would like to adjust them.
 1. Select **Continue** and hang on while we set up your trial. It will take a few minutes for the trial to become ready for the next step.
 
     :::image type="content" source="media/quickstart-trial-setup/setting-up-free-trial.png" alt-text="Screenshot of the loading page while setting up the customer tenant free trial."::: 
@@ -56,7 +56,7 @@ If you prefer, you can add your company logo, change the background color or adj
 1. Select the **Run it now** button. You see a progress bar first to show it's loading, and then a new tab opens with the sign-in experience. 
 1. After the configuration is finished, a live sign-in box will appear in a new browser tab that can be used to create and sign in users. Select **No account? Create one** to create a new user in the new customer tenant.
 1. Add your new user's email address and select **Next**.
-1. Create a password and select **Next**. Typically, once the user has signed in, they're redirected back to your app. However, in the customer tenant free trial, you'll be redirected to JWT.ms at his step, where you can view the contents of the token issued during the sign-in process.
+1. Create a password and select **Next**. Typically, once the user has signed in, they're redirected back to your app. However, in the customer tenant free trial, you'll be redirected to JWT.ms at this step, where you can view the contents of the token issued during the sign-in process.
 1. Go back to the guide tab. At this stage, you can either exit the guide and go to the admin center and  explore the full range of configuration options for your tenant. Or you can **Continue** by setting up a sample app. We recommend setting up the sample app and run it, to see the sign-in experience with your latest configuration changes before exiting the guide. This way, you can ensure that everything is working as expected.
 
     :::image type="content" source="media/quickstart-trial-setup/successful-trial-setup.png" alt-text="Screenshot that shows the successful creation of the sign-up experience.":::

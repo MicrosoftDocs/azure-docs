@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: conceptual
-ms.date: 05/01/2023
+ms.date: 05/02/2023
 ms.author: cmulligan
 ms.custom: it-pro
 
@@ -24,15 +24,14 @@ This article describes the general steps for getting started with Azure AD for c
 
 Adding secure sign-in to your app and setting up a customer identity and access management involves four general steps, as illustrated in the following diagram.
 
-![Diagram showing an overview of setup steps.](media/concept-planning-your-solution/overview-setup-steps.png)
-
+:::image type="content" source="media/concept-planning-your-solution/overview-setup-steps-inline.png" alt-text="Diagram showing an overview of setup steps." lightbox="media/concept-planning-your-solution/overview-setup-steps-expanded.png" border="false":::
 
 | Step | Action | Description |
 |---------|---------|---------|
-|1     |      Create a customer tenant   | If you don't already have an Azure AD tenant, we recommend using the [get started experience](https://aka.ms/ciam-hub-free-trial). Otherwise, you can [create a customer tenant](https://aka.ms/ciam-hub-free-trial) in the Microsoft Entra admin center.   |
+|1     |      Create a customer tenant   | If you don't already have an Azure AD tenant, we recommend using the [get started experience](https://aka.ms/ciam-free-trial). Otherwise, you can [create a customer tenant](https://aka.ms/ciam-free-trial) in the Microsoft Entra admin center.   |
 |2     |      Register your application   | In the Microsoft Entra admin center, [register your application](how-to-register-ciam-app.md) with Azure Active Directory.    |
 |3     |    Integrate your app with a sign-in flow     | - Create a user flow </br>- Associate the app with the user flow </br>- Update the app code with your customer tenant info </br>See [Samples and guidance by app type and language](samples-ciam-all.md)   |
-|4     |    Customize and secure your sign-in     |  - [Customize branding](concept-branding-customers.md) </br>- [Add identity providers](concept-authentication-methods-customers.md) </br>- [Add multifactor authentication](concept-security-customers.md) </br>- Use [custom authentication extensions](concept-extensions-customers.md) if you want to extend the authentication flow   |
+|4     |    Customize and secure your sign-in     |  - [Customize branding](concept-branding-customers.md) </br>- [Add identity providers](concept-authentication-methods-customers.md) </br>- [Add multifactor authentication](concept-security-customers.md) </br>- Use [custom authentication extensions](concept-custom-extensions.md) if you want to extend the authentication flow   |
 
 ## Customer tenant and user model
 
@@ -52,7 +51,7 @@ A customer tenant is the first resource you need to create to get started with A
 
 - **User flows**: The customer tenant contains the self-service sign-up, sign-in, and password reset experiences that you enable for your customers.
 
-- **Extensions**: If you need to add user attributes and data from external systems, you can create [custom authentication extensions](concept-extensions-customers.md) for your user flows.
+- **Extensions**: If you need to add user attributes and data from external systems, you can create [custom authentication extensions](concept-custom-extensions.md) for your user flows.
 
 - **Sign-in methods**: You can enable various options for signing in to your app, including username and password, one-time passcode, and Google or Facebook identities. [Learn more](concept-authentication-methods-customers.md)
 
@@ -82,7 +81,7 @@ Learn how to [create a sign-up and sign-in user flow for customers](how-to-user-
 
 Azure AD for customers is designed for flexibility. In addition to the built-in authentication events within a sign-up and sign-in user flow, you can define additional actions for events at various points within the authentication flow.
 
-![Diagram showing extensibility points in the authentication flow.](media/concept-planning-your-solution/authentication-flow-events.png)
+:::image type="content" source="media/concept-planning-your-solution/authentication-flow-events-inline.png" alt-text="Diagram showing extensibility points in the authentication flow." lightbox="media/concept-planning-your-solution/authentication-flow-events-expanded.png" border="false":::
 
 - **Use custom authentication extensions to enrich tokens**.  Add claims from external systems to the application token just before the token is issued to the application.
 
@@ -90,9 +89,9 @@ Azure AD for customers is designed for flexibility. In addition to the built-in 
 
 ## Collecting attributes from users during sign-up
 
-For each application, you might have different requirements for the information you want to collect during sign-up from your customers. 
+For each application, you might have different requirements for the information you want to collect during sign-up from your customers.
 
-Learn more about [custom authentication extensions](concept-extensions-customers.md).
+Learn more about [custom authentication extensions](concept-custom-extensions.md).
 ### Built-in attributes
 
 Azure AD comes with a built-in set of information stored in attributes, such as Given Name, Surname, City, and Postal Code. With Azure AD for customers, you can select the built-in attributes you want to collect from customers when they sign up for your app. These attributes are stored with the customer's profile in your directory.
@@ -116,4 +115,6 @@ You can also enable application access security by enforcing multifactor authent
 Learn more about [security and governance](concept-security-customers.md) features available in your customer tenant.
 
 ## Next steps
-- [Get started with creating your customer tenant](https://aka.md/ciam-hub-free-trial)
+- [Start a free trial](https://aka.md/ciam-hub-free-trial) or [create your customer tenant](how-to-create-customer-tenant-portal.md).
+- [Find samples and guidance for integrating your app](samples-ciam-all.md).
+- See also the [Azure AD for customers Developer Center](https://aka.ms/ciam/dev) for the latest developer content and resources.

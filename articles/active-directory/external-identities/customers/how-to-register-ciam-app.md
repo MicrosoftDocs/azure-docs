@@ -25,7 +25,7 @@ In this article, you’ll learn how to register an application in your customer 
 ## Prerequisites
 
 - An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Your Azure AD for customers tenant. If you don't already have one, sign up for a [free trial](https://aka.ms/ciam-hub-free-trial).
+- Your Azure AD for customers tenant. If you don't already have one, sign up for a [free trial](https://aka.ms/ciam-free-trial).
 
 ## Choose your app type
 

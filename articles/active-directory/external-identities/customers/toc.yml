@@ -21,7 +21,7 @@ items:
 - name: Concepts
   expanded: true
   items: 
-    - name: Planning and deploying a customer app
+    - name: Planning for customer identity and access
       href: concept-planning-your-solution.md
     - name: Supported features in customer tenants
       href: concept-supported-features-customers.md
@@ -36,7 +36,7 @@ items:
 - name: How-to guides
   expanded: true
   items:
-    - name: Developer guides
+    - name: Integrate an app
       expanded: true
       items: 
         - name: Configure code samples
@@ -57,6 +57,8 @@ items:
                   items:
                     - name: Sign in users
                       href: how-to-web-app-node-sample-sign-in.md
+                    - name: Sign in users and call an API
+                      href: how-to-web-app-node-sample-sign-in-call-api.md
                 - name: ASP.NET
                   items:
                     - name: Sign in users
@@ -118,6 +120,20 @@ items:
                           href: how-to-web-app-node-sign-in-prepare-app.md
                         - name: Add sign-in and sign-out
                           href: how-to-web-app-node-sign-in-sign-in-out.md
+                        - name: Use client certificate
+                          href: how-to-web-app-node-use-certificate.md 
+                    - name: Sign in users and call an API
+                      items:
+                        - name: Overview
+                          href: how-to-web-app-node-sign-in-call-api-overview.md
+                        - name: Prepare tenant 
+                          href: how-to-web-app-node-sign-in-call-api-prepare-tenant.md
+                        - name: Prepare app and API 
+                          href: how-to-web-app-node-sign-in-call-api-prepare-app.md
+                        - name: Sign-in and acquire access token
+                          href: how-to-web-app-node-sign-in-call-api-sign-in-acquire-access-token.md
+                        - name: Call API 
+                          href: how-to-web-app-node-sign-in-call-api-call-api.md
                 - name: ASP.NET
                   items:
                     - name: Sign in users
@@ -135,13 +151,13 @@ items:
                 - name: Protect ASP.NET API
                   items:
                     - name: Overview
-                      href: ../../develop/tutorial-v2-asp-webapp.md
+                      href: how-to-protect-web-api-dotnet-core-overview.md
                     - name: Prepare API app
-                      href: ../../develop/tutorial-v2-asp-webapp.md
+                      href: how-to-protect-web-api-dotnet-core-prepare-api.md
                     - name: Protect API endpoints
-                      href: ../../develop/tutorial-v2-asp-webapp.md
+                      href: how-to-protect-web-api-dotnet-core-protect-endpoints.md
                     - name: Test API
-                      href: ../../develop/tutorial-v2-asp-webapp.md
+                      href: how-to-protect-web-api-dotnet-core-test-api.md
 
             - name: Headless app
               items: 
@@ -162,6 +178,10 @@ items:
     - name: Authenticate and authorize
       expanded: true
       items:
+      - name: Create a customer tenant
+        items:
+          - name: Create a customer tenant in the admin center
+            href: how-to-create-customer-tenant-portal.md
       - name: Add your app
         items:
           - name: Register an app
@@ -196,10 +216,10 @@ items:
       items:
       - name: Token issuance start event
         items:
-        - name: Create and register a custom claims provider API
+        - name: About custom authentication extensions
+          href: ../../develop/custom-extension-overview.md?context=/azure/active-directory/external-identities/customers/context/customers-context
+        - name: Configure a custom claims provider token issuance event
           href: ../../develop/custom-extension-get-started.md?context=/azure/active-directory/external-identities/customers/context/customers-context
-        - name: Configure a SAML app to call a custom claims provider
-          href: ../../develop/custom-extension-configure-saml-app.md?context=/azure/active-directory/external-identities/customers/context/customers-context
         - name: Troubleshoot your custom claims provider API
           href: ../../develop/custom-extension-troubleshoot.md?context=/azure/active-directory/external-identities/customers/context/customers-context
       - name: Attribute collection start and submit events

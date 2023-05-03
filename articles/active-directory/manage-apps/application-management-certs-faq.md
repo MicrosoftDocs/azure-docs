@@ -11,6 +11,7 @@ ms.topic: reference
 ms.date: 03/03/2023
 ms.author: jomondi
 ms.reviewer: sureshja, saumadan
+ms.custom: enterprise-apps
 ---
 
 # Application Management certificates frequently asked questions
