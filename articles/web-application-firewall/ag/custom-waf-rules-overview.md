@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 # Custom rules for Web Application Firewall v2 on Azure Application Gateway
 
-The Azure Application Gateway Web Application Firewall (WAF) v2 comes with a pre-configured, platform-managed ruleset that offers protection from many different types of attacks. These attacks include cross site scripting, SQL injection, and others. If you're a WAF admin, you may want to write your own rules to augment the default rule set(DRS) / core rule set (CRS) rules. Your custom rules can either block, allow, or log requested traffic based on matching criteria. If the WAF policy is set to detection mode, and a custom block rule is triggered, the request is logged and no blocking action is taken.
+The Azure Application Gateway Web Application Firewall (WAF) v2 comes with a pre-configured, platform-managed ruleset that offers protection from many different types of attacks. These attacks include cross site scripting, SQL injection, and others. If you're a WAF admin, you may want to write your own rules to augment the core rule set (CRS) rules. Your custom rules can either block, allow, or log requested traffic based on matching criteria. If the WAF policy is set to detection mode, and a custom block rule is triggered, the request is logged and no blocking action is taken.
 
 Custom rules allow you to create your own rules that are evaluated for each request that passes through the WAF. These rules hold a higher priority than the rest of the rules in the managed rule sets. The custom rules contain a rule name, rule priority, and an array of matching conditions. If these conditions are met, an action is taken (to allow, block, or log). If a custom rule is triggered, and an allow or block action is taken, no further custom or managed rules are evaluated. Custom rules can be enabled/disabled on demand.
 
@@ -116,10 +116,10 @@ Must be one of the variables:
 - RemoteAddr – IPv4 Address/Range of the remote computer connection
 - RequestMethod – HTTP Request method
 - QueryString – Variable in the URI
-- PostArgs – Arguments sent in the POST body. Custom Rules using this match variable are only applied if the 'Content-Type' header is set to 'application/x-www-form-urlencoded' and 'multipart/form-data'. Additional content type of  `application/json` is supported with DRS version 2.1 / CRS version 3.2 or greater, bot protection rule set, and geo-match custom rules. 
+- PostArgs – Arguments sent in the POST body. Custom Rules using this match variable are only applied if the 'Content-Type' header is set to 'application/x-www-form-urlencoded' and 'multipart/form-data'. Additional content type of  `application/json` is supported with CRS version 3.2 or greater, bot protection rule set, and geo-match custom rules. 
 - RequestUri – URI of the request
 - RequestHeaders – Headers of the request
-- RequestBody – This contains the entire request body as a whole. Custom rules using this match variable are only applied if the 'Content-Type' header is set to `application/x-www-form-urlencoded` media type. Additional content types of  `application/soap+xml, application/xml, text/xml` are supported with DRS version 2.1 / CRS version 3.2 or greater, bot protection rule set, and geo-match custom rules.
+- RequestBody – This contains the entire request body as a whole. Custom rules using this match variable are only applied if the 'Content-Type' header is set to `application/x-www-form-urlencoded` media type. Additional content types of  `application/soap+xml, application/xml, text/xml` are supported with CRS version 3.2 or greater, bot protection rule set, and geo-match custom rules.
 - RequestCookies – Cookies of the request
 
 ### Selector [optional]
