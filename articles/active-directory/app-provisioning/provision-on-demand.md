@@ -116,7 +116,7 @@ The **View details** section shows the scoping conditions that were evaluated. Y
 
 #### Troubleshooting tips
 
-* Make sure that you've defined a valid scoping role. For example, avoid using the [Greater_Than operator](./define-conditional-rules-for-provisioning-user-accounts.md#create-a-scoping-filter) with a non-integer value.
+* Make sure that you've defined a valid scoping role. For example, avoid using the [Greater_Than operator](./define-conditional-rules-for-provisioning-user-accounts.md#create-a-scoping-filter) with a noninteger value.
 * If the user doesn't have the necessary role, review the [tips for provisioning users assigned to the default access role](./application-provisioning-config-problem-no-users-provisioned.md#provisioning-users-assigned-to-the-default-access-role).
 
 ### Step 4: Match user between source and target
