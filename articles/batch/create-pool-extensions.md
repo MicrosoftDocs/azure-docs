@@ -97,6 +97,8 @@ Request Body
                 "resizeTimeout": "PT15M"
             }
         }
+    }
+}
 ```
 
 ## Get extension data from a pool
@@ -106,7 +108,7 @@ The example below retrieves data from the Azure Key Vault extension.
 REST API URI
 
 ```http
- GET https://<accountname>.<region>.batch.azure.com/pools/test3/nodes/tvmps_a3ce79db285d6c124399c5bd3f3cf308d652c89675d9f1f14bfc184476525278_d/extensions/secretext?api-version=2010-01-01
+ GET https://<accountName>.<region>.batch.azure.com/pools/<poolName>/nodes/<tvmNodeName>/extensions/secretext?api-version=2010-01-01
 ```
 
 Response Body
