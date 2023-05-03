@@ -115,10 +115,14 @@ If you have already downloaded the provisioning agent and configured it for anot
      |Secret Token|Enter your secret token here. It should be 12 characters minimum.|
      |Extension DLL|For the generic LDAP connector, select **Microsoft.IAM.Connector.PowerShell.dll**.|
 
+:::image type="content" source="media/on-premises-powershell-connector/pshell-1.png" alt-text="Screenshot of general screen." lightbox="media/on-premises-powershell-connector/pshell-1.png":::
+
 ### Connectivity
 The connectivity tab allows you to supply configuration parameters for connecting to a remote system. Configure the connectivty tab with the information provided in the table below.
 
  1. On the **Connectivity** page, all of the information should be populated.  The table below is provided as reference.  Click **Next**.
+
+ :::image type="content" source="media/on-premises-powershell-connector/pshell-8.png" alt-text="Screenshot of the connectivity screen." lightbox="media/on-premises-powershell-connector/pshell-2.png":::
 
 |Parameter|Value|Purpose|
 |----|-----|-----|
@@ -138,10 +142,13 @@ The connectivity tab allows you to supply configuration parameters for connectin
 |Additional Encrypted Config Parameter Names|\<Blank\> ||
 
 
+
 ### Capabilities
 The capabilities tab defines the behavior and functionality of the connector. The selections made on this tab cannot be modified when the connector has been created. Configure the capabilities tab with the information provided in the table below.
 
  1. On the **Capabilities** page, all of the information should be populated.  The table below is provided as reference.  Click **Next**. 
+
+ :::image type="content" source="media/on-premises-powershell-connector/pshell-4.png" alt-text="Screenshot of the capabilities screen." lightbox="media/on-premises-powershell-connector/pshell-4.png":::
 
 |Parameter|Value|Purpose|
 |----|-----|-----|
@@ -169,6 +176,8 @@ The Global Parameters tab enables you to configure the Windows PowerShell script
 
  1. On the **Global Parameters** page, all of the information should be populated.  The table below is provided as reference.  Click **Next**.
 
+:::image type="content" source="media/on-premises-powershell-connector/pshell-5.png" alt-text="Screenshot of the global screen." lightbox="media/on-premises-powershell-connector/pshell-5.png":::
+
 |Parameter|Value|
 |-----|-----|
 |Partition Script|\<Blank>|
@@ -187,12 +196,14 @@ The Global Parameters tab enables you to configure the Windows PowerShell script
 |Encoding_Global|\<Blank> (defaults to UTF8)|
 
 ### Partitions, Run Profiles, Export, FullImport
-Keep the defaults and click next.
+Keep the defaults and click **next**.
 
 ### Object types
 Configure the object types tab with the information provided in the table below.
 
 1. On the **Object types** page, all of the information should be populated.  The table below is provided as reference.  Click **Next**.
+
+:::image type="content" source="media/on-premises-powershell-connector/pshell-13.png" alt-text="Screenshot of the object types screen." lightbox="media/on-premises-powershell-connector/pshell-13.png":::
 
 |Parameter|Value|
 |-----|-----|
@@ -214,12 +225,15 @@ Ensure that the following attributes are selected:
 - UserName
 - Email
 
+:::image type="content" source="media/on-premises-powershell-connector/pshell-15.png" alt-text="Screenshot of the select attributes screen." lightbox="media/on-premises-powershell-connector/pshell-15.png":::
 
 ### Deprovisioning
 
 On the Deprovisioning page, you can specify if you wish to have Azure AD remove users from the directory when they go out of scope of the application. If so, under Disable flow, select Delete, and under Delete flow, select Delete. If Set attribute value is chosen, the attributes selected on the previous page won't be available to select on the Deprovisioning page.
 
 1. On the **Deprovisioning** page, all of the information should be populated.  The table below is provided as reference.  Click **Next**.
+
+:::image type="content" source="media/on-premises-powershell-connector/pshell-16.png" alt-text="Screenshot of the deprovisioning screen." lightbox="media/on-premises-powershell-connector/pshell-16.png":::
 
 ## Ensure ECMA2Host service is running and can read from file via PowerShell
 
@@ -303,12 +317,11 @@ You'll use the Azure portal to configure the mapping between the Azure AD user's
  4. Now select **Add New Mapping**, and repeat the next step for each mapping.
  5. Specify the source and target attributes for each of the mappings in the following table.
 
-
      
      |Mapping type|Source attribute|Target attribute|
      |-----|-----|-----|
      |Direct|objectId|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:AzureObjectID|
-     |Direct|userPrincipalName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:ContosoLogin|
+     |Direct|userPrincipalName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:UserName|
      |Direct|displayName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:DisplayName|
      |Direct|employeeId|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:EmployeeId|
      |Direct|jobTitle|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:Title|
@@ -339,6 +352,25 @@ Otherwise, if there are no current users of the application, then select a test 
  7. Select users from the right and select the **Select** button.
  8. Now select **Assign**.
 
+## Test provisioning
+
+Now that your attributes are mapped and users are assigned, you can test on-demand provisioning with one of your users.
+ 
+ 1. In the Azure portal, select **Enterprise applications**.
+ 2. Select the **On-premises ECMA app** application.
+ 3. On the left, select **Provisioning**.
+ 4. Select **Provision on demand**.
+ 5. Search for one of your test users, and select **Provision**.
+ 6. After several seconds, then the message **Successfully created user in target system** will appear, with a list of the user attributes.
+
+## Start provisioning users
+
+1. After on-demand provisioning is successful, change back to the provisioning configuration page. Ensure that the scope is set to only assigned users and groups, turn provisioning **On**, and select **Save**.
+2. Wait several minutes for provisioning to start. It might take up to 40 minutes. After the provisioning job has been completed, as described in the next section, if you're done testing, you can change the provisioning status to **Off**, and select **Save**. This action stops the provisioning service from running in the future.
 
 
+## Next steps
 
+- [App provisioning](user-provisioning.md)
+- [ECMA Connector Host generic SQL connector](tutorial-ecma-sql-connector.md)
+- [ECMA Connector Host LDAP connector](on-premises-ldap-connector-configure.md)
