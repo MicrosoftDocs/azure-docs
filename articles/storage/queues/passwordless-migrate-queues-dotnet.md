@@ -31,11 +31,11 @@ Passwordless connections can be configured to work for both local and Azure host
 
 The Azure Identity client library, for each of the following ecosystems, provides a `DefaultAzureCredential` class that handles passwordless authentication to Azure:
 
-- [.NET](https://learn.microsoft.com/dotnet/api/overview/azure/Identity-readme?view=azure-dotnet&preserve-view=true#defaultazurecredential)
-- [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#readme-defaultazurecredential)
-- [Java](https://learn.microsoft.com/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true#defaultazurecredential)
-- [Node.js](https://learn.microsoft.com/javascript/api/overview/azure/identity-readme?view=azure-node-latest&preserve-view=true#defaultazurecredential)
-- [Python](https://learn.microsoft.com/python/api/overview/azure/identity-readme?view=azure-python&preserve-view=true#defaultazurecredential)
+- [.NET](/dotnet/api/overview/azure/Identity-readme?view=azure-dotnet&preserve-view=true#defaultazurecredential)
+- [Go](azure/azure-sdk-for-go/sdk/azidentity#readme-defaultazurecredential)
+- [Java](/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true#defaultazurecredential)
+- [Node.js](/javascript/api/overview/azure/identity-readme?view=azure-node-latest&preserve-view=true#defaultazurecredential)
+- [Python](/python/api/overview/azure/identity-readme?view=azure-python&preserve-view=true#defaultazurecredential)
 
 `DefaultAzureCredential` supports multiple authentication methods. The method to use is determined at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code. See the links above for the order and locations in which `DefaultAzureCredential` looks for credentials.
 
