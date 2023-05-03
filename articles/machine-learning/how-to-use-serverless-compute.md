@@ -137,7 +137,6 @@ identity:
   type:  user_identity # can be managed too
 queue_settings:
    job_tier: Standard #Possible Values are Standard, Spot. Default is Standard.
-   #job_priority: in the future
 ```
 
 ## Sweep job

@@ -118,6 +118,14 @@ During the training process, a TensorFlow model is trained by processing the tra
 
 Like workspaces and compute targets, training jobs are defined using resource templates. For this sample, the specification is defined in the *job.yml* file which looks like the following:
 
+> [!NOTE]
+> To use [serverless compute (preview)](how-to-use-serverless-compute.md), replace the line `compute: azureml:gpu-cluster` with this code:
+> ```yml
+> resources:
+>  instance_type: Standard_NC12
+>  instance_count: 3
+```
+
 ```yml
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 code: src

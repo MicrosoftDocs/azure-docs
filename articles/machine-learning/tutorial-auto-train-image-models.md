@@ -113,11 +113,7 @@ To create the compute, you run the following CLI v2 command with the path to you
 az ml compute create -f [PATH_TO_YML_FILE] --workspace-name [YOUR_AZURE_WORKSPACE] --resource-group [YOUR_AZURE_RESOURCE_GROUP] --subscription [YOUR_AZURE_SUBSCRIPTION]
 ```
 
-The created compute can be provided using `compute` key in the `automl` task configuration yaml: 
 
-```yaml
-compute: azureml:gpu-cluster
-```
 
 # [Python SDK](#tab/python)
 
@@ -319,9 +315,17 @@ To configure automated ML jobs for image-related tasks, create a task specific A
 # [Azure CLI](#tab/cli)
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
+> To use [serverless compute (preview)](how-to-use-serverless-compute.md), replace the line `compute: azureml:gpu-cluster` with this code:
+> ```yml
+> resources:
+>  instance_type: Standard_NC24s_v3
+>  instance_count: 4
+```
+
 ```yaml
 task: image_object_detection
 primary_metric: mean_average_precision
+compute: azureml:gpu-cluster
 ```
 
 # [Python SDK](#tab/python)
@@ -331,7 +335,7 @@ primary_metric: mean_average_precision
 [!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=image-object-detection-configuration)]
 
 > [!NOTE]
-> To use [serverless compute (preview)](how-to-use-serverless-compute.md), delete `compute="cpu-cluster"` in this code. Then add to the following code to the end:
+> To use [serverless compute (preview)](how-to-use-serverless-compute.md), replace the line `compute="cpu-cluster"` with this code:
 > ```python
 > image_object_detection_job.resources = ResourceConfiguration(instance_type="Standard_NC24rs_v3",instance_count =4)
 > 
