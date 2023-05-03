@@ -277,7 +277,7 @@ The Easy Button wizard supports Kerberos, OAuth Bearer, and HTTP authorization h
 3. For **Header Name**, enter **PS_SSO_UID**.
 4. For **Header Value**, enter **%{session.sso.token.last.username}**.
 
-   ![Screenshot of Header Operation, Header Name, and Header value entries under Single Sign-On & HTTP Headers.](./media/f5-big-ip-easy-button-oracle-peoplesoft/sso-and-http-headers.png)
+   ![Screenshot of Header Operation, Header Name, and Header value entries under Single sign-On & HTTP Headers.](./media/f5-big-ip-easy-button-oracle-peoplesoft/sso-and-http-headers.png)
 
    >[!NOTE] 
    >APM session variables in curly brackets are case-sensitive. For instance, if you enter OrclGUID, and the attribute name is orclguid, attribute mapping fails.
