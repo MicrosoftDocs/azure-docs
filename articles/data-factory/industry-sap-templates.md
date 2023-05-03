@@ -24,7 +24,7 @@ The following table shows the templates related to SAP connectors that can be fo
 
 | SAP Data Store | Scenario | Description |
 | -- | -- | -- |
-| SAP CDC | [Replicate multiple objects from SAP via SAP CDC](solution-template-replicate-multiple-objects-sap-cdc.md) | Use this template for a metadata driven incremental replication from multiple SAP ODP sources to Delta tables in ADLS Gen 2 |
+| SAP CDC | [Replicate multiple objects from SAP via SAP CDC](solution-template-replicate-multiple-objects-sap-cdc.md) | Use this template for metadata driven incremental loads from multiple SAP ODP sources to Delta tables in ADLS Gen 2 |
 | SAP BW via Open Hub | [Incremental copy to Azure Data Lake Storage Gen 2](load-sap-bw-data.md) | Use this template to incrementally copy SAP BW data via LastRequestID watermark to ADLS Gen 2 |
 | SAP HANA | Dynamically copy tables to Azure Data Lake Storage Gen 2 | Use this template to do a full copy of list of tables from SAP HANA to ADLS Gen 2 |
 | SAP Table | Incremental copy to Azure Blob Storage | Use this template to incrementally copy SAP Table data via a date timestamp watermark to Azure Blob Storage |
