@@ -14,7 +14,9 @@ ms.author: pafarley
 
 # Analyze a shelf image using pre-trained models
 
-The fastest way to start using Shelf Analysis is to use the built-in pre-trained AI models. With a the Product Understanding API, you can upload a shelf image and receive rich product data.
+The fastest way to start using Shelf Analysis is to use the built-in pre-trained AI models. With a the Product Understanding API, you can upload a shelf image and get the locations of products and gaps.
+
+:::image type="content" source="../media/shelf/shelf-analysis-pretrained.png" alt-text="Photo of a retail shelf with products and gaps highlighted with rectangles.":::
 
 ## Prerequisites
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 

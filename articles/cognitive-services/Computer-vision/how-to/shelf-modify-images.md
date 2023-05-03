@@ -29,6 +29,10 @@ This guide also shows you how to use the Rectification API to correct for perspe
 
 ## Use the Stitching API
 
+The Stitching API combines multiple images of the same physical shelf.
+
+:::image type="content" source="../media/shelf/image-stitching.png" alt-text="Three photos of shelves, next to their combined composite photo.":::
+
 To run the image stitching operation on a set of images, follow these steps:
 
 1. Upload the images you'd like to stitch together to your blob storage container, and get the absolute URL for each image. You can stitch up to 10 images at once.
@@ -61,7 +65,11 @@ The API returns a `200` response, and the new file is downloaded to the location
 
 ## Use the Rectification API
 
-After you complete the stitching operation, we recommend you do the rectification operation for optimal analysis results. To correct the perspective distortion in the composite image, follow these steps:
+After you complete the stitching operation, we recommend you do the rectification operation for optimal analysis results. 
+
+:::image type="content" source="../media/shelf/rectification.png" alt-text="Photos of a retail shelf, before and after the rectify operation.":::
+
+To correct the perspective distortion in the composite image, follow these steps:
 
 1. Upload the image you'd like to rectify to your blob storage container, and get the absolute URL.
 1. Copy the following `curl` command into a text editor.
