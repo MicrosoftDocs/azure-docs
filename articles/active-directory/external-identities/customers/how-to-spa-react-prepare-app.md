@@ -14,7 +14,7 @@ ms.custom: it-pro
 
 #Customer intent: As a dev, devops, or IT admin, enable authentication in my own React SPA
 ---
-# Prepare a Single-page application for authentication
+# Prepare a React Single-page application for authentication
 
 After registration is complete, a React project can be created using an integrated development environment (IDE). This tutorial demonstrates how to create a React Single-page application using npm and create files needed for authentication and authorization.
 
