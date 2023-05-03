@@ -16,7 +16,7 @@ ms.author: kengaderdus
  
 1. In the list of APIs, select the API such as *ciam-ToDoList-api*.
 
-1. Select **Application permissions** option. We select this option as the app signs in as itself, and not signing in users. 
+1. Select **Application permissions** option. We select this option as the app signs in as itself, not users. 
 
 1. From the permissions list, select **TodoList.Read.All, ToDoList.ReadWrite.All** (use the search box if necessary).
  

@@ -64,7 +64,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi
 
 The output of the command resembles the following example:
 
-```bash
+```output
 persistentvolumeclaim/pvc-azuredisk created
 pod/nginx-azuredisk created
 ```
@@ -116,7 +116,7 @@ kubectl apply -f sc-azuredisk-csi-waitforfirstconsumer.yaml
 
 The output of the command resembles the following example:
 
-```bash
+```output
 storageclass.storage.k8s.io/azuredisk-csi-waitforfirstconsumer created
 ```
 
@@ -147,7 +147,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi
 
 The output of the command resembles the following example:
 
-```bash
+```output
 volumesnapshotclass.snapshot.storage.k8s.io/csi-azuredisk-vsc created
 ```
 
@@ -159,7 +159,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi
 
 The output of the command resembles the following example:
 
-```bash
+```output
 volumesnapshot.snapshot.storage.k8s.io/azuredisk-volume-snapshot created
 ```
 
@@ -171,7 +171,7 @@ kubectl describe volumesnapshot azuredisk-volume-snapshot
 
 The output of the command resembles the following example:
 
-```bash
+```output
 Name:         azuredisk-volume-snapshot
 Namespace:    default
 Labels:       <none>
@@ -209,7 +209,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi
 
 The output of the command resembles the following example:
 
-```bash
+```output
 persistentvolumeclaim/pvc-azuredisk-snapshot-restored created
 pod/nginx-restored created
 ```
@@ -222,7 +222,7 @@ kubectl exec nginx-restored -- ls /mnt/azuredisk
 
 The output of the command resembles the following example:
 
-```bash
+```output
 lost+found
 outfile
 test.txt
@@ -243,7 +243,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi
 
 The output of the command resembles the following example:
 
-```bash
+```output
 persistentvolumeclaim/pvc-azuredisk-cloning created
 pod/nginx-restored-cloning created
 ```
@@ -256,7 +256,7 @@ kubectl exec nginx-restored-cloning -- ls /mnt/azuredisk
 
 The output of the command resembles the following example:
 
-```bash
+```output
 lost+found
 outfile
 test.txt
@@ -277,32 +277,32 @@ kubectl exec -it nginx-azuredisk -- df -h /mnt/azuredisk
 
 The output of the command resembles the following example:
 
-```bash
+```output
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/sdc        9.8G   42M  9.8G   1% /mnt/azuredisk
 ```
 
 Expand the PVC by increasing the `spec.resources.requests.storage` field running the following command:
 
-```basj
+```bash
 kubectl patch pvc pvc-azuredisk --type merge --patch '{"spec": {"resources": {"requests": {"storage": "15Gi"}}}}'
 ```
 
 The output of the command resembles the following example:
 
-```bash
+```output
 persistentvolumeclaim/pvc-azuredisk patched
 ```
 
 Run the following command to confirm the volume size has increased:
 
-```console
+```bash
 kubectl get pv
 ```
 
 The output of the command resembles the following example:
 
-```bash
+```output
 NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                                     STORAGECLASS   REASON   AGE
 pvc-391ea1a6-0191-4022-b915-c8dc4216174a   15Gi       RWO            Delete           Bound    default/pvc-azuredisk                     managed-csi             2d2h
 (...)
@@ -316,7 +316,7 @@ kubectl get pvc pvc-azuredisk
 
 The output of the command resembles the following example:
 
-```bash
+```output
 NAME            STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 pvc-azuredisk   Bound    pvc-391ea1a6-0191-4022-b915-c8dc4216174a   15Gi       RWO            managed-csi    2d2h
 ```
@@ -329,7 +329,7 @@ kubectl exec -it nginx-azuredisk -- df -h /mnt/azuredisk
 
 The output of the command resembles the following example:
 
-```bash
+```output
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/sdc         15G   46M   15G   1% /mnt/azuredisk
 ```
@@ -369,7 +369,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi
 
 The output of the command resembles the following example:
 
-```bash
+```output
 statefulset.apps/busybox-azuredisk created
 ```
 
@@ -382,7 +382,7 @@ kubectl exec -it busybox-azuredisk-0 -- cat c:\mnt\azuredisk\data.txt # on Windo
 
 The output of the command resembles the following example:
 
-```bash
+```output
 2020-08-27 08:13:41Z
 2020-08-27 08:13:42Z
 2020-08-27 08:13:44Z

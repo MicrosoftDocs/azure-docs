@@ -18,6 +18,10 @@ ms.custom: it-pro
 
 The integration of customer capabilities into Azure Active Directory (Azure AD) means that your customer scenarios benefit from the advanced security and governance features available in Azure AD. Your customers are able to self-service register for your applications using their preferred authentication methods, including social accounts through identity providers like Google and Facebook. And you can use feature like multifactor authentication (MFA), Conditional Access, and Identity Protection to mitigate threats and detect risks.
 
+> [!NOTE]
+> Conditional Access and Identity Protection are not available in trial tenants.
+
+
 ## Multifactor authentication
 
 Azure AD Multi-Factor Authentication (MFA) helps safeguard access to data and applications while maintaining simplicity for your users. Azure AD for customers integrates directly with Azure AD Multi-Factor Authentication so you can add security to your sign-up and sign-in experiences by requiring a second form of authentication. You can fine-tune multifactor authentication depending on the extent of security you want to apply to your apps. Consider the following scenarios:

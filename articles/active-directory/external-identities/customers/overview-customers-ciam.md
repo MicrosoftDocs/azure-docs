@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: overview
-ms.date: 04/17/2023
+ms.date: 05/02/2023
 ms.author: mimart
 ms.custom: it-pro
 
@@ -60,7 +60,7 @@ A customer tenant, separate from your workforce tenant, represents your customer
 
 Learn more about managing [customer accounts](how-to-manage-customer-accounts.md) and [admin accounts](how-to-manage-admin-accounts.md) in your customer tenant.
 
-## Get the benefits of Microsoft Entra and Azure Active Directory
+## Microsoft Entra security and reliability
 
 Azure AD for customers represents the convergence of business-to-consumer (B2C) features into the Microsoft Entra platform. Because it's built on Microsoft Entra and Azure Active Directory, so you benefit from the advantages offered by these platforms.
 
@@ -68,8 +68,9 @@ Azure AD for customers represents the convergence of business-to-consumer (B2C) 
 
 - **Microsoft Entra reliability and scalability**. Create highly customized sign-in experiences and manage customer accounts at a large scale. Ensure a good customer experience by taking advantage of Microsoft Entra performance, resiliency, business continuity, low-latency, and high throughput.
 
-Learn more about [security and governance](concept-security-customers.md) features available in your customer tenant.
+Learn more about the [security and governance](concept-security-customers.md) features that are available in a customer tenant.
+
 ## Next steps
 
-Learn more about [planning for Azure AD for customers](concept-planning-your-solution.md). 
-
+- Learn more about [planning for Azure AD for customers](concept-planning-your-solution.md).
+- See also the [Azure AD for customers Developer Center](https://aka.ms/ciam/dev) for the latest developer content and resources.
