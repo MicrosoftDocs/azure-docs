@@ -244,7 +244,6 @@ To use this file, update the placeholders:
 ```azurecli-interactive
 echo $STORAGE_ACCOUNT_NAME
 ```
-
 - Replace `<MANAGED_IDENTITY_CLIENT_ID>` with the value of the `CLIENT_ID` variable you defined. To obtain its value, run the following command:
 
 ```azurecli-interactive
@@ -253,7 +252,7 @@ echo $CLIENT_ID
 
 Navigate to the directory in which you stored the component yaml file and run the following command to configure the Dapr component in the Container Apps environment. For more information about configuring Dapr components, see [Configure Dapr components](dapr-overview.md).
 
-``azurecli-interactive
+```azurecli-interactive
 az containerapp env dapr-component set \
     --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP \
     --dapr-component-name statestore \
