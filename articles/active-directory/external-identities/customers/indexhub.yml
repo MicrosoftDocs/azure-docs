@@ -27,7 +27,7 @@ highlightedContent:
     # Card
     - title: B2B - Get started 
       itemType: overview
-      url: /azure/active-directory/external-identities/external-identities-overview
+      url: /azure/active-directory/external-identities
     # Card
     - title: B2B collaboration
       itemType: overview
@@ -39,7 +39,7 @@ highlightedContent:
     # Card
     - title: CIAM - Get started 
       itemType: overview
-      url: /azure/active-directory/external-identities/customers/overview-customers-ciam
+      url: /azure/active-directory/external-identities/customers
     # Card
     - title: CIAM - Set up a customer tenant free trial
       itemType: quickstart
@@ -59,6 +59,6 @@ productDirectory:
         ## ROW 1 ######################
         - title: Single-page app (SPA)
           url: index-spa.yml
-          imageSrc: ../active-directory/develop/media/hub/app-type-spa.svg
+          imageSrc: /media/hub/app-type-spa.svg
           summary: A web application whose code is downloaded and run in the browser itself such as vanilla JavaScript and React
 ## BAND 2 - PRODUCT DIRECTORY END ##########################################################################################################################
