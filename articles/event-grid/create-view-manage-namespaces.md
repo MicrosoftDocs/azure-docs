@@ -35,7 +35,7 @@ Please follow the next sections to create, view and manage an Azure Event Grid n
 
 6. On the **Review + create** tab, review your settings and select **Create**.
 
-    :::image type="content" source="media/create-view-manage-namespaces/namespace-creation-review.png" alt-text="Screenshot showing Event Grid namespace creation tags tab.":::
+    :::image type="content" source="media/create-view-manage-namespaces/namespace-creation-review.png" alt-text="Screenshot showing Event Grid namespace creation review + create tab.":::
 
 ## View a namespace
 

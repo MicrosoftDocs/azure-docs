@@ -39,7 +39,7 @@ ms.date: 04/28/2023
 
 4. Explore the namespace topic settings.
 
-    :::image type="content" source="media/create-view-manage-namespace-topics/namespace-topic-overview.png" alt-text="Screenshot showing Event Grid namespace topic creation basics":::
+    :::image type="content" source="media/create-view-manage-namespace-topics/namespace-topic-overview.png" alt-text="Screenshot showing Event Grid namespace topic settings":::
 
 ## Delete a namespace topic
 
