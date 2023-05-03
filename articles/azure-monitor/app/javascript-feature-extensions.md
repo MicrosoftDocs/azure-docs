@@ -231,7 +231,7 @@ The following key properties are captured by default when the plug-in is enabled
 ### Custom event properties
 | Name                  | Description                            | Sample          |
 | --------------------- | ---------------------------------------|-----------------|
-| Name                  | The name of the custom event. For more information on how a name gets populated, see [Name column](#name-column).| About              |
+| Name                  | The name of the custom event. For more information on how a name gets populated, see [Name column](#name).| About              |
 | itemType              | Type of event.                                      | customEvent      |
 |sdkVersion             | Version of Application Insights SDK along with click plug-in.|JavaScript:2.6.2_ClickPlugin2.6.2|
 
@@ -243,7 +243,7 @@ The following key properties are captured by default when the plug-in is enabled
 | clickCoordinates      | Coordinates where the click event is triggered.                            | 659X47          |
 | content               | Placeholder to store extra `data-*` attributes and values.            | [{sample1:value1, sample2:value2}] |
 | pageName              | Title of the page where the click event is triggered.                      | Sample Title    |
-| parentId              | ID or name of the parent element. For more information on how a parentId is populated, see [parentId column](#parentid-column).        | navbarContainer |
+| parentId              | ID or name of the parent element. For more information on how a parentId is populated, see [parentId column](#parentid-key).        | navbarContainer |
 
 ### Custom measurements
 | Name                  | Description                            | Sample          |
@@ -281,7 +281,7 @@ The following key properties are captured by default when the plug-in is enabled
 | aiBlobAttributeTag        | String  | `ai-blob` |  `data-ai-blob`| Plug-in supports a JSON blob attribute instead of individual `data-*` attributes. |
 | metaDataPrefix            | String  | Null      | N/A  | Automatic capture HTML Head's meta element name and content with provided prefix when captured. For example, `custom-` can be used in the HTML meta tag. |
 | captureAllMetaDataContent | Boolean | False     | N/A   | Automatic capture all HTML Head's meta element names and content. Default is false. If enabled, it overrides provided `metaDataPrefix`. |
-| parentDataTag             | String  | Null      |  N/A  | Fetches the `parentId` in the logs when `data-parentid` or `data-*-parentid` isn't encountered and regardless of whether `data-{parentDataTag}` or `customDataPrefix-{parentDataTag}` attribute is defined in the HTML tags. For efficiency, stops traversing up the DOM to capture content name and value of elements when `data-{parentDataTag}` or `customDataPrefix-{parentDataTag}` attribute is encountered. For more information, see [parentId column](#parentid-column). |
+| parentDataTag             | String  | Null      |  N/A  | Fetches the `parentId` in the logs when `data-parentid` or `data-*-parentid` isn't encountered and regardless of whether `data-{parentDataTag}` or `customDataPrefix-{parentDataTag}` attribute is defined in the HTML tags. For efficiency, stops traversing up the DOM to capture content name and value of elements when `data-{parentDataTag}` or `customDataPrefix-{parentDataTag}` attribute is encountered. For more information, see [parentId column](#parentid-key). |
 | dntDataTag                | String  | `ai-dnt`  |  `data-ai-dnt`| The plug-in for capturing telemetry data ignores HTML elements with this attribute.|
 
 ### behaviorValidator
