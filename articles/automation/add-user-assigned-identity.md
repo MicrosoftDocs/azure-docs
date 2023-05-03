@@ -13,7 +13,7 @@ ms.topic: conceptual
 This article shows you how to add a user-assigned managed identity for an Azure Automation account and how to use it to access other resources. For more information on how managed identities work with Azure Automation, see [Managed identities](automation-security-overview.md#managed-identities).
 
 > [!NOTE]
-> It is not possible to use a User Assigned Managed Identity on a HRW when a Managed Identity (either System or User assigned) has been created for the Automation Account. If Managed Identity has not been assigned to the Automation Account, then it is possible to use the VM’s System or User Assigned Managed Identity on a HRW that is an Azure VM with the assigned managed identities. 
+> It is not possible to use a User Assigned Managed Identity on a Hybrid Runbook Worker when a Managed Identity (either System or User assigned) has been created for the Automation Account. If Managed Identity has not been assigned to the Automation Account, then it is possible to use the VM’s System or User Assigned Managed Identity on a Hybrid Runbook Worker that is an Azure VM with the assigned managed identities. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
