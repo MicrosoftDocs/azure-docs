@@ -8,11 +8,6 @@ ms.topic: conceptual
 ---
 
 # Pull and push delivery with HTTP
-
->[!Important]
-> <i><b style="color:#b30000; font-size: 16px">Early access reviewer</b></i> : please note that the following aspects of this article are still in construction. They should be completed by May 4th, 2023.
->* Images might appear broken. If they show, some of them are being updated by the Conceptual Artist.
-
 This article builds on [What is Azure Event Grid?](overview.md) to provide essential information before you start using Event Grid’s pull and push delivery over HTTP. It covers fundamental concepts, resource models, and message delivery modes supported. At the end of this document, you will find useful links to articles that guide you on how to use Event Grid and to articles that offer in-depth conceptual information.
 
 >[!Important]
