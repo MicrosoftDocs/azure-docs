@@ -24,12 +24,13 @@ The fastest way to start using Shelf Analysis is to use the built-in pre-trained
   * You'll need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the guide.
 * An Azure Storage resource with a blob storage container. [Create one](/azure/storage/common/storage-account-create?tabs=azure-portal)
 * [cURL](https://curl.haxx.se/) installed. Or, you can use a different REST platform, like Postman, Swagger, or the REST Client extension for VS Code.
-* A set of training images. You can use our [sample image sets](tbd) or bring your own images. The maximum file size per image is 20MB.
+* A shelf image. You can download our [sample image](../media/shelf/shelf.png) or bring your own images. The maximum file size per image is 20MB.
 
 ## Analyze shelf images
 
 To analyze a shelf image, do the following steps:
 
+1. Upload the images you'd like to analyze to your blob storage container, and get the absolute URL.
 1. Copy the following `curl` command into a text editor.
 
     ```bash
@@ -40,7 +41,7 @@ To analyze a shelf image, do the following steps:
 1. Make the following changes in the command where needed:
     1. Replace the value of `<subscriptionKey>` with your Computer Vision resource key.
     1. Replace the value of `<endpoint>` with your Computer Vision resource endpoint. For example: `https://YourResourceName.cognitiveservices.azure.com`.
-    1. Upload your sample image to your blob storage container, and get the absolute URL. Replace `<your_url_string>`.
+    1. Replace the `<your_url_string>` contents with the blob URL of the image
 1. Open a command prompt window.
 1. Paste your edited `curl` command from the text editor into the command prompt window, and then run the command.
 
@@ -105,6 +106,7 @@ Results from the product understanding operation.
 | `gaps` | [DetectedObjectApiModel](#detected-object-api-model) | Gaps detected in the image. | Yes |
 
 ### Image Metadata API model
+
 The image metadata information such as height, width and format.
 
 | Name | Type | Description | Required |
