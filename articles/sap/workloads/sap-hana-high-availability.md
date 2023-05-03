@@ -505,9 +505,9 @@ Replace `<placeholders>` with the values for your SAP HANA installation.
 
    ```bash
    PATH="$PATH:/usr/sap/<HANA SID>/HDB<instance number>/exe"
-   hdbsql -u system -i <instance number> 'CREATE USER <cluster name>hasync PASSWORD "<password>"'
-   hdbsql -u system -i <instance number> 'GRANT DATA ADMIN TO <cluster name>hasync'
-   hdbsql -u system -i <instance number> 'ALTER USER <cluster name>hasync DISABLE PASSWORD LIFETIME'
+   hdbsql -u system -i <instance number> 'CREATE USER hdbhasync PASSWORD "<password>"'
+   hdbsql -u system -i <instance number> 'GRANT DATA ADMIN TO hdbhasync'
+   hdbsql -u system -i <instance number> 'ALTER USER hdbhasync DISABLE PASSWORD LIFETIME'
    ```
 
 1. **[A]** Create the keystore entry.
@@ -516,7 +516,7 @@ Replace `<placeholders>` with the values for your SAP HANA installation.
 
    ```bash
    PATH="$PATH:/usr/sap/<HANA SID>/HDB<instance number>/exe"
-   hdbuserstore SET <cluster name>haloc localhost:3<instance number>15 <cluster name>hasync <password>
+   hdbuserstore SET hdbhaloc localhost:3<instance number>15 hdbhasync <password>
    ```
 
 1. **[1]** Back up the database.
@@ -540,8 +540,8 @@ Replace `<placeholders>` with the values for your SAP HANA installation.
    Create the primary site as \<HANA SID\>adm:
 
    ```bash
-   su - <cluster name>adm
-   hdbnsutil -sr_enable –-name=<site 1>
+   su - hdbadm
+   hdbnsutil -sr_enable --name=<site 1>
    ```
 
 1. **[2]** Configure system replication on the secondary node.
@@ -811,11 +811,11 @@ For the *standard* load balancer, complete these extra steps on the same load ba
 
    1. Select **OK**.
 
-### Configure HANA active/read-enabled system replication
+### Set up HANA active/read-enabled system replication
 
 The steps to configure HANA system replication are described in [Configure SAP HANA 2.0 system replication](#configure-sap-hana-20-system-replication). If you're deploying a read-enabled secondary scenario, when you set up system replication on the second node, run the following command as \<HANA SID\>adm:
 
-```
+```bash
 sapcontrol -nr <instance number> -function StopWait 600 10 
 
 hdbnsutil -sr_register --remoteHost=<HANA SID>-db-<database 1> --remoteInstance=<instance number> --replicationMode=sync --name=<site 2> --operationMode=logreplay_readaccess 
