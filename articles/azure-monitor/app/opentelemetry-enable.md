@@ -249,6 +249,7 @@ input()
 
 > [!TIP]
 > For .NET, Node.js, and Python, you'll need to manually add [instrumentation libraries](#install-the-client-library) to autocollect telemetry across popular frameworks and libraries. For Java, these instrumentation libraries are already included and no additional steps are required.
+<!-- TODO Correct this misleading statement. Python's distro is a family pack that include various instrumentation libraries. -->
 
 #### Paste your unique Application Insights connection string
 
@@ -1816,9 +1817,11 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
 
 #### [Python](#tab/python)
 
-1. Exclude the URL option provided by many HTTP instrumentation libraries.
-
-    The following example shows how to exclude a specific URL from being tracked by using the [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) instrumentation configuration options in the `configure_azure_monitor()` function.
+1. Exclude the URL with the `OTEL_PYTHON_EXCLUDED_URLS` environment variable:
+    ```
+    export OTEL_PYTHON_EXCLUDED_URLS="http://localhost:8080/ignore"
+    ```
+    Doing so will exclude the endpoint shown in the following Flask example:
     
     ```python
     ...
@@ -1828,10 +1831,6 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
     # Configure Azure monitor collection telemetry pipeline
     configure_azure_monitor(
         connection_string="<your-connection-string>",
-        # Pass in instrumentation configuration via kwargs
-        # Key: <instrumentation-name>_config
-        # Value: Dictionary of configuration keys and values
-        flask_config={"excluded_urls": "http://localhost:8080/ignore"},
     )
     app = flask.Flask(__name__)
 

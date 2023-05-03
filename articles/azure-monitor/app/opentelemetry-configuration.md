@@ -98,28 +98,15 @@ const meterProvider = new MeterProvider({
 
 Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes. Cloud Role Name uses `service.namespace` and `service.name` attributes, although it falls back to `service.name` if `service.namespace` isn't set. Cloud Role Instance uses the `service.instance.id` attribute value. For information on standard attributes for resources, see [Resource Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/semantic_conventions/README.md).
 
-```python
-...
-from azure.monitor.opentelemetry import configure_azure_monitor
-from opentelemetry.sdk.resources import Resource, ResourceAttributes
+Set Resource attributes using the `OTEL_RESOURCE_ATTRIBUTES` and/or `OTEL_SERVICE_NAME` environment variables. `OTEL_RESOURCE_ATTRIBUTES` takes series of comma-separated key-value pairs. For example, to set the Cloud Role Name to "my-namespace" and set Cloud Role Instance to "my-instance", you can set `OTEL_RESOURCE_ATTRIBUTES` as such:
+```
+export OTEL_RESOURCE_ATTRIBUTES="service.namespace=my-namespace,service.instance.id=my-instance"
+```
 
-configure_azure_monitor(
-    connection_string="<your-connection-string>",
-    resource=Resource.create(
-        {
-            ResourceAttributes.SERVICE_NAME: "my-helloworld-service",
-# ----------------------------------------
-# Setting role name and role instance
-# ----------------------------------------
-            ResourceAttributes.SERVICE_NAMESPACE: "my-namespace",
-            ResourceAttributes.SERVICE_INSTANCE_ID: "my-instance",
-# ----------------------------------------------
-# Done setting role name and role instance
-# ----------------------------------------------
-        }
-    )
-)
-...
+If you do not set Cloud Role Name via the "service.namespace" Resource Attribute, you can alternatively set the Cloud Role Name via the `OTEL_SERVICE_NAME` environment variable:
+```
+export OTEL_RESOURCE_ATTRIBUTES="service.instance.id=my-instance"
+export OTEL_SERVICE_NAME="my-namespace"
 ```
 
 ---
@@ -182,27 +169,12 @@ provider.register();
 
 The `configure_azure_monitor()` function will automatically utilize
 ApplicationInsightsSampler for compatibility with Application Insights SDKs and
-to sample your telemetry. The `sampling_ratio` parameter can be used to specify
+to sample your telemetry. The `OTEL_TRACES_SAMPLER_ARG` environment variable can be used to specify
 the sampling rate, with a valid range of 0 to 1, where 0 is 0% and 1 is 100%.
 For example, a value of 0.1 means 10% of your traces will be sent.
 
-```python
-from azure.monitor.opentelemetry import configure_azure_monitor
-from opentelemetry import trace
-
-configure_azure_monitor(
-    # connection_string="<your-connection-string>",
-    # Sampling ratio of between 0 and 1 inclusive
-    # 0.1 means approximately 10% of your traces are sent
-    sampling_ratio=0.1,
-)
-
-tracer = trace.get_tracer(__name__)
-
-for i in range(100):
-    # Approximately 90% of these spans should be sampled out
-    with tracer.start_as_current_span("hello"):
-        print("Hello, World!")
+```
+export OTEL_TRACES_SAMPLER_ARG=0.1
 ```
 
 ---
@@ -360,7 +332,7 @@ See the [Java supplemental documentation](java-standalone-config.md) for more in
 
 #### [Python](#tab/python)
 
-1. Install the [azure-monitor-opentelemetry-exporter](https://pypi.org/project/azure-monitor-opentelemetry-exporter/) and [opentelemetry-exporter-otlp](https://pypi.org/project/opentelemetry-exporter-otlp/) packages.
+1. Install the [opentelemetry-exporter-otlp](https://pypi.org/project/opentelemetry-exporter-otlp/) package.
 
 1. Add the following code snippet. This example assumes you have an OpenTelemetry Collector with an OTLP receiver running. For details, see this [README](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor/azure-monitor-opentelemetry-exporter/samples/traces#collector).
     
@@ -368,7 +340,6 @@ See the [Java supplemental documentation](java-standalone-config.md) for more in
     from azure.monitor.opentelemetry import configure_azure_monitor
     from opentelemetry import trace
     from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
-    from opentelemetry.sdk.trace import TracerProvider
     from opentelemetry.sdk.trace.export import BatchSpanProcessor
 
     configure_azure_monitor(
@@ -376,9 +347,8 @@ See the [Java supplemental documentation](java-standalone-config.md) for more in
     )
     tracer = trace.get_tracer(__name__) 
     
-    exporter = AzureMonitorTraceExporter(connection_string="<your-connection-string>")
     otlp_exporter = OTLPSpanExporter(endpoint="http://localhost:4317")
-    span_processor = BatchSpanProcessor(otlp_exporter) 
+    span_processor = BatchSpanProcessor(otlp_exporter)
     trace.get_tracer_provider().add_span_processor(span_processor)
     
     with tracer.start_as_current_span("test"):
