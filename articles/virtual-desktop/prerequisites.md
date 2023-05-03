@@ -56,7 +56,7 @@ You also need to make sure you've registered the *Microsoft.DesktopVirtualizatio
    az provider register --namespace Microsoft.DesktopVirtualization
    ```
 
-3. Verify that the parameter **RegistrationState** is set to **Registered** by running the following command:
+3. Verify that the parameter **RegistrationState** is set to *Registered* by running the following command:
 
    ```azurecli-interactive
    az provider show \
@@ -74,7 +74,7 @@ You also need to make sure you've registered the *Microsoft.DesktopVirtualizatio
    Register-AzResourceProvider -ProviderNamespace Microsoft.DesktopVirtualization
    ```
 
-3. In the output, verify that the parameter **RegistrationState** is set to **Registered**. You can also run the following command:
+3. In the output, verify that the parameter **RegistrationState** is set to *Registered*. You can also run the following command:
 
    ```azurepowershell-interactive
    Get-AzResourceProvider -ProviderNamespace Microsoft.DesktopVirtualization
