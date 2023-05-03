@@ -47,7 +47,7 @@ Ensure your Defender for CSPM plan is enabled. Defender for Containers is not 
 
 This feature uses trusted access. Learn more about [AKS trusted access prerequisites](/azure/aks/trusted-access-feature#prerequisites).
 
-## Enable extension for Agentless Containers Posture for CSPM
+## Enable extension for Agentless Container Posture for CSPM
 
 Defender CSPM includes [two extensions](#what-are-the-extensions-for-agentless-container-posture-management) that allow for agentless visibility into Kubernetes and containers resgistries across your organization's SDLC and runtime.
 
@@ -102,7 +102,7 @@ When you enable the **Agentless discovery for Kubernetes** extension, the follow
 
 ### What's the refresh interval?
 
-Agentless information in Defender CSPM is updated once an hour through a snapshot mechanism. It can take up to **24 hours** to see results in Cloud Security Explorer and Attack Path.
+Agentless information in Defender CSPM is updated through a snapshot mechanism. It can take up to **24 hours** to see results in Cloud Security Explorer and Attack Path.
 
 ### How can I onboard multiple subscriptions at once?
 
@@ -114,7 +114,7 @@ If you don't see results from your clusters, check the following:
 
 - Do you have [stopped clusters](#what-do-i-do-if-i-have-stopped-clusters)?
 - Are your clusters [Read only (locked)](#what-do-i-do-if-i-have-read-only-clusters-locked)?
-- Are your [resource groups or subscriptions locked](#what-do-i-do-if-i-have-locked-resource-groups)?
+- Are your [resource groups, subscriptions, or clusters locked](#what-do-i-do-if-i-have-locked-resource-groups)?
 
 ### What do I do if I have stopped clusters?
 
@@ -148,6 +148,7 @@ We suggest that you unlock the resource, make the relevant requests manually, an
     az extension add --name aks-preview
     az aks trustedaccess rolebinding create --resource-group <cluster resource group> --cluster-name <cluster name> --name defender-cloudposture --source-resource-id /subscriptions/<SubscriptionId>/providers/Microsoft.Security/pricings/CloudPosture/securityOperators/DefenderCSPMSecurityOperator --roles  "Microsoft.Security/pricings/microsoft-defender-operator"
     ```
+This solution is relevant for locked subscriptions and locked clusters as well.
 
 ## Next steps
 
