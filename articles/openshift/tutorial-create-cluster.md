@@ -230,7 +230,7 @@ You can select to use a specific version of ARO when creating your cluster. Firs
 
 `az aro get-versions --location <region>`
 
-Once you've chosen the version, specify it using the `--version` parameter in the `aro create` command:
+Once you've chosen the version, specify it using the `--version` parameter in the `az aro create` command:
 
 ```azurecli-interactive
 az aro create \
@@ -238,7 +238,7 @@ az aro create \
   --name $CLUSTER \
   --vnet aro-vnet \
   --master-subnet master-subnet \
-  --worker-subnet worker-subnet
+  --worker-subnet worker-subnet \
   --version <x.y.z>
 ```
 

@@ -2,7 +2,7 @@
 title: Back up a SharePoint farm on Azure Stack
 description: Use Azure Backup Server to back up and restore your SharePoint data on Azure Stack. This article provides the information to configure your SharePoint farm so that desired data can be stored in Azure. You can restore protected SharePoint data from disk or from Azure.
 ms.topic: how-to
-ms.date: 10/20/2022
+ms.date: 03/02/2023
 ms.service: backup
 ms.custom: engagement-fy23
 author: jyothisuri
@@ -15,20 +15,10 @@ This article describes how to back up and restore SharePoint data using Microsof
 
 Microsoft Azure Backup Server (MABS) enables you to back up a SharePoint farm (on Azure Stack) to Microsoft Azure, which gives an experience similar to back up of other data sources. Azure Backup provides flexibility in the backup schedule to create daily, weekly, monthly, or yearly backup points, and gives you retention policy options for various backup points. It also provides the capability to store local disk copies for quick recovery-time objectives (RTO) and to store copies to Azure for economical, long-term retention.
 
-In this article, you'll learn about:
-
-> [!div class="checklist"]
-> - SharePoint supported scenarios
-> - Prerequisites
-> - Configure backup
-> - Monitor operations
-> - Restore a SharePoint item from disk by using MABS
-> - Restore a SharePoint database from Azure by using MABS
-> - Switch the Front-End Web Server
 
 ## SharePoint supported scenarios
 
-You need to confirm the following supported scenarios before you back up a SharePoint farm to Azure.
+You need to confirm the supported scenarios before you back up a SharePoint farm to Azure from the [support matrix](backup-mabs-protection-matrix.md).
 
 ### Supported scenarios
 
@@ -36,7 +26,7 @@ Azure Backup for MABS supports the following scenarios:
 
 | Workload | Version | SharePoint deployment | Protection and recovery |
 | --- | --- | --- | --- |
-| SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010 |SharePoint deployed as an Azure Stack virtual machine <br> -------------- <br> SQL Always On | Protect SharePoint Farm recovery options: Recovery farm, database, and file or list item from disk recovery points.  Farm and database recovery from Azure recovery points. |
+| SharePoint |SharePoint 2019, SharePoint 2016 with latest SPs |SharePoint deployed as an Azure Stack virtual machine <br> -------------- <br> SQL Always On | Protect SharePoint Farm recovery options: Recovery farm, database, and file or list item from disk recovery points.  Farm and database recovery from Azure recovery points. |
 
 ### Unsupported scenarios
 
@@ -106,7 +96,7 @@ Follow these steps:
 
 1. In **Select Group Members**, expand the server that holds the WFE role.
 
-   If there's more than one WFE server, select the one on which you installed ConfigureSharePoint.exe.
+   If there's more than one WFE server, select the one on which you installed *ConfigureSharePoint.exe*.
 
    When you expand the computer running SharePoint, MABS queries VSS to see what data MABS can protect. If the SharePoint database is remote, MABS connects to it. If SharePoint data sources don't appear, check that the VSS writer is running on the computer that's running SharePoint and on any remote instance of SQL Server. Then, ensure that the MABS agent is installed both on the computer running SharePoint and on the remote instance of SQL Server. Also, ensure that SharePoint databases aren't being protected elsewhere as SQL Server databases.
 

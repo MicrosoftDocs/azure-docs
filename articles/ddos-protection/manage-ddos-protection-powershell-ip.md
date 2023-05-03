@@ -5,7 +5,7 @@ author: AbdullahBell
 ms.author: abell
 ms.service: ddos-protection
 ms.topic: quickstart 
-ms.date: 02/27/2023
+ms.date: 04/04/2023
 ms.workload: infrastructure-services
 ms.custom: template-quickstart, ignite-2022, devx-track-azurepowershell
 ---
@@ -81,7 +81,7 @@ $publicIp.DdosSettings.ProtectionMode = 'Disabled'
 Set-AzPublicIpAddress -PublicIpAddress $publicIp 
 ```
 > [!NOTE]
-> When changing DDoS IP protection from **Enabled** to **Disabled**, telemetry for the public IP resource will not be available.
+> When changing DDoS IP protection from **Enabled** to **Disabled**, telemetry for the public IP resource will no longer be active.
 
 ## Clean up resources
 

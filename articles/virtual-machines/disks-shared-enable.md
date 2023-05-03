@@ -4,7 +4,7 @@ description: Configure an Azure managed disk with shared disks so that you can s
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/25/2023
+ms.date: 04/11/2023
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -370,3 +370,5 @@ If you prefer to use Azure Resource Manager templates to deploy your disk, the f
 - [Premium SSD](https://aka.ms/SharedPremiumDiskARMtemplate)
 - [Regional ultra disks](https://aka.ms/SharedUltraDiskARMtemplateRegional)
 - [Zonal ultra disks](https://aka.ms/SharedUltraDiskARMtemplateZonal)
+
+If you've additional questions, see the [shared disks](faq-for-disks.yml#azure-shared-disks) section of the FAQ.

@@ -10,6 +10,7 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
+ms.custom: devx-track-arm-template
 ---
 
 # Use the Azure Storage resource provider to access management resources

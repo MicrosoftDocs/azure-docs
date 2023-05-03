@@ -4,7 +4,7 @@ titleSuffix: Azure App Configuration
 description: In this tutorial, you learn how to dynamically update the configuration data for .NET Core apps
 services: azure-app-configuration
 documentationcenter: ''
-author: maud-lv
+author: mcleanbyron
 manager: zhenlan
 editor: ''
 
@@ -15,7 +15,7 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: tutorial
 ms.date: 07/01/2019
-ms.author: malev
+ms.author: mcleans
 
 #Customer intent: I want to dynamically update my app to use the latest configuration data in App Configuration.
 ---
@@ -139,6 +139,47 @@ Calling the `ConfigureRefresh` method alone won't cause the configuration to ref
     
     > [!NOTE]
     > Since the cache expiration time was set to 10 seconds using the `SetCacheExpiration` method while specifying the configuration for the refresh operation, the value for the configuration setting will only be updated if at least 10 seconds have elapsed since the last refresh for that setting.
+
+## Logging and monitoring
+
+Logs are output upon configuration refresh and contain detailed information on key-values retrieved from your App Configuration store and configuration changes made to your application. If you have an ASP.NET Core application, see these instructions for [Logging and Monitoring in ASP.NET Core](./enable-dynamic-configuration-aspnet-core.md#logging-and-monitoring). Otherwise, you can enable logging using the instructions for [logging with the Azure SDK](/dotnet/azure/sdk/logging).
+
+- Logs are output at different event levels. The default level is `Informational`.
+
+    | Event Level | Description |
+    |---|---|
+    | Verbose | Logs include the key and label of key-values your application monitors for changes from your App Configuration store. The information also includes whether the key-value has changed compared with what your application has already loaded. Enable logs at this level to troubleshoot your application if a configuration change didn't happen as expected. |
+    | Informational | Logs include the keys of configuration settings updated during a configuration refresh. Values of configuration settings are omitted from the log to avoid leaking sensitive data. You can monitor logs at this level to ensure your application picks up expected configuration changes. |
+    | Warning | Logs include failures and exceptions that occurred during configuration refresh. Occasional occurrences can be ignored because the configuration provider will continue using the cached data and attempt to refresh the configuration next time. You can monitor logs at this level for repetitive warnings that may indicate potential issues. For example, you rotated the connection string but forgot to update your application. |
+
+    You can enable logging at the `Verbose` event level by specifying the `EventLevel.Verbose` parameter, as done in the following example. These instructions apply to all other event levels as well. This example also enables logs for only the `Microsoft-Extensions-Configuration-AzureAppConfiguration-Refresh` category.
+    ```csharp
+    using var listener = new AzureEventSourceListener((eventData, text) =>
+    {
+        if (eventData.EventSource.Name == "Microsoft-Extensions-Configuration-AzureAppConfiguration-Refresh")
+        {
+            Console.WriteLine("[{1}] {0}: {2}", eventData.EventSource.Name, eventData.Level, text);
+        }
+    }, EventLevel.Verbose);
+    ```
+- The logging category is `Microsoft-Extensions-Configuration-AzureAppConfiguration-Refresh`, which appears before each log. Here are some example logs at each event level: 
+    ```console
+    [Verbose] Microsoft-Extensions-Configuration-AzureAppConfiguration-Refresh:
+    Key-value read from App Configuration. Change:'Modified' Key:'ExampleKey' Label:'ExampleLabel' Endpoint:'https://examplestore.azconfig.io'
+
+    [Informational] Microsoft-Extensions-Configuration-AzureAppConfiguration-Refresh:
+    Setting updated. Key:'ExampleKey'
+
+    [Warning] Microsoft-Extensions-Configuration-AzureAppConfiguration-Refresh:
+    A refresh operation failed while resolving a Key Vault reference.
+    Key vault error. ErrorCode:'SecretNotFound' Key:'ExampleKey' Label:'ExampleLabel' Etag:'6LaqgBQM9C_Do2XyZa2gAIfj_ArpT52-xWwDSLb2hDo' SecretIdentifier:'https://examplevault.vault.azure.net/secrets/ExampleSecret'
+    ```
+
+> [!NOTE]
+> Logging is available if you use version **6.0.0** or later of any of the following packages.
+> - `Microsoft.Extensions.Configuration.AzureAppConfiguration`
+> - `Microsoft.Azure.AppConfiguration.AspNetCore`
+> - `Microsoft.Azure.AppConfiguration.Functions.Worker`
 
 ## Clean up resources
 

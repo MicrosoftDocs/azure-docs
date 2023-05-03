@@ -125,7 +125,8 @@ You can input all the settings on this page before selecting **Apply** at the bo
 2. Create virtual networks representing the following interfaces (which you allocated subnets and IP addresses for in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses)):
     - Control plane access interface
     - User plane access interface
-    - User plane data interface(s)
+    - User plane data interface(s)  
+
     You can name these networks yourself, but the name **must** match what you configure in the Azure portal when deploying Azure Private 5G Core. For example, you can use the names **N2**, **N3** and **N6-DN1**, **N6-DN2**, **N6-DN3** (for a 5G deployment with multiple data networks (DNs); just **N6** for a single DN deployment). You can optionally configure each virtual network with a virtual local area network identifier (VLAN ID) to enable layer 2 traffic separation. The following example is for a 5G multi-DN deployment without VLANs.
 :::zone pivot="ase-pro-2"
 3. Carry out the following procedure three times, plus once for each of the supplementary data networks (so five times in total if you have three data networks):
@@ -133,9 +134,10 @@ You can input all the settings on this page before selecting **Apply** at the bo
           - **Virtual switch**: select **vswitch-port3** for N2 and N3, and select **vswitch-port4** for N6-DN1, N6-DN2, and N6-DN3.
           - **Name**: *N2*, *N3*, *N6-DN1*, *N6-DN2*, or *N6-DN3*.
           - **VLAN**: 0
-          - **Subnet mask** and **Gateway** must match the external values for the port.
+          - **Subnet mask** and **Gateway**: Use the correct subnet mask and gateway for the IP address configured on the ASE port (even if the gateway is not set on the ASE port itself).
             - For example, *255.255.255.0* and *10.232.44.1*
             - If there's no gateway between the access interface and gNB/RAN, use the gNB/RAN IP address as the gateway address. If there's more than one gNB connected via a switch, choose one of the IP addresses for the gateway.
+        - **DNS server** and **DNS suffix** should be left blank.
     1. Select **Modify** to save the configuration for this virtual network.
     1. Select **Apply** at the bottom of the page and wait for the notification (a bell icon) to confirm that the settings have been applied. Applying the settings will take approximately 15 minutes.
     The page should now look like the following image:
@@ -143,14 +145,16 @@ You can input all the settings on this page before selecting **Apply** at the bo
   :::image type="content" source="media/commission-cluster/commission-cluster-advanced-networking-ase-2.png" alt-text="Screenshot showing Advanced networking, with a table of virtual switch information and a table of virtual network information.":::
 :::zone-end
 :::zone pivot="ase-pro-gpu"
+
 3. Carry out the following procedure three times, plus once for each of the supplementary data networks (so five times in total if you have three data networks):
     1. Select **Add virtual network** and fill in the side panel:
-          - **Virtual switch**: select **vswitch-port5** for N2 and N3, and select **vswitch-port6** for N6-DN1, N6-DN2, and N6-DN3.
-          - **Name**: *N2*, *N3*, *N6-DN1*, *N6-DN2*, or *N6-DN3*.
-          - **VLAN**: VLAN ID, or 0 if not using VLANs
-          - **Subnet mask** and **Gateway** must match the external values for the port.
+        - **Virtual switch**: select **vswitch-port5** for N2 and N3, and select **vswitch-port6** for N6-DN1, N6-DN2, and N6-DN3.
+        - **Name**: *N2*, *N3*, *N6-DN1*, *N6-DN2*, or *N6-DN3*.
+        - **VLAN**: VLAN ID, or 0 if not using VLANs
+        - **Subnet mask** and **Gateway** must match the external values for the port.
             - For example, *255.255.255.0* and *10.232.44.1*
             - If there's no gateway between the access interface and gNB/RAN, use the gNB/RAN IP address as the gateway address. If there's more than one gNB connected via a switch, choose one of the IP addresses for the gateway.
+        - **DNS server** and **DNS suffix** should be left blank.
     1. Select **Modify** to save the configuration for this virtual network.
     1. Select **Apply** at the bottom of the page and wait for the notification (a bell icon) to confirm that the settings have been applied. Applying the settings will take approximately 15 minutes.
   The page should now look like the following image:
@@ -163,7 +167,7 @@ You can input all the settings on this page before selecting **Apply** at the bo
 In the local Azure Stack Edge UI, go to the **Kubernetes (Preview)** page. You'll set up all of the configuration and then apply it once, as you did in [Set up Advanced Networking](#set-up-advanced-networking).
 
 1. Under **Compute virtual switch**, select **Modify**.
-      1. Select the management vswitch (for example, *vswitch-port3*)
+      1. Select the management vswitch (for example, *vswitch-port2*)
       1. Enter six IP addresses in a range for the node IP addresses on the management network.
       1. Enter one IP address in a range for the service IP address, also on the management network.
       1. Select **Modify** at the bottom of the panel to save the configuration.
@@ -181,6 +185,7 @@ The page should now look like the following image:
 :::zone pivot="ase-pro-gpu"
 :::image type="content" source="media/commission-cluster/commission-cluster-kubernetes-preview-enabled.png" alt-text="Screenshot showing Kubernetes (Preview) with two tables. The first table is called Compute virtual switch and the second is called Virtual network. A green tick shows that the virtual networks are enabled for Kubernetes.":::
 :::zone-end
+
 ## Start the cluster and set up Arc
 
 Access the Azure portal and go to the **Azure Stack Edge** resource created in the Azure portal.
@@ -350,7 +355,15 @@ You should see the new **Custom Location** visible as a resource in the Azure po
 
 ## Rollback
 
-If you have made an error in the Azure Stack Edge configuration, you can use the portal to remove the AKS cluster.  You can then modify the settings via the local UI, or perform a full reset using the **Device Reset** blade in the local UI and then restart this procedure.
+If you have made an error in the Azure Stack Edge configuration, you can use the portal to remove the AKS cluster (see [Deploy Azure Kubernetes service on Azure Stack Edge](/azure/databox-online/azure-stack-edge-deploy-aks-on-azure-stack-edge)). You can then modify the settings via the local UI.  
+
+Alternatively, you can perform a full reset using the **Device Reset** blade in the local UI (see [Azure Stack Edge device reset and reactivation](/azure/databox-online/azure-stack-edge-reset-reactivate-device)) and then restart this procedure.  In this case, you should also [delete any associated resources](/azure/databox-online/azure-stack-edge-return-device?tabs=azure-portal) left in the Azure Portal after completing the Azure Stack Edge reset. This will include some or all of the following, depending on how far through the process you are:
+
+- **Azure Stack Edge** resource
+- Autogenerated **KeyVault** associated with the **Azure Stack Edge** resource
+- Autogenerated **StorageAccount** associated with the **Azure Stack Edge** resource
+- **Azure Kubernetes Cluster** (if successfully created)
+- **Custom location** (if successfully created)
 
 ## Next steps
 

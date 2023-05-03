@@ -8,7 +8,7 @@ metadata:
   manager: raynew
   ms.topic: faq
   ms.custom: ignite-2022
-  ms.date: 03/05/2023
+  ms.date: 04/18/2023
 title: 'FAQ - Questions about data collection, agents, and workspaces'
 summary: |
   Defender for Cloud collects data from your Azure virtual machines (VMs), Virtual Machine Scale Sets, IaaS containers, and non-Azure computers (including on-premises machines) to monitor for security vulnerabilities and threats. The Log Analytics agent collects data, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis.
@@ -185,7 +185,7 @@ sections:
       - question: |
           What if a System Center Operations Manager agent is already installed on my VM?
         answer: |
-          Defender for Cloud installs the Log Analytics agent extension side by side to the existing System Center Operations Manager agent. The existing agent continues to report to the System Center Operations Manager server normally. The Operations Manager agent and Log Analytics agent share common run-time libraries, which is updated to the latest version during this process. Note - If version 2012 of the Operations Manager agent is installed, don't turn on automatic provisioning (manageability capabilities can be lost when the Operations Manager server is also version 2012).
+          Defender for Cloud implements an Azure Policy that does not allow the Log Analytics agent to be installed while the System Center Operations Manager Agent in installed on the machine. Both the agents have the ability to multi-home and report to the System Center Operations Manager and the Log Analytics workspace. Note that the Operations Manager agent and Log Analytics agent share common run-time libraries. Note - If version 2012 of the Operations Manager agent is installed, do not turn on automatic provisioning (manageability capabilities can be lost when the Operations Manager server is also version 2012).
           
           
       - question: |

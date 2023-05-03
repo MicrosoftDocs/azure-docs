@@ -73,7 +73,7 @@ Use the following information to download usage for billed charges. The same ste
 1. In the invoice grid, find the row of the invoice corresponding to the usage file that you want to download.
 1. Select the ellipsis symbol (`...`) at the end of the row.
 1. In the context menu, select **Prepare Azure usage file**. A notification message appears stating that the usage file is being prepared.
-1. When the file is ready to download, select the **Click here to download** link in the notification. If you missed the notification, you can view it from **Notifications** area in top right of the Azure portal (the bell symbol).
+1. When the file is ready to download, select **Download**. If you missed the notification, you can view it from **Notifications** area in top right of the Azure portal (the bell symbol).
 
 ## Get usage data with Azure CLI
 

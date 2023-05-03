@@ -8,6 +8,7 @@ ms.date: 12/1/2022
 ms.topic: conceptual
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+ms.custom: devx-track-arm-template
 ---
 
 # Use SAP on Azure Deployment Automation Framework from Azure DevOps Services
@@ -79,11 +80,11 @@ Open PowerShell ISE and copy the following script and update the parameters to m
     
     Set-Location -Path $sdaf_path
     
-    if ( Test-Path "configureDevOps.ps1") {
-        remove-item .\configureDevOps.ps1
+    if ( Test-Path "New-SDAFDevopsProject.ps1") {
+        remove-item .\New-SDAFDevopsProject.ps1
     }
     
-    Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/sap-automation/main/deploy/scripts/setup_devops.ps1 -OutFile .\configureDevOps.ps1 ; .\configureDevOps.ps1
+    Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/sap-automation/main/deploy/scripts/New-SDAFDevopsProject.ps1 -OutFile .\New-SDAFDevopsProject.ps1 ; .\New-SDAFDevopsProject.ps1
     
 ```
 
@@ -96,6 +97,45 @@ Validate that the project has been created by navigating to the Azure DevOps por
 
 > [!IMPORTANT]
 > Run the following steps on your local workstation, also ensure that you have the latest Azure CLI installed by running the 'az upgrade' command.
+
+### Configure Azure DevOps Services artifacts for a new Workload zone.
+
+You can use the following script to deploy the artifacts needed to support a new workload zone. This will create the Variable group and the Service Connection in Azure DevOps as well as optionally the deployment service principal.
+
+Open PowerShell ISE and copy the following script and update the parameters to match your environment.
+
+```powershell
+    $Env:SDAF_ADO_ORGANIZATION = "https://dev.azure.com/ORGANIZATIONNAME"
+    $Env:SDAF_ADO_PROJECT = "SAP Deployment Automation Framework"
+    $Env:SDAF_WorkloadZoneSubscriptionID = "yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy"
+    $Env:ARM_TENANT_ID="zzzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz"
+    
+    if ( $PSVersionTable.Platform -eq "Unix") {
+        if ( Test-Path "SDAF") {
+        }
+        else {
+            $sdaf_path = New-Item -Path "SDAF" -Type Directory
+        }
+    }
+    else {
+        $sdaf_path = Join-Path -Path $Env:HOMEDRIVE -ChildPath "SDAF"
+        if ( Test-Path $sdaf_path) {
+        }
+        else {
+            New-Item -Path $sdaf_path -Type Directory
+        }
+    }
+    
+    Set-Location -Path $sdaf_path
+    
+    if ( Test-Path "New-SDAFDevopsWorkloadZone.ps1") {
+        remove-item .\New-SDAFDevopsWorkloadZone.ps1
+    }
+    
+    Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/sap-automation/main/deploy/scripts/New-SDAFDevopsWorkloadZone.ps1 -OutFile .\New-SDAFDevopsWorkloadZone.ps1 ; .\New-SDAFDevopsWorkloadZone.ps1
+    
+```
+
 
 ### Create a sample Control Plane configuration
 

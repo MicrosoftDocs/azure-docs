@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 11/17/2022
+ms.date: 04/14/2023
 ---
 
 # Transform data from an SAP ODP source using the SAP CDC connector in Azure Data Factory or Azure Synapse Analytics
@@ -55,6 +55,14 @@ To prepare an SAP CDC dataset, follow [Prepare the SAP CDC source dataset](sap-c
 ## Transform data with the SAP CDC connector
 
 SAP CDC datasets can be used as source in mapping data flow. Since the raw SAP ODP change feed is difficult to interpret and to correctly update to a sink, mapping data flow takes care of this by evaluating technical attributes provided by the ODP framework (e.g., ODQ_CHANGEMODE) automatically. This allows users to concentrate on the required transformation logic without having to bother with the internals of the SAP ODP change feed, the right order of changes, etc.
+
+To get started, create a pipeline with a mapping data flow.
+
+:::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-pipeline-dataflow-activity.png" alt-text="Screenshot of add data flow activity in pipeline.":::
+
+Next, specify a staging folder in Azure Data Lake Gen2, which will serve as an intermediate storage for data extracted from SAP.
+
+:::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-staging-folder.png" alt-text="Screenshot of specify staging folder in data flow activity.":::
 
 ### Mapping data flow properties
 

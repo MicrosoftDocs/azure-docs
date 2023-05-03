@@ -6,12 +6,10 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 03/17/2023
+ms.date: 04/04/2023
 ms.custom:
 ---
-# Provision access to system metadata in Azure SQL Database (preview)
-
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+# Provision access to system metadata in Azure SQL Database
 
 [DevOps policies](concept-policies-devops.md) are a type of Microsoft Purview access policies. They allow you to manage access to system metadata on data sources that have been registered for *Data use management* in Microsoft Purview. These policies are configured directly from the Microsoft Purview governance portal, and after they are saved, they get automatically published and then enforced by the data source. Microsoft Purview policies only manage access for Azure AD principals.
 

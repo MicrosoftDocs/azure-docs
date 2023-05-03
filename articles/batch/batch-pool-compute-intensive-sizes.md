@@ -2,7 +2,7 @@
 title: Use compute-intensive Azure VMs with Batch
 description: How to take advantage of HPC and GPU virtual machine sizes in Azure Batch pools. Learn about OS dependencies and see several scenario examples.
 ms.topic: how-to
-ms.date: 03/20/2023
+ms.date: 04/26/2023
 ---
 # Use RDMA or GPU instances in Batch pools
 
@@ -29,11 +29,15 @@ The RDMA or GPU capabilities of compute-intensive sizes in Batch are supported o
 
 | Size | Capability | Operating systems | Required software | Pool settings |
 | -------- | -------- | ----- |  -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS, or<br/>CentOS-based HPC<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Linux RDMA drivers | Enable inter-node communication, disable concurrent task execution |
-| [NC, NCv2, NCv3, NDv2 series](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (varies by series) | Ubuntu 16.04 LTS, or<br/>CentOS 7.3 or 7.4<br/>(Azure Marketplace) | NVIDIA CUDA or CUDA Toolkit drivers | N/A |
-| [NV, NVv2 series](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS, or<br/>CentOS 7.3<br/>(Azure Marketplace) | NVIDIA GRID drivers | N/A |
+| [H16r, H16mr, A8, A9](../virtual-machines/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 22.04 LTS, or<br/>CentOS-based HPC<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Linux RDMA drivers | Enable inter-node communication, disable concurrent task execution |
+| [NC, NCv2, NCv3, NDv2 series](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (varies by series) | Ubuntu 22.04 LTS, or<br/>CentOS 7.3 or 7.4<br/>(Azure Marketplace) | NVIDIA CUDA or CUDA Toolkit drivers | N/A |
+| [NV, NVv2 series](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Ubuntu 22.04 LTS, or<br/>CentOS 7.3<br/>(Azure Marketplace) | NVIDIA GRID drivers | N/A |
 
 <sup>*</sup>RDMA-capable N-series sizes also include NVIDIA Tesla GPUs
+
+> [!Important]
+> This document references a release version of Linux that is nearing or at, End of Life(EOL). Please consider updating to a more current version.
+
 
 ### Windows pools - Virtual Machine Configuration
 
@@ -104,7 +108,7 @@ To run CUDA applications on a pool of Windows NC nodes, you need to install NVDI
 
 To run CUDA applications on a pool of Linux NC nodes, you need to install necessary NVIDIA Tesla GPU drivers from the CUDA Toolkit. The following sample steps create and deploy a custom Ubuntu 16.04 LTS image with the GPU drivers:
 
-1. Deploy an Azure NC-series VM running Ubuntu 16.04 LTS. For example, create the VM in the US South Central region.
+1. Deploy an Azure NC-series VM running Ubuntu 22.04 LTS. For example, create the VM in the US South Central region.
 2. Add the [NVIDIA GPU Drivers extension](../virtual-machines/extensions/hpccompute-gpu-linux.md) to the VM by using the Azure portal, a client computer that connects to the Azure subscription, or Azure Cloud Shell. Alternatively, follow the steps to connect to the VM and [install CUDA drivers](../virtual-machines/linux/n-series-driver-setup.md) manually.
 3. Follow the steps to create an [Azure Compute Gallery image](batch-sig-images.md) for Batch.
 4. Create a Batch account in a region that supports NC VMs.
@@ -114,7 +118,7 @@ To run CUDA applications on a pool of Linux NC nodes, you need to install necess
 | ---- | ---- |
 | **Image Type** | Custom Image |
 | **Custom Image** | *Name of the image* |
-| **Node agent SKU** | batch.node.ubuntu 16.04 |
+| **Node agent SKU** | batch.node.ubuntu 22.04 |
 | **Node size** | NC6 Standard |
 
 ## Example: Microsoft MPI on a Windows H16r VM pool

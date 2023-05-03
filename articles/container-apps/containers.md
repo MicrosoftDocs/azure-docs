@@ -111,6 +111,8 @@ The following code is an example of the `containers` array in the [`properties.t
 | `volumeMounts` | An array of volume mount definitions. | You can define a temporary volume or multiple permanent storage volumes for your container.  For more information about storage volumes, see [Use storage mounts in Azure Container Apps](storage-mounts.md).|
 | `probes`| An array of health probes enabled in the container. | This feature is based on Kubernetes health probes. For more information about probes settings, see [Health probes in Azure Container Apps](health-probes.md).|
 
+<a id="allocations"></a>
+
 In the Consumption plan, the total CPU and memory allocations requested for all the containers in a container app must add up to one of the following combinations.
 
 | vCPUs (cores) | Memory |
