@@ -15,7 +15,7 @@ ms.date: 04/14/2023
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use mapping data flow to transform data from an SAP ODP source using the SAP CDC connector. To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md). For an introduction to transforming data with Azure Data Factory and Azure Synapse analytics, read [mapping data flow](concepts-data-flow-overview.md).
+This article outlines how to use mapping data flow to transform data from an SAP ODP source using the SAP CDC connector. To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md). For an introduction to transforming data with Azure Data Factory and Azure Synapse analytics, read [mapping data flow](concepts-data-flow-overview.md) or the [tutorial on mapping data flow](tutorial-data-flow.md).
 
 >[!TIP]
 >To learn the overall support on SAP data integration scenario, see [SAP data integration using Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) with detailed introduction on each SAP connector, comparsion and guidance.
@@ -60,7 +60,10 @@ To get started, create a pipeline with a mapping data flow.
 
 :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-pipeline-dataflow-activity.png" alt-text="Screenshot of add data flow activity in pipeline.":::
 
-Next, specify a staging folder in Azure Data Lake Gen2, which will serve as an intermediate storage for data extracted from SAP.
+Next, specify a staging linked service and staging folder in Azure Data Lake Gen2, which will serve as an intermediate storage for data extracted from SAP.
+
+ >[!NOTE]
+   >The staging linked service cannot use a self-hosted integration runtime.
 
 :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-staging-folder.png" alt-text="Screenshot of specify staging folder in data flow activity.":::
 
@@ -88,7 +91,9 @@ To create a mapping data flow using the SAP CDC connector as a source, complete 
 
 1. For the tabs **Projection**, **Optimize** and **Inspect**, please follow [mapping data flow](concepts-data-flow-overview.md).
 
-1. If **Run mode** is set to **Full on every run** or **Full on the first run, then incremental**, the tab **Optimize** offers additional selection and partitioning options. Each partition condition (the screenshot below shows an example with two conditions) will trigger a separate extraction process in the connected SAP system. Up to three of these extraction process are executed in parallel.
+### Optimizing performance of full or initial loads with source partitioning
+
+1. If **Run mode** is set to **Full on every run** or **Full on the first run, then incremental**, the tab **Optimize** offers an additional selection and partitioning type called **Source**. This allows you to specify multiple partition (i.e. filter) conditions to chunk a large source data set into multiple smaller portions. For each partition, the SAP CDC connector triggers a separate extraction process in the SAP source system.
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-mapping-data-flow-optimize-partition.png" alt-text="Screenshot of the partitioning options in optimize of mapping data flow source.":::
 
