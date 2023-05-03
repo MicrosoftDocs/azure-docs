@@ -31,7 +31,15 @@ Passwordless connections can be configured to work for both local and Azure host
 
 ### Update the application code to use passwordless connections
 
-The `Azure.Identity` library provides a class called [DefaultAzureCredential](/dotnet/azure/sdk/authentication) that handles passwordless authentication to Azure. DefaultAzureCredential supports multiple authentication methods and determines which to use at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code. The [Azure Identity library overview](/dotnet/api/overview/azure/Identity-readme) explains the order and locations in which DefaultAzureCredential looks for credentials.
+The Azure Identity client library, for each of the following ecosystems, provides a `DefaultAzureCredential` class that handles passwordless authentication to Azure:
+
+- [.NET](https://learn.microsoft.com/dotnet/api/overview/azure/Identity-readme?view=azure-dotnet&preserve-view=true#defaultazurecredential)
+- [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#readme-defaultazurecredential)
+- [Java](https://learn.microsoft.com/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true#defaultazurecredential)
+- [Node.js](https://learn.microsoft.com/javascript/api/overview/azure/identity-readme?view=azure-node-latest&preserve-view=true#defaultazurecredential)
+- [Python](https://learn.microsoft.com/python/api/overview/azure/identity-readme?view=azure-python&preserve-view=true#defaultazurecredential)
+
+`DefaultAzureCredential` supports multiple authentication methods. The method to use is determined at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code. See the links above for the order and locations in which `DefaultAzureCredential` looks for credentials.
 
 ## [.NET](#tab/dotnet)
 
@@ -52,9 +60,9 @@ The `Azure.Identity` library provides a class called [DefaultAzureCredential](/d
    ```csharp
    var credential = new DefaultAzureCredential();
 
-   // TODO: Update the <storage-account-name> placeholder.
+   // TODO: Update the <storage-account-name> and <queue-name> placeholders.
    var queueClient = new QueueClient(
-        new Uri($"https://{storageAccountName}.queue.core.windows.net/{queueName}"),
+        new Uri($"https://<storage-account-name>.queue.core.windows.net/<queue-name>"),
         new DefaultAzureCredential());
    ```
 

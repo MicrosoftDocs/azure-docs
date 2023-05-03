@@ -69,4 +69,4 @@ New-AzRoleAssignment -SignInName <user@domain> `
 ---
 
 > [!IMPORTANT]
-> In most cases it will take a minute or two for the role assignment to propagate in Azure, but in rare cases it may take up to eight minutes. If you receive authentication errors when you first run your code, wait a few moments and try again.
+> In most cases, it will take a minute or two for the role assignment to propagate in Azure, but in rare cases it may take up to eight minutes. If you receive authentication errors when you first run your code, wait a few moments and try again.
