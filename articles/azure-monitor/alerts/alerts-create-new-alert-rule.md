@@ -4,7 +4,7 @@ description: This article shows you how to create a new alert rule.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-arm-template
 ms.date: 03/05/2023
 ms.reviewer: harelbr
 ---
@@ -17,10 +17,11 @@ You create an alert rule by combining:
  - The signal or telemetry from the resource.
  - Conditions.
 
-Then you define these elements for the resulting alert actions by using:
+You then define these elements for the resulting alert actions by using:
  - [Alert processing rules](alerts-action-rules.md)
  - [Action groups](./action-groups.md)
 
+Alerts triggered by these alert rules contain a payload that uses the [common alert schema](alerts-common-schema.md).
 ## Create a new alert rule in the Azure portal
 
 1. In the [portal](https://portal.azure.com/), select **Monitor** > **Alerts**.

@@ -9,7 +9,7 @@ ms.date: 10/27/2022
 ms.author: sujaj
 #Customer intent: As a developer, I want to set up an Azure virtual network so that I can use Azure Monitor for SAP solutions.
 ---
-# Set up network for Azure Monitor for SAP solutions solutions (preview)
+# Set up network for Azure Monitor for SAP solutions (preview)
 
 [!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
 
@@ -22,9 +22,15 @@ In this how-to guide, you'll learn how to configure an Azure virtual network so 
 
 Azure Functions is the data collection engine for Azure Monitor for SAP solutions. You'll need to create a new subnet to host Azure Functions.
 
-[Create a new subnet](../../azure-functions/functions-networking-options.md#subnets) with an **IPv4/28** block or larger. 
+[Create a new subnet](../../azure-functions/functions-networking-options.md#subnets) with an **IPv4/28** block or larger.
 
 For more information, see how to [integrate your app with an Azure virtual network](../../app-service/overview-vnet-integration.md).
+
+## Using Custom DNS for Virtual Network
+
+This section only applies to if you are using Custom DNS for your Virtual Network. Add the IP Address 168.63.129.16 which points to Azure DNS Server. This will resolve the storage account and other resource urls which are required for proper functioning of Azure Monitor for SAP Solutions. see below reference image.
+
+![Custom DNS Setting ]([../../media/set-up-network/adding-custom-dns.png)
 
 ## Configure outbound internet access
 
@@ -41,7 +47,7 @@ There are multiple methods to address restricted or blocked outbound internet ac
 
 ### Use Route All
 
-**Route All** is a [standard feature of virtual network integration](../../azure-functions/functions-networking-options.md#virtual-network-integration) in Azure Functions, which is deployed as part of Azure Monitor for SAP solutions. Enabling or disabling this setting only affects traffic from Azure Functions. This setting doesn't affect any other incoming or outgoing traffic within your virtual network. 
+**Route All** is a [standard feature of virtual network integration](../../azure-functions/functions-networking-options.md#virtual-network-integration) in Azure Functions, which is deployed as part of Azure Monitor for SAP solutions. Enabling or disabling this setting only affects traffic from Azure Functions. This setting doesn't affect any other incoming or outgoing traffic within your virtual network.
 
 You can configure the **Route All** setting when you create an Azure Monitor for SAP solutions resource through the Azure portal. If your SAP environment doesn't allow outbound internet access, disable **Route All**. If your SAP environment allows outbound internet access, keep the default setting to enable **Route All**.
 
@@ -49,7 +55,7 @@ You can only use this option before you deploy an Azure Monitor for SAP solution
 
 ### Use service tags
 
-If you use NSGs, you can create Azure Monitor for SAP solutions-related [virtual network service tags](../../virtual-network/service-tags-overview.md) to allow appropriate traffic flow for your deployment. A service tag represents a group of IP address prefixes from a given Azure service. 
+If you use NSGs, you can create Azure Monitor for SAP solutions-related [virtual network service tags](../../virtual-network/service-tags-overview.md) to allow appropriate traffic flow for your deployment. A service tag represents a group of IP address prefixes from a given Azure service.
 
 You can use this option after you've deployed an Azure Monitor for SAP solutions resource.
 
@@ -58,13 +64,13 @@ You can use this option after you've deployed an Azure Monitor for SAP solutions
       1. Search for or select the Azure Monitor for SAP solutions service.
       1. On the **Overview** page for Azure Monitor for SAP solutions, select your Azure Monitor for SAP solutions resource.
       1. On the managed resource group's page, select the Azure Functions app.
-      1. On the app's page, select the **Networking** tab. Then, select **VNET Integration**. 
-      1. Review and note the subnet details. You'll need the subnet's IP address to create rules in the next step. 
+      1. On the app's page, select the **Networking** tab. Then, select **VNET Integration**.
+      1. Review and note the subnet details. You'll need the subnet's IP address to create rules in the next step.
 1. Select the subnet's name to find the associated NSG. Note the NSG's information.
-3. Set new NSG rules for outbound network traffic:   
-      1. Go to the NSG resource in the Azure portal.    
+3. Set new NSG rules for outbound network traffic:
+      1. Go to the NSG resource in the Azure portal.
       1. On the NSG's menu, under **Settings**, select **Outbound security rules**.
-      1. Select the **Add** button to add the following new rules:        
+      1. Select the **Add** button to add the following new rules:
 
 | **Priority** | **Name**                 | **Port** | **Protocol** | **Source** | **Destination**      | **Action** |
 |--------------|--------------------------|----------|--------------|------------|----------------------|------------|
@@ -72,14 +78,13 @@ You can use this option after you've deployed an Azure Monitor for SAP solutions
 | 501          | allow_keyVault           | 443      | TCP          |  Azure Function subnet           | Azure Key Vault        | Allow      |
 | 550          | allow_storage            | 443      | TCP          |   Azure Function subnet          | Storage              | Allow      |
 | 600          | allow_azure_controlplane | 443      | Any          |   Azure Function subnet          | Azure Resource Manager | Allow      |
-| 650      | allow_ams_to_source_system | Any  | Any   |  Azure Function subnet | Virtual Network or comma seperated IP addresses of the source system. | Allow      |
+| 650      | allow_ams_to_source_system | Any  | Any   |  Azure Function subnet | Virtual Network or comma separated IP addresses of the source system. | Allow      |
 | 660          | deny_internet            | Any      | Any          | Any        | Internet             | Deny       |
 
-
-The Azure Monitor for SAP solutions subnet IP address refers to the IP of the subnet associated with your Azure Monitor for SAP solutions resource. To find the subnet, go to the Azure Monitor for SAP solutions resource in the Azure portal. On the **Overview** page, review the **vNet/subnet** value.
+The Azure Monitor for SAP solution's subnet IP address refers to the IP of the subnet associated with your Azure Monitor for SAP solutions resource. To find the subnet, go to the Azure Monitor for SAP solutions resource in the Azure portal. On the **Overview** page, review the **vNet/subnet** value.
 
 For the rules that you create, **allow_vnet** must have a lower priority than **deny_internet**. All other rules also need to have a lower priority than **allow_vnet**. However, the remaining order of these other rules is interchangeable.
-        
+
 ### Use private endpoint
 
 You can enable a private endpoint by creating a new subnet in the same virtual network as the system that you want to monitor. No other resources can use this subnet. It's not possible to use the same subnet as Azure Functions for your private endpoint.
@@ -89,16 +94,16 @@ To create a private endpoint for Azure Monitor for SAP solutions:
 1. [Create a new subnet](../../virtual-network/virtual-network-manage-subnet.md#add-a-subnet) in the same virtual network as the SAP system that you're monitoring.
 1. In the Azure portal, go to your Azure Monitor for SAP solutions resource.
 1. On the **Overview** page for the Azure Monitor for SAP solutions resource, select the **Managed resource group**.
-1. Create a private endpoint connection for the following resources inside the managed resource group. 
+1. Create a private endpoint connection for the following resources inside the managed resource group.
     1. [Azure Key Vault resources](#create-key-vault-endpoint)
     2. [Azure Storage resources](#create-storage-endpoint)
     3. [Azure Log Analytics workspaces](#create-log-analytics-endpoint)
 
 #### Create key vault endpoint
 
-You only need one private endpoint for all the Azure Key Vault resources (secrets, certificates, and keys). Once a private endpoint is created for key vault, the vault resources can't be accessed from systems outside the given vnet. 
+You only need one private endpoint for all the Azure Key Vault resources (secrets, certificates, and keys). Once a private endpoint is created for key vault, the vault resources can't be accessed from systems outside the given vnet.
 
-1. On the key vault resource's menu, under **Settings**, select **Networking**. 
+1. On the key vault resource's menu, under **Settings**, select **Networking**.
 1. Select the **Private endpoint connections** tab.
 1. Select **Create** to open the endpoint creation page.
 1. On the **Basics** tab, enter or select all required information.
@@ -109,18 +114,18 @@ You only need one private endpoint for all the Azure Key Vault resources (secret
 1. On the **Networking** page again, select the **Firewalls and virtual networks** tab.
     1. For **Allow access from**, select **Allow public access from all networks**.
     1. Select **Apply** to save the changes.
- 
+
 #### Create storage endpoint
 
 It's necessary to create a separate private endpoint for each Azure Storage account resource, including the queue, table, storage blob, and file. If you create a private endpoint for the storage queue, it's not possible to access the resource from systems outside of the virtual networking, including the Azure portal. However, other resources in the same storage account are accessible.
 
 Repeat the following process for each type of storage subresource (table, queue, blob, and file):
 
-1. On the storage account's menu, under **Settings**, select **Networking**. 
+1. On the storage account's menu, under **Settings**, select **Networking**.
 1. Select the **Private endpoint connections** tab.
 1. Select **Create** to open the endpoint creation page.
 1. On the **Basics** tab, enter or select all required information.
-1. On the **Resource** tab, enter or select all required information. For the **Target sub-resource**, select one of the subresource types (table, queue, blob, or file). 
+1. On the **Resource** tab, enter or select all required information. For the **Target sub-resource**, select one of the subresource types (table, queue, blob, or file).
 1. On the **Virtual Network** tab, select the virtual network and the subnet that you created specifically for the endpoint. It's not possible to use the same subnet as the Azure Functions app.
 1. On the **DNS** tab, for **Integrate with private DNS zone**, select **Yes**. If necessary, add tags.
 1. Select **Review + create** to create the private endpoint.
@@ -178,9 +183,9 @@ Find and note important IP address ranges:
     1. Go to the resource group that contains the Azure Monitor for SAP solutions resource in the Azure portal.
     1. On the **Overview** page, note the **Private endpoint** in the resource group.
     1. In the resource group's menu, under **Settings**, select **DNS configuration**.
-    1. On the **DNS configuration** page, note the **IP addresses** for the private endpoint.    
+    1. On the **DNS configuration** page, note the **IP addresses** for the private endpoint.
 1. Find the subnet for the log analytics private endpoint.
-    1. Go to the private endpoint created for the AMPLS resource.         
+    1. Go to the private endpoint created for the AMPLS resource.
     2. On the private endpoint's menu, under **Settings**, select **DNS configuration**.
     3. On the **DNS configuration** page, note the associated IP addresses.
     4. Go to the Azure Monitor for SAP solutions resource in the Azure portal.
@@ -192,7 +197,7 @@ Add outbound security rules:
 1. Go to the NSG resource in the Azure portal.
 1. In the NSG menu, under **Settings**, select **Outbound security rules**.
 1. Add the following required security rules.
-    
+
     | Priority | Description |
     | -------- | ------------- |
     | 550 | Allow the source IP for making calls to source system to be monitored. |
@@ -200,7 +205,7 @@ Add outbound security rules:
     | 650 | Allow the source IP to access key-vault resource using private endpoint IP. |
     | 700 | Allow the source IP to access storage-account resources using private endpoint IP. (Include IPs for each of storage account sub resources: table, queue, file, and blob)  |
     | 800 | Allow the source IP to access log-analytics workspace resource using private endpoint IP.  |
-    
+
 ## Next steps
 
 - [Quickstart: set up Azure Monitor for SAP solutions through the Azure portal](quickstart-portal.md)

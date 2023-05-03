@@ -4,7 +4,7 @@ description: Provides a summary of supported regions and operating system settin
 ms.service: update-management-center
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 04/21/2022
+ms.date: 04/26/2023
 ms.topic: overview
 ms.custom: references_regions
 ---
@@ -58,52 +58,89 @@ Update management center (preview) is supported in the following regions current
 
 **Geography** | **Supported Regions**
 --- | ---
-Asia | South East Asia
+Asia | East Asia </br> South East Asia
 Australia | Australia East
+Brazil | Brazil South
 Canada | Canada Central
 Europe | North Europe </br> West Europe
 France | France Central
 Japan | Japan East
 Korea | Korea Central
 United Kingdom | UK South </br> UK West
-United States | East US </br> East US 2</br> North Central US </br> South Central US </br> West Central US </br> West US </br> West US 2 </br> West US 3  
+United States | Central US </br> East US </br> East US 2</br> North Central US </br> South Central US </br> West Central US </br> West US </br> West US 2 </br> West US 3  
 
 ---
 
 ## Supported operating systems
 
-The following table lists the supported operating systems for Azure VMs and Azure Arc-enabled servers. Before you enable update management center (preview), ensure that the target machines meet the operating system requirements.
-
+> [!NOTE]
+> - All operating systems are assumed to be x64. x86 isn't supported for any operating system.
+> - Update management center (preview) doesn't support CIS hardened images.
 
 # [Azure VMs](#tab/azurevm-os)
 
->[!NOTE]
-> - For [Azure VMs](../virtual-machines/index.yml), we currently support a combination of Offer, Publisher, and SKU of the VM image. Ensure you match all three to confirm support. 
-> - See the list of [supported OS images](../virtual-machines/automatic-vm-guest-patching.md#supported-os-images). 
-> - Custom images are currently not supported.
+> [!NOTE]
+> Currently, we don't support [Specialized Azure Compute Gallery (SIG) custom images](../virtual-machines/linux/imaging.md#specialized-images) and  non-Azure Compute gallery images (including the VMs created by Azure Migrate, Azure Backup, Azure Site Recovery etc.).
+
+**Marketplace/PIR images**
+
+Currently, we support a combination of Offer, Publisher, and Sku of the image. Ensure that you match all the three to confirm support. For more information, see [list of supported marketplace OS images](../virtual-machines/automatic-vm-guest-patching.md). 
+
+**Custom images**
+
+We support [generalized Azure Compute Gallery (SIG) custom images](../virtual-machines/linux/imaging.md#generalized-images). Table below lists the operating systems that we support for generalized Azure Compute Gallery images. Refer to [Azure Compute Gallery (SIG) custom images (preview)](manage-updates-customized-images.md) for instructions on how to start using Update manage center to manage updates on custom images.
+
+   |**Windows Operating System**|
+   |-- |
+   |Windows Server 2022|
+   |Windows Server 2019|
+   |Windows Server 2016|
+   |Windows Server 2012 R2|
+   |Windows Server 2012|
+   |Windows Server 2008 R2 (RTM and SP1 Standard)|
+
+
+   |**Linux Operating System**|
+   |-- |
+   |CentOS 7.8|
+   |Oracle Linux 7.x, 8x|
+   |Red Hat Enterprise 7, 8, 9|
+   |SUSE Linux Enterprise Server 12.x, 15.0-15.4|
+   |Ubuntu 16.04 LTS, 18.04 LTS, 20.04 LTS, 22.04 LTS|
+
 
 # [Azure Arc-enabled servers](#tab/azurearc-os)
 
-[Azure Arc-enabled servers](../azure-arc/servers/overview.md) are:
+The table lists the operating systems supported on [Azure Arc-enabled servers](../azure-arc/servers/overview.md) are:
 
-   | Publisher | Operating System
-   |----------|-------------|
-   | Microsoft Corporation | Windows Server 2012 R2 and higher (including Server Core) |
-   | Microsoft Corporation | Windows Server 2008 R2 SP1 with PowerShell enabled and .NET Framework 4.0+ |
-   | Canonical | Ubuntu 16.04, 18.04, and 20.04 LTS (x64) |
-   | Red Hat | CentOS Linux 7 and 8 (x64) |   
-   | SUSE | SUSE Linux Enterprise Server (SLES) 12 and 15 (x64) |
-   | Red Hat | Red Hat Enterprise Linux (RHEL) 7 and 8 (x64) |    
-   | Amazon | Amazon Linux 2 (x64)   |
-   | Oracle | Oracle 7.x |       
+   |**Operating System**|
+   |-------------|
+   | Windows Server 2012 R2 and higher (including Server Core) |
+   | Windows Server 2008 R2 SP1 with PowerShell enabled and .NET Framework 4.0+ |
+   | Ubuntu 16.04, 18.04, and 20.04 LTS (x64) |
+   | CentOS Linux 7 and 8 (x64) |   
+   | SUSE Linux Enterprise Server (SLES) 12 and 15 (x64) |
+   | Red Hat Enterprise Linux (RHEL) 7, 8, 9 (x64) |    
+   | Amazon Linux 2 (x64)   |
+   | Oracle 7.x, 8.x|
+   | Debian 10 and 11|
+   | Rocky Linux 8|        
 
 ---
 
-As the Update management center (preview) depends on your machine's OS package manager or update service, ensure that the Linux package manager or Windows Update client are enabled and can connect with an update source or repository. If you're running a Windows Server OS on your machine, see [configure Windows Update settings](configure-wu-agent.md).
- 
- > [!NOTE]
- > For patching, update management center (preview) relies on classification data available on the machine. Unlike other distributions, CentOS YUM package manager does not have this information available in the RTM version to classify updates and packages in different categories.
+## Unsupported Operating systems
 
+The following table lists the operating systems that aren't supported:
+
+   | **Operating system**| **Notes** 
+   |----------|-------------|
+   | Windows client | For client operating systems such as Windows 10 and Windows 11, we recommend [Microsoft Intune](https://learn.microsoft.com/mem/intune/) to manage updates.|
+   | Virtual machine scale sets| We recommend that you use [Automatic upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) to patch the virtual machine scale sets.|
+   | Azure Kubernetes Nodes| We recommend the patching described in [Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)](https://learn.microsoft.com/azure/aks/node-updates-kured).|
+
+
+As the Update management center (preview) depends on your machine's OS package manager or update service, ensure that the Linux package manager, or Windows Update client are enabled and can connect with an update source or repository. If you're running a Windows Server OS on your machine, see [configure Windows Update settings](configure-wu-agent.md).
+ 
 
 ## Next steps
 - [View updates for single machine](view-updates.md) 

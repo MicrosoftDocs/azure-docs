@@ -21,6 +21,9 @@ This article describes how you can create an Azure Payment HSM using the [Az.Ded
 
 - You must register the "Microsoft.HardwareSecurityModules" and "Microsoft.Network" resource providers, as well as the Azure Payment HSM features. Steps for doing so are at [Register the Azure Payment HSM resource provider and resource provider features](register-payment-hsm-resource-providers.md).
 
+  > [!WARNING]
+  > You must apply the "FastPathEnabled" feature flag to **every** subscription ID, and add the "fastpathenabled" tag to **every** virtual network. For more information, see [Fastpathenabled](fastpathenabled.md).
+
   To quickly ascertain if the resource providers and features are already registered, use the Azure PowerShell [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) cmdlet:
 
 ```azurepowershell-interactive
@@ -90,7 +93,7 @@ To verify that the VNet was created correctly, use the Azure PowerShell [Get-AzV
 Get-AzVirtualNetwork -Name "myVNet" -ResourceGroupName "myResourceGroup"
 ```
 
-Make note of the value returned as "Id", as you will need it for the next step.  The "Id" will be in the format:
+Make note of the value returned as `Id`, as it is used in the next step.  The `Id` is in the format:
 
 ```json
 "Id": "/subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/myPHSMSubnet",
@@ -104,7 +107,7 @@ To create a payment HSM, use the [New-AzDedicatedHsm](/powershell/module/az.dedi
 New-AzDedicatedHsm -Name "myPaymentHSM" -ResourceGroupName "myResourceGroup" -Location "East US" -Sku "payShield10K_LMK1_CPS60" -StampId "stamp1" -SubnetId "<subnet-id>"
 ```
 
-The output of the payment HSM creation will look like this:
+The output of payment HSM creation looks like this:
 
 ```Output
 Name  Provisioning State SKU                     Location
@@ -142,7 +145,7 @@ Remove-AzDedicatedHsm -Name "myPaymentHSM" -ResourceGroupName "myResourceGroup"
 
 ## Next steps
 
-In this quickstart, you created a payment HSM, viewed and updated its properties, and deleted it. To learn more about Payment HSM and how to integrate it with your applications, continue on to the articles below.
+In this quickstart, you created a payment HSM, viewed and updated its properties, and deleted it. To learn more about Payment HSM and how to integrate it with your applications, continue on to these articles.
 
 - Read an [Overview of Payment HSM](overview.md)
 - Find out how to [get started with Azure Payment HSM](getting-started.md)

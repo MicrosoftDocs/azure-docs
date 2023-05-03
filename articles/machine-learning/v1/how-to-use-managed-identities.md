@@ -20,7 +20,7 @@ ms.custom: UpdateFrequency5, cliv1, sdkv1, event-tier1-build-2022, devx-track-az
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK or CLI extension you are using:"]
 > * [v1](how-to-use-managed-identities.md)
-> * [v2 (current version)](../how-to-identity-based-service-authentication.md)
+> * [v2 (current version)](../how-to-identity-based-service-authentication.md?view=azureml-api-2&preserve-view=true)
 
 [Managed identities](../../active-directory/managed-identities-azure-resources/overview.md) allow you to configure your workspace with the *minimum required permissions to access resources*. 
 
@@ -124,7 +124,7 @@ az ml computetarget create amlcompute --name <cluster name> -w <workspace> -g <r
 
 # [Studio](#tab/azure-studio)
 
-For information on configuring managed identity when creating a compute cluster in studio, see [Set up managed identity](../how-to-create-attach-compute-cluster.md#set-up-managed-identity).
+For information on configuring managed identity when creating a compute cluster in studio, see [Set up managed identity](how-to-create-attach-compute-cluster.md#set-up-managed-identity).
 
 ---
 
@@ -169,7 +169,7 @@ az role assignment create --assignee <principal ID> \
 --scope "/subscriptions/<subscription ID>/resourceGroups/<private ACR resource group>/providers/Microsoft.ContainerRegistry/registries/<private ACR name>"
 ```
 
-Finally, when submitting a training run, specify the base image location in the [environment definition](../how-to-use-environments.md#use-existing-environments).
+Finally, when submitting a training run, specify the base image location in the [environment definition](how-to-use-environments.md).
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
@@ -289,5 +289,5 @@ For a workspace with [customer-managed keys for encryption](../concept-data-encr
 ## Next steps
 
 * Learn more about [enterprise security in Azure Machine Learning](../concept-enterprise-security.md)
-* Learn about [identity-based data access](../how-to-identity-based-data-access.md)
+* Learn about [identity-based data access](how-to-identity-based-data-access.md)
 * Learn about [managed identities on compute cluster](how-to-create-attach-compute-cluster.md).

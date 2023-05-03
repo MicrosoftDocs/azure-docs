@@ -27,7 +27,7 @@ This article shows you how to use the Azure Spring Apps Maven plugin to configur
 * An already provisioned Azure Spring Apps instance.
 * [JDK 8 or JDK 11](/azure/developer/java/fundamentals/java-jdk-install)
 * [Apache Maven](https://maven.apache.org/download.cgi)
-* [Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli) with the Azure Spring Apps extension. You can install the extension by using the following command: `az extension add --name spring`
+* [Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli) with the Azure Spring Apps extension. You can install the extension by using the following command: `az extension add --name spring`
 
 ## Generate a Spring project
 

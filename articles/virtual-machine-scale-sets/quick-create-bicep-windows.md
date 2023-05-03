@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.collection: windows
 ms.date: 11/22/2022
 ms.reviewer: mimckitt
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 
 # Quickstart: Create a Windows Virtual Machine Scale Set with Bicep

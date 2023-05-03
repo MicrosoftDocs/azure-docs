@@ -139,7 +139,7 @@ Use the following table to find the correct cord specifications for your region:
 |Thailand|250|10|H05VV-F 3x0.75|TI16S3|C13|1829|
 |Trinidad and Tobago|125|10|SVE 18/3|NEMA 5-15P|C13|1830|
 |Tunisia|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
-|Turkey|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
+|Türkiye|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Turkmenistan|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Uganda|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
 |Ukraine|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|

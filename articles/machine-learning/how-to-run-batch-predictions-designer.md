@@ -177,4 +177,4 @@ If you make some modifications in your training pipeline, you may want to update
 ## Next steps
 
 * Follow the [designer tutorial to train and deploy a regression model](tutorial-designer-automobile-price-train-score.md).
-* For how to publish and run a published pipeline using the SDK v1, see the [How to deploy pipelines](v1/how-to-deploy-pipelines.md) article.
+* For how to publish and run a published pipeline using the SDK v1, see the [How to deploy pipelines](v1/how-to-deploy-pipelines.md?view=azureml-api-1&preserve-view=true) article.

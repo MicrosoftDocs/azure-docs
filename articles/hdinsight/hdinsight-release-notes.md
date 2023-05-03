@@ -15,7 +15,8 @@ This article provides information about the **most recent** Azure HDInsight rele
 ## Summary
 
 Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
-[Subscribe to our release notes](./subscribe-to-hdi-release-notes-repo.md) and watch releases on [this GitHub repository](https://github.com/hdinsight/release-notes/releases).
+Subscribe to the [HDInsight Release Notes](./subscribe-to-hdi-release-notes-repo.md) for up-to-date information on HDInsight and all HDInsight versions. 
+To subscribe, click the “watch” button in the banner and watch out for [HDInsight Releases](https://github.com/Azure/HDInsight/releases).
 
 ## Release date: February 28, 2023
 
@@ -75,8 +76,10 @@ For more information, see [HDInsight 5.1.0 version](./hdinsight-51-component-ver
 
 End of support for Azure HDInsight clusters on Spark 2.4 February 10, 2024. For more information, see [Spark versions supported in Azure HDInsight](./hdinsight-40-component-versioning.md#spark-versions-supported-in-azure-hdinsight)
 
-## Upcoming Changes
+## Coming soon
 
+* Autoscale
+  * Autoscale with improved latency and several improvements 
 * Cluster name change limitation 
   * The max length of cluster name will be changed to 45 from 59 in Public, Mooncake and Fairfax. 
 * Cluster permissions for secure storage  
@@ -87,7 +90,8 @@ End of support for Azure HDInsight clusters on Spark 2.4 February 10, 2024. For 
   * Apache Spark 3.3.0 and Hadoop 3.3.4 are under development on HDInsight 5.1 and will include several significant new features, performance and other improvements.
 
  > [!NOTE]
- > We advise customers to use to latest versions of HDInsight [Images](./view-hindsight-cluster-image-version.md) as they bring in the best of open source updates,  Azure updates and security fixes.
+ > We advise customers to use to latest versions of HDInsight [Images](./view-hindsight-cluster-image-version.md) as they bring in the best of open source updates,  Azure updates and security fixes. For more information, see [Best practices](./hdinsight-overview-before-you-start.md).
 
 ### Next steps
 * [Azure HDInsight: Frequently asked questions](./hdinsight-faq.yml)
+* [Configure the OS patching schedule for Linux-based HDInsight clusters](./hdinsight-os-patching.md)

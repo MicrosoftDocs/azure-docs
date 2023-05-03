@@ -347,6 +347,10 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 [!INCLUDE [azure-front-door-service-limits](../../../includes/front-door-limits.md)]
 
+### Azure Network Watcher limits
+
+[!INCLUDE [network-watcher-limits](../../../includes/network-watcher-limits.md)]
+
 ### Azure Route Server limits
 
 [!INCLUDE [Azure Route Server Limits](../../../includes/route-server-limits.md)]
@@ -358,10 +362,6 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 ### NAT Gateway limits
 
 [!INCLUDE [nat-gateway-limits](../../../includes/azure-nat-gateway-limits.md)]
-
-### Network Watcher limits
-
-[!INCLUDE [network-watcher-limits](../../../includes/network-watcher-limits.md)]
 
 ### Private Link limits
 

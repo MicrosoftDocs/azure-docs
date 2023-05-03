@@ -37,7 +37,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `is_deterministic` | boolean |This option determines if the component will produce the same output for the same input data. You should usually set this to `false` for components that load data from external sources, such as importing data from a URL. This is because the data at the URL might change over time. | | `true` |
 | `command` | string | **Required.** The command to execute. | | |
 | `code` | string | Local path to the source code directory to be uploaded and used for the component. | | |
-| `environment` | string or object | **Required.** The environment to use for the component. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. <br><br> To reference an existing environment, use the `azureml:<environment-name>:<environment-version>` syntax. <br><br> To define an environment inline, follow the [Environment schema](reference-yaml-environment.md#yaml-syntax). Exclude the `name` and `version` properties as they are not supported for inline environments. | | |
+| `environment` | string or object | **Required.** The environment to use for the component. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. <br><br> To reference an existing environment, use the `azureml:<environment-name>:<environment-version>` syntax. <br><br> To define an environment inline, follow the [Environment schema](reference-yaml-environment.md#yaml-syntax). Exclude the `name` and `version` properties as they aren't supported for inline environments. | | |
 | `distribution` | object | The distribution configuration for distributed training scenarios. One of [MpiConfiguration](#mpiconfiguration), [PyTorchConfiguration](#pytorchconfiguration), or [TensorFlowConfiguration](#tensorflowconfiguration). | | |
 | `resources.instance_count` | integer | The number of nodes to use for the job. | | `1` |
 | `inputs` | object | Dictionary of component inputs. The key is a name for the input within the context of the component and the value is the component input definition. <br><br> Inputs can be referenced in the `command` using the `${{ inputs.<input_name> }}` expression. | | |
@@ -108,7 +108,7 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ### Define optional inputs in command line
 When the input is set as `optional = true`, you need use `$[[]]` to embrace the command line with inputs. For example `$[[--input1 ${{inputs.input1}}]`. The command line at runtime may have different inputs.
-- If  you are using only specify the required `training_data` and `model_output` parameters, the command line will look like:
+- If  you're using only specify the required `training_data` and `model_output` parameters, the command line will look like:
 
 ```azurecli
 python train.py --training_data some_input_path --learning_rate 0.01 --learning_rate_schedule time-based --model_output some_output_path
@@ -121,6 +121,15 @@ If no value is specified at runtime, `learning_rate` and `learning_rate_schedule
 python train.py --training_data some_input_path --max_epocs 10 --learning_rate 0.01 --learning_rate_schedule time-based --model_output some_output_path
 ```
 
+## Common errors and recommendation
+
+Following are some common errors and corresponding recommended suggestions when you define a component.
+
+| Key | Errors | Recommendation | 
+| --- | ---- | ----------- |
+|command|1. Only optional inputs can be in `$[[]]`<br> 2. Using `\` to make a new line isn't supported in command.<br>3. Inputs or outputs aren't found.|1. Check that all the inputs or outputs used in command are already defined in the `inputs` and `outputs` sections, and use the correct format for optional inputs `$[[]]` or required ones `${{}}`.<br>2. Don't use `\` to make a new line.|
+|environment|1. No definition exists for environment `{envName}` version `{envVersion}`. <br>2. No environment exists for name `{envName}`, version `{envVersion}`.<br>3. Couldn't find asset with ID `{envAssetId}`. |1. Make sure the environment name and version you refer in the component definition exists. <br>2. You need to specify the version if you refer to a registered environment.|
+|inputs/outputs|1. Inputs/outputs names conflict with system reserved parameters.<br>2. Duplicated names of inputs or outputs.|1. Don't use any of these reserved parameters as your inputs/outputs name: `path`, `ld_library_path`, `user`, `logname`, `home`, `pwd`, `shell`.<br>2. Make sure names of inputs and outputs aren't duplicated.|
 
 ## Next steps
 

@@ -52,7 +52,7 @@ Process pinning works on HBv2-series VMs because we expose the underlying silico
 | MPI Support                 | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH, Platform MPI  |
 | Additional Frameworks       | UCX, libfabric, PGAS |
 | Azure Storage Support       | Standard and Premium Disks (maximum 8 disks) |
-| OS Support for SRIOV RDMA   | CentOS/RHEL 7.6+, Ubuntu 16.04+, SLES 12 SP4+, WinServer 2016+  |
+| OS Support for SRIOV RDMA   | CentOS/RHEL 7.9+, Ubuntu 18.04+, SLES 12 SP5+, WinServer 2016+  |
 | Orchestrator Support        | CycleCloud, Batch, AKS; [cluster configuration options](sizes-hpc.md#cluster-configuration-options)  |
 
 > [!NOTE] 

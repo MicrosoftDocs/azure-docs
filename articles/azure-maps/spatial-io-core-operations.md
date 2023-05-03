@@ -45,7 +45,7 @@ To use this class, follow the steps below:
 - Call the `toString` function to retrieve the delimited string. 
 - Optionally, call the `clear` method to make the writer reusable and reduce its resource allocation, or call the `delete` method to dispose of the writer instance.
 
-> [!Note]
+> [!NOTE]
 > The number of columns written will be constrained to the number of cells in the first row of the data passed to the writer.
 
 ## Read XML files

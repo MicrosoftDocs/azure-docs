@@ -110,6 +110,7 @@ The following list contains answers to commonly asked questions about Azure Cach
 * [Can I configure clustering for a basic or standard cache?](#can-i-configure-clustering-for-a-basic-or-standard-cache)
 * [Can I use clustering with the Redis ASP.NET Session State and Output Caching providers?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 * [I'm getting MOVE exceptions when using StackExchange.Redis and clustering, what should I do?](#im-getting-move-exceptions-when-using-stackexchangeredis-and-clustering-what-should-i-do)
+* [Does scaling out using clustering help to increase the number of supported client connections?](#Does scaling out using clustering help to increase the number of supported client connections?)
 
 ### Do I need to make any changes to my client application to use clustering?
 
@@ -188,6 +189,10 @@ Clustering is only available for premium caches.
 ### I'm getting MOVE exceptions when using StackExchange.Redis and clustering, what should I do?
 
 If you're using StackExchange.Redis and receive `MOVE` exceptions when using clustering, ensure that you're using [StackExchange.Redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) or later. For instructions on configuring your .NET applications to use StackExchange.Redis, see [Configure the cache clients](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-client).
+
+### Does scaling out using clustering help to increase the number of supported client connections?
+
+No,scaling out using clustering and increasing the number of shards doesn't help in increasing the number of supported client connections.
 
 ## Next steps
 

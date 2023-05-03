@@ -44,9 +44,9 @@ Ephemeral storage has the following characteristics:
 
     | vCPUs | Ephemeral storage |
     |--|--|
-    | Up to 0.25 | 1 GiB |
-    | Up to 0.5 | 2 GiB |
-    | Up to 1 | 4 GiB |
+    | 0.25 or lower | 1 GiB |
+    | 0.5 or lower | 2 GiB |
+    | 1 or lower | 4 GiB |
     | Over 1 | 8 GiB |
 
 To configure ephemeral storage, first define an `EmptyDir` volume in the revision. Then define a volume mount in one or more containers in the revision.

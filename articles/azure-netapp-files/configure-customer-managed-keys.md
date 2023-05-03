@@ -36,10 +36,19 @@ The following diagram demonstrates how customer-managed keys work with Azure Net
 ## Considerations
 
 > [!IMPORTANT]
-> Customer-managed keys for Azure NetApp Files volume encryption is currently in preview. You need to submit a waitlist request for accessing the feature through the **[Customer-managed keys for Azure NetApp Files volume encryption](https://aka.ms/anfcmkpreviewsignup)** page. Customer-managed keys feature is expected to be enabled within a week from submitting waitlist request.
+> Customer-managed keys for Azure NetApp Files volume encryption is currently in preview. You need to submit a waitlist request for accessing the feature through the **[Customer-managed keys for Azure NetApp Files volume encryption](https://aka.ms/anfcmkpreviewsignup)** page. Customer-managed keys feature is expected to be enabled within a week after you submit the waitlist request. You can check the status of feature registration by using the following command: 
+>
+> ```azurepowershell-interactive
+> Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAzureKeyVaultEncryption                                                      
+> 
+> FeatureName                ProviderName     RegistrationState   
+> -----------                ------------     -----------------   
+> ANFAzureKeyVaultEncryption Microsoft.NetApp Registered
+> ```
 
 * Customer-managed keys can only be configured on new volumes. You can't migrate existing volumes to customer-managed key encryption. 
 * To create a volume using customer-managed keys, you must select the *Standard* network features. You can't use customer-managed key volumes with volume configured using Basic network features. Follow instructions in to [Set the Network Features option](configure-network-features.md#set-the-network-features-option) in the volume creation page.
+* Customer-managed keys private endpoints do not support the **Disable public access** option. You must choose one of the **Allow public access** options.
 * Switching from user-assigned identity to the system-assigned identity isn't currently supported.
 * MSI Automatic certificate renewal isn't currently supported.  
 * The MSI certificate has a lifetime of 90 days. It becomes eligible for renewal after 46 days. **After 90 days, the certificate is no longer be valid and the customer-managed key volumes under the NetApp account will go offline.**
