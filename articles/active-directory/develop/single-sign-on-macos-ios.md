@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/23/2022
+ms.date: 05/03/2023
 ms.author: henrymbugua
 ms.reviewer:
 ms.custom: aaddev, engagement-fy23
@@ -25,9 +25,7 @@ This type of SSO works between multiple apps distributed by the same Apple Devel
 
 - [SSO through Authentication broker](#sso-through-authentication-broker-on-ios)
 
-The SSO through authentication broker isn't available on macOS.
-
-Microsoft provides apps called brokers, that enable SSO between applications from different vendors as long as the mobile device is registered with Azure Active Directory (Azure AD). This type of SSO requires a broker application be installed on the user's device.
+Microsoft provides apps called brokers that enable SSO between applications from different vendors as long as the mobile device is registered with Azure Active Directory (Azure AD). This type of SSO requires a broker application be installed on the user's device.
 
 - **SSO between MSAL and Safari**
 
@@ -39,7 +37,7 @@ This type of SSO is currently not available on macOS. MSAL on macOS only support
 
 - **Silent SSO between ADAL and MSAL macOS/iOS apps**
 
-MSAL Objective-C supports migration and SSO with ADAL Objective-C-based apps. The apps must be distributed by the same Apple Developer.
+MSAL Objective-C support migration and SSO with ADAL Objective-C-based apps. The apps must be distributed by the same Apple Developer.
 
 See [SSO between ADAL and MSAL apps on macOS and iOS](sso-between-adal-msal-apps-macos-ios.md) for instructions for cross-app SSO between ADAL and MSAL-based apps.
 
