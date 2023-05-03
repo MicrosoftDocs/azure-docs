@@ -600,8 +600,6 @@ The following tables include the Defender for Servers security alerts [to be dep
 
 | **Alert Type** | **Alert Display Name** | **Severity**
 |---|---|---|
-VM.Windows_KnownCredentialAccessTools |  Suspicious process executed | High
-VM.Windows_SuspiciousAccountCreation | Suspicious Account Creation Detected | Medium
 VM_AbnormalDaemonTermination | Abnormal Termination |  Low
 VM_BinaryGeneratedFromCommandLine |  Suspicious binary detected | Medium
 VM_CommandlineSuspectDomain  Suspicious | domain name reference | Low
@@ -700,6 +698,7 @@ VM.Windows_ExecutableDecodedUsingCertutil | Detected decoding of an executable u
 VM.Windows_FileDeletionIsSospisiousLocation | Suspicious file deletion detected | Medium
 VM.Windows_KerberosGoldenTicketAttack | Suspected Kerberos Golden Ticket attack parameters observed | Medium
 VM.Windows_KeygenToolKnownProcessName | Detected possible execution of keygen executable Suspicious process executed | Medium
+VM.Windows_KnownCredentialAccessTools |  Suspicious process executed | High
 VM.Windows_KnownSuspiciousPowerShellScript | Suspicious use of PowerShell detected | High
 VM.Windows_KnownSuspiciousSoftwareInstallation | High risk software detected | Medium
 VM.Windows_MsHtaAndPowerShellCombination | Detected suspicious combination of HTA and PowerShell | Medium 
@@ -713,6 +712,7 @@ VM.Windows_RansomwareIndication | Ransomware indicators detected | High
 VM.Windows_SqlDumperUsedSuspiciously | Possible credential dumping detected [seen multiple times] | Medium
 VM.Windows_StopCriticalServices | Detected the disabling of critical services | Medium
 VM.Windows_SubvertingAccessibilityBinary | Sticky keys attack detected <br/> Suspicious account creation detected  Medium
+VM.Windows_SuspiciousAccountCreation | Suspicious Account Creation Detected | Medium 
 VM.Windows_SuspiciousFirewallRuleAdded | Detected suspicious new firewall rule | Medium
 VM.Windows_SuspiciousFTPSSwitchUsage | Detected suspicious use of FTP -s switch | Medium
 VM.Windows_SuspiciousSQLActivity | Suspicious SQL activity | Medium
