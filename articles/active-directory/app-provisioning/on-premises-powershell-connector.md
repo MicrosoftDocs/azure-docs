@@ -115,14 +115,14 @@ If you have already downloaded the provisioning agent and configured it for anot
      |Secret Token|Enter your secret token here. It should be 12 characters minimum.|
      |Extension DLL|For the PowerShell connector, select **Microsoft.IAM.Connector.PowerShell.dll**.|
 
-:::image type="content" source="media/on-premises-powershell-connector/pshell-1.png" alt-text="Screenshot of general screen." lightbox="media/on-premises-powershell-connector/pshell-1.png":::
+:::image type="content" source="media/on-premises-powershell-connector/powershell-1.png" alt-text="Screenshot of general screen." lightbox="media/on-premises-powershell-connector/powershell-1.png":::
 
 ### Connectivity
 The connectivity tab allows you to supply configuration parameters for connecting to a remote system. Configure the connectivity tab with the information provided in the table.
 
- 1. On the **Connectivity** page, all of the information should be populated.  The table is provided as reference.  Click **Next**.
+ - On the **Connectivity** page, all of the information should be populated.  The table is provided as reference.  Click **Next**.
 
- :::image type="content" source="media/on-premises-powershell-connector/pshell-2.png" alt-text="Screenshot of the connectivity screen." lightbox="media/on-premises-powershell-connector/pshell-2.png":::
+ :::image type="content" source="media/on-premises-powershell-connector/powershell-2.png" alt-text="Screenshot of the connectivity screen." lightbox="media/on-premises-powershell-connector/powershell-2.png":::
 
 |Parameter|Value|Purpose|
 |----|-----|-----|
@@ -135,7 +135,7 @@ The connectivity tab allows you to supply configuration parameters for connectin
 | Logon Type When Impersonating  |None|Logon type during impersonation. For more information, see the [dwLogonType][dw] documentation. |
 |Signed Scripts Only |Unchecked|  If true, the Windows PowerShell connector validates that each script has a valid digital signature. If false, ensure that the Synchronization Service server’s Windows PowerShell execution policy is RemoteSigned or Unrestricted.| 
 |Common Module Script Name (with extension)|xADSyncPSConnectorModule.psm1|The connector allows you to store a shared Windows PowerShell module in the configuration. When the connector runs a script, the Windows PowerShell module is extracted to the file system so that it can be imported by each script.|
-|Common Module Script|[AD Sync PS Connector Module code](https://github.com/microsoft/MIMPowerShellConnectors/blob/master/src/ECMA2HostCSV/Scripts/CommonModule.psm1) as value.  This module will be automatically created by the ECMA2Host when the connector is running.||
+|Common Module Script|[AD Sync PowerShell Connector Module code](https://github.com/microsoft/MIMPowerShellConnectors/blob/master/src/ECMA2HostCSV/Scripts/CommonModule.psm1) as value.  This module will be automatically created by the ECMA2Host when the connector is running.||
 |Validation Script|\<Blank\>|The Validation Script is an optional Windows PowerShell script that can be used to ensure that connector configuration parameters supplied by the administrator are valid.|
 |Schema Script|[GetSchema code](https://github.com/microsoft/MIMPowerShellConnectors/blob/master/src/ECMA2HostCSV/Scripts/Schema%20Script.ps1) as value.||
 |Additional Config Parameter Names|FileName,Delimiter,Encoding|In addition to the standard configuration settings, you can define additional custom configuration settings that are specific to the instance of the Connector. These parameters can be specified at the connector, partition, or run step levels and accessed from the relevant Windows PowerShell script. |
@@ -146,16 +146,16 @@ The connectivity tab allows you to supply configuration parameters for connectin
 ### Capabilities
 The capabilities tab defines the behavior and functionality of the connector. The selections made on this tab cannot be modified when the connector has been created. Configure the capabilities tab with the information provided in the table.
 
- 1. On the **Capabilities** page, all of the information should be populated.  The table is provided as reference.  Click **Next**. 
+- On the **Capabilities** page, all of the information should be populated.  The table is provided as reference.  Click **Next**. 
 
- :::image type="content" source="media/on-premises-powershell-connector/pshell-4.png" alt-text="Screenshot of the capabilities screen." lightbox="media/on-premises-powershell-connector/pshell-4.png":::
+ :::image type="content" source="media/on-premises-powershell-connector/powershell-4.png" alt-text="Screenshot of the capabilities screen." lightbox="media/on-premises-powershell-connector/powershell-4.png":::
 
 |Parameter|Value|Purpose|
 |----|-----|-----|
 |Distinguished Name Style|None|Indicates if the connector supports distinguished names and if so, what style. |
-|Export Type|ObjectReplace|Determines the type of objects that are presented to the Export script. <li>AttributeReplace – includes the full set of values for a multi-valued attribute when the attribute changes.</li><li>AttributeUpdate – includes only the deltas to a multi-valued attribute when the attribute changes.</li><li>MultivaluedReferenceAttributeUpdate - includes a full set of values for non-reference multi-valued attributes and only deltas for multi-valued reference attributes.</li><li>ObjectReplace – includes all attributes for an object when any attribute changes</li> |
-|Data Normalization|None,|Instructs the Synchronization Service to normalize anchor attributes before they are provided to scripts. |
-|Object Confirmation|Normal|Configures the pending import behavior in the Synchronization Service. <li>Normal – default behavior that expects all exported changes to be confirmed via import</li><li>NoDeleteConfirmation – when an object is deleted, there is no pending import generated.</li><li>NoAddAndDeleteConfirmation – when an object is created or deleted, there is no pending import generated.</li> |
+|Export Type|ObjectReplace|Determines the type of objects that are presented to the Export script.|
+|Data Normalization|None|Instructs the Synchronization Service to normalize anchor attributes before they are provided to scripts. |
+|Object Confirmation|Normal|This is ignored.|
 |Use DN as Anchor|Unchecked|If the Distinguished Name Style is set to LDAP, the anchor attribute for the connector space is also the distinguished name. |
 |Concurrent Operations of Several Connectors|Checked|When checked, multiple Windows PowerShell connectors can run simultaneously. |
 |Partitions|Unchecked|When checked, the connector supports multiple partitions and partition discovery. |
@@ -173,9 +173,9 @@ The capabilities tab defines the behavior and functionality of the connector. Th
 ### Global Parameters
 The Global Parameters tab enables you to configure the Windows PowerShell scripts that are run by the connector. You can also configure global values for custom configuration settings defined on the Connectivity tab.  Configure the global parameters tab with the information provided in the table.
 
- 1. On the **Global Parameters** page, all of the information should be populated.  The table is provided as reference.  Click **Next**.
+ - On the **Global Parameters** page, all of the information should be populated.  The table is provided as reference.  Click **Next**.
 
-:::image type="content" source="media/on-premises-powershell-connector/pshell-5.png" alt-text="Screenshot of the global screen." lightbox="media/on-premises-powershell-connector/pshell-5.png":::
+:::image type="content" source="media/on-premises-powershell-connector/powershell-5.png" alt-text="Screenshot of the global screen." lightbox="media/on-premises-powershell-connector/powershell-5.png":::
 
 |Parameter|Value|
 |-----|-----|
@@ -200,9 +200,9 @@ Keep the defaults and click **next**.
 ### Object types
 Configure the object types tab with the information provided in the table.
 
-1. On the **Object types** page, all of the information should be populated.  The table is provided as reference.  Click **Next**.
+- On the **Object types** page, all of the information should be populated.  The table is provided as reference.  Click **Next**.
 
-:::image type="content" source="media/on-premises-powershell-connector/pshell-13.png" alt-text="Screenshot of the object types screen." lightbox="media/on-premises-powershell-connector/pshell-13.png":::
+:::image type="content" source="media/on-premises-powershell-connector/powershell-13.png" alt-text="Screenshot of the object types screen." lightbox="media/on-premises-powershell-connector/powershell-13.png":::
 
 |Parameter|Value|
 |-----|-----|
@@ -214,7 +214,7 @@ Configure the object types tab with the information provided in the table.
 ### Select Attributes
 Ensure that the following attributes are selected:
 
- 1. On the **Select Attributes** page, all of the information should be populated.  The table is provided as reference.  Click **Next**.
+- On the **Select Attributes** page, all of the information should be populated.  The table is provided as reference.  Click **Next**.
 
 - AzureObjectID
 - IsActive
@@ -224,15 +224,15 @@ Ensure that the following attributes are selected:
 - UserName
 - Email
 
-:::image type="content" source="media/on-premises-powershell-connector/pshell-15.png" alt-text="Screenshot of the select attributes screen." lightbox="media/on-premises-powershell-connector/pshell-15.png":::
+:::image type="content" source="media/on-premises-powershell-connector/powershell-15.png" alt-text="Screenshot of the select attributes screen." lightbox="media/on-premises-powershell-connector/powershell-15.png":::
 
 ### Deprovisioning
 
 On the Deprovisioning page, you can specify if you wish to have Azure AD remove users from the directory when they go out of scope of the application. If so, under Disable flow, select Delete, and under Delete flow, select Delete. If Set attribute value is chosen, the attributes selected on the previous page won't be available to select on the Deprovisioning page.
 
-1. On the **Deprovisioning** page, all of the information should be populated.  The table is provided as reference.  Click **Next**.
+- On the **Deprovisioning** page, all of the information should be populated.  The table is provided as reference.  Click **Next**.
 
-:::image type="content" source="media/on-premises-powershell-connector/pshell-16.png" alt-text="Screenshot of the deprovisioning screen." lightbox="media/on-premises-powershell-connector/pshell-16.png":::
+:::image type="content" source="media/on-premises-powershell-connector/powershell-16.png" alt-text="Screenshot of the deprovisioning screen." lightbox="media/on-premises-powershell-connector/powershell-16.png":::
 
 ## Ensure ECMA2Host service is running and can read from file via PowerShell
 
@@ -327,7 +327,7 @@ You'll use the Azure portal to configure the mapping between the Azure AD user's
      |Direct|mail|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:Email|
      |Expression|Switch([IsSoftDeleted],, "False", "True", "True", "False")|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:IsActive|
  
-:::image type="content" source="media/on-premises-powershell-connector/pshell-8.png" alt-text="Screenshot of attribute mappings." lightbox="media/on-premises-powershell-connector/pshell-8.png":::
+:::image type="content" source="media/on-premises-powershell-connector/powershell-8.png" alt-text="Screenshot of attribute mappings." lightbox="media/on-premises-powershell-connector/powershell-8.png":::
 
  6. Once all of the mappings have been added, select **Save**.
 
