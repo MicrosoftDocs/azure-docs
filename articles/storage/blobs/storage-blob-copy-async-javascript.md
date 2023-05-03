@@ -49,7 +49,7 @@ If the copy source is a blob in a different storage account, the operation can c
 
 The following example shows a scenario for copying a source blob from a different storage account with asynchronous scheduling. In this example, we create a source blob URL with an appended user delegation SAS token. The example shows how to generate the SAS token using the client library, but you can also provide your own. The example also shows how to lease the source blob during the copy operation to prevent changes to the blob from a different client. The `Copy Blob` operation saves the `ETag` value of the source blob when the copy operation starts. If the `ETag` value is changed before the copy operation finishes, the operation fails.
 
-:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/copy-blob.js" id="Snippet_copy_blob_from_azure_async":::
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/copy-blob.js" id="Snippet_copy_from_azure_async":::
 
 > [!NOTE]
 > User delegation SAS tokens offer greater security, as they're signed with Azure AD credentials instead of an account key. To create a user delegation SAS token, the Azure AD security principal needs appropriate permissions. For authorization requirements, see [Get User Delegation Key](/rest/api/storageservices/get-user-delegation-key#authorization).
@@ -66,7 +66,7 @@ To check the status of an asynchronous `Copy Blob` operation, you can poll the [
 
 The following code example shows how to check the status of a pending copy operation:
 
-:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/copy-blob.js" id="Snippet_check_copy_status":::
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/copy-blob.js" id="Snippet_check_copy_status_async":::
 
 ## Abort a copy operation
 
@@ -78,7 +78,7 @@ To abort a pending copy operation, call the following operation:
 
 This method wraps the [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob) REST API operation, which cancels a pending `Copy Blob` operation. The following code example shows how to abort a pending `Copy Blob` operation:
 
-:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/copy-blob.js" id="Snippet_abort_copy":::
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/copy-blob.js" id="Snippet_abort_copy_async":::
 
 ## Resources
 
