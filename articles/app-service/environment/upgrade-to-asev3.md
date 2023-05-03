@@ -4,7 +4,7 @@ description: Take the first steps toward upgrading to App Service Environment v3
 ms.author: jordanselig
 author: seligj95
 ms.topic: overview
-ms.date: 05/03/2023
+ms.date: 05/04/2023
 ---
 
 # Upgrade to App Service Environment v3
