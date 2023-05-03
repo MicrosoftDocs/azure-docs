@@ -50,6 +50,7 @@ Combined registration supports the authentication methods and actions in the fol
 | FIDO2 security keys*| Yes | No | Yes |
 
 > [!NOTE]
+> <b>Microsoft Authenticator</b> if the authentication mode set in policy for Microsoft Authenticator is passwordless, users will need to enable passwordless sign-in from within the Microsoft Authenticator app. Learn more on [user regsitration of passwordless phone sign-in here.](../authentication/howto-authentication-passwordless-phone.md#user-registration). <br />
 > <b>Alternate phone</b> can only be registered in *manage mode* on the [Security info](https://mysignins.microsoft.com/security-info) page and requires Voice calls to be enabled in the Authentication methods policy. <br /> 
 > <b>Office phone</b> can only be registered in *Interrupt mode* if the users *Business phone* property has been set. Office phone can be added by users in *Managed mode from the [Security info](https://mysignins.microsoft.com/security-info)* without this requirement.  <br />
 > <b>App passwords</b> are available only to users who have been enforced for per-user MFA. App passwords aren't available to users who are enabled for Azure AD Multi-Factor Authentication by a Conditional Access policy. <br />
