@@ -18,11 +18,11 @@ Event Grid uses CNCF’s open standard [CloudEvents 1.0](https://github.com/clou
 
 The following table shows the current support for CloudEvents specification:
 
-| CludEvents content mode   | Supported?             | 
+| CloudEvents content mode   | Supported?             | 
 |--------------|-----------|
 | [Structured JSON](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md#32-structured-content-mode) | Yes      |        
-| [Structured JSON batched](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md#33-batched-content-mode)      | Yes  | 5234       |
-| [Binary](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md#31-binary-content-mode) | No|
+| [Structured JSON batched](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md#33-batched-content-mode)      | Yes  |
+|[Binary](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md#31-binary-content-mode) | No|
 
 
 The maximum allowed size for an event is 1 MB. Events over 64 KB are charged in 64-KB increments. For the properties that are sent in an event, see [CloudEvents schema](cloud-event-schema.md).
@@ -34,7 +34,7 @@ Event Grid also supports the proprietary [Event Grid schema](event-schema.md) fo
 
 ## Publishers
 
-A publisher is the application that sends events to Event Grid. It may be the same aplication where the events originated, the [event source](#event-sources). Azure services publish events to Event Grid to announce an occurrence in their service . You can publish events from your own application. Organizations that host services outside of Azure can publish events through Event Grid too.
+A publisher is the application that sends events to Event Grid. It may be the same application where the events originated, the [event source](#event-sources). Azure services publish events to Event Grid to announce an occurrence in their service. You can publish events from your own application. Organizations that host services outside of Azure can publish events through Event Grid too.
 
 ## Event sources
 
@@ -45,7 +45,8 @@ An event source is where the event happens. Each event source is related to one 
 A partner is a kind of publisher that sends events from its system to make them available to Azure customers. A partner is typically a SaaS or [ERP](https://en.wikipedia.org/wiki/Enterprise_resource_planning?) provider that integrates with Azure Event Grid to help customers realize event-driven use cases across platforms. Partners not only can publish events to Azure Event Grid, but they can also receive events from it. These capabilities are enabled through the [Partner Events](partner-events-overview.md) feature.
 
 ## Namespaces
-An Event Grid Namespace is a management container for the following resources:
+An Event Grid Namespace is a management container for the following resources:<br/>
+
 | Resource   | Protocol supported |
 | :--- | :---: |
 | Namespace topics | HTTP |
@@ -54,7 +55,6 @@ An Event Grid Namespace is a management container for the following resources:
 | Client Groups | MQTT |
 | CA Certificates | MQTT |
 | Permission bindings | MQTT |
-|  |   |
 
 With an Azure Event Grid namespace you can group now together related resources and manage them as a single unit in your Azure subscription.
 
@@ -62,14 +62,14 @@ A Namespace exposes two endpoints:
 - An HTTP endpoint to support general messaging requirements using  Namespace Topics 
 - An MQTT endpoint for IoT messaging or solutions that use MQTT.
   
-A Namespace also provides DNS-integrated network endpoints and a range of access control and network integration management features such as IP ingress filtering,private links. It is also the container of managed identities used for all contained resources that use them.
+A Namespace also provides DNS-integrated network endpoints and a range of access control and network integration management features such as IP ingress filtering and private links. It is also the container of managed identities used for all contained resources that use them.
 
 ### Throughput units
 The throughput units are pre-purchased units of capacity billed per hour. Once purchased, throughput units are billed for a minimum of one hour. Up to 5 throughput units can be purchased per Azure Event Grid namespace and shared across all the resources in that namespace.
 
 ## Topics
 
-A topic holds events that have been published to Event Grid. You typically use a topic resource for a collection of related events. To respond to certain types of events, subscribers (an Azure service or other applications) decide which topics to subscribe to. There are several kind of topics: Namespace topics, custom topics, system topics, and partner topics.
+A topic holds events that have been published to Event Grid. You typically use a topic resource for a collection of related events. To respond to certain types of events, subscribers (an Azure service or other applications) decide which topics to subscribe to. There are several kinds of topics: Namespace topics, custom topics, system topics, and partner topics.
 
 ### Namespace topics
 
@@ -116,7 +116,7 @@ For an example of setting an expiration, see [Subscribe with advanced filters](h
 
 ## Event handlers
 
-From an Event Grid perspective, an event handler is the place where the event is sent and when using [push delivery](pull-and-push-delivery-overview.md#pull-delivery). The handler takes some further action to process the event. When using push delivery, Event Grid supports several handler types. You can use a supported Azure service, or your own webhook as the handler. Depending on the type of handler, Event Grid follows different mechanisms to guarantee the delivery of the event. For HTTP webhook event handlers, the event is retried until the handler returns a status code of `200 – OK`. For Azure Storage Queue, the events are retried until the Queue service successfully processes the message push into the queue.
+From an Event Grid perspective, an event handler is the place where the event is sent when using [push delivery](pull-and-push-delivery-overview.md#pull-delivery). The handler takes some further action to process the event. When using push delivery, Event Grid supports several handler types. You can use a supported Azure service, or your own webhook as the handler. Depending on the type of handler, Event Grid follows different mechanisms to guarantee the delivery of the event. For HTTP webhook event handlers, the event is retried until the handler returns a status code of `200 – OK`. For Azure Storage Queue, the events are retried until the Queue service successfully processes the message push into the queue.
 
 For information about delivering events to any of the supported Event Grid handlers, see [Event handlers in Azure Event Grid](event-handlers.md).
 
@@ -126,7 +126,7 @@ Event Grid provides security for subscribing to topics and when  publishing even
 
 ## Event delivery
 
-If Event Grid can't confirm that an event has been received by the subscriber's endpoint whe using push delivery, it redelivers the event. For more information, see [Event Grid message delivery and retry](delivery-and-retry.md).
+If Event Grid can't confirm that an event has been received by the subscriber's endpoint when using push delivery, it redelivers the event. For more information, see [Event Grid message delivery and retry](delivery-and-retry.md).
 
 ## Batching
 
@@ -134,7 +134,7 @@ When you use a custom topic, events must always be published in an array. This c
 
 When using Namespace topics, you can publish a single event without using an array.
 
-For both custom or namespace topics, your application should  batch several events together in an array to attain greater efficiency and higher througput with a single publising request. Batches can be up to 1 MB and the maximum size of an event is 1 MB.
+For both custom or namespace topics, your application should  batch several events together in an array to attain greater efficiency and higher throughput with a single publishing request. Batches can be up to 1 MB and the maximum size of an event is 1 MB.
 
 ## Inline event type definitions
 

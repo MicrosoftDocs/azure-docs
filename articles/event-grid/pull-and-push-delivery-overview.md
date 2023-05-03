@@ -75,7 +75,7 @@ The following are general guidelines to help you decide when to use pull or push
 
 - Your applications or services publish events. Event Grid does not yet support pull delivery when the source of the events is an [Azure service](event-schema-api-management.md?tabs=cloud-event-schema) or a [partner](partner-events-overview.md) (SaaS) system.
 - You need full control as to when to receive events. For example, your application may not up all the time, not stable enough, or you process data at certain times.
-- You need full control over event consumption. For example, a downstream service or layer in your consumer application has a problem that prevents you from processing events. In tha case, the pull delivery API allows to release an already read event back to the broker so that it can be delivered later.
+- You need full control over event consumption. For example, a downstream service or layer in your consumer application has a problem that prevents you from processing events. In that case, the pull delivery API allows to release an already read event back to the broker so that it can be delivered later.
 - You want to use [private links](../private-link/private-endpoint-overview.md) when receiving events. This is possible with pull delivery.
 - You do not have the ability to expose an endpoint and use push delivery, but you can connect to Event Grid to consume events.
 
@@ -85,7 +85,7 @@ The following are general guidelines to help you decide when to use pull or push
 - You have an application that cannot make outbound calls. For example, your organization may be concerned about data exfiltration. However, your application can receive events through a public endpoint.
 
 ## Pull delivery
-Pull delivery is available through [namespace topics](concepts.md#topics), which are topics that you create inside a [namespace](concepts.md#namespaces). Your application publish CloudEvents to a single namespace HTTP endpoint specifying the target topic.
+Pull delivery is available through [namespace topics](concepts.md#topics), which are topics that you create inside a [namespace](concepts.md#namespaces). Your application publishes CloudEvents to a single namespace HTTP endpoint specifying the target topic.
 
 >[!Note]
 > - Namespaces provide a simpler resource model featuring a single kind of topic. Currently, Event Grid supports publishig your own application events through namespace topics. You cannot consume events from Azure services or partner SaaS systems using namespace topics. You also cannot create system topics, domain topics or partner topics in a namespace.
@@ -121,9 +121,9 @@ The following diagram illustrates the resources that support push delivery with 
 
 :::image type="content" source="media/pull-and-push-delivery-overview/push-delivery.svg" alt-text="High-level diagram showing all the topic types that support push delivery, namely System, Custom, Domain, and Partner topics." lightbox="media/pull-and-push-delivery-overview/push-delivery.svg":::
 
-## next steps
+## Next steps
 
-The following articles provides you with information on how to use Event Grid or provide you with additional information on concepts.
+The following articles provide you with information on how to use Event Grid or provide you with additional information on concepts.
 
 ### Pull delivery
 
