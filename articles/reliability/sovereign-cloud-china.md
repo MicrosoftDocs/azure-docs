@@ -84,9 +84,9 @@ The table below lists ways to connect to your Azure account in Azure Global vs. 
 
 | Sign in description | Azure Global | Azure in China |
 |--------------|-----------|------| 
-| Sign into your Azure classic portal account | Add-AzureAccount | Add-AzureAccount -Environment AzureChinaCloud |
-| Sign into Azure with an authenticated account for use with Azure Resource Manager| Connect-AzureRmAccount | Connect-AzureRmAccount -Environment AzureChinaCloud|
+| Sign into Azure with an authenticated account for use with Azure Resource Manager| Connect-AzureAccount | Connect-AzureAccount -Environment AzureChinaCloud|
 | Sign into Azure Active Directory with Microsoft Graph PowerShell | Connect-MgGraph | Connect-MgGraph -AzureEnvironment China|
+| Sign into your Azure classic portal account | Add-AzureAccount | Add-AzureAccount -Environment AzureChinaCloud |
 
 ## Azure in China REST endpoints
 
