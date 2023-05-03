@@ -130,7 +130,7 @@ The ARM64 processor provides low power compute for your Kubernetes workloads. To
 
 Use `az aks nodepool add` command to add an ARM64 node pool.
 
-```azurecli
+```azurecli-interactive
 az aks nodepool add \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
@@ -145,7 +145,7 @@ Mariner is an open-source Linux distribution available as an AKS container host.
 
 You can add a Mariner node pool into your existing cluster using the `az aks nodepool add` command and specifying `--os-sku mariner`.
 
-```azurecli
+```azurecli-interactive
 az aks nodepool add \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
@@ -166,7 +166,7 @@ Use the following instructions to migrate your Ubuntu nodes to Mariner nodes.
 3. [Drain the existing Ubuntu nodes][drain-nodes].
 4. Remove the existing Ubuntu nodes using the `az aks delete` command.
 
-```azurecli
+```azurecli-interactive
 az aks nodepool delete \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
@@ -317,7 +317,7 @@ az aks nodepool scale \
 
 List the status of your node pools again using the [`az aks node pool list`][az-aks-nodepool-list] command. The following example shows that *mynodepool* is in the *Scaling* state with a new count of *5* nodes:
 
-```azurecli
+```azurecli-interactive
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ```
 
@@ -369,7 +369,7 @@ az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name myn
 
 The following example output from the [`az aks node pool list`][az-aks-nodepool-list] command shows that *mynodepool* is in the *Deleting* state:
 
-```azurecli
+```azurecli-interactive
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ```
 
@@ -416,13 +416,13 @@ For more information on the capacity reservation groups, please refer to [Capaci
 
 To install the aks-preview extension, run the following command:
 
-```azurecli
+```azurecli-interactive
 az extension add --name aks-preview
 ```
 
 Run the following command to update to the latest version of the extension released:
 
-```azurecli
+```azurecli-interactive
 az extension update --name aks-preview
 ```
 
@@ -490,7 +490,7 @@ az aks nodepool add \
 
 The following example output from the [`az aks node pool list`][az-aks-nodepool-list] command shows that *gpunodepool* is *Creating* nodes with the specified *VmSize*:
 
-```azurecli
+```azurecli-interactive
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ```
 
@@ -548,7 +548,7 @@ az aks nodepool add \
 
 The following example output from the [`az aks nodepool list`][az-aks-nodepool-list] command shows that *taintnp* is *Creating* nodes with the specified *nodeTaints*:
 
-```azurecli
+```azurecli-interactive
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ```
 
@@ -608,13 +608,13 @@ spec:
 
 Schedule the pod using the `kubectl apply -f nginx-toleration.yaml` command:
 
-```console
+```bash
 kubectl apply -f nginx-toleration.yaml
 ```
 
 It takes a few seconds to schedule the pod and pull the NGINX image. Use the [kubectl describe pod][kubectl-describe] command to view the pod status. The following condensed example output shows the *sku=gpu:NoSchedule* toleration is applied. In the events section, the scheduler has assigned the pod to the *aks-taintnp-28993262-vmss000000* node:
 
-```console
+```bash
 kubectl describe pod mypod
 ```
 

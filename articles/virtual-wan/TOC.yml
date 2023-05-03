@@ -32,7 +32,7 @@
   - name: Work remotely
     items:
     - name: Support for working remotely
-      href: ../networking/working-remotely-support.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
+      href: ../networking/working-remotely-support.md?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
     - name: Leverage Virtual WAN
       href: work-remotely-support.md
   - name: Virtual WAN FAQ
@@ -45,6 +45,8 @@
       href: virtual-wan-locations-partners.md
     - name: Automation guidelines for partners
       href: virtual-wan-configure-automation-providers.md
+    - name: Software-as-a-service (SaaS)
+      href: how-to-palo-alto-cloud-ngfw.md
   - name: Architecture
     items: 
     - name: Migrate to Virtual WAN
@@ -53,8 +55,10 @@
       href: virtual-wan-global-transit-network-architecture.md
     - name: SD-WAN connectivity architecture
       href: sd-wan-connectivity-architecture.md
+    - name: Private Link and DNS architecture for Virtual WAN
+      href: /azure/architecture//guide/networking/private-link-virtual-wan-dns-guide?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
     - name: Configure Virtual WAN for Azure NetApp Files
-      href: ../azure-netapp-files/configure-virtual-wan.md
+      href: ../azure-netapp-files/configure-virtual-wan.md?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
     - name: Interconnect with China
       href: interconnect-china.md
   - name: Routing
@@ -116,9 +120,9 @@
   - name: Gateway settings
     href: gateway-settings.md
   - name: Secured virtual hubs
-    href: ../firewall-manager/secured-virtual-hub.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
+    href: ../firewall-manager/secured-virtual-hub.md?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
   - name: Security baseline
-    href: /security/benchmark/azure/baselines/virtual-wan-security-baseline?toc=/azure/virtual-wan/TOC.json
+    href: /security/benchmark/azure/baselines/virtual-wan-security-baseline?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
   - name: Pricing explained
     href: pricing-concepts.md
 - name: How-to guides
@@ -265,6 +269,8 @@
       href: howto-firewall.md
     - name: Inter-hub and branch-to-branch via Azure Firewall
       href: how-to-routing-policies.md
+    - name: Software-as-a-service (SaaS)
+      href: how-to-palo-alto-cloud-ngfw.md
     - name: Configure Private Link connectivity
       href: howto-private-link.md
     - name: Manage access to resources - Spoke VNet P2S
@@ -302,7 +308,7 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/virtual-wan
   - name: Subscription and service limits
-    href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
   - name: Networking Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Networking blog

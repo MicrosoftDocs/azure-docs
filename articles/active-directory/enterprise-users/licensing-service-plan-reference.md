@@ -13,7 +13,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/20/2023
+ms.date: 05/03/2023
 ms.author: nicholak
 ms.reviewer: Nicholak-MS
 ms.custom: "it-pro;seo-update-azuread-jan"
@@ -32,7 +32,7 @@ When managing licenses in [the Azure portal](https://portal.azure.com/#blade/Mic
 - **Service plans included (friendly names)**: A list of service plans (friendly names) in the product that correspond to the string ID and GUID
 
 >[!NOTE]
->This information last updated on April 20th, 2023.<br/>You can also download a CSV version of this table [here](https://download.microsoft.com/download/e/3/e/e3e9faf2-f28b-490a-9ada-c6089a1fc5b0/Product%20names%20and%20service%20plan%20identifiers%20for%20licensing.csv).
+>This information last updated on May 3rd, 2023.<br/>You can also download a CSV version of this table [here](https://download.microsoft.com/download/e/3/e/e3e9faf2-f28b-490a-9ada-c6089a1fc5b0/Product%20names%20and%20service%20plan%20identifiers%20for%20licensing.csv).
 ><br/>
 
 | Product name | String ID | GUID | Service plans included | Service plans included (friendly names) |
@@ -244,7 +244,6 @@ When managing licenses in [the Azure portal](https://portal.azure.com/#blade/Mic
 | Microsoft Teams Phone Standard_USGOV_GCCHIGH	| MCOEV_USGOV_GCCHIGH	| 985fcb26-7b94-475b-b512-89356697be71	| MCOEV (4828c8ec-dc2e-4779-b502-87ac9ce28ab7) |  MICROSOFT 365 PHONE SYSTEM (4828c8ec-dc2e-4779-b502-87ac9ce28ab7) |
 | Microsoft Teams Phone Resoure Account | PHONESYSTEM_VIRTUALUSER | 440eaaa8-b3e0-484b-a8be-62870b9ba70a | MCOEV_VIRTUALUSER (f47330e9-c134-43b3-9993-e7f004506889) | Microsoft 365 Phone Standard Resource Account (f47330e9-c134-43b3-9993-e7f004506889)|
 | Microsoft Teams Phone Resource Account for GCC | PHONESYSTEM_VIRTUALUSER_GOV | 2cf22bcb-0c9e-4bc6-8daf-7e7654c0f285 | MCOEV_VIRTUALUSER_GOV (0628a73f-3b4a-4989-bd7b-0f8823144313) | Microsoft 365 Phone Standard Resource Account for Government (0628a73f-3b4a-4989-bd7b-0f8823144313) |
-| Microsoft Teams Premium | Microsoft_Teams_Premium | 989a1621-93bc-4be0-835c-fe30171d6463 | MICROSOFT_ECDN (85704d55-2e73-47ee-93b4-4b8ea14db92b)<br/>TEAMSPRO_MGMT (0504111f-feb8-4a3c-992a-70280f9a2869)<br/>TEAMSPRO_CUST (cc8c0802-a325-43df-8cba-995d0c6cb373)<br/>TEAMSPRO_PROTECTION (f8b44f54-18bb-46a3-9658-44ab58712968)<br/>TEAMSPRO_VIRTUALAPPT (9104f592-f2a7-4f77-904c-ca5a5715883f)<br/>MCO_VIRTUAL_APPT (711413d0-b36e-4cd4-93db-0a50a4ab7ea3)<br/>TEAMSPRO_WEBINAR (78b58230-ec7e-4309-913c-93a45cc4735b) | Microsoft eCDN (85704d55-2e73-47ee-93b4-4b8ea14db92b)<br/>Microsoft Teams Premium Intelligent (0504111f-feb8-4a3c-992a-70280f9a2869)<br/>Microsoft Teams Premium Personalized (cc8c0802-a325-43df-8cba-995d0c6cb373)<br/>Microsoft Teams Premium Secure (f8b44f54-18bb-46a3-9658-44ab58712968)<br/>Microsoft Teams Premium Virtual Appointment (9104f592-f2a7-4f77-904c-ca5a5715883f)<br/>Microsoft Teams Premium Virtual Appointments (711413d0-b36e-4cd4-93db-0a50a4ab7ea3)<br/>Microsoft Teams Premium Webinar (78b58230-ec7e-4309-913c-93a45cc4735b) |
 | Microsoft Teams Premium Introductory Pricing | Microsoft_Teams_Premium | 36a0f3b3-adb5-49ea-bf66-762134cf063a | MICROSOFT_ECDN (85704d55-2e73-47ee-93b4-4b8ea14db92b)<br/>TEAMSPRO_MGMT (0504111f-feb8-4a3c-992a-70280f9a2869)<br/>TEAMSPRO_CUST (cc8c0802-a325-43df-8cba-995d0c6cb373)<br/>TEAMSPRO_PROTECTION (f8b44f54-18bb-46a3-9658-44ab58712968)<br/>TEAMSPRO_VIRTUALAPPT (9104f592-f2a7-4f77-904c-ca5a5715883f)<br/>MCO_VIRTUAL_APPT (711413d0-b36e-4cd4-93db-0a50a4ab7ea3)<br/>TEAMSPRO_WEBINAR (78b58230-ec7e-4309-913c-93a45cc4735b) | Microsoft eCDN (85704d55-2e73-47ee-93b4-4b8ea14db92b)<br/>Microsoft Teams Premium Intelligent (0504111f-feb8-4a3c-992a-70280f9a2869)<br/>Microsoft Teams Premium Personalized (cc8c0802-a325-43df-8cba-995d0c6cb373)<br/>Microsoft Teams Premium Secure (f8b44f54-18bb-46a3-9658-44ab58712968)<br/>Microsoft Teams Premium Virtual Appointment (9104f592-f2a7-4f77-904c-ca5a5715883f)<br/>Microsoft Teams Premium Virtual Appointments (711413d0-b36e-4cd4-93db-0a50a4ab7ea3)<br/>Microsoft Teams Premium Webinar (78b58230-ec7e-4309-913c-93a45cc4735b) |
 | Microsoft Teams Rooms Basic | Microsoft_Teams_Rooms_Basic | 6af4b3d6-14bb-4a2a-960c-6c902aad34f3 | MCOMEETADV (3e26ee1f-8a5f-4d52-aee2-b81ce45c8f40)<br/>TEAMS1 (57ff2da0-773e-42df-b2af-ffb7a2317929)<br/>WHITEBOARD_PLAN3 (4a51bca5-1eff-43f5-878c-177680f191af) | Microsoft 365 Audio Conferencing (3e26ee1f-8a5f-4d52-aee2-b81ce45c8f40)<br/>Microsoft Teams (57ff2da0-773e-42df-b2af-ffb7a2317929)<br/>Whiteboard (Plan 3) (4a51bca5-1eff-43f5-878c-177680f191af) |
 | Microsoft Teams Rooms Basic without Audio Conferencing | Microsoft_Teams_Rooms_Basic_without_Audio_Conferencing | 50509a35-f0bd-4c5e-89ac-22f0e16a00f8 | TEAMS1 (57ff2da0-773e-42df-b2af-ffb7a2317929)<br/>WHITEBOARD_PLAN3 (4a51bca5-1eff-43f5-878c-177680f191af) | Microsoft Teams (57ff2da0-773e-42df-b2af-ffb7a2317929)<br/>Whiteboard (Plan 3) (4a51bca5-1eff-43f5-878c-177680f191af) |
