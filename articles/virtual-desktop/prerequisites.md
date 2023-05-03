@@ -48,9 +48,6 @@ You also need to make sure you've registered the *Microsoft.DesktopVirtualizatio
 
 # [Azure CLI](#tab/cli)
 
-> [!IMPORTANT]
-> In the following examples, you'll need to change the `<placeholder>` values for your own.
-
 [!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
 
 2. Register the **Microsoft.DesktopVirtualization** resource provider by running the following command. You can run this even if the resource provider is already registered.
@@ -68,9 +65,6 @@ You also need to make sure you've registered the *Microsoft.DesktopVirtualizatio
    ```
 
 # [Azure PowerShell](#tab/powershell)
-
-> [!IMPORTANT]
-> In the following examples, you'll need to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
