@@ -123,4 +123,5 @@ App roles enable the client app to obtain an access token as themselves. This is
 
 ## Next steps
  
+- Learn more about a [daemon app that calls a web API in the daemon's name](/azure/active-directory/develop/authentication-flows-app-scenarios#daemon-app-that-calls-a-web-api-in-the-daemons-name)
 - [Create a sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md)
