@@ -221,7 +221,6 @@ By default, the application runs via a JavaScript file called *App.js*. It needs
 
    import { PageLayout } from './components/PageLayout';
    import { loginRequest } from './authConfig';
-   import { ProfileData } from './components/ProfileData';
 
    import { AuthenticatedTemplate, UnauthenticatedTemplate, useMsal } from '@azure/msal-react';
 
