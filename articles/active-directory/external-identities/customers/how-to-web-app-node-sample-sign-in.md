@@ -40,8 +40,6 @@ In this article, you do the following tasks:
 
 - Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial). 
 
-<!--Awaiting this link http://developer.microsoft.com/identity/customers to go live on Developer hub-->
-
 
 ## Register the web app
 
