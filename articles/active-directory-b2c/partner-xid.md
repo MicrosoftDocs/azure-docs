@@ -15,62 +15,71 @@ ms.subservice: B2C
 
 # Configure xID with Azure Active Directory B2C for passwordless authentication
 
-In this sample tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2C) authentication with the xID digital ID solution. The xID app provides users with passwordless, secure, multifactor authentication. xID-authenticated users obtain their identities verified by a My Number Card, the digital ID card issued by the Japanese government. Organizations can get users verified Personal Identification Information (customer content) through the xID API. Furthermore, the xID app generates a private key in a secure area within user's mobile device, which can be used as a digital signing device.
-
+In this tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) authentication with the xID digital ID solution. The xID app provides users with passwordless, secure, multifactor authentication. xID-authenticated user identities are verified by a My Number Card, the digital ID card issued by the Japanese government. For their users, organizations can get verified Personal Identification Information (customer content) through the xID API. Furthermore, the xID app generates a private key in a secure area in user mobile devices, making them digital signing devices.
 
 ## Prerequisites
 
-To get started, you'll need:
-
-- An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-
-- An [Azure AD B2C tenant](./tutorial-create-tenant.md) that's linked to your Azure subscription.
-
-- Your xID client information provided by xID inc. [Contact xID](https://xid.inc/contact-us) for the xID client information that should include the following parameters:
-  - Client ID
-  - Client Secret
-  - Redirect URL
-  - Scopes
-- Download and install the [xID app](https://x-id.me/) on your mobile device.
-  - To complete registration, you'll need your own My Number Card.
-  - If you use the UAT version of API, you'll also need UAT version of xID app. To install UAT app, [contact xID inc](https://xid.inc/contact-us).
+* An Azure AD subscription
+  * If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
+* An Azure AD B2C tenant linked to the Azure subscription
+  * See, [Tutorial: Create an Azure Active Directory B2C tenant](./tutorial-create-tenant.md)
+* Your xID client information provided by xID inc. 
+* Go to the xid.inc [Contact Us](https://xid.inc/contact-us) page for xID client information:
+  * Client ID
+  * Client Secret
+  * Redirect URL
+  * Scopes
+* Go to x-id.me to install the [xID app](https://x-id.me/) on a mobile device
+  * My Number Card
+  * If you use API UAT version, get the xID app UAT version. See, [Contact Us](https://xid.inc/contact-us)
 
 ## Scenario description
 
-The following architecture diagram shows the implementation.
+The following diagram shows the architecture.
 
-![image shows the architecture diagram](./media/partner-xid/partner-xid-architecture-diagram.png)
+![Diagram of the xID architecture.](./media/partner-xid/partner-xid-architecture-diagram.png)
 
-| Step | Description                                                                                                                                                                                                                                                                                                                      |
-| :--- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1.   | User opens Azure AD B2C's sign-in page and then signs in or signs up by entering their username.                                                                                                                                                                                                                                 |
-| 2.   | Azure AD B2C redirects the user to xID authorize API endpoint using an OpenID Connect (OIDC) request. An OIDC endpoint is available containing information about the endpoints. xID Identity provider (IdP) redirects the user to the xID authorization sign-in page allowing the user to fill in or select their email address. |
-| 3.   | xID IdP sends the push notification to the user's mobile device.                                                                                                                                                                                                                                                                 |
-| 4.   | The user opens the xID app, checks the request, then enters the PIN or authenticates with their biometrics. If PIN or biometrics is successfully verified, xID app activates the private key and creates an electronic signature.                                                                                                |
-| 5.   | xID app sends the signature to xID IdP for verification.                                                                                                                                                                                                                                                                         |
-| 6.   | xID IdP shows a consent screen to the user, requesting authorization to give their personal information to the service they're signing in.                                                                                                                                                                                       |
-| 7.   | xID IdP returns the OAuth authorization code to Azure AD B2C.                                                                                                                                                                                                                                                                    |
-| 8.   | Azure AD B2C sends a token request using the authorization code.                                                                                                                                                                                                                                                                 |
-| 9.   | xID IdP checks the token request and, if still valid, returns the OAuth access token and the ID token containing the requested user's identifier and email address.                                                                                                                                                              |
-| 10.  | In addition, if the user's customer content is needed, Azure AD B2C calls the xID userdata API.                                                                                                                                                                                                                                  |
-| 11.  | The xID userdata API returns the user's encrypted customer content. Users can decrypt it with their private key, which they create when requesting the xID client information.                                                                                                                                                   |
-| 12.  | User is either granted or denied access to the customer application based on the verification results.                                                                                                                                                                                                                           |
+1. At the Azure AD B2C sign-in page user signs in or signs up.
+2. Azure AD B2C redirects the user to xID authorize API endpoint using an OpenID Connect (OIDC) request. An OIDC endpoint has endpoint information. xID identity provider (IdP) redirects the user to the xID authorization sign in page. User enters email address.
+3. xID IdP sends push notification to user mobile device.
+4. User opens the xID app, checks the request, enters a PIN, or uses biometrics. xID app activates the private key and creates an electronic signature.
+5. xID app sends the signature to xID IdP for verification.
+6. A consent screen appears to give personal information to the service.
+7. xID IdP returns the OAuth authorization code to Azure AD B2C.
+8. Azure AD B2C sends a token request using the authorization code.
+9. xID IdP checks the token request. If valid, OAuth access token is returned and the ID token with user identifier and email address.
+10. If user customer content is needed, Azure AD B2C calls the xID userdata API.
+11. The xID userdata API returns encrypted customer content. Users decrypt with a private key, created when requesting xID client information.
+12. User is granted or denied access to the customer application.
 
 
-## Onboard with xID
+## Install xID
 
-Request API documents by filling out [the request form](https://xid.inc/contact-us). In the message field, indicate that you'd like to onboard with Azure AD B2C. Then, an xID sales representative will contact you. Follow the instructions provided in the xID API document and request an xID API client. xID tech team will send client information to you in 3-4 working days.
-Supply redirect URI. This is the URI in your site to which the user is returned after a successful authentication. The URI that should be provided to xID for your Azure AD B2C follows the pattern - `https://<your-b2c-domain>.b2clogin.com/<your-b2c-domain>.onmicrosoft.com/oauth2/authresp`.
+1. To request API documents, fil out the request form.  Go to [Contact Us](https://xid.inc/contact-us). 
+2. In the message, indicate you're using Azure AD B2C. 
+3. An xID sales representative contacts you. 
+4. Follow the instructions in the xID API document.
+5. Request an xID API client. 
+6. xID tech team sends client information to you in 3-4 business days.
+7. Supply a redirect URI in your site using the following pattern. Users return to it after authentication. 
 
-## Step 1: Register a web application in Azure AD B2C
+`https://<your-b2c-domain>.b2clogin.com/<your-b2c-domain>.onmicrosoft.com/oauth2/authresp`
 
-Before your [applications](application-types.md) can interact with Azure AD B2C, they must be registered in a tenant that you manage.
+## Register a web application in Azure AD B2C
 
-For testing purposes like this tutorial, you're registering  `https://jwt.ms`, a Microsoft-owned web application that displays the decoded contents of a token (the contents of the token never leave your browser).
+Register applications in a tenant you manage, then they can interact with Azure AD B2C.
 
-Follow the steps mentioned in [this tutorial](tutorial-register-applications.md?tabs=app-reg-ga) to **register a web application** and **enable ID token implicit grant** for testing a user flow or custom policy. There's no need to create a Client Secret at this time.
+Learn more: [Application types that can be used in Active Directory B2C](application-types.md)
 
-## Step 2: Create a xID policy key
+For testing, you register `https://jwt.ms`, a Microsoft web application with decoded token contents, which don't leave your browser.
+
+### Register a web application and enable ID token implicit grant
+
+Complete [Tutorial: Register a web application in Azure AD B2C](tutorial-register-applications.md?tabs=app-reg-ga) 
+
+For the tutorial, don't create a Client Secret.
+
+## Create a xID policy key
 
 Store the client secret that you received from xID in your Azure AD B2C tenant.
 
