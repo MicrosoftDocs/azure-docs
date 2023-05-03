@@ -49,49 +49,49 @@ This article describes how to deploy and configure the VMs, install the cluster 
 
 Before you begin, read the following SAP Notes and papers:
 
-- SAP Note [1928533], which has:
+- SAP Note [1928533]. The note includes:
 
   - The list of Azure VM sizes that are supported for the deployment of SAP software.
   - Important capacity information for Azure VM sizes.
   - The supported SAP software, operating system (OS), and database combinations.
   - The required SAP kernel versions for Windows and Linux on Microsoft Azure.
 - SAP Note [2015553] lists the prerequisites for SAP-supported SAP software deployments in Azure.
-- SAP Note [2205917] has recommended OS settings for SUSE Linux Enterprise Server for SAP Applications.
-- SAP Note [1944799] has SAP HANA Guidelines for SUSE Linux Enterprise Server for SAP Applications.
+- SAP Note [2205917] has recommended OS settings for SUSE Linux Enterprise Server (SLES) for SAP Applications.
+- SAP Note [1944799] has SAP HANA guidelines for SLES for SAP Applications.
 - SAP Note [2178632] has detailed information about all the monitoring metrics that are reported for SAP in Azure.
-- SAP Note [2191498] has the required SAP Host Agent version for Linux in Azure.
-- SAP Note [2243692] has information about SAP licensing on Linux in Azure.
+- SAP Note [2191498] has the required SAP host agent version for Linux in Azure.
+- SAP Note [2243692] has information about SAP licensing for Linux in Azure.
 - SAP Note [1984787] has general information about SUSE Linux Enterprise Server 12.
 - SAP Note [1999351] has more troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
-- SAP Note [401162] has information on how to avoid "address already in use" when you set up HANA system replication.
+- SAP Note [401162] has information about how to avoid "address already in use" errors when you set up HANA system replication.
 - [SAP Community Support Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all the required SAP Notes for Linux.
 - [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120).
 - [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide] guide.
-- [Azure Virtual Machines deployment for SAP on Linux][deployment-guide] (this article).
+- [Azure Virtual Machines deployment for SAP on Linux][deployment-guide] guide.
 - [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide] guide.
 - [SUSE Linux Enterprise Server for SAP Applications 12 SP3 best practices guides][sles-for-sap-bp]:
 
-  - Set up an SAP HANA SR Performance Optimized Infrastructure (SLES for SAP Applications 12 SP1). The guide contains all the required information to set up SAP HANA system replication for on-premises development. Use this guide as a baseline.
-  - Set up an SAP HANA SR Cost Optimized Infrastructure (SLES for SAP Applications 12 SP1).
+  - Settting up an SAP HANA SR Performance Optimized Infrastructure (SLES for SAP Applications 12 SP1). The guide contains all the required information to set up SAP HANA system replication for on-premises development. Use this guide as a baseline.
+  - Settting up an SAP HANA SR Cost Optimized Infrastructure (SLES for SAP Applications 12 SP1).
 
-## Plan SAP HANA high availability
+## Plan for SAP HANA high availability
 
 To achieve high availability, install SAP HANA on two VMs. The data is replicated by using HANA system replication.
 
 :::image type="content" source="media/sap-hana-high-availability/ha-suse-hana.png" border="false" alt-text="Diagram that shows an SAP HANA high availability overview.":::
 
-The SAP HANA system replication setup uses a dedicated virtual host name and virtual IP addresses. On Azure, a load balancer must use a virtual IP address.
+The SAP HANA system replication setup uses a dedicated virtual host name and virtual IP addresses. In Azure, a load balancer must use a virtual IP address.
 
 The preceding figure shows an *example* load balancer that has these configurations:
 
-- Front-end IP address: 10.0.0.13 for *HN1*-db
-- Probe port: 625*03*
+- Front-end IP address: 10.0.0.13 for HN1-db
+- Probe port: 62503
 
 ## Deploy for Linux
 
 The resource agent for SAP HANA is included in SUSE Linux Enterprise Server for SAP Applications.
 
-Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP Applications 12. You can use the image to deploy new VMs.
+An image for SUSE Linux Enterprise Server for SAP Applications 12 is available in Azure Marketplace. You can use the image to deploy new VMs.
 
 ### Deploy by using a template
 
@@ -101,7 +101,7 @@ To deploy the template:
 
 1. In the Azure portal, open the [database template][template-multisid-db] or the [converged template][template-converged].
 
-   The *database* template creates the load-balancing rules only for a database. The *converged* template also creates the load-balancing rules for an SAP ASCS/SCS and SAP ERS (Linux only) instance. If you plan to install an SAP NetWeaver-based system and you want to install the ASCS/SCS instance on the same machines, use the [converged template][template-converged].
+   The *database template* creates the load-balancing rules only for a database. The *converged template* creates load-balancing rules for a database, and also for an SAP ASCS/SCS instance and an SAP ERS (Linux only) instance. If you plan to install an SAP NetWeaver-based system and you want to install the ASCS/SCS instance on the same machines, use the [converged template][template-converged].
 
 1. Enter the following parameters in the template you choose:
 
@@ -112,32 +112,45 @@ To deploy the template:
    - **Sap System Size**: Enter the number of SAP Application Performance Standard units (SAPS) the new system will provide. If you're not sure how many SAPS the system requires, ask your SAP Technology Partner or System Integrator.
    - **System Availability**: Select **HA**.
    - **Admin Username and Admin Password**: Create a new user and password that you can use to sign in to the machine.
-   - **New Or Existing Subnet**: Determines whether a new virtual network and subnet should be created or an existing subnet is used. If you already have a virtual network that's connected to your on-premises network, select **Existing**.
-   - **Subnet ID**: If you want to deploy the VM into an existing virtual network in which you have a subnet defined, the VM should be assigned to the name the ID of that specific subnet. The ID usually looks like `/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<virtual network name>/subnets/<subnet name>`.
+   - **New Or Existing Subnet**: If you already have a virtual network that's connected to your on-premises network, select **Existing**. Otherwise, select **New** and create a new virtual network and subnet.
+   - **Subnet ID**: If you want to deploy the VM to an existing virtual network that has a defined subnet, the VM should be assigned to the name the ID of that specific subnet. The ID usually is in this format:
+   
+     /subscriptions/\<subscription ID\>/resourceGroups/\<resource group name\>/providers/Microsoft.Network/virtualNetworks/\<virtual network name\>/subnets/\<subnet name\>
 
 ### Manual deployment
 
 > [!IMPORTANT]
-> Make sure that the OS you select is SAP-certified for SAP HANA on the specific VM types you use in the deployment. You can look up SAP HANA-certified VM types and their OS releases [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120). Make sure that you look at the details of the VM type to get the complete list of SAP HANA-supported OS releases for the specific VM type.
+> Make sure that the OS you select is SAP certified for SAP HANA on the specific VM types that you plan to use in your deployment. You can look up SAP HANA-certified VM types and their OS releases in [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120). Make sure that you look at the details of the VM type to get the complete list of SAP HANA-supported OS releases for the specific VM type.
+
+To manually deploy SAP HANA system replication:
 
 1. Create a resource group.
+
 1. Create a virtual network.
+
 1. Create an availability set.
 
-   - Set the max update domain.
-1. Create a load balancer (internal). We recommend that you use the [standard load balancer](../../load-balancer/load-balancer-overview.md). Select the virtual network you created in step 2.
+    - Set the max update domain.
+
+1. Create a load balancer (internal). 
+
+   - We recommend that you use the [standard load balancer](../../load-balancer/load-balancer-overview.md).
+   - Select the virtual network you created in step 2.
+
 1. Create virtual machine 1.
 
-   - Use a SLES4SAP image in the Azure gallery that's supported for SAP HANA on the VM type you selected.
+   - Use an SLES4SAP image in the Azure gallery that's supported for SAP HANA on the VM type you selected.
    - Select the availability set you created in step 3.
+
 1. Create virtual machine 2.
 
-   - Use a SLES4SAP image in the Azure gallery that's supported for SAP HANA on the VM type you selected.
+   - Use an SLES4SAP image in the Azure gallery that's supported for SAP HANA on the VM type you selected.
    - Select the availability set you created in step 3. 
+
 1. Add data disks.
 
    > [!IMPORTANT]
-   > A floating IP address isn't supported on a NIC secondary IP configuration in load-balancing scenarios. For details, see [Azure Load Balancer limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need an additional IP address for the VM, deploy a second NIC.   
+   > A floating IP address isn't supported on a network interface card (NIC) secondary IP configuration in load-balancing scenarios. For details, see [Azure Load Balancer limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need another IP address for the VM, deploy a second NIC.   
 
    > [!NOTE]
    > When VMs that don't have public IP addresses are placed in the back-end pool of an internal (no public IP address) standard instance of Azure Load Balancer, the default configuration is no outbound internet connectivity. You can take extra steps to allow routing to public endpoints. For details on how to achieve outbound connectivity, see [Public endpoint connectivity for VMs by using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
@@ -147,36 +160,55 @@ To deploy the template:
    1. Create a front-end IP pool:
    
       1. Open the load balancer, select **frontend IP pool**, and then select **Add**.
+
       1. Enter the name of the new front-end IP pool (for example, **hana-frontend**).
+
       1. Set **Assignment** to **Static** and enter the IP address (for example, **10.0.0.13**).
+
       1. Select **OK**.
+
       1. After the new front-end IP pool is created, note the pool IP address.
    
    1. Create a single back-end pool: 
  
-      1. Open the load balancer, select **Backend pools**, and then select **Add**.
+      1. In the load balancer, select **Backend pools**, and then select **Add**.
+
       1. Enter the name of the new back-end pool (for example, **hana-backend**).
+
       1. For **Backend Pool Configuration**, select **NIC**. 
+
       1. Select **Add a virtual machine**.
+
       1. Select the VMs that are in the HANA cluster.
-      1. Select **Add**.     
+
+      1. Select **Add**.
+
       2. Select **Save**.
    
    1. Create a health probe:
    
-      1. Open the load balancer, select **health probes**, and then select **Add**.
+      1. In the load balancer, select **health probes**, and then select **Add**.
+
       1. Enter the name of the new health probe (for example, **hana-hp**).
+
       1. For **Protocol**, select **TCP** and select port **625\<instance number\>**. Keep **Interval** set to **5**.
+
       1. Select **OK**.
    
    1. Create the load-balancing rules:
    
-      1. Open the load balancer, select **load balancing rules**, and then select **Add**.
+      1. In the load balancer, select **load balancing rules**, and then select **Add**.
+
       1. Enter the name of the new load balancer rule (for example, **hana-lb**).
+
       1. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**, **hana-backend**, and **hana-hp**).
+
       1. Increase the idle timeout to 30 minutes.
+
       1. Select **HA Ports**.
+
       1. Enable **Floating IP**.
+
       1. Select **OK**.
 
    For more information about the required ports for SAP HANA, read the chapter [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) in the [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) guide or [SAP Note 2388694][2388694].
@@ -202,7 +234,7 @@ Replace `<placeholders>` with the values for your SAP HANA installation.
 
    We recommend that you use LVM for volumes that store data and log files. The following example assumes that the VMs have four attached data disks that are used to create two volumes.
 
-   1. List all the available disks:
+   1. Run this command to list all the available disks:
 
       ```bash
       /dev/disk/azure/scsi1/lun*
@@ -233,14 +265,14 @@ Replace `<placeholders>` with the values for your SAP HANA installation.
 
    1. Create the logical volumes.
 
-      A linear volume is created when you use `lvcreate` without the `-i` switch. We suggest that you create a striped volume for better I/O performance, and align the stripe sizes to the values that are described in [SAP HANA VM storage configurations](./hana-vm-operations-storage.md). The `-i` argument should be the number of underlying physical volumes, and the `-I` argument is the stripe size. 
+      A linear volume is created when you use `lvcreate` without the `-i` switch. We suggest that you create a striped volume for better I/O performance. Align the stripe sizes to the values that are described in [SAP HANA VM storage configurations](./hana-vm-operations-storage.md). The `-i` argument should be the number of underlying physical volumes, and the `-I` argument is the stripe size. 
 
-      For example, if two physical volumes are used for the data volume, the `-i` switch argument is set to **2**. The stripe size for the data volume is **256KiB**. One physical volume is used for the log volume, so no `-i` or `-I` switches are explicitly used for the log volume commands.  
+      For example, if two physical volumes are used for the data volume, the `-i` switch argument is set to **2**, and the stripe size for the data volume is **256KiB**. One physical volume is used for the log volume, so no `-i` or `-I` switches are explicitly used for the log volume commands.  
 
       > [!IMPORTANT]
-      > When you use more than one physical volume for each data, log, or shared volume, use the `-i` switch and set it to the number of underlying physical volumes. When you create a striped volume, use the `-I` switch to specify the stripe size.
+      > When you use more than one physical volume for each data volume, log volume, or shared volume, use the `-i` switch and set it the number of underlying physical volumes. When you create a striped volume, use the `-I` switch to specify the stripe size.
       >
-      > For recommended storage configurations, including stripe sizes and number of disks, see [SAP HANA VM storage configurations](./hana-vm-operations-storage.md).  
+      > For recommended storage configurations, including stripe sizes and the number of disks, see [SAP HANA VM storage configurations](./hana-vm-operations-storage.md).  
     
       ```bash
       sudo lvcreate <-i number of physical volumes> <-I stripe size for the data volume> -l 100%FREE -n hana_data vg_hana_data_<HANA SID>
@@ -260,23 +292,20 @@ Replace `<placeholders>` with the values for your SAP HANA installation.
       # Write down the ID of /dev/vg_hana_data_<HANA SID>/hana_data, /dev/vg_hana_log_<HANA SID>/hana_log, and /dev/vg_hana_shared_<HANA SID>/hana_shared
       sudo blkid
        ```
-   
 
-   1. Create `fstab` entries for the three logical volumes:       
+   1. Edit the */etc/fstab* file to create `fstab` entries for the three logical volumes:       
 
       ```bash
       sudo vi /etc/fstab
       ```
-   
 
-   1. Insert the following line in the */etc/fstab* file:      
+   1. Insert the following lines in the */etc/fstab* file:      
 
       ```bash
       /dev/disk/by-uuid/<UUID of /dev/mapper/vg_hana_data_<HANA SID>-hana_data>> /hana/data/<HANA SID> xfs  defaults,nofail  0  2
       /dev/disk/by-uuid/<UUID of /dev/mapper/vg_hana_log_<HANA SID>-hana_log>> /hana/log/<HANA SID> xfs  defaults,nofail  0  2
       /dev/disk/by-uuid/<UUID of /dev/mapper/vg_hana_shared_<HANA SID>-hana_shared>> /hana/shared/<HANA SID> xfs  defaults,nofail  0  2
       ```
-   
 
    1. Mount the new volumes:
 
@@ -342,34 +371,60 @@ Replace `<placeholders>` with the values for your SAP HANA installation.
      sudo zypper install SAPHanaSR
      ```
    
-   To install SAP HANA system replication, follow chapter 4 of the [SAP HANA SR Performance Optimized Scenario guide](https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/).
+   To install SAP HANA system replication, review chapter 4 in the [SAP HANA SR Performance Optimized Scenario](https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/) guide.
 
-1. **[A]** Run the **hdblcm** program from the HANA DVD. When you're prompted, enter the following values.  
+1. **[A]** Run the **hdblcm** program from the HANA DVD. 
+
+   When you're prompted, enter the following values:
 
    1. Choose installation: Enter **1**.
+
    1. Select additional components for installation: Enter **1**.
+
    1. Enter installation path: Enter **/hana/shared** and select Enter.
+
    1. Enter local host name: Enter **..** and select Enter.
+
    1. Do you want to add additional hosts to the system? (y/n): Enter **n** and select Enter.
-   1. Enter the SAP HANA system ID: Enter the **\<HANA SID\>**.
-   1. Enter the instance number: Enter the HANA instance number. If you used the Azure template or if you followed the manual deployment section of this article, enter **03**.
+
+   1. Enter the SAP HANA system ID: Enter your HANA SID.
+
+   1. Enter the instance number: Enter the HANA instance number. If you deployed by using the Azure template or if you followed the manual deployment section of this article, enter **03**.
+
    1. Select the database mode / Enter the index: Enter or select **1** and select Enter.
+
    1. Select the system usage / Enter the index: Select the system usage value **4**.
+
    1. Enter the location of the data volumes: Enter **/hana/data/\<HANA SID\>** and select Enter.
+
    1. Enter the location of the log volumes: Enter **/hana/log/\<HANA SID\>** and select Enter.
+
    1. Restrict maximum memory allocation?: Enter **n** and select Enter.
+
    1. Enter the certificate host name for the host: Enter **...** and select Enter.
+
    1. Enter the SAP host agent user (sapadm) password: Enter the host agent user password, and then select Enter.
+
    1. Confirm the SAP host agent user (sapadm) password: Enter the host agent user password again, and then select Enter.
+
    1. Enter the system administrator (hdbadm) password: Enter the system administrator password, and then select Enter.
+
    1. Confirm the system administrator (hdbadm) password: Enter the system administrator password again, and then select Enter.
+
    1. Enter the system administrator home directory: Enter **/usr/sap/\<HANA SID\>/home** and select Enter.
+
    1. Enter the system administrator login shell: Enter **/bin/sh** and select Enter.
+
    1. Enter the system administrator user ID: Enter **1001** and select Enter.
+
    1. Enter ID of the user group (sapsys): Enter **79** and select Enter.
+
    1. Enter the database user (SYSTEM) password: Enter the database user password, and then select Enter.
+
    1. Confirm the database user (SYSTEM) password: Enter the database user password again, and then select Enter.
-   1. Restart the system after machine reboot?: Enter **n** and select Enter.
+
+   1. Restart the system after machine reboot? (y/n): Enter **n** and select Enter.
+
    1. Do you want to continue? (y/n): Validate the summary. Enter **y** to continue.
 
 1. **[A]** Upgrade the SAP host agent.
@@ -394,7 +449,7 @@ Replace `<placeholders>` with the values for your SAP HANA installation.
 
    If you're using SAP HANA 2.0 or SAP HANA MDC, create a tenant database for your SAP NetWeaver system.
 
-   Run the following command as \<HANA SID\>adm :
+   Run the following command as \<HANA SID\>adm:
 
    ```bash
    hdbsql -u SYSTEM -p "<password>" -i <instance number> -d SYSTEMDB 'CREATE DATABASE <SAP SID> SYSTEM USER PASSWORD "<password>"'
@@ -417,16 +472,17 @@ Replace `<placeholders>` with the values for your SAP HANA installation.
    scp /usr/sap/<HANA SID>/SYS/global/security/rsecssfs/key/SSFS_<HANA SID>.KEY  <HANA SID>-db-<database 2>:/usr/sap/<HANA SID>/SYS/global/security/rsecssfs/key/
    ```
    
-   Finally, create the primary site:
+   Create the primary site:
 
    ```bash
    hdbnsutil -sr_enable --name=<site 1>
    ```
-   
 
 1. **[2]** Configure system replication on the second node:
     
-   Register the second node to start the system replication. Run the following command as \<HANA SID\>adm :
+   Register the second node to start the system replication.
+
+   Run the following command as \<HANA SID\>adm:
 
    ```bash
    sapcontrol -nr <instance number> -function StopWait 600 10
@@ -462,7 +518,6 @@ Replace `<placeholders>` with the values for your SAP HANA installation.
    PATH="$PATH:/usr/sap/<HANA SID>/HDB<instance number>/exe"
    hdbuserstore SET <cluster name>haloc localhost:3<instance number>15 <cluster name>hasync <password>
    ```
-   
 
 1. **[1]** Back up the database.
 
@@ -472,7 +527,6 @@ Replace `<placeholders>` with the values for your SAP HANA installation.
    PATH="$PATH:/usr/sap/<HANA SID>/HDB<instance number>/exe"
    hdbsql -d SYSTEMDB -u system -i <instance number> "BACKUP DATA USING FILE ('<name of initial backup file>')"
    ```
-   
 
    If you use a multi-tenant installation, also back up the tenant database:
 
@@ -483,17 +537,16 @@ Replace `<placeholders>` with the values for your SAP HANA installation.
 
 1. **[1]** Configure system replication on the first node.
 
-   Create the primary site as \<HANA SID>\>adm :
+   Create the primary site as \<HANA SID\>adm:
 
    ```bash
    su - <cluster name>adm
    hdbnsutil -sr_enable –-name=<site 1>
    ```
-   
 
 1. **[2]** Configure system replication on the secondary node.
 
-   Register the secondary site as \<HANA SID>\>adm:
+   Register the secondary site as \<HANA SID\>adm:
 
    ```bash
    sapcontrol -nr <instance number> -function StopWait 600 10
@@ -515,17 +568,17 @@ With susChkSrv implemented, an immediate and configurable action is executed. Th
    >   
    > The susChkSrv Python hook requires SAP HANA 2.0 SP5, and SAPHanaSR version 0.161.1_BF or later must be installed.  
 
-   1. Stop HANA on both nodes. Run the following code as \<SAP SID\>adm:  
+   1. Stop HANA on both nodes.
+
+      Run the following code as \<SAP SID\>adm:  
    
       ```bash
       sapcontrol -nr <instance number> -function StopSystem
       ```
 
-   1. Adjust *global.ini* on each cluster node. If the requirements for the susChkSrv hook aren't met, remove the entire [ha_dr_provider_suschksrv] block from the following parameters.
+   1. Adjust *global.ini* on each cluster node. If the requirements for the susChkSrv hook aren't met, remove the entire `[ha_dr_provider_suschksrv]` block from the following parameters.
 
-      You can adjust the behavior of `susChkSrv` by using the `action_on_lost` parameter.  
-   
-      Valid values are [ `ignore` | `stop` | `kill` | `fence` ].
+      You can adjust the behavior of `susChkSrv` by using the `action_on_lost` parameter. Valid values are [ `ignore` | `stop` | `kill` | `fence` ].
  
       ```bash
       # add to global.ini
@@ -544,9 +597,11 @@ With susChkSrv implemented, an immediate and configurable action is executed. Th
       ha_dr_saphanasr = info
       ```      
 
-      If you point to the standard */usr/share/SAPHanaSR* location, the Python hook code updates automatically through OS updates or package updates. HANA uses the hook code updates when it next restarts. With an optional own path like */hana/shared/myHooks*, you can decouple OS updates from the hook version you use.
+      If you point to the standard */usr/share/SAPHanaSR* location, the Python hook code updates automatically through OS updates or package updates. HANA uses the hook code updates when it next restarts. With an optional own path like */hana/shared/myHooks*, you can decouple OS updates from the hook version that you use.
 
-1. **[A]** The cluster requires *sudoers* configuration on each cluster node for \<SAP SID\>adm. In this example, that's achieved by creating a new file. Run the command as root.    
+1. **[A]** The cluster requires *sudoers* configuration on each cluster node for \<SAP SID\>adm. In this example, that's achieved by creating a new file. 
+
+   Run the following command as root:    
 
    ```bash
    cat << EOF > /etc/sudoers.d/20-saphana
@@ -558,15 +613,19 @@ With susChkSrv implemented, an immediate and configurable action is executed. Th
 
    For details about implementing the SAP HANA system replication hook, see [Set up HANA HA/DR providers](https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-15/index.html#_set_up_sap_hana_hadr_providers). 
 
-1. **[A]** Start SAP HANA on both nodes. Run the following command as \<SAP SID\>adm.  
+1. **[A]** Start SAP HANA on both nodes.
+
+   Run the following command as \<SAP SID\>adm:
 
     ```bash
     sapcontrol -nr <instance number> -function StartSystem 
     ```
 
-1. **[1]** Verify the hook installation. Run the following command as \<SAP SID\>adm on the active HANA system replication site.   
+1. **[1]** Verify the hook installation.
 
-    ```bash
+   Run the following command as \<SAP SID\>adm on the active HANA system replication site: 
+
+   ```bash
      cdtrace
      awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
      { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
@@ -574,22 +633,26 @@ With susChkSrv implemented, an immediate and configurable action is executed. Th
      # 2021-04-08 22:18:15.877583 ha_dr_SAPHanaSR SFAIL
      # 2021-04-08 22:18:46.531564 ha_dr_SAPHanaSR SFAIL
      # 2021-04-08 22:21:26.816573 ha_dr_SAPHanaSR SOK
-    ```
+   ```
    
-    Verify the susChkSrv hook installation. Run the following command as \<SAP SID\>adm on all HANA VMs.
+    Verify the susChkSrv hook installation.
 
-    ```bash
+   Run the following command as \<SAP SID\>adm on all HANA VMs:
+
+   ```bash
      cdtrace
      egrep '(LOST:|STOP:|START:|DOWN:|init|load|fail)' nameserver_suschksrv.trc
      # Example output
      # 2022-11-03 18:06:21.116728  susChkSrv.init() version 0.7.7, parameter info: action_on_lost=fence stop_timeout=20 kill_signal=9
      # 2022-11-03 18:06:27.613588  START: indexserver event looks like graceful tenant start
      # 2022-11-03 18:07:56.143766  START: indexserver event looks like graceful tenant start (indexserver started)
-    ```
+   ```
 
 ## Create SAP HANA cluster resources
 
-First, create the HANA topology. Run the following commands on one of the Pacemaker cluster nodes:
+First, create the HANA topology. 
+
+Run the following commands on one of the Pacemaker cluster nodes:
 
 ```bash
 sudo crm configure property maintenance-mode=true
@@ -610,23 +673,23 @@ sudo crm configure clone cln_SAPHanaTopology_<HANA SID>_HDB<instance number> rsc
 Next, create the HANA resources:
 
 > [!IMPORTANT]
-> In recent testing, `netcat` stops responding to requests due to a backlog and its limitation of handling only one connection. The `netcat` resource stops listening to the Azure Load Balancer requests, and the floating IP becomes unavailable.
+> In recent testing, `netcat` stops responding to requests due to a backlog and because of its limitation of handling only one connection. The `netcat` resource stops listening to the Azure Load Balancer requests, and the floating IP becomes unavailable.
 > 
 > For existing Pacemaker clusters, we previously recommended that you replace `netcat` with `socat`. Currently, we recommend that you use the `azure-lb` resource agent, which is part of a package of resource agents. The following package versions are required:
 >
 > - For SLES 12 SP4/SP5, the version must be at least resource-agents-4.3.018.a7fb5035-3.30.1.  
 > - For SLES 15/15 SP1, the version must be at least resource-agents-4.3.0184.6ee15eb2-4.13.1.  
 >
-> The change requires a brief downtime.
+> Making this change requires a brief downtime.
 >
-> For existing Pacemaker clusters, if the configuration was already changed to use `socat` as described in [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128), there's no requirement to immediately switch to the `azure-lb` resource agent.
+> For existing Pacemaker clusters, if your configuration was already changed to use `socat` as described in [Azure Load Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128), you don't need to immediately switch to the `azure-lb` resource agent.
 
 
 > [!NOTE]
 > This article contains references to the terms *master* and *slave*, terms that Microsoft no longer uses. When these terms are removed from the software, we'll remove them from this article.
 
 ```bash
-# Replace <placeholdrs> with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer. 
+# Replace <placeholders> with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer. 
 
 sudo crm configure primitive rsc_SAPHana_<HANA SID>_HDB<instance number> ocf:suse:SAPHana \
   operations \$id="rsc_sap_<HANA SID>_HDB<instance number>-operations" \
@@ -670,7 +733,7 @@ sudo crm configure rsc_defaults migration-threshold=5000
    
 
 > [!IMPORTANT]
-> We recommend that you set `AUTOMATED_REGISTER` to `no` only while you complete thorough failover tests, to prevent a failed primary instance from automatically registering as secondary. When the failover tests are successfully completed, set `AUTOMATED_REGISTER` to `yes`, so that after takeover, system replication automatically resumes.
+> We recommend that you set `AUTOMATED_REGISTER` to `false` only while you complete thorough failover tests, to prevent a failed primary instance from automatically registering as secondary. When the failover tests are successfully completed, set `AUTOMATED_REGISTER` to `true`, so that after takeover, system replication automatically resumes.
 
 Make sure that the cluster status is `OK` and that all the resources started. It doesn't matter which node the resources are running on.
 
@@ -694,43 +757,58 @@ sudo crm_mon -r
 
 ## Configure HANA active/read-enabled system replication in a Pacemaker cluster
 
-In SAP HANA 2.0 SPS 01 and later versions, SAP allows an active/read-enabled setup for SAP HANA system replication. In this scenario, the secondary systems of SAP HANA system replication can be actively used for read-intensive workloads. To support this setup in a cluster, a second virtual IP address is required so that clients can access the secondary read-enabled SAP HANA database. To ensure that the secondary replication site can still be accessed after a takeover, the cluster needs to move the virtual IP address around with the secondary of the SAPHana resource.
+In SAP HANA 2.0 SPS 01 and later versions, SAP allows an active/read-enabled setup for SAP HANA system replication. In this scenario, the secondary systems of SAP HANA system replication can be actively used for read-intensive workloads.
 
-This section describes the extra steps that are required to manage a HANA active/read-enabled system replication in a SUSE high availability cluster that uses a second virtual IP.
+To support this setup in a cluster, a second virtual IP address is required so that clients can access the secondary read-enabled SAP HANA database. To ensure that the secondary replication site can still be accessed after a takeover, the cluster needs to move the virtual IP address around with the secondary of the SAPHana resource.
+
+This section describes the extra steps that are required to manage a HANA active/read-enabled system replication in a SUSE high availability cluster that uses a second virtual IP address.
 
 Before you proceed, make sure that you have fully configured the SUSE high availability cluster that manages SAP HANA database as described in earlier sections.
 
-:::image type="content" source="media/sap-hana-high-availability/ha-hana-read-enabled-secondary.png" border="false" alt-text="Diagram that shows SAP HANA high availability with a read-enabled secondary IP.":::
+:::image type="content" source="media/sap-hana-high-availability/ha-hana-read-enabled-secondary.png" border="false" alt-text="Diagram that shows an example of SAP HANA high availability with a read-enabled secondary IP.":::
 
-### Extra steps to set up Azure Load Balancer for active/read-enabled system replication
+### Set up the load balancer for active/read-enabled system replication
 
-To proceed with extra steps to provision the second virtual IP, make sure you have configured Azure Load Balancer as described in [Manual deployment](#manual-deployment).
+To proceed with extra steps to provision the second virtual IP, make sure that you configured Azure Load Balancer as described in [Manual deployment](#manual-deployment).
 
 For the *standard* load balancer, complete these extra steps on the same load balancer that you created earlier.
 
 1. Create a second front-end IP pool: 
 
    1. Open the load balancer, select **frontend IP pool**, and select **Add**.
+
    1. Enter the name of the second front-end IP pool (for example, **hana-secondaryIP**).
+
    1. Set the **Assignment** to **Static** and enter the IP address (for example, **10.0.0.14**).
+
    1. Select **OK**.
+
    1. After the new front-end IP pool is created, note the front-end IP address.
 
 1. Create a health probe:
 
    1. In the load balancer, select **health probes**, and select **Add**.
+
    1. Enter the name of the new health probe (for example, **hana-secondaryhp**).
-   1. Select **TCP** as the protocol and port **626\<instance number\>**. Keep the **Interval** value set to 5, and the **Unhealthy threshold** value set to 2.
+
+   1. Select **TCP** as the protocol and port **626\<instance number\>**. Keep the **Interval** value set to **5**, and the **Unhealthy threshold** value set to **2**.
+
    1. Select **OK**.
 
 1. Create the load-balancing rules:
 
    1. In the load balancer, select **load balancing rules**, and select **Add**.
+
    1. Enter the name of the new load balancer rule (for example, **hana-secondarylb**).
+
    1. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-secondaryIP**, **hana-backend**, and **hana-secondaryhp**).
+
    1. Select **HA Ports**.
-   1. Increase the **idle timeout** value to 30 minutes.
+
+   1. Increase idle timeout to 30 minutes.
+
    1. Make sure that you **enable floating IP**.
+
    1. Select **OK**.
 
 ### Configure HANA active/read-enabled system replication
@@ -800,7 +878,7 @@ Considerations when you test a HANA cluster that's configured with a read-enable
 
 - When you test a server crash, the second virtual IP resources (`rsc_secip_<HANA SID>_HDB<instance number>`) and the Azure load balancer port resource (`rsc_secnc_<HANA SID>_HDB<instance number>`) run on the primary server alongside the primary virtual IP resources. While the secondary server is down, the applications that are connected to a read-enabled HANA database connect to the primary HANA database. The behavior is expected because you don't want applications that are connected to a read-enabled HANA database to be inaccessible while the secondary server is unavailable.
   
-- When the secondary server is available and the cluster services are online, the second virtual IP and port resources automatically move to the secondary server, even though HANA system replication might not be registered as secondary. Make sure that you register the secondary HANA database as read-enabled before you start cluster services on that server. You can configure the HANA instance cluster resource to automatically register the secondary by setting the parameter `AUTOMATED_REGISTER=true`.       
+- When the secondary server is available and the cluster services are online, the second virtual IP and port resources automatically move to the secondary server, even though HANA system replication might not be registered as secondary. Make sure that you register the secondary HANA database as read-enabled before you start cluster services on that server. You can configure the HANA instance cluster resource to automatically register the secondary by setting the parameter `AUTOMATED_REGISTER="true"`.       
 
 - During failover and fallback, the existing connections for applications, which are then using the second virtual IP to connect to the HANA database, might be interrupted.  
 
@@ -861,7 +939,7 @@ Failed Actions:
 ```
    
 
-The SAP HANA resource on `<HANA SID`>-db-<database 1>` fails to start as secondary. In this case, configure the HANA instance as secondary by executing this command:
+The SAP HANA resource on `<HANA SID>-db-<database 1>` fails to start as secondary. In this case, configure the HANA instance as secondary by running this command:
 
 ```bash
    su - <HANA SID>adm
@@ -948,11 +1026,11 @@ root      13877  0.0  0.0   9292  1572 pts/0    S+   12:27   0:00 grep sbd
 <HANA SID>-db-<database 1>:~ # kill -9 1912
 ```
 
-The `<HANA SID>-db-<database 1>` cluster node reboots. The Pacemaker service might not restart. Make sure to start it again.
+The `<HANA SID>-db-<database 1>` cluster node reboots. The Pacemaker service might not restart. Make sure that you start it again.
 
 ### Test a manual failover
 
-You can test a manual failover by stopping the `pacemaker` service on the `<HANA SID>-db-<database 1>` node:
+You can test a manual failover by stopping the Pacemaker service on the `<HANA SID>-db-<database 1>` node:
 
 ```bash
    service pacemaker stop
@@ -978,9 +1056,9 @@ crm resource cleanup msl_SAPHana_<HANA SID>_HDB<instance number> <HANA SID>-db-<
 ### SUSE tests
 
 > [!IMPORTANT]
-> Make sure that the OS that you select is SAP certified for SAP HANA on the specific VM types you are using. You can look up SAP HANA-certified VM types and their OS releases in [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120). Make sure that you look at the details of the VM type you plan to use to get the complete list of SAP HANA-supported OS releases for that VM type.
+> Make sure that the OS that you select is SAP certified for SAP HANA on the specific VM types you plan to use. You can look up SAP HANA-certified VM types and their OS releases in [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120). Make sure that you look at the details of the VM type you plan to use to get the complete list of SAP HANA-supported OS releases for that VM type.
 
-Run all test cases that are listed in the SAP HANA SR Performance Optimized Scenario or SAP HANA SR Cost Optimized Scenario guide, depending on your use case. You can find the guides listed in the [SLES for SAP best practices][sles-for-sap-bp] article.
+Run all test cases that are listed in the SAP HANA SR Performance Optimized Scenario guide or SAP HANA SR Cost Optimized Scenario guide, depending on your scenario. You can find the guides listed in [SLES for SAP best practices][sles-for-sap-bp].
 
 The following tests are a copy of the test descriptions of the SAP HANA SR Performance Optimized Scenario SUSE Linux Enterprise Server for SAP Applications 12 SP1 guide. For an up-to-date version, also read the guide itself. Always make sure that HANA is in sync before you start the test, and make sure that the Pacemaker configuration is correct.
 
@@ -1102,7 +1180,7 @@ In the following test descriptions, we assume `PREFER_SITE_TAKEOVER="true"` and 
    
    Pacemaker detects the killed HANA instance and fails over to the other node. When the failover is finished, the HANA instance on the `<HANA SID>-db-<database 1>` node is stopped because Pacemaker doesn't automatically register the node as HANA secondary.
 
-   Run the following commands to register the `<HANA SID>-db-<database 1>` node as secondary and clean up the failed resource.
+   Run the following commands to register the `<HANA SID>-db-<database 1>` node as secondary and clean up the failed resource:
 
    ```bash
    <HANA SID>adm@<HANA SID>-db-<database 1>:/usr/sap/<HANA SID>/HDB<instance number> hdbnsutil -sr_register --remoteHost=<HANA SID>-db-<database 2> --remoteInstance=<instance number> --replicationMode=sync --name=<site 1>
@@ -1192,7 +1270,7 @@ In the following test descriptions, we assume `PREFER_SITE_TAKEOVER="true"` and 
 
    Pacemaker detects the killed cluster node and fences the node. When the node is fenced, Pacemaker triggers a takeover of the HANA instance. When the fenced node is rebooted, Pacemaker doesn't start automatically.
 
-   Run the following commands to start Pacemaker, clean the SBD messages for the `<HANA SID>-db-<database 1>` node, register the `<HANA SID>-db-<database 1>` node as secondary, and clean up the failed resource.
+   Run the following commands to start Pacemaker, clean the SBD messages for the `<HANA SID>-db-<database 1>` node, register the `<HANA SID>-db-<database 1>` node as secondary, and clean up the failed resource:
 
    ```bash
    # run as root
@@ -1247,7 +1325,7 @@ In the following test descriptions, we assume `PREFER_SITE_TAKEOVER="true"` and 
 
    Pacemaker detects the killed cluster node and fences the node. When the node is fenced, Pacemaker triggers a takeover of the HANA instance. When the fenced node is rebooted, Pacemaker doesn't start automatically.
 
-   Run the following commands to start Pacemaker, clean the SBD messages for the `<HANA SID>-db-<database 2>` node, register the `<HANA SID>-db-<database 2>` node as secondary, and clean up the failed resource.
+   Run the following commands to start Pacemaker, clean the SBD messages for the `<HANA SID>-db-<database 2>` node, register the `<HANA SID>-db-<database 2>` node as secondary, and clean up the failed resource:
 
    ```bash
    # run as root
@@ -1300,7 +1378,9 @@ In the following test descriptions, we assume `PREFER_SITE_TAKEOVER="true"` and 
    <HANA SID>adm@<HANA SID>-db-<database 2>:/usr/sap/<HANA SID>/HDB<instance number> HDB stop
    ```
 
-   Pacemaker detects the stopped HANA instance and marks the resource as failed on the `<HANA SID>-db-<database 2>` node. Pacemaker automatically restarts the HANA instance. Run the following command to clean up the failed state.
+   Pacemaker detects the stopped HANA instance and marks the resource as failed on the `<HANA SID>-db-<database 2>` node. Pacemaker automatically restarts the HANA instance. 
+
+   Run the following command to clean up the failed state:
 
    ```bash
    # run as root
@@ -1384,7 +1464,7 @@ In the following test descriptions, we assume `PREFER_SITE_TAKEOVER="true"` and 
 
    Pacemaker detects the killed cluster node and fenced the node. When the fenced node is rebooted, Pacemaker doesn't start automatically.
 
-   Run the following commands to start Pacemaker, clean the SBD messages for the `<HANA SID>-db-<database 2>` node, and clean up the failed resource.
+   Run the following commands to start Pacemaker, clean the SBD messages for the `<HANA SID>-db-<database 2>` node, and clean up the failed resource:
 
    ```bash
    # run as root
