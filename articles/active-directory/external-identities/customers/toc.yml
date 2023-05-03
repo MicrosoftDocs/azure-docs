@@ -155,16 +155,6 @@ items:
 
             - name: Headless app
               items: 
-                - name: Node​ - Sign in users
-                  href: ../../develop/tutorial-v2-nodejs-console.md
-                - name: .NET​ - Sign in users
-                  href: ../../develop/tutorial-v2-aspnet-daemon-web-app.md
-            - name: Desktop app
-              items: 
-                - name: .NET MAUI - Sign in users
-                  href: ../../develop/tutorial-v2-ios.md
-                - name: Electron​ - Sign in users
-                  href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-nodejs-desktop
                 - name: Node (CIAM)
                   items:
                     - name: Sign in users
@@ -177,6 +167,14 @@ items:
                           href: how-to-headless-app-node-sign-in-prepare-app.md
                         - name: Add sign-in and sign-out
                           href: how-to-headless-app-node-sign-in-sign-out.md
+                - name: .NET​ - Sign in users
+                  href: ../../develop/tutorial-v2-aspnet-daemon-web-app.md
+            - name: Desktop app
+              items: 
+                - name: .NET MAUI - Sign in users
+                  href: ../../develop/tutorial-v2-ios.md
+                - name: Electron​ - Sign in users
+                  href: https://learn.microsoft.com/azure/active-directory/develop/tutorial-v2-nodejs-desktop
             - name: Mobile app
               items: 
                 - name: .NET MAUI - Sign in users
