@@ -120,6 +120,17 @@ const updateRoomOptions = {
 const updateRoom = await roomsClient.updateRoom(roomId, updateRoomOptions);
 ```
 
+### Get list of rooms
+Retrieve your list of rooms by using the `listRooms` method:
+
+```javascript
+const roomsList = await roomsClient.listRooms();
+for await (const currentRoom of roomsList) {
+  // access room data
+  console.log(`The room id is ${currentRoom.id}.`);
+}
+```
+
 ### Add new participants
 
 To add new participants to a `room`, use the `addOrUpdateParticipants` method exposed on the client. This method will also update a participant if they already exist in the room.
