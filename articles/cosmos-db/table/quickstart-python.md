@@ -34,13 +34,13 @@ If you don't have an [Azure subscription](../../guides/developer/azure-developer
 
 ## Sample application
 
-The sample application for this tutorial may be cloned or downloaded from the repository https://github.com/Azure-Samples/msdocs-azure-tables-sdk-python-flask. Both a starter and completed app are included in the sample repository.
+The sample application for this tutorial may be cloned or downloaded from the repository https://github.com/Azure-Samples/msdocs-azure-tables-sdk-python-flask. Both a `1-starter-app` and `2-completed-app` are included in the sample repository. The `1-starter-app` has some functionality left for you to complete with lines marked "#TODO". The code snippets shown in this article are the suggested additions to complete the `1-start-app`.
 
 ```bash
 git clone https://github.com/Azure-Samples/msdocs-azure-tables-sdk-python-flask.git
 ```
 
-The sample application uses weather data as an example to demonstrate the capabilities of the API for Table. Objects representing weather observations are stored and retrieved using the API for Table, including storing objects with extra properties to demonstrate the schemaless capabilities of the API for Table. The following image shows the local application running in a browser, displaying the weather data stored in the Azure Cosmos DB for Table.
+The completed sample application uses weather data as an example to demonstrate the capabilities of the API for Table. Objects representing weather observations are stored and retrieved using the API for Table, including storing objects with extra properties to demonstrate the schemaless capabilities of the API for Table. The following image shows the local application running in a browser, displaying the weather data stored in the Azure Cosmos DB for Table.
 
 :::image type="content" source="./media/quickstart-python/table-api-app-finished-application-720px.png" alt-text="A screenshot of the finished application, which shows data stored in an Azure Cosmos DB table using the API for Table." lightbox="./media/quickstart-python/table-api-app-finished-application.png":::
 
@@ -209,13 +209,13 @@ Install the Azure Tables client library for Python with pip:
 pip install azure-data-tables
 ```
 
+Don't forget to also install the *requirements.txt* in the `1-starter-app` or `2-completed-app` folders.
+
 ---
 
-## 5 - Configure the Table client in .env file
+## 5 - Configure the Table client in an .env file
 
-Copy your Azure Cosmos DB account connection string from the Azure portal, and create a TableServiceClient object using your copied connection string. Switch to folder `1-starter-app` or `2-completed-app`. The `1-starter-app` has some functionality left for you to complete. Look for the string "#TODO". All the code snippets in this article can be found in both apps.
-
-Regardless of which app you start with, you need to define the corresponding environment variables in an `.env` file.
+Copy your Azure Cosmos DB account connection string from the Azure portal, and create a TableServiceClient object using your copied connection string. Switch to folder `1-starter-app` or `2-completed-app`. Regardless of which app you start with, you need to define the corresponding environment variables in an `.env` file.
 
 ```python
 # Configuration Parameters
