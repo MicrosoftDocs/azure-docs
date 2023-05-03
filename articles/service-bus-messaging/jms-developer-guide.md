@@ -2,7 +2,7 @@
 title: Azure Service Bus JMS 2.0 developer guide
 description: How to use the Java Message Service (JMS) 2.0 API to communicate with Azure Service Bus
 ms.topic: article
-ms.date: 02/12/2022
+ms.date: 05/02/2023
 ---
 
 # Azure Service Bus JMS 2.0 developer guide
@@ -173,6 +173,9 @@ A session can be created from the connection object as shown below.
 ```java
 Session session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
 ```
+
+> [!NOTE]
+> JMS API doesn't support receiving messages from service bus queues or topics with messaging sessions enabled. 
 
 #### Session modes
 
