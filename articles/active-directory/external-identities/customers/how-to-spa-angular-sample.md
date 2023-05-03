@@ -84,7 +84,7 @@ npm install
 All the required code snippets have been added, so the application can now be called and tested in a web browser.
 
 1. Open a new terminal by selecting **Terminal** > **New Terminal**.
-1. Run the following command to start your express web server.
+1. Run the following command to start your web server.
 
     ```powershell
 cd 1-Authentication\2-sign-in-angular\SPA
