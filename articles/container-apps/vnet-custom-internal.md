@@ -61,7 +61,7 @@ The following example shows you how to create a Container Apps environment in an
 
 Next, declare a variable to hold the VNET name.
 
-# [azurecli](#tab/azurecli)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 VNET_NAME="my-custom-vnet"
@@ -80,7 +80,7 @@ Now create an instance of the virtual network to associate with the Container Ap
 > [!NOTE]
 > Network subnet address prefix requires a minimum CIDR range of `/23` for use with Container Apps when using the Consumption only Architecture. When using the Workload Profiles Architecture, a `/27` or larger is required. To learn more about subnet sizing, see the [networking architecture overview](./networking.md#subnet).
 
-# [azurecli](#tab/azurecli)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az network vnet create \
@@ -123,7 +123,7 @@ $vnet = New-AzVirtualNetwork @VnetArgs
 
 With the VNET established, you can now query for the infrastructure subnet ID.
 
-# [azurecli](#tab/azurecli)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 INFRASTRUCTURE_SUBNET=`az network vnet subnet show --resource-group ${RESOURCE_GROUP} --vnet-name $VNET_NAME --name infrastructure-subnet --query "id" -o tsv | tr -d '[:space:]'`
@@ -139,7 +139,7 @@ $InfrastructureSubnet = (Get-AzVirtualNetworkSubnetConfig -Name $SubnetArgs.Name
 
 Finally, create the Container Apps environment with the VNET and subnet.
 
-# [azurecli](#tab/azurecli)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az containerapp env create \
@@ -223,7 +223,7 @@ If you want to deploy your container app with a private DNS, run the following c
 
 First, extract identifiable information from the environment.
 
-# [azurecli](#tab/azurecli)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 ENVIRONMENT_DEFAULT_DOMAIN=`az containerapp env show --name ${CONTAINERAPPS_ENVIRONMENT} --resource-group ${RESOURCE_GROUP} --query properties.defaultDomain --out json | tr -d '"'`
@@ -251,7 +251,7 @@ $EnvironmentStaticIp = (Get-AzContainerAppManagedEnv -EnvName $ContainerAppsEnvi
 
 Next, set up the private DNS.
 
-# [azurecli](#tab/azurecli)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az network private-dns zone create \
@@ -308,7 +308,7 @@ There are three optional networking parameters you can choose to define when cal
 
 You must either provide values for all three of these properties, or none of them. If they aren’t provided, the values are generated for you.
 
-# [azurecli](#tab/azurecli)
+# [Azure CLI](#tab/azure-cli)
 
 | Parameter | Description |
 |---|---|
@@ -345,7 +345,7 @@ If you're not going to continue to use this application, you can delete the Azur
 >[!CAUTION]
 > The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this guide exist in the specified resource group, they will also be deleted.
 
-# [azurecli](#tab/azurecli)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az group delete --name $RESOURCE_GROUP
