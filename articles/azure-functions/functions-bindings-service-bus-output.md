@@ -148,6 +148,8 @@ Java functions can also write to a Service Bus topic. The following example uses
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 
+[!NOTE] This functionality has been deprecated in Version 4 of the Node.js programming model in favor of defining the function in code
+
 The following example shows a Service Bus output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function uses a timer trigger to send a queue message every 15 seconds.
 
 Here's the binding data in the *function.json* file:
