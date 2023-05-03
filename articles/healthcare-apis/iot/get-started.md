@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 04/26/2023
+ms.date: 04/28/2023
 ms.author: jasteppe
 ms.custom: mode-api
 ---
@@ -55,7 +55,7 @@ Deploy a [FHIR service](../fhir/fhir-portal-quickstart.md) into your resource gr
 
 ### Deploy a MedTech service
 
-If you have successfully deployed the prerequisite resources, you're now ready to deploy the [MedTech service](deploy-manual-prerequisites.md) using your workspace.
+If you have successfully deployed the prerequisite resources, you're now ready to deploy the [MedTech service](deploy-manual-portal.md) using your workspace.
 
 ## Next steps
 
