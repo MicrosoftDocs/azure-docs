@@ -34,11 +34,13 @@ If you don't have an [Azure subscription](../../guides/developer/azure-developer
 
 ## Sample application
 
-The sample application for this tutorial may be cloned or downloaded from the repository https://github.com/Azure-Samples/msdocs-azure-tables-sdk-python-flask. Both a *1-starter-app* and *2-completed-app* sample folders are included in the sample repository. The *1-starter-app* has some functionality left for you to complete with lines marked "#TODO". The code snippets shown in this article are the suggested additions to complete the *1-starter-app*.
+The sample application for this tutorial may be cloned or downloaded from the repository https://github.com/Azure-Samples/msdocs-azure-tables-sdk-python-flask.
 
 ```bash
 git clone https://github.com/Azure-Samples/msdocs-azure-tables-sdk-python-flask.git
 ```
+
+A *1-starter-app* and *2-completed-app* sample folder are included in the sample repository. The *1-starter-app* has some functionality left for you to complete with lines marked "#TODO". The code snippets shown in this article are the suggested additions to complete the *1-starter-app*.
 
 The completed sample application uses weather data as an example to demonstrate the capabilities of the API for Table. Objects representing weather observations are stored and retrieved using the API for Table, including storing objects with extra properties to demonstrate the schemaless capabilities of the API for Table. The following image shows the local application running in a browser, displaying the weather data stored in the Azure Cosmos DB for Table.
 
@@ -215,7 +217,7 @@ Don't forget to also install the *requirements.txt* in the *1-starter-app* or *2
 
 ## 5 - Configure the Table client in an .env file
 
-Copy your Azure Cosmos DB account connection string from the Azure portal, and create a TableServiceClient object using your copied connection string. Switch to *1-starter-app* or *2-completed-app* folder. Regardless of which app you start with, you need to define environment variables in an `.env` file.
+Copy your Azure Cosmos DB account connection string from the Azure portal, and create a TableServiceClient object using your copied connection string. Switch to the *1-starter-app* or *2-completed-app* folder. Regardless of which app you start with, you need to define environment variables in an `.env` file.
 
 ```python
 # Configuration Parameters
@@ -402,9 +404,9 @@ Selecting the **Insert using Expandable** Data button brings up a dialog that en
 
 Use the **Insert Sample Data** button to load some sample data into your Azure Cosmos DB Table.
 
-* For the *1-starter-app* sample folder, you'll need to at least complete the code for the `submit_transaction` function.
+* For the *1-starter-app* sample folder, you'll need to at least complete the code for the `submit_transaction` function for the sample data insert to work.
 
-* The *.env* variable `project_root_path` depends on where you run the application. For example, if you're running the application from *1-starter-app* or *2-completed-app* folder, you can set `project_root_path` to "" (blank).
+* The sample data is loaded from a *sample_data.json* file. The *.env* variable `project_root_path` tells the app where to find this file. For example, if you're running the application from *1-starter-app* or *2-completed-app* folder, you can set `project_root_path` to "" (blank).
 
 :::image type="content" source="./media/quickstart-python/table-api-app-sample-data-insert-480px.png" alt-text="A screenshot of the application showing the location of the sample data insert button." lightbox="./media/quickstart-python/table-api-app-sample-data-insert.png":::
 
