@@ -42,7 +42,7 @@ Create a resource group with the [az group create](/cli/azure/group#az-group-cre
 
 The following example creates a resource group named `myResourceGroup` in the East US Azure region.
 
-
+```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
