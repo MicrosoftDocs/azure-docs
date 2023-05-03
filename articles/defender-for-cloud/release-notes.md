@@ -28,7 +28,9 @@ Defender for Key Vault has the following new alert:
 
 | Alert (alert type) | Description | MITRE tactics | Severity |
 |---|---|:-:|---|
-| **Key vault unusual IP access - unusual IP accessing key vault**<br><br />(KV_UnusualAccessFromSuspeciousIP) | A user or service principal has attempted anomalous access to key vaults from a non-Microsoft IP in the last 24 hours. This anomalous access pattern may be legitimate activity. It could be an indication of a possible attempt to gain access of the key vault and the secrets contained within it. We recommend further investigations. | Credential Access | Medium |
+| **Key vault unusual IP access - unusual IP accessing key vault**<br>(KV_UnusualAccessSuspiciousIP) | A user or service principal has attempted anomalous access to key vaults from a non-Microsoft IP in the last 24 hours. This anomalous access pattern may be legitimate activity. It could be an indication of a possible attempt to gain access of the key vault and the secrets contained within it. We recommend further investigations. | Credential Access | Medium |
+
+For all of the available alerts, see [Alerts for Azure Key Vault](alerts-reference.md#alerts-azurekv).
 
 ## April 2023
 
