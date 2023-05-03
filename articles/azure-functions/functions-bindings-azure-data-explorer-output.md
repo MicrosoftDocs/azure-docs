@@ -363,7 +363,7 @@ public class Product {
 
 ### HTTP trigger, write a record to a table
 
-The following example shows a Azure Data Explorer output binding in a Java function that adds a product record to a table, using data provided in an HTTP POST request as a JSON body.  The function takes an another dependency on the [com.fasterxml.jackson.core](https://github.com/FasterXML/jackson) library to parse the JSON body.
+The following example shows an Azure Data Explorer output binding in a Java function that adds a product record to a table, using data provided in an HTTP POST request as a JSON body.  The function takes another dependency on the [com.fasterxml.jackson.core](https://github.com/FasterXML/jackson) library to parse the JSON body.
 
 ```xml
 <dependency>
@@ -419,7 +419,7 @@ public class AddProduct {
 
 ### HTTP trigger, write to two tables
 
-The following example shows a Azure Data Explorer output binding in a Java function that adds records to a database in two different tables (`Product` and `ProductChangeLog`), using data provided in an HTTP POST request as a JSON body and multiple output bindings.  The function takes an another dependency on the [com.fasterxml.jackson.core](https://github.com/FasterXML/jackson) library to parse the JSON body.
+The following example shows an Azure Data Explorer output binding in a Java function that adds records to a database in two different tables (`Product` and `ProductChangeLog`), using data provided in an HTTP POST request as a JSON body and multiple output bindings.  The function takes another dependency on the [com.fasterxml.jackson.core](https://github.com/FasterXML/jackson) library to parse the JSON body.
 
 ```xml
 <dependency>
@@ -525,7 +525,7 @@ The examples refer to the tables `Products` and `ProductsChangeLog` (defined ear
 
 ### HTTP trigger, write records to a table
 
-The following example shows a Azure Data Explorer output binding in a function.json file and a JavaScript function that adds records to a table, using data provided in an HTTP POST request as a JSON body.
+The following example shows an Azure Data Explorer output binding in a function.json file and a JavaScript function that adds records to a table, using data provided in an HTTP POST request as a JSON body.
 
 The following example is binding data in the function.json file:
 
@@ -581,7 +581,7 @@ module.exports = async function (context, req) {
 
 ### HTTP trigger, write to two tables
 
-The following example shows a Azure Data Explorer output binding in a function.json file and a JavaScript function that adds records to a database in two different tables (`Products` and `ProductsChangeLog`), using data provided in an HTTP POST request as a JSON body and multiple output bindings.
+The following example shows an Azure Data Explorer output binding in a function.json file and a JavaScript function that adds records to a database in two different tables (`Products` and `ProductsChangeLog`), using data provided in an HTTP POST request as a JSON body and multiple output bindings.
 
 The second table, `ProductsChangeLog`, corresponds to the following definition:
 
@@ -674,7 +674,7 @@ The examples refer to the tables `Products` and `ProductsChangeLog` (defined ear
 
 ### HTTP trigger, write records to a table
 
-The following example shows a Azure Data Explorer output binding in a function.json file and a Python function that adds records to a table, using data provided in an HTTP POST request as a JSON body.
+The following example shows an Azure Data Explorer output binding in a function.json file and a Python function that adds records to a table, using data provided in an HTTP POST request as a JSON body.
 
 The following is binding data in the function.json file:
 
@@ -733,7 +733,7 @@ def main(req: func.HttpRequest, product: func.Out[str]) -> func.HttpResponse:
 
 ### HTTP trigger, write to two tables
 
-The following example shows a Azure Data Explorer output binding in a function.json file and a JavaScript function that adds records to a database in two different tables (`Products` and `ProductsChangeLog`), using data provided in an HTTP POST request as a JSON body and multiple output bindings. The second table, `ProductsChangeLog`, corresponds to the following definition:
+The following example shows an Azure Data Explorer output binding in a function.json file and a JavaScript function that adds records to a database in two different tables (`Products` and `ProductsChangeLog`), using data provided in an HTTP POST request as a JSON body and multiple output bindings. The second table, `ProductsChangeLog`, corresponds to the following definition:
 
 ```kusto
 .create-merge table ProductsChangeLog (ProductID:long, CreatedAt:datetime)
@@ -821,7 +821,7 @@ The [C# library](functions-dotnet-class-library.md) uses the [KustoAttribute](ht
 | Attribute property |Description|
 |---------|---------|
 | **Database** | Required. The database against which the query has to be executed.  |
-| **Connection** | Required. The _**name**_ of the variable that holds the connection string, resolved through environment variables or through function app settings. Defaults to look up on the variable _**KustoConnectionString**_, at runtime this variable will be looked up against the environment. Documentation on connection string can be found at [Kusto connection strings](/azure/data-explorer/kusto/api/connection-strings/kusto) for example:`"KustoConnectionString": "Data Source=https://_**cluster**_.kusto.windows.net;Database=_**Database**_;Fed=True;AppClientId=_**AppId**_;AppKey=_**AppKey**_;Authority Id=_**TenantId**_` .|
+| **Connection** | Required. The _**name**_ of the variable that holds the connection string, resolved through environment variables or through function app settings. Defaults to look up on the variable _**KustoConnectionString**_, at runtime this variable is looked up against the environment. Documentation on connection string can be found at [Kusto connection strings](/azure/data-explorer/kusto/api/connection-strings/kusto) for example:`"KustoConnectionString": "Data Source=https://_**cluster**_.kusto.windows.net;Database=_**Database**_;Fed=True;AppClientId=_**AppId**_;AppKey=_**AppKey**_;Authority Id=_**TenantId**_` .|
 | **TableName** | Required. The table to ingest the data into.|
 | **MappingRef** | Optional. attribute to pass a [mapping ref](/azure/data-explorer/kusto/management/create-ingestion-mapping-command) that is already defined in the cluster. |
 | **ManagedServiceIdentity** | Optional. A managed identity can be used to connect to Azure Data Explorer. To use a System managed identity, use "system", any other identity names are interpreted as user managed identity |
@@ -839,7 +839,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 |---------|---------|
 | **name** | Required. The name of the variable that represents the query results in function code. |
 | **database** | Required. The database against which the query has to be executed. |
-| **connection** | Required. The _**name**_ of the variable that holds the connection string, resolved through environment variables or through function app settings. Defaults to look up on the variable _**KustoConnectionString**_, at runtime this variable will be looked up against the environment. Documentation on connection string can be found at [Kusto connection strings](/azure/data-explorer/kusto/api/connection-strings/kusto) for example:`"KustoConnectionString": "Data Source=https://_**cluster**_.kusto.windows.net;Database=_**Database**_;Fed=True;AppClientId=_**AppId**_;AppKey=_**AppKey**_;Authority Id=_**TenantId**_` |
+| **connection** | Required. The _**name**_ of the variable that holds the connection string, resolved through environment variables or through function app settings. Defaults to look up on the variable _**KustoConnectionString**_, at runtime this variable is looked up against the environment. Documentation on connection string can be found at [Kusto connection strings](/azure/data-explorer/kusto/api/connection-strings/kusto) for example:`"KustoConnectionString": "Data Source=https://_**cluster**_.kusto.windows.net;Database=_**Database**_;Fed=True;AppClientId=_**AppId**_;AppKey=_**AppKey**_;Authority Id=_**TenantId**_` |
 | **tableName** | Required. The table to ingest the data into.|
 | **mappingRef** | Optional. attribute to pass a [mapping ref](/azure/data-explorer/kusto/management/create-ingestion-mapping-command) that is already defined in the cluster. |
 | **dataFormat** | Optional. The default data format is `multijson/json`. This can be set to _**text**_ formats supported in the datasource format [enumeration](/azure/data-explorer/kusto/api/netfx/kusto-ingest-client-reference#enum-datasourceformat). Samples are validated and provided for csv and JSON formats. |
@@ -859,7 +859,7 @@ The following table explains the binding configuration properties that you set i
 |**direction** | Required. Must be set to `out`. |
 |**name** |  Required. The name of the variable that represents the query results in function code. |
 | **database** | Required. The database against which the query has to be executed. |
-| **connection** | Required. The _**name**_ of the variable that holds the connection string, resolved through environment variables or through function app settings. Defaults to look up on the variable _**KustoConnectionString**_, at runtime this variable will be looked up against the environment. Documentation on connection string can be found at [Kusto connection strings](/azure/data-explorer/kusto/api/connection-strings/kusto) for example:`"KustoConnectionString": "Data Source=https://_**cluster**_.kusto.windows.net;Database=_**Database**_;Fed=True;AppClientId=_**AppId**_;AppKey=_**AppKey**_;Authority Id=_**TenantId**_` |
+| **connection** | Required. The _**name**_ of the variable that holds the connection string, resolved through environment variables or through function app settings. Defaults to look up on the variable _**KustoConnectionString**_, at runtime this variable is looked up against the environment. Documentation on connection string can be found at [Kusto connection strings](/azure/data-explorer/kusto/api/connection-strings/kusto) for example:`"KustoConnectionString": "Data Source=https://_**cluster**_.kusto.windows.net;Database=_**Database**_;Fed=True;AppClientId=_**AppId**_;AppKey=_**AppKey**_;Authority Id=_**TenantId**_` |
 | **tableName** | Required. The table to ingest the data into.|
 | **mappingRef** | Optional. attribute to pass a [mapping ref](/azure/data-explorer/kusto/management/create-ingestion-mapping-command) that is already defined in the cluster. |
 | **dataFormat** | Optional. The default data format is `multijson/json`. This can be set to _**text**_ formats supported in the datasource format [enumeration](/azure/data-explorer/kusto/api/netfx/kusto-ingest-client-reference#enum-datasourceformat). Samples are validated and provided for csv and JSON formats. |
