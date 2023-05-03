@@ -65,8 +65,8 @@ This procedure describes how to view and manage your indicators in the **Threat 
 
     :::image type="content" source="media/work-with-threat-indicators/geolocation-whois-ti.png" alt-text="Screenshot of the Threat intelligence page with an indicator showing GeoLocation and WhoIs data." lightbox="media/work-with-threat-indicators/geolocation-whois-ti.png":::
 
-> [!IMPORTANT]
-> GeoLocation and WhoIs enrichment is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+    > [!IMPORTANT]
+    > GeoLocation and WhoIs enrichment is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 1. Sentinel removes outdated or duplicate indicators from the **Threat intelligence** page view. When indicators are viewed from **Logs**, duplicate indicators can be found by **IndicatorId**.
 
