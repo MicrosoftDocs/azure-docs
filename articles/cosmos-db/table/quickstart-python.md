@@ -34,7 +34,7 @@ If you don't have an [Azure subscription](../../guides/developer/azure-developer
 
 ## Sample application
 
-The sample application for this tutorial may be cloned or downloaded from the repository https://github.com/Azure-Samples/msdocs-azure-tables-sdk-python-flask. Both a `1-starter-app` and `2-completed-app` are included in the sample repository. The `1-starter-app` has some functionality left for you to complete with lines marked "#TODO". The code snippets shown in this article are the suggested additions to complete the `1-start-app`.
+The sample application for this tutorial may be cloned or downloaded from the repository https://github.com/Azure-Samples/msdocs-azure-tables-sdk-python-flask. Both a `1-starter-app` and `2-completed-app` are included in the sample repository. The `1-starter-app` has some functionality left for you to complete with lines marked "#TODO". The code snippets shown in this article are the suggested additions to complete the `1-starter-app`.
 
 ```bash
 git clone https://github.com/Azure-Samples/msdocs-azure-tables-sdk-python-flask.git
@@ -215,7 +215,7 @@ Don't forget to also install the *requirements.txt* in the `1-starter-app` or `2
 
 ## 5 - Configure the Table client in an .env file
 
-Copy your Azure Cosmos DB account connection string from the Azure portal, and create a TableServiceClient object using your copied connection string. Switch to folder `1-starter-app` or `2-completed-app`. Regardless of which app you start with, you need to define the corresponding environment variables in an `.env` file.
+Copy your Azure Cosmos DB account connection string from the Azure portal, and create a TableServiceClient object using your copied connection string. Switch to folder `1-starter-app` or `2-completed-app`. Regardless of which app you start with, you need to define environment variables in an `.env` file.
 
 ```python
 # Configuration Parameters
@@ -261,7 +261,7 @@ To filter the rows returned from a table, you can pass an OData style filter str
 PartitionKey eq 'Chicago' and RowKey ge '2021-07-01 12:00 AM' and RowKey le '2021-07-02 12:00 AM'
 ```
 
-You can view related OData filter operators on the azure-data-tables website in the section [Samples for Azure Tables client library for Python - Writing Filters](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/tables/azure-data-tables/samples#writing-filters).
+You can view related OData filter operators on the azure-data-tables website in the section [Writing Filters](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/tables/azure-data-tables/samples#writing-filters).
 
 When request.args parameter is passed to the `query_entity` method in the `TableServiceHelper` class, it creates a filter string for each non-null property value. It then creates a combined filter string by joining all of the values together with an "and" clause. This combined filter string is passed to the `query_entities` method on the `TableClient` object and only rows matching the filter string will be returned. You can use a similar method in your code to construct suitable filter strings as required by your application.
 
@@ -400,7 +400,11 @@ Selecting the **Insert using Expandable** Data button brings up a dialog that en
 
 :::image type="content" source="./media/quickstart-python/table-api-app-insert-expandable-entity-480px.png" alt-text="A screenshot of the application showing the dialog box used to insert data using an object with custom fields." lightbox="./media/quickstart-python/table-api-app-insert-expandable-entity.png":::
 
-Use the **Insert Sample Data** button to load some sample data into your Azure Cosmos DB Table. For the `1-starter-app` sample, you'll need to at least complete the code for the `submit_transaction` function. See `2-complete-app` if you need to see the completed code. The *.env* variable `project_root_path` depends on where you run the application. For example, if you are running the application from `1-starter-app` or `2-completed-app` folder, you can set `project_root_path` to "" (blank).
+Use the **Insert Sample Data** button to load some sample data into your Azure Cosmos DB Table. Note that:
+
+* For the `1-starter-app` sample, you'll need to at least complete the code for the `submit_transaction` function.
+
+* The *.env* variable `project_root_path` depends on where you run the application. For example, if you are running the application from `1-starter-app` or `2-completed-app` folder, you can set `project_root_path` to "" (blank).
 
 :::image type="content" source="./media/quickstart-python/table-api-app-sample-data-insert-480px.png" alt-text="A screenshot of the application showing the location of the sample data insert button." lightbox="./media/quickstart-python/table-api-app-sample-data-insert.png":::
 
