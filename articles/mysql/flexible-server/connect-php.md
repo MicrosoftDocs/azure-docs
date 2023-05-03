@@ -37,7 +37,7 @@ Install PHP on your own server, or create an Azure [web app](../../app-service/o
 1. Download [PHP 7.1.4 version](https://secure.php.net/downloads.php).
 2. Install PHP and refer to the [PHP manual](https://secure.php.net/manual/install.macosx.php) for further configuration.
 
-#### [Linux](#/tab/linux)
+#### [Linux](#tab/linux)
 
 1. Download [PHP 7.1.4 non-thread safe (x64) version](https://secure.php.net/downloads.php).
 2. Install PHP and refer to the [PHP manual](https://secure.php.net/manual/install.unix.php) for further configuration.
