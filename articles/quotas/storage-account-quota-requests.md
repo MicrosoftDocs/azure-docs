@@ -43,9 +43,7 @@ Follow these steps to request a storage account quota increase from Azure Home.
 
 1. Select the subscription for which you want to increase your storage account quota.
 
-1. Locate the region where you want to increase your storage account quota you want to increase, then select the **Request increase** icon.
-
-   :::image type="content" source="media/storage-account-quota-requests/quotas-icon.png" alt-text="Screenshot showing the support icon for a storage account quota.":::
+1. Locate the region where you want to increase your storage account quota, then select the **Request increase** icon.
 
 1. In the **Request quota increase** dialog, enter a number up to 500.
 
