@@ -16,6 +16,8 @@ ms.author: pafarley
 
 You can train a custom model to recognize specific retail products for use in a shelf analysis scenario. The out-of-box [Shelf Analyze](shelf-analyze.md) operation doesn't differentiate between products, but you can build this capability into your app through custom labeling and training.
 
+:::image type="content" source="../media/shelf/shelf-analysis-custom.png" alt-text="Photo of a retail shelf with product names and gaps highlighted with rectangles.":::
+
 ## Use the model customization feature
 
 The [Model customization how-to guide](./model-customization.md) shows you how to train and publish a custom Image Analysis model. You can follow that guide, with a few specifications, to make a model for shelf analysis.
