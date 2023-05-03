@@ -80,7 +80,7 @@ United States | Central US </br> East US </br> East US 2</br> North Central US <
 # [Azure VMs](#tab/azurevm-os)
 
 > [!NOTE]
-> Currently, we **don't support** [Specialized Azure Compute Gallery (SIG) custom images](../virtual-machines/linux/imaging.md#azure-compute-gallery) and  non-Azure Compute gallery images (including the VMs created by Azure Migrate, Azure Backup, Azure Site Recovery etc.).
+> Currently, we don't support [Specialized Azure Compute Gallery (SIG) custom images](../virtual-machines/linux/imaging.md#specialized-images) and  non-Azure Compute gallery images (including the VMs created by Azure Migrate, Azure Backup, Azure Site Recovery etc.).
 
 **Marketplace/PIR images**
 
@@ -88,7 +88,7 @@ Currently, we support a combination of Offer, Publisher, and Sku of the image. E
 
 **Custom images**
 
-We support [generalized Azure Compute Gallery (SIG) custom images](../virtual-machines/linux/imaging.md). Refer to the following table for the list of operating system that we support for generalized Azure Compute Gallery images. For more information, see [Azure Compute Gallery (SIG) custom images (preview)](manage-updates-customized-images.md).
+We support [generalized Azure Compute Gallery (SIG) custom images](../virtual-machines/linux/imaging.md#generalized-images). Table below lists the operating systems that we support for generalized Azure Compute Gallery images. Refer to [Azure Compute Gallery (SIG) custom images (preview)](manage-updates-customized-images.md) for instructions on how to start using Update manage center to manage updates on custom images.
 
    |**Windows Operating System**|
    |-- |

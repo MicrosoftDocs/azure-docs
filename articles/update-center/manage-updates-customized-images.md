@@ -12,20 +12,20 @@ ms.topic: conceptual
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
-This article describes about the customized image support, how to enable the subscription and its limitations.
+This article describes the customized image support, how to enable the subscription and its limitations.
 
 
 ## Asynchronous check to validate customized image support
 
-If you're using the Azure Compute Gallery (previously called as Shared Image Gallery) to create customized images, you can use Update management Center (preview) operations such as **Assess now**, **Install Patches now**, or **Schedule patching** to validate if the assets are supported for guest patching and then initiate patching if their asset is supported.
+If you're using the Azure Compute Gallery (formerly known as Shared Image Gallery) to create customized images, you can use Update management Center (preview) operations such as **Assess now**, **Install Patches now**, or **Schedule patching** to validate if the assets are supported for guest patching and then initiate patching if their asset is supported.
 
-Unlike PIR/marketplace images, where support is validated even before Update management center operation is triggered. Here, there are no pre-existing validations in place and the Update management center operations are triggered and only their success or failure determines support. 
+Unlike PIR/marketplace images where support is validated even before Update management center operation is triggered. Here, there are no pre-existing validations in place and the Update management center operations are triggered and only their success or failure determines support. 
 
 For instance, assessment call, will attempt to fetch the latest patch that is available from the image's OS family to check support. It stores this support-related data in Azure Resource Graph (ARG) table, which you can query to see the support status for your Azure Compute Gallery image.
 
 > [!NOTE]
-> - Currently, we **support** [generalized Azure Compute Gallery (SIG) custom images](../virtual-machines/linux/imaging.md#generalized-images). Automatic VM guest patching for generalized custom images is **not supported**.
-> - [Specialized Azure Compute Gallery (SIG) custom images](../virtual-machines/linux/imaging.md#specialized-images) and non-Azure Compute gallery images (including the VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery)  are **not supported** 
+> - Currently, we support [generalized Azure Compute Gallery (SIG) custom images](../virtual-machines/linux/imaging.md#generalized-images). Automatic VM guest patching for generalized custom images is not supported.
+> - [Specialized Azure Compute Gallery (SIG) custom images](../virtual-machines/linux/imaging.md#specialized-images) and non-Azure Compute gallery images (including the VMs created by Azure Migrate, Azure Backup, and Azure Site Recovery) are not supported. 
 
 
 ## Enable Subscription for Public Preview
@@ -36,7 +36,7 @@ To self register your subscription for Public preview in Azure portal, follow th
 
    :::image type="content" source="./media/manage-updates-customized-images/access-more-services.png" alt-text="Screenshot that shows how to access more services option.":::
 
-1. In **All services** page > in search for *Preview Features*.
+1. In **All services** page, search for *Preview Features*.
    
     :::image type="content" source="./media/manage-updates-customized-images/access-preview-services.png" alt-text="Screenshot that shows how to access preview features.":::
 
@@ -52,7 +52,7 @@ To self register your subscription for Public preview in Azure portal, follow th
 ## Prerequisites to test the Azure Compute Gallery custom images (preview)
 
 - Register the subscription for preview using the steps mentioned in [Enable Subscription for Public Preview](#enable-subscription-for-public-preview).
-- Ensure that the VM you intend to execute the API calls must be in the same subscription that is enrolled for the feature.
+- Ensure that the VM in which you intend to execute the API calls must be in the same subscription that is enrolled for the feature.
 
 ## Check the preview
 
@@ -76,7 +76,7 @@ Initiate the asynchronous support check using either of the following APIs:
         
         :::image type="content" source="./media/manage-updates-customized-images/resource-graph-view.png" alt-text="Screenshot that shows the resource in Azure Resource Graph Explorer.":::
 
-We recommend that you execute the Assess Patches API once the VM is provisioned and the prerequisites are set for Public preview. This validates the support state of the VM. If the VM is supported, then you can execute the Install Patches API to initiate the patching.
+We recommend that you execute the Assess Patches API once the VM is provisioned and the prerequisites are set for Public preview. This validates the support state of the VM. If the VM is supported, you can execute the Install Patches API to initiate the patching.
 
 ## Limitations
 
@@ -84,7 +84,7 @@ We recommend that you execute the Assess Patches API once the VM is provisioned 
 
     | Images | **Currently supported scenarios** | **Unsupported scenarios** |
     |--- | --- | ---|
-    | **Azure Compute Gallery: Generalized images** | - On demand assessment </br> - On demand patching </br> - Periodic assessment </br> - Scheduled patching. | Automatic VM guest patching | 
+    | **Azure Compute Gallery: Generalized images** | - On demand assessment </br> - On demand patching </br> - Periodic assessment </br> - Scheduled patching | Automatic VM guest patching | 
     | **Azure Compute Gallery: Specialized images** | - On demand assessment </br> - On demand patching </br>   - Periodic assessment </br> - Scheduled patching </br> - Automatic VM guest patching | 
     | **Non-Azure Compute Gallery images (non-SIG)** | None | - On demand assessment </br> - On demand patching </br> - Periodic assessment </br> - Schedule patching </br> - Automatic VM guest patching |
     
