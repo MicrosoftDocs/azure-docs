@@ -128,7 +128,7 @@ If deploying using the Azure CLI, you can download the parameter file for any la
 4. Next to the file you would like to convert to a workload zone or system object, click "Convert".
 5. The workload zone or system object will appear in its respective tab.
 
-### Deploying a workload zone or system object (Azure DevOps Pipelines deployment)
+### Deploying a workload zone or system object (Azure Pipelines deployment)
 1. Navigate to the Workload zones or Systems tab.
 2. Next to the workload zone or system you would like to deploy, click "Deploy".
    * If you would like to deploy a file, first convert it to a workload zone or system object.
