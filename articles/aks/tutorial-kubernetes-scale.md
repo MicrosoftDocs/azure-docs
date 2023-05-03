@@ -125,7 +125,7 @@ These resource requests and limits are defined for each container, as shown in t
 
 ### Autoscale pods using `kubectl autoscale`
 
-* Autoscale pods using the [`kubectl autoscale`][kubectl-autoscale] command. The following command autoscales the number of pods in the *azure-vote-front* deployment with the following conditions: if average CPU utilization across all pods exceeds 50% of the requested usage, the autoscaler increases the pods up to a maximum of *10* instances, and a minimum of *3* instances is then defined for the deployment:
+* Autoscale pods using the [`kubectl autoscale`][kubectl-autoscale] command. The following command autoscales the number of pods in the *azure-vote-front* deployment with the following conditions: if average CPU utilization across all pods exceeds 50% of the requested usage, the autoscaler increases the pods up to a maximum of 10 instances and a minimum of three instances for the deployment:
 
     ```console
     kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
@@ -194,7 +194,7 @@ The following example increases the number of nodes to three in the Kubernetes c
 
 ### [Azure CLI](#tab/azure-cli)
 
-* Scale up your cluster nodes using the [`az aks scale`][az-aks-scale] command.
+* Scale your cluster nodes using the [`az aks scale`][az-aks-scale] command.
 
     ```azurecli
     az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
@@ -220,7 +220,7 @@ The following example increases the number of nodes to three in the Kubernetes c
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-* Scale up your cluster nodes using the [`Get-AzAksCluster`][get-azakscluster] and [`Set-AzAksCluster`][set-azakscluster] commands.
+* Scale your cluster nodes using the [`Get-AzAksCluster`][get-azakscluster] and [`Set-AzAksCluster`][set-azakscluster] commands.
 
     ```azurepowershell
     Get-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster | Set-AzAksCluster -NodeCount 3
