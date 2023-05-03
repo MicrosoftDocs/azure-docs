@@ -37,8 +37,8 @@ To integrate LOB apps with Azure AD B2B, follow this pattern:
 
 | Step | Description |
 |:-------|:--------|
-| 1. | The end user triggers the **invitation** within the LOB application and provides the email address of the external user. The application checks if the user already exists, and if they don’t, proceeds to step #2|
-| 2. | The application sends a POST to the Microsoft Graph API on behalf of the user providing the redirect URL and external user’s email defined in step #1. |
+| 1. | The end user triggers the **invitation** within the LOB application and provides the email address of the external user. The application checks if the user already exists, and if they don’t, proceeds to [step #2](#step-2:-create-and-send-invitation)|
+| 2. | The application sends a POST to the Microsoft Graph API on behalf of the user providing the redirect URL and external user’s email defined in [step #1](#step-1:-check-if-the-external-user-already-exists). |
 | 3. | Microsoft Graph API provisions the guest user in Azure AD. |
 | 4. | Microsoft Graph API returns the success/failure status of the API call. If successful, the response includes the Azure AD user object ID and the invitation link that is sent to the invited user’s email. You can optionally suppress the Microsoft email and send your own custom email. |
 | 5. | (Optional) If you want to write more attributes to the invited user or add the invited user to a group, the application makes an extra API call to the Microsoft Graph API. |
@@ -116,9 +116,9 @@ If your organization or the LOB application requires additional information be s
 To update the user you will need to use the Object ID of the newly created guest user received in the response from the invitation API call. This will be the “id” value in the response. You can write to any standard sttribute or custom extension attributes you may have created. 
 
 For example:
+Required Application Permissions (from least to most privileged) 
 
 ``` 
-Required Application Permissions (from least to most privileged) 
 User.ReadWrite.All, Directory.ReadWrite.All 
 PATCH https://graph.microsoft.com/v1.0/users/<user’s object ID> 
 Content-type: application/json 
@@ -133,7 +133,7 @@ Content-type: application/json
 ```
 For more details, see [Update user - Microsoft Graph v1.0](https://learn.microsoft.com//graph/api/user-update?view=graph-rest-1.0&tabs=http). 
 
-## Steo 4: Assign the invited user to a group 
+## Step 4: Assign the invited user to a group 
 
 >[!NOTE]
 >If user assignment is not required for the application, you may skip this step. 
