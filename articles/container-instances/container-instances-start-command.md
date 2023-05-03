@@ -80,7 +80,7 @@ az container logs --resource-group myResourceGroup --name mycontainer1
 
 Output:
 
-```console
+```output
 [('HAMLET', 386), ('HORATIO', 127), ('CLAUDIUS', 120)]
 ```
 
@@ -106,7 +106,7 @@ az container logs --resource-group myResourceGroup --name mycontainer2
 
 Output:
 
-```console
+```output
 [('ROMEO', 177), ('JULIET', 134), ('CAPULET', 119)]
 ```
 
