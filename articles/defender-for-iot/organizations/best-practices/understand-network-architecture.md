@@ -60,6 +60,20 @@ The following image adds Defender for IoT resources to the same network as descr
 
 For more information, see [Sample OT network connectivity models](sample-connectivity-models.md).
 
+## Deploying for unidirectional gateway
+
+If you're working with a unidirectional gateway, where data passes through a data diode in one direction only, use one of the following methods to understand where to place your OT sensors:
+
+- **Place your OT sensors outside the network perimeter**. In this scenario, your sensor receives SPAN traffic through the diode, unidirectionally from the network to the sensor's monitoring port. We recommend using this method in large deployments.
+
+- **Place your OT sensors inside the network perimeter**. In this scenario, the sensor sends UDP syslog alerts to targets outside the perimeter through the data diode. For example:
+
+    :::image type="content" source="../media/architecture/air-gapped-diode.png" alt-text="Diagram of placing OT sensors inside the network perimeter." lightbox="../media/architecture/air-gapped-diode.png":::
+
+> [!NOTE]
+> OT sensors placed inside the network perimeter are air-gapped and must be managed locally. They can't connect to the cloud or be managed from the Azure portal. For example, you'll need to manually update these sensors with new threat intelligence packages.
+> If you're working with a unidirectional network and need cloud-connected sensors that are managed from the Azure portal, make sure to place your sensors outside the network perimeter.
+
 ## Identifying interesting traffic points
 
 Typically, interesting points from a security perspective are the interfaces that connect between the default gateway entity to the core or distribution switch.
