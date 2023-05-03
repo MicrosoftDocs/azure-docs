@@ -140,6 +140,7 @@
     - name: Configure auto-shutdown settings
       href: how-to-configure-auto-shutdown-lab-plans.md
     - name: Connect to a virtual network
+      displayName: VNET, injection, advanced, networking, hybrid, on-premise
       href: how-to-connect-vnet-injection.md
     - name: Create a lab with a shared resource
       href: how-to-create-a-lab-with-shared-resource.md
