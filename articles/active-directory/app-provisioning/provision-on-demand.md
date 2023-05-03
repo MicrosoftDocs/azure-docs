@@ -48,7 +48,7 @@ Use on-demand provisioning to provision a user or group in seconds. Among other 
 
 5. Select **Provision on demand**.
 
-6. Search for a user by first name, last name, display name, user principal name, or email address. Alternatively, you can search for a group and pick up to 5 users. 
+6. Search for a user by first name, last name, display name, user principal name, or email address. Alternatively, you can search for a group and pick up to five users. 
    > [!NOTE]
    > For Cloud HR provisioning app (Workday/SuccessFactors to AD/Azure AD), the input value is different. 
    > For Workday scenario, please provide "WorkerID" or "WID" of the user in Workday. 
@@ -168,7 +168,7 @@ There are currently a few known limitations to on-demand provisioning. Post your
 > [!NOTE]
 > The following limitations are specific to the on-demand provisioning capability. For information about whether an application supports provisioning groups, deletions, or other capabilities, check the tutorial for that application.
 
-* On-demand provisioning of groups supports updating up to 5 members at a time
+* On-demand provisioning of groups supports updating up to five members at a time
 ::: zone-end
 * Restoring a previously soft-deleted user in the target tenant with on-demand provisioning isn't supported. If you try to soft-delete a user with on-demand provisioning and then restore the user, it can result in duplicate users.
 * On-demand provisioning of roles isn't supported.
