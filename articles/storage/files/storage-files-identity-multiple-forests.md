@@ -95,9 +95,21 @@ Once the trust is established, follow these steps to create a storage account an
 1. Set share-level permissions using either Azure RBAC roles or a default share-level permission. 
    - If the user is synced to Azure AD, you can grant a share-level permission (Azure RBAC role) to the user **onprem1user** on storage account **onprem1sa** so the user can mount the file share. To do this, navigate to the file share you created in **onprem1sa** and follow the instructions in [Assign share-level permissions for specific Azure AD users or groups](storage-files-identity-ad-ds-assign-permissions.md#share-level-permissions-for-specific-azure-ad-users-or-groups).
    - Otherwise, you can use a [default share-level permission](storage-files-identity-ad-ds-assign-permissions.md#share-level-permissions-for-all-authenticated-identities) that applies to all authenticated identities.
-1. Optional: [Configure directory and file-level permissions](storage-files-identity-ad-ds-configure-permissions.md#configure-windows-acls-with-icacls) (Windows ACLs) using the icacls command-line utility. In a multi-forest environment, you shouldn't use Windows File Explorer to configure ACLs. Use icacls instead.
 
-Repeat steps 4-10 for **Forest2** domain **onpremad2.com** (storage account **onprem2sa**/user **onprem2user**). If you have more than two forests, repeat the steps for each forest.
+Repeat steps 4-8 for **Forest2** domain **onpremad2.com** (storage account **onprem2sa**/user **onprem2user**). If you have more than two forests, repeat the steps for each forest.
+
+## Configure directory and file-level permissions (optional)
+
+In a multi-forest environment, we don't recommend using File Explorer to configure ACLs. Although users which belong to the forest that is domain-joined to the storage account can have file/directory level permissions set via File Explorer, it won't work for users that don't belong to the same forest that is domain-joined to the storage account.
+
+Instead, we recommend using the icacls command-line utility to configure directory and file-level permissions for users in both forests. See [Configure Windows ACLs with icacls](storage-files-identity-ad-ds-configure-permissions.md#configure-windows-acls-with-icacls).
+
+If icacls fails with an *Access is denied* error, follow these steps to configure directory and file-level permissions by mounting the share with the storage account key.
+
+1. Delete the existing share mount: `net use * /delete /y`
+1. Re-mount the share using the storage account key: `net use <driveletter> \\storageaccount.file.core.windows.net\sharename /user:AZURE\<storageaccountname> <storageaccountkey>`
+1. Set icacls permissions for user in **Forest2** on storage account joined to **Forest1** from client in **Forest1**.
+1. Repeat the same steps for user in **Forest2** on storage account joined to **Forest1** from client in **Forest2**.
 
 ## Configure domain suffixes
 
