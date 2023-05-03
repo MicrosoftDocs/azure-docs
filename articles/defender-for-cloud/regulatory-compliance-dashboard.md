@@ -29,8 +29,8 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 To step through the features covered in this tutorial:
 
-- [Enable enhanced security features](defender-for-cloud-introduction.md). You can enable these for free for 30 days.
-- You must be signed in with an account that has reader access to the policy compliance data. The **Global reader** for the subscription has access to the policy compliance data, but the **Security Reader** role doesn't. At a minimum, you'll need to have **Resource Policy Contributor** and **Security Admin** roles assigned.
+- [Enable enhanced security features](enable-enhanced-security.md). You can enable these for free for 30 days.
+- You must be signed in with an account that has reader access to the policy compliance data. The **Reader** role for the subscription has access to the policy compliance data, but the **Security Reader** role doesn't. At a minimum, you'll need to have **Resource Policy Contributor** and **Security Admin** roles assigned.
 
 ## Assess your regulatory compliance
 
@@ -314,7 +314,10 @@ For other policies, you can create an exemption directly in the policy itself, b
 
 ### What Microsoft Defender plans or licenses do I need to use the regulatory compliance dashboard?
 
-If you've got *any* of the Microsoft Defender plan (except for Defender for Servers Plan 1) enabled on *any* of your Azure resources, you can access Defender for Cloud's regulatory compliance dashboard and all of its data.
+If you've got *any* of the Microsoft Defender plans (except for Defender for Servers Plan 1) enabled on *any* of your Azure resources, you can access Defender for Cloud's regulatory compliance dashboard and all of its data.
+
+> [!NOTE]
+> For Defender for Servers you'll get regulatory compliance only for plan 2.
 
 ## Next steps
 

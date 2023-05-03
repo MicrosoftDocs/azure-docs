@@ -3,7 +3,7 @@ title: Prerequisites for Azure Virtual Desktop
 description: Find what prerequisites you need to complete to successfully connect your users to their Windows desktops and applications.
 author: dknappettmsft
 ms.topic: overview
-ms.date: 08/08/2022
+ms.date: 05/03/2023
 ms.author: daknappe
 manager: femila
 ---
@@ -15,8 +15,8 @@ At a high level, you'll need:
 
 > [!div class="checklist"]
 > - An Azure account with an active subscription
-> - An identity provider
-> - A supported operating system
+> - A supported identity provider
+> - A supported operating system for session host virtual machines
 > - Appropriate licenses
 > - Network connectivity
 > - A Remote Desktop client
@@ -25,18 +25,62 @@ At a high level, you'll need:
 
 You'll need an Azure account with an active subscription to deploy Azure Virtual Desktop. If you don't have one already, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Your account must be assigned the [contributor or owner role](../role-based-access-control/built-in-roles.md) on your subscription.
 
-You also need to make sure you've registered the *Microsoft.DesktopVirtualization* resource provider for your subscription. To check the status of the resource provider and register if needed:
+You also need to make sure you've registered the *Microsoft.DesktopVirtualization* resource provider for your subscription. To check the status of the resource provider and register if needed, select the relevant tab for your scenario and follow the steps.
 
 > [!IMPORTANT]
 > You must have permission to register a resource provider, which requires the `*/register/action` operation. This is included if your account is assigned the [contributor or owner role](../role-based-access-control/built-in-roles.md) on your subscription.
 
+# [Azure portal](#tab/portal)
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
+
 1. Select **Subscriptions**.
+
 1. Select the name of your subscription.
+
 1. Select **Resource providers**.
+
 1. Search for **Microsoft.DesktopVirtualization**.
+
 1. If the status is *NotRegistered*, select **Microsoft.DesktopVirtualization**, and then select **Register**.
-1. Verify that the status of Microsoft.DesktopVirtualization is **Registered**.
+
+1. Verify that the status of Microsoft.DesktopVirtualization is *Registered*.
+
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
+
+2. Register the **Microsoft.DesktopVirtualization** resource provider by running the following command. You can run this even if the resource provider is already registered.
+
+   ```azurecli-interactive
+   az provider register --namespace Microsoft.DesktopVirtualization
+   ```
+
+3. Verify that the parameter **RegistrationState** is set to *Registered* by running the following command:
+
+   ```azurecli-interactive
+   az provider show \
+       --namespace Microsoft.DesktopVirtualization \
+       --query {RegistrationState:registrationState}
+   ```
+
+# [Azure PowerShell](#tab/powershell)
+
+[!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
+
+2. Register the **Microsoft.DesktopVirtualization** resource provider by running the following command. You can run this even if the resource provider is already registered.
+
+   ```azurepowershell-interactive
+   Register-AzResourceProvider -ProviderNamespace Microsoft.DesktopVirtualization
+   ```
+
+3. In the output, verify that the parameters **RegistrationState** are set to *Registered*. You can also run the following command:
+
+   ```azurepowershell-interactive
+   Get-AzResourceProvider -ProviderNamespace Microsoft.DesktopVirtualization
+   ```
+
+---
 
 ## Identity
 
@@ -96,7 +140,7 @@ You have a choice of operating systems that you can use for session hosts to pro
 
 |Operating system |User access rights|
 |---|---|
-|<ul><li>[Windows 11 Enterprise multi-session](/lifecycle/products/windows-11-enterprise-and-education)</li><li>[Windows 11 Enterprise](/lifecycle/products/windows-11-enterprise-and-education)</li><li>[Windows 10 Enterprise multi-session](/lifecycle/products/windows-10-enterprise-and-education)</li><li>[Windows 10 Enterprise](/lifecycle/products/windows-10-enterprise-and-education)</li><ul>|License entitlement:<ul><li>Microsoft 365 E3, E5, A3, A5, F3, Business Premium, Student Use Benefit</li><li>Windows Enterprise E3, E5</li><li>Windows VDA E3, E5</li><li>Windows Education A3, A5</li></ul>External users can use [per-user access pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/) instead of license entitlement.</li></ul>|
+|<ul><li>[Windows 11 Enterprise multi-session](/lifecycle/products/windows-11-enterprise-and-education)</li><li>[Windows 11 Enterprise](/lifecycle/products/windows-11-enterprise-and-education)</li><li>[Windows 10 Enterprise multi-session](/lifecycle/products/windows-10-enterprise-and-education)</li><li>[Windows 10 Enterprise](/lifecycle/products/windows-10-enterprise-and-education)</li><ul>|License entitlement:<ul><li>Microsoft 365 E3, E5, A3, A5, F3, Business Premium, Student Use Benefit</li><li>Windows Enterprise E3, E5</li><li>Windows VDA E3, E5</li><li>Windows Education A3, A5</li></ul>External users can use [per-user access pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/) by enrolling an Azure subscription instead of license entitlement.</li></ul>|
 |<ul><li>[Windows Server 2022](/lifecycle/products/windows-server-2022)</li><li>[Windows Server 2019](/lifecycle/products/windows-server-2019)</li><li>[Windows Server 2016](/lifecycle/products/windows-server-2016)</li><li>[Windows Server 2012 R2](/lifecycle/products/windows-server-2012-r2)</li></ul>|License entitlement:<ul><li>Remote Desktop Services (RDS) Client Access License (CAL) with Software Assurance (per-user or per-device), or RDS User Subscription Licenses.</li></ul>Per-user access pricing is not available for Windows Server operating systems.|
 
 > [!IMPORTANT]
@@ -117,6 +161,8 @@ You can deploy virtual machines (VMs) to be used as session hosts from these ima
 - Automatically, as part of the [host pool setup process](create-host-pools-azure-marketplace.md).
 - Manually, in the Azure portal and [adding to a host pool after you've created it](expand-existing-host-pool.md).
 - Programmatically, with [Azure CLI, PowerShell](create-host-pools-powershell.md), or [REST API](/rest/api/desktopvirtualization/).
+
+If your license entitles you to use Azure Virtual Desktop, you don't need to install or apply a separate license, however if you're using per-user access pricing for external users, you will need to [enroll an Azure Subscription](remote-app-streaming/per-user-access-pricing.md). You will need to make sure the Windows license used on your session hosts is correctly assigned in Azure and the operating system is activated. For more information, see [Apply Windows license to session host virtual machines](apply-windows-license.md).
 
 There are different automation and deployment options available depending on which operating system and version you choose, as shown in the following table:
 
@@ -176,11 +222,12 @@ Consider the following when managing session hosts:
 Your users will need a [Remote Desktop client](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients) to connect to virtual desktops and remote apps. The following clients support Azure Virtual Desktop:
 
 - [Windows Desktop client](./users/connect-windows.md)
+- [Azure Virtual Desktop Store app for Windows](./users/connect-windows-azure-virtual-desktop-app.md)
 - [Web client](./users/connect-web.md)
 - [macOS client](./users/connect-macos.md)
 - [iOS and iPadOS client](./users/connect-ios-ipados.md)
 - [Android and Chrome OS client](./users/connect-android-chrome-os.md)
-- [Microsoft Store client](./users/connect-microsoft-store.md)
+- [Remote Desktop app for Windows](./users/connect-microsoft-store.md)
 
 > [!IMPORTANT]
 > Azure Virtual Desktop doesn't support connections from the RemoteApp and Desktop Connections (RADC) client or the Remote Desktop Connection (MSTSC) client.

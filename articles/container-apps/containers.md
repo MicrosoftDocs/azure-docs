@@ -29,7 +29,6 @@ Features include:
 
 ## Configuration
 
-
 The following code is an example of the `containers` array in the [`properties.template`](azure-resource-manager-api-spec.md#propertiestemplate) section of a container app resource template.  The excerpt shows the available configuration options when setting up a container.
 
 ```json
@@ -107,10 +106,12 @@ The following code is an example of the `containers` array in the [`properties.t
 | `command` | The container's startup command. | Equivalent to Docker's [entrypoint](https://docs.docker.com/engine/reference/builder/) field.  |
 | `args` | Start up command arguments. | Entries in the array are joined together to create a parameter list to pass to the startup command. |
 | `env` | An array of key/value pairs that define environment variables. | Use `secretRef` instead of the `value` field to refer to a secret. |
-| `resources.cpu` | The number of CPUs allocated to the container. | With the Consumption plan, values must adhere to the following rules:<br><br>• greater than zero<br>• less than or equal to 2<br>• can be any decimal number (with a max of two decimal places)<br><br> For example, `1.25` is valid, but `1.555` is invalid.<br> The default is 0.25 CPU per container.<br><br>When using the Consumption workload profile in the Consumption + Dedicated plan structure, the same rules apply except CPU must be less than or equal to 4.<br><br>When using a Dedicated workload profile in the Consumption + Dedicated plan structure, the maximum CPU must be less than or equal to the number of cores available in the profile. |
-| `resources.memory` | The amount of RAM allocated to the container. | With the Consumption plan, values must adhere to the following rules:<br><br>• greater than zero<br>• less than or equal to `4Gi`<br>• can be any decimal number (with a max of two decimal places)<br><br>For example, `1.25Gi` is valid, but `1.555Gi` is invalid.<br>The default is `0.5Gi` per container.<br><br>When using the Consumption workload profile in the Consumption + Dedicated plan structure, the same rules apply except memory must be less than or equal to `8Gi`.<br><br>When using a dedicated workload profile in the Consumption + Dedicated plan structure, the maximum memory must be less than or equal to the amount of memory available in the profile. |
+| `resources.cpu` | The number of CPUs allocated to the container. | With the Consumption plan, values must adhere to the following rules:<br><br>• greater than zero<br>• less than or equal to 2<br>• can be any decimal number (with a max of two decimal places)<br><br> For example, `1.25` is valid, but `1.555` is invalid.<br> The default is 0.25 CPU per container.<br><br>When you use the Consumption workload profile in the Consumption + Dedicated plan structure, the same rules apply, except CPU must be less than or equal to 4.<br><br>When you use a Dedicated workload profile in the Consumption + Dedicated plan structure, the maximum CPU must be less than or equal to the number of cores available in the profile. |
+| `resources.memory` | The amount of RAM allocated to the container. | With the Consumption plan, values must adhere to the following rules:<br><br>• greater than zero<br>• less than or equal to `4Gi`<br>• can be any decimal number (with a max of two decimal places)<br><br>For example, `1.25Gi` is valid, but `1.555Gi` is invalid.<br>The default is `0.5Gi` per container.<br><br>When you use the Consumption workload profile in the Consumption + Dedicated plan structure, the same rules apply except memory must be less than or equal to `8Gi`.<br><br>When you use a dedicated workload profile in the Consumption + Dedicated plan structure, the maximum memory must be less than or equal to the amount of memory available in the profile. |
 | `volumeMounts` | An array of volume mount definitions. | You can define a temporary volume or multiple permanent storage volumes for your container.  For more information about storage volumes, see [Use storage mounts in Azure Container Apps](storage-mounts.md).|
 | `probes`| An array of health probes enabled in the container. | This feature is based on Kubernetes health probes. For more information about probes settings, see [Health probes in Azure Container Apps](health-probes.md).|
+
+<a id="allocations"></a>
 
 In the Consumption plan, the total CPU and memory allocations requested for all the containers in a container app must add up to one of the following combinations.
 
@@ -146,7 +147,7 @@ Alternatively, the Consumption workload profile in the Consumption + Dedicated p
 | `3.75` | `7.5Gi` |
 | `4.0` | `8.0Gi` |
 
-- The total of the CPU requests in all of your containers must match one of the values in the vCPUs column.
+- The total of the CPU requests in all of your containers must match one of the values in the *vCPUs* column.
 - The total of the memory requests in all your containers must match the memory value in the memory column in the same row of the CPU column.
 
 When you use a Dedicated workload profile in the Consumption + Dedicated plan structure, the total CPU and memory allocations requested for all the containers in a container app must be less than or equal to the cores and memory available in the profile.
@@ -243,7 +244,6 @@ When assigning a managed identity to a registry, use the managed identity resour
 ```
 
 For more information about configuring user-assigned identities, see [Add a user-assigned identity](managed-identity.md#add-a-user-assigned-identity).
-
 
 ## Limitations
 

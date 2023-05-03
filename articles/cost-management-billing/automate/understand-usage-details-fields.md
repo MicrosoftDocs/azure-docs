@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article describes the fields in the usage data files.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/27/2023
+ms.date: 04/04/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -25,7 +25,9 @@ If you're using an older cost details solution and want to migrate to Exports or
 
 ## List of fields and descriptions
 
-The following table describes the important terms used in the latest version of the cost details file. The list covers pay-as-you-go (also called Microsoft Online Services Program), Enterprise Agreement (EA), and Microsoft Customer Agreement (MCA) accounts. To identify what account type you are, see [supported Microsoft Azure offers](../costs/understand-cost-mgt-data.md#supported-microsoft-azure-offers).
+The following table describes the important terms used in the latest version of the cost details file. The list covers pay-as-you-go (also called Microsoft Online Services Program), Enterprise Agreement (EA), Microsoft Customer Agreement (MCA), and Microsoft Partner Agreement (MPA) accounts. 
+
+MPA accounts have all MCA terms, in addition to the MPA terms, as described in the following table. To identify what account type you are, see [supported Microsoft Azure offers](../costs/understand-cost-mgt-data.md#supported-microsoft-azure-offers).
 
 | Term | Account type | Description |
 | --- | --- | --- |
@@ -48,6 +50,8 @@ The following table describes the important terms used in the latest version of 
 | CostInBillingCurrency | MCA | Cost of the charge in the billing currency before credits or taxes. |
 | CostInPricingCurrency | MCA | Cost of the charge in the pricing currency before credits or taxes. |
 | Currency | EA, pay-as-you-go | See `BillingCurrency`. |
+| CustomerName | MPA | Name of the Azure Active Directory tenant for the customer's subscription. |
+| CustomerTenantId | MPA | Identifier of the Azure Active Directory tenant of the customer's subscription. |
 | Date¹ | All | The usage or purchase date of the charge. |
 | EffectivePrice | All | Blended unit price for the period. Blended prices average out any fluctuations in the unit price, like graduated tiering, which lowers the price as quantity increases over time. |
 | ExchangeRateDate | MCA | Date the exchange rate was established. |
@@ -58,7 +62,7 @@ The following table describes the important terms used in the latest version of 
 | InvoiceSectionId¹ | EA, MCA | Unique identifier for the EA department or MCA invoice section. |
 | InvoiceSectionName | EA, MCA | Name of the EA department or MCA invoice section. |
 | IsAzureCreditEligible | All | Indicates if the charge is eligible to be paid for using Azure credits (Values: `True` or `False`). |
-| Location | MCA | Datacenter location where the resource is running. |
+| Location | MCA | Normalized location of the resource, if different resource locations are configured for the same regions. |
 | MeterCategory | All | Name of the classification category for the meter. For example, _Cloud services_ and _Networking_. |
 | MeterId¹ | All | The unique identifier for the meter. |
 | MeterName | All | The name of the meter. |
@@ -66,6 +70,10 @@ The following table describes the important terms used in the latest version of 
 | MeterSubCategory | All | Name of the meter subclassification category. |
 | OfferId¹ | All | Name of the offer purchased. |
 | pay-as-you-goPrice | All | Retail price for the resource. |
+| PartnerEarnedCreditApplied | MPA | Indicates whether the partner earned credit has been applied. |
+| PartnerEarnedCreditRate | MPA | Rate of discount applied if there's a partner earned credit (PEC), based on partner admin link access. |
+| PartnerName | MPA | Name of the partner Azure Active Directory tenant. |
+| PartnerTenantId | MPA | Identifier for the partner's Azure Active Directory tenant. |
 | PartNumber¹ | EA, pay-as-you-go | Identifier used to get specific meter pricing. |
 | PlanName | EA, pay-as-you-go | Marketplace plan name. |
 | PreviousInvoiceId | MCA | Reference to an original invoice if the line item is a refund. |
@@ -76,9 +84,12 @@ The following table describes the important terms used in the latest version of 
 | ProductOrderId | All | Unique identifier for the product order. |
 | ProductOrderName | All | Unique name for the product order. |
 | Provider | All | Identifier for product category or Line of Business. For example, Azure, Microsoft 365, and AWS. |
+| PublisherId | MCA | The ID of the publisher. It's only available after the invoice is generated. |
 | PublisherName | All | Publisher for Marketplace services. |
-| PublisherType | All | Type of publisher (Values: **Azure**, **AWS**, **Marketplace**). |
+| PublisherType | All | Supported values: **Microsoft**, **Azure**, **AWS**, **Marketplace**. Values are `Microsoft` for MCA accounts and `Azure` for EA and pay-as-you-go accounts. |
 | Quantity | All | The number of units purchased or consumed. |
+| ResellerName | MPA | The name of the reseller associated with the subscription. |
+| ResellerMpnId | MPA | ID for the reseller associated with the subscription. |
 | ReservationId | EA, MCA | Unique identifier for the purchased reservation instance. |
 | ReservationName | EA, MCA | Name of the purchased reservation instance. |
 | ResourceGroup | All | Name of the [resource group](../../azure-resource-manager/management/overview.md) the resource is in. Not all charges come from resources deployed to resource groups. Charges that don't have a resource group will be shown as null or empty, **Others**, or **Not applicable**. |
@@ -105,6 +116,21 @@ The following table describes the important terms used in the latest version of 
 The cost details file itself doesn’t uniquely identify individual records with an ID. Instead, you can use fields in the file flagged with ¹ to create a unique ID yourself. 
 
 Some fields might differ in casing and spacing between account types. Older versions of pay-as-you-go cost details files have separate sections for the statement and daily cost.
+
+### List of terms from older APIs
+
+The following table maps terms used in older APIs to the new terms. Refer to the above table for those descriptions.
+
+Old term | New term
+--- | ---
+ConsumedQuantity | Quantity
+IncludedQuantity | N/A
+InstanceId | ResourceId
+Rate | EffectivePrice
+Unit | UnitOfMeasure
+UsageDate | Date
+UsageEnd | Date
+UsageStart | Date
 
 ## Next steps
 

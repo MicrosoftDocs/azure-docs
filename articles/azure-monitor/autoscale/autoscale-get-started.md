@@ -140,6 +140,25 @@ Autoscale uses a cool-down period with is the amount of time to wait after a sca
 
 Flapping refers to a loop condition that causes a series of opposing scale events. Flapping happens when one scale event triggers an opposite scale event. For example, scaling in reduces the number of instances causing the CPU to rise in the remaining instances. This in turn triggers scale out event, which causes CPU usage to drop, repeating the process. For more information, see [Flapping in Autoscale](autoscale-flapping.md) and [Troubleshooting autoscale](autoscale-troubleshoot.md)
 
+## Move autoscale to a different region
+
+This section describes how to move Azure autoscale to another region under the same subscription and resource group. You can use REST API to move autoscale settings.
+
+### Prerequisites
+
+- Ensure that the subscription and resource group are available and the details in both the source and destination regions are identical.
+- Ensure that Azure autoscale is available in the [Azure region you want to move to](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all).
+
+### Move
+
+Use [REST API](/rest/api/monitor/autoscalesettings/createorupdate) to create an autoscale setting in the new environment. The autoscale setting created in the destination region will be a copy of the autoscale setting in the source region.
+
+[Diagnostic settings](../essentials/diagnostic-settings.md) that were created in association with the autoscale setting in the source region can't be moved. You'll need to re-create diagnostic settings in the destination region, after the creation of autoscale settings is completed.
+
+### Learn more about moving resources across Azure regions
+
+To learn more about moving resources between regions and disaster recovery in Azure, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
+
 ## Next steps
 
 - [Create an activity log alert to monitor all autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-alert)

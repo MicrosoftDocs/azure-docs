@@ -111,13 +111,13 @@ API Portal for VMware Tanzu provides API consumers with the ability to find and 
 
 With the Azure Spring Apps Enterprise plan, you can use fully managed VMware Tanzu components on Azure without operational hassle. You can select which VMware Tanzu components you want to use in your environment, either during or after Enterprise instance creation. The following components are available today:
 
-* Tanzu Build Service
-* Spring Cloud Gateway for Tanzu
-* API Portal for VMware Tanzu
-* Application Configuration Service for VMware Tanzu®
-* VMware Tanzu® Service Registry
-* Application Live View for VMware Tanzu®
-* Application Accelerator for VMware Tanzu®
+* [Tanzu Build Service](how-to-enterprise-build-service.md)
+* [Spring Cloud Gateway for Tanzu](how-to-configure-enterprise-spring-cloud-gateway.md)
+* [API Portal for VMware Tanzu](how-to-use-enterprise-api-portal.md)
+* [Application Configuration Service for VMware Tanzu®](how-to-enterprise-application-configuration-service.md)
+* [VMware Tanzu® Service Registry](how-to-enterprise-service-registry.md)
+* [Application Live View for VMware Tanzu®](how-to-use-application-live-view.md)
+* [Application Accelerator for VMware Tanzu®](how-to-use-accelerator.md)
 
 VMware Tanzu components deliver increased value so you can accomplish the following tasks:
 
@@ -138,7 +138,7 @@ Azure Spring Apps, including the Enterprise plan, runs on Azure in a fully manag
 | Best practice                                                      | Ecosystem                                                                                             |
 |--------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
 | Create service instances using a provisioning tool.                | Azure portal, CLI, ARM Template, Bicep, or Terraform                                                  |
-| Automate environments and application deployments.                 | GitHub, Azure DevOps, GitLab, and Jenkins                                                             |
+| Automate environments and application deployments.                 | GitHub, Azure DevOps Server, GitLab, and Jenkins                                                      |
 | Monitor end-to-end using any tool and platform.                    | Application Insights, Azure Log Analytics, Splunk, Elastic, New Relic, Dynatrace, or AppDynamics      |
 | Connect Spring applications and interact with your cloud services. | Spring integration with Azure services for data, messaging, eventing, cache, storage, and directories |
 | Securely load app secrets and certificates.                        | Azure Key Vault                                                                                       |

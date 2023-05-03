@@ -79,7 +79,10 @@ The following list presents the set of features that are currently available in 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with Adding a Microsoft Teams user to an ongoing call using Call Automation](./../../quickstarts/call-automation/Callflows-for-customer-interactions.md)
+> [Get started with Adding a Microsoft Teams user to an ongoing call using Call Automation](./../../how-tos/call-automation/teams-interop-call-automation.md)
 
-Here are some articles of interest to you: 
-- Understand how your resource is [charged for various calling use cases](../pricing.md) with examples. 
+Here are some articles of interest to you:
+- Learn more about [Call Automation](../../concepts/call-automation/call-automation.md) and its features.
+- Learn about [Play action](../../concepts/call-automation/play-Action.md) to play audio in a call.
+- Learn how to build a [call workflow](../../quickstarts/call-automation/callflows-for-customer-interactions.md) for a customer support scenario.
+- Understand how your resource is [charged for various calling use cases](../pricing.md) with examples.

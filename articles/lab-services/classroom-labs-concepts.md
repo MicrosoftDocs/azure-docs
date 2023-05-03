@@ -21,7 +21,7 @@ The following conceptual diagram shows how the different Azure Lab Services comp
 
 In Azure Lab Services, a lab plan is an Azure resource and serves as a collection of configurations and settings that apply to all the labs created from it. For example, lab plans specify the networking setup, the list of available VM images and VM sizes, and if [Canvas integration](lab-services-within-canvas-overview.md) can be used for a lab. Learn more about [planning your lab plan settings](./lab-plan-setup-guide.md#plan-your-lab-plan-settings).
 
-A lab plan can contain zero or more [labs](#lab). Each lab uses the configuration settings from the lab plan. Azure Lab Services uses Azure AD roles to grant permissions for creating labs. Learn more about [Azure Lab Services built-in roles](./administrator-guide.md#rbac-roles). 
+You can associate a lab plan with zero or more [labs](#lab). Each lab uses the configuration settings from the lab plan. Azure Lab Services uses Azure RBAC roles to grant permissions for creating labs. Learn more about [Azure Lab Services built-in roles](./administrator-guide.md#rbac-roles). 
 
 ## Lab
 
@@ -31,7 +31,7 @@ You can further configure the lab behavior by creating [lab schedules](#schedule
 
 When you publish a lab, Azure Lab Services provisions the lab VMs. All lab VMs for a lab share the same configuration and are identical.
 
-To create labs in Azure Lab Services, your Azure account needs to have the Lab Creator Azure AD role, or you need to be the owner of the corresponding lab plan. Learn more about [Azure Lab Services built-in roles](./administrator-guide.md#rbac-roles).
+To create labs in Azure Lab Services, your Azure account needs to have the Lab Creator Azure RBAC role, or you need to be the owner of the corresponding lab plan. Learn more about [Azure Lab Services built-in roles](./administrator-guide.md#rbac-roles).
 
 You use the Azure Lab Services website (https://labs.azure.com) to create labs for a lab plan. Alternately, you can also [configure Microsoft Teams integration](./how-to-configure-teams-for-lab-plans.md) or [Canvas integration](./how-to-configure-canvas-for-lab-plans.md) with Azure Lab Services to create labs directly in Microsoft Teams or Canvas.
 
@@ -49,7 +49,7 @@ Learn how to [attach or detach an Azure compute gallery](./how-to-attach-detach-
 
 ## Template virtual machine
 
-You can choose to create a customizable lab, which enables you to modify the base image for the [lab VMs](#lab-virtual-machine). For example, to install extra software components or modify operating system settings. In this case, Azure Lab Services creates a lab template VM, which you can connect to and customize.
+You can choose to create a customizable lab, which enables you to modify the base image for the [lab virtual machines](#lab-virtual-machine). In this case, Azure Lab Services creates a lab template VM, which you can connect to and customize. For example, you might install extra software components, such as Visual Studio, or configure the operating system to disable the web server process.
 
 When you [publish the lab](./tutorial-setup-lab.md#publish-lab), Azure Lab Services creates the lab VMs, based on the template VM image. If you modify the template VM at a later stage, when you republish the template VM, all lab VMs are updated to match the new template. When you republish a template VM, Azure Lab Services reimages the lab VMs and removes all changes and data on the VM.
 
@@ -100,7 +100,18 @@ The quota applies to a lab for each lab user individually, for the entire durati
 
 A lab can use either quota time, [scheduled time](#schedule), or a combination of both.
 
+## Advanced networking
+
+With lab plans, you have more control over the virtual network for labs by using advanced networking. With advanced networking, you can connect to a virtual network.
+
+Use advanced networking to connect to on premise resources such as licensing servers and use user defined routes (UDRs). Some organizations also have advanced network requirements and configurations that they want to apply to labs. For example, network requirements can include a network traffic control, ports management, access to resources in an internal network, and more.
+
+Azure Lab Services advanced networking uses virtual network (VNET) injection to connect a lab plan to your virtual network. VNET injection replaces the [Azure Lab Services virtual network peering](how-to-connect-peer-virtual-network.md) that was used with lab accounts.
+
+Learn more about how to [connect a lab plan to a virtual network](./how-to-connect-vnet-injection.md).
+
 ## Next steps
 
 - [Create the resources to get started](./quick-create-resources.md)
 - [Tutorial: Set up a lab for classroom training](./tutorial-setup-lab.md)
+- Learn about the [architecture fundamentals of Azure Lab Services](./classroom-labs-fundamentals.md)

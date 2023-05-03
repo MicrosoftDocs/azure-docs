@@ -304,4 +304,3 @@ In the browser tab where you have the query window open, query the table in your
 * For more information about setting up and running the sample, see [Event Hubs Capture and Event Grid sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo).
 * In this tutorial, you created an event subscription for the `CaptureFileCreated` event. For more information about this event and all the events supported by Azure Blob Storage, see [Azure Event Hubs as an Event Grid source](event-schema-event-hubs.md). 
 * To learn more about the Event Hubs Capture feature, see [Capture events through Azure Event Hubs in Azure Blob Storage or Azure Data Lake Storage](../event-hubs/event-hubs-capture-overview.md).
-* To learn about differences in the Azure messaging services, see [Choose between Azure services that deliver messages](compare-messaging-services.md).

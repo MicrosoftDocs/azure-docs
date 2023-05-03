@@ -95,7 +95,7 @@ If CBA enabled user cannot use MF cert (such as on mobile device without smart c
 ## MFA with Single-factor certificate-based authentication
 
 Azure AD CBA can be used as a second factor to meet MFA requirements with single-factor certificates. 
-Some of the supported combintaions are
+Some of the supported combinations are
 
 1. CBA (first factor) + passwordless phone sign-in (PSI as second factor)
 1. CBA (first factor) + FIDO2 security keys (second factor) 

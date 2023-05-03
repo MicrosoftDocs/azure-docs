@@ -139,7 +139,7 @@ Now, store your Azure Cosmos DB credentials as secrets in the key vault.
 
 In this section, create a new Azure Web App, deploy a sample application, and then register the Web App's managed identity with Azure Key Vault.
 
-1. Create a new GitHub repository using the [cosmos-db-nosql-dotnet-sample-web-environment-variables template](https://github.com/azure-samples/cosmos-db-nosql-dotnet-sample-web-environment-variables/generate).
+1. Create a new GitHub repository using the [cosmos-db-nosql-dotnet-sample-web-environment-variables template](https://github.com/azure-samples/cosmos-db-nosql-dotnet-sample-web-environment-variables).
 
 1. In the Azure portal, select **Create a resource > Web > Web App**.
 
