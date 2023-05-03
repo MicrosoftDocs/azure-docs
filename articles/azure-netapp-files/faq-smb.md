@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 04/6/2023
+ms.date: 05/03/2023
 ---
 # SMB FAQs for Azure NetApp Files
 
@@ -15,6 +15,10 @@ This article answers frequently asked questions (FAQs) about the SMB protocol of
 ## Which SMB versions are supported by Azure NetApp Files?
 
 Azure NetApp Files supports SMB 2.1 and SMB 3.1 (which includes support for SMB 3.0). 
+
+## Does Azure NetApp Files support access to ‘offline files’ on SMB volumes?
+
+Azure NetApp Files supports 'manual' offline files, allowing users on Windows clients to manually select files to be cached locally.
 
 ## Is an Active Directory connection required for SMB access? 
 
