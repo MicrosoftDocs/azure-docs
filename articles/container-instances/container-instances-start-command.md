@@ -78,8 +78,6 @@ Once the container's state shows as *Terminated* (use [az container show][az-con
 az container logs --resource-group myResourceGroup --name mycontainer1
 ```
 
-Output:
-
 ```output
 [('HAMLET', 386), ('HORATIO', 127), ('CLAUDIUS', 120)]
 ```
@@ -103,8 +101,6 @@ Again, once the container is *Terminated*, view the output by showing the contai
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer2
 ```
-
-Output:
 
 ```output
 [('ROMEO', 177), ('JULIET', 134), ('CAPULET', 119)]
