@@ -667,7 +667,7 @@ async def main(msg: func.QueueMessage, starter: str) -> None:
 ```
 ---
 
-::: zone-end  \
+::: zone-end 
 ::: zone pivot="programming-language-powershell" 
 
 **function.json**
