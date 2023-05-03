@@ -39,9 +39,11 @@ Imported threat indicators are listed in the **Microsoft Sentinel > ThreatIntell
 
 1. Select the **Preview data** icon (the eye) next to the table name and select the **See in query editor** button to run a query that will show records from this table.
 
-Your results should look similar to the sample threat indicator shown below:
+    Your results should look similar to the sample threat indicator shown below:
 
-:::image type="content" source="media/work-with-threat-indicators/threat-intel-sample-query.png" alt-text="Sample query data":::
+    :::image type="content" source="media/work-with-threat-indicators/threat-intel-sample-query.png" alt-text="Sample query data":::
+
+1. The **ExternalIndicatorId** property is the same as the indicator ID of threat intelligence shared using the STIX format. When indicators are imported in bulk or created from non-STIX sources, the **ExternalIndicatorId** is generated using the *Source* and *Pattern* of the indicator. In order to accommodate indicator updates from STIX sources, an indicator is considered outdated when the **ExternalIndicatorId** and **SourceSystem** match another indicator that has a newer **TimeGenerated[UTC]**.
 
 ### Find and view your indicators in the Threat intelligence page
 
@@ -51,7 +53,7 @@ This procedure describes how to view and manage your indicators in the **Threat 
 
 1. Open the [Azure portal](https://portal.azure.com/) and navigate to the **Microsoft Sentinel** service.
 
-1. Select the workspace to which you imported threat indicators using the connectors/playbooks or have created threat intelligence data.
+1. Select the workspace where you imported threat indicators.
 
 1. From the **Threat Management** section on the left, select the **Threat Intelligence** page.
 
@@ -63,12 +65,16 @@ This procedure describes how to view and manage your indicators in the **Threat 
 
     :::image type="content" source="media/work-with-threat-indicators/geolocation-whois-ti.png" alt-text="Screenshot of the Threat intelligence page with an indicator showing GeoLocation and WhoIs data." lightbox="media/work-with-threat-indicators/geolocation-whois-ti.png":::
 
-The **Threat intelligence** page also allows you to create threat indicators directly within the Microsoft Sentinel interface, and perform two of the most common threat intelligence administrative tasks: indicator tagging and creating new indicators related to security investigations.
-
 > [!IMPORTANT]
 > GeoLocation and WhoIs enrichment is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-#### Create a new indicator
+1. Sentinel removes outdated or duplicate indicators from the **Threat intelligence** page view. When indicators are viewed from **Logs**, duplicate indicators can be found by **IndicatorId**.
+
+## Create and tag indicators
+
+The **Threat intelligence** page also allows you to create threat indicators directly within the Microsoft Sentinel interface, and perform two of the most common threat intelligence administrative tasks: indicator tagging and creating new indicators related to security investigations.
+
+### Create a new indicator
 
 1. From the [Azure portal](https://portal.azure.com/), navigate to the **Microsoft Sentinel** service.
 
@@ -84,7 +90,7 @@ The **Threat intelligence** page also allows you to create threat indicators dir
 
 1. Select **Apply**. The indicator is added to the indicators list, and is also sent to the *ThreatIntelligenceIndicator* table in **Logs**.
 
-#### Tag threat indicators
+### Tag threat indicators
 
 Tagging threat indicators is an easy way to group them together to make them easier to find. Typically, you might apply a tag to indicators related to a particular incident, or to those representing threats from a particular known actor or well-known attack campaign. You can tag threat indicators individually, or multi-select indicators and tag them all at once. Shown below is an example of tagging multiple indicators with an incident ID. Since tagging is free-form, a recommended practice is to create standard naming conventions for threat indicator tags. You can apply multiple tags to each indicator.
 
