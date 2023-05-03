@@ -27,7 +27,7 @@ GoldenGate is a logical replication software that enables real-time replication,
 
 GoldenGate is mainly used for heterogeneous replication cases, such as replicating data from different source databases to a single database (like a data warehouse), cross-platform migrations (such as from SPARC and AIX to Linux x86 environments), and advanced high availability and scalability scenarios. Additionally, GoldenGate is also suitable for near-zero downtime migrations since it supports online migrations with minimal disruption to the source systems.
 
-While GoldenGate facilitates bi-directional replication, the application must be configured accordingly. Additionally, the software permits filtering and transformation of data to meet specific business requirements, enabling users to make use of the replicated data for a variety of purposes.
+While GoldenGate facilitates bi-directional replication, the application must be configured accordingly. Additionally, the software permits filtering and transformation of data to meet specific business requirements, enabling users to make use of the replicated data for various purposes.
 
 ## Prepare the environment
 
@@ -35,7 +35,7 @@ To perform the Oracle Golden Gate installation, you need to create two Azure VMs
 
 You also need to be familiar with Unix editor vi and have a basic understanding of X Server.
 
-The following is a summary of the environment configuration:
+The following table is a summary of the environment configuration:
 >
 > |  | **Primary site** | **Replicate site** |
 > | --- | --- | --- |
@@ -310,7 +310,7 @@ The Oracle software is already installed on the Marketplace image, so the next s
 $ sudo su - oracle
 ```
 
-2. Create the database using following command. Note that this command may take 30-40 minutes to complete.
+2. Create the database using following command. This command may take 30-40 minutes to complete.
 
 ```bash
 $ dbca -silent \
@@ -515,7 +515,7 @@ SQL> EXIT;
    az network bastion tunnel --name ggBastion --resource-group GoldenGateOnAzureLab --target-resource-id $ggVM1id --resource-port 22 --port 57500
    ```
 
-   * Leave the first command prompt running and open a second command prompt to connect to your target VM through the tunnel. In this second command prompt window, you can upload files from your local machine to your target VM using the following command. Note that the correct `id_rsa` keyfile to access virtual machine must reside in `.ssh` directory or you can point to a different key file using `-i` parameter to `scp` command.
+   * Leave the first command prompt running and open a second command prompt to connect to your target VM through the tunnel. In this second command prompt window, you can upload files from your local machine to your target VM using the following command. The correct `id_rsa` keyfile to access virtual machine must reside in `.ssh` directory or you can point to a different key file using `-i` parameter to `scp` command.
 
    ```PowerShell
     scp -P 57500 "213000_fbo_ggs_Linux_x64_Oracle_shiphome.zip"  azureuser@127.0.0.1:.
@@ -1120,7 +1120,7 @@ The replication has begun, and you can test it by inserting new records to TEST 
     JANE 11-NOV-95 PLANE       256  133300      1    100
    ```
 
-This completes the installation and configuration of Golden Gate on Oracle linux.
+The installation and configuration of Golden Gate on Oracle linux is now complete.
 
 ## Delete the ggXServer VM
 
