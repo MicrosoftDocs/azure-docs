@@ -24,7 +24,7 @@ Because this configuration is widely used with the *Workday to Active Directory 
 
 ## Step 1: Retrieve your Provisioning App Service Principal ID (Object ID)
 
-1. Launch the [Azure portal](https://portal.azure.com), and navigate to the Properties section of your  provisioning application. For e.g. if you want to export your *Workday to AD User Provisioning application* mapping navigate to the Properties section of that app. 
+1. Launch the [Azure portal](https://portal.azure.com), and navigate to the Properties section of your  provisioning application. For example, if you want to export your *Workday to AD User Provisioning application* mapping navigate to the Properties section of that app. 
 1. In the Properties section of your provisioning app, copy the GUID value associated with the *Object ID* field. This value is also called the **ServicePrincipalId** of your app and it's used in Graph Explorer operations.
 
    ![Screenshot of Workday App Service Principal ID.](./media/skip-out-of-scope-deletions/wd_export_01.png)
