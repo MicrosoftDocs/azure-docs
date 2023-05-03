@@ -93,7 +93,7 @@ With the environment deployed, the next step is to deploy an Azure Blob Storage 
 
 # [Azure CLI](#tab/azure-cli)
 
-```bash
+```azurecli-interactive
 STORAGE_ACCOUNT_NAME="<storage account name>"
 ```
 
@@ -218,8 +218,6 @@ New-AzRoleAssignment -ObjectId $PrincipalId -RoleDefinitionName 'Storage Blob Da
 
 There are multiple ways to authenticate to external resources via Dapr. This example doesn't use the Dapr Secrets API at runtime, but uses an Azure-based state store. Therefore, you can forgo creating a secret store component and instead provide direct access from the node app to the blob store using Managed Identity. If you want to use a non-Azure state store or the Dapr Secrets API at runtime, you could create a secret store component. This component would load runtime secrets so you can reference them at runtime.
 
-# [Azure CLI](#tab/azure-cli)
-
 Open a text editor and create a config file named *statestore.yaml* with the properties that you sourced from the previous steps. This file helps enable your Dapr app to access your state store. The following example shows how your *statestore.yaml* file should look when configured for your Azure Blob Storage account:
 
 ```yaml
@@ -240,6 +238,8 @@ scopes:
 To use this file, update the placeholders:
 
 - Replace `<STORAGE_ACCOUNT_NAME>` with the value of the `STORAGE_ACCOUNT_NAME` variable you defined. To obtain its value, run the following command:
+
+# [Azure CLI](#tab/azure-cli)
 
 ``azurecli-interactive
 echo $STORAGE_ACCOUNT_NAME
