@@ -44,7 +44,7 @@ You also need to make sure you've registered the *Microsoft.DesktopVirtualizatio
 
 1. If the status is *NotRegistered*, select **Microsoft.DesktopVirtualization**, and then select **Register**.
 
-1. Verify that the status of Microsoft.DesktopVirtualization is **Registered**.
+1. Verify that the status of Microsoft.DesktopVirtualization is *Registered*.
 
 # [Azure CLI](#tab/cli)
 
@@ -56,7 +56,7 @@ You also need to make sure you've registered the *Microsoft.DesktopVirtualizatio
    az provider register --namespace Microsoft.DesktopVirtualization
    ```
 
-3. Verify that the Microsoft.DesktopVirtualization resource provider is set to **Registered** by running the following command:
+3. Verify that the parameter **RegistrationState** is set to **Registered** by running the following command:
 
    ```azurecli-interactive
    az provider show \
