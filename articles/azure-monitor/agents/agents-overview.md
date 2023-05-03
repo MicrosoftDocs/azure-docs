@@ -130,7 +130,7 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |		|	VM Insights	|	X (Public preview)	|	X	|		|
 |		|	Microsoft Defender for Cloud	|	X (Public preview)	|	X	|		|
 |		|	Automation Update Management	|	|	X	|		|
-|		|	Update Management	|	X (Public preview, independent of monitoring agents)	|	|		|
+|		|	Update Management Center	|	N/A (Public preview, independent of monitoring agents)	|		|		|
 |		|	Change Tracking	| X (Public preview) |	X	|		|
 |       |   SQL Best Practices Assessment | X |     |       |
 
@@ -155,7 +155,8 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |		|	Microsoft Sentinel 	|	X ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	|	X	|		|
 |		|	VM Insights	|	X (Public preview)	|	X 	|		|
 |		|	Microsoft Defender for Cloud	|	X (Public preview)	|	X	|		|
-|		|	Update Management	|	X (Public preview, independent of monitoring agents)	|	X	|		|
+|		|	Automation Update Management	|		|	X	|		|
+|		|	Update Management Center	|	N/A (Public preview, independent of monitoring agents)	|		|		|
 |		|	Change Tracking	| X (Public preview) |	X	|		|
 
 <sup>1</sup> To review other limitations of using Azure Monitor Metrics, see [quotas and limits](../essentials/metrics-custom-overview.md#quotas-and-limits). On Linux, using Azure Monitor Metrics as the only destination is supported in v.1.10.9.0 or higher.
@@ -240,6 +241,31 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 
 > [!NOTE]
 > CBL-Mariner 2.0's disk size is by default around 1GB to provide storage COGS savings, compared to other Azure VMs that are around 30GB. However, the Azure Monitor Agent requires at least 4GB disk size in order to install and run successfully. Please check out [CBL-Mariner's documentation](https://eng.ms/docs/products/mariner-linux/gettingstarted/azurevm/azurevm#disk-size) for more information and instructions on how to increase disk size before installing the agent.
+
+### Linux Hardening Standards
+
+The Azure Monitoring Agent for Linux now officially supports various hardening standards for Linux operating systems and distros. Every release of the agent is tested and certified against the supported hardening standards. We test against the images that are publicly available on the Azure Marketplace and published by CIS and only support the settings and hardening that are applied to those images. If you apply additional customizations on your own golden images, and those settings are not covered by the CIS images, it will be considered a non-supported scenario.
+
+*Only the Azure Monitoring Agent for Linux will support these hardening standards. There are no plans to support this in the Log Analytics Agent (legacy) or the Diagnostics Extension*
+
+Currently supported hardening standards:
+- SELinux
+- CIS Lvl 1 and 2<sup>1</sup>
+
+On the roadmap
+- STIG
+- FIPs
+
+| Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent (legacy) <sup>1</sup> | Diagnostics extension <sup>2</sup>|
+|:---|:---:|:---:|:---:|
+| CentOS Linux 7                                                 | X |   |   |
+| Debian 10                                      | X |   |   |
+| Ubuntu 18                                             | X |   |   |
+| Ubuntu 20                                              | X |   |   |
+| Red Hat Enterprise Linux Server 7                                              | X |   |   |
+| Red Hat Enterprise Linux Server 8                                              | X |   |   |
+
+<sup>1</sup> Supports only the above distros and versions
 
 ## Next steps
 

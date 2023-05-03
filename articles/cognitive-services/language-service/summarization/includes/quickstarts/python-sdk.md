@@ -33,9 +33,14 @@ Use this quickstart to create a text summarization application with the client l
 
 > [!div class="nextstepaction"]
 > <a href="> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Summarization&Page=quickstart&Section=Code-example" target="_target">I ran into an issue</a>" target="_target">I ran into an issue</a>
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Summarization&Page=quickstart&Section=Code-example" target="_target">I ran into an issue</a>" target="_target">I ran into an issue</a>
 
 ## Setting up
+
+[!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Summarization&Page=quickstart&Section=Create-environment-variables" target="_target">I ran into an issue</a>
 
 ### Install the client library
 
@@ -61,15 +66,16 @@ pip install azure-ai-language-conversations==1.1.0b3
 
 ## Code example
 
-Create a new Python file and copy the below code. Remember to replace the `key` variable with the key for your resource, and replace the `endpoint` variable with the endpoint for your resource. Then run the code.  
+Create a new Python file and copy the below code. Then run the code.  
 
 [!INCLUDE [find the key and endpoint for a resource](../../../includes/find-azure-resource-info.md)]
 
 # [Document summarization](#tab/document-summarization)
 
 ```python
-key = "paste-your-key-here"
-endpoint = "paste-your-endpoint-here"
+# This example requires environment variables named "LANGUAGE_KEY" and "LANGUAGE_ENDPOINT"
+key = os.environ.get('LANGUAGE_KEY')
+endpoint = os.environ.get('LANGUAGE_ENDPOINT')
 
 from azure.ai.textanalytics import TextAnalyticsClient
 from azure.core.credentials import AzureKeyCredential
