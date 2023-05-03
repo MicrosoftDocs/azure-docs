@@ -116,7 +116,7 @@ New-AzCosmosDBAccount `
 
 ## 2 - Create a table
 
-Next, you need to create a table within your Azure Cosmos DB account for your application to use. Unlike a traditional database, you only need to specify the name of the table, not the properties (columns) in the table. As data is loaded into your table, the properties (columns) is automatically created as needed.
+Next, you need to create a table within your Azure Cosmos DB account for your application to use. Unlike a traditional database, you only need to specify the name of the table, not the properties (columns) in the table. As data is loaded into your table, the properties (columns) are automatically created as needed.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -263,7 +263,7 @@ PartitionKey eq 'Chicago' and RowKey ge '2021-07-01 12:00 AM' and RowKey le '202
 
 You can view related OData filter operators on the azure-data-tables website in the section [Writing Filters](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/tables/azure-data-tables/samples#writing-filters).
 
-When request.args parameter is passed to the `query_entity` method in the `TableServiceHelper` class, it creates a filter string for each non-null property value. It then creates a combined filter string by joining all of the values together with an "and" clause. This combined filter string is passed to the `query_entities` method on the `TableClient` object and only rows matching the filter string will be returned. You can use a similar method in your code to construct suitable filter strings as required by your application.
+When request.args parameter is passed to the `query_entity` method in the `TableServiceHelper` class, it creates a filter string for each non-null property value. It then creates a combined filter string by joining all of the values together with an "and" clause. This combined filter string is passed to the `query_entities` method on the `TableClient` object and only rows matching the filter string are returned. You can use a similar method in your code to construct suitable filter strings as required by your application.
 
 ```python
 def query_entity(self, params):
@@ -325,7 +325,7 @@ def deserialize():
 
 One of the advantages of using the Azure Cosmos DB for Table is that if an object being loaded to a table contains any new properties then those properties are automatically added to the table and the values stored in Azure Cosmos DB. There's no need to run DDL statements like ALTER TABLE to add columns as in a traditional database.
 
-This model gives your application flexibility when dealing with data sources that may add or modify what data needs to be captured over time or when different inputs provide different data to your application. In the sample application, we can simulate a weather station that sends not just the base weather data but also some additional values. When an object with these new properties is stored in the table for the first time, the corresponding properties (columns) will be automatically added to the table.
+This model gives your application flexibility when dealing with data sources that may add or modify what data needs to be captured over time or when different inputs provide different data to your application. In the sample application, we can simulate a weather station that sends not just the base weather data but also some extra values. When an object with these new properties is stored in the table for the first time, the corresponding properties (columns) are automatically added to the table.
 
 To insert or upsert such an object using the API for Table, map the properties of the expandable object into a `TableEntity` object and use the `create_entity` or `upsert_entity` methods on the `TableClient` object as appropriate.
 
@@ -400,11 +400,11 @@ Selecting the **Insert using Expandable** Data button brings up a dialog that en
 
 :::image type="content" source="./media/quickstart-python/table-api-app-insert-expandable-entity-480px.png" alt-text="A screenshot of the application showing the dialog box used to insert data using an object with custom fields." lightbox="./media/quickstart-python/table-api-app-insert-expandable-entity.png":::
 
-Use the **Insert Sample Data** button to load some sample data into your Azure Cosmos DB Table. Note that:
+Use the **Insert Sample Data** button to load some sample data into your Azure Cosmos DB Table.
 
 * For the `1-starter-app` sample, you'll need to at least complete the code for the `submit_transaction` function.
 
-* The *.env* variable `project_root_path` depends on where you run the application. For example, if you are running the application from `1-starter-app` or `2-completed-app` folder, you can set `project_root_path` to "" (blank).
+* The *.env* variable `project_root_path` depends on where you run the application. For example, if you're running the application from `1-starter-app` or `2-completed-app` folder, you can set `project_root_path` to "" (blank).
 
 :::image type="content" source="./media/quickstart-python/table-api-app-sample-data-insert-480px.png" alt-text="A screenshot of the application showing the location of the sample data insert button." lightbox="./media/quickstart-python/table-api-app-sample-data-insert.png":::
 
@@ -428,7 +428,7 @@ A resource group can be deleted using the [Azure portal](https://portal.azure.co
 
 ### [Azure CLI](#tab/azure-cli)
 
-To delete a resource group using the Azure CLI, use the [az group delete](/cli/azure/group#az-group-delete) command with the name of the resource group to be deleted.  Deleting a resource group will also remove all Azure resources contained in the resource group.
+To delete a resource group using the Azure CLI, use the [az group delete](/cli/azure/group#az-group-delete) command with the name of the resource group to be deleted.  Deleting a resource group also removes all Azure resources contained in the resource group.
 
 ```azurecli
 az group delete --name $RESOURCE_GROUP_NAME
@@ -436,7 +436,7 @@ az group delete --name $RESOURCE_GROUP_NAME
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-To delete a resource group using Azure PowerShell, use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command with the name of the resource group to be deleted.  Deleting a resource group will also remove all Azure resources contained in the resource group.
+To delete a resource group using Azure PowerShell, use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command with the name of the resource group to be deleted.  Deleting a resource group also removes all Azure resources contained in the resource group.
 
 ```azurepowershell
 Remove-AzResourceGroup -Name $resourceGroupName
