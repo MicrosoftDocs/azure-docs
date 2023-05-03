@@ -28,4 +28,4 @@ East US                   eastus               (US) East US
 West Europe               westeurope           (Europe) West Europe
 ```
 
-See [Products available by region](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=private-5g-core) for the Azure regions supported by Azure Private 5G Core.
+See [Products available by region](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=private-5g-core) for the Azure regions where Azure Private 5G Core is available.
