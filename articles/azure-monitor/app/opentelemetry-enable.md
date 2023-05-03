@@ -646,8 +646,8 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        builder.Services.AddOpenTelemetry().UseAzureMonitor(options => options.ConnectionString = "<Your Connection String>");
         builder.Services.ConfigureOpenTelemetryMeterProvider((sp, builder) => builder.AddMeter("OTel.AzureMonitor.Demo"));
+        builder.Services.AddOpenTelemetry().UseAzureMonitor(options => options.ConnectionString = "<Your Connection String>");
 
         var app = builder.Build();
 
@@ -753,8 +753,8 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        builder.Services.AddOpenTelemetry().UseAzureMonitor(options => options.ConnectionString = "<Your Connection String>");
         builder.Services.ConfigureOpenTelemetryMeterProvider((sp, builder) => builder.AddMeter("OTel.AzureMonitor.Demo"));
+        builder.Services.AddOpenTelemetry().UseAzureMonitor(options => options.ConnectionString = "<Your Connection String>");
 
         var app = builder.Build();
 
@@ -864,8 +864,8 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        builder.Services.AddOpenTelemetry().UseAzureMonitor(options => options.ConnectionString = "<Your Connection String>");
         builder.Services.ConfigureOpenTelemetryMeterProvider((sp, builder) => builder.AddMeter("OTel.AzureMonitor.Demo"));
+        builder.Services.AddOpenTelemetry().UseAzureMonitor(options => options.ConnectionString = "<Your Connection String>");
 
         var app = builder.Build();
 
@@ -1414,19 +1414,17 @@ To add span attributes, use either of the following two ways:
 1. Use a custom processor:
 
 > [!TIP]
-> Add the processor shown here *before* the Azure Monitor Exporter.
-
-TODO: MOTHRA: UPDATE CODE SAMPLE
+> Add the processor shown here *before* adding Azure Monitor.
 
 ```csharp
-using var tracerProvider = Sdk.CreateTracerProviderBuilder()
-        .AddSource("OTel.AzureMonitor.Demo")
-        .AddProcessor(new ActivityEnrichingProcessor())
-        .AddAzureMonitorTraceExporter(o =>
-        {
-                o.ConnectionString = "<Your Connection String>"
-        })
-        .Build();
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.ConfigureOpenTelemetryTracerProvider((sp, builder) => builder.AddProcessor(new ActivityEnrichingProcessor()));
+builder.Services.AddOpenTelemetry().UseAzureMonitor(options => options.ConnectionString = "<Your Connection String>");
+
+var app = builder.Build();
+
+app.Run();
 ```
 
 Add `ActivityEnrichingProcessor.cs` to your project with the following code:
@@ -1693,17 +1691,19 @@ You might use the following ways to filter out telemetry before it leaves your a
 
 1. Use a custom processor:
     
-    TODO: MOTHRA: UPDATE CODE SAMPLE
+    > [!TIP]
+    > Add the processor shown here *before* adding Azure Monitor.
 
     ```csharp
-    using var tracerProvider = Sdk.CreateTracerProviderBuilder()
-            .AddSource("OTel.AzureMonitor.Demo")
-            .AddProcessor(new ActivityFilteringProcessor())
-            .AddAzureMonitorTraceExporter(o =>
-            {
-                    o.ConnectionString = "<Your Connection String>"
-            })
-            .Build();
+    var builder = WebApplication.CreateBuilder(args);
+
+    builder.Services.ConfigureOpenTelemetryTracerProvider((sp, builder) => builder.AddProcessor(new ActivityFilteringProcessor()));
+    builder.Services.ConfigureOpenTelemetryTracerProvider((sp, builder) => builder.AddSource("ActivitySourceName"));
+    builder.Services.AddOpenTelemetry().UseAzureMonitor(options => options.ConnectionString = "<Your Connection String>");
+
+    var app = builder.Build();
+
+    app.Run();
     ```
     
     Add `ActivityFilteringProcessor.cs` to your project with the following code:
