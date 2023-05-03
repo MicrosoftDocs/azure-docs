@@ -3,7 +3,7 @@ title: Configure personal desktop assignment in Azure Virtual Desktop  - Azure
 description: How to configure automatic or direct assignment for an Azure Virtual Desktop personal desktop host pool.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 05/03/2023
+ms.date: 05/04/2023
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
 manager: femila
@@ -100,11 +100,16 @@ To configure direct assignment in the Azure portal:
 
 #### [PowerShell](#tab/powershell)
 
-To configure a host pool to require direct assignment of users to session hosts, run the following PowerShell cmdlet:
+Here's how to configure a host pool to require direct assignment of users to session hosts using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module.
 
-```powershell
-Update-AzWvdHostPool -ResourceGroupName $resourceGroupName -Name $hostPoolName -PersonalDesktopAssignmentType Direct
-```
+[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
+
+1. Run the `Update-AzWvdHostPool` command in the following example to configure a host pool to require direct assignment. For more information about the parameters,see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
+
+   ```powershell
+   Update-AzWvdHostPool -ResourceGroupName $resourceGroupName -Name $hostPoolName -PersonalDesktopAssignmentType Direct
+   ```
+
 ---
 
 ### Directly assign users to session hosts
@@ -139,11 +144,15 @@ To directly assign a user to a session host in the Azure portal:
 
 #### [PowerShell](#tab/powershell)
 
-To assign a user to a specific session host, run the following PowerShell cmdlet:
+Here's how to configure a host pool to assign a user to a specific session host using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module.
 
-```powershell
-Update-AzWvdSessionHost -HostPoolName $hostPoolName -Name $sessionHostName -ResourceGroupName $resourceGroupName -AssignedUser <userupn>
-```
+[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
+
+1. Run the `Update-AzWvdHostPool` command in the following example to assign a user to a session host. For more information about the parameters,see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
+
+   ```powershell
+   Update-AzWvdSessionHost -HostPoolName $hostPoolName -Name $sessionHostName -ResourceGroupName $resourceGroupName -AssignedUser <userupn>
+   ```
 ---
 
 ## Unassign a personal desktop
@@ -176,19 +185,23 @@ To unassign a personal desktop in the Azure portal:
 
 #### [PowerShell](#tab/powershell)
 
-To unassign a personal desktop in PowerShell, run the following command:
+Here's how to configure a host pool to unassign a personal desktop using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module.
 
-```powershell
-$unassignDesktopParams = @{
-  Path = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DesktopVirtualization/hostPools/$hostPoolName/sessionHosts/$($sessionHostName)?api-version=2022-02-10-preview&force=true"
-  Payload = @{
-    properties = @{
-      assignedUser = ''
-    }} | ConvertTo-Json
-  Method = 'PATCH'
-}
-Invoke-AzRestMethod @unassignDesktopParams
-```
+[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
+
+1. Run the `Invoke-AzRestMethod` command in the following example to unassign a personal desktop. For more information about the parameters,see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
+
+   ```powershell
+   $unassignDesktopParams = @{
+     Path = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DesktopVirtualization/hostPools/$hostPoolName/sessionHosts/$($sessionHostName)?api-version=2022-02-10-preview&force=true"
+     Payload = @{
+       properties = @{
+         assignedUser = ''
+       }} | ConvertTo-Json
+     Method = 'PATCH'
+   }
+   Invoke-AzRestMethod @unassignDesktopParams
+   ```
 ---
 
 ## Reassign a personal desktop
@@ -222,27 +235,29 @@ To reassign a personal desktop in the Azure portal:
 
 #### [PowerShell](#tab/powershell)
 
-Before you start, first define the `$reassignUserUpn` variable by running the following command:
+Here's how to reassign a personal desktop using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module.
 
-```powershell
-$reassignUserUpn = <UPN of user you are reassigning the desktop to>
-```
+[!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
 
-To reassign a personal desktop, run this command:
+1. Run the following command to define the `$reassignUserUpn` variable by running the following command:
 
-```powershell
-$reassignDesktopParams = @{
-  Path = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DesktopVirtualization/hostPools/$hostPoolName/sessionHosts/$($sessionHostName)?api-version=2022-02-10-preview&force=true"
-  Payload = @{
-    properties = @{
-      assigneduser = $reassignUserUpn
-    }} | ConvertTo-Json
-  Method = 'PATCH'
-}
-Invoke-AzRestMethod @reassignDesktopParams
-```
+   ```powershell
+   $reassignUserUpn = <UPN of user you are reassigning the desktop to>
+   ```
 
-<!--Do the instructions here still apply or do I need to remove them?-->
+1. Run the `Invoke-AzRestMethod` command in the following example to reassign a personal desktop. For more information about the parameters,see the [az-desktopvirtualization-hostpool Azure CLI reference](/cli/azure/desktopvirtualization/hostpool).
+
+   ```powershell
+   $reassignDesktopParams = @{
+     Path = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.DesktopVirtualization/hostPools/$hostPoolName/sessionHosts/$($sessionHostName)?api-version=2022-02-10-preview&force=true"
+     Payload = @{
+       properties = @{
+         assigneduser = $reassignUserUpn
+       }} | ConvertTo-Json
+     Method = 'PATCH'
+   }
+   Invoke-AzRestMethod @reassignDesktopParams
+   ```
 
 ---
 
