@@ -119,7 +119,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
    
     ![GaggleAMP Single Sign-On](./media/gaggleamp-tutorial/configuration.png)
 
-	a. Select **Other** form the **Identity provider** dropdown menu.
+	a. Select **Other** from the **Identity provider** dropdown menu.
 	
 	b. In the **Identity Provider Issuer** textbox, paste the value of **Azure Ad Identifier** which you have copied from Azure portal.
 	
