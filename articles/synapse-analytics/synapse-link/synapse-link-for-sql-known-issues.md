@@ -6,7 +6,7 @@ ms.service: synapse-analytics
 ms.topic: troubleshooting
 ms.subservice: synapse-link
 ms.custom: event-tier1-build-2022
-ms.date: 03/16/2023
+ms.date: 05/03/2023
 ms.author: jburchel
 ms.reviewer: jburchel, chuckheinzelman, wiassaf, imotiwala
 ---
@@ -73,7 +73,6 @@ The following is the list of known limitations for Azure Synapse Link for SQL.
         *    ThaiCaseSensitiveAccentInsensitiveWidthSensitive
     * Currently, the collation **Latin1_General_BIN2** is not supported as there is a known issue where the link cannot be stopped nor underlying tables could be removed from replication.
 * Single row updates (including off-page storage) of > 370 MB are not supported.
-* Currently, if the primary key column(s) of the table are not the first columns in the table, and columns to the left of primary key column(s) are deleted, replication may fail. To troubleshoot, see [Troubleshoot: Azure Synapse Link for SQL initial snapshot fails on source table with primary key not listed as the first column in sequence](troubleshoot/troubleshoot-sql-snapshot-primary-key-column-order.md).
 * When Azure Synapse Link for SQL on Azure SQL Database or SQL Server 2022 is enabled, the aggressive log truncation feature of Accelerated Database Recovery (ADR) is automatically disabled. This is because Azure Synapse Link for SQL accesses the database transaction log. This behavior is similar to changed data capture (CDC). Active transactions continue to hold the transaction log truncation until the transaction commits and Azure Synapse Link for SQL catches up, or transaction aborts. This might result in the transaction log filling up more than usual and should be monitored so that the transaction log does not fill.
 
 ### Azure SQL Database only
