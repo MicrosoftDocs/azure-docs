@@ -1,24 +1,18 @@
 ---
-title: Azure PowerShell script sample - Filter VM network traffic | Microsoft Docs
+title: Azure PowerShell script sample - Filter VM network traffic
 description: Azure PowerShell script sample - Filter inbound and outbound VM network traffic.
-services: virtual-network
-documentationcenter: virtual-network
-author: mbender-ms
-manager: kumudD
+author: asudbring
 ms.service: virtual-network
-ms.devlang: powershell
 ms.topic: article
-ms.tgt_pltfrm:
-ms.workload: infrastructure
-ms.date: 05/16/2017
-ms.author: mbender 
+ms.date: 05/02/2023
+ms.author: allensu
 ms.custom: devx-track-azurepowershell
 
 ---
 
 # Filter inbound and outbound VM network traffic
 
-This script sample creates a virtual network with front-end and back-end subnets. Inbound network traffic to the front-end subnet is limited to HTTP, and HTTPS, while outbound traffic to the Internet from the back-end subnet is not permitted. After running the script, you will have one virtual machine with two NICs. Each NIC is connected to a different subnet.
+This script sample creates a virtual network with front-end and back-end subnets. Inbound network traffic to the front-end subnet is limited to HTTP, and HTTPS, while outbound traffic to the Internet from the back-end subnet isn't permitted. After running the script, you'll have one virtual machine with two NICs. Each NIC is connected to a different subnet.
 
 If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/), and then run `Connect-AzAccount` to create a connection with Azure.
 
@@ -60,4 +54,4 @@ This script uses the following commands to create a resource group, virtual netw
 
 For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/).
 
-Additional networking PowerShell script samples can be found in the [Azure Networking Overview documentation](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).
+More networking PowerShell script samples can be found in the [Azure Networking Overview documentation](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).
