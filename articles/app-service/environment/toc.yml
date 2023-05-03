@@ -6,7 +6,7 @@
     href: overview.md
   - name: Version comparison
     href: version-comparison.md
-  - name: Getting started with upgrading
+  - name: Upgrade to App Service Environment v3
     href: upgrade-getting-started.md
 - name: Quickstarts
   expanded: true
