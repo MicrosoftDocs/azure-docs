@@ -16,8 +16,7 @@ This article provides information about the **most recent** Azure HDInsight rele
 Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
 Subscribe to the [HDInsight Release Notes](./subscribe-to-hdi-release-notes-repo.md) for up-to-date information on HDInsight and all HDInsight versions. 
 
-To subscribe, click the “watch” button in the banner and watch out for [HDInsight Releases] 
-(https://github.com/Azure/HDInsight/releases).
+To subscribe, click the “watch” button in the banner and watch out for [HDInsight Releases](https://github.com/Azure/HDInsight/releases).
 
 ## Release date: February 28, 2023
 
