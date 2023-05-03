@@ -135,9 +135,9 @@ The connectivity tab allows you to supply configuration parameters for connectin
 | Logon Type When Impersonating  |None|Logon type during impersonation. For more information, see the [dwLogonType][dw] documentation. |
 |Signed Scripts Only |Unchecked|  If true, the Windows PowerShell connector validates that each script has a valid digital signature. If false, ensure that the Synchronization Service server’s Windows PowerShell execution policy is RemoteSigned or Unrestricted.| 
 |Common Module Script Name (with extension)|xADSyncPSConnectorModule.psm1|The connector allows you to store a shared Windows PowerShell module in the configuration. When the connector runs a script, the Windows PowerShell module is extracted to the file system so that it can be imported by each script.|
-|Common Module Script|Paste [AD Sync PS Connector Module code](https://github.com/Microsoft/MIMPowerShellConnectors/blob/master/src/FlatFileConnector/xADSyncPSConnectorModule.psm1) as value||
+|Common Module Script|[AD Sync PS Connector Module code](https://github.com/microsoft/MIMPowerShellConnectors/blob/master/src/ECMA2HostCSV/Scripts/CommonModule.psm1) as value.  This module will be automatically created by the ECMA2Host when the connector is running.||
 |Validation Script|\<Blank\>|The Validation Script is an optional Windows PowerShell script that can be used to ensure that connector configuration parameters supplied by the administrator are valid.|
-|Schema Script|Paste [GetSchema code](https://github.com/Microsoft/MIMPowerShellConnectors/blob/master/src/FlatFileConnector/GetSchema.ps1) as value.||
+|Schema Script|[GetSchema code](https://github.com/microsoft/MIMPowerShellConnectors/blob/master/src/ECMA2HostCSV/Scripts/Schema%20Script.ps1) as value.||
 |Additional Config Parameter Names|FileName,Delimiter,Encoding|In addition to the standard configuration settings, you can define additional custom configuration settings that are specific to the instance of the Connector. These parameters can be specified at the connector, partition, or run step levels and accessed from the relevant Windows PowerShell script. |
 |Additional Encrypted Config Parameter Names|\<Blank\> ||
 
@@ -163,12 +163,11 @@ The capabilities tab defines the behavior and functionality of the connector. Th
 |Enable Import|Checked|When checked, the connector imports data via import scripts. |
 |Enable Delta Import|Unchecked|When checked, the connector can request deltas from the import scripts. |
 |Enable Export|Checked|When checked, the connector exports data via export scripts. |
-|Enable Full Export|Checked|When checked, the export scripts support exporting the entire connector space. To use this option, Enable Export must also be checked. |
+|Enable Full Export|Checked|Not supported. This will be ignored.|
 |No Reference Values In First Export Pass|Unchecked|When checked, reference attributes are exported in a second export pass. |
 |Enable Object Rename|Unchecked|When checked, distinguished names can be modified. |
-|Delete-Add As Replace|Checked|When checked, delete-add operations are exported as a single replacement. |
-|Enable Password Operations|Unchecked|When checked, password synchronization scripts are supported. |
-|Enable Export Password in First Pass|Checked|When checked, passwords set during provisioning are exported when the object is created. |
+|Delete-Add As Replace|Checked|Not supported. This will be ignored.|
+|Enable Export Password in First Pass|Checked|Not supported. This will be ignored.|
 
 
 ### Global Parameters
