@@ -326,32 +326,32 @@ Configure Oracle Access Manager to accept SSO from the BIG-IP.
 
    ![Screenshot of User ID on the Roles tab, User Profiles](./media/f5-big-ip-easy-button-oracle-peoplesoft/user-profiles.png)
  
-5.	Navigate to **People Tools** > **Web Profile**.
-6.	Select the web profile.
-7.	On **Security** tab, in **Public Users**, select **Allow Public Access**.
-8.	For **User ID**, enter **OAMPSFT**.
-9.	Enter the **Password**.
+9.	Navigate to **People Tools** > **Web Profile**.
+10.	Select the web profile.
+11.	On **Security** tab, in **Public Users**, select **Allow Public Access**.
+12.	For **User ID**, enter **OAMPSFT**.
+13.	Enter the **Password**.
 
    ![Screenshot of options and selections for Public Users.](./media/f5-big-ip-easy-button-oracle-peoplesoft/web-profiles.png)
  
-10.	Leave the Peoplesoft console.
-11.	Start **PeopleTools Application Designer**.
-12.	Right-click the **LDAPAUTH** field.
-13.	Select **View PeopleCode**.
+14.	Leave the Peoplesoft console.
+15.	Start **PeopleTools Application Designer**.
+16.	Right-click the **LDAPAUTH** field.
+17.	Select **View PeopleCode**.
 
    ![Screenshot of LDAPAUTH options under Application Designer.](./media/f5-big-ip-easy-button-oracle-peoplesoft/application-designer.png)
  
-14.	The **LDAPAUTH** code windows opens.
-15.	Locate the **OAMSSO_AUTHENTICATION** function.
-16. Replace the **&defaultUserId** value with **OAMPSFT**. 
+18.	The **LDAPAUTH** code windows opens.
+19.	Locate the **OAMSSO_AUTHENTICATION** function.
+20. Replace the **&defaultUserId** value with **OAMPSFT**. 
 
     ![Screenshot of default User ID value equals OAMPSFT under Function.](./media/f5-big-ip-easy-button-oracle-peoplesoft/oamsso-authentication-function.png)
  
-12.	Save the record. 
-13.	Navigate to **PeopleTools > Security.
-14.	Select **Security Objects**
-15.	Select **Sign on PeopleCode** 
-16.	Enable **OAMSSO_AUTHENTICATION**.
+21.	Save the record. 
+22.	Navigate to **PeopleTools > Security.
+23.	Select **Security Objects**
+24.	Select **Sign on PeopleCode** 
+25.	Enable **OAMSSO_AUTHENTICATION**.
  
 ### PeopleSoft Single Logout
 
