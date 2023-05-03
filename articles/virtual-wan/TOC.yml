@@ -45,6 +45,8 @@
       href: virtual-wan-locations-partners.md
     - name: Automation guidelines for partners
       href: virtual-wan-configure-automation-providers.md
+    - name: Software-as-a-service (SaaS)
+      href: how-to-palo-alto-cloud-ngfw.md
   - name: Architecture
     items: 
     - name: Migrate to Virtual WAN
@@ -267,6 +269,8 @@
       href: howto-firewall.md
     - name: Inter-hub and branch-to-branch via Azure Firewall
       href: how-to-routing-policies.md
+    - name: Software-as-a-service (SaaS)
+      href: how-to-palo-alto-cloud-ngfw.md
     - name: Configure Private Link connectivity
       href: howto-private-link.md
     - name: Manage access to resources - Spoke VNet P2S
