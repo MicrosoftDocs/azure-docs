@@ -31,13 +31,13 @@ The AKS managed `kube-proxy` DaemonSet can also be disabled entirely if that is 
 
 To install the aks-preview extension, run the following command:
 
-```azurecli
+```azurecli-interactive
 az extension add --name aks-preview
 ```
 
 Run the following command to update to the latest version of the extension released:
 
-```azurecli
+```azurecli-interactive
 az extension update --name aks-preview
 ```
 

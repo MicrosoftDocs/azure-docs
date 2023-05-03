@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 01/26/2023
 ms.author: gasinh
 ms.collection: M365-identity-device-management
+ms.custom: not-enterprise-apps
 ---
 
 # Configure Datawiza for Azure AD Multi-Factor Authentication and single sign-on to Oracle EBS

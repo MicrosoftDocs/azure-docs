@@ -56,7 +56,7 @@ Change network configuration settings before or after you activate your sensor u
 - **From the sensor UI**: [Update the OT sensor network configuration](how-to-manage-individual-sensors.md#update-the-ot-sensor-network-configuration)
 - **From the sensor CLI**: [Network configuration](cli-ot-sensor.md#network-configuration)
 
-For more information, see [Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md), [Getting started with advanced CLI commands](references-work-with-defender-for-iot-cli-commands.md), and [CLI command reference from OT network sensors](cli-ot-sensor.md).
+For more information, see [Activate and set up your OT network sensor](ot-deploy/activate-deploy-sensor.md), [Getting started with advanced CLI commands](references-work-with-defender-for-iot-cli-commands.md), and [CLI command reference from OT network sensors](cli-ot-sensor.md).
 
 ## How do I check the sanity of my deployment
 

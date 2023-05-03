@@ -1113,29 +1113,17 @@
     href: disks-types.md
   - name: Disk redundancy options
     href: disks-redundancy.md
+  - name: Deploy an ultra disk
+    href: disks-enable-ultra-ssd.md
+  - name: Deploy a premium SSD v2
+    href: disks-deploy-premium-v2.md
+    displayname: Performance, cost, perf, disks, disk
   - name: Deploy a ZRS disk
     href: disks-deploy-zrs.md
   - name: Shared disks
     href: disks-shared.md
   - name: Enable shared disks
     href: disks-shared-enable.md
-  - name: Disk pools
-    items:
-    - name: Overview
-      displayName: Disk pools overview
-      href: disks-pools.md
-    - name: Plan for disk pools
-      href: disks-pools-planning.md
-    - name: Deploy a disk pool
-      href: disks-pools-deploy.md
-    - name: Move a disk pool to a different subscription
-      href: disks-pools-move-resource.md
-    - name: Manage a disk pool
-      href: disks-pools-manage.md
-    - name: Deprovision a disk pool
-      href: disks-pools-deprovision.md
-    - name: Troubleshoot a disk pool
-      href: disks-pools-troubleshoot.md
   - name: Encryption
     items:
     - name: Disk encryption overview
@@ -1261,11 +1249,6 @@
             href: ./windows/disk-encryption-windows-aad.md
   - name: Performance and cost optimization
     items:
-    - name: Deploy an ultra disk
-      href: disks-enable-ultra-ssd.md
-    - name: Deploy a premium SSD v2
-      href: disks-deploy-premium-v2.md
-      displayname: Performance, cost, perf, disks, disk
     - name: Increase performance of premium SSD and standard SSD/HDDs
       href: disks-enable-performance.md
     - name: Virtual machine and disk performance

@@ -4,7 +4,7 @@ description: Learn how to set up Azure Private Link to access an Azure Cosmos DB
 author: seesharprun
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/03/2023
+ms.date: 04/24/2023
 ms.author: sidandrews 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, ignite-2022
 ---
@@ -83,7 +83,7 @@ When you have an approved Private Link for an Azure Cosmos DB account, in the Az
 
 ## <a id="private-zone-name-mapping"></a>API types and private zone names
 
-The following table shows the mapping between different Azure Cosmos DB account API types, supported subresources, and the corresponding private zone names. You can also access the Gremlin and API for Table accounts through the API for NoSQL, so there are two entries for these APIs. There's also an extra entry for the API for NoSQL for accounts using the [dedicated gateway](./dedicated-gateway.md). 
+Please review [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md) for a more detailed explanation about private zones and DNS configurations for private endpoint. The following table shows the mapping between different Azure Cosmos DB account API types, supported subresources, and the corresponding private zone names. You can also access the Gremlin and API for Table accounts through the API for NoSQL, so there are two entries for these APIs. There's also an extra entry for the API for NoSQL for accounts using the [dedicated gateway](./dedicated-gateway.md).
 
 |Azure Cosmos DB account API type  |Supported subresources or group IDs |Private zone name  |
 |---------|---------|---------|

@@ -26,8 +26,6 @@
       items:
       - name: Windows Desktop client
         href: whats-new-client-windows.md
-      - name: Windows Desktop client
-        href: whats-new-client-windows.md
       - name: Azure Virtual Desktop Store app
         href: whats-new-client-windows-azure-virtual-desktop-app.md
       - name: macOS client
@@ -107,7 +105,7 @@
           href: app-attach-glossary.md
         - name: FAQ
           href: app-attach-faq.yml
-      - name: Supported features for Teams
+      - name: Microsoft Teams supported features
         href: teams-supported-features.md
     - name: Data locations
       href: data-locations.md
@@ -212,6 +210,8 @@
             href: app-attach-image-prep.md
           - name: Set up a file share
             href: app-attach-file-share.md
+          - name: Use Azure NetApp Files and MSIX app attach
+            href: create-netapp-files.md
           - name: Set up the MSIXMGR tool
             href: app-attach-msixmgr.md
           - name: MSIXMGR tool parameters
@@ -256,8 +256,6 @@
           href: create-host-pools-user-profile.md
         - name: Use Azure NetApp Files
           href: create-fslogix-profile-container.md
-        - name: Use Azure NetApp Files and MSIX app attach
-          href: create-netapp-files.md
         - name: Use Azure Files and Active Directory
           href: fslogix-profile-container-configure-azure-files-active-directory.md
         - name: Use Azure Files and Azure AD
@@ -320,6 +318,12 @@
             href: set-up-scaling-script.md
       - name: Drain session hosts
         href: drain-mode.md
+      - name: Manage with Intune
+        items:
+        - name: Manage single-session hosts
+          href: /mem/intune/fundamentals/azure-virtual-desktop?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
+        - name: Manage multi-session hosts
+          href: /mem/intune/fundamentals/azure-virtual-desktop-multi-session?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json
       - name: Deploy updates with Configuration Manager
         href: configure-automatic-updates.md
       - name: Start VM on Connect
@@ -422,6 +426,8 @@
     items:
     - name: Windows Desktop client
       href: troubleshoot-client-windows.md
+    - name: Azure Virtual Desktop Store app
+      href: troubleshoot-client-windows-azure-virtual-desktop-app.md
     - name: Web client
       href: troubleshoot-client-web.md
     - name: macOS client
@@ -450,7 +456,7 @@
     href: /troubleshoot/azure/virtual-desktop/windows-virtual-desktop-blank-screen
   - name: Multimedia redirection
     href: troubleshoot-multimedia-redirection.md
-  - name: Teams on Azure Virtual Desktop
+  - name: Microsoft Teams
     href: troubleshoot-teams.md
 - name: Reference
   items:

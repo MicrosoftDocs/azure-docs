@@ -306,7 +306,7 @@ Next, upload the SAP software files to the storage account:
 
         1. [S41909SPS03_v0011ms.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S41909SPS03_v0011ms/S41909SPS03_v0011ms.yaml)
 
-        1. [HANA_2_00_059_v0004ms.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/HANA_2_00_059_v0004ms/HANA_2_00_059_v0004ms.yaml)
+        1. [HANA_2_00_059_v0004ms.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/archives/HANA_2_00_059_v0004ms/HANA_2_00_059_v0004ms.yaml)
 
         1. [SWPM20SP13_latest.yaml](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/SWPM20SP13_latest/SWPM20SP13_latest.yaml)
 
@@ -420,7 +420,7 @@ Next, upload the SAP software files to the storage account:
 
         1. [S41909SPS03_v0011ms.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/S41909SPS03_v0011ms/S41909SPS03_v0011ms.yaml)
     
-        1. [HANA_2_00_059_v0004ms.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/HANA_2_00_059_v0004ms/HANA_2_00_059_v0004ms.yaml)
+        1. [HANA_2_00_059_v0004ms.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/archives/HANA_2_00_059_v0004ms/HANA_2_00_059_v0004ms.yaml)
     
         1. [SWPM20SP13_latest.yaml](https://github.com/Azure/SAP-automation-samples/blob/main/SAP/SWPM20SP13_latest/SWPM20SP13_latest.yaml)
         

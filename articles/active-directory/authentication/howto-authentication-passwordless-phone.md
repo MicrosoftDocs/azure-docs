@@ -7,13 +7,13 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/21/2023
+ms.date: 04/26/2023
 
 
 ms.author: justinha
 author: justinha
 manager: amycolannino
-ms.reviewer: librown; tilarso
+ms.reviewer: jogro
 
 ms.collection: M365-identity-device-management
 ---
@@ -162,7 +162,7 @@ This logic generally prevents a user in a hybrid tenant from being directed to A
 
 ### On-premises users
 
-An end user can be enabled for multifactor authentication (MFA) through an on-premises. The user can still create and utilize a single passwordless phone sign-in credential.
+An end user can be enabled for multifactor authentication (MFA) through an on-premises identity provider. The user can still create and utilize a single passwordless phone sign-in credential.
 
 If the user attempts to upgrade multiple installations (5+) of Microsoft Authenticator with the passwordless phone sign-in credential, this change might result in an error.
 
