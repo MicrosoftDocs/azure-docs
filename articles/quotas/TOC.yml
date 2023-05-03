@@ -22,8 +22,6 @@
         href: regional-quota-requests.md
       - name: Increase spot vCPU family quotas
         href: spot-quota.md
-      - name: Increase vCPU quotas for classic deployment
-        href: classic-deployment-model-quota-increase-requests.md
       - name: Increase networking quotas
         href: networking-quota-requests.md
       - name: Increase storage account quotas
