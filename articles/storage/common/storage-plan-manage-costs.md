@@ -100,13 +100,13 @@ All requests to the service are made by using REST operations from the Blob Stor
 
 | Write operations | List and create operations | Read operations |
 |----|-|---|
-|[PutBlob](/rest/api/storageservices/put-blob)|[ListBlobs](/rest/api/storageservices/list-blobs)|[GetBlob](/rest/api/storageservices/get-blob)|
-|[PutBlock](/rest/api/storageservices/put-blob)|[ListContainers](/rest/api/storageservices/list-containers2)|[SetBlobTier](/rest/api/storageservices/set-blob-tier)<sup>1</sup>|
-|[PutBlockList](/rest/api/storageservices/put-block-list)|[FindBlobsByTags](/rest/api/storageservices/find-blobs-by-tags)||
-|[AppendBlock](/rest/api/storageservices/append-block)|[CreateContainer](/rest/api/storageservices/create-container)||
-|[SnapshotBlob](/rest/api/storageservices/snapshot-blob)|||
-|[CopyBlob](/rest/api/storageservices/copy-blob)|||
-|[SetBlobTier](/rest/api/storageservices/set-blob-tier)<sup>2</sup>|||
+|[Put Blob](/rest/api/storageservices/put-blob)|[List Blobs](/rest/api/storageservices/list-blobs)|[Get Blob](/rest/api/storageservices/get-blob)|
+|[Put Block](/rest/api/storageservices/put-blob)|[List Containers](/rest/api/storageservices/list-containers2)|[Set Blob Tier](/rest/api/storageservices/set-blob-tier)<sup>1</sup>|
+|[Put Block List](/rest/api/storageservices/put-block-list)|[Find Blobs By Tags](/rest/api/storageservices/find-blobs-by-tags)||
+|[Append Block](/rest/api/storageservices/append-block)|[Create Container](/rest/api/storageservices/create-container)||
+|[Snapshot Blob](/rest/api/storageservices/snapshot-blob)|||
+|[Copy Blob](/rest/api/storageservices/copy-blob)|||
+|[Set Blob Tier](/rest/api/storageservices/set-blob-tier)<sup>2</sup>|||
 
 <sup>1</sup>    Applies only when changing to a cooler tier.
 
@@ -128,7 +128,17 @@ If your account does not have the hierarchical namespace feature enabled, but yo
 
 All requests to the service are made by using REST operations from the Blob Storage REST API. You can use that REST API directly or use a tool or SDK. Any tool you use to interact with Blob Storage translates your interactions to REST operations. The following table maps operations to the type of transaction shown in the pricing page.
 
-Show table here.
+| Write operations | Read operations |
+|----|-|
+|[Append Data](/rest/api/storageservices/datalakestoragegen2/path/update)|[Read File](/rest/api/storageservices/datalakestoragegen2/path/read)|
+|[Create Filesystem](/rest/api/storageservices/datalakestoragegen2/filesystem/create)|[List Paths](/rest/api/storageservices/datalakestoragegen2/path/list)|
+|[Create File](/rest/api/storageservices/datalakestoragegen2/path/create)||
+|[Create Directory](/rest/api/storageservices/datalakestoragegen2/path/create)||
+|[Flush Data](/rest/api/storageservices/datalakestoragegen2/path/update)||
+|[Set Properties](/rest/api/storageservices/datalakestoragegen2/path/update)||
+|[Set Filesystem Properties](/rest/api/storageservices/datalakestoragegen2/filesystem/set-properties)||
+|[Rename File](/rest/api/storageservices/datalakestoragegen2/path/create)||
+|[Rename Directory](/rest/api/storageservices/datalakestoragegen2/path/create)||
 
 ### Using Azure Prepayment with Azure Blob Storage
 
