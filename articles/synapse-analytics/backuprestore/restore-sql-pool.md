@@ -9,7 +9,7 @@ ms.subservice: sql
 ms.date: 12/14/2022
 ms.author: stevehow
 ms.reviewer: joanpo, wiassaf
-ms.custom: seo-lt-2019, engagement-fy23
+ms.custom: seo-lt-2019, engagement-fy23, devx-track-azurepowershell
 ---
 
 # Restore an existing dedicated SQL pool

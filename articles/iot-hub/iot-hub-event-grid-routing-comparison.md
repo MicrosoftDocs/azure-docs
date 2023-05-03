@@ -5,8 +5,7 @@ description: IoT Hub offers its own message routing service, but also integrates
 author: kgremban
 
 ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
+ms.topic: product-comparison
 ms.date: 02/22/2023
 ms.author: kgremban
 ms.custom: fasttrack-edit

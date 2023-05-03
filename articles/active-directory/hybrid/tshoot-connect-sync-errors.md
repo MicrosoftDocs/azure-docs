@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Troubleshoot errors during synchronization | Microsoft Docs'
+title: 'Azure AD Connect: Troubleshoot errors during synchronization'
 description: This article explains how to troubleshoot errors that occur during synchronization with Azure AD Connect.
 services: active-directory
 documentationcenter: ''

@@ -1,5 +1,5 @@
 ---
-title: Passwordless security key sign-in to on-premises resources - Azure Active Directory
+title: Passwordless security key sign-in to on-premises resources
 description: Learn how to enable passwordless security key sign-in to on-premises resources by using Azure Active Directory
 
 services: active-directory

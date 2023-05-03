@@ -1,15 +1,10 @@
 ---
 title: Route traffic via NVA - Azure PowerShell script sample
 description: Azure PowerShell script sample - Route traffic through a firewall NVA.
-services: virtual-network
-documentationcenter: virtual-network
 author: asudbring
-manager: mtillman
 ms.service: virtual-network
-ms.devlang: powershell
 ms.topic: sample
-ms.workload: infrastructure
-ms.date: 03/20/2018
+ms.date: 03/23/2023
 ms.author: allensu 
 ms.custom: devx-track-azurepowershell
 ---
@@ -18,7 +13,7 @@ ms.custom: devx-track-azurepowershell
 
 This script sample creates a virtual network with front-end and back-end subnets. It also creates a VM with IP forwarding enabled to route traffic between the two subnets. After running the script you can deploy network software, such as a firewall application, to the VM.
 
-You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/powershell), or from a local PowerShell installation. If you use PowerShell locally, this script requires the Az PowerShell module version 5.4.1 or later. To find the installed version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/powershell), or from a local PowerShell installation. If you use PowerShell locally, this script requires the Az PowerShell module version 5.4.1 or later. To find the installed version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -59,4 +54,4 @@ This script uses the following commands to create a resource group, virtual netw
 
 For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/).
 
-Additional virtual network PowerShell script samples can be found in [Virtual network PowerShell samples](../powershell-samples.md).
+More virtual network PowerShell script samples can be found in [Virtual network PowerShell samples](../powershell-samples.md).

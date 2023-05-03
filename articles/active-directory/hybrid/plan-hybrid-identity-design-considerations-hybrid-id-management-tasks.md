@@ -1,5 +1,5 @@
 ---
-title: Hybrid identity design - management tasks Azure | Microsoft Docs
+title: Hybrid identity design - management tasks Azure
 description: Azure AD checks the specific conditions you pick when authenticating the user and before allowing access to the application with Conditional Access control.
 documentationcenter: ''
 services: active-directory

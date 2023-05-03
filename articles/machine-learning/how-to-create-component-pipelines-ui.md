@@ -8,7 +8,7 @@ ms.subservice: core
 ms.author: keli19
 author: likebupt
 ms.reviewer: lagayhar
-ms.date:  05/10/2022
+ms.date:  03/27/2022
 ms.topic: how-to
 ms.custom: devplatv2, designer, event-tier1-build-2022, ignite-2022
 ---
@@ -17,7 +17,7 @@ ms.custom: devplatv2, designer, event-tier1-build-2022, ignite-2022
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-In this article, you'll learn how to create and run [machine learning pipelines](concept-ml-pipelines.md) by using the Azure Machine Learning studio and [Components](concept-component.md). You can create pipelines without using components, but components offer better amount of flexibility and reuse. Azure Machine Learning Pipelines may be defined in YAML and [run from the CLI](how-to-create-component-pipelines-cli.md), [authored in Python](how-to-create-component-pipeline-python.md), or composed in Azure Machine Learning Studio Designer with a drag-and-drop UI. This document focuses on the Azure Machine Learning studio designer UI.
+In this article, you'll learn how to create and run [machine learning pipelines](concept-ml-pipelines.md) by using the Azure Machine Learning studio and [Components](concept-component.md). You can create pipelines without using components, but components offer better amount of flexibility and reuse. Azure Machine Learning Pipelines may be defined in YAML and [run from the CLI](how-to-create-component-pipelines-cli.md), [authored in Python](how-to-create-component-pipeline-python.md), or composed in Azure Machine Learning studio Designer with a drag-and-drop UI. This document focuses on the Azure Machine Learning studio designer UI.
 
 ## Prerequisites
 
@@ -34,8 +34,6 @@ In this article, you'll learn how to create and run [machine learning pipelines]
     cd azureml-examples/cli/jobs/pipelines-with-components/
     ```
 
-## Register component in your workspace
-
 >[!Note]
 > Designer supports two type of components, classic prebuilt components and custom components. These two types of components are not compatible.  
 >
@@ -44,23 +42,34 @@ In this article, you'll learn how to create and run [machine learning pipelines]
 >
 >Custom components allow you to provide your own code as a component. It supports sharing across workspaces and seamless authoring across Studio, CLI, and SDK interfaces.
 >
->This article applies to custom components. 
+>This article applies to **custom components**.
 
-To build pipeline using components in UI, you need to register components to your workspace first. You can use CLI or SDK to register components to your workspace, so that you can share and reuse the component within the workspace. Registered components support automatic versioning so you can update the component but assure that pipelines that require an older version will continue to work.  
+## Register component in your workspace
 
-In the example below take using CLI for example. If you want to learn more about how to build a component, see [Create and run pipelines using components with  CLI](how-to-create-component-pipelines-cli.md).
+To build pipeline using components in UI, you need to register components to your workspace first. You can use UI, CLI or SDK to register components to your workspace, so that you can share and reuse the component within the workspace. Registered components support automatic versioning so you can update the component but assure that pipelines that require an older version will continue to work.  
 
-1. From the `cli/jobs/pipelines-with-components/basics` directory of the [`azureml-examples` repository](https://github.com/Azure/azureml-examples), navigate to the `1b_e2e_registered_components` subdirectory.
+The example below uses UI to register components, and the [component source files](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components)  are in the `cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components` directory of the [`azureml-examples` repository](https://github.com/Azure/azureml-examples). You need to clone the repo to local first.
 
-1. Register the components to Azure Machine Learning workspace using following commands. Learn more about [ML components](concept-component.md).
+1. In your Azure Machine Learning workspace, navigate to **Components** page and select **New Component**.
 
-    ```CLI
-    az ml component create --file train.yml
-    az ml component create --file score.yml
-    az ml component create --file eval.yml
-    ```
+:::image type="content" source="./media/how-to-create-component-pipelines-ui/register-component-entry-button.png" alt-text="Screenshot showing register entry button in component page." lightbox ="./media/how-to-create-component-pipelines-ui/register-component-entry-button.png":::
 
-1. After register component successfully, you can see your component in the studio UI.
+1. This example will use `train.yml` [in the directory](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components). The YAML file defines the name, type, interface including inputs and outputs, code, environment and command of this component. The code of this component `train.py` is under `./train_src` folder, which describes the execution logic of this component. To learn more about the component schema, see the [command component YAML schema reference](reference-yaml-component-command.md).
+
+>[!Note]
+> When register components in UI, `code` defined in the component YAML file can only point to the current folder where YAML file locates or the subfolders, which means you cannot specify `../` for `code` as UI cannot recognize the parent directory.
+> `additional_includes` can only point to the current or sub folder.
+
+
+1. Select Upload from **Folder**, and select the `1b_e2e_registered_components` folder to upload. Select `train.yml` from the drop down list below.
+
+:::image type="content" source="./media/how-to-create-component-pipelines-ui/upload-from-local-folder.png" alt-text="Screenshot showing upload from local folder." lightbox ="./media/how-to-create-component-pipelines-ui/upload-from-local-folder.png":::
+
+1. Select **Next** in the bottom, and you can confirm the details of this component. Once you've confirmed, select **Create** to finish the registration process.
+
+1. Repeat the steps above to register Score and Eval component using `score.yml` and `eval.yml` as well.
+
+1. After registering the three components successfully, you can see your components in the studio UI.
 
 :::image type="content" source="./media/how-to-create-component-pipelines-ui/component-page.png" alt-text="Screenshot showing registered component in component page." lightbox ="./media/how-to-create-component-pipelines-ui/component-page.png":::
 
@@ -104,7 +113,7 @@ In the example below take using CLI for example. If you want to learn more about
 
 1. Select submit, and fill in the required information for your pipeline job.
 
-    :::image type="content" source="./media/how-to-create-component-pipelines-ui/submit-pipeline.png" alt-text="Screenshot of set up pipeline job with submit highlighted." lightbox ="./media/how-to-create-component-pipelines-ui/submit-pipeline.png":::
+    :::image type="content" source="./media/how-to-create-component-pipelines-ui/submit-pipeline.png" alt-text="Screenshot of setup pipeline job with submit highlighted." lightbox ="./media/how-to-create-component-pipelines-ui/submit-pipeline.png":::
 
 1. After submit successfully, you'll see a job detail page link in the left page. Select **Job detail** to go to pipeline job detail page for checking status and debugging.
 

@@ -18,7 +18,7 @@ Use this quickstart to create a Text Analytics for health application with the c
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [Node.js](https://nodejs.org/) v14 LTS or later
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`Free F0`) to try the service (providing 5000 text records - 1000 characters each) and upgrade later to the `Standard S` pricing tier for production. You can also start with the `Standard S` pricing tier, receiving the same initial quota for free (5000 text records) before getting charged. For more information on pricing, visit [Language Service Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/).
 
@@ -26,6 +26,11 @@ Use this quickstart to create a Text Analytics for health application with the c
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Text-analytics-for-health&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
 ## Setting up
+
+[!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Text-analytics-for-health&Page=quickstart&Section=Create-environment-variables" target="_target">I ran into an issue</a>
 
 ### Create a new Node.js application
 
@@ -56,7 +61,7 @@ npm install @azure/ai-language-text
 
 ## Code example
 
-Open the file and copy the below code. Remember to replace the `key` variable with the key for your resource, and replace the `endpoint` variable with the endpoint for your resource. Then run the code.  
+Open the file and copy the below code. Then run the code.  
 
 [!INCLUDE [find the key and endpoint for a resource](../../../includes/find-azure-resource-info.md)]
 
@@ -64,8 +69,9 @@ Open the file and copy the below code. Remember to replace the `key` variable wi
 "use strict";
 
 const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-analytics");
-const key = '<paste-your-key-here>';
-const endpoint = '<paste-your-endpoint-here>';
+// This example requires environment variables named "LANGUAGE_KEY" and "LANGUAGE_ENDPOINT"
+const key = process.env.LANGUAGE_KEY;
+const endpoint = process.env.LANGUAGE_ENDPOINT;
 
 const documents = ["Patient does not suffer from high blood pressure."];
   

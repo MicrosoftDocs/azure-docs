@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Zscaler Three for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Zscaler Three for automatic user provisioning with Azure Active Directory'
 description: In this tutorial, you'll learn how to configure Azure Active Directory to automatically provision and deprovision user accounts to Zscaler Three.
 services: active-directory
 author: twimmers

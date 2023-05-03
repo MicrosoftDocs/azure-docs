@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 02/14/2023
+ms.date: 03/17/2023
 ---
 
 # Create a Translator resource
@@ -34,7 +34,7 @@ The Translator service can be accessed through two different resource types:
 
 1. **Resource Group**. You can create a new resource group or add your resource to a pre-existing resource group that shares the same lifecycle, permissions, and policies.
 
-1. **Resource Region**. Choose **Global** unless your business or application requires a specific region. If you're planning on using the Document Translation feature with managed identity authentication, choose a non-global region.
+1. **Resource Region**. Choose **Global** unless your business or application requires a specific region. If you're planning on using the Document Translation feature with [managed identity authorization](document-translation/how-to-guides/create-use-managed-identities.md), choose a geographic region such as **East US**.
 
 1. **Name**. Enter the name you have chosen for your resource. The name you choose must be unique within Azure.
 
@@ -70,11 +70,12 @@ All Cognitive Services API requests require an endpoint URL and a read-only key 
 1. In the left rail, under *Resource Management*, select **Keys and Endpoint**.
 1. Copy and paste your keys and endpoint URL in a convenient location, such as *Microsoft Notepad*.
 
-:::image type="content" source="../media/cognitive-services-apis-create-account/get-cog-serv-keys.png" alt-text="Get key and endpoint.":::
+:::image type="content" source="media/keys-and-endpoint-resource.png" alt-text="Get key and endpoint.":::
 
 ## How to delete a  resource or resource group
 
-> [!Warning]
+> [!WARNING]
+>
 > Deleting a resource group also deletes all resources contained in the group.
 
 To remove a Cognitive Services or Translator resource, you can **delete the resource** or **delete the resource group**.

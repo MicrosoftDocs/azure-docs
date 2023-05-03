@@ -138,7 +138,7 @@ Next, subscribe to the events sent from [`SpeechRecognizer`](/javascript/api/mic
 * [`recognizing`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer#recognizing): Signal for events that contain intermediate recognition results.
 * [`recognized`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer#recognized): Signal for events that contain final recognition results, which indicate a successful recognition attempt.
 * [`sessionStopped`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer#sessionstopped): Signal for events that indicate the end of a recognition session (operation).
-* [`canceled`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer#canceled): Signal for events that contain canceled recognition results. These results indicate a recognition attempt that was canceled as a result or a direct cancellation request. Alternatively, they indicate a transport or protocol failure.
+* [`canceled`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer#canceled): Signal for events that contain canceled recognition results. These results indicate a recognition attempt that was canceled as a result of a direct cancellation request. Alternatively, they indicate a transport or protocol failure.
 
 ```javascript
 speechRecognizer.recognizing = (s, e) => {
@@ -206,3 +206,10 @@ var speechConfig = SpeechSDK.SpeechConfig.fromSubscription("YourSubscriptionKey"
 speechConfig.endpointId = "YourEndpointId";
 var speechRecognizer = new SpeechSDK.SpeechRecognizer(speechConfig);
 ```
+
+## Run and use a container
+
+Speech containers provide websocket-based query endpoint APIs that are accessed through the Speech SDK and Speech CLI. By default, the Speech SDK and Speech CLI use the public Speech service. To use the container, you need to change the initialization method. Use a container host URL instead of key and region.
+
+For more information about containers, see the [speech containers](../../../speech-container-howto.md#host-urls) how-to guide.
+

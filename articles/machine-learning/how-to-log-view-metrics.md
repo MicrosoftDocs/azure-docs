@@ -18,7 +18,7 @@ ms.custom: sdkv2, event-tier1-build-2022
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning Python SDK you are using:"]
-> * [v1](./v1/how-to-log-view-metrics.md)
+> * [v1](./v1/how-to-log-view-metrics.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current)](how-to-log-view-metrics.md)
 
 Azure Machine Learning supports logging and tracking experiments using [MLflow Tracking](https://www.mlflow.org/docs/latest/tracking.html). You can log models, metrics, parameters, and artifacts with MLflow as it supports local mode to cloud portability. 
@@ -49,13 +49,11 @@ Logs can help you diagnose errors and warnings, or track performance metrics lik
     ```
 * If you are doing remote tracking (tracking experiments running outside Azure Machine Learning), configure MLflow to track experiments using Azure Machine Learning. See [Configure MLflow for Azure Machine Learning](how-to-use-mlflow-configure-tracking.md) for more details.
 
-## Getting started
+* To log metrics, parameters, artifacts and models in your experiments in Azure Machine Learning using MLflow, just import MLflow in your script:
 
-To log metrics, parameters, artifacts and models in your experiments in Azure Machine Learning using MLflow, just import MLflow in your training script:
-
-```python
-import mlflow
-```
+    ```python
+    import mlflow
+    ```
 
 ### Configuring experiments
 
@@ -150,9 +148,6 @@ params = {
 mlflow.log_params(params)
 ```
 
-> [!NOTE] 
-> Azure Machine Learning SDK v1 logging can't log parameters. We recommend the use of MLflow for tracking experiments as it offers a superior set of features.
-
 ## Logging metrics
 
 Metrics, as opposite to parameters, are always numeric. The following table describes how to log specific numeric types:
@@ -183,14 +178,16 @@ client.log_batch(mlflow.active_run().info.run_id,
 
 ## Logging images
 
-MLflow supports two ways of logging images:
+MLflow supports two ways of logging images. Both of them persists the given image as an artifact inside of the run.
 
 |Logged Value|Example code| Notes|
 |----|----|----|
 |Log numpy metrics or PIL image objects|`mlflow.log_image(img, "figure.png")`| `img` should be an instance of `numpy.ndarray` or `PIL.Image.Image`. `figure.png` is the name of the artifact that will be generated inside of the run. It doesn't have to be an existing file.|
 |Log matlotlib plot or image file|` mlflow.log_figure(fig, "figure.png")`| `figure.png` is the name of the artifact that will be generated inside of the run. It doesn't have to be an existing file. |
 
-## Logging other types of data
+## Logging files
+
+In general, files in MLflow are called artifacts. You can log artifacts in multiple ways in Mlflow:
 
 |Logged Value|Example code| Notes|
 |----|----|----|
@@ -199,11 +196,17 @@ MLflow supports two ways of logging images:
 |Log a trivial file already existing | `mlflow.log_artifact("path/to/file.pkl")`| Files are always logged in the root of the run. If `artifact_path` is provided, then the file is logged in a folder as indicated in that parameter. |
 |Log all the artifacts in an existing folder | `mlflow.log_artifacts("path/to/folder")`| Folder structure is copied to the run, but the root folder indicated is not included. |
 
+> [!TIP]
+> When __loggiging large files__ with `log_artifact` or `log_model`, you may encounter time out errors before the upload of the file is completed. Consider increasing the timeout value by adjusting the environment variable `AZUREML_ARTIFACTS_DEFAULT_TIMEOUT`. It's default value is `300` (seconds).
+
 ## Logging models
 
 MLflow introduces the concept of "models" as a way to package all the artifacts required for a given model to function. Models in MLflow are always a folder with an arbitrary number of files, depending on the framework used to generate the model. Logging models has the advantage of tracking all the elements of the model as a single entity that can be __registered__ and then __deployed__. On top of that, MLflow models enjoy the benefit of [no-code deployment](how-to-deploy-mlflow-models.md) and can be used with the [Responsible AI dashboard](how-to-responsible-ai-dashboard.md) in studio. Read the article [From artifacts to models in MLflow](concept-mlflow-models.md) for more information.
 
 To save the model from a training run, use the `log_model()` API for the framework you're working with. For example, [mlflow.sklearn.log_model()](https://mlflow.org/docs/latest/python_api/mlflow.sklearn.html#mlflow.sklearn.log_model). For more details about how to log MLflow models see [Logging MLflow models](how-to-log-mlflow-models.md) For migrating existing models to MLflow, see [Convert custom models to MLflow](how-to-convert-custom-model-to-mlflow.md).
+
+> [!TIP]
+> When __loggiging large models__, you may encounter the error `Failed to flush the queue within 300 seconds`. Usually, it means the operation is timing out before the upload of the model artifacts is completed. Consider increasing the timeout value by adjusting the environment variable `AZUREML_ARTIFACTS_DEFAULT_VALUE`.
 
 ## Automatic logging
 
@@ -216,7 +219,7 @@ mlflow.autolog()
 ```
 
 > [!TIP]
-> You can control what gets automatically logged wit autolog. For instance, if you indicate `mlflow.autolog(log_models=False)`, MLflow will log everything but models for you. Such control is useful in cases where you want to log models manually but still enjoy automatic logging of metrics and parameters. Also notice that some frameworks may disable automatic logging of models if the trained model goes behond specific boundaries. Such behavior depends on the flavor used and we recommend you to view they documentation if this is your case.
+> You can control what gets automatically logged with autolog. For instance, if you indicate `mlflow.autolog(log_models=False)`, MLflow will log everything but models for you. Such control is useful in cases where you want to log models manually but still enjoy automatic logging of metrics and parameters. Also notice that some frameworks may disable automatic logging of models if the trained model goes behond specific boundaries. Such behavior depends on the flavor used and we recommend you to view they documentation if this is your case.
 
 ## View jobs/runs information with MLflow
 

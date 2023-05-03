@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: overview
+ms.topic: best-practice
 ms.date: 10/11/2022
 ms.author: aahi
 ms.custom: language-service-clu

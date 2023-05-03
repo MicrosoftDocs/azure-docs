@@ -1,5 +1,5 @@
 ---
-title: 'Disable pass-through authentication by using Azure AD Connect or PowerShell | Microsoft Docs'
+title: 'Disable pass-through authentication by using Azure AD Connect or PowerShell'
 description: This article describes how to disable pass-through authentication by using the Azure AD Connect Do Not Configure feature or by using PowerShell.
 services: active-directory
 author: billmath

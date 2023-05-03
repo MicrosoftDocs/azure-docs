@@ -6,7 +6,7 @@ ms.author: greglin
 ms.date: 10/04/2022
 ms.topic: sample
 ms.service: dns
-
+ms.custom: devx-track-azurepowershell
 ---
 # Find unhealthy DNS records in Azure DNS - PowerShell script sample
 

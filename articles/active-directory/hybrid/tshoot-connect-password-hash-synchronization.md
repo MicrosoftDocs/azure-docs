@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot password hash synchronization with Azure AD Connect sync | Microsoft Docs
+title: Troubleshoot password hash synchronization with Azure AD Connect sync
 description: This article provides information about how to troubleshoot password hash synchronization problems.
 services: active-directory
 documentationcenter: ''

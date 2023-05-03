@@ -1,7 +1,7 @@
 ---
 title:  Managing the Azure Arc-enabled servers agent
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Azure Connected Machine agent.
-ms.date: 10/12/2022
+ms.date: 04/19/2023
 ms.topic: conceptual
 ---
 
@@ -59,6 +59,10 @@ To connect with your elevated logged-on credentials (interactive), run the follo
 
 `azcmagent connect --tenant-id <TenantID> --subscription-id <subscriptionID> --resource-group <ResourceGroupName> --location <resourceLocation>`
 
+To connect using a device code (and avoid having to sign in through a browser), use the `--use-device-code` flag:
+
+`azcmagent connect --use-device-code --tenant-id <TenantID> --subscription-id <subscriptionID> --resource-group <ResourceGroupName> --location <resourceLocation>`
+
 ### disconnect
 
 This parameter specifies a resource in Azure Resource Manager to delete from Azure Arc. Running this parameter doesn't remove the agent from the machine; you must uninstall the agent separately. After the machine is disconnected, you can re-register it with Azure Arc-enabled servers by using `azcmagent connect` so a new resource is created for it in Azure.
@@ -103,6 +107,79 @@ If the property you're changing supports a list of values, you can use the `--ad
 To clear a configuration property's value, run the following command:
 
 `azcmagent config clear <propertyName>`
+
+## Installing a specific version of the agent
+
+Microsoft recommends using the most recent version of the Azure Connected Machine agent for the best experience. However, if you need to run an older version of the agent for any reason, you can follow these instructions to install a specific version of the agent.
+
+### [Windows](#tab/windows)
+
+Links to the current and previous releases of the Windows agents are available below the heading of each [release note](agent-release-notes.md). If you're looking for an agent version that's more than 6 months old, check out the [release notes archive](agent-release-notes-archive.md).
+
+### [Linux - apt](#tab/linux-apt)
+
+1. If you haven't already, configure your package manager with the [Linux Software Repository for Microsoft Products](/windows-server/administration/linux-package-repository-for-microsoft-software).
+1. Search for available agent versions with `apt-cache`:
+
+   ```bash
+   sudo apt-cache madison azcmagent
+   ```
+
+1. Find the version you want to install, replace `VERSION` in the following command with the full (4-part) version number, and run the command to install the agent:
+
+   ```bash
+   sudo apt install azcmagent=VERSION
+   ```
+
+   For example, to install version 1.28, the install command is:
+
+   ```bash
+   sudo apt install azcmagent=1.28.02260.736
+   ```
+
+### [Linux - yum](#tab/linux-yum)
+
+1. If you haven't already, configure your package manager with the [Linux Software Repository for Microsoft Products](/windows-server/administration/linux-package-repository-for-microsoft-software).
+1. Search for available agent versions with `yum list`:
+
+   ```bash
+   sudo yum list azcmagent --showduplicates
+   ```
+
+1. Find the version you want to install, replace `VERSION` in the following command with the full (4-part) version number, and run the command to install the agent:
+
+   ```bash
+   sudo yum install azcmagent-VERSION
+   ```
+
+   For example, to install version 1.28, the install command would look like:
+
+   ```bash
+   sudo yum install azcmagent-1.28.02260-755
+   ```
+
+### [Linux - zypper](#tab/linux-zypper)
+
+1. If you haven't already, configure your package manager with the [Linux Software Repository for Microsoft Products](/windows-server/administration/linux-package-repository-for-microsoft-software).
+1. Search for available agent versions with `zypper search`:
+
+   ```bash
+   sudo zypper search -s azcmagent
+   ```
+
+1. Find the version you want to install, replace `VERSION` in the following command with the full (4-part) version number, and run the command to install the agent:
+
+   ```bash
+   sudo zypper install -f azcmagent-VERSION
+   ```
+
+   For example, to install version 1.28, the install command would look like:
+
+   ```bash
+   sudo zypper install -f azcmagent-1.28.02260-755
+   ```
+
+---
 
 ## Upgrade the agent
 
@@ -408,7 +485,7 @@ The proxy bypass feature does not require you to enter specific URLs to bypass. 
 | --------------------- | ------------------ |
 | `AAD` | `login.windows.net`, `login.microsoftonline.com`, `pas.windows.net` |
 | `ARM` | `management.azure.com` |
-| `Arc` | `his.arc.azure.com`, `guestconfiguration.azure.com`, `guestnotificationservice.azure.com`, `servicebus.windows.net` |
+| `Arc` | `his.arc.azure.com`, `guestconfiguration.azure.com` |
 
 To send Azure Active Directory and Azure Resource Manager traffic through a proxy server but skip the proxy for Azure Arc traffic, run the following command:
 

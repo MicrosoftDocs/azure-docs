@@ -3,7 +3,7 @@ title: Azure Video Indexer release notes | Microsoft Docs
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Indexer.
 ms.topic: article
 ms.custom: references_regions
-ms.date: 02/07/2023
+ms.date: 04/25/2023
 ms.author: juliako
 ---
 
@@ -13,15 +13,48 @@ ms.author: juliako
 
 To stay up-to-date with the most recent Azure Video Indexer developments, this article provides you with information about:
 
-* [Important notice](#important-notice) about planned changes
 * The latest releases
 * Known issues
 * Bug fixes
 * Deprecated functionality
 
-## Important notice
+## April 2023
 
-[!INCLUDE [announcement](./includes/deprecation-announcement.md)]
+### Resource Health support
+
+Azure Video Indexer is now integrated with Azure Resource Health enabling you to see the health and availability of each of your Azure Video Indexer resources. Azure Resource Health also helps with diagnosing and solving problems and you can set alerts to be notified whenever your resources are affected. For more information, see [Azure Resource Health overview](../service-health/resource-health-overview.md).
+
+### The animation character recognition model has been retired
+
+The **animation character recognition** model has been retired on March 1st, 2023. For any related issues, [open a support ticket via the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+
+### Excluding sensitive AI models
+
+Following the Microsoft Responsible AI agenda, Azure Video Indexer now allows you to exclude specific AI models when indexing media files. The list of sensitive AI models includes: face detection, observed people, emotions, labels identification.
+
+This feature is currently available through the API, and is available in all presets except the Advanced preset.
+
+### Observed people tracing improvements  
+
+For more information, see [Considerations and limitations when choosing a use case](observed-matched-people.md#considerations-and-limitations-when-choosing-a-use-case).
+
+## March 2023
+
+### Support for storage behind firewall
+
+It is good practice to lock storage accounts and disable public access to enhance or comply with enterprise security policy. Video Indexer can now access non-public accessible storage accounts using the [Azure Trusted Service](https://learn.microsoft.com/azure/storage/common/storage-network-security?tabs=azure-portal#trusted-access-based-on-a-managed-identity) exception using Managed Identities. You can read more how to set it up in our [how-to](storage-behind-firewall.md).
+
+### New custom speech and pronunciation training
+
+Azure Video Indexer has added a new custom speech model experience. The experience includes ability to use custom pronunciation datasets to improve recognition of mispronounced words, phrases, or names. The custom models can be used to improve the transcription quality of content with industry specific terminology. To learn more, see [Customize speech model overview](customize-speech-model-overview.md).
+
+### Observed people quality improvements
+
+Observed people now supports people who are sitting. This is in addition to existing support of people who are standing or walking. This improvement makes observed people model more versatile and suitable for a wider range of use cases. We have also improved the model re-identification and grouping algorithms by 50%. The model can now more accurately track and group people across multiple camera views.
+
+### Observed people indexing duration optimization
+
+We have optimized the memory usage of the observed people model, resulting in a 60% reduction in indexing duration when using the advanced video analysis preset. You can now process your video footage more efficiently and get results faster.
 
 ## February 2023
 
@@ -33,9 +66,9 @@ Starting February 1st, we’re excited to announce a 40% price reduction on the 
 
 This change will be implemented automatically, and customers who already have Azure discounts will continue to receive them in addition to the new pricing.
 
-|                        | **Basic Audio Analysis** | **Standard Audio Analysis** | **Advanced Audio Analysis** | **Standard Video Analysis** | **Advanced Video Analysis** |
-|----------------------- | ------------------------ | --------------------------- | --------------------------- | --------------------------- | --------------------------- |
-| Per input minute       | $0.0126                  | $0.024                      | $0.04                       | $0.09                       | $0.15                       |
+|**Charge** | **Basic Audio Analysis** | **Standard Audio Analysis** | **Advanced Audio Analysis** | **Standard Video Analysis** | **Advanced Video Analysis** |
+|--------------------- | ------------ | ---------------- | --------------------------- | --------------------------- | --------------------------- |
+| Per input minute     | $0.0126      | $0.024           | $0.04                       | $0.09                       | $0.15               |
 
 ### Network Service Tag
 
@@ -270,7 +303,7 @@ Azure Video Indexer website is now supporting account management based on ARM in
 
 ### Leverage open-source code to create ARM based account
 
-Added new code samples including HTTP calls to use Azure Video Indexer create, read, update and delete (CRUD) ARM API for solution developers. See [this sample](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/ARM-Quick-Start).
+Added new code samples including HTTP calls to use Azure Video Indexer create, read, update and delete (CRUD) ARM API for solution developers.
 
 ## January 2022
 
@@ -495,10 +528,6 @@ You can now create an Azure Video Indexer paid account in the Switzerland West a
 
 ## October 2020
 
-### Animated character identification improvements
-
-Azure Video Indexer supports detection, grouping, and recognition of characters in animated content via integration with Cognitive Services custom vision. We added a major improvement to this AI algorithm in the detection and characters recognition, as a result insight accuracy and identified characters are significantly improved.
-
 ### Planned Azure Video Indexer website authenticatication changes
 
 Starting March 1st 2021, you no longer will be able to sign up and sign in to the [Azure Video Indexer website](https://www.videoindexer.ai/) [developer portal](video-indexer-use-apis.md) using Facebook or LinkedIn.
@@ -645,7 +674,7 @@ To fix the account configuration, in the Azure Video Indexer website, navigate t
 
 ### Configure the custom vision account
 
-Configure the custom vision account on paid accounts using the Azure Video Indexer website (previously, this was only supported by API). To do that, sign in to the Azure Video Indexer website, choose Model Customization > Animated characters > Configure.
+Configure the custom vision account on paid accounts using the Azure Video Indexer website (previously, this was only supported by API). To do that, sign in to the Azure Video Indexer website, choose Model Customization > <*model*> > Configure.
 
 ### Scenes, shots and keyframes – now in one insight pane
 
@@ -678,7 +707,7 @@ Status code 409 will now be returned from [Re-Index Video](https://api-portal.vi
 
 * Search for animated characters in the gallery
 
-    When indexing animated characters, you can now search for them in the account’s video galley. For more information, see [Animated characters recognition](animated-characters-recognition.md).
+    When indexing animated characters, you can now search for them in the account’s video galley.
 
 ## September 2019
 
@@ -686,7 +715,7 @@ Multiple advancements announced at IBC 2019:
 
 * Animated character recognition  (public preview)
 
-    Ability to detect group ad recognize characters in animated content, via integration with custom vision. For more information, see [Animated character detection](animated-characters-recognition.md).
+    Ability to detect group ad recognize characters in animated content, via integration with custom vision.
 * Multi-language identification (public preview)
 
     Detect segments in multiple languages in the audio track and create a multilingual transcript based on them. Initial support: English, Spanish, German and French. For more information, see [Automatically identify and transcribe multi-language content](multi-language-identification-transcription.md).

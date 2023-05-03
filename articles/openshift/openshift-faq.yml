@@ -6,13 +6,19 @@ metadata:
   ms.author: johnmarc
   ms.service: azure-redhat-openshift
   ms.topic: faq
-  ms.date: 01/12/2023
+  ms.date: 03/09/2023
 title: Azure Red Hat OpenShift FAQ
 summary: This article answers frequently asked questions (FAQs) about Microsoft Azure Red Hat OpenShift.
 
 sections:
   - name: Installation and upgrade
     questions:
+      - question: Where can I find information about pricing and service level agreements?
+        answer: |
+          For pricing information, see [Azure Red Hat OpenShift pricing](https://azure.microsoft.com/en-us/pricing/details/openshift/).
+
+          For Service Level Agreement (SLA) information, see [Service Level Agreements for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+
       - question: Which Azure regions are supported?
         answer: |
           For a list of supported regions for Azure Red Hat OpenShift 4.x, see [Available regions](https://azure.microsoft.com/global-infrastructure/services/?products=openshift&regions=all).

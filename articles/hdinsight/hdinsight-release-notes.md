@@ -30,9 +30,11 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 
 For workload specific versions, see 
 
-* [HDInsight 4.0 component versions](./hdinsight-40-component-versioning.md)
-* [HDInsight 5.0 component versions](./hdinsight-50-component-versioning.md)
-* [HDInsight 5.1 component versions](./hdinsight-51-component-versioning.md)
+* [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md)
+* [HDInsight 4.x component versions](./hdinsight-40-component-versioning.md)
+
+> [!IMPORTANT] 
+> Microsoft has issued [CVE-2023-23408](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-23408), which is fixed on the current release and customers are advised to upgrade their clusters to latest image. 
 
 ![Icon showing new features with text.](media/hdinsight-release-notes/new-icon-for-new-feature.png) 
 
@@ -73,8 +75,10 @@ For more information, see [HDInsight 5.1.0 version](./hdinsight-51-component-ver
 
 End of support for Azure HDInsight clusters on Spark 2.4 February 10, 2024. For more information, see [Spark versions supported in Azure HDInsight](./hdinsight-40-component-versioning.md#spark-versions-supported-in-azure-hdinsight)
 
-## Upcoming Changes
+## Coming soon
 
+* Autoscale
+  * Autoscale with improved latency and several improvements 
 * Cluster name change limitation 
   * The max length of cluster name will be changed to 45 from 59 in Public, Mooncake and Fairfax. 
 * Cluster permissions for secure storage  
@@ -85,7 +89,8 @@ End of support for Azure HDInsight clusters on Spark 2.4 February 10, 2024. For 
   * Apache Spark 3.3.0 and Hadoop 3.3.4 are under development on HDInsight 5.1 and will include several significant new features, performance and other improvements.
 
  > [!NOTE]
- > We advise customers to use to latest versions of HDInsight [Images](./view-hindsight-cluster-image-version.md) as they bring in the best of open source updates,  Azure updates and security fixes.
+ > We advise customers to use to latest versions of HDInsight [Images](./view-hindsight-cluster-image-version.md) as they bring in the best of open source updates,  Azure updates and security fixes. For more information, see [Best practices](./hdinsight-overview-before-you-start.md).
 
 ### Next steps
 * [Azure HDInsight: Frequently asked questions](./hdinsight-faq.yml)
+* [Configure the OS patching schedule for Linux-based HDInsight clusters](./hdinsight-os-patching.md)

@@ -2,6 +2,8 @@
   href: index.yml
 - name: Overview
   items:
+    - name: Getting started
+      href: getting-started.md
     - name: About App Service
       href: overview.md
     - name: About App Service Environments
@@ -71,7 +73,7 @@
     - name: N-tier app
       href: tutorial-secure-ntier-app.md
     - name: Authenticate users
-      href: tutorial-auth-aad.md
+      href: scenario-secure-app-authentication-app-service-as-user.md
     - name: Connect to Azure resource as app
       items:
         - name: Overview
@@ -116,14 +118,18 @@
       items:
         - name: Set up App Service authentication
           href: scenario-secure-app-authentication-app-service-as-user.md
-        - name: Connect to Microsoft Graph
+        - name: App to Microsoft Graph authentication
           items: 
             - name: .NET
               href: scenario-secure-app-access-microsoft-graph-as-user.md
             - name: JavaScript
               href: tutorial-connect-app-access-microsoft-graph-as-user-javascript.md
-        - name: Connect to another App Service
+        - name: App to SQL Database
+          href: tutorial-connect-app-access-sql-database-as-user-dotnet.md
+        - name: App to app authentication
           href: tutorial-auth-aad.md
+        - name: App to app to another Azure service
+          href: tutorial-connect-app-app-graph-javascript.md
     - name: Isolate network traffic
       href: tutorial-networking-isolate-vnet.md
     - name: Host a RESTful API
@@ -218,6 +224,8 @@
       items:
       - name: Migrate to availability zone support
         href: ../availability-zones/migrate-app-service.md
+      - name: Disaster recovery
+        href: overview-disaster-recovery.md
       - name: Restore from downed region
         href: manage-disaster-recovery.md
     - name: Security
@@ -251,7 +259,7 @@
           href: app-service-hybrid-connections.md
         - name: Virtual network integration
           href: overview-vnet-integration.md
-        - name: Name resoulution (DNS)
+        - name: Name resolution (DNS)
           href: overview-name-resolution.md
     - name: Local cache
       href: overview-local-cache.md
@@ -399,7 +407,7 @@
       items:
         - name: Manage the hosting plan
           href: app-service-plan-manage.md
-        - name: Back up and restore
+        - name: Backup and restore
           href: manage-backup.md
         - name: Clone an app
           href: app-service-web-app-cloning.md

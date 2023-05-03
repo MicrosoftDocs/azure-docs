@@ -7,7 +7,7 @@ author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 01/04/2023
 ms.author: jboback
 ms.custom: language-service-health, ignite-fall-2021

@@ -7,6 +7,7 @@ author: duongau
 ms.service: frontdoor
 ms.topic: sample
 ms.workload: infrastructure-services
+ms.custom: devx-track-arm-template, devx-track-bicep
 ms.date: 03/10/2022
 ms.author: duau
 zone_pivot_groups: front-door-tiers

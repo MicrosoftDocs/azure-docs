@@ -2,7 +2,7 @@
 title: Create an Azure portal dashboard by using a Bicep file
 description: Learn how to create an Azure portal dashboard by using a Bicep file.
 ms.topic: quickstart
-ms.custom: subject-bicepqs,
+ms.custom: subject-bicepqs, devx-track-bicep
 ms.date: 09/15/2022
 ---
 

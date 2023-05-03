@@ -3,11 +3,11 @@ title: Configure kube-proxy (iptables/IPVS) (preview)
 titleSuffix: Azure Kubernetes Service
 description: Learn how to configure kube-proxy to utilize different load balancing configurations with Azure Kubernetes Service (AKS).
 ms.subservice: aks-networking
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 10/25/2022
 ms.author: allensu
 author: asudbring
-
 #Customer intent: As a cluster operator, I want to utilize a different kube-proxy configuration.
 ---
 
@@ -31,13 +31,13 @@ The AKS managed `kube-proxy` DaemonSet can also be disabled entirely if that is 
 
 To install the aks-preview extension, run the following command:
 
-```azurecli
+```azurecli-interactive
 az extension add --name aks-preview
 ```
 
 Run the following command to update to the latest version of the extension released:
 
-```azurecli
+```azurecli-interactive
 az extension update --name aks-preview
 ```
 

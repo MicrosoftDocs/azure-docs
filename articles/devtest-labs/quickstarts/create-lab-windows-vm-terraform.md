@@ -2,15 +2,15 @@
 title: 'Quickstart: Create a lab in Azure DevTest Labs using Terraform'
 description: 'In this article, you create a Windows virtual machine in a lab within Azure DevTest Labs using Terraform'
 ms.topic: quickstart
-ms.date: 2/27/2023
-ms.custom: devx-track-terraform
+ms.date: 4/14/2023
+ms.custom: devx-track-terraform, ai-gen-docs
 author: TomArcherMsft
 ms.author: tarcher
 ---
 
 # Quickstart: Create a lab in Azure DevTest Labs using Terraform
 
-This article shows how to use Terraform to create a Windows Server 2019 Datacenter virtual machine in a lab within [Azure DevTest Labs](/azure/devtest-labs/devtest-lab-overview) using [Terraform](/azure/developer/terraform).
+This article shows how to use Terraform to create a Windows Server 2019 Datacenter virtual machine in a lab within [Azure DevTest Labs](../devtest-lab-overview.md) using [Terraform](/azure/developer/terraform).
 
 In this article, you learn how to:
 
@@ -69,20 +69,21 @@ In this article, you learn how to:
 
 1. Get the Azure resource name in which the lab was created.
 
-    ```azurecli
-    echo "$(terraform output resource_group_name)"
+    ```console
+    resource_group_name=$(terraform output -raw resource_group_name)
     ```
 
 1. Get the lab name.
 
-    ```azurecli
-    echo "$(terraform output lab_name)"
+    ```console
+    lab_name=$(terraform output -raw lab_name)
     ```
 
 1. Run [az lab vm list](/cli/azure/lab/vm#az-lab-vm-list) to list the virtual machines for the lab you created in this article.
 
     ```azurecli
-    az lab vm list --resource-group <resource_group_name> --lab-name <lab_name>
+    az lab vm list --resource-group $resource_group_name \
+                   --lab-name $lab_name
     ```
 
 ## Clean up resources

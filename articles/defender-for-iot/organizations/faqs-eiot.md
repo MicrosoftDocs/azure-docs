@@ -3,6 +3,7 @@ title: FAQs for Enterprise IoT networks - Microsoft Defender for IoT
 description: Find answers to the most frequently asked questions about Microsoft Defender for IoT Enterprise IoT networks.
 ms.topic: faq
 ms.date: 07/07/2022
+ms.custom: enterprise-iot
 ---
 
 # Enterprise IoT network security frequently asked questions

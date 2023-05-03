@@ -107,7 +107,7 @@ Generation 2 VMs support the following Marketplace images:
 * Windows 10 Pro, Windows 10 Enterprise
 * SUSE Linux Enterprise Server 15 SP3, SP2
 * SUSE Linux Enterprise Server 12 SP4
-* Ubuntu Server 21.04 LTS, 20.04 LTS, 18.04 LTS, 16.04 LTS 
+* Ubuntu Server 22.04 LTS, 20.04 LTS, 18.04 LTS, 16.04 LTS 
 * RHEL 8.5, 8.4, 8.3, 8.2, 8.1, 8.0, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0
 * Cent OS 8.4, 8.3, 8.2, 8.1, 8.0, 7.7, 7.6, 7.5, 7.4
 * Oracle Linux 8.4 LVM, 8.3 LVM, 8.2 LVM, 8.1, 7.9 LVM, 7.9, 7.8, 7.7

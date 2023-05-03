@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.author: rogarana
 ms.service: storage
 ms.subservice: disks
-
+ms.custom: devx-track-azurecli
 ---
 
 # Use the Azure CLI to enable server-side encryption with customer-managed keys for managed disks
@@ -39,7 +39,7 @@ rgName=yourResourceGroupName
 vmName=yourVMName
 location=westcentralus
 vmSize=Standard_DS3_V2
-image=UbuntuLTS 
+image=LinuxImageURN 
 diskEncryptionSetName=yourDiskencryptionSetName
 
 diskEncryptionSetId=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [id] -o tsv)
@@ -66,11 +66,11 @@ rgName=yourResourceGroupName
 vmssName=yourVMSSName
 location=westcentralus
 vmSize=Standard_DS3_V2
-image=UbuntuLTS 
+image=LinuxImageURN 
 diskEncryptionSetName=yourDiskencryptionSetName
 
 diskEncryptionSetId=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [id] -o tsv)
-az vmss create -g $rgName -n $vmssName --image UbuntuLTS --upgrade-policy automatic --admin-username azureuser --generate-ssh-keys --os-disk-encryption-set $diskEncryptionSetId --data-disk-sizes-gb 64 128 --data-disk-encryption-sets $diskEncryptionSetId $diskEncryptionSetId
+az vmss create -g $rgName -n $vmssName --image $image --upgrade-policy automatic --admin-username azureuser --generate-ssh-keys --os-disk-encryption-set $diskEncryptionSetId --data-disk-sizes-gb 64 128 --data-disk-encryption-sets $diskEncryptionSetId $diskEncryptionSetId
 ```
 
 ### Create an empty disk encrypted using server-side encryption with customer-managed keys and attach it to a VM

@@ -1,5 +1,5 @@
 ---
-title: Implement password hash synchronization with Azure AD Connect sync | Microsoft Docs
+title: Implement password hash synchronization with Azure AD Connect sync
 description: Provides information about how password hash synchronization works and how to set up.
 services: active-directory
 documentationcenter: ''

@@ -4,6 +4,7 @@ description: Describes options for dangling subdomain prevention on Azure App Se
 ms.topic: article
 ms.date: 10/14/2022
 ms.author: msangapu
+ms.custom: UpdateFrequency3
 author: msangapu-msft
 ---
 

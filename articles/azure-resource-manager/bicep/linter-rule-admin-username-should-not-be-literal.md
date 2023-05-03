@@ -2,6 +2,7 @@
 title: Linter rule - admin user name should not be literal
 description: Linter rule - admin user name should not be a literal
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 11/18/2021
 ---
 

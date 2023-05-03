@@ -1,12 +1,12 @@
 ---
 title: "Azure Operator Nexus: Monitoring of Virtualized Network Function Virtual Machines"
 description: How-to guide for setting up monitoring of Virtualized Network Function Virtual Machines on Operator Nexus.
-author: mukesh-dua #Required; your GitHub user alias, with correct capitalization.
-ms.author: mukeshdua #Required; microsoft alias of author; optional team alias.
-ms.service: azure  #Required
-ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 02/01/2023 #Required; mm/dd/yyyy format.
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+author: mukesh-dua
+ms.author: mukeshdua
+ms.service: azure-operator-nexus
+ms.topic: how-to
+ms.date: 02/01/2023
+ms.custom: template-how-to
 ---
 
 # Monitoring virtual machines (for virtualized network function)
@@ -29,7 +29,7 @@ Azure Arc-enabled servers let you manage Linux physical servers and Virtual Mach
 
 ### Prerequisites
 
-Before you start, be sure to review the [prerequisites](/azure/azure-arc/servers/prerequisites) and verify that your subscription, and resources meet the requirements.
+Before you start, be sure to review the [prerequisites](../azure-arc/servers/prerequisites.md) and verify that your subscription, and resources meet the requirements.
 Some of the prerequisites are:
 
 - Your VNF VM is connected to CloudServicesNetwork (the network that the VM uses to communicate with Operator Nexus services).
@@ -43,7 +43,7 @@ echo "http\_proxy=http://169.254.0.11:3128" \>\> /etc/environment
 echo "https\_proxy=http://169.254.0.11:3128" \>\> /etc/environment
 ```
 
-- You have appropriate permissions on VNF VM to be able to run scripts, install package dependencies etc. For more information visit [link](/azure/azure-arc/servers/prerequisites#required-permissions) for more details.
+- You have appropriate permissions on VNF VM to be able to run scripts, install package dependencies etc. For more information visit [link](../azure-arc/servers/prerequisites.md#required-permissions) for more details.
 - To use Azure Arc-enabled servers, the following Azure resource providers must be registered in your subscription:
   - Microsoft.HybridCompute
   - Microsoft.GuestConfiguration
@@ -114,8 +114,8 @@ Some common reasons for errors:
 
 ## Azure monitor agent
 
-The Azure Monitor Agent is implemented as an [Azure VM extension](/azure/virtual-machines/extensions/overview) 
-ver Arc connected Machines. It also lists the options to create [associations with Data Collection Rules](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent)
+The Azure Monitor Agent is implemented as an [Azure VM extension](../virtual-machines/extensions/overview.md) 
+ver Arc connected Machines. It also lists the options to create [associations with Data Collection Rules](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md)
 that define which data the agent should collect. Installing, upgrading, or uninstalling the Azure Monitor Agent
 won't require you to restart your server.
 
@@ -142,12 +142,12 @@ The following prerequisites must be met prior to installing the Azure Monitor Ag
 
 | **Built-in role** | **Scopes** | **Reason** |
 | --- | --- | --- |
-|[Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) [Azure Connected Machine Resource Administrator](/azure/role-based-access-control/built-in-roles#azure-connected-machine-resource-administrator)| Azure Arc-enabled servers | To deploy the agent |
+|[Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) [Azure Connected Machine Resource Administrator](../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator)| Azure Arc-enabled servers | To deploy the agent |
 | Any role that includes the action _Microsoft.Resources/deployments/_\* | Subscription and/orResource group and/or | To deploy Azure Resource Manager templates |
 
 ### Installing Azure Monitoring Agent
 
-Once, the Virtual Machines are Arc connected, ensure that you create a local file from your [Azure Cloud Shell](/azure/cloud-shell/overview) with name "settings.json" to provide the proxy information:
+Once, the Virtual Machines are Arc connected, ensure that you create a local file from your [Azure Cloud Shell](../cloud-shell/overview.md) with name "settings.json" to provide the proxy information:
 
 <!--- IMG ![Settings.json file](Docs/media/azure-monitor-agent-settings.png) IMG --->
 :::image type="content" source="media/azure-monitor-agent-settings.png" alt-text="Screenshot of Settings.json file.":::
@@ -162,13 +162,13 @@ az connectedmachine extension create --name AzureMonitorLinuxAgent --publisher M
 
 To collect data from virtual machines by using Azure Monitor Agent, you'll need to:
 
-1. Create [Data Collection Rules (DCRs)](/azure/azure-monitor/essentials/data-collection-rule-overview)that define which data Azure Monitor Agent sends to which destinations.
+1. Create [Data Collection Rules (DCRs)](../azure-monitor/essentials/data-collection-rule-overview.md)that define which data Azure Monitor Agent sends to which destinations.
 
 2. Associate the Data Collection Rule to specific Virtual Machines.
 
 #### Data Collection Rule via Portal
 
-The steps to create a DCR and associate it to a Log Analytics Workspace can be found [here](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=portal#create-data-collection-rule-and-association).
+The steps to create a DCR and associate it to a Log Analytics Workspace can be found [here](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md?tabs=portal).
 
 Lastly verify if you're getting the logs in the Log Analytics Workspace specified.
 
@@ -187,19 +187,13 @@ An example rules-file:
 <!--- IMG ![Sample DCR rule file](Docs/media/sample-data-collection-rule.png) IMG --->
 :::image type="content" source="media/sample-data-collection-rule.png" alt-text="Screenshot of Sample DCR rule file.":::
 
-Figure: Sample DCR rule file
-
-For more information, please refer to this [link](/azure/monitor/data-collection/rule#az-monitor-data-collection-rule-create).
-
 **Associate DCR:**
 
 ```azurecli
 az monitor data-collection rule association create --name \<name-for-dcr-association\> --resource \<connected-machine-resource-id\> --rule-id \<dcr-resource-id\> [--description]
 ```
 
-For more information, please refer to this [link](/azure/monitor/data-collection/rule/association#az-monitor-data-collection-rule-association-create).
-
 ## Additional resources
 
-- Review [workbooks documentation](/azure/azure-monitor/visualize/workbooks-overview) and then you may use Operator Nexus telemetry [sample Operator Nexus workbooks](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Operator%20Distributed%20Services).
-- Review [Azure Monitor Alerts](/azure/azure-monitor/alerts/alerts-overview), how to create [Azure Monitor Alert rules](/azure/azure-monitor/alerts/alerts-create-new-alert-rule?tabs=metric), and use [sample Operator Nexus Alert templates](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Operator%20Distributed%20Services).
+- Review [workbooks documentation](../azure-monitor/visualize/workbooks-overview.md) and then you may use Operator Nexus telemetry [sample Operator Nexus workbooks](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Operator%20Distributed%20Services).
+- Review [Azure Monitor Alerts](../azure-monitor/alerts/alerts-overview.md), how to create [Azure Monitor Alert rules](../azure-monitor/alerts/alerts-create-new-alert-rule.md?tabs=metric), and use [sample Operator Nexus Alert templates](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Operator%20Distributed%20Services).

@@ -17,7 +17,7 @@ ms.custom: devx-track-python, automl, sdkv2, event-tier1-build-2022, ignite-2022
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)] 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning Python you are using:"]
-> * [v1](./v1/how-to-configure-auto-train-v1.md)
+> * [v1](./v1/how-to-configure-auto-train-v1.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](how-to-configure-auto-train.md)
 
 In this guide, learn how to set up an automated machine learning, AutoML, training job with the [Azure Machine Learning Python SDK v2](/python/api/overview/azure/ml/intro). Automated ML picks an algorithm and hyperparameters for you and generates a model ready for deployment. This guide provides details of the various options that you can use to configure automated ML experiments.
@@ -42,7 +42,7 @@ For this article you need:
        ```
        * Install the Azure Machine Learning Python SDK v2:
        ```Python
-       pip install azure-ai-ml
+       pip install azure-ai-ml azure-identity
        ```
 
     [!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]

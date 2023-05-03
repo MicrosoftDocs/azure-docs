@@ -260,6 +260,10 @@ View and change details of your project. On this tab, you can:
 * Edit instructions you give to your labels.
 * Change settings for ML-assisted labeling and kick off a labeling task.
 
+### Vision Studio tab
+
+If your project was created from [Cognitive Services Vision Studio](../cognitive-services/computer-vision/how-to/model-customization.md), you'll also see a **Vision Studio** tab.  Select **Go to Vision Studio** to return to Vision Studio. Once you return to Vision Studio, you will be able to import your labeled data.
+
 ### Access for labelers
 
 [!INCLUDE [access](../../includes/machine-learning-data-labeling-access.md)]

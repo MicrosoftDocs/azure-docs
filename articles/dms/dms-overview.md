@@ -1,15 +1,12 @@
 ---
-title: What is Azure Database Migration Service? 
+title: What is Azure Database Migration Service?
 description: Overview of Azure Database Migration Service, which provides seamless migrations from many database sources to Azure Data platforms.
-services: database-migration
 author: croblesm
 ms.author: roblescarlos
-manager: craigg
 ms.reviewer: craigg
-ms.service: dms
-ms.workload: data-services
-ms.topic: overview
 ms.date: 02/08/2023
+ms.service: dms
+ms.topic: overview
 ---
 # What is Azure Database Migration Service?
 

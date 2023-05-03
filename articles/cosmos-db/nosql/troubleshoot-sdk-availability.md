@@ -3,7 +3,7 @@ title: Diagnose and troubleshoot the availability of Azure Cosmos DB SDKs in mul
 description: Learn all about the Azure Cosmos DB SDK availability behavior when operating in multi regional environments.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 09/27/2022
+ms.date: 03/10/2023
 ms.author: maquaran
 ms.subservice: nosql
 ms.custom: ignite-2022
@@ -86,7 +86,7 @@ If the account is single write region and the regional outage occurs during a wr
 
 ## Session consistency guarantees
 
-When using [session consistency](../consistency-levels.md#guarantees-associated-with-consistency-levels), the client needs to guarantee that it can read its own writes. In single write region accounts where the read region preference is different from the write region, there could be cases where the user issues a write and when doing a read from a local region, the local region hasn't yet received the data replication (speed of light constraint). In such cases, the SDK detects the specific failure on the read operation and retries the read on the primary region to ensure session consistency.
+When using [session consistency](../consistency-levels.md#guarantees-associated-with-consistency-levels), the client needs to guarantee that it can read its own writes. In single write region accounts where the read region preference is different from the write region, there could be cases where the user issues a write and then does a read from a local region, the local region hasn't yet received the data replication (speed of light constraint). In such cases, the SDK receives a specific failure from the service on the read operation and retries the read on the primary region to ensure session consistency. For accounts with multiple write regions, the same session semantics apply but because there are multiple write regions available, retries are issued using the preferred region list or account's region order.
 
 ## Transient connectivity issues on TCP protocol
 

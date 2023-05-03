@@ -45,13 +45,13 @@ We recommend you change user UPN when their primary email address changes. Durin
 
 ### UPNs in Active Directory
 
-In Active Directory, the default UPN suffix is the domain DNS name where you created the user account. In most cases, you register this domain name as the enterprise domain. If you create the user account in the contoso.com domain, the default UPN is: username@contoso.com. However, you can add more UPN suffixes by using Active Directory domains and trusts. Learn more: [Add your custom domain name using the Azure Active Directory portal](../fundamentals/add-custom-domain.md).
+In Active Directory, the default UPN suffix is the domain DNS name where you created the user account. In most cases, you register this domain name as the enterprise domain. If you create the user account in the contoso.com domain, the default UPN is: username@contoso.com. However, you can add more UPN suffixes by using Active Directory domains and trusts. Learn more: [Add your custom domain name using the Azure portal](../fundamentals/add-custom-domain.md).
 
 For example, if you add labs.contoso.com and change the user UPNs and email to reflect that, the result is: username@labs.contoso.com.
 
    >[!IMPORTANT]
    > If you change the suffix in Active Directory, add and verify a matching custom domain name in Azure AD. 
-   > [Add your custom domain name using the Azure Active Directory portal](../fundamentals/add-custom-domain.md)
+   > [Add your custom domain name using the Azure portal](../fundamentals/add-custom-domain.md)
 
    ![Screenshot of the Add customer domain option, under Custom domain names.](./media/howto-troubleshoot-upn-changes/custom-domains.png)
 

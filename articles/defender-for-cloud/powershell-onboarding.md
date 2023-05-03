@@ -3,7 +3,7 @@ title: Onboard to Microsoft Defender for Cloud with PowerShell
 description: This document walks you through the process of enabling Microsoft Defender for Cloud with PowerShell cmdlets.
 ms.topic: quickstart
 ms.date: 01/24/2023
-ms.custom: mode-api, ignite-2022
+ms.custom: mode-api, ignite-2022, devx-track-azurepowershell
 ---
 
 # Quickstart: Automate onboarding of Microsoft Defender for Cloud using PowerShell

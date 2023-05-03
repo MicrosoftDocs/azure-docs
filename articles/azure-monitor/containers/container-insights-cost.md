@@ -2,7 +2,7 @@
 title: Monitoring cost for Container insights | Microsoft Docs
 description: This article describes the monitoring cost for metrics and inventory data collected by Container insights to help customers manage their usage and associated costs. 
 ms.topic: conceptual
-ms.date: 01/24/2023
+ms.date: 03/02/2023
 ms.reviewer: viviandiec
 ---
 # Understand monitoring costs for Container insights
@@ -63,7 +63,7 @@ By using the default [pricing](https://azure.microsoft.com/pricing/details/monit
 
 ## Control ingestion to reduce cost
 
-Consider a scenario where your organization's different business units share Kubernetes infrastructure and a Log Analytics workspace. Each business unit is separated by a Kubernetes namespace. You can visualize how much data is ingested in each workspace by using the **Data Usage** runbook. The runbook is available from the **View Workbooks** dropdown list.
+Consider a scenario where your organization's different business units share Kubernetes infrastructure and a Log Analytics workspace. Each business unit is separated by a Kubernetes namespace. You can visualize how much data is ingested in each workspace by using the **Data Usage** runbook. The runbook is available from the **Reports** tab.
 
 [![Screenshot that shows the View Workbooks dropdown list.](media/container-insights-cost/workbooks-dropdown.png)](media/container-insights-cost/workbooks-dropdown.png#lightbox)
 
@@ -99,7 +99,7 @@ If the majority of your data comes from one of these following tables:
 - KubeServices
 - KubeEvents
 
-You can adjust your ingestion using the [cost optimization settings](../containers/container-insights-cost-config.md) and/or migrating to the Prometheus metrics addon (../essentials/prometheus-metrics-overview.md)
+You can adjust your ingestion using the [cost optimization settings](../containers/container-insights-cost-config.md) and/or migrating to the [Prometheus metrics addon](container-insights-prometheus.md)
 
 Otherwise, the majority of your data belongs to the ContainerLog table. and you can follow the steps below to reduce your ContainerLog costs.
 

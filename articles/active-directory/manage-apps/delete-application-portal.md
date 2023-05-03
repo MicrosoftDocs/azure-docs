@@ -12,6 +12,7 @@ ms.date: 07/28/2022
 ms.author: jomondi
 ms.reviewer: sureshja
 zone_pivot_groups: enterprise-apps-all
+ms.custom: enterprise-apps
 
 #Customer intent: As an administrator of an Azure AD tenant, I want to delete an enterprise application.
 ---
@@ -35,7 +36,7 @@ To delete an enterprise application, you need:
 
 :::zone pivot="portal"
 
-1. Sign in to the [Azure AD portal](https://portal.azure.com) and sign in using one of the roles listed in the prerequisites.
+1. Sign in to the [Azure portal](https://portal.azure.com) and sign in using one of the roles listed in the prerequisites.
 1. In the left menu, select **Enterprise applications**. The **All applications** pane opens and displays a list of the applications in your Azure AD tenant. Search for and select the application that you want to delete. For example, **Azure AD SAML Toolkit 1**.
 1. In the **Manage** section of the left menu, select **Properties**.
 1. At the top of the **Properties** pane, select **Delete**, and then select **Yes** to confirm you want to delete the application from your Azure AD tenant.
@@ -102,22 +103,61 @@ To delete an enterprise application, you need:
 Delete an enterprise application using [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 1. To get the list of service principals in your tenant, run the following query.
 
-   
+   # [HTTP](#tab/http)
    ```http
    GET https://graph.microsoft.com/v1.0/servicePrincipals
    ```
 
+   # [C#](#tab/csharp)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/csharp/list-serviceprincipal-csharp-snippets.md)]
+
+   # [JavaScript](#tab/javascript)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/javascript/list-serviceprincipal-javascript-snippets.md)]
+
+   # [Java](#tab/java)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/java/list-serviceprincipal-java-snippets.md)]
+
+   # [Go](#tab/go)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/go/list-serviceprincipal-go-snippets.md)]
+
+   # [PowerShell](#tab/powershell)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/powershell/list-serviceprincipal-powershell-snippets.md)]
+
+   # [PHP](#tab/php)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/php/list-serviceprincipal-php-snippets.md)]
+
+   ---
+
 1. Record the ID of the enterprise app you want to delete.
 1. Delete the enterprise application.
-
+   
+   # [HTTP](#tab/http)
    ```http
    DELETE https://graph.microsoft.com/v1.0/servicePrincipals/{servicePrincipal-id}
    ```
 
+   # [C#](#tab/csharp)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/csharp/delete-serviceprincipal-csharp-snippets.md)]
+
+   # [JavaScript](#tab/javascript)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/javascript/delete-serviceprincipal-javascript-snippets.md)]
+
+   # [Java](#tab/java)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/java/delete-serviceprincipal-java-snippets.md)]
+
+   # [Go](#tab/go)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/go/delete-serviceprincipal-go-snippets.md)]
+
+   # [PowerShell](#tab/powershell)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/powershell/delete-serviceprincipal-powershell-snippets.md)]
+
+   # [PHP](#tab/php)
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/php/delete-serviceprincipal-php-snippets.md)]
+
+   ---
 
 :::zone-end
 
 ## Next steps
 
 - [Restore a deleted enterprise application](restore-application.md)
-

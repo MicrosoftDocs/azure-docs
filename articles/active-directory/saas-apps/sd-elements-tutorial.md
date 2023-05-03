@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SD Elements | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SD Elements'
 description: Learn how to configure single sign-on between Azure Active Directory and SD Elements.
 services: active-directory
 author: jeevansd

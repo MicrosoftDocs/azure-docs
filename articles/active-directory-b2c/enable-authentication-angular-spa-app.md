@@ -6,8 +6,8 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
-ms.topic: reference
-ms.date: 07/29/2021
+ms.topic: how-to
+ms.date: 03/23/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -21,7 +21,7 @@ Use this article with the related article titled [Configure authentication in a 
 
 ## Prerequisites
 
-Review the prerequisites and integration steps in the [Configure authentication in a sample Angular single-page application](configure-authentication-sample-angular-spa-app.md) article.
+Complete the steps in the [Configure authentication in a sample Angular single-page application](configure-authentication-sample-angular-spa-app.md) article.
 
 ## Create an Angular app project
 
@@ -139,7 +139,7 @@ export const loginRequest = {
 
 ## Start the authentication libraries
 
-Public client applications are not trusted to safely keep application secrets, so they don't have client secrets. In the *src/app* folder, open *app.module.ts* and make the following changes:
+Public client applications aren't trusted to safely keep application secrets, so they don't have client secrets. In the *src/app* folder, open *app.module.ts* and make the following changes:
 
 1. Import the MSAL Angular and MSAL Browser libraries.
 1. Import the Azure AD B2C configuration module.

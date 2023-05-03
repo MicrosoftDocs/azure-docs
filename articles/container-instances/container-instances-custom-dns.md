@@ -4,6 +4,7 @@ description: Configure a public or private DNS configuration for a container gro
 author: tomvcassidy
 ms.topic: how-to
 ms.service: container-instances
+ms.custom: devx-track-azurecli
 services: container-instances
 ms.author: tomcassidy
 ms.date: 05/25/2022
@@ -96,7 +97,7 @@ Once you've completed the steps above, you should see an output with a final key
 ## Deploy your container group
 
 > [!NOTE]
-> Custom DNS settings are not currently available in the Azure portal for container group deployments. They must be provided with YAML file, Resource Manager template, [REST API](/rest/api/container-instances/containergroups/createorupdate), or an [Azure SDK](https://azure.microsoft.com/downloads/).
+> Custom DNS settings are not currently available in the Azure portal for container group deployments. They must be provided with YAML file, Resource Manager template, [REST API](/rest/api/container-instances/2022-09-01/container-groups/create-or-update), or an [Azure SDK](https://azure.microsoft.com/downloads/).
 
 Copy the following YAML into a new file named *custom-dns-deploy-aci.yaml*. Edit the following configurations with your values:
 

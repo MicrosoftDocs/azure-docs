@@ -29,9 +29,9 @@ For information about encryption, security, and authorization for outbound calls
 
 * The URL for the target endpoint that you want to call
 
-* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md)?
+* Basic knowledge about how to create logic app workflows. If you're new to logic apps, see [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md)?
 
-* The logic app from where you want to call the target endpoint. To start with the HTTP trigger, [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To use the HTTP action, start your logic app with any trigger that you want. This example uses the HTTP trigger as the first step.
+* The logic app from where you want to call the target endpoint. To start with the HTTP trigger, you'll need a blank logic app workflow. To use the HTTP action, start your logic app with any trigger that you want. This example uses the HTTP trigger as the first step.
 
 <a name="http-trigger"></a>
 
@@ -371,5 +371,5 @@ For technical information about trigger and action parameters, see these section
 
 ## Next steps
 
-* [Secure access and data - Access for outbound calls to other services and systems](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests)
-* [Connectors for Logic Apps](../connectors/apis-list.md)
+* [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Built-in connectors for Azure Logic Apps](built-in.md)

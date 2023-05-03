@@ -5,7 +5,7 @@ services: firewall
 author: mumian
 ms.service: firewall
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ms.author: jgao
 ms.date: 08/11/2022
 ---

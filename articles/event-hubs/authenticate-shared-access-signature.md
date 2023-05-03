@@ -2,12 +2,13 @@
 title: Authenticate access to Azure Event Hubs with shared access signatures
 description: This article shows you how to authenticate access to Event Hubs resources using shared access signatures.
 ms.topic: conceptual
-ms.date: 09/16/2022
+ms.date: 03/13/2023
 ms.devlang: csharp, java, javascript, php
 ms.custom: devx-track-js, devx-track-csharp
 ---
+
 # Authenticate access to Event Hubs resources using shared access signatures (SAS)
-Shared access signature (SAS) gives you granular control over the type of access you grant to the clients who has the shared access signature. Here are some of the controls you can set in a SAS: 
+Shared access signature (SAS) gives you granular control over the type of access you grant to the clients. Here are some of the controls you can set in a SAS: 
 
 - The interval over which the SAS is valid, which includes the start time and expiry time.
 - The permissions granted by the SAS. For example, a SAS for an Event Hubs namespace might grant the listen permission, but not the send permission.
@@ -24,15 +25,15 @@ This article covers authenticating the access to Event Hubs resources using SAS.
 
 
 ## Configuring for SAS authentication
-You can configure a shared access authorization rule on an Event Hubs namespace, or an entity (event hub instance or Kafka Topic in an event hub). Configuring a shared access authorization rule on a consumer group is currently not supported, but you can use rules configured on a namespace or entity to secure access to consumer group. 
+You can configure a SAS rule on an Event Hubs namespace, or an entity (event hub instance or Kafka Topic in an event hub). Configuring a SAS rule on a consumer group is currently not supported, but you can use rules configured on a namespace or entity to secure access to consumer group. 
 
 The following image shows how the authorization rules apply on sample entities. 
 
 ![Configure authorization rule](./media/authenticate-shared-access-signature/configure-sas-authorization-rule.png)
 
-In this example, the sample Event Hubs namespace (ExampleNamespace) has two entities: eh1 and topic1. The authorization rules are defined both at the entity level and also at the namespace level.  
+In this example, the sample Event Hubs namespace (ExampleNamespace) has two entities: eh1 and Kafka topic1. The authorization rules are defined both at the entity level and also at the namespace level.  
 
-The manageRuleNS, sendRuleNS, and listenRuleNS authorization rules apply to both event hub instance eh1 and topic t1. The listenRule-eh and sendRule-eh authorization rules apply only to event hub instance eh1 and sendRuleT authorization rule applies only to topic topic1. 
+The manageRuleNS, sendRuleNS, and listenRuleNS authorization rules apply to both eh1 and t1. The listenRule-eh and sendRule-eh authorization rules apply only to eh1 and sendRuleT authorization rule applies only to topic1. 
 
 When you use sendRuleNS authorization rule, client applications can send to both eh1 and topic1. When sendRuleT authorization rule is used, it enforces granular access to topic1 only and hence client applications using this rule for access  now can't send to eh1, but only to topic1.
 
@@ -44,9 +45,7 @@ Any client that has access to name of an authorization rule name and one of its 
 - `sr` – URI of the resource being accessed.
 - `sig` – Signature.
 
-The signature-string is the SHA-256 hash computed over the resource URI (scope as described in the previous section) and the string representation of the token expiry instant, separated by CRLF.
-
-The hash computation looks similar to the following pseudo code and returns a 256-bit/32-byte hash value. 
+The signature-string is the SHA-256 hash computed over the resource URI (scope as described in the previous section) and the string representation of the token expiry instant, separated by CRLF. The hash computation looks similar to the following pseudo code and returns a 256-bit/32-byte hash value. 
 
 ```
 SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
@@ -58,7 +57,7 @@ The resource URI is the full URI of the Service Bus resource to which access is 
 
 The URI must be percent-encoded.
 
-The shared access authorization rule used for signing must be configured on the entity specified by this URI, or by one of its hierarchical parents. For example, `http://contoso.servicebus.windows.net/eh1` or `http://contoso.servicebus.windows.net` in the previous example.
+The SAS rule used for signing must be configured on the entity specified by this URI, or by one of its hierarchical parents. For example, `http://contoso.servicebus.windows.net/eh1` or `http://contoso.servicebus.windows.net` in the previous example.
 
 A SAS token is valid for all resources prefixed with the `<resourceURI>` used in the signature-string.
 
@@ -274,11 +273,11 @@ For certain organizational security requirements, you may have to disable local/
 ### Disabling Local/SAS Key authentication via the portal 
 You can disable local/SAS key authentication for a given Event Hubs namespace using the Azure portal. 
 
-As shown in the following image, in the namespace overview section, click on the *Local Authentication*. 
+As shown in the following image, in the namespace overview section, select **Local Authentication**. 
 
 ![Namespace overview for disabling local auth](./media/authenticate-shared-access-signature/disable-local-auth-overview.png)
 
-And then select *Disabled* option and click *Ok* as shown below. 
+And then select **Disabled** option and select **Ok** as shown below. 
 ![Disabling local auth](./media/authenticate-shared-access-signature/disabling-local-auth.png)
 
 ### Disabling Local/SAS Key authentication using a template 

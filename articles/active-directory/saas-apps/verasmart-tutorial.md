@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with VeraSMART | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with VeraSMART'
 description: Learn how to configure single sign-on between Azure Active Directory and VeraSMART.
 services: active-directory
 author: jeevansd
@@ -167,7 +167,5 @@ When you click the VeraSMART tile in the Access Panel, you should be automatical
 - [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Try VeraSMART with Azure AD](https://aad.portal.azure.com/)
 
 - [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)

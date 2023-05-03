@@ -1,5 +1,5 @@
 ---
-title: Activate Azure resource roles in PIM - Azure AD | Microsoft Docs
+title: Activate Azure resource roles in PIM
 description: Learn how to activate your Azure resource roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 3/1/2023
+ms.date: 4/14/2023
 ms.author: amsliu
 ms.reviewer: rianakarim
 ms.custom: pim
@@ -25,6 +25,11 @@ This article is for members who need to activate their Azure resource role in Pr
 
 >[!NOTE]
 >As of March 2023, you may now activate your assignments and view your access directly from blades outside of PIM in the Azure portal. Read more [here](pim-resource-roles-activate-your-roles.md#activate-with-azure-portal).
+
+>[!IMPORTANT]
+>When a role is activated, Azure AD PIM temporarily adds active assignment for the role. Azure AD PIM creates active assignment (assigns user to a role) within seconds. When deactivation (manual or through activation time expiration) happens, Azure AD PIM removes the active assignment within seconds as well.
+>
+>Application may provide access based on the role the user has. In some situations, application access may not immediately reflect the fact that user got role assigned or removed. If application previously cached the fact that user does not have a role – when user tries to access application again, access may not be provided. Similarly, if application previously cached the fact that user has a role – when role is deactivated, user may still get access. Specific situation depends on the application’s architecture. For some applications, signing out and signing back in may help get access added or removed.
 
 ## Activate a role
 
@@ -171,21 +176,6 @@ Status code: 201
   "type": "Microsoft.Authorization/RoleAssignmentScheduleRequests" 
 } 
 ````
-## Activate a role with PowerShell
-
-There is also an option to activate Privileged Identity Management using PowerShell. You may find more details as documented in the article [PowerShell for Azure AD roles PIM](powershell-for-azure-ad-roles.md).
-
-The following is a sample script for how to activate Azure resource roles using PowerShell.
-
-```powershell
-$managementgroupID = "<management group ID" # Tenant Root Group
-$guid = (New-Guid)
-$startTime = Get-Date -Format o
-$userObjectID = "<user object ID"
-$RoleDefinitionID = "b24988ac-6180-42a0-ab88-20f7382dd24c" # Contributor
-$scope = "/providers/Microsoft.Management/managementGroups/$managementgroupID"
-New-AzRoleAssignmentScheduleRequest -Name $guid -Scope $scope -ExpirationDuration PT8H -ExpirationType AfterDuration -PrincipalId $userObjectID -RequestType SelfActivate -RoleDefinitionId /providersproviders/Microsoft.Management/managementGroups/$managementgroupID/providers/Microsoft.Authorization/roleDefinitions/$roledefinitionId -ScheduleInfoStartDateTime $startTime -Justification work
-```
 
 ## View the status of your requests
 
@@ -215,7 +205,7 @@ If you do not require activation of a role that requires approval, you can cance
 
 ## Deactivate a role assignment
 
-When a role assignment is activated, you'll see a **Deactivate** option in the PIM portal for the role assignment. When you select **Deactivate**, there's a short time lag before the role is deactivated. Also, you can't deactivate a role assignment within five minutes after activation.
+When a role assignment is activated, you'll see a **Deactivate** option in the PIM portal for the role assignment. Also, you can't deactivate a role assignment within five minutes after activation.
 
 ## Activate with Azure portal
 
@@ -232,15 +222,6 @@ In Access control (IAM) for a resource, you can now select “View my access” 
    ![Screenshot of current role assignments on the Measurement page.](./media/pim-resource-roles-activate-your-roles/view-my-access.png)
 
 By integrating PIM capabilities into different Azure portal blades, this new feature allows you to gain temporary access to view or edit subscriptions and resources more easily.
-
-## Troubleshoot
-
-### Permissions are not granted after activating a role
-
-When you activate a role in Privileged Identity Management, the activation may not instantly propagate to all portals that require the privileged role. Sometimes, even if the change is propagated, web caching in a portal may result in the change not taking effect immediately. If your activation is delayed, here is what you should do.
-
-1. Sign out of the Azure portal and then sign back in.
-1. In Privileged Identity Management, verify that you are listed as the member of the role.
 
 ## Next steps
 

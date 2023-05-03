@@ -144,7 +144,7 @@ In the following code, you subscribe to the events sent from `TranslationRecogni
 * [`recognizing`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#recognizing): Signal for events that contain intermediate translation results.
 * [`recognized`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#recognized): Signal for events that contain final translation results. These results indicate a successful translation attempt.
 * [`sessionStopped`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#sessionstopped): Signal for events that indicate the end of a translation session (operation).
-* [`canceled`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#canceled): Signal for events that contain canceled translation results. These events indicate a translation attempt that was canceled as a result or a direct cancellation. Alternatively, they indicate a transport or protocol failure.
+* [`canceled`](/javascript/api/microsoft-cognitiveservices-speech-sdk/translationrecognizer#canceled): Signal for events that contain canceled translation results. These events indicate a translation attempt that was canceled as a result of a direct cancellation. Alternatively, they indicate a transport or protocol failure.
 
 ```javascript
 translationRecognizer.recognizing = (s, e) => {
