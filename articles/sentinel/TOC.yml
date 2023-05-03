@@ -17,14 +17,14 @@
     href: forward-syslog-monitor-agent.md
   - name: Configure data retention policy
     href: configure-data-retention.md
-  - name: Investigate with UEBA
-    href: investigate-with-ueba.md
-  - name: Use automation to respond to threats
-    href: tutorial-respond-threats-playbook.md
+  - name: Detect threats using analytics rules
+    href: tutorial-log4j-detection.md
   - name: Automatically enrich incident information
     href: tutorial-enrich-ip-information.md
-  - name: Detect Log4j vulnerability exploits
-    href: tutorial-log4j-detection.md
+  - name: Respond to threats using automation 
+    href: tutorial-respond-threats-playbook.md
+  - name: Investigate with UEBA
+    href: investigate-with-ueba.md
   - name: Build and monitor Zero Trust
     href: sentinel-solution.md
   - name: Integrate with Microsoft Defender for IoT
@@ -762,9 +762,7 @@
       - name: Azure Functions API connection
         href: connect-azure-functions-template.md      
       - name: Custom log sources
-        href: connect-custom-logs.md
-      - name: DNS via AMA
-        href: connect-dns-ama.md
+        href: connect-custom-logs.md      
       - name: GCP audit logs
         href: connect-google-cloud-platform.md
       - name: Logstash plugin with Data Collection Rules

@@ -41,7 +41,7 @@ Follow these steps to create a user flow a customer can use to sign in or sign u
 
 1. Select **New user flow**.
 
-   :::image type="content" source="media/how-to-user-flow-sign-up-sign-in-customers/new-user-flow.png" alt-text="Screenshot of the new user flow option." lightbox="media/how-to-customize-branding-customers/azure-ad-microsoft-branding.png":::
+   :::image type="content" source="media/how-to-user-flow-sign-up-sign-in-customers/new-user-flow.png" alt-text="Screenshot of the new user flow option.":::
 
 1. On the **Create** page, enter a **Name** for the user flow (for example, "SignUpSignIn").
 
@@ -98,3 +98,8 @@ If you've already registered your application in your customer tenant, you can a
 1. Select the application from the list. Or use the search box to find the application, and then select it.
 
 1. Choose **Select**.
+
+## Next steps
+
+- [Enable password reset](how-to-enable-password-reset-customers.md).
+- Add [Google](how-to-google-federation-customers.md) or [Facebook](how-to-facebook-federation-customers.md) federation.
