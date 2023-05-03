@@ -21,23 +21,23 @@ This quickstart demonstrates how to connect to an Azure Database for MySQL - Fle
 - An Azure account with an active subscription. 
 
     [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
-- Install [Azure CLI](/cli/azure/install-azure-cli) latest version (2.20.0 or above)
+- Install [Azure CLI](/cli/azure/install-azure-cli) latest version (2.20.0 or higher)
 - Log in using Azure CLI with ```az login``` command
-- Turn on parameter persistence with ```az config param-persist on```. Parameter persistence will help you use local context without having to repeat a lot of arguments like resource group or location etc.
+- Turn on parameter persistence with ```az config param-persist on```. Parameter persistence helps you use local context without having to repeat numerous arguments like resource group or location etc.
 
 ## Create a MySQL Flexible Server
 
-The first thing we'll create is a managed MySQL server. In [Azure Cloud Shell](https://shell.azure.com/), run the following script and make a note of the **server name**, **username** and  **password** generated from this command.
+The first thing we create is a managed MySQL server. In [Azure Cloud Shell](https://shell.azure.com/), run the following script and make a note of the **server name**, **username** and  **password** generated from this command.
 
 ```azurecli-interactive
 az mysql flexible-server create --public-access <your-ip-address>
 ```
 
-You can provide additional arguments for this command to customize it. See all arguments for [az mysql flexible-server create](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-create).
+You can provide more arguments for this command to customize it. See all arguments for [az mysql flexible-server create](/cli/azure/mysql/flexible-server#az-mysql-flexible-server-create).
 
 ## Create a database
 
-Run the following command to create a database, **newdatabase** if you have not already created one.
+Run the following command to create a database, `newdatabase` if you haven't already created one.
 
 ```azurecli-interactive
 az mysql flexible-server db create -d newdatabase
@@ -94,7 +94,7 @@ az mysql flexible-server connect -n <server-name> -u <username> -p <password> --
 az mysql flexible-server connect -n mysqldemoserver1 -u dbuser -p "dbpassword" -d newdatabase --interactive
 ```
 
-You will see the **MySQL** shell experience as shown below:
+You can see the **MySQL** shell experience as shown below:
 
 ```mysql
 Command group 'mysql flexible-server' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
@@ -139,7 +139,7 @@ az mysql flexible-server execute -n <server-name> -u <username> -p "<password>" 
 az mysql flexible-server execute -n mysqldemoserver1 -u dbuser -p "dbpassword" -d newdatabase -q "select * from table1;" --output table
 ```
 
-You will see an output as shown below:
+You can see an output as shown below:
 
 ```output
 Command group 'mysql flexible-server' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
@@ -174,7 +174,7 @@ az mysql flexible-server execute -n <server-name> -u <username> -p "<password>" 
 az mysql flexible-server execute -n mysqldemoserver -u dbuser -p "dbpassword" -d flexibleserverdb -f "./test.sql"
 ```
 
-You will see an output as shown below:
+You can see an output as shown below:
 
 ```output
 Command group 'mysql flexible-server' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
