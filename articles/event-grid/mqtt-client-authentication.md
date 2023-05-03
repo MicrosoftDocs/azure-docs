@@ -67,3 +67,6 @@ Use the "Thumbprint Match" option while using self-signed certificate to authent
 6. After completing the TLS handshake and mTLS connection is established, the client sends the MQTT CONNECT packet to the service.
 7. Service authenticates the client and allows the connection.
     - The same client certificate that was used to establish mTLS is used to authenticate the client connection to the service.
+
+## Next steps
+- Learn how to [authenticate clients using certificate chain](mqtt-certificate-chain-client-authentication.md)
