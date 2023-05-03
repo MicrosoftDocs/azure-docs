@@ -71,7 +71,7 @@ If you choose to download the `.zip` file, extract the sample app file to a fold
 1. Open a terminal window in the root directory of the sample project, and enter the following snippet to navigate to the project folder:
 
     ```powershell
-        cd 1-Authentication\2-sign-in-angular\SPA
+cd 1-Authentication\2-sign-in-angular\SPA
     ```
 
 1. Install the project dependencies:
