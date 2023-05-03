@@ -1,6 +1,6 @@
 ---
 title: Configure F5 BIG-IP Easy Button for SSO to Oracle JDE
-description: Learn to implement SHA with header-based SSO to Oracle JD Edwards using F5’s BIG-IP Easy Button guided configuration
+description: Implement secure hybrid access with header-based SSO to Oracle JD Edwards using F5 BIG-IP Easy Button Guided Configuration
 services: active-directory
 author: gargi-sinha
 manager: martinco
@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 02/03/2022
+ms.date: 05/03/2023
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ms.custom: not-enterprise-apps
 ---
 
-# Tutorial: Configure F5’s BIG-IP Easy Button for SSO to Oracle JDE 
+# Tutorial: Configure F5 BIG-IP Easy Button for SSO to Oracle JDE 
 
-In this article, learn to secure Oracle JD Edwards (JDE) using Azure Active Directory (Azure AD), through F5’s BIG-IP Easy Button guided configuration.
+In this article, learn to secure Oracle JD Edwards (JDE) using Azure Active Directory (Azure AD), through F5 BIG-IP Easy Button Guided Configuration.
 
 Integrating a BIG-IP with Azure AD provides many benefits, including:
 
