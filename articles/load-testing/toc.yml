@@ -106,6 +106,8 @@ items:
 
 - name: Resources
   items: 
+    - name: Azure Load Testing Blog
+      href: https://techcommunity.microsoft.com/t5/apps-on-azure-blog/bg-p/AppsonAzureBlog/label-name/Azure%20Load%20Testing
     - name: Azure roadmap
       href: https://azure.microsoft.com/updates/?query=azure%20load%20testing
     - name: Pricing
