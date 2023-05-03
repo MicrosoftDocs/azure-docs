@@ -130,6 +130,7 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |		|	VM Insights	|	X (Public preview)	|	X	|		|
 |		|	Microsoft Defender for Cloud	|	X (Public preview)	|	X	|		|
 |		|	Automation Update Management	|	|	X	|		|
+|		|	Update Management Center	|	N/A (Public preview, independent of monitoring agents)	|		|		|
 |		|	Update Management	|	X (Public preview, independent of monitoring agents)	|	|		|
 |		|	Change Tracking	| X (Public preview) |	X	|		|
 |       |   SQL Best Practices Assessment | X |     |       |
@@ -155,7 +156,8 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |		|	Microsoft Sentinel 	|	X ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	|	X	|		|
 |		|	VM Insights	|	X (Public preview)	|	X 	|		|
 |		|	Microsoft Defender for Cloud	|	X (Public preview)	|	X	|		|
-|		|	Update Management	|	X (Public preview, independent of monitoring agents)	|	X	|		|
+|		|	Automation Update Management	|		|	X	|		|
+|		|	Update Management Center	|	N/A (Public preview, independent of monitoring agents)	|		|		|
 |		|	Change Tracking	| X (Public preview) |	X	|		|
 
 <sup>1</sup> To review other limitations of using Azure Monitor Metrics, see [quotas and limits](../essentials/metrics-custom-overview.md#quotas-and-limits). On Linux, using Azure Monitor Metrics as the only destination is supported in v.1.10.9.0 or higher.
