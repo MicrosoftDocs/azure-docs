@@ -11,6 +11,7 @@ ms.topic: reference
 ms.date: 01/07/2022
 ms.author: jomondi
 ms.reviewer: alamaral
+ms.custom: enterprise-apps
 ---
 
 # Applications listed in Enterprise applications

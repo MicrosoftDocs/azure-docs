@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 01/22/2022
 ms.author: jomondi
 ms.reviewer: ergreenl
+ms.custom: enterprise-apps
 ---
 
 # Overview of the Azure Active Directory application gallery

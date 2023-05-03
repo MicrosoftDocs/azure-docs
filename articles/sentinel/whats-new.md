@@ -120,7 +120,7 @@ To give you more flexibility in scheduling your analytics rule execution times a
 
 ## Announcements
 
-- [Microsoft Defender for Identity alerts now available in Government Community Cloud](#microsoft-defender-for-identity-alerts-now-available-in-government-community-cloud)
+- [When disconnecting and connecting the MDI alerts connector - UniqueExternalId field is not populated (use the AlertName field)](#when-disconnecting-and-connecting-the-mdi-alerts-connector---uniqueexternalid-field-is-not-populated-use-the-alertname-field)
 - [Microsoft Defender for Identity alerts will no longer refer to the MDA policies in the Alert ExternalLinks properties](#microsoft-defender-for-identity-alerts-will-no-longer-refer-to-the-mda-policies-in-the-alert-externallinks-properties)
 - [WindowsEvent table enhancements](#windowsevent-table-enhancements)
 - [Out-of-the-box content centralization changes](#out-of-the-box-content-centralization-changes)
@@ -129,13 +129,13 @@ To give you more flexibility in scheduling your analytics rule execution times a
 - [Account enrichment fields removed from Azure AD Identity Protection connector](#account-enrichment-fields-removed-from-azure-ad-identity-protection-connector)
 - [Name fields removed from UEBA UserPeerAnalytics table](#name-fields-removed-from-ueba-userpeeranalytics-table)
 
-### Microsoft Defender for Identity alerts now available in Government Community Cloud
+### When disconnecting and connecting the MDI alerts connector - UniqueExternalId field is not populated (use the AlertName field) 
 
-Microsoft Defender for Identity alerts are now available in Government Community Cloud (GCC).
+The Microsoft Defender for Identity alerts now support the Government Community Cloud (GCC). To enable this support, there is a change to the way alerts are sent to Microsoft Sentinel. 
 
-If you previously used the MDI alerts connector, with the introduction of the new alerts, the `UniqueExternalId` field is no longer populated. The ID represents the alert, and was formerly located in the `ExternalProperties` field. You can now be obtain the ID through the `AlertName` field, which contains the alert’s name. 
+For customers connecting and disconnecting the MDI alerts connector, the `UniqueExternalId` field is no longer populated. The `UniqueExternalId` represents the alert, and was formerly located in the`ExternalProperties` field. You can now obtain the ID through the `AlertName` field, which contains the alert’s name. 
 
-If you've used this ID in your custom queries, we recommend that you adjust your queries accordingly. Review the [Security alert name mapping and unique external IDs](/defender-for-identity/alerts-overview#security-alert-name-mapping-and-unique-external-ids).
+Review the [complete mapping between the alert names and unique external IDs](/defender-for-identity/alerts-overview#security-alert-name-mapping-and-unique-external-ids).
 
 ### Microsoft Defender for Identity alerts will no longer refer to the MDA policies in the Alert ExternalLinks properties
 
