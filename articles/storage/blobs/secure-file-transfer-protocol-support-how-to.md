@@ -69,6 +69,42 @@ az storage account update -g <resource-group> -n <storage-account> --enable-sftp
 
 ---
 
+## Disable SFTP support
+
+This section shows you how to disable SFTP support for an existing storage account. Because SFTP support incurs an hourly cost, consider disabling SFTP support when clients are not actively using SFTP to transfer data. 
+
+### [Portal](#tab/azure-portal)
+
+1. In the [Azure portal](https://portal.azure.com/), navigate to your storage account.
+
+2. Under **Settings**, select **SFTP**.
+
+3. Select **Disable SFTP**. 
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of the disable SFTP button.](./media/secure-file-transfer-protocol-support-how-to/sftp-enable-option-disable.png)
+
+### [PowerShell](#tab/powershell)
+
+To disable SFTP support, call the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command and set the `-EnableSftp` parameter to false. Remember to replace the values in angle brackets with your own values:
+
+```powershell
+$resourceGroupName = "<resource-group>"
+$storageAccountName = "<storage-account>"
+
+Set-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName -EnableSftp $false 
+```
+
+### [Azure CLI](#tab/azure-cli)
+
+To disable SFTP support, call the [az storage account update](/cli/azure/storage/account#az-storage-account-update) command and set the `--enable-sftp` parameter to false. Remember to replace the values in angle brackets with your own values:
+
+```azurecli
+az storage account update -g <resource-group> -n <storage-account> --enable-sftp=false
+```
+
+---
+
 ## Configure permissions
 
 Azure Storage doesn't support shared access signature (SAS), or Azure Active directory (Azure AD) authentication for accessing the SFTP endpoint. Instead, you must use an identity called local user that can be secured with an Azure generated password or a secure shell (SSH) key pair. To grant access to a connecting client, the storage account must have an identity associated with the password or key pair. That identity is called a *local user*. 
