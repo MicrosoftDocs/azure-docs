@@ -13,7 +13,7 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 
 Customers can now improve the relevance of recommendations to make them more actionable, resulting in additional cost savings. 
 The right sizing recommendations help optimize costs by identifying idle or underutilized virtual machines based on their CPU, memory, and network activity over the default lookback period of seven days. 
-Now, with this latest update, customers can adjust the default look back period to get recommendations based on 14, 21,30, 60, or even 90 days of use. The configuration can be applied at the subscription level. This is especially useful when the workloads have biweekly or monthly peaks (such as with payroll applications). 
+Now, with this latest update, customers can adjust the default look back period to get recommendations based on 14, 21, 30, 60, or even 90 days of use. The configuration can be applied at the subscription level. This is especially useful when the workloads have biweekly or monthly peaks (such as with payroll applications). 
 
 To learn more, visit [Optimize virtual machine (VM) or virtual machine scale set (VMSS) spend by resizing or shutting down underutilized instances](advisor-cost-recommendations.md#optimize-virtual-machine-vm-or-virtual-machine-scale-set-vmss-spend-by-resizing-or-shutting-down-underutilized-instances).
 

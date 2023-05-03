@@ -4,8 +4,8 @@ description: The article demonstrates how to migrate to Azure Database for MySQL
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-author: savjani
-ms.author: pariks
+author: aditivgupta
+ms.author: adig
 ms.date: 06/20/2022
 ---
 

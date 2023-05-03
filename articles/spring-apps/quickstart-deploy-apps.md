@@ -224,7 +224,7 @@ Use the following steps to create and deploys apps on Azure Spring Apps using th
    az configure --defaults group=<resource-group-name> spring=<service-name>
    ```
 
-1. Create the two core Spring applications for PetClinic: API gateway and customers-service.
+1. Create the two core Spring applications for PetClinic: `api-gateway` and `customers-service`.
 
    ```azurecli
    az spring app create \
@@ -270,12 +270,12 @@ Use the following steps to create and deploys apps on Azure Spring Apps using th
 
 ## Verify the services
 
-Access the app gateway and customers service from browser with the **Public Url** shown previously, in the format of `https://<service name>-api-gateway.azuremicroservices.io`.
+Access `api-gateway` and `customers-service` from a browser with the **Public Url** shown previously, in the format of `https://<service name>-api-gateway.azuremicroservices.io`.
 
 :::image type="content" source="media/quickstart-deploy-apps/access-customers-service.png" alt-text="Screenshot of the PetClinic customers service." lightbox="media/quickstart-deploy-apps/access-customers-service.png":::
 
 > [!TIP]
-> To troubleshot deployments, you can use the following command to get logs streaming in real time whenever the app is running `az spring app logs --name <app name> -f`.
+> To troubleshot deployments, you can use the following command to get logs streaming in real time whenever the app is running `az spring app logs --name <app name> --follow`.
 
 ## Deploy extra apps
 
@@ -431,7 +431,7 @@ To deploy to Azure, you must sign in with your Azure account with Azure Toolkit 
    :::image type="content" source="media/quickstart-deploy-apps/memory-jvm-options.png" alt-text="Screenshot of memory and JVM options." lightbox="media/quickstart-deploy-apps/memory-jvm-options.png":::
 
 1. In the **Before launch** section of the dialog, double-click **Run Maven Goal**.
-1. In the **Working directory** textbox, navigate to the *spring-petclinic-microservices/gateway* folder.
+1. In the **Working directory** textbox, navigate to the *spring-petclinic-microservices/spring-petclinic-api-gateway* folder.
 1. In the **Command line** textbox, enter *package -DskipTests*. Select **OK**.
 
    :::image type="content" source="media/quickstart-deploy-apps/deploy-to-azure-spring-apps-2-pet-clinic.png" alt-text="Screenshot of the spring-petclinic-microservices/gateway page and command line textbox." lightbox="media/quickstart-deploy-apps/deploy-to-azure-spring-apps-2-pet-clinic.png":::
