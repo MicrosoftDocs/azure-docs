@@ -127,6 +127,7 @@ Identity related **npm** packages must be installed in the project to enable use
             dc: "ESTS-PUB-EUS-AZ1-FD000-TEST1"
         }
     };
+    ```
 
 1. Replace the following values with the values from the Azure portal.
     - Replace `Enter_the_Application_Id_Here` with the **Application (client) ID** value that was recorded earlier from the overview page of the registered application.
