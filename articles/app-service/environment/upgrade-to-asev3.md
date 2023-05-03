@@ -9,7 +9,10 @@ ms.date: 05/04/2023
 
 # Upgrade to App Service Environment v3
 
-If you're currently using App Service Environment v1 or v2, you must migrate your workloads to [App Service Environment v3](overview.md). [App Service Environment v1 and v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). Failure to migrate by that date will result in the loss of the environments, the applications running on them, and any associated application data.
+
+> [!IMPORTANT]
+> If you're currently using App Service Environment v1 or v2, you must migrate your workloads to [App Service Environment v3](overview.md). [App Service Environment v1 and v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). Failure to migrate by that date will result in loss of the environments, running applications, and all application data.
+>
 
 ## Upgrade steps
 
@@ -24,6 +27,8 @@ If you're currently using App Service Environment v1 or v2, you must migrate you
 ## Additional information
 
 ### What are the benefits of upgrading?
+
+App Service Environment v3 is the latest version of App Service Environment. It's easier to use, runs on more powerful infrastructure that can go up to 64 cores and 256 GB RAM with faster scaling speeds for both Windows and Linux, and has simpler network topology. For more details about these and other benefits, see the following resources.
 
 - [Three reasons why you should prioritize migrating to App Service Environment v3 for your business](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/three-reasons-why-you-should-prioritize-migrating-to-app-service/ba-p/3596628)
 - [Estimate your cost savings by migrating to App Service Environment v3](https://azure.github.io/AppService/2023/03/02/App-service-environment-v3-pricing.html)
