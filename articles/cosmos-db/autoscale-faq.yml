@@ -72,7 +72,7 @@ sections:
       - question: |
           Is autoscale supported for all APIs?
         answer: |
-          Yes. Autoscale is supported for all APIs, which includes NoSQL, Gremlin, Table, Cassandra, and MongoDB.
+          Yes. Autoscale is supported for all APIs: NoSQL, Gremlin, Table, Cassandra, and MongoDB.
           
       - question: |
           Is autoscale supported for multi-region write accounts?
