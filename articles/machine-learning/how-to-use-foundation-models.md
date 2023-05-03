@@ -27,11 +27,11 @@ In this article, you learn how to set up and evaluate foundation models using Az
 
 The 'Model catalog' (preview) provides a catalog view of all models that you have access to via system registries. You can view the complete list of supported open source foundation models in the [Model catalog](https://ml.azure.com/model/catalog), under the `azureml` registry.
 
-:::image type="content" source="./media/how-to-use-foundation-models/model-catalog.png#lightbox" alt-text="Screenshot showing the model catalog section in Azure Machine Learning studio." :::
+:::image type="content" source="./media/how-to-use-foundation-models/model-catalog.png" lightbox="./media/how-to-use-foundation-models/model-catalog.png" alt-text="Screenshot showing the model catalog section in Azure Machine Learning studio." :::
 
 You can filter the list of models in the Model catalog by Task, or by license. Select a specific model name and the UI shows a model card for the selected model, which lists detailed information about the model. For example:
 
-:::image type="content" source="./media/how-to-use-foundation-models/model-card.png#lightbox" alt-text="Screenshot showing the model card for gpt2 in Azure Machine Learning studio. The model card shows a description of the model and samples of what the model outputs. ":::
+:::image type="content" source="./media/how-to-use-foundation-models/model-card.png" lightbox="./media/how-to-use-foundation-models/model-card.png" alt-text="Screenshot showing the model card for gpt2 in Azure Machine Learning studio. The model card shows a description of the model and samples of what the model outputs. ":::
 
 `Task` calls out the inferencing task that this pre-trained model can be used for. `Finetuning-tasks` list the tasks that this model can be fine tuned for. `License` calls out the licensing info.
 
@@ -62,7 +62,7 @@ Each model can be evaluated for the specific inference task that the model can b
 1. Pass in the test data you would like to use to evaluate your model. You can choose to either upload a local file (in JSONL format) or select an existing registered dataset from your workspace.
 1. Once you've selected the dataset, you'll need to map the columns from your input data, based on the schema needed for the task. For example, map the column names that correspond to the 'sentence' and 'label' keys for Text Classification
 
-:::image type="content" source="./media/how-to-use-foundation-models/evaluate-map-data-columns.png#lightbox" alt-text="Screenshot showing the evaluation map in the foundation models evaluate wizard.":::
+:::image type="content" source="./media/how-to-use-foundation-models/evaluate-map-data-columns.png" lightbox="./media/how-to-use-foundation-models/evaluate-map-data-columns.png"  alt-text="Screenshot showing the evaluation map in the foundation models evaluate wizard.":::
 
 **Compute:** 
 
@@ -101,7 +101,7 @@ You can invoke the Finetune UI wizard by clicking on the 'Finetune' button on th
 
 1. Once you've selected the dataset, you need to map the columns from your input data, based on the schema needed for the task. For example: map the column names that correspond to the 'sentence' and 'label' keys for Text Classification
 
-:::image type="content" source="./media/how-to-use-foundation-models/finetune-map-data-columns.png#lightbox" alt-text="Screenshot showing the finetune map in the foundation models evaluate wizard.":::
+:::image type="content" source="./media/how-to-use-foundation-models/finetune-map-data-columns.png" lightbox="./media/how-to-use-foundation-models/finetune-map-data-columns.png" alt-text="Screenshot showing the finetune map in the foundation models evaluate wizard.":::
 
 
 * Validation data: Pass in the data you would like to use to validate your model. Selecting 'Automatic split' reserves an automatic split of training data for validation. Alternatively, you can provide a different validation dataset.
@@ -112,7 +112,7 @@ You can invoke the Finetune UI wizard by clicking on the 'Finetune' button on th
 
 **Advanced Finetuning Parameters:**
 
-The Finetuning UI wizard, allows you to perform basic finetuning by providing your own training data. Additionally, there are several advanced finetuning parameters, such as learning rate, epochs, batch size, etc., described in the Readme file for each task [here](https://github.com/Azure/azureml-assets/tree/main/training/finetune_acft_hf_nlp/components/finetune). Each of these settings have default values, but can be customized via code based samples, if needed.
+The Finetuning UI wizard, allows you to perform basic finetuning by providing your own training data. Additionally, there are several advanced finetuning parameters, such as learning rate, epochs, batch size, etc., described in the Readme file for each task [here](https://github.com/Azure/azureml-assets/tree/main/training/finetune_acft_hf_nlp/components/finetune). Each of these settings has default values, but can be customized via code based samples, if needed.
 
 ### Finetuning using code based samples
 
@@ -134,7 +134,7 @@ You can deploy foundation models (both pre-trained models from the model catalog
 
 You can invoke the Deploy UI wizard by clicking on the 'Deploy' button on the model card for any foundation model, and selecting either Real-time endpoint or Batch endpoint
 
-:::image type="content" source="./media/how-to-use-foundation-models/deploy-button.png#lightbox" alt-text="Screenshot showing the deploy button on the foundation model card.":::
+:::image type="content" source="./media/how-to-use-foundation-models/deploy-button.png" lightbox="./media/how-to-use-foundation-models/deploy-button.png" alt-text="Screenshot showing the deploy button on the foundation model card.":::
 
 Deployment Settings:
 Since the scoring script and environment are automatically included with the foundation model, you only need to specify the Virtual machine SKU to use, number of instances and the endpoint name to use for the deployment.
