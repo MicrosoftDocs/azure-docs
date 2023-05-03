@@ -40,7 +40,7 @@ An audit record is created each time a query is run. If you send the data to a L
 | AADTenantId           | ID of the tenant of the user account that started the query.  |
 | AADEmail              | Email of the tenant of the user account that started the query.  |
 | AADClientId           | ID and resolved name of the application used to start the query. |
-| RequestClientApp      | Resolved name of the application used to start the query. |
+| RequestClientApp      | Resolved name of the application used to start the query. For more details, see [request client app.](#request-client-app)|
 | QueryTimeRangeStart   | Start of the time range selected for the query. This may not be populated in certain scenarios such as when the query is started from Log Analytics, and time range is specified inside the query rather than the time picker. |
 | QueryTimeRangeEnd     | End of the time range selected for the query. This may not be populated in certain scenarios such as when the query is started from Log Analytics, and time range is specified inside the query rather than the time picker.  |
 | QueryText             | Text of the query that was run. |
@@ -56,6 +56,33 @@ An audit record is created each time a query is run. If you send the data to a L
 | StatsDataProcessedEnd  |Time of newest data that was accessed to process the query. Influenced by the query explicit time span and filters applied. This might be larger than the explicit time span due to data partitioning. Only populated if query returns with status code 200. |
 | StatsWorkspaceCount | Number of workspaces accessed by the query. Only populated if query returns with status code 200. |
 | StatsRegionCount | Number of regions accessed by the query. Only populated if query returns with status code 200. |
+
+### Request Client App
+| RequestClientApp | Description |
+|:---|:---|
+|AAPBI|Log Analytics integration with [Power BI.](https://learn.microsoft.com/azure/azure-monitor/logs/log-powerbi)|
+|AppAnalytics|Experiences of Log Analytics in the Azure portal.|
+|AppInsightsPortalExtension|[Workbooks](https://learn.microsoft.com/azure/azure-monitor/visualize/workbooks-data-sources#logs) or [Application insights](https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview).|
+|ASC_Portal|Microsoft Defender for Cloud.|
+|ASI_Portal|Sentinel.|
+|AzureAutomation|[Azure Automation.](https://azure.microsoft.com/products/automation)|
+|AzureMonitorLogsConnector|[Azure Monitor Logs Connector.](https://learn.microsoft.com/connectors/azuremonitorlogs/)|
+|csharpsdk|[Log Analytics Query API.](https://learn.microsoft.com/azure/azure-monitor/logs/api/overview)|
+|Draft-Monitor|[Log alert creation in the Azure Portal.](https://learn.microsoft.com/azure/azure-monitor/alerts/alerts-create-new-alert-rule?tabs=metric#create-a-new-alert-rule-in-the-azure-portal)|
+|Grafana|[Grafana connector.](https://learn.microsoft.com/azure/azure-monitor/visualize/grafana-plugin)|
+|IbizaExtension|Experiences of Log Analytics in the Azure portal.|
+|infraInsights/container|[Container insights.](https://learn.microsoft.com/azure/azure-monitor/containers/container-insights-overview)|
+|infraInsights/vm|[VM insights.](https://learn.microsoft.com/azure/azure-monitor/vm/vminsights-overview)|
+|LogAnalyticsExtension|[Azure Dasboard.](https://learn.microsoft.com/azure/azure-portal/azure-portal-dashboards)
+|LogAnalyticsPSClient|[Log Analytics Query API.](https://learn.microsoft.com/azure/azure-monitor/logs/api/overview)|
+|OmsAnalyticsPBI|Log Analytics integration with [Power BI.](https://learn.microsoft.com/azure/azure-monitor/logs/log-powerbi)|
+|PowerBIConnector|Log Analytics integration with [Power BI.](https://learn.microsoft.com/azure/azure-monitor/logs/log-powerbi)|
+|Sentinel-Investigation-Queries|Sentinel.|
+|Sentinel-DataCollectionAggregator|Sentinel.|
+|Sentinel-analyticsManagement-customerQuery|Sentinel.|
+|Unknown|[Log Analytics Query API.](https://learn.microsoft.com/azure/azure-monitor/logs/api/overview)|
+|UpdateManagement|[Update Management.](https://learn.microsoft.com/azure/automation/update-management/overview)|
+
 
 ## Considerations
 
