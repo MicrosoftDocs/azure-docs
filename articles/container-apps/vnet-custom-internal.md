@@ -61,15 +61,15 @@ The following example shows you how to create a Container Apps environment in an
 
 Next, declare a variable to hold the VNET name.
 
-# [Bash](#tab/bash)
+# [azurecli](#tab/azurecli)
 
-```bash
+```azurecli-interactive
 VNET_NAME="my-custom-vnet"
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell
+```azurepowershell-interactive
 $VnetName = 'my-custom-vnet'
 ```
 
@@ -80,9 +80,9 @@ Now create an instance of the virtual network to associate with the Container Ap
 > [!NOTE]
 > Network subnet address prefix requires a minimum CIDR range of `/23` for use with Container Apps when using the Consumption only Architecture. When using the Workload Profiles Architecture, a `/27` or larger is required. To learn more about subnet sizing, see the [networking architecture overview](./networking.md#subnet).
 
-# [Bash](#tab/bash)
+# [azurecli](#tab/azurecli)
 
-```azurecli
+```azurecli-interactive
 az network vnet create \
   --resource-group $RESOURCE_GROUP \
   --name $VNET_NAME \
@@ -90,7 +90,7 @@ az network vnet create \
   --address-prefix 10.0.0.0/16
 ```
 
-```azurecli
+```azurecli-interactive
 az network vnet subnet create \
   --resource-group $RESOURCE_GROUP \
   --vnet-name $VNET_NAME \
@@ -100,7 +100,7 @@ az network vnet subnet create \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell
+```azurepowershell-interactive
 $SubnetArgs = @{
     Name = 'infrastructure-subnet'
     AddressPrefix = '10.0.0.0/23'
@@ -108,7 +108,7 @@ $SubnetArgs = @{
 $subnet = New-AzVirtualNetworkSubnetConfig @SubnetArgs
 ```
 
-```azurepowershell
+```azurepowershell-interactive
 $VnetArgs = @{
     Name = $VnetName
     Location = $Location
@@ -123,15 +123,15 @@ $vnet = New-AzVirtualNetwork @VnetArgs
 
 With the VNET established, you can now query for the infrastructure subnet ID.
 
-# [Bash](#tab/bash)
+# [azurecli](#tab/azurecli)
 
-```bash
+```azurecli-interactive
 INFRASTRUCTURE_SUBNET=`az network vnet subnet show --resource-group ${RESOURCE_GROUP} --vnet-name $VNET_NAME --name infrastructure-subnet --query "id" -o tsv | tr -d '[:space:]'`
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell
+```azurepowershell-interactive
 $InfrastructureSubnet = (Get-AzVirtualNetworkSubnetConfig -Name $SubnetArgs.Name -VirtualNetwork $vnet).Id
 ```
 
@@ -139,9 +139,9 @@ $InfrastructureSubnet = (Get-AzVirtualNetworkSubnetConfig -Name $SubnetArgs.Name
 
 Finally, create the Container Apps environment with the VNET and subnet.
 
-# [Bash](#tab/bash)
+# [azurecli](#tab/azurecli)
 
-```azurecli
+```azurecli-interactive
 az containerapp env create \
   --name $CONTAINERAPPS_ENVIRONMENT \
   --resource-group $RESOURCE_GROUP \
@@ -168,7 +168,7 @@ With your environment created using your custom virtual network, you can deploy 
 
 A Log Analytics workspace is required for the Container Apps environment.  The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to environment variables.
 
-```azurepowershell
+```azurepowershell-interactive
 $WorkspaceArgs = @{
     Name = 'myworkspace'
     ResourceGroupName = $ResourceGroupName
@@ -183,7 +183,7 @@ $WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGrou
 
 To create the environment, run the following command:
 
-```azurepowershell
+```azurepowershell-interactive
 $EnvArgs = @{
     EnvName = $ContainerAppsEnvironment
     ResourceGroupName = $ResourceGroupName
@@ -223,27 +223,27 @@ If you want to deploy your container app with a private DNS, run the following c
 
 First, extract identifiable information from the environment.
 
-# [Bash](#tab/bash)
+# [azurecli](#tab/azurecli)
 
-```bash
+```azurecli-interactive
 ENVIRONMENT_DEFAULT_DOMAIN=`az containerapp env show --name ${CONTAINERAPPS_ENVIRONMENT} --resource-group ${RESOURCE_GROUP} --query properties.defaultDomain --out json | tr -d '"'`
 ```
 
-```bash
+```azurecli-interactive
 ENVIRONMENT_STATIC_IP=`az containerapp env show --name ${CONTAINERAPPS_ENVIRONMENT} --resource-group ${RESOURCE_GROUP} --query properties.staticIp --out json | tr -d '"'`
 ```
 
-```bash
+```azurecli-interactive
 VNET_ID=`az network vnet show --resource-group ${RESOURCE_GROUP} --name ${VNET_NAME} --query id --out json | tr -d '"'`
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell
+```azurepowershell-interactive
 $EnvironmentDefaultDomain = (Get-AzContainerAppManagedEnv -EnvName $ContainerAppsEnvironment -ResourceGroupName $ResourceGroupName).DefaultDomain
 ```
 
-```azurepowershell
+```azurepowershell-interactive
 $EnvironmentStaticIp = (Get-AzContainerAppManagedEnv -EnvName $ContainerAppsEnvironment -ResourceGroupName $ResourceGroupName).StaticIp
 ```
 
@@ -251,15 +251,15 @@ $EnvironmentStaticIp = (Get-AzContainerAppManagedEnv -EnvName $ContainerAppsEnvi
 
 Next, set up the private DNS.
 
-# [Bash](#tab/bash)
+# [azurecli](#tab/azurecli)
 
-```azurecli
+```azurecli-interactive
 az network private-dns zone create \
   --resource-group $RESOURCE_GROUP \
   --name $ENVIRONMENT_DEFAULT_DOMAIN
 ```
 
-```azurecli
+```azurecli-interactive
 az network private-dns link vnet create \
   --resource-group $RESOURCE_GROUP \
   --name $VNET_NAME \
@@ -267,7 +267,7 @@ az network private-dns link vnet create \
   --zone-name $ENVIRONMENT_DEFAULT_DOMAIN -e true
 ```
 
-```azurecli
+```azurecli-interactive
 az network private-dns record-set a add-record \
   --resource-group $RESOURCE_GROUP \
   --record-set-name "*" \
@@ -308,7 +308,7 @@ There are three optional networking parameters you can choose to define when cal
 
 You must either provide values for all three of these properties, or none of them. If they aren’t provided, the values are generated for you.
 
-# [Bash](#tab/bash)
+# [azurecli](#tab/azurecli)
 
 | Parameter | Description |
 |---|---|
@@ -345,15 +345,15 @@ If you're not going to continue to use this application, you can delete the Azur
 >[!CAUTION]
 > The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this guide exist in the specified resource group, they will also be deleted.
 
-# [Bash](#tab/bash)
+# [azurecli](#tab/azurecli)
 
-```azurecli
+```azurecli-interactive
 az group delete --name $RESOURCE_GROUP
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-```azurepowershell
+```azurepowershell-interactive
 Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 
