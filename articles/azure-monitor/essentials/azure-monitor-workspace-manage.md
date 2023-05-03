@@ -95,7 +95,7 @@ When you delete an Azure Monitor workspace, no soft-delete operation is performe
     :::image type="content" source="media/azure-monitor-workspace-overview/delete-azure-monitor-workspace.png" lightbox="media/azure-monitor-workspace-overview/delete-azure-monitor-workspace.png" alt-text="Screenshot of Azure Monitor workspaces delete button.":::
 
 ### [CLI](#tab/cli)
-To delete an AzureMonitor workspace use [az resource delete](/cli/azure/resource?view=azure-cli-latest#az-resource-delete)
+To delete an AzureMonitor workspace use [az resource delete](/cli/azure/resource?view=azure-cli-latest#az-resource-delete&preserve-view=true)
 
 For example:
 ```azurecli
