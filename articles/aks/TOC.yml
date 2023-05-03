@@ -105,6 +105,8 @@
       href: concepts-identity.md
     - name: Networking
       href: concepts-network.md
+    - Name: Network observability
+      href: network-observability-overview.md
     - name: Storage
       href: concepts-storage.md
     - name: Scaling
