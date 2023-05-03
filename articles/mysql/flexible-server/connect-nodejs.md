@@ -21,7 +21,7 @@ ms.devlang: javascript
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-In this quickstart, you connect to an Azure Database for MySQL - Flexible Server by using Node.js. You then use SQL statements to query, insert, update, and delete data in the database from Mac, Ubuntu Linux, and Windows platforms.
+In this quickstart, you connect to an Azure Database for MySQL - Flexible Server by using Node.js. You then use SQL statements to query, insert, update, and delete data in the database from Mac, Linux, and Windows platforms.
 
 This article assumes that you're familiar with developing using Node.js, but you're new to working with Azure Database for MySQL - Flexible Server.
 
@@ -54,7 +54,7 @@ Depending on your platform, follow the instructions in the appropriate section t
 
 1. Verify the installation by checking the `npm list` output text. The version number may vary as new patches are released.
 
-### [Linux (Ubuntu)](#tab/ubuntu)
+### [Linux (Ubuntu/Debian)](#tab/ubuntu)
 
 1. Run the following commands to install **Node.js** and **npm** the package manager for Node.js.
 
@@ -66,6 +66,53 @@ Depending on your platform, follow the instructions in the appropriate section t
     # Using Debian, as root
     sudo curl -sL https://deb.nodesource.com/setup_14.x | bash -
     sudo apt-get install -y nodejs
+   ```
+
+1. Run the following commands to create a project folder `mysqlnodejs` and install the mysql package into that folder.
+
+   ```bash
+   mkdir nodejsmysql
+   cd nodejsmysql
+   npm install --save mysql
+   npm list
+   ```
+
+1. Verify the installation by checking npm list output text. The version number may vary as new patches are released.
+
+### [Linux (RHEL)](#tab/rhel)
+
+1. Run the following commands to install **Node.js** and **npm** the package manager for Node.js.
+
+    **RHEL 7.x**
+
+    ```bash
+    sudo yum install -y rh-nodejs8
+    scl enable rh-nodejs8 bash
+   ```
+
+    **RHEL 8.x**
+
+   ```bash
+    sudo yum install -y nodejs
+   ```
+
+1. Run the following commands to create a project folder `mysqlnodejs` and install the mysql package into that folder.
+
+   ```bash
+   mkdir nodejsmysql
+   cd nodejsmysql
+   npm install --save mysql
+   npm list
+   ```
+
+1. Verify the installation by checking npm list output text. The version number may vary as new patches are released.
+
+### [Linux (SUSE)](#tab/rhel)
+
+1. Run the following commands to install **Node.js** and **npm** the package manager for Node.js.
+
+   ```bash
+    sudo zypper install nodejs
    ```
 
 1. Run the following commands to create a project folder `mysqlnodejs` and install the mysql package into that folder.
