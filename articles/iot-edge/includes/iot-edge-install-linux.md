@@ -62,6 +62,14 @@ Installing with APT can be done with a few commands.  Open a terminal and run th
 
 Installing can be done with a few commands. Open a terminal and run the following commands:
 
+* **9.x (amd64)**:
+
+   ```bash
+    wget https://packages.microsoft.com/config/rhel/9.0/packages-microsoft-prod.rpm -O packages-microsoft-prod.rpm
+    sudo yum localinstall packages-microsoft-prod.rpm
+    rm packages-microsoft-prod.rpm
+    ```
+
 * **8.x (amd64)**:
 
    ```bash
@@ -70,13 +78,6 @@ Installing can be done with a few commands. Open a terminal and run the followin
     rm packages-microsoft-prod.rpm
     ```
 
-* **9.x (amd64)**:
-
-   ```bash
-    wget https://packages.microsoft.com/config/rhel/9/packages-microsoft-prod.rpm -O packages-microsoft-prod.rpm
-    sudo yum localinstall packages-microsoft-prod.rpm
-    rm packages-microsoft-prod.rpm
-    ```
 ---
 
 For more information about operating system versions, see [Azure IoT Edge supported platforms](../support.md?#linux-containers).
