@@ -465,7 +465,20 @@ You can collect more data automatically when you include instrumentation librari
 
 ### [ASP.NET Core](#tab/net)
 
-TODO: MOTHRA: CODE EXAMPLE OF HOW TO ADD A COMMUNITY LIBRARY. Runtime or Redis
+To add a community library use the `ConfigureOpenTelemetryMeterProvider` or `ConfigureOpenTelemetryTraceProvider` methods.
+
+For example, to add the [Runtime Instrumentation](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Runtime):
+
+```csharp
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.ConfigureOpenTelemetryMeterProvider((sp, builder) => builder.AddRuntimeInstrumentation());
+builder.Services.AddOpenTelemetry().UseAzureMonitor(options => options.ConnectionString = "<Your Connection String>");
+
+var app = builder.Build();
+
+app.Run();
+```
 
 ### [Java](#tab/java)
 
@@ -733,6 +746,8 @@ input()
 #### Counter Example
 
 #### [ASP.NET Core](#tab/net)
+
+Application startup:
 
 ```csharp
 public class Program
@@ -1119,9 +1134,25 @@ You may want to add a custom span when there's a dependency request that's not a
   
 #### [ASP.NET Core](#tab/net)
 
-TODO: MOTHRA: I THINK THIS WOULD BE A NEW ACTIVITY. WHAT TYPE WOULD WE RECOMMEND HERE?
+```csharp
+internal static readonly ActivitySource activitySource = new("ActivitySourceName");
 
-Coming soon.
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.ConfigureOpenTelemetryTracerProvider((sp, builder) => builder.AddSource("ActivitySourceName"));
+builder.Services.AddOpenTelemetry().UseAzureMonitor(options => options.ConnectionString = "<Your Connection String>");
+
+var app = builder.Build();
+
+app.Run();
+
+using (var activity = activitySource.StartActivity("CustomActivity"))
+{
+    // your code here
+}
+```
+
+TODO: MOTHRA: DESCRIBE ActivityKind here? (See Java's description.)
 
 #### [Java](#tab/java)
   
@@ -1852,9 +1883,14 @@ You might want to get the trace ID or span ID. If you have logs that are sent to
 
 #### [ASP.NET Core](#tab/net)
 
-TODO: MOTHRA: FOLLOW UP ON THIS. I THINK THIS WOULD COME FROM Activity.Current
+> [!NOTE]
+> The `Activity` and `ActivitySource` classes from the `System.Diagnostics` namespace represent the OpenTelemetry concepts of `Span` and `Tracer`, respectively. That's because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. To learn more, see [Introduction to OpenTelemetry .NET Tracing API](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
 
-Coming soon.
+```csharp
+Activity activity = Activity.Current;
+string traceId = activity?.TraceId.ToHexString();
+string spanId = activity?.SpanId.ToHexString();
+```
 
 #### [Java](#tab/java)
 
