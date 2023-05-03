@@ -69,7 +69,7 @@ When using these commands, replace the `<PLACEHOLDERS>` with your values.
 >[!NOTE]
 > The subnet associated with a Container App Environment requires a CIDR prefix of `/23` or larger.
 
-# [azurecli](#tab/azurecli)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az network vnet create \
@@ -113,7 +113,7 @@ $vnet = New-AzVirtualNetwork @VnetArgs
 
 Next, query for the infrastructure subnet ID.
 
-# [azurecli](#tab/azurecli)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 INFRASTRUCTURE_SUBNET=`az network vnet subnet show --resource-group <RESOURCE_GROUP_NAME> --vnet-name <VNET_NAME> --name infrastructure --query "id" -o tsv | tr -d '[:space:]'`
@@ -129,7 +129,7 @@ $InfrastructureSubnet=(Get-AzVirtualNetworkSubnetConfig -Name $SubnetArgs.Name -
 
 Finally, create the environment with the `--zone-redundant` parameter.  The location must be the same location used when creating the VNET.
 
-# [azurecli](#tab/azurecli)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az containerapp env create \
