@@ -252,6 +252,8 @@ This procedure describes how to validate your installation using the sensor's ow
     - **Version** to verify that you have the correct version installed.
     - **ifconfig** to verify that all input interfaces configured during installation are running.
 
+For more post-installation validation tests, such as gateway, DNS or firewall checks, see [Validate an OT sensor software installation](ot-deploy/post-install-validation-ot-software.md).
+
 ## Verify your cloud connection
 
 This section describes how to download a list of required endpoints to define in firewall rules, ensuring that your OT sensors can connect to Azure.
