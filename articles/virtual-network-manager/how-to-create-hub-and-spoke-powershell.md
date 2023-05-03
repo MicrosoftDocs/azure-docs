@@ -105,6 +105,9 @@ This section will guide you through how to create a hub-and-spoke configuration 
     $connectivityconfig = New-AzNetworkManagerConnectivityConfiguration @config -DeleteExistingPeering -IsGlobal
      ```
 
+> [!NOTE]
+> If you're looking to migrate to network-managed groups for a hub-and-spoke topology, you'll be pleased to know that Azure Virtual Network Manager is fully compatible with pre-existing hub and spoke topology deployments using peering. This means that you won't need to delete any existing peered connections between the spokes and the hub. The migration occurs without any downtime to your network.
+
 ## Deploy the hub-and-spoke configuration
 
 Commit the configuration to the target regions with Deploy-AzNetworkManagerCommit.
