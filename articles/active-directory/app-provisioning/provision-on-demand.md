@@ -152,7 +152,7 @@ The **View details** section displays the attributes that were modified in the t
 #### Troubleshooting tips
 
 * Failures for exporting changes can vary greatly. Check the [documentation for provisioning logs](../reports-monitoring/concept-provisioning-logs.md#error-codes) for common failures.
-* On-demand provisioning says the group or user can't be provisioned because they're not assigned to the application. Note that there's a replicate delay of up to a few minutes between when an object is assigned to an application and that assignment being honored by on-demand provisioning. You may need to wait a few minutes and try again.  
+* On-demand provisioning says the group or user can't be provisioned because they're not assigned to the application. There's a replication delay of up to a few minutes between when an object is assigned to an application and when that assignment is honored by on-demand provisioning. You may need to wait a few minutes and try again.  
 
 ## Frequently asked questions
 
