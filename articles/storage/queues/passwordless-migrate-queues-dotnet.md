@@ -4,8 +4,7 @@ titleSuffix: Azure Storage
 description: Learn to migrate existing applications away from Shared Key authorization with the account key to instead use Azure AD and Azure RBAC for enhanced security with Azure Storage Queues.
 author: alexwolfmsft
 ms.author: alexwolf
-ms.reviewer: randolphwest
-ms.date: 04/05/2023
+ms.date: 05/03/2023
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
@@ -67,7 +66,7 @@ The `Azure.Identity` library provides a class called [DefaultAzureCredential](/d
 
 ### Run the app locally
 
-After making these code changes, run your application locally. The new configuration should pick up your local credentials, such as the Azure CLI, Visual Studio, or IntelliJ. The roles you assigned to your local dev user in Azure allows your app to connect to the Azure service locally.
+After making these code changes, run your application locally. The new configuration should pick up your local credentials, such as the Azure CLI, Visual Studio, or IntelliJ. The roles you assigned to your user in Azure allows your app to connect to the Azure service locally.
 
 ## Configure the Azure hosting environment
 
