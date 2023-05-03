@@ -182,7 +182,7 @@ public ModelAndView getUserFromGraph(HttpServletRequest httpRequest, HttpServlet
 
 # [Python](#tab/python)
 
-In the Python sample, the code that calls the API is in [app.py#L60-71](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.5.0/app.py#L60-71).
+In the Python sample, the code that calls the API is in `app.py`.
 
 The code attempts to get a token from the token cache. If it can't get a token, it redirects the user to the sign-in route. Otherwise, it can proceed to call the API.
 

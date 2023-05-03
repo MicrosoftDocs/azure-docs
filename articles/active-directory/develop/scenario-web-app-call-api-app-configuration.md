@@ -358,7 +358,7 @@ The Microsoft sign-in screen sends the authorization code to the `/getAToken` UR
 
 :::code language="python" source="~/ms-identity-python-webapp-tutorial/app.py" range="36-41":::
 
-See [app.py](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.5.0/app.py#L36-41) for the full context of that code.
+See `app.py` for the full context of that code.
 
 ---
 

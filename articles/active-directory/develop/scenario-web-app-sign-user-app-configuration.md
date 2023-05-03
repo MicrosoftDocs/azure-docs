@@ -193,11 +193,8 @@ For simplicity in this article, the client secret is stored in the configuration
 
 The configuration parameters are set in *.env* as environment variables:
 
-```bash
-CLIENT_ID=<client id>
-CLIENT_SECRET=<client secret>
-AUTHORITY=<authority url>
-```
+:::code language="python" source="~/ms-identity-python-webapp-tutorial/.env.sample" highlight="4,5,10":::
+
 
 Those environment variables are referenced in *app_config.py*:
 
