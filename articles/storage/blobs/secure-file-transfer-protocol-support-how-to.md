@@ -71,7 +71,7 @@ az storage account update -g <resource-group> -n <storage-account> --enable-sftp
 
 ## Disable SFTP support
 
-This section shows you how to disable SFTP support for an existing storage account. 
+This section shows you how to disable SFTP support for an existing storage account. Because SFTP support incurs an hourly cost, consider disabling SFTP support when clients are not actively using SFTP to transfer data. 
 
 ### [Portal](#tab/azure-portal)
 
@@ -86,7 +86,7 @@ This section shows you how to disable SFTP support for an existing storage accou
 
 ### [PowerShell](#tab/powershell)
 
-To enable SFTP support, call the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command and set the `-EnableSftp` parameter to false. Remember to replace the values in angle brackets with your own values:
+To disable SFTP support, call the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command and set the `-EnableSftp` parameter to false. Remember to replace the values in angle brackets with your own values:
 
 ```powershell
 $resourceGroupName = "<resource-group>"
@@ -97,7 +97,7 @@ Set-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccount
 
 ### [Azure CLI](#tab/azure-cli)
 
-To enable SFTP support, call the [az storage account update](/cli/azure/storage/account#az-storage-account-update) command and set the `--enable-sftp` parameter to false. Remember to replace the values in angle brackets with your own values:
+To disable SFTP support, call the [az storage account update](/cli/azure/storage/account#az-storage-account-update) command and set the `--enable-sftp` parameter to false. Remember to replace the values in angle brackets with your own values:
 
 ```azurecli
 az storage account update -g <resource-group> -n <storage-account> --enable-sftp=false
