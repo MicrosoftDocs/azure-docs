@@ -18,14 +18,14 @@ By default, the Azure AD provisioning engine soft deletes or disables users that
 
 This article describes how to use the Microsoft Graph API and the Microsoft Graph API explorer to set the flag ***SkipOutOfScopeDeletions*** that controls the processing of accounts that go out of scope. 
 * If ***SkipOutOfScopeDeletions*** is set to 0 (false), accounts that go out of scope are disabled in the target.
-* If ***SkipOutOfScopeDeletions*** is set to 1 (true), accounts that go out of scope won't be disabled in the target. This flag is set at the *Provisioning App* level and can be configured using the Graph API. 
+* If ***SkipOutOfScopeDeletions*** is set to 1 (true), accounts that go out of scope aren't disabled in the target. This flag is set at the *Provisioning App* level and can be configured using the Graph API. 
 
 Because this configuration is widely used with the *Workday to Active Directory user provisioning* app, the following steps include screenshots of the Workday application. However, the configuration can also be used with *all other apps*, such as ServiceNow, Salesforce, and Dropbox and [cross-tenant synchronization](../multi-tenant-organizations/cross-tenant-synchronization-configure.md). Note that in order to successfully complete this procedure you must have first set up app provisioning for the app. Each app has its own configuration article. For example, to configure the Workday application, see [Tutorial: Configure Workday to Azure AD user provisioning](../saas-apps/workday-inbound-cloud-only-tutorial.md).
 
 ## Step 1: Retrieve your Provisioning App Service Principal ID (Object ID)
 
 1. Launch the [Azure portal](https://portal.azure.com), and navigate to the Properties section of your  provisioning application. For e.g. if you want to export your *Workday to AD User Provisioning application* mapping navigate to the Properties section of that app. 
-1. In the Properties section of your provisioning app, copy the GUID value associated with the *Object ID* field. This value is also called the **ServicePrincipalId** of your App and it will be used in Graph Explorer operations.
+1. In the Properties section of your provisioning app, copy the GUID value associated with the *Object ID* field. This value is also called the **ServicePrincipalId** of your App and it is used in Graph Explorer operations.
 
    ![Screenshot of Workday App Service Principal ID.](./media/skip-out-of-scope-deletions/wd_export_01.png)
 
@@ -48,7 +48,7 @@ In the Microsoft Graph Explorer, run the following GET query replacing [serviceP
 
    ![Screenshot of GET job query.](./media/skip-out-of-scope-deletions/skip-03.png)
 
-Copy the Response into a text file. It will look like the JSON text shown below, with values highlighted in yellow specific to your deployment. Add the lines highlighted in green to the end and update the Workday connection password highlighted in blue. 
+Copy the Response into a text file. It looks like the JSON text shown, with values highlighted in yellow specific to your deployment. Add the lines highlighted in green to the end and update the Workday connection password highlighted in blue. 
 
    ![Screenshot of GET job response.](./media/skip-out-of-scope-deletions/skip-04.png)
 
@@ -63,9 +63,9 @@ Here's the JSON block to add to the mapping.
 
 ## Step 4: Update the secrets endpoint with the SkipOutOfScopeDeletions flag
 
-In the Graph Explorer, run the command below to update the secrets endpoint with the ***SkipOutOfScopeDeletions*** flag. 
+In the Graph Explorer, run the command to update the secrets endpoint with the ***SkipOutOfScopeDeletions*** flag. 
 
-In the URL below replace [servicePrincipalId]  with the **ServicePrincipalId** extracted from the [Step 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id). 
+In the URL replace [servicePrincipalId]  with the **ServicePrincipalId** extracted from the [Step 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id). 
 
 ```http
    PUT https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets
@@ -82,11 +82,11 @@ You should get the output as "Success – Status Code 204". If you receive an er
 
 ## Step 5: Verify that out of scope users don’t get disabled
 
-You can test this flag results in expected behavior by updating your scoping rules to skip a specific user. In the example below, we're excluding the employee with ID 21173 (who was earlier in scope) by adding a new scoping rule: 
+You can test this flag results in expected behavior by updating your scoping rules to skip a specific user. In the example, we're excluding the employee with ID 21173 (who was earlier in scope) by adding a new scoping rule: 
 
    ![Screenshot that shows the "Add Scoping Filter" section with an example user highlighted.](./media/skip-out-of-scope-deletions/skip-07.png)
 
-In the next provisioning cycle, the Azure AD provisioning service will identify that the user 21173 has gone out of scope and if the SkipOutOfScopeDeletions property is enabled, then the synchronization rule for that user will display a message as shown below: 
+In the next provisioning cycle, the Azure AD provisioning service identifies that the user 21173 has gone out of scope. If the `SkipOutOfScopeDeletions` property is enabled, then the synchronization rule for that user displays a message as shown: 
 
    ![Screenshot of scoping example.](./media/skip-out-of-scope-deletions/skip-08.png)
 
