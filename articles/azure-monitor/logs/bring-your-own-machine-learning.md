@@ -62,11 +62,11 @@ You can implement custom machine learning models and build your own machine lear
 There are two approaches to making data in Azure Monitor Logs available to your machine learning pipeline:
 
 - **Query data in Azure Monitor Logs** - [Integrate a notebook with Azure Monitor Logs](../logs/jupyter-notebook-ml-azure-monitor-logs.md) or run a script or application on log data using libraries like [Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme) or [MSTICPY](https://msticpy.readthedocs.io/en/latest/) to retrieve data from Azure Monitor Logs in tabular form; for example, into a [Pandas DataFrame](https://pandas.pydata.org/docs/user_guide/dsintro.html#dataframe). The data you query is retrieved to an in-memory object on your server, without exporting the data out of your Log Analytics workspace.   
+
+    > [!NOTE]
+    > You might need to convert data formats as part of your pipeline. For example, to use libraries built on top of Apache Spark, like [SynapseML](https://microsoft.github.io/SynapseML/), you need to [convert Pandas to PySpark DataFrame](https://sparkbyexamples.com/pyspark/convert-pandas-to-pyspark-dataframe/). 
+
 - **Export data out of Azure Monitor Logs** - [Export data out of your Log Analytics workspace](../logs/logs-data-export.md), usually to a blob storage account, and [implement your machine learning pipeline using a machine learning library](#implement-the-steps-of-the-machine-learning-lifecycle-in-azure-monitor-logs). 
-
-> [!NOTE]
-> You might need to convert data formats as part of your pipeline. For example, to use libraries built on top of Apache Spark, like [SynapseML](https://microsoft.github.io/SynapseML/), you need to [convert Pandas to PySpark DataFrame](https://sparkbyexamples.com/pyspark/convert-pandas-to-pyspark-dataframe/). 
-
 
 This table compares the advantages and limitations of the two machine learning pipeline implementation approaches:
 
@@ -76,7 +76,7 @@ This table compares the advantages and limitations of the two machine learning p
 |**Data exported?**|No|Yes|
 |**Service limits**|[Query API log query limits](../service-limits.md#log-analytics-workspaces) and [user query throttling](../service-limits.md#user-query-throttling). You can overcome Query API limits to, a certain degree, by [splitting larger queries into chunks](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-query/samples/notebooks/sample_large_query.ipynb).| None from Azure Monitor. |
 |**Data volumes**|Analyze several GBs of data, or a few million records.|Supports large volumes of data.|
-|**Machine learning library**|There are various Azure and open source machine learning libraries you can use, including [Scikit Learn](https://scikit-learn.org/), [PyTorch](https://pytorch.org/), [Tensorflow](https://www.tensorflow.org/), [Spark MLlib](https://spark.apache.org/docs/latest/ml-guide.html), and [SynapseML](https://github.com/microsoft/SynapseML).<br>For small to medium-sized datasets, you'd typically use single-node machine learning libraries, like Scikit Learn.|For large datasets, you'd typically use big data machine learning libraries, like [SynapseML](https://github.com/microsoft/SynapseML).|
+|**Machine learning library**|<br>For small to medium-sized datasets, you'd typically use single-node machine learning libraries, like Scikit Learn.|For large datasets, you'd typically use big data machine learning libraries, like [SynapseML](https://github.com/microsoft/SynapseML).|
 |**Latency** | Minimal. | Introduces latency in scoring new data.|
 |**Cost** |No extra charges in Azure Monitor.<br>Cost of Azure Synapse, Azure Machine Learning, or other service, if used.| [Cost of data export](../logs/logs-data-export.md#pricing-model) and external storage.<br>Cost of Azure Synapse, Azure Machine Learning, or other service, if used.|
 
@@ -85,6 +85,8 @@ This table compares the advantages and limitations of the two machine learning p
 ## Implement the steps of the machine learning lifecycle in Azure Monitor Logs
 
 Setting up a machine learning pipeline typically involves all or some of the steps described below.
+
+There are various Azure and open source machine learning libraries you can use to implement your machine learning pipeline, including [Scikit Learn](https://scikit-learn.org/), [PyTorch](https://pytorch.org/), [Tensorflow](https://www.tensorflow.org/), [Spark MLlib](https://spark.apache.org/docs/latest/ml-guide.html), and [SynapseML](https://github.com/microsoft/SynapseML).
 
 This table describes each step and provides high-level guidance and some examples of how to implement these steps based on the implementation approaches described in [Create your own machine learning pipeline on data in Azure Monitor Logs](#create-your-own-machine-learning-pipeline-on-data-in-azure-monitor-logs): 
 
