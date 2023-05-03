@@ -24,6 +24,8 @@ The task supports the following scenarios:
 * Build from source code without a Dockerfile and deploy to Container Apps. Supported languages include .NET, Node.js, PHP, Python, and Ruby
 * Deploy an existing container image to Container Apps
 
+With the production release this task comes with Azure DevOps and no longer requires explicit installation. For the complete documentation please see [AzureContainerApps@1 - Azure Container Apps Deploy v1 task](https://review.learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/azure-container-apps-v1).
+
 ### Usage examples
 
 Here are some common scenarios for using the task. For more information, see the [task's documentation](https://github.com/Azure/container-apps-deploy-pipelines-task/blob/main/README.md).
@@ -47,14 +49,14 @@ The task uses the Dockerfile in `appSourcePath` to build the container image. If
 
 #### Deploy an existing container image to Container Apps
 
-The following snippet shows how to deploy an existing container image to Container Apps.
+The following snippet shows how to deploy an existing container image to Container Apps. Note, that we're deploying a publicly available image and won't need any registry authentication as a result.
 
 ```yaml
 steps:
   - task: AzureContainerApps@1
     inputs:
       azureSubscription: 'my-subscription-service-connection'
-      acrName: 'myregistry'
+      imageToDeploy : 'mcr.microsoft.com/azuredocs/containerapps-helloworld:latest'
       containerAppName: 'my-container-app'
       resourceGroup: 'my-container-app-rg'
       imageToDeploy: 'myregistry.azurecr.io/my-container-app:$(Build.BuildId)'
