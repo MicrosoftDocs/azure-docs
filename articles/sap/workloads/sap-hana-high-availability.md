@@ -1,5 +1,5 @@
 ---
-title: High availability of SAP HANA on Azure VMs on SLES
+title: High availability for SAP HANA on Azure VMs on SLES
 description: Learn how to set up and use high availability for SAP HANA on Azure VMs on SUSE Linux Enterprise Server.
 services: virtual-machines-linux
 documentationcenter: 
@@ -291,7 +291,7 @@ Replace `<placeholders>` with the values for your SAP HANA installation.
       sudo mkdir -p /hana/shared/<HANA SID>
       # Write down the ID of /dev/vg_hana_data_<HANA SID>/hana_data, /dev/vg_hana_log_<HANA SID>/hana_log, and /dev/vg_hana_shared_<HANA SID>/hana_shared
       sudo blkid
-       ```
+      ```
 
    1. Edit the */etc/fstab* file to create `fstab` entries for the three logical volumes:       
 
@@ -302,9 +302,9 @@ Replace `<placeholders>` with the values for your SAP HANA installation.
    1. Insert the following lines in the */etc/fstab* file:      
 
       ```bash
-      /dev/disk/by-uuid/<UUID of /dev/mapper/vg_hana_data_<HANA SID>-hana_data>> /hana/data/<HANA SID> xfs  defaults,nofail  0  2
-      /dev/disk/by-uuid/<UUID of /dev/mapper/vg_hana_log_<HANA SID>-hana_log>> /hana/log/<HANA SID> xfs  defaults,nofail  0  2
-      /dev/disk/by-uuid/<UUID of /dev/mapper/vg_hana_shared_<HANA SID>-hana_shared>> /hana/shared/<HANA SID> xfs  defaults,nofail  0  2
+      /dev/disk/by-uuid/<UUID of /dev/mapper/vg_hana_data_<HANA SID>-hana_data> /hana/data/<HANA SID> xfs  defaults,nofail  0  2
+      /dev/disk/by-uuid/<UUID of /dev/mapper/vg_hana_log_<HANA SID>-hana_log> /hana/log/<HANA SID> xfs  defaults,nofail  0  2
+      /dev/disk/by-uuid/<UUID of /dev/mapper/vg_hana_shared_<HANA SID>-hana_shared> /hana/shared/<HANA SID> xfs  defaults,nofail  0  2
       ```
 
    1. Mount the new volumes:
@@ -595,7 +595,7 @@ With susChkSrv implemented, an immediate and configurable action is executed. Th
 
       [trace]
       ha_dr_saphanasr = info
-      ```      
+      ```
 
       If you point to the standard */usr/share/SAPHanaSR* location, the Python hook code updates automatically through OS updates or package updates. HANA uses the hook code updates when it next restarts. With an optional own path like */hana/shared/myHooks*, you can decouple OS updates from the hook version that you use.
 
@@ -617,9 +617,9 @@ With susChkSrv implemented, an immediate and configurable action is executed. Th
 
    Run the following command as \<SAP SID\>adm:
 
-    ```bash
-    sapcontrol -nr <instance number> -function StartSystem 
-    ```
+   ```bash
+   sapcontrol -nr <instance number> -function StartSystem 
+   ```
 
 1. **[1]** Verify the hook installation.
 
