@@ -1,5 +1,5 @@
 ---
-title: # Sign in users in a sample React single-page application 
+title: Sign in users in a sample React single-page application 
 description: Learn how to configure a sample React Single Page Application (SPA)
 services: active-directory
 author: garrodonnell
