@@ -1,7 +1,7 @@
 ---
 title: Transform data from an SAP ODP source with the SAP CDC connector in Azure Data Factory or Azure Synapse Analytics
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to transform data from an SAP ODP source to supported sink data stores by using mapping data flows in Azure Data Factory or Azure Synapse Analytics.
+description: Learn how to transform data from an SAP ODP source by using mapping data flows in Azure Data Factory or Azure Synapse Analytics.
 author: ukchrist
 ms.author: ulrichchrist
 ms.service: data-factory
@@ -30,9 +30,9 @@ This SAP CDC connector is supported for the following capabilities:
 
 <small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
-This SAP CDC connector leverages the SAP ODP framework to extract data from SAP source systems. For an introduction to the architecture of the solution, read [Introduction and architecture to SAP change data capture (CDC)](sap-change-data-capture-introduction-architecture.md) in our [SAP knowledge center](industry-sap-overview.md).
+This SAP CDC connector uses the SAP ODP framework to extract data from SAP source systems. For an introduction to the architecture of the solution, read [Introduction and architecture to SAP change data capture (CDC)](sap-change-data-capture-introduction-architecture.md) in our [SAP knowledge center](industry-sap-overview.md).
 
-The SAP ODP framework is contained in most SAP NetWeaver based systems, including SAP ECC, SAP S/4HANA, SAP BW, SAP BW/4HANA, SAP LT Replication Server (SLT), except very old ones. For prerequisites and minimum required releases, see [Prerequisites and configuration](sap-change-data-capture-prerequisites-configuration.md#sap-system-requirements).  
+The SAP ODP framework is contained in all up-to-date SAP NetWeaver based systems, including SAP ECC, SAP S/4HANA, SAP BW, SAP BW/4HANA, SAP LT Replication Server (SLT). For prerequisites and minimum required releases, see [Prerequisites and configuration](sap-change-data-capture-prerequisites-configuration.md#sap-system-requirements).  
 
 The SAP CDC connector supports basic authentication or Secure Network Communications (SNC), if SNC is configured.
 
@@ -54,13 +54,13 @@ To prepare an SAP CDC dataset, follow [Prepare the SAP CDC source dataset](sap-c
 
 ## Transform data with the SAP CDC connector
 
-SAP CDC datasets can be used as source in mapping data flow. Since the raw SAP ODP change feed is difficult to interpret and to correctly update to a sink, mapping data flow takes care of this by evaluating technical attributes provided by the ODP framework (e.g., ODQ_CHANGEMODE) automatically. This allows users to concentrate on the required transformation logic without having to bother with the internals of the SAP ODP change feed, the right order of changes, etc.
+SAP CDC datasets can be used as source in mapping data flow. The raw SAP ODP change feed is difficult to interpret and updating it correctly to a sink can be a challenge. Mapping data flow takes care of this complexity by automatically evaluating technical attributes that are provided by the ODP framework (like ODQ_CHANGEMODE). This allows users to concentrate on the required transformation logic without having to bother with the internals of the SAP ODP change feed, the right order of changes, etc.
 
 To get started, create a pipeline with a mapping data flow.
 
 :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-pipeline-dataflow-activity.png" alt-text="Screenshot of add data flow activity in pipeline.":::
 
-Next, specify a staging linked service and staging folder in Azure Data Lake Gen2, which will serve as an intermediate storage for data extracted from SAP.
+Next, specify a staging linked service and staging folder in Azure Data Lake Gen2, which serves as an intermediate storage for data extracted from SAP.
 
  >[!NOTE]
    >The staging linked service cannot use a self-hosted integration runtime.
@@ -79,11 +79,11 @@ To create a mapping data flow using the SAP CDC connector as a source, complete 
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-mapping-data-flow-add-source.png" alt-text="Screenshot of add source in mapping data flow.":::
 
-1. On the tab **Source settings** select a prepared SAP CDC dataset or select the **New** button to create a new one. Alternatively, you can also select **Inline** in the **Source type** property and continue without defining an explicit dataset.
+1. On the tab **Source settings**, select a prepared SAP CDC dataset or select the **New** button to create a new one. Alternatively, you can also select **Inline** in the **Source type** property and continue without defining an explicit dataset.
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-mapping-data-flow-select-dataset.png" alt-text="Screenshot of the select dataset option in source settings of mapping data flow source.":::
 
-1. On the tab **Source options** select the option **Full on every run** if you want to load full snapshots on every execution of your mapping data flow, or **Full on the first run, then incremental** if you want to subscribe to a change feed from the SAP source system. In this case, the first run of your pipeline will do a delta initialization, which means it will return a current full data snapshot and create an ODP delta subscription in the source system so that with subsequent runs, the SAP source system will return incremental changes since the previous run only. You can also do **incremental changes only** if you want to create an ODP delta subscription in the SAP source system in the first run of your pipeline without returning any data, and with subsequent runs, the SAP source system will return incremental changes since the previous run only. In case of incremental loads it is required to specify the keys of the ODP source object in the **Key columns** property.
+1. On the tab **Source options**, select the option **Full on every run** if you want to load full snapshots on every execution of your mapping data flow. Select **Full on the first run, then incremental** if you want to subscribe to a change feed from the SAP source system including an initial full data snapshot. In this case, the first run of your pipeline performs a delta initialization, which means it creates an ODP delta subscription in the source system and returns a current full data snapshot. Subsequent pipeline runs only return incremental changes since the preceeding run. The option **incremental changes only** creates an ODP delta subscription without returning an initial full data snapshot in the first run. Again, subsequent runs return incremental changes since the preceeding run only. Both incremental load options require to specify the keys of the ODP source object in the **Key columns** property.
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-mapping-data-flow-run-mode.png" alt-text="Screenshot of the run mode property in source options of mapping data flow source.":::
 
@@ -97,3 +97,4 @@ To create a mapping data flow using the SAP CDC connector as a source, complete 
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-mapping-data-flow-optimize-partition.png" alt-text="Screenshot of the partitioning options in optimize of mapping data flow source.":::
 
+Depending on the resources available in the SAP source system, the virtual machine hosting the self-hosted integration runtime, and the Azure integration runtime, this partitioning type can linearly increase the throughput of a data extraction.
