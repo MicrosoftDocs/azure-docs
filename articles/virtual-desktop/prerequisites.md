@@ -53,7 +53,7 @@ You also need to make sure you've registered the *Microsoft.DesktopVirtualizatio
 
 [!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
 
-2. Use the `az desktopvirtualization applicationgroup create` command to register the **Microsoft.DesktopVirtualization** resource provider by running the following command. You can run this even if the resource provider is already registered.
+2. Register the **Microsoft.DesktopVirtualization** resource provider by running the following command. You can run this even if the resource provider is already registered.
 
    ```azurecli-interactive
    az provider register --namespace Microsoft.DesktopVirtualization
@@ -74,7 +74,7 @@ You also need to make sure you've registered the *Microsoft.DesktopVirtualizatio
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
-2. Use the `Register-AzResourceProvider` cmdlet to register the **Microsoft.DesktopVirtualization** resource provider by running the following command. You can run this even if the resource provider is already registered.
+2. Register the **Microsoft.DesktopVirtualization** resource provider by running the following command. You can run this even if the resource provider is already registered.
 
    ```azurepowershell-interactive
    Register-AzResourceProvider -ProviderNamespace Microsoft.DesktopVirtualization
