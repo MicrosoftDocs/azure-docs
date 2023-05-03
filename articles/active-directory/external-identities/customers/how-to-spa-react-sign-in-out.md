@@ -39,7 +39,6 @@ In this tutorial:
 1. Right click on *src*, select **New Folder** and call it *components*.
 1. Right click on *components* and using the **New File** option, create the following four files;
     - *PageLayout.jsx*
-    - *ProfileData.jsx*
     - *SignInButton.jsx*
     - *SignOutButton.jsx*
 
