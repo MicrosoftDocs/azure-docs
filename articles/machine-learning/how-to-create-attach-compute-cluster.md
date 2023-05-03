@@ -31,6 +31,8 @@ In this article, learn how to:
 * Lower your compute cluster cost with low priority VMs
 * Set up a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) for the cluster
 
+[!INCLUDE [serverless compute](./includes/serverless-compute.md)]
+
 ## Prerequisites
 
 * An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
