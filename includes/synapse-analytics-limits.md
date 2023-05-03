@@ -40,7 +40,7 @@ For other subscription offer types:
 | -------- | ------------- | ------------- |
 | Spark cores in a Synapse workspace | 50 | 50 |
 
-For additional limits for Spark pools see [Concurrency and API rate limits for Apache Spark pools in Azure Synapse Analytics](https://github.com/Azure/azure-docs-rest-apis/blob/main/docs-ref-conceptual/synapse/concurrency-limits-spark-pools.md).
+For additional limits for Spark pools, see [Concurrency and API rate limits for Apache Spark pools in Azure Synapse Analytics](/rest/api/synapse/concurrency-limits-spark-pools).
 
 ### Azure Synapse limits for pipelines
 
