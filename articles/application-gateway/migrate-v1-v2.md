@@ -1,5 +1,5 @@
 ---
-title: Migrate from v1 to v2 - Azure Application Gateway
+title: Migrate from V1 to V2 - Azure Application Gateway
 description: This article shows you how to migrate Azure Application Gateway and Web Application Firewall from v1 to v2
 services: application-gateway
 author: greg-lindsay
@@ -28,8 +28,8 @@ This article primarily helps with the configuration migration. The traffic migra
 
 An Azure PowerShell script is provided in this document. It performs the following operations to help you with the configuration:
 
-* Creates a new Standard_v2 or WAF_v2 gateway in a virtual network subnet that you specify.
-* Seamlessly copies the configuration associated with the v1 Standard or WAF gateway to the newly created Standard_V2 or WAF_V2 gateway.
+* Creates a new Standard_V2 or WAF_V2 gateway in a virtual network subnet that you specify.
+* Seamlessly copies the configuration associated with the V1 Standard or WAF gateway to the newly created Standard_V2 or WAF_V2 gateway.
 
 ## Downloading the script
 
