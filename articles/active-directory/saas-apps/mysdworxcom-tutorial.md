@@ -31,7 +31,7 @@ You configure and test Azure AD single sign-on for my.sdworx.com in a test envir
 
 To integrate Azure Active Directory with my.sdworx.com, you need:
 
-* Before adding the application in your Azure AD tenant, please contact your SD Worx consultant first to start up the track to activate the SSO for your company. The SSO won’t work before it is implemented and activated on the SD Worx Service Provider.
+* Before adding the application in your Azure AD tenant, please contact your SD Worx consultant first to start up the track to activate the SSO for your company. The SSO won’t work before it's implemented and activated on the SD Worx Service Provider.
 * An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
