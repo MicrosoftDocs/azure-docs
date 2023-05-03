@@ -380,7 +380,15 @@ def delete_entity(self):
 
 ## 7 - Run the code
 
-Run the sample application to interact with the Azure Cosmos DB for Table. The first time you run the application, there will be no data because the table is empty. Use any of the buttons at the top of application to add data to the table.
+Run the sample application to interact with the Azure Cosmos DB for Table. For example, starting in the `2-completed-app` folder, with requirements installed, you can use:
+
+```bash
+python3 run.py webapp
+```
+
+See the *README.md* file in the [sample repository root](https://github.com/Azure-Samples/msdocs-azure-tables-sdk-python-flask/tree/main) for more information about running the sample application.
+
+The first time you run the application, there will be no data because the table is empty. Use any of the buttons at the top of application to add data to the table.
 
 :::image type="content" source="./media/quickstart-python/table-api-app-data-insert-buttons-480px.png" alt-text="A screenshot of the application showing the location of the buttons used to insert data into Azure Cosmos DB using the Table API." lightbox="./media/quickstart-python/table-api-app-data-insert-buttons.png":::
 
@@ -392,7 +400,7 @@ Selecting the **Insert using Expandable** Data button brings up a dialog that en
 
 :::image type="content" source="./media/quickstart-python/table-api-app-insert-expandable-entity-480px.png" alt-text="A screenshot of the application showing the dialog box used to insert data using an object with custom fields." lightbox="./media/quickstart-python/table-api-app-insert-expandable-entity.png":::
 
-Use the **Insert Sample Data** button to load some sample data into your Azure Cosmos DB Table.
+Use the **Insert Sample Data** button to load some sample data into your Azure Cosmos DB Table. For the `1-starter-app` sample, you'll need to at least complete the code for the `submit_transaction` function. See `2-complete-app` if you need to see the completed code. The *.env* variable `project_root_path` depends on where you run the application. For example, if you are running the application from `1-starter-app` or `2-completed-app` folder, you can set `project_root_path` to "" (blank).
 
 :::image type="content" source="./media/quickstart-python/table-api-app-sample-data-insert-480px.png" alt-text="A screenshot of the application showing the location of the sample data insert button." lightbox="./media/quickstart-python/table-api-app-sample-data-insert.png":::
 
