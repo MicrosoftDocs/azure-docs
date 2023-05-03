@@ -38,6 +38,10 @@ For current region support, refer to [products available by region](https://azur
 
 * Always allow traffic: You want to permit a specific security scanner to always have inbound connectivity to all your resources, even if there are NSG rules configured to deny the traffic.
 
+### What's the cost of using Azure Virtual Network Manager?
+
+Azure Virtual Network Manager charges $0.10/hour per subscription managed. AVNM charges are based on the number of subscriptions that contain a virtual network with an active network manager configuration deployed onto it. For example, if a network manager's scope consists of ten subscriptions but only three subscriptions' virtual networks are covered by a network manager deployment, then there are three managed subscriptions, so $0.10/hour * three subscriptions = $0.30/hour.
+
 ## Technical
 
 ### Can a virtual network belong to multiple Azure Virtual Network Managers?

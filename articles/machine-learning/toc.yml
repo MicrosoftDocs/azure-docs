@@ -1099,6 +1099,10 @@
               href: how-to-use-pipeline-ui.md
             - name: How to use parallel job in pipeline
               href: how-to-use-parallel-job-in-pipeline.md
+            - name: How to use pipeline component in pipeline
+              href: how-to-use-pipeline-component.md
+            - name: How to debug pipeline reuse issues
+              href: how-to-debug-pipeline-reuse-issues.md
             # v1
             - name: Create ML pipelines (Python)
               href: ./v1/how-to-create-machine-learning-pipelines.md
@@ -1246,6 +1250,8 @@
           href: reference-yaml-model.md
         - name: Schedule
           href: reference-yaml-schedule.md
+        - name: Pipeline component
+          href: reference-yaml-component-pipeline.md
         - name: Compute
           items:
             - name: Compute cluster (AmlCompute)
@@ -1266,19 +1272,21 @@
               href: reference-yaml-job-pipeline.md
             - name: Parallel
               href: reference-yaml-job-parallel.md
-            - name: AutoML Image Classification
+            - name: Automated ML Forecasting command job YAML schema
+              href: reference-automated-ml-forecasting.md
+            - name: Automated ML Image Classification
               href: reference-automl-images-cli-classification.md
-            - name: AutoML Image Instance Segmentation
+            - name: Automated ML Image Instance Segmentation
               href: reference-automl-images-cli-instance-segmentation.md
-            - name: AutoML Image Multilabel Classification
+            - name: Automated ML Image Multilabel Classification
               href: reference-automl-images-cli-multilabel-classification.md
-            - name: AutoML Image Object Detection
+            - name: Automated ML Image Object Detection
               href: reference-automl-images-cli-object-detection.md
-            - name: AutoML NLP Text Classification
+            - name: Automated ML NLP Text Classification
               href: reference-automl-nlp-cli-text-classification.md
-            - name: AutoML NLP Multilabel Classification
+            - name: Automated ML NLP Multilabel Classification
               href: reference-automl-nlp-cli-multilabel-classification.md
-            - name: AutoML NLP NER
+            - name: Automated ML NLP NER
               href: reference-automl-nlp-cli-ner.md
         - name: Datastore
           items:
@@ -1318,8 +1326,6 @@
     - name: Hyperparameters for AutoML computer vision tasks
       displayName: automl, yolo-5, image, image model
       href: reference-automl-images-hyperparameters.md
-    - name: Automated ML Forecasting command job YAML schema
-      href: reference-automated-ml-forecasting.md
     - name: Kubernetes cluster configuration
       href: reference-kubernetes.md
     - name: Designer component reference

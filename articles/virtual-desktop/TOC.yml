@@ -210,6 +210,8 @@
             href: app-attach-image-prep.md
           - name: Set up a file share
             href: app-attach-file-share.md
+          - name: Use Azure NetApp Files and MSIX app attach
+            href: create-netapp-files.md
           - name: Set up the MSIXMGR tool
             href: app-attach-msixmgr.md
           - name: MSIXMGR tool parameters
@@ -254,8 +256,6 @@
           href: create-host-pools-user-profile.md
         - name: Use Azure NetApp Files
           href: create-fslogix-profile-container.md
-        - name: Use Azure NetApp Files and MSIX app attach
-          href: create-netapp-files.md
         - name: Use Azure Files and Active Directory
           href: fslogix-profile-container-configure-azure-files-active-directory.md
         - name: Use Azure Files and Azure AD

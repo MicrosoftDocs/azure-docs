@@ -87,6 +87,10 @@ There are three ways to keep the domain controller available:
    - Use an on-premises Active Directory Domain Controller
    - Replicate Active Directory Domain Controller using [Azure Site Recovery](../site-recovery/site-recovery-active-directory.md)
 
+## User profiles
+
+We recommend that you use FSLogix for managing user profiles. For information, see [Business continuity and disaster recovery options for FSLogix](/fslogix/concepts-container-recovery-business-continuity). 
+
 ## Back up your data
 
 You also have the option to back up your data. You can choose one of the following methods to back up your Azure Virtual Desktop data:
