@@ -40,7 +40,7 @@ Follow the steps in this section to instrument your application with OpenTelemet
 
 <!---NOTE TO CONTRIBUTORS: PLEASE DO NOT SEPARATE OUT JAVASCRIPT AND TYPESCRIPT INTO DIFFERENT TABS.--->
 
-### [ASP.NET Core](#tab/net)
+### [ASP.NET Core](#tab/aspnetcore)
 
 - Application using an officially supported version of [.NET Core](https://dotnet.microsoft.com/download/dotnet) or [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) that's at least .NET Framework 4.6.2
 
@@ -62,7 +62,7 @@ Follow the steps in this section to instrument your application with OpenTelemet
 
 ### Install the client library
 
-#### [ASP.NET Core](#tab/net)
+#### [ASP.NET Core](#tab/aspnetcore)
 
 Install the latest [Azure.Monitor.OpenTelemetry.AspNetCore](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.AspNetCore) NuGet package:
 
@@ -130,7 +130,7 @@ This section provides guidance that shows how to enable OpenTelemetry.
 #### Configure the Application Insights connection string
 
 
-##### [ASP.NET Core](#tab/net)
+##### [ASP.NET Core](#tab/aspnetcore)
 
 The following code demonstrates how to enable OpenTelemetry in an ASP.NET Core application by calling `UseAzureMonitor()`. This code must be in the application startup.
 
@@ -264,7 +264,7 @@ You can set the connection string either programatically or by setting the envir
 
 The following instructions detail where to paste your unique connection string.
 
-#### [ASP.NET Core](#tab/net)
+#### [ASP.NET Core](#tab/aspnetcore)
 
 Replace the `<Your Connection String>` in the preceding code with the connection string from *your* Application Insights resource.
 
@@ -318,7 +318,7 @@ The following libraries are bundled with our distro.
 
 ### Distributed Tracing
 
-#### [ASP.NET Core](#tab/net)
+#### [ASP.NET Core](#tab/aspnetcore)
 
 Requests
 - [ASP.NET
@@ -463,7 +463,7 @@ You can collect more data automatically when you include instrumentation librari
 > [!NOTE] 
 >  We don't support and cannot guarantee the quality of community instrumentation libraries. If you would like to suggest a community instrumentation library us to include in our distro, post or up-vote an idea in our [feedback community](https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0).
 
-### [ASP.NET Core](#tab/net)
+### [ASP.NET Core](#tab/aspnetcore)
 
 To add a community library use the `ConfigureOpenTelemetryMeterProvider` or `ConfigureOpenTelemetryTraceProvider` methods.
 
@@ -492,10 +492,7 @@ app.Run();
 
 ### Metrics
 
-#### [ASP.NET Core](#tab/net)
-
-TODO: MOTHRA: SHOULD WE FOCUS ON ALL SUPPORTED SDKS OR ONLY THOSE SHIPPED BY DISTRO?
-I removed ASP.NET (non-core) and Runtime from this list.
+#### [ASP.NET Core](#tab/aspnetcore)
 
 - [ASP.NET
   Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.AspNetCore/README.md) version:
@@ -534,7 +531,7 @@ Autocollected metrics
 
 ### Logs
 
-#### [ASP.NET Core](#tab/net)
+#### [ASP.NET Core](#tab/aspnetcore)
 
 * OpenTelemetry uses .NET's ILogger. 
   For more information about ILogger see [Logging in C# and .NET](https://learn.microsoft.com/dotnet/core/extensions/logging). 
@@ -636,7 +633,7 @@ describes the instruments and provides examples of when you might use each one.
 
 #### Histogram Example
 
-#### [ASP.NET Core](#tab/net)
+#### [ASP.NET Core](#tab/aspnetcore)
 
 Application startup:
 
@@ -745,7 +742,7 @@ input()
 
 #### Counter Example
 
-#### [ASP.NET Core](#tab/net)
+#### [ASP.NET Core](#tab/aspnetcore)
 
 Application startup:
 
@@ -856,7 +853,7 @@ input()
 
 #### Gauge Example
 
-#### [ASP.NET Core](#tab/net)
+#### [ASP.NET Core](#tab/aspnetcore)
 
 Application startup:
 
@@ -1023,7 +1020,7 @@ However, you may want to manually report exceptions beyond what instrumentation 
 For instance, exceptions caught by your code aren't ordinarily reported. You may wish to report them
 to draw attention in relevant experiences including the failures section and end-to-end transaction views.
 
-#### [ASP.NET Core](#tab/net)
+#### [ASP.NET Core](#tab/aspnetcore)
 
 ```csharp
 using (var activity = activitySource.StartActivity("ExceptionExample"))
@@ -1132,7 +1129,7 @@ with tracer.start_as_current_span("hello", record_exception=False) as span:
 
 You may want to add a custom span when there's a dependency request that's not already collected by an instrumentation library or an application process that you wish to model as a span on the end-to-end transaction view.
   
-#### [ASP.NET Core](#tab/net)
+#### [ASP.NET Core](#tab/aspnetcore)
 
 ```csharp
 internal static readonly ActivitySource activitySource = new("ActivitySourceName");
@@ -1144,15 +1141,24 @@ builder.Services.AddOpenTelemetry().UseAzureMonitor(options => options.Connectio
 
 var app = builder.Build();
 
-app.Run();
-
-using (var activity = activitySource.StartActivity("CustomActivity"))
+app.MapGet("/", () =>
 {
-    // your code here
-}
+    using (var activity = activitySource.StartActivity("CustomActivity"))
+    {
+        // your code here
+    }
+
+    return $"Hello World!";
+});
+
+app.Run();
 ```
 
-TODO: MOTHRA: DESCRIBE ActivityKind here? (See Java's description.)
+By default, the activity will end up in the Application Insights `dependencies` table with dependency type `InProc`.
+
+If your code represents a background job that isn't already captured by an instrumentation library,
+we recommend that you set `ActivityKind.Server` in the `StartActivity` method
+so that it will end up in the Application Insights `requests` table.
 
 #### [Java](#tab/java)
   
@@ -1285,7 +1291,7 @@ The OpenTelemetry Logs/Events API is still under development. In the meantime, y
 > [!CAUTION]
 > Span Events are only recommended for when you need additional diagnostic metadata associated with your span. For other scenarios, such as describing business events, we recommend you wait for the release of the OpenTelemetry Events API.
 
-#### [ASP.NET Core](#tab/net)
+#### [ASP.NET Core](#tab/aspnetcore)
   
 Coming soon.
   
@@ -1327,7 +1333,7 @@ Coming soon.
 
 We recommend you use the OpenTelemetry APIs whenever possible, but there may be some scenarios when you have to use the Application Insights [Classic API](api-custom-events-metrics.md)s.
   
-#### [ASP.NET Core](#tab/net)
+#### [ASP.NET Core](#tab/aspnetcore)
   
 This is not available in .NET.
 
@@ -1418,7 +1424,7 @@ These attributes might include adding a custom property to your telemetry. You m
 
 Any [attributes](#add-span-attributes) you add to spans are exported as custom properties. They populate the _customDimensions_ field in the requests, dependencies, traces, or exceptions table.
 
-##### [ASP.NET Core](#tab/net)
+##### [ASP.NET Core](#tab/aspnetcore)
 
 To add span attributes, use either of the following two ways:
 
@@ -1565,7 +1571,7 @@ class SpanEnrichingProcessor(SpanProcessor):
 
 You can populate the _client_IP_ field for requests by setting the `http.client_ip` attribute on the span. Application Insights uses the IP address to generate user location attributes and then [discards it by default](ip-collection.md#default-behavior).
 
-##### [ASP.NET Core](#tab/net)
+##### [ASP.NET Core](#tab/aspnetcore)
 
 Use the add [custom property example](#add-a-custom-property-to-a-span), but replace the following lines of code in `ActivityEnrichingProcessor.cs`:
 
@@ -1612,7 +1618,7 @@ You can populate the _user_Id_ or _user_AuthenticatedId_ field for requests by u
 > [!IMPORTANT]
 > Consult applicable privacy laws before you set the Authenticated User ID.
 
-##### [ASP.NET Core](#tab/net)
+##### [ASP.NET Core](#tab/aspnetcore)
 
 TODO: MOTHRA: FOLLOW UP ON THIS
 
@@ -1669,11 +1675,10 @@ span._attributes["enduser.id"] = "<User ID>"
 
 ### Add Log Attributes
   
-#### [ASP.NET Core](#tab/net)
+#### [ASP.NET Core](#tab/aspnetcore)
 
-TODO: MOTHRA: FOLLOW UP ON THIS
-
-Coming soon.
+OpenTelemetry uses .NET's ILogger.
+Attaching custom dimensions to logs can be accomplished using a [message template](https://learn.microsoft.com/dotnet/core/extensions/logging?tabs=command-line#log-message-template).
 
 #### [Java](#tab/java)
 
@@ -1704,7 +1709,7 @@ logger.warning("WARNING: Warning log with properties", extra={"key1": "value1"})
 
 You might use the following ways to filter out telemetry before it leaves your application.
 
-#### [ASP.NET Core](#tab/net)
+#### [ASP.NET Core](#tab/aspnetcore)
 
 1. Many instrumentation libraries provide a filter option. For guidance, see the readme files of individual instrumentation libraries:
     - [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.AspNetCore/README.md#filter)
@@ -1881,7 +1886,7 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
     
 You might want to get the trace ID or span ID. If you have logs that are sent to a different destination besides Application Insights, you might want to add the trace ID or span ID to enable better correlation when you debug and diagnose issues.
 
-#### [ASP.NET Core](#tab/net)
+#### [ASP.NET Core](#tab/aspnetcore)
 
 > [!NOTE]
 > The `Activity` and `ActivitySource` classes from the `System.Diagnostics` namespace represent the OpenTelemetry concepts of `Span` and `Tracer`, respectively. That's because parts of the OpenTelemetry tracing API are incorporated directly into the .NET runtime. To learn more, see [Introduction to OpenTelemetry .NET Tracing API](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
@@ -1935,7 +1940,7 @@ Get the request trace ID and the span ID in your code:
 
 ## Support
 
-### [ASP.NET Core](#tab/net)
+### [ASP.NET Core](#tab/aspnetcore)
 
 - For OpenTelemetry issues, contact the [OpenTelemetry .NET community](https://github.com/open-telemetry/opentelemetry-dotnet) directly.
 - For a list of open issues related to Azure Monitor Exporter, see the [GitHub Issues Page](https://github.com/Azure/azure-sdk-for-net/issues?q=is%3Aopen+is%3Aissue+label%3A%22Monitor+-+Exporter%22).
@@ -1970,7 +1975,7 @@ To provide feedback:
 
 ## Next steps
 
-### [ASP.NET Core](#tab/net)
+### [ASP.NET Core](#tab/aspnetcore)
 
 - To further configure the OpenTelemetry distro, please see [Azure Monitor OpenTelemetry configuration](opentelemetry-configuration.md)
 - To review the source code, see the [Azure Monitor AspNetCore GitHub repository](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore).
