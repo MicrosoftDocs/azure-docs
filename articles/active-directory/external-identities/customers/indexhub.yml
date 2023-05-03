@@ -33,7 +33,7 @@ highlightedContent:
       itemType: overview
       url: /azure/active-directory/external-identities/customers
     # Card
-    - title: B2C - Set up a customer tenant free trial
+    - title: What is Azure AD B2C (business-to-consumer) identity?
       itemType: architecture
       url: /azure/active-directory-b2c/
 ## BAND 1 - HIGHLIGHTED CONTENT END ##########################################################################################################################
@@ -46,12 +46,44 @@ additionalContent:
       items:
         # Card
         - title: Overview
-          summary: Learn basic B2B concepts and processes.
+          summary: Learn basic partner concepts and processes.
           url: /azure/active-directory/external-identities/external-identities-overview
+        # Card
+        - title: Compare External Identities solutions
+          summary: Learn about different solutions for external users.
+          url: /active-directory/external-identities/external-identities-overview
+        # Card
+        - title: What is Azure AD B2B collaboration?
+          summary: Learn about the Azure AD B2B collaboration feature.
+          url: /active-directory/external-identities/what-is-b2b       
+        # Card
+        - title: What is Azure AD B2B direct connect?
+          summary: Learn about the Azure AD B2B direct connect feature.
+          url: /azure/active-directory/external-identities/b2b-direct-connect-overview   
+        # Card
+        - title: External user properties in Azure AD
+          summary: Learn about the properties of an Azure Active Directory B2B collaboration user.
+          url: /azure/active-directory/external-identities/user-properties 
+        # Card
+        - title: Cross-tenant access
+          summary: Configure cross-tenant access settings for B2B collaboration.
+          url: /azure/active-directory/external-identities/cross-tenant-access-settings-b2b-collaboration
+        # Card
+        - title: Self-service sign-up
+          summary: Learn about the self-service sign-up user flow. 
+          url: /azure/active-directory/external-identities/self-service-sign-up-overview 
     - title: Microsoft Entra External Identities for Customers (CIAM)
       items:
         # Card
         - title: Overview
-          summary: Learn basic CIAM concepts and processes.
+          summary: Learn basic customer tenant concepts and processes.
           url: /azure/active-directory/external-identities/customers/overview-customers-ciam
+        # Card
+        - title: 30-day free trial
+          summary: Set up your customer tenant free trial.
+          url: /azure/active-directory/external-identities/customers/quickstart-trial-setup
+        # Card
+        - title: Code samples for customer tenants
+          summary: Learn about our code samples for customer identity and access management (CIAM) in Azure Active Directory.
+          url: /azure/active-directory/external-identities/customers/samples-ciam-all
 ## BAND 2 - ADDITIONAL CONTENT END ##########################################################################################################################
