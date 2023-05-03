@@ -153,7 +153,7 @@ The capabilities tab defines the behavior and functionality of the connector. Th
 |Parameter|Value|Purpose|
 |----|-----|-----|
 |Distinguished Name Style|None|Indicates if the connector supports distinguished names and if so, what style. |
-|Export Type|ObjectReplace,|Determines the type of objects that are presented to the Export script. <li>AttributeReplace – includes the full set of values for a multi-valued attribute when the attribute changes.</li><li>AttributeUpdate – includes only the deltas to a multi-valued attribute when the attribute changes.</li><li>MultivaluedReferenceAttributeUpdate - includes a full set of values for non-reference multi-valued attributes and only deltas for multi-valued reference attributes.</li><li>ObjectReplace – includes all attributes for an object when any attribute changes</li> |
+|Export Type|ObjectReplace|Determines the type of objects that are presented to the Export script. <li>AttributeReplace – includes the full set of values for a multi-valued attribute when the attribute changes.</li><li>AttributeUpdate – includes only the deltas to a multi-valued attribute when the attribute changes.</li><li>MultivaluedReferenceAttributeUpdate - includes a full set of values for non-reference multi-valued attributes and only deltas for multi-valued reference attributes.</li><li>ObjectReplace – includes all attributes for an object when any attribute changes</li> |
 |Data Normalization|None,|Instructs the Synchronization Service to normalize anchor attributes before they are provided to scripts. |
 |Object Confirmation|Normal|Configures the pending import behavior in the Synchronization Service. <li>Normal – default behavior that expects all exported changes to be confirmed via import</li><li>NoDeleteConfirmation – when an object is deleted, there is no pending import generated.</li><li>NoAddAndDeleteConfirmation – when an object is created or deleted, there is no pending import generated.</li> |
 |Use DN as Anchor|Unchecked|If the Distinguished Name Style is set to LDAP, the anchor attribute for the connector space is also the distinguished name. |
@@ -206,10 +206,10 @@ Configure the object types tab with the information provided in the table.
 
 |Parameter|Value|
 |-----|-----|
-|Target Object|Object|
-|Anchor|EmployeeID|
-|Query Attribute|EmpolyeeID|
-|DN-dn-|
+|Target Object|Person|
+|Anchor|AzureObjectID|
+|Query Attribute|AzureObjectID|
+|DN|AzureObjectID|
 
 ### Select Attributes
 Ensure that the following attributes are selected:
@@ -236,7 +236,7 @@ On the Deprovisioning page, you can specify if you wish to have Azure AD remove 
 
 ## Ensure ECMA2Host service is running and can read from file via PowerShell
 
-Follow these steps to confirm that the connector host has started and has identified any existing users from the directory server.
+Follow these steps to confirm that the connector host has started and has identified any existing users from the target system.
 
  1. On the server running the Azure AD ECMA Connector Host, select **Start**.
  2. Select **run** if needed, then enter **services.msc** in the box.
@@ -251,8 +251,8 @@ Follow these steps to confirm that the connector host has started and has identi
     SecretToken: ************
     ```
  8. If the script displays an error or warning message, then check that the service is running, and the connector name and secret token match those values you configured in the configuration wizard.
- 9. If the script displays the output `False`, then the connector has not seen any entries in the source directory server for existing users.  If this is a new directory server installation, then this behavior is to be expected, and you can continue at the next section.
- 10. However, if the directory server already contains one or more users but the script displayed `False`, then this status indicates the connector could not read from the directory server.  If you attempt to provision, then Azure AD may not correctly match users in that source directory with users in Azure AD.  Wait several minutes for the connector host to finish reading objects from the existing directory server, and then rerun the script. If the output continues to be `False`, then check the configuration of your connector and the permissions in the directory server are allowing the connector to read existing users.
+ 9. If the script displays the output `False`, then the connector has not seen any entries in the source target system for existing users.  If this is a new target system installation, then this behavior is to be expected, and you can continue at the next section.
+ 10. However, if the target system already contains one or more users but the script displayed `False`, then this status indicates the connector could not read from the target system.  If you attempt to provision, then Azure AD may not correctly match users in that source directory with users in Azure AD.  Wait several minutes for the connector host to finish reading objects from the existing target system, and then rerun the script. If the output continues to be `False`, then check the configuration of your connector and the permissions in the target system are allowing the connector to read existing users.
 
 
 ## Test the connection from Azure AD to the connector host
