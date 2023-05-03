@@ -3,7 +3,10 @@ You can use Service Connector to create a connection between an Azure compute ho
 1. Retrieve the client ID of the managed identity you created using the `az identity show` command. Copy the value for later use.
 
     ```azurecli
-    az identity show --name MigrationIdentity --resource-group <your-resource-group> --query clientId
+    az identity show \
+        --name MigrationIdentity \
+        --resource-group <your-resource-group> \
+        --query clientId
     ```
 
 1. Use the appropriate CLI command to establish the service connection:
