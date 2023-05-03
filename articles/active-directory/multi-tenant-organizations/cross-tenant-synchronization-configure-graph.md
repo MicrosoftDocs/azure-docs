@@ -77,8 +77,10 @@ This article describes the key steps to configure cross-tenant synchronization u
 
 1. Get the tenant ID of the source and target tenants. The example configuration described in this article uses the following tenant IDs:
 
-    - Source tenant ID: {sourceTenantId}
-    - Target tenant ID: {targetTenantId}
+    ```powershell
+    $SourceTenantId = "<SourceTenantId>"
+    $TargetTenantId = "<TargetTenantId>"
+    ```
 ::: zone-end
 
 ::: zone pivot="ms-graph"
@@ -124,22 +126,23 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 1. In the target tenant, use the [New-MgPolicyCrossTenantAccessPolicyPartner](/powershell/module/microsoft.graph.identity.signins/new-mgpolicycrosstenantaccesspolicypartner?view=graph-powershell-beta&preserve-view=true&branch=main) command to create a new partner configuration in a cross-tenant access policy between the target tenant and the source tenant. Use the source tenant ID in the request.
 
     ```powershell
-    $params = @{
-    	TenantId = "<sourceTenantId>"
+    $Params = @{
+    	TenantId = $SourceTenantId
     }
-    New-MgPolicyCrossTenantAccessPolicyPartner -BodyParameter $params
+    New-MgPolicyCrossTenantAccessPolicyPartner -BodyParameter $Params
     ```
 
 1. Use the [Update-MgPolicyCrossTenantAccessPolicyPartnerIdentitySynchronization](/powershell/module/microsoft.graph.identity.signins/update-mgpolicycrosstenantaccesspolicypartneridentitysynchronization?view=graph-powershell-beta&preserve-view=true&branch=main) command to enable user synchronization in the target tenant.
 
     ```powershell
-    $UserSyncInbound=@{
-        "IsSyncAllowed"="True"
+    $Params = @{
+	    UserSyncInbound = @{
+		    isSyncAllowed = $true
+	    }
     }
     Update-MgPolicyCrossTenantAccessPolicyPartnerIdentitySynchronization
-        -TenantId "<sourceTenantId>"
-        -DisplayName "<sourceTenantName>"
-        -UserSyncInbound $UserSyncInbound
+        -CrossTenantAccessPolicyConfigurationPartnerTenantId $SourceTenantId
+        -BodyParameter $Params
     ```
 ::: zone-end
 
@@ -222,12 +225,11 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 1. In the target tenant, use the [Update-MgPolicyCrossTenantAccessPolicyPartner](/powershell/module/microsoft.graph.identity.signins/update-mgpolicycrosstenantaccesspolicypartner?view=graph-powershell-beta&preserve-view=true&branch=main) command to automatically redeem invitations and suppress consent prompts for inbound access.
 
     ```powershell
-    $AutomaticUserConsentSettings=@{
+    $AutomaticUserConsentSettings = @{
         "InboundAllowed"="True"
     }
     Update-MgPolicyCrossTenantAccessPolicyPartner
-        -TenantId "<sourceTenantId>"
-        -DisplayName "<sourceTenantName>"
+        -TenantId $SourceTenantId
         -AutomaticUserConsentSettings $AutomaticUserConsentSettings    
     ```
 ::: zone-end
@@ -265,21 +267,20 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 1. In the source tenant, use the [New-MgPolicyCrossTenantAccessPolicyPartner](/powershell/module/microsoft.graph.identity.signins/new-mgpolicycrosstenantaccesspolicypartner?view=graph-powershell-beta&preserve-view=true&branch=main) command to create a new partner configuration in a cross-tenant access policy between the source tenant and the target tenant. Use the target tenant ID in the request.
 
     ```powershell
-    $params = @{
-    	TenantId = "<targetTenantId>"
+    $Params = @{
+    	TenantId = $TargetTenantId
     }
-    New-MgPolicyCrossTenantAccessPolicyPartner -BodyParameter $params
+    New-MgPolicyCrossTenantAccessPolicyPartner -BodyParameter $Params
     ```
 
 1. Use the [Update-MgPolicyCrossTenantAccessPolicyPartner](/powershell/module/microsoft.graph.identity.signins/update-mgpolicycrosstenantaccesspolicypartner?view=graph-powershell-beta&preserve-view=true&branch=main) command to automatically redeem invitations and suppress consent prompts for outbound access.
 
     ```powershell
-    $AutomaticUserConsentSettings=@{
+    $AutomaticUserConsentSettings = @{
         "OutboundAllowed"="True"
     }
     Update-MgPolicyCrossTenantAccessPolicyPartner
-        -TenantId "<targetTenantId>"
-        -DisplayName "<targetTenantName>"
+        -TenantId $TargetTenantId
         -AutomaticUserConsentSettings $AutomaticUserConsentSettings    
 ::: zone-end
 
@@ -453,13 +454,15 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 2. In the source tenant, use the [Test-MgServicePrincipalSynchronizationJobCredentials](/powershell/module/microsoft.graph.applications/test-mgserviceprincipalsynchronizationjobcredentials?view=graph-powershell-beta&preserve-view=true&branch=main) command to test the connection to the target tenant and validate the credentials.
 
     ```powershell
-    $Credentials=@(
-        [pscustomobject]@{"Key"="CompanyId"; "Value"="<targetTenantId>"}
+    $ServicePrincipalId = <ServicePrincipalId>
+    $JobId = <JobId>
+    $Credentials = @(
+        [pscustomobject]@{"Key"="CompanyId"; "Value"=$TargetTenantId}
         [pscustomobject]@{"Key"="AuthenticationType"; "Value"="SyncPolicy"}
     )
     Test-MgServicePrincipalSynchronizationJobCredentials
-        -ServicePrincipalId <servicePrincipalId>
-        -SynchronizationJobId <jobId>
+        -ServicePrincipalId $ServicePrincipalId
+        -SynchronizationJobId $JobId
         -Credentials $Credentials
     ```
 ::: zone-end
@@ -511,7 +514,7 @@ In the source tenant, to enable provisioning, create a provisioning job.
 
     ```powershell
     New-MgServicePrincipalSynchronizationJob
-        -ServicePrincipalId <servicePrincipalId>
+        -ServicePrincipalId $ServicePrincipalId
         -TemplateId "Azure2Azure"
     ```
 ::: zone-end
@@ -586,11 +589,11 @@ In the source tenant, to enable provisioning, create a provisioning job.
 
     ```powershell
     $Credentials=@(
-        [pscustomobject]@{"Key"="CompanyId"; "Value"="<targetTenantId>"}
+        [pscustomobject]@{"Key"="CompanyId"; "Value"=$TargetTenantId}
         [pscustomobject]@{"Key"="AuthenticationType"; "Value"="SyncPolicy"}
     )
     Update-MgServicePrincipalSynchronization
-        -ServicePrincipalId <servicePrincipalId>
+        -ServicePrincipalId $ServicePrincipalId
         -Secrets $Credentials
     ```
 ::: zone-end
@@ -643,12 +646,12 @@ For cross-tenant synchronization to work, at least one internal user must be ass
 1. In the source tenant, use the [New-MgServicePrincipalAppRoleAssignedTo](/powershell/module/microsoft.graph.applications/new-mgserviceprincipalapproleassignedto?branch=main) command to assign an internal user to the configuration.
 
     ```powershell
-    $params = @{
-    	PrincipalId = "<principalId>"
-    	ResourceId = "<servicePrincipalId>"
-    	AppRoleId = "<appRoleId>"
+    $Params = @{
+    	PrincipalId = "<PrincipalId>"
+    	ResourceId = $ServicePrincipalId
+    	AppRoleId = "<AppRoleId>"
     }
-    New-MgServicePrincipalAppRoleAssignedTo -ServicePrincipalId $servicePrincipalId -BodyParameter $params
+    New-MgServicePrincipalAppRoleAssignedTo -ServicePrincipalId $ServicePrincipalId -BodyParameter $Params
     ```
 ::: zone-end
 
@@ -698,16 +701,16 @@ Now that you have a configuration, you can test on-demand provisioning with one 
 1. In the source tenant, use the [New-MgApplicationSynchronizationJobOnDemand](/powershell/module/microsoft.graph.applications/new-mgapplicationsynchronizationjobondemand?view=graph-powershell-beta&preserve-view=true&branch=main) command to provision a test user on demand.
 
     ```powershell
-    $params = @{
-    	RuleId = "<ruleId>"
+    $Params = @{
+    	RuleId = "<RuleId>"
         Subjects = @(
             @{
-                ObjectId = "<userObjectId>"
+                ObjectId = "<UserObjectId>"
                 ObjectTypeName = "User"
             }
         )
     }
-    New-MgApplicationSynchronizationJobOnDemand -ApplicationId $servicePrincipalId -SynchronizationJobId $jobId -BodyParameter $params
+    New-MgApplicationSynchronizationJobOnDemand -ApplicationId $ServicePrincipalId -SynchronizationJobId $JobId -BodyParameter $Params
     ```
 ::: zone-end
 
@@ -745,8 +748,8 @@ Now that you have a configuration, you can test on-demand provisioning with one 
 
     ```powershell
     Start-MgServicePrincipalSynchronizationJob
-        -ServicePrincipalId <servicePrincipalId>
-        -SynchronizationJobId <jobId>
+        -ServicePrincipalId $ServicePrincipalId
+        -SynchronizationJobId $JobId
     ```
 ::: zone-end
 
@@ -776,8 +779,8 @@ Now that you have a configuration, you can test on-demand provisioning with one 
 
     ```powershell
     Get-MgServicePrincipalSynchronizationJob
-        -ServicePrincipalId <servicePrincipalId>
-        -SynchronizationJobId <jobId>
+        -ServicePrincipalId $ServicePrincipalId
+        -SynchronizationJobId $JobId
     ```
 
 1. In addition to monitoring the status of the provisioning job, use the [Get-MgAuditLogProvisioning](/powershell/module/microsoft.graph.reports/get-mgauditlogprovisioning?view=graph-powershell-beta&preserve-view=true&branch=main) command to retrieve the provisioning logs and get all the provisioning events that occur. For example, query for a particular user and determine if they were successfully provisioned.
