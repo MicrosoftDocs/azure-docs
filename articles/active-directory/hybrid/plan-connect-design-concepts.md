@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Design concepts | Microsoft Docs'
+title: 'Azure AD Connect: Design concepts'
 description: This topic details certain implementation design areas
 services: active-directory
 documentationcenter: ''

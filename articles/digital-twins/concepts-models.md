@@ -57,7 +57,7 @@ The main information about a model is given by its attributes, which are defined
 * *Property* - Properties are data fields that represent the state of an entity (like the properties in many object-oriented programming languages). Properties have backing storage and can be read at any time. For more information, see [Properties and telemetry](#properties-and-telemetry) below.
 * *Telemetry* - Telemetry fields represent measurements or events, and are often used to describe device sensor readings. Unlike properties, telemetry isn't stored on a digital twin; it's a series of time-bound data events that need to be handled as they occur. For more information, see [Properties and telemetry](#properties-and-telemetry) below.
 * *Relationship* - Relationships let you represent how a digital twin can be involved with other digital twins. Relationships can represent different semantic meanings, such as `contains` ("floor contains room"), `cools` ("hvac cools room"), `isBilledTo` ("compressor is billed to user"), and so on. Relationships allow the solution to provide a graph of interrelated entities. Relationships can also have properties of their own. For more information, see [Relationships](#relationships) below.
-* *Component* - Components allow you to build your model interface as an assembly of other interfaces, if you want. An example of a component is a frontCamera interface (and another component interface backCamera) that are used in defining a model for a phone. First define an interface for frontCamera as though it were its own model, and then reference it when defining Phone.
+* *Component* - Components allow you to build your model interface as an assembly of other interfaces, if you want. An example of a component is a frontCamera interface (and another component interface backCamera) that's used in defining a model for a phone. First define an interface for frontCamera as though it were its own model, and then reference it when defining Phone.
 
     Use a component to describe something that is an integral part of your solution but doesn't need a separate identity, and doesn't need to be created, deleted, or rearranged in the twin graph independently. If you want entities to have independent existences in the twin graph, represent them as separate digital twins of different models, connected by relationships.
     
@@ -226,9 +226,11 @@ For a DTDL model to be compatible with Azure Digital Twins, it must also meet th
 
 This section describes additional considerations and recommendations for modeling.
 
-### Use DTDL industry-standard ontologies
+### Use existing industry-standard ontologies
 
-If your solution is for a certain established industry (like smart buildings, smart cities, or energy grids), consider starting with a pre-existing set of models for your industry instead of designing your models from scratch. Microsoft has partnered with domain experts to create DTDL model sets based on industry standards, to help minimize reinvention and encourage consistency and simplicity across industry solutions. You can read more about these ontologies, including how to use them and what ontologies are available now, in [What is an ontology?](concepts-ontologies.md).
+An *ontology* is a set of models that comprehensively describe a given domain, like manufacturing, building structures, IoT systems, smart cities, energy grids, web content, and more.
+
+If your solution is for a certain industry that uses any sort of modeling standard, consider starting with a pre-existing set of models designed for your industry instead of designing your models from scratch. Microsoft has partnered with domain experts to create DTDL model ontologies based on industry standards, to help minimize reinvention and encourage consistency and simplicity across industry solutions. You can read more about these ontologies, including how to use them and what ontologies are available now, in [What is an ontology?](concepts-ontologies.md).
 
 ### Consider query implications
 
@@ -242,15 +244,15 @@ While designing models to reflect the entities in your environment, it can be us
 
 Once you're finished creating, extending, or selecting your models, you need to upload them to your Azure Digital Twins instance to make them available for use in your solution. 
 
-You can upload many models in a single API call using the [Import Jobs API](concepts-apis-sdks.md#bulk-import-with-the-import-jobs-api). The API can simultaneously accept up to the [Azure Digital Twins limit for number of models in an instance](reference-service-limits.md), and it automatically reorders models if needed to resolve dependencies between them. For detailed instructions and examples that use this API, see [bulk import instructions for models](how-to-manage-model.md#upload-large-model-sets-with-the-import-jobs-api). 
+You can upload many models in a single API call using the [Jobs API](concepts-apis-sdks.md#bulk-import-with-the-jobs-api). The API can simultaneously accept up to the [Azure Digital Twins limit for number of models in an instance](reference-service-limits.md), and it automatically reorders models if needed to resolve dependencies between them. For detailed instructions and examples that use this API, see [bulk import instructions for models](how-to-manage-model.md#upload-large-model-sets-with-the-jobs-api). 
 
-An alternative to the Import Jobs API is the [Model uploader sample](https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools#uploadmodels), which uses the individual model APIs to upload multiple model files at once. The sample also implements automatic reordering to resolve model dependencies.
+An alternative to the Jobs API is the [Model uploader sample](https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools#uploadmodels), which uses the individual model APIs to upload multiple model files at once. The sample also implements automatic reordering to resolve model dependencies.
 
 If you need to delete all models in an Azure Digital Twins instance at once, you can use the [Model deleter sample](https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools#deletemodels). This is a project that contains recursive logic to handle model dependencies through the deletion process. 
 
 ### Visualize models
 
-Once you have uploaded models into your Azure Digital Twins instance, you can use [Azure Digital Twins Explorer](http://explorer.digitaltwins.azure.net/) to view them. The explorer contains a list of all models in the instance, as well as a **model graph** that illustrates how they relate to each other, including any inheritance and model relationships.
+Once you have uploaded models into your Azure Digital Twins instance, you can use [Azure Digital Twins Explorer](https://explorer.digitaltwins.azure.net/) to view them. The explorer contains a list of all models in the instance, as well as a **model graph** that illustrates how they relate to each other, including any inheritance and model relationships.
 
 Here's an example of what a model graph might look like:
 

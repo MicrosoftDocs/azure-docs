@@ -99,7 +99,7 @@ At this point, check that your resource group (**SpeechEchoBotTutorial-ResourceG
 
 | Name | Type  | Location |
 |------|-------|----------|
-| SpeechEchoBotTutorial-Speech | Cognitive Services | West US |
+| SpeechEchoBotTutorial-Speech | Speech | West US |
 
 ### Create an Azure App Service plan
 

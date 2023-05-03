@@ -182,7 +182,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
    * To add an action under the last step, select **New step**.
 
-   * To add an action between steps, move your mouse over the connecting arrow so that the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
+   * To add an action between steps, move your pointer over the connecting arrow so that the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
 1. Under the **Choose an operation** search box, select **Enterprise**. In the search box, enter **mq**.
 

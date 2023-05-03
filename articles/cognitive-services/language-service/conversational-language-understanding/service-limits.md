@@ -44,6 +44,8 @@ Conversational language understanding is only available in some Azure regions. S
 | Canada Central     |           | ✓           |
 | Central India      | ✓         | ✓           |
 | Central US         |           | ✓           |
+| China East 2       | ✓         | ✓           |
+| China North 2      |           | ✓           |
 | East Asia          |           | ✓           |
 | East US            | ✓         | ✓           |
 | East US 2          | ✓         | ✓           |

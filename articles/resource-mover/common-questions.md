@@ -4,9 +4,9 @@ description: Get answers to common questions about  Azure Resource Mover
 author: ankitaduttaMSFT
 manager: evansma
 ms.service: resource-mover
-ms.custom: ignite-2022, engagement-fy23
+ms.custom: ignite-2022, engagement-fy23, UpdateFrequency.5
 ms.topic: conceptual
-ms.date: 12/23/2022
+ms.date: 04/28/2023
 ms.author: ankitadutta
 ---
 
@@ -47,6 +47,17 @@ Using Resource Mover, you can currently move the following resources across regi
 ### Can I move disks across regions?
 
 You can't select disks as resources to the moved across regions. However, disks are moved as part of a VM move.
+
+### How can I move my resources across subscription?
+
+Currently, Azure Resource Mover only supports move across regions within the same subscription. Move across subscriptions is not supported. 
+
+However, on the Azure Portal, Azure Resource mover has an entry point to enable the move across subscriptions. The capability to move across subscriptions is supported by Azure Resource Manager (ARM). [Learn more](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+
+Moving across regions and across subscriptions is a two-step process:
+
+1. Move resources across regions using Azure Resource Mover.
+1. Use Azure Resource Manager (ARM) to move across subscriptions once resources are in the desired target region.
 
 ### What does it mean to move a resource group?
 

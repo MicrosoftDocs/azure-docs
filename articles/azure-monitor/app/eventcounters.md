@@ -11,7 +11,7 @@ ms.reviewer: cithomas
 
 [`EventCounter`](/dotnet/core/diagnostics/event-counters) is .NET/.NET Core mechanism to publish and consume counters or statistics. EventCounters are supported in all OS platforms - Windows, Linux, and macOS. It can be thought of as a cross-platform equivalent for the [PerformanceCounters](/dotnet/api/system.diagnostics.performancecounter) that is only supported in Windows systems.
 
-While users can publish any custom `EventCounters` to meet their needs, .NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) and higher runtime publishes a set of these counters by default. This document will walk through the steps required to collect and view `EventCounters` (system defined or user defined) in Azure Application Insights.
+While users can publish any custom `EventCounters` to meet their needs, [.NET](/dotnet/fundamentals/) publishes a set of these counters by default. This document will walk through the steps required to collect and view `EventCounters` (system defined or user defined) in Azure Application Insights.
 
 ## Using Application Insights to collect EventCounters
 
@@ -90,7 +90,7 @@ changed as shown in the example below.
 To view EventCounter metrics in [Metric Explorer](../essentials/metrics-charts.md), select Application Insights resource, and chose Log-based metrics as metric namespace. Then EventCounter metrics get displayed under Custom category.
 
 > [!div class="mx-imgBorder"]
-> ![Event counters reported in Application Insights Metric Explorer](./media/event-counters/metrics-explorer-counter-list.png)
+> :::image type="content" source="./media/event-counters/metrics-explorer-counter-list.png" lightbox="./media/event-counters/metrics-explorer-counter-list.png" alt-text="Event counters reported in Application Insights Metric Explorer":::
 
 ## Event counters in Analytics
 
@@ -103,7 +103,7 @@ customMetrics | summarize avg(value) by name
 ```
 
 > [!div class="mx-imgBorder"]
-> ![Event counters reported in Application Insights Analytics](./media/event-counters/analytics-event-counters.png)
+> :::image type="content" source="./media/event-counters/analytics-event-counters.png" lightbox="./media/event-counters/analytics-event-counters.png" alt-text="Event counters reported in Application Insights Analytics":::
 
 To get a chart of a specific counter (for example: `ThreadPool Completed Work Item Count`) over the recent period, run the following query.
 
@@ -115,7 +115,7 @@ customMetrics
 | render timechart
 ```
 > [!div class="mx-imgBorder"]
-> ![Chat of a single counter in Application Insights](./media/event-counters/analytics-completeditems-counters.png)
+> :::image type="content" source="./media/event-counters/analytics-completeditems-counters.png" lightbox="./media/event-counters/analytics-completeditems-counters.png" alt-text="Chat of a single counter in Application Insights":::
 
 Like other telemetry, **customMetrics** also has a column `cloud_RoleInstance` that indicates the identity of the host server instance on which your app is running. The above query shows the counter value per instance, and can be used to compare performance of different server instances.
 

@@ -27,6 +27,9 @@ Explore, try out, and view sample code for some of common use cases.
 
 * [Call Center](https://aka.ms/speechstudio/callcenter): View a demonstration on how to use the Language and Speech services to analyze call center conversations. Transcribe calls in real-time or process a batch of calls, redact personally identifying information, and extract insights such as sentiment to help with your call center use case. For more information, see the [call center quickstart](call-center-quickstart.md).
 
+For a demonstration of these scenarios in Speech Studio, view this [introductory video](https://youtu.be/mILVerU6DAw).
+> [!VIDEO https://www.youtube.com/embed/mILVerU6DAw]
+
 ## Speech Studio features
 
 In Speech Studio, the following Speech service features are available as project types:

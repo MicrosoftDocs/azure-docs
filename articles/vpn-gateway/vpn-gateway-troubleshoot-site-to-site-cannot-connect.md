@@ -100,6 +100,10 @@ If the Internet-facing IP address of the VPN device is included in the **Local n
     <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Primary Instance: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6</string>
     ```
 
+> [!Note]
+> Basic SKU VPN gateways do not reply to health probe.
+> They are not recommended for [production workloads](https://learn.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#workloads).
+
 ### Step 8. Check whether the on-premises VPN device has the perfect forward secrecy feature enabled
 
 The perfect forward secrecy feature can cause disconnection problems. If the VPN device has perfect forward secrecy enabled, disable the feature. Then update the VPN gateway IPsec policy.

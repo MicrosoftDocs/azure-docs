@@ -113,7 +113,7 @@ Before you install Windows Server AD, run a script that installs prerequisites:
     $ipprefix = "24" 
     $ipgw = "10.0.1.1" 
     $ipdns = "10.0.1.117"
-    $ipdns2 = "8.8.8.8" 
+    $ipdns2 = "4.2.2.2" 
     $ipif = (Get-NetAdapter).ifIndex 
     $featureLogPath = "c:\poshlog\featurelog.txt" 
     $newname = "DC1"

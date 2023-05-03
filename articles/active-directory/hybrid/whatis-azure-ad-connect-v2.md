@@ -1,5 +1,5 @@
 ---
-title: 'What is Azure AD Connect v2.0? | Microsoft Docs'
+title: 'What is Azure AD Connect v2.0?'
 description: Learn about the next version of Azure AD Connect.
 services: active-directory
 author: billmath

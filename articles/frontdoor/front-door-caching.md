@@ -123,15 +123,17 @@ If there's more than one key-value pair in a query string of a request then thei
 
 When you configure caching, you specify how the cache should handle query strings. The following behaviors are supported:
 
-* **Ignore query strings**: In this mode, Azure Front Door passes the query strings from the client to the origin on the first request and caches the asset. All ensuing requests for the asset that are served from the Front Door environment ignore the query strings until the cached asset expires.
+* **Ignore Query String**: In this mode, Azure Front Door passes the query strings from the client to the origin on the first request and caches the asset. Future requests for the asset that are served from the Front Door environment ignore the query strings until the cached asset expires.
 
-* **Cache every unique URL**: In this mode, each request with a unique URL, including the query string, is treated as a unique asset with its own cache. For example, the response from the origin for a request for `www.example.ashx?q=test1` is cached at the Front Door environment and returned for ensuing caches with the same query string. A request for `www.example.ashx?q=test2` is cached as a separate asset with its own time-to-live setting.
+* **Use Query String**: In this mode, each request with a unique URL, including the query string, is treated as a unique asset with its own cache. For example, the response from the origin for a request for `www.example.ashx?q=test1` is cached at the Front Door environment and returned for ensuing caches with the same query string. A request for `www.example.ashx?q=test2` is cached as a separate asset with its own time-to-live setting.
+
+  The order of the query string parameters doesn't matter. For example, if the Azure Front Door environment includes a cached response for the URL `www.example.ashx?q=test1&r=test2`, then a request for `www.example.ashx?r=test2&q=test1` is also served from the cache.
 
 ::: zone pivot="front-door-standard-premium"
 
-* **Specify cache key query string** behavior to include or exclude specified parameters when the cache key is generated.
+* **Ignore Specified Query Strings** and **Include Specified Query Strings**: In this mode, you can configure Azure Front Door to include or exclude specified parameters when the cache key is generated.
 
-  For example, suppose that the default cache key is `/foo/image/asset.html`, and a request is made to the URL `https://contoso.com//foo/image/asset.html?language=EN&userid=100&sessionid=200`. If there's a rules engine rule to exclude the `userid` query string parameter, then the query string cache key would be `/foo/image/asset.html?language=EN&sessionid=200`.
+  For example, suppose that the default cache key is `/foo/image/asset.html`, and a request is made to the URL `https://contoso.com/foo/image/asset.html?language=EN&userid=100&sessionid=200`. If there's a rules engine rule to exclude the `userid` query string parameter, then the query string cache key would be `/foo/image/asset.html?language=EN&sessionid=200`.
 
 Configure the query string behavior on the Front Door route.
 
@@ -206,11 +208,17 @@ In addition, Front Door attaches the `X-Cache` header to all responses. The `X-C
 - `PRIVATE_NOSTORE`: Request can't be cached because the *Cache-Control* response header is set to either *private* or *no-store*.
 - `CONFIG_NOCACHE`: Request is configured to not cache in the Front Door profile.
 
-::: zone pivot="front-door-standard-premium"
-
 ## Logs and reports
 
-The [Front Door Access Log](standard-premium/how-to-logs.md#access-log) includes the cache status for each request. Also, [reports](standard-premium/how-to-reports.md#caching) include information about how Front Door's cache is used in your application.
+::: zone pivot="front-door-standard-premium"
+
+The [access log](front-door-diagnostics.md#access-log) includes the cache status for each request. Also, [reports](standard-premium/how-to-reports.md#caching-report) include information about how Azure Front Door's cache is used in your application.
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+The [access log](front-door-diagnostics.md#access-log) includes the cache status for each request.
 
 ::: zone-end
 
@@ -222,7 +230,7 @@ Cache behavior and duration can be configured in Rules Engine. Rules Engine cach
 
 * **When caching is disabled**, Azure Front Door doesn’t cache the response contents, irrespective of the origin response directives.
 
-* **When caching is enabled**, the cache behavior differs based on the cache behavior value applied by the Rules Engine:
+* **When caching is enabled**, the cache behavior is different depending on the cache behavior value applied by the Rules Engine:
 
    * **Honor origin**: Azure Front Door will always honor origin response header directive. If the origin directive is missing, Azure Front Door will cache contents anywhere from one to three days.  
    * **Override always**: Azure Front Door will always override with the cache duration, meaning that it will cache the contents for the cache duration ignoring the values from origin response directives. This behavior will only be applied if the response is cacheable.

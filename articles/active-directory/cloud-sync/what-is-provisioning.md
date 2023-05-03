@@ -1,5 +1,5 @@
 ---
-title: 'What is identity provisioning with Azure AD? | Microsoft Docs'
+title: 'What is identity provisioning with Azure AD?'
 description: Describes overview of identity provisioning.
 services: active-directory
 author: billmath

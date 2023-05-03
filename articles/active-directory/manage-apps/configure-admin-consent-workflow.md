@@ -12,7 +12,7 @@ ms.date: 09/02/2022
 ms.author: jomondi
 ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
-ms.custom: contperf-fy22q2
+ms.custom: contperf-fy22q2, enterprise-apps
 #customer intent: As an admin, I want to configure the admin consent workflow.
 ---
 
@@ -22,7 +22,7 @@ In this article, you'll learn how to configure the admin consent workflow to ena
 
 The admin consent workflow gives admins a secure way to grant access to applications that require admin approval. When a user tries to access an application but is unable to provide consent, they can send a request for admin approval. The request is sent via email to admins who have been designated as reviewers. A reviewer takes action on the request, and the user is notified of the action.
 
-To approve requests, a reviewer must be a global administrator, cloud application administrator, or application administrator. The reviewer must already have one of these admin roles assigned; simply designating them as a reviewer doesn't elevate their privileges.
+To approve requests, a reviewer must have the [permissions required](grant-admin-consent.md#prerequisites) to grant admin consent for the application requested. Simply designating them as a reviewer doesn't elevate their privileges.
 
 ## Prerequisites
 
@@ -39,8 +39,7 @@ To enable the admin consent workflow and choose reviewers:
 1. Search for and select **Azure Active Directory**.
 1. Select **Enterprise applications**.
 1. Under **Security**, select **Consent and permissions**.
-1. Under **Manage**, select **Admin consent settings**.
-Under **Admin consent requests**,  select **Yes** for **Users can request admin consent to apps they are unable to consent to** .
+1. Under **Manage**, select **Admin consent settings**. Under **Admin consent requests**,  select **Yes** for **Users can request admin consent to apps they are unable to consent to** .
 
    ![Screenshot of configure admin consent workflow settings.](./media/configure-admin-consent-workflow/enable-admin-consent-workflow.png)
    
@@ -53,8 +52,8 @@ Under **Admin consent requests**,  select **Yes** for **Users can request admin 
 
 1. Select **Save**. It can take up to an hour for the workflow to become enabled.
 
- > [!NOTE]
- > You can add or remove reviewers for this workflow by modifying the **Select admin consent requests reviewers** list. A current limitation of this feature is that a reviewer can retain the ability to review requests that were made while they were designated as a reviewer.
+> [!NOTE]
+> You can add or remove reviewers for this workflow by modifying the **Who can review admin consent requests** list. A current limitation of this feature is that a reviewer retains the ability to review requests that were made while they were designated as a reviewer and will receive expiration reminder emails for those requests after they're removed from the reviewers list. Additionally, new reviewers will not be assigned to requests that were created before they were set as a reviewer.
 
 ## Configure the admin consent workflow using Microsoft Graph
 

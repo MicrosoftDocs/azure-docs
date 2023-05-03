@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: include
-ms.date: 02/10/2023
+ms.date: 03/17/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -20,23 +20,22 @@ For this quickstart, we use the Node.js JavaScript runtime environment to create
 1. If you haven't done so already, install the latest version of [Node.js](https://nodejs.org/en/download/). Node Package Manager (npm) is included with the Node.js installation.
 
     > [!TIP]
-    >
     > If you're new to Node.js, try the [Introduction to Node.js](/training/modules/intro-to-nodejs/) Learn module.
 
 1. In a console window (such as cmd, PowerShell, or Bash), create and navigate to a new directory for your app named `document-translation`.
 
     ```console
-        mkdir document-translation && cd document-translation
+    mkdir document-translation && cd document-translation
     ```
 
    ```powershell
-     mkdir document-translation; cd document-translation
+   mkdir document-translation; cd document-translation
    ```
 
 1. Run the npm init command to initialize the application and scaffold your project.
 
     ```console
-       npm init
+    npm init
     ```
 
 1. Specify your project's attributes by accepting the prompts presented in the terminal.
@@ -49,7 +48,7 @@ For this quickstart, we use the Node.js JavaScript runtime environment to create
 1. Use npm to install the `axios` HTTP library and `uuid` package in your document-translation app directory:
 
     ```console
-       npm install axios uuid
+    npm install axios uuid
     ```
 
  > [!div class="nextstepaction"]
@@ -59,11 +58,11 @@ For this quickstart, we use the Node.js JavaScript runtime environment to create
 
 1. Create the `index.js` file in the app directory.
 
-     > [!TIP]
+    > [!TIP]
     >
     > * You can create a new file using PowerShell.
     > * Open a PowerShell window in your project directory by holding down the Shift key and right-clicking the folder.
-    > * Type the following command **New-Item index.js**.
+    > * Enter the following command **New-Item index.js**.
     >
     > * You can also create a new file named `index.js` in your IDE and save it to the `document-translation` directory.
 
@@ -75,8 +74,8 @@ For this quickstart, we use the Node.js JavaScript runtime environment to create
 
 ## Code sample
 
-  > [!IMPORTANT]
-  > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../../cognitive-services/security-features.md).
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). For more information, see Cognitive Services [security](../../../../../cognitive-services/security-features.md).
 
 ```javascript
 const axios = require('axios').default;
@@ -84,8 +83,8 @@ const axios = require('axios').default;
 let endpoint = '{your-document-translation-endpoint}/translator/text/batch/v1.0';
 let route = '/batches';
 let key = '{your-key}';
-let sourceSASUrl = "https://januaristorage.blob.core.windows.net/source-doc-translator?sp=rwl&st=2022-12-16T21:02:29Z&se=2022-12-17T05:02:29Z&spr=https&sv=2021-06-08&sr=c&sig=iL%2BAFVloS4cchKs0SCoq54umv7V2UnDJd8g7URhfmpA%3D";
-let targetSASUrl = "https://januaristorage.blob.core.windows.net/target-doc-translator?sp=rwl&st=2022-12-16T21:03:34Z&se=2022-12-17T05:03:34Z&spr=https&sv=2021-06-08&sr=c&sig=B2MOzqQxHf64AEOy4mk%2F3XVx43zG3p5VICvFXV335qY%3D"
+let sourceSASUrl = "{your-source-container-SAS-URL}";
+let targetSASUrl = "{your-target-container-SAS-URL}"
 
 let data = JSON.stringify({"inputs": [
   {
@@ -121,26 +120,25 @@ axios(config)
 .catch(function (error) {
   console.log(error);
 });
-
 ```
 
 ## Run your JavaScript application
 
-* Once you've added the code sample to your application, run your program:
+Once you've added the code sample to your application, run your program:
 
   1. Navigate to your application directory (document-translation).
 
-  1. Type the following command in your terminal:
+  1. Enter and run the following command in your terminal:
 
       ```console
       node index.js
       ```
 
-* The successful POST method returns a `202 Accepted` response code indicating that the batch request was created by the service.
+Upon successful completion: 
 
+* The translated documents can be found in your target container.
+* The successful POST method returns a `202 Accepted` response code indicating that the service created the batch request.
 * The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests.
 
-* The translated documents are listed in your target container.
-
-  > [!div class="nextstepaction"]
-  > [I successfully translated my document.](#next-steps)  [I ran into an issue.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Translate-documents)
+> [!div class="nextstepaction"]
+> [I successfully translated my document.](#next-steps)  [I ran into an issue.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Translate-documents)

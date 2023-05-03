@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with AppBlade | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with AppBlade'
 description: Learn how to configure single sign-on between Azure Active Directory and AppBlade.
 services: active-directory
 author: jeevansd

@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 12/06/2022
+ms.date: 04/10/2023
 ms.author: radeltch
 ---
 
@@ -23,6 +23,7 @@ ms.author: radeltch
 
 [2002167]:https://launchpad.support.sap.com/#/notes/2002167
 [2772999]:https://launchpad.support.sap.com/#/notes/2772999
+[3108316]:https://launchpad.support.sap.com/#/notes/3108316
 [2009879]:https://launchpad.support.sap.com/#/notes/2009879
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
@@ -191,7 +192,7 @@ When you plan your deployment with NFS on Azure Files, consider the following im
 
 - The minimum share size is 100 GiB. You only pay for the [capacity of the provisioned shares](../../storage/files/understanding-billing.md#provisioned-model) 
 - Size your NFS shares not only based on capacity requirements, but also on IOPS and throughput requirements. For details see [Azure file share targets](../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets)
-- Test the workload to validate your sizing and ensure that it meets your performance targets. To learn how to troubleshoot performance issues with NFS on Azure Files, consult [Troubleshoot Azure file shares performance](../../storage/files/storage-troubleshooting-files-performance.md)
+- Test the workload to validate your sizing and ensure that it meets your performance targets. To learn how to troubleshoot performance issues with NFS on Azure Files, consult [Troubleshoot Azure file shares performance](../../storage/files/files-troubleshoot-performance.md)
 - For SAP J2EE systems, it's not supported to place `/usr/sap/<SID>/J<nr>` on NFS on Azure Files.
 - If your SAP system has a heavy batch jobs load, you may have millions of job logs. If the SAP batch job logs are stored in the file system, pay special attention to the sizing of the `sapmnt` share. As of SAP_BASIS 7.52 the default behavior for the batch job logs is to be stored in the database. For details see [Job log in the database][2360818].     
 - Deploy a separate `sapmnt` share for each SAP system
@@ -200,7 +201,7 @@ When you plan your deployment with NFS on Azure Files, consider the following im
 - Avoid consolidating the shares for too many SAP systems in a single storage account. There are also [Storage account performance scale targets](../../storage/files/storage-files-scale-targets.md#storage-account-scale-targets). Be careful to not exceed the limits for the storage account, too.
 - In general,  don't consolidate the shares for more than 5 SAP systems in a single storage account. This guideline helps avoid exceeding the storage account limits and simplifies performance analysis.   
 - In general, avoid mixing shares like `sapmnt` for non-production and production SAP systems in the same storage account.
-- We recommend to deploy on RHEL 8.4 or higher to benefit from [NFS client improvements](../../storage/files/storage-troubleshooting-files-nfs.md#ls-hangs-for-large-directory-enumeration-on-some-kernels).   
+- We recommend to deploy on RHEL 8.4 or higher to benefit from [NFS client improvements](../../storage/files/files-troubleshoot-linux-nfs.md#ls-hangs-for-large-directory-enumeration-on-some-kernels).   
 - Use a private endpoint. In the unlikely event of a zonal failure, your NFS sessions automatically redirect to a healthy zone. You don't have to remount the NFS shares on your VMs.
 - If you're deploying your VMs across Availability Zones, use [Storage account with ZRS](../../storage/common/storage-redundancy.md#zone-redundant-storage) in the Azure regions that supports ZRS. 
 - Azure Files doesn't currently support automatic cross-region replication for disaster recovery scenarios.
@@ -375,17 +376,17 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 8. **[A]** RHEL configuration
 
-   Configure RHEL as described in SAP Note [2002167] for RHEL 7.x or SAP Note [2772999] for RHEL 8.x  
+   Configure RHEL as described in SAP Note [2002167] for RHEL 7.x, SAP Note [2772999] for RHEL 8.x or SAP note [3108316] for RHEL 9.x.     
 
 ### Installing SAP NetWeaver ASCS/ERS
 
 1. **[1]** Configure cluster default properties
 
     ```bash
-    # If using RHEL 7.X
+    # If using RHEL 7.x
     pcs resource defaults resource-stickiness=1
     pcs resource defaults migration-threshold=3
-    # If using RHEL 8.X
+    # If using RHEL 8.x or later
     pcs resource defaults update resource-stickiness=1
     pcs resource defaults update migration-threshold=3
     ```

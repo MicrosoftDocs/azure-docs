@@ -477,14 +477,15 @@ With susChkSrv implemented, an immediate and configurable action is executed, wh
 
 Configuration pointing to the standard location /usr/share/SAPHanaSR, brings a benefit, that the python hook code is automatically updated through OS or package updates and it gets used by HANA at next restart. With an optional, own path, such as /hana/shared/myHooks you can decouple OS updates with the used hook version.
 
-2. **[A]** The cluster requires sudoers configuration on each cluster node for <sid\>adm. In this example that is achieved by creating a new file. Execute the command as `root` and adapt the bold values of hn1/HN1 with correct SID.    
-    <pre><code>
+2. **[A]** The cluster requires sudoers configuration on each cluster node for <sid\>adm. In this example that is achieved by creating a new file. Execute the command as `root` and adapt the values of hn1/HN1 with correct SID.    
+
+    ```bash
     cat << EOF > /etc/sudoers.d/20-saphana
     # Needed for SAPHanaSR and susChkSrv Python hooks
-    <b>hn1</b>adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_<b>hn1</b>_site_srHook_*
-    <b>hni</b>adm ALL=(ALL) NOPASSWD: /usr/sbin/SAPHanaSR-hookHelper --sid=<b>HN1</b> --case=fenceMe
+    hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_hn1_site_srHook_*
+    hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/SAPHanaSR-hookHelper --sid=HN1 --case=fenceMe
     EOF
-    </code></pre>
+    ```
 For more details on the implementation of the SAP HANA system replication hook see [Set up HANA HA/DR providers](https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-15/index.html#_set_up_sap_hana_hadr_providers). 
 
 3. **[A]** Start SAP HANA on both nodes. Execute as <sid\>adm.  

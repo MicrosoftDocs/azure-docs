@@ -124,7 +124,7 @@ In this code, the name of your key vault is used to create the key vault URI, in
 
 The code samples below will show you how to create a client, set a secret, retrieve a secret, and delete a secret. 
 
-This code uses the following [Key Vault Secret classes and methods](/javascript/api/overview/azure/keyvault-secretss-readme):
+This code uses the following [Key Vault Secret classes and methods](/javascript/api/overview/azure/keyvault-secrets-readme):
     
 * [DefaultAzureCredential](/javascript/api/@azure/identity/#@azure-identity-getdefaultazurecredential)
 * [SecretClient class](/javascript/api/@azure/keyvault-secrets/secretclient)

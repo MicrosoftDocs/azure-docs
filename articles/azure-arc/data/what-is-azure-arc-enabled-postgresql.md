@@ -23,7 +23,7 @@ ms.topic: how-to
 
 Microsoft offers PostgreSQL database services in Azure in two ways:
 - As a managed service in **[Azure PaaS](https://portal.azure.com/#create/Microsoft.PostgreSQLServer)** (Platform As A Service)
-- As a semi-managed service with Azure Arc as it is operated by customers or their partners/vendors
+- As a customer-managed service with Azure Arc as it is operated by customers or their partners/vendors
 
 ### Features
 
@@ -33,9 +33,13 @@ Microsoft offers PostgreSQL database services in Azure in two ways:
     - On-premises
     - Cloud providers like AWS, GCP, and Azure
     - Edge deployments (including lightweight Kubernetes [K3S](https://k3s.io/))
-- Integrate with Azure (optional)
+- Integrate with Azure
     - Direct connectivity mode - Deploy Azure Arc-enabled PostgreSQL server from the Azure portal
     - Indirect connectivity mode - Deploy Azure Arc-enabled PostgreSQL server from the infrastructure that hosts it
+- Secure
+    - Supports Active Directory
+    - Server and Client TLS
+    - System and user managed certificates
 - Pay for what you use (per usage billing)
 - Get support from Microsoft on PostgreSQL
 
@@ -62,3 +66,5 @@ Follow these steps to create on your own Kubernetes cluster:
 - [Azure Arc-enabled Data Services overview](overview.md)
 - [Azure Arc Hybrid Data Services](https://azure.microsoft.com/services/azure-arc/hybrid-data-services)
 - [Connectivity modes](connectivity.md)
+
+

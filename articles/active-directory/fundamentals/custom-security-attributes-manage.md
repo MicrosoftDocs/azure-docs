@@ -1,9 +1,10 @@
 ---
-title: Manage access to custom security attributes in Azure AD (Preview) - Azure Active Directory
+title: Manage access to custom security attributes in Azure AD (Preview)
 description: Learn how to manage access to custom security attributes in Azure Active Directory.
 services: active-directory
 author: rolyon
 ms.author: rolyon
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
@@ -112,7 +113,7 @@ To grant access to the appropriate people, follow these steps to assign one of t
 
 #### Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Click **Azure Active Directory**.
 
@@ -160,7 +161,7 @@ Content-type: application/json
 
 #### Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Click **Azure Active Directory**.
 
@@ -198,5 +199,5 @@ The following screenshot shows an example of the audit log. To filter the logs f
 ## Next steps
 
 - [Add or deactivate custom security attributes in Azure AD](custom-security-attributes-add.md)
-- [Assign or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md)
+- [Assign, update, list, or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md)
 - [Troubleshoot custom security attributes in Azure AD](custom-security-attributes-troubleshoot.md)

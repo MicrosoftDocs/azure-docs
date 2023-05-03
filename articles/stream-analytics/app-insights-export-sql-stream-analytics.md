@@ -128,7 +128,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 ![Screenshot of create PageViewsTable in SQL Server Management Studio.](./media/app-insights-export-sql-stream-analytics/34-create-table.png)
 
-In this sample, we are using data from page views. To see the other data available, inspect your JSON output, and see the [export data model](../azure-monitor/app/export-telemetry.md#application-insights-export-data-model).
+In this sample, we are using data from page views. To see the other data available, inspect your JSON output, and see the [export data model](/previous-versions/azure/azure-monitor/app/export-telemetry#application-insights-export-data-model).
 
 ## Create an Azure Stream Analytics instance
 From the [Azure portal](https://portal.azure.com/), select the Azure Stream Analytics service, and create a new Stream Analytics job:
@@ -165,7 +165,7 @@ In this example:
 
 * `webapplication27` is the name of the Application Insights resource, **all in lower case**. 
 * `1234...` is the instrumentation key of the Application Insights resource **with dashes removed**. 
-* `PageViews` is the type of data we want to analyze. The available types depend on the filter you set in Continuous Export. Examine the exported data to see the other available types, and see the [export data model](../azure-monitor/app/export-telemetry.md#application-insights-export-data-model).
+* `PageViews` is the type of data we want to analyze. The available types depend on the filter you set in Continuous Export. Examine the exported data to see the other available types, and see the [export data model](/previous-versions/azure/azure-monitor/app/export-telemetry#application-insights-export-data-model).
 * `/{date}/{time}` is a pattern written literally.
 
 To get the name and iKey of your Application Insights resource, open Essentials on its overview page, or open Settings.
@@ -215,7 +215,7 @@ Replace the default query with:
 
 ```
 
-Notice that the first few properties are specific to page view data. Exports of other telemetry types will have different properties. See the [detailed data model reference for the property types and values.](../azure-monitor/app/export-telemetry.md#application-insights-export-data-model)
+Notice that the first few properties are specific to page view data. Exports of other telemetry types will have different properties. See the [detailed data model reference for the property types and values.](/previous-versions/azure/azure-monitor/app/export-telemetry#application-insights-export-data-model)
 
 ## Set up output to database
 Select SQL as the output.
@@ -243,13 +243,13 @@ FROM [dbo].[PageViewsTable]
 ```
 
 ## Next steps
-* [detailed data model reference for the property types and values.](../azure-monitor/app/export-telemetry.md#application-insights-export-data-model)
-* [Continuous Export in Application Insights](../azure-monitor/app/export-telemetry.md)
+* [detailed data model reference for the property types and values.](/previous-versions/azure/azure-monitor/app/export-telemetry#application-insights-export-data-model)
+* [Continuous Export in Application Insights](/previous-versions/azure/azure-monitor/app/export-telemetry)
 
 <!--Link references-->
 
 [diagnostic]: ../azure-monitor/app/diagnostic-search.md
-[export]: ../azure-monitor/app/export-telemetry.md
+[export]: /previous-versions/azure/azure-monitor/app/export-telemetry
 [metrics]: ../azure-monitor/essentials/metrics-charts.md
 [portal]: https://portal.azure.com/
 [start]: ../azure-monitor/app/app-insights-overview.md

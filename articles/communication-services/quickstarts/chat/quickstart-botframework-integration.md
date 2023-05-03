@@ -135,7 +135,7 @@ Now that your bot is created and deployed, create a Communication Services resou
 
 1. Complete the steps to [create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 
-1. Create a Communication Services user and issue a [user access token](../../quickstarts/access-tokens.md). Be sure to set the scope to **chat**. *Copy the token string and the user ID string*.
+1. Create a Communication Services user and issue a [user access token](../../quickstarts/identity/access-tokens.md). Be sure to set the scope to **chat**. *Copy the token string and the user ID string*.
 
 ## Enable the Communication Services Chat channel
 

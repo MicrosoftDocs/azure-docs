@@ -91,7 +91,7 @@ The file **plumber.R** is the R script where you'll define the function for scor
 # This script will be deployed to a managed endpoint to do the model scoring
 
 # REQUIRED
-# When you deploy a model as an online endpoint, AzureML mounts your model
+# When you deploy a model as an online endpoint, Azure Machine Learning mounts your model
 # to your endpoint. Model mounting enables you to deploy new versions of the model without
 # having to create a new Docker image.
 
@@ -181,7 +181,7 @@ These steps assume you have an Azure Container Registry associated with your wor
 
 Once you have verified that you have at least one custom environment, use the following steps to build a container.
 
-1. Open a terminal window and sign in to Azure.  If you're doing this from an [Azure Machine Learning compute instance](quickstart-create-resources.md#create-compute-instance), use:
+1. Open a terminal window and sign in to Azure.  If you're doing this from an [Azure Machine Learning compute instance](quickstart-create-resources.md#create-a-compute-instance), use:
 
     ```azurecli
     az login --identity

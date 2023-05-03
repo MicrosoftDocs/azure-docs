@@ -1,5 +1,5 @@
 ---
-title: How to customize a synchronization rule in Azure AD Connect | Microsoft Docs'
+title: How to customize a synchronization rule in Azure AD Connect'
 description: Learn how to use the synchronization rule editor to edit or create a new synchronization rule.
 services: active-directory
 documentationcenter: ''

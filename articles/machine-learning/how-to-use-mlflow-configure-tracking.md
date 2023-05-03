@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 11/04/2022
 ms.topic: how-to
-ms.custom: devx-track-python, mlflow, devx-track-azurecli, cliv2, devplatv2, event-tier1-build-2022
+ms.custom: devx-track-python, mlflow, cliv2, devplatv2, event-tier1-build-2022
 ms.devlang: azurecli
 ---
 
@@ -22,20 +22,20 @@ Azure Machine Learning workspaces are MLflow-compatible, which means they can ac
 However, if you are working outside of Azure Machine Learning (like your local machine, Azure Synapse Analytics, or Azure Databricks) you need to configure MLflow to point to the workspace. In this article, you'll learn how you can configure MLflow to connect to an Azure Machine Learning for tracking, registries, and deployment. 
 
 > [!IMPORTANT]
-> When running on Azure Compute (Azure ML Notebooks, Jupyter notebooks hosted on Azure ML Compute Instances, or jobs running on Azure ML compute clusters) you don't have to configure the tracking URI. **It's automatically configured for you**.
+> When running on Azure Compute (Azure Machine Learning Notebooks, Jupyter notebooks hosted on Azure Machine Learning Compute Instances, or jobs running on Azure Machine Learning compute clusters) you don't have to configure the tracking URI. **It's automatically configured for you**.
 
 ## Prerequisites
 
-You will need the following prerequisites to follow this tutorial:
+You need the following prerequisites to follow this tutorial:
 
 [!INCLUDE [mlflow-prereqs](../../includes/machine-learning-mlflow-prereqs.md)]
 
 
 ## Configure MLflow tracking URI
 
-To connect MLflow to an Azure Machine Learning workspace you will need the tracking URI for the workspace. Each workspace has its own tracking URI and it has the protocol `azureml://`.
+To connect MLflow to an Azure Machine Learning workspace, you need the tracking URI for the workspace. Each workspace has its own tracking URI and it has the protocol `azureml://`.
 
-[!INCLUDE [cli v2](../../includes/machine-learning-mlflow-configure-tracking.md)]
+[!INCLUDE [mlflow-configure-tracking](../../includes/machine-learning-mlflow-configure-tracking.md)]
 
 ## Configure authentication
 
@@ -43,16 +43,29 @@ Once the tracking is set, you'll also need to configure how the authentication n
 
 The Azure Machine Learning plugin for MLflow supports several authentication mechanisms through the package `azure-identity`, which is installed as a dependency for the plugin `azureml-mlflow`. The following authentication methods are tried one by one until one of them succeeds:
 
-1. __Environment__: it will read account information specified via environment variables and use it to authenticate.
-1. __Managed Identity__: If the application is deployed to an Azure host with Managed Identity enabled, it will authenticate with it.  
-1. __Azure CLI__: if a user has signed in via the Azure CLI `az login` command, it will authenticate as that user.
-1. __Azure PowerShell__: if a user has signed in via Azure PowerShell's `Connect-AzAccount` command, it will authenticate as that user.
-1. __Interactive browser__: it will interactively authenticate a user via the default browser.
+1. __Environment__: it reads account information specified via environment variables and use it to authenticate.
+1. __Managed Identity__: If the application is deployed to an Azure host with Managed Identity enabled, it authenticates with it.  
+1. __Azure CLI__: if a user has signed in via the Azure CLI `az login` command, it authenticates as that user.
+1. __Azure PowerShell__: if a user has signed in via Azure PowerShell's `Connect-AzAccount` command, it authenticates as that user.
+1. __Interactive browser__: it interactively authenticates a user via the default browser.
 
-[!INCLUDE [cli v2](../../includes/machine-learning-mlflow-configure-auth.md)]
+[!INCLUDE [mlflow-configure-auth](../../includes/machine-learning-mlflow-configure-auth.md)]
 
 If you'd rather use a certificate instead of a secret, you can configure the environment variables `AZURE_CLIENT_CERTIFICATE_PATH` to the path to a `PEM` or `PKCS12` certificate file (including private key) and 
 `AZURE_CLIENT_CERTIFICATE_PASSWORD` with the password of the certificate file, if any.
+
+### Configure authorization and permission levels
+
+Some default roles like [AzureML Data Scientist or contributor](how-to-assign-roles.md#default-roles) are already configured to perform MLflow operations in an Azure Machine Learning workspace. If using a custom roles, you need the following permissions:
+
+* **To use MLflow tracking:** 
+    * `Microsoft.MachineLearningServices/workspaces/experiments/*`.
+    * `Microsoft.MachineLearningServices/workspaces/jobs/*`.
+
+* **To use MLflow model registry:**
+    * `Microsoft.MachineLearningServices/workspaces/models/*/*`
+
+Grant access for the service principal you created or user account to your workspace as explained at [Grant access](../role-based-access-control/quickstart-assign-role-user-portal.md#grant-access).
 
 ### Troubleshooting authentication
 
@@ -69,7 +82,7 @@ logging.getLogger("azure").setLevel(logging.DEBUG)
 All MLflow runs are logged to the active experiment. By default, runs are logged to an experiment named `Default` that is automatically created for you. You can configure the experiment where tracking is happening.
 
 > [!TIP]
-> When submitting jobs using Azure ML CLI v2, you can set the experiment name using the property `experiment_name` in the YAML definition of the job. You don't have to configure it on your training script. See [YAML: display name, experiment name, description, and tags](reference-yaml-job-command.md#yaml-display-name-experiment-name-description-and-tags) for details.
+> When submitting jobs using Azure Machine Learning CLI v2, you can set the experiment name using the property `experiment_name` in the YAML definition of the job. You don't have to configure it on your training script. See [YAML: display name, experiment name, description, and tags](reference-yaml-job-command.md#yaml-display-name-experiment-name-description-and-tags) for details.
 
 
 # [MLflow SDK](#tab/mlflow)
@@ -90,6 +103,34 @@ export MLFLOW_EXPERIMENT_NAME="experiment_with_mlflow"
 ```
 
 ---
+
+## Non-public Azure Clouds support
+
+The Azure Machine Learning plugin for MLflow is configured by default to work with the global Azure cloud. However, you can configure the Azure cloud you are using by setting the environment variable `AZUREML_CURRENT_CLOUD`.
+
+# [MLflow SDK](#tab/mlflow)
+
+```Python
+import os
+
+os.environ["AZUREML_CURRENT_CLOUD"] = "AzureChinaCloud"
+```
+
+# [Using environment variables](#tab/environ)
+
+```bash
+export AZUREML_CURRENT_CLOUD="AzureChinaCloud"
+```
+
+---
+
+You can identify the cloud you are using with the following Azure CLI command:
+
+```bash
+az cloud list
+```
+
+The current cloud has the value `IsActive` set to `True`.
 
 ## Next steps
 

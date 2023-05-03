@@ -5,12 +5,15 @@ author: EdB-MSFT
 ms.author: edbaynash 
 ms.reviewer: poojaa
 ms.topic: conceptual
-ms.date: 01/19/2023
+ms.date: 03/28/2023
 ---
 
 # Manage an Azure Monitor workspace
 
 This article shows you how to create and delete an Azure Monitor workspace. When you configure Azure Monitor managed service for Prometheus, you can select an existing Azure Monitor workspace or create a new one.
+
+> [!NOTE]
+> When you create an Azure Monitor workspace, by default a data collection rule and a data collection endpoint in the form `<azure-workspace-name>` will automatically be created in a resource group in the form `MA_<azure-workspace-name>_<location>_managed`.
 
 ## Create an Azure Monitor workspace
 ### [Azure portal](#tab/azure-portal)
@@ -71,10 +74,11 @@ resource workspace 'microsoft.monitor/accounts@2021-06-03-preview' = {
 }
 
 ```
-
 ---
 
-To connect your  Azure Monitor managed service for Prometheus to your Azure Monitor workspace, see [Collect Prometheus metrics from AKS cluster](./prometheus-metrics-enable.md)
+When you create an Azure Monitor workspace, a new resource group is created. The resource group name has the following format: `MA_<azure monitor workspace resource name>_<location code>_managed`, where the tokenized elements are in lower case. The resource group contains a data collection endpoint, and a data collection rule with the same name as the workspace. The resource group and its resources are automatically deleted when you delete the workspace.
+ 
+To connect your Azure Monitor managed service for Prometheus to your Azure Monitor workspace, see [Collect Prometheus metrics from AKS cluster](./prometheus-metrics-enable.md)
 
 
 ## Delete an Azure Monitor workspace
@@ -155,7 +159,7 @@ To set up an Azure monitor workspace as a data source for Grafana using a Resour
 
 ---
 
-If your Grafana Instance is self managed see [Use Azure Monitor managed service for Prometheus (preview) as data source for self-managed Grafana using managed system identity](./prometheus-self-managed-grafana-azure-active-directory.md)
+If your Grafana Instance is self managed, see [Use Azure Monitor managed service for Prometheus (preview) as data source for self-managed Grafana using managed system identity](./prometheus-self-managed-grafana-azure-active-directory.md)
 
 
 

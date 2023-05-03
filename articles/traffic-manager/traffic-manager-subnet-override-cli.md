@@ -1,14 +1,13 @@
 ---
-title: Azure Traffic Manager subnet override using Azure CLI | Microsoft Docs
+title: Azure Traffic Manager subnet override using Azure CLI
 description: This article will help you understand how Traffic Manager subnet override can be used to override the routing method of a Traffic Manager profile to direct traffic to an endpoint based upon the end-user IP address via predefined IP range to endpoint mappings.
 services: traffic-manager
-documentationcenter: ''
 author: greg-lindsay
-
 ms.topic: how-to
 ms.service: traffic-manager
 ms.date: 09/18/2019
 ms.author: greglin
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Traffic Manager subnet override using Azure CLI

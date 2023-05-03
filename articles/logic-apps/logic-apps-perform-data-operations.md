@@ -1436,4 +1436,5 @@ For example:
 ```
 ## Next steps
 
-* [About connectors in Azure Logic Apps](../connectors/apis-list.md)
+* [Managed connectors for Azure Logic Apps](../connectors/managed.md)
+* [Built-in connectors for Azure Logic Apps](../connectors/built-in.md)

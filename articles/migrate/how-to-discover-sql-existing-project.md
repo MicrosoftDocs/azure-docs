@@ -5,7 +5,7 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
-ms.date: 08/19/2022
+ms.date: 04/13/2023
 ms.custom: engagement-fy23
 ---
 
@@ -22,14 +22,14 @@ This discovery process is agentless that is, nothing is installed on the target 
     - Created an [Azure Migrate project](./create-manage-projects.md) before the announcement of SQL and web apps assessment feature for your region
     - Added the [Azure Migrate: Discovery and assessment](./how-to-assess.md) tool to a project
 - Review [app-discovery support and requirements](./migrate-support-matrix-vmware.md#vmware-requirements).
--  In case you're discovering assets on VMware environment then, Make sure servers where you're running app-discovery have PowerShell version 2.0 or later installed, and VMware Tools (later than 10.2.0) is installed.
+-  In case you're discovering assets on a VMware environment, make sure the servers where you're running app discovery have PowerShell version 2.0 or later installed, and VMware tools (later than 10.2.0) installed.
 - Check the [requirements](./migrate-appliance.md) for deploying the Azure Migrate appliance.
 - Verify that you have the [required roles](./create-manage-projects.md#verify-permissions) in the subscription to create resources.
 - Ensure that your appliance has access to the internet
 
 > [!Note]
-> Even though the processes in this document are covered for VMware, the processes are similar for Microsoft Hyper-V and Physical environment.
-> Discovery and assessment for SQL Server instances and databases is available across the Microsoft Hyper-V and Physical environment also.
+> Though the procedure described in this article is for VMware, the processes are similar for Microsoft Hyper-V and Physical environments.
+> Discovery and assessment for SQL Server instances and databases is available across the Microsoft Hyper-V and Physical environments.
 
 ## Enable discovery of web apps and SQL Server instances and databases
 
@@ -44,7 +44,7 @@ This discovery process is agentless that is, nothing is installed on the target 
     - Validate that the services running on the appliance are updated to the latest versions. To do so, launch the Appliance configuration manager from your appliance server and select view appliance services from the Setup prerequisites panel.
         - Appliance and its components are automatically updated
          :::image type="content" source="./media/how-to-discover-sql-existing-project/appliance-services-version.png" alt-text="Check the appliance version":::
-    - In the manage credentials and discovery sources panel of the Appliance configuration manager, add Domain or SQL Server Authentication credentials that have Sysadmin access on the SQL Server instance and databases to be discovered.
+    - In the manage credentials and discovery sources panel of the Appliance configuration manager, add Domain or SQL Server Authentication credentials that have Sysadmin access on the SQL Server instance and databases to be discovered or have [these permissions](migrate-support-matrix-vmware.md#configure-the-custom-login-for-sql-server-discovery) for each SQL Server instance.
     - Web apps discovery works with both domain and non-domain Windows OS credentials as long as the account used has local admin privileges on servers.
     You can leverage the automatic credential-mapping feature of the appliance, as highlighted [here](./tutorial-discover-vmware.md#start-continuous-discovery).
 
@@ -59,7 +59,7 @@ This discovery process is agentless that is, nothing is installed on the target 
 
 ## Next steps
 
-- Learn how to create an [Azure SQL assessment](./how-to-create-azure-sql-assessment.md)
-- Learn more about [Azure SQL assessments](./concepts-azure-sql-assessment-calculation.md)
-- Learn how to create an [Azure App Service assessment](./how-to-create-azure-app-service-assessment.md)
-- Learn more about [Azure App Service assessments](./concepts-azure-webapps-assessment-calculation.md)
+- Learn how to create an [Azure SQL assessment](./how-to-create-azure-sql-assessment.md).
+- Learn more about [Azure SQL assessments](./concepts-azure-sql-assessment-calculation.md).
+- Learn how to create an [Azure App Service assessment](./how-to-create-azure-app-service-assessment.md).
+- Learn more about [Azure App Service assessments](./concepts-azure-webapps-assessment-calculation.md).

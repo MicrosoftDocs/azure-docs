@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Help Scout | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Help Scout'
 description: Learn how to configure single sign-on between Azure Active Directory and Help Scout.
 services: active-directory
 author: jeevansd

@@ -63,7 +63,7 @@ You can create a question answering project from your own content, such as FAQs 
 
 ## Test your project
 
-1. Select the link to your source, this will open the edit knowledge base page.
+1. Select the link to your source, this will open the edit project page.
 
 2. Select **Test** from the menu bar > Enter the question **How do I setup my surface book?**. An answer will be generated based on the question answer pairs that were automatically identified and extracted from your source URL:
 
@@ -84,10 +84,10 @@ You can create a question answering project from your own content, such as FAQs 
 
 ## Deploy your project
 
-1. Select the Deploy knowledge base icon to enter the deploy knowledge base menu.
+1. Select the Deploy project icon to enter the deploy project menu.
 
     > [!div class="mx-imgBorder"]
-    > ![Deploy knowledge base](../media/create-test-deploy/deploy-knowledge-base.png)
+    > ![Deploy project](../media/create-test-deploy/deploy-knowledge-base.png)
 
     When you deploy a project, the contents of your project move from the `test` index to a `prod` index in Azure Search.
 

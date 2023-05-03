@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 08/12/2022
+ms.date: 03/27/2023
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -37,7 +37,7 @@ This article provides suggestions to troubleshoot common problems with the FTP, 
 
 ## SFTP
 
-#### Error code: SftpOperationFail
+### Error code: SftpOperationFail
 
 - **Message**: `Failed to '%operation;'. Check detailed error from SFTP.`
 
@@ -205,6 +205,14 @@ This article provides suggestions to troubleshoot common problems with the FTP, 
     - ecdsa-sha2-nistp521
 
 - **Recommendation**: Get a valid fingerprint using the Host Key Name in `real finger-print` from the error message in the SFTP server. You can run the command to get the fingerprint on your SFTP server. For example: run `ssh-keygen -E md5 -lf <keyFilePath>` in Linux server to get the fingerprint. The command may vary among different server types.
+
+### Error code: UnsupportedCompressionTypeWhenDisableChunking
+
+- **Message**: `"Disable chunking" is not compatible with "ZipDeflate" decompression.`
+
+- **Cause**: **Disable chunking** is not compatible with **ZipDeflate** decompression.
+
+- **Recommendation**: Load the binary data to a staging area (for example: Azure Blob Storage) and decompress them in another copy activity.
 
 ## HTTP
 

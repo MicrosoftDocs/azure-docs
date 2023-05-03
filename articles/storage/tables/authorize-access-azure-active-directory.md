@@ -3,12 +3,12 @@ title: Authorize access to tables using Active Directory
 titleSuffix: Azure Storage
 description: Authorize access to Azure tables using Azure Active Directory (Azure AD). Assign Azure roles for access rights. Access data with an Azure AD account.
 services: storage
-author: jimmart-dev
+author: tamram
 
 ms.service: storage
 ms.topic: conceptual
 ms.date: 02/09/2023
-ms.author: jammart
+ms.author: tamram
 ms.subservice: common
 ---
 
@@ -63,7 +63,7 @@ For more information about how built-in roles are defined for Azure Storage, see
 
 Only roles explicitly defined for data access permit a security principal to access table data. Built-in roles such as **Owner**, **Contributor**, and **Storage Account Contributor** permit a security principal to manage a storage account, but do not provide access to the table data within that account via Azure AD. However, if a role includes **Microsoft.Storage/storageAccounts/listKeys/action**, then a user to whom that role is assigned can access data in the storage account via Shared Key authorization with the account access keys.
 
-For detailed information about Azure built-in roles for Azure Storage for both the data services and the management service, see the **Storage** section in [Azure built-in roles for Azure RBAC](../../role-based-access-control/built-in-roles.md#storage). Additionally, for information about the different types of roles that provide permissions in Azure, see [Classic subscription administrator roles, Azure roles, and Azure AD roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+For detailed information about Azure built-in roles for Azure Storage for both the data services and the management service, see the **Storage** section in [Azure built-in roles for Azure RBAC](../../role-based-access-control/built-in-roles.md#storage). Additionally, for information about the different types of roles that provide permissions in Azure, see [Azure roles, Azure AD roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 > [!IMPORTANT]
 > Azure role assignments may take up to 30 minutes to propagate.

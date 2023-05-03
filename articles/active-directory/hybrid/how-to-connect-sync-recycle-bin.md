@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect sync: Enable AD recycle bin | Microsoft Docs'
+title: 'Azure AD Connect sync: Enable AD recycle bin'
 description: This topic recommends the use of AD Recycle Bin feature with Azure AD Connect.
 services: active-directory
 keywords: AD Recycle Bin, accidental deletion, source anchor

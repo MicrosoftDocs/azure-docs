@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure AD Connect install issues | Microsoft Docs'
+title: Troubleshoot Azure AD Connect install issues'
 description: This topic provides steps for how to troubleshoot issues with installing Azure AD Connect.
 services: active-directory
 documentationcenter: ''

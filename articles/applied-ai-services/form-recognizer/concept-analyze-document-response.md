@@ -64,7 +64,7 @@ Spans specify the logical position of each element in the overall reading order,
 
 ### Bounding Region
 
-Bounding regions describe the visual position of each element in the file. Since elements may not be visually contiguous (entities) or may cross pages (tables), the positions of most elements are described via an array of bounding regions. Each region specifies the page number (`1`-indexed) and bounding polygon.  The bounding polygon is described as a sequence of points, clockwise from the left relative to the natural orientation of the element.  For quadrilaterals, plot points are top-left, top-right, bottom-right, and bottom-left corners.  Each point is represented by its x, y coordinate in the page unit specified by the unit property.  In general, unit of measure for images is pixels while PDFs use inches.
+Bounding regions describe the visual position of each element in the file. Since elements may not be visually contiguous or may cross pages (tables), the positions of most elements are described via an array of bounding regions. Each region specifies the page number (`1`-indexed) and bounding polygon.  The bounding polygon is described as a sequence of points, clockwise from the left relative to the natural orientation of the element.  For quadrilaterals, plot points are top-left, top-right, bottom-right, and bottom-left corners.  Each point is represented by its x, y coordinate in the page unit specified by the unit property.  In general, unit of measure for images is pixels while PDFs use inches.
 
 :::image type="content" source="media/bounding-regions.png" alt-text="Screenshot of detected bounding regions example.":::
 

@@ -61,7 +61,7 @@ configurationFiles:
 failureCriteria:
   - avg(response_time_ms) > 300
   - percentage(error) > 50
-  - GetCustomerDetails: avg(latency_ms) >200
+  - GetCustomerDetails: avg(latency) >200
 splitAllCSVs: True
 env:
   - name: my-variable

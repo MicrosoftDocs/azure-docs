@@ -1,13 +1,23 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/active-directory/develop/active-directory-jwt-claims-customization.md",
+      "redirect_url": "/azure/active-directory/develop/jwt-claims-customization",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/active-directory-saml-claims-customization.md",
+      "redirect_url": "/azure/active-directory/develop/saml-claims-customization",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/develop/active-directory-claims-mapping.md",
       "redirect_url": "/azure/active-directory/develop/active-directory-saml-claims-customization",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/develop/configure-token-lifetimes.md",
-      "redirect_url": "/azure/active-directory/develop/active-directory-saml-claims-customization",
+      "source_path_from_root": "/articles/active-directory/develop/registration-config-change-token-lifetime-how-to.md",
+      "redirect_url": "/azure/active-directory/develop/configure-token-lifetimes",
       "redirect_document_id": false
     },
     {
@@ -61,6 +71,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/easy-metrics-auth0-connector-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/easy-metrics-connector-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/saas-apps/iauditor-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/safety-culture-tutorial",
       "redirect_document_id": false
@@ -72,6 +87,16 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/saas-apps/icertisicm-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/teamzskill-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/usertesting-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
       "redirect_document_id": false
     },
@@ -88,6 +113,11 @@
     {
       "source_path_from_root": "/articles/active-directory/governance/tutorial-onboard-custom-workflow-graph.md",
       "redirect_url": "/graph/tutorial-lifecycle-workflows-onboard-custom-workflow",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/governance/manage-lifecycle-workflows.md",
+      "redirect_url": "/azure/active-directory/governance/understanding-lifecycle-workflows",
       "redirect_document_id": false
     },
     {
@@ -118,6 +148,11 @@
     {
       "source_path_from_root": "/articles/active-directory/saas-apps/headerf5-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/f5-big-ip-headers-easy-button",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/tripactions-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/navan-tutorial",
       "redirect_document_id": false
     },
     {
@@ -153,6 +188,51 @@
     {
       "source_path_from_root": "/articles/active-directory/develop/workload-identity-federation-create-trust-github.md",
       "redirect_url": "/azure/active-directory/develop/workload-identity-federation-create-trust",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/workload-identities/workload-identity-federation-create-trust-gcp.md",
+      "redirect_url": "/azure/active-directory/workload-identities/workload-identity-federation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/workload-identities-overview.md",
+      "redirect_url": "/azure/active-directory/workload-identities/workload-identities-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/workload-identities-faqs.md",
+      "redirect_url": "/azure/active-directory/workload-identities/workload-identities-faqs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/workload-identity-federation.md",
+      "redirect_url": "/azure/active-directory/workload-identities/workload-identity-federation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/workload-identity-federation-create-trust.md",
+      "redirect_url": "/azure/active-directory/workload-identities/workload-identity-federation-create-trust",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/workload-identity-federation-create-trust-user-assigned-managed-identity.md",
+      "redirect_url": "/azure/active-directory/workload-identities/workload-identity-federation-create-trust-user-assigned-managed-identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/workload-identity-federation-create-trust-gcp.md",
+      "redirect_url": "/azure/active-directory/workload-identities/workload-identity-federation-create-trust-gcp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/workload-identity-federation-block-using-azure-policy.md",
+      "redirect_url": "/azure/active-directory/workload-identities/workload-identity-federation-block-using-azure-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/workload-identity-federation-considerations.md",
+      "redirect_url": "/azure/active-directory/workload-identities/workload-identity-federation-considerations",
       "redirect_document_id": false
     },
     {
@@ -1876,6 +1956,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-deployment-checklist-p2.md",
+      "redirect_url": "/azure/active-directory/fundamentals/concept-secure-remote-workers",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/conditional-access/app-based-mfa.md",
       "redirect_url": "/azure/active-directory/authentication/tutorial-enable-azure-mfa",
       "redirect_document_id": false
@@ -2407,7 +2492,16 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-configurable-token-lifetimes.md",
-      "redirect_url": "/azure/active-directory/develop/active-directory-configurable-token-lifetimes",
+      "redirect_url": "/azure/active-directory/develop/configurable-token-lifetimes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/active-directory-configurable-token-lifetimes.md",
+      "redirect_url": "/azure/active-directory/develop/configurable-token-lifetimes",
+      "redirect_document_id": true
+    },{
+      "source_path_from_root": "/articles/active-directory/develop/reference-aadsts-error-codes.md",
+      "redirect_url": "/azure/active-directory/develop/reference-error-codes",
       "redirect_document_id": true
     },
     {
@@ -2581,6 +2675,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/develop/howto-add-branding-in-azure-ad-apps.md",
+      "redirect_url": "/azure/active-directory/develop/howto-add-branding-in-apps.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-java-view-saml-returned-by-access-control.md",
       "redirect_url": "/azure/active-directory/develop/active-directory-saml-protocol-reference",
       "redirect_document_id": false
@@ -2592,7 +2691,12 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-signing-key-rollover.md",
-      "redirect_url": "/azure/active-directory/develop/active-directory-signing-key-rollover",
+      "redirect_url": "/azure/active-directory/develop/signing-key-rollover",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/active-directory-signing-key-rollover.md",
+      "redirect_url": "/azure/active-directory/develop/signing-key-rollover",
       "redirect_document_id": false
     },
     {
@@ -4182,6 +4286,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/fundamentals/certificate-authorities.md",
+      "redirect_url": "/azure/security/fundamentals/azure-CA-details",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/b2b/what-is-b2b.md",
       "redirect_url": "/azure/active-directory/external-identities/what-is-b2b",
       "redirect_document_id": true
@@ -4400,7 +4509,7 @@
       "source_path_from_root": "/articles/active-directory/reports-monitoring/recommendations-integrate-third-party-apps.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/overview-recommendations",
       "redirect_document_id": false
-     },
+    },
     {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/workbook-legacy authentication.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/workbook-legacy-authentication",
@@ -4434,6 +4543,11 @@
     {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/reference-reports-latencies.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/reference-azure-ad-sla-performance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md",
+      "redirect_url": "/azure/active-directory/fundamentals/how-to-manage-user-profile-info",
       "redirect_document_id": false
     },
     {
@@ -5738,7 +5852,12 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/manage-apps/active-directory-app-proxy-protect-ndes.md",
-      "redirect_url": "/azure/active-directory/app-proxy/active-directory-app-proxy-protect-ndes",
+      "redirect_url": "/azure/active-directory/app-proxy/app-proxy-protect-ndes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/app-proxy/active-directory-app-proxy-protect-ndes.md",
+      "redirect_url": "/azure/active-directory/app-proxy/app-proxy-protect-ndes",
       "redirect_document_id": false
     },
     {
@@ -7154,7 +7273,7 @@
     {
       "source_path_from_root": "/articles/active-directory/active-directory-privileged-identity-management-how-to-add-role-to-user.md",
       "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-add-role-to-user",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-privileged-identity-management-how-to-change-default-settings.md",
@@ -7219,6 +7338,11 @@
     {
       "source_path_from_root": "/articles/active-directory/active-directory-privileged-identity-management-how-to-require-mfa.md",
       "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-require-mfa",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/privileged-identity-management/pim-how-to-require-mfa.md",
+      "redirect_url": "/azure/active-directory/authentication/howto-mfa-getstarted",
       "redirect_document_id": true
     },
     {
@@ -7467,6 +7591,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/roles/groups-pim-eligible.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-add-role-to-user",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/users-groups-roles/directory-administrative-units.md",
       "redirect_url": "/azure/active-directory/roles/administrative-units",
       "redirect_document_id": true
@@ -7583,8 +7712,8 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/users-groups-roles/roles-groups-pim-eligible.md",
-      "redirect_url": "/azure/active-directory/roles/groups-pim-eligible",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-add-role-to-user",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/users-groups-roles/roles-groups-remove-assignment.md",
@@ -10932,6 +11061,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/support-options.md",
+      "redirect_url": "/azure/active-directory-b2c/find-help-open-support-ticket",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md",
       "redirect_url": "/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-arm",
       "redirect_document_id": false
@@ -11104,6 +11238,21 @@
     {
       "source_path_from_root": "/articles/active-directory/governance/create-access-review-privileged-access-groups.md",
       "redirect_url": "/azure/active-directory/governance/create-access-review-pim-for-groups",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/concepts-resource-forest.md",
+      "redirect_url": "/azure/active-directory-domain-services/concepts-forest-trust",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/create-resource-forest-powershell.md",
+      "redirect_url": "/azure/active-directory-domain-services/create-forest-trust-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/privileged-identity-management/powershell-for-azure-ad-roles.md",
+      "redirect_url": "/powershell/microsoftgraph/tutorial-pim?view=graph-powershell-1.0",
       "redirect_document_id": false
     }
   ]

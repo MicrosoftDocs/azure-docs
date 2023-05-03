@@ -8,7 +8,7 @@ ms.subservice: ip-services
 ms.topic: quickstart
 ms.date: 10/01/2021
 ms.author: allensu
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-azurepowershell
 ---
 
 # Quickstart: Create a public IP address using PowerShell

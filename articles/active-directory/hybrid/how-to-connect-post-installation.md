@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Next steps and how to manage Azure AD Connect | Microsoft Docs'
+title: 'Azure AD Connect: Next steps and how to manage Azure AD Connect'
 description: Learn how to extend the default configuration and operational tasks for Azure AD Connect.
 services: active-directory
 documentationcenter: ''

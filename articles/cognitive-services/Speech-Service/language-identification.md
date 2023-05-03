@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 01/24/2023
+ms.date: 04/19/2023
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ---
 
-# Language identification (preview)
+# Language identification
 
 Language identification is used to identify languages spoken in audio when compared against a list of [supported languages](language-support.md?tabs=language-identification).
 
@@ -27,7 +27,7 @@ For speech recognition, the initial latency is higher with language identificati
 ## Configuration options
 
 > [!IMPORTANT]
-> Language Identification (preview) APIs have been simplified in the Speech SDK version 1.25. The 
+> Language Identification APIs are simplified with the Speech SDK version 1.25 and later. The 
 `SpeechServiceConnection_SingleLanguageIdPriority` and `SpeechServiceConnection_ContinuousLanguageIdPriority` properties have
 been removed and replaced by a single property `SpeechServiceConnection_LanguageIdMode`. Prioritizing between low latency and high accuracy is no longer necessary following recent model improvements. Now, you only need to select whether to run at-start or continuous Language Identification when doing continuous speech recognition or translation.
 
@@ -102,7 +102,7 @@ For more information, see [supported languages](language-support.md?tabs=languag
 Speech supports both at-start and continuous language identification (LID).
 
 > [!NOTE]
-> Continuous language identification is only supported with Speech SDKs in C#, C++, Java ([for speech to text only](#speech-to-text)), and Python.
+> Continuous language identification is only supported with Speech SDKs in C#, C++, Java ([for speech to text only](#speech-to-text)), JavaScript ([for speech to text only](#speech-to-text)),and Python.
 - At-start LID identifies the language once within the first few seconds of audio. Use at-start LID if the language in the audio won't change. With at-start LID, a single language is detected and returned in less than 5 seconds.
 - Continuous LID can identify multiple languages for the duration of the audio. Use continuous LID if the language in the audio could change. Continuous LID doesn't support changing languages within the same sentence. For example, if you're primarily speaking Spanish and insert some English words, it will not detect the language change per word. 
 
@@ -197,7 +197,7 @@ recognizer.stop_continuous_recognition()
 You use Speech-to-text recognition when you need to identify the language in an audio source and then transcribe it to text. For more information, see [Speech-to-text overview](speech-to-text.md).
 
 > [!NOTE]
-> Speech-to-text recognition with at-start language identification is supported with Speech SDKs in C#, C++, Python, Java, JavaScript, and Objective-C. Speech-to-text recognition with continuous language identification is only supported with Speech SDKs in C#, C++, Java, and Python.
+> Speech-to-text recognition with at-start language identification is supported with Speech SDKs in C#, C++, Python, Java, JavaScript, and Objective-C. Speech-to-text recognition with continuous language identification is only supported with Speech SDKs in C#, C++, Java, JavaScript, and Python.
 > 
 > Currently for speech-to-text recognition with continuous language identification, you must create a SpeechConfig from the `wss://{region}.stt.speech.microsoft.com/speech/universal/v2` endpoint string, as shown in code examples. In a future SDK release you won't need to set it.
 
@@ -494,7 +494,10 @@ speechRecognizer.recognizeOnceAsync((result: SpeechSDK.SpeechRecognitionResult) 
 
 ::: zone-end
 
-### Using Speech-to-text custom models
+### Speech-to-text custom models
+
+> [!NOTE]
+> Language detection with custom models can only be used with real-time speech to text and speech translation. Batch transcription only supports language detection for base models. 
 
 ::: zone pivot="programming-language-csharp"
 This sample shows how to use language detection with a custom endpoint. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the custom model endpoint is used. For more information, see [Deploy a Custom Speech model](how-to-custom-speech-deploy-model.md).
@@ -1077,6 +1080,46 @@ recognizer.stop_continuous_recognition()
 ---
 
 ::: zone-end
+
+## Run and use a container
+
+Speech containers provide websocket-based query endpoint APIs that are accessed through the Speech SDK and Speech CLI. By default, the Speech SDK and Speech CLI use the public Speech service. To use the container, you need to change the initialization method. Use a container host URL instead of key and region.
+
+When you run language ID in a container, use the `SourceLanguageRecognizer` object instead of `SpeechRecognizer` or `TranslationRecognizer`.
+
+For more information about containers, see the [language identification speech containers](speech-container-lid.md#use-the-container) how-to guide.
+
+
+## Speech-to-text batch transcription
+
+To identify languages with [Batch transcription REST API](batch-transcription.md), you need to use `languageIdentification` property in the body of your [Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Transcriptions_Create) request. 
+
+> [!WARNING]
+> Batch transcription only supports language identification for base models. If both language identification and a custom model are specified in the transcription request, the service will fall back to use the base models for the specified candidate languages. This may result in unexpected recognition results.
+>
+> If your speech to text scenario requires both language identification and custom models, use [real-time speech to text](#speech-to-text-custom-models) instead of batch transcription.
+
+The following example shows the usage of the `languageIdentification` property with four candidate languages. For more information about request properties see [Create a batch transcription](batch-transcription-create.md#request-configuration-options).
+
+```json
+{
+    <...>
+    
+    "properties": {
+    <...>
+    
+        "languageIdentification": {
+            "candidateLocales": [
+            "en-US",
+            "ja-JP",
+            "zh-CN",
+            "hi-IN"
+            ]
+        },	
+        <...>
+    }
+}
+```
 
 ## Next steps
 

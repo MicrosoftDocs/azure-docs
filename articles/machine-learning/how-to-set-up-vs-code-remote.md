@@ -24,6 +24,8 @@ There are two ways you can connect to a compute instance from Visual Studio Code
 * Remote compute instance. This option provides you with a full-featured development environment for building your machine learning projects.
 * Remote Jupyter Notebook server. This option allows you to set a compute instance as a remote Jupyter Notebook server.
 
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 ## Configure a remote compute instance
 
 To configure a remote compute instance for development, you'll need a few prerequisites.
@@ -49,7 +51,7 @@ Navigate to [ml.azure.com](https://ml.azure.com)
 1. Select the **Compute** tab
 1. In the *Application URI* column, select **VS Code** for the compute instance you want to connect to.
 
-:::image type="content" source="media/how-to-set-up-vs-code-remote/studio-compute-instance-vs-code-launch.png" alt-text="Connect to Compute Instance VS Code Azure ML studio" lightbox="media/how-to-set-up-vs-code-remote/studio-compute-instance-vs-code-launch.png":::
+:::image type="content" source="media/how-to-set-up-vs-code-remote/studio-compute-instance-vs-code-launch.png" alt-text="Connect to Compute Instance VS Code Azure Machine Learning studio" lightbox="media/how-to-set-up-vs-code-remote/studio-compute-instance-vs-code-launch.png":::
 
 ### Notebook
 
@@ -57,7 +59,7 @@ Navigate to [ml.azure.com](https://ml.azure.com)
 1. In the *Notebook* tab, select the file you want to edit.
 1. Select **Editors > Edit in VS Code (preview)**.
 
-:::image type="content" source="media/how-to-set-up-vs-code-remote/studio-notebook-compute-instance-vs-code-launch.png" alt-text="Connect to Compute Instance VS Code Azure ML Notebook" lightbox="media/how-to-set-up-vs-code-remote/studio-notebook-compute-instance-vs-code-launch.png":::
+:::image type="content" source="media/how-to-set-up-vs-code-remote/studio-notebook-compute-instance-vs-code-launch.png" alt-text="Connect to Compute Instance VS Code Azure Machine Learning Notebook" lightbox="media/how-to-set-up-vs-code-remote/studio-notebook-compute-instance-vs-code-launch.png":::
 
 # [VS Code](#tab/extension)
 
@@ -67,12 +69,12 @@ Navigate to [ml.azure.com](https://ml.azure.com)
 1. Expand the **Compute instances** node in your extension.
 1. Right-click the compute instance you want to connect to and select **Connect to Compute Instance**.
 
-:::image type="content" source="media/how-to-set-up-vs-code-remote/vs-code-compute-instance-launch.png" alt-text="Connect to compute instance Visual Studio Code Azure ML Extension" lightbox="media/how-to-set-up-vs-code-remote/vs-code-compute-instance-launch.png":::
+:::image type="content" source="media/how-to-set-up-vs-code-remote/vs-code-compute-instance-launch.png" alt-text="Connect to compute instance Visual Studio Code Azure Machine Learning Extension" lightbox="media/how-to-set-up-vs-code-remote/vs-code-compute-instance-launch.png":::
 
 ### Command Palette
 
 1. In VS Code, open the command palette by selecting **View > Command Palette**.
-1. Enter into the text box **Azure ML: Connect to Compute Instance**.
+1. Enter into the text box **AzureML: Connect to Compute Instance**.
 1. Select your subscription.
 1. Select your workspace.
 1. Select your compute instance or create a new one.
@@ -112,12 +114,12 @@ To connect to a compute instance:
     Alternatively, you also use the command palette:
 
     1. Open the command palette by selecting **View > Command Palette** from the menu bar.
-    1. Enter into the text box `Azure ML: Connect to Compute instance Jupyter server`.
+    1. Enter into the text box `AzureML: Connect to Compute instance Jupyter server`.
 
-1. Choose `Azure ML Compute Instances` from the list of Jupyter server options.
+1. Choose `Azure Machine Learning Compute Instances` from the list of Jupyter server options.
 1. Select your subscription from the list of subscriptions. If you have have previously configured your default Azure Machine Learning workspace, this step is skipped.
 1. Select your workspace.
-1. Select your compute instance from the list. If you don't have one, select **Create new Azure ML Compute Instance** and follow the prompts to create one.
+1. Select your compute instance from the list. If you don't have one, select **Create new Azure Machine Learning Compute Instance** and follow the prompts to create one.
 1. For the changes to take effect, you have to reload Visual Studio Code.
 1. Open a Jupyter Notebook and run a cell.
 

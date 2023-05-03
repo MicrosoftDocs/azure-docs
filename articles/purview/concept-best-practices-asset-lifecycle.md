@@ -4,6 +4,7 @@ description: This article provides process and best practice guidance to effecti
 author: Jubairp
 ms.author: jubairpatel
 ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 01/06/2022
 ---

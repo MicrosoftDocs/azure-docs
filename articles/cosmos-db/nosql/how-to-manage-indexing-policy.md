@@ -1,11 +1,11 @@
 ---
 title: Manage indexing policies in Azure Cosmos DB
-description: Learn how to manage indexing policies, include or exclude a property from indexing, how to define indexing using different Azure Cosmos DB SDKs
+description: Learn how to manage indexing policies, include or exclude a property from indexing, how to define indexing using different Azure Cosmos DB SDKs.
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 03/08/2023
 ms.author: sidandrews
 ms.reviewer: jucocchi
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, devx-track-azurecli
@@ -14,59 +14,59 @@ ms.custom: devx-track-python, devx-track-js, devx-track-csharp, devx-track-azure
 # Manage indexing policies in Azure Cosmos DB
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-In Azure Cosmos DB, data is indexed following [indexing policies](../index-policy.md) that are defined for each container. The default indexing policy for newly created containers enforces range indexes for any string or number. This policy can be overridden with your own custom indexing policy.
+In Azure Cosmos DB, data is indexed following [indexing policies](../index-policy.md) that are defined for each container. The default indexing policy for newly created containers enforces range indexes for any string or number. You can override this policy with your own custom indexing policy.
 
 > [!NOTE]
-> The method of updating indexing policies described in this article only applies to Azure Cosmos DB's API for NoSQL. Learn about indexing in [Azure Cosmos DB's API for MongoDB](../mongodb/indexing.md) and [Secondary indexing in Azure Cosmos DB for Apache Cassandra.](../cassandra/secondary-indexing.md)
+> The method of updating indexing policies described in this article only applies to Azure Cosmos DB for NoSQL. Learn about indexing in [Azure Cosmos DB for MongoDB](../mongodb/indexing.md) and [Secondary indexing in Azure Cosmos DB for Apache Cassandra](../cassandra/secondary-indexing.md).
 
 ## Indexing policy examples
 
-Here are some examples of indexing policies shown in [their JSON format](../index-policy.md#include-exclude-paths), which is how they are exposed on the Azure portal. The same parameters can be set through the Azure CLI or any SDK.
+Here are some examples of indexing policies shown in [their JSON format](../index-policy.md#include-exclude-paths). They're exposed on the Azure portal in JSON format. The same parameters can be set through the Azure CLI or any SDK.
 
 ### <a id="range-index"></a>Opt-out policy to selectively exclude some property paths
 
 ```json
-    {
-        "indexingMode": "consistent",
-        "includedPaths": [
-            {
-                "path": "/*"
-            }
-        ],
-        "excludedPaths": [
-            {
-                "path": "/path/to/single/excluded/property/?"
-            },
-            {
-                "path": "/path/to/root/of/multiple/excluded/properties/*"
-            }
-        ]
-    }
+{
+    "indexingMode": "consistent",
+    "includedPaths": [
+        {
+            "path": "/*"
+        }
+    ],
+    "excludedPaths": [
+        {
+            "path": "/path/to/single/excluded/property/?"
+        },
+        {
+            "path": "/path/to/root/of/multiple/excluded/properties/*"
+        }
+    ]
+}
 ```
 
 ### Opt-in policy to selectively include some property paths
 
 ```json
-    {
-        "indexingMode": "consistent",
-        "includedPaths": [
-            {
-                "path": "/path/to/included/property/?"
-            },
-            {
-                "path": "/path/to/root/of/multiple/included/properties/*"
-            }
-        ],
-        "excludedPaths": [
-            {
-                "path": "/*"
-            }
-        ]
-    }
+{
+    "indexingMode": "consistent",
+    "includedPaths": [
+        {
+            "path": "/path/to/included/property/?"
+        },
+        {
+            "path": "/path/to/root/of/multiple/included/properties/*"
+        }
+    ],
+    "excludedPaths": [
+        {
+            "path": "/*"
+        }
+    ]
+}
 ```
 
 > [!NOTE]
-> It is generally recommended to use an **opt-out** indexing policy to let Azure Cosmos DB proactively index any new property that may be added to your data model.
+> We generally recommend that you use an *opt-out* indexing policy. Azure Cosmos DB proactively indexes any new property that might be added to your data model.
 
 ### <a id="spatial-index"></a>Using a spatial index on a specific property path only
 
@@ -100,57 +100,57 @@ Here are some examples of indexing policies shown in [their JSON format](../inde
 
 ## <a id="composite-index"></a>Composite indexing policy examples
 
-In addition to including or excluding paths for individual properties, you can also specify a composite index. If you would like to perform a query that has an `ORDER BY` clause for multiple properties, a [composite index](../index-policy.md#composite-indexes) on those properties is required. Additionally, composite indexes will have a performance benefit for queries that have multiple filters or both a filter and an ORDER BY clause.
+In addition to including or excluding paths for individual properties, you can also specify a composite index. To perform a query that has an `ORDER BY` clause for multiple properties, a [composite index](../index-policy.md#composite-indexes) is required on those properties. Composite indexes also have a performance benefit for queries that have multiple filters or both a filter and an ORDER BY clause.
 
 > [!NOTE]
 > Composite paths have an implicit `/?` since only the scalar value at that path is indexed. The `/*` wildcard is not supported in composite paths. You shouldn't specify `/?` or `/*` in a composite path.
 
-### Composite index defined for (name asc, age desc):
+### Composite index defined for (name asc, age desc)
 
 ```json
-    {  
-        "automatic":true,
-        "indexingMode":"Consistent",
-        "includedPaths":[  
+{  
+    "automatic":true,
+    "indexingMode":"Consistent",
+    "includedPaths":[  
+        {  
+            "path":"/*"
+        }
+    ],
+    "excludedPaths":[],
+    "compositeIndexes":[  
+        [  
             {  
-                "path":"/*"
+                "path":"/name",
+                "order":"ascending"
+            },
+            {  
+                "path":"/age",
+                "order":"descending"
             }
-        ],
-        "excludedPaths":[],
-        "compositeIndexes":[  
-            [  
-                {  
-                    "path":"/name",
-                    "order":"ascending"
-                },
-                {  
-                    "path":"/age",
-                    "order":"descending"
-                }
-            ]
         ]
-    }
+    ]
+}
 ```
 
-The above composite index on name and age is required for Query #1 and Query #2:
+The composite index on name and age is required for the following queries:
 
 Query #1:
 
 ```sql
-    SELECT *
-    FROM c
-    ORDER BY c.name ASC, c.age DESC
+SELECT *
+FROM c
+ORDER BY c.name ASC, c.age DESC
 ```
 
 Query #2:
 
 ```sql
-    SELECT *
-    FROM c
-    ORDER BY c.name DESC, c.age ASC
+SELECT *
+FROM c
+ORDER BY c.name DESC, c.age ASC
 ```
 
-This composite index will benefit Query #3 and Query #4 and optimize the filters:
+This composite index benefits the following queries and optimizes the filters:
 
 Query #3:
 
@@ -169,111 +169,111 @@ FROM c
 WHERE c.name = "Tim" AND c.age > 18
 ```
 
-### Composite index defined for (name ASC, age ASC) and (name ASC, age DESC):
+### Composite index defined for (name ASC, age ASC) and (name ASC, age DESC)
 
-You can define multiple different composite indexes within the same indexing policy.
-
-```json
-    {  
-        "automatic":true,
-        "indexingMode":"Consistent",
-        "includedPaths":[  
-            {  
-                "path":"/*"
-            }
-        ],
-        "excludedPaths":[],
-        "compositeIndexes":[  
-            [  
-                {  
-                    "path":"/name",
-                    "order":"ascending"
-                },
-                {  
-                    "path":"/age",
-                    "order":"ascending"
-                }
-            ],
-            [  
-                {  
-                    "path":"/name",
-                    "order":"ascending"
-                },
-                {  
-                    "path":"/age",
-                    "order":"descending"
-                }
-            ]
-        ]
-    }
-```
-
-### Composite index defined for (name ASC, age ASC):
-
-It is optional to specify the order. If not specified, the order is ascending.
+You can define multiple composite indexes within the same indexing policy.
 
 ```json
 {  
-        "automatic":true,
-        "indexingMode":"Consistent",
-        "includedPaths":[  
+    "automatic":true,
+    "indexingMode":"Consistent",
+    "includedPaths":[  
+        {  
+            "path":"/*"
+        }
+    ],
+    "excludedPaths":[],
+    "compositeIndexes":[  
+        [  
             {  
-                "path":"/*"
+                "path":"/name",
+                "order":"ascending"
+            },
+            {  
+                "path":"/age",
+                "order":"ascending"
             }
         ],
-        "excludedPaths":[],
-        "compositeIndexes":[  
-            [  
-                {  
-                    "path":"/name",
-                },
-                {  
-                    "path":"/age",
-                }
-            ]
+        [  
+            {  
+                "path":"/name",
+                "order":"ascending"
+            },
+            {  
+                "path":"/age",
+                "order":"descending"
+            }
         ]
+    ]
 }
 ```
 
-### Excluding all property paths but keeping indexing active
+### Composite index defined for (name ASC, age ASC)
 
-This policy can be used in situations where the [Time-to-Live (TTL) feature](time-to-live.md) is active but no additional indexes are necessary (to use Azure Cosmos DB as a pure key-value store).
+It's optional to specify the order. If not specified, the order is ascending.
 
 ```json
-    {
-        "indexingMode": "consistent",
-        "includedPaths": [],
-        "excludedPaths": [{
-            "path": "/*"
-        }]
-    }
+{  
+    "automatic":true,
+    "indexingMode":"Consistent",
+    "includedPaths":[  
+        {  
+            "path":"/*"
+        }
+    ],
+    "excludedPaths":[],
+    "compositeIndexes":[  
+        [  
+            {  
+               "path":"/name",
+            },
+            {  
+               "path":"/age",
+            }
+        ]
+    ]
+}
+```
+
+### Exclude all property paths but keeping indexing active
+
+You can use this policy where the [Time-to-Live (TTL) feature](time-to-live.md) is active but no other indexes are necessary to use Azure Cosmos DB as a pure key-value store.
+
+```json
+{
+    "indexingMode": "consistent",
+    "includedPaths": [],
+    "excludedPaths": [{
+        "path": "/*"
+    }]
+}
 ```
 
 ### No indexing
 
-This policy will turn off indexing. If `indexingMode` is set to `none`, you cannot set a TTL on the container.
+This policy turns off indexing. If `indexingMode` is set to `none`, you can't set a TTL on the container.
 
 ```json
-    {
-        "indexingMode": "none"
-    }
+{
+    "indexingMode": "none"
+}
 ```
 
 ## Updating indexing policy
 
-In Azure Cosmos DB, the indexing policy can be updated using any of the below methods:
+In Azure Cosmos DB, the indexing policy can be updated using any of the following methods:
 
-- from the Azure portal
-- using the Azure CLI
-- using PowerShell
-- using one of the SDKs
+- From the Azure portal
+- Using the Azure CLI
+- Using PowerShell
+- Using one of the SDKs
 
 An [indexing policy update](../index-policy.md#modifying-the-indexing-policy) triggers an index transformation. The progress of this transformation can also be tracked from the SDKs.
 
 > [!NOTE]
-> When updating indexing policy, writes to Azure Cosmos DB will be uninterrupted. Learn more about [indexing transformations](../index-policy.md#modifying-the-indexing-policy)
+> When you update indexing policy, writes to Azure Cosmos DB are uninterrupted. Learn more about [indexing transformations](../index-policy.md#modifying-the-indexing-policy)
 
-## Use the Azure portal
+### Use the Azure portal
 
 Azure Cosmos DB containers store their indexing policy as a JSON document that the Azure portal lets you directly edit.
 
@@ -283,27 +283,27 @@ Azure Cosmos DB containers store their indexing policy as a JSON document that t
 
 1. Open the **Data Explorer** pane and select the container that you want to work on.
 
-1. Click on **Scale & Settings**.
+1. Select **Scale & Settings**.
 
-1. Modify the indexing policy JSON document (see examples [below](#indexing-policy-examples))
+1. Modify the indexing policy JSON document, as shown in these [examples](#indexing-policy-examples).
 
-1. Click **Save** when you are done.
+1. Select **Save** when you're done.
 
 :::image type="content" source="./media/how-to-manage-indexing-policy/indexing-policy-portal.png" alt-text="Manage Indexing using Azure portal":::
 
-## Use the Azure CLI
+### Use the Azure CLI
 
-To create a container with a custom indexing policy see, [Create a container with a custom index policy using CLI](manage-with-cli.md#create-a-container-with-a-custom-index-policy)
+To create a container with a custom indexing policy, see [Create a container with a custom index policy using CLI](manage-with-cli.md#create-a-container-with-a-custom-index-policy).
 
-## Use PowerShell
+### Use PowerShell
 
-To create a container with a custom indexing policy see, [Create a container with a custom index policy using PowerShell](manage-with-powershell.md#create-container-custom-index)
+To create a container with a custom indexing policy, see [Create a container with a custom index policy using PowerShell](manage-with-powershell.md#create-container-custom-index).
 
-## <a id="dotnet-sdk"></a> Use the .NET SDK
+### <a id="dotnet-sdk"></a> Use the .NET SDK
 
 # [.NET SDK V3](#tab/dotnetv3)
 
-The `ContainerProperties` object from the [.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) (see [this Quickstart](quickstart-dotnet.md) regarding its usage) exposes an `IndexingPolicy` property that lets you change the `IndexingMode` and add or remove `IncludedPaths` and `ExcludedPaths`.
+The `ContainerProperties` object from the [.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) exposes an `IndexingPolicy` property that lets you change the `IndexingMode` and add or remove `IncludedPaths` and `ExcludedPaths`. For more information, see [Quickstart: Azure Cosmos DB for NoSQL client library for .NET](quickstart-dotnet.md).
 
 ```csharp
 // Retrieve the container's details
@@ -327,7 +327,7 @@ containerResponse.Resource.IndexingPolicy.CompositeIndexes.Add(new Collection<Co
 await client.GetContainer("database", "container").ReplaceContainerAsync(containerResponse.Resource);
 ```
 
-To track the index transformation progress, pass a `RequestOptions` object that sets the `PopulateQuotaInfo` property to `true`, then retrieve the value from the `x-ms-documentdb-collection-index-transformation-progress` response header.
+To track the index transformation progress, pass a `RequestOptions` object that sets the `PopulateQuotaInfo` property to `true`. Retrieve the value from the `x-ms-documentdb-collection-index-transformation-progress` response header.
 
 ```csharp
 // retrieve the container's details
@@ -336,7 +336,7 @@ ContainerResponse containerResponse = await client.GetContainer("database", "con
 long indexTransformationProgress = long.Parse(containerResponse.Headers["x-ms-documentdb-collection-index-transformation-progress"]);
 ```
 
-The SDK V3's fluent API lets you write this definition in a concise and efficient way when defining a custom indexing policy while creating a new container:
+The SDK V3 fluent API lets you write this definition in a concise and efficient way when defining a custom indexing policy while creating a new container:
 
 ```csharp
 await client.GetDatabase("database").DefineContainer(name: "container", partitionKeyPath: "/myPartitionKey")
@@ -387,11 +387,12 @@ ResourceResponse<DocumentCollection> container = await client.ReadDocumentCollec
 // retrieve the index transformation progress from the result
 long indexTransformationProgress = container.IndexTransformationProgress;
 ```
+
 ---
 
-## Use the Java SDK
+### Use the Java SDK
 
-The `DocumentCollection` object from the [Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) (see [this Quickstart](quickstart-java.md) regarding its usage) exposes `getIndexingPolicy()` and `setIndexingPolicy()` methods. The `IndexingPolicy` object they manipulate lets you change the indexing mode and add or remove included and excluded paths.
+The `DocumentCollection` object from the [Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) exposes the `getIndexingPolicy()` and `setIndexingPolicy()` methods. The `IndexingPolicy` object they manipulate lets you change the indexing mode and add or remove included and excluded paths. For more information, see [Quickstart: Build a Java app to manage Azure Cosmos DB for NoSQL data](quickstart-java.md).
 
 ```java
 // Retrieve the container's details
@@ -457,7 +458,7 @@ indexingPolicy.setCompositeIndexes(compositeIndexes);
 });
 ```
 
-To track the index transformation progress on a container, pass a `RequestOptions` object that requests the quota info to be populated, then retrieve the value from the `x-ms-documentdb-collection-index-transformation-progress` response header.
+To track the index transformation progress on a container, pass a `RequestOptions` object that requests the quota info to be populated. Retrieve the value from the `x-ms-documentdb-collection-index-transformation-progress` response header.
 
 ```java
 // set the RequestOptions object
@@ -471,23 +472,23 @@ containerResponse.subscribe(result -> {
 });
 ```
 
-## Use the Node.js SDK
+### Use the Node.js SDK
 
-The `ContainerDefinition` interface from [Node.js SDK](https://www.npmjs.com/package/@azure/cosmos) (see [this Quickstart](quickstart-nodejs.md) regarding its usage) exposes an `indexingPolicy` property that lets you change the `indexingMode` and add or remove `includedPaths` and `excludedPaths`.
+The `ContainerDefinition` interface from [Node.js SDK](https://www.npmjs.com/package/@azure/cosmos) exposes an `indexingPolicy` property that lets you change the `indexingMode` and add or remove `includedPaths` and `excludedPaths`. For more information, see [Quickstart - Azure Cosmos DB for NoSQL client library for Node.js](quickstart-nodejs.md).
 
-Retrieve the container's details
+Retrieve the container's details:
 
 ```javascript
 const containerResponse = await client.database('database').container('container').read();
 ```
 
-Set the indexing mode to consistent
+Set the indexing mode to consistent:
 
 ```javascript
 containerResponse.body.indexingPolicy.indexingMode = "consistent";
 ```
 
-Add included path including a spatial index
+Add included path including a spatial index:
 
 ```javascript
 containerResponse.body.indexingPolicy.includedPaths.push({
@@ -518,19 +519,19 @@ containerResponse.body.indexingPolicy.includedPaths.push({
   });
 ```
 
-Add excluded path
+Add excluded path:
 
 ```javascript
 containerResponse.body.indexingPolicy.excludedPaths.push({ path: '/name/*' });
 ```
 
-Update the container with changes
+Update the container with changes:
 
 ```javascript
 const replaceResponse = await client.database('database').container('container').replace(containerResponse.body);
 ```
 
-To track the index transformation progress on a container, pass a `RequestOptions` object that sets the `populateQuotaInfo` property to `true`, then retrieve the value from the `x-ms-documentdb-collection-index-transformation-progress` response header.
+To track the index transformation progress on a container, pass a `RequestOptions` object that sets the `populateQuotaInfo` property to `true`. Retrieve the value from the `x-ms-documentdb-collection-index-transformation-progress` response header.
 
 ```javascript
 // retrieve the container's details
@@ -541,26 +542,26 @@ const containerResponse = await client.database('database').container('container
 const indexTransformationProgress = replaceResponse.headers['x-ms-documentdb-collection-index-transformation-progress'];
 ```
 
-## Use the Python SDK
+### Use the Python SDK
 
 # [Python SDK V3](#tab/pythonv3)
 
-When using the [Python SDK V3](https://pypi.org/project/azure-cosmos/) (see [this Quickstart](quickstart-python.md) regarding its usage), the container configuration is managed as a dictionary. From this dictionary, it is possible to access the indexing policy and all its attributes.
+When you use the [Python SDK V3](https://pypi.org/project/azure-cosmos/), the container configuration is managed as a dictionary. From this dictionary, you can access the indexing policy and all its attributes. For more information, see [Quickstart: Azure Cosmos DB for NoSQL client library for Python](quickstart-python.md).
 
-Retrieve the container's details
+Retrieve the container's details:
 
 ```python
 containerPath = 'dbs/database/colls/collection'
 container = client.ReadContainer(containerPath)
 ```
 
-Set the indexing mode to consistent
+Set the indexing mode to consistent:
 
 ```python
 container['indexingPolicy']['indexingMode'] = 'consistent'
 ```
 
-Define an indexing policy with an included path and a spatial index
+Define an indexing policy with an included path and a spatial index:
 
 ```python
 container["indexingPolicy"] = {
@@ -574,7 +575,7 @@ container["indexingPolicy"] = {
 }
 ```
 
-Define an indexing policy with an excluded path
+Define an indexing policy with an excluded path:
 
 ```python
 container["indexingPolicy"] = {
@@ -584,7 +585,7 @@ container["indexingPolicy"] = {
 }
 ```
 
-Add a composite index
+Add a composite index:
 
 ```python
 container['indexingPolicy']['compositeIndexes'] = [
@@ -601,7 +602,7 @@ container['indexingPolicy']['compositeIndexes'] = [
                 ]
 ```
 
-Update the container with changes
+Update the container with changes:
 
 ```python
 response = client.ReplaceContainer(containerPath, container)
@@ -609,9 +610,9 @@ response = client.ReplaceContainer(containerPath, container)
 
 # [Python SDK V4](#tab/pythonv4)
 
-When using the [Python SDK V4](https://pypi.org/project/azure-cosmos/), the container configuration is managed as a dictionary. From this dictionary, it is possible to access the indexing policy and all its attributes.
+When you use the [Python SDK V4](https://pypi.org/project/azure-cosmos/), the container configuration is managed as a dictionary. From this dictionary, you can access the indexing policy and all its attributes.
 
-Retrieve the container's details
+Retrieve the container's details:
 
 ```python
 database_client = cosmos_client.get_database_client('database')
@@ -619,7 +620,7 @@ container_client = database_client.get_container_client('container')
 container = container_client.read()
 ```
 
-Set the indexing mode to consistent
+Set the indexing mode to consistent:
 
 ```python
 indexingPolicy = {
@@ -627,7 +628,7 @@ indexingPolicy = {
 }
 ```
 
-Define an indexing policy with an included path and a spatial index
+Define an indexing policy with an included path and a spatial index:
 
 ```python
 indexingPolicy = {
@@ -640,7 +641,7 @@ indexingPolicy = {
 }
 ```
 
-Define an indexing policy with an excluded path
+Define an indexing policy with an excluded path:
 
 ```python
 indexingPolicy = {
@@ -650,7 +651,7 @@ indexingPolicy = {
 }
 ```
 
-Add a composite index
+Add a composite index:
 
 ```python
 indexingPolicy['compositeIndexes'] = [
@@ -667,13 +668,14 @@ indexingPolicy['compositeIndexes'] = [
 ]
 ```
 
-Update the container with changes
+Update the container with changes:
 
 ```python
 response = database_client.replace_container(container_client, container['partitionKey'], indexingPolicy)
 ```
 
-Retrieve the index transformation progress from the response headers
+Retrieve the index transformation progress from the response headers:
+
 ```python
 container_client.read(populate_quota_info = True,
                       response_hook = lambda h,p: print(h['x-ms-documentdb-collection-index-transformation-progress']))

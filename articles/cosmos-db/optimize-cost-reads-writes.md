@@ -43,7 +43,10 @@ The only factor affecting the RU charge of a point read (besides the consistency
 | 1 KB | 1 RU |
 | 100 KB | 10 RUs |
 
-Because point reads (key/value lookups on the item ID) are the most efficient kind of read, you should make sure your item ID has a meaningful value so you can fetch your items with a point read (instead of a query) when possible.
+Because point reads (key/value lookups on the item ID and partition key) are the most efficient kind of read, you should make sure your item ID has a meaningful value so you can fetch your items with a point read (instead of a query) when possible. 
+
+> [!NOTE]
+> In the API for NoSQL, point reads can only be made using the REST API or SDKs. Queries that filter on one item's ID and partition key aren't considered a point read. To see an example using the .NET SDK, see [read an item in Azure Cosmos DB for NoSQL.](./nosql/how-to-dotnet-read-item.md)
 
 ### Queries
 

@@ -120,11 +120,11 @@ library(ggplot2)
 myplot <- ggplot(...)
 
 ggsave(myplot, 
-       filename = "./outputs/myplot.png")
+       filename = file.path(args$output,"forecast-plot.png"))
 
 
 # save an rds serialized object
-saveRDS(myobject, file = "./outputs/myobject.rds")
+saveRDS(myobject, file = file.path(args$output,"myobject.rds"))
 
 ```
 
@@ -278,7 +278,7 @@ RUN pip install MLflow
 RUN ln -f /usr/bin/python3 /usr/bin/python
 
 # Install R packages required for logging with MLflow (these are necessary)
-RUN R -e "install.packages('MLflow', dependencies = TRUE, repos = 'https://cloud.r-project.org/')"
+RUN R -e "install.packages('mlflow', dependencies = TRUE, repos = 'https://cloud.r-project.org/')"
 RUN R -e "install.packages('carrier', dependencies = TRUE, repos = 'https://cloud.r-project.org/')"
 RUN R -e "install.packages('optparse', dependencies = TRUE, repos = 'https://cloud.r-project.org/')"
 RUN R -e "install.packages('tcltk2', dependencies = TRUE, repos = 'https://cloud.r-project.org/')"

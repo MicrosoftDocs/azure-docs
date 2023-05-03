@@ -6,6 +6,78 @@ ms.date: 11/01/2022
 ms.author: eur
 ---
 
+### Speech SDK 1.28.0: May 2023 release
+
+#### Breaking change
+
+* **JavaScript SDK**: Online Certificate Status Protocol (OCSP) was removed. This allows clients to better conform to browser and Node standards for certificate handling. Version 1.28 and onward will no longer include our custom OCSP module.
+
+#### New Features
+
+* **Embedded Speech Recognition** now returns `NoMatchReason::EndSilenceTimeout` when a silence timeout occurs at the end of an utterance. This matches the behavior when doing recognition using the real-time speech service.
+* **JavaScript SDK**: Set properties on `SpeechTranslationConfig` using `PropertyId` enum values.
+
+#### Bug fixes
+
+* **C# on Windows** - Fix potential race condition/deadlock in Windows audio extension. In scenarios that both dispose of the audio renderer quickly and also use the Synthesizer method to stop speaking, the underlying event was not reset by stop, and could cause the renderer object to never be disposed, all while it could be holding a global lock for disposal, freezing the dotnet GC thread.
+
+#### Samples
+
+* Added an embedded speech sample for MAUI.
+* Updated the embedded speech sample for Android Java to include Text-To-Speech.
+
+### Speech SDK 1.27.0: April 2023 release
+
+#### Notification about upcoming changes
+
+* We plan to remove Online Certificate Status Protocol (OCSP) in the next JavaScript SDK release. This allows clients to better conform to browser and Node standards for certificate handling. Version 1.27 is the last release that includes our custom OCSP module.
+
+#### New Features
+
+* **JavaScript** – Added support for microphone input from the browser with Speaker Identification and Verification.
+* **Embedded Speech Recognition** - Update support for `PropertyId::Speech_SegmentationSilenceTimeoutMs` setting.
+
+#### Bug fixes
+
+* **General** - Reliability updates in service reconnection logic (all programming languages except JavaScript).
+* **General** - Fix string conversions leaking memory on Windows (all relevant programming languages except JavaScript).
+* **Embedded Speech Recognition** - Fix crash in French Speech Recognition when using certain grammar list entries.
+* **Source code documentation** - Corrections to SDK reference documentation comments related to audio logging on the service.
+* **Intent recognition** - Fix Pattern Matcher priorities related to list entities.
+
+#### Samples
+
+* Properly handle authentication failure in C# Conversation Transcription (CTS) sample.
+* Added example of streaming pronunciation assessment for Python, JavaScript, Objective-C and Swift.
+
+
+### Speech SDK 1.26.0: March 2023 release
+
+#### Breaking changes
+
+* Bitcode has been disabled in all iOS targets in the following packages: Cocoapod with xcframework, Nuget (for Xamarin and MAUI) and Unity. The change is due to Apple's deprecation of bitcode support from Xcode 14 and onwards. This change also means if you are using Xcode 13 version or you have explicitly enabled the bitcode on your application using the Speech SDK, you may encounter an error saying "framework does not contain bitcode and you must rebuild it". To resolve this issue, make sure your targets have bitcode disabled.
+* Minimum iOS deployment target has been upgraded to 11.0 in this release, which means armv7 HW is no longer supported.
+
+#### New features
+
+* Embedded (on-device) Speech Recognition now supports both 8 and 16 kHz sampling rate input audio (16-bit per sample, mono PCM).
+* Speech Synthesis now reports connection, network and service latencies in the result to help end-to-end latency optimization.
+* New tiebreaking rules for [Intent Recognition with simple pattern matching](../../how-to-use-simple-language-pattern-matching.md). The more character bytes that are matched, will win over pattern matches with lower character byte count. Example: Pattern "Click {something} in the top right" will win over "Click {something}"
+
+#### Bug fixes
+
+* Speech Synthesis: fix a bug where the emoji is not correct in word boundary events.
+* [Intent Recognition with with Conversational Language Understanding (CLU)](../../get-started-intent-recognition-clu.md):
+  * Intents from the CLU Orchestrator Workflow now appear correctly.
+  * The JSON result is now available via the property ID `LanguageUnderstandingServiceResponse_JsonResult`.
+* Speech recognition with keyword activation: Fix for missing ~150ms audio after a keyword recognition.
+* Fix for Speech SDK NuGet iOS MAUI Release build, reported by customer ([GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1835))
+
+#### Samples
+
+* Fix for Swift iOS sample, reported by customer ([GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1759))
+
+
 ### Speech SDK 1.25.0: January 2023 release
 
 #### Breaking changes

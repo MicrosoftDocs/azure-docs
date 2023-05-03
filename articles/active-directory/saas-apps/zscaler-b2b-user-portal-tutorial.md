@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Zscaler B2B User Portal | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Zscaler B2B User Portal'
 description: Learn how to configure single sign-on between Azure Active Directory and Zscaler B2B User Portal.
 services: active-directory
 author: jeevansd

@@ -359,4 +359,4 @@ If you would like to learn more about other Azure storage APIs, follow these lin
 - [Azure Storage Services REST API](/rest/api/storageservices/)
 - [Azure Storage Team Blog](https://azure.microsoft.com/blog/topics/storage-backup-and-recovery/)
 - [Transfer data with the AzCopy Command-Line Utility](../common/storage-use-azcopy-v10.md)
-- [Troubleshooting Azure Files problems - Windows](storage-troubleshoot-windows-file-connection-problems.md)
+- [Troubleshoot Azure Files](files-troubleshoot.md)

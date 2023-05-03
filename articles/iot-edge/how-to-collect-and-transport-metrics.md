@@ -27,7 +27,7 @@ To configure monitoring on your IoT Edge device, follow the [Tutorial: Monitor I
 
 # [IoT Hub](#tab/iothub)
 
-[![Metrics monitoring architecture with IoT Hub](./media/how-to-collect-and-transport-metrics/arch.png)](./media/how-to-collect-and-transport-metrics/arch.png#lightbox)
+:::image type="content" source="./media/how-to-collect-and-transport-metrics/arch.png" alt-text="Screenshot of the metrics monitoring architecture with IoT Hub." lightbox="./media/how-to-collect-and-transport-metrics/arch.png":::
 
 | Note | Description |
 |-|-|
@@ -42,7 +42,7 @@ To configure monitoring on your IoT Edge device, follow the [Tutorial: Monitor I
 
 # [IoT Central](#tab/iotcentral)
 
-[![Metrics monitoring architecture with IoT Central](./media/how-to-collect-and-transport-metrics/arch-iot-central.png)](./media/how-to-collect-and-transport-metrics/arch-iot-central.png#lightbox)
+:::image type="content" source="./media/how-to-collect-and-transport-metrics/arch-iot-central.png" alt-text="Screenshot of metrics monitoring architecture with IoT Central." lightbox="./media/how-to-collect-and-transport-metrics/arch-iot-central.png":::
 
 | Note | Description |
 |-|-|

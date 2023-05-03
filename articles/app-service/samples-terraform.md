@@ -2,6 +2,7 @@
 title: terraform samples
 description: Find terraform samples for some of the common App Service scenarios. Learn how to automate your App Service deployment or management tasks.
 tags: azure-service-management
+ms.custom: devx-track-terraform
 
 ms.assetid: 1e5ecfa8-4ab1-47d3-ab23-97abf723516d
 ms.topic: sample
