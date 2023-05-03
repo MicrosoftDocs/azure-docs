@@ -107,7 +107,7 @@ Depending on your platform, follow the instructions in the appropriate section t
 
 1. Verify the installation by checking npm list output text. The version number may vary as new patches are released.
 
-### [Linux (SUSE)](#tab/rhel)
+### [Linux (SUSE)](#tab/sles)
 
 1. Run the following commands to install **Node.js** and **npm** the package manager for Node.js.
 
