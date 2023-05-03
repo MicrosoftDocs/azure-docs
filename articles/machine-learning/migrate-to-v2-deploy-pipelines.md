@@ -22,7 +22,7 @@ Once you have a pipeline up and running, you can publish a pipeline so that it r
 
 [Batch Endpoint](concept-endpoints-batch.md) proposes a similar yet more powerful way to handle multiple assets running under a durable API which is why the Published pipelines functionality has been moved to [Pipeline component deployments in batch endpoints (preview)](concept-endpoints-batch.md#pipeline-component-deployment-preview).
 
-[Batch endpoints](concept-endpoints-batch.md) decouples the interface (endpoint) from the actual implementation (deployment) and allow the user to decide which deployment serves the default implementation of the endpoint. [Pipeline component deployments in batch endpoints](concept-endpoints-batch.md#pipeline-component-deployment-preview) allow users to deploy pipeline components instead of pipelines, which makes a better use of reusable assets for those organizations looking to streamline their MLOps practice.
+[Batch endpoints](concept-endpoints-batch.md) decouples the interface (endpoint) from the actual implementation (deployment) and allow the user to decide which deployment serves the default implementation of the endpoint. [Pipeline component deployments in batch endpoints](concept-endpoints-batch.md#pipeline-component-deployment-preview) allow users to deploy pipeline components instead of pipelines, which make a better use of reusable assets for those organizations looking to streamline their MLOps practice.
 
 The following table shows a comparison of each of the concepts:
 
@@ -33,7 +33,7 @@ The following table shows a comparison of each of the concepts:
 | Pipeline's arguments on invocation                | Pipeline parameter  | Job inputs                     |
 | Job generated from a published pipeline           | Pipeline job        | Batch job                      |
 
-To learn how to create you first pipeline component deployment see [How to deploy pipelines in Batch Endpoints](how-to-use-batch-pipeline-deployments.md).
+To learn how to create your first pipeline component deployment see [How to deploy pipelines in Batch Endpoints](how-to-use-batch-pipeline-deployments.md).
 
 
 ## Moving to batch endpoints
@@ -82,7 +82,7 @@ Compare how publishing a pipeline has changed from v1 to v2:
     pipeline_component = pipeline.pipeline_builder.build()
     ```
 
-1. As a best practice, we recommend to register pipeline components so you can keep versioning of them in a centralized way inside the workspace or even the shared registries.
+1. As a best practice, we recommend registering pipeline components so you can keep versioning of them in a centralized way inside the workspace or even the shared registries.
 
     ```python
     ml_client.components.create(pipeline_component)
@@ -147,7 +147,7 @@ run_id = pipeline_endpoint.submit(endpoint_name, pipeline_version="0")
 
 In batch endpoints, deployments are not versioned. However, you can deploy multiple pipeline components versions under the same endpoint. In this sense, each pipeline version in v1 will correspond to a different pipeline component version and its corresponding deployment under the endpoint.
 
-Then, you can deploy an specific deployment running under the endpoint if that deployment runs the version you are interested in.
+Then, you can deploy a specific deployment running under the endpoint if that deployment runs the version you are interested in.
 
 ```python
 job = ml_client.batch_endpoints.invoke(

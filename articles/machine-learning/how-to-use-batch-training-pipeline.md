@@ -156,7 +156,7 @@ heart_dataset_train = ml_client.data.get(name=dataset_name, label="latest")
 
 ### Create the pipeline
 
-The pipeline we want to operationalize has takes 1 input, the training data, and produces 3 outputs, the trained model, the evaluation results, and the data transformations applied as preprocessing. It is composed of 2 components:
+The pipeline we want to operationalize takes 1 input, the training data, and produces 3 outputs, the trained model, the evaluation results, and the data transformations applied as preprocessing. It is composed of 2 components:
 
 1. `preprocess_job`: This step reads the input data and returns the prepared data and the applied transformations. The step receives three inputs:
     - `data`: a folder containing the input data to transform and score
@@ -448,7 +448,7 @@ Once the deployment is created, it's ready to receive jobs. Follow these steps t
     ml_client.jobs.get(name=job.name).stream()
     ```
 
-It's worth to be mentioned that only the pipeline's inputs are published as inputs in the Batch Endpoint. For instance, `categorical_encoding` is an input of an step of the pipeline, but not an input in the pipeline itself. Use this fact to control which inputs do you want to expose to your clients and which ones you do not.
+It's worth to be mentioned that only the pipeline's inputs are published as inputs in the Batch Endpoint. For instance, `categorical_encoding` is an input of a step of the pipeline, but not an input in the pipeline itself. Use this fact to control which inputs do you want to expose to your clients and which ones you do not.
 
 ### Access job outputs
 

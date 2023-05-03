@@ -494,6 +494,8 @@ Download the result:
 ml_client.jobs.download(name=job.name, download_path=".", output_name="scores")
 ```
 
+---
+
 Read the scored data:
 
 ```python
@@ -505,7 +507,16 @@ score = pd.concat((pd.read_csv(f) for f in output_files))
 score
 ```
 
----
+The output looks as follows:
+
+| age     |	sex |	... |	thal  |	prediction |
+|---------|-----|-------|---------|------------|
+| 0.9338  |	1   |	... |	2     |	0          |
+| 1.3782  |	1   |	... |	3     |	1          |
+| 1.3782  |	1   |	... |	4     |	0          |
+| -1.954  |	1   |	... |	3     |	0          |
+
+The output contains the predictions plus the data that was provided to the *score* component, which was preprocessed. For example, the column `age` has been normalized, and column `thal` contains orginal encoding values. In practice, you probably want to output the prediction only and then concat this predictions with the original values. This work has been left to the reader.
 
 ## Clean up resources
 
