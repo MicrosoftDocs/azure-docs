@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 04/24/2023
+ms.date: 05/01/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -30,6 +30,8 @@ Updates in April include:
 - [Deprecation and improvement of selected alerts for Windows and Linux Servers](#deprecation-and-improvement-of-selected-alerts-for-windows-and-linux-servers)
 - [New Azure Active Directory authentication-related recommendations for Azure Data Services](#new-azure-active-directory-authentication-related-recommendations-for-azure-data-services)
 - [Two recommendations related to missing Operating System (OS) updates were released to GA](#two-recommendations-related-to-missing-operating-system-os-updates-were-released-to-ga)
+- [Defender for APIs (Preview)](#defender-for-apis-preview)
+
 ### Agentless Container Posture in Defender CSPM (Preview)
 
 The new Agentless Container Posture (Preview) capabilities are available as part of the Defender CSPM (Cloud Security Posture Management) plan.
@@ -90,8 +92,6 @@ Defender for Resource Manager has the following new alert:
 You can see a list of all of the [alerts available for Resource Manager](alerts-reference.md#alerts-resourcemanager).
 
 ### Three alerts in the Defender for Resource Manager plan have been deprecated
-
-**Estimated date for change: March 2023**
 
 The following three alerts for the Defender for Resource Manager plan have been deprecated:
 
@@ -161,6 +161,16 @@ The new recommendation `System updates should be installed on your machines (pow
 The new recommendation `System updates should be installed on your machines (powered by Update management center)`, isn't expected to affect your Secure Score, as it will have the same results as the old recommendation `System updates should be installed on your machines`.
 
 The prerequisite recommendation ([Enable the periodic assessment property](../update-center/assessment-options.md#periodic-assessment)) will have a negative effect on your Secure Score. You can be remediated the effect with the available [Fix button](implement-security-recommendations.md). 
+
+### Defender for APIs (Preview)
+
+Microsoft's Defender for Cloud is announcing the new Defender for APIs is available in preview.
+
+Defender for APIs offers full lifecycle protection, detection, and response coverage for APIs.
+
+Defender for APIs helps you to gain visibility into business-critical APIs. You can investigate and improve your API security posture, prioritize vulnerability fixes, and quickly detect active real-time threats.
+
+Learn more about [Defender for APIs](defender-for-apis-introduction.md).
 
 ## March 2023
 
@@ -337,7 +347,7 @@ Updates in January include:
 
 ### The Endpoint protection (Microsoft Defender for Endpoint) component is now accessed in the Settings and monitoring page
 
-In our continuing efforts to simplify your Defender for Cloud configuration experience, we moved the configuration for Endpoint protection (Microsoft Defender for Endpoint) component from the **Environment settings** > **Integrations** page to the **Environment settings** > **Defender plans** > **Settings and monitoring** page, where the other components are managed as well. There's no change to the functionality other than the location in the portal.
+To access Endpoint protection navigate to **Environment settings** > **Defender plans** > **Settings and monitoring**. From here you can set Endpoint protection to **On**. You can also see all of the other components that are managed.
 
 Learn more about [enabling Microsoft Defender for Endpoint](integration-defender-for-endpoint.md) on your servers with Defender for Servers.
 

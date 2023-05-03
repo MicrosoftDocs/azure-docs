@@ -85,4 +85,5 @@ To go through the self-service password reset flow:
 
 ## Next steps
 
-- [Customize the default branding](how-to-customize-branding-customers.md)
+- [Add Google as an identity provider](how-to-google-federation-customers.md)
+- [Add Facebook as an identity provider](how-to-facebook-federation-customers.md)

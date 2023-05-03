@@ -38,7 +38,7 @@ In this article, you do the following tasks:
 
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 
-- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-hub-free-trial). 
+- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial). 
 
 <!--Awaiting this link http://developer.microsoft.com/identity/customers to go live on Developer hub-->
 
@@ -53,6 +53,8 @@ In this article, you do the following tasks:
 [!INCLUDE [active-directory-b2c-add-client-secret](./includes/register-app/add-app-client-secret.md)] 
 
 ## Grant API permissions
+
+Since this app signs-in users, add delegated permissions:
 
 [!INCLUDE [active-directory-b2c-grant-delegated-permissions](./includes/register-app/grant-api-permission-sign-in.md)] 
 
@@ -73,7 +75,7 @@ To get the web app sample code, you can do either of the following tasks:
     ```console
         git clone https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial.git
     ```
-If you choose to download the `.zip` file, extract the sample app file to a folder where the total length of the path is 260 or fewer characters.
+If you choose to download the *.zip* file, extract the sample app file to a folder where the total length of the path is 260 or fewer characters.
 
 ## Install project dependencies 
 
@@ -90,13 +92,13 @@ If you choose to download the `.zip` file, extract the sample app file to a fold
 
 ## Configure the sample web app
 
-1. In your code editor, open `App\authConfig.js` file. 
+1. In your code editor, open *App\authConfig.js* file. 
 
 1. Find the placeholder: 
     
     1. `Enter_the_Application_Id_Here` and replace it with the Application (client) ID of the app you registered earlier.
-    
-    1. `Enter_the_Tenant_Info_Here` and replace it with the Directory (tenant) ID you copied earlier.
+     
+    1. `Enter_the_Tenant_Name_Here` and replace it with the Directory (tenant) name. If you don't have your tenant name, learn how to [read tenant details](how-to-create-customer-tenant-portal.md#get-the-customer-tenant-details).
      
     1. `Enter_the_Client_Secret_Here` and replace it with the app secret value you copied earlier.
 
@@ -120,13 +122,21 @@ You can now test the sample Node.js web app. You need to start the Node.js serve
 
 1. If you choose the sign-up option, after filling in your email, one-time passcode, new password and more account details, you complete the whole sign-up flow. You see a page similar to the following screenshot. You see a similar page if you choose the sign-in option.
 
-    :::image type="content" source="media/how-to-web-app-node-sample-sign-in/web-app-node-view-claims.png" alt-text="Screenshot of view I D token claims.":::
+    :::image type="content" source="media/how-to-web-app-node-sample-sign-in/web-app-node-view-claims.png" alt-text="Screenshot of view ID token claims.":::
 
 1. Select **Sign out** to sign the user out of the web app or select **View ID token claims** to view ID token claims returned by Microsoft Entra. 
 
+### How it works
+
+When users select the **Sign in** link, the app initiates an authentication request and redirects users to Azure AD for customers. On the sign-in or sign-up page that appears, once a user successfully signs in or creates an account, Azure AD for customers returns an ID token to the app. The app validates the ID token, reads the claims, and returns a secure page to the users.  
+
+When the users select the **Sign out** link, the app clears its session, the redirect the user to Azure AD for customers sign-out endpoint to notify it that the user has signed out.   
+
+If you want to build an app similar to the sample you've run, complete the steps in [Sign in users in your own Node.js web application by using Microsoft Entra](how-to-web-app-node-sign-in-overview.md) article. 
+
 ## Next steps
 
-Learn how to: 
+You may want to: 
 
 - [Enable password reset](how-to-enable-password-reset-customers.md)
 

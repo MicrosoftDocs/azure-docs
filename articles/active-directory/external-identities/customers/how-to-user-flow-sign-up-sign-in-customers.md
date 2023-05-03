@@ -23,7 +23,7 @@ You can create multiple user flows if you have multiple applications that you wa
 
 ## Prerequisites
 
-- **An Azure AD customer tenant**: Before you begin, create your Azure AD customer tenant. You can set up a [free trial](https://aka.ms/ciam-hub-free-trial), or you can create a new customer tenant in Azure AD.
+- **An Azure AD customer tenant**: Before you begin, create your Azure AD customer tenant. You can set up a [free trial](https://aka.ms/ciam-free-trial), or you can create a new customer tenant in Azure AD.
 - **Email one-time passcode enabled (optional)**: If you want customers to use their email address and a one-time passcode each time they sign in, make sure Email one-time passcode is enabled at the tenant level (in the [Microsoft Entra admin center](https://entra.microsoft.com/), navigate to **External Identities** > **All Identity Providers** > **Email One-time-passcode**).
 - **Custom attributes defined (optional)**: User attributes are values collected from the user during self-service sign-up. Azure AD comes with a built-in set of attributes, but you can [define custom attributes to collect during sign-up](how-to-define-custom-attributes.md). Define custom attributes in advance so they'll be available when you set up your user flow. Or you can create and add them later.
 
@@ -41,7 +41,7 @@ Follow these steps to create a user flow a customer can use to sign in or sign u
 
 1. Select **New user flow**.
 
-   :::image type="content" source="media/how-to-user-flow-sign-up-sign-in-customers/new-user-flow.png" alt-text="Screenshot of the new user flow option." lightbox="media/how-to-customize-branding-customers/azure-ad-microsoft-branding.png":::
+   :::image type="content" source="media/how-to-user-flow-sign-up-sign-in-customers/new-user-flow.png" alt-text="Screenshot of the new user flow option.":::
 
 1. On the **Create** page, enter a **Name** for the user flow (for example, "SignUpSignIn").
 
@@ -98,3 +98,8 @@ If you've already registered your application in your customer tenant, you can a
 1. Select the application from the list. Or use the search box to find the application, and then select it.
 
 1. Choose **Select**.
+
+## Next steps
+
+- [Enable password reset](how-to-enable-password-reset-customers.md).
+- Add [Google](how-to-google-federation-customers.md) or [Facebook](how-to-facebook-federation-customers.md) federation.

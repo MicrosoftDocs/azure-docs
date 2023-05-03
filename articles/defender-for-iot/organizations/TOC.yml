@@ -186,6 +186,8 @@
     - name: View OT device mapping
       href: how-to-work-with-the-sensor-device-map.md
       displayName: notification, notifications
+    - name: Create data mining reports
+      href: how-to-create-data-mining-queries.md
   - name: Manage alerts
     items:
     - name: Azure portal
@@ -210,8 +212,6 @@
       displayName: graphs, vulnerabilities
     - name: Create OT sensor reports
       items:
-      - name: Create data mining reports
-        href: how-to-create-data-mining-queries.md
       - name: Create risk assessment reports
         href: how-to-create-risk-assessment-reports.md
       - name: Create trends and statistics reports

@@ -42,17 +42,9 @@
     - name: Data visualization in Power BI
       displayName: Stream Analytics
       href: iot-hub-live-data-visualization-in-power-bi.md
-    - name: Use X.509 certificates
-      items:
-        - name: Use OpenSSL to create test certificates
-          displayName: X.509 certificates, root CA
-          href: tutorial-x509-openssl.md
-        - name: Upload and verify CA certificates
-          displayName: root certification authority (CA), verify certificate, manual verification, verification code, certificate signing request (CSR)
-          href: tutorial-x509-prove-possession.md
-        - name: Test certificate authentication
-          displayName: X.509 certificates
-          href: tutorial-x509-test-certificate.md
+    - name: Create and upload certificates for testing
+      displayName: X.509 certificates, root certificate authority (CA), verify certificate, certificate signing request (CSR)
+      href: tutorial-x509-test-certs.md
 - name: Concepts
   items:
     - name: IoT Hub concepts overview
@@ -280,7 +272,7 @@
           - name: Automatically migrate an IoT hub using CLI
             href: migrate-hub-state-cli.md
           - name: Manually migrate an IoT hub using ARM
-            href: iot-hub-how-to-clone.md
+            href: migrate-hub-arm.md
           - name: Bulk import and export IoT devices
             href: iot-hub-bulk-identity-mgmt.md
         - name: Configure IP filtering
