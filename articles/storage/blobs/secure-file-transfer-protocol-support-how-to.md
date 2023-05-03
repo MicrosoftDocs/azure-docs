@@ -82,7 +82,7 @@ This section shows you how to disable SFTP support for an existing storage accou
 3. Select **Disable SFTP**. 
 
    > [!div class="mx-imgBorder"]
-   > ![Disable SFTP button](./media/secure-file-transfer-protocol-support-how-to/sftp-enable-option-disable.png)
+   > ![Screenshot of the disable SFTP button.](./media/secure-file-transfer-protocol-support-how-to/sftp-enable-option-disable.png)
 
 ### [PowerShell](#tab/powershell)
 
