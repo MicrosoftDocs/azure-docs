@@ -54,7 +54,7 @@ ms.custom: aaddev, devx-track-python, "scenarios:getting-started", "languages:Py
 > 
 > Download the project and extract the zip file to a local folder closer to the root folder - for example, **C:\Azure-Samples**
 > > [!div class="nextstepaction"]
-> > [Download the code sample](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/main.zip)
+> > [Download the code sample](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip)
 > 
 > > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
