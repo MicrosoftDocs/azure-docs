@@ -1,5 +1,5 @@
 ---
-title: Modify images for shelf analysis
+title: Prepare images for shelf analysis
 titleSuffix: Azure Cognitive Services
 description: Use the stitching and rectification APIs to prepare organic photos of retail shelves for accurate image analysis.
 author: PatrickFarley
@@ -12,7 +12,7 @@ ms.date: 04/26/2023
 ms.author: pafarley
 ---
 
-# Modify images for shelf analysis
+# Prepare images for shelf analysis
 
 Part of the shelf analysis workflow involves fixing and modifying the input images so the service can perform correctly. 
 

@@ -158,7 +158,7 @@ items:
           href: how-to/shelf-analyze.md
         - name: Create a custom shelf analysis model
           href: how-to/shelf-model-customization.md
-        - name: Match shelf images to a planogram
+        - name: Check planogram compliance
           href: how-to/shelf-planogram.md
       - name: Call the Image retrieval APIs
         href: how-to/image-retrieval.md
