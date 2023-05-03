@@ -8,13 +8,12 @@ AzureML provides following capabilities for continuous model monitoring:
 * **Flexibility to include multiple monitoring signals for a broad view.** You can easily include multiple monitoring signals in one monitoring setup, and for each monitoring signal, you have flexibility to select your preferred metric(s) and fine-tine threshold.
 * **Flexibility to use recent past production data or training data as comparison baseline dataset.**
 * **Monitor data drift or data quality for top n features.** If you use training data as comparison baseline dataset, you will be able to define data drift or data quality layering over feature importance. 
-* **Monitor drift for a specific subset of population.** For some ML models, data change impact can be subtle and drift occurs only for a specific subset of the population, which could easily go undetected. Monitoring drift for a specific subset of population is important for this kind of models. 
+* **Monitor data drift for a specific subset of population.** For some ML models, data change impact can be subtle and drift occurs only for a specific subset of the population, which could easily go undetected. Monitoring drift for a specific subset of population is important for this kind of models. 
 * **Define your own monitoring signal.** In case built-in monitoring signals may not be suitable for your business scenario, you can define your own monitoring signal with custom monitoring signal component.
 * **Bring your own production inference data.** If you deploy models outside of AzureML, or if you deploy models as AzureML batch endpoint, you can collect production inference data and bring it to AzureML for model monitoring. 
 * **Flexibility to select data window.** You have flexibility to select data window for both target dataset and baseline dataset
-  * By default, data window for production inference data (target dataset) is your monitoring fequency, i.e. all data collected in the past monitoring period before monitoring job is run. You can use lookback period to adjust data window for target dataset if needed.
-  * By Data window for baseline dataset is the full dataset. You can adjust data window either using date range or trailing X days parameter.
-* Azure Monitor integration. 
+  * By default, data window for production inference data (target dataset) is your monitoring fequency, i.e. all data collected in the past monitoring period before monitoring job is run. You can use 'lookback_period_days` to adjust data window for target dataset if needed.
+  * By default data window for baseline dataset is the full dataset. You can adjust data window either using date range or `trailing_days` parameter.
 
 
 ## Out-of-box model monitoring setup
@@ -76,7 +75,7 @@ from azure.ai.ml import MLClient, Input
 from azure.ai.ml.constants import TimeZone
 from azure.ai.ml.dsl import pipeline
 from azure.ai.ml.entities import (
-    MoitorSchedule,
+    MonitorSchedule,
     RecurrencePattern,
     RecurrenceTrigger
 )
@@ -97,7 +96,7 @@ recurrence_trigger = RecurrenceTrigger(
 
 model_monitor = MonitorSchedule(name="fraud_detection_model_monitoring", 
                                 trigger=recurrence_trigger, 
-                                monitor_definition=monitor_definition)
+                                create_monitor=monitor_definition)
 
 ml_client.schedules.begin_create_or_update(model_monitor)
 
@@ -147,12 +146,13 @@ create_monitor:
     endpoint_deployment_id: azureml:fraud-detection-endpoint:fraud-detection-deployment
   
   monitoring_signals:
-    advanced_data_drift:
+    advanced_data_drift: # monitoring signal name, any user defined name works
       type: data_drift
       # target_dataset is optional. By default target dataset is the production inference data associated with AzureML online depoint
       baseline_dataset:
-        path: azureml:my_model_training_data:1
-        type: mltable
+        input_dataset:
+          path: azureml:my_model_training_data:1
+          type: mltable
       features: 
         top_n_feature_importance: 20 # monitor drift for top 20 features
       metric_thresholds:
@@ -166,8 +166,9 @@ create_monitor:
       type: data_drift
       # target_dataset is optional. By default target dataset is the production inference data associated with AzureML online depoint
       baseline_dataset:
-        path: azureml:my_model_training_data:1
-        type: mltable
+        input_dataset:
+          path: azureml:my_model_training_data:1
+          type: mltable
         # features: by default monitor top 10 features with training dataset available
       data_segment:
         feature_name: state # monitor data drift for Washington and California state data
@@ -185,8 +186,9 @@ create_monitor:
       type: data_quality
       # target_dataset is optional. By default target dataset is the production inference data associated with AzureML online depoint
       baseline_dataset:
-        path: azureml:my_model_training_data:1
-        type: mltable
+        input_dataset:
+          path: azureml:my_model_training_data:1
+          type: mltable
       features: # monitor data quality for 3 individual features only
         - feature_A
         - feature_B
@@ -200,9 +202,10 @@ create_monitor:
       type: feature_attribution_drift
       # target_dataset is optional. By default target dataset is the production inference data associated with AzureML online depoint
       baseline_dataset:
-        path: azureml:my_model_training_data:1
-        type: mltable
-        target_column_name: fraud_detected
+        input_dataset:
+          path: azureml:my_model_training_data:1
+          type: mltable
+          target_column_name: fraud_detected
       model_type: classification
       # if no metric_thresholds defined, use the default metric_thresholds
       metric_thresholds:
@@ -220,6 +223,83 @@ create_monitor:
 
 
 ### [Azure SDK](#tab/cli)
+
+For advanced model monitoring setup, please see SDK example below:
+```python
+#get a handle to the workspace
+from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
+
+from azure.ai.ml import MLClient, Input
+from azure.ai.ml.constants import TimeZone
+from azure.ai.ml.dsl import pipeline
+from azure.ai.ml.entities import (
+    MonitorSchedule,
+    RecurrencePattern,
+    RecurrenceTrigger
+)
+from azure.ai.ml.entities.monitoring import (
+    MonitorSchedule,
+    RecurrencePattern,
+    RecurrenceTrigger
+)
+
+ml_client = MLClient(InteractiveBrowserCredential(), subscription_id, resource_group, workspace)
+
+cpu_cluster = ml_client.computes.get("cpu_cluster")
+
+monitoring_target = MonitoringTarget(endpoint_deployment_id="azureml:fraud_detection_endpoint:fraund_detection_deployment")
+
+# training data to be used as baseline dataset
+monitor_input_data = MonitorInputData(input_dataset=Input(type="mltable, path="azureml:my_model_training_data:1"))
+
+# create an advanced data drift signal
+features = MonitorFeatureFilter(top_n_feature_importance=20)
+numerical_metric_threshold = DataDriftMetricThreshold(applicable_feature_type="numerical", metric_name="jensen_shannon_distance", threshold=0.01)
+categorical_metric_threshold = DataDriftMetricThreshold(applicable_feature_type="categorical", metric_name="chi_squared_test", threshold=0.02)
+metric_thresholds = [numberical_metric_threshold, categorical_metric_threshold]
+
+advanced_data_drift = DataDriftSignal(baseline_dataset=monitor_input_data, features=features, metric_thresholds=metric_thresholds)
+
+# create another advanced data drift signal with subpopulation
+data_segment = DataSegment(feature_name="state", feature_values=['WA', 'CA'])
+advanced_data_drift_subpopulation = DataDriftSignal(baseline_dataset=monitor_input_data, features=features, data_segment=data_segment, metric_thresholds=metric_thresholds)
+
+# create an advanced data quality signal
+features = ['feature_A', 'feature_B', 'feature_C']
+numerical_metric_threshold = DataQualityMetricThreshold(applicable_feature_type="numerical", metric_name="null_value_rate", threshold=0.01)
+categorical_metric_threshold = DataQualityMetricThreshold(applicable_feature_type="categorical", metric_name="out_of_bound_rate", threshold=0.02)
+metric_thresholds = [numberical_metric_threshold, categorical_metric_threshold]
+
+advanced_data_quality = DataQualitySignal(baseline_dataset=monitor_input_data, features=features, metric_thresholds=metric_thresholds, alert_enabled="False")
+
+# create feature attribution drift signal
+monitor_input_data = MonitorInputData(input_dataset=Input(type="mltable, path="azureml:my_model_training_data:1"), target_column_name="fraud_detected")
+metric_thresholds = FeatureAttributionDriftMetricThreshold(threshold=0.05)
+
+feature_attribution_drift = FeatureAttributionDriftSignal(baseline_dataset=monitor_input_data, model_type="classification", metric_thresholds=metric_thresholds, alert_enabled="False")
+
+# put all monitoring signals in a dictionary
+monitoring_signals = {'data_drift_advanced':advanced_data_drift, 'data_drift_subpopulation':advanced_data_drift_subpopulation, 'data_quality_advanced':advanced_data_quality, 'feature_attribution_drift':feature_attribution_drift}
+
+# create alert notification object
+alert_notification = AlertNotification(['abc@example.com', 'def@example.com'])
+
+# Finally monitor definition
+monitor_definition = MonitorDefinition(compute=cpu_cluster, monitoring_target=monitoring_target, monitoring_signals=monitoring_signals, alert_notification=alert_notification)
+
+recurrence_trigger = RecurrenceTrigger(
+    frequency="day",
+    interval=1,
+    schedule=RecurrencePattern(hours=3, minutes=15)
+)
+
+model_monitor = MonitorSchedule(name="fraud_detection_model_monitoring", 
+                                trigger=recurrence_trigger, 
+                                create_monitor=monitor_definition)
+
+ml_client.schedules.begin_create_or_update(model_monitor)
+
+```
 
 ## Setup model monitoring with your own production inference data
 
