@@ -54,7 +54,7 @@ To run the image stitching operation on a set of images, follow these steps:
 1. Make the following changes in the command where needed:
     1. Replace the value of `<subscriptionKey>` with your Computer Vision resource key.
     1. Replace the value of `<endpoint>` with your Computer Vision resource endpoint. For example: `https://YourResourceName.cognitiveservices.azure.com`.
-    1. Replace the `<your_url_string>` contents with the URLs of the images. The images should be ordered left to right and top to bottom, according to the physical spaces they show.
+    1. Replace the `<your_url_string>` contents with the blob URLs of the images. The images should be ordered left to right and top to bottom, according to the physical spaces they show.
     1. Replace `<your_filename>` with the name and extension of the file where you'd like to get the result (for example, `download.jpg`).
 1. Open a command prompt window.
 1. Paste your edited `curl` command from the text editor into the command prompt window, and then run the command.
