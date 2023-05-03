@@ -39,15 +39,15 @@ You also need to be familiar with Unix editor **vi** and have a basic understand
 
 ### Sign in to Azure
 
-* Open your preferred shell on Windows, Linux or [Azure Shell](https://shell.azure.com).
+1. Open your preferred shell on Windows, Linux or [Azure Shell](https://shell.azure.com).
 
-* Sign in to your Azure subscription with the [az login](/cli/azure/authenticate-azure-cli) command. Then follow the on-screen directions.
+2. Sign in to your Azure subscription with the [az login](/cli/azure/authenticate-azure-cli) command. Then follow the on-screen directions.
 
 ```azurecli
 $ az login
 ```
 
-* Ensure you are connected to the correct subscription by verifying subscription name and/or id.
+3. Ensure you are connected to the correct subscription by verifying subscription name and/or id.
 
 ```azurecli
 $ az account show
@@ -90,7 +90,7 @@ The .ssh directory and key files are created. For more information, refer to [Cr
 
 ### Create a resource group
 
-* To create a resource group, use the [az group create](/cli/azure/group) command. An Azure resource group is a logical container in which Azure resources are deployed and managed. 
+To create a resource group, use the [az group create](/cli/azure/group) command. An Azure resource group is a logical container in which Azure resources are deployed and managed. 
 
 ```azurecli
 $ az group create --name ASMOnAzureLab --location westus
@@ -98,9 +98,9 @@ $ az group create --name ASMOnAzureLab --location westus
 
 ### Create and configure network
 
-#### Create VNet
+#### Create virtual network
 
-* Use following command to create the virtual network that hosts resources we create in this lab.
+Use following command to create the virtual network that hosts resources we create in this lab.
 
 ```azurecli
 $ az network vnet create \
@@ -113,7 +113,7 @@ $ az network vnet create \
 
 #### Create a Network Security Group (NSG)
 
-* Create network security group (NSG) to lock down your VNet.
+1. Create network security group (NSG) to lock down your virtual network.
 
 ```azurecli
 $ az network nsg create \
@@ -121,7 +121,7 @@ $ az network nsg create \
   --name asmVnetNSG
 ```
 
-* Create NSG rule to allow intra-vnet communication
+2. Create NSG rule to allow communication within virtual network.
 
 ```azurecli
 $ az network nsg rule create  --resource-group ASMOnAzureLab --nsg-name asmVnetNSG \
@@ -131,7 +131,7 @@ $ az network nsg rule create  --resource-group ASMOnAzureLab --nsg-name asmVnetN
     --destination-address-prefix 'VirtualNetwork' --destination-port-range '*' --access allow
 ```
 
-* Create NSG rule to deny all inbound connections
+3. Create NSG rule to deny all inbound connections
 
 ```azurecli
 $ az network nsg rule create \
@@ -143,7 +143,7 @@ $ az network nsg rule create \
   --destination-address-prefix '*' --destination-port-range '*' --access deny
 ```
 
-* Assign NSG to Subnet where we host our servers.
+4. Assign NSG to Subnet where we host our servers.
 
 ```azurecli
 $ az network vnet subnet update --resource-group ASMOnAzureLab --vnet-name asmVNet --name asmSubnet1 --network-security-group asmVnetNSG
@@ -151,7 +151,7 @@ $ az network vnet subnet update --resource-group ASMOnAzureLab --vnet-name asmVN
 
 #### Create Bastion Network
 
-* Create Bastion subnet. Name of the subnet must be **AzureBastionSubnet**
+1. Create Bastion subnet. Name of the subnet must be **AzureBastionSubnet**
 
 ```azurecli
 $ az network vnet subnet create  \
@@ -161,7 +161,7 @@ $ az network vnet subnet create  \
     --address-prefixes 10.0.1.0/24 
 ```
 
-* Create public IP for Bastion
+2. Create public IP for Bastion
 
 ```azurecli
 $ az network public-ip create \
@@ -170,7 +170,7 @@ $ az network public-ip create \
     --sku Standard 
 ```
 
-* Create Azure Bastion resource. It takes about 10 minutes for the resource to deploy.
+3. Create Azure Bastion resource. It takes about 10 minutes for the resource to deploy.
 
 ```azurecli
 $ az network bastion create \
@@ -185,7 +185,7 @@ $ az network bastion create \
 
 ### Create X Server VM  (asmXServer)
 
-* Replace your password and run following command to create a Windows workstation VM where we deploy X Server.
+Replace your password and run following command to create a Windows workstation VM where we deploy X Server.
 
 ```azurecli
 $ az vm create \
@@ -208,33 +208,43 @@ $ az vm create \
 
 Connect to **asmXServer** using Bastion.
 
-* Navigate to **asmXServer** from Azure portal.
-* Go to **Overview** in the left blade
-* Select **Connect** > **Bastion** on the menu at the top
-* Select Bastion tab
-* Click **Use Bastion**
+1. Navigate to **asmXServer** from Azure portal.
+2. Go to **Overview** in the left blade
+3. Select **Connect** > **Bastion** on the menu at the top
+4. Select Bastion tab
+5. Click **Use Bastion**
 
 ### Prepare asmXServer to run X Server
 
 X Server is required for later steps of this lab. Perform following steps to install and start X Server.
 
-1. [Download X Server for Windows](https://sourceforge.net/projects/xming/) to **asmXServer** and install with all default options.
-2. Ensure you did not select **Launch** at the end of installation.
-3. Launch **xlaunch** application from start menu.
-4. Select **Multiple Windows**.
-![Screenshot of XLaunch - 1](./media/oracle-asm/xlaunch_01.png)
-5. Select **Start no client**.
-![Screenshot of XLaunch - 2](./media/oracle-asm/xlaunch_02.png)
-6. Select **No access control**.
-![Screenshot of XLaunch - 3](./media/oracle-asm/xlaunch_03.png)
-7. Select **Allow Access** to allow X Server through Windows Firewall.
-![Screenshot of XLaunch - 4](./media/oracle-asm/xlaunch_04.png)
+1. [Download Xming X Server for Windows](https://sourceforge.net/projects/xming/) to **ggXServer** and install with all default options.
+
+2. Ensure that you did not select **Launch** at the end of installation
+
+3. Launch "XLAUNCH" application from start menu.
+
+4. Select **Multiple Windows**
+
+   ![Screenshot of XLaunch wizard step 1.](./media/oracle-asm/xlaunch-01.png)
+
+5. Select **Start no client**
+
+   ![Screenshot of XLaunch wizard step 2.](./media/oracle-asm/xlaunch-02.png)
+
+6. Select **No access control**
+
+   ![Screenshot of XLaunch wizard step 3.](./media/oracle-asm/xlaunch-03.png)
+
+7. Select **Allow Access** to allow X Server through Windows Firewall
+
+   ![Screenshot of XLaunch wizard step 4.](./media/oracle-asm/xlaunch-04.png)
 
 If you restart your **asmXServer** VM, follow steps 2-6 above to restart X Server application.
 
 ### Create Oracle Database VM
 
-For this lab, we create a virtual machine `asmVM` from Oracle Database 19c image. Run following to create **asmVM** with multiple data disks attached. If they do not already exist in the default key location, this command also creates SSH keys. To use a specific set of keys, use the `--ssh-key-value` option. If you have already created your SSH keys in [Generate authentication keys](#generate-authentication-keys) section, those keys are be used.
+For this lab, we create a virtual machine `asmVM` from Oracle Database 19c image. Run following to create **asmVM** with multiple data disks attached. If they do not already exist in the default key location, this command also creates SSH keys. To use a specific set of keys, use the `--ssh-key-value` option. If you have already created your SSH keys in [Generate authentication keys](#generate-authentication-keys) section, those keys will be used.
 
 When creating a new virtual machine `size` parameter indicates the size and type of virtual machine created. Depending on the Azure region you selected to create virtual machine and your subscription settings, some virtual machine sizes and types may not be available for you to use. Below example uses minimum required size for this lab `Standard_D4_v5`. If you want to change specs of virtual machine, select one of the available sizes from [Azure VM Sizes](/azure/virtual-machines/sizes). For test purposes, you may choose from General Purpose (D-Series) virtual machine types. For production or pilot deployments, Memory Optimized (E-Series and M-Series) are more suitable.
 
@@ -257,11 +267,11 @@ az vm create --resource-group ASMOnAzureLab \
 
 Connect to **asmVM** using Bastion.
 
-* Navigate to **asmVM** from Azure portal.
-* Go to **Overview** in the left blade
-* Select **Connect** > **Bastion** on the menu at the top
-* Select Bastion tab
-* Click **Use Bastion**
+1. Navigate to **asmVM** from Azure portal.
+2. Go to **Overview** in the left blade
+3. Select **Connect** > **Bastion** on the menu at the top
+4. Select Bastion tab
+5. Click **Use Bastion**
 
 ## Create swap file
 
@@ -269,113 +279,113 @@ This lab requires a swap file on the lab virtual machine. Complete following ste
 
 ### Prepare disk and mount point
 
-* When we created virtual machine (asmVM) above, we included a 20GB data disk to place swap file. Run following command to find out the name for this 20GB disk. It is **/dev/sdb** most of the time but in case it comes up different make sure you note the name for 20G disk and use if for following steps. Similarly we use the names of 40G disks (which are named **/dev/sdc** and **/dev/sdd** in the following output) later on.
+1. When we created virtual machine (asmVM) above, we included a 20GB data disk to place swap file. Run following command to find out the name for this 20GB disk. It is **/dev/sdb** most of the time but in case it comes up different make sure you note the name for 20G disk and use if for following steps. Similarly we use the names of 40G disks (which are named **/dev/sdc** and **/dev/sdd** in the following output) later on.
 
-```bash
-$ sudo su -
-$ lsblk
-```
+    ```bash
+    $ sudo su -
+    $ lsblk
+    ```
 
-```output
-NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-sdd       8:48   0   40G  0 disk             ====> Data disk 2 (40GB)
-sdb       8:16   0   20G  0 disk             ====> Swap file disk (20GB)
-sr0      11:0    1  628K  0 rom  
-fd0       2:0    1    4K  0 disk 
-sdc       8:32   0   40G  0 disk             ====> Data disk 1 (40GB)
-sda       8:0    0   30G  0 disk 
-├─sda2    8:2    0   29G  0 part /
-├─sda14   8:14   0    4M  0 part 
-├─sda15   8:15   0  495M  0 part /boot/efi
-└─sda1    8:1    0  500M  0 part /boot
-```
+    ```output
+    NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+    sdd       8:48   0   40G  0 disk             ====> Data disk 2 (40GB)
+    sdb       8:16   0   20G  0 disk             ====> Swap file disk (20GB)
+    sr0      11:0    1  628K  0 rom  
+    fd0       2:0    1    4K  0 disk 
+    sdc       8:32   0   40G  0 disk             ====> Data disk 1 (40GB)
+    sda       8:0    0   30G  0 disk 
+    ├─sda2    8:2    0   29G  0 part /
+    ├─sda14   8:14   0    4M  0 part 
+    ├─sda15   8:15   0  495M  0 part /boot/efi
+    └─sda1    8:1    0  500M  0 part /boot
+    ```
 
-* Run following command to create the partition on the swap file disk, modify disk name (/dev/sdb) if necessary.
+2. Run following command to create the partition on the swap file disk, modify disk name (/dev/sdb) if necessary.
 
-```bash
-$ parted /dev/sdb --script mklabel gpt mkpart xfspart xfs 0% 100%
-```
+    ```bash
+    $ parted /dev/sdb --script mklabel gpt mkpart xfspart xfs 0% 100%
+    ```
 
-* Check the name of the partition created. Below it is created as **sdb1**
+3. Check the name of the partition created. Below it is created as **sdb1**
 
-```bash
-$ lsblk
-```
+    ```bash
+    $ lsblk
+    ```
 
-```output
-NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-sdd       8:48   0   40G  0 disk 
-sdb       8:16   0   20G  0 disk 
-└─sdb1    8:17   0   20G  0 part             ====> Newly created partition
-sr0      11:0    1  628K  0 rom  
-fd0       2:0    1    4K  0 disk 
-sdc       8:32   0   40G  0 disk 
-sda       8:0    0   30G  0 disk 
-├─sda2    8:2    0   29G  0 part /
-├─sda14   8:14   0    4M  0 part 
-├─sda15   8:15   0  495M  0 part /boot/efi
-└─sda1    8:1    0  500M  0 part /boot
-```
+    ```output
+    NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+    sdd       8:48   0   40G  0 disk 
+    sdb       8:16   0   20G  0 disk 
+    └─sdb1    8:17   0   20G  0 part             ====> Newly created partition
+    sr0      11:0    1  628K  0 rom  
+    fd0       2:0    1    4K  0 disk 
+    sdc       8:32   0   40G  0 disk 
+    sda       8:0    0   30G  0 disk 
+    ├─sda2    8:2    0   29G  0 part /
+    ├─sda14   8:14   0    4M  0 part 
+    ├─sda15   8:15   0  495M  0 part /boot/efi
+    └─sda1    8:1    0  500M  0 part /boot
+    ```
 
-* Run following commands to initialize file system (xfs) and mount the drive as **/swap**
+4. Run following commands to initialize file system (xfs) and mount the drive as **/swap**
 
-```bash
-$ mkfs.xfs /dev/sdb1
-$ partprobe /dev/sdb1
-$ mkdir /swap
-$ mount /dev/sdb1 /swap
-```
+    ```bash
+    $ mkfs.xfs /dev/sdb1
+    $ partprobe /dev/sdb1
+    $ mkdir /swap
+    $ mount /dev/sdb1 /swap
+    ```
 
-* Run following command
+5. Run following command
 
-```bash
-$ blkid
-```
+    ```bash
+    $ blkid
+    ```
 
-In the output, you see a line for swap disk partition **/dev/sdb1**, note down the **UUID**.
+    In the output, you see a line for swap disk partition **/dev/sdb1**, note down the **UUID**.
 
-```output
-/dev/sdb1: UUID="00000000-0000-0000-0000-000000000000" TYPE="xfs" PARTLABEL="xfspart" PARTUUID="...." 
-```
+    ```output
+    /dev/sdb1: UUID="00000000-0000-0000-0000-000000000000" TYPE="xfs" PARTLABEL="xfspart" PARTUUID="...." 
+    ```
 
-* Paste UUID from previous step into the followin command and run it. This command ensures proper mounting of drive every time system reboots.
+6. Paste UUID from previous step into the followin command and run it. This command ensures proper mounting of drive every time system reboots.
 
-```bash
-$ echo "UUID=00000000-0000-0000-0000-000000000000   /swap   xfs   defaults,nofail   1   2" >> /etc/fstab
-```
+    ```bash
+    $ echo "UUID=00000000-0000-0000-0000-000000000000   /swap   xfs   defaults,nofail   1   2" >> /etc/fstab
+    ```
 
 ### Configure swap file
 
-* Create and allocate the swap file (16GB). This command takes a couple of minutes to run.
+1. Create and allocate the swap file (16GB). This command takes a couple of minutes to run.
 
-```bash
-$ dd if=/dev/zero of=/swap/swapfile bs=1M count=16384
-```
+    ```bash
+    $ dd if=/dev/zero of=/swap/swapfile bs=1M count=16384
+    ```
 
-* Modify permissions and assign the swap file
+2. Modify permissions and assign the swap file
 
-```bash
-$ chmod 600 /swap/swapfile
-$ mkswap /swap/swapfile
-$ swapon /swap/swapfile
-```
+    ```bash
+    $ chmod 600 /swap/swapfile
+    $ mkswap /swap/swapfile
+    $ swapon /swap/swapfile
+    ```
 
-* Verify swap file is created
+3. Verify swap file is created
 
-```bash
-$ cat /proc/swaps
-```
+    ```bash
+    $ cat /proc/swaps
+    ```
 
-```output
-Filename        Type    Size        Used    Priority
-/swap/swapfile  file    16777212    0        -2
-```
+    ```output
+    Filename        Type    Size        Used    Priority
+    /swap/swapfile  file    16777212    0        -2
+    ```
 
-* Ensure swap file setting is retained across reboots
+4. Ensure swap file setting is retained across reboots
 
-```bash
-$ echo "/swap/swapfile   none  swap  sw  0 0" >> /etc/fstab
-```
+    ```bash
+    $ echo "/swap/swapfile   none  swap  sw  0 0" >> /etc/fstab
+    ```
 
 ## Install Oracle ASM
 
@@ -774,7 +784,7 @@ To install Oracle Grid Infrastructure, complete the following steps:
 
 2. On the **Select Configuration Option** page, select **Configure Oracle Grid Infrastructure for a Standalone Server (Oracle Restart)**.
 
-   ![Screenshot of the installer's Select Configuration Option page](./media/oracle-asm/gridinstall_01.png)
+   ![Screenshot of the installer's Select Configuration Option page.](./media/oracle-asm/gridinstall-01.png)
 
 3. On the **Create ASM Disk Group** page:
    * Click on **Change Discovery Path**
@@ -785,45 +795,45 @@ To install Oracle Grid Infrastructure, complete the following steps:
    * Under **Select Disks**, select **/dev/oracleasm/disks/VOL1**.
    * Click **Next**.
 
-   ![Screenshot of the installer's Create ASM Disk Group page](./media/oracle-asm/gridinstall_02.png)
+   ![Screenshot of the installer's Create ASM Disk Group page.](./media/oracle-asm/gridinstall-02.png)
 
 4. On the **Specify ASM Password** page, select the **Use same passwords for these accounts** option, and enter a password.
 
-   ![Screenshot of the installer's Specify ASM Password page](./media/oracle-asm/gridinstall_03.png)
+   ![Screenshot of the installer's Specify ASM Password page.](./media/oracle-asm/gridinstall-03.png)
 
 5. On the **Specify Management Options** page, make sure the option to configure EM Cloud Control is unselected. Click **Next** to continue.
 
-   ![Screenshot of the installer's Specify Management Options page](./media/oracle-asm/gridinstall_04.png)
+   ![Screenshot of the installer's Specify Management Options page.](./media/oracle-asm/gridinstall-04.png)
 
 6. On the **Privileged Operating System Groups** page, use the default settings. Click **Next** to continue.
 
-   ![Screenshot of the installer's Privileged Operating System Groups page](./media/oracle-asm/gridinstall_05.png)
+   ![Screenshot of the installer's Privileged Operating System Groups page.](./media/oracle-asm/gridinstall-05.png)
 
 7. On the **Specify Installation Location** page, use the default settings. Click **Next** to continue.
 
-   ![Screenshot of the installer's Specify Installation Location page](./media/oracle-asm/gridinstall_06.png)
+   ![Screenshot of the installer's Specify Installation Location page.](./media/oracle-asm/gridinstall-06.png)
 
 8. On the **Root script execution configuration** page, select the **Automatically run configuration scripts** check box. Then, select the **Use "root" user credential** option, and enter the root user password.
 
-    ![Screenshot of the installer's Root script execution configuration page](./media/oracle-asm/gridinstall_07.png)
+    ![Screenshot of the installer's Root script execution configuration page.](./media/oracle-asm/gridinstall-07.png)
 
 9. On the **Perform Prerequisite Checks** page, the current setup fails with errors. Select **Fix & Check Again**.
 
 10. In the **Fixup Script** dialog box, click **OK**.
 
-    ![Screenshot of the installer's Perform Prerequisite Checks page](./media/oracle-asm/gridinstall_08.png)
+    ![Screenshot of the installer's Perform Prerequisite Checks page.](./media/oracle-asm/gridinstall-08.png)
 
 11. On the **Summary** page, review your selected settings, and then click `Install`.
 
-    ![Screenshot of the installer's Summary page](./media/oracle-asm/gridinstall_09.png)
+    ![Screenshot of the installer's Summary page.](./media/oracle-asm/gridinstall-09.png)
 
 12. A warning dialog box appears informing you configuration scripts need to be run as a privileged user. Click **Yes** to continue.
 
-    ![Screenshot of the installer's warning page](./media/oracle-asm/gridinstall_10.png)
+    ![Screenshot of the installer's warning page.](./media/oracle-asm/gridinstall-10.png)
 
 13. On the **Finish** page, click **Close** to finish the installation.
 
-    ![Screenshot of the installer's Finish page](./media/oracle-asm/gridinstall_11.png)
+    ![Screenshot of the installer's Finish page.](./media/oracle-asm/gridinstall-11.png)
 
 ## Setup Oracle ASM
 
@@ -849,7 +859,7 @@ Complete following steps to setup Oracle ASM.
 
 2. Select **DATA** under **Disk Groups** in the tree and click the **Create** button at the bottom.
 
-   ![Screenshot of the ASMCA](./media/oracle-asm/asmca_01.png)
+   ![Screenshot of the ASM Configuration Assistant.](./media/oracle-asm/asm-config-assistant-01.png)
 
 3. In the **Create Disk Group** dialog box:
 
@@ -859,11 +869,11 @@ Complete following steps to setup Oracle ASM.
    * Click **ok** to create the disk group.
    * Click **ok** to close the confirmation window.
 
-   ![Screenshot of the Create Disk Group dialog box](./media/oracle-asm/asmca_02.png)
+   ![Screenshot of the Create Disk Group dialog box.](./media/oracle-asm/asm-config-assistant-02.png)
 
 4. Select **Exit** to close ASM Configuration Assistant.
 
-   ![Screenshot of the Configure ASM: Disk Groups dialog box with Exit button](./media/oracle-asm/asmca_03.png)
+   ![Screenshot of the Configure ASM: Disk Groups dialog box with Exit button.](./media/oracle-asm/asm-config-assistant-03.png)
 
 ## Create the database
 
@@ -889,7 +899,7 @@ The Oracle database software is already installed on the Azure Marketplace image
 
 2. On the **Database Operation** page, click **Create Database**.
 
-   ![Screenshot of the Database Operation page](./media/oracle-asm/dbca_01.png)
+   ![Screenshot of the Database Operation page.](./media/oracle-asm/db-config-assistant-01.png)
 
 3. On the **Creation Mode** page:
 
@@ -902,11 +912,11 @@ The Oracle database software is already installed on the Azure Marketplace image
    * Ensure **create as container database** is selected.
    * Type in a **pluggable database name** value: **pasmdb**
 
-   ![Screenshot of the Database Creation page](./media/oracle-asm/dbca_02.png)
+   ![Screenshot of the Database Creation page.](./media/oracle-asm/db-config-assistant-02.png)
 
 4. On the **Summary** page, review your selected settings, and then click **Finish** to create the database. Database creation may take more than 10 minutes.
 
-   ![Screenshot of the Summary page](./media/oracle-asm/dbca_03.png)
+   ![Screenshot of the Summary page.](./media/oracle-asm/db-config-assistant-03.png)
 
 5. The Database has been created. On the **Finish** page, you have the option to unlock additional accounts to use this database and change the passwords. If you wish to do so, select **Password Management** - otherwise click on **Close**.
 
