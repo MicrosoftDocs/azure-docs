@@ -61,7 +61,7 @@ Use one of the following Resource Manager templates with any of the [standard de
 }
 
 ```
-### [Bicep](#tab/Bicep)
+### [Bicep](#tab/bicep)
 Use the following Bicep template to create an Azure Monitor workspace.
 
 ```bicep
