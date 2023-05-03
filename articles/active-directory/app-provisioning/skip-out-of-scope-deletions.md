@@ -65,7 +65,7 @@ Here's the JSON block to add to the mapping.
 
 In the Graph Explorer, run the command to update the secrets endpoint with the ***SkipOutOfScopeDeletions*** flag. 
 
-In the URL replace [servicePrincipalId]  with the **ServicePrincipalId** extracted from the [Step 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id). 
+In the URL, replace [servicePrincipalId]  with the **ServicePrincipalId** extracted from the [Step 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id). 
 
 ```http
    PUT https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets
