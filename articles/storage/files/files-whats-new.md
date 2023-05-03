@@ -24,6 +24,12 @@ Azure Files customers can now use identity-based Kerberos authentication for Lin
 
 Nconnect is a client-side Linux mount option that increases performance at scale by allowing you to use more TCP connections between the Linux client and the Azure Premium Files service for NFSv4.1. With nconnect, you can increase performance at scale using fewer client machines to reduce total cost of ownership. For more information, see [Improve NFS Azure file share performance with nconnect](nfs-nconnect-performance.md).
 
+#### Improved Azure File Sync service availability
+
+Azure File Sync is now a zone-redundant service which means an outage in a zone has limited impact while improving the service resiliency to minimize customer impact. To fully leverage this improvement, configure your storage accounts to use zone-redundant storage (ZRS) or Geo-zone redundant storage (GZRS) replication. To learn more about different redundancy options for your storage accounts, see: [Azure Storage redundancy](https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy)
+
+Note: Azure File Sync is zone-redundant in all regions that [support zones](https://learn.microsoft.com/en-us/azure/reliability/availability-zones-service-support#azure-regions-with-availability-zone-support) except US Gov Virginia. Azure File Sync will be zone-redundant in these regions in the near future.
+
 ## What's new in 2022
 
 ### 2022 quarter 4 (October, November, December)
