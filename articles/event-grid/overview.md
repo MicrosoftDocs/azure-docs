@@ -12,7 +12,7 @@ Azure Event Grid is a highly scalable, fully managed Pub Sub message distributio
 
 :::image type="content" source="media/overview/event-grid-general-diagram.png" alt-text="High-level diagram of Event Grid that shows publishers and subscribers using MQTT and HTTP protocols." lightbox="media/overview/event-grid-general-diagram.png":::
 
-Azure Event Grid is a generally available service deployed across availability zones in all regions that support them. For a list of regions supported by Event Grid see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all). 
+Azure Event Grid is a generally available service deployed across availability zones in all regions that support them. For a list of regions supported by Event Grid see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all).
 
 >[!NOTE] 
 >The following features have been released as public preview features in May 2023:
@@ -22,8 +22,15 @@ Azure Event Grid is a generally available service deployed across availability z
 >
 >The initial regions where these features are available are:
 >
->- East US 
->- West Europe
+>- US East
+>- Central US 
+>- US South Central
+>- West US 2 
+>- Asia East
+>- Southeast Asia
+>- Europe North
+>- Europe West
+>- UAE North
 
 ## What can I do with Event Grid?
 
