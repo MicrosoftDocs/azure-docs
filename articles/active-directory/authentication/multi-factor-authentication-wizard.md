@@ -1,23 +1,23 @@
 ---
-title: Use the Azure Setup guide to deploy Multi-factor authentication - Azure Active Directory
+title: Use the Azure AD guide to configure multi-factor authentication
 description: Learn how to use the multi-factor authentication (MFA) wizard to deploy MFA for your organization
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/14/2023
+ms.date: 05/03/2023
 ms.author: barclayn
 author: barclayn
 manager: amycolannino
 ---
 
-# MFA Wizard (Public preview) This is a place holder name
+# Configure multi-factor authentication in-portal guide
 
-Azure Active Directory (Azure AD) features help you manage and secure your organization. These setup guides will help you integrate those features in a simple way. In the following sections, we’ll briefly describe the setup guides and share links to the guides.
+Azure Active Directory (Azure AD) features help you manage and secure your organization. This setup guide helps you get started with Azure's multifactor authentication capabilities. In the following section, we’ll briefly describe the setup guide.
 
 ## Who is this setup guide for?
 
-This setup guide is designed for small to medium-sized organizations that typically might not have a dedicated identity team. You don’t need to be an identity expert to use it.
+This guide provides step-by-step instructions for IT administrators to implement Multi-Factor Authentication (MFA) in their organization. It is designed for those who are new to MFA and need guidance on where to begin.
 
 ## What to expect and what you’ll need
 
@@ -27,18 +27,13 @@ The setup guides help you configure the core functionality of Azure AD. If you n
 
 You must be a member of the following administrative roles:
 
-- Global administrator: allows you to use integrated tools in the setup guides to make changes in your Microsoft 365 organization.
+- **Global administrator**: allows you to use integrated tools in the setup guides to make changes in your Microsoft 365 organization.
 
-- Global reader: allows you to view the setup guides but not make changes in your tenant.
+- **Global reader**: allows you to view the setup guides but not make changes in your tenant.
 
 ## Configure multi-factor authentication (MFA)
 
-For customers with Azure P1 or Azure P2, we provide customizable Conditional Access templates that include the most common and least intrusive security standards. When Azure licensing isn’t available, we provide a one-click solution to enable security defaults, a baseline protection policy for all users, or we provide steps to enable legacy (per-user) MFA.
-
-## Licensing
-
-Conditional Access requires an Azure Active Directory P1 or P2 license. Security defaults and per-user MFA are included with all Microsoft 365 subscriptions.
-Open the multi-factor authentication (MFA) guide
+If you're using Azure Premium P1 or P2, we'll guide you through a setup process that's tailored to your needs. Our customized conditional access policies include the most common and least intrusive security standards we recommend. If you're not subscribed to a premium license, we'll still help you keep your account secure with our one-click security defaults enabled to give you a baseline protection policy.
 
 ## Next steps
 
