@@ -17,7 +17,7 @@ ms.author: kegorman
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details how to use the Azure CLI to deploy an Oracle 19c database from the Azure Marketplace gallery image.
 
-This document shows you step-by-step how to create, install, and configure Oracle Golden Gate on an Azure VM. In this tutorial, two virtual machines are setup in an availability set in a single region. The same tutorial can be used to setup OracleGolden Gate for VMs in different Availability Zones in a single Azure region or for VMs setup in two different regions.
+This document shows you step-by-step how to create, install, and configure Oracle Golden Gate on an Azure VM. In this tutorial, two virtual machines are set up in an availability set in a single region. The same tutorial can be used to setup OracleGolden Gate for VMs in different Availability Zones in a single Azure region or for VMs set up in two different regions.
 
 Before you start, make sure that the Azure CLI has been installed. For more information, see [Azure CLI installation guide](/cli/azure/install-azure-cli).
 
@@ -49,15 +49,15 @@ The following is a summary of the environment configuration:
 
 ### Sign in to Azure
 
-* Open your preferred shell on Windows, Linux or [Azure Shell](https://shell.azure.com).
+1. Open your preferred shell on Windows, Linux or [Azure Shell](https://shell.azure.com).
 
-* Sign in to your Azure subscription with the [az login](/cli/azure/authenticate-azure-cli) command. Then follow the on-screen directions.
+2. Sign in to your Azure subscription with the [az login](/cli/azure/authenticate-azure-cli) command. Then follow the on-screen directions.
 
 ```azurecli
 $ az login
 ```
 
-* Ensure you are connected to the correct subscription by verifying subscription name and/or id.
+3. Ensure you are connected to the correct subscription by verifying subscription name and/or ID.
 
 ```azurecli
 $ az account show
@@ -98,7 +98,7 @@ The .ssh directory and key files are created. For more information, refer to [Cr
 
 ### Create a resource group
 
-* To create a resource group, use the [az group create](/cli/azure/group) command. An Azure resource group is a logical container in which Azure resources are deployed and managed.
+To create a resource group, use the [az group create](/cli/azure/group) command. An Azure resource group is a logical container in which Azure resources are deployed and managed.
 
 ```azurecli
 $ az group create --name GoldenGateOnAzureLab --location westus
@@ -106,9 +106,9 @@ $ az group create --name GoldenGateOnAzureLab --location westus
 
 ### Create and configure network
 
-#### Create VNet
+#### Create Virtual Network
 
-* Use following command to create the virtual network that hosts resources we create in this lab.
+Use following command to create the virtual network that hosts resources we create in this lab.
 
 ```azurecli
 $ az network vnet create \
@@ -121,7 +121,7 @@ $ az network vnet create \
 
 #### Create a Network Security Group (NSG)
 
-* Create network security group (NSG) to lock down your VNet.
+1. Create network security group (NSG) to lock down your virtual network.
 
 ```azurecli
 $ az network nsg create \
@@ -129,7 +129,7 @@ $ az network nsg create \
   --name ggVnetNSG
 ```
 
-* Create NSG rule to allow intra-vnet communication
+2. Create NSG rule to allow communication within virtual network.
 
 ```azurecli
 $ az network nsg rule create  --resource-group GoldenGateOnAzureLab --nsg-name ggVnetNSG \
@@ -139,7 +139,7 @@ $ az network nsg rule create  --resource-group GoldenGateOnAzureLab --nsg-name g
     --destination-address-prefix 'VirtualNetwork' --destination-port-range '*' --access allow
 ```
 
-* Create NSG rule to deny all inbound connections
+3. Create NSG rule to deny all inbound connections
 
 ```azurecli
 $ az network nsg rule create \
@@ -151,7 +151,7 @@ $ az network nsg rule create \
   --destination-address-prefix '*' --destination-port-range '*' --access deny
 ```
 
-* Assign NSG to Subnet where we host our servers.
+4. Assign NSG to Subnet where we host our servers.
 
 ```azurecli
 $ az network vnet subnet update --resource-group GoldenGateOnAzureLab --vnet-name ggVNet --name ggSubnet1 --network-security-group ggVnetNSG
@@ -159,7 +159,7 @@ $ az network vnet subnet update --resource-group GoldenGateOnAzureLab --vnet-nam
 
 #### Create Bastion Network
 
-* Create Bastion subnet. Name of the subnet must be **AzureBastionSubnet**
+1. Create Bastion subnet. Name of the subnet must be **AzureBastionSubnet**
 
 ```azurecli
 $ az network vnet subnet create  \
@@ -169,7 +169,7 @@ $ az network vnet subnet create  \
     --address-prefixes 10.0.1.0/24 
 ```
 
-* Create public IP for Bastion
+2. Create public IP for Bastion
 
 ```azurecli
 $ az network public-ip create \
@@ -178,7 +178,7 @@ $ az network public-ip create \
     --sku Standard 
 ```
 
-* Create Azure Bastion resource. It takes about 10 minutes for the resource to deploy.
+3. Create Azure Bastion resource. It takes about 10 minutes for the resource to deploy.
 
 ```azurecli
 $ az network bastion create \
@@ -193,7 +193,7 @@ $ az network bastion create \
 
 ### Create X Server VM  (ggXServer)
 
-* Replace your password and run following command to create a Windows workstation VM where we deploy X Server.
+Replace your password and run following command to create a Windows workstation VM where we deploy X Server.
 
 ```azurecli
 $ az vm create \
@@ -216,33 +216,43 @@ $ az vm create \
 
 Connect to **ggXServer** using Bastion.
 
-* Navigate to **ggXServer** from Azure portal.
-* Go to **Overview** in the left blade
-* Select **Connect** > **Bastion** on the menu at the top
-* Select Bastion tab
-* Click **Use Bastion**
+1. Navigate to **ggXServer** from Azure portal.
+2. Go to **Overview** in the left blade
+3. Select **Connect** > **Bastion** on the menu at the top
+4. Select Bastion tab
+5. Click **Use Bastion**
 
 ### Prepare ggXServer to run X Server
 
 X Server is required for later steps of this lab. Perform following steps to install and start X Server.
 
 1. [Download Xming X Server for Windows](https://sourceforge.net/projects/xming/) to **ggXServer** and install with all default options.
-2. Ensure that you did not select **Launch** at th end of installation
-3. Launch **xlaunch** application from start menu.
+
+2. Ensure that you did not select **Launch** at the end of installation
+
+3. Launch "XLAUNCH" application from start menu.
+
 4. Select **Multiple Windows**
-![Screenshot of XLaunch - 1](./media/oracle-golden-gate/xlaunch_01.png)
+
+   ![Screenshot of XLaunch wizard step 1.](./media/oracle-golden-gate/xlaunch-01.png)
+
 5. Select **Start no client**
-![Screenshot of XLaunch - 2](./media/oracle-golden-gate/xlaunch_02.png)
+
+   ![Screenshot of XLaunch wizard step 2.](./media/oracle-golden-gate/xlaunch-02.png)
+
 6. Select **No access control**
-![Screenshot of XLaunch - 3](./media/oracle-golden-gate/xlaunch_03.png)
+
+   ![Screenshot of XLaunch wizard step 3.](./media/oracle-golden-gate/xlaunch-03.png)
+
 7. Select **Allow Access** to allow X Server through Windows Firewall
-![Screenshot of XLaunch - 4](./media/oracle-golden-gate/xlaunch_04.png)
+
+   ![Screenshot of XLaunch wizard step 4.](./media/oracle-golden-gate/xlaunch-04.png)
 
 If you restart your **ggXServer** VM, follow steps 2-6 above to restart X Server application.
 
 ### Create Oracle database virtual machines
 
-For this lab, we create virtual machines `ggVM1` and `ggVM2` from Oracle Database 19c image. If they do not already exist in the default key location, this command also creates SSH keys. To use a specific set of keys, use the `--ssh-key-value` option. If you have already created your SSH keys in [Generate authentication keys](#generate-authentication-keys) section, those keys are be used.
+For this lab, we create virtual machines `ggVM1` and `ggVM2` from Oracle Database 19c image. If they do not already exist in the default key location, this command also creates SSH keys. To use a specific set of keys, use the `--ssh-key-value` option. If you have already created your SSH keys in [Generate authentication keys](#generate-authentication-keys) section, those keys will be used.
 
 When creating a new virtual machine `size` parameter indicates the size and type of virtual machine created. Depending on the Azure region you selected to create virtual machine and your subscription settings, some virtual machine sizes and types may not be available for you to use. Below example uses minimum required size for this lab `Standard_DS1_v2`. If you want to change specs of virtual machine, select one of the available sizes from [Azure VM Sizes](/azure/virtual-machines/sizes). For test purposes, you may choose from General Purpose (D-Series) virtual machine types. For production or pilot deployments, Memory Optimized (E-Series and M-Series) are more suitable.
 
@@ -294,13 +304,13 @@ Connect to **ggVM1** using Bastion.
 
 The Oracle software is already installed on the Marketplace image, so the next step is to create the database.
 
-* Run the software as the `oracle` user.
+1. Run the software as the `oracle` user.
 
 ```bash
 $ sudo su - oracle
 ```
 
-* Create the database using following command. Note that this command may take 30-40 minutes to complete.
+2. Create the database using following command. Note that this command may take 30-40 minutes to complete.
 
 ```bash
 $ dbca -silent \
@@ -355,21 +365,21 @@ Creating Pluggable Databases
 Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/cdb1/cdb1.log" for more details.
 ```
 
-* Set the ORACLE_SID and LD_LIBRARY_PATH variables. 
+3. Set the ORACLE_SID and LD_LIBRARY_PATH variables. 
 
 ```bash
 $ export ORACLE_SID=cdb1
 $ export LD_LIBRARY_PATH=$ORACLE_HOME/lib
 ```
 
-* Run following to add ORACLE_SID and LD_LIBRARY_PATH to the .bashrc file, so that these settings are saved for future sign-ins. ORACLE_HOME variable should already be set in .bashrc file.
+4. Run following to add ORACLE_SID and LD_LIBRARY_PATH to the .bashrc file, so that these settings are saved for future sign-ins. ORACLE_HOME variable should already be set in .bashrc file.
 
 ```bash
 $ sed -i '$ a export ORACLE_SID=cdb1' .bashrc
 $ sed -i '$ a export LD_LIBRARY_PATH=$ORACLE_HOME/lib' .bashrc
 ```
 
-* Start Oracle listener
+5. Start Oracle listener
 
 ```bash
 $ lsnrctl start
@@ -379,15 +389,15 @@ $ lsnrctl start
 
 Connect to **ggVM2** using Bastion.
 
-* Navigate to **ggVM2** from Azure portal.
-* Go to **Overview** in the left blade
-* Select **Connect** > **Bastion** on the menu at the top
-* Select Bastion tab
-* Click **Use Bastion**
+1. Navigate to **ggVM2** from Azure portal.
+2. Go to **Overview** in the left blade
+3. Select **Connect** > **Bastion** on the menu at the top
+4. Select Bastion tab
+5. Click **Use Bastion**
 
 ### Open firewall ports for ggVM1
 
-* Configure firewall to allow connections from ggVM1. Note that following command is run on ggVM2.
+Configure firewall to allow connections from ggVM1. Note that following command is run on ggVM2.
 
 ```bash
 $ sudo su -
@@ -398,13 +408,13 @@ $ exit
 
 ### Create the database on ggVM2 (replicate)
 
-* Switch to `oracle` user if necessary
+1. Switch to `oracle` user if necessary
 
 ```bash
 $ sudo su - oracle
 ```
 
-* Create the database
+2. Create the database
 
 ```bash
 $ dbca -silent \
@@ -427,21 +437,21 @@ $ dbca -silent \
    -ignorePreReqs
 ```
 
-* Set the ORACLE_SID and ORACLE_HOME variables.
+3. Set the ORACLE_SID and ORACLE_HOME variables.
 
 ```bash
 $ export ORACLE_SID=cdb1
 $ export LD_LIBRARY_PATH=$ORACLE_HOME/lib
 ```
 
-* Run following to add ORACLE_SID and LD_LIBRARY_PATH to the .bashrc file, so that these settings are saved for future sign-ins. ORACLE_HOME variable should already be set in .bashrc file.
+4. Run following to add ORACLE_SID and LD_LIBRARY_PATH to the .bashrc file, so that these settings are saved for future sign-ins. ORACLE_HOME variable should already be set in .bashrc file.
 
 ```bash
 $ sed -i '$ a export ORACLE_SID=cdb1' .bashrc
 $ sed -i '$ a export LD_LIBRARY_PATH=$ORACLE_HOME/lib' .bashrc
 ```
 
-* Start Oracle listener
+5. Start Oracle listener
 
 ```bash
 $ lsnrctl start
@@ -453,13 +463,13 @@ Follow the steps in this section to install and configure Golden Gate.
 
 ### Enable archive log mode on ggVM1 (primary)
 
-* Connect to `sqlplus`
+1. Connect to `sqlplus`
 
 ```bash
 $ sqlplus / as sysdba
 ```
 
-* Enable archive log
+2. Enable archive log
 
 ```PL/SQL
 SQL> SELECT log_mode FROM v$database;
@@ -474,7 +484,7 @@ SQL> ALTER DATABASE ARCHIVELOG;
 SQL> ALTER DATABASE OPEN;
 ```
 
-* Enable force logging, and make sure at least one log file is present.
+3. Enable force logging, and make sure at least one log file is present.
 
 ```PL/SQL
 SQL> ALTER DATABASE FORCE LOGGING;
@@ -571,23 +581,23 @@ SQL> EXIT;
 
 6. Select 'Oracle GoldenGate for Oracle Database 21c'. Then select **Next** to continue.
 
-   ![Golden Gate install screenshot - 1](./media/oracle-golden-gate/gg_install_01.png)
+   ![Screenshot of Golden Gate installation wizard step 1.](./media/oracle-golden-gate/goldengate-install-01.png)
 
 7. Set the software location to **/u01/app/oracle/product/19.0.0/oggcore_1**, make sure **Start Manager** box is selected and select **Next** to continue.
 
-   ![Golden Gate install screenshot - 2](./media/oracle-golden-gate/gg_install_02.png)
+   ![Screenshot of Golden Gate installation wizard step 2.](./media/oracle-golden-gate/goldengate-install-02.png)
 
 8. On the **Summary** screen, select **Install** to continue.
 
-   ![Golden Gate install screenshot - 3](./media/oracle-golden-gate/gg_install_03.png)
+   ![Screenshot of Golden Gate installation wizard step 3.](./media/oracle-golden-gate/goldengate-install-03.png)
 
 9. Wait for installation to finish.
 
-   ![Golden Gate install screenshot - 4](./media/oracle-golden-gate/gg_install_04.png)
+   ![Screenshot of Golden Gate installation wizard step 4.](./media/oracle-golden-gate/goldengate-install-04.png)
 
 10. Select **Close** to continue.
 
-    ![Golden Gate install screenshot - 5](./media/oracle-golden-gate/gg_install_05.png)
+    ![Screenshot of Golden Gate installation wizard step 5.](./media/oracle-golden-gate/goldengate-install-05.png)
 
 11. Connect to **ggVM2** using Bastion.
 
@@ -904,11 +914,11 @@ SQL> EXIT;
    GGSCI> EXIT
    ```
 
-### Set up the replication (ggVM1 and ggVM2)
+### Set up replication (ggVM1 and ggVM2)
 
 #### 1. Set up the replication on ggVM2 (replicate)
 
-* Logon to `ggsci`.
+Logon to `ggsci`.
 
   ```bash
   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
@@ -919,14 +929,14 @@ SQL> EXIT;
   GGSCI> EDIT PARAMS MGR
   ```
 
-* Update the file with the following.
+Update the file with the following.
 
   ```bash
   PORT 7809
   ACCESSRULE, PROG *, IPADDR *, ALLOW
   ```
 
-* Restart the Manager service.
+Restart the Manager service.
 
   ```bash
   GGSCI> STOP MGR
@@ -936,7 +946,7 @@ SQL> EXIT;
 
 #### 2. Set up the replication on ggVM1 (primary)
 
-* Start the initial load and check for errors.
+Start the initial load and check for errors.
 
 ```bash
 $ cd /u01/app/oracle/product/19.0.0/oggcore_1
@@ -950,7 +960,7 @@ GGSCI> VIEW REPORT INITEXT
 
 #### 3. Set up the replication on ggVM2 (replicate)
 
-* Change the SCN number with the number you obtained before.
+Change the SCN number with the number you obtained before.
 
   ```bash
   $ cd /u01/app/oracle/product/19.0.0/oggcore_1
@@ -961,7 +971,7 @@ GGSCI> VIEW REPORT INITEXT
   START REPLICAT REPORA, AFTERCSN 2172191
   ```
 
-* The replication has begun, and you can test it by inserting new records to TEST tables.
+The replication has begun, and you can test it by inserting new records to TEST tables.
 
 ### View job status and troubleshooting
 
@@ -1006,19 +1016,19 @@ GGSCI> VIEW REPORT INITEXT
 
 #### Observe Data Replication
 
-* Connect to primary database on **ggVM1**
+1. Connect to primary database on **ggVM1**
 
    ```bash
    $ sqlplus test/test@pdb1
    ```
 
-* Select existing records from table
+2. Select existing records from table
 
    ```PL/SQL
    SQL> select * from TCUSTORD;
    ```
 
-* Create a test record
+3. Create a test record
 
    ```PL/SQL
    SQL> INSERT INTO TCUSTORD VALUES ('OLLJ',TO_DATE('11-APR-99'),'CYCLE',400,16000,1,102);
@@ -1026,7 +1036,7 @@ GGSCI> VIEW REPORT INITEXT
    SQL> EXIT;
    ```
 
-* Observe transaction picked up by Golden Gate (Note **Total inserts** value)
+4. Observe transaction picked up by Golden Gate (Note **Total inserts** value)
 
   ```bash
   $ cd /u01/app/oracle/product/19.0.0/oggcore_1
@@ -1090,13 +1100,13 @@ GGSCI> VIEW REPORT INITEXT
     End of statistics.
   ```
 
-* Connect to primary database on **ggVM2**
+5. Connect to primary database on **ggVM2**
 
    ```bash
    $ sqlplus test/test@pdb1
    ```
 
-* Verify new record is replocated
+6. Verify new record is replicated
 
    ```PL/SQL
    SQL> select * from TCUSTORD;
