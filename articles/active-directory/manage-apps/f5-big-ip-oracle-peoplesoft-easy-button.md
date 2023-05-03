@@ -14,7 +14,7 @@ ms.collection: M365-identity-device-management
 ms.custom: not-enterprise-apps
 ---
 
-# Tutorial: Configure F5 BIG-IP Easy Button for SSO to Oracle PeopleSoft
+# Tutorial: Configure F5 BIG-IP Easy Button for SSO to Oracle PeopleSoft 
 
 In this article, learn to secure Oracle PeopleSoft (PeopleSoft) using Azure Active Directory (Azure AD), with F5 BIG-IP Easy Button Guided Configuration 16.1.
 
