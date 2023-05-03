@@ -61,7 +61,8 @@ Turning on TDE on the managed instance will result in the following operations t
 3. Adding the associated Database Encryption Keys (DEK) on all databases on the managed instance.
 4. Enabling encryption on all databases on the managed instance.
 
-### Service-managed mode
+### [Service-managed mode](#tab/service-managed-mode)
+
 
 To enable TDE in service-managed mode, run kubectl patch to enable service-managed TDE
 
@@ -75,7 +76,7 @@ Example:
 kubectl patch sqlmi contososqlmi --namespace arc --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": "ServiceManaged" } } } }'
 ```
 
-### Customer-managed mode
+### [Customer-managed mode](#tab/customer-managed-mode)
 
 To enable TDE in customer managed mode:
 
@@ -111,6 +112,8 @@ To enable TDE in customer managed mode:
    kubectl patch sqlmi sqlmi-tde --namespace arc --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": "CustomerManaged", "protectorSecret": "sqlmi-tde-protector-cert-secret" } } } }'
    ```
 
+---
+
 ## Turn off transparent data encryption on the managed instance
 
 Turning off TDE on the managed instance will result in the following operations taking place:
@@ -132,6 +135,19 @@ Example:
 ```console
 kubectl patch sqlmi contososqlmi --namespace arc --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": null } } } }'
 ```
+
+### [Customer-managed mode](#tab/customer-managed-mode)
+
+Run kubectl patch to disable customer-managed TDE
+
+```console
+kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": null } } } }'
+```
+
+Example:
+```console
+kubectl patch sqlmi contososqlmi --namespace arc --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": null } } } }'
+
 ---
 
 ## Back up a transparent data encryption credential
