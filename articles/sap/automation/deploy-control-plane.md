@@ -44,7 +44,7 @@ az role assignment create --assignee <appId> --role "User Access Administrator" 
 
 
 ## Prepare the webapp
-This step is optional. If you would like a browser-based UX to assist in the configuration of SAP workload zones and systems, run the following commands before deploying the control plane.
+This step is optional. If you would like a browser-based UX to help the configuration of SAP workload zones and systems, run the following commands before deploying the control plane.
 
 # [Linux](#tab/linux)
 
@@ -93,7 +93,7 @@ del manifest.json
 
 # [Azure DevOps](#tab/devops)
 
-It is currently not possible to perform this action from Azure DevOps.
+It's currently not possible to perform this action from Azure DevOps.
 
 ---
 
@@ -104,7 +104,7 @@ The sample Deployer configuration file `MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars` i
 
 The sample SAP Library configuration file `MGMT-WEEU-SAP_LIBRARY.tfvars` is located in the `~/Azure_SAP_Automated_Deployment/samples/WORKSPACES/LIBRARY/MGMT-WEEU-SAP_LIBRARY` folder.
 
-Running the command below will create the Deployer, the SAP Library and add the Service Principal details to the deployment key vault. If you followed the web app setup in the step above, this command will also create the infrastructure to host the application. 
+Running the following command creates the Deployer, the SAP Library and adding the Service Principal details to the deployment key vault. If you followed the web app setup in the step above, this command will also create the infrastructure to host the application. 
 
 # [Linux](#tab/linux)
 
@@ -143,7 +143,7 @@ cd ~/Azure_SAP_Automated_Deployment/samples/WORKSPACES
 
 # [Windows](#tab/windows)
 
-You cannot perform this action from Windows
+You can't perform this action from Windows
 # [Azure DevOps](#tab/devops)
 
 Open (https://dev.azure.com) and go to your Azure DevOps project.
@@ -151,7 +151,7 @@ Open (https://dev.azure.com) and go to your Azure DevOps project.
 > [!NOTE]
 > Ensure that the 'Deployment_Configuration_Path' variable in the 'SDAF-General' variable group is set to the folder that contains your configuration files, for this example you can use 'samples/WORKSPACES'.
 
-The deployment will use the configuration defined in the Terraform variable files located in the 'WORKSPACES/DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE' and 'WORKSPACES/LIBRARY/MGMT-WEEU-SAP_LIBRARY' folders. 
+The deployment uses the configuration defined in the Terraform variable files located in the 'WORKSPACES/DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE' and 'WORKSPACES/LIBRARY/MGMT-WEEU-SAP_LIBRARY' folders. 
 
 Run the pipeline by selecting the _Deploy control plane_ pipeline from the Pipelines section. Enter the configuration names for the deployer and the SAP library. Use 'MGMT-WEEU-DEP00-INFRASTRUCTURE' as the Deployer configuration name and 'MGMT-WEEU-SAP_LIBRARY' as the SAP Library configuration name.
 
@@ -202,7 +202,7 @@ cd sap-automation/deploy/scripts
 ./configure_deployer.sh
 ```
 
-The script will install Terraform and Ansible and configure the deployer.
+The script installs Terraform and Ansible and configure the deployer.
 
 ### Manually configure the deployer
 
@@ -229,7 +229,7 @@ Connect to the deployer by following these steps:
  
 1. Save the file. If you're prompted to **Save as type**, select **All files** if **SSH** isn't an option. For example, use `deployer.ssh`.
 
-1. Connect to the deployer VM through any SSH client such as VSCode. Use the private IP address of the deployer, and the SSH key you downloaded. For instructions on how to connect to the Deployer using VSCode see [Connecting to Deployer using VSCode](tools-configuration.md#configuring-visual-studio-code). If you're using PuTTY, convert the SSH key file first using PuTTYGen.
+1. Connect to the deployer VM through any SSH client such as Visual Studio Code. Use the private IP address of the deployer, and the SSH key you downloaded. For instructions on how to connect to the Deployer using VSCode see [Connecting to Deployer using Visual Studio Code](tools-configuration.md#configuring-visual-studio-code). If you're using PuTTY, convert the SSH key file first using PuTTYGen.
 
 > [!NOTE] 
 >The default username is *azureadm*
@@ -251,17 +251,17 @@ cd sap-automation/deploy/scripts
 ./configure_deployer.sh
 ```
 
-The script will install Terraform and Ansible and configure the deployer.
+The script installs Terraform and Ansible and configure the deployer.
 
 
 
 ## Accessing the web app
 
-By default there will be no inbound public internet access to the web app apart from the deployer virtual network. To allow additional access to the web app, navigate to the Azure portal. In the deployer resource group, find the web app. Then under settings on the left hand side, click on networking. From here, click Access restriction. Add any allow or deny rules you would like. For more information on configuring access restrictions, see [Set up Azure App Service access restrictions](../../app-service/app-service-ip-restrictions.md).
+By default there's no inbound public internet access to the web app apart from the deployer virtual network. To allow additional access to the web app, navigate to the Azure portal. In the deployer resource group, find the web app. Then under settings on the left hand side, select networking. From here, click Access restriction. Add any allow or deny rules you would like. For more information on configuring access restrictions, see [Set up Azure App Service access restrictions](../../app-service/app-service-ip-restrictions.md).
 
-You will also need to grant reader permissions to the app service system-assigned managed identity. Navigate to the app service resource. On the left hand side, click "Identity". In the "system assigned" tab, click on "Azure role assignments" > "Add role assignment". Select "subscription" as the scope, and "reader" as the role. Then click save. Without this step, the web app dropdown functionality will not work.
+You'll also need to grant reader permissions to the app service system-assigned managed identity. Navigate to the app service resource. On the left hand side, click "Identity". In the "system assigned" tab, click on "Azure role assignments" > "Add role assignment". Select "subscription" as the scope, and "reader" as the role. Then click save. Without this step, the web app dropdown functionality won't work.
 
-You can log in and visit the web app by following the URL from earlier or clicking browse inside the app service resource. With the web app, you are able to configure SAP workload zones and system infrastructure. Click download to obtain a parameter file of the workload zone or system you specified, for use in the later deployment steps. 
+You can sign in and visit the web app by following the URL from earlier or selecting browse inside the app service resource. With the web app, you are able to configure SAP workload zones and system infrastructure. Select download to obtain a parameter file of the workload zone or system you specified, for use in the later deployment steps. 
 
 
 ## Next step
