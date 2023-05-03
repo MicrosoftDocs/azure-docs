@@ -115,7 +115,7 @@ The entire log entry will be stored in a single property called **RawData**. You
 
 ## Delete a custom log table
 
-See [Delete a table](../../agents/data-sources-custom-logs.md#delete-a-table).
+See [Delete a table](../../logs/create-custom-table.md#delete-a-table).
 
 ## Data collection
 
