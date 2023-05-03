@@ -23,7 +23,8 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [Release of containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management (MDVM) in Defender CSPM](#release-of-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-mdvm-in-defender-cspm) | May 2023 |
 |[Renaming container recommendations powered by Qualys](#renaming-container-recommendations-powered-by-qualys) | May 2023 |
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) | June 2023 |
-| [Replacing agent-based discovery with agentless discovery for containers capabilities in Defender CSPM](#replacing-agent-based-discovery-with-agentless-discovery-for-containers-capabilities-in-defender-cspm) | June 2023
+| [Replacing agent-based discovery with agentless discovery for containers capabilities in Defender CSPM](#replacing-agent-based-discovery-with-agentless-discovery-for-containers-capabilities-in-defender-cspm) | June 2023 |
+| [Changes to the Defender for DevOps recommendations environment source and resource ID](#Changes-to-the-Defender-for-DevOps-recommendations-environment-source-and-resource-ID) |  June 2023
 
 ### Deprecation of legacy compliance standards across cloud environments
 
@@ -120,6 +121,45 @@ Customers will have until June 30, 2023 to resolve this issue. After this date, 
 **Estimated date for change: June 2023**
 
 With Agentless Container Posture capabilities available in Defender CSPM, the agent-based discovery capabilities are set to be retired in June 2023. If you currently use container capabilities within Defender CSPM, please make sure that the [relevant extensions](concept-agentless-containers.md#onboard-agentless-containers-for-cspm) are enabled before this date to continue receiving container-related value of the new agentless capabilities such as container-related attack paths, insights, and inventory.
+
+### Changes to the Defender for DevOps recommendations environment source and resource ID
+
+**Estimated date for change: June 2023**
+
+The Security DevOps recommendations will be updated to align with the overall Microsoft Defender for Cloud features and experience.  Affected recommendations will point to a new recommendation source environment and have an updated resource ID.
+Security DevOps recommendations impacted:
+-	Code repositories should have code scanning findings resolved (preview)
+-	Code repositories should have secret scanning findings resolved (preview)
+-	Code repositories should have dependency vulnerability scanning findings resolved (preview)
+-	Code repositories should have infrastructure as code scanning findings resolved (preview)
+-	GitHub repositories should have code scanning enabled (preview)
+-	GitHub repositories should have Dependabot scanning enabled (preview)
+-	GitHub repositories should have secret scanning enabled (preview)
+
+The recommendation environment source will be updated from “Azure” to "AzureDevOps" or “GitHub”. 
+
+The format for resource IDs will be changed from:
+
+    Microsoft.SecurityDevOps/githubConnectors/owners/repos/
+
+To:
+
+    Microsoft.Security/securityConnectors/devops/azureDevOpsOrgs/projects/repos
+    Microsoft.Security/securityConnectors/devops/gitHubOwners/repos
+
+As a part of the migration, source code management system specific recommendations will be created for security findings:
+-	GitHub repositories should have code scanning findings resolved (preview)
+-	GitHub repositories should have secret scanning findings resolved (preview)
+-	GitHub repositories should have dependency vulnerability scanning findings resolved (preview)
+-	GitHub repositories should have infrastructure as code scanning findings resolved (preview)
+-	GitHub repositories should have code scanning enabled (preview)
+-	GitHub repositories should have Dependabot scanning enabled (preview)
+-	GitHub repositories should have secret scanning enabled (preview)
+-	Azure DevOps repositories should have code scanning findings resolved (preview)
+-	Azure DevOps repositories should have secret scanning findings resolved (preview)
+-	Azure DevOps repositories should have infrastructure as code scanning findings resolved (preview)
+
+Customer relying on the resourceID to query for DevOps recommendation data will be affected, e.g., Azure Resource Graph queries, workbooks queries, API calls to Microsoft Defender for Cloud. Queries would need to be updated to reflect both old and new to show both (e.g., total over time).  The recommendations blade experience will have minimal impact.  Deprecated assessments may continue to show for a maximum of 14 days if new scan results are not submitted.  
 
 ## Next steps
 
