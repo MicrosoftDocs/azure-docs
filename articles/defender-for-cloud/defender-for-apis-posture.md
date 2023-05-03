@@ -38,6 +38,10 @@ This article describes how to investigate API security findings, alerts, and sec
 
 In Defender for Cloud you can use sample alerts to evaluate your Defender for Cloud plans, and validate your security configuration. [Follow these instructions](alert-validation.md#generate-sample-security-alerts) to set up sample alerts, and select the relevant APIs within your subscriptions.
 
+## Simulate alerts
+
+To see the alert process in action, you can simulate an action that triggers a Defender for APIs alert. [Follow the instructions in our Tech Community blog](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/validating-microsoft-defender-for-apis-alerts/ba-p/3803874) to do that.
+
 ## Build queries in Cloud Security Explorer
 
 In Defender CSPM, [Cloud Security Graph](concept-attack-path.md) collects data to provide a map of assets and connections across organization, to expose security risks, vulnerabilities, and possible lateral movement paths.
