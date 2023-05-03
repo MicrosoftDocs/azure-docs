@@ -1,7 +1,7 @@
 ---
 title: Modify images for shelf analysis
 titleSuffix: Azure Cognitive Services
-description: tbd
+description: Use the stitching and rectification APIs to prepare organic photos of retail shelves for accurate image analysis.
 author: PatrickFarley
 manager: nitinme
 
@@ -18,15 +18,14 @@ Part of the shelf analysis workflow involves fixing and modifying the input imag
 
 This guide shows you how to use the Stitching API to combine multiple images of the same physical shelf: this gives you a composite image of the entire retail shelf, even if it's only viewed partially by multiple different cameras. A 50% overlap between images is recommended.
 
-This guide also shows you how to use the Rectification API to correct for perspective distortion difference when you stitch together different images.
+This guide also shows you how to use the Rectification API to correct for perspective distortion when you stitch together different images.
 
 ## Prerequisites
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> in the Azure portal. It must be deployed in the **East US** or **West US 2** region. After it deploys, select **Go to resource**.
   * You'll need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
-* An Azure Storage resource with a blob storage container. [Create one](tbd)
+* An Azure Storage resource with a blob storage container. [Create one](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)
 * [cURL](https://curl.haxx.se/) installed. Or, you can use a different REST platform, like Postman, Swagger, or the REST Client extension for VS Code.
-* A set of training images. You can use our [sample image sets](tbd) or bring your own images. The maximum file size per image is 20MB.
 
 ## Use the Stitching API
 
@@ -36,8 +35,7 @@ To run the image stitching operation on a set of images, follow these steps:
 1. Copy the following `curl` command into a text editor.
 
     ```bash
-    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://<endpoint>/vision/v4.0-preview.1/operations/shelfanalysis-productunderstanding:stitch" -d 
-    "{
+    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://<endpoint>/vision/v4.0-preview.1/operations/shelfanalysis-productunderstanding:stitch" --output <your_filename> -d "{
         'images': [
             {
             'url':'<your_url_string>'
@@ -53,13 +51,13 @@ To run the image stitching operation on a set of images, follow these steps:
     1. Replace the value of `<subscriptionKey>` with your Computer Vision resource key.
     1. Replace the value of `<endpoint>` with your Computer Vision resource endpoint. For example: `https://YourResourceName.cognitiveservices.azure.com`.
     1. Replace the `<your_url_string>` contents with the URLs of the images. The images should be ordered left to right and top to bottom, according to the physical spaces they show.
+    1. Replace `<your_filename>` with the name and extension of the file where you'd like to get the result (for example, `download.jpg`).
 1. Open a command prompt window.
 1. Paste your edited `curl` command from the text editor into the command prompt window, and then run the command.
 
-
 ## Examine the stitching response
 
-`200` tbd
+The API returns a `200` response, and the new file is downloaded to the location you specified.
 
 ## Use the Rectification API
 
@@ -69,9 +67,8 @@ After you complete the stitching operation, we recommend you do the rectificatio
 1. Copy the following `curl` command into a text editor.
 
     ```bash
-    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://<endpoint>/vision/v4.0-preview.1/operations/shelfanalysis-productunderstanding:rectify" -d 
-    "{
-      'url': 'string',
+    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://<endpoint>/vision/v4.0-preview.1/operations/shelfanalysis-productunderstanding:rectify" --output <your_filename> -d "{
+      'url': '<your_url_string>',
       'controlPoints': {
         'topLeft': {
           'x': 0.1,
@@ -96,19 +93,23 @@ After you complete the stitching operation, we recommend you do the rectificatio
     1. Replace the value of `<subscriptionKey>` with your Computer Vision resource key.
     1. Replace the value of `<endpoint>` with your Computer Vision resource endpoint. For example: `https://YourResourceName.cognitiveservices.azure.com`.
     1. Replace `<your_url_string>` with the blob storage URL of the image.
-    1. Replace the four control point coordinates in the request body. X is the horizontal coordinate and Y is vertical. The coordinates are normalized, so 0.5,0.5 indicates the center of the image, and 1,1 indicates the bottom right corner, for example.
+    1. Replace the four control point coordinates in the request body. X is the horizontal coordinate and Y is vertical. The coordinates are normalized, so 0.5,0.5 indicates the center of the image, and 1,1 indicates the bottom right corner, for example. Set the coordinates to define the four corners of the shelf fixture as it appears in the image.
+    
+       :::image type="content" source="../media/shelf/rectify.png" alt-text="Photo of a shelf with its four corners outlined.":::
+    1. Replace `<your_filename>` with the name and extension of the file where you'd like to get the result (for example, `download.jpg`).
 1. Open a command prompt window.
 1. Paste your edited `curl` command from the text editor into the command prompt window, and then run the command.
 
 
 ## Examine the rectification response
 
-`200` tbd
+The API returns a `200` response, and the new file is downloaded to the location you specified.
 
 ## Next steps
 
-tbd
+In this guide, you learned how to prepare shelf photos for analysis. Next, call the Product Understanding API to get analysis results.
+
 > [!div class="nextstepaction"]
-> [Use a custom shelf analysis model](tbd)
+> [Analyze a shelf image](./shelf-analyze.md)
 
 * [Image Analysis overview](../overview-image-analysis.md)
