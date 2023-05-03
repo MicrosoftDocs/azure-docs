@@ -57,7 +57,7 @@ The following table summarizes the differences in key capabilities.
 | **Use when data moves**     |Within a commerce boundary|Within a commerce boundary|Within a commerce boundary|Across geographic boundaries, e.g. US to EU|
 |    **Pricing**                      |    [Pricing](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [Pricing](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Pricing](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Pricing](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
 
-*\* Data Box Disk does not support Large File Shares and does not preserve file metadata*
+*\* Data Box Disk does not support Large File Shares and does not preserve file metadata.*
 
 ## Next steps
 
