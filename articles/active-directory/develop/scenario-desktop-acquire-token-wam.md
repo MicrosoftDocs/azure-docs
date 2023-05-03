@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/14/2022
 ms.author: dmwendia
 ms.custom: aaddev, devx-track-python
-#Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
+#Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform for developers.
 ---
 
 # Desktop app that calls web APIs: Acquire a token by using WAM
 
-The Microsoft Authentication Library (MSAL) calls Web Account Manager (WAM), a Windows 10+ component that acts as an authentication broker. Users of your app benefit from integration with accounts that are known from Windows, such as the account that you signed in with in your Windows session.
+The Microsoft Authentication Library (MSAL) calls Web Account Manager (WAM), a Windows 10+ component that acts as an authentication broker. Users of your app benefit from integration with accounts that are known from Windows, such as the account that you use to sign in to a Windows session.
 
 ## WAM value proposition
 
@@ -25,15 +25,15 @@ Using an authentication broker such as WAM has numerous benefits:
 
 - Enhanced security. See [Token protection](https://learn.microsoft.com/azure/active-directory/conditional-access/concept-token-protection).
 - Support for Windows Hello, conditional access, and FIDO keys.
-- Integration with the Windows **Email and Accounts** view.
+- Integration with the Windows **Email & accounts** view.
 - Fast single sign-on.
 - Ability to sign in silently with the current Windows account.
-- Most bug fixes and enhancements shipped with Windows.
+- Bug fixes and enhancements shipped with Windows.
 
 ## WAM limitations
 
-- WAM is available on Windows 10 and later, and on Windows Server 2019 and later. On Mac, Linux, and earlier versions of Windows, MSAL will automatically fall back to a browser.
-- Azure Active Directory B2C (Azure AD B2C) and Active Directory Federation Services (AD FS) authorities aren't supported. MSAL will fall back to a browser.
+- WAM is available on Windows 10 and later, and on Windows Server 2019 and later. On Mac, Linux, and earlier versions of Windows, MSAL automatically fall back to a browser.
+- Azure Active Directory B2C (Azure AD B2C) and Active Directory Federation Services (AD FS) authorities aren't supported. MSAL falls back to a browser.
 
 ## WAM integration package
 
@@ -41,7 +41,7 @@ Most apps need to reference the `Microsoft.Identity.Client.Broker` package to us
 
 ## WAM calling pattern
 
-You can use the following pattern to use WAM:
+You can use the following pattern for WAM:
 
 ```csharp
     // 1. Configuration - read below about redirect URI
@@ -51,13 +51,13 @@ You can use the following pattern to use WAM:
 
     // Add a token cache; see https://learn.microsoft.com/azure/active-directory/develop/msal-net-token-cache-serialization?tabs=desktop
 
-    // 2. Find a account for silent login
+    // 2. Find an account for silent login
 
     // Is there an account in the cache?
     IAccount accountToLogin = (await pca.GetAccountsAsync()).FirstOrDefault();
     if (accountToLogin == null)
     {
-        // 3. No account in the cache, try to log in with the OS account
+        // 3. No account in the cache; try to log in with the OS account
         accountToLogin = PublicClientApplication.OperatingSystemAccount;
     }
 
@@ -81,7 +81,7 @@ You can use the following pattern to use WAM:
     }
 ```
 
-If a broker isn't present (for example, Win8.1, Mac, or Linux), MSAL will fall back to a browser, where redirect URI rules apply.
+If a broker isn't present (for example, Windows 8.1, Mac, or Linux), MSAL falls back to a browser, where redirect URI rules apply.
 
 ### Redirect URI
 
@@ -112,7 +112,7 @@ For UI apps like Windows Forms (WinForms), Windows Presentation Foundation (WPF)
 
 ### Console applications
 
-For console applications, the configuration is a bit more involved, because of the terminal window and its tabs. Use the following code:
+For console applications, the configuration is more involved, because of the terminal window and its tabs. Use the following code:
 
 ```csharp
 enum GetAncestorFlags
@@ -154,7 +154,7 @@ public IntPtr GetConsoleOrTerminalWindow()
 
 The "WAM Account Picker did not return an account" message indicates that either the application user closed the dialog that displays accounts, or the dialog itself crashed. A crash might occur if `AccountsControl`, a Windows control, is registered incorrectly in Windows. To resolve this problem:
 
-1. In the taskbar, right-click **Start**, and then select **Windows PowerShell (Admin)**.
+1. On the taskbar, right-click **Start**, and then select **Windows PowerShell (Admin)**.
 1. If you're prompted by a User Account Control (UAC) dialog, select **Yes** to start PowerShell.
 1. Copy and then run the following script:
 
@@ -164,7 +164,7 @@ The "WAM Account Picker did not return an account" message indicates that either
 
 ### "MsalClientException: ErrorCode: wam_runtime_init_failed" error message during a single file deployment
 
-You might see the following error when packaging your application into a [single file bundle](/dotnet/core/deploying/single-file/overview).
+You might see the following error when packaging your application into a [single file bundle](/dotnet/core/deploying/single-file/overview):
 
 ```
 MsalClientException: wam_runtime_init_failed: The type initializer for 'Microsoft.Identity.Client.NativeInterop.API' threw an exception. See https://aka.ms/msal-net-wam#troubleshooting
@@ -174,7 +174,7 @@ This error indicates that the native binaries from [Microsoft.Identity.Client.Na
 
 ### Connection issues
 
-The application user sees an error message similar to "Please check your connection and try again." If this issue occurs regularly, see the [troubleshooting guide for Office](/microsoft-365/troubleshoot/authentication/connection-issue-when-sign-in-office-2016), which also uses the broker.
+The application user sees an error message that's similar to "Please check your connection and try again." If this issue occurs regularly, see the [troubleshooting guide for Office](/microsoft-365/troubleshoot/authentication/connection-issue-when-sign-in-office-2016), which also uses the broker.
 
 ## Sample
 
