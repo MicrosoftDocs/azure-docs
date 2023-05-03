@@ -341,7 +341,7 @@ az container show \
 
 Output is similar to:
 
-```console
+```output
 FQDN                                   ProvisioningState
 ---------------------------------      -------------------
 aci-action01.westus.azurecontainer.io  Succeeded
