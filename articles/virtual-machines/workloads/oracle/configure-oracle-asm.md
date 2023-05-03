@@ -26,14 +26,14 @@ Azure virtual machines provide a fully configurable and flexible computing envir
 
 For an overview of the value proposition of ASM, see the [documentation at Oracle](https://aka.ms/oracle/asm).
 
-If you choose to install and use the CLI locally, this tutorial requires that you are are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Prepare the environment
 
 This lab uses two VMs on Azure: **asmXServer** runs X Windows server used to run grid setup and **asmVM** hosts the Oracle Database and ASM installation. The Marketplace images used to create these virtual machines are
 
-* asmVM : **Oracle:oracle-database-19-3:oracle-database-19-0904:19.3.1**
-* asmXServer : **MicrosoftWindowsDesktop:Windows-10:win10-22h2-pro-g2:19045.2604.230207**
+* asmVM: **Oracle:oracle-database-19-3:oracle-database-19-0904:19.3.1**
+* asmXServer: **MicrosoftWindowsDesktop:Windows-10:win10-22h2-pro-g2:19045.2604.230207**
 
 You also need to be familiar with Unix editor **vi** and have a basic understanding of [X Server](https://en.wikipedia.org/wiki/X_Window_System).
 
@@ -47,7 +47,7 @@ You also need to be familiar with Unix editor **vi** and have a basic understand
 $ az login
 ```
 
-3. Ensure you are connected to the correct subscription by verifying subscription name and/or id.
+3. Ensure you are connected to the correct subscription by verifying subscription name and/or ID.
 
 ```azurecli
 $ az account show
@@ -246,7 +246,7 @@ If you restart your **asmXServer** VM, follow steps 2-6 above to restart X Serve
 
 For this lab, we create a virtual machine `asmVM` from Oracle Database 19c image. Run following to create **asmVM** with multiple data disks attached. If they do not already exist in the default key location, this command also creates SSH keys. To use a specific set of keys, use the `--ssh-key-value` option. If you have already created your SSH keys in [Generate authentication keys](#generate-authentication-keys) section, those keys will be used.
 
-When creating a new virtual machine `size` parameter indicates the size and type of virtual machine created. Depending on the Azure region you selected to create virtual machine and your subscription settings, some virtual machine sizes and types may not be available for you to use. Below example uses minimum required size for this lab `Standard_D4_v5`. If you want to change specs of virtual machine, select one of the available sizes from [Azure VM Sizes](/azure/virtual-machines/sizes). For test purposes, you may choose from General Purpose (D-Series) virtual machine types. For production or pilot deployments, Memory Optimized (E-Series and M-Series) are more suitable.
+When creating a new virtual machine `size` parameter indicates the size and type of virtual machine created. Depending on the Azure region you selected to create virtual machine and your subscription settings, some virtual machine sizes and types may not be available for you to use. Following command uses minimum required size for this lab `Standard_D4_v5`. If you want to change specs of virtual machine, select one of the available sizes from [Azure VM Sizes](/azure/virtual-machines/sizes). For test purposes, you may choose from General Purpose (D-Series) virtual machine types. For production or pilot deployments, Memory Optimized (E-Series and M-Series) are more suitable.
 
 ```azurecli
 az vm create --resource-group ASMOnAzureLab \
@@ -279,7 +279,7 @@ This lab requires a swap file on the lab virtual machine. Complete following ste
 
 ### Prepare disk and mount point
 
-1. When we created virtual machine (asmVM) above, we included a 20GB data disk to place swap file. Run following command to find out the name for this 20GB disk. It is **/dev/sdb** most of the time but in case it comes up different make sure you note the name for 20G disk and use if for following steps. Similarly we use the names of 40G disks (which are named **/dev/sdc** and **/dev/sdd** in the following output) later on.
+1. When we created the virtual machine (asmVM) earlier, we included a 20GB data disk to place swap file. Run following command to find out the name for this 20GB disk. It is **/dev/sdb** most of the time but in case it comes up different make sure you note the name for 20G disk and use if for following steps. Similarly we use the names of 40G disks (which are named **/dev/sdc** and **/dev/sdd** in the following output) later on.
 
     ```bash
     $ sudo su -
@@ -348,7 +348,7 @@ This lab requires a swap file on the lab virtual machine. Complete following ste
     /dev/sdb1: UUID="00000000-0000-0000-0000-000000000000" TYPE="xfs" PARTLABEL="xfspart" PARTUUID="...." 
     ```
 
-6. Paste UUID from previous step into the followin command and run it. This command ensures proper mounting of drive every time system reboots.
+6. Paste UUID from previous step into the following command and run it. This command ensures proper mounting of drive every time system reboots.
 
     ```bash
     $ echo "UUID=00000000-0000-0000-0000-000000000000   /swap   xfs   defaults,nofail   1   2" >> /etc/fstab
@@ -489,7 +489,7 @@ oracle : oinstall dba oper backupdba dgdba kmdba racdba asmadmin asmdba asmoper
 
 To set up Oracle ASM, complete the following steps:
 
-1. Set up the Oracle ASM library driver using the command below and providing following answers for prompts.
+1. Set up the Oracle ASM library driver using the following command and providing following answers for prompts.
 
    ```bash
    $ /usr/sbin/oracleasm configure -i
@@ -555,7 +555,7 @@ To set up Oracle ASM, complete the following steps:
    $ fdisk /dev/sdc
    ```
 
-   The output for the `fdisk` command should look like the following:
+   The output for the `fdisk` command should look like the following output:
 
    ```output
     Welcome to fdisk (util-linux 2.23.2).
@@ -601,7 +601,7 @@ To set up Oracle ASM, complete the following steps:
    $ cat /proc/partitions
    ```
 
-   The output of the command should look like the following:
+   The output of the command should look like the following output:
 
    ```output
     major minor  #blocks  name
@@ -708,7 +708,7 @@ To set up Oracle ASM, complete the following steps:
 
 To download and prepare the Oracle Grid Infrastructure software, complete the following steps:
 
-1. Download Oracle Grid Infrastructure from the [Oracle ASM download page](https://www.oracle.com/database/technologies/oracle19c-linux-downloads.html). Your download location should have Azure CLI installed because we copy these files to asmVM using Bastion. Because it uses a tunnel, this step will not work over Azure Cloud Shell and it needs to be run on a workstation.
+1. Download Oracle Grid Infrastructure from the [Oracle ASM download page](https://www.oracle.com/database/technologies/oracle19c-linux-downloads.html). Your download location should have Azure CLI installed because we copy these files to asmVM using Bastion. Because it uses a tunnel, this step will not work over Azure Cloud Shell, and it needs to be run on a workstation.
 
    Under the download titled **Oracle Database 19c Grid Infrastructure (19.3) for Linux x86-64**, download the .zip file.
 
@@ -841,7 +841,7 @@ Complete following steps to setup Oracle ASM.
 
 1. Ensure you are still signed in as **oracle**, to asmVM from Bastion ssh session.
 
-   * Run following to set context. If you still have the shell open from previous command you may skip this step.
+   * Run following to set context. If you still have the shell open from previous command, you may skip this step.
 
    ```bash
    $ sudo su - oracle   
@@ -881,7 +881,7 @@ The Oracle database software is already installed on the Azure Marketplace image
 
 1. Ensure the context is set to **oracle** user
 
-   * Run following to set context. If you still have the shell open from previous command this may not be necessary.
+   * Run following to set context. If you still have the shell open from previous command, this may not be necessary.
 
    ```bash
    $ sudo su - oracle   
@@ -918,7 +918,7 @@ The Oracle database software is already installed on the Azure Marketplace image
 
    ![Screenshot of the Summary page.](./media/oracle-asm/db-config-assistant-03.png)
 
-5. The Database has been created. On the **Finish** page, you have the option to unlock additional accounts to use this database and change the passwords. If you wish to do so, select **Password Management** - otherwise click on **Close**.
+5. The Database has been created. On the **Finish** page, you may opt to unlock additional accounts to use this database and change the passwords. If you wish to do so, select **Password Management** - otherwise click on **Close**.
 
 ## Delete the asmXServer VM
 
