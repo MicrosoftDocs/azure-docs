@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure Sign In Enterprise Host Provisioning for automatic user provisioning with Azure Active Directory'
-description: Learn how to automatically provision and de-provision user accounts from Azure AD to Sign In Enterprise Host Provisioning.
+title: 'Tutorial: Configure Sign In Enterprise for automatic host provisioning with Azure Active Directory'
+description: Learn how to automatically provision and de-provision hosts from Azure AD to Sign In Enterprise.
 services: active-directory
 author: twimmers
 writer: twimmers
@@ -14,17 +14,17 @@ ms.date: 04/27/2023
 ms.author: thwimmer
 ---
 
-# Tutorial: Configure Sign In Enterprise Host Provisioning for automatic user provisioning
+# Tutorial: Configure Sign In Enterprise for automatic host provisioning
 
-This tutorial describes the steps you need to perform in both Sign In Enterprise Host Provisioning and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Sign In Enterprise Host Provisioning](https://signinenterprise.com) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to perform in both Sign In Enterprise and Azure Active Directory (Azure AD) to configure automatic host provisioning. When configured, Azure AD automatically provisions and de-provisions hosts and host groups to [Sign In Enterprise](https://signinenterprise.com) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 
 ## Supported capabilities
 > [!div class="checklist"]
-> * Create users in Sign In Enterprise Host Provisioning.
-> * Remove users in Sign In Enterprise Host Provisioning when they do not require access anymore.
-> * Keep user attributes synchronized between Azure AD and Sign In Enterprise Host Provisioning.
-> * Provision groups and group memberships in Sign In Enterprise Host Provisioning.
+> * Create hosts in Sign In Enterprise.
+> * Provision host groups and their memberships in Sign In Enterprise.
+> * Mark hosts as invisible in Sign In Enterprise that are unassigned from the application.
+> * Delete host groups that are unassigned from the application.
 
 ## Prerequisites
 
@@ -32,19 +32,22 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
-* A user account in Sign In Enterprise Host Provisioning with Admin permissions.
+* A user account in Sign In Enterprise with Admin permissions.
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
 1. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-1. Determine what data to [map between Azure AD and Sign In Enterprise Host Provisioning](../app-provisioning/customize-application-attributes.md).
+1. Determine what data to [map between Azure AD and Sign In Enterprise](../app-provisioning/customize-application-attributes.md).
 
-## Step 2. Configure Sign In Enterprise Host Provisioning to support provisioning with Azure AD
-Contact Sign In Enterprise Host support to configure Sign In Enterprise Host to support provisioning with Azure AD.
+## Step 2. Gather SCIM Host Provisioning information from Sign In Enterprise
+
+1. Click on the gear icon in the top-right corner of your Sign In Enterprise account.
+1. Click **Preferences**.
+1. In the **General tab**, scroll down until you get to the **SCIM Host Provisioning** section. You will then need to copy both the URL and the Token, which will be needed in Step 5 below.
 
 ## Step 3. Add Sign In Enterprise Host Provisioning from the Azure AD application gallery
 
-Add Sign In Enterprise Host Provisioning from the Azure AD application gallery to start managing provisioning to Sign In Enterprise Host Provisioning. If you have previously setup Sign In Enterprise Host Provisioning for SSO you can use the same application. However it's recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
+Add Sign In Enterprise Host Provisioning from the Azure AD application gallery to start managing provisioning to Sign In Enterprise. If you have previously setup Sign In Enterprise for SSO you can't use the same application.  It's required that you create a separate app for Sign In Enterprise Host Provisioning. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
 ## Step 4. Define who will be in scope for provisioning 
 
@@ -55,7 +58,7 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 * If you need more roles, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add new roles.
 
 
-## Step 5. Configure automatic user provisioning to Sign In Enterprise Host Provisioning 
+## Step 5. Configure automatic user provisioning to Sign In Enterprise.
 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in TestApp based on user and/or group assignments in Azure AD.
 
@@ -77,7 +80,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of Provisioning tab automatic.](common/provisioning-automatic.png)
 
-1. Under the **Admin Credentials** section, input your Sign In Enterprise Host Provisioning Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to Sign In Enterprise Host Provisioning. If the connection fails, ensure your Sign In Enterprise Host Provisioning account has Admin permissions and try again.
+1. Under the **Admin Credentials** section, input your Sign In Enterprise Tenant URL and Token you copied in Step 2. Click **Test Connection** to ensure Azure AD can connect to Sign In Enterprise. If the connection fails, ensure your and try again.
 
  	![Screenshot of Token.](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -87,7 +90,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Select **Save**.
 
-1. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Sign In Enterprise Host Provisioning**.
+1. Under the **Mappings** section, select **Provision Azure Active Directory Users**.
 
 1. Review the user attributes that are synchronized from Azure AD to Sign In Enterprise Host Provisioning in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Sign In Enterprise Host Provisioning for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you'll need to ensure that the Sign In Enterprise Host Provisioning API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
@@ -104,9 +107,9 @@ This section guides you through the steps to configure the Azure AD provisioning
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String||
    |emails[type eq "other"].value|String||
 
-1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Sign In Enterprise Host Provisioning**.
+1. Under the **Mappings** section, select **Provision  Azure Active Directory Groups**.
 
-1. Review the group attributes that are synchronized from Azure AD to Sign In Enterprise Host Provisioning in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Sign In Enterprise Host Provisioning for update operations. Select the **Save** button to commit any changes.
+1. Review the group attributes that are synchronized from Azure AD to Sign In Enterprise in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Sign In Enterprise for update operations. Select the **Save** button to commit any changes.
 
    |Attribute|Type|Supported for filtering|Required by Sign In Enterprise Host Provisioning|
    |---|---|---|---|
@@ -119,7 +122,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of Provisioning Status Toggled On.](common/provisioning-toggle-on.png)
 
-1. Define the users and/or groups that you would like to provision to Sign In Enterprise Host Provisioning by choosing the desired values in **Scope** in the **Settings** section.
+1. Define the users and/or groups that you would like to provision to Sign In Enterprise by choosing the desired values in **Scope** in the **Settings** section.
 
 	![Screenshot of Provisioning Scope.](common/provisioning-scope.png)
 

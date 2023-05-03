@@ -24,12 +24,8 @@ items:
       href: deploy-json-powershell-cli.md
     - name: Azure Bicep
       href: deploy-bicep-powershell-cli.md
-    - name: Azure portal - Manual
-      href: deploy-manual-prerequisites.md
-    - name: Azure portal - Configure
-      href: deploy-manual-config.md
-    - name: Azure portal - Post-deployment
-      href: deploy-manual-post.md   
+    - name: Azure portal
+      href: deploy-manual-portal.md
 - name: Tutorials
   expanded: true
   items:

@@ -89,7 +89,6 @@ npm i @azure/ai-form-recognizer@4.0.0
 ```python
 pip install azure-ai-formrecognizer==3.2.0
 ```
-
 ---
 
 ### 2. Import the SDK client library into your application

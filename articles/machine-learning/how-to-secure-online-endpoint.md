@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: mopeakande
 author: dem108
 ms.author: sehan
-ms.date: 03/08/2023
+ms.date: 04/26/2023
 ms.custom: event-tier1-build-2022, devx-track-azurecli
 ---
 
@@ -65,7 +65,7 @@ The following diagram shows how communications flow through private endpoints to
 * Secure outbound communication creates three private endpoints per deployment. One to the Azure Blob storage, one to the Azure Container Registry, and one to your workspace.
 
     > [!IMPORTANT]
-    > * Each managed online endpoint deployment has it's own independent Azure Machine Learning managed VNet. If the endpoint has multiple deployments, each deployment has it's own managed VNet.
+    > * Each managed online endpoint deployment has its own independent Azure Machine Learning managed VNet. If the endpoint has multiple deployments, each deployment has its own managed VNet.
     > * We do not support peering between a deployment's managed VNet and your client VNet. For secure access to resources needed by the deployment, we use private endpoints to communicate with the resources.
 
 * When you use network isolation with a deployment, Azure Log Analytics is partially supported. All metrics and the `AMLOnlineEndpointTrafficLog` table are supported via Azure Log Analytics. `AMLOnlineEndpointConsoleLog` and `AMLOnlineEndpointEventLog` tables are currently not supported. As a workaround, you can use the [az ml online-deployment get_logs](/cli/azure/ml/online-deployment#az-ml-online-deployment-get-logs) CLI command, the [OnlineDeploymentOperations.get_logs()](/python/api/azure-ai-ml/azure.ai.ml.operations.onlinedeploymentoperations#azure-ai-ml-operations-onlinedeploymentoperations-get-logs) Python SDK, or the Deployment log tab in the Azure Machine Learning studio instead. For more information, see [Monitoring online endpoints](how-to-monitor-online-endpoints.md).

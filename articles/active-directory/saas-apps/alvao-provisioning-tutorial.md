@@ -40,7 +40,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Determine what data to [map between Azure AD and ALVAO](../app-provisioning/customize-application-attributes.md).
 
 ## Step 2. Configure ALVAO to support provisioning with Azure AD
-1. Find your **Tenant SCIM Endpoint URL**, which is in the form: {ALVAO REST API address}/scim, for example, https://app.contoso.com/alvaorestapi/scim.
+1. Find your **Tenant SCIM Endpoint URL**, which should have the format `{ALVAO REST API address}/scim` (for example, https://app.contoso.com/alvaorestapi/scim).
 1. Generate a new **Secret Token** in **WebApp - Administration - Settings - [Active Directory and Azure Active Directory](https://doc.alvao.com/en/11.1/list-of-windows/alvao-webapp/administration/settings/activedirectory)** and copy its value.
 
 ## Step 3. Add ALVAO from the Azure AD application gallery
