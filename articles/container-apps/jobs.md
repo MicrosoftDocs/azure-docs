@@ -23,7 +23,7 @@ Container Apps jobs are tasks that start, run for a finite duration, and exit wh
 
 The jobs preview has the following limitations:
 
-- Only supported in the East US 2 EUAP (`eastus2euap`) region
+- Only supported in the East US 2 EUAP, North Central US, and Australia East regions
 - Only supported in the Azure CLI using a preview version of the Azure Container Apps extension
 
     Uninstall any existing versions of the Azure Container Apps extension for the CLI and install the latest version that supports the jobs preview.
@@ -73,7 +73,7 @@ The following example ARM template creates a manual job named `my-job` in a reso
 
 ```json
 {
-    "location": "East US 2 EUAP",
+    "location": "North Central US",
     "name": "my-job",
     "properties": {
         "configuration": {
@@ -141,7 +141,7 @@ The following example ARM template creates a manual job named `my-job` in a reso
 
 ```json
 {
-    "location": "East US 2 EUAP",
+    "location": "North Central US",
     "name": "my-job",
     "properties": {
         "configuration": {
@@ -318,7 +318,7 @@ The following example ARM template creates a job with advanced configuration opt
 
 ```json
 {
-    "location": "East US 2 EUAP",
+    "location": "North Central US",
     "name": "my-job",
     "properties": {
         "configuration": {

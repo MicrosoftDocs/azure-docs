@@ -62,13 +62,13 @@ In this quickstart, you'll create a manual or scheduled job.
 
     ```azurecli
     RESOURCE_GROUP="jobs-quickstart"
-    LOCATION="eastus2euap"
+    LOCATION="northcentralus"
     ENVIRONMENT="env-jobs-quickstart"
     JOB_NAME="my-job"
     ```
 
     > [!NOTE]
-    > The jobs preview is only supported in the East US 2 EUAP (`eastus2euap`) region.
+    > The jobs preview is only supported in the East US 2 EUAP, North Central US, and Australia East regions.
 
 ## Create a Container Apps environment
 
