@@ -113,7 +113,7 @@ If you have already downloaded the provisioning agent and configured it for anot
      |Name|The name you chose for the connector, which should be unique across all connectors in your environment. For example, `PowerShell`.|
      |Autosync timer (minutes)|120|
      |Secret Token|Enter your secret token here. It should be 12 characters minimum.|
-     |Extension DLL|For the generic LDAP connector, select **Microsoft.IAM.Connector.PowerShell.dll**.|
+     |Extension DLL|For the PowerShell connector, select **Microsoft.IAM.Connector.PowerShell.dll**.|
 
 :::image type="content" source="media/on-premises-powershell-connector/pshell-1.png" alt-text="Screenshot of general screen." lightbox="media/on-premises-powershell-connector/pshell-1.png":::
 
