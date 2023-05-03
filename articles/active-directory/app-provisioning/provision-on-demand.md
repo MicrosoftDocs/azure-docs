@@ -61,7 +61,7 @@ Use on-demand provisioning to provision a user or group in seconds. Among other 
 
 ## Understand the provisioning steps
 
-The on-demand provisioning process attempts to show the steps that the provisioning service takes when provisioning a user. There are typically five steps to provision a user. One or more of those steps, explained in the following sections, will be shown during the on-demand provisioning experience.
+The on-demand provisioning process attempts to show the steps that the provisioning service takes when provisioning a user. There are typically five steps to provision a user. One or more of those steps, explained in the following sections, are shown during the on-demand provisioning experience.
 
 ### Step 1: Test connection
 
