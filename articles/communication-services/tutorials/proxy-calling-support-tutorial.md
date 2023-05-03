@@ -179,7 +179,7 @@ http {
                 add_header Content-Length 0;
                 return 204;
             }
-            resolver 8.8.8.8;
+            resolver 1.1.1.1;
             set $ups_host $1;
             set $r_uri $3;
             rewrite ^/.*$ /$r_uri break;
@@ -204,7 +204,7 @@ http {
         }
         location @process_redirect {
             set $saved_redirect_location '$upstream_http_location';
-            resolver 8.8.8.8;
+            resolver 1.1.1.1;
             proxy_pass $saved_redirect_location;
             add_header X-DBUG-MSG "301" always;
         }
