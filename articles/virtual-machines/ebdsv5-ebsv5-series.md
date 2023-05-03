@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/05/2022
-ms.custom: template-sizes
+ms.custom: references_regions
 ---
 
 # Ebdsv5 and Ebsv5 series 

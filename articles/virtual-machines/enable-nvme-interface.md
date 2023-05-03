@@ -88,20 +88,20 @@ By meeting the above five conditions, you'll be able to enable NVMe on the suppo
 - [Azure portal - Plan 2022-datacenter-azure-edition-core-smalldisk](https://portal.azure.com/#create/microsoftwindowsserver.windowsserver2022-datacenter-azure-edition-core-smalldisk)
 
 ## Launching a VM with NVMe interface
-NVMe can be enabled during VM creation using various methods such as: Azure Portal, CLI, PowerShell, and ARM templates. To create an NVMe VM, you must first enable the NVMe option on a VM and select the NVMe controller disk type for the VM. Note that the NVMe diskcontrollertype can be enabled during creation or updated to NVMe when the VM is stopped and deallocated, provided that the VM size supports NVMe. 
+NVMe can be enabled during VM creation using various methods such as: Azure portal, CLI, PowerShell, and ARM templates. To create an NVMe VM, you must first enable the NVMe option on a VM and select the NVMe controller disk type for the VM. Note that the NVMe diskcontrollertype can be enabled during creation or updated to NVMe when the VM is stopped and deallocated, provided that the VM size supports NVMe. 
 
-### Azure Portal View
+### Azure portal View
 1. Add Disk Controller Filter. To find the NVMe eligible sizes, select **See All Sizes**, select the **Disk Controller** filter, and then select **NVMe**:
 
-   :::image type="content" source="./media/enable-nvme/azureportal1.png" alt-text="instructions to add disk controller filter for N V M e interface":::
+   :::image type="content" source="./media/enable-nvme/azure-portal-1.png" alt-text="Screenshot of instructions to add disk controller filter for NVMe interface.":::
 
 1. Enable NVMe feature by visiting the **Advanced** tab.
 
-   :::image type="content" source="./media/enable-nvme/azureportal2.png" alt-text="instructions to enable N V M e interface feature":::
+   :::image type="content" source="./media/enable-nvme/azure-portal-2.png" alt-text="Screenshot of instructions to enable NVMe interface feature.":::
 
 1.  Verify Feature is enabled by going to **Review and Create**.
 
-    :::image type="content" source="./media/enable-nvme/azureportal3.png" alt-text="instructions to review and verify features enablement":::
+    :::image type="content" source="./media/enable-nvme/azure-portal-3.png" alt-text="Screenshot of instructions to review and verify features enablement.":::
 
 ### Sample ARM template
 
