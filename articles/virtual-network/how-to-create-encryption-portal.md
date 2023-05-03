@@ -1,7 +1,7 @@
 ---
 title: Create a virtual network with encryption - Azure portal
 titleSuffix: Azure Virtual Network
-description: In this how-to, learn how to create an encrypted virtual network using the Azure portal. A virtual network lets Azure resources communicate with each other and with the internet. 
+description: Learn how to create an encrypted virtual network using the Azure portal. A virtual network lets Azure resources communicate with each other and with the internet. 
 author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
@@ -20,7 +20,7 @@ Azure Virtual Network encryption is a feature of Azure Virtual Network. Virtual 
 
 ## Create a virtual network
 
-In this section, you'll create a virtual network and enable virtual network encryption.
+In this section, you create a virtual network and enable virtual network encryption.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -33,7 +33,7 @@ In this section, you'll create a virtual network and enable virtual network encr
     | Setting | Value |
     | ------- | ----- |
     | **Project details** |  |
-    | **Subscription** | Select the subscription that you want to use for this virtual network. |
+    | **Subscription** | Select your subscription. |
     | **Resource group** | Select **Create new**, then enter **MyResourceGroup** in **Name**. Select **OK**. |
     | **Instance details** |  |
     | Virtual network name | Enter **MyVNet**. |

@@ -44,11 +44,11 @@ Virtual network encryption has the following requirements:
 
 Virtual Network encryption provides two methods of control when it includes virtual machine sizes that don't meet the minimum requirements:
 
-- **DropUnencrypted** - In this scenario, network traffic that isn’t encrypted by the underlying hardware will be **dropped**. The traffic drop happens if a virtual machine, such as an A-series or B-series, or an older D-series such as Dv2, is in the virtual network.
+- **DropUnencrypted** - In this scenario, network traffic that isn’t encrypted by the underlying hardware is **dropped**. The traffic drop happens if a virtual machine, such as an A-series or B-series, or an older D-series such as Dv2, is in the virtual network.
 
-- **AllowUnencrypted** - In this scenario, network traffic that isn’t encrypted by the underlying hardware will be allowed. This scenario allows incompatible virtual machine sizes to communicate with compatible virtual machine sizes.
+- **AllowUnencrypted** - In this scenario, network traffic that isn’t encrypted by the underlying hardware is allowed. This scenario allows incompatible virtual machine sizes to communicate with compatible virtual machine sizes.
 
-Public IP traffic isn't dropped or encrypted in either scenario. IP fragmented packets aren't supported. This scenario will only happen in jumbo frame scenarios. Global Peering is supported in regions where virtual network encryption is supported.
+Public IP traffic isn't dropped or encrypted in either scenario. IP fragmented packets aren't supported. This scenario happens in jumbo frame scenarios. Global Peering is supported in regions where virtual network encryption is supported.
 
 ## Use cases
 
@@ -78,9 +78,9 @@ Azure Virtual Network encryption has the following limitations:
 
 - In scenarios where a PaaS is involved, the virtual machine where the PaaS is hosted dictates if virtual network encryption is supported. The virtual machine must meet the listed requirements. 
 
-- Swift - Services using swift will observe connectivity failure to swift containers injected in a virtual network. A fix is currently in progress.
+- Swift - Services using swift observes connectivity failure to swift containers injected in a virtual network. A fix is currently in progress.
 
-- Gen8 behind internal load balancer - If you enable virtual network encryption after provisioning virtual machines, it may cause connectivity problems due to the unavailability of this feature on Gen8 clusters. Virtual machines on Gen8 clusters behind an ILB will see connectivity loss accessing the virtual machines via the internal load balancer. Once support is extended to Gen8 clusters, ILB connectivity will function, but existing connections will drop.
+- Gen8 behind internal load balancer - If you enable virtual network encryption after provisioning virtual machines, it may cause connectivity problems due to the unavailability of this feature on Gen8 clusters. Virtual machines on Gen8 clusters behind an internal load balancer see connectivity loss accessing the virtual machines via the internal load balancer. Once support is extended to Gen8 clusters, ILB connectivity functions, but existing connections drop.
 
 ## Next steps
 

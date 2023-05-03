@@ -1,7 +1,7 @@
 ---
 title: Create a virtual network with encryption - Azure PowerShell
 titleSuffix: Azure Virtual Network
-description: In this how-to, learn how to create an encrypted virtual network using Azure PowerShell. A virtual network lets Azure resources communicate with each other and with the internet. 
+description: Learn how to create an encrypted virtual network using Azure PowerShell. A virtual network lets Azure resources communicate with each other and with the internet. 
 author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
@@ -22,7 +22,7 @@ Azure Virtual Network encryption is a feature of Azure Virtual Network. Virtual 
 
 - Sign in to Azure PowerShell and ensure you've selected the subscription with which you want to use this feature.  For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
-- Ensure your Az. Network module is 4.3.0 or later. To verify the installed module, use the command Get-InstalledModule -Name "Az.Network". If the module requires an update, use the command Update-Module -Name "Az. Network" if necessary.
+- Ensure your `Az.Network` module is 4.3.0 or later. To verify the installed module, use the command Get-InstalledModule -Name `Az.Network`. If the module requires an update, use the command Update-Module -Name `Az.Network` if necessary.
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
@@ -42,13 +42,13 @@ New-AzResourceGroup @rg
 
 ## Create a virtual network
 
-In this section, you'll create a virtual network and enable virtual network encryption.
+In this section, you create a virtual network and enable virtual network encryption.
 
 There are two options for the parameter **`-EncryptionEnforcementPolicy`**:
 
-- **DropUnencrypted** - In this scenario, network traffic that isn’t encrypted by the underlying hardware will be **dropped**. The traffic drop happens if a virtual machine, such as an A-series or B-series, or an older D-series such as Dv2, is in the virtual network.
+- **DropUnencrypted** - In this scenario, network traffic that isn’t encrypted by the underlying hardware is **dropped**. The traffic drop happens if a virtual machine, such as an A-series or B-series, or an older D-series such as Dv2, is in the virtual network.
 
-- **AllowUnencrypted** - In this scenario, network traffic that isn’t encrypted by the underlying hardware will be allowed. This scenario allows incompatible virtual machine sizes to communicate with compatible virtual machine sizes.
+- **AllowUnencrypted** - In this scenario, network traffic that isn’t encrypted by the underlying hardware is allowed. This scenario allows incompatible virtual machine sizes to communicate with compatible virtual machine sizes.
 
 Use [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) and [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) to create a virtual network.
 

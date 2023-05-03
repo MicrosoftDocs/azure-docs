@@ -1,7 +1,7 @@
 ---
 title: Create a virtual network with encryption - Azure CLI
 titleSuffix: Azure Virtual Network
-description: In this how-to, learn how to create an encrypted virtual network using the Azure CLI. A virtual network lets Azure resources communicate with each other and with the internet. 
+description: Learn how to create an encrypted virtual network using the Azure CLI. A virtual network lets Azure resources communicate with each other and with the internet. 
 author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
@@ -20,7 +20,7 @@ Azure Virtual Network encryption is a feature of Azure Virtual Network. Virtual 
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-- This how-to requires version 2.31.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+- The how-to article requires version 2.31.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
@@ -36,13 +36,13 @@ Create a resource group with [az group create](/cli/azure/group#az-group-create)
 
 ## Create a virtual network
 
-In this section, you'll create a virtual network and enable virtual network encryption.
+In this section, you create a virtual network and enable virtual network encryption.
 
 There are two options for the parameter **`--encryption-enforcement-policy`**:
 
-- **DropUnencrypted** - In this scenario, network traffic that isn’t encrypted by the underlying hardware will be **dropped**. The traffic drop happens if a virtual machine, such as an A-series or B-series, or an older D-series such as Dv2, is in the virtual network.
+- **DropUnencrypted** - In this scenario, network traffic that isn’t encrypted by the underlying hardware is **dropped**. The traffic drop happens if a virtual machine, such as an A-series or B-series, or an older D-series such as Dv2, is in the virtual network.
 
-- **AllowUnencrypted** - In this scenario, network traffic that isn’t encrypted by the underlying hardware will be allowed. This scenario allows incompatible virtual machine sizes to communicate with compatible virtual machine sizes.
+- **AllowUnencrypted** - In this scenario, network traffic that isn’t encrypted by the underlying hardware is allowed. This scenario allows incompatible virtual machine sizes to communicate with compatible virtual machine sizes.
 
 Use [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) to create a virtual network.
 
