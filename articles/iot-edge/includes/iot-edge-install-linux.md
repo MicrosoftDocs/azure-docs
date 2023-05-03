@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 01/05/2023
+ms.date: 05/03/2023
 author: PatAltimore
 ms.author: patricka
 ms.service: iot-edge
@@ -70,6 +70,13 @@ Installing can be done with a few commands. Open a terminal and run the followin
     rm packages-microsoft-prod.rpm
     ```
 
+* **9.x (amd64)**:
+
+   ```bash
+    wget https://packages.microsoft.com/config/rhel/9/packages-microsoft-prod.rpm -O packages-microsoft-prod.rpm
+    sudo yum localinstall packages-microsoft-prod.rpm
+    rm packages-microsoft-prod.rpm
+    ```
 ---
 
 For more information about operating system versions, see [Azure IoT Edge supported platforms](../support.md?#linux-containers).
