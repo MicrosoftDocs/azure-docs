@@ -40,7 +40,7 @@ The sample application for this tutorial may be cloned or downloaded from the re
 git clone https://github.com/Azure-Samples/msdocs-azure-tables-sdk-python-flask.git
 ```
 
-The sample application uses weather data as an example to demonstrate the capabilities of the API for Table. Objects representing weather observations are stored and retrieved using the API for Table, including storing objects with extra properties to demonstrate the schemaless capabilities of the API for Table.
+The sample application uses weather data as an example to demonstrate the capabilities of the API for Table. Objects representing weather observations are stored and retrieved using the API for Table, including storing objects with extra properties to demonstrate the schemaless capabilities of the API for Table. The following image shows the local application running in a browser, displaying the weather data stored in the Azure Cosmos DB for Table.
 
 :::image type="content" source="./media/quickstart-python/table-api-app-finished-application-720px.png" alt-text="A screenshot of the finished application, which shows data stored in an Azure Cosmos DB table using the API for Table." lightbox="./media/quickstart-python/table-api-app-finished-application.png":::
 
@@ -213,7 +213,9 @@ pip install azure-data-tables
 
 ## 5 - Configure the Table client in .env file
 
-Copy your Azure Cosmos DB account connection string from the Azure portal, and create a TableServiceClient object using your copied connection string. Switch to folder `1-strater-app` or `2-completed-app`. Then, add the value of the corresponding environment variables in `.env` file.
+Copy your Azure Cosmos DB account connection string from the Azure portal, and create a TableServiceClient object using your copied connection string. Switch to folder `1-starter-app` or `2-completed-app`. The `1-starter-app` has some functionality left for you to complete. Look for the string "#TODO". All the code snippets in this article can be found in both apps.
+
+Regardless of which app you start with, you need to define the corresponding environment variables in an `.env` file.
 
 ```python
 # Configuration Parameters
@@ -224,8 +226,10 @@ project_root_path = "Project abs path"
 
 The Azure SDK communicates with Azure using client objects to execute different operations against Azure. The [`TableServiceClient`](/python/api/azure-data-tables/azure.data.tables.tableserviceclient) object is the object used to communicate with the Azure Cosmos DB for Table. An application will typically have a single `TableServiceClient` overall, and it will have a [`TableClient`](/python/api/azure-data-tables/azure.data.tables.tableclient) per table.
 
+For example, the following code creates a `TableServiceClient` object using the connection string from the environment variable.
+
 ```python
-self.conn_str = os.getenv("AZURE_CONNECTION_STRING")
+self.conn_str = os.getenv("conn_str")
 self.table_service = TableServiceClient.from_connection_string(self.conn_str)
 ```
 
@@ -233,7 +237,7 @@ self.table_service = TableServiceClient.from_connection_string(self.conn_str)
 
 ## 6 - Implement Azure Cosmos DB table operations
 
-All Azure Cosmos DB table operations for the sample app are implemented in the `TableServiceHelper` class located in *helper* file under the *webapp* directory. You'll need to import the `TableServiceClient` class at the top of this file to work with objects in the `azure.data.tables` SDK package.
+All Azure Cosmos DB table operations for the sample app are implemented in the `TableServiceHelper` class located in *helper* file under the *webapp* directory. You'll need to import the `TableServiceClient` class at the top of this file to work with objects in the [azure.data.tables](https://pypi.org/project/azure-data-tables/) client library for Python.
 
 ```python
 from azure.data.tables import TableServiceClient
