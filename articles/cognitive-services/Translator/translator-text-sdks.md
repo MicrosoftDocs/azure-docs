@@ -25,12 +25,12 @@ Azure Text Translation is a cloud-based REST API feature of the Azure Translator
 
 Text Translation SDK supports the following languages and platforms:
 
-| Language → SDK version | Package| Supported API version|
-|:----------------------:|:----------|:----------|
-| [.NET/C# → 1.0.0-beta.1](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.Translation.Text/1.0.0-beta.1/index.html)|[NuGet](https://www.nuget.org/packages/Azure.AI.Translation.Text/1.0.0-beta.1)|Translator v3.0|
-|[Java → 1.0.0-beta.1](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-translation-text/1.0.0-beta.1/index.html) → ]|[MVN repository](https://mvnrepository.com/artifact/com.azure/azure-ai-translation-text/1.0.0-beta.1)|Translator v3.0|
-|[JavaScript → 1.0.0-beta.1](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-cognitiveservices-translatortext/1.0.0/index.html)|[npm](https://www.npmjs.com/package/@azure-rest/ai-translation-text/v/1.0.0-beta.1)|Translator v3.0 |
-|[Python → 1.0.0b1](/python/api/azure-ai-translation-text/azure.ai.translation.text?view=azure-python-preview&preserve-view=true)|[PyPi](https://pypi.org/project/azure-ai-translation-text/1.0.0b1/)|Translator v3.0|
+| Language → SDK version | Package|Client library| Supported API version|
+|:----------------------:|:----------|:----------|:-------------|
+|[.NET/C# → 1.0.0-beta.1](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.Translation.Text/1.0.0-beta.1/index.html)|[NuGet](https://www.nuget.org/packages/Azure.AI.Translation.Text/1.0.0-beta.1)|[Azure SDK for .NET](/dotnet/api/overview/azure/ai.translation.text-readme?view=azure-dotnet-preview)|Translator v3.0|
+|[Java → 1.0.0-beta.1](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-translation-text/1.0.0-beta.1/index.html) → ]|[MVN repository](https://mvnrepository.com/artifact/com.azure/azure-ai-translation-text/1.0.0-beta.1)|[Azure SDK for Java](/java/api/overview/azure/ai-translation-text-readme?view=azure-java-preview)|Translator v3.0|
+|[JavaScript → 1.0.0-beta.1](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-cognitiveservices-translatortext/1.0.0/index.html)|[npm](https://www.npmjs.com/package/@azure-rest/ai-translation-text/v/1.0.0-beta.1)|[Azure SDK for JavaScript](/javascript/api/overview/azure/text-translation?view=azure-node-preview) |Translator v3.0 |
+|[Python → 1.0.0b1](/python/api/azure-ai-translation-text/azure.ai.translation.text?view=azure-python-preview&preserve-view=true)|[PyPi](https://pypi.org/project/azure-ai-translation-text/1.0.0b1/)| [Azure SDK for Python]() |Translator v3.0|
 
 ## Changelog and release history
 
@@ -163,30 +163,22 @@ import com.azure.core.credential.AzureKeyCredential;
 ### [JavaScript](#tab/javascript)
 
 ```javascript
-const { 
-    TranslatorCredential, TextTranslationClient } = require("@azure-rest/ai-translation-text");
+const { TranslatorCredential, TextTranslationClient } = require("@azure-rest/ai-translation-text");
 ```
 
 ### [Python](#tab/python)
 
 ```python
-from azure.core.credentials import AzureKeyCredential
+from azure.core.credentials import TextTranslationClient
 from azure-ai-translation-text import TextTranslationClient
 ```
 
 ---
 
-### 3. Set up authentication
+### 3. Authenticate the client 
 
-There are two supported methods for authentication
-
-* Use a [Text Translation API key](#use-your-api-key) with AzureKeyCredential from azure.core.credentials.
-
-* Use a [token credential from azure-identity](#use-an-azure-active-directory-azure-ad-token-credential) to authenticate with [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md).
-
-#### Use your API key
-
-Here's where to find your Text Translation API key in the Azure portal:
+Interaction with the Translator service using the client library begins with creating an instance of the `TextTranslationClient`class. You will need your API key and region to instantiate a client object.
+The Text Translation API key is found in the Azure portal:
 
 :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of the keys and endpoint location in the Azure portal.":::
 
@@ -198,7 +190,7 @@ Here's where to find your Text Translation API key in the Azure portal:
 
 Uri endpoint = new("<your-endpoint>);
 string key = "<your-key>";
-string region = "<region>"
+string region = "<region>";
 AzureKeyCredential credential = new(key);
 TextTranslationClient client = new(credential, region);
 ```
@@ -208,12 +200,29 @@ TextTranslationClient client = new(credential, region);
 ```csharp
 Uri endpoint = new("<your-endpoint>");
 string key = "<your-key>";
-string region = "<region>"
+string region = "<region>";
 AzureKeyCredential credential = new(key);
 TextTranslationClient client = new(credential, endpoint);
 ```
 
 ### [Java](#tab/java)
+
+**Using a regional endpoint**
+
+```java
+
+String apiKey = System.getenv("TEXT_TRANSLATOR_API_KEY");
+String region = System.getenv("TEXT_TRANSLATOR_API_REGION");
+AzureKeyCredential credential = new AzureKeyCredential(apiKey);
+
+TextTranslationClient client = new TextTranslationClientBuilder()
+.credential(credential)
+.region(region)
+.buildClient();
+
+```
+
+**Using the global endpoint**
 
 ```java
 
@@ -225,10 +234,25 @@ TextTranslationClient client = new TextTranslationClientBuilder()
 
 ### [JavaScript](#tab/javascript)
 
+**Using a regional endpoint**
+
+```javascript
+const translateCredential = new TranslatorCredential(apiKey, region);
+const translationClient = TextTranslationClient(endpoint, translateCredential);
+```
+
+**Using the global endpoint**
+
 ```javascript
 
-async function main() {
-    const client = new TextTranslationClient("<your-endpoint>", new AzureKeyCredential("<your-key>"));
+const endpoint = "<your-endpoint>";
+const apiKey = "<your-key>";
+const region = "<region>";
+
+const translateCredential = {key: apiKey, region: region};
+
+const translationClient = new TextTranslationClient(endpoint, translateCredential"));
+
 ```
 
 ### [Python](#tab/python)
