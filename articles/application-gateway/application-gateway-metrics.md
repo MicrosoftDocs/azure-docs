@@ -26,33 +26,33 @@ Application Gateway provides several built‑in timing metrics related to the re
 > If there are more than one listener in the Application Gateway, then always filter by *Listener* dimension while comparing different latency metrics in order to get meaningful inference.
 
 - **Backend connect time**
-
+  Aggregation type:Avg/Max
   Time spent establishing a connection with the backend application. 
 
   This includes the network latency as well as the time taken by the backend server’s TCP stack to  establish new connections. For TLS, it also includes the time spent on handshake. 
 
 - **Backend first byte response time**
-
+  Aggregation type:Avg/Max
   Time interval between start of establishing a connection to backend server and receiving the first byte of the response header. 
 
   This approximates the sum of *Backend connect time*, time taken by the request to reach the backend from Application Gateway, time taken by backend application to respond (the time the server took to generate content, potentially fetch database queries), and the time taken by first byte
   of the response to reach the Application Gateway from the backend.
 
 - **Backend last byte response time**
-
+  Aggregation type:Avg/Max
   Time interval between start of establishing a connection to backend server and receiving the last byte of the response body. 
 
   This approximates the sum of *Backend first byte response time* and data transfer time (this number may vary greatly depending on the size of objects requested and the latency of the server network).
 
 - **Application gateway total time**
-
-  Average time that it takes for a request to be received, processed and its response to be sent. 
+  Aggregation type:Avg/Max
+  This metric captures either the Average/Max time taken for a request to be received, processed and its response to be sent. 
 
   This is the interval from the time when Application Gateway receives the first byte of the HTTP request to the time when the last response byte has been sent to the client. This includes the processing time taken by Application Gateway, the *Backend last byte response time*, and the time taken by Application Gateway to send all the response.
 
 - **Client RTT**
-
-  Average round trip time between clients and Application Gateway.
+  Aggregation type:Avg/Max
+  This metric captures the Average/Max round trip time between clients and Application Gateway.
 
 
 
