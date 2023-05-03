@@ -114,13 +114,13 @@ Before creating a workflow, the source code for your app must be in a GitHub rep
 
 1. Log in to Azure with the Azure CLI. 
 
-    ```azurecli
+    ```azurecli-interactive
     az login
     ```
 
 1. Next, install the latest Azure Container Apps extension for the CLI.
 
-    ```azurecli
+    ```azurecli-interactive
     az extension add --name containerapp --upgrade
     ```
 
@@ -131,7 +131,7 @@ Before creating a workflow, the source code for your app must be in a GitHub rep
 
 1. Clone the repository to your local machine.
 
-    ```bash
+    ```git
     git clone https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-container-app.git
     ```
 
@@ -149,7 +149,7 @@ The GitHub workflow requires a secret named `AZURE_CREDENTIALS` to authenticate 
 
 1. Create a service principal with the *Contributor* role on the resource group that contains the container app and container registry.
 
-    ```azurecli
+    ```azurecli-interactive
     az ad sp create-for-rbac \
       --name my-app-credentials \
       --role contributor \
