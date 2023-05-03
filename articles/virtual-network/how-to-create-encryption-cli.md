@@ -5,7 +5,7 @@ description: In this how-to, learn how to create an encrypted virtual network us
 author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
-ms.date: 09/12/2022
+ms.date: 05/24/2023
 ms.author: allensu
 
 ---
