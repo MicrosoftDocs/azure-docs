@@ -52,7 +52,6 @@ reactspalocal/
 ├── src/
 │   ├── components/
 │   │   ├── PageLayout.jsx
-│   │   ├── ProfileData.jsx
 │   │   ├── SignInButton.jsx
 │   │   └── SignOutButton.jsx
 │   └── ...
