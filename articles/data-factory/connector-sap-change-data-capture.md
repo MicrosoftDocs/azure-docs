@@ -54,7 +54,7 @@ To prepare an SAP CDC dataset, follow [Prepare the SAP CDC source dataset](sap-c
 
 ## Transform data with the SAP CDC connector
 
-SAP CDC datasets can be used as source in mapping data flow. The raw SAP ODP change feed is difficult to interpret and updating it correctly to a sink can be a challenge. Mapping data flow takes care of this complexity by automatically evaluating technical attributes that are provided by the ODP framework (like ODQ_CHANGEMODE). This allows users to concentrate on the required transformation logic without having to bother with the internals of the SAP ODP change feed, the right order of changes, etc.
+SAP CDC datasets can be used as source in mapping data flow. The raw SAP ODP change feed is difficult to interpret and updating it correctly to a sink can be a challenge. Mapping data flow takes care of this complexity by automatically evaluating technical attributes that are provided by the ODP framework (like ODQ_CHANGEMODE). Users can therefore concentrate on the required transformation logic without having to bother with the internals of the SAP ODP change feed, the right order of changes, etc.
 
 To get started, create a pipeline with a mapping data flow.
 
@@ -89,12 +89,12 @@ To create a mapping data flow using the SAP CDC connector as a source, complete 
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-mapping-data-flow-key-columns.png" alt-text="Screenshot of the key columns selection in source options of mapping data flow source.":::
 
-1. For the tabs **Projection**, **Optimize** and **Inspect**, please follow [mapping data flow](concepts-data-flow-overview.md).
+1. For the tabs **Projection**, **Optimize** and **Inspect**, follow [mapping data flow](concepts-data-flow-overview.md).
 
 ### Optimizing performance of full or initial loads with source partitioning
 
-1. If **Run mode** is set to **Full on every run** or **Full on the first run, then incremental**, the tab **Optimize** offers an additional selection and partitioning type called **Source**. This allows you to specify multiple partition (i.e. filter) conditions to chunk a large source data set into multiple smaller portions. For each partition, the SAP CDC connector triggers a separate extraction process in the SAP source system.
+1. If **Run mode** is set to **Full on every run** or **Full on the first run, then incremental**, the tab **Optimize** offers a selection and partitioning type called **Source**. This option allows you to specify multiple partition (that is, filter) conditions to chunk a large source data set into multiple smaller portions. For each partition, the SAP CDC connector triggers a separate extraction process in the SAP source system.
 
     :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-mapping-data-flow-optimize-partition.png" alt-text="Screenshot of the partitioning options in optimize of mapping data flow source.":::
 
-Depending on the resources available in the SAP source system, the virtual machine hosting the self-hosted integration runtime, and the Azure integration runtime, this partitioning type can linearly increase the throughput of a data extraction.
+If partitions are equally sized, source partitioning can linearly increase the throughput of data extraction. To achieve such performance improvements, sufficient resources are required in the SAP source system, the virtual machine hosting the self-hosted integration runtime, and the Azure integration runtime.
