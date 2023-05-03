@@ -23,7 +23,7 @@ The Microsoft Authentication Library (MSAL) calls Web Account Manager (WAM), a W
 
 Using an authentication broker such as WAM has numerous benefits:
 
-- Enhanced security. See [Token protection](https://learn.microsoft.com/azure/active-directory/conditional-access/concept-token-protection).
+- Enhanced security. See [Token protection](/azure/active-directory/conditional-access/concept-token-protection).
 - Support for Windows Hello, conditional access, and FIDO keys.
 - Integration with the Windows **Email & accounts** view.
 - Fast single sign-on.
@@ -32,7 +32,7 @@ Using an authentication broker such as WAM has numerous benefits:
 
 ## WAM limitations
 
-- WAM is available on Windows 10 and later, and on Windows Server 2019 and later. On Mac, Linux, and earlier versions of Windows, MSAL automatically fall back to a browser.
+- WAM is available on Windows 10 and later, and on Windows Server 2019 and later. On Mac, Linux, and earlier versions of Windows, MSAL automatically falls back to a browser.
 - Azure Active Directory B2C (Azure AD B2C) and Active Directory Federation Services (AD FS) authorities aren't supported. MSAL falls back to a browser.
 
 ## WAM integration package
@@ -93,7 +93,7 @@ ms-appx-web://microsoft.aad.brokerplugin/{client_id}
 
 ### Token cache persistence
 
-It's important to persist the MSAL token cache because MSAL continues to store ID tokens and account metadata there. For more information, see [Token cache serialization in MSAL.NET](https://learn.microsoft.com/azure/active-directory/develop/msal-net-token-cache-serialization?tabs=desktop).
+It's important to persist the MSAL token cache because MSAL continues to store ID tokens and account metadata there. For more information, see [Token cache serialization in MSAL.NET](/azure/active-directory/develop/msal-net-token-cache-serialization?tabs=desktop).
 
 ### Account for silent login
 
@@ -108,11 +108,11 @@ You must configure MSAL with the window that the interactive experience should b
 
 ### UI applications
 
-For UI apps like Windows Forms (WinForms), Windows Presentation Foundation (WPF), or Windows UI Library version 3 (WinUI3), see [Retrieve a window handle](https://learn.microsoft.com/windows/apps/develop/ui-input/retrieve-hwnd).
+For UI apps like Windows Forms (WinForms), Windows Presentation Foundation (WPF), or Windows UI Library version 3 (WinUI3), see [Retrieve a window handle](/windows/apps/develop/ui-input/retrieve-hwnd).
 
 ### Console applications
 
-For console applications, the configuration is more involved, because of the terminal window and its tabs. Use the following code:
+For console applications, the configuration is more involved because of the terminal window and its tabs. Use the following code:
 
 ```csharp
 enum GetAncestorFlags
@@ -155,7 +155,7 @@ public IntPtr GetConsoleOrTerminalWindow()
 The "WAM Account Picker did not return an account" message indicates that either the application user closed the dialog that displays accounts, or the dialog itself crashed. A crash might occur if `AccountsControl`, a Windows control, is registered incorrectly in Windows. To resolve this problem:
 
 1. On the taskbar, right-click **Start**, and then select **Windows PowerShell (Admin)**.
-1. If you're prompted by a User Account Control (UAC) dialog, select **Yes** to start PowerShell.
+1. If you're prompted by a User Account Control dialog, select **Yes** to start PowerShell.
 1. Copy and then run the following script:
 
    ```powershell
@@ -172,13 +172,13 @@ MsalClientException: wam_runtime_init_failed: The type initializer for 'Microsof
 
 This error indicates that the native binaries from [Microsoft.Identity.Client.NativeInterop](https://www.nuget.org/packages/Microsoft.Identity.Client.NativeInterop/) were not packaged into the single file bundle. To embed those files for extraction and get one output file, set the property `IncludeNativeLibrariesForSelfExtract` to `true`. [Read more about how to package native binaries into a single file](/dotnet/core/deploying/single-file/overview?tabs=cli#native-libraries).
 
-### Connection issues
+### Connection problems
 
-The application user sees an error message that's similar to "Please check your connection and try again." If this issue occurs regularly, see the [troubleshooting guide for Office](/microsoft-365/troubleshoot/authentication/connection-issue-when-sign-in-office-2016), which also uses the broker.
+If the application user regularly sees an error message that's similar to "Please check your connection and try again," see the [troubleshooting guide for Office](/microsoft-365/troubleshoot/authentication/connection-issue-when-sign-in-office-2016). That troubleshooting guide also uses the broker.
 
 ## Sample
 
-[WPF sample that uses WAM](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2)
+You can find a WPF sample that uses WAM [on GitHub](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2).
 
 ## Next steps
 

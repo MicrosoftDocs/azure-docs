@@ -50,9 +50,9 @@ On Android, you also need to specify the parent activity by using `.WithParentAc
 
 #### WithParentActivityOrWindow
 
-The UI is important because it's interactive. `AcquireTokenInteractive` has one specific optional parameter that can specify (for platforms that support it) the parent UI. When you use `.WithParentActivityOrWindow` in a desktop application, it has a different type, which depends on the platform.
+The UI is important because it's interactive. `AcquireTokenInteractive` has one specific optional parameter that can specify (for platforms that support it) the parent UI. When you use `.WithParentActivityOrWindow` in a desktop application, it has a different type that depends on the platform.
 
-Alternatively, you can omit the optional parent window parameter to create a window, if you don't want to control where the sign-in dialog appears on the screen. This option is applicable for applications that are based on a command line, are used to pass calls to any other back-end, service, and don't need any windows for user interaction.
+Alternatively, you can omit the optional parent window parameter to create a window, if you don't want to control where the sign-in dialog appears on the screen. This option is applicable for applications that are based on a command line, are used to pass calls to any other back-end service, and don't need any windows for user interaction.
 
 ```csharp
 // net45
@@ -69,7 +69,7 @@ WithParentActivityOrWindow(object parent).
 Remarks:
 
 - On .NET Standard, the expected `object` value is `Activity` on Android, `UIViewController` on iOS, `NSWindow` on Mac, and `IWin32Window` or `IntPr` on Windows.
-- On Windows, you must call `AcquireTokenInteractive` from the UI thread so that the embedded browser gets the appropriate UI synchronization context. Not calling from the UI thread might cause messages to not pump properly and deadlock scenarios with the UI. One way of calling Microsoft Authentication Libraries (MSALs) from the UI thread if you aren't on the UI thread already is to use `Dispatcher` on Windows Presentation Foundation (WPF).
+- On Windows, you must call `AcquireTokenInteractive` from the UI thread so that the embedded browser gets the appropriate UI synchronization context. Not calling from the UI thread might cause messages to not pump properly and cause deadlock scenarios with the UI. One way of calling the Microsoft Authentication Library (MSAL) from the UI thread if you aren't on the UI thread already is to use `Dispatcher` on Windows Presentation Foundation (WPF).
 - If you're using WPF, to get a window from a WPF control, you can use the `WindowInteropHelper.Handle` class. Then the call is from a WPF control (`this`):
 
   ```csharp
@@ -93,9 +93,9 @@ The structure defines the following constants:
 - `Never` (for .NET 4.5 and Windows Runtime only) doesn't prompt the user. Instead, it tries to use the cookie stored in the hidden embedded web view.
 
   Use of this option might fail. In that case, `AcquireTokenInteractive` throws an exception to notify you that you need a UI interaction. Then, use another `Prompt` parameter.
-- `NoPrompt` won't send any prompt to the identity provider. The identity provider will decide which sign-in experience is best for the user (single-sign-on or select account).
+- `NoPrompt` doesn't send any prompt to the identity provider. The identity provider decides which sign-in experience is best for the user (single sign-on or select account).
 
-  This option is mandatory for Azure AD B2C edit profile policies. For more information, see [Azure AD B2C specifics](https://aka.ms/msal-net-b2c-specificities).
+  This option is mandatory for editing profile policies in Azure AD B2C. For more information, see [Azure AD B2C specifics](https://aka.ms/msal-net-b2c-specificities).
 
 #### WithUseEmbeddedWebView
 
@@ -241,8 +241,6 @@ private static IAuthenticationResult acquireTokenInteractive() throws Exception 
 
 ### Code in MSAL for iOS and macOS
 
-Objective-C:
-
 ```objc
 MSALInteractiveTokenParameters *interactiveParams = [[MSALInteractiveTokenParameters alloc] initWithScopes:scopes webviewParameters:[MSALWebviewParameters new]];
 [application acquireTokenWithParameters:interactiveParams completionBlock:^(MSALResult *result, NSError *error) {
@@ -256,8 +254,6 @@ MSALInteractiveTokenParameters *interactiveParams = [[MSALInteractiveTokenParame
     }
 }];
 ```
-
-Swift:
 
 ```swift
 let interactiveParameters = MSALInteractiveTokenParameters(scopes: scopes, webviewParameters: MSALWebviewParameters())
