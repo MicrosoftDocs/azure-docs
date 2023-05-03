@@ -33,7 +33,7 @@ To view your current storage account quotas for a subscription in a given region
 
 1. Use the **Region** filter to specify the regions you're interested in. You can then see your storage account quotas for each of those regions.
 
-    :::image type="content" source="media/storage-account-quota-requests/view-quotas-region-portal.png" alt-text="Screenshow showing how to filter on regions to show quotas for specific regions" lightbox="media/storage-quota-requests/view-quotas-region-portal.png":::
+    :::image type="content" source="media/storage-account-quota-requests/view-quotas-region-portal.png" alt-text="Screenshow showing how to filter on regions to show quotas for specific regions" lightbox="media/storage-account-quota-requests/view-quotas-region-portal.png":::
 
 ## Request storage account quota increases
 
@@ -45,7 +45,7 @@ Follow these steps to request a storage account quota increase from Azure Home.
 
 1. Locate the region where you want to increase your storage account quota you want to increase, then select the **Request increase** icon.
 
-   :::image type="content" source="media/storage-account-quota-requests/quota-support-icon.png" alt-text="Screenshot showing the support icon for a storage account quota.":::
+   :::image type="content" source="media/storage-account-quota-requests/quotas-icon.png" alt-text="Screenshot showing the support icon for a storage account quota.":::
 
 1. In the **Request quota increase** dialog, enter a number up to 500.
 
