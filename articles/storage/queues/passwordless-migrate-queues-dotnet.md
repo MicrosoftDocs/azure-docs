@@ -16,17 +16,23 @@ ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-p
 
 Application requests to Azure Queue Storage must be authenticated using either account access keys or passwordless connections. However, you should prioritize passwordless connections in your applications when possible. Traditional authentication methods that use passwords or secret keys create security risks and complications. Visit the [passwordless connections for Azure services](/azure/developer/intro/passwordless-overview) hub to learn more about the advantages of moving to passwordless connections.
 
-The following tutorial explains how to migrate an existing application to connect to Azure Storage to use passwordless connections instead of a key-based solution. These same migration steps should apply whether you're using access keys directly, or through connection strings.
+The following tutorial explains how to migrate an existing application to connect to Azure Storage using passwordless connections instead of a key-based solution. These same migration steps should apply whether you're using access keys directly, or through connection strings.
 
-## Configure roles and users for local development authentication
+## Configure your local development environment
+
+Passwordless connections can be configured to work for both local and Azure hosted environments. In this section, you'll apply configurations to allow individual users to authenticate to Azure SQL Database for local development.
+
+### Assign user roles
 
 [!INCLUDE [assign-roles-storage-queues](../../../includes/assign-roles-storage-queues.md)]
 
-## Sign-in and migrate the app code to use passwordless connections
+### Sign-in to Azure locally
 
 [!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
 
-Next, update your code to use passwordless connections.
+### Update the application code to use passwordless connections
+
+The `Azure.Identity` library provides a class called [DefaultAzureCredential](/dotnet/azure/sdk/authentication) that handles passwordless authentication to Azure. DefaultAzureCredential supports multiple authentication methods and determines which to use at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code. The [Azure Identity library overview](/dotnet/api/overview/azure/Identity-readme) explains the order and locations in which DefaultAzureCredential looks for credentials.
 
 ## [.NET](#tab/dotnet)
 
@@ -65,7 +71,10 @@ After making these code changes, run your application locally. The new configura
 
 ## Configure the Azure hosting environment
 
-Once your application is configured to use passwordless connections and runs locally, the same code can authenticate to Azure services after it's deployed to Azure. The sections that follow explain how to configure a deployed application to connect to Azure Queue Storage using a managed identity.
+Once your application is configured to use passwordless connections and runs locally, the same code can authenticate to Azure services after it's deployed to Azure. The sections that follow explain how to configure a deployed application to connect to Azure Queue Storage using a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview). Managed identities provide an automatically managed identity in Azure Active Directory (Azure AD) for applications to use when connecting to resources that support Azure AD authentication. Learn more about managed identities:
+
+* [Passwordless Overview](/azure/developer/intro/passwordless-overview)
+* [Managed identity best practices](/azure/active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations)
 
 ### Create the managed identity
 
