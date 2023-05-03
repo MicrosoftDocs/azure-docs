@@ -241,13 +241,13 @@ To use this file, update the placeholders:
 
 # [Azure CLI](#tab/azure-cli)
 
-``azurecli-interactive
+```azurecli-interactive
 echo $STORAGE_ACCOUNT_NAME
 ```
 
 - Replace `<MANAGED_IDENTITY_CLIENT_ID>` with the value of the `CLIENT_ID` variable you defined. To obtain its value, run the following command:
 
-``azurecli-interactive
+```azurecli-interactive
 echo $CLIENT_ID
 ```
 
