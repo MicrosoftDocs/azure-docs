@@ -17,7 +17,7 @@ ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-p
 
 ## Configure your local development environment
 
-Passwordless connections can be configured to work for both local and Azure hosted environments. In this section, you'll apply configurations to allow individual users to authenticate to Azure SQL Database for local development.
+Passwordless connections can be configured to work for both local and Azure-hosted environments. In this section, you'll apply configurations to allow individual users to authenticate to Azure SQL Database for local development.
 
 ### Assign user roles
 
@@ -186,7 +186,7 @@ You need to configure your application code to look for the specific managed ide
 
     ---
 
-3. Redeploy your code to Azure after making this change in order for the configuration updates to be applied.
+1. Redeploy your code to Azure after making this change in order for the configuration updates to be applied.
 
 ### Test the app
 
@@ -199,4 +199,4 @@ In this tutorial, you learned how to migrate an application to passwordless conn
 You can read the following resources to explore the concepts discussed in this article in more depth:
 
 * [Authorize access to blobs using Azure Active Directory](../blobs/authorize-access-azure-active-directory.md)
-* To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).
+* To learn more about .NET, see [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).
