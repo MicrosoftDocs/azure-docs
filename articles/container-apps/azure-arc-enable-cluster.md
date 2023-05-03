@@ -41,7 +41,7 @@ This tutorial will show you how to enable Azure Container Apps on your Arc-enabl
 
 Install the following Azure CLI extensions.
 
-# [azurecli](#tab/azurecli)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az extension add --name connectedk8s  --upgrade --yes
@@ -65,7 +65,7 @@ az extension add --source https://aka.ms/acaarccli/containerapp-latest-py2.py3-n
 
 Register the required namespaces.
 
-# [azurecli](#tab/azurecli)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ExtendedLocation --wait
@@ -87,7 +87,7 @@ az provider register --namespace Microsoft.OperationalInsights --wait
 
 Set environment variables based on your Kubernetes cluster deployment.
 
-# azurecli[](#tab/azurecli)
+# [Azure CLI](#tab/azure-cli)
 
 ```bash
 GROUP_NAME="my-arc-cluster-group"
@@ -113,7 +113,7 @@ The following steps help you get started understanding the service, but for prod
 
 1. Create a cluster in Azure Kubernetes Service.
 
-    # [azurecli](#tab/azurecli)
+    # [Azure CLI](#tab/azure-cli)
 
     ```azurecli-interactive
     az group create --name $AKS_CLUSTER_GROUP_NAME --location $LOCATION
@@ -147,7 +147,7 @@ The following steps help you get started understanding the service, but for prod
 
 1. Create a resource group to contain your Azure Arc resources. 
 
-    # [azurecli](#tab/azurecli)
+    # [Azure CLI](#tab/azure-cli)
 
      ```azurecli-interactive
         az group create --name $GROUP_NAME --location $LOCATION
@@ -163,7 +163,7 @@ The following steps help you get started understanding the service, but for prod
 
 1. Connect the cluster you created to Azure Arc.
 
-    # [azurecli](#tab/azurecli)
+    # [Azure CLI](#tab/azure-cli)
 
      ```azurecli-interactive
     CLUSTER_NAME="${GROUP_NAME}-cluster" # Name of the connected cluster resource
@@ -193,7 +193,7 @@ A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) pro
 
 1. Create a Log Analytics workspace.
 
-    # [azurecli](#tab/azurecli)
+    # [Azure CLI](#tab/azure-cli)
 
     ```azurecli-interactive
     WORKSPACE_NAME="$GROUP_NAME-workspace" # Name of the Log Analytics workspace
@@ -217,7 +217,7 @@ A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) pro
 
 1. Run the following commands to get the encoded workspace ID and shared key for an existing Log Analytics workspace. You need them in the next step.
 
-    # [azurecli](#tab/azurecli)
+    # [Azure CLI](#tab/azure-cli)
 
     ```azurecli-interactive
     LOG_ANALYTICS_WORKSPACE_ID=$(az monitor log-analytics workspace show \
@@ -257,7 +257,7 @@ A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) pro
 
 1. Set the following environment variables to the desired name of the [Container Apps extension](azure-arc-create-container-app.md), the cluster namespace in which resources should be provisioned, and the name for the Azure Container Apps connected environment. Choose a unique name for `<connected-environment-name>`.  The connected environment name will be part of the domain name for app you'll create in the Azure Container Apps connected environment.
 
-    # [azurecli](#tab/azurecli)
+    # [Azure CLI](#tab/azure-cli)
 
     ```bash
     EXTENSION_NAME="appenv-ext" 
@@ -277,7 +277,7 @@ A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) pro
 
 1. Install the Container Apps extension to your Azure Arc-connected cluster with Log Analytics enabled. Log Analytics can't be added to the extension later.
 
-    # [azurecli](#tab/azurecli)
+    # [Azure CLI](#tab/azure-cli)
 
     ```azurecli-interactive
     az k8s-extension create \
@@ -341,7 +341,7 @@ A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) pro
 
 1. Save the `id` property of the Container Apps extension for later.
 
-    # [azurecli](#tab/azurecli)
+    # [Azure CLI](#tab/azure-cli)
 
     ```azurecli-interactive
     EXTENSION_ID=$(az k8s-extension show \
@@ -387,7 +387,7 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) is an Azure l
 
 1. Set the following environment variables to the desired name of the custom location and for the ID of the Azure Arc-connected cluster.
 
-    # [azurecli](#tab/azurecli)
+    # [Azure CLI](#tab/azure-cli)
 
     ```azurecli-interactive
     CUSTOM_LOCATION_NAME="my-custom-location" # Name of the custom location
@@ -405,7 +405,7 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) is an Azure l
 
 1. Create the custom location:
 
-    # [azurecli](#tab/azurecli)
+    # [Azure CLI](#tab/azure-cli)
 
     ```azurecli-interactive
     az customlocation create \
@@ -441,7 +441,7 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) is an Azure l
 
 1. Save the custom location ID for the next step.
 
-    # [azurecli](#tab/azurecli)
+    # [Azure CLI](#tab/azure-cli)
 
     ```azurecli-interactive
     CUSTOM_LOCATION_ID=$(az customlocation show \
@@ -469,7 +469,7 @@ Before you can start creating apps in the custom location, you need an [Azure Co
 
 1. Create the Container Apps connected environment:
 
-    # [azurecli](#tab/azurecli)
+    # [Azure CLI](#tab/azure-cli)
 
     ```azurecli-interactive
     az containerapp connected-env create \
