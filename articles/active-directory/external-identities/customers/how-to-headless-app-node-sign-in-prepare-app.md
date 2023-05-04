@@ -22,17 +22,17 @@ In this article, you create a new Node.js headless application and add all the f
 
 ## Create a new Node js application project
 
-To build the Node.js headless application from scratch, follow the steps below:
+To build the Node.js headless application from scratch, follow these steps:
 
 1. Create a folder to host your application and give it a name, such as *ciam-node-headless-app*
 
 1. In your terminal, navigate to your project directory, such as `cd ciam-node-headless-app` and initialize your project using `npm init` 
- This creates a package.json file in your project folder which will contain references to all npm packages. 
+ This creates a package.json file in your project folder, which contains references to all npm packages. 
 
 1. In your project root directory, create two files named *authConfig.js* and *index.js*
- *authConfig.js* will hold the authentication parameters while *index.js* will contain the authentication parameters. 
+ *authConfig.js* holds the authentication parameters while *index.js* contains the authentication parameters. 
 
- After creating the files, your project's directory structure should look similar to this:
+ After creating the files, your project's directory structure should look similar to the following:
 
  ```
         ciam-node-headless-app/

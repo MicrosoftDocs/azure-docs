@@ -1,5 +1,5 @@
 ---
-title: Sign in users in a sample Node.js headless application by using Microsoft Entra
+title: Sign in users in a your own Node.js headless application by using Microsoft Entra - Overview
 description: Learn how to configure a headless application to sign in and sign out users by using Microsoft Entra - Overview.
 services: active-directory
 author: Dickson-Mwendia
