@@ -18,7 +18,7 @@ This article addresses frequent questions about Istio-based service mesh add-on 
 
 * Istio patch version availability information is published to [AKS weekly release notes][aks-release-notes].
 * Patches are done automatically for istiod and ingress pods as part of these AKS weekly releases.
-* User needs to initiate patches to istio proxy in their workloads by restarting the pods for re-injection:
+* User needs to initiate patches to istio proxy in their workloads by restarting the pods for reinjection:
   * Check the version of the Istio proxy intended for new or restarted pods. This version is the same as the version of the istiod and istio ingress pods after they were patched:
 
     ```bash
@@ -46,7 +46,7 @@ This article addresses frequent questions about Istio-based service mesh add-on 
     productpage-v1-979d4d9fc-p4764:	docker.io/istio/examples-bookinfo-productpage-v1:1.17.0, mcr.microsoft.com/oss/istio/proxyv2:1.17.1-distroless
     ```
 
-  * Restart the workloads to trigger re-injection. For example:
+  * Restart the workloads to trigger reinjection. For example:
 
     ```bash
     kubectl rollout restart deployments/productpage-v1 -n default
