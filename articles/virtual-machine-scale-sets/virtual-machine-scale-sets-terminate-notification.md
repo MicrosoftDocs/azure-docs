@@ -36,13 +36,9 @@ The following steps enable terminate notification when creating a new scale set.
 You can also enable terminate notifications on an existing scale set.
 
 1. Navigate to the desired scale et
-
 1. Go to the **Configuration** tab
-
 1. For **Enable Instance termination notification**, select **On**.
-
 1. For **Termination delay (minutes)**, set the desired default timeout.
-
 1. Select **Save** button. 
 
 ### REST API
