@@ -128,7 +128,7 @@ To have this configuration take effect in your environment, you need to deploy t
     :::image type="content" source="./media/create-virtual-network-manager-portal/deployment-in-progress.png" alt-text="Screenshot of configuration deployment in progress status.":::
 
 > [!NOTE]
-> If you're looking to migrate to network-managed groups for a hub-and-spoke topology, you'll be pleased to know that Azure Virtual Network Manager is fully compatible with pre-existing hub and spoke topology deploymentsusing peering. This means that you won't need to delete any existing peered connections between the spokes and the hub. The migration occurs without any downtime to your network.
+> If you're currently using peering and want to manage topology and connectivity with Azure Virtual Network Manager, you can migrate without any downtime to your network. Virtual network manager instances are fully compatible with pre-existing hub and spoke topology deployment using peering. This means that you won't need to delete any existing peered connections between the spokes and the hub as the network manager will automatically detect and manage them.
 
 ## Confirm configuration deployment
 
