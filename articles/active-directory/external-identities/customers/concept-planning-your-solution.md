@@ -37,7 +37,7 @@ The rest of this article explains each of these steps in more detail and outline
 
 ## Step 1: Create a customer tenant
 
-:::image type="content" source="media/concept-planning-your-solution/overview-setup-step-1.png" alt-text="Diagram showing an overview of setup steps." border="false":::
+:::image type="content" source="media/concept-planning-your-solution/overview-setup-step-1.png" alt-text="Diagram showing step 1 in the setup flow." border="false":::
 
 A customer tenant is the first resource you need to create to get started with Azure AD for customers. A customer tenant, separate from your workforce tenant, represents your customer-facing app, resources, and directory of customer accounts. You create a tenant specifically for your customer-facing apps and services, and you manage accounts and resources in the dedicated customer tenant. Register your customer-facing apps in this tenant, and manage customer identities and access in the dedicated directory, separate from your workforce tenant.
 
@@ -45,8 +45,8 @@ Following are some planning considerations for your new customer tenant:
 
 - When you create a customer tenant, you can set your correct geographic location and your domain name.
 - This new workforce and customer tenant model won't affect your already existing B2C tenants.
-- There are two types of users in a customer tenant: admin and customer. You can [create and manage admin accounts](how-to-manage-admin-accounts) for your customer tenant. Customer accounts are generally created through self-service sign-up, but you can [create and manage customer local accounts](how-to-manage-customer-accounts).
-- Customer accounts have a [default set of permissions](reference-user-permissions). Customers are restricted from accessing information about other users in the customer tenant. By default, customers can manage their own profiles, but they can’t access information about other users, groups, or devices.
+- There are two types of users in a customer tenant: admin and customer. You can [create and manage admin accounts](how-to-manage-admin-accounts.md) for your customer tenant. Customer accounts are generally created through self-service sign-up, but you can [create and manage customer local accounts](how-to-manage-customer-accounts.md).
+- Customer accounts have a [default set of permissions](reference-user-permissions.md). Customers are restricted from accessing information about other users in the customer tenant. By default, customers can manage their own profiles, but they can’t access information about other users, groups, or devices.
 
 **To create a customer tenant**:
 
@@ -55,7 +55,7 @@ Following are some planning considerations for your new customer tenant:
 
 ## Step 2: Register your application
 
-:::image type="content" source="media/concept-planning-your-solution/overview-setup-step-2.png" alt-text="Diagram showing an overview of setup steps." border="false":::
+:::image type="content" source="media/concept-planning-your-solution/overview-setup-step-2.png" alt-text="Diagram showing step 2 in the setup flow." border="false":::
 
 Before your applications can interact with Azure AD for customers, you need to register them in your customer tenant. Microsoft Entra performs identity and access management only for registered applications. [Registering your app](how-to-register-ciam-app.md) establishes a trust relationship and allows you to integrate your app with Azure Active Directory for customers.
 
@@ -72,7 +72,7 @@ Following are some planning considerations for app registration:
 
 ## Step 3: Integrate a sign-in flow with your app
 
-:::image type="content" source="media/concept-planning-your-solution/overview-setup-step-3.png" alt-text="Diagram showing an overview of setup steps." border="false":::
+:::image type="content" source="media/concept-planning-your-solution/overview-setup-step-3.png" alt-text="Diagram showing step 3 in the setup flow." border="false":::
 
 Next, create a sign-up and sign-in user flow and associate it with your application. When a user attempts to sign in, the application sends an authorization request to the endpoint you provided when you associated the app with the user flow. The user flow defines and controls the customer's experience. When the customer completes the sign-up user flow, Azure AD generates a token and redirects the customer back to your application. Upon completion of sign-up, a customer account is created for the customer in the directory.
 
@@ -95,7 +95,7 @@ Following are some planning considerations for integrating a user flow:
 
 ## Step 4: Customize and secure your sign-in
 
-:::image type="content" source="media/concept-planning-your-solution/overview-setup-step-4.png" alt-text="Diagram showing an overview of setup steps." border="false":::
+:::image type="content" source="media/concept-planning-your-solution/overview-setup-step-4.png" alt-text="Diagram showing step 4 in the setup flow." border="false":::
 
 Following are planning considerations for configuring company branding, language customizations, and custom extensions:
 
