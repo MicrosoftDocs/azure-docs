@@ -131,7 +131,7 @@ Check the data flow by going to the Azure portal and navigating to the Applicati
 
 Additionally, you can use the SDK's trackPageView() method to manually send a page view event and verify that it appears in the portal.
 
-If you can't run the application or you aren't getting data as expected, wee the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting).
+If you can't run the application or you aren't getting data as expected, see the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting).
 
 ### Analytics
 
