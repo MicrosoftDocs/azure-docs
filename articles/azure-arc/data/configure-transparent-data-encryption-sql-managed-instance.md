@@ -16,20 +16,6 @@ ms.custom: template-how-to, event-tier1-build-2022
 
 This article describes how to enable and disable transparent data encryption (TDE) at-rest on an Azure Arc-enabled SQL Managed Instance. In this article, the term *managed instance* refers to a deployment of Azure Arc-enabled SQL Managed Instance and enabling/disabling TDE will apply to all databases running on a managed instance.
 
-You can set Azure Arc-enabled SQL Managed Instance TDE in one of two modes:
-
-- Service-managed
-- Customer-managed
-
-In service-managed mode, transparent data encryption requires the managed instance to use a service-managed database master key as well as the service-managed server certificate. These credentials are automatically created when service-managed transparent data encryption is enabled. For more info on TDE, please refer to [Transparent data encryption](/sql/relational-databases/security/encryption/transparent-data-encryption).
-
-In customer-managed mode, transparent data encryption uses keys you provide for the database master key and the server certificate. To configure customer-managed mode, you will need to:
-
-1. Create a certificate.
-1. Store the certificate as a secret in the same Kubernetes namespace as the instance.
-
-For detailed instructions, see [Customer-managed mode](#customer-managed-mode).
-
 Turning on the TDE feature does the following:
 
 - All existing databases will now be automatically encrypted.
@@ -46,20 +32,33 @@ Before you proceed with this article, you must have an Azure Arc-enabled SQL Man
 
 ## Limitations
 
-The following limitations must be considered when deploying Service-Managed TDE:
+The following limitations apply when you enable automatic TDE:
 
 - Only General Purpose Tier is supported.
-- Failover Groups are not supported.
+- Failover groups aren't supported.
 
 ## Turn on transparent data encryption on the managed instance
-### Prerequisites
 
-Turning on TDE on the managed instance will result in the following operations taking place:
+When TDE is enabled on Arc-enabled SQL Managed Instance, data service automatically does the following tasks:
 
-1. Adding the service-managed database master key in the `master` database.
-2. Adding the service-managed certificate protector.
-3. Adding the associated Database Encryption Keys (DEK) on all databases on the managed instance.
-4. Enabling encryption on all databases on the managed instance.
+1. Adds the service-managed database master key in the `master` database.
+2. Adds the service-managed certificate protector.
+3. Adds the associated Database Encryption Keys (DEK) on all databases on the managed instance.
+4. Enables encryption on all databases on the managed instance.
+
+You can set Azure Arc-enabled SQL Managed Instance TDE in one of two modes:
+
+- Service-managed
+- Customer-managed
+
+In service-managed mode, transparent data encryption requires the managed instance to use a service-managed database master key as well as the service-managed server certificate. These credentials are automatically created when service-managed transparent data encryption is enabled. For more info on TDE, please refer to [Transparent data encryption](/sql/relational-databases/security/encryption/transparent-data-encryption).
+
+In customer-managed mode, transparent data encryption uses keys you provide for the database master key and the server certificate. To configure customer-managed mode:
+
+1. Create a certificate.
+1. Store the certificate as a secret in the same Kubernetes namespace as the instance.
+
+To proceed, select the mode you want to use.
 
 ### [Service-managed mode](#tab/service-managed-mode)
 
