@@ -46,12 +46,18 @@ See [configuring the connection string](./java-standalone-config.md#connection-s
 The rest of this document describes limitations and changes that you may encounter
 when upgrading from 2.x to 3.x, and some workarounds that you may find helpful.
 
-## TelemetryInitializers and TelemetryProcessors
+## TelemetryInitializers
 
-The 2.x SDK TelemetryInitializers and TelemetryProcessors are run when using the 3.x agent.
-Many of the use cases that previously required them can be solved in Application Insights Java 3.x
-by configuring [custom dimensions](./java-standalone-config.md#custom-dimensions)
-or configuring [telemetry processors](./java-standalone-telemetry-processors.md).
+2.x SDK TelemetryInitializers will not be run when using the 3.x agent.
+Many of the use cases that previously required writing a `TelemetryInitializer` can be solved in Application Insights Java 3.x
+by configuring [custom dimensions](./java-standalone-config.md#custom-dimensions).
+or using [inherited attributes](./java-standalone-config.md#inherited-attribute-preview).
+
+## TelemetryProcessors
+
+2.x SDK TelemetryProcessors will not be run when using the 3.x agent.
+Many of the use cases that previously required writing a `TelemetryProcessor` can be solved in Application Insights Java 3.x
+by configuring [sampling overrides](./java-standalone-config.md#sampling-overrides-preview).
 
 ## Multiple applications in a single JVM
 

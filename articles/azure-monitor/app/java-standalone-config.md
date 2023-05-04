@@ -232,7 +232,8 @@ You can use `${...}` to read the value from the specified environment variable a
 
 ## Inherited attribute (preview)
 
-Starting from version 3.2.0, if you want to set a custom dimension programmatically on your request telemetry and have it inherited by dependency telemetry that follows:
+Starting from version 3.2.0, if you want to set a custom dimension programmatically on your request telemetry
+and have it inherited by dependency and log telemetry which are captured in the context of that request:
 
 ```json
 {
@@ -244,6 +245,14 @@ Starting from version 3.2.0, if you want to set a custom dimension programmatica
   ]
 }
 ```
+
+and then at the beginning of each request, call:
+
+```java
+Span.current().setAttribute("mycustomer", "xyz");
+```
+
+Also see: [Add a custom property to a Span](./opentelemetry-enable.md?tabs=java#add-a-custom-property-to-a-span).
 
 ## Connection string overrides (preview)
 
