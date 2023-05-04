@@ -24,7 +24,7 @@ Custom authentication extensions in Azure Active Directory let you interact with
 
 Custom authentication extensions are triggered at particular parts of the authentication flow. The following diagram shows the currently supported trigger points during the authentication flow:
 
-:::image type="content" source="media/concept-planning-your-solution/authentication-flow-events-inline.png" alt-text="Diagram showing extensibility points in the authentication flow." lightbox="media/concept-planning-your-solution/authentication-flow-events-expanded.png" border="false":::
+:::image type="content" source="media/concept-custom-extensions/authentication-flow-events-inline.png" alt-text="Diagram showing extensibility points in the authentication flow." lightbox="media/concept-custom-extensions/authentication-flow-events-expanded.png" border="false":::
 
 You can extend the authentication flow at three points:
 
