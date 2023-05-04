@@ -56,7 +56,7 @@ Once the instance is identified, fetch the relevant recovery point.
 $rp = Get-AzDataProtectionRecoveryPoint -ResourceGroupName "testBkpVaultRG" -VaultName $TestBkpVault.Name -BackupInstanceName $AllInstances[2].BackupInstanceName
 ```
 
-### Preparing the restore request
+### Prepare the restore request
 
 Get the Azure Resource Manager ID of the AKS cluster where you want to perform the restore operation.
 
@@ -67,7 +67,7 @@ $targetAKSClusterd = /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourceGroups/targe
 Use the `New-AzDataProtectionRestoreConfigurationClientObject` cmdlet to prepare the restore configuration and defining the items to be restored to the target AKS cluster.
 
 ```azurepowershell
-$aksRestoreCriteria = New-AzDataProtectionRestoreConfigurationClientObject -DatasourceType AzureKubernetesService  -PersistentVolumeRestoreMode RestoreWithVolumeData  -IncludeClusterScopeResource $true # -NamespaceMapping  @{"default"="restore-default";"ns1"="ns2"}
+$aksRestoreCriteria = New-AzDataProtectionRestoreConfigurationClientObject -DatasourceType AzureKubernetesService  -PersistentVolumeRestoreMode RestoreWithVolumeData  -IncludeClusterScopeResource $true -NamespaceMapping  @{"sourceNamespace"="targetNamespace"}
 ```
 
 Then, use the `Initialize-AzDataProtectionRestoreRequest` cmdlet to prepare the restore request with all relevant details.
