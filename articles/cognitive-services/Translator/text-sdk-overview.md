@@ -19,11 +19,11 @@ recommendations: false
 
 # Azure Text Translation SDK (preview)
 
-Azure Text Translation is a cloud-based REST API feature of the Azure Translator service. The Text Translation API enables quick and accurate source-to-target text translations in real time. The Text Translation software development kit (SDK) is a set of libraries and tools that enable you to easily integrate Text Translation REST API capabilities into your applications. Text Translation SDK is available across platforms in C#/.NET, Java, JavaScript, and Python programming languages.
+Azure Text Translation is a cloud-based REST API feature of the Azure Translator service. The Text Translation API enables quick and accurate source-to-target text translations in real time. The Text Translation software development kit (SDK) is a set of libraries and tools that enable you to easily integrate Text Translation REST API capabilities into your applications. Text Translation SDK is available across programming platforms in C#/.NET, Java, JavaScript, and Python.
 
 ## Supported languages
 
-Text Translation SDK supports the following languages and platforms:
+Text Translation SDK supports the following:
 
 | Language → SDK version | Package|Client library| Supported API version|
 |:----------------------:|:----------|:----------|:-------------|
@@ -38,7 +38,7 @@ This section provides a version-based description of Text Translation feature an
 
 #### Translator Text SDK April 2023 preview release
 
-This release includes the following updates:
+This release includes the following:
 
 ### [**C#**](#tab/csharp)
 
@@ -196,7 +196,7 @@ AzureKeyCredential credential = new(key);
 TextTranslationClient client = new(credential);
 ```
 
-**Using a regional endpoint (ex. `westus`)**
+**Using a regional endpoint**
 
 ```csharp
 
@@ -272,7 +272,23 @@ text_translator = TextTranslationClient(endpoint=endpoint, credential=credential
 
 ### 4. Build your application
 
-Create a client object to interact with the Text Translation SDK, and then call methods on that client object to interact with the service. The SDKs provide both synchronous and asynchronous methods. For more insight, try the Text Translation [quickstart](quickstart-translator-sdk.md) in a language of your choice.
+### [C#/.NET](#tab/csharp)
+
+Create a client object to interact with the Text Translation SDK, and then call methods on that client object to interact with the service. The SDKs provide both synchronous and asynchronous methods. For more insight, *see* the Text Translation [sample repository](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/translation/Azure.AI.Translation.Text/samples) for .NET/C#.
+
+### [Java](#tab/java)
+
+Create a client object to interact with the Text Translation SDK, and then call methods on that client object to interact with the service. The SDKs provide both synchronous and asynchronous methods. For more insight, *see* the Text Translation [sample repository](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/translation/azure-ai-translation-text/src/samples/java/com/azure/ai/translation/text) for Java.
+
+### [JavaScript](#tab/javascript)
+
+Create a client object to interact with the Text Translation SDK, and then call methods on that client object to interact with the service. The SDKs provide both synchronous and asynchronous methods. For more insight, *see* the Text Translation [sample repository](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/translation/ai-translation-text-rest/samples/v1-beta) for JavaScript or TypeScript.
+
+### [Python](#tab/python)
+
+Create a client object to interact with the Text Translation SDK, and then call methods on that client object to interact with the service. The SDKs provide both synchronous and asynchronous methods. For more insight, *see* the Text Translation [sample repository](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/translation/azure-ai-translation-text/samples) for Python.
+
+---
 
 ## Help options
 

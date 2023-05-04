@@ -23,7 +23,7 @@ zone_pivot_groups:  programming-languages-set-translator-sdk
 
 # Quickstart: Azure Cognitive Services Translator SDKs
 
-Try the latest version of Azure Translator SDKs. In this quickstart, get started using the Translator service to [translate text](reference/v3-0-translate.md) using a programming language of your choice. For this project, we recommend using the free pricing tier (F0), while you're learning the technology, and later upgrading to a paid tier for production.
+In this quickstart, get started using the Translator service to [translate text](reference/v3-0-translate.md) using a programming language of your choice. For this project, we recommend using the free pricing tier (F0), while you're learning the technology, and later upgrading to a paid tier for production.
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ You need an active Azure subscription. If you don't have an Azure subscription, 
 
 ::: zone pivot="programming-language-java"
 
-[!INCLUDE [Java programming](includes/text-translation-sdk/java.md]
+[!INCLUDE [Java programming](includes/text-translation-sdk/java.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"

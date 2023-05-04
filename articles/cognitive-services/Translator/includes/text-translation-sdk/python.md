@@ -28,16 +28,16 @@ recommendations: false
 
 ## Build your application
 
-To interact with the Translator service using the client library, you need to create an instance of the `TextTranslationClient`class. To do so, you create a `TranslatorCredential` with your `key` from the Azure portal and a `TextTranslationClient` instance. For more information, _see_ [Translator text sdks](../../translator-text-sdks.md#3-authenticate-the-client).
+To interact with the Translator service using the client library, you need to create an instance of the `TextTranslationClient`class. To do so, create a `TranslatorCredential` with your `key` from the Azure portal and a `TextTranslationClient` instance. For more information, _see_ [Translator text sdks](../../translator-text-sdks.md#3-authenticate-the-client).
 
 1. Create a new Python file called **text-translation-app.py** in your preferred editor or IDE.
 
 1. Copy and paste the text translation [code sample](#code-sample) into the **text-translation-app.py** file.
 
+## Code sample
+
 > [!IMPORTANT]
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../cognitive-services/security-features.md).
-
-## Code sample
 
 **Translate text**
 
@@ -77,10 +77,9 @@ Type the following command in your terminal:
 
   ```console
   python text-translation-app.py
-  
+
   ```
 
 Here's a snippet of the expected output:
 
 :::image type="content" source="../../media/quickstarts/python-output.png" alt-text="Screenshot of JavaScript output in the terminal window":::
-

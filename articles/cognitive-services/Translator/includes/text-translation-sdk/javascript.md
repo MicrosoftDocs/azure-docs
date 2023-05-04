@@ -11,6 +11,7 @@ ms.author: lajanuar
 recommendations: false
 ---
 
+<!-- markdownlint-disable MD051 -->
 <!-- markdownlint-disable MD036 -->
 
 ## Set up your Node.js environment
@@ -55,7 +56,7 @@ npm i @azure-rest/ai-translation-text@1.0.0-beta.1
 
 ## Build your application
 
-To interact with the Translator service using the client library, you need to create an instance of the `TextTranslationClient`class. To do so, you create a `TranslateCredential` with your `key` and `region` from the Azure portal and a `TextTranslationClient`  instance. For more information, *see* [Translator text sdks](../../translator-text-sdks.md#3-authenticate-the-client).
+To interact with the Translator service using the client library, you need to create an instance of the `TextTranslationClient`class. To do so, create a `TranslateCredential` with your `key` and `region` from the Azure portal and a `TextTranslationClient`  instance. For more information, *see* [Translator text sdks](../../translator-text-sdks.md#3-authenticate-the-client).
 
 1. Create the `index.js` file in the app directory.
 
@@ -67,12 +68,12 @@ To interact with the Translator service using the client library, you need to cr
     >
     > * You can also create a new file named `index.js` in your IDE and save it to the `text-translation-app` directory.
 
-1. Copy and paste the text translation [code sample](#code-sample) into your `index.js` file. Update **`{your-text-translation-app-endpoint}`** and **`{your-key}`** with values from your Azure portal Translator instance.
+1. Copy and paste the text translation [code sample](#code-sample) into your `index.js` file. Update **`<your-text-translation-app-endpoint>`** and **`<your-key>`** with values from your Azure portal Translator instance.
+
+## Code sample
 
 > [!IMPORTANT]
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information, see Cognitive Services [security](../../../../cognitive-services/security-features.md).
-
-## Code sample
 
 **Translate text**
 
@@ -114,7 +115,7 @@ main().catch((err) => {
     console.error("An error occured:", err);
     process.exit(1);
   });
-  
+
   module.exports = { main };
 ```
 

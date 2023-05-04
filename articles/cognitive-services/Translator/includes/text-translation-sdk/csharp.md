@@ -10,7 +10,9 @@ ms.date: 05/03/2023
 ms.author: lajanuar
 recommendations: false
 ---
+
 <!-- markdownlint-disable MD051 -->
+<!-- markdownlint-disable MD036 -->
 
 ## Set up your C#/.NET environment
 
@@ -50,7 +52,7 @@ For this quickstart, we use the latest version of [Visual Studio](https://visual
 
 ## Build your application
 
-To interact with the Translator service using the client library, you need to create an instance of the `TextTranslationClient`class. To do so, you create an `AzureKeyCredential` with your `key` from the Azure portal and a `TextTranslationClient`  instance with the `AzureKeyCredential`. The authentication varies slightly depending on whether your resource uses the regional or global endpoint. For this project, authenticate using the global endpoint. For more information about using a regional endpoint, *see* [Translator text sdks](../../translator-text-sdks.md#3-authenticate-the-client).
+To interact with the Translator service using the client library, you need to create an instance of the `TextTranslationClient`class. To do so, create an `AzureKeyCredential` with your `key` from the Azure portal and a `TextTranslationClient`  instance with the `AzureKeyCredential`. The authentication varies slightly depending on whether your resource uses the regional or global endpoint. For this project, authenticate using the global endpoint. For more information about using a regional endpoint, *see* [Translator text sdks](../../translator-text-sdks.md#3-authenticate-the-client).
 
 > [!NOTE]
 >
@@ -63,8 +65,12 @@ To interact with the Translator service using the client library, you need to cr
 
 1. Delete the pre-existing code, including the line `Console.Writeline("Hello World!")`, and enter the following code sample into your application's Program.cs file:\
 
+## Code sample
+
 > [!IMPORTANT]
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../cognitive-services/security-features.md).
+
+**Translate text**
 
 ```csharp
 
