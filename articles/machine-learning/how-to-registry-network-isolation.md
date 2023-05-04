@@ -41,6 +41,7 @@ The following diagram shows a basic network configuration and how the Azure Mach
 
 If you don't have a secure workspace configuration, you can create it using the [Create a secure workspace in Azure portal](tutorial-create-secure-workspace.md) or [Create a secure workspace with a template](tutorial-create-secure-workspace-template.md).
 
+
 :::image type="content" source="./media/how-to-registry-network-isolation/basic-netwrok-isolation-registry.png" alt-text="Diagram of registry connected to Virtual network containing workspace and associated resources using private endpoint.":::
 
 
@@ -54,7 +55,7 @@ The identity (for example, a Data Scientist's Azure AD user identity) used to cr
 
 #### Share assets from workspace to registry 
 
-Due to data exfiltration protection, it isn't possible to share an asset from workspace to registry if the storage account containing the asset has public access disabled. 
+Due to data exfiltration protection, it isn't possible to share an asset from secure workspace to a public registry if the storage account containing the asset has public access disabled. 
 
 #### Use assets from registry in workspace 
 
@@ -115,7 +116,11 @@ To connect to a registry that's secured behind a VNet, use one of the following 
 
 ## Share assets from workspace to registry 
 
+<<<<<<< HEAD
 Due to data exfiltration protection, it isn't possible to share an asset from workspace to a registry if the storage account containing the asset has public access disabled. 
+=======
+Create a private endpoint to the registry, storage and ACR from the VNet of the workspace. If you are trying to connect to multiple registries, create private endpoint for each registry and associated storage and ACRs. For more information, see the [How to create a private endpoint](#how-to-create-a-private-endpoint) section.
+>>>>>>> 8a97ad9fe85f9acb7e8f62387979214bb51517ff
 
 ## Use assets from registry in workspace 
 
