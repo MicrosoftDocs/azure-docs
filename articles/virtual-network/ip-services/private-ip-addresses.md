@@ -15,7 +15,7 @@ Private IPs allow communication between resources in Azure.
 
 Resources can be:
 
-* Azure Services such as:
+* Azure services such as:
     
     * Virtual machine network interfaces
     
