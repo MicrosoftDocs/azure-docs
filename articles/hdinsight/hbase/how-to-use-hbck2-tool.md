@@ -290,9 +290,9 @@ Command support added in hbase versions 2.0.3, 2.1.2, 2.2.0 or newer. If `-i or 
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar scheduleRecoveries -i fileName1 fileName2 
 
 ```
-## **Fixing Problems** 
+## Fixing Problems
 
-### **Some General Principals** 
+### Some General Principals
 When making repair, **make sure `hbase:meta` is consistent first before you go about fixing any other issue type** such as a filesystem deviance. Deviance in the filesystem or problems with assign should be addressed after the `hbase:meta` has been put in order. If `hbase:meta` has issues, the Master can't make proper placements when adopting orphan filesystem data or making region assignments.
 
 Other general principals to keep in mind include a Region can't be assigned if it's in CLOSING state (or the inverse, unassigned if in OPENING state) without first transitioning via CLOSED: Regions must always move from CLOSED, to OPENING, to OPEN, and then to CLOSING, CLOSED.
@@ -301,7 +301,7 @@ When making repair, do fixup of a table-at-a-time.
 
 If a table is DISABLED, you cant' assign a Region. In the Master logs, you see that the Master reports skipped because the table is DISABLED. You can assign a Region because, currently in the OPENING state and you want it in the CLOSED state so it agrees with the table's DISABLED state. In this situation, you may have to temporarily set the table status to ENABLED, so you can do the assign, and then set it back again after the unassign statement. HBCK2 has facility to allow you to do this change. See the HBCK2 usage output.
 
-### **Assigning/Unassigning** 
+### Assigning/Unassigning
   
 Generally, on assign, the Master persists until successful. An assign takes an exclusive lock on the Region. This precludes a concurrent assign or unassign from running. An assign against a locked Region waits until the lock is released before making progress. See the [Procedures & Locks] section for current list of outstanding Locks.
 
@@ -335,7 +335,7 @@ In most of these cases, regions end up missing in `hbase:meta` at random, but hb
 ### Extra Regions in `hbase:meta` region/table restore/rebuild
 There can also be situations where table regions have been removed in file system, but still have related entries on `hbase:meta` table. This may happen due to problems on splitting, manual operation mistakes (like deleting/moving the region dir manually), or even meta info data loss issues such as HBASE-21843.
 
-Such problem can be addressed with the Master online, using the **extraRegionsInMeta `--fix**` command in HBCK2. This command is less disruptive to hbase than a full `hbase:meta` rebuild covered later. Also useful when this happens on versions that don't support fixMeta hbck2 option (any prior to "2.0.6", "2.1.6", "2.2.1", "2.3.0","3.0.0").
+Such problem can be addressed with the Master online, using the **extraRegionsInMeta --fix** command in HBCK2. This command is less disruptive to hbase than a full `hbase:meta` rebuild covered later. Also useful when this happens on versions that don't support fixMeta hbck2 option (any prior to "2.0.6", "2.1.6", "2.2.1", "2.3.0","3.0.0").
   
 ### Online `hbase:meta` rebuild recipe
 If `hbase:meta` corruption isn't too critical, hbase would still be able to bring it online. Even if namespace region is among the missing regions, it's possible to scan `hbase:meta` during the initialization period, where Master is waiting for namespace to be assigned. To verify this situation, a` hbase:meta` scan command can be executed. If it doesn't time out or shows any errors, the `hbase:meta` is online:
