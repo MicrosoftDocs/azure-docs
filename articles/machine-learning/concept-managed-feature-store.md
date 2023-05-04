@@ -146,7 +146,7 @@ The below table shows the output of get_offline_features method that does the po
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
-- [Write concepts](contribute-how-to-write-concept.md)
-- [Links](links-how-to.md)
+- 
+- 
 
 
