@@ -62,9 +62,9 @@ In this article, you complete the following tasks:
 
 To get the headless app sample code, you can do either [download the .zip file](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/archive/refs/heads/main.zip) or clone the sample headless application from GitHub by running the following command:
 
-    ```powershell
-        git clone https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial.git
-    ```
+```powershell
+    git clone https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial.git
+```
 If you choose to download the `.zip` file, extract the sample app file to a folder where the total length of the path is 260 or fewer characters.
 
 ## Install project dependencies 

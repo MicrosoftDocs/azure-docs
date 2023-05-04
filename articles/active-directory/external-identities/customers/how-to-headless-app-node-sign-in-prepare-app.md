@@ -1,5 +1,5 @@
 ---
-title: Sign in users in a sample Node.js headless application by using Microsoft Entra - Prepare app
+title: Sign in users in your own Node.js headless application by using Microsoft Entra - Prepare app
 description: Learn how to configure a headless application to sign in and sign out users by using Microsoft Entra - Prepare app
 services: active-directory
 author: Dickson-Mwendia
@@ -16,7 +16,7 @@ ms.custom: developer
 #Customer intent: As a dev, devops, I want to learn about how to configure a sample Node.js headless application to authenticate users with my Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Sign in users in your own Node.js headless application by using Microsoft Entra
+# Sign in users in your own Node.js headless application by using Microsoft Entra- Prepare app
 
 In this article, you create a new Node.js headless application and add all the files and folders required. You'll need to create the app to complete the rest of the articles in this series. However, if you prefer using a completed code sample for learning, download the sample headless application from GitHub.
 
@@ -40,15 +40,13 @@ To build the Node.js headless application from scratch, follow the steps below:
         └── index.js
         └── package.json
  ```
+## Next steps
 
-## Create the authentication configuration file
+Learn how to add sign-in support to a Node.js headless application
 
-
-
-
-
-
+> [!div class="nextstepaction"]
+> [Add sign in and sign out >](how-to-headless-app-node-sign-in-sign-out.md)
 
 
-## Update your config file
+
 

@@ -49,4 +49,7 @@ If you've already registered a headless application in the Microsoft Entra admin
 
 ## Next steps
 
+Prepare your app to sign in users in an Azure AD for customers tenant.
+
 > [!div class="nextstepaction"]
+> [Prepare your app to sign in users >](how-to-headless-app-node-sign-in-prepare-tenant.md)

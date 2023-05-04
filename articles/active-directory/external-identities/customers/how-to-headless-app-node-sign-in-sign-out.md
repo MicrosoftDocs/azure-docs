@@ -19,72 +19,138 @@ ms.custom: developer
 # Add code to sign in users in a Node.js headless application. 
 
 To sign in users in a Node.js headless application, you implement the device code flow by following the steps below:
+
+ - Create the MSAL configuration object
  - Import the required modules
  - Create an instance of a public client application
- - Create an instance of the DeviceCodeFlow
- - Add the scopes your application requires
- - Initiate 
+ - Create the device code request
+ - Initiate the device code flow
+ - Run and test your app
 
 
-## Import the required packages
+## Create the MSAL configuration object
 
-The application we're building uses MSAL Node. Add the f
-
-In index.js, add the following file to import 
-
-```javascript
-Copy code
-const msal = require('@azure/msal-node');
-const deviceCodeFlow = require('@azure/msal-node').DeviceCodeFlow;
-```
-
-## Create an instance of a public client application
-
-Create a new instance of the PublicClientApplication class:
+In your code editor, open *authConfig.js*, which holds the MSAL object configuration parameters, and add the following code:
 
 ```javascript
 
-const pca = new msal.PublicClientApplication({
-  auth: {
-    clientId: 'YOUR_CLIENT_ID',
-    authority: 'https://login.microsoftonline.com/YOUR_TENANT_ID'
-  },
-  cache: {
-    cachePlugin
-  }
-});
-```
-Replace YOUR_CLIENT_ID and YOUR_TENANT_ID with your client ID and tenant ID, respectively.
+const { LogLevel } = require('@azure/msal-node');
 
-## Create a new instance of the DeviceCodeFlow class:
-
-```javascript
-const deviceCodeRequest = {
-  scopes: ["User.Read"]
+const msalConfig = {
+    auth: {
+        clientId: 'Enter_the_Application_Id_Here', // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
+        authority: `https://Enter_the_Tenant_Name_Here.ciamlogin.com/`, // replace "Enter_the_Tenant_Name_Here" with your tenant name
+    },
+    system: {
+        loggerOptions: {
+            loggerCallback(loglevel, message, containsPii) {
+                // console.log(message);
+            },
+            piiLoggingEnabled: false,
+            logLevel: LogLevel.Verbose,
+        },
+    },
 };
-const deviceCodeFlow = new deviceCodeFlow(pca, deviceCodeRequest);
 ```
+The `msalConfig` object contains a set of configuration options that can be used to customize the behavior of your authentication flows. This configuration object is passed into the instance of our public client application upon creation. In your *authConfig.js* file, replace:
 
-## Replace User.Read with the scopes that your application requires.
+- Enter_the_Application_Id_Here with the Application (client) ID of the app you registered earlier.
 
-Call the initiateDeviceCodeFlow() method on the DeviceCodeFlow instance:
+- Enter_the_Tenant_Name_Here and replace it with the Directory (tenant) name. If you don't have your tenant name, learn how to read tenant details.
+
+In the configuration object, we also add `LoggerOptions` to the configuration object, which contains two options:
+
+- loggerCallback - A callback function which handles the logging of MSAL statements
+- piiLoggingEnabled - A config option that when set to true, enables logging of personally identifiable information (PII). For our app, we set this option to false. 
+
+After creating the `msalConfig` object, add a `loginRequest` object that contains the scopes our application requires. Scopes define the level of access that the application has to user resources. Although the scopes array is empty, MSAL will by default add the OIDC scopes (openid, profile, email) to any login request. Users will be asked to consent to these scopes during sign in. To create the `loginRequest` object, add the following code in *authConfig.js*.
 
 ```javascript
-deviceCodeFlow.initiateDeviceCodeFlow().then((response) => {
-  console.log(response.message);
-});
+const loginRequest = {
+    scopes: [],
+    extraQueryParameters: {
+        dc: 'ESTS-PUB-EUS-AZ1-FD000-TEST1', // STS CIAM test slice
+    },
+};
 ```
-This will initiate the device code flow and display the user code and verification URL in the console.
-
-Instruct the user to open the verification URL on a separate device and enter the user code when prompted.
-
-Once the user has authenticated and authorized the application, you can use the acquireTokenByDeviceCode() method to obtain an access token:
+In `authcConfig.js`, export `msalConfig` and `loginRequest` to make them accessible wherever you require them by adding the following code:
 
 ```javascript
-deviceCodeFlow.acquireTokenByDeviceCode().then((response) => {
-  console.log(response.accessToken);
+module.exports = {
+    msalConfig: msalConfig,
+    loginRequest: loginRequest,
+};
+```
+## Import MSAL and the configuration
+
+The application we're building uses the Microsoft Authentication Library for Node to authenticate users. To import the MSAL Node package and the configurations defined in the step above, add the following code to *index.js*
+
+```javascript
+const msal = require('@azure/msal-node');
+const { msalConfig, loginRequest } = require("./authConfig");
+
+const msalInstance = new msal.PublicClientApplication(msalConfig);
+```
+
+## Create an instance of a PublicClientApplication object
+
+To use MSAL Node, you must first create an instance of a `PublicClientApplication` object using the `msalConfig` object, which will be used to authenticate the user and obtain an access token. 
+
+In *index.js*, add the following code to initialize the public client application:
+
+```javascript
+const msalInstance = new msal.PublicClientApplication(msalConfig);
+```
+
+## Create the device code request
+
+To create the device code request that the application will use to obtain access tokens using the device code flow, add the following code to *index.js*
+
+```javascript
+const getTokenDeviceCode = (clientApplication) => {
+  
+    const deviceCodeRequest = {
+        ...loginRequest,
+        deviceCodeCallback: (response) => {
+            console.log(response.message);
+        },
+    };
+
+    return clientApplication
+        .acquireTokenByDeviceCode(deviceCodeRequest)
+        .then((response) => {
+            return response;
+        })
+        .catch((error) => {
+            return error;
+        });
+}
+```
+The `getTokenDeviceCode` function takes a single parameter, `clientApplication`, which is an instance of the `PublicClientApplication` object we created previously. The function creates a new object named `deviceCodeRequest`, which includes the `loginRequest` object imported from the *authConfig.js* file. It also contains a `deviceCodeCallback` function that logs the device code message to the console. 
+
+The `clientApplication` object is then used to call the `acquireTokenByDeviceCode` API, passing in the `deviceCodeRequest` object. Once the device code request is executed, the user will be prompted by the headless application to visit a URL, where they will input the device code shown in the console. Once the code is entered, the promise below should resolve with an access token response. 
+
+## Initiate the device code flow
+
+Finally, add the following code to *index.js* to initiate the device code flow by calling the `getTokenDeviceCode` function with the `msalInstance` object created earlier. The returned response object will be logged to the console.
+```javascript
+getTokenDeviceCode(msalInstance).then(response => {
+    console.log(response)
 });
 ```
-This will retrieve an access token that can be used to access the requested resources.
 
-Note: You will need to implement your own caching plugin to handle the storage and retrieval of tokens in a headless environment. The cachePlugin parameter in step 3 should be replaced with your own cache plugin implementation.
+## Run and test your app
+
+Now that we're done building the app, we can test it by following the steps below:
+
+
+1. In your terminal, ensure you're in project directory where you created your application. For example, *ciam-node-headless-app*. 
+
+1. Use the steps in [Run and test the headless app](ow-to-headless-app-node-sample-sign-in.md#run-and-test-sample-headless-app) article to test your headless app.
+
+
+## Next steps 
+
+Learn how to: 
+
+- [Enable password reset](how-to-enable-password-reset-customers.md).
