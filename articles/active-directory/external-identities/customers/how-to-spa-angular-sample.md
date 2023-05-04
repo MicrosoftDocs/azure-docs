@@ -95,7 +95,7 @@ npm start
 
 1. Sign-in with an account registered to the Azure AD for customers tenant.
 
-1. Once you successfully sign-in, the display name is shown next to the **Sign out** button similar to the following screenshot.
+1. Once you successfully sign-in, the display name is shown next to the **Sign out** button.
 
 ## Next steps
 
