@@ -144,7 +144,7 @@ Finally, the output section forwards each Logstash event to the ElasticSearch se
 This Logstash plugin enables you to directly access the flow logs from their designated blob storage account. To install this plug in, from the default Logstash installation directory (in this case /usr/share/logstash/bin) run the command:
 
 ```bash
-sudo cd /usr/share/logstash/bin/logstash-plugin install logstash-input-azureblob
+sudo /usr/share/logstash/bin/logstash-plugin install logstash-input-azureblob
 ```
 
 For more information about this plug in, see [Logstash input plugin for Azure Storage Blobs](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob).
