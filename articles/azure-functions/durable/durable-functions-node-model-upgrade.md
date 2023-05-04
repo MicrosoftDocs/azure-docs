@@ -34,7 +34,10 @@ Before following this guide, make sure you follow these steps first:
 
 ## Upgrade the `durable-functions` npm package
 
-The v4 programming model is supported by the v3.x of the `durable-functions` npm package. In v3, you likely had `durable-functions` v2.x listed in your dependencies. Make sure to update to the (currently in preview) v3.x of the package.
+>[!NOTE]
+>The programming model version should not be confused with the `durable-functions` package version. `durable-functions` package version 3.x is required for the v4 programming model, while `durable-functions` version 2.x is required for the v3 programming model.
+
+The v4 programming model is supported by the v3.x of the `durable-functions` npm package. In your programming model v3 app, you likely had `durable-functions` v2.x listed in your dependencies. Make sure to update to the (currently in preview) v3.x of the `durable-functions` package.
 
 >[!TIP]
 > Upgrade to the preview v3.x of the `durable-functions` npm package. You can do this with the following command:
