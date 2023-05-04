@@ -60,9 +60,7 @@ az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "my
 
 ### Available virtual network regions
 
-Service endpoints for Azure Storage work between virtual networks and service instances in any region. Service endpoints also work between virtual networks and service instances in a [paired region](../../availability-zones/cross-region-replication-azure.md).
-
-Service endpoints allow continuity during a regional failover. When planning for disaster recovery during a regional outage, you should create the virtual networks in the paired region in advance. Enable service endpoints for Azure Storage, with network rules granting access from these alternative virtual networks. Then apply these rules to your zone-redundant SANs.
+Service endpoints for Azure Storage work between virtual networks and service instances in any region. They also work between virtual networks and service instances in [paired regions](../../availability-zones/cross-region-replication-azure.md) to allow continuity during a regional failover. When planning for disaster recovery during a regional outage, you should create the virtual networks in the paired region in advance. Enable service endpoints for Azure Storage, with network rules granting access from these alternative virtual networks. Then apply these rules to your zone-redundant SANs.
 
 #### Azure Storage cross-region service endpoints
 
