@@ -36,16 +36,14 @@ The steps in this article detail the process to:
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-- A customer owned IPv4 range to provision in Azure.
-    - A sample customer range (1.2.3.0/24) is used for this example. This range won't be validated by Azure. Replace the example range with yours.
+- A customer owned IPv6 range to provision in Azure. A sample customer range (2a05:f500:2::/48) is used for this example, but would not be validated by Azure; you will need to replace the example range with yours.
 
 > [!NOTE]
 > For problems encountered during the provisioning process, please see [Troubleshooting for custom IP prefix](manage-custom-ip-address-prefix.md#troubleshooting-and-faqs).
 
 ## Pre-provisioning steps
 
-To utilize the Azure BYOIP feature, you must perform and number of steps prior to the provisioning of your IPv6 address range.  Please refer to the [IPv4 instructions](create-custom-ip-address-prefix-cli.md#pre-provisioning-steps) for details.  Note that all these steps should be completed for the IPv6 global (parent) range.
+To utilize the Azure BYOIP feature, you must perform and number of steps prior to the provisioning of your IPv6 address range.  Please refer to the [IPv4 instructions](create-custom-ip-address-prefix-portal.md#pre-provisioning-steps) for details.  Note that all these steps should be completed for the IPv6 global (parent) range.
 
 ## Provisioning for IPv6
 
@@ -87,7 +85,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
     | Signed message | Paste in the output of **$byoipauthsigned** from the pre-provisioning section. |
     | Availability Zones | Select **Zone-redundant**. |
 
-    :::image type="content" source="./media/create-custom-ip-address-prefix-portal/create-custom-ip-prefix.png" alt-text="Screenshot of create custom IP prefix page in Azure portal.":::
+    :::image type="content" source="./media/create-custom-ip-address-prefix-ipv6/create-custom-ipv6-prefix.png" alt-text="Screenshot of create custom IP prefix page in Azure portal.":::
 
 5. Select the **Review + create** tab or the blue **Review + create** button at the bottom of the page.
 
@@ -145,57 +143,13 @@ To commission a custom IPv6 prefix (regional or global) using the portal:
 
 Using the example ranges above, the sequence would be to first commission myCustomIPv6RegionalPrefix, followed by a commission of myCustomIPv6GlobalPrefix.
 
+> [!NOTE]
+> The estimated time to fully complete the commissioning process for a custom IPv6 global prefix is 3-4 hours.  The estimated time to fully complete the commissioning process for a custom IPv6 regional prefix is 30 minutes.
+
 It is possible to commission the global custom IPv6 prefix prior to the regional custom IPv6 prefixes; however, note that this will mean the global range is being advertised to the Internet before the regional prefixes are ready, so this is not recommended for migrations of active ranges.  Additionally, it is possible to decommission a global custom IPv6 prefix while there are still active (commissioned) regional custom IPv6 prefixes or to decommission a regional custom IP prefix while the global prefix is still active (commissioned).
 
-## Create a public IP prefix from custom IP prefix
-
-When you create a prefix, you must create static IP addresses from the prefix. In this section, you'll create a static IP address from the prefix you created earlier.
-
-1. In the search box at the top of the portal, enter **Custom IP**.
-
-2. In the search results, select **Custom IP Prefixes**.
-
-3. In **Custom IP Prefixes**, select **myCustomIPPrefix**.
-
-4. In **Overview** of **myCustomIPPrefix**, select **+ Add a public IP prefix**.
-
-5. Enter or select the following information in the **Basics** tab of **Create a public IP prefix**.
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Project details** |   |
-    | Subscription | Select your subscription. |
-    | Resource group | Select **myResourceGroup**. |
-    | **Instance details** |   |
-    | Name | Enter **myPublicIPPrefix**. |
-    | Region | Select **West US 2**. The region of the public IP prefix must match the region of the custom IP prefix. |
-    | IP version | Select **IPv4**. |
-    | Prefix ownership | Select **Custom prefix**. |
-    | Custom IP prefix | Select **myCustomIPPrefix**. |
-    | Prefix size | Select a prefix size. The size can be as large as the custom IP prefix. |
-
-6. Select **Review + create**, and then **Create** on the following page.
-
-10. Repeat steps 1-5 to return to the **Overview** page for **myCustomIPPrefix**. You'll see **myPublicIPPrefix** listed under the **Associated public IP prefixes** section. You can now allocate standard SKU public IP addresses from this prefix. For more information, see [Create a static public IP address from a prefix](manage-public-ip-address-prefix.md#create-a-static-public-ip-address-from-a-prefix).
-
-## Commission the custom IP address prefix
-
-When the custom IP prefix is in **Provisioned** state, update the prefix to begin the process of advertising the range from Azure.
-
-1. In the search box at the top of the portal, enter **Custom IP** and select **Custom IP Prefixes**.
-1. Verify, and wait if necessary, for **myCustomIPPrefix** to be is listed in a **Provisioned** state.
-
-1. In **Custom IP Prefixes**, select **myCustomIPPrefix**.
-
-1. In **Overview** of **myCustomIPPrefix**, select the **Commission** dropdown menu and choose **Globally**.
-
-The operation is asynchronous. You can check the status by reviewing the **Commissioned state** field for the custom IP prefix. Initially, the status will show the prefix as **Commissioning**, followed in the future by **Commissioned**. The advertisement rollout isn't binary and the range will be partially advertised while still in the **Commissioning** status.
-
-> [!NOTE]
-> The estimated time to fully complete the commissioning process is 3-4 hours.
-
 > [!IMPORTANT]
-> As the custom IP prefix transitions to a **Commissioned** state, the range is being advertised with Microsoft from the local Azure region and globally to the Internet by Microsoft's wide area network under Autonomous System Number (ASN) 8075. Advertising this same range to the Internet from a location other than Microsoft at the same time could potentially create BGP routing instability or traffic loss. For example, a customer on-premises building. Plan any migration of an active range during a maintenance period to avoid impact.  To prevent these issues during initial deployment, you can choose the regional only commissioning option where your custom IP prefix will only be advertised within the Azure region it is deployed in. See [Manage a custom IP address prefix (BYOIP)](manage-custom-ip-address-prefix.md) for more information.
+> As the global custom IPv6 prefix transitions to a **Commissioned** state, the range is being advertised with Microsoft from the local Azure region and globally to the Internet by Microsoft's wide area network under Autonomous System Number (ASN) 8075. Advertising this same range to the Internet from a location other than Microsoft at the same time could potentially create BGP routing instability or traffic loss. For example, a customer on-premises building. Plan any migration of an active range during a maintenance period to avoid impact.
 
 ## Next steps
 
