@@ -179,9 +179,11 @@ When you use a Dedicated workload profile in the Consumption + Dedicated plan st
 
 ## Multiple containers
 
-You can define multiple containers in a single container app to implement the [sidecar pattern](/azure/architecture/patterns/sidecar). The containers in a container app share hard disk and network resources and experience the same [application lifecycle](./application-lifecycle-management.md).
+In advanced scenarios, you can run multiple containers in a single container app. The containers share hard disk and network resources and experience the same [application lifecycle](./application-lifecycle-management.md). There are two ways to run multiple containers in a container app: [sidecar containers](#sidecar-containers) and [init containers](#init-containers).
 
-Examples of sidecar containers include:
+### Sidecar containers
+
+You can define multiple containers in a single container app to implement the [sidecar pattern](/azure/architecture/patterns/sidecar). Examples of sidecar containers include:
 
 - An agent that reads logs from the primary app container on a [shared volume](storage-mounts.md?pivots=aca-cli#temporary-storage) and forwards them to a logging service.
 - A background process that refreshes a cache used by the primary app container in a shared volume.
@@ -189,7 +191,13 @@ Examples of sidecar containers include:
 > [!NOTE]
 > Running multiple containers in a single container app is an advanced use case. You should use this pattern only in specific instances in which your containers are tightly coupled. In most situations where you want to run multiple containers, such as when implementing a microservice architecture, deploy each service as a separate container app.
 
-To run multiple containers in a container app, add more than one container in the containers array of the container app template.
+To run multiple containers in a container app, add more than one container in the `containers` array of the container app template.
+
+### Init containers
+
+You can define one or more [init containers](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) in a container app. Init containers run before the primary app container and can be used to perform initialization tasks such as downloading data or preparing the environment.
+
+Init containers are defined in the `initContainers` array of the container app template. The containers run in the order they are defined in the array and must complete successfully before the primary app container starts.
 
 ## Container registries
 
