@@ -15,7 +15,7 @@ ms.custom: avverma, devx-track-azurecli, devx-track-azurepowershell
 
 Scale set instances can opt in to receive instance termination notifications and set a pre-defined delay timeout to the terminate operation. The termination notification is sent through Azure Metadata Service – [Scheduled Events](../virtual-machines/windows/scheduled-events.md), which provides notifications for and delaying of impactful operations such as reboots and redeploy. The solution adds another event – Terminate – to the list of Scheduled Events, and the associated delay of the terminate event will depend on the delay limit as specified by users in their scale set model configurations.
 
-Once enrolled into the feature, scale set instances don't need to wait for specified timeout to expire before the instance is deleted. After receiving a Terminate notification, the instance can choose to be deleted at any time before the terminate timeout expires. Terminate notifications cannot be enabled on Spot instances. For more information on Spot instances, see [Azure Spot Virtual Machines for Virtual Machine Scale Sets](use-spot.md)
+Once you're enrolled into the feature, scale set instances don't need to wait for specified timeout to expire before the instance is deleted. After receiving a Terminate notification, the instance can choose to be deleted at any time before the terminate timeout expires. Terminate notifications cannot be enabled on Spot instances. For more information on Spot instances, see [Azure Spot Virtual Machines for Virtual Machine Scale Sets](use-spot.md)
 
 ## Enable terminate notifications
 There are multiple ways of enabling termination notifications on your scale set instances, as detailed in the examples below.
@@ -30,12 +30,12 @@ The following steps enable terminate notification when creating a new scale set.
 1. Locate the **Instance termination** section.
 1. For **Instance termination notification**, select **On**.
 1. For **Termination delay (minutes)**, set the desired default timeout.
-1. When you are done creating the new scale set, select **Review + create** button. 
+1. When you're done creating the new scale set, select **Review + create** button. 
 
 
 You can also enable terminate notifications on an existing scale set.
 
-1. Navigate to the desired scale et
+1. Navigate to the desired scale set
 1. Go to the **Configuration** tab
 1. For **Enable Instance termination notification**, select **On**.
 1. For **Termination delay (minutes)**, set the desired default timeout.
@@ -75,7 +75,7 @@ After enabling *scheduledEventsProfile* on the scale set model and setting the *
 ### Azure PowerShell
 When creating a new scale set, you can enable termination notifications on the scale set by using the [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) cmdlet.
 
-This sample script walks through the creation of a scale set and associated resources using the configuration file: [Create a complete Virtual Machine Scale Set](./scripts/powershell-sample-create-complete-scale-set.md). You can provide configure terminate notification by adding the parameters *TerminateScheduledEvents* and *TerminateScheduledEventNotBeforeTimeoutInMinutes* to the configuration object for creating scale set. The following example enables the feature with a delay timeout of 10 minutes.
+This sample script walks through the creation of a scale set and associated resources using the configuration file: [Create a complete Virtual Machine Scale Set](./scripts/powershell-sample-create-complete-scale-set.md). You can provide "configure terminate" notifications by adding the parameters *TerminateScheduledEvents* and *TerminateScheduledEventNotBeforeTimeoutInMinutes* to the configuration object for creating scale set. The following example enables the feature with a delay timeout of 10 minutes.
 
 ```azurepowershell-interactive
 New-AzVmssConfig `
@@ -165,7 +165,7 @@ The *DocumentIncarnation* is an ETag and provides an easy way to inspect if the 
 For more information on each of the fields above, see the Scheduled Events documentation for [Windows](../virtual-machines/windows/scheduled-events.md#event-properties) and [Linux](../virtual-machines/linux/scheduled-events.md#event-properties).
 
 ### Respond to events
-Once you've learnt of an upcoming event and completed your logic for graceful shutdown, you may approve the outstanding event by making a POST call to the metadata service with the EventId. The POST call indicates to Azure that it can continue with the VM delete.
+Once you've learned about an upcoming event and completed your logic for graceful shutdown, you may approve the outstanding event by making a POST call to the metadata service with the EventId. The POST call indicates to Azure that it can continue with the VM delete.
 
 Below is the json expected in the POST request body. The request should contain a list of StartRequests. Each StartRequest contains the EventId for the event you want to expedite:
 ```
@@ -183,11 +183,11 @@ Ensure that every VM in the scale set is only approving the EventID relevant for
 You can also refer to samples scripts for querying and responding to events [Python](../virtual-machines/linux/scheduled-events.md#python-sample).
 
 ## Tips and best practices
--	Terminate notifications only on ‘delete’ operations – All delete operations (manual delete or Autoscale-initiated scale-in) will generate Terminate events if your scale set has *scheduledEventsProfile* enabled. Other operations such as reboot, reimage, redeploy, and stop/deallocate do not generate Terminate events. 
+-	Terminate notifications only on ‘delete’ operations – All delete operations (manual delete or Autoscale-initiated scale-in) will generate Terminate events if your scale set has *scheduledEventsProfile* enabled. Other operations such as reboot, reimage, redeploy, and stop/deallocate don't generate Terminate events. 
 -	No mandatory wait for timeout – You can start the terminate operation at any time after the event has been received and before the event's *NotBefore* time expires.
 -	Mandatory delete at timeout – There isn't any capability of extending the timeout value after an event has been generated. Once the timeout expires, the pending terminate event will be processed and the VM will be deleted.
 -	Modifiable timeout value – You can modify the timeout value at any time before an instance is deleted, by modifying the *notBeforeTimeout* property on the scale set model and updating the VM instances to the latest model.
-- -	Approve all pending deletes – If there’s a pending delete on VM_1 that isn't approved, and you've approved another terminate event on VM_2, then VM_2 isn't deleted until the terminate event for VM_1 is approved, or its timeout has elapsed. Once you approve the terminate event for VM_1, then both VM_1 and VM_2 are deleted.
+- 	Approve all pending deletes – If there’s a pending delete on VM_1 that isn't approved, and you've approved another terminate event on VM_2, then VM_2 isn't deleted until the terminate event for VM_1 is approved, or its timeout has elapsed. Once you approve the terminate event for VM_1, then both VM_1 and VM_2 are deleted.
 -	Approve all simultaneous deletes – Extending the above example, if VM_1 and VM_2 have the same *NotBefore* time, then both terminate events must be approved or neither VM is deleted before the timeout expires.
 
 ## Troubleshoot
@@ -195,7 +195,7 @@ You can also refer to samples scripts for querying and responding to events [Pyt
 If you get a ‘BadRequest’ error with an error message stating "Could not find member 'scheduledEventsProfile' on object of type 'VirtualMachineProfile'”, check the API version used for the scale set operations. Compute API version **2019-03-01** or higher is required. 
 
 ### Failure to get Terminate events
-If you are not getting any **Terminate** events through Scheduled Events, then check the API version used for getting the events. Metadata Service API version **2019-01-01** or higher is required for Terminate events.
+If you're not getting any **Terminate** events through Scheduled Events, then check the API version used for getting the events. Metadata Service API version **2019-01-01** or higher is required for Terminate events.
 >'http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01'
 
 ### Getting Terminate event with incorrect NotBefore time  
