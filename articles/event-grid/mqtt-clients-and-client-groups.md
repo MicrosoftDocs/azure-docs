@@ -43,6 +43,122 @@ Here’s a sample schema for the client with attribute definition:
 
 While configuring the client attributes, consider the topics that the clients publish (subscribe) to.  Thinking backwards from topics to clients helps identify the commonalities across client roles easier and defining the client attributes to make the client grouping simpler.
 
+### Client schema
+
+```json
+{ 
+    "name": "xyz",   
+    "properties": { 
+        "state": "Enabled",         
+        "authenticationName": "@abc_123:y", // This is a unique client identity name, case insensitive. defaults to ARM name if not provided.   
+            "clientCertificateAuthentication": { 
+                "validationScheme": "SubjectMatchesAuthenticationName", // Required, Possible Values: [ThumbprintMatch, SubjectMatchesAuthenticationName, DnsMatchesAuthenticationName, UriMatchesAuthenticationName, IpMatchesAuthenticationName, EmailMatchesAuthenticationName]" 
+                "allowedThumbprints": [ 
+                    "xxxx", 
+                    "yyyy" 
+                ] // Only relevant for ThumbprintMatch, Max of 2
+            },
+     }, 
+     "attributes": { 
+     "attribute1": 123, 
+     "arrayAttribute": [ 
+           "value1", 
+           "value2", 
+           "value3" 
+         ] 
+     }, 
+     "description": "Add description here" 
+} 
+```
+
+### Sample contracts
+
+Example for certificate chain based client authentication
+
+```json
+{
+    "properties": {
+        "authenticationName": "127.0.0.1",
+        "state": "Enabled",
+        "clientCertificateAuthentication": {
+            "validationScheme": "IpMatchesAuthenticationName"
+        },
+        "attributes": {
+            "room": "345",
+            "floor": 3,
+            "bldg": "17"
+        },
+        "description": "Description of the client"
+    }
+}
+```
+
+Example for self-signed certificate thumbprint based client authentication
+
+```json
+{
+    "properties": {
+        "authenticationName": "abcd@domain.com-1",
+        "state": "Enabled",
+        "clientCertificateAuthentication": {
+            "validationScheme": "ThumbprintMatch",
+            "allowedThumbprints": ["primary", "secondary"]
+        },
+        "attributes": {
+            "room": "345",
+            "floor": "3",
+            "bldg": 17
+        },
+        "description": "Description of the client"
+    }
+}
+```
+
+> [!NOTE]
+> - clientCertificateAuthentication is always required with a valid value of validationScheme.
+> - authenticationName is not required, but after the first create request, authenticatioName value defaults to ARM name, and then it can not be updated.
+> - authenticationName can not be updated.
+> - If validationScheme is anything other than ThumbprintMatch, then allowedThumbprints list can not be provided.
+> - allowedThumbprints list can only be provided and must be provided if validationScheme is ThumbprintMatch with atleast one thumbprint.
+> - allowedThumbprints can only hold maximum of 2 thumbprints.
+> - Allowed validationScheme values are SubjectMatchesAuthenticationName, DnsMatchesAuthenticationName, UriMatchesAuthenticationName, IpMatchesAuthenticationName, EmailMatchesAuthenticationName, ThumbprintMatch
+> - Using thumbprint with allow reuse of the same certificate across multiple clients.  For other types of validation, the authentication name needs to be in the chosen field of the client certificate.
+
+### Azure portal configuration
+Use the following steps to create a client:
+
+- Go to your namespace in the Azure portal
+- Under Clients, select **+ Client**.
+
+:::image type="content" source="./media/mqtt-clients-and-client-groups/mqtt-add-new-client.png" alt-text="Screenshot of adding a client.":::
+
+- Choose the client certificate authentication validation scheme.  For more information about client authentication configuration, see [client authentication](mqtt-client-authentication.md) article.
+
+- Add client attributes.
+
+:::image type="content" source="./media/mqtt-clients-and-client-groups/mqtt-client-metadata-with-attributes.png" alt-text="Screenshot of client configuration.":::
+
+- Select **Create**
+
+
+### Azure CLI configuration
+Use the following commands to create/show/delete a client
+
+**Create client**
+```azurecli-interactive
+ az resource create --resource-type Microsoft.EventGrid/namespaces/clients --id /subscriptions/`Subscription ID`/resourceGroups/`Resource Group`/providers/Microsoft.EventGrid/namespaces/`Namespace Name`/clients/`Client name` --api-version 2023-06-01-preview --properties @./resources/client.json
+```
+
+**Get client**
+```azurecli-interactive
+az resource show --id /subscriptions/`Subscription ID`/resourceGroups/`Resource Group`/providers/Microsoft.EventGrid/namespaces/`Namespace Name`/clients/`Client name`
+```
+
+**Delete client**
+```azurecli-interactive
+az resource delete --id /subscriptions/`Subscription ID`/resourceGroups/`Resource Group`/providers/Microsoft.EventGrid/namespaces/`Namespace Name`/clients/`Client name`
+```
+
 ## Client groups
 Client groups allow you to group a set of client together based on commonalities.  The main purpose of client groups is to make configuring authorization easy.  You can authorize a client group to publish or subscribe to a topic space.  All the clients in the client group are authorized to perform the publish or subscribe action on the topic space.
 
@@ -72,3 +188,49 @@ In group queries, following operands are allowed:
 - Not equal operator in two forms "<>" and "!="
 - Less than "<", greater than ">", less than equal to "<=", greater than equal to ">=" for long integer values
 - "IN" to compare with a set of values
+
+### Sample client group schema
+
+```json
+{
+  "properties": {
+    "description": "Description of client group",
+    "query": "attributes.b IN ['a', 'b', 'c']"
+  }
+}
+```
+
+### Azure portal configuration
+Use the following steps to create a client group:
+
+- Go to your namespace in the Azure portal
+- Under Client groups, select **+ Client group**.
+
+:::image type="content" source="./media/mqtt-clients-and-client-groups/mqtt-add-new-client-group.png" alt-text="Screenshot of adding a client group.":::
+
+- Add client group query.
+
+:::image type="content" source="./media/mqtt-clients-and-client-groups/mqtt-client-group-metadata.png" alt-text="Screenshot of client group configuration.":::
+
+- Select **Create**
+
+### Azure CLI configuration
+Use the following commands to create/show/delete a client group
+
+**Create client group**
+```azurecli-interactive
+az resource create --resource-type Microsoft.EventGrid/namespaces/clientGroups --id /subscriptions/`Subscription ID`/resourceGroups/`Resource Group`/providers/Microsoft.EventGrid/namespaces/`Namespace Name`/clientGroups/`Client Group Name` --api-version 2023-06-01-preview --properties @./resources/CG.json
+```
+
+**Get client group**
+```azurecli-interactive
+az resource show --id /subscriptions/`Subscription ID`/resourceGroups/`Resource Group`/providers/Microsoft.EventGrid/namespaces/`Namespace Name`/clientGroups/`Client group name` |
+```
+
+**Delete client group**
+```azurecli-interactive
+az resource delete --id /subscriptions/`Subscription ID`/resourceGroups/`Resource Group`/providers/Microsoft.EventGrid/namespaces/`Namespace Name`/clientGroups/`Client group name` |
+```
+
+## Next steps
+- Learn about [client authentication](mqtt-client-authentication.md)
