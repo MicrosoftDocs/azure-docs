@@ -59,10 +59,11 @@ Use the following methods to identify the bandwidth headroom that is free to con
 
 ### Before you begin
 
-This documentation assumes that you already have a Miria Server and Miria Data Mover installed and running. Reference the following documentation for detailed information on how to install Miria Server and Data Mover
-
-- [Miria Server and Data Movers deployment and initial configuration](https://www.atempo.com/privatedocs/Miria_2022_Migration_Documentation.pdf)
-- [Details on platforms and OS versions supported by Miria](https://usergroup.atempo.com/wp-content/uploads/2021/08/COMPATIBILITY-GUIDE_MIRIA_2021.pdf)
+This documentation assumes that:
+- you are using ROOT user to connect to your Azure account. If this is not the case make sure that this user has read / write rights on the Blob and buckets.
+- you already have a Miria Server and Miria Data Mover installed and running on a VM or on a server in your environment. If this is not the case, please refer to the following links for more information regarding:
+  - [Miria Server and Data Movers deployment and initial configuration](https://www.atempo.com/privatedocs/Miria_2022_Migration_Documentation.pdf)
+  - [Details on platforms and OS versions supported by Miria](https://usergroup.atempo.com/wp-content/uploads/2021/08/COMPATIBILITY-GUIDE_MIRIA_2021.pdf)
 
 The following section guides you in successive steps:
 
