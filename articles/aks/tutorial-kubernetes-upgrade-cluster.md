@@ -259,7 +259,7 @@ It takes a few minutes to upgrade the cluster, depending on how many nodes you h
 
 ### [Azure portal](#tab/azure-portal)
 
-Confirm the the upgrade was successful using the following steps:
+Confirm the upgrade was successful using the following steps:
 
 1. In the Azure portal, navigate to your AKS cluster.
 2. On the **Overview** page, select the **Kubernetes version** and ensure it's the latest version you installed in the previous step.
@@ -297,7 +297,7 @@ Delete your cluster using the following steps:
 ---
 
 > [!NOTE]
-> When you delete the cluster, the Azure Active Directory (AAD) service principal used by the AKS cluster isn't removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete]. If you used a managed identity, the identity is managed by the platform and doesn't require that you provision or rotate any secrets.
+> When you delete the cluster, the Azure Active Directory (Azure AD) service principal used by the AKS cluster isn't removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete]. If you used a managed identity, the identity is managed by the platform and doesn't require that you provision or rotate any secrets.
 
 ## Next steps
 
