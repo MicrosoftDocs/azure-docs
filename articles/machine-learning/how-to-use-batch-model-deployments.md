@@ -214,7 +214,7 @@ A model deployment is a set of resources required for hosting the model that doe
    
     The environment definition will be included in the deployment definition itself as an anonymous environment. You'll see in the following lines in the deployment:
     
-    :::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/deployment.yml" range="11-14":::
+    :::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/deployment.yml" range="12-15":::
    
     # [Python](#tab/python)
    
@@ -620,7 +620,7 @@ In this example, you'll learn how to add a second deployment __that solves the s
    
     The environment definition will be included in the deployment definition itself as an anonymous environment. You'll see in the following lines in the deployment:
     
-    :::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-keras/deployment.yml" range="11-14":::
+    :::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-keras/deployment.yml" range="12-15":::
    
     # [Python](#tab/python)
    
