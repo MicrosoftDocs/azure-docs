@@ -336,16 +336,14 @@ Actions of the [zypper](https://en.opensuse.org/Portal:Zypper) command, such as 
 
 ### Facilitating auto-upgrade of the agent
 
-The Azure Connected Machine agent will be supporting an automatic upgrade feature to reduce the agent management overhead associated with Azure Arc-enabled servers. To facilitate this new functionality, a scheduler job is configured on the connected machine. This scheduler job is a scheduled task for Windows and a Chron job for Linux.This scheduler job will appear in the Azure Connected Machine Agent version 1.29 or higher.
+The Azure Connected Machine agent will be supporting an automatic upgrade feature to reduce the agent management overhead associated with Azure Arc-enabled servers. To facilitate this new functionality, a scheduler job is configured on the connected machine. This scheduler job is a scheduled task for Windows and a Chron job for Linux. This scheduler job will appear in the Azure Connected Machine Agent version 1.29 or higher.
 
-To view these scheduler jobs in Windows:
-
-In Powershell:
+To view these scheduler jobs in Windows through Powershell:
 
 ```powershell
 schtasks /query /TN azcmagent
 ```
-In Task Scheduler:
+To view these scheduler jobs in Windows through Task Scheduler:
 
 :::image type="content" source="media/manage-agent/task-scheduler.png" alt-text="Screenshot of Task Scheduler":::
 
