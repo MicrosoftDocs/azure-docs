@@ -470,7 +470,7 @@ items:
       items:
       - name: Create and manage namespaces
         href: create-view-manage-namespaces.md
-      - name: Azure Event Grid Namespace MQTT client authentication using certificate chain
+      - name: MQTT client authentication using certificate chain
         href: mqtt-certificate-chain-client-authentication.md
       - name: Customer enabled disaster recovery
         href: custom-disaster-recovery-client-side.md
