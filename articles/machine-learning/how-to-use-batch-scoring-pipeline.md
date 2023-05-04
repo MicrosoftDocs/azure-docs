@@ -85,11 +85,11 @@ Create the environment as follows:
 
     # [Azure CLI](#tab/cli)
     
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/cli-deploy.sh" ID="register_environment" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/cli-deploy.sh" ID="create_environment" :::
     
     # [Python](#tab/python)
     
-    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/sdk-deploy-and-test.ipynb?name=register_environment)]
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/sdk-deploy-and-test.ipynb?name=create_environment)]
 
 ### Create a compute cluster
 
