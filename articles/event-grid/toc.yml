@@ -11,8 +11,14 @@ items:
       href: whats-new.md
   - name: Pull and push delivery using HTTP
     items:
+    - name: Overview
+      items:
+      - name: Pull and push delivery overview
+        href: pull-and-push-delivery-overview.md
     - name: Quickstarts
       items:
+      - name: Publish and subscribe using namespace topics
+        href: publish-events-using-namespace-topics.md
       - name: Publish and subscribe using custom topics
         items:
         - name: Custom events to Event Grid Viewer app
@@ -228,6 +234,8 @@ items:
           href: delivery-properties.md
       - name: Availability zones and disaster recovery
         href: availability-zones-disaster-recovery.md
+      - name: Scaling with Azure Event Grid
+        href: scaling-with-azure-event-grid.md
       - name: Security
         items:
         - name: Security baseline
@@ -315,7 +323,7 @@ items:
         href: input-mappings.md
       - name: Manage topics with Event Domains
         href: how-to-event-domains.md
-      - name: Build your own client-side disaster recovery
+      - name: Customer enabled disaster recovery
         href: custom-disaster-recovery-client-side.md
       - name: Track asynchronous REST operations
         href: ../azure-resource-manager/management/async-operations.md?toc=/azure/event-grid/toc.json
@@ -365,6 +373,12 @@ items:
           href: troubleshoot-network-connectivity.md
         - name: Troubleshoot subscription validation
           href: troubleshoot-subscription-validation.md
+      - name: Create, view, and manage namespaces
+        href: create-view-manage-namespaces.md
+      - name: Create, view, and manage namespace topics
+        href: create-view-manage-namespace-topics.md
+      - name: Create, view, and manage event subscriptions
+        href: create-view-manage-event-subscriptions.md
     - name: Reference
       items:
       - name: Azure CLI
@@ -433,7 +447,7 @@ items:
       items:
       - name: Event Grid namespace terminology
         href: mqtt-event-grid-namespace-terminology.md
-      - name: Azure Event Grid Namespace MQTT client authentication
+      - name: Authenticate clients using certificate chain
         href: mqtt-client-authentication.md      
       - name: Access control for MQTT clients
         href: mqtt-access-control.md
@@ -456,8 +470,12 @@ items:
         href: mqtt-client-life-cycle-events.md
     - name: How-to guides
       items:
+      - name: Create and manage namespaces
+        href: create-view-manage-namespaces.md
       - name: Azure Event Grid Namespace MQTT client authentication using certificate chain
         href: mqtt-certificate-chain-client-authentication.md
+      - name: Customer enabled disaster recovery
+        href: custom-disaster-recovery-client-side.md
       - name: How to configure multiple sessions for an MQTT client
         href: mqtt-establishing-multiple-sessions-per-client.md
     - name: Reference
