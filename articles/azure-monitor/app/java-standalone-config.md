@@ -233,7 +233,7 @@ You can use `${...}` to read the value from the specified environment variable a
 ## Inherited attribute (preview)
 
 Starting from version 3.2.0, if you want to set a custom dimension programmatically on your request telemetry
-and have it inherited by dependency and log telemetry which are captured in the context of that request:
+and have it inherited by dependency and log telemetry, which are captured in the context of that request:
 
 ```json
 {
