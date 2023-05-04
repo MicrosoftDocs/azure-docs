@@ -80,7 +80,7 @@ __Outbound network configuration to access any Azure Machine Learning registry__
 | `AzureContainerRegistry.<region>` | TCP: 443 | Access Docker images for environments. |
 
 
-### Scenario: Azure Machine Learning workspace configuration is secure and Azure AMchine Learning registry is connected to virtual networks using private endpoints
+### Scenario: Azure Machine Learning workspace configuration is secure and Azure Machine Learning registry is connected to virtual networks using private endpoints
 
 This section describes the scenarios and required network configuration if you have a secure workspace configuration with Azure Machine Learning registries connected using private endpoint to a virtual network. 
 
@@ -104,15 +104,15 @@ Clients need to be connected to the VNet to which the registry is connected with
 
 To connect to a registry that's secured behind a VNet, use one of the following methods: 
 
-* (Azure VPN gateway)[/azure/vpn-gateway/vpn-gateway-about-vpngateways] - Connects on-premises networks to the VNet over a private connection. Connection is made over the public internet. There are two types of VPN gateways that you might use: 
+* [Azure VPN gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) - Connects on-premises networks to the VNet over a private connection. Connection is made over the public internet. There are two types of VPN gateways that you might use: 
 
-    * (Point-to-site)[/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal]: Each client computer uses a VPN client to connect to the VNet. 
+    * [Point-to-site](/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal): Each client computer uses a VPN client to connect to the VNet. 
 
-    * (Site-to-site)[/azure/vpn-gateway/tutorial-site-to-site-portal]: A VPN device connects the VNet to your on-premises network. 
+    * [Site-to-site](/azure/vpn-gateway/tutorial-site-to-site-portal): A VPN device connects the VNet to your on-premises network. 
 
-* (ExpressRoute)[https://azure.microsoft.com/en-us/products/expressroute/] - Connects on-premises networks into the cloud over a private connection. Connection is made using a connectivity provider. 
+* [ExpressRoute](https://azure.microsoft.com/en-us/products/expressroute/) - Connects on-premises networks into the cloud over a private connection. Connection is made using a connectivity provider. 
 
-* (Azure Bastion)[/azure/bastion/bastion-overview] - In this scenario, you create an Azure Virtual Machine (sometimes called a jump box) inside the VNet. You then connect to the VM using Azure Bastion. Bastion allows you to connect to the VM using either an RDP or SSH session from your local web browser. You then use the jump box as your development environment. Since it is inside the VNet, it can directly access the registry.  
+* [Azure Bastion](/azure/bastion/bastion-overview) - In this scenario, you create an Azure Virtual Machine (sometimes called a jump box) inside the VNet. You then connect to the VM using Azure Bastion. Bastion allows you to connect to the VM using either an RDP or SSH session from your local web browser. You then use the jump box as your development environment. Since it is inside the VNet, it can directly access the registry.  
 
 ## Share assets from workspace to registry 
 
