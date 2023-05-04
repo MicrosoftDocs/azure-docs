@@ -4,7 +4,7 @@ items:
 - name: Overview
   expanded: true
   items: 
-    - name: What is Azure Deployment Environments Preview?
+    - name: What is Azure Deployment Environments?
       displayName: Azure Deployment Environments overview
       href: overview-what-is-azure-deployment-environments.md
 - name: Quickstarts

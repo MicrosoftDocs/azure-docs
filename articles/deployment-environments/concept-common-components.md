@@ -11,7 +11,7 @@ ms.date: 04/25/2023
 # Components common to Azure Deployment Environments and Microsoft Dev Box
 
 > [!TIP]
-> Welcome to the *Azure Deployment Environments Preview* documentation.
+> Welcome to the *Azure Deployment Environments* documentation.
 >
 > If you're looking for information about *Microsoft Dev Box*, go to [Components common to Microsoft Dev Box and Azure Deployment Environments](../dev-box/concept-common-components.md).
 
