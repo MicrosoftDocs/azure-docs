@@ -5,6 +5,7 @@ ms.author: jafernan
 title: Overview
 description: Learn about Event Grid's http and MQTT messaging capabilities.
 ms.topic: conceptual
+ms.custom: references_regions
 ---
 
 # What is Azure Event Grid?
@@ -84,27 +85,27 @@ Event Grid offers a rich mixture of features. These include:
 Event Grid enables your clients to communicate on custom MQTT topics using a publish-subscribe messaging model. Event Grid supports clients that publish and subscribe to messages over MQTT v3.1.1, MQTT v3.1.1 over WebSockets, MQTT v5, and MQTT v5 over WebSockets. Event Grid authenticates clients and authorizes publish and subscribe requests according to configured permissions. Event Grid allows you to send MQTT messages to the cloud for data analysis, storage, and visualizations, among other use cases.
 <br/>
 
-:::image type="content" source="media/overview/mqtt-messaging.svg" alt-text="High-level diagram of Event Grid that shows bidirectional MQTT communication with publisher and subscriber clients." lightbox="media/overview/mqtt-messaging.svg":::
+:::image type="content" source="media/overview/mqtt-messaging.svg" alt-text="High-level diagram of Event Grid that shows bidirectional MQTT communication with publisher and subscriber clients." :::
 <br/>
 Event Grid’s MQTT support enables you to accomplish the following scenarios.
 
 ### Ingest IoT telemetry
-:::image type="content" source="media/overview/ingest-telemetry.svg" alt-text="High-level diagram of Event Grid that shows IoT clients using MQTT protocol to send messages to a cloud app." lightbox="media/overview/ingest-telemetry.svg":::
+:::image type="content" source="media/overview/ingest-telemetry.svg" alt-text="High-level diagram of Event Grid that shows IoT clients using MQTT protocol to send messages to a cloud app." :::
 
 Ingest telemetry using a **many-to-one messaging** pattern on custom MQTT topics. For example, use Event Grid to send telemetry from multiple IoT devices to a cloud application. This pattern will enable the application to offload the burden of managing the high number of connections with devices to Event Grid.
 
 ### Command and control
-:::image type="content" source="media/overview/command-control.svg" alt-text="High-level diagram of Event Grid that shows a cloud application sending a command message over MQTT to a device using request and response topics." lightbox="media/overview/command-control.svg":::
+:::image type="content" source="media/overview/command-control.svg" alt-text="High-level diagram of Event Grid that shows a cloud application sending a command message over MQTT to a device using request and response topics." :::
 
 Control your MQTT clients using the **request-response** (one-to-one) message pattern. For example, use Event Grid to send a command from a cloud application to an IoT device. 
 
 ### Broadcast alerts
-:::image type="content" source="media/overview/broadcast-alerts.svg" alt-text="High-level diagram of Event Grid that shows a cloud application sending an alert message over MQTT to several devices." lightbox="media/overview/broadcast-alerts.svg":::
+:::image type="content" source="media/overview/broadcast-alerts.svg" alt-text="High-level diagram of Event Grid that shows a cloud application sending an alert message over MQTT to several devices." :::
 
 Broadcast alerts to a fleet of clients using the **one-to-many** messaging pattern on custom MQTT topics. For example, use Event Grid to send an alert from a cloud application to multiple IoT devices. This pattern enables the application to publish only one message that the service replicates for every interested client.
 
 ### Integrate MQTT data
-:::image type="content" source="media/overview/integrate-data.svg" alt-text="Diagram shows several IoT devices sending health data over MQTT to Event Grid, then to Event Hubs, and from this service to Azure Stream Analytics." lightbox="media/overview/integrate-data.svg":::
+:::image type="content" source="media/overview/integrate-data.svg" alt-text="Diagram that shows several IoT devices sending health data over MQTT to Event Grid, then to Event Hubs, and from this service to Azure Stream Analytics." :::
 
 Integrate data from your MQTT clients by routing MQTT messages to Azure services and Webhooks through the [HTTP Push delivery](pull-and-push-delivery-overview.md#push-delivery-1) functionality. For example, use Event Grid to route telemetry from your IoT devices to Event Hubs and then to Azure Stream Analytics to gain insights from your device telemetry.
 
@@ -115,22 +116,22 @@ Event Grid can be configured to send events to a diverse set of Azure services o
 Event Grid’s push delivery allows you to realize the following use cases.
 
 ### Build event-driven serverless solutions
-:::image type="content" source="media/overview/build-event-serverless.svg" alt-text="Azure Functions publishing events to Event Grid using HTTP. Event Grid then sends those events to Azure Logic Apps." lightbox="media/overview/build-event-serverless.svg":::
+:::image type="content" source="media/overview/build-event-serverless.svg" alt-text="Diagram that shows Azure Functions publishing events to Event Grid using HTTP. Event Grid then sends those events to Azure Logic Apps." :::
 
 Use Event Grid to build serverless solutions with Azure Functions Apps, Logic Apps, and API Management. Using serverless services with Event Grid affords you a level of productivity, effort economy, and integration superior to that of classical computing models where you have to procure, manage, secure, and maintain all infrastructure deployed.  
 
 ### Receive events from Azure services
-:::image type="content" source="media/overview/receive-events-azure.svg" alt-text="Blob Storage publishing events to Event Grid over HTTP. Event Grid sends those events to event handlers, which are either webhooks or Azure services." lightbox="media/overview/receive-events-azure.svg":::
+:::image type="content" source="media/overview/receive-events-azure.svg" alt-text="Diagram that shows Blob Storage publishing events to Event Grid over HTTP. Event Grid sends those events to event handlers, which are either webhooks or Azure services." :::
 
 Azure services make their [events available](system-topics.md) so that you can automate your operations. For example, you can configure Event Grid to receive an event when a new bBlob has been created on an Azure Storage Account so that your downstream application can read and process its content.
 
 ### Receive events from your applications
-:::image type="content" source="media/overview/receive-events-apps.svg" alt-text="Customer application publishing events to Event Grid using HTTP. Event Grid sends those events to webhooks or Azure services." lightbox="media/overview/receive-events-apps.svg":::
+:::image type="content" source="media/overview/receive-events-apps.svg" alt-text="Diagram that shows customer application publishing events to Event Grid using HTTP. Event Grid sends those events to webhooks or Azure services." :::
 
 Your own service or application publishes events to Event Grid that subscriber applications process. Event Grid features [Custom Topics](custom-topics.md) to address basic integration scenarios and [Domains](event-domains.md) to offer a simple management and routing model when you need to distribute events to hundreds or thousands of different groups.
 
 ### Receive events from partner (SaaS providers)
-:::image type="content" source="media/overview/receive-saas-providers.svg" alt-text="External partner application publishing events to Event Grid using HTTP. Event Grid sends those events to webhooks or Azure services." lightbox="media/overview/receive-saas-providers.svg":::
+:::image type="content" source="media/overview/receive-saas-providers.svg" alt-text="Diagram that shows an external partner application publishing events to Event Grid using HTTP. Event Grid sends those events to webhooks or Azure services." :::
 
 A multi-tenant SaaS provider or platform can publish their events to Event Grid through a feature called [Partner Events](partner-events-overview.md). You can [subscribe to those events](subscribe-to-partner-events.md) and automate tasks, for example. Events from the following partners are currently available:
 
@@ -155,12 +156,12 @@ An event subscription is a generic configuration resource that allows you to def
 Azure Event Grid features [pull CloudEvents delivery](pull-and-push-delivery-overview.md#push-and-pull-delivery). Using this delivery mode, clients connect to Event Grid to read events. The following use cases can be realized using pull delivery.
 
 ### Receive events at your own pace
-:::image type="content" source="media/overview/pull-events-at-your-own-pace.svg" alt-text="High-level diagram of a publisher and consumer application. The publisher sends events to Event Grid at a higher pace than the subscriber's event consumption rate." lightbox="media/overview/pull-events-at-your-own-pace.svg":::
+:::image type="content" source="media/overview/pull-events-at-your-own-pace.svg" alt-text="High-level diagram of a publisher and consumer application. The publisher sends events to Event Grid at a higher pace than the subscriber's event consumption rate." :::
 
 One or more clients can connect to Azure Event Grid to read messages at their own pace. Event Grid affords clients full control on events consumption. Your application can receive events at certain times of the day, for example. Your solution can also increase the rate of consumption by adding more clients that read from Event Grid.
 
 ### Consume events over a private link
-:::image type="content" source="media/overview/consume-private-link-pull-api.svg" alt-text="High-level diagram of a consumer app inside a VNET reading events from Event Grid over a private endpoint inside the VNET." lightbox="media/overview/consume-private-link-pull-api.svg":::
+:::image type="content" source="media/overview/consume-private-link-pull-api.svg" alt-text="High-level diagram of a consumer app inside a VNET reading events from Event Grid over a private endpoint inside the VNET." :::
 
 You can configure **private links** to connect to Azure Event Grid to **publish and read** CloudEvents through a [private endpoint](../private-link/private-endpoint-overview.md) in your virtual network. Traffic between your virtual network and Event Grid travels the Microsoft backbone network.
 
@@ -185,4 +186,4 @@ Event Grid operations involving Namespaces and its resources, including MQTT and
 
 - [Pull and push delivery overview](pull-and-push-delivery-overview.md).
 - [Concepts](concepts.md)
-- Quickstart: [Publish and subscribe to app events using  Namepace topics](publish-events-using-namespace-topics.md).
+- Quickstart: [Publish and subscribe to app events using namespace topics](publish-events-using-namespace-topics.md).
