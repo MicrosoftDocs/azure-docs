@@ -198,7 +198,7 @@ Where the file *create-cluster.yml* is:
 :::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/cluster-low-priority.yml":::
 
 > [!NOTE]
-> When you use [serverless compute'](./how-to-use-serverless-compute.md), you don't need to create a compute cluster. To specify a low-priority serverless compute, set the `job_tier` to `Spot` in the [queue settings](./how-to-use-serverless-compute.md#queue-settings).
+> When you use [serverless compute](./how-to-use-serverless-compute.md), you don't need to create a compute cluster. To specify a low-priority serverless compute, set the `job_tier` to `Spot` in the [queue settings](./how-to-use-serverless-compute.md#configure-properties).
 
 # [Studio](#tab/azure-studio)
 

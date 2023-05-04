@@ -392,7 +392,7 @@ If you work with Azure Machine Learning pipelines, you can read data into and mo
 This YAML file shows how to use the output data from one component as the input for another component of the pipeline, with the Azure Machine Learning CLI v2 extension:
 
 > [!NOTE]
-> To use [serverless compute (preview)](how-to-use-serverless-compute.md), change `default_compute: azureml:cpu-cluster` to `default_compute: azureml:cpu-cluster` in this file.
+> To use [serverless compute (preview)](how-to-use-serverless-compute.md), change `default_compute: azureml:cpu-cluster` to `default_compute: azureml:serverless` in this file.
 
 [!INCLUDE [CLI v2](../../includes/machine-learning-CLI-v2.md)]
 
