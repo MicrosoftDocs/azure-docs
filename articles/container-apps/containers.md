@@ -216,20 +216,20 @@ The following example shows how to configure Azure Container Registry credential
 {
   ...
   "configuration": {
-      "secrets": [
-          {
-              "name": "acr-password",
-              "value": "my-acr-password"
-          }
-      ],
-...
-      "registries": [
-          {
-              "server": "myacr.azurecr.io",
-              "username": "someuser",
-              "passwordSecretRef": "acr-password"
-          }
-      ]
+    "secrets": [
+      {
+        "name": "acr-password",
+        "value": "my-acr-password"
+      }
+    ],
+    ...
+    "registries": [
+      {
+        "server": "myacr.azurecr.io",
+        "username": "someuser",
+        "passwordSecretRef": "acr-password"
+      }
+    ]
   }
 }
 ```
