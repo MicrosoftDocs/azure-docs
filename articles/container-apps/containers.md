@@ -32,71 +32,96 @@ Features include:
 The following code is an example of the `containers` array in the [`properties.template`](azure-resource-manager-api-spec.md#propertiestemplate) section of a container app resource template.  The excerpt shows the available configuration options when setting up a container.
 
 ```json
-"containers": [
-  {
-       "name": "main",
-       "image": "[parameters('container_image')]",
-    "env": [
-      {
-        "name": "HTTP_PORT",
-        "value": "80"
-      },
-      {
-        "name": "SECRET_VAL",
-        "secretRef": "mysecret"
-      }
-    ],
-    "resources": {
-      "cpu": 0.5,
-      "memory": "1Gi"
-    },
-    "volumeMounts": [
-      {
-        "mountPath": "/myfiles",
-        "volumeName": "azure-files-volume"
-      }
-    ]
-    "probes":[
+{
+  "properties": {
+    "template": {
+      "containers": [
         {
-            "type":"liveness",
-            "httpGet":{
-            "path":"/health",
-            "port":8080,
-            "httpHeaders":[
-                {
-                    "name":"Custom-Header",
-                    "value":"liveness probe"
-                }]
+          "name": "main",
+          "image": "[parameters('container_image')]",
+          "env": [
+            {
+              "name": "HTTP_PORT",
+              "value": "80"
             },
-            "initialDelaySeconds":7,
-            "periodSeconds":3
-        },
-        {
-            "type":"readiness",
-            "tcpSocket":
-                {
-                    "port": 8081
-                },
-            "initialDelaySeconds": 10,
-            "periodSeconds": 3
-        },
-        {
-            "type": "startup",
-            "httpGet": {
+            {
+              "name": "SECRET_VAL",
+              "secretRef": "mysecret"
+            }
+          ],
+          "resources": {
+            "cpu": 0.5,
+            "memory": "1Gi"
+          },
+          "volumeMounts": [
+            {
+              "mountPath": "/appsettings",
+              "volumeName": "appsettings-volume"
+            }
+          ],
+          "probes": [
+            {
+              "type": "liveness",
+              "httpGet": {
+                "path": "/health",
+                "port": 8080,
+                "httpHeaders": [
+                  {
+                    "name": "Custom-Header",
+                    "value": "liveness probe"
+                  }
+                ]
+              },
+              "initialDelaySeconds": 7,
+              "periodSeconds": 3
+            },
+            {
+              "type": "readiness",
+              "tcpSocket": {
+                "port": 8081
+              },
+              "initialDelaySeconds": 10,
+              "periodSeconds": 3
+            },
+            {
+              "type": "startup",
+              "httpGet": {
                 "path": "/startup",
                 "port": 8080,
                 "httpHeaders": [
-                    {
-                        "name": "Custom-Header",
-                        "value": "startup probe"
-                    }]
-            },
-            "initialDelaySeconds": 3,
-            "periodSeconds": 3
-        }]
+                  {
+                    "name": "Custom-Header",
+                    "value": "startup probe"
+                  }
+                ]
+              },
+              "initialDelaySeconds": 3,
+              "periodSeconds": 3
+            }
+          ]
+        }
+      ]
+    },
+    "initContainers": [
+      {
+        "name": "init",
+        "image": "[parameters('init_container_image')]",
+        "resources": {
+          "cpu": 0.25,
+          "memory": "0.5Gi"
+        },
+        "volumeMounts": [
+          {
+            "mountPath": "/appsettings",
+            "volumeName": "appsettings-volume"
+          }
+        ]
+      }
+    ]
+    ...
   }
-],
-
+  ...
+}
 ```
 
 | Setting | Description | Remarks |
