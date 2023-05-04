@@ -1,9 +1,9 @@
 ---
 title: Working with custom containers and Azure Functions
 description: Learn how to work with your Azure Functions code published as a custom Linux image.
-ms.date: 04/19/2023
+ms.date: 05/05/2023
 ms.topic: how-to
-zone_pivot_groups: programming-languages-set-functions-full
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Working with custom containers and Azure Functions
@@ -14,7 +14,7 @@ Unless otherwise noted, the content applies to all function apps running in cust
 
 ## Enable continuous deployment to Azure
 
-                                                                                                                                                                                                                                                                                                                                                You can enable Azure Functions to automatically update your deployment of an image whenever you update the image in the registry.
+You can enable Azure Functions to automatically update your deployment of an image whenever you update the image in the registry.
 
 1. Use the following command to enable continuous deployment and to get the webhook URL:
 
