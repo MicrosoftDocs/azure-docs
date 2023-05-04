@@ -11,7 +11,7 @@ ms.topic: conceptual
 This article builds on [What is Azure Event Grid?](overview.md) to provide essential information before you start using Event Grid’s pull and push delivery over HTTP. It covers fundamental concepts, resource models, and message delivery modes supported. At the end of this document, you will find useful links to articles that guide you on how to use Event Grid and to articles that offer in-depth conceptual information.
 
 >[!Important]
-> This document helps you get started with Event Grid capabilities that use the HTTP protocol. This article is suitable for users who need to integrate applications on the cloud. If you require to communicate IoT device data, you may want to consult Event Grid's MQTT’s overview.
+> This document helps you get started with Event Grid capabilities that use the HTTP protocol. This article is suitable for users who need to integrate applications on the cloud. If you require to communicate IoT device data, see [Overview of the MQTT Support in Azure Event Grid](mqtt-overview.md).
 
 ## Core concepts
 
@@ -54,15 +54,15 @@ The user community also refers to events to those type of messages that carry a 
 
 Events published to Event Grid land on a **topic**, which is a resource that logically contains all events. An **event subscription** is a configuration resource associated with a single topic. Among other things, you use an event subscription to set event selection criteria to define the event collection available to a subscriber out of the total set of events present in a topic.
 
-:::image type="content" source="media/pull-and-push-delivery-overview/topic-event-subscriptions.svg" alt-text="Diagram showing a topic and associated event subscriptions." lightbox="media/pull-and-push-delivery-overview/topic-event-subscriptions.svg":::
+:::image type="content" source="media/pull-and-push-delivery-overview/topic-event-subscriptions.svg" alt-text="Diagram showing a topic and associated event subscriptions." :::
 
 ## Push and pull delivery
 
 Using HTTP, Event Grid supports push and pull event delivery. With **push delivery**, you define a destination in an event subscription, a webhook or an Azure service, to which Event Grid sends events. Push delivery is supported in custom topics, system topics, domain topics and partner topics. With **pull delivery**, subscriber applications connect to Event Grid to consume events. Pull delivery is supported in topics within a namespace.
 
-:::image type="content" source="media/pull-and-push-delivery-overview/push-pull-delivery.svg" alt-text="High-level diagram showing push delivery and pull delivery with the kind of resources involved." lightbox="media/pull-and-push-delivery-overview/push-pull-delivery.svg":::
+:::image type="content" source="media/pull-and-push-delivery-overview/push-pull-delivery.svg" alt-text="High-level diagram showing push delivery and pull delivery with the kind of resources involved." :::
 
-### When to use push or pull
+### When to use push delivery vs. pull delivery 
 
 The following are general guidelines to help you decide when to use pull or push delivery.
 
@@ -70,26 +70,26 @@ The following are general guidelines to help you decide when to use pull or push
 
 - Your applications or services publish events. Event Grid does not yet support pull delivery when the source of the events is an [Azure service](event-schema-api-management.md?tabs=cloud-event-schema) or a [partner](partner-events-overview.md) (SaaS) system.
 - You need full control as to when to receive events. For example, your application may not up all the time, not stable enough, or you process data at certain times.
-- You need full control over event consumption. For example, a downstream service or layer in your consumer application has a problem that prevents you from processing events. In that case, the pull delivery API allows to release an already read event back to the broker so that it can be delivered later.
+- You need full control over event consumption. For example, a downstream service or layer in your consumer application has a problem that prevents you from processing events. In that case, the pull delivery API allows the consumer app to release an already read event back to the broker so that it can be delivered later.
 - You want to use [private links](../private-link/private-endpoint-overview.md) when receiving events. This is possible with pull delivery.
 - You do not have the ability to expose an endpoint and use push delivery, but you can connect to Event Grid to consume events.
 
 #### Push delivery
-- You need to receive events from Azure services, parner (SaaS) event sources or from your applications. Push delivery supports these types of event sources. 
-- You want to avoid constant polling to determine that a system state change has occurred. You rather use Event Grid to send you events at the time state changes happen.
+- You need to receive events from Azure services, partner (SaaS) event sources or from your applications. Push delivery supports these types of event sources. 
+- You want to avoid constant polling to determine that a system state change has occurred. You rather use Event Grid to send events to you at the time state changes happen.
 - You have an application that cannot make outbound calls. For example, your organization may be concerned about data exfiltration. However, your application can receive events through a public endpoint.
 
 ## Pull delivery
 Pull delivery is available through [namespace topics](concepts.md#topics), which are topics that you create inside a [namespace](concepts.md#namespaces). Your application publishes CloudEvents to a single namespace HTTP endpoint specifying the target topic.
 
 >[!Note]
-> - Namespaces provide a simpler resource model featuring a single kind of topic. Currently, Event Grid supports publishig your own application events through namespace topics. You cannot consume events from Azure services or partner SaaS systems using namespace topics. You also cannot create system topics, domain topics or partner topics in a namespace.
+> - Namespaces provide a simpler resource model featuring a single kind of topic. Currently, Event Grid supports publishing your own application events through namespace topics. You cannot consume events from Azure services or partner SaaS systems using namespace topics. You also cannot create system topics, domain topics or partner topics in a namespace.
 >- Key and SAS token (local) authentication is currently supported for namespace topics.
 >- Namespace topics support CloudEvents JSON format.
 
 You use an event subscription to define the filtering criteria for events and in doing so, you effectively define the set of events that are available for consumption. One or more subscriber (consumer) applications connect to the same namespace endpoint specifying the topic and event subscription from which to receive events.
 
-:::image type="content" source="media/pull-and-push-delivery-overview/pull-delivery.svg" alt-text="High-level diagram of a publisher and consumer using an event subscription. Consumer uses pull delivery." lightbox="media/pull-and-push-delivery-overview/pull-delivery.svg":::
+:::image type="content" source="media/pull-and-push-delivery-overview/pull-delivery.svg" alt-text="High-level diagram of a publisher and consumer using an event subscription. Consumer uses pull delivery." :::
 
 One or more consumers connects to Event Grid to receive events.
 
@@ -114,7 +114,7 @@ Push delivery is supported for the following resources. Click on the links to le
 Configure an event subscription on a system, custom, or partner topic to specify a filtering criteria for events and to set a destination to one of the supported [event handlers](event-handlers.md).
 The following diagram illustrates the resources that support push delivery with some of the supported event handlers.
 
-:::image type="content" source="media/pull-and-push-delivery-overview/push-delivery.svg" alt-text="High-level diagram showing all the topic types that support push delivery, namely System, Custom, Domain, and Partner topics." lightbox="media/pull-and-push-delivery-overview/push-delivery.svg":::
+:::image type="content" source="media/pull-and-push-delivery-overview/push-delivery.svg" alt-text="High-level diagram showing all the topic types that support push delivery, namely System, Custom, Domain, and Partner topics." :::
 
 ## Next steps
 
