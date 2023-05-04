@@ -11,15 +11,9 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Azure Data Explorer input bindings for Azure Functions (preview)
 
-When a function runs, the Azure Data Explorer input binding retrieves data from a database and passes it to the input parameter of the function.
-
-**TODO: RAM - I prefer the above sentence to the original: This document explains the usage of the input bindings that are supported on Azure functions for Azure Data Explorer. Input bindings are used to read data from Azure Data Explorer.**
+The Azure Data Explorer input binding retrieves data from a database.
 
 ## Examples
-
-**TODO: RAM - anchor tags are not desirable in docs, why do we need this? Same applies for all other anchors**
-
-<a id="example"></a>
 
 ::: zone pivot="programming-language-csharp"
 

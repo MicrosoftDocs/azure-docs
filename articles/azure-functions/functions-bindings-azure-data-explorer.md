@@ -88,10 +88,8 @@ Azure Data Explorer bindings for Azure Functions aren't available for the v3 ver
 
 ## Functions runtime
 
-**TODO: RAM - We don't put future promises in docs. We should remove this note**
-
 > [!NOTE]
-> Python language support for the Azure Data Explorer bindings extension is available starting with v4.6.0 of the [functions runtime](set-runtime-version.md#view-and-update-the-current-runtime-version).  You may need to update your install of Azure Functions [Core Tools](functions-run-local.md) for local development.
+> Python language support for the Azure Data Explorer bindings extension is available starting with v4.6.0 or later of the [functions runtime](set-runtime-version.md#view-and-update-the-current-runtime-version).  You may need to update your install of Azure Functions [Core Tools](functions-run-local.md) for local development.
 
 ## Install bundle
 
@@ -167,9 +165,7 @@ Azure Data Explorer bindings for Azure Functions have a required property for th
 
 - Azure Data Explorer binding supports version 4.x and later of the Functions runtime.
 - Source code for the Azure Data Explorer bindings can be found in [this GitHub repository](https://github.com/Azure/Webjobs.Extensions.Kusto).
-- This binding requires connectivity to Azure Data Explorer. For input bindings, the user should have *ingest* privileges and for output bindings the user should have read/viewer privileges
-
-**TODO: RAM - Should Ingegt perms be for OUTPUT binding?**
+- This binding requires connectivity to Azure Data Explorer. For input bindings, users requires **Viewer** permissions and for output bindings users requires **Ingestor** permissions. For more information about permissions, see [Role-based access control](/azure/data-explorer/kusto/management/access-control/role-based-access-control).
 
 ## Next steps
 

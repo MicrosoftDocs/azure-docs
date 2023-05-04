@@ -19,10 +19,6 @@ For information on setup and configuration details, see the [overview](functions
 
 ## Examples
 
-**TODO: RAM - anchor tags are not desirable in docs, why do we need this? Same applies for all other anchors**
-
-<a id="example"></a>
-
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
