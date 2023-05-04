@@ -352,7 +352,7 @@ Now that you have your function app running in a custom container published to a
 
 # [Azure Functions](#tab/functions)
 
-Your custom container runs on a Linux [hosting plan in Azure Functions](./functions-scale.md). 
+Your custom container runs on a Linux [Premium plan](functions-premium-plan.md) or [Dedicated (App Service) plan](dedicated-plan.md) in Azure Functions. 
 
 > [!div class="nextstepaction"]
 > [Deploy to Azure Functions](./functions-deploy-custom-container.md)
@@ -375,7 +375,7 @@ Your custom container runs in [Azure Arc](../container-apps/overview.md).
 > Support for running Azure Functions in Azure Arc is currently in preview. 
 
 > [!div class="nextstepaction"]
-> [Deploy to Azure Arc](./create-first-function-arc-custom-container.md.md)
+> [Deploy to Azure Arc](./create-first-function-arc-custom-container.md)
 
 ---
 
