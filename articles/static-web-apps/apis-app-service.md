@@ -73,7 +73,7 @@ When the unlinking process is complete, requests to routes beginning with `/api`
 
 To enable your App Service resource to receive anonymous traffic, follow these steps to remove the identity provider:
 
-1. In the Azure Portal, navigate to the App Service resource.
+1. In the Azure portal, navigate to the App Service resource.
 
 1. Select **Authentication** from the navigation menu.
 
