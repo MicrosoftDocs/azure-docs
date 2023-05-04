@@ -11,6 +11,12 @@ Azure Resource Graph provides the ability to explore and discover your Azure res
 at scale. Engineered for fast responses, it's a great way to learn about your environment and also
 about the properties that exist on your Azure resources.
 
+> [!NOTE]
+> Depending on the Resource Graph table, properties such as resource group name will either match the 
+> casing as shown in the Portal or be lowercased. This may cause unexpected results and can be accounted for in your
+> queries using case-insensitive comparison operators such as `=~` instead of `==` and converting properties to lowercase in
+> joins with the `tolower()` function. 
+
 ## Explore virtual machines
 
 A common resource in Azure is a virtual machine. As a resource type, virtual machines have many
