@@ -16,6 +16,8 @@ ms.custom: template-how-to, event-tier1-build-2022
 
 This article describes how to enable transparent data encryption on a database created in an Azure Arc-enabled SQL Managed Instance. In this article, the term *managed instance* refers to a deployment of Azure Arc-enabled SQL Managed Instance.
 
+The pattern in this article is similar to 
+
 ## Prerequisites
 
 Before you proceed with this article, you must have an Azure Arc-enabled SQL Managed Instance resource created and connect to it.

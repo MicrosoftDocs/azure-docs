@@ -218,9 +218,9 @@ items:
               href: upgrade-active-directory-connector.md
         - name: Transparent data encryption
           items:
-            - name: Turn on transparent data encryption manually
+            - name: Enable
               href: configure-transparent-data-encryption-manually.md
-            - name: Turn on transparent data encryption (preview)
+            - name: Automate (preview)
               href: configure-transparent-data-encryption-sql-managed-instance.md
         - name: Business continuity
           items:
