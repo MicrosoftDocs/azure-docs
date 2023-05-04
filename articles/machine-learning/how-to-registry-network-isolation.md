@@ -144,11 +144,11 @@ Use the tabs to view instructions to either add a private endpoint to an __exist
 1. From the __Virtual network__ tab, select the virtual network and subnet for your Azure Machine Learning resources. Select __Next__ to continue.
 1. From the __DNS__ tab, leave the default values unless you have specific private DNS integration requirements. Select __Next__ to continue.
 1. From the __Review + Create__ tab, select __Create__ to create the private endpoint.
-1. If you would like to set public network access to disabled, use the below command. Confirm the storage and ACR has the public network access disabled as well.
+1. If you would like to set public network access to disabled, use the following command. Confirm the storage and ACR has the public network access disabled as well.
 
-```azurecli
-az ml registry update --set publicNetworkAccess=Disabled --name <name-of-registry>
-```
+    ```azurecli
+    az ml registry update --set publicNetworkAccess=Disabled --name <name-of-registry>
+    ```
 
 
 # [New registry](#tab/new)
