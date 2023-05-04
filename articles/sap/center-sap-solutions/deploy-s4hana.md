@@ -224,16 +224,16 @@ If the deployment fails, delete the VIS resource in the Azure portal, then recre
 
 1. How can I create Azure subscription or register Resoruce provider?
 
-    1. You can create an Azure subscription by following [this link](https://learn.microsoft.com/azure/cost-management-billing/manage/create-subscription#create-a-subscription)
-    2. You can regiter a resource provider by following [this link](https://learn.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal)
+    1. You can create an Azure subscription by following [this link](/azure/cost-management-billing/manage/create-subscription#create-a-subscription)
+    2. You can regiter a resource provider by following [this link](/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal)
 
 1. How can I provide contributor role to the subscription?
 
-    1. You can provide contributor role to the subscription by following [this link](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal-subscription-admin)
+    1. You can provide contributor role to the subscription by following [this link](/azure/role-based-access-control/role-assignments-portal-subscription-admin)
 
 1. How can I create a user assigned managed identity?
 
-    1. You can create a user assigned managed identity by following [this link](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity)
+    1. You can create a user assigned managed identity by following [this link](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity)
 
 
 
