@@ -67,7 +67,7 @@ Before the extension can interact with Azure IoT Hub, you must sign in to your A
 
 For more information about interacting with the Azure Account extension, see the [GitHub documentation](https://github.com/microsoft/vscode-azure-account#readme) for the extension.
 
-You can use the **Azure: Sign In** command in the Command Palette to sign in to your Azure account and select the Azure subscription with which the Azure IoT Hub extension interacts. If you're not signed into your Azure account and try to use one of the commands from the Azure IoT Hub extension, a notification is displayed in VS Code. You can select the **Sign In** button from that notification to sign in to your Azure account.
+You can use the **Azure: Sign In** command in the Command Palette to sign in to your Azure account and select the Azure subscription with which the Azure IoT Hub extension interacts. If you don't sign in to your Azure account, a notification is displayed in VS Code when you try to interact with the Azure IoT Hub extension. You can select the **Sign In** button from that notification to sign in to your Azure account.
 
 Once signed in, you can interact with your hubs, devices, and modules from either the Command Palette or the action menu in the Explorer view of VS Code.
 
@@ -108,13 +108,12 @@ You can perform the following module management tasks for the selected device in
 - [List existing modules](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/List-Devices) by selecting the **Refresh** button for the current device in the Explorer view of VS Code
 - [Get information about the selected module](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Get-Module-Info) as a JSON document, shown in the Output panel of VS Code
 - [Edit the module twin](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin) for the selected module, as a JSON document in the editor of VS Code
-
-    > [!NOTE]
-    > Azure IoT Edge system modules are read-only and cannot be modified. Changes can be submitted by deploying a configuration.
-
 - [Copy the connection string for the selected module](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Copy-Module-Connection-String) to your clipboard
 - [Invoke a direct method for the selected module](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Invoke-Module-Direct-Method) and display the results in the Output panel of VS Code
 - [Delete the selected module](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Delete-Module) from the current device
+
+> [!NOTE]
+> Azure IoT Edge system modules are read-only and cannot be modified. Changes can be submitted by deploying a configuration for the related IoT Edge device.
 
 ## Interact with IoT Hub
 
