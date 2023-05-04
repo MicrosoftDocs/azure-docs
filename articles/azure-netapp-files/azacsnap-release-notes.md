@@ -39,9 +39,9 @@ AzAcSnap 8 is being released with the following fixes and improvements:
   - Details (`-c details`) changes:
     - Fix for listing snapshot details with `-c details` when using Azure Large Instance storage.
   - Logging enhancements:
-    - Additional logging output to syslog (e.g., /var/log/messages) on failure.
+    - Extra logging output to syslog (e.g., /var/log/messages) on failure.
     - New “mainlog” (azacsnap.log) to provide a more parse-able high-level log of commands run with success or failure result.
-  - New global settings file (`.azacsnaprc`) to control behaviour of azacsnap, including location of “mainlog” file.
+  - New global settings file (`.azacsnaprc`) to control behavior of azacsnap, including location of “mainlog” file.
 
 ## Feb-2023
 
