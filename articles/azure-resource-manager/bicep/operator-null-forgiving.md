@@ -13,6 +13,7 @@ The unary postfix `!` operator is the null-forgiving, or null-suppression, opera
 
 `expression!`
 
+The null-forgiving operator ensures that a value is not null, thereby changing the assigned type of the value from `null | <type>` to `<type>`.
 The following example fails the design time validation:
 
 ```bicep
