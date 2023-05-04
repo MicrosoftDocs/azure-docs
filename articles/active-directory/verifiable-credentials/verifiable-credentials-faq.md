@@ -132,7 +132,7 @@ No, at this point it isn't possible to keep your tenant's DID after you have opt
 
 The tutorials for deploying and running the [samples](verifiable-credentials-configure-issuer.md#prerequisites) describes the use of the `ngrok` tool as an application proxy. This tool is sometimes blocked by IT admins from being used in corporate networks. An alternative is to deploy the sample to [Azure App Service](../../app-service/overview.md) and run it in the cloud. The following links help you deploy the respective sample to Azure App Service. The Free pricing tier will be sufficient for hosting the sample. For each tutorial, you need to start by first creating the Azure App Service instance, then skip creating the app since you already have an app and then continue the tutorial with deploying it.
 
-- Dotnet - [Publish to App Service](../../app-service/quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-vs#publish-your-web-app)
+- Dotnet - [Publish to App Service](../../app-service/quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-vs#2-publish-your-web-ap)
 - Node - [Deploy to App Service](../../app-service/quickstart-nodejs.md?tabs=linux&pivots=development-environment-vscode#deploy-to-azure)
 - Java - [Deploy to App Service](../../app-service/quickstart-java.md?tabs=javase&pivots=platform-linux-development-environment-maven#4---deploy-the-app). You need to add the maven plugin for Azure App Service to the sample.
 - Python - [Deploy using VSCode](../../app-service/quickstart-python.md?tabs=flask%2Cwindows%2Cazure-cli%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli#3---deploy-your-application-code-to-azure)
