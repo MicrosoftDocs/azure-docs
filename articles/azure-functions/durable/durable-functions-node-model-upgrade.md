@@ -26,7 +26,7 @@ If you're interested in creating a brand new v4 app instead, you can follow the 
 
 Before following this guide, make sure you follow these steps first:
 
-- Install have [Node.js](https://nodejs.org/en/download/releases) version 18.x+.
+- Install [Node.js](https://nodejs.org/en/download/releases) version 18.x+.
 - Install [TypeScript](https://www.typescriptlang.org/) version 4.x+.
 - Run your app on [Azure Functions Runtime](../functions-versions.md?tabs=v4&pivots=programming-language-javascript) version 4.16.5+.
 - Install [Azure Functions Core Tools](../functions-run-local.md?tabs=v4) version 4.0.5095+.
@@ -871,7 +871,7 @@ Below are some of the new exported types:
 
 ## Troubleshooting
 
-If you see the following error when running your orchestration code, make sure you are running on the at least `v4.16.5` of the [Azure Functions Runtime](../functions-versions.md?tabs=v4&pivots=programming-language-javascript) or at least `v4.0.5095` of [Azure Functions Core Tools](../functions-run-local.md?tabs=v4) if running locally.
+If you see the following error when running your orchestration code, make sure you are running on at least `v4.16.5` of the [Azure Functions Runtime](../functions-versions.md?tabs=v4&pivots=programming-language-javascript) or at least `v4.0.5095` of [Azure Functions Core Tools](../functions-run-local.md?tabs=v4) if running locally.
 
 ```bash
 Exception: The orchestrator can not execute without an OrchestratorStarted event.
