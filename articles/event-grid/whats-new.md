@@ -20,8 +20,6 @@ Azure Event Grid receives improvements on an ongoing basis. To stay up to date w
     - [Create, view, and manage namespaces](create-view-manage-namespaces.md)
     - [Create, view, and manage namespace topics](create-view-manage-namespace-topics.md)
     - [Create, view, and manage event subscriptions](create-view-manage-event-subscriptions.md)
-- [Scaling with Azure Event Grid](scaling-with-azure-event-grid.md)
-- [Customer enabled disaster recovery in Azure Event Grid](custom-disaster-recovery-client-side.md)
 - The following articles for **MQTT messaging** are added.
     - [Introduction to MQTT messaging in Azure Event Grid](mqtt-overview.md)
     - Publish and subscribe to MQTT messages on Event Grid namespace - [Azure portal](mqtt-publish-and-subscribe-portal.md), [CLI](mqtt-publish-and-subscribe-cli.md)
@@ -39,8 +37,11 @@ Azure Event Grid receives improvements on an ongoing basis. To stay up to date w
     - [MQTT Support in Azure Event Grid](mqtt-mqtt-support.md)
     - [MQTT clients - life cycle events](mqtt-client-life-cycle-events.md)
     - [Client authentication using CA certificate chain](mqtt-certificate-chain-client-authentication.md)
+    - [Customer enabled disaster recovery in Azure Event Grid](custom-disaster-recovery-client-side.md)
     - [How to establish multiple sessions for a single client](mqtt-establishing-multiple-sessions-per-client.md)
     - [Monitoring data reference for MQTT delivery](monitor-mqtt-delivery-reference.md)
+- [Scaling with Azure Event Grid](scaling-with-azure-event-grid.md)
+
 
 ## Microsoft.Azure.Management.EventGrid version 9.0.0 (REST API version 2022-06)
 This release corresponds to REST API version 2022-06-15, which includes the following features:

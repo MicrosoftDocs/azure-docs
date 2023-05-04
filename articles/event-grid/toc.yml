@@ -443,7 +443,7 @@ items:
       items:
       - name: Event Grid namespace terminology
         href: mqtt-event-grid-namespace-terminology.md
-      - name: Azure Event Grid Namespace MQTT client authentication
+      - name: Authenticate clients using certificate chain
         href: mqtt-client-authentication.md      
       - name: Access control for MQTT clients
         href: mqtt-access-control.md
