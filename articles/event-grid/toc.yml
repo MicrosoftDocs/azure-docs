@@ -11,8 +11,14 @@ items:
       href: whats-new.md
   - name: Pull and push delivery using HTTP
     items:
+    - name: Overview
+      items:
+      - name: Pull and push delivery overview
+        href: pull-and-push-delivery-overview.md
     - name: Quickstarts
       items:
+      - name: Publish and subscribe using namespace topics
+        href: publish-events-using-namespace-topics.md
       - name: Publish and subscribe using custom topics
         items:
         - name: Custom events to Event Grid Viewer app
