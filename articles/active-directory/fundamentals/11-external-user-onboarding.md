@@ -155,7 +155,7 @@ If you prefer to use dynamic groups, you do not need to add the users to a group
   
 ## Step 5: Provision the invited user to the application
 
-Once the invited external user has been provisioned to Azure AD, the Microsoft Graph API will return a response with the necessary user information such as object ID and email. The LOB application can then provision the user to its own directory/database. Depending on the type of application and internal directory type the application uses, the actual implementation of this provisioning will vary. 
+Once the invited external user has been provisioned to Azure AD, the Microsoft Graph API returns a response with the necessary user information such as object ID and email. The LOB application can then provision the user to its own directory/database. Depending on the type of application and internal directory type the application uses, the actual implementation of this provisioning varies. 
 
 With the external user provisioned in both Azure AD and the application, the LOB app can now notify the end user who initiated the invitation that the process has been successful. The invited user can get single sign-on with their own identity without the inviting organization needing to onboard and issue extra credentials. Azure AD can enforce authorization policies such as conditional access, multi-factor authentication, and risk-based identity protection. 
 
