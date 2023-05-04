@@ -21,7 +21,7 @@ The Azure AD provisioning service runs an initial provisioning cycle against the
 
  On the **Provisioning** page for an app, you can view the status of the Azure AD provisioning service. The **Current Status** section at the bottom of the page shows whether a provisioning cycle has started provisioning user accounts. You can watch the progress of the cycle, see how many users and groups have been provisioned, and see how many roles are created.
 
-When you first configure automatic provisioning, the **Current Status** section at the bottom of the page shows the status of the initial provisioning cycle. This section updates each time an incremental cycle runs. The following details are shown:
+When you first configure automatic provisioning, the **Current Status** section at the bottom of the page shows the status of the initial provisioning cycle. This section updates each time an incremental cycle is run. The following details are shown:
 - The type of provisioning cycle (initial or incremental) that is currently running or was last completed.
 - A **progress bar** showing the percentage of the provisioning cycle that has completed. The percentage reflects the count of pages provisioned. Note that each page could contain multiple users or groups, so the percentage doesn't directly correlate to the number of users, groups, or roles provisioned.
 - A **Refresh** button you can use to keep the view updated.
@@ -56,7 +56,7 @@ The time it takes for a given user to be provisioned depends mainly on whether y
 
 - For **initial cycle**, the job time depends on many factors, including the number of users and groups in scope for provisioning, and the total number of users and group in the source system. The first sync between Azure AD and an app can take anywhere from 20 minutes to several hours, depending on the size of the Azure AD directory and the number of users in scope for provisioning. A comprehensive list of factors that affect initial cycle performance are summarized later in this section.
 
-- For **incremental cycles** after the initial cycle, job times tend to be faster (e.g. within 10 minutes), as the provisioning service stores watermarks that represent the state of both systems after the initial cycle, improving performance of subsequent syncs. The job time depends on the number of changes detected in that provisioning cycle. If there are fewer than 5,000 user or group membership changes, the job can finish within a single incremental provisioning cycle. 
+- For **incremental cycles**, after the initial cycle, job times tend to be faster (e.g. within 10 minutes), as the provisioning service stores watermarks that represent the state of both systems after the initial cycle, improving performance of subsequent syncs. The job time depends on the number of changes detected in that provisioning cycle. If there are fewer than 5,000 user or group membership changes, the job can finish within a single incremental provisioning cycle. 
 
 The following table summarizes synchronization times for common provisioning scenarios. In these scenarios, the source system is Azure AD and the target system is a SaaS application. The sync times are derived from a statistical analysis of sync jobs for the SaaS applications ServiceNow, Workplace, Salesforce, and G Suite.
 
