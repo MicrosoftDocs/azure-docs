@@ -70,12 +70,7 @@ sections:
           Will this break my custom scripts, custom images or OS images that have scratch files or page files on a local temp disk?
         answer: |
           If the custom OS image points to the local temp disk, the image might not work correctly with this diskless size.
-
-      - question: |
-          Have questions or feedback?
-        answer: |
-          Fill out the [feedback form]( https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRUMzdCQkw0OVVRTldFUUtXSTlLQVBPUkVHSy4u). 
-
+          
 additionalContent: |
 
   ## Next steps
