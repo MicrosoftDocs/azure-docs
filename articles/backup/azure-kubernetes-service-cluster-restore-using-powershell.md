@@ -58,7 +58,7 @@ $rp = Get-AzDataProtectionRecoveryPoint -ResourceGroupName "testBkpVaultRG" -Vau
 
 ### Preparing the restore request
 
-Get the Azure Resource Manager (ARM) ID of the AKS cluster where you want to perform the restore operation.
+Get the Azure Resource Manager ID of the AKS cluster where you want to perform the restore operation.
 
 ```azurepowershell
 $targetAKSClusterd = /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourceGroups/targetrg/providers/Microsoft.ContainerService/managedClusters/PSAKSCluster2

@@ -17,7 +17,7 @@ Azure Backup now allows you to back up AKS clusters (cluster resources and persi
 
 ## Before you start
 
-- Currently, AKS backup supports Azure Disk-based persistent volumes (enabled by CSI driver) only. The backups are stored in operational datastore only (backup data is stored in your tenant only and isn't moved to a vault). The Backup vault and AKS cluster should be in the same region.
+- Currently, AKS backup supports Azure Disk-based persistent volumes (enabled by CSI driver) only. The backups are stored only in operational datastore (in your tenant) and isn't moved to a vault. The Backup vault and AKS cluster should be in the same region.
 
 - AKS backup uses a blob container and a resource group to store the backups. The blob container has the AKS cluster resources stored in it, whereas the persistent volume snapshots are stored in the resource group. The AKS cluster and the storage locations must reside in the same region. Learn [how to create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
 
@@ -33,7 +33,7 @@ For more information on the supported scenarios, limitations, and availability, 
 
 ## Create a Backup vault
 
-A Backup vault is a management entity in Azure that stores backup data for various newer workloads that Azure Backup supports, such as Azure Database for PostgreSQL servers and Azure Disks. Backup vaults make it easy to organize your backup data while minimizing management overhead. They are based on the Azure Resource Manager (ARM) model, which provides enhanced capabilities to help secure backup data. Before you create a Backup vault, choose the storage redundancy of the data in the vault, and then create the Backup vault with that storage redundancy and the location. 
+A Backup vault is a management entity in Azure that stores backup data for various newer workloads that Azure Backup supports, such as Azure Database for PostgreSQL servers and Azure Disks. Backup vaults make it easy to organize your backup data while minimizing management overhead. They are based on the Azure Resource Manager model, which provides enhanced capabilities to help secure backup data. Before you create a Backup vault, choose the storage redundancy of the data in the vault, and then create the Backup vault with that storage redundancy and the location. 
 
 Here, we're creating a Backup vault *TestBkpVault* in *West US* region under the resource group *testBkpVaultRG*. Use the `New-AzDataProtectionBackupVault` cmdlet to create a Backup vault. Learn more about [creating a Backup vault](backup-vault-overview.md#create-a-backup-vault).
 
@@ -42,7 +42,8 @@ Here, we're creating a Backup vault *TestBkpVault* in *West US* region under the
 
 1. To define the storage settings of the Backup vault, run the following cmdlet:
 
-   The vault is created with only *Local Redundancy* and *Operational Data store* support.
+   >[!Note]
+   >The vault is created with only *Local Redundancy* and *Operational Data store* support.
 
     ```azurepowershell
     $storageSetting = New-AzDataProtectionBackupVaultStorageSettingObject -Type LocallyRedundant -DataStoreType OperationalStore
@@ -50,10 +51,10 @@ Here, we're creating a Backup vault *TestBkpVault* in *West US* region under the
 
 2. To create the Backup vault as per the details mentioned earlier, run the following cmdlet:
 
-    ```azurepowershell
-    New-AzDataProtectionBackupVault -ResourceGroupName testBkpVaultRG -VaultName TestBkpVault -Location westus -StorageSetting $storageSetting
-    $TestBkpVault = Get-AzDataProtectionBackupVault -VaultName TestBkpVault
-    ```
+   ```azurepowershell
+   New-AzDataProtectionBackupVault -ResourceGroupName testBkpVaultRG -VaultName TestBkpVault -Location westus -StorageSetting $storageSetting
+   $TestBkpVault = Get-AzDataProtectionBackupVault -VaultName TestBkpVault
+   ```
 
 Once the vault creation is complete, create a backup policy to protect AKS clusters.
 
@@ -122,9 +123,7 @@ Once the vault and policy creation are complete, you need to perform the followi
 
 3.	**Enable Trusted Access**
 
-   For the Backup vault to connect with the AKS cluster, you must enable Trusted Access as it allows the Backup vault to have a direct line of sight to the AKS cluster.
-
-   To enable Trusted Access, [run these command](azure-kubernetes-service-cluster-manage-backups.md#trusted-access-related-operations )
+   For the Backup vault to connect with the AKS cluster, you must enable Trusted Access as it allows the Backup vault to have a direct line of sight to the AKS cluster. Learn [how to enable Trusted Access]](azure-kubernetes-service-cluster-manage-backups.md#trusted-access-related-operations).
 
 >[!Note]
 >For Backup Extension installation and Trusted Access enablement, the commands are available in Azure CLI only.
@@ -137,7 +136,7 @@ With the created Backup vault and backup policy, and the AKS cluster in *ready-t
 
 - **AKS cluster to be protected**
 
-  Fetch the ARM ID of the AKS cluster to be protected. This serves as the identifier of the cluster. In this example, let's use an AKS cluster named *PSTestAKSCluster*, under a resource group *aksrg*, in a different subscription:
+  Fetch the Azure Resource Manager ID of the AKS cluster to be protected. This serves as the identifier of the cluster. In this example, let's use an AKS cluster named *PSTestAKSCluster*, under a resource group *aksrg*, in a different subscription:
 
   ```azurepowershell
   $sourceClusterId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/aksrg /providers/Microsoft.ContainerService/managedClusters/ PSTestAKSCluster "
@@ -145,7 +144,7 @@ With the created Backup vault and backup policy, and the AKS cluster in *ready-t
 
 - **Snapshot resource group**
 
-  The persistent volume snapshots are stored in a resource group in your subscription. We recommend you to create a dedicated resource group as a snapshot datastore to be used by the Azure Backup service. A dedicated resource group allows restricting access permissions on the resource group, providing safety and ease of management of the backup data. Save the ARM ID of the resource group to the location where you want to store the persistent volume snapshots.
+  The persistent volume snapshots are stored in a resource group in your subscription. We recommend you to create a dedicated resource group as a snapshot datastore to be used by the Azure Backup service. A dedicated resource group allows restricting access permissions on the resource group, providing safety and ease of management of the backup data. Save the Azure Resource Manager ID of the resource group to the location where you want to store the persistent volume snapshots.
 
   ```azurepowershell
   $snapshotrg = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/snapshotrg"
