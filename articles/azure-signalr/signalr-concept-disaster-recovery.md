@@ -136,6 +136,12 @@ Be noted no matter which patterns you choose to use, you'll need to connect each
 Also due to the nature of SignalR connection (it's a long connection), clients will experience connection drops when there is a disaster and failover take place.
 You'll need to handle such cases at client side to make it transparent to your end customers. For example, do reconnect after a connection is closed.
 
+## How to test a failover
+
+Follow the steps to trigger the failover:
+1. In the Networking tab for the primiary resource in the portal, **disable** public network access. If the resource has private network enabled, use *access control rules* to deny all the traffic.
+2. **Restart** the primary resource.  
+
 ## Next steps
 
 In this article, you have learned how to configure your application to achieve resiliency for SignalR service. To understand more details about server/client connection and connection routing in SignalR service, you can read [this article](signalr-concept-internals.md) for SignalR service internals.
