@@ -57,4 +57,17 @@ To register an existing SAP system in Azure Center for SAP solutions:
           --central-server-vm <Virtual Machine resource ID> \ 
           --identity "{type:UserAssigned,userAssignedIdentities:{<Managed Identity resource ID>:{}}}" \
      ```
+ - **n** parameter is used to specify the SAP System ID (SID) that you are registering with Azure Center for SAP solutions.
+ - **environment** parameter is used to specify the type of SAP environment you are registering. Valid values are *NonProd* and *Prod*.
+ - **sap-product** parameter is used to specify the type of SAP product you are registering. Valid values are *S4HANA*, *ECC*, *Other*.
 
+2. Once you trigger the registration process, you can view its status by getting the status of the Virtual Instance for SAP solutions resource that gets deployed as part of the registration process.
+
+     ```azurecli-interactive
+     az workloads sap-virtual-instance show -g <Resource-group-name> -n C36
+     ```
+
+## Next steps
+
+- [Monitor SAP system from Azure portal](monitor-portal.md)
+- [Manage a VIS](manage-virtual-instance.md)
