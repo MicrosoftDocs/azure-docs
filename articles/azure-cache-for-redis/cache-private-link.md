@@ -25,7 +25,7 @@ You can restrict public access to the private endpoint of your cache by disablin
 >[!Important]
 > Private endpoint is supported on cache tiers Basic, Standard, Premium, and Enterprise. We recommend using private endpoint instead of VNets. Private endpoints are easy to set up or remove, are supported on all tiers, and can connect your cache to multiple different VNets at once.
 >
->
+> There might be data loss on the Basic cache when we delete private endpoint and recreate it again. 
 
 ## Prerequisites
 
