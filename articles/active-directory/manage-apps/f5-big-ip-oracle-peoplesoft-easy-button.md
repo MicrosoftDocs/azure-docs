@@ -154,7 +154,7 @@ Use the **Configuration Properties** tab to creat new application configurations
 4. Confirm the BIG-IP connects to the tenant.
 5. Select **Next**.
 
-   ![Screenshot of options and selections for Configuration Properties](./media/f5-big-ip-easy-button-oracle-peoplesoft/configuration-general-and-service-account-properties.png)
+   ![Screenshot of options and selections for Configuration Properties.](./media/f5-big-ip-easy-button-oracle-peoplesoft/configuration-general-and-service-account-properties.png)
  
 ### Service Provider
 
@@ -268,7 +268,7 @@ The **Application Pool** tab has services behind a BIG-IP, represented as a pool
 
    ![Screenshot of IP Address/Node Name and Port options on Pool Properties.](./media/f5-big-ip-easy-button-oracle-peoplesoft/application-pool.png)
 
- #### Single Sign-On & HTTP Headers
+ #### Single sign-on & HTTP Headers
 
 The Easy Button wizard supports Kerberos, OAuth Bearer, and HTTP authorization headers for SSO to published applications. The PeopleSoft application expects headers. 
 
@@ -324,7 +324,7 @@ Configure Oracle Access Manager to accept SSO from the BIG-IP.
 7. For **User Role**, enter **PeopleSoft User**.
 8. Select **Save**.
 
-   ![Screenshot of User ID on the Roles tab, User Profiles](./media/f5-big-ip-easy-button-oracle-peoplesoft/user-profiles.png)
+   ![Screenshot of User ID on the Roles tab, User Profiles.](./media/f5-big-ip-easy-button-oracle-peoplesoft/user-profiles.png)
  
 9.	Navigate to **People Tools** > **Web Profile**.
 10.	Select the web profile.
@@ -365,7 +365,7 @@ Add SLO support for PeopleSoft users.
 4.	Locate the element with the **PT_LOGOUT_MENU** ID.
 5.	Save the URL path with the query parameters. In this example: `/psp/ps/?cmd=logout`.
 
-   ![Screenshot of PeopleSoft logout URL](./media/f5-big-ip-easy-button-oracle-peoplesoft/peoplesoft-logout-url.png)
+   ![Screenshot of PeopleSoft logout URL.](./media/f5-big-ip-easy-button-oracle-peoplesoft/peoplesoft-logout-url.png)
  
 Create a BIG-IP iRule to redirect users to the SAML SP sign out endpoint: `/my.logout.php3`.
  
