@@ -27,7 +27,7 @@ We've broken down this article into three separate articles so it's easy for you
 
 - [Prepare your Azure AD for customers tenant](how-to-headless-app-node-sign-in-prepare-tenant.md) tenant guides you how to register your app and configure user flows in the Microsoft Entra admin center.
 - [Prepare your Node.js headless application](how-to-headless-app-node-sign-in-prepare-app.md) guides you how to set up your Node.js app structure.
-- [Add sign-in and sign-out](how-to-headless-app-node-sign-in-sign-in-out.md) guides you how to add authentication support to your application using MSAL Node. 
+- [Add sign-in and sign-out](how-to-headless-app-node-sign-in-sign-out.md) guides you how to add authentication support to your application using MSAL Node. 
 
 ## Overview
 

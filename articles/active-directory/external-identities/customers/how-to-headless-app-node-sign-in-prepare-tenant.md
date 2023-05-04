@@ -26,14 +26,14 @@ In this article, you prepare your Azure Active Directory (Azure AD) for customer
 
 - Associate your headless application with the user flow. 
 
-After you complete the tasks, you'll collect an *Application (client) ID*, a *Client secret* and a *Directory (tenant) ID*.
+After you complete the tasks, you'll collect an *Application (client) ID* and a *Directory (tenant) ID*.
 
 If you've already registered a headless application in the Microsoft Entra admin center, and associated it with a user flow, you can skip the steps in this article and move to [Prepare your Node.js headless app](how-to-headless-app-node-sign-in-prepare-app.md).
 
 ## Register the headless app
 
 [!INCLUDE [active-directory-b2c-register-app](./includes/register-app/register-client-app-common.md)]
-[!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/register-app/add-platform-redirect-url-node.md)]  
+[!INCLUDE [active-directory-b2c-enable-public-client-flow](./includes/register-app/enable-public-client-flow.md)]  
 
 ## Grant API permissions
 

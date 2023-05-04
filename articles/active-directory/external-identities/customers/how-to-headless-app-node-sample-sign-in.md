@@ -43,8 +43,7 @@ In this article, you complete the following tasks:
 
 ## Register the headless app
 
-[!INCLUDE [active-directory-b2c-register-app](./includes/register-app/register-client-app-common.md)]
-[!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/register-app/add-platform-redirect-url-node.md)]  
+[!INCLUDE [active-directory-b2c-register-app](./includes/register-app/register-client-app-common.md)] 
 [!INCLUDE [active-directory-b2c-enable-public-client-flow](./includes/register-app/enable-public-client-flow.md)]  
 
 ## Grant API permissions
@@ -111,11 +110,13 @@ You can now test the sample Node.js headless app.
 
 1. On the sign-in page, type your **Email address**. If you don't have an account, select **No account? Create one**, which starts the sign-up flow.
 
-1. If you choose the sign-up option, after filling in your email, one-time passcode, new password and more account details, you complete the whole sign-up flow. After completing the sign upm flow and signing in, you see a page similar to the following screenshot:
+1. If you choose the sign-up option, after filling in your email, one-time passcode, new password and more account details, you complete the whole sign-up flow. After completing the sign up flow and signing in, you see a page similar to the following screenshot:
 
  :::image type="content" source="media/how-to-headless-app-node-sample-sign-in/headless-app-node-signed-in-user.png" alt-text="Screenshot showing a signed-in user in a node headless application":::
 
-## Next steps
+1. You can now move back to your terminal and see your authentication information including the ID token claims returned by Microsoft Entra.
+
+## Next steps 
 
 Learn how to: 
 
