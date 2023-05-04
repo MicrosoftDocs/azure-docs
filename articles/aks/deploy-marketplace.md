@@ -79,7 +79,7 @@ az provider register --namespace Microsoft.KubernetesConfiguration --wait
 
    :::image type="content" source="./media/deploy-marketplace/deployment-inline.png" alt-text="Screenshot of the Azure portal that shows a successful resource deployment to the cluster." lightbox="./media/deploy-marketplace/deployment-full.png":::
 
-# [Azure CLI](#tab/azure-cli/linux)
+### [Azure CLI](#tab/azure-cli/linux)
 
 1. Verify the deployment by using the following command to list the extensions that are running on your cluster:
 
@@ -87,7 +87,7 @@ az provider register --namespace Microsoft.KubernetesConfiguration --wait
    az k8s-extension list --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
    ```
 
-# [Portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
 1. Verify the deployment by using the following command to list the extensions that are running on your cluster or visit the cluster you recently installed the extension on, then navigate to "Extensions + Applications", where you will see the extension status:
 
