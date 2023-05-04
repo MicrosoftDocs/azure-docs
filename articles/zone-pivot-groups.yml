@@ -94,8 +94,6 @@ groups:
   pivots:
   - id: programming-language-csharp
     title: "C#: Visual Studio"
-  - id: programming-language-go
-    title: Go
   - id: programming-language-java
     title: "Java: Gradle"
   - id: programming-language-javascript

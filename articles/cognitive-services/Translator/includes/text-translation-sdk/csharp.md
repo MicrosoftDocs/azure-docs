@@ -42,15 +42,15 @@ For this quickstart, we use the latest version of [Visual Studio](https://visual
 
 1. Select the **Browse** Tab and the **Include prerelease** checkbox and type **Azure.AI.Translation.Text**.
 
-   :::image type="content" source="../../media/quickstarts/select-azure-package.png" alt-text="Screenshot of select pre-release NuGet package in Visual Studio.":::
+   :::image type="content" source="../../media/quickstarts/select-azure-package.png" alt-text="Screenshot of select `prerelease` NuGet package in Visual Studio.":::
 
-1. Select version 1.0.0-beta.1 from the dropdown menu and install the package in your project.
+1. Select version `1.0.0-beta.1` from the dropdown menu and install the package in your project.
 
-   :::image type="content" source="../../media/quickstarts/install-azure-package.png" alt-text="Screenshot of install pre-release NuGet package in Visual Studio.":::
+   :::image type="content" source="../../media/quickstarts/install-azure-package.png" alt-text="Screenshot of install `prerelease` NuGet package in Visual Studio.":::
 
 ## Build your application
 
-To interact with the Translator service using the client library, you need to create an instance of the `TextTranslationClient`class. To do so, you create a an `AzureKeyCredential` with your `key` from the Azure portal and a `TextTranslationClient`  instance with the `AzureKeyCredential`. The authentication varies slightly depending on whether your resource uses the regional or global endpoint. For this project, authenticate using the global endpoint. For more information about using a regional endpoint, *see* [Translator text sdks](../../translator-text-sdks.md#3-authenticate-the-client).
+To interact with the Translator service using the client library, you need to create an instance of the `TextTranslationClient`class. To do so, you create an `AzureKeyCredential` with your `key` from the Azure portal and a `TextTranslationClient`  instance with the `AzureKeyCredential`. The authentication varies slightly depending on whether your resource uses the regional or global endpoint. For this project, authenticate using the global endpoint. For more information about using a regional endpoint, *see* [Translator text sdks](../../translator-text-sdks.md#3-authenticate-the-client).
 
 > [!NOTE]
 >

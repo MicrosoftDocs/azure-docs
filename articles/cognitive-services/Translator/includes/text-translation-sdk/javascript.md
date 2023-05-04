@@ -70,7 +70,7 @@ To interact with the Translator service using the client library, you need to cr
 1. Copy and paste the text translation [code sample](#code-sample) into your `index.js` file. Update **`{your-text-translation-app-endpoint}`** and **`{your-key}`** with values from your Azure portal Translator instance.
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). For more information, see Cognitive Services [security](../../../../../cognitive-services/security-features.md).
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information, see Cognitive Services [security](../../../../cognitive-services/security-features.md).
 
 ## Code sample
 

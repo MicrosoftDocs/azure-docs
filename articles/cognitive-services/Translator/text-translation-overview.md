@@ -14,7 +14,7 @@ ms.author: lajanuar
 
 # What is Azure Text Translation?
 
- Azure Text Translation is a cloud-based REST API feature of the Translator service that uses neural machine translation technology to enable quick and accurate source-to-target text translation in real time across all [supported languages](language-support.md). In this overview, you'll learn how the Text Translation REST APIs enable you to build intelligent solutions for your applications and workflows.
+ Azure Text Translation is a cloud-based REST API feature of the Translator service that uses neural machine translation technology to enable quick and accurate source-to-target text translation in real time across all [supported languages](language-support.md). In this overview, you learn how the Text Translation REST APIs enable you to build intelligent solutions for your applications and workflows.
 
 Text translation documentation contains the following article types:
 
@@ -24,7 +24,7 @@ Text translation documentation contains the following article types:
 
 ## Text translation features
 
- The following methods are supported by the Text Translation feature:
+ Text Translation supports the following methods:
 
 * [**Languages**](reference/v3-0-languages.md). Returns a list of languages supported by **Translate**, **Transliterate**, and **Dictionary Lookup** operations. This request doesn't require authentication; just copy and paste the following GET request into Postman or your favorite API tool or browser:
 
