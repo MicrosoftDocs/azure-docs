@@ -53,12 +53,12 @@ This section describes testing reachability of a standard load balancer frontend
 
 ## Testing from an Azure Virtual Machine
 
-This section describes how to test reachability of a standard load balancer frontend from an Azure Virtual Machine. First, you create an inbound Network Security Group (NSG) rule on the virtual machine to allow ICMP traffic. Then, you ping the frontend of the load balancer from the virtual machine.
+This section describes how to test reachability of a standard public load balancer frontend from an Azure Virtual Machine. First, you create an inbound Network Security Group (NSG) rule on the virtual machine to allow ICMP traffic. Then, you ping the frontend of the load balancer from the virtual machine.
 
 ### Configure inbound NSG rule
 
 1. Sign in to the Azure portal.
-1. In the Search bar at the top of the portal, enter **Virtual machines** and elect Virtual machines.
+1. In the Search bar at the top of the portal, enter **Virtual machines** and select Virtual machines.
 1. In **Virtual machines**, select your virtual machine from the list.
 1. In the virtual machine’s menu, select **Networking** and then select **Add inbound port rule**.
 
@@ -120,9 +120,9 @@ Based on the current health probe state of your backend instances, you receive d
 | **Scenario** | **Expected reply** |
 | --- | --- |
 | **All backend instances are probed DOWN** | Destination host unreachable  |
-| **All backend instances are probed UP** | Successful echo replies |
+| **All backend instances turned OFF** | Unresponsive: Request timed out |
 | **At least 1 backend instance is probed UP** | Successful echo replies |
-| **At least 1 backend instance is probed DOWN** | Successful echo replies |
+| **No backend instances behind Load Balancer/No load balancing rules associated** | Unresponsive: Request timed out |
 
 ## Next steps
 
