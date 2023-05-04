@@ -79,26 +79,17 @@ Create the environment as follows:
     
     # [Python](#tab/python)
     
-    ```python
-    environment = Environment(
-        name="xgboost-sklearn-py38",
-        description="An environment for models built with XGBoost and Scikit-learn.",
-        image="mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest",
-        conda_file="environment/conda.yml"
-    )
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/sdk-deploy-and-test.ipynb?name=configure_environment)]
 
 1. Create the environment: 
 
     # [Azure CLI](#tab/cli)
     
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/cli-deploy.sh" ID="environment_registration" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/cli-deploy.sh" ID="register_environment" :::
     
     # [Python](#tab/python)
     
-    ```python
-    ml_client.environments.create_or_update(environment)
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/sdk-deploy-and-test.ipynb?name=register_environment)]
 
 ### Create a compute cluster
 
@@ -110,13 +101,7 @@ Batch endpoints and deployments run on compute clusters. They can run on any Azu
 
 # [Python](#tab/python)
 
-```python
-compute_name = "batch-cluster"
-compute_cluster = AmlCompute(
-    name=compute_name, description="Batch endpoints compute cluster", min_instances=0, max_instances=5
-)
-ml_client.begin_create_or_update(compute_cluster).result()
-```
+[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/sdk-deploy-and-test.ipynb?name=create_compute)]
 
 ---
 
@@ -131,18 +116,11 @@ We're going to register components, models, and transformations that we need to 
 
     # [Azure CLI](#tab/cli)
     
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/cli-deploy.sh" ID="model_registration" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/cli-deploy.sh" ID="register_model" :::
     
     # [Python](#tab/python)
     
-    ```python
-    model_name = "heart-classifier"
-    model_local_path = "model"
-    
-    model = ml_client.models.create_or_update(
-        Model(name=model_name, path=model_local_path, type=AssetTypes.MLFLOW_MODEL)
-    )
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/sdk-deploy-and-test.ipynb?name=register_model)]
     
     ---
 
@@ -150,15 +128,11 @@ We're going to register components, models, and transformations that we need to 
 
     # [Azure CLI](#tab/cli)
 
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/cli-deploy.sh" ID="preprocessing_component_register" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/cli-deploy.sh" ID="register_preprocessing_component" :::
 
     # [Python](#tab/python)
 
-    ```python
-    prepare_data = load_component(source="components/prepare/prepare.yml")
-
-    ml_client.components.begin_create_or_update(prepare_data)    
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/sdk-deploy-and-test.ipynb?name=register_preprocessing_component)]
 
     ---
 
@@ -169,18 +143,11 @@ We're going to register components, models, and transformations that we need to 
 
     # [Azure CLI](#tab/cli)
 
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/cli-deploy.sh" ID="transformation_registration" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/cli-deploy.sh" ID="register_transformation" :::
     
     # [Python](#tab/python)
     
-    ```python
-    transformation_name = "heart-classifier-transforms"
-    transformation_local_path = "transformations"
-    
-    transformations = ml_client.models.create_or_update(
-        Model(name=transformation_name, path=transformation_local_path, type=AssetTypes.CUSTOM_MODEL)
-    )
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/sdk-deploy-and-test.ipynb?name=register_transformation)]
 
 1. We'll perform inferencing for the registered model, using another component named `score` that computes the predictions for a given model. We'll reference the component directly from its definition.  
     > [!TIP]
@@ -206,33 +173,11 @@ __pipeline.yml__
 
 # [Python](#tab/python)
 
-```python
-prepare_data = load_component(source="azureml:uci_heart_prepare@latest")
-score_data = load_component(source="components/score/score.yml")
+[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/sdk-deploy-and-test.ipynb?name=load_component)]
 
-@pipeline()
-def uci_heart_classifier_scorer(input_data: Input(type=AssetTypes.URI_FOLDER), score_mode: str):
-    """This pipeline demonstrates how to make batch inference using a model from the Heart Disease Data Set problem, where pre and post processing is required as steps. The pre and post processing steps can be components reusable from the training pipeline."""
-    prepared_data = prepare_data(
-        data=input_data, 
-        transformations=Input(
-            type=AssetTypes.CUSTOM_MODEL, 
-            path=transformations.id
-        )
-    )
-    scored_data = score_data(
-        data=prepared_data.outputs.prepared_data,
-        model=Input(
-            type=AssetTypes.MLFLOW_MODEL,
-            path=model.id
-        ), 
-        score_mode=score_mode
-    )
+Let's build the pipeline in a function:
 
-    return {
-        "scores": scored_data.outputs.scores
-    }
-```
+[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/sdk-deploy-and-test.ipynb?name=configure_pipeline)]
 
 ---
 
@@ -254,19 +199,11 @@ __pipeline-job.yml__
 
 # [Python](#tab/python)
 
-```python
-pipeline_job = uci_heart_classifier_scorer(
-    input_data=Input(type="uri_folder", path="data/unlabeled/"),
-    score_mode=Input(type="string", path="append")
-)
-```
+[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/sdk-deploy-and-test.ipynb?name=configure_pipeline_job)]
 
 Now, we'll configure some run settings to run the test:
 
-```python
-pipeline_job.settings.default_datastore = "workspaceblobstore"
-pipeline_job.settings.default_compute = "batch-cluster"
-```
+[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/sdk-deploy-and-test.ipynb?name=configure_pipeline_job_defaults)]
 
 ---
 
@@ -278,13 +215,7 @@ Create the test job:
 
 # [Python](#tab/python)
 
-```python
-pipeline_job_run = ml_client.jobs.create_or_update(
-    pipeline_job, 
-    experiment_name="uci-heart-score-pipeline"
-)
-pipeline_job_run
-```
+[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/sdk-deploy-and-test.ipynb?name=test_pipeline)]
 
 ---
 
@@ -298,9 +229,7 @@ pipeline_job_run
 
     # [Python](#tab/python)
 
-    ```python
-    endpoint_name="uci-classifier-score"
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/sdk-deploy-and-test.ipynb?name=name_endpoint)]
 
 1. Configure the endpoint:
 
@@ -314,12 +243,7 @@ pipeline_job_run
 
     # [Python](#tab/python)
 
-    ```python
-    endpoint = BatchEndpoint(
-        name=endpoint_name,
-        description="Batch scoring endpoint of the Heart Disease Data Set prediction task",
-    )
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/sdk-deploy-and-test.ipynb?name=configure_endpoint)]
 
 1. Create the endpoint:
 
@@ -329,9 +253,7 @@ pipeline_job_run
 
     # [Python](#tab/python)
 
-    ```python
-    ml_client.batch_endpoints.begin_create_or_update(endpoint).result()
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/sdk-deploy-and-test.ipynb?name=create_endpoint)]
 
 1. Query the endpoint URI:
 
@@ -341,10 +263,7 @@ pipeline_job_run
 
     # [Python](#tab/python)
 
-    ```python
-    endpoint = ml_client.batch_endpoints.get(name=endpoint_name)
-    print(endpoint)
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/sdk-deploy-and-test.ipynb?name=query_endpoint)]
 
 ## Deploy the pipeline component
 
@@ -364,24 +283,11 @@ To deploy the pipeline component, we have to create a batch deployment. A deploy
 
     Our pipeline is defined in a function. To transform it to a component, you'll use the `build()` method. Pipeline components are reusable compute graphs that can be included in batch deployments or used to compose more complex pipelines.
 
-    ```python
-    pipeline_component = uci_heart_classifier_scorer.pipeline_builder.build()
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/sdk-deploy-and-test.ipynb?name=build_pipeline)]
     
     Now we can define the deployment:
     
-    ```python
-    deployment = BatchPipelineComponentDeployment(
-        name="uci-classifier-prepros-xgb",
-        description="A sample deployment with pre and post processing done before and after inference.",
-        endpoint_name=endpoint.name,
-        component=pipeline_component,
-        settings={
-            "continue_on_step_failure": False,
-            "default_compute": "batch-cluster"
-        }
-    )
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/sdk-deploy-and-test.ipynb?name=configure_deployment)]
     
 1. Create the deployment
 
@@ -398,17 +304,11 @@ To deploy the pipeline component, we have to create a batch deployment. A deploy
 
     This command will start the deployment creation and return a confirmation response while the deployment creation continues.
 
-    ```python
-    ml_client.batch_deployments.begin_create_or_update(deployment).result()
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/sdk-deploy-and-test.ipynb?name=create_deployment)]
     
     Once created, let's configure this new deployment as the default one:
 
-    ```python
-    endpoint = ml_client.batch_endpoints.get(endpoint.name)
-    endpoint.defaults.deployment_name = deployment.name
-    ml_client.batch_endpoints.begin_create_or_update(endpoint).result()
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/sdk-deploy-and-test.ipynb?name=update_default_deployment)]
 
 1. Your deployment is ready for use.
 
@@ -430,10 +330,7 @@ Once the deployment is created, it's ready to receive jobs. Follow these steps t
     
     The input data asset definition:
     
-    ```python
-    input_data = Input(type=AssetTypes.URI_FOLDER, path=heart_dataset_train.id)
-    score_mode = Input(type="string", default="append")
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/sdk-deploy-and-test.ipynb?name=configure_inputs)]
 
     ---
     
@@ -448,15 +345,7 @@ Once the deployment is created, it's ready to receive jobs. Follow these steps t
     
     # [Python](#tab/python)
     
-    ```python
-    job = ml_client.batch_endpoints.invoke(
-        endpoint_name=endpoint.name, 
-        inputs = { 
-            "input_data": input_data,
-            "score_mode": score_mode
-            }
-    )
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/sdk-deploy-and-test.ipynb?name=invoke_deployment)]
     
 1. You can monitor the progress of the show and stream the logs using:
 
@@ -466,15 +355,11 @@ Once the deployment is created, it's ready to receive jobs. Follow these steps t
     
     # [Python](#tab/python)
     
-    ```python
-    ml_client.jobs.get(name=job.name)
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/sdk-deploy-and-test.ipynb?name=get_job)]
     
     To wait for the job to finish, run the following code:
     
-    ```python
-    ml_client.jobs.get(name=job.name).stream()
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/sdk-deploy-and-test.ipynb?name=stream_job_logs)]
 
 ### Access job output
 
@@ -490,22 +375,13 @@ You can download the associated results using `az ml job download`.
 
 Download the result:
 
-```python
-ml_client.jobs.download(name=job.name, download_path=".", output_name="scores")
-```
+[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/sdk-deploy-and-test.ipynb?name=download_outputs)]
 
 ---
 
 Read the scored data:
 
-```python
-import pandas as pd
-import glob
-
-output_files = glob.glob("named-outputs/scores/*.csv")
-score = pd.concat((pd.read_csv(f) for f in output_files))
-score
-```
+[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/sdk-deploy-and-test.ipynb?name=read_outputs)]
 
 The output looks as follows:
 
@@ -532,9 +408,7 @@ Run the following code to delete the batch endpoint and its underlying deploymen
 
 Delete the endpoint:
 
-```python
-ml_client.batch_endpoints.begin_delete(endpoint.name).result()
-```
+[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/sdk-deploy-and-test.ipynb?name=delete_endpoint)]
 
 ---
 

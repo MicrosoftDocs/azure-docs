@@ -78,26 +78,17 @@ Create the environment as follows:
     
     # [Python](#tab/python)
     
-    ```python
-    environment = Environment(
-        name="xgboost-sklearn-py38",
-        description="An environment for models built with XGBoost and Scikit-learn.",
-        image="mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest",
-        conda_file="environment/conda.yml"
-    )
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=configure_environment)]
 
 1. Create the environment: 
 
     # [Azure CLI](#tab/cli)
     
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/cli-deploy.sh" ID="environment_registration" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/cli-deploy.sh" ID="create_environment" :::
     
     # [Python](#tab/python)
     
-    ```python
-    ml_client.environments.create_or_update(environment)
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=create_environment)]
 
 ### Create a compute cluster
 
@@ -109,13 +100,7 @@ Batch endpoints and deployments run on compute clusters. They can run on any Azu
 
 # [Python](#tab/python)
 
-```python
-compute_name = "batch-cluster"
-compute_cluster = AmlCompute(
-    name=compute_name, description="Batch endpoints compute cluster", min_instances=0, max_instances=5
-)
-ml_client.begin_create_or_update(compute_cluster).result()
-```
+[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=create_compute)]
 ---
 
 ### Register the training data as a data asset
@@ -124,33 +109,19 @@ Our training data is represented in CSV files. To mimic a more production-level 
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/cli-deploy.sh" ID="data_asset_registration":::
+:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/cli-deploy.sh" ID="create_data_asset":::
 
 # [Python](#tab/python)
 
-```python
-data_path = "data/train"
-dataset_name = "heart-dataset-train"
-
-heart_dataset_train = Data(
-    path=data_path,
-    type=AssetTypes.URI_FOLDER,
-    description="A training dataset for heart classification",
-    name=dataset_name,
-)
-```
+[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=configure_data_asset)]
 
 Create the data asset:
 
-```python
-ml_client.data.create_or_update(heart_dataset_train)
-```
+[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=create_data_asset)]
 
 Let's get a reference to the new data asset:
 
-```python
-heart_dataset_train = ml_client.data.get(name=dataset_name, label="latest")
-```
+[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=get_data_asset)]
 
 ---
 
@@ -182,29 +153,11 @@ __deployment-ordinal/pipeline.yml__
 
 The configurations for the pipeline components are in the `prepare.yml` and `train_xgb.yml` files. Load the components:
 
-```python
-prepare_data = load_component(source="components/prepare/prepare.yml")
-train_xgb = load_component(source="components/train_xgb/train_xgb.yml")
-```
+[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=load_component)]
 
 Construct the pipeline:
 
-```python
-@pipeline()
-def uci_heart_classifier_trainer(input_data: Input(type=AssetTypes.URI_FOLDER)):
-    prepared_data = prepare_data(data=input_data)
-    trained_model = train_xgb(
-        data=prepared_data.outputs.prepared_data, 
-        target_column="target",
-        register_best_model=False,
-        eval_size=0.3)
-
-    return {
-        "model": trained_model.outputs.model,
-        "evaluation_results": trained_model.outputs.evaluation_results,
-        "transformations_output": prepared_data.outputs.transformations_output,
-    }
-```
+[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=configure_pipeline)]
 
 > [!NOTE]
 > In the pipeline, the `transformations` input is missing; therefore, the script will learn the parameters from the input data.
@@ -230,18 +183,11 @@ __deployment-ordinal/pipeline-job.yml__
 
 # [Python](#tab/python)
 
-```python
-pipeline_job = uci_heart_classifier_trainer(
-    Input(type="uri_folder", path=heart_dataset_train.id)
-)
-```
+[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=configure_pipeline_job)]
 
 Now, we'll configure some run settings to run the test:
 
-```python
-pipeline_job.settings.default_datastore = "workspaceblobstore"
-pipeline_job.settings.default_compute = "batch-cluster"
-```
+[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=configure_pipeline_job_defaults)]
 
 ---
 
@@ -253,13 +199,7 @@ Create the test job:
 
 # [Python](#tab/python)
 
-```python
-pipeline_job_run = ml_client.jobs.create_or_update(
-    pipeline_job, 
-    experiment_name="uci-heart-train-pipeline"
-)
-pipeline_job_run
-```
+[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=test_pipeline)]
 
 ---
 
@@ -273,9 +213,7 @@ pipeline_job_run
 
     # [Python](#tab/python)
 
-    ```python
-    endpoint_name="uci-classifier-train"
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=name_endpoint)]
 
 1. Configure the endpoint:
 
@@ -289,12 +227,7 @@ pipeline_job_run
 
     # [Python](#tab/python)
 
-    ```python
-    endpoint = BatchEndpoint(
-        name=endpoint_name,
-        description="An endpoint to perform training of the Heart Disease Data Set prediction task",
-    )
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=configure_endpoint)]
 
 1. Create the endpoint:
 
@@ -304,9 +237,7 @@ pipeline_job_run
 
     # [Python](#tab/python)
 
-    ```python
-    ml_client.batch_endpoints.begin_create_or_update(endpoint).result()
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=create_endpoint)]
 
 1. Query the endpoint URI:
 
@@ -316,10 +247,7 @@ pipeline_job_run
 
     # [Python](#tab/python)
 
-    ```python
-    endpoint = ml_client.batch_endpoints.get(name=endpoint_name)
-    print(endpoint)
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=query_endpoint)]
 
 ## Deploy the pipeline component
 
@@ -339,23 +267,11 @@ To deploy the pipeline component, we have to create a batch deployment. A deploy
 
     Our pipeline is defined in a function. To transform it to a component, you'll use the `build()` method. Pipeline components are reusable compute graphs that can be included in batch deployments or used to compose more complex pipelines.
 
-    ```python
-    pipeline_component = uci_heart_classifier_trainer.pipeline_builder.build()
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=build_pipeline_component)]
     
     Now we can define the deployment:
     
-    ```python
-    deployment = BatchPipelineComponentDeployment(
-        name="uci-classifier-train-xgb",
-        description="A sample deployment that trains an XGBoost model for the UCI dataset.",
-        endpoint_name=endpoint.name,
-        component=pipeline_component,
-        settings={
-            "continue_on_step_failure": False
-        }
-    )
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=configure_deployment)]
 
 1. Create the deployment:
 
@@ -372,17 +288,11 @@ To deploy the pipeline component, we have to create a batch deployment. A deploy
 
     This command will start the deployment creation and return a confirmation response while the deployment creation continues.
 
-    ```python
-    ml_client.batch_deployments.begin_create_or_update(deployment).result()
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=create_deployment)]
     
     Once created, let's configure this new deployment as the default one:
 
-    ```python
-    endpoint = ml_client.batch_endpoints.get(endpoint.name)
-    endpoint.defaults.deployment_name = deployment.name
-    ml_client.batch_endpoints.begin_create_or_update(endpoint).result()
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=update_default_deployment)]
 
 1. Your deployment is ready for use.
 
@@ -404,9 +314,7 @@ Once the deployment is created, it's ready to receive jobs. Follow these steps t
     
     Define the input data asset:
     
-    ```python
-    input_data = Input(type=AssetTypes.URI_FOLDER, path=heart_dataset_train.id)
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=configure_inputs)]
 
     ---
     
@@ -421,14 +329,7 @@ Once the deployment is created, it's ready to receive jobs. Follow these steps t
     
     # [Python](#tab/python)
     
-    ```python
-    job = ml_client.batch_endpoints.invoke(
-        endpoint_name=endpoint.name, 
-        inputs = { 
-            "input_data": input_data
-            }
-    )
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=invoke_deployment)]
     
 1. You can monitor the progress of the show and stream the logs using:
 
@@ -438,15 +339,11 @@ Once the deployment is created, it's ready to receive jobs. Follow these steps t
     
     # [Python](#tab/python)
     
-    ```python
-    ml_client.jobs.get(name=job.name)
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=get_job)]
     
     To wait for the job to finish, run the following code:
     
-    ```python
-    ml_client.jobs.get(name=job.name).stream()
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=stream_job_logs)]
 
 It's worth to be mentioned that only the pipeline's inputs are published as inputs in the Batch Endpoint. For instance, `categorical_encoding` is an input of a step of the pipeline, but not an input in the pipeline itself. Use this fact to control which inputs do you want to expose to your clients and which ones you do not.
 
@@ -464,11 +361,7 @@ You can download the associated results using:
 
 # [Python](#tab/python)
 
-```python
-ml_client.jobs.download(name=job.name, download_path=".", output_name="transformations")
-ml_client.jobs.download(name=job.name, download_path=".", output_name="model")
-ml_client.jobs.download(name=job.name, download_path=".", output_name="evaluation_results")
-```
+[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=download_outputs)]
 
 ---
 
@@ -502,22 +395,7 @@ By default, we used `ordinal` previously. Let's now change the categorical encod
     
     # [Python](#tab/python)
     
-    ```python
-    @pipeline()
-    def uci_heart_classifier_onehot(input_data: Input(type=AssetTypes.URI_FOLDER)):
-        prepared_data = prepare_data(data=input_data, categorical_encoding="onehot")
-        trained_model = train_xgb(
-            data=prepared_data.outputs.prepared_data, 
-            target_column="target",
-            register_best_model=False,
-            eval_size=0.3)
-    
-        return {
-            "model": trained_model.outputs.model,
-            "evaluation_results": trained_model.outputs.evaluation_results,
-            "transformations_output": prepared_data.outputs.transformations_output,
-        }
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=configure_nondefault_pipeline)]
 
 1. Configure the deployment:
 
@@ -533,24 +411,11 @@ By default, we used `ordinal` previously. Let's now change the categorical encod
 
     Our pipeline is defined in a function. To transform it to a component, you'll use the `build()` method. Pipeline components are reusable compute graphs that can be included in batch deployments or used to compose more complex pipelines.
 
-    ```python
-    pipeline_component = uci_heart_classifier_onehot.pipeline_builder.build()
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=build_nondefault_pipeline)]
     
     Now we can define the deployment:
     
-    ```python
-    deployment_onehot = BatchPipelineComponentDeployment(
-        name="uci-classifier-train-onehot",
-        description="A sample deployment that trains an XGBoost model for the UCI dataset with one hot encoding of categorical variables.",
-        endpoint_name=endpoint.name,
-        component=pipeline_component,
-        settings={
-            "continue_on_step_failure": False,
-            "default_compute": "batch-cluster"
-        }
-    )
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=configure_nondefault_deployment)]
     
 1. Create the deployment:
 
@@ -566,11 +431,9 @@ By default, we used `ordinal` previously. Let's now change the categorical encod
 
     This command will start the deployment creation and return a confirmation response while the deployment creation continues.
 
-    ```python
-    ml_client.batch_deployments.begin_create_or_update(deployment_onehot).result()
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=create_nondefault_deployment)]
 
-    Your deployment is ready for use.
+1. Your deployment is ready for use.
 
 ### Test a non-default deployment
 
@@ -584,15 +447,7 @@ Once the deployment is created, it's ready to receive jobs. We can test it in th
     
     # [Python](#tab/python)
     
-    ```python
-    job = ml_client.batch_endpoints.invoke(
-        endpoint_name=endpoint.name, 
-        deployment_name=deployment_onehot.name
-        inputs = { 
-            "input_data": input_data
-            }
-    )
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=invoke_nondefault_deployment)]
     
 1. You can monitor the progress of the show and stream the logs using:
 
@@ -602,15 +457,11 @@ Once the deployment is created, it's ready to receive jobs. We can test it in th
     
     # [Python](#tab/python)
     
-    ```python
-    ml_client.jobs.get(name=job.name)
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=get_nondefault_job)]
     
     To wait for the job to finish, run the following code:
     
-    ```python
-    ml_client.jobs.get(name=job.name).stream()
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=stream_nondefault_job_logs)]
 
 
 ### Configure the new deployment as the default one
@@ -623,11 +474,7 @@ Once we're satisfied with the performance of the new deployment, we can set this
 
 # [Python](#tab/python)
 
-```python
-endpoint = ml_client.batch_endpoints.get(endpoint.name)
-endpoint.defaults.deployment_name = deployment.name
-ml_client.batch_endpoints.begin_create_or_update(endpoint).result()
-```
+[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=update_default_deployment)]
 ---
 
 ### Delete the old deployment
@@ -640,9 +487,7 @@ Once you're done, you can delete the old deployment if you don't need it anymore
 
 # [Python](#tab/python)
 
-```python
-ml_client.batch_deployments.begin_delete(name="uci-classifier-train-xgb", endpoint_name=endpoint.name).result()
-```
+[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=delete_deployment)]
 ---
 
 ## Clean up resources
@@ -659,9 +504,7 @@ Run the following code to delete the batch endpoint and its underlying deploymen
 
 Delete the endpoint:
 
-```python
-ml_client.batch_endpoints.begin_delete(endpoint.name).result()
-```
+[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=delete_endpoint)]
 ---
 
 (Optional) Delete compute, unless you plan to reuse your compute cluster with later deployments.

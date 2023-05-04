@@ -67,10 +67,7 @@ Register the component:
 
 # [Python](#tab/python)
 
-```python
-hello_batch = load_component(source="hello-component/hello.yml")
-hello_batch_registered = ml_client.components.create(hello_batch)
-```
+[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=register_component)]
 
 ---
 
@@ -84,9 +81,7 @@ hello_batch_registered = ml_client.components.create(hello_batch)
 
     # [Python](#tab/python)
 
-    ```python
-    endpoint_name="hello-batch"
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=name_endpoint)]
 
 1. Configure the endpoint:
 
@@ -100,12 +95,7 @@ hello_batch_registered = ml_client.components.create(hello_batch)
 
     # [Python](#tab/python)
 
-    ```python
-    endpoint = BatchEndpoint(
-        name=endpoint_name,
-        description="A hello world endpoint for component deployments",
-    )
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=configure_endpoint)]
 
 1. Create the endpoint:
 
@@ -115,9 +105,7 @@ hello_batch_registered = ml_client.components.create(hello_batch)
 
     # [Python](#tab/python)
 
-    ```python
-    ml_client.batch_endpoints.begin_create_or_update(endpoint).result()
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=create_endpoint)]
 
 1. Query the endpoint URI:
 
@@ -127,10 +115,7 @@ hello_batch_registered = ml_client.components.create(hello_batch)
 
     # [Python](#tab/python)
 
-    ```python
-    endpoint = ml_client.batch_endpoints.get(name=endpoint_name)
-    print(endpoint)
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=query_endpoint)]
 
 ## Deploy the pipeline component
 
@@ -144,13 +129,7 @@ To deploy the pipeline component, we have to create a batch deployment. A deploy
     
     # [Python](#tab/python)
     
-    ```python
-    compute_name = "batch-cluster"
-    compute_cluster = AmlCompute(
-        name=compute_name, description="Batch endpoints compute cluster", min_instances=0, max_instances=5
-    )
-    ml_client.begin_create_or_update(compute_cluster).result()
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=create_compute)]
 
 1. Configure the deployment:
 
@@ -164,18 +143,7 @@ To deploy the pipeline component, we have to create a batch deployment. A deploy
     
     # [Python](#tab/python)
     
-    ```python
-    deployment = BatchPipelineComponentDeployment(
-        name="hello-batch-dpl",
-        description="A hello world deployment with a single step.",
-        endpoint_name=endpoint.name,
-        compute=compute_name,
-        component=hello_batch,
-        settings={
-            "continue_on_step_failure": False
-        }
-    )
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=configure_deployment)]
     
 1. Create the deployment:
 
@@ -192,17 +160,11 @@ To deploy the pipeline component, we have to create a batch deployment. A deploy
 
     This command will start the deployment creation and return a confirmation response while the deployment creation continues.
 
-    ```python
-    ml_client.batch_deployments.begin_create_or_update(deployment).result()
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=create_deployment)]
     
     Once created, let's configure this new deployment as the default one:
 
-    ```python
-    endpoint = ml_client.batch_endpoints.get(endpoint.name)
-    endpoint.defaults.deployment_name = deployment.name
-    ml_client.batch_endpoints.begin_create_or_update(endpoint).result()
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=update_default_deployment)]
 
 1. Your deployment is ready for use.
 
@@ -216,11 +178,7 @@ Once the deployment is created, it's ready to receive jobs. You can invoke the d
 
 # [Python](#tab/python)
 
-```python
-job = ml_client.batch_endpoints.invoke(
-    endpoint_name=endpoint.name, 
-)
-```
+[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=invoke_deployment_inline)]
 
 ---
 
@@ -232,15 +190,11 @@ You can monitor the progress of the show and stream the logs using:
 
 # [Python](#tab/python)
 
-```python
-ml_client.jobs.get(name=job.name)
-```
+[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=get_job)]
 
 To wait for the job to finish, run the following code:
 
-```python
-ml_client.jobs.get(name=job.name).stream()
-```
+[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=stream_job_logs)]
 ---
 
 ## Clean up resources
@@ -257,9 +211,7 @@ Run the following code to delete the batch endpoint and its underlying deploymen
 
 Delete the endpoint:
 
-```python
-ml_client.batch_endpoints.begin_delete(endpoint.name).result()
-```
+[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb?name=delete_endpoint)]
 ---
 
 (Optional) Delete compute, unless you plan to reuse your compute cluster with later deployments.
