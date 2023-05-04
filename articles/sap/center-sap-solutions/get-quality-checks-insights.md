@@ -14,9 +14,9 @@ ms.author: ladolan
 
 [!INCLUDE [Preview content notice](./includes/preview.md)]
 
-The *Quality Insights* Azure workbook in *Azure Center for SAP solutions* provides insights about the SAP system resources. The feature is part of the monitoring capabilities built in to the *Virtual Instance for SAP solutions (VIS)*. These quality checks make sure that your SAP system uses Azure and SAP best practices for reliability and performance. 
+The *Quality Insights* Azure workbook in *Azure Center for SAP solutions* provides insights about the SAP system resources as a result of running *more than 100 quality checks on the VIS*. The feature is part of the monitoring capabilities built in to the *Virtual Instance for SAP solutions (VIS)*. These quality checks make sure that your SAP system uses Azure and SAP best practices for reliability and performance. 
 
-In this how-to guide, you'll learn how to use quality checks and insights to get more information about virtual machine (VM) configurations within your SAP system.
+In this how-to guide, you'll learn how to use quality checks and insights to get more information about various configurations within your SAP system.
 
 ## Prerequisites
 
@@ -45,6 +45,15 @@ There are multiple sections in the workbook:
 ## Get Advisor Recommendations
 
 The **Quality checks** feature in Azure Center for SAP solutions runs validation checks for all VIS resources. These quality checks validate the SAP system configurations follow the best practices recommended for SAP on Azure. If a VIS doesn't follow these best practices, you receive a recommendation from Azure Advisor.
+Azure Center for SAP solutions runs more than 100 quality checks on all VIS resources. These checks span across the following categories: 
+
+- Azure Infrastructre checks
+- OS parameter checks.
+- High availability (HA) Load Balancer checks
+- Hana DB file system checks.
+- OS parameter checks for ANF file system.
+- Pacemaker configuration checks for HANA DB and ASCS Instance for SLES OS and Redhat 
+- OS Configuration chcecks for Application Instances
 
 The table in the **Advisor Recommendations** tab shows all the recommendations for ASCS, Application and Database instances in the VIS.
 
@@ -54,10 +63,16 @@ Select an instance name to see all recommendations, including which action to ta
 
 :::image type="content" source="media/get-quality-checks-insights/recommendation-detail.png" lightbox="media/get-quality-checks-insights/recommendation-detail.png" alt-text="Screenshot of detailed advisor recommendations for an instance and which actions to take to resolve each issue.":::
 
-> [!NOTE]
-> These quality checks run on all VIS instances at a regular frequency of once every 1 hour. The corresponding recommendations in Azure Advisor also refresh at the same 1-hour frequency.
+### Setting Alerts for Quality check recommendations
+As the Quality checks recommendations in Azure Centr for SAP solutions are integrated with *Azure Advisor*, you can set alerts for the recommendations. See how to [Configure alerts for recommendations](/azure/advisor/advisor-alerts-portal)
 
-If you take action on one or more recommendations from Azure Center for SAP solutions, wait for the next refresh to see any new recommendations from Azure Advisor.
+> [!NOTE]
+> These quality checks run on all VIS instances at a regular frequency of once every 1 hour. The corresponding recommendations in Azure Advisor also refresh at the same 1-hour frequency.If you take action on one or more recommendations from Azure Center for SAP solutions, wait for the next refresh to see any new recommendations from Azure Advisor.
+
+> [!IMPORTANT]
+> Azure Advisor filters out recommendations for Deleted Azure resources for 7 days. Therefore, if you delete a VIS and then re-register it, you will be able to see Advisor recommendations after 7 days of re-registration. 
+
+
 
 ## Get VM information
 
