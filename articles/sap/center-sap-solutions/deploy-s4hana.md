@@ -20,10 +20,10 @@ In this how-to guide, you'll learn how to deploy S/4HANA infrastructure in *Azur
 
 ## Prerequisites
 
-- An Azure subscription.
-- Register the **Microsoft.Workloads** Resource Provider on the subscription in which you are deploying the SAP system.
-- An Azure account with **Contributor** role access to the subscriptions and resource groups in which you'll create the Virtual Instance for SAP solutions (VIS) resource.
-- A **User-assigned managed identity** which has Contributor role access on the Subscription or atleast all resource groups (Compute, Network,Storage). If you wish to install SAP Software through the Azure Center for SAP solutions, also provide Storage Blob data Reader, Reader and Data Access roles to the identity on SAP bits storage account where you would store the SAP Media.
+- An Azure [subscription](/azure/cost-management-billing/manage/create-subscription#create-a-subscription)
+- [Register](/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal) the **Microsoft.Workloads** Resource Provider on the subscription in which you are deploying the SAP system.
+- An Azure account with **Contributor** [role](/azure/role-based-access-control/role-assignments-portal-subscription-admin) access to the subscriptions and resource groups in which you'll create the Virtual Instance for SAP solutions (VIS) resource.
+- A **User-assigned managed** [identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) which has Contributor role access on the Subscription or atleast all resource groups (Compute, Network,Storage). If you wish to install SAP Software through the Azure Center for SAP solutions, also provide Storage Blob data Reader, Reader and Data Access roles to the identity on SAP bits storage account where you would store the SAP Media.
 - A [network set up for your SAP deployment](prepare-network.md).
 - Availability of either Standard_D4ds_v4 or Standard_E4s_v3 SKUS which will be used for "Deployer VM".
 - [Review the quotas for your Azure subscription](../../quotas/view-quotas.md). If the quotas are low, you might need to create a support request before creating your infrastructure deployment. Otherwise, you might experience deployment failures or an **Insufficient quota** error. 
@@ -218,24 +218,6 @@ To confirm a deployment is successful:
 1. In the table of records, find the name of the VIS. The **Infrastructure** column value shows **Deployed** for successful deployments.
 
 If the deployment fails, delete the VIS resource in the Azure portal, then recreate the infrastructure. 
-
-
-## Additional Questions
-
-1. How can I create Azure subscription or register Resoruce provider?
-
-    1. You can create an Azure subscription by following [this link](/azure/cost-management-billing/manage/create-subscription#create-a-subscription)
-    2. You can regiter a resource provider by following [this link](/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal)
-
-1. How can I provide contributor role to the subscription?
-
-    1. You can provide contributor role to the subscription by following [this link](/azure/role-based-access-control/role-assignments-portal-subscription-admin)
-
-1. How can I create a user assigned managed identity?
-
-    1. You can create a user assigned managed identity by following [this link](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity)
-
-
 
 ## Next steps
 
