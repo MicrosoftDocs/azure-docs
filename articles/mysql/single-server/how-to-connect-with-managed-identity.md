@@ -7,7 +7,7 @@ ms.topic: how-to
 author: savjani
 ms.author: pariks
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.date: 06/20/2022
+ms.date: 05/03/2023
 ---
 
 # Connect with Managed Identity to Azure Database for MySQL
@@ -46,7 +46,7 @@ az identity create --resource-group myResourceGroup --name myManagedIdentity
 
 To configure the identity in the following steps, use the [az identity show](/cli/azure/identity#az-identity-show) command to store the identity's resource ID and client ID in variables.
 
-```azurecli
+```azurecli-interactive
 # Get resource ID of the user-assigned identity
 
 RESOURCE_ID=$(az identity show --resource-group myResourceGroup --name myManagedIdentity --query id --output tsv)
@@ -59,7 +59,7 @@ CLIENT_ID=$(az identity show --resource-group myResourceGroup --name myManagedId
 
 We can now assign the user-assigned identity to the VM with the [az vm identity assign](/cli/azure/vm/identity#az-vm-identity-assign) command:
 
-```azurecli
+```azurecli-interactive
 az vm identity assign --resource-group myResourceGroup --name myVM --identities $RESOURCE_ID
 ```
 
@@ -203,7 +203,7 @@ namespace Driver
 
 When run, this command will give an output like this:
 
-```
+```output
 Getting access token from Azure Instance Metadata service...
 Opening connection using access token...
 
