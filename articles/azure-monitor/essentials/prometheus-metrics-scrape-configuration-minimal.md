@@ -27,7 +27,7 @@ Following targets are available to scrape, but scraping is not enabled (**disabl
 
 > [!NOTE]
 > The default scrape frequency for all default targets and scrapes is `30 seconds`. You can override it per target using the [ama-metrics-settings-configmap](https://aka.ms/azureprometheus-addon-settings-configmap) under `default-targets-scrape-interval-settings` section.
-> You can read more about 3 different configmaps used by metrics addon [here](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-scrape-configuration)
+> You can read more about four different configmaps used by metrics addon [here](prometheus-metrics-scrape-configuration.md)
 
 ## Configuration setting
 The setting `default-targets-metrics-keep-list.minimalIngestionProfile="true"` is enabled by default on the metrics addon. You can specify this setting in [ama-metrics-settings-configmap](https://aka.ms/azureprometheus-addon-settings-configmap) under `default-targets-metrics-keep-list` section. 
