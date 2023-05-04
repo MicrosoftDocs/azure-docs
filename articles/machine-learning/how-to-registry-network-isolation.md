@@ -14,12 +14,12 @@ ms.topic: how-to
 
 # Network isolation with Azure Machine Learning registries 
 
-In this article, you will learn to secure Azure Machine Learning registry using (private endpoints)[https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview]. 
+In this article, you will learn to secure Azure Machine Learning registry using [private endpoints](https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview). 
 
 
-(Private endpoints)[https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview] on Azure provides network isolation by enabling Azure services to be accessed through a private IP address within a virtual network. This can help to secure connections between Azure resources and prevent exposure of sensitive data to the public internet. 
+[Private endpoints](https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview) on Azure provides network isolation by enabling Azure services to be accessed through a private IP address within a virtual network. This can help to secure connections between Azure resources and prevent exposure of sensitive data to the public internet. 
 
-Using network isolation with (private endpoints)[https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview] prevents the network traffic from going over the public internet and brings Azure Machine Learning registry service to your Virtual network. All the network traffic happens over (Azure Private Link)[https://learn.microsoft.com/en-us/azure/private-link/private-link-overview] when private endpoints are used.  
+Using network isolation with [private endpoints](https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview) prevents the network traffic from going over the public internet and brings Azure Machine Learning registry service to your Virtual network. All the network traffic happens over [Azure Private Link](https://learn.microsoft.com/en-us/azure/private-link/private-link-overview) when private endpoints are used.  
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ Using network isolation with (private endpoints)[https://learn.microsoft.com/en-
 
 Below diagram shows a basic network configuration and how the Azure Machine Learning registry fits in. If you are already using Azure Machine Learning workspace and have a secure workspace configuration where all the resources are part of virtual network, you can create a private endpoint from the existing virtual network to Azure Machine Learning registry and it's associated resources (storage and ACR).
 
-If you do not have a secure workspace configuration, you can create it using tutorials for (Azure Portal)[https://learn.microsoft.com/en-us/azure/machine-learning/tutorial-create-secure-workspace?view=azureml-api-2] or (template)[https://learn.microsoft.com/en-us/azure/machine-learning/tutorial-create-secure-workspace-template?view=azureml-api-2&tabs=bicep%2Ccli].
+If you do not have a secure workspace configuration, you can create it using tutorials for [Azure Portal](https://learn.microsoft.com/en-us/azure/machine-learning/tutorial-create-secure-workspace?view=azureml-api-2) or (template)[https://learn.microsoft.com/en-us/azure/machine-learning/tutorial-create-secure-workspace-template?view=azureml-api-2&tabs=bicep%2Ccli].
 
 :::image type="content" source="./media/how-to-registry-network-isolation/basic-netwrok-isolation-registry.png" alt-text="Diagram of registry connected to Virtual network containing workspace and associated resources using private endpoint.":::
 
