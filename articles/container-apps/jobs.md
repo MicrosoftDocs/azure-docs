@@ -7,6 +7,7 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 04/12/2023
 ms.author: cshoe
+ms.custom: references_regions
 ---
 
 # Jobs in Azure Container Apps (preview)
@@ -71,7 +72,7 @@ az containerapp job create \
 
 # [Azure Resource Manager](#tab/azure-resource-manager)
 
-The following example ARM template creates a manual job named `my-job` in a resource group named `my-resource-group` and a Container Apps environment named `my-environment`:
+The following example Azure Resource Manager template creates a manual job named `my-job` in a resource group named `my-resource-group` and a Container Apps environment named `my-environment`:
 
 ```json
 {
@@ -141,7 +142,7 @@ az containerapp job create \
 
 # [Azure Resource Manager](#tab/azure-resource-manager)
 
-The following example ARM template creates a manual job named `my-job` in a resource group named `my-resource-group` and a Container Apps environment named `my-environment`:
+The following example Azure Resource Manager template creates a manual job named `my-job` in a resource group named `my-resource-group` and a Container Apps environment named `my-environment`:
 
 ```json
 {
@@ -195,7 +196,7 @@ az containerapp job start --name "my-job" --resource-group "my-resource-group"
 
 # [Azure Resource Manager](#tab/azure-resource-manager)
 
-To start a job execution using the ARM REST API, make a *POST* request to the job's `start` operation. The following example starts an execution of a job named `my-job` in a resource group named `my-resource-group`:
+To start a job execution using the Azure Resource Manager REST API, make a *POST* request to the job's `start` operation. The following example starts an execution of a job named `my-job` in a resource group named `my-resource-group`:
 
 ```http
 POST https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/my-resource-group/providers/Microsoft.App/jobs/my-job/start?api-version=2022-11-01-preview
@@ -261,7 +262,7 @@ az containerapp job executionhistory --name "my-job" --resource-group "my-resour
 
 # [Azure Resource Manager](#tab/azure-resource-manager)
 
-To get the status of job executions using the ARM REST API, make a `GET` request to the job's `executions` operation. The following example returns the status of the most recent execution of a job named `my-job` in a resource group named `my-resource-group`:
+To get the status of job executions using the Azure Resource Manager REST API, make a `GET` request to the job's `executions` operation. The following example returns the status of the most recent execution of a job named `my-job` in a resource group named `my-resource-group`:
 
 ```http
 GET https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/my-resource-group/providers/Microsoft.App/jobs/my-job/executions?api-version=2022-11-01-preview
@@ -287,7 +288,7 @@ Container settings define the containers to run in each replica of a job executi
 
 The following table includes the job settings that you can configure:
 
-| Setting | ARM property | CLI parameter| Description |
+| Setting | Azure Resource Manager property | CLI parameter| Description |
 |---|---|---|---|
 | Job type | `triggerType` | `--trigger-type` | The type of job. (`Manual` or `Schedule`) |
 | Parallelism | `parallelism` | `--parallelism` | The number of replicas to run per execution. |
@@ -318,7 +319,7 @@ az containerapp job create \
 
 # [Azure Resource Manager](#tab/azure-resource-manager)
 
-The following example ARM template creates a job with advanced configuration options:
+The following example Azure Resource Manager template creates a job with advanced configuration options:
 
 ```json
 {

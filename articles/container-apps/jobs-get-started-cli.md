@@ -7,6 +7,7 @@ ms.service: container-apps
 ms.topic: quickstart
 ms.date: 04/12/2023
 ms.author: cshoe
+ms.custom: references_regions
 ---
 
 # Create a job with Azure Container Apps (preview)
