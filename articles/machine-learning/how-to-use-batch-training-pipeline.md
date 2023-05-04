@@ -84,7 +84,7 @@ Create the environment as follows:
 
     # [Azure CLI](#tab/cli)
     
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/cli-deploy.sh" ID="create_environment" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="create_environment" :::
     
     # [Python](#tab/python)
     
@@ -96,7 +96,7 @@ Batch endpoints and deployments run on compute clusters. They can run on any Azu
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/cli-deploy.sh" ID="create_compute" :::
+:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="create_compute" :::
 
 # [Python](#tab/python)
 
@@ -109,7 +109,7 @@ Our training data is represented in CSV files. To mimic a more production-level 
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/cli-deploy.sh" ID="create_data_asset":::
+:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="create_data_asset":::
 
 # [Python](#tab/python)
 
@@ -195,7 +195,7 @@ Create the test job:
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/cli-deploy.sh" ID="test_pipeline" :::
+:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="test_pipeline" :::
 
 # [Python](#tab/python)
 
@@ -209,7 +209,7 @@ Create the test job:
 
     # [Azure CLI](#tab/cli)
 
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/cli-deploy.sh" ID="name_endpoint" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="name_endpoint" :::
 
     # [Python](#tab/python)
 
@@ -233,7 +233,7 @@ Create the test job:
 
     # [Azure CLI](#tab/cli)
 
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/cli-deploy.sh" ID="create_endpoint" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="create_endpoint" :::
 
     # [Python](#tab/python)
 
@@ -243,7 +243,7 @@ Create the test job:
 
     # [Azure CLI](#tab/cli)
 
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/cli-deploy.sh" ID="query_endpoint" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="query_endpoint" :::
 
     # [Python](#tab/python)
 
@@ -279,7 +279,7 @@ To deploy the pipeline component, we have to create a batch deployment. A deploy
 
     Run the following code to create a batch deployment under the batch endpoint and set it as the default deployment.
 
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/cli-deploy.sh" ID="create_deployment" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="create_deployment" :::
 
     > [!TIP]
     > Notice the use of the `--set-default` flag to indicate that this new deployment is now the default.
@@ -325,7 +325,7 @@ Once the deployment is created, it's ready to receive jobs. Follow these steps t
 
     # [Azure CLI](#tab/cli)
     
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/cli-deploy.sh" ID="invoke_deployment_file" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="invoke_deployment_file" :::
     
     # [Python](#tab/python)
     
@@ -335,7 +335,7 @@ Once the deployment is created, it's ready to receive jobs. Follow these steps t
 
     # [Azure CLI](#tab/cli)
     
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/cli-deploy.sh" ID="stream_job_logs" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="stream_job_logs" :::
     
     # [Python](#tab/python)
     
@@ -357,7 +357,7 @@ You can download the associated results using:
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/cli-deploy.sh" ID="download_outputs" :::
+:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="download_outputs" :::
 
 # [Python](#tab/python)
 
@@ -423,7 +423,7 @@ By default, we used `ordinal` previously. Let's now change the categorical encod
     
     Run the following code to create a batch deployment under the batch endpoint and set it as the default deployment.
     
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/cli-deploy.sh" ID="create_nondefault_deployment" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="create_nondefault_deployment" :::
 
     Your deployment is ready for use.   
 
@@ -443,7 +443,7 @@ Once the deployment is created, it's ready to receive jobs. We can test it in th
 
     # [Azure CLI](#tab/cli)
     
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/cli-deploy.sh" ID="invoke_nondefault_deployment_file" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="invoke_nondefault_deployment_file" :::
     
     # [Python](#tab/python)
     
@@ -453,7 +453,7 @@ Once the deployment is created, it's ready to receive jobs. We can test it in th
 
     # [Azure CLI](#tab/cli)
     
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/cli-deploy.sh" ID="stream_job_logs" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="stream_job_logs" :::
     
     # [Python](#tab/python)
     
@@ -470,7 +470,7 @@ Once we're satisfied with the performance of the new deployment, we can set this
 
 # [Azure CLI](#tab/cli)
     
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/cli-deploy.sh" ID="update_default_deployment" :::
+:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="update_default_deployment" :::
 
 # [Python](#tab/python)
 
@@ -483,7 +483,7 @@ Once you're done, you can delete the old deployment if you don't need it anymore
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/cli-deploy.sh" ID="delete_deployment" :::
+:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="delete_deployment" :::
 
 # [Python](#tab/python)
 
@@ -498,7 +498,7 @@ Once you're done, delete the associated resources from the workspace:
 
 Run the following code to delete the batch endpoint and its underlying deployment. `--yes` is used to confirm the deletion.
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/cli-deploy.sh" ID="delete_endpoint" :::
+:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh" ID="delete_endpoint" :::
 
 # [Python](#tab/python)
 

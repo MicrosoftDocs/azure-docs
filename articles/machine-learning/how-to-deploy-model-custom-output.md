@@ -58,19 +58,11 @@ Batch Endpoint can only deploy registered models. In this case, we already have 
    
 # [Azure CLI](#tab/cli)
 
-```azurecli
-MODEL_NAME='heart-classifier-sklpipe'
-az ml model create --name $MODEL_NAME --type "custom_model" --path "model"
-```
+:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="register_model" :::
 
 # [Python](#tab/python)
 
-```python
-model_name = 'heart-classifier'
-model = ml_client.models.create_or_update(
-     Model(name=model_name, path='model', type=AssetTypes.CUSTOM_MODEL)
-)
-```
+[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=register_model)]
 ---
 
 ### Creating a scoring script
@@ -104,17 +96,13 @@ We are going to create a batch endpoint named `heart-classifier-batch` where to 
     
     In this case, let's place the name of the endpoint in a variable so we can easily reference it later.
     
-    ```azurecli
-    ENDPOINT_NAME="heart-classifier-batch"
-    ```
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="name_endpoint" :::
     
     # [Python](#tab/python)
     
     In this case, let's place the name of the endpoint in a variable so we can easily reference it later.
 
-    ```python
-    endpoint_name="heart-classifier-batch"
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=name_endpoint)]
 
 1. Configure your batch endpoint
 
@@ -128,24 +116,17 @@ We are going to create a batch endpoint named `heart-classifier-batch` where to 
     
     # [Python](#tab/python)
     
-    ```python
-    endpoint = BatchEndpoint(
-        name=endpoint_name,
-        description="A heart condition classifier for batch inference.",
-    )
-    ```
+    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=configure_endpoint)]
     
 1. Create the endpoint:
 
    # [Azure CLI](#tab/cli)
 
-   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="create_batch_endpoint" :::
+   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="create_endpoint" :::
 
    # [Python](#tab/python)
 
-   ```python
-   ml_client.batch_endpoints.begin_create_or_update(endpoint)
-   ```
+   [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=create_endpoint)]
 
 ### Creating the deployment
 
@@ -163,13 +144,7 @@ Follow the next steps to create a deployment using the previous scoring script:
    
    Let's get a reference to the environment:
    
-   ```python
-   environment = Environment(
-       name="batch-mlflow-xgboost",
-       conda_file="environment/conda.yaml",
-       image="mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest",
-   )
-   ```
+   [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=configure_environment)]
 
 2. Create the deployment
 
@@ -184,38 +159,17 @@ Follow the next steps to create a deployment using the previous scoring script:
    
    Then, create the deployment with the following command:
    
-   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="create_batch_deployment_set_default" :::
+   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="create_deployment" :::
    
    # [Python](#tab/python)
    
    To create a new deployment under the created endpoint, use the following script:
    
-   ```python
-   deployment = BatchDeployment(
-       name="classifier-xgboost-parquet",
-       description="A heart condition classifier based on XGBoost",
-       endpoint_name=endpoint.name,
-       model=model,
-       environment=environment,
-       code_configuration=CodeConfiguration(
-           code="code/",
-           scoring_script="batch_driver.py",
-       ),
-       compute=compute_name,
-       instance_count=2,
-       max_concurrency_per_instance=2,
-       mini_batch_size=2,
-       output_action=BatchDeploymentOutputAction.SUMMARY_ONLY,
-       retry_settings=BatchRetrySettings(max_retries=3, timeout=300),
-       logging_level="info",
-   )
-   ```
+   [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=configure_deployment)]
    
    Then, create the deployment with the following command:
    
-   ```python
-   ml_client.batch_deployments.begin_create_or_update(deployment)
-   ```
+   [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=create_deployment)]
    ---
    
    > [!IMPORTANT]
@@ -227,89 +181,34 @@ Follow the next steps to create a deployment using the previous scoring script:
 
 For testing our endpoint, we are going to use a sample of unlabeled data located in this repository and that can be used with the model. Batch endpoints can only process data that is located in the cloud and that is accessible from the Azure Machine Learning workspace. In this example, we are going to upload it to an Azure Machine Learning data store. Particularly, we are going to create a data asset that can be used to invoke the endpoint for scoring. However, notice that batch endpoints accept data that can be placed in multiple type of locations.
 
-1. Let's create the data asset first. This data asset consists of a folder with multiple CSV files that we want to process in parallel using batch endpoints. You can skip this step is your data is already registered as a data asset or you want to use a different input type.
+1. Let's invoke the endpoint with data from an storage account:
 
    # [Azure CLI](#tab/cli)
    
-   Create a data asset definition in `YAML`:
-   
-   __heart-dataset-unlabeled.yml__
-   
-   ```yaml
-   $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
-   name: heart-dataset-unlabeled
-   description: An unlabeled dataset for heart classification.
-   type: uri_folder
-   path: heart-dataset
-   ```
-   
-   Then, create the data asset:
-   
-   ```azurecli
-   az ml data create -f heart-dataset-unlabeled.yml
-   ```
-   
-   # [Python](#tab/python)
-   
-   ```python
-   data_path = "resources/heart-dataset/"
-   dataset_name = "heart-dataset-unlabeled"
-
-   heart_dataset_unlabeled = Data(
-       path=data_path,
-       type=AssetTypes.URI_FOLDER,
-       description="An unlabeled dataset for heart classification",
-       name=dataset_name,
-   )
-   ```
-   
-   Then, create the data asset:
-   
-   ```python
-   ml_client.data.create_or_update(heart_dataset_unlabeled)
-   ```
-   
-   To get the newly created data asset, use:
-   
-   ```python
-   heart_dataset_unlabeled = ml_client.data.get(name=dataset_name, label="latest")
-   ```
-   
-1. Now that the data is uploaded and ready to be used, let's invoke the endpoint:
-
-   # [Azure CLI](#tab/cli)
-   
-   ```azurecli
-   JOB_NAME = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --deployment-name $DEPLOYMENT_NAME --input azureml:heart-dataset-unlabeled@latest | jq -r '.name')
-   ```
+   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="start_batch_scoring_job" :::
    
    > [!NOTE]
    > The utility `jq` may not be installed on every installation. You can get instructions in [this link](https://stedolan.github.io/jq/download/).
    
    # [Python](#tab/python)
+
+   Configure the inputs:
+
+   [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=configure_inputs)]
+
+   Create a job:
    
-   ```python
-   input = Input(type=AssetTypes.URI_FOLDER, path=heart_dataset_unlabeled.id)
-   job = ml_client.batch_endpoints.invoke(
-      endpoint_name=endpoint.name,
-      deployment_name=deployment.name,
-      input=input,
-   )
-   ```
+   [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=start_batch_scoring_job)]
    
 1. A batch job is started as soon as the command returns. You can monitor the status of the job until it finishes:
 
    # [Azure CLI](#tab/cli)
    
-   ```azurecli
-   az ml job show --name $JOB_NAME
-   ```
+   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="show_job_in_studio" :::
    
    # [Python](#tab/python)
    
-   ```python
-   ml_client.jobs.get(job.name)
-   ```
+   [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=get_job)]
    
 ## Analyzing the outputs
 
@@ -324,26 +223,16 @@ You can download the results of the job by using the job name:
 
 To download the predictions, use the following command:
 
-```azurecli
-az ml job download --name $JOB_NAME --output-name score --download-path ./
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="download_outputs" :::
 
 # [Python](#tab/python)
 
-```python
-ml_client.jobs.download(name=job.name, output_name='score', download_path='./')
-```
+[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=download_outputs)]
 ---
 
 Once the file is downloaded, you can open it using your favorite tool. The following example loads the predictions using `Pandas` dataframe.
 
-```python
-import pandas as pd
-import glob
-
-output_files = glob.glob("named-outputs/score/*.parquet")
-score = pd.concat((pd.read_parquet(f) for f in output_files))
-```
+[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=read_outputs)]
 
 The output looks as follows:
 
@@ -353,6 +242,22 @@ The output looks as follows:
 | 67  |	1   |	... |	normal     |	1          |
 | 67  |	1   |	... |	reversible |	0          |
 | 37  |	1   |	... |	normal     |	0          |
+
+## Clean up resources
+
+# [Azure CLI](#tab/cli)
+
+Run the following code to delete the batch endpoint and all the underlying deployments. Batch scoring jobs won't be deleted.
+
+::: code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="delete_endpoint" :::
+
+# [Python](#tab/python)
+
+Run the following code to delete the batch endpoint and all the underlying deployments. Batch scoring jobs won't be deleted.
+
+[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=delete_endpoint)]
+
+---
 
 
 ## Next steps

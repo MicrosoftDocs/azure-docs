@@ -85,7 +85,7 @@ Create the environment as follows:
 
     # [Azure CLI](#tab/cli)
     
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/cli-deploy.sh" ID="create_environment" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/deploy-and-run.sh" ID="create_environment" :::
     
     # [Python](#tab/python)
     
@@ -97,7 +97,7 @@ Batch endpoints and deployments run on compute clusters. They can run on any Azu
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/cli-deploy.sh" ID="create_compute" :::
+:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/deploy-and-run.sh" ID="create_compute" :::
 
 # [Python](#tab/python)
 
@@ -116,7 +116,7 @@ We're going to register components, models, and transformations that we need to 
 
     # [Azure CLI](#tab/cli)
     
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/cli-deploy.sh" ID="register_model" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/deploy-and-run.sh" ID="register_model" :::
     
     # [Python](#tab/python)
     
@@ -128,7 +128,7 @@ We're going to register components, models, and transformations that we need to 
 
     # [Azure CLI](#tab/cli)
 
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/cli-deploy.sh" ID="register_preprocessing_component" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/deploy-and-run.sh" ID="register_preprocessing_component" :::
 
     # [Python](#tab/python)
 
@@ -143,7 +143,7 @@ We're going to register components, models, and transformations that we need to 
 
     # [Azure CLI](#tab/cli)
 
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/cli-deploy.sh" ID="register_transformation" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/deploy-and-run.sh" ID="register_transformation" :::
     
     # [Python](#tab/python)
     
@@ -211,7 +211,7 @@ Create the test job:
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/cli-deploy.sh" ID="test_pipeline" :::
+:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/deploy-and-run.sh" ID="test_pipeline" :::
 
 # [Python](#tab/python)
 
@@ -225,7 +225,7 @@ Create the test job:
 
     # [Azure CLI](#tab/cli)
 
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/cli-deploy.sh" ID="name_endpoint" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/deploy-and-run.sh" ID="name_endpoint" :::
 
     # [Python](#tab/python)
 
@@ -249,7 +249,7 @@ Create the test job:
 
     # [Azure CLI](#tab/cli)
 
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/cli-deploy.sh" ID="create_endpoint" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/deploy-and-run.sh" ID="create_endpoint" :::
 
     # [Python](#tab/python)
 
@@ -259,7 +259,7 @@ Create the test job:
 
     # [Azure CLI](#tab/cli)
 
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/cli-deploy.sh" ID="query_endpoint" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/deploy-and-run.sh" ID="query_endpoint" :::
 
     # [Python](#tab/python)
 
@@ -295,7 +295,7 @@ To deploy the pipeline component, we have to create a batch deployment. A deploy
     
     Run the following code to create a batch deployment under the batch endpoint and set it as the default deployment.
     
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/cli-deploy.sh" ID="create_deployment" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/deploy-and-run.sh" ID="create_deployment" :::
     
     > [!TIP]
     > Notice the use of the `--set-default` flag to indicate that this new deployment is now the default.
@@ -341,7 +341,7 @@ Once the deployment is created, it's ready to receive jobs. Follow these steps t
 
     # [Azure CLI](#tab/cli)
     
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/cli-deploy.sh" ID="invoke_deployment_file" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/deploy-and-run.sh" ID="invoke_deployment_file" :::
     
     # [Python](#tab/python)
     
@@ -351,7 +351,7 @@ Once the deployment is created, it's ready to receive jobs. Follow these steps t
 
     # [Azure CLI](#tab/cli)
     
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/cli-deploy.sh" ID="stream_job_logs" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/deploy-and-run.sh" ID="stream_job_logs" :::
     
     # [Python](#tab/python)
     
@@ -369,7 +369,7 @@ Once the job is completed, we can access its output. This job contains only one 
 
 You can download the associated results using `az ml job download`.
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/cli-deploy.sh" ID="download_outputs" :::
+:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/deploy-and-run.sh" ID="download_outputs" :::
 
 # [Python](#tab/python)
 
@@ -402,7 +402,7 @@ Once you're done, delete the associated resources from the workspace:
 
 Run the following code to delete the batch endpoint and its underlying deployment. `--yes` is used to confirm the deletion.
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/cli-deploy.sh" ID="delete_endpoint" :::
+:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/deploy-and-run.sh" ID="delete_endpoint" :::
 
 # [Python](#tab/python)
 

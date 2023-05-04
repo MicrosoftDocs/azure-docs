@@ -466,7 +466,7 @@ The following code checks the job status and outputs a link to the Azure Machine
 
 The following code checks the job status and outputs a link to the Azure Machine Learning studio for further details.
 
-[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/mnist-classifier/mnist-batch.ipynb?name=show_job_in_studio)]
+[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/mnist-classifier/mnist-batch.ipynb?name=get_job)]
 
 # [Studio](#tab/studio)
 
