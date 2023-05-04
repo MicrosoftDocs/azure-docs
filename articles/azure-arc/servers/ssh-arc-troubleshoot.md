@@ -5,10 +5,10 @@ ms.date: 03/21/2022
 ms.topic: conceptual
 ---
 
-# Troubleshoot SSH access to Azure Arc enabled servers
+# Troubleshoot SSH access to Azure Arc-enabled servers
 
-This article provides information on troubleshooting and resolving issues that may occur while attempting to connect to Azure Arc enabled servers via SSH.
-For general information, see [SSH access to Arc enabled servers overview](./ssh-arc-overview.md).
+This article provides information on troubleshooting and resolving issues that may occur while attempting to connect to Azure Arc-enabled servers via SSH.
+For general information, see [SSH access to Arc-enabled servers overview](./ssh-arc-overview.md).
 
 > [!IMPORTANT]
 > SSH for Arc-enabled servers is currently in PREVIEW.
