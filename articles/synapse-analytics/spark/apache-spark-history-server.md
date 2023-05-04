@@ -188,13 +188,13 @@ The Executor Usage Graph visualizes the Spark job executor's allocation and runn
 ### TSG for 404 in Spark UI 
 
 In some cases, for long-running Spark applications with massive jobs and stages, when opening Spark UI, it may fail with the following page show up:
-![sparkui diagnoses select chart](./media/apache-spark-history-server/404-in-spark-ui.png)
+
+![screenshot of the tsg for 404 in spark ui](./media/apache-spark-history-server/404-in-spark-ui.png)
 
 As a workaround, an extra Spark configuration can be applied to the Spark pool: 
 
-    ```
     spark.synapse.history.rpc.memoryNeeded 1g 
-    ```
+
 
 ![add spark configuration](./media/apache-spark-history-server/add-spark-configuration.png)
 
