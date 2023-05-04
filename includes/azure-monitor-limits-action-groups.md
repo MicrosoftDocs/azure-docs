@@ -6,7 +6,7 @@ author: rboucher
 tags: azure-service-management
 ms.topic: "include"
 ms.date: 04/25/2023
-ms.author: dukek
+ms.author: jagummersall
 ms.custom: "include file"
 ---
 You can have an unlimited number of action groups in a subscription.

@@ -19,7 +19,8 @@ Each action is made up of the following properties:
 - **Name**: A unique identifier within the action group.
 - **Details**: The corresponding details that vary by type.
 
-An action group is a global service, so there's no dependency on a specific Azure region. Requests from clients are processed by action group services in any region. For instance, if one region of the action group service is down, the traffic is automatically routed and processed in other regions. As a global service, an action group helps provide a disaster recovery solution.
+In general, an action group is a global service. Efforts to make them more available regionally are in development. 
+Global requests from clients can be processed by action group services in any region. If one region of the action group service is down, the traffic is automatically routed and processed in other regions. As a global service, an action group helps provide a disaster recovery solution. Regional requests rely on availability zone redundancy to meet privacy requirements and offer a similar disaster recovery solution.
 
 ## Create an action group in the Azure portal
 
