@@ -155,7 +155,7 @@ Here's a list of limits per account.
 | Maximum number of databases and containers per account  | 100 ¹ |
 | Maximum number of regions | 1 (Any Azure region) |
 
-¹ You can increase this limit by creating an [Azure Support request](create-support-request-quota-increase.md).
+¹ You can increase this limit by creating an [Azure Support request](nosql/create-support-request-quota-increase.md).
 
 ## Per-container limits
 
