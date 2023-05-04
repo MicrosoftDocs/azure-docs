@@ -13,8 +13,7 @@ author: sagarkeswani
 
 The [Azure CLI](/cli/azure/) is used to create and manage Azure resources from the command line or in scripts.
 
-[Azure Center for SAP solutions](overview.md) enables you to deploy and manage SAP systems on Azure. This article shows you how to deploy infrastrucure for an SAP system 
-h highly-available (HA) Three-tier Distributed architecture with customized resource names for the Azure infrastructure with *Azure Center for SAP solutions* using Azure CLI. Alternatively, you can deploy SAP systems using the Azure PowerShell, or in the Azure Portal. 
+[Azure Center for SAP solutions](overview.md) enables you to deploy and manage SAP systems on Azure. This article shows you how to use Azure CLI to deploy infrastrucure for an SAP system with highly-available (HA) Three-tier Distributed architecture. You will also see how to customize resource names for the Azure infrastructure that gets deployed. Alternatively, you can deploy SAP systems with customized using the [Azure PowerShell Module](/powershell/module/az.workloads/new-azworkloadssapvirtualinstance)
 
 After you deploy infrastructure and [install SAP software](install-software.md) with *Azure Center for SAP solutions*, you can use its visualization, management and monitoring capabilities through the Azure portal. For example, you can:
 
@@ -70,6 +69,6 @@ az workloads sap-virtual-instance create -g <Resource Group Name> -n <VIS Name> 
 
 
 ## Next steps
-In this quickstart, you deployed infrstructure in Azure for an SAP system using Azure Center for SAP solutions. Continue to the next article to learn how to install SAP software on the infrastructure deployed. 
+In this quickstart, you deployed infrstructure in Azure for an SAP system using Azure Center for SAP solutions. You used custom resource names for the infrastructure. Continue to the next article to learn how to install SAP software on the infrastructure deployed. 
 > [!div class="nextstepaction"]
 > [Install SAP software](install-software.md)
