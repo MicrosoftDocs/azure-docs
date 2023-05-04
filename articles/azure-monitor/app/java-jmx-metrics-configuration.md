@@ -61,13 +61,6 @@ Knowing what metrics are available, you can configure the agent to collect them.
 ],
 ```
 
-## Types of collected metrics and available configuration options?
-
-We support numeric and boolean JMX metrics, while other types aren't supported and is ignored. 
-
-Currently, the wildcards and aggregated attributes aren't supported, that's why every attribute 'object name'/'attribute' pair must be configured separately. 
-
-
 ## Where do I find the JMX Metrics in application insights?
 
 You can view the JMX metrics collected while your application is running by navigating to your application insights resource in the Azure portal. Under Metrics tab, select the dropdown as shown to view the metrics.
