@@ -1,5 +1,5 @@
 ---
-title: Find out when a specific user will be able to access an app in Azure Active Directory Application Provisioning
+title: Find out when a specific user is able to access an app in Azure Active Directory Application Provisioning
 description: How to find out when a critically important user is able to access an application you have configured for user provisioning with Azure Active Directory.
 services: active-directory
 author: kenwith
@@ -15,7 +15,7 @@ ms.reviewer: arvinh
 
 # Check the status of user provisioning
 
-The Azure AD provisioning service runs an initial provisioning cycle against the source system and target system, followed by periodic incremental cycles. When you configure provisioning for an app, you can check the current status of the provisioning service and see when a user will be able to access an app.
+The Azure AD provisioning service runs an initial provisioning cycle against the source system and target system, followed by periodic incremental cycles. When you configure provisioning for an app, you can check the current status of the provisioning service and see when a user is able to access an app.
 
 ## View the provisioning progress bar
 
@@ -25,7 +25,7 @@ When you first configure automatic provisioning, the **Current Status** section 
 - The type of provisioning cycle (initial or incremental) that is currently running or was last completed.
 - A **progress bar** showing the percentage of the provisioning cycle that has completed. The percentage reflects the count of pages provisioned. Note that each page could contain multiple users or groups, so the percentage doesn't directly correlate to the number of users, groups, or roles provisioned.
 - A **Refresh** button you can use to keep the view updated.
-- The number of **Users** and **Groups** in the connector data store. The count increases anytime an object is added to the scope of provisioning. The count will not go down if a user is soft-deleted or hard-deleted as this does not remove the object from the connector data store. The count will be recalculated the first sync after the CDS is [reset](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta&preserve-view=true) 
+- The number of **Users** and **Groups** in the connector data store. The count increases anytime an object is added to the scope of provisioning. The count doesn't go down if a user is soft-deleted or hard-deleted because this doesn't remove the object from the connector data store. The count is recalculated the first sync after the CDS is [reset](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta&preserve-view=true) 
 - A **View Audit Logs** link, which opens the Azure AD provisioning logs for details about all operations run by the user provisioning service, including provisioning status for individual users (see the [Use provisioning logs](#use-provisioning-logs-to-check-a-users-provisioning-status) section below).
 
 After a provisioning cycle is complete, the **Statistics to date** section shows the cumulative numbers of users and groups that have been provisioned to date, along with the completion date and duration of the last cycle. The **Activity ID** uniquely identifies the most recent provisioning cycle. The **Job ID** is a unique identifier for the provisioning job, and is specific to the app in your tenant.
@@ -49,7 +49,7 @@ The provisioning logs record all the operations performed by the provisioning se
 
 For more information on how to read the provisioning logs in the Azure portal, see the [provisioning reporting guide](check-status-user-account-provisioning.md).
 
-## How long will it take to provision users?
+## How long does it take to provision users?
 When using automatic user provisioning with an application, Azure AD automatically provisions and updates user accounts in an app based on things like [user and group assignment](../manage-apps/assign-user-or-group-access-portal.md) at a regularly scheduled time interval, typically every 40 minutes.
 
 The time it takes for a given user to be provisioned depends mainly on whether your provisioning job is running an initial cycle or an incremental cycle.
@@ -89,7 +89,7 @@ Summary of factors that influence the time it takes to complete an **initial cyc
 
 - Request rate limits and throttling implemented by the target system. Some target systems implement request rate limits and throttling, which can impact performance during large sync operations. Under these conditions, an app that receives too many requests too fast might slow its response rate or close the connection. To improve performance, the connector needs to adjust by not sending the app requests faster than the app can process them. Provisioning connectors built by Microsoft make this adjustment. 
 
-- The number and sizes of assigned groups. Syncing assigned groups takes longer than syncing users. Both the number and the sizes of the assigned groups impact performance. If an application has [mappings enabled for group object sync](customize-application-attributes.md#editing-group-attribute-mappings), group properties such as group names and memberships are synced in addition to users. These additional syncs will take longer than only syncing user objects.
+- The number and sizes of assigned groups. Syncing assigned groups takes longer than syncing users. Both the number and the sizes of the assigned groups impact performance. If an application has [mappings enabled for group object sync](customize-application-attributes.md#editing-group-attribute-mappings), group properties such as group names and memberships are synced in addition to users. These additional syncs take longer than only syncing user objects.
 
 - If performance becomes an issue and you are attempting to provision the majority of users and groups in your tenant, use scoping filters. Scoping filters allow you to fine tune the data that the provisioning service extracts from Azure AD by filtering out users based on specific attribute values. For more information on scoping filters, see [Attribute-based application provisioning with scoping filters](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
