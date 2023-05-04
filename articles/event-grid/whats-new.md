@@ -2,7 +2,7 @@
 title: What's new? Azure Event Grid
 description: Learn what is new with Azure Event Grid, such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 ms.topic: overview
-ms.date: 07/20/2022
+ms.date: 05/23/2023
 ---
 
 # What's new in Azure Event Grid?
@@ -10,6 +10,38 @@ ms.date: 07/20/2022
 >Get notified about when to revisit this page for updates by copying and pasting this URL: `https://learn.microsoft.com/api/search/rss?search=%22Release+notes+-+Azure+Event+Grid%22&locale=en-us` into your ![RSS feed reader icon](./media/whats-new/feed-icon-16x16.png) feed reader.
 
 Azure Event Grid receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about the features that are added or updated in a release. 
+
+## REST API version 2023-06-01-preview
+
+- [What's Azure Event Grid](overview.md), [Concepts](concepts.md) articles are updated to include information about the new pull-based event delivery and MQTT messaging.
+- Pull (new) and push delivery of events
+    - [Introduction to pull and push delivery of events](pull-and-push-delivery-overview.md)
+    - [Publish and subscribe using namespace topics](publish-events-using-namespace-topics.md)
+    - [Create, view, and manage namespaces](create-view-manage-namespaces.md)
+    - [Create, view, and manage namespace topics](create-view-manage-namespace-topics.md)
+    - [Create, view, and manage event subscriptions](create-view-manage-event-subscriptions.md)
+- The following articles for **MQTT messaging** are added.
+    - [Introduction to MQTT messaging in Azure Event Grid](mqtt-overview.md)
+    - Publish and subscribe to MQTT messages on Event Grid namespace - [Azure portal](mqtt-publish-and-subscribe-portal.md), [CLI](mqtt-publish-and-subscribe-cli.md)
+    - Tutorial: Route MQTT messages to Azure Event Hubs from Azure Event Grid - [Azure portal](mqtt-routing-to-event-hubs-portal.md), [CLI](mqtt-routing-to-event-hubs-cli.md)
+    - [Event Grid namespace terminology](mqtt-event-grid-namespace-terminology.md)
+    - [Client authentication](mqtt-client-authentication.md)
+    - [Access control for MQTT clients](mqtt-access-control.md)
+    - [MQTT clients and client groups](mqtt-clients-and-client-groups.md)
+    - [Topic spaces](mqtt-topic-spaces.md)
+    - Routing MQTT messages
+        - [Routing MQTT messages](mqtt-routing.md)
+        - [Event schema for MQTT routed messages](mqtt-routing-event-schema.md)
+        - [Filtering of MQTT Routed Messages](mqtt-routing-filtering.md)
+        - [Routing enrichments](mqtt-routing-enrichment.md)
+    - [MQTT Support in Azure Event Grid](mqtt-mqtt-support.md)
+    - [MQTT clients - life cycle events](mqtt-client-life-cycle-events.md)
+    - [Client authentication using CA certificate chain](mqtt-certificate-chain-client-authentication.md)
+    - [Customer enabled disaster recovery in Azure Event Grid](custom-disaster-recovery-client-side.md)
+    - [How to establish multiple sessions for a single client](mqtt-establishing-multiple-sessions-per-client.md)
+    - [Monitoring data reference for MQTT delivery](monitor-mqtt-delivery-reference.md)
+- [Scaling with Azure Event Grid](scaling-with-azure-event-grid.md)
+
 
 ## Microsoft.Azure.Management.EventGrid version 9.0.0 (REST API version 2022-06)
 This release corresponds to REST API version 2022-06-15, which includes the following features:
