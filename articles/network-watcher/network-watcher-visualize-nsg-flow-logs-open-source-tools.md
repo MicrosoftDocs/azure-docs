@@ -7,7 +7,7 @@ author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 09/15/2022
+ms.date: 05/03/2023
 ms.author: halkazwini
 ms.custom: engagement-fy23
 ---
@@ -27,12 +27,16 @@ In this article, we will set up a solution that will allow you to visualize Netw
 ## Steps
 
 ### Enable Network Security Group flow logging
+
 For this scenario, you must have Network Security Group Flow Logging enabled on at least one Network Security Group in your account. For instructions on enabling Network Security Flow Logs, refer to the following article [Introduction to flow logging for Network Security Groups](network-watcher-nsg-flow-logging-overview.md).
 
 ### Set up the Elastic Stack
+
 By connecting NSG flow logs with the Elastic Stack, we can create a Kibana dashboard what allows us to search, graph, analyze, and derive insights from our logs.
 
 #### Install Elasticsearch
+
+The following instructions are used to install Elasticsearch in Ubuntu Azure VMs. For instructions about how to install elastic search in RHEL/CentOS distributions, see [Install Elasticsearch with RPM](https://www.elastic.co/guide/en/elasticsearch/reference/8.6/rpm.html).
 
 1. The Elastic Stack from version 5.0 and above requires Java 8. Run the command `java -version` to check your version. If you do not have Java installed, refer to documentation on the [Azure-suppored JDKs](/azure/developer/java/fundamentals/java-support-on-azure).
 2. Download the correct binary package for your system:
@@ -72,12 +76,15 @@ For further instructions on installing Elastic search, refer to [Installation in
 
 ### Install Logstash
 
+The following instructions are used to install Logstash in Ubuntu. For instructions about how to install this package in RHEL/CentOS, refer to the [Installing from Package Repositories - yum](https://www.elastic.co/guide/en/logstash/8.7/installing-logstash.html#_yum) article.
+
 1. To install Logstash run the following commands:
 
     ```bash
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
+
 2. Next we need to configure Logstash to access and parse the flow logs. Create a logstash.conf file using:
 
     ```bash
@@ -86,7 +93,7 @@ For further instructions on installing Elastic search, refer to [Installation in
 
 3. Add the following content to the file:
 
-   ```
+   ```config
    input {
       azureblob
         {
@@ -156,10 +163,10 @@ For further instructions on installing Logstash, refer to the [official document
 
 ### Install the Logstash input plugin for Azure blob storage
 
-This Logstash plugin will allow you to directly access the flow logs from their designated storage account. To install this plugin, from the default Logstash installation directory (in this case /usr/share/logstash/bin) run the command:
+This Logstash plugin will allow you to directly access the flow logs from their designated storage account. To install this plugin, from the default Logstash installation directory run the command:
 
 ```bash
-logstash-plugin install logstash-input-azureblob
+sudo /usr/share/logstash/bin/logstash-plugin install logstash-input-azureblob
 ```
 
 To start Logstash run the command:
@@ -171,6 +178,11 @@ sudo /etc/init.d/logstash start
 For more information about this plugin, refer to the [documentation](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob).
 
 ### Install Kibana
+
+For instructions about how to install Kibana in RHEL/CentOS systems, see [Install Kibana with RPM](https://www.elastic.co/guide/en/kibana/current/rpm.html).
+For instructions about how to install Kibana in Ubuntu/Debian systems using a repository package, see [Install Kibana from APT repository](https://www.elastic.co/guide/en/kibana/current/deb.html).
+
+Then instructions below were tested in Ubuntu and could be used in different Linux distributions as they are not Ubuntu specific.
 
 1. Run the following commands to install Kibana:
 
