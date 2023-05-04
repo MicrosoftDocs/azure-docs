@@ -72,7 +72,7 @@ Create a job specification YAML file (`<file-name>.yml`). In the `inputs` sectio
 1. The `path` of your data location; any of the paths outlined in the [Supported Paths](#supported-paths) section will work.
 
 > [!NOTE]
-> To use [serverless compute (preview)](how-to-use-serverless-compute.md), delete `compute: azureml:cpu-cluster"` in this code.
+> To use [serverless compute (preview)](how-to-use-serverless-compute.md), delete `compute: azureml:cpu-cluster",` in this code.
 
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
