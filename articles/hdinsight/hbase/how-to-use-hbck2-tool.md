@@ -84,7 +84,7 @@ Returns the PID(s) of the created UnassignProcedure(s) or -1 if none. If `-i or 
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar unassigns fileName1 -i fileName2
 ```
 
-**bypass [OPTIONS] <PID>...**
+`bypass [OPTIONS] <PID>...`
 
 **Options:**
 
@@ -206,7 +206,7 @@ If `-i or --inputFiles` is specified, pass one or more input file names. Each fi
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar replication -i fileName1 fileName2
 ```
 
-**setRegionState [<ENCODED_REGIONNAME> <STATE> | -i <INPUT_FILE>...]**
+`setRegionState [<ENCODED_REGIONNAME> <STATE> | -i <INPUT_FILE>...]`
 
 **Options**
 
@@ -242,13 +242,13 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 ```
 Returns "0" if region state changed and "1" otherwise.
 If `-i or --inputFiles` is specified, pass one or more input file names.
-Each file contains <ENCODED_REGIONNAME> <STATE>, one pair per line.
+Each file contains `<ENCODED_REGIONNAME> <STATE>` one pair per line.
 For example,
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar setRegionState -i fileName1 fileName2
 ```
 
-**setTableState [<TABLENAME> <STATE> | -i <INPUT_FILE>...]**
+`setTableState [<TABLENAME> <STATE> | -i <INPUT_FILE>...]`
 
 **Options**
 
@@ -262,30 +262,30 @@ To read current table state, in the hbase shell run:
 hbase> get 'hbase:meta', '<TABLENAME>', 'table:state'
 ```
 A value of x08x00 == ENABLED, x08x01 == DISABLED, etc.
-Can also run a 'describe "<TABLENAME>"' at the shell prompt. An example making table name 'user' ENABLED:
+Can also run a 'describe `<TABLENAME>` at the shell prompt. An example making table name 'user` ENABLED:
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar setTableState users ENABLED
 ```
-Returns whatever the previous table state was. If `-i or --inputFiles` is specified, pass one or more input file names. Each file contains <TABLENAME> <STATE>, one pair per line.
+Returns whatever the previous table state was. If `-i or --inputFiles` is specified, pass one or more input file names. Each file contains `<TABLENAME> <STATE>`, one pair per line.
 For example:
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar setTableState -i fileName1 fileName2
 ```
 
-**scheduleRecoveries <SERVERNAME>... | -i <INPUT_FILE>...**
+`scheduleRecoveries <SERVERNAME>... | -i <INPUT_FILE>...`
 
 **Options**
 
 -i,--inputFiles`  take one or more input files of server names
 
-Schedule ServerCrashProcedure(SCP) for list of RegionServers. Format server name as '<HOSTNAME>,<PORT>,<STARTCODE>' (See HBase UI/logs).
+Schedule `ServerCrashProcedure(SCP)` for list of `RegionServers`. Format server name as '<HOSTNAME>,<PORT>,<STARTCODE>' (See HBase UI/logs).
 Example using RegionServer 'a.example.org, 29100,1540348649479':
 
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar scheduleRecoveries a.example.org,29100,1540348649479
 ```
 Returns the PID(s) of the created ServerCrashProcedure(s) or -1 if no procedure created (see master logs for why not).
-Command support added in hbase versions 2.0.3, 2.1.2, 2.2.0 or newer. If `-i or --inputFiles` is specified, pass one or more input file names. Each file contains <SERVERNAME>, one per line. For example:
+Command support added in hbase versions 2.0.3, 2.1.2, 2.2.0 or newer. If `-i or --inputFiles` is specified, pass one or more input file names. Each file contains `<SERVERNAME>`, one per line. For example:
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar scheduleRecoveries -i fileName1 fileName2 
 
