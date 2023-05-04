@@ -39,7 +39,7 @@ This feature is currently supported only in the following regions:
 - Australia East
 - Central India
 
-Kubernetes application-based container offers cannot be deployed on AKS for Azure Stack HCI or AKS Edge Essentials.
+Kubernetes application-based container offers can't be deployed on AKS for Azure Stack HCI or AKS Edge Essentials.
 
 ## Register resource providers
 
@@ -61,7 +61,7 @@ az provider register --namespace Microsoft.KubernetesConfiguration --wait
    > [!IMPORTANT]
    > The **Containers** category includes both Kubernetes applications and standalone container images. This walkthrough is specific to Kubernetes applications. If you find that the steps to deploy an offer differ in some way, you're most likely trying to deploy a container image-based offer instead of a Kubernetes application-based offer.
 
-1. You will see several Kubernetes application offers displayed on the page. To view all of the Kubernetes application offers, select **See more**.
+1. You'll see several Kubernetes application offers displayed on the page. To view all of the Kubernetes application offers, select **See more**.
 
    :::image type="content" source="./media/deploy-marketplace/see-more-inline.png" alt-text="Screenshot of Azure Marketplace K8s offers in the Azure portal" lightbox="./media/deploy-marketplace/see-more.png":::
 
@@ -89,7 +89,7 @@ az provider register --namespace Microsoft.KubernetesConfiguration --wait
 
 ### [Portal](#tab/azure-portal)
 
-1. Verify the deployment by using the following command to list the extensions that are running on your cluster or visit the cluster you recently installed the extension on, then navigate to "Extensions + Applications", where you will see the extension status:
+1. Verify the deployment by using the following command to list the extensions that are running on your cluster or visit the cluster you recently installed the extension on, then navigate to "Extensions + Applications", where you'll see the extension status:
 
    :::image type="content" source="./media/deploy-marketplace/verify-inline.png" lightbox="./media/deploy-marketplace/verify.png" alt-text="The Azure portal page for the A K S cluster is shown. 'Extensions + Applications' is selected, and the deployed extension is listed.":::
 
@@ -115,11 +115,11 @@ First, navigate to an existing cluster, then select "Extensions + applications":
 
 :::image type="content" source="./media/deploy-marketplace/cluster-view.png" alt-text="The Azure portal page for the A K S cluster. 'Extensions + Applications' is highlighted.":::
 
-You will see your recently installed extensions listed:
+You'll see your recently installed extensions listed:
 
 :::image type="content" source="./media/deploy-marketplace/verify-inline.png" lightbox="./media/deploy-marketplace/verify.png" alt-text="The Azure portal page for the A K S cluster. 'Extensions + Applications' is selected, and deployed extensions are listed.":::
 
-Select an extension name to navigate to a properties view where you are able to disable auto upgrades, check the provisioning state, delete the extension instance, or modify configuration settings as needed.
+Select an extension name to navigate to a properties view where you're able to disable auto upgrades, check the provisioning state, delete the extension instance, or modify configuration settings as needed.
 
 :::image type="content" source="./media/deploy-marketplace/properties.png" alt-text="The Azure portal page for extension properties.":::
 
