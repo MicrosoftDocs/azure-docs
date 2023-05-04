@@ -77,7 +77,7 @@ To enable your Container Apps resource to receive anonymous traffic, follow thes
 
 1. Select **Remove authentication** to remove authentication and allow anonymous traffic to your Container Apps resource.
 
-You Container Apps resource will now be able to receive anonymous traffic.
+You Container Apps resource is now able to receive anonymous traffic.
 
 ## Next steps
 
