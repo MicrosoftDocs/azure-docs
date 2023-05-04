@@ -83,9 +83,9 @@ The property `spring.cloud.azure.appconfiguration.stores[0].feature-flags.label`
 
 ## Possible conflicts with Spring Cloud Azure global properties
 
-[Spring Cloud Azure common configuration properties](/azure/developer/java/spring-framework/configuration) enable you to customize your connections to Azure services. The new App Configuration library will pick up any global or App Configuration setting that's configured with Spring Cloud Azure common configuration properties. Your connection to App Configuration will change if the configurations have been set for another Spring Cloud Azure library.
+[Spring Cloud Azure common configuration properties](/azure/developer/java/spring-framework/configuration) enable you to customize your connections to Azure services. The new App Configuration library will pick up any global or App Configuration setting that's configured with Spring Cloud Azure common configuration properties. Your connection to App Configuration will change if the configurations are set for another Spring Cloud Azure library.
 
 You can override this behavior by using `ConfigurationClientCustomizer`/`SecretClientCustomizer` to modify the clients.
 
 > [!WARNING]
-> Spring Cloud Azure global properties might provide more than one connection method as it automatically pick up credentials, such as environment variables, and uses them to connect to Azure services. This behavior can cause problems if you're using a different connection method, such as managed identity, and the global properties are overriding it.
+> Spring Cloud Azure global properties might provide more than one connection method as they automatically pick up credentials, such as environment variables, and use them to connect to Azure services. This behavior can cause problems if you're using a different connection method, such as a managed identity, and the global properties are overriding it.
