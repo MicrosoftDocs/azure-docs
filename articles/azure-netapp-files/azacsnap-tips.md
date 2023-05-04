@@ -12,13 +12,107 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 08/04/2021
+ms.date: 05/04/2023
 ms.author: phjensen
 ---
 
 # Tips and tricks for using Azure Application Consistent Snapshot tool
 
 This article provides tips and tricks that might be helpful when you use AzAcSnap.
+
+## Global settings to control azacsnap behavior
+
+AzAcSnap 8 introduced a new global settings file (`.azacsnaprc`) which must be located in the same (current working) directory as azacsnap is executed in.  The filename is `.azacsnaprc` and by using the dot '.' character as the start of the filename makes it hidden to standard directory listings.  The file allows global settings controlling the behavior of AzAcSnap to be set.  The format is one entry per line with a supported customizing variable and a new overriding value.
+
+Settings which can be controlled by adding/editing the global settings file are:
+
+- **MAINLOG_LOCATION** which sets the location of the "mainlog" output file which is called `azacsnap.log` and was introduced in AzAcSnap 8.  Values should be absolute paths, for example:
+  - `MAINLOG_LOCATION=/home/azacsnap/bin/logs`
+
+## Mainlog parsing
+
+AzAcSnap 8 introduced a new "mainlog" to provide simpler parsing of runs of AzAcSnap.  Ths inspiration for this file is the SAP HANA backup catalog which shows when AzAcSnap was started, how long it took, and what the snapshot name is.  With AzAcSnap this has been taken further to include information for each of the AzAcSnap commands, specifically the `-c` options, and the file has the following headers:
+
+```output
+DATE_TIME,OPERATION_NAME,STATUS,SID,DATABASE_TYPE,DURATION,SNAPSHOT_NAME,AZACSNAP_VERSION,AZACSNAP_CONFIG_FILE,VOLUME
+```
+
+When AzAcSnap is run it will append to the log the appropriate information depending on the `-c` command used, examples of output are as follows:
+
+```output
+2023-03-29T16:10:57.8643546+13:00,about,started,,,,,8,azacsnap.json,
+2023-03-29T16:10:57.8782148+13:00,about,SUCCESS,,,0:00:00.0258013,,8,azacsnap.json,
+2023-03-29T16:11:55.7276719+13:00,backup,started,PR1,Hana,,pr1_hourly__F47B181A117,8,PR1.json,(data)HANADATA_P;(data)HANASHARED_P;(data)VGvol01;
+2023-03-29T16:13:03.3774633+13:00,backup,SUCCESS,PR1,Hana,0:01:07.7558663,pr1_hourly__F47B181A117,8,PR1.json,(data)HANADATA_P;(data)HANASHARED_P;(data)VGvol01;
+2023-03-29T16:13:30.1312963+13:00,details,started,PR1,Hana,,,8,PR1.json,(data)HANADATA_P;(data)HANASHARED_P;(data)VGvol01;(other)HANALOGBACKUP_P;
+2023-03-29T16:13:33.1806098+13:00,details,SUCCESS,PR1,Hana,0:00:03.1380686,,8,PR1.json,(data)HANADATA_P;(data)HANASHARED_P;(data)VGvol01;(other)HANALOGBACKUP_P;
+```
+
+This makes it possible to use the Linux commands `watch`, `grep`, `head`, `tail`, and `column` to get continuous updates of AzAcSnap backups.  An example combination of these commands in  single shell script to monitor AzAcSnap is as follows:
+
+```bash
+#!/bin/bash
+#
+# mainlog-watcher.sh
+# Monitor execution of AzAcSnap backup commands
+#
+# These values can be modified as appropriate.
+HEADER_VALUES_TO_EXCLUDE="AZACSNAP_VERSION,VOLUME,AZACSNAP_CONFIG_FILE"
+SCREEN_REFRESH_SECS=2
+#
+# Use AzAcSnap global settings file (.azacsnaprc) if available,
+# otherwise use the default location of the current working directory.
+AZACSNAP_RC=".azacsnaprc"
+if [ -f ${AZACSNAP_RC} ]; then
+    source ${AZACSNAP_RC} 2> /dev/null
+else
+    MAINLOG_LOCATION="."
+fi
+cd ${MAINLOG_LOCATION}
+echo "Changing current working directory to ${MAINLOG_LOCATION}"
+#
+# Default MAINLOG filename.
+MAINLOG_FILENAME="azacsnap.log"
+#
+# High-level explanation of how commands used.
+# `watch` - continuously monitoring the command output.
+# `column` - provide pretty output.
+# `grep` - filter only backup runs.
+# `head` and `tail` - add/remove column headers.
+watch -t -n ${SCREEN_REFRESH_SECS} \
+  "\
+  echo -n "Monitoring AzAcSnap @  "; \
+  date ; \
+  echo ; \
+  column -N"$(head -n1 ${MAINLOG_FILENAME})" \
+      -d -H "${HEADER_VALUES_TO_EXCLUDE}" \
+      -s"," -t ${MAINLOG_FILENAME} \
+    | head -n1 ; \
+  grep -e "DATE" -e "backup" ${MAINLOG_FILENAME} \
+    | column -N"$(head -n1 ${MAINLOG_FILENAME})" \
+      -d -H "${HEADER_VALUES_TO_EXCLUDE}" \
+      -s"," -t \
+    | tail -n +2 \
+    | tail -n 12 \
+  "
+```
+
+Will produce the following output refreshed every two seconds.
+
+```output
+Monitoring AzAcSnap @Fri May  5 11:26:36 NZST 2023
+
+DATE_TIME                          OPERATION_NAME  STATUS   SID  DATABASE_TYPE  DURATION         SNAPSHOT_NAME
+2023-05-05T00:00:03.5705791+12:00  backup          started  PR1  Hana                            daily_archive__F4F02562F6B
+2023-05-05T00:02:11.5495104+12:00  backup          SUCCESS  PR1  Hana           0:02:08.2778958  daily_archive__F4F02562F6B
+2023-05-05T03:00:02.8123179+12:00  backup          started  PR1  Hana                            pr1_hourly__F4F08C604CD
+2023-05-05T03:01:08.6609302+12:00  backup          SUCCESS  PR1  Hana           0:01:06.1536665  pr1_hourly__F4F08C604CD
+2023-05-05T06:00:02.8871149+12:00  backup          started  PR1  Hana                            pr1_hourly__F4F0F35FAB9
+2023-05-05T06:01:09.0608121+12:00  backup          SUCCESS  PR1  Hana           0:01:06.4537885  pr1_hourly__F4F0F35FAB9
+2023-05-05T09:00:03.1769836+12:00  backup          started  PR1  Hana                            pr1_hourly__F4F15A5F8E2
+2023-05-05T09:01:08.6898938+12:00  backup          SUCCESS  PR1  Hana           0:01:05.8221419  pr1_hourly__F4F15A5F8E2
+```
+
 
 ## Limit service principal permissions
 
