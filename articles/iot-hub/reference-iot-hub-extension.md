@@ -56,11 +56,20 @@ Installing the Azure IoT Hub extension for Visual Studio Code also installs the 
 > [!NOTE]
 > The Azure IoT Hub extension depends on the Azure Account extension for connectivity. You cannot uninstall the Azure Account extension without uninstalling the Azure IoT Hub extension.
 
-## Sign in to you Azure account
+## Sign in to your Azure account
 
-Before the extension can interact with Azure IoT Hub, you must sign in to your Azure account from Visual Studio Code. You can use the Azure Account extension to create an Azure account, sign in and out of your Azure account, filter the Azure subscriptions available to the Azure IoT Hub extension from your Azure account, or upload a file to your Azure Cloud Shell storage account. For more information about interacting with the Azure Account extension, see the [GitHub documentation](https://github.com/microsoft/vscode-azure-account#readme) for the extension.
+Before the extension can interact with Azure IoT Hub, you must sign in to your Azure account from Visual Studio Code. You can use the Azure Account extension to:
 
-You can use the **Azure: Sign In** command in the Command Palette to sign in to your Azure account and select the Azure subscription with which the Azure IoT Hub extension interacts. Once signed in, you can interact with your hubs and resources from either the Command Palette or the action menu in the Explorer view of VS Code.
+- Create an Azure account
+- Sign in and out of your Azure account
+- Filter the Azure subscriptions available to the Azure IoT Hub extension from your Azure account
+- Upload a file to your Azure Cloud Shell storage account
+
+For more information about interacting with the Azure Account extension, see the [GitHub documentation](https://github.com/microsoft/vscode-azure-account#readme) for the extension.
+
+You can use the **Azure: Sign In** command in the Command Palette to sign in to your Azure account and select the Azure subscription with which the Azure IoT Hub extension interacts. If you're not signed into your Azure account and try to use one of the commands from the Azure IoT Hub extension, a notification is displayed in VS Code. You can select the **Sign In** button from that notification to sign in to your Azure account.
+
+Once signed in, you can interact with your hubs, devices, and modules from either the Command Palette or the action menu in the Explorer view of VS Code.
 
 ## Manage your IoT hubs
 
@@ -117,7 +126,7 @@ You can perform the following interactive tasks for the resources in your curren
 - [Send a cloud-to-device (C2D) message to the selected device](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Send-C2D-Message-to-Device) for your current IoT hub and display the results in the Output panel of VS Code
 - Start and stop [monitoring C2D messages to the selected device](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Monitor-IoT-Hub-C2D-message) for your current IoT hub and display the results in the Output panel of VS Code
 - [Update distributed tracing settings for devices](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Update-Distributed-Tracing)
-- Start and stop [monitoring custom Event Hub endpoints for the current IoT hub](https://github.com/microsoft/vscode-azure-iot-toolkit/wiki/Monitor-Custom-Event-Hub-Endpoint) and display the results in the Output panel of VS Code
+- Start and stop [monitoring custom Event Hubs endpoints for the current IoT hub](https://github.com/microsoft/vscode-azure-iot-toolkit/wiki/Monitor-Custom-Event-Hub-Endpoint) and display the results in the Output panel of VS Code
 
 ## Interact with IoT Edge
 
