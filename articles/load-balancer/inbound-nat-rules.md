@@ -58,4 +58,6 @@ For more information about Azure Load Balancer inbound NAT rules, see:
 
 * [Tutorial: Create a single virtual machine inbound NAT rule using the Azure portal](tutorial-load-balancer-port-forwarding-portal.md)
 
+* [Tutorial: Migrate from Inbound NAT Pools to NAT Rules](load-balancer-nat-pool-migration.md) 
+
 
