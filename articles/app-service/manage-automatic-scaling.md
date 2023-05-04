@@ -2,7 +2,7 @@
 title: Automatic scaling
 description: Learn how to scale automatically in Azure App Service with zero configuration.
 ms.topic: article
-ms.date: 04/21/2023
+ms.date: 05/04/2023
 ms.author: msangapu
 
 ---
@@ -30,6 +30,14 @@ Here are a few scenarios where you should use scale automatically:
 
 ## Enable automatic scaling
 
+#### [Azure portal](#tab/azure-portal)
+
+1. In your App Service web app's left menu, select **Scale out (App Service plan)**.
+
+![Automatic scaling in Azure portal](./media/manage-automatic-scaling/azure-portal-automatic-scaling.png)
+
+2. Select **Automatic (preview)** and then select the **Save** button.
+
 #### [Azure CLI](#tab/azure-cli)
 
 The following command enables automatic scaling for your existing App Service plan and web apps within this plan:
@@ -47,19 +55,19 @@ az appservice plan update --name <AppServicePlan> --resource-group <ResourceGrou
 > If you receive an error message `Operation returned an invalid status 'Bad Request'`, try using a different resource group or create a new one.
 >
 
-#### [Azure portal](#tab/azure-portal)
-
-1. In your App Service web app's left menu, select **Scale out (App Service plan)**.
-
-![Automatic scaling in Azure portal](./media/manage-automatic-scaling/azure-portal-automatic-scaling.png)
-
-2. Select **Automatic (preview)** and then select the **Save** button.
-
 --- 
 
 ## Set minimum number of instances
 
 This enables the minimum number of instances available to your web app (per app scaling).
+
+#### [Azure portal](#tab/azure-portal)
+
+1. In your App Service web app's left menu, select **Scale out (App Service plan)**.
+
+![Always ready instances in Automatic scaling](./media/manage-automatic-scaling/azure-portal-always-ready-instances.png)
+
+2. Update the **Always ready instances** number and then select the **Save** button.
 
 #### [Azure CLI](#tab/azure-cli)
 ```azurecli-interactive
@@ -70,19 +78,16 @@ This enables the minimum number of instances available to your web app (per app 
 - Replace `<app-name>` with the App Service app name.
 - Replace `<elastic-count>` with the minimum number of instances available to your web app for scaling.
 
-#### [Azure portal](#tab/azure-portal)
-
-1. In your App Service web app's left menu, select **Scale out (App Service plan)**.
-
-![Always ready instances in Automatic scaling](./media/manage-automatic-scaling/azure-portal-always-ready-instances.png)
-
-2. Update the **Always ready instances** number and then select the **Save** button.
 
 ---
 
 ## Update prewarmed instances
 
 The pre-warmed instance count setting provides warmed instances as a buffer during HTTP scale and activation events. Pre-warmed instances continue to buffer until the maximum scale-out limit is reached. The default pre-warmed instance count is 1 and, for most scenarios, this value should remain as 1.
+
+#### [Azure portal](#tab/azure-portal)
+
+You can't change the pre-warmed instance count setting in the portal, you must instead use the Azure CLI.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -95,14 +100,17 @@ You can modify the number of pre-warmed instances for an app using the Azure CLI
 - Replace `<ResourceGroup>` with the Resource Group name.
 - Replace `<app-name>` with the App Service app name.
 - Replace `<prewarmed-count>` with the number of prewarmed instances.
-
-#### [Azure portal](#tab/azure-portal)
-
-You can't change the pre-warmed instance count setting in the portal, you must instead use the Azure CLI.
-
 ---
 
 ## Disable automatic scaling
+
+#### [Azure portal](#tab/azure-portal)
+
+1. In your App Service web app's left menu, select **Scale out (App Service plan)**.
+
+![Manual scaling in Azure app Service](./media/manage-automatic-scaling/azure-portal-manual-scaling.png)
+
+2. Select **Manual** and then select the **Save** button.   
 
 #### [Azure CLI](#tab/azure-cli)
 The following command disables automatic scaling for your existing App Service plan and all web apps within this plan:
@@ -115,13 +123,6 @@ az appservice plan update --resource-group <ResourceGroup> --name <AppServicePla
 - Replace `<AppServicePlan>` with the App Service plan name.
 - Set the `--elastic-scale` argument to false to disable automatic scaling.
 
-#### [Azure portal](#tab/azure-portal)
-
-1. In your App Service web app's left menu, select **Scale out (App Service plan)**.
-
-![Manual scaling in Azure app Service](./media/manage-automatic-scaling/azure-portal-manual-scaling.png)
-
-2. Select **Manual** and then select the **Save** button.   
 --- 
 
 ## Automatic scaling concepts
