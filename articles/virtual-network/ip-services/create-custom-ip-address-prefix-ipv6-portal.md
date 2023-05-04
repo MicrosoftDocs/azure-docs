@@ -1,7 +1,7 @@
 ---
 title: Create a custom IPv6 address prefix - Azure portal
 titleSuffix: Azure Virtual Network
-description: Learn about how to onboard a custom IP address prefix using the Azure portal
+description: Learn about how to onboard a custom IPv6 address prefix using the Azure portal
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
@@ -99,21 +99,21 @@ After the global custom IP prefix is in a **Provisioned** state, regional custom
 
 In the same **Create a custom IP prefix** page as before, enter or select the following information:
 
-    | Setting | Value |
-    | ------- | ----- |
-    | **Project details** |   |
-    | Subscription | Select your subscription |
-    | Resource group | Select **Create new**. </br> Enter **myResourceGroup**. </br> Select **OK**. |
-    | **Instance details** |   |
-    | Name | Enter **myCustomIPv6RegionalPrefix**. |
-    | Region | Select **West US 2**. |
-    | IP Version | Select IPv6. |
-    | IP prefix range | Select Regional. |
-    | Custom IP prefix parent | Select myCustomIPv6GlobalPrefix (2a05:f500:2::/48) from the drop down menu. |
-    | Regional IPv6 Prefix (CIDR) | Enter **2a05:f500:2:1::/64**. |
-    | ROA expiration date | Enter your ROA expiration date in the **yyyymmdd** format. |
-    | Signed message | Paste in the output of **$byoipauthsigned** from the pre-provisioning section. |
-    | Availability Zones | Select **Zone-redundant**. |
+| Setting | Value |
+| ------- | ----- |
+| **Project details** |   |
+| Subscription | Select your subscription |
+| Resource group | Select **Create new**. </br> Enter **myResourceGroup**. </br> Select **OK**. |
+| **Instance details** |   |
+| Name | Enter **myCustomIPv6RegionalPrefix**. |
+| Region | Select **West US 2**. |
+| IP Version | Select IPv6. | 
+| IP prefix range | Select Regional. |
+| Custom IP prefix parent | Select myCustomIPv6GlobalPrefix (2a05:f500:2::/48) from the drop down menu. |
+| Regional IPv6 Prefix (CIDR) | Enter **2a05:f500:2:1::/64**. |
+| ROA expiration date | Enter your ROA expiration date in the **yyyymmdd** format. |
+| Signed message | Paste in the output of **$byoipauthsigned** from the pre-provisioning section. |
+| Availability Zones | Select **Zone-redundant**. |
 
 Similar to IPv4 custom IP prefixes, after the regional custom IP prefix is in a **Provisioned** state, public IP prefixes can be derived from the regional custom IP prefix.  These public IP prefixes and any public IP addresses derived from them can be attached to networking resources, though they are not yet being advertised.
 
