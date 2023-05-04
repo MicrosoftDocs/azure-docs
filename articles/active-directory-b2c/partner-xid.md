@@ -29,7 +29,7 @@ In this tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) a
   * Client Secret
   * Redirect URL
   * Scopes
-* Go to x-id.me to install the [xID app](https://x-id.me/) on a mobile device
+* Go to x-id.me to install the [xID app](https://x-id.me/) on a mobile device:
   * My Number Card
   * If you use API UAT version, get the xID app UAT version. See, [Contact Us](https://xid.inc/contact-us)
 
@@ -469,8 +469,6 @@ For the following instructions, use the directory with the Azure AD B2C tenant.
 6. The browser redirects to `https://jwt.ms`. The token contents returned by Azure AD B2C appear.
 
 ## Next steps
-
-For additional information, review the following articles:
 
 * [Azure AD B2C custom policy overview](custom-policy-overview.md)
 * [Tutorial: Create user flows and custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)
