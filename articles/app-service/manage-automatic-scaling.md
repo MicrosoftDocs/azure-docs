@@ -69,7 +69,7 @@ This enables the minimum number of instances available to your web app (per app 
 - Replace `<ResourceGroup>` with the Resource Group name.
 - Replace `<app-name>` with the App Service app name.
 - Replace `<elastic-count>` with the minimum number of instances available to your web app for scaling.
-- To update  prewarmed instances, use `--prewarmed-instance-count <prewarmed-count>` and update `<prewarmed-count>` with the number of prewarmed instances.
+
 #### [Azure portal](#tab/azure-portal)
 
 1. In your App Service web app's left menu, select **Scale out (App Service plan)**.
@@ -80,6 +80,27 @@ This enables the minimum number of instances available to your web app (per app 
 
 ---
 
+## Update prewarmed instances
+
+The pre-warmed instance count setting provides warmed instances as a buffer during HTTP scale and activation events. Pre-warmed instances continue to buffer until the maximum scale-out limit is reached. The default pre-warmed instance count is 1 and, for most scenarios, this value should remain as 1.
+
+#### [Azure CLI](#tab/azure-cli)
+
+You can modify the number of pre-warmed instances for an app using the Azure CLI.
+
+```azurecli-interactive
+ az webapp update --resource-group <ResourceGroup> --name <app-name> --prewarmed-instance-count <prewarmed-count>
+```
+ 
+- Replace `<ResourceGroup>` with the Resource Group name.
+- Replace `<app-name>` with the App Service app name.
+- Replace `<prewarmed-count>` with the number of prewarmed instances.
+
+#### [Azure portal](#tab/azure-portal)
+
+You can't change the pre-warmed instance count setting in the portal, you must instead use the Azure CLI.
+
+---
 
 ## Disable automatic scaling
 
@@ -111,14 +132,14 @@ This table describes the terms used in automatic scaling:
 | --- | --- | --- | --- | --- | --- |
 |**Maximum Burst**| The number of instances your App Service plan can scale to. <br><br>The maximum burst limit should be equal to or greater than the number of workers for the App Service plan.<br><br>The number of workers is determined as the highest number of __always ready instances__ for any app within the plan.|App Service Plan | 1 - 30 | 1 | CLI & Azure portal |
 |**Always ready instances**|Minimum number of instances for your web app.<br><br>The same setting also determines the minimum number of instances your entire App Service plan needs. So, if you have multiple web apps in the same plan and some have a setting of 1 always-ready instance while others have 5, the minimum number of instances you'll be charged for will be 5.| Web app | Range | 1 | CLI & Azure portal |
-|**Prewarmed Instances**| To avoid cold-start issues, you can set a prewarmed instance count. | Web app | Range | 1 | CLI only. |
+|**Prewarmed Instances**| To avoid cold-start issues, you can set a prewarmed instance count. The pre-warmed instance count setting provides warmed instances as a buffer during HTTP scale and activation events. Pre-warmed instances continue to buffer until the maximum scale-out limit is reached. | Web app | Range | 1 | CLI only. |
 |**Maximum scale limit**| The maximum number of instances a web app can scale to.| Web app | 1 - Maximum burst | | CLI & Azure portal|
 
 
 ## Frequently asked questions
 - [What App Service platforms are supported?](#what-app-service-platforms-support-automatic-scaling)
 - [How is automatic scaling different than autoscale?](#how-is-automatic-scaling-different-than-autoscale)
-- [How does automatic scaling work with existing Auto scale rules?](#how-does-automatic-scaling-work-with-existing-auto-scale-rules)
+- [How does automatic scaling work with existing Auto scale rules?](#how-does-automatic-scaling-work-with-existing-autoscale-rules)
 - [Does automatic scaling support Azure Function apps?](#does-automatic-scaling-support-azure-function-apps)
 - [How to monitor the current instance count and instance history?](#how-to-monitor-the-current-instance-count-and-instance-history)
 
@@ -140,7 +161,7 @@ A quick comparison of various scale out and scale in options available for App S
 |Prewarmed Instances	|No	|No	|Yes (Defaulted to 1) |
 |Per-App Maximum	|No	|No	|Yes|
 
-### How does automatic scaling work with existing Auto scale rules?
+### How does automatic scaling work with existing Autoscale rules?
 Once automatic scaling for web apps is configured, existing Azure autoscale rules and schedules will not work. Applications can use either automatic scaling, or autoscale, but not both.
 
 ### Does automatic scaling support Azure Function apps?
