@@ -185,9 +185,9 @@ Get the custom policy starter packs from GitHub, then update the XML files in th
 
 1. Download the zip [active-directory-b2c-custom-policy-starterpack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) or clone the repository:
 
-        ```
-            git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
-        ```
+   ```
+       git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
+   ```
     
 2. In the files in the **LocalAccounts** directory, replace the string `yourtenant` with the Azure AD B2C tenant name. 
 3. Open the **LocalAccounts/ TrustFrameworkExtensions.xml**.
