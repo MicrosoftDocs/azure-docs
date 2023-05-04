@@ -162,7 +162,7 @@ New-AzCosmosDBTable `
 
 ## 3 - Get Azure Cosmos DB connection string
 
-To access your table(s) in Azure Cosmos DB, your app needs the table connection string for the CosmosDB Storage account.  The connection string can be retrieved using the Azure portal, Azure CLI or Azure PowerShell.
+To access your table(s) in Azure Cosmos DB, your app needs the table connection string for the Cosmos DB Storage account.  The connection string can be retrieved using the Azure portal, Azure CLI or Azure PowerShell.
 
 ### [Azure portal](#tab/azure-portal)
 
