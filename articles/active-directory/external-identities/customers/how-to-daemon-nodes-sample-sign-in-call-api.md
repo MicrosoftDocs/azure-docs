@@ -1,5 +1,5 @@
 ---
-title: Configure a sample Node.js daemon application that calls an API protected by using Microsoft Entra
+title: Call an API in a sample Node.js daemon application
 description: Learn how to Configure a sample Node.js daemon application that calls an API protected by using Microsoft Entra
 services: active-directory
 author: kengaderdus
@@ -16,7 +16,7 @@ ms.custom: developer
 #Customer intent: As a dev, devops, I want to Configure a sample Node.js daemon application that calls an API protected by Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Configure a sample Node.js daemon application that calls an API protected by using Microsoft Entra
+# Call an API in a sample Node.js daemon application 
 
 In this article uses a sample Node.js daemon application to show you how a daemon app acquires a token to call a web API. Azure Active Directory (Azure AD) for customers protects the Web API. 
 
