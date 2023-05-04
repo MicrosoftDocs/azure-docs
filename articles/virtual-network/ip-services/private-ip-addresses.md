@@ -11,6 +11,7 @@ ms.author: allensu
 ---
 
 # Private IP addresses
+
 Private IPs allow communication between resources in Azure. 
 
 Resources can be:
