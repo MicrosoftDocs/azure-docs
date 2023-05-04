@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: conceptual
 ms.reviewer: dech
-ms.date: 05/03/2023
+ms.date: 05/23/2023
 ---
 
 # Burst capacity in Azure Cosmos DB
