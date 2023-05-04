@@ -100,9 +100,7 @@ Repeat steps 4-8 for **Forest2** domain **onpremad2.com** (storage account **onp
 
 ## Configure directory and file-level permissions (optional)
 
-In a multi-forest environment, we don't recommend using File Explorer to configure ACLs. Although users which belong to the forest that is domain-joined to the storage account can have file/directory level permissions set via File Explorer, it won't work for users that don't belong to the same forest that is domain-joined to the storage account.
-
-Instead, we recommend using the icacls command-line utility to configure directory and file-level permissions for users in both forests. See [Configure Windows ACLs with icacls](storage-files-identity-ad-ds-configure-permissions.md#configure-windows-acls-with-icacls).
+In a multi-forest environment, use the icacls command-line utility to configure directory and file-level permissions for users in both forests. See [Configure Windows ACLs with icacls](storage-files-identity-ad-ds-configure-permissions.md#configure-windows-acls-with-icacls). 
 
 If icacls fails with an *Access is denied* error, follow these steps to configure directory and file-level permissions by mounting the share with the storage account key.
 
@@ -117,6 +115,9 @@ If icacls fails with an *Access is denied* error, follow these steps to configur
 1. Set icacls permissions for user in **Forest2** on storage account joined to **Forest1** from client in **Forest1**.
 
 1. Repeat the same steps for user in **Forest2** on storage account joined to **Forest1** from client in **Forest2**.
+
+> [!NOTE]
+> We don't recommend using File Explorer to configure ACLs in a multi-forest environment. Although users which belong to the forest that's domain-joined to the storage account can have file/directory-level permissions set via File Explorer, it won't work for users that don't belong to the same forest that's domain-joined to the storage account.
 
 ## Configure domain suffixes
 
