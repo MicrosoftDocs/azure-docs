@@ -52,11 +52,11 @@ az provider register --namespace Microsoft.KubernetesConfiguration --wait
 
 ## Select and deploy a Kubernetes offer
 
-### [AKS portal](#tab/azure-portal)
+### From the AKS portal screen
 
 1. In the [Azure portal](https://portal.azure.com/), you can deploy a Kubernetes application from an existing cluster by navigating to **Marketplace** or selecting **Extensions + applications**, then selecting **+ Add**.
 
-   :::image type="content" source="./media/deploy-marketplace/add-inline.png" alt-text="The Azure portal page for the A K S cluster is shown. 'Extensions + Applications' is selected, and '+ Add' is highlighted." lightbox="./media/deploy-marketplace/add.png:::
+   :::image type="content" source="./media/deploy-marketplace/add-inline.png" alt-text="The Azure portal page for the A K S cluster is shown. 'Extensions + Applications' is selected, and '+ Add' is highlighted." lightbox="./media/deploy-marketplace/add.png":::
 
 1. You can search for an offer or publisher directly by name, or you can browse all offers.
 
@@ -76,7 +76,7 @@ az provider register --namespace Microsoft.KubernetesConfiguration --wait
 
    :::image type="content" source="./media/deploy-marketplace/deploying.png" alt-text="Screenshot of the Azure portal deployments screen, showing that the Kubernetes offer is currently being deployed.":::
 
-### [Marketplace portal](#tab/azure-portal)
+### From the Marketplace portal screen
 
 1. In the [Azure portal](https://portal.azure.com/), search for **Marketplace** on the top search bar. In the results, under **Services**, select **Marketplace**.
 
@@ -104,8 +104,6 @@ az provider register --namespace Microsoft.KubernetesConfiguration --wait
    When the application is deployed, the portal shows **Your deployment is complete**, along with details of the deployment.
 
    :::image type="content" source="./media/deploy-marketplace/deployment-inline.png" alt-text="Screenshot of the Azure portal that shows a successful resource deployment to the cluster." lightbox="./media/deploy-marketplace/deployment-full.png":::
-
----
 
 ## Verify the deployment
 
