@@ -406,7 +406,7 @@ Use the **Insert Sample Data** button to load some sample data into your Azure C
 
 * For the *1-starter-app* sample folder, you'll need to at least complete the code for the `submit_transaction` function for the sample data insert to work.
 
-* The sample data is loaded from a *sample_data.json* file. The *.env* variable `project_root_path` tells the app where to find this file. For example, if you're running the application from *1-starter-app* or *2-completed-app* folder, you can set `project_root_path` to "" (blank).
+* The sample data is loaded from a *sample_data.json* file. The *.env* variable `project_root_path` tells the app where to find this file. For example, if you're running the application from the *1-starter-app* or *2-completed-app* folder, set `project_root_path` to "" (blank).
 
 :::image type="content" source="./media/quickstart-python/table-api-app-sample-data-insert-480px.png" alt-text="A screenshot of the application showing the location of the sample data insert button." lightbox="./media/quickstart-python/table-api-app-sample-data-insert.png":::
 
