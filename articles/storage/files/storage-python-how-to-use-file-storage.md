@@ -99,7 +99,7 @@ from azure.storage.file import FileService
 
 # [Azure Python SDK v2](#tab/python2)
 
-The [FileService](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true) object lets you work with shares, directories, and files. The following code creates a `FileService` object using the storage account name and account key. Replace `<myaccount>` and `<mykey>` with your account name and key.
+The [FileService](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous) object lets you work with shares, directories, and files. The following code creates a `FileService` object using the storage account name and account key. Replace `<myaccount>` and `<mykey>` with your account name and key.
 
 ```python
 file_service = FileService(account_name='myaccount', account_key='mykey')
@@ -117,7 +117,7 @@ The following code example uses a [ShareClient](/azure/developer/python/sdk/stor
 
 # [Azure Python SDK v2](#tab/python2)
 
-The following code example uses a [FileService](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true) object to create the share if it doesn't exist.
+The following code example uses a [FileService](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous) object to create the share if it doesn't exist.
 
 ```python
 file_service.create_share('myshare')
@@ -157,7 +157,7 @@ The following method uploads the contents of the specified file into the specifi
 
 # [Azure Python SDK v2](#tab/python2)
 
-An Azure file share contains, at the least, a root directory where files can reside. To create a file and upload data, use the [create_file_from_path](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice#azure-storage-file-fileservice-fileservice-create-file-from-path), [create_file_from_stream](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous#azure-storage-file-fileservice-fileservice-create-file-from-stream), [create_file_from_bytes](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous#azure-storage-file-fileservice-fileservice-create-file-from-bytes), or [create_file_from_text](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous#azure-storage-file-fileservice-fileservice-create-file-from-text) methods. They're high-level methods that perform the necessary chunking when the size of the data exceeds 64 MiB.
+An Azure file share contains, at the least, a root directory where files can reside. To create a file and upload data, use the [create_file_from_path](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice#azure-storage-file-fileservice-fileservice-create-file-from-path), [create_file_from_stream](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice#azure-storage-file-fileservice-fileservice-create-file-from-stream), [create_file_from_bytes](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice#azure-storage-file-fileservice-fileservice-create-file-from-bytes), or [create_file_from_text](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice#azure-storage-file-fileservice-fileservice-create-file-from-text) methods. They're high-level methods that perform the necessary chunking when the size of the data exceeds 64 MiB.
 
 `create_file_from_path` uploads the contents of a file from the specified path, and `create_file_from_stream` uploads the contents from an already opened file/stream. `create_file_from_bytes` uploads an array of bytes, and `create_file_from_text` uploads the specified text value using the specified encoding (defaults to UTF-8).
 
@@ -207,7 +207,7 @@ The following example demonstrates using `download_file` to get the contents of 
 
 # [Azure Python SDK v2](#tab/python2)
 
-To download data from a file, use [get_file_to_path](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous#azure-storage-file-fileservice-fileservice-get-file-to-path), [get_file_to_stream](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous&preserve-view=true#get-file-to-stream-share-name--directory-name--file-name--stream--start-range-none--end-range-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--snapshot-none-), [get_file_to_bytes](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous#azure-storage-file-fileservice-fileservice-get-file-to-bytes), or [get_file_to_text](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous#azure-storage-file-fileservice-fileservice-get-file-to-text). They're high-level methods that perform the necessary chunking when the size of the data exceeds 64 MiB.
+To download data from a file, use [get_file_to_path](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous#azure-storage-file-fileservice-fileservice-get-file-to-path), [get_file_to_stream](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice#get-file-to-stream-share-name--directory-name--file-name--stream--start-range-none--end-range-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--snapshot-none-), [get_file_to_bytes](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous#azure-storage-file-fileservice-fileservice-get-file-to-bytes), or [get_file_to_text](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous#azure-storage-file-fileservice-fileservice-get-file-to-text). They're high-level methods that perform the necessary chunking when the size of the data exceeds 64 MiB.
 
 The following example demonstrates using `get_file_to_path` to download the contents of the **myfile** file and store it to the *out-sunset.png* file.
 
