@@ -12,14 +12,14 @@ This article addresses frequent questions about Istio-based service mesh add-on 
 
 ## How are upgrades handled for the addon components and Istio proxies
 
-**Minor version:** Currently the Istio addon only has one version 1.17. So minor versions are not yet available. When newer versions of Istio (1.18) are available, minor version upgrade experience will be introduced.
+**Minor version:** Currently the Istio addon only has one version 1.17. So minor versions aren't yet available. Minor version upgrade experiences are planned for when newer versions of Istio (1.18) are introduced.
 
 **Patch version:**
 
 * Istio patch version availability information is published to [AKS weekly release notes][aks-release-notes].
 * Patches are done automatically for istiod and ingress pods as part of these AKS weekly releases.
-* Patches to istio proxy in the user's workload need to be initiated by the user by restarting the pods for re-injection:
-  * Check the version of the Istio proxy that will be injected for new or restarted pods. This version is the same as the version of the istiod and istio ingress pods after they were patched:
+* User needs to initiate patches to istio proxy in their workloads by restarting the pods for re-injection:
+  * Check the version of the Istio proxy intended for new or restarted pods. This version is the same as the version of the istiod and istio ingress pods after they were patched:
 
     ```bash
     kubectl get cm -n aks-istio-system -o yaml | grep "mcr.microsoft.com\/oss\/istio\/proxyv2"
@@ -52,7 +52,7 @@ This article addresses frequent questions about Istio-based service mesh add-on 
     kubectl rollout restart deployments/productpage-v1 -n default
     ```
 
-  * To verify that they are now on the newer versions, check the Istio proxy image version again for all pods in the namespace:
+  * To verify that they're now on the newer versions, check the Istio proxy image version again for all pods in the namespace:
 
     ```bash
     kubectl get pods --all-namespaces -o jsonpath='{range .items[*]}{"\n"}{.metadata.name}{":\t"}{range .spec.containers[*]}{.image}{", "}{end}{end}' |\
