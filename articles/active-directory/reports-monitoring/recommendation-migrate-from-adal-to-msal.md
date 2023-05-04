@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2023
+ms.date: 05/04/2023
 ms.author: sarahlipsey
 ms.reviewer: jamesmantu
 
@@ -23,7 +23,7 @@ This article covers the recommendation to migrate from the Azure Active Director
 
 ## Description
 
-The Azure Active Directory Authentication Library (ADAL) is [currently slated for end-of-support](../fundamentals/whats-new.md#adal-end-of-support-announcement) on June 30th, 2023. We recommend that customers migrate to Microsoft Authentication Libraries (MSAL), which replaces ADAL. 
+The Azure Active Directory Authentication Library (ADAL) is [currently slated for end-of-support](../fundamentals/whats-new.md#adal-end-of-support-announcement) on June 30, 2023. We recommend that customers migrate to Microsoft Authentication Libraries (MSAL), which replaces ADAL. 
 
 This recommendation shows up if your tenant has applications that still use ADAL.
 
@@ -35,9 +35,25 @@ Existing apps that use ADAL will continue to work after the end-of-support date.
 
 ## Action plan
 
-The first step to migrating your apps from ADAL to MSAL is to identify all applications in your tenant that are currently using ADAL. You can run the following set of commands in Windows PowerShell or [view the Sign-ins Workbook in Azure AD](../develop/howto-get-list-of-all-active-directory-auth-library-apps.md).
+The first step to migrating your apps from ADAL to MSAL is to identify all applications in your tenant that are currently using ADAL. You can identify your apps in the Azure portal or programmatically.
 
-1. Open Windows Powershell as an administrator.
+### Identify your apps in the Azure portal
+
+There are four steps to identifying and updating your apps in the Azure portal. The following steps are covered in detail in the [List all apps using ADAL](../develop/howto-get-list-of-all-active-directory-auth-library-apps.md) article. 
+
+1. Send Azure AD sign-in event to Azure Monitor.
+1. [Access the sign-ins workbook in Azure AD.](../develop/howto-get-list-of-all-active-directory-auth-library-apps.md)
+1. Identify the apps that use ADAL.
+1. Update your code.
+    - The steps to update your code vary depending on the type of application.
+    - For example, the steps for .NET and Python applications have separate instructions.
+    - For a full list of instructions for each scenario, see [How to migrate to MSAL](../develop/msal-migration.md#how-to-migrate-to-msal).
+
+### Identify your apps programmatically
+
+You can run the following set of commands in Windows PowerShell. These commands use the [Microsoft Graph PowerShell SDK](https://docs.microsoft.com/graph/powershell/installation) to get a list of all applications in your tenant that use ADAL.
+
+1. Open Windows PowerShell as an administrator.
 
 1. Connect to Microsoft Graph:
     - `Connect-MgGraph-Tenant <YOUR_TENANT_ID>`
@@ -48,7 +64,7 @@ The first step to migrating your apps from ADAL to MSAL is to identify all appli
 1. Get a list of your recommendations:
     - `Get-MgDirectoryRecommendation | Format-List`
 
-The steps to migrate from ADAL to MSAL vary depending on the type of application. For example, the steps for .NET and Python applications have separate instructions. For a full list of instructions for each scenario, see [How to migrate to MSAL](../develop/msal-migration.md#how-to-migrate-to-msal)
+1. Update the code for your apps using the instructions in [How to migrate to MSAL](../develop/msal-migration.md#how-to-migrate-to-msal).
 
 ## Next steps
 
