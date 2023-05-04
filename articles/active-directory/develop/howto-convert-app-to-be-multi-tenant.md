@@ -19,7 +19,7 @@ ms.custom: aaddev, engagement-fy23
 
 If you offer a Software as a Service (SaaS) application to many organizations, you can configure your application to accept sign-ins from any Azure Active Directory (Azure AD) tenant by converting it to multi-tenant. Users in any Azure AD tenant will be able to sign in to your application after consenting to use their account with your application.
 
-For existing apps with its own account system (or other sign-ins from other cloud providers), you should add sign-in code via OAuth2, OpenID Connect, or SAML, and put a ["Sign in with Microsoft" button][./howto-add-branding-in-apps.md] in your application. 
+For existing apps with its own account system (or other sign-ins from other cloud providers), you should add sign-in code via OAuth2, OpenID Connect, or SAML, and put a ["Sign in with Microsoft" button][AAD-App-Branding] in your application. 
 
 In this how-to guide, you'll undertake the four steps needed to convert a single tenant app into an Azure AD multi-tenant app:
 
@@ -169,7 +169,7 @@ To learn more about making API calls to Azure AD and Microsoft 365 services like
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com
-[AAD-App-Branding]:howto-add-branding-in-azure-ad-apps.md
+[AAD-App-Branding]:howto-add-branding-in-apps.md
 [AAD-App-Manifest]:reference-azure-ad-app-manifest.md
 [AAD-App-SP-Objects]:app-objects-and-service-principals.md
 [AAD-Auth-Scenarios]:authentication-scenarios.md
