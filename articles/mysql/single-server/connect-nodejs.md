@@ -77,14 +77,14 @@ Depending on your platform, follow the instructions in the appropriate section t
 
 1. Run the following commands to install **Node.js** and **npm** the package manager for Node.js.
 
-    **RHEL 7.x**
+    **RHEL/CentOS 7.x**
 
     ```bash
     sudo yum install -y rh-nodejs8
     scl enable rh-nodejs8 bash
    ```
 
-    **RHEL 8.x**
+    **RHEL/CentOS 8.x**
 
    ```bash
     sudo yum install -y nodejs
