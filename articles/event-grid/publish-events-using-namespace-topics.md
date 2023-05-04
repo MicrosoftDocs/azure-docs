@@ -53,7 +53,7 @@ An Event Grid namespace provides a user-defined endpoint to which you post your 
 - It should be between 3-50 characters
 - It should be regionally unique
 - Only allowed characters a-z, A-Z, 0-9 and -
-- It shouldn't start with reserved key word prefixes like "Microsoft", "System" or "EventGrid".
+- It shouldn't start with reserved key word prefixes like `Microsoft`, `System` or `EventGrid`.
     
 Set the name you want to provide to your namespace on an environmental variable.
 
