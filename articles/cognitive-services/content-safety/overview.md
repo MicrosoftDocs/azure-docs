@@ -63,6 +63,10 @@ The Studio also lets you set up a moderation workflow, where you can continuousl
 
 All of these capabilities are handled by the Studio and its backend; customers don’t need to worry about model development. You can onboard your data for quick validation and monitor your KPIs accordingly, like technical metrics (latency, accuracy, recall), or business metrics (like block rate, block volume, category proportions, language proportions and more). With simple operations and configurations, customers can test different solutions quickly and find the best fit, instead of spending time experimenting with custom models or doing moderation manually. 
 
+> [!div class="nextstepaction"]
+> [Content Safety Studio](https://contentsafety.cognitive.azure.com)
+
+
 ### Content Safety Studio features
 
 In Content Safety Studio, the following Content Safety service features are available:
