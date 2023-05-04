@@ -3,7 +3,7 @@ title: Azure Data Explorer input bindings for Azure Functions (preview)
 description: Understand usage of Azure Data Explorer input bindings for Azure Functions (Query data from Azure Data Explorer)
 author: ramacg
 ms.topic: reference
-ms.date: 04/19/2023
+ms.date: 05/04/2023
 ms.author: shsagir
 ms.reviewer: ramacg
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -598,7 +598,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 | **database** | Required. The database against which the query has to be executed. |
 | **connection** | Required. The _**name**_ of the variable that holds the connection string, resolved through environment variables or through function app settings. Defaults to look up on the variable _**KustoConnectionString**_, at runtime this variable is looked up against the environment. Documentation on connection string can be found at [Kusto connection strings](/azure/data-explorer/kusto/api/connection-strings/kusto) for example:`"KustoConnectionString": "Data Source=https://_**cluster**_.kusto.windows.net;Database=_**Database**_;Fed=True;AppClientId=_**AppId**_;AppKey=_**AppKey**_;Authority Id=_**TenantId**_` |
 | **kqlCommand** | Required. The KqlQuery that has to be executed. Can be a KQL query or a KQL Function call|
-|**kqlParameters** |  Optional. Parameters that act as predicate variables for the KqlCommand. For example "@name={name},@Id={id}" where the parameters {name} and {id} is substituted at runtime with actual values acting as predicates. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equals sign (`=`). |
+|**kqlParameters** |  Optional. Parameters that act as \predicate variables for the KqlCommand. For example "@name={name},@Id={id}" where the parameters {name} and {id} is substituted at runtime with actual values acting as predicates. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equals sign (`=`). |
 | **managedServiceIdentity** | A managed identity can be used to connect to Azure Data Explorer. To use a System managed identity, use "system", any other identity names are interpreted as user managed identity|
 
 ::: zone-end
@@ -627,10 +627,10 @@ The following table explains the binding configuration properties that you set i
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python,programming-language-java"
 
-The attribute's constructor takes the Database and the attributes KQLCommand, KQLParameters, and the Connection setting name. The KQLCommand can be a KQL statement or a KQLFunction. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [Kusto connection strings](/azure/data-explorer/kusto/api/connection-strings/kusto) for example:`"KustoConnectionString": "Data Source=https://_**cluster**_.kusto.windows.net;Database=_**Database**_;Fed=True;AppClientId=_**AppId**_;AppKey=_**AppKey**_;Authority Id=_**TenantId**_` . Queries executed by the input binding are parameterized and the values provided in the KQLParameters are used at runtime.
+The attribute's constructor takes the **Database** and the attributes **KQLCommand**, KQLParameters, and the Connection setting name. The **KQLCommand** can be a KQL statement or a KQL function. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [Kusto connection strings](/azure/data-explorer/kusto/api/connection-strings/kusto) for example: `"KustoConnectionString": "Data Source=https://_**cluster**_.kusto.windows.net;Database=_**Database**_;Fed=True;AppClientId=_**AppId**_;AppKey=_**AppKey**_;Authority Id=_**TenantId**_`. Queries executed by the input binding are parameterized and the values provided in the KQLParameters are used at runtime.
 
 ::: zone-end
 
 ## Next steps
 
-* [Save data to a table (Output binding)](./functions-bindings-azure-data-explorer-output.md)
+* [Save data to a table (Output binding)](functions-bindings-azure-data-explorer-output.md)

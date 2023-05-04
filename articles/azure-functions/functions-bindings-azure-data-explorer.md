@@ -3,7 +3,7 @@ title: Azure Data Explorer bindings for Azure Functions overview (preview)
 description: Learn how to use Azure Data Explorer bindings in Azure Functions.
 author: ramacg
 ms.topic: reference
-ms.date: 05/03/2023
+ms.date: 05/04/2023
 ms.author: shsagir
 ms.reviewer: ramacg
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -91,7 +91,7 @@ Azure Data Explorer bindings for Azure Functions aren't available for the v3 ver
 **TODO: RAM - We don't put future promises in docs. We should remove this note**
 
 > [!NOTE]
-> Python language support for the Azure Data Explorer bindings extension is available starting with v4.6.0 of the [functions runtime](./set-runtime-version.md#view-and-update-the-current-runtime-version).  You may need to update your install of Azure Functions [Core Tools](functions-run-local.md) for local development.
+> Python language support for the Azure Data Explorer bindings extension is available starting with v4.6.0 of the [functions runtime](set-runtime-version.md#view-and-update-the-current-runtime-version).  You may need to update your install of Azure Functions [Core Tools](functions-run-local.md) for local development.
 
 ## Install bundle
 
