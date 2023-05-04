@@ -1,5 +1,5 @@
 ---
-title: Azure Notification Hubs high availability and cross-region disaster recovery
+title: Azure Notification Hubs high availability and cross-region disaster recovery (preview)
 description: Learn about high availability and cross-region disaster recovery options in Azure Notification Hubs. 
 author: sethmanheim
 ms.author: sethm
@@ -9,10 +9,16 @@ ms.date: 05/03/2023
 
 ---
 
-# High availability for Azure Notification Hubs
+# High availability for Azure Notification Hubs (preview)
 
 [Azure Notification Hubs][] provides an easy-to-use and scaled-out push engine that enables you to send notifications to any platform (iOS,
 Android, Windows, etc.) from any back-end (cloud or on-premises). This article describes the configuration options to achieve the availability characteristics required by your solution. For more information about our SLA, see the [Notification Hubs SLA][].
+
+> [!NOTE]
+> The following features are available in preview. If you are interested in using these features, contact your customer success manager at Microsoft, or create an Azure ticket which will be triaged by the support team:
+>
+> - Ability to edit your cross region disaster recovery options
+> - Availability Zones
 
 Notification Hubs offers two availability configurations:
 
@@ -29,7 +35,7 @@ You can use these options in tandem or separately, where tier support is provide
 
 ## Cross-region disaster recovery
 
-Notification Hubs provides metadata disaster recovery coverage through cross-region replication of metadata (the Notification Hubs name, the connection string, and other critical information). You can use the Azure paired region or choose from a list of supported flexible regions. When a disaster recovery scenario is triggered, registration data is the only segment of the Notification Hubs infrastructure that is lost. See the following section for options for preserving the registration data for your namespace and how to restore it.
+Notification Hubs provides metadata disaster recovery coverage through cross-region replication of metadata (the Notification Hubs name, the connection string, and other critical information). You can use the Azure paired region or choose from a list of supported flexible regions. When a disaster recovery scenario is triggered, registration data is the only segment of the Notification Hubs infrastructure that is lost. See the [Back up registration data](#back-up-registration-data) section for options for preserving the registration data for your namespace and how to restore it.
 
 ### Enable cross-region disaster recovery
 
@@ -44,9 +50,9 @@ Use the [Azure portal][] to edit an existing namespace.
 1. Select **Notification Hub Namespaces** in the **Internet of Things** section.
 1. On the **Notification Hub Namespaces** page, select the namespace for which you want to modify the disaster recovery settings.
 1. On the **Notification Hub Namespace** page for your namespace, you can see the current disaster recovery setting in the **Essentials** section.
-1. In the following example, a paired recovery region is enabled. To modify your disaster recovery region selection, select **(edit)** next to the current selection.
+1. In the following example, a flexible recovery region is enabled. Click the current disaster recovery region selection to display the edit pop-up.
 
-   :::image type="content" source="media/notification-hubs-high-availability/notification-hubs-essenntials.png" alt-text="Screenshot showing Notification Hubs metadata essentials." lightbox="media/notification-hubs-high-availability/notification-hubs-essenntials.png":::
+   :::image type="content" source="media/notification-hubs-high-availability/notification-hubs-essentials.png" alt-text="Screenshot showing Notification Hubs metadata essentials." lightbox="media/notification-hubs-high-availability/notification-hubs-essentials.png":::
 
 1. On the **Edit Disaster** recovery pop-up you can change your selections. Save your changes.
 
@@ -59,18 +65,20 @@ Use the [Azure portal][] to edit an existing namespace.
 
 Use the procedure in the [Azure portal quickstart][] to set up a new namespace with disaster recovery:
 
-### Secondary notification hub
+### Back up registration data
 
-Paired and flexible region recovery only backs up metadata. You must implement a secondary notification hub to repopulate the registration data into your new hub post-recovery:
+Paired and flexible region recovery only backs up metadata. You must implement a solution to repopulate the registration data into your hub post-recovery.
 
-1. Create a secondary notification hub in a different data center. It's recommended that you create one from scratch, to shield you from a disaster recovery event that might affect your management capabilities. You can also create one at the time of the disaster recovery event.
-1. Keep the secondary notification hub in sync with the primary notification hub using one of the following options:
-   - For installations: use an app backend that simultaneously creates and updates installations in both notification hubs. Installations enable you to specify your own unique device identifier, making it more suitable for the replication scenario. For more information, see this [sample code][].
-   - For registrations: use an app backend that gets a regular dump of registrations from the primary notification hub as a backup. It can then perform a bulk insert into the secondary notification hub.
+Azure Notification Hubs supports two types of device registrations: installations and registrations. We recommend that you back up your registrations to either:
 
-The secondary notification hub might have expired installations/registrations. When the push is made to an expired handle, Notification Hubs automatically cleans the associated installation/registration record based on the response received from the Push Notification Service (PNS) server. To clean expired records from a secondary notification hub, add custom logic that processes feedback from each send. Then, expire the installation/registration in the secondary notification hub.
+1. **A storage solution of your choice**: If a DR event occurs, there will be some downtime for restoration activities.
+1. **Another hub you create in another region**: Use this option to back up your registrations. As a working hub, you can implement code to switch to this copy. To keep a secondary notification hub in sync with the primary notification hub, you can use one of the following options to back up your registrations:
+   - **For installations**: Use an app backend that simultaneously creates and updates installations in both notification hubs. Installations enable you to specify your own unique device identifier, making it more suitable for the replication scenario. For more information, see this [sample code][].
+   - **For registrations**: Use an app backend that gets a regular dump of registrations from the primary notification hub as a backup. It can then perform a bulk insert into the secondary notification hub. See [Export and import Azure Notification Hubs registrations in bulk](export-modify-registrations-bulk.md).
 
-If you don't have a backend, when the app starts on target devices, the devices perform a new registration in the secondary notification hub. Eventually the secondary notification hub has all the active devices registered.
+The secondary notification hub might have expired registrations. When the push is made to an expired handle, Notification Hubs automatically cleans the associated registration record on the primary notification hub, based on the response received from the PNS server. You can clean expired records from the backup solution of your choice by adding custom logic that processes feedback from each send, and removes expired registrations.
+
+If you don't have a backend, when the app starts on target devices, the devices perform a new registration in the secondary notification hub. Eventually the secondary notification hub will have all the active devices registered.
 
 There is a period of time during which devices with unopened apps don't receive notifications.
 
