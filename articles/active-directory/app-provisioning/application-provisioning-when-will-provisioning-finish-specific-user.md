@@ -36,7 +36,7 @@ The provisioning progress is viewed in the Azure portal at **Azure Active Direct
 
 ## Use provisioning logs to check a user's provisioning status
 
-To see the provisioning status for a selected user, consult the [Provisioning logs (preview)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) in Azure AD. All operations run by the user provisioning service are recorded in the Azure AD provisioning logs. This includes all read and write operations made to the source and target systems, and the user data that was read or written during each operation.
+To see the provisioning status for a selected user, consult the [Provisioning logs (preview)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) in Azure AD. All operations run by the user provisioning service are recorded in the Azure AD provisioning logs. The logs include read and write operations made to the source and target systems. Associated user data related to read and write operations is also logged.
 
 You can access the provisioning logs in the Azure portal by selecting **Azure Active Directory** &gt; **Enterprise Apps** &gt; **Provisioning logs (preview)** in the **Activity** section. You can search the provisioning data based on the name of the user or the identifier in either the source system or the target system. For details, see [Provisioning logs (preview)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). 
 
