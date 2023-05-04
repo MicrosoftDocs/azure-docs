@@ -42,7 +42,7 @@ The following table lists the gateway IP addresses of the Azure Database for MyS
 |  **Region name**       |  **Gateway IP addresses**                                  | **Gateway IP addresses   (decommissioning)**  |  **Gateway IP addresses   (decommissioned)**  |
 |------------------------|------------------------------------------------------------|-----------------------------------------------|-----------------------------------------------|
 |  Australia Central     |  20.36.105.32 | 20.36.105.0 |       |
-|  Australia Central2    |  20.36.113.0  |  |        |
+|  Australia Central2    |  20.36.113.0, 20.36.113.32  |  |        |
 |  Australia East        |  13.75.149.87, 40.79.161.1   |    |         |
 |  Australia South East  | 13.73.109.251, 13.77.49.32, 13.77.48.10     |        |            |
 |  Brazil South          |  191.233.201.8, 191.233.200.16     |       |  104.41.11.5                                  |
@@ -65,10 +65,10 @@ The following table lists the gateway IP addresses of the Azure Database for MyS
 |  Germany North East    |  51.5.144.179                                              |                  |                                               |
 |  Germany West Central  |  51.116.152.0                                              |             |                                               |
 |  India Central         |  20.192.96.33                                            |  104.211.96.159                    |                                               |
-|  India South           |  104.211.224.146                                           |                     |                                               |
+|  India South           |  40.78.192.32                                           |  104.211.224.146                   |                                               |
 |  India West            |  104.211.160.80                                            |           |                                               |
 |  Japan East            |  40.79.192.23, 40.79.184.8                                 |  13.78.61.196           |                                               |
-|  Japan West            |  191.238.68.11, 40.74.96.6,   40.74.96.7                   |  104.214.148.156                |                                               |
+|  Japan West            |  191.238.68.11, 40.74.96.6,   40.74.96.7, 40.74.96.32                   |  104.214.148.156                |                                               |
 |  Korea Central         |  52.231.17.13                                              |  52.231.32.42                    |                                               |
 |  Korea South           |  52.231.145.3, 52.231.151.97                                              |  52.231.200.86     |                                               |
 |  North Central US      |  52.162.104.35, 52.162.104.36                              |  23.96.178.199       |                                               |

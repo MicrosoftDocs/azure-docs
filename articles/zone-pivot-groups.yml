@@ -1339,6 +1339,16 @@ groups:
     title: Android
   - id: platform-ios
     title: iOS
+- id: acs-plat-web-android-windows
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-web
+    title: Web
+  - id: platform-android
+    title: Android
+  - id: platform-windows
+    title: Windows
 - id: acs-plat-azp-js
   title: Platform
   prompt: Choose a platform
@@ -1983,6 +1993,15 @@ groups:
   - id: azure-resource-manager
     title: ARM template
 # Owner: cshoe
+- id: container-apps-portal-or-cli
+  title: Interaction type
+  prompt: Select how you want to interact with Azure
+  pivots:
+  - id: azure-portal
+    title: Azure portal
+  - id: azure-cli
+    title: Azure CLI
+# Owner: cshoe
 - id: arm-portal
   title: Interaction type
   prompt: Select how you want to interact with Azure
@@ -1991,7 +2010,7 @@ groups:
     title: Azure portal
   - id: azure-resource-manager
     title: ARM template
-# Owner: cebundy
+# Owner: cshoe
 - id: container-apps-interface-types
   title: Interaction type
   prompt: Select how you want to interact with Azure
@@ -2156,7 +2175,7 @@ groups:
     title: Cloud build
   - id: docker-local
     title: Local build (requires Docker)
-# Owner: cebundy
+# Owner: cshoe
 - id: container-apps-image-build-from-repo
   title: Container GitHub and local build methods
   prompt: Choose your source location

@@ -6,7 +6,7 @@ author: vhorne
 ms.service: firewall
 ms.topic: how-to
 ms.date: 04/27/2023
-ms.author: victorh 
+ms.author: harjsing 
 ms.custom: devx-track-azurepowershell
 ---
 

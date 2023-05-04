@@ -3,11 +3,11 @@ title: Add Key Vault support to your ASP.NET project using Visual Studio - Azure
 description: Use this tutorial to help you learn how to add Key Vault support to an ASP.NET or ASP.NET Core web application.
 services: key-vault
 author: ghogen
-manager: jillfra
+manager: jmartens
 ms.service: key-vault
 ms.custom: "vs-azure, devx-track-csharp"
 ms.topic: how-to
-ms.date: 11/14/2022
+ms.date: 4/28/2023
 ms.author: ghogen
 ---
 # Add Key Vault to your web application by using Visual Studio Connected Services
@@ -131,3 +131,6 @@ Affects the project file .NET references and `packages.config` (NuGet references
 If you followed this tutorial, your Key Vault permissions are set up to run with your own Azure subscription, but that might not be desirable for a production scenario. You can create a managed identity to manage Key Vault access for your app. See [How to Authenticate to Key Vault](./authentication.md) and [Assign a Key Vault access policy](./assign-access-policy-portal.md).
 
 Learn more about Key Vault development by reading the [Key Vault Developer's Guide](developers-guide.md).
+
+If your goal is to store configuration for an ASP.NET Core app in an Azure Key Vault, see [Azure Key Vault configuration provider in ASP.NET Core](/aspnet/core/security/key-vault-configuration).
+

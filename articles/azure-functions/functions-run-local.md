@@ -254,8 +254,6 @@ There are no other considerations for PowerShell.
 
 + To use a `--worker-runtime` value of `node`, specify the `--language` as `typescript`.
 
-+ See the [TypeScript section in the JavaScript developer reference](functions-reference-node.md#typescript) for `func init` behaviors specific to TypeScript. 
-
 --- 
 
 ## Register extensions
