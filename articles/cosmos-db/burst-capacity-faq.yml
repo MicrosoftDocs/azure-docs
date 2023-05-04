@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Frequently asked questions on burst capacity in Azure Cosmos DB (preview)
+  title: Frequently asked questions on burst capacity in Azure Cosmos DB
   description: Frequently asked questions about burst capacity in Azure Cosmos DB
   author: seesharprun
   ms.author: sidandrews
@@ -9,11 +9,11 @@ metadata:
   ms.topic: faq
   ms.reviewer: dech
   ms.date: 05/09/2022
-title: Frequently asked questions on burst capacity in Azure Cosmos DB (preview)
+title: Frequently asked questions on burst capacity in Azure Cosmos DB
 summary: |
   [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
   
-  Azure Cosmos DB burst capacity (preview) allows you to take advantage of your database or container's idle throughput capacity to handle spikes of traffic. This article answers commonly asked questions about Azure Cosmos DB burst capacity.
+  Azure Cosmos DB burst capacity allows you to take advantage of your database or container's idle throughput capacity to handle spikes of traffic. This article answers commonly asked questions about Azure Cosmos DB burst capacity.
 
 sections:
   - name: General
@@ -35,7 +35,7 @@ sections:
       - question: |
           What resources can use burst capacity?
         answer: |
-          When your account is enrolled in the preview, any shared throughput databases or containers with dedicated throughput that have less than 3000 RU/s per physical partition can use burst capacity. The resource can use either manual or autoscale throughput.
+          When burst capacity is enabled on your account, any shared throughput databases or containers with dedicated throughput that have less than 3000 RU/s per physical partition can use burst capacity. The resource can use either manual or autoscale throughput.
       - question: |
           How can I monitor burst capacity?
         answer: |
@@ -44,6 +44,10 @@ sections:
           How can I see which resources have less than 3000 RU/s per physical partition?
         answer: |
           You can use the new Azure Monitor metric **PhysicalPartitionThroughput** and split by the dimension **PhysicalPartitionId** to see how many RU/s you have per physical partition.
+      - question: |
+          How can I enable burst capacity on an account programatically?
+        answer: |
+          You can use the [Azure Cosmos DB Resource Provider REST API version 2022-11-15-preview](https://learn.microsoft.com/rest/api/cosmos-db-resource-provider/2022-11-15-preview/database-accounts/update?tabs=HTTP) or a [Resource Manager template](manage-with-templates.md) with API version 2022-11-15-preview to set the property **enableBurstCapacity** to true. Support to enable programatically via PowerShell or CLI is planned, but not yet available.
 additionalContent: |
 
   ## Next steps
