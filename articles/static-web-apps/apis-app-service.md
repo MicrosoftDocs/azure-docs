@@ -81,7 +81,7 @@ To enable your App Service resource to receive anonymous traffic, follow these s
 
 1. Select **Remove authentication** to remove authentication and allow anonymous traffic to your App Service resource.
 
-You App Service resource will now be able to receive anonymous traffic.
+You App Service resource is now able to receive anonymous traffic.
 
 ## Next steps
 
