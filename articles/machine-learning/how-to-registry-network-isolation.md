@@ -68,7 +68,7 @@ Using assets from registry to a secure workspace requires configuring outbound a
 
 #### Deploy a model from registry to workspace 
 
-To deploy a model from a registry to a secure managed online endpoint, the deployment must have `egress_public_network_access=disabled` set. Azure Machine Learning creates the necessary private endpoints to the registry during endpoint deployment. For more information, see [Create secure managed online endpoints](how-to-secure-online-endpoints.md). 
+To deploy a model from a registry to a secure managed online endpoint, the deployment must have `egress_public_network_access=disabled` set. Azure Machine Learning creates the necessary private endpoints to the registry during endpoint deployment. For more information, see [Create secure managed online endpoints](how-to-secure-online-endpoint.md). 
 
 __Outbound network configuration to access any Azure Machine Learning registry__ 
 
@@ -116,11 +116,7 @@ To connect to a registry that's secured behind a VNet, use one of the following 
 
 ## Share assets from workspace to registry 
 
-<<<<<<< HEAD
-Due to data exfiltration protection, it isn't possible to share an asset from workspace to a registry if the storage account containing the asset has public access disabled. 
-=======
 Create a private endpoint to the registry, storage and ACR from the VNet of the workspace. If you are trying to connect to multiple registries, create private endpoint for each registry and associated storage and ACRs. For more information, see the [How to create a private endpoint](#how-to-create-a-private-endpoint) section.
->>>>>>> 8a97ad9fe85f9acb7e8f62387979214bb51517ff
 
 ## Use assets from registry in workspace 
 
@@ -133,7 +129,7 @@ Create a private endpoint to the registry, storage and ACR from the VNet of the 
 
 ## Deploy a model from registry to workspace 
 
-To deploy a model from a registry to a secure managed online endpoint, the deployment must have `egress_public_network_access=disabled` set. Azure Machine Learning creates the necessary private endpoints to the registry during endpoint deployment. For more information, see [Create secure managed online endpoints](how-to-secure-online-endpoints.md). 
+To deploy a model from a registry to a secure managed online endpoint, the deployment must have `egress_public_network_access=disabled` set. Azure Machine Learning creates the necessary private endpoints to the registry during endpoint deployment. For more information, see [Create secure managed online endpoints](how-to-secure-online-endpoint.md). 
 
 ## How to create a private endpoint
 
