@@ -15,7 +15,7 @@ In this article, you use Azure Functions tools to create your project code in a 
 Azure Functions supports any language or runtime using [custom handlers](functions-custom-handlers.md). For some languages, such as the R programming language used in this tutorial, you need to install the runtime or more libraries as dependencies that require the use of a custom container.
 ::: zone-end
 
-Deploying your function code in a custom Linux container requires [Premium plan](functions-premium-plan.md) or a [Dedicated (App Service) plan](dedicated-plan.md) hosting. Completing this tutorial incurs costs of a few US dollars in your Azure account, which you can minimize by [cleaning-up resources](#clean-up-resources) when you're done.
+Deploying your function code in a custom Linux container requires [Premium plan](functions-premium-plan.md) or a [Dedicated (App Service) plan](dedicated-plan.md) hosting. 
 
 You can also use a default Azure App Service container as described in [Create your first function hosted on Linux](./create-first-function-cli-csharp.md?pivots=programming-language-python). Supported base images for Azure Functions are found in the [Azure Functions base images repo](https://hub.docker.com/_/microsoft-azure-functions-base).
 
@@ -355,7 +355,7 @@ Now that you have your function app running in a custom container published to a
 Your custom container runs on a Linux [hosting plan in Azure Functions](./functions-scale.md). 
 
 > [!div class="nextstepaction"]
-> [Deploy to Azure Functions](./functions-how-to-custom-container.md)
+> [Deploy to Azure Functions](./functions-deploy-custom-container.md)
 
 # [Azure Container Apps](#tab/container-apps)
 
@@ -365,7 +365,7 @@ Your custom container runs in [Azure Container Apps](../container-apps/overview.
 > Support for running Azure Functions in Azure Container Apps is currently in preview.  
 
 > [!div class="nextstepaction"]
-> [Deploy to Azure Container Apps](./functions-how-to-custom-container-aca.md)
+> [Deploy to Azure Container Apps](./functions-deploy-custom-container-aca.md)
 
 # [Azure Arc](#tab/azure-arc)
 
