@@ -36,7 +36,7 @@ Provisioning connectors are set up and configured using the [Azure portal](https
 This article uses the following terms:
 
 * **Source System** - The repository of users that the Azure AD provisioning service synchronizes from. Azure Active Directory is the source system for most pre-integrated provisioning connectors, however there are some exceptions (example: Workday Inbound Synchronization).
-* **Target System** - The repository of users that the Azure AD provisioning service synchronizes to. This is typically a SaaS application (examples: Salesforce, ServiceNow, G Suite, Dropbox for Business), but in some cases can be an on-premises system such as Active Directory (example: Workday Inbound Synchronization to Active Directory).
+* **Target System** - The repository of users where the Azure AD provisioning service synchronizes. The repository is typically a SaaS application, such as Salesforce, ServiceNow, G Suite, and Dropbox for Business. In some cases the repository can be an on-premises system such as Active Directory, such as Workday Inbound Synchronization to Active Directory.
 
 ## Getting provisioning reports from the Azure portal
 
