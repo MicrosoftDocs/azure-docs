@@ -342,7 +342,7 @@
     - name: Logical operators
       href: operators-logical.md
     - name: Null forgiveness operators
-      href: operators-null-forgiveness.md
+      href: operator-null-forgiving.md
     - name: Numeric operators
       href: operators-numeric.md
 - name: How to
