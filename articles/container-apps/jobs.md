@@ -17,9 +17,9 @@ Azure Container Apps jobs enable you to run containerized workloads that execute
 
 There are two types of workloads in Azure Container Apps: apps and jobs.
 
-Apps are services that run continuously. If a replica fails, it's restarted automatically. Examples of apps include APIs, web apps, and background services that continuously process messages from a queue.
+Apps are services that run continuously. If a replica in an app fails, it's restarted automatically. Examples of apps include HTTP APIs, web apps, and background services that continuously process messages from a queue.
 
-Jobs are tasks that start, run for a finite duration, and exit when finished. Each execution of a job typically performs a single unit of work. Job executions start manually or on a schedule and are complete when they exit. Examples of jobs include on-demand batch processing and scheduled tasks.
+Jobs are tasks that start, run for a finite duration, and exit when finished. Each execution of a job typically performs a single unit of work. Job executions start manually or on a schedule. Examples of jobs include batch processes that run on demand and scheduled tasks.
 
 ## Jobs preview limitations
 
