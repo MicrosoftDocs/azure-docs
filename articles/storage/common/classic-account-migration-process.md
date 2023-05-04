@@ -50,7 +50,9 @@ There are four steps to the migration process, as shown in the following diagram
 1. **Check manually**. It's a good idea to make a manual check of the new storage account to make sure that the output is as you expect.
 1. **Commit or abort**. If you're satisfied that the migration has been successful, then you can commit the migration. Committing the migration permanently deletes the classic storage account.
 
-    If there are any problems with the migration, then you can abort the migration at this point. If you choose to abort, the new resource group and new storage account are deleted. Your classic account remains available. You can address any problems and attempt the migration again.
+    Before you commit the migration, we recommend that you update your client applications to use the [Azure Storage resource provider APIs](/rest/api/storagerp/). You can then test your updated code against the migrated storage account, while the classic account still exists.
+
+    If there are any problems with the migration, then you can abort the migration at this point rather than committing it. If you choose to abort, the new resource group and new storage account are deleted. Your classic account remains available. You can address any problems and attempt the migration again.
 
 > [!NOTE]
 > The operations described in the following sections are all idempotent. If you have a problem other than an unsupported feature or a configuration error, retry the prepare, abort, or commit operation.
@@ -100,10 +102,14 @@ To revert your changes to the classic deployment model, you can choose to abort 
 
 ### Commit
 
-After you're satisfied that your classic storage account has been migrated successfully, you can commit the migration. Committing the migration deletes your classic storage account. Your data is now available only in the newly migrated account in the Resource Manager deployment model.
+Before you commit the migration, we recommend that you update your client applications to use the [Azure Storage resource provider APIs](/rest/api/storagerp/). You can then test your updated code against the migrated storage account, while the classic account still exists. If there are any problems, you can abort the commit.
 
-> [!NOTE]
-> Committing the migration is an idempotent operation. If it fails, retry the operation. If it continues to fail, create a support ticket or ask a question on [Microsoft Q&A](/answers/index.html).
+After you're satisfied that your classic storage account has been migrated successfully and your client applications are working against the new account, you can commit the migration. Committing the migration deletes your classic storage account. Your data is now available only in the newly migrated account in the Resource Manager deployment model.
+
+> [!WARNING]
+> Committing the migration permanently deletes your classic storage account. Test the migrated storage account and any client applications thoroughly before you commit the migration.
+
+Committing the migration is an idempotent operation. If it fails, retry the operation. If it continues to fail, create a support ticket or ask a question on [Microsoft Q&A](/answers/index.html).
 
 ## After the migration
 
