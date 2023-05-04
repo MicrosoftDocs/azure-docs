@@ -65,7 +65,7 @@ Please follow the next sections to create, view and manage an Azure Event Grid n
 
 In case you want to enable the MQTT capabilities in the Azure Event Grid namespace, you will need to select **Configuration** and check the option **Enable MQTT**.
 
-  :::image type="content" source="media/create-view-manage-namespaces/enable-MQTT.png" alt-text="Screenshot showing Event Grid MQTT settings":::
+  :::image type="content" source="media/create-view-manage-namespaces/enable-mqtt.png" alt-text="Screenshot showing Event Grid MQTT settings":::
 
 > [!NOTE]
 > Please note once MQTT is enabled it cannot be disabled.
