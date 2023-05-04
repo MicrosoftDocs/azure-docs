@@ -66,7 +66,7 @@ landingContent:
             url: mqtt-access-control.md
           - text: MQTT support in Event Grid
             url: mqtt-support.md           
-           - text: Routing MQTT messages
+          - text: Routing MQTT messages
             url: mqtt-routing.md
 
  # Card
