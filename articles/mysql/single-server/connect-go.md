@@ -70,7 +70,7 @@ Install [Go](https://go.dev/doc/install) and the [go-sql-driver for MySQL](https
    go get github.com/go-sql-driver/mysql
    ```
 
-### [Apple macOS](#mac)
+### [Apple macOS](#tab/macos)
 
 1. Download and install Go according to the [installation instructions](https://go.dev/doc/install) matching your platform. 
 2. Launch the Bash shell.
