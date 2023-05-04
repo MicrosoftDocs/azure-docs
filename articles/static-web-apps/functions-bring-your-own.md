@@ -96,7 +96,7 @@ When the unlinking process is complete, requests to routes beginning with `/api`
 
 To enable your Azure Functions app to receive anonymous traffic, follow these steps to remove the identity provider:
 
-1. In the Azure Portal, navigate to the Azure Functions resource.
+1. In the Azure portal, navigate to the Azure Functions resource.
 
 1. Select **Authentication** from the navigation menu.
 
