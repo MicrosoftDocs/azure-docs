@@ -77,7 +77,7 @@ To make APIs available to your linked static web app, [add them to the product](
 
 1. Select **+ Add API**.
 
-1. Select the APIs you want to expose from your Static Web Apps, and then Select.
+1. Select the APIs you want to expose from your Static Web Apps, then select the **Select** link.
 
 :::image type="content" source="media/apim-add-api.png" alt-text="In the API Management Products API, add an API to the product created for the Static Web Apps resource.":::
 
