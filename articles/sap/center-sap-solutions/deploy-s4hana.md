@@ -20,11 +20,11 @@ In this how-to guide, you'll learn how to deploy S/4HANA infrastructure in *Azur
 
 ## Prerequisites
 
-- An Azure subscription.
-- Register the **Microsoft.Workloads** Resource Provider on the subscription in which you are deploying the SAP system.
-- An Azure account with **Contributor** role access to the subscriptions and resource groups in which you'll create the Virtual Instance for SAP solutions (VIS) resource.
-- A **User-assigned managed identity** which has Contributor role access on the Subscription or atleast all resource groups (Compute, Network,Storage). If you wish to install SAP Software through the Azure Center for SAP solutions, also provide Storage Blob data Reader, Reader and Data Access roles to the identity on SAP bits storage account where you would store the SAP Media.
-- A [network set up for your infrastructure deployment](prepare-network.md).
+- An Azure [subscription](/azure/cost-management-billing/manage/create-subscription#create-a-subscription)
+- [Register](/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal) the **Microsoft.Workloads** Resource Provider on the subscription in which you are deploying the SAP system.
+- An Azure account with **Contributor** [role](/azure/role-based-access-control/role-assignments-portal-subscription-admin) access to the subscriptions and resource groups in which you'll create the Virtual Instance for SAP solutions (VIS) resource.
+- A **User-assigned managed** [identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) which has Contributor role access on the Subscription or atleast all resource groups (Compute, Network,Storage). If you wish to install SAP Software through the Azure Center for SAP solutions, also provide Storage Blob data Reader, Reader and Data Access roles to the identity on SAP bits storage account where you would store the SAP Media.
+- A [network set up for your SAP deployment](prepare-network.md).
 - Availability of either Standard_D4ds_v4 or Standard_E4s_v3 SKUS which will be used for "Deployer VM".
 - [Review the quotas for your Azure subscription](../../quotas/view-quotas.md). If the quotas are low, you might need to create a support request before creating your infrastructure deployment. Otherwise, you might experience deployment failures or an **Insufficient quota** error. 
 - Note the SAP Application Performance Standard (SAPS) and database memory size that you need to allow Azure Center for SAP solutions to size your SAP system. If you're not sure, you can also select the VMs. There are:
@@ -42,6 +42,33 @@ There are three deployment options that you can select for your infrastructure, 
     - **99.95% (Optimize for cost)** shows three availability sets for all instances. The HA ASCS cluster is deployed in the first availability set. All Application servers are deployed across the second availability set. The HA Database server is deployed in the third availability set. No availability zone names are shown.
 - **Distributed** creates distributed non-HA architecture. 
 - **Single Server** creates architecture with a single server. This option is available for non-production environments only.
+
+## Supported software
+
+Azure Center for SAP solutions supports the following SAP software versions: S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, and S/4HANA 2021 ISS 00.
+
+The following operating system (OS) software versions are compatible with these SAP software versions:
+
+| Publisher | Image and Image Version | Supported SAP Software Version |
+| --------- | ----------------------- | ------------------------------ |
+| Red Hat | RHEL 82sapha-gen2 latest | S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00 | 
+| Red Hat | RHEL 84sapha-gen2 latest | S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00 | 
+| SUSE | SLES 15sp3-gen2 latest | S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00 | 
+| SUSE | SLES 12sp4-gen2 latest | S/4HANA 1909 SPS 03 |
+
+- You can use `latest` if you want to use the latest image and not a specific older version. If the *latest* image version is newly released in marketplace and has an unforeseen issue, the deployment may fail. If you are using Portal for deployment, we recommend choosing a different image *sku train* (e.g. 12-SP4 instead of 15-SP3) till the issues are resolved. However, if deploying via API/CLI, you can provide any other *image version* which is available. To view and select the available image versions from a publisher, use below commands
+
+
+    ```Powershell
+    Get-AzVMImage -Location $locName -PublisherName $pubName -Offer $offerName -Sku $skuName | Select Version
+    
+    where, for example
+    $locName="eastus"
+    $pubName="RedHat"
+    $offerName="RHEL-SAP-HA"
+    $skuName="82sapha-gen2"
+    ```
+  
 ## Create deployment
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -74,7 +101,7 @@ There are three deployment options that you can select for your infrastructure, 
 
     1. For **Network**, create the [network you created previously with subnets](prepare-network.md).
 
-    1. For **Application subnet** and **Database subnet**, map the IP address ranges as required. It's recommended to use a different subnet for each deployment.
+    1. For **Application subnet** and **Database subnet**, map the IP address ranges as required. It's recommended to use a different subnet for each deployment. The names including AzureFirewallSubnet, AzureFirewallManagementSubnet, AzureBastionSubnet and GatewaySubnet are reserved names within Azure. Please do not use these as the subnet names.
 
 1. Under **Operating systems**, enter the OS details.
 
@@ -86,7 +113,7 @@ There are three deployment options that you can select for your infrastructure, 
 
     1. For **Authentication type**, keep the setting as **SSH public**.
 
-    1. For **Username**, enter a username.
+    1. For **Username**, enter a SAP administrator username.
 
     1. For **SSH public key source**, select a source for the public key. You can choose to generate a new key pair, use an existing key stored in Azure, or use an existing public key stored on your local computer. If you don't have keys already saved, it's recommended to generate a new key pair.
 
