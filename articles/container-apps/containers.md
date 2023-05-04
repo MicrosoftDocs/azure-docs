@@ -138,7 +138,7 @@ The following code is an example of the `containers` array in the [`properties.t
 
 <a id="allocations"></a>
 
-In the Consumption plan and the Consumption workload profile in the Consumption + Dedicated plan structure, the total CPU and memory allocations requested for all the containers in a container app must add up to one of the following combinations.
+In the Consumption plan and the Consumption workload profile in the [Consumption + Dedicated plan structure](plans.md#consumption-dedicated), the total CPU and memory allocations requested for all the containers in a container app must add up to one of the following combinations.
 
 | vCPUs (cores) | Memory | Consumption plan | Consumption workload profile |
 |---|---|---|---|
