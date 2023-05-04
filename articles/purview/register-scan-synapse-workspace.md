@@ -318,11 +318,18 @@ To create and run a new scan, do the following:
 
 ### Set up scan using API
 
-Here is an example of creating scan for serverless DB using API. Replace the `{place_holder}` and `enum_option_1 | enum_option_2 (note)` value with your actual settings.
+Here's an example of creating scan for serverless DB using API. Replace the `{place_holder}` and `enum_option_1 | enum_option_2 (note)` value with your actual settings.
 
 ```http
 PUT https://{purview_account_name}.purview.azure.com/scan/datasources/<data_source_name>/scans/{scan_name}?api-version=2022-02-01-preview
 ```
+
+>[!IMPORTANT]
+> The collection_id is the identification for the collection, not the name. For the root collection, the collection_id will be the name of the root collection, but for all sub-collections it is a 5-character ID that can be found in one of two places:
+>
+> 1. The URL in the Microsoft Purview governance portal. Select the collection, and check the URL to find where it says collection=. That will be your ID. So, for our example below, the Investments collection has the ID 50h55c.
+>    :::image type="content" source="media/register-scan-synapse-workspace/find-collection-id.png" alt-text="Screenshot of the collection ID in the URL." lightbox="media/register-scan-synapse-workspace/find-collection-id.png" :::
+>1. You can [list child collection names](/rest/api/purview/accountdataplane/collections/list-child-collection-names) of the root collection to list the collections, and you'll use the 'name' instead of the 'friendly name'.
 
 ```json
 {
@@ -341,7 +348,7 @@ PUT https://{purview_account_name}.purview.azure.com/scan/datasources/<data_sour
             "credentialType":"SqlAuth | ServicePrincipal | ManagedIdentity (if UAMI authentication)"
         },
         "collection":{
-            "referenceName":"{collection_name}",
+            "referenceName":"{collection_id}",
             "type":"CollectionReference"
         },
         "connectedVia":{
