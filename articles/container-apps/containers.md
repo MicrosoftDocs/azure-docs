@@ -138,39 +138,26 @@ The following code is an example of the `containers` array in the [`properties.t
 
 <a id="allocations"></a>
 
-In the Consumption plan, the total CPU and memory allocations requested for all the containers in a container app must add up to one of the following combinations.
+In the Consumption plan and the Consumption workload profile in the Consumption + Dedicated plan structure, the total CPU and memory allocations requested for all the containers in a container app must add up to one of the following combinations.
 
-| vCPUs (cores) | Memory |
-|---|---|
-| `0.25` | `0.5Gi` |
-| `0.5` | `1.0Gi` |
-| `0.75` | `1.5Gi` |
-| `1.0` | `2.0Gi` |
-| `1.25` | `2.5Gi` |
-| `1.5` | `3.0Gi` |
-| `1.75` | `3.5Gi` |
-| `2.0` | `4.0Gi` |
-
-Alternatively, the Consumption workload profile in the Consumption + Dedicated plan structure, the total CPU and memory allocations requested for all the containers in a container app must add up to one of the following combinations.
-
-| vCPUs (cores) | Memory |
-|---|---|
-| `0.25` | `0.5Gi` |
-| `0.5` | `1.0Gi` |
-| `0.75` | `1.5Gi` |
-| `1.0` | `2.0Gi` |
-| `1.25` | `2.5Gi` |
-| `1.5` | `3.0Gi` |
-| `1.75` | `3.5Gi` |
-| `2.0` | `4.0Gi` |
-| `2.25` | `4.5Gi` |
-| `2.5` | `5.0Gi` |
-| `2.75` | `5.5Gi` |
-| `3.0` | `6.0Gi` |
-| `3.25` | `6.5Gi` |
-| `3.5` | `7.0Gi` |
-| `3.75` | `7.5Gi` |
-| `4.0` | `8.0Gi` |
+| vCPUs (cores) | Memory | Consumption plan | Consumption workload profile |
+|---|---|---|---|
+| `0.25` | `0.5Gi` | ✔ | ✔ |
+| `0.5` | `1.0Gi` | ✔ | ✔ |
+| `0.75` | `1.5Gi` | ✔ | ✔ |
+| `1.0` | `2.0Gi` | ✔ | ✔ |
+| `1.25` | `2.5Gi` | ✔ | ✔ |
+| `1.5` | `3.0Gi` | ✔ | ✔ |
+| `1.75` | `3.5Gi` | ✔ | ✔ |
+| `2.0` | `4.0Gi` | ✔ | ✔ |
+| `2.25` | `4.5Gi` | ✕ | ✔ |
+| `2.5` | `5.0Gi` | ✕ | ✔ |
+| `2.75` | `5.5Gi` | ✕ | ✔ |
+| `3.0` | `6.0Gi` | ✕ | ✔ |
+| `3.25` | `6.5Gi` | ✕ | ✔ |
+| `3.5` | `7.0Gi` | ✕ | ✔ |
+| `3.75` | `7.5Gi` | ✕ | ✔ |
+| `4.0` | `8.0Gi` | ✕ | ✔ |
 
 - The total of the CPU requests in all of your containers must match one of the values in the *vCPUs* column.
 - The total of the memory requests in all your containers must match the memory value in the memory column in the same row of the CPU column.
