@@ -76,7 +76,7 @@ We need to create a scoring script that can read the input data provided by the 
 
 __code/batch_driver.py__
 
-:::code language="python" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/code/batch_driver.py" :::
+:::code language="python" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/custom-outputs-parquet/code/batch_driver.py" :::
 
 __Remarks:__
 * Notice how the environment variable `AZUREML_BI_OUTPUT_PATH` is used to get access to the output path of the deployment job. 
@@ -112,7 +112,7 @@ We are going to create a batch endpoint named `heart-classifier-batch` where to 
     
     __endpoint.yml__
 
-    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/endpoint.yml":::
+    :::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/custom-outputs-parquet/endpoint.yml":::
     
     # [Python](#tab/python)
     
@@ -122,7 +122,7 @@ We are going to create a batch endpoint named `heart-classifier-batch` where to 
 
    # [Azure CLI](#tab/cli)
 
-   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="create_endpoint" :::
+   :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="create_endpoint" :::
 
    # [Python](#tab/python)
 
@@ -138,7 +138,7 @@ Follow the next steps to create a deployment using the previous scoring script:
    
    No extra step is required for the Azure Machine Learning CLI. The environment definition will be included in the deployment file.
    
-   :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deployment.yml" range="6-9":::
+   :::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deployment.yml" range="6-9":::
    
    # [Python](#tab/python)
    
@@ -155,11 +155,11 @@ Follow the next steps to create a deployment using the previous scoring script:
    
    To create a new deployment under the created endpoint, create a `YAML` configuration like the following:
    
-   :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deployment.yml":::
+   :::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deployment.yml":::
    
    Then, create the deployment with the following command:
    
-   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="create_deployment" :::
+   :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="create_deployment" :::
    
    # [Python](#tab/python)
    
@@ -185,7 +185,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
 
    # [Azure CLI](#tab/cli)
    
-   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="start_batch_scoring_job" :::
+   :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="start_batch_scoring_job" :::
    
    > [!NOTE]
    > The utility `jq` may not be installed on every installation. You can get instructions in [this link](https://stedolan.github.io/jq/download/).
@@ -204,7 +204,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
 
    # [Azure CLI](#tab/cli)
    
-   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="show_job_in_studio" :::
+   :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="show_job_in_studio" :::
    
    # [Python](#tab/python)
    
@@ -223,7 +223,7 @@ You can download the results of the job by using the job name:
 
 To download the predictions, use the following command:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="download_outputs" :::
+:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="download_outputs" :::
 
 # [Python](#tab/python)
 
@@ -249,7 +249,7 @@ The output looks as follows:
 
 Run the following code to delete the batch endpoint and all the underlying deployments. Batch scoring jobs won't be deleted.
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="delete_endpoint" :::
+::: code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="delete_endpoint" :::
 
 # [Python](#tab/python)
 

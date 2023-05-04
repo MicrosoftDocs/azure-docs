@@ -368,37 +368,32 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
    
    Then, create the deployment with the following command:
    
-   :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/heart-classifier-mlflow/deploy-and-run.sh" ID="create_new_deployment_not_default" :::
+   :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/heart-classifier-mlflow/deploy-and-run.sh" ID="create_deployment_non_default" :::
    
    # [Python](#tab/sdk)
    
    To create a new deployment under the created endpoint, use the following script:
    
-   ```python
-   deployment = BatchDeployment(
-       name="classifier-xgboost-custom",
-       description="A heart condition classifier based on XGBoost",
-       endpoint_name=endpoint.name,
-       model=model,
-       environment=environment,
-       code_configuration=CodeConfiguration(
-           code="deployment-custom/code/",
-           scoring_script="batch_driver.py",
-       ),
-       compute=compute_name,
-       instance_count=2,
-       max_concurrency_per_instance=2,
-       mini_batch_size=2,
-       output_action=BatchDeploymentOutputAction.APPEND_ROW,
-       output_file_name="predictions.csv",
-       retry_settings=BatchRetrySettings(max_retries=3, timeout=300),
-       logging_level="info",
-   )
-   ml_client.batch_deployments.begin_create_or_update(deployment)
-   ```
+   [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=create_deployment_non_default)]
    ---
    
 1. At this point, our batch endpoint is ready to be used. 
+
+## Clean up resources
+
+# [Azure CLI](#tab/cli)
+
+Run the following code to delete the batch endpoint and all the underlying deployments. Batch scoring jobs won't be deleted.
+
+::: code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/heart-classifier-mlflow/deploy-and-run.sh" ID="delete_endpoint" :::
+
+# [Python](#tab/python)
+
+Run the following code to delete the batch endpoint and all the underlying deployments. Batch scoring jobs won't be deleted.
+
+[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=delete_endpoint)]
+
+---
 
 ## Next steps
 

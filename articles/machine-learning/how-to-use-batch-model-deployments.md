@@ -57,7 +57,7 @@ This article uses a compute created here named `batch-cluster`. Adjust as needed
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/cli-deploy.sh" ID="create_compute" :::
+:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="create_compute" :::
 
 # [Python](#tab/python)
 
@@ -88,7 +88,7 @@ A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch s
     
     In this case, let's place the name of the endpoint in a variable so we can easily reference it later.
     
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/cli-deploy.sh" ID="name_endpoint" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="name_endpoint" :::
     
     # [Python](#tab/python)
     
@@ -140,7 +140,7 @@ A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch s
     
     Run the following code to create a batch deployment under the batch endpoint and set it as the default deployment.
 
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/cli-deploy.sh" ID="create_endpoint" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="create_endpoint" :::
 
     # [Python](#tab/python)
     
@@ -167,7 +167,7 @@ A model deployment is a set of resources required for hosting the model that doe
    
     # [Azure CLI](#tab/cli)
 
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/cli-deploy.sh" ID="register_model" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="register_model" :::
 
     # [Python](#tab/python)
 
@@ -350,7 +350,7 @@ A model deployment is a set of resources required for hosting the model that doe
     
     Run the following code to create a batch deployment under the batch endpoint and set it as the default deployment.
     
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/cli-deploy.sh" ID="create_deployment" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="create_deployment" :::
 
     > [!TIP]
     > The `--set-default` parameter sets the newly created deployment as the default deployment of the endpoint. It's a convenient way to create a new default deployment of the endpoint, especially for the first deployment creation. As a best practice for production scenarios, you may want to create a new deployment without setting it as default, verify it, and update the default deployment later. For more information, see the [Deploy a new model](#adding-deployments-to-an-endpoint) section.
@@ -379,7 +379,7 @@ A model deployment is a set of resources required for hosting the model that doe
 
     Use `show` to check endpoint and deployment details. To check a batch deployment, run the following code:
     
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/cli-deploy.sh" ID="query_deployment" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="query_deployment" :::
 
     # [Python](#tab/python)
     
@@ -412,7 +412,7 @@ When running models for scoring in Batch Endpoints, you need to indicate the inp
 
 # [Azure CLI](#tab/cli)
     
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/cli-deploy.sh" ID="start_batch_scoring_job" :::
+:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="start_batch_scoring_job" :::
 
 # [Python](#tab/python)
 
@@ -460,7 +460,7 @@ Batch scoring jobs usually take some time to process the entire set of inputs.
 
 The following code checks the job status and outputs a link to the Azure Machine Learning studio for further details.
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/cli-deploy.sh" ID="show_job_in_studio" :::
+:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="show_job_in_studio" :::
 
 # [Python](#tab/python)
 
@@ -494,7 +494,7 @@ The job outputs will be stored in cloud storage, either in the workspace's defau
 
 1. Run the following code to open batch scoring job in Azure Machine Learning studio. The job studio link is also included in the response of `invoke`, as the value of `interactionEndpoints.Studio.endpoint`.
 
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/cli-deploy.sh" ID="show_job_in_studio" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="show_job_in_studio" :::
 
 1. In the graph of the job, select the `batchscoring` step.
 
@@ -516,7 +516,7 @@ The batch scoring results are by default stored in the workspace's default blob 
     
 Use `output-path` to configure any folder in an Azure Machine Learning registered datastore. The syntax for the `--output-path` is the same as `--input` when you're specifying a folder, that is, `azureml://datastores/<datastore-name>/paths/<path-on-datastore>/`. Use `--set output_file_name=<your-file-name>` to configure a new output file name.
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/cli-deploy.sh" ID="start_batch_scoring_job_set_output" :::
+:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="start_batch_scoring_job_set_output" :::
 
 # [Python](#tab/python)
 
@@ -576,7 +576,7 @@ Some settings can be overwritten when invoke to make best use of the compute res
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/cli-deploy.sh" ID="start_batch_scoring_job_overwrite" :::
+:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="start_batch_scoring_job_overwrite" :::
 
 # [Python](#tab/python)
 
@@ -719,7 +719,7 @@ In this example, you'll learn how to add a second deployment __that solves the s
     
     Run the following code to create a batch deployment under the batch endpoint and set it as the default deployment.
     
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/cli-deploy.sh" ID="create_deployment_non_default" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="create_deployment_non_default" :::
 
     > [!TIP]
     > The `--set-default` parameter is missing in this case. As a best practice for production scenarios, you may want to create a new deployment without setting it as default, verify it, and update the default deployment later.
@@ -741,7 +741,7 @@ To test the new non-default deployment, you'll need to know the name of the depl
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/cli-deploy.sh" ID="test_deployment_non_default" :::
+:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="test_deployment_non_default" :::
 
 Notice `--deployment-name` is used to specify the deployment we want to execute. This parameter allows you to `invoke` a non-default deployment, and it will not update the default deployment of the batch endpoint.
 
@@ -773,7 +773,7 @@ Although you can invoke a specific deployment inside of an endpoint, you'll usua
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/cli-deploy.sh" ID="update_default_deployment" :::
+:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="update_default_deployment" :::
 
 # [Python](#tab/python)
 
@@ -805,11 +805,11 @@ Although you can invoke a specific deployment inside of an endpoint, you'll usua
 
 If you aren't going to use the old batch deployment, you should delete it by running the following code. `--yes` is used to confirm the deletion.
 
-::: code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/cli-deploy.sh" ID="delete_deployment" :::
+::: code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="delete_deployment" :::
 
 Run the following code to delete the batch endpoint and all the underlying deployments. Batch scoring jobs won't be deleted.
 
-::: code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/cli-deploy.sh" ID="delete_endpoint" :::
+::: code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="delete_endpoint" :::
 
 # [Python](#tab/python)
 
