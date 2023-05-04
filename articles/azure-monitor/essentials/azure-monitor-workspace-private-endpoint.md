@@ -12,8 +12,6 @@ ms.date: 05/03/2023
 
 Use [private endpoints](../../private-link/private-endpoint-overview.md) for Managed Prometheus and your Azure Monitor workspace to allow clients on a virtual network (VNet) to securely query data over a [Private Link](../../private-link/private-link-overview.md). The private endpoint uses a separate IP address within the VNet address space of your Azure Monitor workspace resource. Network traffic between the clients on the VNet and the workspace resource traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
 
->>>separate IP address from   >>separate IP address within 
-
 > [!NOTE]
 > Configuration of [Private Link for ingestion of data into Managed Prometheus and your Azure Monitor workspace](private-link-data-ingestion.md) is done on the Data Collection Endpoints associated with your workspace.  
 
@@ -29,9 +27,11 @@ Using private endpoints for your workspace enables you to:
 
 A private endpoint is a special network interface for an Azure service in your [Virtual Network](../../virtual-network/virtual-networks-overview.md) (VNet). When you create a private endpoint for your workspace, it provides secure connectivity between clients on your VNet and your workspace. The private endpoint is assigned an IP address from the IP address range of your VNet. The connection between the private endpoint and the workspace uses a secure private link.
 
-Applications in the VNet can connect to the workspace over the private endpoint seamlessly, **using the same connection strings and authorization mechanisms that they would use otherwise**. 
+Applications in the VNet can connect to the workspace over the private endpoint seamlessly, **using the same connection strings and authorization mechanisms that they would use otherwise**.
 
-Private endpoints can be created in subnets that use [Service Endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md). Clients in a subnet can thus connect to a workspace using private endpoint, while using service endpoints to access others.
+Private endpoints can be created in subnets that use [Service Endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md). Clients in a subnet can therefor connect to a workspace using a private endpoint, while using service endpoints to access others.
+
+??? to access others.- other what? 
 
 When you create a private endpoint for a workspace in your VNet, a consent request is sent for approval to the workspace account owner. If the user requesting the creation of the private endpoint is also an owner of the workspace, this consent request is automatically approved.
 
@@ -40,22 +40,20 @@ Azure Monitor workspace owners can manage consent requests and the private endpo
 > [!TIP]
 > If you want to restrict access to your workspace through the private endpoint only, select 'Disable public access and use private access' on the '*Public Access*' tab on the Networking page for the workspace in the [Azure portal](https://portal.azure.com).
 
-
-<a id="private-endpoints-for-azure-monitor-workspace"></a>
-
 ## Create a private endpoint
 
 To create a private endpoint by using the Azure portal, PowerShell, or the Azure CLI, see the following articles. The articles feature an Azure web app as the target service, but the steps to create a private link are the same for an Azure Monitor workspace.
 
-- [Create a private endpoint using Azure portal](../../private-link/create-private-endpoint-portal.md)
+When you create a private endpoint, select the **Resource type**  `Microsoft.Monitor/accounts` and specify the Azure Monitor workspace to which it connects. Select `prometheusMetrics` as the Target sub-resource.
 
-- [Create a private endpoint using Azure CLI](../../private-link/create-private-endpoint-cli.md)
 
-- [Create a private endpoint using Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
+- [Create a private endpoint using Azure portal](../../private-link/create-private-endpoint-portal.md##create-a-private-endpoint)
 
-When you create a private endpoint, you must specify the Azure Monitor workspace to which it connects, and specify `prometheusMetrics` as the Target sub-resource.
+- [Create a private endpoint using Azure CLI](../../private-link/create-private-endpoint-cli.md#create-a-private-endpoint)
 
-<a id="connecting-to-private-endpoints"></a>
+- [Create a private endpoint using Azure PowerShell](../../private-link/create-private-endpoint-powershell.md#create-a-private-endpoint)
+
+
 ## Connect to a private endpoint
 
 Clients on a VNet using the private endpoint should use the same query endpoint for the Azure monitor workspace as clients connecting to the public endpoint. We rely upon DNS resolution to automatically route the connections from the VNet to the workspace over a private link.
