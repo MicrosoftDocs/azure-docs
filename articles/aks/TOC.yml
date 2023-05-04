@@ -593,12 +593,12 @@
       items:
         - name: About Istio
           href: istio-about.md
-        - name: FAQ on Istio service mesh add-on
-          href: istio-faq.md
         - name: Deploy Istio service mesh add-on
           href: istio-deploy-addon.md
         - name: Deploy external or internal Istio Ingress
           href: istio-deploy-ingress.md
+        - name: Upgrade Istio service mesh add-on
+          href: istio-upgrade.md
     - name: Track releases and region availability
       href: release-tracker.md
     - name: Deploy the Kubernetes Event-driven Autoscaler (KEDA) add-on (preview)
