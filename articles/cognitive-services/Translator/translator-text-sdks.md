@@ -166,7 +166,7 @@ import com.azure.core.credential.AzureKeyCredential;
 ### [JavaScript](#tab/javascript)
 
 ```javascript
-const { TranslatorCredential, TextTranslationClient } = require("@azure-rest/ai-translation-text");
+const {TextTranslationClient } = require("@azure-rest/ai-translation-text").default;
 ```
 
 ### [Python](#tab/python)

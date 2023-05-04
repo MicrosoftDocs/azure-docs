@@ -165,4 +165,4 @@ Once you've added a code sample to your application, navigate back to your main 
 
 Here's a snippet of the expected output:
 
-:::image type="content" source="../../media/quickstarts/java-output.png" alt-text="Screenshot of the Visual Studio Code output in the terminal window. ":::
+:::image type="content" source="../../media/quickstarts/java-output.png" alt-text="Screenshot of the Java output in the terminal window. ":::
