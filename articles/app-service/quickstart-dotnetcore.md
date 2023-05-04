@@ -136,39 +136,8 @@ If you have already installed Visual Studio 2022:
 
 :::zone-end
 
-:::zone target="docs" pivot="development-environment-vscode"
-
-1. In the terminal window, create a new folder named _MyFirstAzureWebApp_, and open it in Visual Studio Code. 
-
-    ```terminal
-    mkdir MyFirstAzureWebApp
-    code MyFirstAzureWebApp
-    ```
-
-1. In Visual Studio Code, open the <a href="https://code.visualstudio.com/docs/editor/integrated-terminal" target="_blank">Terminal</a> window by typing `Ctrl` + `` ` ``.
-
-1. In Visual Studio Code terminal, create a new .NET web app using the [`dotnet new webapp`](/dotnet/core/tools/dotnet-new#web-options) command.
-
-    ```dotnetcli
-    dotnet new webapp -f net7.0
-    ```
-
-1. From the **Terminal** in Visual Studio Code, run the application locally using the [`dotnet run`](/dotnet/core/tools/dotnet-run) command.
-
-    ```dotnetcli
-    dotnet run --urls=https://localhost:5001/
-    ```
-
-1. Open a web browser, and navigate to the app at `https://localhost:5001`.
-
-    You see the template ASP.NET Core 7.0 web app displayed in the page.
-    
-    :::image type="content" source="media/quickstart-dotnetcore/local-webapp-net.png" alt-text="Screenshot of Visual Studio Code - run .NET 7.0 in browser locally." lightbox="media/quickstart-dotnetcore/local-webapp-net.png" border="true":::
-    
-:::zone-end
-
 <!-- markdownlint-disable MD044 -->
-:::zone target="docs" pivot="development-environment-cli,development-environment-ps"
+:::zone target="docs" pivot="development-environment-vscode,development-environment-cli,development-environment-ps"
 <!-- markdownlint-enable MD044 -->
 
 1. Open a terminal window on your machine to a working directory. Create a new .NET web app using the [`dotnet new webapp`](/dotnet/core/tools/dotnet-new#web-options) command, and then change directories into the newly created app.
