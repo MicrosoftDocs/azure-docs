@@ -95,7 +95,6 @@ It's helpful to understand some key terms relating to Azure Container Storage an
 
     A persistent volume claim is used to automatically provision storage based on a storage class.
 
-
-## Next Steps
+## Next steps
 - [Deploy Azure Container Storage](container-storage-aks-quickstart.md)
 - [Azure Container Storage pricing page](https://aka.ms/AzureContainerStoragePricingPage)

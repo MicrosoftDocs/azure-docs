@@ -1,5 +1,5 @@
 ---
-title: Use Azure Container Storage Preview with Azure Ephemeral OS disk.
+title: Use Azure Container Storage Preview with Azure Ephemeral OS disk
 description: Configure Azure Container Storage Preview for use with Azure Ephemeral OS disk (NVMe). Create a storage pool, select a storage class, create a persistent volume claim, and attach the persistent volume to a pod.
 author: khdownie
 ms.service: storage

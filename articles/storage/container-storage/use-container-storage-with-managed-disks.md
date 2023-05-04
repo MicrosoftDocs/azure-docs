@@ -1,5 +1,5 @@
 ---
-title: Use Azure Container Storage Preview with Azure managed disks.
+title: Use Azure Container Storage Preview with Azure managed disks
 description: Configure Azure Container Storage Preview for use with Azure managed disks. Create a storage pool, select a storage class, create a persistent volume claim, and attach the persistent volume to a pod.
 author: khdownie
 ms.service: storage
