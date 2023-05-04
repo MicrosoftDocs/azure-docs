@@ -59,7 +59,8 @@ This integration includes the following components:
 
 The following diagram illustrates the implementation.
 
-   ![image shows the architecture diagram](./media/partner-asignio/partner-asignio-architecture-diagram.png)
+   ![Diagram showing the implementation architecture.](./media/partner-asignio/partner-asignio-architecture-diagram.png)
+
 
 1. User opens Azure AD B2C sign in page on their mobile or web application, and then signs in or signs up.
 2. Azure AD B2C redirects the user to Asignio using an OpenID Connect (OIDC) request.
