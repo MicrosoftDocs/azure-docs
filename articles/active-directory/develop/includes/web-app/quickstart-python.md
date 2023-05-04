@@ -74,11 +74,11 @@ You can also use an integrated development environment to open the folder.
 
 1. Create a *.env* file in the root folder of the project using *.env.sample* as a guide.
 
-    :::code language="python" source="~/ms-identity-python-webapp/.env.sample":::
+    :::code language="python" source="~/ms-identity-python-webapp/.env.sample" range="4-10" highlight="4,5,10":::
 
     * Set the value of `CLIENT_ID` to the **Application (client) ID** for the registered application, available on the overview page.
     * Set the value of `CLIENT_SECRET` to the client secret you created in **Certificates & Secrets** for the registered application.
-    * Set the value of `AUTHORITY` to reference the **Directory (tenant) ID** of the registered application, also available on the overview page.
+    * Set the value of `AUTHORITY` to a URL that includes **Directory (tenant) ID** of the registered application. That ID is also available on the overview page.
     
     The environment variables are referenced in *app_config.py*, and are kept in a separate *.env* file to keep them out of source control. The provided *.gitignore* file prevents the *.env* file from being checked in.
 
