@@ -222,5 +222,4 @@ while (true)
 You can replicate and modify the same code for multiple clients to perform publish / subscribe among the clients.
 
 ## Next steps
-
 - [Route MQTT messages to Event Hubs](mqtt-routing-to-event-hubs-cli.md)

@@ -14,14 +14,14 @@ We support authentication of clients using X.509 certificates.  X.509 certificat
 ## Supported authentication modes
 
 - Certificates issued by a Certificate Authority (CA)
-- Self-signed Certificates
+- Self-signed client certificate - thumbprint based authentication
 
 **Certificate Authority (CA) signed certificates:**
 In this method, a root or intermediate X.509 certificate is registered with the service. Essentially, the root or intermediary certificate that is used to sign the client certificate, must be registered with the service first.
 
 While registering the clients, you need to identify the certificate field used to hold the client authentication name.  Service matches the authentication name from certificate with the client's authentication name in client metadata to validate the client. Service also validates  the client certificate by verifying whether it's signed by the previously registered root or intermediary certificate.
 
-**Self-signed certificates:**
+**Self-signed client certificate - thumbprint based authentication:**
 Clients are onboarded to the service using the certificate thumbprint alongside the identity record. In this method of authentication, the client registry stores the exact thumbprint of the certificate that the client is going to use to authenticate.  When client tries to connect to the service, service validates the client by comparing the thumbprint presented in the client certificate with the thumbprint stored in client metadata.
 
 ## Key terms of client metadata
@@ -53,6 +53,10 @@ Use the "Thumbprint Match" option while using self-signed certificate to authent
 | Certificate Uri | tls_client_auth_san_uri | The uniformResourceIdentifier SAN entry in the certificate. |
 | Certificate Ip | tls_client_auth_san_ip | The IPv4 or IPv6 address present in the iPAddress SAN entry in the certificate. |
 | Certificate Email | tls_client_auth_san_email | The rfc822Name SAN entry in the certificate. |
+
+> [!NOTE]
+> We recommend that you include the client authentication name in the username field of the client's connect packet.  Using this authentication name along with the client certificate, service will be able to authenticate the client.
+> If you do not provide the authentication name in the username field, you need to configure the alternative source fields at namespace scope.  Service will look for the client authentication name in corresponding field of the client certificate in the order the fields are mentioned on the namespace configuration page.
 
 ## High level flow of how mutual transport layer security (mTLS) connection is established
 

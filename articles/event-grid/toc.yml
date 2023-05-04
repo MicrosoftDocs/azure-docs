@@ -429,7 +429,9 @@ items:
       items:
       - name: Event Grid namespace terminology
         href: mqtt-event-grid-namespace-terminology.md
-      - name: Azure Event Grid Namespace MQTT client authentication
+      - name: Event Grid namespace
+        href: event-grid-namespace.md
+      - name: MQTT client authentication
         href: mqtt-client-authentication.md      
       - name: Access control for MQTT clients
         href: mqtt-access-control.md
