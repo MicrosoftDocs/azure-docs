@@ -95,7 +95,7 @@ All the required code snippets have been added, so the application can now be ca
 
 1. Sign-in with an account registered to the CIAM tenant.
 
-1. Once signed in the display name is shown next to the **Sign out** button as shown in the following screenshot.
+1. Once signed in the display name is shown next to the **Sign out** button.
 
 ## Next steps
 
