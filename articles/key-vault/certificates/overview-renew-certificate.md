@@ -70,13 +70,13 @@ To renew a nonintegrated CA certificate:
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the Azure CLI [az keyvault certificate create](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-create) command, providing the name of the certificate you wish to renew:
+Use the Azure CLI [az keyvault certificate create](/cli/azure/keyvault/certificate#az-keyvault-certificate-create) command, providing the name of the certificate you wish to renew:
 
 ```azurecli-interactive
 az keyvault certificate create --vault-name "<your-unique-keyvault-name>" -n "<name-of-certificate-to-renew>" -p "$(az keyvault certificate get-default-policy)"
 ```
 
-After renewing the certificate, you can view all the versions of the certificate using the Azure CLI [az keyvault certificate list-versions](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-list) command:
+After renewing the certificate, you can view all the versions of the certificate using the Azure CLI [az keyvault certificate list-versions](/cli/azure/keyvault/certificate#az-keyvault-certificate-list) command:
 
 ```azurecli-interactive
 az keyvault certificate list-versions --vault-name "<your-unique-keyvault-name>" -n "<name-of-renewed-certificate>"
@@ -92,7 +92,7 @@ $Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs
 Add-AzKeyVaultCertificate -VaultName "<your-unique-keyvault-name>" -Name "<name-of-certificate-to-renew>" -CertificatePolicy $Policy
 ```
 
-After renewing the certificate, you can view all the versions of the certificate using the Azure PowerShell [Get-AzKeyVaultCertificate](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-list) cmdlet:
+After renewing the certificate, you can view all the versions of the certificate using the Azure PowerShell [Get-AzKeyVaultCertificate](/cli/azure/keyvault/certificate#az-keyvault-certificate-list) cmdlet:
 
 ```azurepowershell-interactive
 Get-AzKeyVaultCertificate "<your-unique-keyvault-name>" -Name "<name-of-renewed-certificate>" -IncludeVersions
