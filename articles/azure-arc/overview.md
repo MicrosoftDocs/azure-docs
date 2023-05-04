@@ -87,5 +87,5 @@ For information, see the [Azure pricing page](https://azure.microsoft.com/pricin
 * Learn about [Azure Arc-enabled VMware vSphere](vmware-vsphere/overview.md) and [Azure Arc-enabled Azure Stack HCI](/azure-stack/hci/manage/azure-arc-enabled-virtual-machines).
 * Learn about [Azure Arc-enabled System Center Virtual Machine Manager](system-center-virtual-machine-manager/overview.md).
 * Experience Azure Arc by exploring the [Azure Arc Jumpstart](https://aka.ms/AzureArcJumpstart).
-* Learn about best practices and design patterns trough the various [Azure Arc Landing Zone Accelerators](https://aka.ms/ArcLZAcceleratorReady).
+* Learn about best practices and design patterns through the various [Azure Arc Landing Zone Accelerators](https://aka.ms/ArcLZAcceleratorReady).
 * Understand [network requirements for Azure Arc](network-requirements-consolidated.md).
