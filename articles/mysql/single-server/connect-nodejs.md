@@ -8,7 +8,7 @@ ms.devlang: javascript
 author: savjani
 ms.author: pariks
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js, mode-api
-ms.date: 06/20/2022
+ms.date: 05/03/2023
 ---
 
 # Quickstart: Use Node.js to connect and query data in Azure Database for MySQL
@@ -17,7 +17,7 @@ ms.date: 06/20/2022
 
 [!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
-In this quickstart, you connect to an Azure Database for MySQL by using Node.js. You then use SQL statements to query, insert, update, and delete data in the database from Mac, Ubuntu Linux, and Windows platforms. 
+In this quickstart, you connect to an Azure Database for MySQL by using Node.js. You then use SQL statements to query, insert, update, and delete data in the database from Mac, Linux, and Windows platforms. 
 
 This article assumes that you're familiar with developing using Node.js, but you're new to working with Azure Database for MySQL.
 
@@ -33,7 +33,7 @@ This article assumes that you're familiar with developing using Node.js, but you
 
 Depending on your platform, follow the instructions in the appropriate section to install [Node.js](https://nodejs.org). Use npm to install the [mysql](https://www.npmjs.com/package/mysql) package and its dependencies into your project folder.
 
-### Windows
+### [Windows](#tab/windows)
 
 1. Visit the [Node.js downloads page](https://nodejs.org/en/download/), and then select your desired Windows installer option.
 2. Make a local project folder such as `nodejsmysql`. 
@@ -48,18 +48,18 @@ Depending on your platform, follow the instructions in the appropriate section t
 
 5. Verify the installation by checking the `npm list` output text. The version number may vary as new patches are released.
 
-### Linux (Ubuntu)
+### [Linux (Ubuntu/Debian)](#tab/ubuntu)
 
 1. Run the following commands to install **Node.js** and **npm** the package manager for Node.js.
 
    ```bash
     # Using Ubuntu
-    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+    sudo curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
     sudo apt-get install -y nodejs
 
-    # Using Debian, as root
-    curl -sL https://deb.nodesource.com/setup_14.x | bash -
-    apt-get install -y nodejs
+    # Using Debian
+    sudo curl -sL https://deb.nodesource.com/setup_14.x | bash -
+    sudo apt-get install -y nodejs
    ```
 
 2. Run the following commands to create a project folder `mysqlnodejs` and install the mysql package into that folder.
@@ -70,9 +70,57 @@ Depending on your platform, follow the instructions in the appropriate section t
    npm install --save mysql
    npm list
    ```
+
 3. Verify the installation by checking npm list output text. The version number may vary as new patches are released.
 
-### macOS
+### [Linux (RHEL/CentOS)](#tab/rhel)
+
+1. Run the following commands to install **Node.js** and **npm** the package manager for Node.js.
+
+    **RHEL/CentOS 7.x**
+
+    ```bash
+    sudo yum install -y rh-nodejs8
+    scl enable rh-nodejs8 bash
+   ```
+
+    **RHEL/CentOS 8.x**
+
+   ```bash
+    sudo yum install -y nodejs
+   ```
+
+1. Run the following commands to create a project folder `mysqlnodejs` and install the mysql package into that folder.
+
+   ```bash
+   mkdir nodejsmysql
+   cd nodejsmysql
+   npm install --save mysql
+   npm list
+   ```
+
+1. Verify the installation by checking npm list output text. The version number may vary as new patches are released.
+
+### [Linux (SUSE)](#tab/sles)
+
+1. Run the following commands to install **Node.js** and **npm** the package manager for Node.js.
+
+   ```bash
+    sudo zypper install nodejs
+   ```
+
+1. Run the following commands to create a project folder `mysqlnodejs` and install the mysql package into that folder.
+
+   ```bash
+   mkdir nodejsmysql
+   cd nodejsmysql
+   npm install --save mysql
+   npm list
+   ```
+
+1. Verify the installation by checking npm list output text. The version number may vary as new patches are released.
+
+### [macOS](#tab/macos)
 
 1. Visit the [Node.js downloads page](https://nodejs.org/en/download/), and then select your macOS installer.
 
@@ -86,6 +134,8 @@ Depending on your platform, follow the instructions in the appropriate section t
    ```
 
 3. Verify the installation by checking the `npm list` output text. The version number may vary as new patches are released.
+
+---
 
 ## Get connection information
 
@@ -284,7 +334,6 @@ Use the following code to connect and delete data by using a **DELETE** SQL stat
 
 The [mysql.createConnection()](https://github.com/mysqljs/mysql#establishing-connections) method is used to interface with the MySQL server. The [connect()](https://github.com/mysqljs/mysql#establishing-connections) method is used to establish the connection to the server. The [query()](https://github.com/mysqljs/mysql#performing-queries) method is used to execute the SQL query against MySQL database. 
 
-
 ```javascript
 const mysql = require('mysql');
 const fs = require('fs');
@@ -331,7 +380,7 @@ function deleteData(){
 
 To clean up all resources used during this quickstart, delete the resource group using the following command:
 
-```azurecli
+```azurecli-interactive
 az group delete \
     --name $AZ_RESOURCE_GROUP \
     --yes
