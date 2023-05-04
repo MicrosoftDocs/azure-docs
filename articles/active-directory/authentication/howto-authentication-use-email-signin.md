@@ -125,6 +125,9 @@ One of the user attributes that's automatically synchronized by Azure AD Connect
 
 Email as an alternate login ID applies to [Azure AD B2B collaboration](../external-identities/what-is-b2b.md) under a "bring your own sign-in identifiers" model. When email as an alternate login ID is enabled in the home tenant, Azure AD users can perform guest sign in with non-UPN email on the resource tenant endpoint. No action is required from the resource tenant to enable this functionality.
 
+> [!NOTE]
+> When an alternate login ID is used on a resource tenant endpoint that does not have the functionality enabled, the sign-in process will work seamlessly, but SSO will be interrupted.  
+
 ## Enable user sign-in with an email address
 
 > [!NOTE]
