@@ -510,6 +510,16 @@
               href: azure-hpc-cache.md
             - name: NFS Server - static
               href: azure-nfs-volume.md
+    - name: Configure backup
+      items:
+        - name: Prerequisites
+          href: ../backup/azure-kubernetes-service-cluster-backup-concept.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+        - name: Backup
+          href: ../backup/azure-kubernetes-service-cluster-backup.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+        - name: Restore
+          href: ../backup/azure-kubernetes-service-cluster-restore.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+        - name: Manage
+          href: ../backup/azure-kubernetes-service-cluster-manage-backups.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Monitoring and logging
       items:
         - name: Monitor AKS
