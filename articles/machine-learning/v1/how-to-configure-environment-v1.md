@@ -144,7 +144,7 @@ The Azure Machine Learning [compute instance](../concept-compute-instance.md) is
 
 There is nothing to install or configure for a compute instance.  
 
-Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify an Azure VM type. Try it now with this [Tutorial: Setup environment and workspace](../quickstart-create-resources.md).
+Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify an Azure VM type. Try it now with [Create resources to get started](../quickstart-create-resources.md).
 
 To learn more about compute instances, including how to install packages, see [Create and manage an Azure Machine Learning compute instance](../how-to-create-manage-compute-instance.md).
 

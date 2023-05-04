@@ -186,6 +186,8 @@
     - name: View OT device mapping
       href: how-to-work-with-the-sensor-device-map.md
       displayName: notification, notifications
+    - name: Create data mining reports
+      href: how-to-create-data-mining-queries.md
   - name: Manage alerts
     items:
     - name: Azure portal
@@ -210,8 +212,6 @@
       displayName: graphs, vulnerabilities
     - name: Create OT sensor reports
       items:
-      - name: Create data mining reports
-        href: how-to-create-data-mining-queries.md
       - name: Create risk assessment reports
         href: how-to-create-risk-assessment-reports.md
       - name: Create trends and statistics reports
@@ -365,6 +365,8 @@
       - name: Overview
         href: appliance-catalog/index.yml
         displayName: appliance catalog
+      - name: Hardware support policy
+        href: /legal/defender-for-iot/hardware-support-policy?bc=%2fazure%2fdefender-for-iot%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fdefender-for-iot%2fTOC.json
       - name: Corporate environments
         items:
         - name: HPE ProLiant DL360

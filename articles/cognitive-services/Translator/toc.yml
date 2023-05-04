@@ -96,8 +96,6 @@ items:
         href: containers/translator-container-supported-parameters.md
   - name: Tutorials
     items:
-    - name: Use managed identities to access Azure storage
-      href: ../../app-service/scenario-secure-app-access-storage.md?bc=/azure/cognitive-services/translator/breadcrumb/toc.json&toc=/azure/cognitive-services/translator/toc.json
     - name: Create a Translator workflow
       href: /ai-builder/flow-text-translation?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json
     - name: Translate text with Translator

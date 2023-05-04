@@ -19,13 +19,23 @@ ms.custom: references_regions
 
 Azure Health Data Services is a set of managed API services based on open standards and frameworks for the healthcare industry. They enable you to build scalable and secure healthcare solutions by bringing protected health information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. This document provides details about the features and enhancements made to Azure Health Data Services including the different service types (FHIR service, DICOM service, and MedTech service) that seamlessly work with one another.
 
+## April 2023
+#### FHIR Service 
+
+**Fixed performance for Search Queries with identifiers**
+This bug fix addresses timeout issues observed for search queries with identifiers, by leveraging OPTIMIZE clause.
+For more details, visit [#3207](https://github.com/microsoft/fhir-server/pull/3207)
+
+**Fixed transient issues associated with loading custom search parameters**
+This bug fix addresses the issue, where the FHIR service would not load the latest SearchParameter status in event of failure.
+For more details, visit [#3222](https://github.com/microsoft/fhir-server/pull/3222)
+
 ## March 2023
 #### Azure Health Data Services
 
 **Azure Health Data services General Available (GA) in new regions**
 
 General availability (GA) of Azure Health Data services in Japan East region.
-
 
 
 ## February 2023

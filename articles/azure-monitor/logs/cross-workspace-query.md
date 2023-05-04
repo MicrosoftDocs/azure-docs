@@ -50,7 +50,7 @@ You can identify a workspace in one of several ways:
 ### Identify an application
 The following examples return a summarized count of requests made against an app named *fabrikamapp* in Application Insights.
 
-You can identify an application in Application Insights with the `app(Identifier)` expression. The `Identifier` argument specifies the app by using one of the following names or IDs:
+You can identify an application in Application Insights with the `app(Identifier)` expression. The `Identifier` argument specifies the app by using one of the following IDs:
 
 * **ID**: This ID is the app GUID of the application.
 

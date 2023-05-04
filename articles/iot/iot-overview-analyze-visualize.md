@@ -24,7 +24,7 @@ In Azure IoT, analysis and visualization services are used to identify and displ
 
 ## Azure Digital Twins
 
-The Azure Digital Twins service lets you build and maintain models that are live, up-to-date representations of the real world. You can query, analyze, and generate visualizations from these models to extract business insights. An example model might be a representation of a building that includes information about the rooms, the devices in the rooms, and the relationships between the rooms and devices. The real-world data that populates these models is typically collected from IoT devices and sent through an IoT hub.
+The [Azure Digital Twins](../digital-twins/overview.md) service lets you build and maintain models that are live, up-to-date representations of the real world. You can query, analyze, and generate visualizations from these models to extract business insights. An example model might be a representation of a building that includes information about the rooms, the devices in the rooms, and the relationships between the rooms and devices. The real-world data that populates these models is typically collected from IoT devices and sent through an IoT hub.
 
 ## External services
 
