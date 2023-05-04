@@ -4,7 +4,7 @@ description: When you access file data using the Azure portal, the portal makes 
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/02/2023
+ms.date: 05/04/2023
 ms.author: kendownie
 ms.subservice: files
 ---
