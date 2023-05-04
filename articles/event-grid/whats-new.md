@@ -34,7 +34,7 @@ Azure Event Grid receives improvements on an ongoing basis. To stay up to date w
         - [Event schema for MQTT routed messages](mqtt-routing-event-schema.md)
         - [Filtering of MQTT Routed Messages](mqtt-routing-filtering.md)
         - [Routing enrichments](mqtt-routing-enrichment.md)
-    - [MQTT Support in Azure Event Grid](mqtt-mqtt-support.md)
+    - [MQTT Support in Azure Event Grid](mqtt-support.md)
     - [MQTT clients - life cycle events](mqtt-client-life-cycle-events.md)
     - [Client authentication using CA certificate chain](mqtt-certificate-chain-client-authentication.md)
     - [Customer enabled disaster recovery in Azure Event Grid](custom-disaster-recovery-client-side.md)
