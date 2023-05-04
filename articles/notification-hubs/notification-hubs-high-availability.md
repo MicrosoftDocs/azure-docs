@@ -63,7 +63,7 @@ Use the [Azure portal][] to edit an existing namespace.
 
 #### New namespace
 
-Use the procedure in the [Azure portal quickstart][] to set up a new namespace with disaster recovery:
+Use the procedure in the [Azure portal quickstart][] to set up a new namespace with disaster recovery.
 
 ### Back up registration data
 

@@ -54,4 +54,5 @@ In this section, you create a notification hub in an existing namespace.
 
 ## Next steps
 
-In this quickstart, you created a notification hub. To learn how to configure the hub with platform notification system (PNS) settings, see [Configure a notification hub with PNS settings](configure-notification-hub-portal-pns-settings.md).
+- In this quickstart, you created a notification hub. To learn how to configure the hub with platform notification system (PNS) settings, see [Configure a notification hub with PNS settings](configure-notification-hub-portal-pns-settings.md).
+- For more information about availability zones, see [High availability for Azure Notification Hubs](notification-hubs-high-availability.md).
