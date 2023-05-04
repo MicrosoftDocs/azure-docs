@@ -81,8 +81,6 @@ You can perform the following IoT hub management tasks from the extension:
 - [Copy the connection string for the current IoT hub](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Copy-IoT-Hub-Connection-String) to your clipboard
 - [Generate an SAS token for the current IoT hub](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Generate-SAS-Token-for-IoT-Hub) and copy it to your clipboard
 
-You can also list built-in and custom endpoints for your IoT hub
-
 ## Manage your devices
 
 You can perform the following device management tasks for the current IoT hub from the extension:
@@ -98,7 +96,7 @@ You can perform the following device management tasks for the current IoT hub fr
 - [Delete the selected device](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Delete-Device) from the current IoT hub
 
 > [!TIP]
-> You can enable a lock on your IoT resources to prevent them being accidentally or maliciously deleted. To learn more about Azure Resource locks, please visit [Lock your resources to protect your infrastructure](../azure-resource-manager/management/lock-resources.md?tabs=json).
+> You can enable a lock on your IoT resources to prevent them being accidentally or maliciously deleted. For more information about resource locks in Azure, see [Lock your resources to protect your infrastructure](../azure-resource-manager/management/lock-resources.md?tabs=json).
 
 ## Manage your modules
 
