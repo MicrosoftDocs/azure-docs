@@ -79,7 +79,7 @@ az provider register --namespace Microsoft.KubernetesConfiguration --wait
 
    :::image type="content" source="./media/deploy-marketplace/deployment-inline.png" alt-text="Screenshot of the Azure portal that shows a successful resource deployment to the cluster." lightbox="./media/deploy-marketplace/deployment-full.png":::
 
-### [Azure CLI](#tab/azure-cli/linux)
+### [Azure CLI](#tab/azure-cli)
 
 1. Verify the deployment by using the following command to list the extensions that are running on your cluster:
 
@@ -101,7 +101,7 @@ For lifecycle management, an Azure Kubernetes offer is represented as a cluster 
 
 Purchasing an offer from Azure Marketplace creates a new instance of the extension on your AKS cluster.
 
-### [Azure CLI](#tab/azure-cli/linux)
+### [Azure CLI](#tab/azure-cli)
 
 You can view the extension instance from the cluster by using the following command:
 
@@ -139,7 +139,7 @@ To monitor billing and usage information for the offer that you deployed:
 
 You can delete a purchased plan for an Azure container offer by deleting the extension instance on the cluster. For example:
 
-### [Azure CLI](#tab/azure-cli/linux)
+### [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az k8s-extension delete --name <extension-name> --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
