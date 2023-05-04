@@ -128,12 +128,12 @@ az appservice plan update --resource-group <ResourceGroup> --name <AppServicePla
 
 This table describes the terms used in automatic scaling:
 
-| **Concept** | **Description** | **Scope** | **Range** | **Default** | **Configurable** |
+| **Concept** | **Description** | **Scope** | **Configurable** |
 | --- | --- | --- | --- | --- | --- |
-|**Maximum Burst**| The number of instances your App Service plan can scale to. <br><br>The maximum burst limit should be equal to or greater than the number of workers for the App Service plan.<br><br>The number of workers is determined as the highest number of __always ready instances__ for any app within the plan.|App Service Plan | 1 - 30 | 1 | CLI & Azure portal |
-|**Always ready instances**|Minimum number of instances for your web app.<br><br>The same setting also determines the minimum number of instances your entire App Service plan needs. So, if you have multiple web apps in the same plan and some have a setting of 1 always-ready instance while others have 5, the minimum number of instances you'll be charged for will be 5.| Web app | Range | 1 | CLI & Azure portal |
-|**Prewarmed Instances**| To avoid cold-start issues, you can set a prewarmed instance count. The pre-warmed instance count setting provides warmed instances as a buffer during HTTP scale and activation events. Pre-warmed instances continue to buffer until the maximum scale-out limit is reached. | Web app | Range | 1 | CLI only. |
-|**Maximum scale limit**| The maximum number of instances a web app can scale to.| Web app | 1 - Maximum burst | | CLI & Azure portal|
+|**Maximum Burst**| The number of instances your App Service plan can scale to. <br><br>The maximum burst limit should be equal to or greater than the number of workers for the App Service plan.<br><br>The number of workers is determined as the highest number of __always ready instances__ for any app within the plan. You can have up to 30 instances. The default is 1. |App Service Plan | CLI & Azure portal |
+|**Always ready instances**|Minimum number of instances for your web app.<br><br>The same setting also determines the minimum number of instances your entire App Service plan needs. So, if you have multiple web apps in the same plan and some have a setting of 1 always-ready instance while others have 5, the minimum number of instances you'll be charged for will be 5.| Web app | CLI & Azure portal |
+|**Prewarmed Instances**| The pre-warmed instance count setting provides warmed instances as a buffer during HTTP scale and activation events. Pre-warmed instances continue to buffer until the maximum scale-out limit is reached. Default is 1. | Web app | CLI only. |
+|**Maximum scale limit**| The maximum number of instances a web app can scale to. It can range from 1 to the Maximum burst value. Default is 1. | Web app | CLI & Azure portal|
 
 
 ## Frequently asked questions
