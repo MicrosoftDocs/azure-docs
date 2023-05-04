@@ -50,7 +50,7 @@ This command with no options or arguments passed prints the HBCK2 help.
 > [!NOTE]
 > Test these commands on a test cluster to understand the functionality before running in production environment
 
-`**assigns [OPTIONS] <ENCODED_REGIONNAME/INPUTFILES_FOR_REGIONNAMES>... | -i <INPUT_FILE>...**`
+**assigns [OPTIONS] <ENCODED_REGIONNAME/INPUTFILES_FOR_REGIONNAMES>... | -i <INPUT_FILE>...**
 
 **Options:**
 
@@ -96,7 +96,7 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 
 `-i,--inputFiles` - takes one or more input files of PIDs
 
-Pass one (or more) procedure 'PIDs to skip to procedure finish. Parent of bypassed procedure skips to the finish. Entities are left in an inconsistent state and require manual fixup May need Master restart to clear locks still held. Bypass fails if procedure has children. Add 'recursive' if all you have is a parent PID to finish parent and children. ***This is SLOW, and dangerous so use selectively. Doesn't always work***. 
+Pass one (or more) procedure 'PIDs to skip to procedure finish. Parent of bypassed procedure skips to the finish. Entities are left in an inconsistent state and require manual fixup May need Master restart to clear locks still held. Bypass fails if procedure has children. Add 'recursive' if all you have is a parent PID to finish parent and children. *This is SLOW, and dangerous so use selectively. Doesn't always work*. 
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar bypass <PID>
 ```
@@ -111,7 +111,7 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 
 `i,--inputFiles`  takes one or more input files of namespace or table names
 
-To be used when regions missing from `hbase:meta` but directories are present still in HDFS. This command is an only a check method, designed for reporting purposes and doesn't perform any fixes, providing a view of which regions (if any) would get readded to `hbase:meta`, grouped by respective table/namespace. To effectively readd regions in meta, run addFsRegionsMissingInMeta. **This command needs `hbase:meta` to be online**. For each namespace/table passed as parameter, it performs a diff between regions available in `hbase:meta` against existing regions dirs on HDFS. Region dirs with no matches are printed grouped under its related table name. Tables with no missing regions show a 'no missing regions' message. If no namespace or table is specified, it verifies all existing regions. It accepts a combination of multiple namespace and tables. Table names should include the namespace portion, even for tables in the default namespace, otherwise it assumes as a namespace value. An example triggering missing regions report for tables 'table_1' and 'table_2', under default namespace:
+To be used when regions missing from `hbase:meta` but directories are present still in HDFS. This command is an only a check method, designed for reporting purposes and doesn't perform any fixes, providing a view of which regions (if any) would get readded to `hbase:meta`, grouped by respective table/namespace. To effectively readd regions in meta, run addFsRegionsMissingInMeta. This command needs `hbase:meta` to be online. For each namespace/table passed as parameter, it performs a diff between regions available in `hbase:meta` against existing regions dirs on HDFS. Region dirs with no matches are printed grouped under its related table name. Tables with no missing regions show a 'no missing regions' message. If no namespace or table is specified, it verifies all existing regions. It accepts a combination of multiple namespace and tables. Table names should include the namespace portion, even for tables in the default namespace, otherwise it assumes as a namespace value. An example triggering missing regions report for tables 'table_1' and 'table_2', under default namespace:
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar reportMissingRegionsInMeta default:table_1 default:table_2
 ```
@@ -131,7 +131,7 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 `-i,--inputFiles`  takes one or more input files of namespace of table names to be used when regions missing from `hbase:meta` but directories are present still in HDFS. **Needs `hbase:meta` to be online**. For each table name passed as parameter, performs diff between regions available in `hbase:meta` and region dirs on HDFS. Then for dirs with no `hbase:meta` matches, it reads the 'regioninfo' metadata file and re-creates given region in `hbase:meta`. Regions are re-created in 'CLOSED' state in the `hbase:meta` table, but not in the Masters' cache, and they aren't assigned either. To get these regions online, run the HBCK2 'assigns' command printed when this command-run completes.
 
 > [!NOTE]
-> If using hbase releases older than 2.3.0, a rolling restart of HMasters is needed prior to executing the set of 'assigns' output**. An example adding missing regions for tables 'tbl_1' in the default namespace, 'tbl_2' in namespace 'n1' and for all tables from namespace 'n2':
+> If using hbase releases older than 2.3.0, a rolling restart of HMasters is needed prior to executing the set of 'assigns' output. An example adding missing regions for tables 'tbl_1' in the default namespace, 'tbl_2' in namespace 'n1' and for all tables from namespace 'n2':
 
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar addFsRegionsMissingInMeta default:tbl_1 n1:tbl_2 n2
@@ -170,7 +170,7 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 **fixMeta**
 
 > [!NOTE]
->  This doesn't work well with HBase 2.1.6. Not recommended to be used on a 2.1.6 HBase CLuster.**
+>  This doesn't work well with HBase 2.1.6. Not recommended to be used on a 2.1.6 HBase Cluster.
 
 Do a server-side fix of bad or inconsistent state in `hbase:meta`. Master UI has matching, new 'HBCK Report' tab that dumps reports generated by most recent run of catalogjanitor and a new 'HBCK Chore'. **It's critical that `hbase:meta` first be made healthy before making any other repairs**. Fixes 'holes', 'overlaps', etc., creating (empty) region directories in HDFS to match regions added to `hbase:meta`. **Command isn't the same as the old _hbck1_ command named similarly**. Works against the reports generated by the last catalog_janitor and hbck chore runs. If nothing to fix, run is a loop. Otherwise, if 'HBCK Report' UI reports problems, a run of fixMeta clears up`hbase:meta` issues. 
 ```
