@@ -365,6 +365,8 @@
         - name: Secure workspace resources
           displayName: vnet, workspace, container instance, container registry
           href: how-to-secure-workspace-vnet.md
+        - name: Secure machine learning registry
+          href: how-to-registry-network-isolation.md
         - name: Secure training environment
           displayName: vnet, No public IP
           href: how-to-secure-training-vnet.md
