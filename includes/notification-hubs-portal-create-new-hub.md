@@ -32,7 +32,7 @@
 
        :::image type="content" source="./media/notification-hubs-portal-create-new-hub/notification-hub-details.png" alt-text="Screenshot showing notification hub details." lightbox="./media/notification-hubs-portal-create-new-hub/notification-hub-details.png":::
 
-    1. Review the **Availability zone** option. If you chose a region that has availability zones, the check box is selected by default. Availability zones is a paid feature, so an additional fee is added to your tier.
+    1. Review the **Availability zones** option. If you chose a region that has availability zones, the check box is selected by default. Availability zones is a paid feature, so an additional fee is added to your tier.
 
     1. Choose a **Disaster recovery** option: **None**, **Paired recovery region**, or **Flexible recovery region**. If you choose **Paired recovery region**, the failover region is displayed. If you select **Flexible recovery region**, use the drop-down to choose from a list of recovery regions.
 

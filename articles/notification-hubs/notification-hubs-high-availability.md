@@ -18,7 +18,7 @@ Android, Windows, etc.) from any back-end (cloud or on-premises). This article d
 > The following features are available in preview. If you are interested in using these features, contact your customer success manager at Microsoft, or create an Azure ticket, which will be triaged by the support team:
 >
 > - Ability to edit your cross region disaster recovery options
-> - Availability Zones
+> - Availability zones
 
 Notification Hubs offers two availability configurations:
 
@@ -103,7 +103,7 @@ New availability zones are being added regularly. The following regions currentl
 At this time, you can only enable availability zones on new namespaces. Notification Hubs does not support migration of existing namespaces. You cannot disable zone redundancy after enabling it on your namespace.
 
 > [!NOTE]
-> Availability Zones are enabled by default if you choose a region that supports the feature. There will be associated costs.
+> Availability zones are enabled by default if you choose a region that supports the feature. There will be associated costs.
 
 :::image type="content" source="media/notification-hubs-high-availability/enable-availability-zones.png" alt-text="Screenshow showing availability zones enabled." lightbox="media/notification-hubs-high-availability/enable-availability-zones.png":::
 
