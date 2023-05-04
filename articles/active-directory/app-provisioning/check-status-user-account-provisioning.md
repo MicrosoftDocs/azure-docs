@@ -52,8 +52,8 @@ The [provisioning progress bar](application-provisioning-when-will-provisioning-
 
 * The total number of users and groups that are synchronized and currently in scope for provisioning between the source system and the target system.
 * The last time the synchronization was run. Synchronizations typically occur every 20-40 minutes, after an [initial cycle](../app-provisioning/how-provisioning-works.md#provisioning-cycles-initial-and-incremental) has completed.
-* If an [initial cycle](../app-provisioning/how-provisioning-works.md#provisioning-cycles-initial-and-incremental) has been completed.
-* If the provisioning process has been placed in quarantine, and the reason for the quarantine status. For example, a status might indicate a failure to communicate with the target system due to invalid admin credentials.
+* The status of an [initial cycle](../app-provisioning/how-provisioning-works.md#provisioning-cycles-initial-and-incremental) and if the cycle has been completed.
+* The status of the provisioning process and if it is being placed in quarantine. The status also shows the reason for the quarantine. For example, a status might indicate a failure to communicate with the target system due to invalid admin credentials.
 
 The **Current Status** should be the first place admins look to check on the operational health of the provisioning job.
 
