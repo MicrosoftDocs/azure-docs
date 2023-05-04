@@ -13,7 +13,7 @@ author: kalyaninamuduri
 
 The [Azure PowerShell AZ](/powershell/azure/new-azureps-module-az) module is used to create and manage Azure resources from the command line or in scripts.
 
-[Azure Center for SAP solutions](overview.md) enables you to deploy and manage SAP systems on Azure. This article shows you how to register an existing SAP system running on Azure with *Azure Center for SAP solutions* using AZ PowerShell module. Alternatively, you can register systems using the [Azure CLI](quickstart-register-cli.md), or in the [Azure portal](quickstart-register-portal.md).  
+[Azure Center for SAP solutions](overview.md) enables you to deploy and manage SAP systems on Azure. This article shows you how to register an existing SAP system running on Azure with *Azure Center for SAP solutions* using AZ PowerShell module. Alternatively, you can register systems using the Azure CLI, or in the [Azure portal.  
 After you register an SAP system with *Azure Center for SAP solutions*, you can use its visualization, management and monitoring capabilities through the Azure portal. For example, you can:
 
 - View and track the SAP system as an Azure resource, called the *Virtual Instance for SAP solutions (VIS)*.
