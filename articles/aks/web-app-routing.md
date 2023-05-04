@@ -102,7 +102,7 @@ The following extra add-on is required:
 > [!IMPORTANT]
 > To enable the add-on to reload certificates from Azure Key Vault when they change, you should to enable the [secret autorotation feature](./csi-secrets-store-driver.md#enable-and-disable-autorotation) of the Secret Store CSI driver with the `--enable-secret-rotation` argument. When the autorotation is enabled, the driver updates the pod mount and the Kubernetes secret by polling for changes periodically, based on the rotation poll interval you can define. The default rotation poll interval is two minutes.
 
-## Enable Web Application Routing on a new cluster
+### Enable Web Application Routing on a new cluster
 
 - Enable Web Application Routing on a new AKS cluster using the [`az aks create`][az-aks-create] command and the `--enable-addons` parameter with the following add-ons:
 
@@ -110,7 +110,7 @@ The following extra add-on is required:
     az aks create -g <ResourceGroupName> -n <ClusterName> -l <Location> --enable-addons azure-keyvault-secrets-provider,web_application_routing --generate-ssh-keys --enable-secret-rotation
     ```
 
-## Enable Web Application routing on an existing cluster
+### Enable Web Application routing on an existing cluster
 
 - Enable Web Application Routing on an existing cluster using the [`az aks enable-addons`][az-aks-enable-addons] command and the `--addons` parameter with the following add-ons:
 
@@ -128,7 +128,7 @@ The following extra add-ons are required:
 > [!IMPORTANT]
 > To enable the add-on to reload certificates from Azure Key Vault when they change, you should to enable the [secret autorotation feature](./csi-secrets-store-driver.md#enable-and-disable-autorotation) of the Secret Store CSI driver with the `--enable-secret-rotation` argument. When the autorotation is enabled, the driver updates the pod mount and the Kubernetes secret by polling for changes periodically, based on the rotation poll interval you can define. The default rotation poll interval is two minutes.
 
-## Enable Web Application Routing on a new cluster
+### Enable Web Application Routing on a new cluster
 
 - Enable Web Application Routing on a new AKS cluster using the [`az aks create`][az-aks-create] command and the `--enable-addons` parameter with the following add-ons:
 
@@ -136,7 +136,7 @@ The following extra add-ons are required:
     az aks create -g <ResourceGroupName> -n <ClusterName> -l <Location> --enable-addons azure-keyvault-secrets-provider,open-service-mesh,web_application_routing --generate-ssh-keys --enable-secret-rotation
     ```
 
-## Enable Web Application Routing on an existing cluster
+### Enable Web Application Routing on an existing cluster
 
 - Enable Web Application Routing on an existing cluster using the [`az aks enable-addons`][az-aks-enable-addons] command and the `--addons` parameter with the following add-ons:
 
@@ -159,7 +159,7 @@ The following extra add-on is required:
 > [!IMPORTANT]
 > To enable the add-on to reload certificates from Azure Key Vault when they change, you should to enable the [secret autorotation feature](./csi-secrets-store-driver.md#enable-and-disable-autorotation) of the Secret Store CSI driver with the `--enable-secret-rotation` argument. When the autorotation is enabled, the driver updates the pod mount and the Kubernetes secret by polling for changes periodically, based on the rotation poll interval you can define. The default rotation poll interval is two minutes.
 
-## Enable Web Application Routing on a new cluster
+### Enable Web Application Routing on a new cluster
 
 - Enable Web Application Routing on a new AKS cluster using the [`az aks create`][az-aks-create] command and the `--enable-addons` parameter with the following add-ons:
 
@@ -167,7 +167,7 @@ The following extra add-on is required:
     az aks create -g <ResourceGroupName> -n <ClusterName> -l <Location> --enable-addons azure-keyvault-secrets-provider,web_application_routing --generate-ssh-keys --enable-secret-rotation
     ```
 
-## Enable Web Application Routing on an existing cluster
+### Enable Web Application Routing on an existing cluster
 
 - Enable Web Application Routing on an existing cluster using the [`az aks enable-addons`][az-aks-enable-addons] command and the `--addons` parameter with the following add-ons:
 
