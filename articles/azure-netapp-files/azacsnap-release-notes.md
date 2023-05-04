@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/02/2023
+ms.date: 05/04/2023
 ms.author: phjensen
 ---
 
@@ -23,6 +23,25 @@ This page lists major changes made to AzAcSnap to provide new functionality or r
 Download the [latest release](https://aka.ms/azacsnapinstaller) of the installer and review how to [get started](azacsnap-get-started.md).  
 
 For specific information on Preview features, refer to the [AzAcSnap Preview](azacsnap-preview.md) page.
+
+## May-2023
+
+### AzAcSnap 8 (Build: 1AC073A)
+
+AzAcSnap 8 is being released with the following fixes and improvements:
+
+- Fixes and Improvements:
+  - Restore (`-c restore`) changes:
+    - New ability to use `-c restore` to revertvolume for Azure NetApp Files.
+  - Backup (`-c backup`) changes:
+    - Fix for incorrect error output when using `-c backup` and the database has ‘backint’ configured.
+    - Remove lower-case conversion for anfBackup rename-only option using `-c backup` so the snapshot name maintains case of Volume name.
+  - Details (`-c details`) changes:
+    - Fix for listing snapshot details with `-c details` when using Azure Large Instance storage.
+  - Logging enhancements:
+    - Additional logging output to syslog (e.g., /var/log/messages) on failure.
+    - New “mainlog” (azacsnap.log) to provide a more parse-able high-level log of commands run with success or failure result.
+  - New global settings file (`.azacsnaprc`) to control behaviour of azacsnap, including location of “mainlog” file.
 
 ## Feb-2023
 
