@@ -10,6 +10,8 @@ ms.reviewer: mmcc
 
 # Configuration options: Azure Monitor Application Insights for Java
 
+This article shows you how to configure Azure Monitor Application Insights for Java.
+
 ## Connection string and role name
 
 Connection string and role name are the most common settings you need to get started:
@@ -703,7 +705,7 @@ The setting applies to the following metrics:
 * **Default performance counters**: For example, CPU and memory
 * **Default custom metrics**: For example, garbage collection timing
 * **Configured JMX metrics**: [See the JMX metric section](#jmx-metrics)
-* **Micrometer metrics**: [See the Autocollected Micrometer metrics section](#auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics)
+* **Micrometer metrics**: [See the Autocollected Micrometer metrics section](#autocollected-micrometer-metrics-including-spring-boot-actuator-metrics)
 
 ## Heartbeat
 
