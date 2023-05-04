@@ -8,9 +8,6 @@ ms.author: geguirgu
 ---
 # Topic Spaces in Azure Event Grid
 
-> [!IMPORTANT]
-> **Early access reviewer**: please note that portal screenshots are not added to the article yet. That should be completed by May 4th, 2023.
-
 A topic space represents multiple topics through a set of topic templates. Topic templates are an extension of MQTT filters that support variables, along with the MQTT wildcards. Each topic space represents the MQTT topics that the same set of clients need to use to communicate. 
 
 Topic spaces are used to simplify access control management by enabling you to grant publish or subscribe access to a group of topics at once instead of managing access for each individual topic. To publish or subscribe to any MQTT topic, you need to:

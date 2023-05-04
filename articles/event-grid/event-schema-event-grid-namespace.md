@@ -1,29 +1,24 @@
 ---
-title: 'MQTT Clients Life Cycle Events'
-description: 'An overview of the MQTT Client Life Cycle Events and how to configure them.'
+title: Event Grid as an Event Grid source
+description: This article provides the properties and schema for Azure Event Grid events. It lists the available event types, an example event, and event properties.  
 ms.topic: conceptual
-ms.date: 04/30/2023
-author: george-guirguis
-ms.author: geguirgu
+ms.date: 12/02/2022
 ---
-# MQTT Clients Life Cycle Events 
 
-Client Life Cycle events allow applications to react to client connection or disconnection events. For example, you can build an application that updates a database, creates a ticket, and delivers an email notification every time a client is disconnected for mitigating action.
+# Azure Event Grid Namespace as an Event Grid source
+This article provides the properties and schema for Azure Event Grid namespace events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md). 
 
-## Event types
+## Available event types
 
-The Event Grid namespace publishes the following event types:
+Azure Event Grid namespace emits the following event types:
 
-| **Event type** | **Description** |
-|------------------------------------------------------|---------------------------------------------------------------------|
-| **Microsoft.EventGrid.MQTTClientSessionConnected** | Published when an MQTT client’s session is connected to Event Grid. |
-| **Microsoft.EventGrid.MQTTClientSessionDisconnected** | Published when an MQTT client’s session is disconnected from Event Grid. |
+| Event type | Description |
+| ---------- | ----------- |
+| Microsoft.EventGrid.MQTTClientSessionConnected | Published when an MQTT client’s session is connected to Event Grid. |
+| Microsoft.EventGrid.MQTTClientSessionDisconnected | Published when an MQTT client’s session is disconnected from Event Grid. | 
 
 
-
-## Event schema
-
-The client life cycle events provide you with all the information about the client and session that got connected or disconnected. It also provides a disconnectionReason that you can use for diagnostics scenarios as it enables you to have automated mitigating actions.
+## Example event
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
@@ -108,6 +103,56 @@ This sample event shows the schema of an event raised when an MQTT client’s se
 
 ---
 
+
+### Event properties
+
+# [Event Grid event schema](#tab/event-grid-event-schema)
+
+All events contain the same top-level data: 
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `id` | string | Unique identifier for the event. |
+| `topic` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
+| `subject` | string | Publisher-defined path to the event subject. |
+| `eventType` | string | One of the registered event types for this event source. |
+| `eventTime` | string | The time the event is generated based on the provider's UTC time. |
+| `data` | object | Event Grid namespace event data.  |
+| `dataVersion` | string | The schema version of the data object. The publisher defines the schema version. |
+| `metadataVersion` | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
+
+# [Cloud event schema](#tab/cloud-event-schema)
+
+All events contain the same top-level data: 
+
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `id` | string | Unique identifier for the event. |
+| `source` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
+| `subject` | string | Publisher-defined path to the event subject. |
+| `type` | string | One of the registered event types for this event source. |
+| `time` | string | The time the event is generated based on the provider's UTC time. |
+| `data` | object | Event Grid namespace event data.  |
+| `specversion` | string | CloudEvents schema specification version. |
+
+---
+
+For all Event Grid namespace events, the data object contains the following properties:
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `namespaceName` | string | Name of the Event Grid namespace where the MQTT client was connected or disconnected. |
+| `clientAuthenticationName` | string | Unique identifier for the MQTT client that the client presents to the service for authentication. This case-sensitive string can be up to 128 characters long, and supports UTF-8 characters.|
+| `clientSessionName` | string | Unique identifier for the MQTT client's session. This case-sensitive string can be up to 128 characters long, and supports UTF-8 characters.|
+| `sequenceNumber` | string | A number that helps indicate order of MQTT client session connected or disconnected events. Latest event will have a sequence number that is higher than the previous event. |
+
+For the **MQTT Client Session Disconnected** event, the data object also contains the following property:
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `disconnectionReason` | string | Reason for the disconnection of the MQTT client's session. The value could be one of the values in the disconnection reasons table. |
+
 ### Disconnection Reasons:
 
 The following list details the different values for the disconnectionReason and their description:
@@ -127,47 +172,9 @@ The following list details the different values for the disconnectionReason and 
 | SessionOverflow                     | the client's queue for unacknowledged QoS1 messages reached its limit, which resulted in a connection termination by the server                                                                          |
 | SessionTakenOver                    | the client reconnected with the same authentication name, which resulted in the termination of the previous connection.                                                                                                                |
 
-For a detailed description of each property, see [event schema for Event Grid Namespace](event-schema-event-grid-namespace.md#event-properties).
 
-> [!TIP]
-> Handling high rate of fluctuations in connection states: When a client disconnect event is received, wait for a period (for example, 30 seconds) and verify that the client is still offline before taking a mitigating action. This optimization improves efficiency in handling rapidly changing states.
-
-
-## Configuration
-
-### Azure portal configuration
-
-Use the following steps to emit the client life cycle events:
-
-1. In the namespace, go to the Events tab.
-2. Select +Event Subscription.
-    - Provide a name for your Event Grid subscription.
-    - Select the Event Schema that you prefer for event consumption.
-    - Filter the events under Event Types.
-    - Fill your endpoint details.
-1. Select Create.
-
-### Azure CLI configuration
-
-Use the following steps to emit the client life cycle events:
-
-1. Create a system topic
-
-```azurecli-interactive
-az eventgrid system-topic create --resource-group <Resource Group > --name <System Topic Name> --location \<Region> --topic-type Microsoft.EventGrid.Namespaces --source /subscriptions//resourceGroups/<Resource Group >/providers/Microsoft.EventGrid/namespaces/<Namespace Name>
-```
-2. Create an Event Grid Subscription
-
-```azurecli-interactive
-  az eventgrid system-topic event-subscription create --name <Specify Event Subscription Name> -g <Resource Group> --system-topic-name <System Topic Name> --endpoint <Endpoint URL>
-```
-## Limitations:
-
-- There's no latency guarantee for the client connection status events.
-- The client life cycle events' timestamp indicates when the service detected the events, which may differ from the actual time of connection status change.
-- The order of client connection status events isn't guaranteed, events may arrive out of order. However, the sequence number can be used to determine the original order of the events.
-- Duplicate client connection status events may be published.
 
 ## Next steps
 
-Learn more about [System topics in Azure Event Grid](system-topics.md)
+* To learn more about Event Grid system topics, see [System topics](system-topics.md)
+* To learn about the events emitted by the Event Grid namespace and how to use them, see [MQTT Client Life Cycle Events](mqtt-client-life-cycle-events.md).

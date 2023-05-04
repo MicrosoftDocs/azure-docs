@@ -1,0 +1,14 @@
+### YamlMime:ModuleUnit
+uid: learn.mqtt-overview.mqtt-overview
+title: MQTT Overview
+metadata:
+  title: MQTT Overview
+  description: TBD
+  ms.date: 04/30/2023
+  author: George Guirguis
+  ms.author: George Guirguis
+  ms.topic: interactive-tutorial
+  ms.prod: learning-azure
+durationInMinutes: 7
+content: |
+  [!include[](includes/1-mqtt-overview.md)]

@@ -9,10 +9,6 @@ ms.author: geguirgu
 # Enrichments for MQTT Routed Messages
 
 
-> [!IMPORTANT]
-> **Early access reviewer**: please note that portal screenshots are not added to the article yet. That should be completed by May 4th, 2023.
-
-
 The enrichments support enables you to add up to 10 custom key-value properties to your messages before they're sent to the Event Grid topic. These enrichments enable you to:
 
 - Add contextual data to your messages. For example, enriching the message with the client's name or the namespace name could provide endpoints with information about the source of the message.
