@@ -20,7 +20,7 @@ ms.author: anfdocs
 
 If you do not want to [restore the entire snapshot to a new volume](snapshots-restore-new-volume.md) or [copy large files across the network](snapshots-restore-file-client.md), you have the option to use the single-file snapshot restore feature to recover individual files directly within a volume from a snapshot, without requiring an external client data copy.  
 
-The single-file snapshot restore feature enables you to restore a single file or a list of files (up to 10 files at a time) from a snapshot.  You can specify a specific destination location or folder where the files will be restored to.    
+The single-file snapshot restore feature enables you to restore a single file or a list of files (up to 10 files at a time) from a snapshot. You can specify a specific destination location or folder where the files will be restored to.    
 
 ## Considerations  
 
@@ -35,29 +35,6 @@ The restore operation does not create directories in the process. If the specifi
     * You cannot delete the snapshot from which the files are being restored. 
     * If a snapshot policy is scheduled to take place at the same time, the snapshot schedule will be skipped, and a snapshot will not be created.
 
-## Register the feature  
-
-The single-file snapshot restore feature to restore individual files from a snapshot is currently in preview. If you are using this feature for the first time, register the feature before using it.
-
-> [!IMPORTANT]
-> Until further communication, [Azure NetApp Files for Azure Government](azure-government.md) users should contact their account team to access this feature instead of following the steps below.
-
-1. Register the feature: 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSingleFileSnapshotRestore
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSingleFileSnapshotRestore
-    ```
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
- 
 ## Steps
 
 1. Navigate to the volume that has the snapshot to use for restoring files.    
