@@ -67,7 +67,7 @@ Imported threat indicators are listed in the **Microsoft Sentinel > ThreatIntell
 
     Your results should look similar to the sample threat indicator shown below:
 
-    :::image type="content" source="media/work-with-threat-indicators/ti-table-results.png" alt-text="Screenshot shows sample ThreatIntelligenceIndicator table results with the details expanded.":::
+    :::image type="content" source="media/work-with-threat-indicators/ti-table-results.png" alt-text="Screenshot shows sample ThreatIntelligenceIndicator table results with the details expanded." lightbox="media/work-with-threat-indicators/ti-table-results.png":::
 
 ## Create and tag indicators
 
