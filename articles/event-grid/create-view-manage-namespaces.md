@@ -55,17 +55,17 @@ Please follow the next sections to create, view and manage an Azure Event Grid n
 
 5. Select the namespace from the list of resources in the subscription.
 
-    :::image type="content" source="media/create-view-manage-namespaces/namespace-resource-in-list.png" alt-text="Screenshot showing Event Grid resource in list":::
+    :::image type="content" source="media/create-view-manage-namespaces/namespace-resource-in-list.png" alt-text="Screenshot showing Event Grid resource in list.":::
 
 6. Explore the namespace settings.
 
-    :::image type="content" source="media/create-view-manage-namespaces/namespace-features.png" alt-text="Screenshot showing Event Grid resource settings":::
+    :::image type="content" source="media/create-view-manage-namespaces/namespace-features.png" alt-text="Screenshot showing Event Grid resource settings.":::
 
 ## Enable MQTT
 
 In case you want to enable the MQTT capabilities in the Azure Event Grid namespace, you will need to select **Configuration** and check the option **Enable MQTT**.
 
-  :::image type="content" source="media/create-view-manage-namespaces/enable-mqtt.png" alt-text="Screenshot showing Event Grid MQTT settings":::
+  :::image type="content" source="media/create-view-manage-namespaces/enable-mqtt.png" alt-text="Screenshot showing Event Grid MQTT settings.":::
 
 > [!NOTE]
 > Please note once MQTT is enabled it cannot be disabled.
@@ -76,11 +76,11 @@ In case you want to enable the MQTT capabilities in the Azure Event Grid namespa
 
 2. On the **Overview** page, select **Delete** on the toolbar.
 
-    :::image type="content" source="media/create-view-manage-namespaces/delete-namespace.png" alt-text="Screenshot showing how to delete an Event Grid namespace":::
+    :::image type="content" source="media/create-view-manage-namespaces/delete-namespace.png" alt-text="Screenshot showing how to delete an Event Grid namespace.":::
 
 3. On the confirmation page, type the name of the resource and select **Delete** to confirm the deletion. It deletes the namespace and also all the nested topics, subscriptions, and MQTT resources.
 
-    :::image type="content" source="media/create-view-manage-namespaces/delete-namespace-confirmation.png" alt-text="Screenshot showing how to confirm an Event Grid namespace deletion":::
+    :::image type="content" source="media/create-view-manage-namespaces/delete-namespace-confirmation.png" alt-text="Screenshot showing how to confirm an Event Grid namespace deletion.":::
 
 ## Next steps
 
