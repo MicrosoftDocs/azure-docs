@@ -91,7 +91,7 @@ You'll need to handle such cases at client side to make it transparent to your e
 ## How to test a failover
 
 Follow the steps to trigger the failover:
-1. In the Networking tab for the primiary resource in the portal, **disable** public network access. If the resource has private network enabled, use *access control rules* to deny all the traffic.
+1. In the Networking tab for the primary resource in the portal, **disable** public network access. If the resource has private network enabled, use *access control rules* to deny all the traffic.
 2. **Restart** the primary resource.  
 
 ## Next steps
