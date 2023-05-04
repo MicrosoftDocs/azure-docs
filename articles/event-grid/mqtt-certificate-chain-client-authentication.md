@@ -40,6 +40,35 @@ In this guide, you perform the following tasks:
 
 4. Select **Create** button to create the client.
 
+### Sample certificate object schema
+
+```json
+{
+    "properties": {
+        "description": "CA certificate description",
+        "encodedCertificate": "-----BEGIN CERTIFICATE-----`Base64 encoded Certificate`-----END CERTIFICATE-----"
+    }
+}
+```
+
+### Azure CLI configuration
+Use the following commands to upload/show/delete a certificate authority (CA) certificate to the service
+
+**Upload certificate authority root or intermediate certificate**
+```azurecli-interactive
+az resource create --resource-type Microsoft.EventGrid/namespaces/caCertificates --id /subscriptions/`Subscription ID`/resourceGroups/`Resource Group`/providers/Microsoft.EventGrid/namespaces/`Namespace Name`/caCertificates/`CA certificate name` --api-version  --properties @./resources/ca-cert.json
+```
+
+**Show certificate information**
+```azurecli-interactive
+az resource show --id /subscriptions/`Subscription ID`/resourceGroups/`Resource Group`/providers/Microsoft.EventGrid/namespaces/`Namespace Name`/caCertificates/`CA certificate name`
+```
+
+**Delete certificate**
+```azurecli-interactive
+az resource delete --id /subscriptions/`Subscription ID`/resourceGroups/`Resource Group`/providers/Microsoft.EventGrid/namespaces/`Namespace Name`/caCertificates/`CA certificate name`
+```
+
 ## Connect the client and publish / subscribe MQTT messages
 
 The following sample code is a simple .NET publisher that attempts to connect, and publish to a namespace, and subscribes to the topic.  You can use the code to modify per your requirement and run the below code in Visual Studio or any of your favorite tools.  
