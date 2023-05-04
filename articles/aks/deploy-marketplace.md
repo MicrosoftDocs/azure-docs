@@ -101,7 +101,7 @@ For lifecycle management, an Azure Kubernetes offer is represented as a cluster 
 
 Purchasing an offer from Azure Marketplace creates a new instance of the extension on your AKS cluster.
 
-# [Azure CLI](#tab/azure-cli/linux)
+### [Azure CLI](#tab/azure-cli/linux)
 
 You can view the extension instance from the cluster by using the following command:
 
@@ -109,7 +109,7 @@ You can view the extension instance from the cluster by using the following comm
 az k8s-extension show --name <extension-name> --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
 ```
 
-# [Portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
 First, navigate to an existing cluster, then select "Extensions + applications":
 
@@ -139,13 +139,13 @@ To monitor billing and usage information for the offer that you deployed:
 
 You can delete a purchased plan for an Azure container offer by deleting the extension instance on the cluster. For example:
 
-# [Azure CLI](#tab/azure-cli/linux)
+### [Azure CLI](#tab/azure-cli/linux)
 
 ```azurecli-interactive
 az k8s-extension delete --name <extension-name> --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
 ```
 
-# [Portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
 Select an application, then select the uninstall button to remove the extension from your cluster:
 
