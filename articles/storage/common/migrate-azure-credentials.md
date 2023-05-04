@@ -1,5 +1,5 @@
 ---
-title: Migrate applications to use passwordless authentication with Azure Storage
+title: Migrate applications to use passwordless authentication with Azure Blob Storage
 titleSuffix: Azure Storage
 description: Learn to migrate existing applications away from Shared Key authorization with the account key to instead use Azure AD and Azure RBAC for enhanced security.
 author: alexwolfmsft
@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, devx-track-azurecli, devx-track-azurepowershell
 ---
 
-# Migrate an application to use passwordless connections with Azure Storage
+# Migrate an application to use passwordless connections with Azure Blob Storage
 
 [!INCLUDE [storage-passwordless-intro](../../../includes/passwordless/migration-guide/storage-passwordless-intro.md)]
 
