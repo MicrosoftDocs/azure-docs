@@ -229,7 +229,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
         "InboundAllowed"="True"
     }
     Update-MgPolicyCrossTenantAccessPolicyPartner
-        -TenantId $SourceTenantId
+        -CrossTenantAccessPolicyConfigurationPartnerTenantId $SourceTenantId
         -AutomaticUserConsentSettings $AutomaticUserConsentSettings    
     ```
 ::: zone-end
@@ -280,7 +280,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
         "OutboundAllowed"="True"
     }
     Update-MgPolicyCrossTenantAccessPolicyPartner
-        -TenantId $TargetTenantId
+        -CrossTenantAccessPolicyConfigurationPartnerTenantId $TargetTenantId
         -AutomaticUserConsentSettings $AutomaticUserConsentSettings    
 ::: zone-end
 
