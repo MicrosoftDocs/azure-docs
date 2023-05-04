@@ -9,7 +9,9 @@
 ---
 
 > [!IMPORTANT]
->Only MacOS 10.13 and above is supported with OpenVPN protocol.
+> Only MacOS 10.13 and above is supported with OpenVPN protocol.
+
+[!INCLUDE [OpenVPN client version 2.6 not supported](vpn-gateway-vwan-open-vpn-client-version-unsupported.md)]
 
 1. Download and install an OpenVPN client, such as [TunnelBlick](https://tunnelblick.net/downloads.html).
 

@@ -5,13 +5,15 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 02/03/2023
+ms.date: 05/04/2023
 ms.author: cherylmc
 
 ---
 # Configure an OpenVPN client for Azure Virtual WAN
 
 This article helps you configure **OpenVPN &reg; Protocol** clients. You can also use the Azure VPN Client to connect via OpenVPN protocol. For more information, see [Configure a VPN client for P2S OpenVPN connections](openvpn-azure-ad-client.md).
+
+[!INCLUDE [OpenVPN client version 2.6 not supported](../../includes/vpn-gateway-vwan-open-vpn-client-version-unsupported.md)]
 
 ## Before you begin
 
