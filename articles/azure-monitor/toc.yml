@@ -68,8 +68,6 @@ items:
         href: vm/monitor-virtual-machine-analyze.md
       - name: Create alerts
         href: vm/monitor-virtual-machine-alerts.md
-      - name: Migrate management pack logic
-        href: vm/monitor-virtual-machine-management-packs.md
   - name: Monitor Azure Monitor
     href: monitor-azure-monitor.md
   - name: Monitor applications
@@ -378,8 +376,7 @@ items:
     - name: Data collector API
       items:
       - name: Overview
-        href: logs/data-collector-api.md
-      - name: Log Analytics Data collector API
+        displayName: data collector api
         href: logs/data-collector-api.md
       - name: Log Analytics Data Collector API Pipeline example
         href: logs/create-pipeline-datacollector-api.md
@@ -475,6 +472,9 @@ items:
     - name: Overview
       displayName: Platform logs, Resource logs, Activity log
       href: logs/data-platform-logs.md
+    - name: Best practices
+      displayName: Logs, WAF, well architected framework
+      href: best-practices-logs.md
     - name: Log Analytics workspaces
       items:
         - name: Overview
@@ -731,6 +731,8 @@ items:
             href: app/java-spring-boot.md
           - name: Profiler
             href: app/java-standalone-profiler.md
+          - name: Get started (supplemental)
+            href: app/java-get-started-supplemental.md
           - name: Configuration
             items:
             - name: General
@@ -745,8 +747,6 @@ items:
                   href: app/java-standalone-telemetry-processors.md
                 - name: Examples
                   href: app/java-standalone-telemetry-processors-examples.md
-          - name: JVM arguments setup
-            href: app/java-standalone-arguments.md
           - name: Upgrade from 2.x
             href: app/java-standalone-upgrade-from-2x.md
         - name: FAQ
@@ -1162,8 +1162,6 @@ items:
        href: visualize/tutorial-logs-dashboards.md
      - name: Dashboard using application data
        href: app/tutorial-app-dashboards.md
-     - name: Upgrading Log Analytics Dashboards
-       href: logs/dashboard-upgrade.md
   - name: Power BI
     href: logs/log-powerbi.md
   - name: Grafana
@@ -1437,12 +1435,12 @@ items:
         href: autoscale/autoscale-common-scale-patterns.md
       - name: Scale with custom metrics
         href: autoscale/autoscale-custom-metric.md
+      - name: Autoscale Virtual Machine Scale Sets using PowerShell
+        href: autoscale/autoscale-using-powershell.md
       - name: Scale Virtual Machine Scale Sets using Resource Manager templates
         href: ../virtual-machine-scale-sets/tutorial-autoscale-template.md?toc=/azure/azure-monitor/toc.json
       - name: Scale Virtual Machine Scale Sets using CLI
         href: ../virtual-machine-scale-sets/tutorial-autoscale-cli.md?toc=/azure/azure-monitor/toc.json
-      - name: Scale Virtual Machine Scale Sets using PowerShell
-        href: ../virtual-machine-scale-sets/tutorial-autoscale-powershell.md?toc=/azure/azure-monitor/toc.json
       - name: Use webhooks and email notifications
         href: autoscale/autoscale-webhook-email.md
       - name: Autoscale diagnostics

@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 10/20/2022
+ms.date: 04/28/2023
 ms.author: kenwith
 ms.reviewer: arvinh, chmutali
 ---
 
 # How Azure Active Directory provisioning integrates with Workday
 
-[Azure Active Directory user provisioning service](../app-provisioning/user-provisioning.md) integrates with [Workday HCM](https://www.workday.com) to manage the identity life cycle of users. Azure Active Directory offers three pre-built integrations: 
+[Azure Active Directory user provisioning service](../app-provisioning/user-provisioning.md) integrates with [Workday HCM](https://www.workday.com) to manage the identity life cycle of users. Azure Active Directory offers three prebuilt integrations: 
 
 * [Workday to on-premises Active Directory user provisioning](../saas-apps/workday-inbound-tutorial.md)
 * [Workday to Azure Active Directory user provisioning](../saas-apps/workday-inbound-cloud-only-tutorial.md)
@@ -39,14 +39,14 @@ To further secure the connectivity between Azure AD provisioning service and Wor
 1. Copy all IP address ranges listed within the element *addressPrefixes* and use the range to build your IP address list.
 1. Sign in to Workday admin portal. 
 1. Access the **Maintain IP Ranges** task to create a new IP range for Azure data centers. Specify the IP ranges (using CIDR notation) as a comma-separated list.  
-1. Access the **Manage Authentication Policies** task to create a new authentication policy. In the authentication policy, use the authentication allow list to specify the Azure AD IP range and the security group that will be allowed access from this IP range. Save the changes. 
+1. Access the **Manage Authentication Policies** task to create a new authentication policy. In the authentication policy, use the authentication allowlist to specify the Azure AD IP range and the security group that will be allowed access from this IP range. Save the changes. 
 1. Access the **Activate All Pending Authentication Policy Changes** task to confirm changes.
 
 ### Limiting access to worker data in Workday using constrained security groups
 
 The default steps to [configure the Workday integration system user](../saas-apps/workday-inbound-tutorial.md#configure-integration-system-user-in-workday) grants access to retrieve all users in your Workday tenant. In certain integration scenarios, you may want to limit the access, so that users belonging only to certain supervisory organizations are returned by the Get_Workers API call and processed by the Workday Azure AD connector. 
 
-You can fulfill this requirement by working with your Workday admin and configuring constrained integration system security groups. For more information, refer to [this Workday community article](https://community.workday.com/forums/customer-questions/620393) (*Workday Community access required for this article*)
+You can limit access by working with your Workday admin and configuring constrained integration system security groups. For more information about Workday, see [Workday community](https://community.workday.com/forums/customer-questions/620393) (*Workday Community access required for this article*).
 
 This strategy of limiting access using constrained ISSG (Integration System Security Groups) is useful in the following scenarios: 
 * **Phased rollout scenario**: You have a large Workday tenant and plan to perform a phased rollout of Workday to Azure AD automated provisioning. In this scenario, rather than excluding users who aren't in scope of the current phase with Azure AD scoping filters, we recommend configuring constrained ISSG so that only in-scope workers are visible to Azure AD.
@@ -355,7 +355,7 @@ The *Get_Workers* API can return different data sets associated with a worker. D
 
 The table below provides guidance on mapping configuration to use to retrieve a specific data set. 
 
-| \# | Workday Entity                       | Included by default | XPATH pattern to specify in mapping to fetch non-default entities             |
+| \# | Workday Entity                       | Included by default | XPATH pattern to specify in mapping to fetch nondefault entities             |
 |----|--------------------------------------|---------------------|-------------------------------------------------------------------------------|
 | 1  | Personal Data                        | Yes                 | `wd:Worker_Data/wd:Personal_Data`                                             |
 | 2  | Employment Data                      | Yes                 | `wd:Worker_Data/wd:Employment_Data`                                           |
@@ -421,7 +421,7 @@ The above data sets aren't included by default.
 To retrieve these data sets:
 1. Sign in to the Azure portal and open your Workday to AD/Azure AD user provisioning app. 
 1. In the Provisioning blade, edit the mappings and open the Workday attribute list from the advanced section. 
-1. Add the following attributes definitions and mark them as "Required". These attributes will not be mapped to any attribute in AD or Azure AD. They just serve as signals to the connector to retrieve the Cost Center, Cost Center Hierarchy and Pay Group information. 
+1. Add the following attributes definitions and mark them as "Required". These attributes won't be mapped to any attribute in AD or Azure AD. They just serve as signals to the connector to retrieve the Cost Center, Cost Center Hierarchy and Pay Group information. 
 
      > [!div class="mx-tdCol2BreakAll"]
      >| Attribute Name | XPATH API expression |
@@ -471,9 +471,9 @@ This section describes the Azure AD provisioning service support for scenarios w
 #### Scenario 1: Backdated conversion from FTE to CW or vice versa
 Your HR team may backdate a worker conversion transaction in Workday for valid business reasons, such as payroll processing, budget compliance, legal requirements or benefits management. Here's an example to illustrate how provisioning is handled for this scenario. 
 
-* It's January 15, 2022 and Jane Doe is employed as a contingent worker. HR offers Jane a full-time position. 
-* The terms of Jane's contract change require backdating the transaction so it aligns with the start of the current month. HR initiates a backdated worker conversion transaction Workday on January 15, 2022 with effective date as January 1, 2022. Now there are two worker profiles in Workday for Jane. The CW profile is inactive, while the FTE profile is active. 
-* The Azure AD provisioning service will detect this change in the Workday transaction log on January 15, 2022 and automatically provision attributes of the new FTE profile in the next sync cycle. 
+* It's January 15, 2023 and Jane Doe is employed as a contingent worker. HR offers Jane a full-time position. 
+* The terms of Jane's contract change require backdating the transaction so it aligns with the start of the current month. HR initiates a backdated worker conversion transaction Workday on January 15, 2023 with effective date as January 1, 2023. Now there are two worker profiles in Workday for Jane. The CW profile is inactive, while the FTE profile is active. 
+* The Azure AD provisioning service will detect this change in the Workday transaction log on January 15, 2023 and automatically provision attributes of the new FTE profile in the next sync cycle. 
 * No changes are required in the provisioning app configuration to handle this scenario. 
 
 #### Scenario 2: Worker employed as CW/FTE today, will change to FTE/CW today
@@ -482,19 +482,19 @@ This scenario is similar to the above scenario, except that instead of backdatin
 #### Scenario 3: Worker employed as CW/FTE is terminated, rejoins as FTE/CW after a significant gap 
 It's common for workers to start work at a company as a contingent worker, leave the company and then rejoin after several months as a full-time employee. Here's an example to illustrate how provisioning is handled for this scenario.
 
-* It's January 1, 2022 and John Smith starts work at as a contingent worker. As there's no AD account associated with John's *WorkerID* (matching attribute), the provisioning service creates a new AD account and links John's contingent worker *WID (WorkdayID)* to John's AD account. 
-* John's contract ends on January 31, 2022. In the provisioning cycle that runs after end of day January 31, John's AD account is disabled. 
-* John applies for another position and decides to rejoin the company as full-time employee effective May 1, 2022. HR enters John's information as a pre-hire on April 15, 2022. Now there are two worker profiles in Workday for John. The CW profile is inactive, while the FTE profile is active. The two records have the same *WorkerID* but different *WID*s.  
-* On April 15, during incremental cycle, the Azure AD provisioning service automatically transfers ownership of the AD account to the active worker profile. In this case, it de-links the contingent worker profile from the AD account and establishes a new link between John's active employee worker profile and John's AD account.
+* It's January 1, 2023 and John Smith starts work at as a contingent worker. As there's no AD account associated with John's *WorkerID* (matching attribute), the provisioning service creates a new AD account and links John's contingent worker *WID (WorkdayID)* to John's AD account. 
+* John's contract ends on January 31, 2023. In the provisioning cycle that runs after end of day January 31, John's AD account is disabled. 
+* John applies for another position and decides to rejoin the company as full-time employee effective May 1, 2023. HR enters John's information as a prehire employee on April 15, 2023. Now there are two worker profiles in Workday for John. The CW profile is inactive, while the FTE profile is active. The two records have the same *WorkerID* but different *WID*s.  
+* On April 15, during incremental cycle, the Azure AD provisioning service automatically transfers ownership of the AD account to the active worker profile. In this case, it unlinks the contingent worker profile from the AD account and establishes a new link between John's active employee worker profile and John's AD account.
 * No changes are required in the provisioning app configuration to handle this scenario. 
 
 #### Scenario 4: Future-dated conversion, when worker is an active CW/FTE
 Sometimes, a worker may already be an active contingent worker, when HR initiates a future-dated worker conversion transaction. Here's an example to illustrate how provisioning is handled for this scenario and what configuration changes are required to support this scenario. 
 
-* It's January 1, 2022 and John Smith starts work at as a contingent worker. As there's no AD account associated with John's *WorkerID* (matching attribute), the provisioning service creates a new AD account and links John's contingent worker *WID (WorkdayID)* to John's AD account. 
-* On January 15, HR initiates a transaction to convert John from contingent worker to full-time employee effective February 1, 2022. 
-* Since Azure AD provisioning service automatically processes future-dated hires, it will process John's new full-time employee worker profile on January 15, and update John's profile in AD with full-time employment details even though he is still a contingent worker. 
-* To avoid this behavior and ensure that John's FTE details get provisioned on February 1, 2022, perform the following configuration changes. 
+* It's January 1, 2023 and John Smith starts work at as a contingent worker. As there's no AD account associated with John's *WorkerID* (matching attribute), the provisioning service creates a new AD account and links John's contingent worker *WID (WorkdayID)* to John's AD account. 
+* On January 15, HR initiates a transaction to convert John from contingent worker to full-time employee effective February 1, 2023.
+* Since Azure AD provisioning service automatically processes future-dated hires, it will process John's new full-time employee worker profile on January 15, and update John's profile in AD with full-time employment details even though he's still a contingent worker. 
+* To avoid this behavior and ensure that John's FTE details get provisioned on February 1, 2023, perform the following configuration changes. 
 
    **Configuration changes**
    1. Engage your Workday admin to create a provisioning group called "Future-dated conversions". 

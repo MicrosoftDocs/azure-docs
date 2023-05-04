@@ -31,7 +31,7 @@ Azure Native ISV Services are available through the Marketplace.
 |Partner  |Description  |
 |---------|-------------|
 |[Apache Kafka for Confluent Cloud](apache-kafka-confluent-cloud/overview.md) | Fully managed event streaming platform powered by Apache Kafka. |
-|[Azure Native Qumulo Scalable File Service Preview](qumulo/qumulo-overview.md) |  Multi-petabyte scale, single namespace, multi-protocol file data platform with the performance, security, and simplicity to meet the most demanding enterprise workloads.  |
+|[Azure Native Qumulo Scalable File Service](qumulo/qumulo-overview.md) |  Multi-petabyte scale, single namespace, multi-protocol file data platform with the performance, security, and simplicity to meet the most demanding enterprise workloads.  |
 
 ## Networking and security
 

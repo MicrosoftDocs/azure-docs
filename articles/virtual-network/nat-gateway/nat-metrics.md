@@ -1,7 +1,7 @@
 ---
-title: Metrics and alerts for Azure Virtual Network NAT
+title: Metrics and alerts for Azure NAT Gateway
 titleSuffix: Azure Virtual Network
-description: Understand Azure Monitor metrics and alerts available for Virtual Network NAT.
+description: Understand Azure Monitor metrics and alerts available for NAT gateway.
 author: asudbring
 manager: KumudD
 ms.service: virtual-network
@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 04/12/2022
 ms.author: allensu
 ---
-# Azure Virtual Network NAT metrics and alerts
+# Azure NAT Gateway metrics and alerts
 
 This article provides an overview of all NAT gateway metrics and diagnostic capabilities. This article provides general guidance on how to use metrics and alerts to monitor, manage, and [troubleshoot](troubleshoot-nat.md) your NAT gateway resource. 
 
-Azure Virtual Network NAT gateway provides the following diagnostic capabilities:  
+Azure NAT Gateway provides the following diagnostic capabilities:  
 
 - Multi-dimensional metrics and alerts through Azure Monitor. You can use these metrics to monitor and manage your NAT gateway and to assist you in troubleshooting issues. 
 
@@ -23,7 +23,7 @@ Azure Virtual Network NAT gateway provides the following diagnostic capabilities
 
 :::image type="content" source="./media/nat-overview/flow-direction1.png" alt-text="Diagram of a NAT gateway that consumes all IP addresses for a public IP prefix. The NAT gateway directs traffic to and from two subnets of VMs and a virtual machine scale set.":::
 
-*Figure: Virtual Network NAT for outbound to Internet*
+*Figure: Azure NAT Gateway for outbound to Internet*
 
 ## Metrics overview
 
@@ -295,7 +295,7 @@ For more information on what each metric is showing you and how to analyze these
 
 ## Next steps
 
-* Learn about [Virtual Network NAT](nat-overview.md)
+* Learn about [Azure NAT Gateway](nat-overview.md)
 * Learn about [NAT gateway resource](nat-gateway-resource.md)
 * Learn about [Azure Monitor](../../azure-monitor/overview.md)
 * Learn about [troubleshooting NAT gateway resources](troubleshoot-nat.md).

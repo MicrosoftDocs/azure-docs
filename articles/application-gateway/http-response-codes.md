@@ -72,8 +72,15 @@ For cases when mutual authentication is configured, several scenarios can lead t
 - OCSP Client Revocation check is enabled, but OCSP responder isn't provided in the certificate.
 
 For more information about troubleshooting mutual authentication, see [Error code troubleshooting](mutual-authentication-troubleshooting.md#solution-2).
+#### 401 – Unauthorized
 
-#### 403 – Forbidden
+An HTTP 401 unauthorized response can be returned when backend pool is configured with [NTLM](/windows/win32/secauthn/microsoft-ntlm?redirectedfrom=MSDN) authentication.
+There are several ways to resolve this:
+- Allow anonymous access on backend pool.
+- Configure the probe to send the request to another “fake” site that doesn’t require NTLM.
+- Not recommended, as this will not tell us if the actual site behind the application gateway is active or not.
+- Configure application gateway to allow 401 responses as valid for the probes: [Probe matching conditions](/azure/application-gateway/application-gateway-probe-overview).
+   #### 403 – Forbidden
 
 HTTP 403 Forbidden is presented when customers are utilizing WAF skus and have WAF configured in Prevention mode.  If enabled WAF rulesets or custom deny WAF rules match the characteristics of an inbound request, the client is presented a 403 forbidden response.
 
@@ -120,3 +127,7 @@ Azure application Gateway V2 SKU sent HTTP 504 errors if the backend response ti
 ## Next steps
 
 If the information in this article doesn't help to resolve the issue, [submit a support ticket](https://azure.microsoft.com/support/options/).
+
+
+
+

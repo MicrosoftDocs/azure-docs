@@ -164,4 +164,4 @@ If you made changes that triggered a packet core reinstall, reconfigure your dep
 ## Next steps
 
 - If you made a configuration change that requires you to manually perform packet core reinstall, follow [Reinstall the packet core instance in a site](reinstall-packet-core.md).
-- Use [Log Analytics](monitor-private-5g-core-with-log-analytics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally after you modify it.
+- Use [Azure Monitor](monitor-private-5g-core-with-platform-metrics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally after you modify it.

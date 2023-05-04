@@ -117,10 +117,19 @@ For bug reports and feedback, [open an issue on GitHub](https://github.com/micro
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
+### [1.4.4](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.4.4)
+A point release to address user-reported bugs.
+#### Bug fixes
+- Fix [Exception during native component extraction when using a single file application.](https://github.com/microsoft/ApplicationInsights-SnapshotCollector/issues/21)
+#### Changes
+- Lowered PDB scan failure messages from Error to Warning.
+- Update msdia140.dll.
+- Avoid making a service connection if the debugger is disabled via site extension settings.
+
 ### [1.4.3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.4.3)
 A point release to address user-reported bugs.
 #### Bug fixes
-- Fix [Hide the IDMS dependency from dependency tracker.](https://github.com/microsoft/ApplicationInsights-SnapshotCollector/issues/17)
+- Fix [Hide the IMDS dependency from dependency tracker.](https://github.com/microsoft/ApplicationInsights-SnapshotCollector/issues/17)
 - Fix [ArgumentException: telemetryProcessorTypedoes not implement ITelemetryProcessor.](https://github.com/microsoft/ApplicationInsights-SnapshotCollector/issues/19)
 <br>Snapshot Collector used via SDK is not supported when Interop feature is enabled. [See more not supported scenarios.](snapshot-debugger-troubleshoot.md#not-supported-scenarios)
 

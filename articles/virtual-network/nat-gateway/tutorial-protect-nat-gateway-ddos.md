@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Protect your NAT gateway with Azure DDoS Protection Standard'
-titlesuffix: Azure Virtual Network NAT
+titlesuffix: Azure NAT Gateway
 description: Learn how to create an NAT gateway in an Azure DDoS Protection Standard protected virtual network.
 author: asudbring
 ms.author: allensu
@@ -12,7 +12,7 @@ ms.date: 01/24/2022
 
 # Tutorial: Protect your NAT gateway with Azure DDoS Protection Standard
 
-This article helps you create an Azure Virtual Network NAT gateway with a DDoS protected virtual network. Azure DDoS Protection Standard enables enhanced DDoS mitigation capabilities such as adaptive tuning, attack alert notifications, and monitoring to protect your NAT gateway from large scale DDoS attacks.
+This article helps you create a NAT gateway with a DDoS protected virtual network. Azure DDoS Protection Standard enables enhanced DDoS mitigation capabilities such as adaptive tuning, attack alert notifications, and monitoring to protect your NAT gateway from large scale DDoS attacks.
 
 > [!IMPORTANT]
 > Azure DDoS Protection incurs a cost when you use the Standard SKU. Overages charges only apply if more than 100 public IPs are protected in the tenant. Ensure you delete the resources in this tutorial if you aren't using the resources in the future. For information about pricing, see [Azure DDoS Protection Pricing]( https://azure.microsoft.com/pricing/details/ddos-protection/). For more information about Azure DDoS protection, see [What is Azure DDoS Protection?](../../ddos-protection/ddos-protection-overview.md).
@@ -233,6 +233,6 @@ the virtual network, virtual machine, and NAT gateway with the following steps:
 
 ## Next steps
 
-For more information on Azure Virtual Network NAT, see:
+For more information on Azure NAT Gateway, see:
 > [!div class="nextstepaction"]
-> [Virtual Network NAT overview](nat-overview.md)
+> [Azure NAT Gateway overview](nat-overview.md)

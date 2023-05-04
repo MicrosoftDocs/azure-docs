@@ -18,7 +18,7 @@ The NXLog DNS Logs data connector uses Event Tracing for Windows ([ETW](/windows
 | --- | --- |
 | **Log Analytics table(s)** | NXLog_DNS_Server_CL<br/> |
 | **Data collection rules support** | Not currently supported |
-| **Supported by** | [NXLog](https://nxlog.co/user?destination=node/add/support-ticket) |
+| **Supported by** | [NXLog](https://nxlog.co/community-forum/t/819-support-tickets) |
 
 ## Query samples
 

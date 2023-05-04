@@ -177,10 +177,10 @@ Event Grid enables [filtering](../event-grid/event-filtering.md) on event types,
 
 Device connection state events are available for devices connecting using either the MQTT or AMQP protocol, or using either of these protocols over WebSockets. Requests made only with HTTPS won't trigger device connection state notifications.
 
-* For devices connecting using Java, Node, or Python [Azure IoT SDKs](iot-hub-devguide-sdks.md) with the [MQTT protocol](iot-hub-mqtt-support.md) will have connection states sent automatically. 
+* For devices connecting using Java, Node, or Python [Azure IoT SDKs](iot-hub-devguide-sdks.md) with the [MQTT protocol](../iot/iot-mqtt-connect-to-iot-hub.md) will have connection states sent automatically. 
 * For devices connecting using the Java, Node, or Python [Azure IoT SDKs](iot-hub-devguide-sdks.md) with the [AMQP protocol](iot-hub-amqp-support.md), a cloud-to-device link should be created to reduce any delay in accurate connection states. 
-* For devices connecting using the .NET [Azure IoT SDK](iot-hub-devguide-sdks.md) with the [MQTT](iot-hub-mqtt-support.md) or [AMQP](iot-hub-amqp-support.md) protocol won’t send a device connected event until an initial device-to-cloud or cloud-to-device message is sent/received.
-* Outside of the Azure IoT SDKs, in MQTT these operations equate to SUBSCRIBE or PUBLISH operations on the appropriate messaging [topics](iot-hub-mqtt-support.md). Over AMQP these equate to attaching or transferring a message on the [appropriate link paths](iot-hub-amqp-support.md).
+* For devices connecting using the .NET [Azure IoT SDK](iot-hub-devguide-sdks.md) with the [MQTT](../iot/iot-mqtt-connect-to-iot-hub.md) or [AMQP](iot-hub-amqp-support.md) protocol won’t send a device connected event until an initial device-to-cloud or cloud-to-device message is sent/received.
+* Outside of the Azure IoT SDKs, in MQTT these operations equate to SUBSCRIBE or PUBLISH operations on the appropriate messaging [topics](../iot/iot-mqtt-connect-to-iot-hub.md). Over AMQP these equate to attaching or transferring a message on the [appropriate link paths](iot-hub-amqp-support.md).
 
 ### Device state interval
 

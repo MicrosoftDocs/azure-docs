@@ -80,7 +80,8 @@ Availability zone support is a property of the App Service plan. The following a
     - UK South
     - West Europe
     - West US 2
-    - West US 3 
+    - West US 3
+    - Azure China - China North 3
 
 
 - To see which regions support availability zones for App Service Environment v3, see [Regions](../app-service/environment/overview.md#regions).

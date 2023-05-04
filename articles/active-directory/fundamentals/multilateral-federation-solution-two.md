@@ -62,6 +62,16 @@ The following are some of the trade-offs of using this solution:
     denominator (optimize for security controls, but at the expense of
     user friction) with limited ability to make granular decisions.
 
+## Migration resources
+
+The following are resources to help with your migration to this solution architecture.
+
+| Migration Resource   | Description           |
+| - | - |
+| [Resources for migrating applications to Azure Active Directory (Azure AD)](../manage-apps/migration-resources.md) | List of resources to help you migrate application access and authentication to Azure AD |
+| [Configuring Shibboleth as SAML Proxy](https://shibboleth.atlassian.net/wiki/spaces/KB/pages/1467056889/Using+SAML+Proxying+in+the+Shibboleth+IdP+to+connect+with+Azure+AD) | Link to a Shibboleth article that describes how to use the SAML proxying feature to connect Shibboleth IdP to Azure AD |
+| [Azure MFA deployment considerations](../authentication/howto-mfa-getstarted.md) | Link to guidance for configuring multi-factor authentication (MFA) using Azure AD |
+
 ## Next steps
 
 See these other multilateral federation articles:

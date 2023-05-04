@@ -202,3 +202,20 @@ ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-a
 
 ```
 
+### Operating System Configuration
+
+The Operating System Configuration playbook is used to configure the operating system of the SAP virtual machines. The playbook performs the following tasks:
+
+# [Linux](#tab/linux)
+
+The following tasks are executed on Linux virtual machines:
+- Enables logging for sudo operations
+- Ensures that the Azure virtual machine agent is configured correctly
+- Ensures that all the repositories are registered and enabled
+- Ensures that all the packaged are installed
+# [Windows](#tab/windows)
+
+- Ensures that all the components are installed
+
+---
+

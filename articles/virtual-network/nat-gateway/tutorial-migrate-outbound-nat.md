@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Migrate outbound access to NAT gateway'
-titlesuffix: Azure Virtual Network NAT
-description: Learn how to migrate outbound access in your virtual network to a Virtual Network NAT gateway.
+titlesuffix: Azure NAT Gateway
+description: Learn how to migrate outbound access in your virtual network to a NAT gateway.
 author: asudbring
 ms.author: allensu
 ms.service: virtual-network
@@ -11,13 +11,13 @@ ms.date: 5/25/2022
 ms.custom: template-tutorial 
 ---
 
-# Tutorial: Migrate outbound access to Azure Virtual Network NAT
+# Tutorial: Migrate outbound access to Azure NAT Gateway
 
 In this article, you'll learn how to migrate your outbound connectivity from [default outbound access](../ip-services/default-outbound-access.md) to a NAT gateway. You'll learn how to change your outbound connectivity from load balancer outbound rules to a NAT gateway. You'll reuse the IP address from the outbound rule configuration for the NAT gateway.
 
-Azure Virtual Network NAT is the recommended method for outbound connectivity. A NAT gateway is a fully managed and highly resilient Network Address Translation (NAT) service. A NAT gateway doesn't have the same limitations of SNAT port exhaustion as default outbound access. A NAT gateway replaces the need for outbound rules in a load balancer for outbound connectivity.
+Azure NAT Gateway is the recommended method for outbound connectivity. A NAT gateway is a fully managed and highly resilient Network Address Translation (NAT) service. A NAT gateway doesn't have the same limitations of SNAT port exhaustion as default outbound access. A NAT gateway replaces the need for outbound rules in a load balancer for outbound connectivity.
 
-For more information about Azure Virtual Network NAT, see [What is Azure Virtual Network NAT](nat-overview.md)
+For more information about Azure NAT Gateway, see [What is Azure NAT Gateway](nat-overview.md)
 
 In this tutorial, you learn how to:
 
@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
     * The load balancer name used in the examples is **myLoadBalancer**.
 
 > [!NOTE]
-> Virtual Network NAT provides outbound connectivity for standard internal load balancers. For more information on integrating a NAT gateway with your internal load balancers, see [Tutorial: Integrate a NAT gateway with an internal load balancer using Azure portal](tutorial-nat-gateway-load-balancer-internal-portal.md).
+> Azure NAT Gateway provides outbound connectivity for standard internal load balancers. For more information on integrating a NAT gateway with your internal load balancers, see [Tutorial: Integrate a NAT gateway with an internal load balancer using Azure portal](tutorial-nat-gateway-load-balancer-internal-portal.md).
 
 ## Migrate default outbound access
 

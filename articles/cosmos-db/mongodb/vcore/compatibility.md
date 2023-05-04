@@ -2,8 +2,8 @@
 title: Compatibility and feature support
 titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: Review Azure Cosmos DB for MongoDB vCore supported features and syntax including; commands, query support, datatypes, aggregation, and operators.
-author: nayakshweta
-ms.author: shwetn
+author: seesharprun
+ms.author: sidandrews
 ms.reviewer: gahllevy
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
@@ -649,7 +649,7 @@ Azure Cosmos DB for MongoDB vCore supports the following indexes and index prope
 | `Multikey Index` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `Text Index` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 | `Geospatial Index` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
-| `Hashed Index` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
+| `Hashed Index` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 
 ### Index properties
 

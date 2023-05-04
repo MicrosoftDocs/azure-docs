@@ -372,7 +372,7 @@
     items:
     - name: Academic Knowledge
       tocHref: /azure/cognitive-services/academic-knowledge/
-      topicHref: /azure/cognitive-services/academic-knowledge/home
+      topicHref: https://www.microsoft.com/research/project/academic-knowledge/
     - name: Anomaly Detector
       tocHref: /azure/cognitive-services/anomaly-detector/
       topicHref: /azure/cognitive-services/anomaly-detector/

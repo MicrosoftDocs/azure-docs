@@ -176,7 +176,7 @@ mrgpath="/subscriptions/$subid/resourceGroups/$mrgname"
 
 The `mrgprefix` and `mrgtimestamp` variables are concatenated to create a managed resource group name like _mrg-sampleManagedApplication-20230310100148_ that's stored in the `mrgname` variable. The name's format:`mrg-{definitionName}-{dateTime}` is the same format as the portal's default value. The `mrgname` and `subid` variable's are concatenated to create the `mrgpath` variable value that creates the managed resource group during the deployment.
 
-You need to provide several parameters to the deployment command for the managed application. You can use a JSON formatted string or create a JSON file. In this example, we use a JSON formatted string. The PowerShell escape character for the quote marks is the backslash (`\`) character. The backslash is also used for line continuation so that commands can use multiple lines.
+You need to provide several parameters to the deployment command for the managed application. You can use a JSON formatted string or create a JSON file. In this example, we use a JSON formatted string. In Bash, the escape character for the quote marks is the backslash (`\`) character. The backslash is also used for line continuation so that commands can use multiple lines.
 
 The JSON formatted string's syntax is as follows:
 
@@ -184,7 +184,7 @@ The JSON formatted string's syntax is as follows:
 "{ \"parameterName\": {\"value\":\"parameterValue\"}, \"parameterName\": {\"value\":\"parameterValue\"} }"
 ```
 
-For readability, the completed JSON string uses the backtick for line continuation. The values are stored in the `params` variable that's used in the deployment command. The parameters in the JSON string are required to deploy the managed resources.
+For readability, the completed JSON string uses the backslash for line continuation. The values are stored in the `params` variable that's used in the deployment command. The parameters in the JSON string are required to deploy the managed resources.
 
 ```azurecli
 params="{ \"appServicePlanName\": {\"value\":\"demoAppServicePlan\"}, \

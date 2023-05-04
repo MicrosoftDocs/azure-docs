@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Integrate NAT gateway with an internal load balancer - Azure portal'
-titleSuffix: Virtual Network NAT
-description: In this tutorial, learn how to integrate a Virtual Network NAT gateway with an internal load Balancer using the Azure portal.
+titleSuffix: Azure NAT Gateway
+description: In this tutorial, learn how to integrate a NAT gateway with an internal load Balancer using the Azure portal.
 author: asudbring
 ms.author: allensu
 ms.service: virtual-network
@@ -312,6 +312,6 @@ the virtual network, virtual machine, and NAT gateway with the following steps:
 
 ## Next steps
 
-For more information on Azure Virtual Network NAT, see:
+For more information on Azure NAT Gateway, see:
 > [!div class="nextstepaction"]
-> [Virtual Network NAT overview](nat-overview.md)
+> [Azure NAT Gateway overview](nat-overview.md)

@@ -4,23 +4,32 @@
   items:
   - name: About managed applications
     href: overview.md
+    displayName: overview
 - name: Quickstarts
   expanded: true
   items:
-  - name: Publish application definition
+  - name: Publish managed app definition
     href: publish-service-catalog-app.md
+    displayName: definition, service catalog
   - name: Publish definition with bring your own storage
     href: publish-service-catalog-bring-your-own-storage.md
-  - name: Deploy service catalog app
+    displayName: bring your own storage, BYOS, definition
+  - name: Deploy service catalog managed app
     href: deploy-service-catalog-quickstart.md
+    displayName: service catalog, deploy
+  - name: Deploy Azure Marketplace managed app
+    href: deploy-marketplace-app-quickstart.md
+    displayName: Marketplace, deploy
 - name: Tutorials
   items:
   - name: Create managed application with custom provider
     href: tutorial-create-managed-app-with-custom-provider.md
+    displayName: custom provider
 - name: Samples
   items:
   - name: Managed application solutions
     href: sample-projects.md
+    displayName: samples, solution
 - name: Concepts
   items:
   - name: View definition artifact
@@ -35,16 +44,22 @@
     items:
     - name: Create portal interface
       href: create-uidefinition-overview.md
+      displayName: portal, user interface, UI
     - name: Test portal interface
       href: test-createuidefinition.md
+      displayName: test, portal, user interface, UI
     - name: Create an Azure application offer
       href: ../../marketplace/azure-app-offer-setup.md?toc=%2fazure%2fazure-resource-manager%2fmanaged-applications%2ftoc.json
+      displayName: marketplace
     - name: Request just-in-time access
       href: request-just-in-time-access.md
+      displayName: JIT
     - name: Use existing virtual network
       href: existing-vnet-integration.md
+      displayName: vnet
     - name: Update managed resources
       href: update-managed-resources.md
+      displayName: mrg
     - name: Use secret from Key Vault
       href: key-vault-access.md
     - name: Deploy with Managed Identity
@@ -57,6 +72,7 @@
       href: monitor-managed-application-portal.md
     - name: Approve just-in-time access
       href: approve-just-in-time-access.md
+      displayName: JIT
 - name: Reference
   items:
   - name: Application artifacts

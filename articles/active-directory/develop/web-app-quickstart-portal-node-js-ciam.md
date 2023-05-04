@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Add sign in to a React SPA"
-description: Learn how to run a sample React SPA to sign in users
+title: "Quickstart: Add sign in to a Node.js/Express web app"
+description: Learn how to run a sample Node.js/Express web app to sign in users
 services: active-directory
 author: kengaderdus
 manager: mwongerapk
@@ -10,12 +10,12 @@ ms.workload: identity
 ROBOTS: NOINDEX
 ms.subservice: ciam
 ms.topic: portal
-ms.date: 04/12/2023
+ms.date: 05/05/2023
 ---
 
-# Portal quickstart for React SPA
+# Portal quickstart for Node.js/Express web app
 
-> In this quickstart, you download and run a code sample that demonstrates how a React single-page application (SPA) can sign in users with Azure AD CIAM.
+> In this quickstart, you download and run a code sample that demonstrates how a Node.js/Express web app can sign in users with Azure Active Directory for customers.
 >
 > [!div renderon="portal" id="display-on-portal" class="sxs-lookup"]
 > 1. Make sure you've installed [Node.js](https://nodejs.org/en/download/).
@@ -24,5 +24,5 @@ ms.date: 04/12/2023
 >     ```console
 >     npm install && npm start
 >     ```
-> 1. Open your browser, visit `http://locahost:3000`, select **Sign-in** link, then follow the prompts.
+> 1. Open your browser, visit `http://locahost:3000`, select **Sign-in**, then follow the prompts.
 >

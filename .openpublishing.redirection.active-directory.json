@@ -4257,6 +4257,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/fundamentals/certificate-authorities.md",
+      "redirect_url": "/azure/security/fundamentals/azure-CA-details",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/b2b/what-is-b2b.md",
       "redirect_url": "/azure/active-directory/external-identities/what-is-b2b",
       "redirect_document_id": true
@@ -5818,7 +5823,12 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/manage-apps/active-directory-app-proxy-protect-ndes.md",
-      "redirect_url": "/azure/active-directory/app-proxy/active-directory-app-proxy-protect-ndes",
+      "redirect_url": "/azure/active-directory/app-proxy/app-proxy-protect-ndes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/app-proxy/active-directory-app-proxy-protect-ndes.md",
+      "redirect_url": "/azure/active-directory/app-proxy/app-proxy-protect-ndes",
       "redirect_document_id": false
     },
     {
@@ -11209,6 +11219,11 @@
     {
       "source_path_from_root": "/articles/active-directory-domain-services/create-resource-forest-powershell.md",
       "redirect_url": "/azure/active-directory-domain-services/create-forest-trust-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/privileged-identity-management/powershell-for-azure-ad-roles.md",
+      "redirect_url": "/powershell/microsoftgraph/tutorial-pim?view=graph-powershell-1.0",
       "redirect_document_id": false
     }
   ]

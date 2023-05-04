@@ -20,6 +20,8 @@ Azure Firewall has two new diagnostics logs you can use to help monitor your fir
 
 The Top flows log (known in the industry as Fat Flows), shows the top connections that are contributing to the highest throughput through the firewall.
 
+Because of the CPU impact, enable Top flows only when you need to troubleshoot a specific issue. The recommendation is to enable Top flows no longer than one week at a time.
+
 ### Prerequisites
 
 - Enable [structured logs](firewall-structured-logs.md#enabledisable-structured-logs)
@@ -61,14 +63,28 @@ There are a few ways to verify the update was successful, but you can navigate t
 
 ## Flow trace
 
-Currently, the firewall logs show traffic through the firewall in the first attempt of a TCP connection, known as the *syn* packet. However, this doesn't show the full journey of the packet in the TCP handshake. As a result, it's difficult to troubleshoot if a packet is dropped, or asymmetric routing has occurred. 
+Currently, the firewall logs show traffic through the firewall in the first attempt of a TCP connection, known as the *syn* packet. However, this doesn't show the full journey of the packet in the TCP handshake. As a result, it's difficult to troubleshoot if a packet is dropped, or asymmetric routing has occurred.
+
+Because of the disk impact, enable Flow trace only when you need to troubleshoot a specific issue. The recommendation is to enable Flow trace no longer than one week at a time.
 
 The following additional properties can be added: 
-- SYN-ACK 
-- FIN 
-- FIN-ACK 
-- RST 
+- SYN-ACK
+
+   Ack flag that indicates acknowledgment of SYN packet. 
+- FIN
+
+   Finished flag of the original packet flow. No more data is transmitted in the TCP flow. 
+- FIN-ACK
+
+   Ack flag that indicates acknowledgment of FIN packet. 
+
+- RST
+
+   Reset flag that indicates that original sender won't receive more data.
+
 - INVALID (flows)
+
+   Indicates packet can’t be identified or don't have any state; TCP packet is landing on a Virtual Machine Scale Sets instance, which doesn't have any prior history to this packet.
 
 ### Prerequisites
 
@@ -85,6 +101,13 @@ Select-AzSubscription -Subscription <subscription_id> or <subscription_name>
 Register-AzProviderFeature -FeatureName AFWEnableTcpConnectionLogging -ProviderNamespace Microsoft.Network
 Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
+
+It can take several minutes for this to take effect. Once the feature is completely registered, consider performing an update on Azure Firewall for the change to take effect immediately.
+
+To check the status of the AzResourceProvider registration, you can run the Azure PowerShell command:
+
+`Get-AzProviderFeature -FeatureName "AFWEnableTcpConnectionLogging" -ProviderNamespace "Microsoft.Network"`
+
 ### Create a diagnostic setting and enable Resource Specific Table
 
 1. In the Diagnostic settings tab, select **Add diagnostic setting**.
