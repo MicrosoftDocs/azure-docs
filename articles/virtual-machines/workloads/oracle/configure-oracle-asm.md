@@ -43,33 +43,33 @@ You also need to be familiar with Unix editor **vi** and have a basic understand
 
 2. Sign in to your Azure subscription with the [az login](/cli/azure/authenticate-azure-cli) command. Then follow the on-screen directions.
 
-```azurecli
-$ az login
-```
+    ```azurecli
+    $ az login
+    ```
 
 3. Ensure you are connected to the correct subscription by verifying subscription name and/or ID.
 
-```azurecli
-$ az account show
-```
+    ```azurecli
+    $ az account show
+    ```
 
-```output
-{
-  "environmentName": "XXXXX",
-  "homeTenantId": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-  "id": "<SUBSCRIPTION_ID>",
-  "isDefault": true,
-  "managedByTenants": [],
-  "name": "<SUBSCRIPTION_NAME>",
-  "state": "Enabled",
-  "tenantId": XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-  "user": {
-    "cloudShellID": true,
-    "name": "aaaaa@bbbbb.com",
-    "type": "user"
-  }
-}
-```
+    ```output
+    {
+      "environmentName": "XXXXX",
+      "homeTenantId": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+      "id": "<SUBSCRIPTION_ID>",
+      "isDefault": true,
+      "managedByTenants": [],
+      "name": "<SUBSCRIPTION_NAME>",
+      "state": "Enabled",
+      "tenantId": XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+      "user": {
+        "cloudShellID": true,
+        "name": "aaaaa@bbbbb.com",
+        "type": "user"
+      }
+    }
+    ```
 
 ### Generate authentication keys
 
@@ -115,73 +115,73 @@ $ az network vnet create \
 
 1. Create network security group (NSG) to lock down your virtual network.
 
-```azurecli
-$ az network nsg create \
-  --resource-group ASMOnAzureLab \
-  --name asmVnetNSG
-```
+    ```azurecli
+    $ az network nsg create \
+      --resource-group ASMOnAzureLab \
+      --name asmVnetNSG
+    ```
 
 2. Create NSG rule to allow communication within virtual network.
 
-```azurecli
-$ az network nsg rule create  --resource-group ASMOnAzureLab --nsg-name asmVnetNSG \
-    --name asmAllowVnet \
-    --protocol '*' --direction inbound --priority 3400 \
-    --source-address-prefix 'VirtualNetwork' --source-port-range '*' \
-    --destination-address-prefix 'VirtualNetwork' --destination-port-range '*' --access allow
-```
+    ```azurecli
+    $ az network nsg rule create  --resource-group ASMOnAzureLab --nsg-name asmVnetNSG \
+        --name asmAllowVnet \
+        --protocol '*' --direction inbound --priority 3400 \
+        --source-address-prefix 'VirtualNetwork' --source-port-range '*' \
+        --destination-address-prefix 'VirtualNetwork' --destination-port-range '*' --access allow
+    ```
 
 3. Create NSG rule to deny all inbound connections
 
-```azurecli
-$ az network nsg rule create \
-  --resource-group ASMOnAzureLab \
-  --nsg-name asmVnetNSG \
-  --name asmDenyAllInBound \
-  --protocol '*' --direction inbound --priority 3500 \
-  --source-address-prefix '*' --source-port-range '*' \
-  --destination-address-prefix '*' --destination-port-range '*' --access deny
-```
+    ```azurecli
+    $ az network nsg rule create \
+      --resource-group ASMOnAzureLab \
+      --nsg-name asmVnetNSG \
+      --name asmDenyAllInBound \
+      --protocol '*' --direction inbound --priority 3500 \
+      --source-address-prefix '*' --source-port-range '*' \
+      --destination-address-prefix '*' --destination-port-range '*' --access deny
+    ```
 
 4. Assign NSG to Subnet where we host our servers.
 
-```azurecli
-$ az network vnet subnet update --resource-group ASMOnAzureLab --vnet-name asmVNet --name asmSubnet1 --network-security-group asmVnetNSG
-```
+    ```azurecli
+    $ az network vnet subnet update --resource-group ASMOnAzureLab --vnet-name asmVNet --name asmSubnet1 --network-security-group asmVnetNSG
+    ```
 
 #### Create Bastion Network
 
 1. Create Bastion subnet. Name of the subnet must be **AzureBastionSubnet**
 
-```azurecli
-$ az network vnet subnet create  \
-    --resource-group ASMOnAzureLab \
-    --name AzureBastionSubnet \
-    --vnet-name asmVnet \
-    --address-prefixes 10.0.1.0/24 
-```
+    ```azurecli
+    $ az network vnet subnet create  \
+        --resource-group ASMOnAzureLab \
+        --name AzureBastionSubnet \
+        --vnet-name asmVnet \
+        --address-prefixes 10.0.1.0/24 
+    ```
 
 2. Create public IP for Bastion
 
-```azurecli
-$ az network public-ip create \
-    --resource-group ASMOnAzureLab \
-    --name asmBastionIP \
-    --sku Standard 
-```
+    ```azurecli
+    $ az network public-ip create \
+        --resource-group ASMOnAzureLab \
+        --name asmBastionIP \
+        --sku Standard 
+    ```
 
 3. Create Azure Bastion resource. It takes about 10 minutes for the resource to deploy.
 
-```azurecli
-$ az network bastion create \
-    --resource-group ASMOnAzureLab \
-    --name asmBastion \
-    --public-ip-address asmBastionIP \
-    --vnet-name asmVnet \
-    --sku Standard \
-    --enable-tunneling \
-    --enable-ip-connect true
-```
+    ```azurecli
+    $ az network bastion create \
+        --resource-group ASMOnAzureLab \
+        --name asmBastion \
+        --public-ip-address asmBastionIP \
+        --vnet-name asmVnet \
+        --sku Standard \
+        --enable-tunneling \
+        --enable-ip-connect true
+    ```
 
 ### Create X Server VM  (asmXServer)
 
@@ -226,19 +226,19 @@ X Server is required for later steps of this lab. Perform following steps to ins
 
 4. Select **Multiple Windows**
 
-   ![Screenshot of XLaunch wizard step 1.](./media/oracle-asm/xlaunch-01.png)
+    :::image type="content" source="./media/oracle-asm/xlaunch-01.png" alt-text="Screenshot of XLaunch wizard step 1.":::
 
 5. Select **Start no client**
 
-   ![Screenshot of XLaunch wizard step 2.](./media/oracle-asm/xlaunch-02.png)
+    :::image type="content" source="./media/oracle-asm/xlaunch-02.png" alt-text="Screenshot of XLaunch wizard step 2.":::
 
 6. Select **No access control**
 
-   ![Screenshot of XLaunch wizard step 3.](./media/oracle-asm/xlaunch-03.png)
+    :::image type="content" source="./media/oracle-asm/xlaunch-03.png" alt-text="Screenshot of XLaunch wizard step 3.":::
 
 7. Select **Allow Access** to allow X Server through Windows Firewall
 
-   ![Screenshot of XLaunch wizard step 4.](./media/oracle-asm/xlaunch-04.png)
+    :::image type="content" source="./media/oracle-asm/xlaunch-04.png" alt-text="Screenshot of XLaunch wizard step 4.":::
 
 If you restart your **asmXServer** VM, follow steps 2-6 above to restart X Server application.
 
@@ -544,12 +544,12 @@ To set up Oracle ASM, complete the following steps:
    ```
 
 3. Format disk **/dev/sdc** by running the following command and answering the prompts with:
-   * **n** for new partition
-   * **p** for primary partition
-   * **1** to select the first partition
-   * press **enter** for the default first sector
-   * press **enter** for the default last sector
-   * press **w** to write the changes to the partition table  
+   1. **n** for new partition
+   2. **p** for primary partition
+   3. **1** to select the first partition
+   4. press **enter** for the default first sector
+   5. press **enter** for the default last sector
+   6. press **w** to write the changes to the partition table  
 
    ```bash
    $ fdisk /dev/sdc
@@ -647,27 +647,27 @@ To set up Oracle ASM, complete the following steps:
 
 7. Create Oracle ASM disks
 
-   * Create first disk
+   1. Create first disk
 
-   ```bash
-   $ oracleasm createdisk VOL1 /dev/sdc1 
-   ```
+       ```bash
+       $ oracleasm createdisk VOL1 /dev/sdc1 
+       ```
 
-   * The output of command should look like
+   2. The output of command should look like
 
-   ```output
-    Writing disk header: done
-    Instantiating disk: done
-   ```
+       ```output
+        Writing disk header: done
+        Instantiating disk: done
+       ```
 
-   * Create remaining disks
+   3. Create remaining disks
 
-   ```bash
-   $ oracleasm createdisk VOL2  /dev/sdd1 
-   ```
+       ```bash
+       $ oracleasm createdisk VOL2  /dev/sdd1 
+       ```
 
    >[!NOTE]
-   >Disks are marked for ASMLib using a process described in [ASMLib Installation](https://www.oracle.com/linux/technologies/install-asmlib.html). 
+   >Disks are marked for ASMLib using a process described in [ASMLib Installation](https://www.oracle.com/linux/technologies/install-asmlib.html).
    >ASMLib learns what disk are marked during a process called disk scanning. ASMLib runs this scan every time it starts up. The system administrator can also force a scan via the `oracleasm scandisks` command.
    >ASMLib examines each disk in the system. It checks if the disk has been marked for ASMLib. Any disk that has been marked will be made available to ASMLib.
    >You can visit documents [Configuring Storage Device Path Persistence Using Oracle ASMLIB](https://docs.oracle.com/en/database/oracle/oracle-database/19/cwlin/configuring-storage-device-path-persistence-using-oracle-asmlib.html#GUID-6B1DA5DB-2E93-4616-B517-18ABDEE72AE4) and [Configuring Oracle ASMLib on Multipath Disks](https://www.oracle.com/linux/technologies/multipath-disks.html) for more information.
@@ -689,8 +689,8 @@ To set up Oracle ASM, complete the following steps:
 9. Change passwords for the root and oracle users. **Make note of these new passwords** as you are using them later during the installation.
 
    ```bash
-   passwd oracle 
-   passwd root
+   $ passwd oracle 
+   $ passwd root
    ```
 
 10. Change folder permissions
@@ -714,9 +714,9 @@ To download and prepare the Oracle Grid Infrastructure software, complete the fo
 
 2. After you download the .zip file to your client computer, you can use Secure Copy Protocol (SCP) to copy the files to your VM. Make sure that `scp` command points to correct path of .zip file.
 
-   * Login and ensure you are using the correct subscription as necessary as described in [Sign in to Azure](#sign-in-to-azure)
+   1. Login and ensure you are using the correct subscription as necessary as described in [Sign in to Azure](#sign-in-to-azure)
 
-   * Open the tunnel to your target VM using the following PowerShell command
+   2. Open the tunnel to your target VM using the following PowerShell command
 
        ```PowerShell
        $asmVMid=$(az vm show --resource-group ASMOnAzureLab --name asmVM --query 'id' --output tsv)
@@ -724,7 +724,7 @@ To download and prepare the Oracle Grid Infrastructure software, complete the fo
        az network bastion tunnel --name asmBastion --resource-group ASMOnAzureLab --target-resource-id $asmVMid --resource-port 22 --port 57500
        ```
 
-   * Leave the first command prompt running and open a second command prompt to connect to your target VM through the tunnel. In this second command prompt window, you can upload files from your local machine to your target VM using the following command. Note that the correct `id_rsa` keyfile to access asmVM must reside in `.ssh` directory or you can point to a different key file using `-i` parameter to `scp` command.
+   3. Leave the first command prompt running and open a second command prompt to connect to your target VM through the tunnel. In this second command prompt window, you can upload files from your local machine to your target VM using the following command. Note that the correct `id_rsa` keyfile to access asmVM must reside in `.ssh` directory or you can point to a different key file using `-i` parameter to `scp` command.
 
        ```powershell
        scp -P 57500 "LINUX.X64_193000_grid_home.zip"  azureuser@127.0.0.1:.
@@ -784,7 +784,7 @@ To install Oracle Grid Infrastructure, complete the following steps:
 
 2. On the **Select Configuration Option** page, select **Configure Oracle Grid Infrastructure for a Standalone Server (Oracle Restart)**.
 
-   ![Screenshot of the installer's Select Configuration Option page.](./media/oracle-asm/gridinstall-01.png)
+    :::image type="content" source="./media/oracle-asm/grid-infrastructure-01.png" alt-text="Screenshot of the installer's Select Configuration Option page.":::
 
 3. On the **Create ASM Disk Group** page:
    * Click on **Change Discovery Path**
@@ -795,45 +795,45 @@ To install Oracle Grid Infrastructure, complete the following steps:
    * Under **Select Disks**, select **/dev/oracleasm/disks/VOL1**.
    * Click **Next**.
 
-   ![Screenshot of the installer's Create ASM Disk Group page.](./media/oracle-asm/gridinstall-02.png)
+    :::image type="content" source="./media/oracle-asm/grid-infrastructure-02.png" alt-text="Screenshot of the installer's Create ASM Disk Group page.":::
 
 4. On the **Specify ASM Password** page, select the **Use same passwords for these accounts** option, and enter a password.
 
-   ![Screenshot of the installer's Specify ASM Password page.](./media/oracle-asm/gridinstall-03.png)
+    :::image type="content" source="./media/oracle-asm/grid-infrastructure-03.png" alt-text="Screenshot of the installer's Specify ASM Password page.":::
 
 5. On the **Specify Management Options** page, make sure the option to configure EM Cloud Control is unselected. Click **Next** to continue.
 
-   ![Screenshot of the installer's Specify Management Options page.](./media/oracle-asm/gridinstall-04.png)
+    :::image type="content" source="./media/oracle-asm/grid-infrastructure-04.png" alt-text="Screenshot of the installer's Specify Management Options page.":::
 
 6. On the **Privileged Operating System Groups** page, use the default settings. Click **Next** to continue.
 
-   ![Screenshot of the installer's Privileged Operating System Groups page.](./media/oracle-asm/gridinstall-05.png)
+    :::image type="content" source="./media/oracle-asm/grid-infrastructure-05.png" alt-text="Screenshot of the installer's Privileged Operating System Groups page.":::
 
 7. On the **Specify Installation Location** page, use the default settings. Click **Next** to continue.
 
-   ![Screenshot of the installer's Specify Installation Location page.](./media/oracle-asm/gridinstall-06.png)
+    :::image type="content" source="./media/oracle-asm/grid-infrastructure-06.png" alt-text="Screenshot of the installer's Specify Installation Location page.":::
 
 8. On the **Root script execution configuration** page, select the **Automatically run configuration scripts** check box. Then, select the **Use "root" user credential** option, and enter the root user password.
 
-    ![Screenshot of the installer's Root script execution configuration page.](./media/oracle-asm/gridinstall-07.png)
+    :::image type="content" source="./media/oracle-asm/grid-infrastructure-07.png" alt-text="Screenshot of the installer's Root script execution configuration page.":::
 
 9. On the **Perform Prerequisite Checks** page, the current setup fails with errors. Select **Fix & Check Again**.
 
 10. In the **Fixup Script** dialog box, click **OK**.
 
-    ![Screenshot of the installer's Perform Prerequisite Checks page.](./media/oracle-asm/gridinstall-08.png)
+    :::image type="content" source="./media/oracle-asm/grid-infrastructure-08.png" alt-text="Screenshot of the installer's Perform Prerequisite Checks page.":::
 
 11. On the **Summary** page, review your selected settings, and then click `Install`.
 
-    ![Screenshot of the installer's Summary page.](./media/oracle-asm/gridinstall-09.png)
+    :::image type="content" source="./media/oracle-asm/grid-infrastructure-09.png" alt-text="Screenshot of the installer's Summary page.":::
 
 12. A warning dialog box appears informing you configuration scripts need to be run as a privileged user. Click **Yes** to continue.
 
-    ![Screenshot of the installer's warning page.](./media/oracle-asm/gridinstall-10.png)
+    :::image type="content" source="./media/oracle-asm/grid-infrastructure-10.png" alt-text="Screenshot of the installer's warning page.":::
 
 13. On the **Finish** page, click **Close** to finish the installation.
 
-    ![Screenshot of the installer's Finish page.](./media/oracle-asm/gridinstall-11.png)
+    :::image type="content" source="./media/oracle-asm/grid-infrastructure-11.png" alt-text="Screenshot of the installer's Finish page.":::
 
 ## Setup Oracle ASM
 
@@ -841,14 +841,14 @@ Complete following steps to setup Oracle ASM.
 
 1. Ensure you are still signed in as **oracle**, to asmVM from Bastion ssh session.
 
-   * Run following to set context. If you still have the shell open from previous command, you may skip this step.
+   Run following to set context. If you still have the shell open from previous command, you may skip this step.
 
    ```bash
    $ sudo su - oracle   
    $ export DISPLAY=10.0.0.4:0.0
    ```
 
-   * Launch the Oracle Automatic Storage Management Configuration Assistant
+   Launch the Oracle Automatic Storage Management Configuration Assistant
 
    ```bash
    $ cd /opt/grid/bin 
@@ -859,21 +859,21 @@ Complete following steps to setup Oracle ASM.
 
 2. Select **DATA** under **Disk Groups** in the tree and click the **Create** button at the bottom.
 
-   ![Screenshot of the ASM Configuration Assistant.](./media/oracle-asm/asm-config-assistant-01.png)
+    :::image type="content" source="./media/oracle-asm/asm-config-assistant-01.png" alt-text="Screenshot of the ASM Configuration Assistant.":::
 
 3. In the **Create Disk Group** dialog box:
 
-   * Enter the disk group name **FRA**.
-   * Under **Select Member Disks**, select **/dev/oracleasm/disks/VOL2**
-   * Under **Allocation Unit Size**, select **4**.
-   * Click **ok** to create the disk group.
-   * Click **ok** to close the confirmation window.
+   1. Enter the disk group name **FRA**.
+   2. Under **Select Member Disks**, select **/dev/oracleasm/disks/VOL2**
+   3. Under **Allocation Unit Size**, select **4**.
+   4. Click **ok** to create the disk group.
+   5. Click **ok** to close the confirmation window.
 
-   ![Screenshot of the Create Disk Group dialog box.](./media/oracle-asm/asm-config-assistant-02.png)
+    :::image type="content" source="./media/oracle-asm/asm-config-assistant-02.png" alt-text="Screenshot of the Create Disk Group dialog box.":::
 
 4. Select **Exit** to close ASM Configuration Assistant.
 
-   ![Screenshot of the Configure ASM: Disk Groups dialog box with Exit button.](./media/oracle-asm/asm-config-assistant-03.png)
+    :::image type="content" source="./media/oracle-asm/asm-config-assistant-03.png" alt-text="Screenshot of the Configure ASM: Disk Groups dialog box with Exit button.":::
 
 ## Create the database
 
@@ -899,24 +899,24 @@ The Oracle database software is already installed on the Azure Marketplace image
 
 2. On the **Database Operation** page, click **Create Database**.
 
-   ![Screenshot of the Database Operation page.](./media/oracle-asm/db-config-assistant-01.png)
+    :::image type="content" source="./media/oracle-asm/db-config-assistant-01.png" alt-text="Screenshot of the Database Operation page.":::
 
 3. On the **Creation Mode** page:
 
-   * Ensure **Typical configuration** is selected.
-   * Enter a name for the database: **asmdb**
-   * For **Storage Type**, ensure **Automatic Storage Management (ASM)** is selected.
-   * For **Database Files Location**, browse and select **DATA** location.
-   * For **Fast Recovery Area**, browse and select **FRA** location.
-   * Type in an **Administrative Password** and **confirm password**.
-   * Ensure **create as container database** is selected.
-   * Type in a **pluggable database name** value: **pasmdb**
+   1. Ensure **Typical configuration** is selected.
+   2. Enter a name for the database: **asmdb**
+   3. For **Storage Type**, ensure **Automatic Storage Management (ASM)** is selected.
+   4. For **Database Files Location**, browse and select **DATA** location.
+   5. For **Fast Recovery Area**, browse and select **FRA** location.
+   6. Type in an **Administrative Password** and **confirm password**.
+   7. Ensure **create as container database** is selected.
+   8. Type in a **pluggable database name** value: **pasmdb**
 
-   ![Screenshot of the Database Creation page.](./media/oracle-asm/db-config-assistant-02.png)
+    :::image type="content" source="./media/oracle-asm/db-config-assistant-02.png" alt-text="Screenshot of the Database Creation page.":::
 
 4. On the **Summary** page, review your selected settings, and then click **Finish** to create the database. Database creation may take more than 10 minutes.
 
-   ![Screenshot of the Summary page.](./media/oracle-asm/db-config-assistant-03.png)
+    :::image type="content" source="./media/oracle-asm/db-config-assistant-03.png" alt-text="Screenshot of the Summary page.":::
 
 5. The Database has been created. On the **Finish** page, you may opt to unlock additional accounts to use this database and change the passwords. If you wish to do so, select **Password Management** - otherwise click on **Close**.
 
