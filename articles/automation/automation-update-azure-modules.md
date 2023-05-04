@@ -11,7 +11,8 @@ ms.custom: devx-track-azurepowershell
 # Update Azure PowerShell modules in Automation
 
 > [!Important]
-> If you are facing issues while upgrading to **Az.Accounts version 2.12.2** or upgrading to a newer version with dependencies on **Az.Accounts version 2.12.2**, we recommend you use **Az.Accounts version 2.12.1 or lower** to avoid issues with Az modules that are dependent on Az.Accounts. For more information, see [steps to import module with special versions](shared-resources/modules.md#import-modules-by-using-powershell).
+> If you are facing issues while upgrading to **Az.Accounts version 2.12.2** or upgrading to a newer version with dependencies on **Az.Accounts version 2.12.2**, we recommend you use **Az.Accounts version 2.12.1 or lower** to avoid issues with Az modules that are dependent on Az.Accounts. [Learn how to import specific module versions](#import-specific-module-versions).
+ 
 
 The most common PowerShell modules are provided by default in each Automation account. See [Default modules](shared-resources/modules.md#default-modules). As the Azure team updates the Azure modules regularly, changes can occur with the included cmdlets. These changes, for example, renaming a parameter or deprecating a cmdlet entirely, can negatively affect your runbooks. 
 
@@ -77,6 +78,24 @@ To use this runbook on sovereign clouds, use the `AzEnvironment` parameter to pa
 
 If you want to use a specific Azure PowerShell module version instead of the latest module available on the PowerShell Gallery, pass these versions to the optional `ModuleVersionOverrides` parameter of the **Update-AutomationAzureModulesForAccount** runbook. For examples, see the  [Update-AutomationAzureModulesForAccount.ps1](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update/blob/master/Update-AutomationAzureModulesForAccount.ps1) runbook. Azure PowerShell modules that aren't mentioned in the `ModuleVersionOverrides` parameter are updated with the latest module versions on the PowerShell Gallery. If you pass nothing to the `ModuleVersionOverrides` parameter, all modules are updated with the latest module versions on the PowerShell Gallery. This behavior is the same for the **Update Azure Modules** button in the Azure portal.
 
+### Import specific module versions
+
+Follow these steps:
+
+1. Download previous version of mentioned modules manually from PowerShell Gallery.
+    - Az.Accounts v2.12.1
+    - Az.Resources v6.6.0
+1. Repackage them into a ZIP where:
+    - ZIP file name: `modulename`.ZIP example: Az.Accounts.ZIP
+    - Root folder name: `modulename`, example: Az.Accounts
+    - Child directory name: `version`, example: 2.12.1.
+1. Upload with the following file structure:
+   ```azurepowershell
+      Az.Accounts.zip
+        |- Az.Accounts
+          |- 2.12.1
+            |- <put the content of nupkg file from PowerShell Gallery here>
+   ```  
 
 ## Next steps
 
