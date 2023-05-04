@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Create a job with Azure Container Apps (preview)
 
-Azure Container Apps [jobs](jobs.md) enable you to run containerized workloads that execute for a finite duration and exit. Jobs can be triggered manually or on a schedule. You can use jobs to perform tasks such as data processing, machine learning, and more.
+Azure Container Apps [jobs](jobs.md) allows you to run containerized apps that execute for a finite duration and exit. You can trigger a job manually or schedule their execution. Jobs are best suited to for tasks such as data processing, machine learning, or any scenario which requires on-demand processing.
 
 In this quickstart, you'll create a manual or scheduled job.
 
@@ -72,7 +72,7 @@ In this quickstart, you'll create a manual or scheduled job.
 
 ## Create a Container Apps environment
 
-The Azure Container Apps environment acts as a secure boundary that allows container apps and jobs in an environment to share the same network and communicate with each other.
+The Azure Container Apps environment acts as a secure boundary around container apps and jobs so they can share the same network and communicate with each other.
 
 1. Create a resource group using the following command.
 
