@@ -43,6 +43,8 @@ landingContent:
             url: microservices.md
           - text: Observability
             url: observability.md
+          - text: Jobs
+            url: jobs.md
   - title: Common tasks
     linkLists:
       - linkListType: how-to-guide
