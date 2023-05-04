@@ -1,6 +1,6 @@
 ---
 title: "Azure Operator Nexus: How to configure cluster metrics configuration management"
-description: This guide provides instructions on how to create, list, update, retrieve, and delete cluster metrics configurations.
+description: This docuemnt provides instructions on how to create, list, update, retrieve, and delete cluster metrics configurations.
 author: bryan-strassner
 ms.author: bstrassner
 ms.service: azure-operator-nexus
@@ -95,7 +95,7 @@ az networkcloud cluster metricsconfiguration create --help
 | METRIC_TO_ENABLE_1                    | Optional metric "METRIC_TO_ENABLE_1" enabled in addition to the default metrics                    |
 | METRIC_TO_ENABLE_2                    | Optional metric "METRIC_TO_ENABLE_2" enabled in addition to the default metrics                    |
 
-Specifying `--no-wait --debug` options in az cli command results in the execution of this command asynchronously. For more information, see [how to track asynchronous operations](howto-track-async-operations-cli.md).
+Specifying `--no-wait --debug` options in az command results in the execution of this command asynchronously. For more information, see [how to track asynchronous operations](howto-track-async-operations-cli.md).
 
 > [!NOTE] 
 > * The default metrics collection interval for standard set of metrics is set to every 5 minutes. Changing the `collectionInterval` will also impact the collection frequency for default standard metrics.
@@ -138,7 +138,7 @@ az networkcloud cluster metricsconfiguration update \
 
 Operators can update `collection-interval` independent of `enabled-metrics` list. Omit fields that aren't getting changed.
 
-Specifying `--no-wait --debug` options in az cli command results in the execution of this command asynchronously. For more information, see [how to track asynchronous operations](howto-track-async-operations-cli.md).
+Specifying `--no-wait --debug` options in az command results in the execution of this command asynchronously. For more information, see [how to track asynchronous operations](howto-track-async-operations-cli.md).
 
 ### Deleting a metrics configuration
 
@@ -150,6 +150,6 @@ az networkcloud cluster metricsconfiguration delete \
  --resource-group "<RESOURCE_GROUP>"
 ```
 
-Specifying `--no-wait --debug` options in az cli command results in the execution of this command asynchronously. For more information, see [how to track asynchronous operations](howto-track-async-operations-cli.md).
+Specifying `--no-wait --debug` options in az command results in the execution of this command asynchronously. For more information, see [how to track asynchronous operations](howto-track-async-operations-cli.md).
 
 
