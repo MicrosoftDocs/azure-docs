@@ -56,7 +56,7 @@ npm i @azure-rest/ai-translation-text@1.0.0-beta.1
 
 ## Build your application
 
-To interact with the Translator service using the client library, you need to create an instance of the `TextTranslationClient`class. To do so, create a `TranslateCredential` with your `key` and `region` from the Azure portal and a `TextTranslationClient`  instance. For more information, *see* [Translator text sdks](../../translator-text-sdks.md#3-authenticate-the-client).
+To interact with the Translator service using the client library, you need to create an instance of the `TextTranslationClient`class. To do so, create a `TranslateCredential` with your `key` and `region` from the Azure portal and a `TextTranslationClient`  instance. For more information, *see* [Translator text sdks](../../text-sdk-overview.md#3-authenticate-the-client).
 
 1. Create the `index.js` file in the app directory.
 

@@ -64,4 +64,4 @@ That's it, congratulations! In this quickstart, you used a Text Translation SDK 
 Learn more about Text Translation:
 
 > [!div class="nextstepaction"]
->[Document Translation SDK guide](./translator-text-sdks.md) </br></br>[Language support](language-support.md)
+>[Document Translation SDK guide](text-sdk-overview.md) </br></br>[Language support](language-support.md)

@@ -28,7 +28,7 @@ recommendations: false
 
 ## Build your application
 
-To interact with the Translator service using the client library, you need to create an instance of the `TextTranslationClient`class. To do so, create a `TranslatorCredential` with your `key` from the Azure portal and a `TextTranslationClient` instance. For more information, _see_ [Translator text sdks](../../translator-text-sdks.md#3-authenticate-the-client).
+To interact with the Translator service using the client library, you need to create an instance of the `TextTranslationClient`class. To do so, create a `TranslatorCredential` with your `key` from the Azure portal and a `TextTranslationClient` instance. For more information, _see_ [Translator text sdks](../../text-sdk-overview.md#3-authenticate-the-client).
 
 1. Create a new Python file called **text-translation-app.py** in your preferred editor or IDE.
 
