@@ -108,7 +108,7 @@
           - name: Deploy to Azure App Service
             href: functions-deploy-custom-container.md 
             displayName: container, Docker 
-          - name: Deploy to Azure Container Apps
+          - name: Deploy to Azure Container Apps (preview)
             href: functions-deploy-custom-container-aca.md 
             displayName: container, Docker, ACA 
           - name: Deploy to Azure Arc (preview)
@@ -312,11 +312,11 @@
           href: functions-premium-plan.md
         - name: Dedicated plan
           href: dedicated-plan.md
-    - name: Deployments
+    - name: Deployment
       items:
-        - name: Deployment options
+        - name: Deployment option
           href: functions-deployment-technologies.md
-        - name: Custom container deployments
+        - name: Custom container deployment
           href: functions-containers.md  
     - name: Events and messaging
       items:
