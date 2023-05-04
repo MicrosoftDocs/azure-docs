@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 06/02/2022
+ms.date: 5/4/2023
 ms.author: cshoe
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
@@ -180,7 +180,7 @@ You can define multiple containers in a single container app to implement the [s
 
 To run multiple containers in a container app, add more than one container in the `containers` array of the container app template.
 
-### Init containers
+### Init containers (preview)
 
 You can define one or more [init containers](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) in a container app. Init containers run before the primary app container and can be used to perform initialization tasks such as downloading data or preparing the environment.
 
