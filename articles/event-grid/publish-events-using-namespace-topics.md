@@ -84,7 +84,7 @@ az resource create --resource-group $resource_group --namespace Microsoft.EventG
 
 ## Create an event subscription
 
-Create an event subscription setting its delivery mode to *queue*, which supports [pull delivery](pull-and-push-delivery-overview.md#pull-delivery). For more information on all configuration options, refer to the latest Event Grid control plane [REST API](/rest/api/eventgrid).
+Create an event subscription setting its delivery mode to *queue*, which supports [pull delivery](pull-and-push-delivery-overview.md#pull-delivery-1). For more information on all configuration options, refer to the latest Event Grid control plane [REST API](/rest/api/eventgrid).
 
 Set the name of your event subscription on a variable:
 ```azurecli-interactive

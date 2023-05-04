@@ -75,12 +75,12 @@ A topic holds events that have been published to Event Grid. You typically use a
 
 Namespace topics are topics used with your applications that are created within an Event Grid [namespace](#namespaces). When designing your application, you have to decide how many topics to create. For relatively large solutions, create a namespace topic for each category of related events. For example, consider an application that manages user accounts and another application about customer orders. It's unlikely that all event subscribers want events from both applications. To segregate concerns, create two namespace topics: one for each application. Let event handlers subscribe to the topic according to their requirements. For small solutions, you might prefer to send all events to a single topic. Event subscribers can filter for the event types they want.
 
-Namespace topics support [pull delivery](pull-and-push-delivery-overview.md#pull-delivery). Consult [when to use pull or push delivery](pull-and-push-delivery-overview.md#when-to-use-push-or-pull) to help you decide if pull delivery is the right approach given your requirements.
+Namespace topics support [pull delivery](pull-and-push-delivery-overview.md#pull-delivery-1). Consult [when to use pull or push delivery](pull-and-push-delivery-overview.md#when-to-use-push-or-pull) to help you decide if pull delivery is the right approach given your requirements.
 
 ### Custom topics
 Custom topics are also topics that are used with your applications. They are self-standing resources that are **not** part of a [namespace](#namespaces). They were the first kind of topic designed to build event-driven integrations for custom applications. As a self-standing resource, they expose their own endpoint to which events are published. The same guidance provided in [Namespace topics](#namespace-topics) with respect to the number of topics you can create applies to custom topics.
 
-Custom topics support [push delivery](pull-and-push-delivery-overview.md#pull-delivery). Consult [when to use pull or push delivery](pull-and-push-delivery-overview.md#when-to-use-push-or-pull) to help you decide if push delivery is the right approach given your requirements. You may also want to refer to article [Custom topics](custom-topics.md).
+Custom topics support [push delivery](pull-and-push-delivery-overview.md#push-delivery-1). Consult [when to use pull or push delivery](pull-and-push-delivery-overview.md#when-to-use-push-or-pull) to help you decide if push delivery is the right approach given your requirements. You may also want to refer to article [Custom topics](custom-topics.md).
 
 ### System topics
 System topics are built-in topics provided by Azure services such as Azure Storage, Azure Event Hubs, and Azure Service Bus. You can  create system topics in your Azure subscription and subscribe to them. For more information, see [Overview of system topics](system-topics.md). 
@@ -116,7 +116,7 @@ For an example of setting an expiration, see [Subscribe with advanced filters](h
 
 ## Event handlers
 
-From an Event Grid perspective, an event handler is the place where the event is sent when using [push delivery](pull-and-push-delivery-overview.md#pull-delivery). The handler takes some further action to process the event. When using push delivery, Event Grid supports several handler types. You can use a supported Azure service, or your own webhook as the handler. Depending on the type of handler, Event Grid follows different mechanisms to guarantee the delivery of the event. For HTTP webhook event handlers, the event is retried until the handler returns a status code of `200 – OK`. For Azure Storage Queue, the events are retried until the Queue service successfully processes the message push into the queue.
+From an Event Grid perspective, an event handler is the place where the event is sent when using [push delivery](pull-and-push-delivery-overview.md#push-delivery-1). The handler takes some further action to process the event. When using push delivery, Event Grid supports several handler types. You can use a supported Azure service, or your own webhook as the handler. Depending on the type of handler, Event Grid follows different mechanisms to guarantee the delivery of the event. For HTTP webhook event handlers, the event is retried until the handler returns a status code of `200 – OK`. For Azure Storage Queue, the events are retried until the Queue service successfully processes the message push into the queue.
 
 For information about delivering events to any of the supported Event Grid handlers, see [Event handlers in Azure Event Grid](event-handlers.md).
 

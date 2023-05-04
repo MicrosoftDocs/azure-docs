@@ -106,7 +106,7 @@ Broadcast alerts to a fleet of clients using the **one-to-many** messaging patte
 ### Integrate MQTT data
 :::image type="content" source="media/overview/integrate-data.svg" alt-text="Diagram shows several IoT devices sending health data over MQTT to Event Grid, then to Event Hubs, and from this service to Azure Stream Analytics." lightbox="media/overview/integrate-data.svg":::
 
-Integrate data from your MQTT clients by routing MQTT messages to Azure services and Webhooks through the [HTTP Push delivery](pull-and-push-delivery-overview.md#push-delivery) functionality. For example, use Event Grid to route telemetry from your IoT devices to Event Hubs and then to Azure Stream Analytics to gain insights from your device telemetry.
+Integrate data from your MQTT clients by routing MQTT messages to Azure services and Webhooks through the [HTTP Push delivery](pull-and-push-delivery-overview.md#push-delivery-1) functionality. For example, use Event Grid to route telemetry from your IoT devices to Event Hubs and then to Azure Stream Analytics to gain insights from your device telemetry.
 
 ## Push delivery of discrete events
 
