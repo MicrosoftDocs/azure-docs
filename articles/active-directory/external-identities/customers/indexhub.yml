@@ -86,4 +86,8 @@ additionalContent:
         - title: Code samples for customer tenants
           summary: Learn about our code samples for customer identity and access management (CIAM) in Azure Active Directory.
           url: /azure/active-directory/external-identities/customers/samples-ciam-all
+          # Card
+        - title: Integrate an app
+          summary: Learn about how to configure and integrate apps for customer identity and access management (CIAM) in Azure Active Directory.
+          url: indexdev.yml
 ## BAND 2 - ADDITIONAL CONTENT END ##########################################################################################################################
