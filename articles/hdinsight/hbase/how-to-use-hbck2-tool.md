@@ -7,7 +7,7 @@ ms.author: robinroy
 ms.service: hdinsight
 ms.custom: troubleshooting
 ms.topic: conceptual
-ms.date: 04/25/2023
+ms.date: 05/05/2023
 ---
 # How to use Apache HBase HBCK2 Tool
 
@@ -50,13 +50,13 @@ This command with no options or arguments passed prints the HBCK2 help.
 > [!NOTE]
 > Test these commands on a test cluster to understand the functionality before running in production environment
 
-`**assigns \[OPTIONS\] \<ENCODED_REGIONNAME/INPUTFILES_FOR_REGIONNAMES\>... | -i \<INPUT_FILE\>...**`
+`**assigns [OPTIONS] <ENCODED_REGIONNAME/INPUTFILES_FOR_REGIONNAMES>... | -i <INPUT_FILE>...**`
 
 **Options:**
 
-`&emsp;-o,--override`  - override ownership by another procedure
+-o,--override` - override ownership by another procedure
 
-`&emsp;-i,--inputFiles`  - takes one or more encoded region names
+`-i,--inputFiles` - takes one or more encoded region names
 
 A 'raw' assign that can be used even during Master initialization (if the -skip flag is specified). Skirts Coprocessors. Pass one or more encoded region names. de00010733901a05f5a2a3a382e27dd4 is an example of what a user-space encoded region name looks like. For example:
 ```
@@ -67,13 +67,13 @@ Returns the PID(s) of the created AssignProcedure(s) or -1 if none. If `-i or --
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar assigns -i fileName1 fileName2
 ```
 
-**unassigns \[OPTIONS\] \<ENCODED_REGIONNAME\>...| -i \<INPUT_FILE\>...**
+**unassigns [OPTIONS] <ENCODED_REGIONNAME>...| -i <INPUT_FILE>...**
 
 **Options:**
 
-&emsp;-o,--override  - override ownership by another procedure
+`-o,--override` - override ownership by another procedure
 
-&emsp;-i,--inputFiles  - takes ones or more input files of encoded names
+`-i,--inputFiles`  - takes ones or more input files of encoded names
 
 A 'raw' unassign that can be used even during Master initialization (if the -skip flag is specified). Skirts Coprocessors. Pass one or more encoded region names. de00010733901a05f5a2a3a382e27dd4 is an example of what a user override space encoded region name looks like. For example:
 ```
@@ -84,17 +84,17 @@ Returns the PID(s) of the created UnassignProcedure(s) or -1 if none. If `-i or 
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar unassigns fileName1 -i fileName2
 ```
 
-**bypass \[OPTIONS\] \<PID\>...**
+**bypass [OPTIONS] <PID>...**
 
 **Options:**
 
-&emsp;-o,--override   - override if procedure is running/stuck
+`-o,--override` - override if procedure is running/stuck
 
-&emsp;-r,--recursive  = bypass parent and its children. SLOW! EXPENSIVE!
+`-r,--recursive` - bypass parent and its children. SLOW! EXPENSIVE!
 
-&emsp;-w,--lockWait   milliseconds to wait before giving up; default=1
+`-w,--lockWait` - milliseconds to wait before giving up; default=1
 
-&emsp;-i,--inputFiles  takes one or more input files of PIDs
+`-i,--inputFiles` - takes one or more input files of PIDs
 
 Pass one (or more) procedure 'PIDs to skip to procedure finish. Parent of bypassed procedure skips to the finish. Entities are left in an inconsistent state and require manual fixup May need Master restart to clear locks still held. Bypass fails if procedure has children. Add 'recursive' if all you have is a parent PID to finish parent and children. ***This is SLOW, and dangerous so use selectively. Doesn't always work***. 
 ```
@@ -105,11 +105,11 @@ If `-i or --inputFiles` is specified, pass one or more input file names. Each fi
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar bypass -i fileName1 fileName2
 ```
 
-**reportMissingRegionsInMeta \<NAMESPACE|NAMESPACE:TABLENAME\>... | -i \<INPUT_FILE\>...**
+**reportMissingRegionsInMeta <NAMESPACE|NAMESPACE:TABLENAME>... | -i <INPUT_FILE>...**
 
 **Options:**
 
-&emsp;i,--inputFiles  takes one or more input files of namespace or table names
+`i,--inputFiles`  takes one or more input files of namespace or table names
 
 To be used when regions missing from `hbase:meta` but directories are present still in HDFS. This command is an only a check method, designed for reporting purposes and doesn't perform any fixes, providing a view of which regions (if any) would get readded to `hbase:meta`, grouped by respective table/namespace. To effectively readd regions in meta, run addFsRegionsMissingInMeta. **This command needs `hbase:meta` to be online**. For each namespace/table passed as parameter, it performs a diff between regions available in `hbase:meta` against existing regions dirs on HDFS. Region dirs with no matches are printed grouped under its related table name. Tables with no missing regions show a 'no missing regions' message. If no namespace or table is specified, it verifies all existing regions. It accepts a combination of multiple namespace and tables. Table names should include the namespace portion, even for tables in the default namespace, otherwise it assumes as a namespace value. An example triggering missing regions report for tables 'table_1' and 'table_2', under default namespace:
 ```
@@ -119,16 +119,16 @@ An example triggering missing regions report for table 'table_1' under default n
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar reportMissingRegionsInMeta default:table_1 ns1
 ```
-Returns list of missing regions for each table passed as parameter, or for each table on namespaces specified as parameter. If `-i or --inputFiles` is specified, pass one or more input file names. Each file contains \<NAMESPACE|NAMESPACE:TABLENAME\>, one per line. For example:
+Returns list of missing regions for each table passed as parameter, or for each table on namespaces specified as parameter. If `-i or --inputFiles` is specified, pass one or more input file names. Each file contains <NAMESPACE|NAMESPACE:TABLENAME>, one per line. For example:
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar reportMissingRegionsInMeta -i fileName1 fileName2
 ```
 
-**addFsRegionsMissingInMeta \<NAMESPACE|NAMESPACE:TABLENAME\>... | -i \<INPUT_FILE\>...**
+**addFsRegionsMissingInMeta <NAMESPACE|NAMESPACE:TABLENAME>... | -i <INPUT_FILE>...**
 
 **Options**
 
-&emsp;-i,--inputFiles  takes one or more input files of namespace of table names to be used when regions missing from `hbase:meta` but directories are present still in HDFS. **Needs `hbase:meta` to be online**. For each table name passed as parameter, performs diff between regions available in `hbase:meta` and region dirs on HDFS. Then for dirs with no `hbase:meta` matches, it reads the 'regioninfo' metadata file and re-creates given region in `hbase:meta`. Regions are re-created in 'CLOSED' state in the `hbase:meta` table, but not in the Masters' cache, and they aren't assigned either. To get these regions online, run the HBCK2 'assigns' command printed when this command-run completes.\
+`-i,--inputFiles`  takes one or more input files of namespace of table names to be used when regions missing from `hbase:meta` but directories are present still in HDFS. **Needs `hbase:meta` to be online**. For each table name passed as parameter, performs diff between regions available in `hbase:meta` and region dirs on HDFS. Then for dirs with no `hbase:meta` matches, it reads the 'regioninfo' metadata file and re-creates given region in `hbase:meta`. Regions are re-created in 'CLOSED' state in the `hbase:meta` table, but not in the Masters' cache, and they aren't assigned either. To get these regions online, run the HBCK2 'assigns' command printed when this command-run completes.
 
 > [!NOTE]
 > If using hbase releases older than 2.3.0, a rolling restart of HMasters is needed prior to executing the set of 'assigns' output**. An example adding missing regions for tables 'tbl_1' in the default namespace, 'tbl_2' in namespace 'n1' and for all tables from namespace 'n2':
@@ -136,20 +136,20 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar addFsRegionsMissingInMeta default:tbl_1 n1:tbl_2 n2
 ```
-Returns HBCK2  an 'assigns' command with all reinserted regions. If `-i or --inputFiles` is specified, pass one or more input file names. Each file contains \<NAMESPACE|NAMESPACE:TABLENAME\>, one per line. For example:
+Returns HBCK2  an 'assigns' command with all reinserted regions. If `-i or --inputFiles` is specified, pass one or more input file names. Each file contains <NAMESPACE|NAMESPACE:TABLENAME>, one per line. For example:
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar addFsRegionsMissingInMeta -i fileName1 fileName2
 ```
 
-**extraRegionsInMeta \<NAMESPACE|NAMESPACE:TABLENAME\>... | -i \<INPUT_FILE\>...**
+**extraRegionsInMeta <NAMESPACE|NAMESPACE:TABLENAME>... | -i <INPUT_FILE>...**
 
 **Options**
 
-&emsp;-f, --fix    fix meta by removing all extra regions found.
+`-f, --fix`- fix meta by removing all extra regions found.
 
-&emsp;-i,--inputFiles  take one or more input files of namespace or table names
+`-i,--inputFiles`- take one or more input files of namespace or table names
 
-Reports regions present on `hbase:meta`, but with no related directories on the file system. Needs `hbase:meta` to be online. For each table name passed as parameter, performs diff between regions available in `hbase:meta` and region dirs on the given file system. Extra regions would get deleted from Meta if passed the --fix option.\
+Reports regions present on `hbase:meta`, but with no related directories on the file system. Needs `hbase:meta` to be online. For each table name passed as parameter, performs diff between regions available in `hbase:meta` and region dirs on the given file system. Extra regions would get deleted from Meta if passed the --fix option.
 
 > [!NOTE]
 >  Before deciding on use the "--fix" option, it's worth check if reported extra regions are overlapping with existing valid regions. If so, then `extraRegionsInMeta --fix` is indeed the optimal solution. Otherwise, "assigns" command is the simpler solution, as it recreates regions dirs in the filesystem, if not existing.
@@ -162,7 +162,7 @@ An example triggering extra regions report for table 'table_1' under default nam
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar extraRegionsInMeta -f default:table_1 ns1
 ```
-Returns list of extra regions for each table passed as parameter, or for each table on namespaces specified as parameter. If `-i or --inputFiles` is specified, pass one or more input file names. Each file contains \<NAMESPACE|NAMESPACE:TABLENAME\>, one per line. For example:
+Returns list of extra regions for each table passed as parameter, or for each table on namespaces specified as parameter. If `-i or --inputFiles` is specified, pass one or more input file names. Each file contains <NAMESPACE|NAMESPACE:TABLENAME>, one per line. For example:
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar extraRegionsInMeta -i fileName1 fileName2
 ```
@@ -177,24 +177,24 @@ Do a server-side fix of bad or inconsistent state in `hbase:meta`. Master UI has
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar fixMeta
 ```
 
-**generateMissingTableDescriptorFile \<NAMESPACE:TABLENAME\>**
+**generateMissingTableDescriptorFile <NAMESPACE:TABLENAME>**
 
-Trying to fix an orphan table by generating a missing table descriptor file. This command has no effect if the table folder is missing or if the `.tableinfo` is present (we don't override existing table descriptors). This command first checks if the TableDescriptor is cached in HBase Master in which case it recovers the `.tableinfo` accordingly. If TableDescriptor isn't cached in master, then it creates a default `.tableinfo` file with the following items:\
-&emsp;- the table name\
-&emsp;- the column family list determined based on the file system
-&emsp;- the default properties for both TableDescriptor and `ColumnFamilyDescriptors`
+Trying to fix an orphan table by generating a missing table descriptor file. This command has no effect if the table folder is missing or if the `.tableinfo` is present (we don't override existing table descriptors). This command first checks if the TableDescriptor is cached in HBase Master in which case it recovers the `.tableinfo` accordingly. If TableDescriptor isn't cached in master, then it creates a default `.tableinfo` file with the following items:
+- the table name
+- the column family list determined based on the file system
+- the default properties for both TableDescriptor and `ColumnFamilyDescriptors`
 If the `.tableinfo` file was generated using default parameters then make sure you check the table / column family properties later (and change them if needed). This method doesn't change anything in HBase, only writes the new `.tableinfo` file to the file system. Orphan tables, for example, ServerCrashProcedures to stick, you might need to fix the error still after you generated the missing table info files.
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar generateMissingTableDescriptorFile namespace:table_name
 ```
 
-**replication \[OPTIONS\] \[\<NAMESPACE:TABLENAME\>... | -i \<INPUT_FILE\>...\]**
+**replication [OPTIONS] [<NAMESPACE:TABLENAME>... | -i <INPUT_FILE>...]**
 
 **Options**
 
-&emsp;-f, --fix    fix any replication issues found.
+`-f, --fix` - fix any replication issues found.
 
-&emsp;-i,--inputFiles  take one or more input files of table names
+`-i,--inputFiles` - take one or more input files of table names
 
 Looks for undeleted replication queues and deletes them if passed the '--fix' option. Pass a table name to check for replication barrier and purge if '--fix'. 
 ```
@@ -206,11 +206,11 @@ If `-i or --inputFiles` is specified, pass one or more input file names. Each fi
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar replication -i fileName1 fileName2
 ```
 
-**setRegionState \[\<ENCODED_REGIONNAME\> \<STATE\> | -i \<INPUT_FILE\>...\]**
+**setRegionState [<ENCODED_REGIONNAME> <STATE> | -i <INPUT_FILE>...]**
 
 **Options**
 
-`&emsp;-i,--inputFiles`  take one or more input files of encoded region names and states
+`-i,--inputFiles`  take one or more input files of encoded region names and states
   
 **Possible region states:**
 
@@ -232,7 +232,7 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 > [!WARNING]
 > This is a very risky option intended for use as last resort.
 
-Example scenarios include unassigns/assigns that can't move forward because region is in an inconsistent state in 'hbase:meta'. For example, the 'unassigns' command can only proceed if passed a region in one of the following states: **SPLITTING|SPLIT|MERGING|OPEN|CLOSING**.\
+Example scenarios include unassigns/assigns that can't move forward because region is in an inconsistent state in 'hbase:meta'. For example, the 'unassigns' command can only proceed if passed a region in one of the following states: **SPLITTING|SPLIT|MERGING|OPEN|CLOSING**.
 
  Before manually setting a region state with this command, certify that this region not handled by a running procedure, such as 'assign' or 'split'. You can get a view of running procedures in the hbase shell using the 'list_procedures' command. An example
 setting region 'de00010733901a05f5a2a3a382e27dd4' to CLOSING:
@@ -242,17 +242,17 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 ```
 Returns "0" if region state changed and "1" otherwise.
 If `-i or --inputFiles` is specified, pass one or more input file names.
-Each file contains \<ENCODED_REGIONNAME\> \<STATE\>, one pair per line.
+Each file contains <ENCODED_REGIONNAME> <STATE>, one pair per line.
 For example,
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar setRegionState -i fileName1 fileName2
 ```
 
-**setTableState \[\<TABLENAME\> \<STATE\> | -i \<INPUT_FILE\>...\]**
+**setTableState [<TABLENAME> <STATE> | -i <INPUT_FILE>...]**
 
 **Options**
 
-`&emsp;-i,--inputFiles`  take one or more input files of table names and states
+`-i,--inputFiles`  take one or more input files of table names and states
 
 Possible table states: **ENABLED, DISABLED, DISABLING, ENABLING**.
 
@@ -261,31 +261,31 @@ To read current table state, in the hbase shell run:
 ```
 hbase> get 'hbase:meta', '<TABLENAME>', 'table:state'
 ```
-A value of \x08\x00 == ENABLED, \x08\x01 == DISABLED, etc.
-Can also run a 'describe "\<TABLENAME\>"' at the shell prompt. An example making table name 'user' ENABLED:
+A value of x08x00 == ENABLED, x08x01 == DISABLED, etc.
+Can also run a 'describe "<TABLENAME>"' at the shell prompt. An example making table name 'user' ENABLED:
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar setTableState users ENABLED
 ```
-Returns whatever the previous table state was. If `-i or --inputFiles` is specified, pass one or more input file names. Each file contains \<TABLENAME\> \<STATE\>, one pair per line.
+Returns whatever the previous table state was. If `-i or --inputFiles` is specified, pass one or more input file names. Each file contains <TABLENAME> <STATE>, one pair per line.
 For example:
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar setTableState -i fileName1 fileName2
 ```
 
-**scheduleRecoveries \<SERVERNAME\>... | -i \<INPUT_FILE\>...**
+**scheduleRecoveries <SERVERNAME>... | -i <INPUT_FILE>...**
 
 **Options**
 
-`&emsp;-i,--inputFiles`  take one or more input files of server names
+-i,--inputFiles`  take one or more input files of server names
 
-Schedule ServerCrashProcedure(SCP) for list of RegionServers. Format server name as '\<HOSTNAME\>,\<PORT\>,\<STARTCODE\>' (See HBase UI/logs).\
+Schedule ServerCrashProcedure(SCP) for list of RegionServers. Format server name as '<HOSTNAME>,<PORT>,<STARTCODE>' (See HBase UI/logs).
 Example using RegionServer 'a.example.org, 29100,1540348649479':
 
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar scheduleRecoveries a.example.org,29100,1540348649479
 ```
 Returns the PID(s) of the created ServerCrashProcedure(s) or -1 if no procedure created (see master logs for why not).
-Command support added in hbase versions 2.0.3, 2.1.2, 2.2.0 or newer. If `-i or --inputFiles` is specified, pass one or more input file names. Each file contains \<SERVERNAME\>, one per line. For example:
+Command support added in hbase versions 2.0.3, 2.1.2, 2.2.0 or newer. If `-i or --inputFiles` is specified, pass one or more input file names. Each file contains <SERVERNAME>, one per line. For example:
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar scheduleRecoveries -i fileName1 fileName2 
 
