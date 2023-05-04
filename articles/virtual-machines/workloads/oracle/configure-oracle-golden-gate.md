@@ -36,16 +36,16 @@ To perform the Oracle Golden Gate installation, you need to create two Azure VMs
 You also need to be familiar with Unix editor vi and have a basic understanding of X Server.
 
 The following table is a summary of the environment configuration:
->
-> |  | **Primary site** | **Replicate site** |
-> | --- | --- | --- |
-> | **Oracle release** |Oracle Database 19.3.1.0|Oracle Database 19.3.1.0|
-> | **Machine name** |ggVM1 |ggVM2 |
-> | **Operating system** |Oracle Linux 7.x |Oracle Linux 7.x |
-> | **Oracle SID** |CDB1 |CDB1 |
-> | **Replication schema** |TEST|TEST |
-> | **Golden Gate owner/replicate** |C##GGADMIN |REPUSER |
-> | **Golden Gate process** |EXTORA |REPORA|
+
+|  | **Primary site** | **Replicate site** |
+| --- | --- | --- |
+| **Oracle release** |Oracle Database 19.3.1.0|Oracle Database 19.3.1.0|
+| **Machine name** |ggVM1 |ggVM2 |
+| **Operating system** |Oracle Linux 7.x |Oracle Linux 7.x |
+| **Oracle SID** |CDB1 |CDB1 |
+| **Replication schema** |TEST|TEST |
+| **Golden Gate owner/replicate** |C##GGADMIN |REPUSER |
+| **Golden Gate process** |EXTORA |REPORA|
 
 ### Sign in to Azure
 
@@ -53,33 +53,33 @@ The following table is a summary of the environment configuration:
 
 2. Sign in to your Azure subscription with the [az login](/cli/azure/authenticate-azure-cli) command. Then follow the on-screen directions.
 
-```azurecli
-$ az login
-```
+    ```azurecli
+    $ az login
+    ```
 
 3. Ensure you are connected to the correct subscription by verifying subscription name and/or ID.
 
-```azurecli
-$ az account show
-```
+    ```azurecli
+    $ az account show
+    ```
 
-```output
-{
-  "environmentName": "XXXXX",
-  "homeTenantId": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-  "id": "<SUBSCRIPTION_ID>",
-  "isDefault": true,
-  "managedByTenants": [],
-  "name": "<SUBSCRIPTION_NAME>",
-  "state": "Enabled",
-  "tenantId": XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-  "user": {
-    "cloudShellID": true,
-    "name": "aaaaa@bbbbb.com",
-    "type": "user"
-  }
-}
-```
+    ```output
+    {
+      "environmentName": "XXXXX",
+      "homeTenantId": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+      "id": "<SUBSCRIPTION_ID>",
+      "isDefault": true,
+      "managedByTenants": [],
+      "name": "<SUBSCRIPTION_NAME>",
+      "state": "Enabled",
+      "tenantId": XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+      "user": {
+        "cloudShellID": true,
+        "name": "aaaaa@bbbbb.com",
+        "type": "user"
+      }
+    }
+    ```
 
 ### Generate authentication keys
 
@@ -106,7 +106,7 @@ $ az group create --name GoldenGateOnAzureLab --location westus
 
 ### Create and configure network
 
-#### Create Virtual Network
+#### Create virtual network
 
 Use following command to create the virtual network that hosts resources we create in this lab.
 
@@ -123,73 +123,73 @@ $ az network vnet create \
 
 1. Create network security group (NSG) to lock down your virtual network.
 
-```azurecli
-$ az network nsg create \
-  --resource-group GoldenGateOnAzureLab \
-  --name ggVnetNSG
-```
+    ```azurecli
+    $ az network nsg create \
+      --resource-group GoldenGateOnAzureLab \
+      --name ggVnetNSG
+    ```
 
 2. Create NSG rule to allow communication within virtual network.
 
-```azurecli
-$ az network nsg rule create  --resource-group GoldenGateOnAzureLab --nsg-name ggVnetNSG \
-    --name ggAllowVnet \
-    --protocol '*' --direction inbound --priority 3400 \
-    --source-address-prefix 'VirtualNetwork' --source-port-range '*' \
-    --destination-address-prefix 'VirtualNetwork' --destination-port-range '*' --access allow
-```
+    ```azurecli
+    $ az network nsg rule create  --resource-group GoldenGateOnAzureLab --nsg-name ggVnetNSG \
+        --name ggAllowVnet \
+        --protocol '*' --direction inbound --priority 3400 \
+        --source-address-prefix 'VirtualNetwork' --source-port-range '*' \
+        --destination-address-prefix 'VirtualNetwork' --destination-port-range '*' --access allow
+    ```
 
 3. Create NSG rule to deny all inbound connections
 
-```azurecli
-$ az network nsg rule create \
-  --resource-group GoldenGateOnAzureLab \
-  --nsg-name ggVnetNSG \
-  --name ggDenyAllInBound \
-  --protocol '*' --direction inbound --priority 3500 \
-  --source-address-prefix '*' --source-port-range '*' \
-  --destination-address-prefix '*' --destination-port-range '*' --access deny
-```
+    ```azurecli
+    $ az network nsg rule create \
+      --resource-group GoldenGateOnAzureLab \
+      --nsg-name ggVnetNSG \
+      --name ggDenyAllInBound \
+      --protocol '*' --direction inbound --priority 3500 \
+      --source-address-prefix '*' --source-port-range '*' \
+      --destination-address-prefix '*' --destination-port-range '*' --access deny
+    ```
 
 4. Assign NSG to Subnet where we host our servers.
 
-```azurecli
-$ az network vnet subnet update --resource-group GoldenGateOnAzureLab --vnet-name ggVNet --name ggSubnet1 --network-security-group ggVnetNSG
-```
+    ```azurecli
+    $ az network vnet subnet update --resource-group GoldenGateOnAzureLab --vnet-name ggVNet --name ggSubnet1 --network-security-group ggVnetNSG
+    ```
 
 #### Create Bastion Network
 
 1. Create Bastion subnet. Name of the subnet must be **AzureBastionSubnet**
 
-```azurecli
-$ az network vnet subnet create  \
-    --resource-group GoldenGateOnAzureLab \
-    --name AzureBastionSubnet \
-    --vnet-name ggVnet \
-    --address-prefixes 10.0.1.0/24 
-```
+    ```azurecli
+    $ az network vnet subnet create  \
+        --resource-group GoldenGateOnAzureLab \
+        --name AzureBastionSubnet \
+        --vnet-name ggVnet \
+        --address-prefixes 10.0.1.0/24 
+    ```
 
 2. Create public IP for Bastion
 
-```azurecli
-$ az network public-ip create \
-    --resource-group GoldenGateOnAzureLab \
-    --name ggBastionIP \
-    --sku Standard 
-```
+    ```azurecli
+    $ az network public-ip create \
+        --resource-group GoldenGateOnAzureLab \
+        --name ggBastionIP \
+        --sku Standard 
+    ```
 
 3. Create Azure Bastion resource. It takes about 10 minutes for the resource to deploy.
 
-```azurecli
-$ az network bastion create \
-    --resource-group GoldenGateOnAzureLab \
-    --name ggBastion \
-    --public-ip-address ggBastionIP \
-    --vnet-name ggVnet \
-    --sku Standard \
-    --enable-tunneling \
-    --enable-ip-connect true
-```
+    ```azurecli
+    $ az network bastion create \
+        --resource-group GoldenGateOnAzureLab \
+        --name ggBastion \
+        --public-ip-address ggBastionIP \
+        --vnet-name ggVnet \
+        --sku Standard \
+        --enable-tunneling \
+        --enable-ip-connect true
+    ```
 
 ### Create X Server VM  (ggXServer)
 
@@ -234,19 +234,19 @@ X Server is required for later steps of this lab. Perform following steps to ins
 
 4. Select **Multiple Windows**
 
-   ![Screenshot of XLaunch wizard step 1.](./media/oracle-golden-gate/xlaunch-01.png)
+   :::image type="content" source="./media/oracle-golden-gate/xlaunch-01.png" alt-text="Screenshot of XLaunch wizard step 1.":::
 
 5. Select **Start no client**
 
-   ![Screenshot of XLaunch wizard step 2.](./media/oracle-golden-gate/xlaunch-02.png)
+   :::image type="content" source="./media/oracle-golden-gate/xlaunch-02.png" alt-text="Screenshot of XLaunch wizard step 2.":::
 
 6. Select **No access control**
 
-   ![Screenshot of XLaunch wizard step 3.](./media/oracle-golden-gate/xlaunch-03.png)
+   :::image type="content" source="./media/oracle-golden-gate/xlaunch-03.png" alt-text="Screenshot of XLaunch wizard step 3.":::
 
 7. Select **Allow Access** to allow X Server through Windows Firewall
 
-   ![Screenshot of XLaunch wizard step 4.](./media/oracle-golden-gate/xlaunch-04.png)
+   :::image type="content" source="./media/oracle-golden-gate/xlaunch-04.png" alt-text="Screenshot of XLaunch wizard step 4.":::
 
 If you restart your **ggXServer** VM, follow steps 2-6 above to restart X Server application.
 
@@ -294,11 +294,11 @@ $ az vm create \
 
 Connect to **ggVM1** using Bastion.
 
-* Navigate to **ggVM1** from Azure portal.
-* Go to **Overview** in the left blade
-* Select **Connect** > **Bastion** on the menu at the top
-* Select Bastion tab
-* Click **Use Bastion**
+1. Navigate to **ggVM1** from Azure portal.
+2. Go to **Overview** in the left blade
+3. Select **Connect** > **Bastion** on the menu at the top
+4. Select Bastion tab
+5. Click **Use Bastion**
 
 ### Create the database on ggVM1 (primary)
 
@@ -506,45 +506,45 @@ SQL> EXIT;
 
 3. Copy to ggVM1
 
-   * Login and ensure you are using the correct subscription as necessary as described in [Sign in to Azure](#sign-in-to-azure)
+   1. Login and ensure you are using the correct subscription as necessary as described in [Sign in to Azure](#sign-in-to-azure)
 
-   * Open the tunnel to your target VM using the following PowerShell command
+   2. Open the tunnel to your target VM using the following PowerShell command
 
-   ```PowerShell
-   $ggVM1id=$(az vm show --resource-group GoldenGateOnAzureLab --name ggVM1 --query 'id' --output tsv)
-   az network bastion tunnel --name ggBastion --resource-group GoldenGateOnAzureLab --target-resource-id $ggVM1id --resource-port 22 --port 57500
-   ```
+       ```PowerShell
+       $ggVM1id=$(az vm show --resource-group GoldenGateOnAzureLab --name ggVM1 --query 'id' --output tsv)
+       az network bastion tunnel --name ggBastion --resource-group GoldenGateOnAzureLab --target-resource-id $ggVM1id --resource-port 22 --port 57500
+       ```
 
-   * Leave the first command prompt running and open a second command prompt to connect to your target VM through the tunnel. In this second command prompt window, you can upload files from your local machine to your target VM using the following command. The correct `id_rsa` keyfile to access virtual machine must reside in `.ssh` directory or you can point to a different key file using `-i` parameter to `scp` command.
+   3. Leave the first command prompt running and open a second command prompt to connect to your target VM through the tunnel. In this second command prompt window, you can upload files from your local machine to your target VM using the following command. The correct `id_rsa` keyfile to access virtual machine must reside in `.ssh` directory or you can point to a different key file using `-i` parameter to `scp` command.
 
-   ```PowerShell
-    scp -P 57500 "213000_fbo_ggs_Linux_x64_Oracle_shiphome.zip"  azureuser@127.0.0.1:.
-   ```
+       ```PowerShell
+        scp -P 57500 "213000_fbo_ggs_Linux_x64_Oracle_shiphome.zip"  azureuser@127.0.0.1:.
+       ```
 
 4. Copy to ggVM2
 
-   * Open the tunnel to your target VM using the following PowerShell command
+   1. Open the tunnel to your target VM using the following PowerShell command
 
-   ```PowerShell
-   $ggVM2id=$(az vm show --resource-group GoldenGateOnAzureLab --name ggVM2 --query 'id' --output tsv)
-   az network bastion tunnel --name ggBastion --resource-group GoldenGateOnAzureLab --target-resource-id $ggVM2id --resource-port 22 --port 57501
-   ```
+       ```PowerShell
+       $ggVM2id=$(az vm show --resource-group GoldenGateOnAzureLab --name ggVM2 --query 'id' --output tsv)
+       az network bastion tunnel --name ggBastion --resource-group GoldenGateOnAzureLab --target-resource-id $ggVM2id --resource-port 22 --port 57501
+       ```
 
-   * Leave the first command prompt running and open a second command prompt to connect to your target VM through the tunnel. In this second command prompt window, you can upload files from your local machine to your target VM using the following command. Note that the correct `id_rsa` keyfile to access virtual machine must reside in `.ssh` directory or you can point to a different key file using `-i` parameter to `scp` command.
+   2. Leave the first command prompt running and open a second command prompt to connect to your target VM through the tunnel. In this second command prompt window, you can upload files from your local machine to your target VM using the following command. Note that the correct `id_rsa` keyfile to access virtual machine must reside in `.ssh` directory or you can point to a different key file using `-i` parameter to `scp` command.
 
-   ```powershell
-   scp -P 57501 "213000_fbo_ggs_Linux_x64_Oracle_shiphome.zip"  azureuser@127.0.0.1:.
-   ```
+       ```powershell
+       scp -P 57501 "213000_fbo_ggs_Linux_x64_Oracle_shiphome.zip"  azureuser@127.0.0.1:.
+       ```
 
 ### Install Golden Gate software
 
 1. Connect to **ggVM1** using Bastion.
 
-    * Navigate to **ggVM1** from Azure portal.
-    * Go to **Overview** in the left blade
-    * Select **Connect** > **Bastion** on the menu at the top
-    * Select Bastion tab
-    * Click **Use Bastion**
+    1. Navigate to **ggVM1** from Azure portal.
+    2. Go to **Overview** in the left blade
+    3. Select **Connect** > **Bastion** on the menu at the top
+    4. Select Bastion tab
+    5. Click **Use Bastion**
 
 2. Move the .zip file to the **/opt** folder, then change the owner
 
@@ -581,31 +581,31 @@ SQL> EXIT;
 
 6. Select 'Oracle GoldenGate for Oracle Database 21c'. Then select **Next** to continue.
 
-   ![Screenshot of Golden Gate installation wizard step 1.](./media/oracle-golden-gate/goldengate-install-01.png)
+   :::image type="content" source="./media/oracle-golden-gate/goldengate-install-01.png" alt-text="Screenshot of Golden Gate installation wizard step 1.":::
 
 7. Set the software location to **/u01/app/oracle/product/19.0.0/oggcore_1**, make sure **Start Manager** box is selected and select **Next** to continue.
 
-   ![Screenshot of Golden Gate installation wizard step 2.](./media/oracle-golden-gate/goldengate-install-02.png)
+   :::image type="content" source="./media/oracle-golden-gate/goldengate-install-02.png" alt-text="Screenshot of Golden Gate installation wizard step 2.":::
 
 8. On the **Summary** screen, select **Install** to continue.
 
-   ![Screenshot of Golden Gate installation wizard step 3.](./media/oracle-golden-gate/goldengate-install-03.png)
+   :::image type="content" source="./media/oracle-golden-gate/goldengate-install-03.png" alt-text="Screenshot of Golden Gate installation wizard step 3.":::
 
 9. Wait for installation to finish.
 
-   ![Screenshot of Golden Gate installation wizard step 4.](./media/oracle-golden-gate/goldengate-install-04.png)
+   :::image type="content" source="./media/oracle-golden-gate/goldengate-install-04.png" alt-text="Screenshot of Golden Gate installation wizard step 4.":::
 
 10. Select **Close** to continue.
 
-    ![Screenshot of Golden Gate installation wizard step 5.](./media/oracle-golden-gate/goldengate-install-05.png)
+   :::image type="content" source="./media/oracle-golden-gate/goldengate-install-05.png" alt-text="Screenshot of Golden Gate installation wizard step 5.":::
 
 11. Connect to **ggVM2** using Bastion.
 
-    * Navigate to **ggVM2** from Azure portal.
-    * Go to **Overview** in the left blade
-    * Select **Connect** > **Bastion** on the menu at the top
-    * Select Bastion tab
-    * Click **Use Bastion**
+    1. Navigate to **ggVM2** from Azure portal.
+    2. Go to **Overview** in the left blade
+    3. Select **Connect** > **Bastion** on the menu at the top
+    4. Select Bastion tab
+    5. Click **Use Bastion**
 
 12. Repeat steps 2-10 above on **ggVM2**
 
