@@ -38,7 +38,7 @@ A Backup vault is a management entity in Azure that stores backup data for vario
 Here, we're creating a Backup vault *TestBkpVault* in *West US* region under the resource group *testBkpVaultRG*. Use the `New-AzDataProtectionBackupVault` cmdlet to create a Backup vault. Learn more about [creating a Backup vault](backup-vault-overview.md#create-a-backup-vault).
 
 >[!Note]
-Though the selected vault may have the *global-redundancy* setting, backup for AKS currently supports **Operational Tier** only. All backups are stored in your subscription in the same region as that of the AKS cluster, and they aren't copied to Backup vault storage.
+>Though the selected vault may have the *global-redundancy* setting, backup for AKS currently supports **Operational Tier** only. All backups are stored in your subscription in the same region as that of the AKS cluster, and they aren't copied to Backup vault storage.
 
 1. To define the storage settings of the Backup vault, run the following cmdlet:
 
