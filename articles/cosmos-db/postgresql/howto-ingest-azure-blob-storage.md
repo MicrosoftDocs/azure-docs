@@ -346,3 +346,4 @@ INSERT 0 264308
 Congratulations, you just learned how to load data into Azure Cosmos DB for PostgreSQL directly from Azure Blob Storage.
 
 Learn how to create a [real-time dashboard](tutorial-design-database-realtime.md) with Azure Cosmos DB for PostgreSQL.
+Learn more about [pg_azure_storage](reference-pg-azure-storage.md).
