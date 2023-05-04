@@ -123,7 +123,7 @@ This section provides guidance that shows how to enable OpenTelemetry.
 
 ##### [ASP.NET Core](#tab/aspnetcore)
 
-The following code demonstrates how to enable OpenTelemetry in an ASP.NET Core application by calling `UseAzureMonitor()`. This code must be in the application startup.
+Add `UseAzureMonitor()` to your application startup. Depending on your version of .NET Core, this will be in either your `startup.cs` or `program.cs` class.
 
 ```csharp
 using Azure.Monitor.OpenTelemetry.AspNetCore;
@@ -132,7 +132,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddOpenTelemetry().UseAzureMonitor(options => options.ConnectionString = "<Your Connection String>");
+builder.Services.AddOpenTelemetry().UseAzureMonitor();
 
 var app = builder.Build();
 
@@ -207,7 +207,18 @@ The following instructions detail where to paste your unique connection string.
 
 #### [ASP.NET Core](#tab/aspnetcore)
 
-Replace the `<Your Connection String>` in the preceding code with the connection string from *your* Application Insights resource.
+TODO: MOTHRA: ConnStr via EnvVar, Code, ConfigFile
+
+```csharp
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddOpenTelemetry().UseAzureMonitor(options => options.ConnectionString = "<Your Connection String>");
+
+var app = builder.Build();
+
+app.Run();
+```
+
 
 #### [Java](#tab/java)
 
@@ -269,8 +280,7 @@ Requests
 Dependencies
 - [HttpClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.Http/README.md) <sup>[1](#FOOTNOTEONE)</sup> version:
   [1.0.0-rc9.14](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Http/1.0.0-rc9.14)
-- [SQL
-  client](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.SqlClient/README.md) <sup>[1](#FOOTNOTEONE)</sup> version:
+- [SqlClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.SqlClient/README.md) <sup>[1](#FOOTNOTEONE)</sup> version:
   [1.0.0-rc9.14](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.SqlClient/1.0.0-rc9.14)
 
 #### [Java](#tab/java)
@@ -412,13 +422,13 @@ You can collect more data automatically when you include instrumentation librari
 
 To add a community library, use the `ConfigureOpenTelemetryMeterProvider` or `ConfigureOpenTelemetryTraceProvider` methods.
 
-For example, to add the [Runtime Instrumentation](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Runtime):
+The following example demonstrates how the the [Runtime Instrumentation](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Runtime) can be added to collect additional metrics.
 
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.ConfigureOpenTelemetryMeterProvider((sp, builder) => builder.AddRuntimeInstrumentation());
-builder.Services.AddOpenTelemetry().UseAzureMonitor(options => options.ConnectionString = "<Your Connection String>");
+builder.Services.AddOpenTelemetry().UseAzureMonitor();
 
 var app = builder.Build();
 
@@ -589,30 +599,23 @@ describes the instruments and provides examples of when you might use each one.
 
 #### [ASP.NET Core](#tab/aspnetcore)
 
-Application startup:
+Application startup must subscribe to a Meter by name.
 
 ```csharp
-public class Program
-{
-    internal static readonly Meter meter = new("OTel.AzureMonitor.Demo");
+var builder = WebApplication.CreateBuilder(args);
 
-    public static void Main(string[] args)
-    {
-        var builder = WebApplication.CreateBuilder(args);
+builder.Services.ConfigureOpenTelemetryMeterProvider((sp, builder) => builder.AddMeter("OTel.AzureMonitor.Demo"));
+builder.Services.AddOpenTelemetry().UseAzureMonitor();
 
-        builder.Services.ConfigureOpenTelemetryMeterProvider((sp, builder) => builder.AddMeter("OTel.AzureMonitor.Demo"));
-        builder.Services.AddOpenTelemetry().UseAzureMonitor(options => options.ConnectionString = "<Your Connection String>");
+var app = builder.Build();
 
-        var app = builder.Build();
-
-        app.Run();
-    }
-}
+app.Run();
 ```
 
-Metrics Example:
+The `Meter` must be initialized using that same name.
 
 ```csharp
+var meter = new Meter("OTel.AzureMonitor.Demo");
 Histogram<long> myFruitSalePrice = meter.CreateHistogram<long>("FruitSalePrice");
 
 var rand = new Random();
@@ -682,30 +685,23 @@ input()
 
 #### [ASP.NET Core](#tab/aspnetcore)
 
-Application startup:
+Application startup must subscribe to a Meter by name.
 
 ```csharp
-public class Program
-{
-    internal static readonly Meter meter = new("OTel.AzureMonitor.Demo");
+var builder = WebApplication.CreateBuilder(args);
 
-    public static void Main(string[] args)
-    {
-        var builder = WebApplication.CreateBuilder(args);
+builder.Services.ConfigureOpenTelemetryMeterProvider((sp, builder) => builder.AddMeter("OTel.AzureMonitor.Demo"));
+builder.Services.AddOpenTelemetry().UseAzureMonitor();
 
-        builder.Services.ConfigureOpenTelemetryMeterProvider((sp, builder) => builder.AddMeter("OTel.AzureMonitor.Demo"));
-        builder.Services.AddOpenTelemetry().UseAzureMonitor(options => options.ConnectionString = "<Your Connection String>");
+var app = builder.Build();
 
-        var app = builder.Build();
-
-        app.Run();
-    }
-}
+app.Run();
 ```
 
-Metrics Example:
+The `Meter` must be initialized using that same name.
 
 ```csharp
+var meter = new Meter("OTel.AzureMonitor.Demo");
 Counter<long> myFruitCounter = meter.CreateCounter<long>("MyFruitCounter");
 
 myFruitCounter.Add(1, new("name", "apple"), new("color", "red"));
@@ -783,32 +779,25 @@ input()
 
 #### [ASP.NET Core](#tab/aspnetcore)
 
-Application startup:
+Application startup must subscribe to a Meter by name.
 
 ```csharp
-public class Program
-{
-    internal static readonly Meter meter = new("OTel.AzureMonitor.Demo");
+var builder = WebApplication.CreateBuilder(args);
 
-    public static void Main(string[] args)
-    {
-        var builder = WebApplication.CreateBuilder(args);
+builder.Services.ConfigureOpenTelemetryMeterProvider((sp, builder) => builder.AddMeter("OTel.AzureMonitor.Demo"));
+builder.Services.AddOpenTelemetry().UseAzureMonitor();
 
-        builder.Services.ConfigureOpenTelemetryMeterProvider((sp, builder) => builder.AddMeter("OTel.AzureMonitor.Demo"));
-        builder.Services.AddOpenTelemetry().UseAzureMonitor(options => options.ConnectionString = "<Your Connection String>");
+var app = builder.Build();
 
-        var app = builder.Build();
-
-        app.Run();
-    }
-}
+app.Run();
 ```
 
-Metrics Example:
+The `Meter` must be initialized using that same name.
 
 ```csharp
 var process = Process.GetCurrentProcess();
-        
+
+var meter = new Meter("OTel.AzureMonitor.Demo");
 ObservableGauge<int> myObservableGauge = meter.CreateObservableGauge("Thread.State", () => GetThreadState(process));
 
 private static IEnumerable<Measurement<int>> GetThreadState(Process process)
@@ -1051,7 +1040,7 @@ internal static readonly ActivitySource activitySource = new("ActivitySourceName
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.ConfigureOpenTelemetryTracerProvider((sp, builder) => builder.AddSource("ActivitySourceName"));
-builder.Services.AddOpenTelemetry().UseAzureMonitor(options => options.ConnectionString = "<Your Connection String>");
+builder.Services.AddOpenTelemetry().UseAzureMonitor();
 
 var app = builder.Build();
 
@@ -1360,7 +1349,7 @@ To add span attributes, use either of the following two ways:
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.ConfigureOpenTelemetryTracerProvider((sp, builder) => builder.AddProcessor(new ActivityEnrichingProcessor()));
-builder.Services.AddOpenTelemetry().UseAzureMonitor(options => options.ConnectionString = "<Your Connection String>");
+builder.Services.AddOpenTelemetry().UseAzureMonitor();
 
 var app = builder.Build();
 
@@ -1526,8 +1515,6 @@ You can populate the _user_Id_ or _user_AuthenticatedId_ field for requests by u
 
 ##### [ASP.NET Core](#tab/aspnetcore)
 
-TODO: MOTHRA: FOLLOW UP ON THIS, What should happen when a user sets it? Today it goes to CustomDimensions.
-
 Use the add [custom property example](#add-a-custom-property-to-a-span).
 
 ```csharp
@@ -1635,7 +1622,7 @@ You might use the following ways to filter out telemetry before it leaves your a
 
     builder.Services.ConfigureOpenTelemetryTracerProvider((sp, builder) => builder.AddProcessor(new ActivityFilteringProcessor()));
     builder.Services.ConfigureOpenTelemetryTracerProvider((sp, builder) => builder.AddSource("ActivitySourceName"));
-    builder.Services.AddOpenTelemetry().UseAzureMonitor(options => options.ConnectionString = "<Your Connection String>");
+    builder.Services.AddOpenTelemetry().UseAzureMonitor();
 
     var app = builder.Build();
 
