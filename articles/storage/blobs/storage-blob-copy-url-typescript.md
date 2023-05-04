@@ -51,7 +51,7 @@ If you're copying a blob from a source within Azure, access to the source blob c
 
 The following example shows a scenario for copying from a source blob within Azure:
 
-:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/copy-blob-put-from-url.js" id="Snippet_copy_from_azure_put_blob_from_url":::
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/copy-blob-put-from-url.ts" id="Snippet_copy_from_azure_put_blob_from_url":::
 
 The [syncUploadFromURL](/javascript/api/@azure/storage-blob/blockblobclient#@azure-storage-blob-blockblobclient-syncuploadfromurl) method can also accept a [BlockBlobSyncUploadFromURLOptions](/javascript/api/@azure/storage-blob/blockblobsyncuploadfromurloptions) parameter to specify further options for the operation.
 
@@ -59,7 +59,7 @@ The [syncUploadFromURL](/javascript/api/@azure/storage-blob/blockblobclient#@azu
 
 You can perform a copy operation on any source object that can be retrieved via HTTP GET request on a given URL, including accessible objects outside of Azure. The following example shows a scenario for copying a blob from an accessible source object URL.
 
-:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/copy-blob-put-from-url.js" id="Snippet_copy_from_external_source_put_blob_from_url":::
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/copy-blob-put-from-url.ts" id="Snippet_copy_from_external_source_put_blob_from_url":::
 
 ## Resources
 
@@ -74,6 +74,6 @@ The Azure SDK for JavaScript and TypeScript contains libraries that build on top
 
 ### Code samples
 
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/copy-blob-put-from-url.js)
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/copy-blob-put-from-url.ts)
 
 [!INCLUDE [storage-dev-guide-resources-typescript](../../../includes/storage-dev-guides/storage-dev-guide-resources-typescript.md)]
