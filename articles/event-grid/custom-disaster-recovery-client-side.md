@@ -1,36 +1,38 @@
 ---
-title: Build your own customer enabled disaster recovery in Azure Event Grid
-description: This article describes how to build your own customer enabled disaster recovery in Azure Event Grid resources. 
+title: Build your own client-side failover implementation in Azure Event Grid
+description: This article describes how to build your own client-side failover implementation in Azure Event Grid resources. 
 ms.topic: tutorial
 ms.date: 05/02/2023
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
-# Customer enabled disaster recovery in Azure Event Grid
+# Client-side failover implementation in Azure Event Grid
 
-Customer enabled disaster recovery (CEDR) typically involves creating a backup resource to prevent interruptions when a region becomes unhealthy. During this process a primary and secondary region of Azure Event Grid resources will be needed during your production workload.
+Disaster recovery typically involves creating a backup resource to prevent interruptions when a region becomes unhealthy. During this process a primary and secondary region of Azure Event Grid resources will be needed in your workload.
 
-There are different ways to recover from a severe loss of application functionality. In this article we are going to detail the steps you will need to follow to prepare your client to recover from a failure due to an unhealthy resource or region.
+There are different ways to recover from a severe loss of application functionality. In this article we are going to describe the checklist you will need to follow to prepare your client to recover from a failure due to an unhealthy resource or region.
 
-For simplification, follow the table to identify the kind of disaster recovery supported when publishing events and MQTT messages to Event Grid resources.
+Event Grid supports manual and automatic geo disaster recovery (GeoDR) on the server side. You can still implement client-side disaster recovery logic if you want a greater control on the failover process. For details about automatic GeoDR, see [Server-side geo disaster recovery in Azure Event Grid](geo-disaster-recovery.md).
 
-| Event Grid resource | Customer enabled disaster recovery (CEDR) | Geo disaster recovery (GeoDR) |
-|---------------------|-------------------------------------------|-------------------------------|
-| Custom Topics       | Supported                                 | Enabled automatically         |
-| System Topics       | Not supported                             | Enabled automatically         |
-| Domains             | Supported                                 | Enabled automatically         |
-| Partner Namespaces  | Supported                                 | Not supported                 |
-| Namespaces          | Supported                                 | Not supported                 |
+The following table ilustrate the client-side failover and geo disaster recovery support in Event Grid.
 
-> [!NOTE]
-> As you may noticed in the table, some Event Grid resources supports automatic geo disaster recovery (GeoDR) on the server side. You can still implement client-side disaster recovery logic if you want a greater control on the failover process. For details about automatic GeoDR, see [Server-side geo disaster recovery in Azure Event Grid](geo-disaster-recovery.md).
+| Event Grid resource | Client-side failover support              | Geo disaster recovery (GeoDR) support |
+|---------------------|-------------------------------------------|---------------------------------------|
+| Custom Topics       | Supported                                 | Cross-Geo / Regional                  |
+| System Topics       | Not supported                             | Enabled automatically                 |
+| Domains             | Supported                                 | Cross-Geo / Regional                  |
+| Partner Namespaces  | Supported                                 | Not supported                         |
+| Namespaces          | Supported                                 | Not supported                         |
 
-Steps:
+## Client-side failover considerations
 
 1. Create and configure your **primary** Event Grid resource.
-2. Create and configure your **secondary** Event Grid resource, keep in mind both resources must have the same configuration and capabilities enabled, regions for both resources must remain different. If the Event Grid resource has dependant resources like a storage resource for dead-lettering you should use the same region used in the secondary Event Grid resource.
-3. Ensure your endpoints are regularly tests to provide warranty your recovery plan resources are in place and functioning correctly.
+2. Create and configure your **secondary** Event Grid resource.
+3. Keep in mind both resources must have the same configuration, subresources and capabilities enabled.
+4. Event Grid resources must be hosted in different regions.
+5. If the Event Grid resource has dependant resources like a storage resource for dead-lettering you should use the same region used in the secondary Event Grid resource.
+6. Ensure your endpoints are regularly tests to provide warranty your recovery plan resources are in place and functioning correctly.
 
 ## Basic client-side failover implementation sample for custom topics
 
