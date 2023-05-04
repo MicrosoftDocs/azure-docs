@@ -91,6 +91,7 @@ Phase 3 is when administrators or system engineers can enable automation of manu
 
 ## Next steps
 
+* Learn about best practices and design patterns through the [Azure Arc landing zone accelerator for hybrid and multicloud](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-identity-and-access-management).
 * Learn about [reconfiguring, upgrading, and removing the Connected Machine agent](manage-agent.md).
 * Review troubleshooting information in the [agent connection issues troubleshooting guide](troubleshoot-agent-onboard.md).
 * Learn how to simplify deployment with other Azure services like Azure Automation [State Configuration](../../automation/automation-dsc-overview.md) and other supported [Azure VM extensions](manage-vm-extensions.md).
