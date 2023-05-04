@@ -3,6 +3,10 @@ items:
     href: overview.md
   - name: FAQ
     href: faq.yml
+  - name: Quickstarts
+    items:
+    - name: Register an existing SAP system - Azure PowerShell
+      href: quickstart-register-system-powershell.md
   - name: Concepts
     items:
     - name: Manage resources with Azure RBAC
