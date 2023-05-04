@@ -159,6 +159,8 @@
               href: developer-best-practices-resource-management.md
             - name: Pod security
               href: developer-best-practices-pod-security.md
+    - name: Back up and recover cluster
+      href: ../backup/azure-kubernetes-service-backup-overview.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Migrate to AKS
       items:
         - name: Plan and execute a migration
