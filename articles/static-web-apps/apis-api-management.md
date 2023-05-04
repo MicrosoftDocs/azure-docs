@@ -71,7 +71,7 @@ Azure API Management has a *products* feature that defines how APIs are surfaced
 
 To make APIs available to your linked static web app, [add them to the product](../api-management/api-management-howto-add-products.md#add-apis-to-a-product).
 
-1. Within the API Management instance in the Portal, navigate to the `Products` tab. 
+1. Within the API Management instance in the portal, select the **Products** tab. 
 
 1. Select the `Azure Static Web Apps - <STATIC_WEB_APP_AUTO_GENERATED_HOSTNAME> (Linked)` product. 
 
