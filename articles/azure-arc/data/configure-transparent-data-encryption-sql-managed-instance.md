@@ -55,10 +55,20 @@ You can set Azure Arc-enabled SQL Managed Instance TDE in one of two modes:
 
 In service-managed mode, transparent data encryption requires the managed instance to use a service-managed database master key as well as the service-managed server certificate. These credentials are automatically created when service-managed transparent data encryption is enabled. 
 
-In customer-managed mode, transparent data encryption uses keys you provide for the database master key and the server certificate. To configure customer-managed mode:
+In customer-managed mode, transparent data encryption uses a service-managed database master key and uses keys you provide for the server certificate. To configure customer-managed mode:
 
 1. Create a certificate.
 1. Store the certificate as a secret in the same Kubernetes namespace as the instance.
+
+> [!NOTE]
+> If you need to change from one mode to the other, you must disable TDE from the current mode before you apply the new mode. For details, see [Turn off transparent data encryption on the managed instance](#turn-off-transparent-data-encryption-on-the-managed-instance).
+>
+> For example, if the service is encrypted using service-managed mode, go to `Disabled` mode before you enable customer-managed mode. 
+>
+>  ```console
+>  kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": "Disabled" } } } }'
+>  ```
+
 
 To proceed, select the mode you want to use.
 
@@ -94,15 +104,6 @@ To enable TDE in customer managed mode:
 
    ```console
    kubectl create secret generic <tde-secret-name> --from-literal=privatekey.pem="$(cat <key-file>)" --from-literal=certificate.pem="$(cat <cert-file>) --namespace <namespace>"
-   ```
-
-1. If the service is encrypted using service-managed key mode, go to `Disabled` mode. 
-
-   > [!NOTE]
-   > This step only applies to instances where TDE is previously enabled in `ServiceManaged` mode.
-
-   ```console
-   kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": "Disabled" } } } }'
    ```
 
 1. Run `kubectl patch ...` to enable customer-managed TDE
