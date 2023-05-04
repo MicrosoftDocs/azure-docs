@@ -199,7 +199,7 @@ for file_or_dir in generator:
 
 # [Azure Python SDK v12](#tab/python)
 
-To download data from a file, use [download_file](/python/api/azure-storage-file-share/azure.storage.fileshare.ShareFileClient?view=azure-python#azure-storage-fileshare-sharefileclient-download-file).
+To download data from a file, use [download_file](/python/api/azure-storage-file-share/azure.storage.fileshare.ShareFileClient#azure-storage-fileshare-sharefileclient-download-file).
 
 The following example demonstrates using `download_file` to get the contents of the specified file and store it locally with **DOWNLOADED-** prepended to the filename.
 
