@@ -85,43 +85,38 @@ For example:
 Delegated Permission: User.Invite.All 
 
 POST https://graph.microsoft.com/v1.0/invitations  
-
 Content-type: application/json 
 
 { 
-
 "invitedUserDisplayName": "John Doe",  
-
 "invitedUserEmailAddress": "john.doe@contoso.com",  
-
 "sendInvitationMessage": true,  
-
 "inviteRedirectUrl": "https://customapp.contoso.com"  
-
 } 
 ```
 
 >[!NOTE]
 > To see the full list of available options for the JSON body of the invitation, check out [invitation resource type - Microsoft Graph v1.0](https://learn.microsoft.com/graph/api/resources/invitation?view=graph-rest-1.0). 
 
-App developers can alternatively onboard external users using Azure AD Self Service Sign Up or Entitlement Management Access Packages. You can create your “invitation” button in your LOB application that will trigger a a custom email containing a pre-defined Self-service sign up URL or Access Package URL. The invited user can then self-service onboard and access the application.  
+App developers can alternatively onboard external users using Azure AD Self Service Sign Up or Entitlement Management Access Packages. You can create your “invitation” button in your LOB application that will trigger a custom email containing a pre-defined Self-service sign up URL or Access Package URL. The invited user can then self-service onboard and access the application.  
 
 ## Step 3: Write additional attributes to Azure AD (optional)  
 
 >[!IMPORTANT]
->Granting an application permission to update users in your directory is a highly privileged action. You should take steps to secure and monitor your LOB app if you grant the app these highly privileged permissions. 
+>Granting an application permission to update users in your directory is a highly privileged action. You should take steps to secure and monitor your LOB app if you grant the application these highly privileged permissions. 
 
-If your organization or the LOB application requires additional information be stored for future use, such as claims emittance in tokens or granular authorization policies, your app can make an additional API call to update the external user after they’ve been invited/created in Azure AD. Doing so requires your application to have additional API permissions and would require a 2nd call to the Microsoft Graph API.  
+If your organization or the LOB application requires additional information be stored for future use, such as claims emittance in tokens or granular authorization policies, your application can make an additional API call to update the external user after they’ve been invited/created in Azure AD. Doing so requires your application to have additional API permissions and would require an additional call to the Microsoft Graph API.  
 
-To update the user you will need to use the Object ID of the newly created guest user received in the response from the invitation API call. This will be the “id” value in the response. You can write to any standard sttribute or custom extension attributes you may have created. 
+To update the user you will need to use the Object ID of the newly created guest user received in the response from the invitation API call. This will be the “id” value in the API response from either the existence check or invitation. You can write to any standard attribute or custom extension attributes you may have created. 
 
 For example:
-Required Application Permissions (from least to most privileged) 
 
 ``` 
-User.ReadWrite.All, Directory.ReadWrite.All 
+Application Permission: User.ReadWrite.All
+
 PATCH https://graph.microsoft.com/v1.0/users/<user’s object ID> 
 Content-type: application/json 
+
 { 
 "businessPhones": [ 
         "+1 234 567 8900" 
@@ -136,17 +131,18 @@ For more details, see [Update user - Microsoft Graph v1.0](https://learn.microso
 ## Step 4: Assign the invited user to a group 
 
 >[!NOTE]
->If user assignment is not required for the application, you may skip this step. 
+>If user assignment is not required to access the application, you may skip this step. 
 
-If app assignment is required in Azure AD for app access and/or role assignment the user must be assigned to the app or else the user will not be able to gain access regardless of successful authentication. To achieve this, you should make an additional API call to add the invited external user to a specific group. The group can be assigned to the app and mapped to a specific app role.  
+If user assignment is required in Azure AD for application access and/or role assignment, the user must be assigned to the application or else the user will not be able to gain access regardless of successful authentication. To achieve this, you should make an additional API call to add the invited external user to a specific group. The group can be assigned to the application and mapped to a specific application role.  
 
 For example:
 
-Assign the Group Updater role or a custom role to the Enterprise App and scope the role assignment to only the group(s) this application should be updating. Or assign the group.readwrite.all permission in Microsoft Graph API. 
+Permissions: Assign the Group Updater role or a custom role to the Enterprise App and scope the role assignment to only the group(s) this application should be updating. Or assign the group.readwrite.all permission in Microsoft Graph API. 
 
 ```
 POST https://graph.microsoft.com/v1.0/groups/<insert group id>/members/$ref 
 Content-type: application/json 
+
 { 
 "@odata.id": "https://graph.microsoft.com/v1.0/directoryObjects/<insert user id>" 
 } 
@@ -159,7 +155,7 @@ If you prefer to use dynamic groups, you do not need to add the users to a group
   
 ## Step 5: Provision the invited user to the application
 
-Once the invited external user has been provisioned to Azure AD, the Microsoft Graph API returns a response with the necessary user information such as object ID and email. The LOB application can then provision the user to its own directory/database. Depending on the type of application and internal directory type the application uses, the actual implementation of this provisioning can vary. 
+Once the invited external user has been provisioned to Azure AD, the Microsoft Graph API will return a response with the necessary user information such as object ID and email. The LOB application can then provision the user to its own directory/database. Depending on the type of application and internal directory type the application uses, the actual implementation of this provisioning will vary. 
 
 With the external user provisioned in both Azure AD and the application, the LOB app can now notify the end user who initiated the invitation that the process has been successful. The invited user can get single sign-on with their own identity without the inviting organization needing to onboard and issue extra credentials. Azure AD can enforce authorization policies such as conditional access, multi-factor authentication, and risk-based identity protection. 
 
