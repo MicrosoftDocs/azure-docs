@@ -99,7 +99,7 @@ from azure.storage.file import FileService
 
 # [Azure Python SDK v2](#tab/python2)
 
-The [FileService](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous) object lets you work with shares, directories, and files. The following code creates a `FileService` object using the storage account name and account key. Replace `<myaccount>` and `<mykey>` with your account name and key.
+The [FileService](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice) object lets you work with shares, directories, and files. The following code creates a `FileService` object using the storage account name and account key. Replace `<myaccount>` and `<mykey>` with your account name and key.
 
 ```python
 file_service = FileService(account_name='myaccount', account_key='mykey')
@@ -117,7 +117,7 @@ The following code example uses a [ShareClient](/azure/developer/python/sdk/stor
 
 # [Azure Python SDK v2](#tab/python2)
 
-The following code example uses a [FileService](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous) object to create the share if it doesn't exist.
+The following code example uses a [FileService](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice) object to create the share if it doesn't exist.
 
 ```python
 file_service.create_share('myshare')
@@ -185,7 +185,7 @@ To list the files and directories in a subdirectory, use the [list_directories_a
 
 # [Azure Python SDK v2](#tab/python2)
 
-To list the files and directories in a share, use the [list_directories_and_files](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous#azure-storage-file-fileservice-fileservice-list-directories-and-files) method. This method returns a generator. The following code outputs the **name** of each file and directory in a share to the console.
+To list the files and directories in a share, use the [list_directories_and_files](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice#azure-storage-file-fileservice-fileservice-list-directories-and-files) method. This method returns a generator. The following code outputs the **name** of each file and directory in a share to the console.
 
 ```python
 generator = file_service.list_directories_and_files('myshare')
@@ -207,7 +207,7 @@ The following example demonstrates using `download_file` to get the contents of 
 
 # [Azure Python SDK v2](#tab/python2)
 
-To download data from a file, use [get_file_to_path](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous#azure-storage-file-fileservice-fileservice-get-file-to-path), [get_file_to_stream](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice#get-file-to-stream-share-name--directory-name--file-name--stream--start-range-none--end-range-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--snapshot-none-), [get_file_to_bytes](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous#azure-storage-file-fileservice-fileservice-get-file-to-bytes), or [get_file_to_text](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice?view=azure-python-previous#azure-storage-file-fileservice-fileservice-get-file-to-text). They're high-level methods that perform the necessary chunking when the size of the data exceeds 64 MiB.
+To download data from a file, use [get_file_to_path](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice#azure-storage-file-fileservice-fileservice-get-file-to-path), [get_file_to_stream](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice#get-file-to-stream-share-name--directory-name--file-name--stream--start-range-none--end-range-none--validate-content-false--progress-callback-none--max-connections-2--timeout-none--snapshot-none-), [get_file_to_bytes](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice#azure-storage-file-fileservice-fileservice-get-file-to-bytes), or [get_file_to_text](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice#azure-storage-file-fileservice-fileservice-get-file-to-text). They're high-level methods that perform the necessary chunking when the size of the data exceeds 64 MiB.
 
 The following example demonstrates using `get_file_to_path` to download the contents of the **myfile** file and store it to the *out-sunset.png* file.
 
