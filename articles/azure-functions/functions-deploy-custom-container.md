@@ -16,7 +16,7 @@ Other options for deloying your custom container app to Azure include:
 
 + Azure Container Apps: to learn more, see [Deploy a custom container to Azure Container apps](./functions-deploy-custom-container-aca.md).
 
-+ Azure Arc (currently in preview): to learn more, see [](./create-first-function-arc-custom-container.md).
++ Azure Arc (currently in preview): to learn more, see [Deploy a custom container to Azure Arc](./create-first-function-arc-custom-container.md).
 
 ## Create the custom container
 
