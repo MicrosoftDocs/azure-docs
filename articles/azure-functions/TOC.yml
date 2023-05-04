@@ -721,6 +721,17 @@
                 - name: Output
                   href: functions-bindings-cosmosdb-v2-output.md
                   displayName: Azure Cosmos DB
+        - name: Azure Data Explorer
+          items:
+            - name: Overview
+              href: functions-bindings-azure-data-explorer.md
+              displayName: Azure Data Explorer
+            - name: Input
+              href: functions-bindings-azure-data-explorer-input.md
+              displayName: Azure Data Explorer
+            - name: Output
+              href: functions-bindings-azure-data-explorer-output.md
+              displayName: Azure Data Explorer
         - name: Azure SQL
           items:
             - name: Overview
