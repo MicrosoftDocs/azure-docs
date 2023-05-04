@@ -69,7 +69,7 @@ The pod created by the `run` command provides `helm` and the latest compatible v
 
 ## Troubleshooting
 
-For information on the most common issues with `az aks command invoke` and how to fix them, see [Resolve `az aks command invoke` failures](https://learn.microsoft.com/troubleshoot/azure/azure-kubernetes/resolve-az-aks-command-invoke-failures).
+For information on the most common issues with `az aks command invoke` and how to fix them, see [Resolve `az aks command invoke` failures][command-invoke-troubleshoot].
 
 ## Next steps
 
@@ -78,3 +78,7 @@ In this article, you learned how to use `command invoke` to access a private clu
 * [Use a private endpoint connection in AKS](./private-clusters.md#use-a-private-endpoint-connection)
 * [Virtual networking peering in AKS](./private-clusters.md#virtual-network-peering)
 * [Hub and spoke with custom DNS in AKS](./private-clusters.md#hub-and-spoke-with-custom-dns)
+
+<!-- links - internal -->
+
+[command-invoke-troubleshoot]: /troubleshoot/azure/azure-kubernetes/resolve-az-aks-command-invoke-failures
