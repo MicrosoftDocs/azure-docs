@@ -97,7 +97,10 @@ Store the Client Secret from xID in your Azure AD B2C tenant. For the following 
 14. Select **Create**.
 
    >[!NOTE]
-   >In Azure AD B2C, custom policies are for complex scenarios. </br> See, [User flows and custom policies overview](./user-flow-overview.md).
+   >In Azure AD B2C, custom policies are for complex scenarios. 
+   >
+   >See, [User flows and custom policies overview](./user-flow-overview.md).
+
 
 ## Configure xID as identity provider
 
