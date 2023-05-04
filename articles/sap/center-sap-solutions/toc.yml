@@ -37,5 +37,6 @@ items:
         href: monitor-portal.md
   - name: Reference
     items:
-    - name: Azure CLI guide
-      href: https://github.com/Azure/Azure-Center-for-SAP-solutions-preview/blob/main/CLI_Documents/ACSS_CLI_Guide.md  
+    - name: Azure CLI
+      href: https://learn.microsoft.com/cli/azure/workloads/sap-virtual-instance 
+      
