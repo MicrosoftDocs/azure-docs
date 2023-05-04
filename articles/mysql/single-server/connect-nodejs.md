@@ -135,6 +135,8 @@ Depending on your platform, follow the instructions in the appropriate section t
 
 3. Verify the installation by checking the `npm list` output text. The version number may vary as new patches are released.
 
+---
+
 ## Get connection information
 
 Get the connection information needed to connect to the Azure Database for MySQL. You need the fully qualified server name and login credentials.
