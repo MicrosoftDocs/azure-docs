@@ -142,7 +142,7 @@ At time t0, label L0 was created and at t1, label L1 was created. Now feature va
 
 The below table shows the output of get_offline_features method that does the point-of-time join:
 
-:::image type="content" source="./media/concept-managed-feature-store/pit_join_output.png" alt-text="Diagram visualizing feature values output from a point-in-time join":::
+:::image type="content" source="./media/concept-managed-feature-store/pit-join-output.png" alt-text="Diagram visualizing feature values output from a point-in-time join":::
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
