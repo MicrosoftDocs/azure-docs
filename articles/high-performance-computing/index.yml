@@ -14,7 +14,7 @@ metadata:
   author: padmalathas
   ms.author: padmalathas
   ms.reviewer: mattmcinnes
-  ms.date: 12/12/2022
+  ms.date: 05/03/2023
 
 # Main Items (Icons)
 # Maximum of 8 items
@@ -138,6 +138,46 @@ conceptualContent:
             - url: /azure/cloud-adoption-framework/scenarios/azure-hpc/
               itemType: overview
               text: Cloud Adoption Framework
+
+
+# Video Playlists
+additionalContent:
+  # Supports up to 4 subsections
+  sections:
+    - title: HPC Video Content # < 60 chars (Optional; Remove if not applicable.)
+      summary: Learn more about Azure HPC with a variety of video content # < 160 chars (Optional; Remove if not applicable.)
+      items:
+        # Card
+        - title: HPC Business Strategy
+          summary: Getting to know Azure
+          links:
+            - text: Azure HPC+AI Platform Overview
+              url: https://www.youtube.com/watch?v=V0-laXwBI7I
+            - text: What is High Performance Computing - HPC?
+              url: https://www.youtube.com/watch?v=0biElmaDfFs
+            - text: How to accelerate innovation with AI at Scale
+              url: https://www.youtube.com/watch?v=DLw-wC4zntw&list=PLLasX02E8BPAFdOYrnPd3bJsqfhCasPse&index=3
+            - text: The benefits of HPC, AI, and the Cloud with Steve Scott
+              url: https://www.youtube.com/watch?v=GmimOVxFSRY
+            - text: Introduction to Azure HPC software platform | Azure HPC
+              url: https://www.youtube.com/watch?v=qkiGJWGM6Ew
+            - text: Unlock your innovation with Microsoft Azure HPC | Azure HPC
+              url: https://www.youtube.com/watch?v=0lSZQ_3YY68
+            - text: Azure HPC+AI Day: HPC + AI software
+              url: https://www.youtube.com/watch?v=20wbd2gxuY0
+            - text: Azure HPC+Al Day: AI Infra Platform Strategy
+              url: https://www.youtube.com/watch?v=Nt7oGrvhRXo       
+        # Card
+        - title: HPC Deep Dives
+          summary: Azure Infrastructure
+          links:
+            - text: Comparing cloud platform performance for HPC+AI workloads
+              url: https://www.youtube.com/watch?v=4-0TYA7Po2A
+            - text: Leveraging EESSI for WRF simulations at scale on Azure HPC
+              url: https://www.youtube.com/watch?v=LGkQi7BDf6w
+            - text: Day 1 - (3) UCX on Azure HPC and AI Clusters
+              url: https://www.youtube.com/watch?v=L4aGCOEvRJQ
+
 
 # Super Computing Announcement included
 
