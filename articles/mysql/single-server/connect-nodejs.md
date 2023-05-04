@@ -73,7 +73,7 @@ Depending on your platform, follow the instructions in the appropriate section t
 
 3. Verify the installation by checking npm list output text. The version number may vary as new patches are released.
 
-### [Linux (RHEL)](#tab/rhel)
+### [Linux (RHEL/CentOS)](#tab/rhel)
 
 1. Run the following commands to install **Node.js** and **npm** the package manager for Node.js.
 
