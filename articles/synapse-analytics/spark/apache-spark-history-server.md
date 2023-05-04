@@ -192,9 +192,9 @@ In some cases, for long-running Spark applications with massive jobs and stages,
 ![screenshot of the tsg for 404 in spark ui](./media/apache-spark-history-server/404-in-spark-ui.png)
 
 As a workaround, an extra Spark configuration can be applied to the Spark pool: 
-
-    spark.synapse.history.rpc.memoryNeeded 1g 
-
+```
+spark.synapse.history.rpc.memoryNeeded 1g 
+```
 
 ![add spark configuration](./media/apache-spark-history-server/add-spark-configuration.png)
 
