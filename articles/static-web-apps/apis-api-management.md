@@ -22,11 +22,29 @@ All Azure API Management pricing tiers are available for use with Azure Static W
 [!INCLUDE [APIs overview](../../includes/static-web-apps-apis-overview.md)]
 
 > [!NOTE]
-> The integration with Azure API Management is currently in preview and requires the Static Web Apps Standard plan.
-> 
-> Currently, you cannot link an API Management service to a Static Web Apps [pull request environment](review-publish-pull-requests.md).
+> The integration with Azure API Management requires the Static Web Apps Standard plan.
+>
+> Backend integration is not supported on Static Web Apps [pull request environments](review-publish-pull-requests.md).
+
+## Example
+
+Consider an existing Azure API Management instance that exposes an endpoint via the following location.
+
+```url
+https://my-api-management-instance.azure-api.net/api/getProducts
+```
+
+Once linked, you can access that same endpoint through the `api` path from your static web app, as shown in this example URL.
+
+```url
+https://red-sea-123.azurestaticapps.net/api/getProducts
+```
+
+Both endpoint URLs point to the same function.
 
 ## Link an Azure API Management service
+
+### Link the API Management instance to Static Web Apps
 
 To link an Azure API Management service as the API backend for a static web app, follow these steps:
 
@@ -44,22 +62,24 @@ To link an Azure API Management service as the API backend for a static web app,
 
 1. Select **Link**.
 
-When the linking process is complete, requests to routes beginning with `/api` are proxied to your Azure API Management service. However, no APIs are exposed by default. See [Manage access to APIs](#manage-access-to-apis) to configure an API Management product to allow the APIs you want to use.
+> [!IMPORTANT]
+> When the linking process is complete, requests to routes beginning with `/api` are proxied to your Azure API Management service. However, no APIs are exposed by default. See [Manage access to APIs](#manage-access-to-apis) to configure an API Management product to allow the APIs you want to use.
 
-### Manage access to APIs
+### Configure APIs to receive requests
 
 Azure API Management has a *products* feature that defines how APIs are surfaced. As part of the linking process, your API Management service is configured with a product named `Azure Static Web Apps - <STATIC_WEB_APP_AUTO_GENERATED_HOSTNAME> (Linked)`.
 
-Because no APIs are associated with the new API Management product, accessing a `/api` route in your static web app returns the following error from API management.
-
-```json
-{
-  "statusCode": 401,
-  "message": "Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription."
-}
-```
-
 To make APIs available to your linked static web app, [add them to the product](../api-management/api-management-howto-add-products.md#add-apis-to-a-product).
+
+1. Within the API Management instance in the Portal, navigate to the `Products` tab. 
+
+1. Select the `Azure Static Web Apps - <STATIC_WEB_APP_AUTO_GENERATED_HOSTNAME> (Linked)` product. 
+
+1. Select **+ Add API**.
+
+1. Select the APIs you want to expose from your Static Web Apps, and then Select.
+
+:::image type="content" source="media/apim-add-api.png" alt-text="In the API Management Products API, add an API to the product created for the Static Web Apps resource.":::
 
 The linking process also automatically applies the following configuration to your API Management service:
 
@@ -85,6 +105,19 @@ When the unlinking process is complete, requests to routes beginning with `/api/
 
 > [!NOTE]
 > The API Management product and subscription associated with the linked static web app are not automatically deleted. You can delete them from the API Management service.
+
+## Troubleshooting
+
+If the APIs are not associated to the API Management *product* created for the Static Web Apps resource, accessing a `/api` route in your static web app returns the following error from API management.
+
+```json
+{
+  "statusCode": 401,
+  "message": "Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription."
+}
+```
+
+To resolve this, configure add the APIs you want to expose within your Static Web Apps to the product created for it, as detailed in the [Manage access to APIs](#manage-access-to-apis) section above.
 
 ## Next steps
 

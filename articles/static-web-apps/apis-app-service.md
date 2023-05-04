@@ -22,9 +22,9 @@ All Azure App Service hosting plans are available for use with Azure Static Web 
 [!INCLUDE [APIs overview](../../includes/static-web-apps-apis-overview.md)]
 
 > [!NOTE]
-> The integration with Azure App Service is currently in preview and requires the Static Web Apps Standard plan.
-> 
-> You cannot link a web app to a Static Web Apps [pull request environment](review-publish-pull-requests.md).
+> The integration with Azure App Service requires the Static Web Apps Standard plan.
+>
+> Backend integration is not supported on Static Web Apps [pull request environments](review-publish-pull-requests.md).
 
 ## Link an Azure App Service Web App
 
@@ -52,6 +52,8 @@ Your App Service app is configured with an identity provider named `Azure Static
 
 ## Unlink an Azure App Service app
 
+### Unlink App Service from Static Web Apps
+
 To unlink a web app from a static web app, follow these steps:
 
 1. In the Azure portal, go to the static web app.
@@ -66,6 +68,20 @@ When the unlinking process is complete, requests to routes beginning with `/api`
 
 > [!NOTE]
 > To prevent accidentally exposing your App Service app to anonymous traffic, the identity provider created by the linking process is not automatically deleted. You can delete the identity provider named *Azure Static Web Apps (Linked)* from the App Service app's authentication settings.
+
+### Remove authentication from the App Service resource
+
+To enable your App Service resource to receive anonymous traffic, follow these steps to remove the identity provider:
+
+1. In the Azure Portal, navigate to the App Service resource.
+
+1. Select **Authentication** from the navigation menu.
+
+1. From the list of **Identity providers**, delete the identity provider related to the Static Web Apps resource.
+
+1. Select **Remove authentication** to remove authentication and allow anonymous traffic to your App Service resource.
+
+You App Service resource will now be able to receive anonymous traffic.
 
 ## Next steps
 

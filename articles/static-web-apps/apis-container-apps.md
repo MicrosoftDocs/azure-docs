@@ -20,9 +20,9 @@ By default, when a container app is linked to a static web app, the container ap
 [!INCLUDE [APIs overview](../../includes/static-web-apps-apis-overview.md)]
 
 > [!NOTE]
-> The integration with Azure Container Apps is currently in preview and requires the Static Web Apps Standard plan.
+> The integration with Azure Container Apps requires the Static Web Apps Standard plan.
 >
-> You cannot link a container app to a Static Web Apps [pull request environment](review-publish-pull-requests.md).
+> Backend integration is not supported on Static Web Apps [pull request environments](review-publish-pull-requests.md).
 
 ## Link a container app
 
@@ -64,6 +64,20 @@ When the unlinking process is complete, requests to routes beginning with `/api`
 
 > [!NOTE]
 > To prevent accidentally exposing your container app to anonymous traffic, the identity provider created by the linking process is not automatically deleted. You can delete the identity provider named *Azure Static Web Apps (Linked)* from the container app's authentication settings.
+
+### Remove authentication from the Container Apps resource
+
+To enable your Container Apps resource to receive anonymous traffic, follow these steps to remove the identity provider:
+
+1. In the Azure Portal, navigate to the Container Apps resource.
+
+1. Select **Authentication** from the navigation menu.
+
+1. From the list of **Identity providers**, delete the identity provider related to the Static Web Apps resource.
+
+1. Select **Remove authentication** to remove authentication and allow anonymous traffic to your Container Apps resource.
+
+You Container Apps resource will now be able to receive anonymous traffic.
 
 ## Next steps
 
