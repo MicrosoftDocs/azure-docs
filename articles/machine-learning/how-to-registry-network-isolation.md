@@ -187,9 +187,7 @@ For a system registry, we recommend creating a Service Endpoint Policy for the S
 
 
 
-## How to find FQDN of registry? 
-
-### Azure PowerShell 
+## How to find the registry's fully qualified domain name
 
 The following examples show how to use the discovery URL to get the fully qualified domain name (FQDN) of your registry. When calling the discovery URL, you must provide an Azure access token in the request header. The following examples show how to get an access token and call the discovery URL:
 
