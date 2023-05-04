@@ -51,12 +51,12 @@ items:
               items:
                 - name: JavaScript
                   items:
-                    - name: Sign in users and call an API
+                    - name: Sign in users
                       href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart  
                 - name: React
                   items:
-                    - name: Sign in users and call an API
-                      href: https://learn.microsoft.com/azure/active-directory/develop/web-api-quickstart 
+                    - name: Sign in users
+                      href: how-to-spa-react-sample.md
             - name: Web app
               items:
                 - name: Node.js
