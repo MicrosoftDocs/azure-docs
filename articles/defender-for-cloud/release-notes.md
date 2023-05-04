@@ -20,16 +20,17 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in May include:
 
-- Defender for DevOps has added two new assessments
+- [Two Defender for DevOps recommendations are now included in Azure DevOps scan findings](#two-defender-for-devops-recommendations-are-now-included-in-azure-devops-scan-findings)
 
-### Defender for DevOps has added Azure DevOps coverage for Code and Infrastructure as Code recommendations
+### Two Defender for DevOps recommendations are now included in Azure DevOps scan findings
 
-Microsoft Defender for DevOps has expanded its recommendation coverage to include Azure DevOps security findings for the following recommendations:
+Defender for DevOps Code and IaC has expanded its recommendation coverage in Microsoft Defender for Cloud to include Azure DevOps security findings for the following two recommendations:
 
-- Code repositories should have code scanning findings resolved
-- Code repositories should have infrastructure as code scanning findings resolved
+- `Code repositories should have code scanning findings resolved`
 
-Previously, Azure DevOps only provided coverage for secret findings for GitHub security scan findings. Now both GitHub and Azure DevOps are covered.
+- `Code repositories should have infrastructure as code scanning findings resolved`
+
+Previously, coverage for Azure DevOps security scanning only included the secrets recommendation.   
 
 Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
 
