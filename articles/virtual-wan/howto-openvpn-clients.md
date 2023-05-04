@@ -13,8 +13,6 @@ ms.author: cherylmc
 
 This article helps you configure **OpenVPN &reg; Protocol** clients. You can also use the Azure VPN Client to connect via OpenVPN protocol. For more information, see [Configure a VPN client for P2S OpenVPN connections](openvpn-azure-ad-client.md).
 
-[!INCLUDE [OpenVPN client version 2.6 not supported](../../includes/vpn-gateway-vwan-open-vpn-client-version-unsupported.md)]
-
 ## Before you begin
 
 Create a User VPN (point-to-site) configuration. Make sure that you select "OpenVPN" for tunnel type. For steps, see [Create a P2S configuration for Azure Virtual WAN](virtual-wan-point-to-site-portal.md#p2sconfig).
