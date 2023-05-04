@@ -1,15 +1,14 @@
 ---
-title: Create Azure Functions that run in in a custom container
-description: Learn how to create Azure Functions running on a custom Linux image.
+title: Working with custom containers and Azure Functions
+description: Learn how to work with your Azure Functions code published as a custom Linux image.
 ms.date: 04/19/2023
-ms.topic: quickstart
-ms.custom: "devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli, devdivchpfy22"
+ms.topic: how-to
 zone_pivot_groups: programming-languages-set-functions-full
 ---
 
-# Quickstart: Create a function that runs in custom container 
+# Working with custom containers and Azure Functions
 
-In this article, you use Azure Functions tools to create your project code in a custom Docker container using a Linux base image. You all publish your custom image to a container registry, such as Azure Container Registry or Docker. 
+In this tutorial, you create and deploy your code to Azure Functions as a custom Docker container using a Linux base image. You typically use a custom image when your functions require a specific language version or have a specific dependency or configuration that isn't provided by the built-in image.
 
 ::: zone pivot="programming-language-other"
 Azure Functions supports any language or runtime using [custom handlers](functions-custom-handlers.md). For some languages, such as the R programming language used in this tutorial, you need to install the runtime or more libraries as dependencies that require the use of a custom container.
@@ -19,24 +18,44 @@ Deploying your function code in a custom Linux container requires [Premium plan]
 
 You can also use a default Azure App Service container as described in [Create your first function hosted on Linux](./create-first-function-cli-csharp.md?pivots=programming-language-python). Supported base images for Azure Functions are found in the [Azure Functions base images repo](https://hub.docker.com/_/microsoft-azure-functions-base).
 
-You can complete this quickstart on any computer running Windows, macOS, or Linux.
+In this tutorial, you learn how to:
+
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"
+> [!div class="checklist"]
+> * Create a function app and Dockerfile using the Azure Functions Core Tools.
+> * Build a custom image using Docker.
+> * Publish a custom image to a container registry.
+> * Create supporting resources in Azure for the function app.
+> * Deploy a function app from Docker Hub.
+> * Add application settings to the function app.
+> * Enable continuous deployment.
+> * Enable SSH connections to the container.
+> * Add a Queue storage output binding.
+::: zone-end
+::: zone pivot="programming-language-other"
+> [!div class="checklist"]
+> * Create a function app and Dockerfile using the Azure Functions Core Tools.
+> * Build a custom image using Docker.
+> * Publish a custom image to a container registry.
+> * Create supporting resources in Azure for the function app.
+> * Deploy a function app from Docker Hub.
+> * Add application settings to the function app.
+> * Enable continuous deployment.
+> * Enable SSH connections to the container.
+::: zone-end
+
+You can follow this tutorial on any computer running Windows, macOS, or Linux.
 
 [!INCLUDE [functions-linux-custom-container-note](../../includes/functions-linux-custom-container-note.md)]
 
 [!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]
 
 <!---Requirements specific to Docker --->
-To publish the custom function app image you create, you also need a registry account.
+You also need to get a Docker and Docker ID:
 
-# [Azure Container Registry](#tab/acr)
++ [Docker](https://docs.docker.com/install/)  
 
-+ To create a Azure Container Registry instance, complete [this quickstart](../container-registry/container-registry-get-started-portal.md).
-
-# [Docker](#tab/docker)
-
-+ You'll need a Docker ID and [Docker](https://docs.docker.com/install/) running on your local computer. If you don't have a Docker ID, you can [create a Docker account](https://hub.docker.com/signup).
-
----
++ A [Docker ID](https://hub.docker.com/signup)
 
 [!INCLUDE [functions-cli-create-venv](../../includes/functions-cli-create-venv.md)]
 
