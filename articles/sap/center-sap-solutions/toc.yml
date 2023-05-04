@@ -38,5 +38,5 @@ items:
   - name: Reference
     items:
     - name: Azure CLI
-      href: https://learn.microsoft.com/cli/azure/workloads/sap-virtual-instance?view=azure-cli-latest  
+      href: https://learn.microsoft.com/cli/azure/workloads/sap-virtual-instance 
       
