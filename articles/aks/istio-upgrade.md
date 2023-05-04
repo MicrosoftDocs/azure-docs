@@ -8,7 +8,7 @@ ms.date: 05/04/2023
 
 # Upgrade Istio-based service mesh add-on for Azure Kubernetes Service (preview)
 
-This article addresses upgrade experiences and behaviors for Istio-based service mesh add-on for Azure Kubernetes Service (preview)
+This article addresses upgrade experiences for Istio-based service mesh add-on for Azure Kubernetes Service (preview)
 
 ## How are upgrades done for the Istio components
 
