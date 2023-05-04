@@ -65,7 +65,6 @@ To get the headless app sample code, you can do either [download the .zip file](
 ```powershell
     git clone https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial.git
 ```
-If you choose to download the `.zip` file, extract the sample app file to a folder where the total length of the path is 260 or fewer characters.
 
 ## Install project dependencies 
 
@@ -102,17 +101,17 @@ You can now test the sample Node.js headless app.
 
 1. Open your browser, then go to the URL suggested from the message in the terminal, https://microsoft.com/devicelogin. You should see the page similar to the following screenshot:
 
- :::image type="content" source="media/how-to-headless-app-node-sample-sign-in/headless-app-node-enter-code.png" alt-text="Screenshot of the enter code prompt in a node headless application using the device code flow.":::
+     :::image type="content" source="media/how-to-headless-app-node-sample-sign-in/headless-app-node-enter-code.png" alt-text="Screenshot of the enter code prompt in a node headless application using the device code flow.":::
 
 1. Copy the device code from the message in the terminal and paste it in the **Enter Code** prompt to authenticate. After entering the code, you'll be redirected to the sign in page as follows:
 
- :::image type="content" source="media/how-to-headless-app-node-sample-sign-in/headless-app-node-sign-in-page.png" alt-text="Screenshot showing the sign in page in a node headless application":::
+     :::image type="content" source="media/how-to-headless-app-node-sample-sign-in/headless-app-node-sign-in-page.png" alt-text="Screenshot showing the sign in page in a node headless application":::
 
 1. On the sign-in page, type your **Email address**. If you don't have an account, select **No account? Create one**, which starts the sign-up flow.
 
 1. If you choose the sign-up option, after filling in your email, one-time passcode, new password and more account details, you complete the whole sign-up flow. After completing the sign up flow and signing in, you see a page similar to the following screenshot:
 
- :::image type="content" source="media/how-to-headless-app-node-sample-sign-in/headless-app-node-signed-in-user.png" alt-text="Screenshot showing a signed-in user in a node headless application":::
+     :::image type="content" source="media/how-to-headless-app-node-sample-sign-in/headless-app-node-signed-in-user.png" alt-text="Screenshot showing a signed-in user in a node headless application":::
 
 1. You can now move back to your terminal and see your authentication information including the ID token claims returned by Microsoft Entra.
 

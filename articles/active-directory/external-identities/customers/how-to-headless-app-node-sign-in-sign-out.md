@@ -146,7 +146,7 @@ Now that we're done building the app, we can test it by following these steps:
 
 1. In your terminal, ensure you're in project directory where you created your application. For example, *ciam-node-headless-app*. 
 
-1. Use the steps in [Run and test the headless app](how-to-headless-app-node-sample-sign-in.md#run-and-test-sample-headless-app) article to test your headless app.
+1. Use the steps in [Run and test the headless app](how-to-headless-app-node-sample-sign-in.md?#run-and-test-sample-headless-app) article to test your headless app.
 
 
 ## Next steps 
