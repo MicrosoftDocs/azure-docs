@@ -2492,7 +2492,16 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-configurable-token-lifetimes.md",
-      "redirect_url": "/azure/active-directory/develop/active-directory-configurable-token-lifetimes",
+      "redirect_url": "/azure/active-directory/develop/configurable-token-lifetimes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/active-directory-configurable-token-lifetimes.md",
+      "redirect_url": "/azure/active-directory/develop/configurable-token-lifetimes",
+      "redirect_document_id": true
+    },{
+      "source_path_from_root": "/articles/active-directory/develop/reference-aadsts-error-codes.md",
+      "redirect_url": "/azure/active-directory/develop/reference-error-codes",
       "redirect_document_id": true
     },
     {

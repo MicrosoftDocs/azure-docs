@@ -212,6 +212,10 @@ In the preceding configuration example:
 
 Numeric and Boolean JMX metric values are supported. Boolean JMX metrics are mapped to `0` for false and `1` for true.
 
+If the JMX metric's `objectName` is dynamic and changes on each restart, you can specify it using an
+[object name pattern](https://docs.oracle.com/javase/8/docs/api/javax/management/ObjectName.html),
+e.g. `kafka.consumer:type=consumer-fetch-manager-metrics,client-id=*`.
+
 ## Custom dimensions
 
 If you want to add custom dimensions to all your telemetry:
@@ -232,7 +236,8 @@ You can use `${...}` to read the value from the specified environment variable a
 
 ## Inherited attribute (preview)
 
-Starting from version 3.2.0, if you want to set a custom dimension programmatically on your request telemetry and have it inherited by dependency telemetry that follows:
+Starting from version 3.2.0, if you want to set a custom dimension programmatically on your request telemetry
+and have it inherited by dependency and log telemetry which are captured in the context of that request:
 
 ```json
 {
@@ -244,6 +249,14 @@ Starting from version 3.2.0, if you want to set a custom dimension programmatica
   ]
 }
 ```
+
+and then at the beginning of each request, call:
+
+```java
+Span.current().setAttribute("mycustomer", "xyz");
+```
+
+Also see: [Add a custom property to a Span](./opentelemetry-enable.md?tabs=java#add-a-custom-property-to-a-span).
 
 ## Connection string overrides (preview)
 

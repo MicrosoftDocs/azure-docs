@@ -54,11 +54,8 @@ This section lists the applications and environments that are supported.
 
 Snapshot collection is available for:
 
-- .NET Framework and ASP.NET applications running .NET Framework 4.6.2 and newer versions.
-- .NET and ASP.NET applications running .NET [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) and newer versions on Windows.
-- .NET [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) (and newer versions) applications on Windows.
-
-.NET Core versions prior to LTS are out of support and we don't recommend their use.
+- .NET Framework 4.6.2 and newer versions.
+- [.NET 6.0 or later](https://dotnet.microsoft.com/download) on Windows.
 
 ### Environments
 
