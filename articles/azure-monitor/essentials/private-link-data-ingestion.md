@@ -10,9 +10,13 @@ ms.date: 03/28/2023
 
 # Private Link for data ingestion for Managed Prometheus and Azure Monitor workspace
 
-Configuration for Private Link of data ingestion for Managed Prometheus and the Azure Monitor workspace that stores the data is done on the Data Collection Endpoints (DCE) that are associated with the workspace. Refer to the [Azure Monitor private link documentation](../logs/private-link-configure.md) to define your Azure Monitor Private Link scope (AMPLS) and then associate your DCEs with the AMPLS.
+Configuration of a Private Link for data ingestion for Managed Prometheus and the Azure Monitor workspace that stores the data is done on the Data Collection Endpoints (DCE) that are associated with the workspace.
 
-To find the DCEs associated with your Azure Monitor workspace:
+This article shows you how to configure the DCEs associated with your Azure Monitor workspace to use a Private Link for data ingestion.
+
+To define your Azure Monitor Private Link scope (AMPLS), see [Azure Monitor private link documentation](../logs/private-link-configure.md),  then associate your DCEs with the AMPLS.
+
+Find the DCEs associated with your Azure Monitor workspace.
 
 1. Open the Azure Monitor workspaces menu in the Azure portal
 2. Select your workspace
