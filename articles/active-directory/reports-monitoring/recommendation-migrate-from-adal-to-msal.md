@@ -51,7 +51,7 @@ There are four steps to identifying and updating your apps in the Azure portal. 
 
 ### Identify your apps programmatically
 
-You can run the following set of commands in Windows PowerShell. These commands use the [Microsoft Graph PowerShell SDK](https://docs.microsoft.com/graph/powershell/installation) to get a list of all applications in your tenant that use ADAL.
+You can run the following set of commands in Windows PowerShell. These commands use the [Microsoft Graph PowerShell SDK](/graph/powershell/installation) to get a list of all applications in your tenant that use ADAL.
 
 1. Open Windows PowerShell as an administrator.
 
