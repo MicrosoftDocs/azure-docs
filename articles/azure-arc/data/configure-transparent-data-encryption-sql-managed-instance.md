@@ -126,7 +126,7 @@ When TDE is disabled on Arc-enabled SQL Managed Instance, the data service autom
 
 ### [Service-managed mode](#tab/service-managed-mode)
 
-Run kubectl patch to disable service-managed TDE
+Run kubectl patch to disable service-managed TDE.
 
 ```console
 kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": "Disabled" } } } }'
@@ -139,15 +139,18 @@ kubectl patch sqlmi sqlmi-tde --namespace arc --type merge --patch '{ "spec": { 
 
 ### [Customer-managed mode](#tab/customer-managed-mode)
 
-Run kubectl patch to disable customer-managed TDE
+Run kubectl patch to disable customer-managed TDE.
 
 ```console
-kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": "Disabled" , "protectorSecret": "sqlmi-tde-protector-cert-secret" } } } }'
+kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": "Disabled" , "protectorSecret": null } } } }'
 ```
+
+In customer-managed mode, the setting has to 
+
 
 Example:
 ```console
-kubectl patch sqlmi sqlmi-tde --namespace arc --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": "Disabled" , "protectorSecret": "sqlmi-tde-protector-cert-secret"} } } }'
+kubectl patch sqlmi sqlmi-tde --namespace arc --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": "Disabled" , "protectorSecret": null } } } }'
 ```
 
 ---
