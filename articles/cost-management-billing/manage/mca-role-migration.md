@@ -33,7 +33,7 @@ Use the following information to automate billing role migration from the source
 ## Prerequisites
 
 - You must have **Billing account owner** role on the target MCA and Billing account owner or billing account contributor role on the source MCA.
-- A storage account prepared for the script. For more information, see [Get started with AzCopy](../../storage/common/storage-use-azcopy-v10).
+- A storage account prepared for the script. For more information, see [Get started with AzCopy](../../storage/common/storage-use-azcopy-v10.md).
 
 ## Prepare the target environment
 
