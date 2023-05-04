@@ -15,7 +15,7 @@ ms.reviewer: arvinh
 
 # Tutorial: Reporting on automatic user account provisioning
 
-Azure Active Directory (Azure AD) includes a [user account provisioning service](user-provisioning.md). The service helps automate the provisioning de-provisioning of user accounts in SaaS apps and other systems. The automation helps with end-to-end identity lifecycle management. Azure AD supports preintegrated user provisioning connectors for many applications and systems. To learn more about user provisioning tutorials, see [Provisioning Tutorials](../saas-apps/tutorial-list.md).
+Azure Active Directory (Azure AD) includes a [user account provisioning service](user-provisioning.md). The service helps automate the provisioning deprovisioning of user accounts in SaaS apps and other systems. The automation helps with end-to-end identity lifecycle management. Azure AD supports preintegrated user provisioning connectors for many applications and systems. To learn more about user provisioning tutorials, see [Provisioning Tutorials](../saas-apps/tutorial-list.md).
 
 This article describes how to check the status of provisioning jobs after they have been set up, and how to troubleshoot the provisioning of individual users and groups.
 
@@ -35,7 +35,7 @@ Provisioning connectors are set up and configured using the [Azure portal](https
 
 This article uses the following terms:
 
-* **Source System** - The repository of users that the Azure AD provisioning service synchronizes from. Azure Active Directory is the source system for most pre-integrated provisioning connectors, however there are some exceptions (example: Workday Inbound Synchronization).
+* **Source System** - The repository of users that the Azure AD provisioning service synchronizes from. Azure Active Directory is the source system for most preintegrated provisioning connectors, however there are some exceptions (example: Workday Inbound Synchronization).
 * **Target System** - The repository of users where the Azure AD provisioning service synchronizes. The repository is typically a SaaS application, such as Salesforce, ServiceNow, G Suite, and Dropbox for Business. In some cases the repository can be an on-premises system such as Active Directory, such as Workday Inbound Synchronization to Active Directory.
 
 ## Getting provisioning reports from the Azure portal
