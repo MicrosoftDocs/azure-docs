@@ -21,7 +21,7 @@ This article describes how to check the status of provisioning jobs after they h
 
 ## Overview
 
-Provisioning connectors are set up and configured using the [Azure portal](https://portal.azure.com), by following the [provided documentation](../saas-apps/tutorial-list.md) for the supported application. When  connector is configure and running, provisioning jobs can be reported on using the following methods:
+Provisioning connectors are set up and configured using the [Azure portal](https://portal.azure.com), by following the [provided documentation](../saas-apps/tutorial-list.md) for the supported application. When the connector is configured and running, provisioning jobs can be reported using the following methods:
 
 - The [Azure portal](https://portal.azure.com)
 
