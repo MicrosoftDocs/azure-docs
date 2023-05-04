@@ -13,16 +13,8 @@ author: kalyaninamuduri
 
 The [Azure PowerShell AZ](/powershell/azure/new-azureps-module-az) module is used to create and manage Azure resources from the command line or in scripts.
 
-[Azure Center for SAP solutions](overview.md) enables you to deploy and manage SAP systems on Azure. This article shows you how to register an existing SAP system running on Azure with *Azure Center for SAP solutions* using Az PowerShell module. Alternatively, you can register systems using the Azure CLI, or in the [Azure portal.  
-After you register an SAP system with *Azure Center for SAP solutions*, you can use its visualization, management and monitoring capabilities through the Azure portal. For example, you can:
-
-- View and track the SAP system as an Azure resource, called the *Virtual Instance for SAP solutions (VIS)*.
-- Get recommendations for your SAP infrastructure, Operating System configurations etc. based on quality checks that evaluate best practices for SAP on Azure.
-- Get health and status information about your SAP system.
-- Start and Stop SAP application tier.
-- Start and Stop individual instances of ASCS, App server and HANA Database.
-- Monitor the Azure infrastructure metrics for the SAP system resources.
-- View Cost Analysis for the SAP system.
+[Azure Center for SAP solutions](overview.md) enables you to deploy and manage SAP systems on Azure. This article shows you how to register an existing SAP system running on Azure with *Azure Center for SAP solutions* using Az PowerShell module. Alternatively, you can register systems using the Azure CLI, or in the Azure portal.  
+After you register an SAP system with *Azure Center for SAP solutions*, you can use its visualization, management and monitoring capabilities through the Azure portal.
 
 This quickstart requires the Az PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
 
@@ -59,15 +51,47 @@ To register an existing SAP system in Azure Center for SAP solutions:
 
      ```powershell
      New-AzWorkloadsSapVirtualInstance `
-     -ResourceGroupName 'TestRG' `
-     -Name L46 `
-     -Location eastus `
-     -Environment 'NonProd' `
-     -SapProduct 'S4HANA' `
-     -CentralServerVmId '/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourcegroups/powershell-cli-testrg/providers/microsoft.compute/virtualmachines/l46ascsvm' `
-     -Tag @{k1 = "v1"; k2 = "v2"} `
-     -ManagedResourceGroupName "L46-rg" `
-     -ManagedRgStorageAccountName 'acssstoragel46' `
-     -IdentityType 'UserAssigned' `
-     -UserAssignedIdentity @{'/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourcegroups/SAP-E2ETest-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/E2E-RBAC-MSI'= @{}} `
+       -ResourceGroupName 'TestRG' `
+       -Name L46 `
+       -Location eastus `
+       -Environment 'NonProd' `
+       -SapProduct 'S4HANA' `
+       -CentralServerVmId '/subscriptions/sub1/resourcegroups/rg1/providers/microsoft.compute/virtualmachines/l46ascsvm' `
+       -Tag @{k1 = "v1"; k2 = "v2"} `
+       -ManagedResourceGroupName "acss-L46-rg" `
+       -ManagedRgStorageAccountName 'acssstoragel46' `
+       -IdentityType 'UserAssigned' `
+       -UserAssignedIdentity @{'/subscriptions/sub1/resourcegroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ACSS-MSI'= @{}} `
      ```
+ - **Name** attribute is used to specify the SAP System ID (SID) that you are registering with Azure Center for SAP solutions.
+ - **Location** attribute is used to specify the Azure Center for SAP solutions service location. Following table has the mapping that enables you to choose the right service location based on where your SAP system infrastructure is located on Azure.
+
+| **SAP application location** | **Azure Center for SAP solutions service location** |
+| ------------------------| --------------------------------------------------- |
+| East US | East US |
+| East US 2 | East US 2|
+| South Central US | East US 2 |
+| Central US | East US 2|
+| West US 2 | West US 3 |
+| West US 3 | West US 3 |
+| West Europe | West Europe |
+| North Europe | North Europe |
+| Australia East | Australia East |
+| Australia Central | Australia East |
+| East Asia | East Asia |
+| Southeast Asia | East Asia |
+| Central India | Central India |
+
+ - **Environment** is used to specify the type of SAP environment you are registering. Valid values are *NonProd* and *Prod*.
+ - **SapProduct** is used to specify the type of SAP product you are registering. Valid values are *S4HANA*, *ECC*, *Other*.
+
+2. Once you trigger the registration process, you can view its status by getting the status of the Virtual Instance for SAP solutions resource that gets deployed as part of the registration process.
+
+   ```powershell
+   Get-AzWorkloadsSapVirtualInstance -ResourceGroupName TestRG -Name L46
+   ```
+
+## Next steps
+
+- [Monitor SAP system from Azure portal](monitor-portal.md)
+- [Manage a VIS](manage-virtual-instance.md)
