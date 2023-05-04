@@ -163,14 +163,27 @@ Azure creates a default route table for your virtual networks upon create. By im
 
 #### Configuring UDR with Azure Firewall - preview:
 
-UDR is only supported on the workload profiles architecture. For a guide on how to setup UDR with Container Apps to restrict outbound traffic with Azure Firewall, visit the [how to for Container Apps and Azure Firewall](./user-defined-routes.md).
+UDR is only supported on the workload profiles architecture. The following application and network rules must be added to the allowlist for your firewall depending on which resources you are using.
 
-The following FQDNs and service tags must be added to the allowlist for your firewall depending on which resources you are using:
+> [!Note] 
+> For a guide on how to setup UDR with Container Apps to restrict outbound traffic with Azure Firewall, visit the [how to for Container Apps and Azure Firewall](./user-defined-routes.md).
 
-- For all scenarios, you need to allow the `MicrosoftContainerRegistry` and its dependency `AzureFrontDoor.FirstParty` service tags through your Azure Firewall. Alternatively, you can add the following FQDNs: *mcr.microsoft.com* and **.data.mcr.microsoft.com*.
-- If you're using Azure Container Registry (ACR), you need to add the `AzureContainerRegistry` service tag and the **.blob.core.windows.net* FQDN in the Azure Firewall.
-- If you're using [Docker Hub registry](https://docs.docker.com/desktop/allow-list/) and want to access it through the firewall, you need to add the following FQDNs to your firewall: *hub.docker.com*, *registry-1.docker.io*, and *production.cloudflare.docker.com*.
-- If you're using [Azure Key Vault references](./manage-secrets.md#reference-secret-from-key-vault), you will need to add the `AzureKeyVault` service tag and the *login.microsoft.com* FQDN to the allow list for your firewall.
+##### Azure Firewall - Application Rules
+
+| Service | FQDNs | Description |
+|--|--|--|
+| Microsoft Container Registry (MCR) | *mcr.microsoft.com*, **.data.mcr.microsoft.com* | These FQDNs are used by Azure Container Apps infrastructure and must be added to the allowlist when using Azure Container Apps with Azure Firewall. |
+| Azure Container Registry (ACR) | *Your-ACR-address*, **.blob.windows.net* |These FQDNs are required when using Azure Container Apps with ACR and Azure Firewall. |
+| Azure Key Vault | *login.microsoft.com* | This FQDN is required in addition to the service tag required for the network rule for Azure Key Vault. |
+| Docker Hub Registry | *hub.docker.com*, *registry-1.docker.io*, *production.cloudflare.docker.com* | If you're using [Docker Hub registry](https://docs.docker.com/desktop/allow-list/) and want to access it through the firewall, you need to add these FQDNs to the firewall. |
+
+##### Azure Firewall - Network Rules
+
+| Service | FQDNs | Description |
+|--|--|--|
+| MCR | *MicrosoftContainerRegistry*, *AzureFrontDoorFirstParty*  | When using Azure Container Apps with Azure Firewall, you will need to configure these application rules used by Microsoft Container Registry. |
+| ACR | *AzureContainerRegistry* | When using ACR with Azure Container Apps, you will need to configure these application rules used by Azure Container Registry. |
+| Azure Key Vault | *AzureKeyVault* | This service tag is required in addition to the FQDN for the application rule for Azure Key Vault. |
 
 ### NAT gateway integration - preview
 
