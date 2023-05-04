@@ -150,7 +150,7 @@ Also see the following SAP resources:
 
 ### Azure Data Services
 
-Learn how to **choose** the [best SAP connector for data integration](/azure/cloud-adoption-framework/scenarios/sap/sap-lza-choose-azure-connectors) and how to [tune performance including troubleshooting tips](/azure/cloud-adoption-framework/scenarios/sap/sap-lza-data-extraction-performance-troubleshooting) on our cloud adoption framework for SAP.
+Learn how to **choose** the [best SAP connector for data integration](/azure/cloud-adoption-framework/scenarios/sap/sap-lza-choose-azure-connectors) and how to [tune performance including troubleshooting tips](/azure/cloud-adoption-framework/scenarios/sap/sap-lza-data-extraction-performance-troubleshooting) on our cloud adoption framework for SAP. Get started by identifying your SAP data sources [here](/azure/cloud-adoption-framework/scenarios/sap/sap-lza-identify-sap-data-sources).
 
 For more information about integration with Azure Data Services, see the following Microsoft and Azure resources:
 
@@ -218,6 +218,7 @@ You can use the following free developer accounts to explore integration scenari
 - [Discover native SAP applications available on the Microsoft Teams marketplace](https://appsource.microsoft.com/marketplace/apps?product=teams&search=sap&page=1)
 - [Browse the out-of-the-box SAP applications available on Microsoft Power Platform](/power-automate/sap-integration/overview?source=recommendations#prebuilt-sap-integration-solution)
 - [Understand SAP data integration with Azure - Cloud Adoption Framework](/azure/cloud-adoption-framework/scenarios/sap/sap-lza-identify-sap-data-sources)
+- [Identify your SAP data sources](/azure/cloud-adoption-framework/scenarios/sap/sap-lza-identify-sap-data-sources)
 - [Explore joint reference architectures on the SAP Discovery Center](https://discovery-center.cloud.sap/search/Azure)
 - [Secure your SAP NetWeaver email needs with Exchange Online](./exchange-online-integration-sap-email-outbound.md)
 - [Migrate your legacy SAP middleware to Azure](./expose-sap-process-orchestration-on-azure.md)
