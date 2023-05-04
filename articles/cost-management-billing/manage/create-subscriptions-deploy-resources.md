@@ -16,7 +16,7 @@ ms.author: banders
 
 When you try to create multiple Azure subscriptions in a short period of time, you might receive a message stating:
 
-`Subscription not created. Please try again later`
+`Subscription not created. Please try again later.`
 
 The message is normal and expected.
 
