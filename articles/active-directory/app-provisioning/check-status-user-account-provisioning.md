@@ -70,7 +70,7 @@ The provisioning summary report and provisioning logs play a key role helping ad
 
 For scenario-based guidance on how to troubleshoot automatic user provisioning, see [Problems configuring and provisioning users to an application](../app-provisioning/application-provisioning-config-problem.md).
 
-## Additional Resources
+## Next steps
 
-* [Managing user account provisioning for Enterprise Apps](configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Managing user account provisioning for Enterprise Apps](configure-automatic-user-provisioning-portal.md)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
