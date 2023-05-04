@@ -33,7 +33,7 @@ Provisioning connectors are set up and configured using the [Azure portal](https
 
 ### Definitions
 
-This article uses the following terms, defined below:
+This article uses the following terms:
 
 * **Source System** - The repository of users that the Azure AD provisioning service synchronizes from. Azure Active Directory is the source system for the majority of pre-integrated provisioning connectors, however there are some exceptions (example: Workday Inbound Synchronization).
 * **Target System** - The repository of users that the Azure AD provisioning service synchronizes to. This is typically a SaaS application (examples: Salesforce, ServiceNow, G Suite, Dropbox for Business), but in some cases can be an on-premises system such as Active Directory (example: Workday Inbound Synchronization to Active Directory).
@@ -44,7 +44,7 @@ To get provisioning report information for a given application, start by launchi
 
 **Azure Active Directory > Enterprise Applications > All applications > LinkedIn Elevate**
 
-From here, you can access both the provisioning progress bar and the provisioning logs, described below.
+From the all applications area, you access both the provisioning progress bar and provisioning logs.
 
 ## Provisioning progress bar
 
