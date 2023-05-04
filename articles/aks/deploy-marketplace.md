@@ -52,6 +52,32 @@ az provider register --namespace Microsoft.KubernetesConfiguration --wait
 
 ## Select and deploy a Kubernetes offer
 
+### [AKS portal](#tab/azure-portal)
+
+1. In the [Azure portal](https://portal.azure.com/), you can deploy a Kubernetes application from an existing cluster by navigating to **Marketplace** or selecting **Extensions + applications**, then selecting **+ Add**.
+
+   :::image type="content" source="./media/deploy-marketplace/add-inline.png" alt-text="The Azure portal page for the A K S cluster is shown. 'Extensions + Applications' is selected, and '+ Add' is highlighted." lightbox="./media/deploy-marketplace/add.png:::
+
+1. You can search for an offer or publisher directly by name, or you can browse all offers.
+
+   :::image type="content" source="./media/deploy-marketplace/marketplace-view-inline.png" alt-text="Screenshot of Kubernetes offers in the Azure portal." lightbox="./media/deploy-marketplace/marketplace-view.png":::
+
+1. After you decide on an application, select the offer.
+
+1. On the **Plans + Pricing** tab, select an option. Ensure that the terms are acceptable, and then select **Create**.
+
+   :::image type="content" source="./media/deploy-marketplace/plan-pricing.png" alt-text="Screenshot of the offer purchasing page in the Azure portal, showing plan and pricing information.":::
+
+1. Follow each page in the wizard, all the way through Review + Create. Fill in information for your resource group, your cluster, and any configuration options that the application requires. You can decide to deploy on a new AKS cluster or use an existing cluster.
+
+   :::image type="content" source="./media/deploy-marketplace/review-create.png" alt-text="Screenshot of the Azure portal wizard for deploying a new offer, with the selector for creating a cluster or using an existing one.":::
+
+1. When the application is deployed, the portal shows your deployment is progress, along with details.
+
+   :::image type="content" source="./media/deploy-marketplace/deploying.png" alt-text="Screenshot of the Azure portal deployments screen, showing that the Kubernetes offer is currently being deployed.":::
+
+### [Marketplace portal](#tab/azure-portal)
+
 1. In the [Azure portal](https://portal.azure.com/), search for **Marketplace** on the top search bar. In the results, under **Services**, select **Marketplace**.
 
 1. You can search for an offer or publisher directly by name, or you can browse all offers. To find Kubernetes application offers, on the left side under **Categories** select **Containers**.
@@ -63,7 +89,7 @@ az provider register --namespace Microsoft.KubernetesConfiguration --wait
 
 1. You'll see several Kubernetes application offers displayed on the page. To view all of the Kubernetes application offers, select **See more**.
 
-   :::image type="content" source="./media/deploy-marketplace/see-more-inline.png" alt-text="Screenshot of Azure Marketplace K8s offers in the Azure portal" lightbox="./media/deploy-marketplace/see-more.png":::
+   :::image type="content" source="./media/deploy-marketplace/see-more-inline.png" alt-text="Screenshot of Azure Marketplace K8s offers in the Azure portal. 'See More' is highlighted." lightbox="./media/deploy-marketplace/see-more.png":::
 
 1. After you decide on an application, select the offer.
 
@@ -78,6 +104,10 @@ az provider register --namespace Microsoft.KubernetesConfiguration --wait
    When the application is deployed, the portal shows **Your deployment is complete**, along with details of the deployment.
 
    :::image type="content" source="./media/deploy-marketplace/deployment-inline.png" alt-text="Screenshot of the Azure portal that shows a successful resource deployment to the cluster." lightbox="./media/deploy-marketplace/deployment-full.png":::
+
+---
+
+## Verify the deployment
 
 ### [Azure CLI](#tab/azure-cli)
 
