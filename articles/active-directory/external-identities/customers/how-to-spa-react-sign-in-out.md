@@ -39,7 +39,6 @@ In this tutorial:
 1. Right click on *src*, select **New Folder** and call it *components*.
 1. Right click on *components* and using the **New File** option, create the following four files;
     - *PageLayout.jsx*
-    - *ProfileData.jsx*
     - *SignInButton.jsx*
     - *SignOutButton.jsx*
 
@@ -52,7 +51,6 @@ reactspalocal/
 ├── src/
 │   ├── components/
 │   │   ├── PageLayout.jsx
-│   │   ├── ProfileData.jsx
 │   │   ├── SignInButton.jsx
 │   │   └── SignOutButton.jsx
 │   └── ...
@@ -223,7 +221,6 @@ By default, the application runs via a JavaScript file called *App.js*. It needs
 
    import { PageLayout } from './components/PageLayout';
    import { loginRequest } from './authConfig';
-   import { ProfileData } from './components/ProfileData';
 
    import { AuthenticatedTemplate, UnauthenticatedTemplate, useMsal } from '@azure/msal-react';
 
@@ -287,4 +284,13 @@ All the required code snippets have been added, so the application can now be ca
 1. For **Stay signed in**, you can select either **No** or **Yes**.
 1. The app will now ask for permission to sign-in and access data. Select **Accept** to continue.
 
+## Sign out of the application
 
+1. To sign out of the application, select **Sign out** in the navigation bar.
+1. A window appears asking which account to sign out of.
+1. Upon successful sign out, a final window appears advising you to close all browser windows.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Enable self-service password reset](./how-to-enable-password-reset-customers.md)
