@@ -5,7 +5,7 @@ author: sethmanheim
 ms.author: sethm
 ms.service: notification-hubs
 ms.topic: conceptual
-ms.date: 05/03/2023
+ms.date: 05/04/2023
 
 ---
 
@@ -15,7 +15,7 @@ ms.date: 05/03/2023
 Android, Windows, etc.) from any back-end (cloud or on-premises). This article describes the configuration options to achieve the availability characteristics required by your solution. For more information about our SLA, see the [Notification Hubs SLA][].
 
 > [!NOTE]
-> The following features are available in preview. If you are interested in using these features, contact your customer success manager at Microsoft, or create an Azure ticket which will be triaged by the support team:
+> The following features are available in preview. If you are interested in using these features, contact your customer success manager at Microsoft, or create an Azure ticket, which will be triaged by the support team:
 >
 > - Ability to edit your cross region disaster recovery options
 > - Availability Zones
