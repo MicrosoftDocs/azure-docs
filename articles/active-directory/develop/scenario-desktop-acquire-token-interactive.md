@@ -44,7 +44,11 @@ catch(MsalUiRequiredException)
 
 `AcquireTokenInteractive` has only one mandatory parameter, `scopes`. It contains an enumeration of strings that define the scopes for which a token is required. If the token is for Microsoft Graph, you can find the required scopes in the API reference of each Microsoft Graph API in the section named "Permissions." For instance, to [list the user's contacts](/graph/api/user-list-contacts), you must use both `User.Read` and `Contacts.Read` as the scope. For more information, see [Microsoft Graph permissions reference](/graph/permissions-reference).
 
-On Android, you also need to specify the parent activity by using `.WithParentActivityOrWindow`, so that the token gets back to that parent activity after the interaction. If you don't specify it, an exception is thrown when you call `.ExecuteAsync()`.
+On both desktop and mobile applications, it's important to specify the parent by using `.WithParentActivityOrWindow`. In many cases, it's a requirement and MSAL will throw exceptions.
+
+For desktop applications, see [Parent window handles](/azure/active-directory/develop/scenario-desktop-acquire-token-wam#parent-window-handles)
+
+For mobile applications, provide `Activity` (Android) or `UIViewController` (iOS).
 
 ### Optional parameters in MSAL.NET
 
