@@ -150,14 +150,14 @@ In the Consumption plan and the Consumption workload profile in the Consumption 
 | `1.5` | `3.0Gi` | ✔ | ✔ |
 | `1.75` | `3.5Gi` | ✔ | ✔ |
 | `2.0` | `4.0Gi` | ✔ | ✔ |
-| `2.25` | `4.5Gi` | ✕ | ✔ |
-| `2.5` | `5.0Gi` | ✕ | ✔ |
-| `2.75` | `5.5Gi` | ✕ | ✔ |
-| `3.0` | `6.0Gi` | ✕ | ✔ |
-| `3.25` | `6.5Gi` | ✕ | ✔ |
-| `3.5` | `7.0Gi` | ✕ | ✔ |
-| `3.75` | `7.5Gi` | ✕ | ✔ |
-| `4.0` | `8.0Gi` | ✕ | ✔ |
+| `2.25` | `4.5Gi` |  | ✔ |
+| `2.5` | `5.0Gi` |  | ✔ |
+| `2.75` | `5.5Gi` |  | ✔ |
+| `3.0` | `6.0Gi` |  | ✔ |
+| `3.25` | `6.5Gi` |  | ✔ |
+| `3.5` | `7.0Gi` |  | ✔ |
+| `3.75` | `7.5Gi` |  | ✔ |
+| `4.0` | `8.0Gi` |  | ✔ |
 
 - The total of the CPU requests in all of your containers must match one of the values in the *vCPUs* column.
 - The total of the memory requests in all your containers must match the memory value in the memory column in the same row of the CPU column.
