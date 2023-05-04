@@ -17,7 +17,7 @@ Reach out to the preview alias to troubleshoot: 'preview-route-maps@microsoft.co
 1. Verify the match condition is set correctly. The match condition is used to select the routes you want to modify.
 
    * **If you are matching all routes instead of just the ones you selected**: Remember, if a route map is created without a match condition, all routes from the applied connection will be matched.
-   * **If you have match conditions and you are still not selecting the routes you would like**: Check the match criterion to ensure it's set correctly. Remember, "equal" matches the exact prefix and contains matches prefixes within the route. (e.g 10.2.30.0/24 would be included in a contains for 10.2.0.0/16)  
+   * **If you have match conditions and you are still not selecting the routes you would like**: Check the match criterion to ensure it's set correctly. Remember, "equal" matches the exact prefix and "contains" matches prefixes within the route. (e.g 10.2.30.0/24 would be included in a contains for 10.2.0.0/16)  
    * **If you are using the "contains" match criteria**: Verify that your subnetting is correct.
 
 1. Verify the action is set correctly. Summarizing routes requires the "Replace" action.

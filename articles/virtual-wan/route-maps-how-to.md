@@ -99,15 +99,15 @@ To modify or remove an existing Route-map rule, use the following steps.
 1. On the **Route-maps page**, on the line for the route-map that you want to edit, select **… > Edit**.
 1. On **Edit Route-map** page, select **… > Edit** to edit the route-map rule.
 
-   :::image type="content" source="./media/route-maps-how-to/edit-delete.png" alt-text="Screenshot shows to select Edit." lightbox="./media/route-maps-how-to/edit-delete.png":::
+   :::image type="content" source="./media/route-maps-how-to/edit-delete.png" alt-text="Screenshot shows how to select Edit." lightbox="./media/route-maps-how-to/edit-delete.png":::
 
 1. Modify the rule as required. On the **Edit Route-map rule** page, select **Add**, and on Reminder dialog box, select **Okay** to store the rule changes temporarily and proceed to next step.
 
-   :::image type="content" source="./media/route-maps-how-to/add-okay.png" alt-text="Screenshot shows to select Add and Okay." lightbox="./media/route-maps-how-to/add-okay.png":::
+   :::image type="content" source="./media/route-maps-how-to/add-okay.png" alt-text="Screenshot shows how to select Add and Okay." lightbox="./media/route-maps-how-to/add-okay.png":::
 
 1. On the **Edit Route-map** page, select **Save**.
 
-   :::image type="content" source="./media/route-maps-how-to/select-save.png" alt-text="Screenshot shows to select Save." lightbox="./media/route-maps-how-to/select-save.png":::
+   :::image type="content" source="./media/route-maps-how-to/select-save.png" alt-text="Screenshot shows how to select Save." lightbox="./media/route-maps-how-to/select-save.png":::
 
 ## Troubleshooting
 
