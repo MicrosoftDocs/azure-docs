@@ -64,8 +64,6 @@ landingContent:
             url: mqtt-client-authentication.md
           - text: Access control for MQTT clients
             url: mqtt-access-control.md
-          - text: MQTT support in Event Grid
-            url: mqtt-support.md           
           - text: Routing MQTT messages
             url: mqtt-routing.md
 
