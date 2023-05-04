@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: table
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 05/02/2023
+ms.date: 05/04/2023
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.custom: devx-track-python, mode-api, devx-track-azurecli, ignite-2022, py-fresh-zinc
