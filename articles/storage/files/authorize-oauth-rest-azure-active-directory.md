@@ -4,7 +4,7 @@ description: Authorize access to Azure file shares and directories via the OAuth
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/02/2023
+ms.date: 05/04/2023
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -14,7 +14,7 @@ ms.subservice: files
 Azure Files OAuth over REST Preview enables privileged read and write data access to Azure file shares via the [OAuth](https://oauth.net/) authentication protocol using Azure Active Directory (Azure AD) for REST API based access. Users, groups, first-party services such as Azure portal, and third-party services and applications using REST interfaces can now use OAuth authentication and authorization with an Azure AD account to access data in Azure file shares. PowerShell cmdlets and Azure CLI commands that call REST APIs can also use OAuth to access Azure file shares.
 
 > [!IMPORTANT]
-> You must call the REST API using an explicit header to indicate your intent to use the additional privilege. This is also true for Azure PowerShell and Azure CLI access. The only supported value for the intent header today is **backup**.
+> You must call the REST API using an explicit header to indicate your intent to use the additional privilege. This is also true for Azure PowerShell and Azure CLI access.
 
 ## Limitations
 
@@ -178,7 +178,7 @@ You can assign permissions to file data to an Azure AD security principal via Az
 
 The extensions only support operations on file data. Which operations you may call depends on the permissions granted to the Azure AD security principal with which you signed into PowerShell.
 
-The storage context with OAuth will only work if it's called with the `-ShareFileRequestIntent` option specifying a value of `Backup.` This is to specify the explicit intent to use the additional permissions that this feature provides.
+The storage context with OAuth will only work if it's called with the `-EnableFileBackupRequestIntent` parameter. This is to specify the explicit intent to use the additional permissions that this feature provides.
 
 The storage context with OAuth will only work for operations on files and directories, and Get/Set permissions on Azure file shares. For all other operations on storage account and file shares, you must use the storage account key or SAS token.
 
@@ -222,10 +222,10 @@ To authorize access to file data, follow these steps.
 4. Get the storage account context using OAuth for performing data operations on the file share (data service). Replace `<StorageAccountName>` with your storage account name.
    
    ```azurepowershell-interactive
-   $ctx = New-AzStorageContext -StorageAccountName <StorageAccountName> -ShareFileRequestIntent Backup 
+   $ctx = New-AzStorageContext -StorageAccountName <StorageAccountName> -EnableFileBackupRequestIntent
    ```
    
-   To get the storage account context with OAuth, you must explicitly pass the `-ShareFileRequestIntent` parameter **Backup** to the `New-AzStorageContext` cmdlet. If you don't pass the intent parameter, subsequent file share data operation requests using the context will fail.
+   To get the storage account context with OAuth, you must explicitly pass the `-EnableFileBackupRequestIntent` parameter to the `New-AzStorageContext` cmdlet. If you don't pass the intent parameter, subsequent file share data operation requests using the context will fail.
    
 5. Create a test directory and file in the file share using `New-AzStorageDirectory` and `Set-AzStorageFileContent` cmdlets. Remember to specify a local source file path.
    
