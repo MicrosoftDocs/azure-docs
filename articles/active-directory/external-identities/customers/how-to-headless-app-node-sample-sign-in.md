@@ -18,9 +18,9 @@ ms.custom: developer
 
 # Authenticate users in a sample Node.js headless application by using Microsoft Entra
 
-This how-to guide uses a sample Node.js headless application to show how to add authentication to a headless application by using Microsoft Entra. The sample application uses the device code flow to authenticate users against Azure Active Directory (Azure AD) CIAM.
+This how-to guide uses a sample Node.js headless application to show how to add authentication to a headless application by using Microsoft Entra. The sample application uses the device code flow to authenticate users in an Azure Active Directory (Azure AD) for customers tenant. 
 
-In this article, you do the following tasks:
+In this article, you complete the following tasks:
 
 - Register a headless application in the Microsoft Entra admin center. 
 
@@ -38,15 +38,14 @@ In this article, you do the following tasks:
 
 - [Visual Studio Code](https://code.visualstudio.com/download) or another code editor.
 
-- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://developer.microsoft.com/identity/customers). 
-
-<!--Awaiting this link http://developer.microsoft.com/identity/customers to go live on Developer hub-->
+- Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](https://aka.ms/ciam-free-trial). 
 
 
 ## Register the headless app
 
 [!INCLUDE [active-directory-b2c-register-app](./includes/register-app/register-client-app-common.md)]
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/register-app/add-platform-redirect-url-node.md)]  
+[!INCLUDE [active-directory-b2c-enable-public-client-flow](./includes/register-app/enable-public-client-flow.md)]  
 
 ## Grant API permissions
 
@@ -62,9 +61,7 @@ In this article, you do the following tasks:
 
 ## Clone or download sample headless application
 
-To get the headless app sample code, you can do either of the following tasks:
-
-- [Download the .zip file](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/archive/refs/heads/main.zip) or clone the sample headless application from GitHub by running the following command:
+To get the headless app sample code, you can do either [download the .zip file](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/archive/refs/heads/main.zip) or clone the sample headless application from GitHub by running the following command:
 
     ```powershell
         git clone https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial.git
@@ -73,30 +70,30 @@ If you choose to download the `.zip` file, extract the sample app file to a fold
 
 ## Install project dependencies 
 
-1. Open a console window, and change to the directory that contains the Node.js sample app. For example:
+1. Open a console window, and navigate to the directory that contains the Node.js sample app. For example:
 
     ```powershell
-        cd 1-Authentication\5-sign-in-express\App
+        cd 1-Authentication\4-sign-in-device-code\App
     ```
 1. Run the following commands to install app dependencies:
 
     ```powershell
-        npm install && npm update
+        npm install
     ```
 
 ## Configure the sample headless app
 
-1. In your code editor, open `App\authConfig.js` file. 
+1. In your code  editor, open `App\authConfig.js` file. 
 
 1. Find the placeholder: 
     
     1. `Enter_the_Application_Id_Here` and replace it with the Application (client) ID of the app you registered earlier.
     
-    1. `Enter_the_Tenant_Info_Here` and replace it with the Directory (tenant) ID you copied earlier.
+    1. `Enter_the_Tenant_Name_Here` and replace the existing value with the name of your Azure AD for Customers tenant.
 
 ## Run and test sample headless app 
 
-You can now test the sample Node.js headless app. You need to start the Node.js server and access it through your browser at `http://localhost:3000`.
+You can now test the sample Node.js headless app.
 
 1. In your terminal, run the following command:
 
@@ -104,16 +101,19 @@ You can now test the sample Node.js headless app. You need to start the Node.js 
         npm start 
     ```
 
-1. Open your browser, then go to http://localhost:3000. You should see the page similar to the following screenshot:
+1. Open your browser, then go to the URL suggested from the message in the terminal, https://microsoft.com/devicelogin. You should see the page similar to the following screenshot:
 
+ :::image type="content" source="media/how-to-headless-app-node-sample-sign-in/headless-app-node-enter-code.png" alt-text="Screenshot of the enter code prompt in a node headless application using the device code flow.":::
 
-1. After the page completes loading, select **Sign in** link. You're prompted to sign in.
+1. Copy the device code from the message in the terminal and paste it in the **Enter Code** prompt to authenticate. After entering the code, you'll be redirected to the sign in page as follows:
+
+ :::image type="content" source="media/how-to-headless-app-node-sample-sign-in/headless-app-node-sign-in-page.png" alt-text="Screenshot showing the sign in page in a node headless application":::
 
 1. On the sign-in page, type your **Email address**. If you don't have an account, select **No account? Create one**, which starts the sign-up flow.
 
-1. If you choose the sign-up option, after filling in your email, one-time passcode, new password and more account details, you complete the whole sign-up flow. You see a page similar to the following screenshot. You see a similar page if you choose the sign-in option.
+1. If you choose the sign-up option, after filling in your email, one-time passcode, new password and more account details, you complete the whole sign-up flow. After completing the sign upm flow and signing in, you see a page similar to the following screenshot:
 
-1. Select **Sign out** to sign user out of the headless app or select **View ID token claims** to view ID token claims returned by Microsoft Entra. 
+ :::image type="content" source="media/how-to-headless-app-node-sample-sign-in/headless-app-node-signed-in-user.png" alt-text="Screenshot showing a signed-in user in a node headless application":::
 
 ## Next steps
 
