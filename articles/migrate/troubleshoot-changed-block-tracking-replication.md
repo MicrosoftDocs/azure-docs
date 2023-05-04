@@ -250,6 +250,12 @@ One such known issue that may cause a CBT reset of virtual machine on VMware vSp
 
 Alternatively, you can reset VMware changed block tracking on a virtual machine using VMware PowerCLI.
 
+## Synchronisation fails when VMware DRS is enabled 
+
+If VMware Distributed Resource Scheduler (DRS) is enabled and a vMotion event takes place during a synchronisation, the sync may fail. In the case of a vMotion, the replication will start again. When Storage DRS is enabled, a Storage vMotion event may interrupt the synchronisation and require the source virtual machine to be rediscovered by Azure Migrate. 
+
+Consider setting the automation level for DRS and/or Storage DRS to Manual mode for virtual machines being replicated using Azure Migrate, particularly during large synchronisations such as the initial sync. See [Set a Custom Automation Level](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.resmgmt.doc/GUID-C21C0609-923B-46FB-920C-887F00DBCAB9.html) for more information.
+
 ## An internal error occurred
 
 Sometimes you may hit an error that occurs due to issues in the VMware environment/API. We've identified the following set of errors as VMware environment-related errors. These errors have a fixed format.
