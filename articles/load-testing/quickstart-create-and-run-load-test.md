@@ -36,6 +36,34 @@ To create a Load Testing resource:
 
 ## Create a load test
 
+# [Virtual users](#tab/virtual_users)
+
+Azure Load Testing enables you to quickly create a load test from the Azure portal. You'll specify the web application URL and the basic load testing parameters. Azure Load Testing abstracts the complexity of creating the load test script and provisioning the compute infrastructure.
+
+1. Go to the **Overview** page of your Azure Load Testing resource.
+
+1. On the **Get started** tab, select **Quick test**.
+
+    :::image type="content" source="media/quickstart-create-and-run-load-test/quick-test-resource-overview.png" alt-text="Screenshot that shows the quick test button on the resource overview page.":::
+
+1. On the **Quickstart test** page, enter the **Test URL**.
+
+    Enter the complete URL that you would like to run the test for. For example, `https://www.example.com/login`.
+ 
+1. Select **Virtual users** load specification method. 
+
+1. (Optional) Update the **Number of virtual users** to the total number of virtual users. 
+
+    The maximum allowed value is 11250. If the number of virtual users exceeds the maximum of 250 per test engine instance, Azure Load Testing provisions multiple test engines and distributes the load evenly. For example, 300 virtual users will result in 2 test engines with 150 virtual users each.
+
+1. (Optional) Update the **Test duration** and **Ramp up time** for the test.
+
+1. Select **Run test** to create and start the load test.
+
+    :::image type="content" source="media/quickstart-create-and-run-load-test/quickstart-test-vu.png" alt-text="Screenshot that shows quickstart test page.":::
+
+# [Requests per second (RPS)](#tab/rps)
+
 Azure Load Testing enables you to quickly create a load test from the Azure portal. You'll specify the web application URL and the basic load testing parameters. Azure Load Testing abstracts the complexity of creating the load test script and provisioning the compute infrastructure.
 
 1. Go to the **Overview** page of your Azure Load Testing resource.
@@ -48,15 +76,22 @@ Azure Load Testing enables you to quickly create a load test from the Azure port
 
     Enter the complete URL that you would like to run the test for. For example, `https://www.example.com/login`.
 
-1. (Optional) Update the **Number of virtual users** to the total number of virtual users. 
+1. Select **Requests per second** load specification method.
 
-    The maximum allowed value is 11250. If the number of virtual users exceeds the maximum of 250 per test engine instance, Azure Load Testing provisions multiple test engines and distributes the load evenly. For example, 300 virtual users will result in 2 test engines with 150 virtual users each.
+1. (Optional) Update the **Target Requests per second (RPS)** to the load that you want to generate in terms of requests per second. 
 
+    The maximum load that can be generated depends on the response time of the endpoint during the load test. Azure Load Testing provisions multiple test engines and configures the virtual users as required to generate the required load. The number of virtual users simulated is calculated using the formula: Virtual users = (RPS * max response time) / 1000
+
+1. (Optional) Update the **Response time (milliseconds)** to the response time of the endpoint. 
+
+    Response time during the load test is expected to be higher than normal. Provide a value higher than the maximum observed response time for the endpoint. 
+    
 1. (Optional) Update the **Test duration** and **Ramp up time** for the test.
 
 1. Select **Run test** to create and start the load test.
 
-    :::image type="content" source="media/quickstart-create-and-run-load-test/quickstart-test.png" alt-text="Screenshot that shows quickstart test page.":::
+    :::image type="content" source="media/quickstart-create-and-run-load-test/quickstart-test-rps.png" alt-text="Screenshot that shows quickstart test page.":::
+
 
 > [!NOTE]
 > Azure Load Testing auto-generates an Apache JMeter script for your load test.
