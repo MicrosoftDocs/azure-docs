@@ -63,7 +63,7 @@ Select an instance name to see all recommendations, including which action to ta
 
 :::image type="content" source="media/get-quality-checks-insights/recommendation-detail.png" lightbox="media/get-quality-checks-insights/recommendation-detail.png" alt-text="Screenshot of detailed advisor recommendations for an instance and which actions to take to resolve each issue.":::
 
-### Setting Alerts for Quality check recommendations
+### Set Alerts for Quality check recommendations
 As the Quality checks recommendations in Azure Centr for SAP solutions are integrated with *Azure Advisor*, you can set alerts for the recommendations. See how to [Configure alerts for recommendations](/azure/advisor/advisor-alerts-portal)
 
 > [!NOTE]
