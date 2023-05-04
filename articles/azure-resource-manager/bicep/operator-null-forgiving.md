@@ -7,13 +7,13 @@ ms.date: 05/04/2023
 
 # Bicep null-forgiving operator
 
-The unary postfix `!` operator is the null-forgiving, or null-suppression, operator. It is used to suppress all nullable warnings for the preceding expression. The null-forgiving operator has no effect at run time. It only affects the compiler's static flow analysis by changing the null state of the expression. At run time, expression `x!` evaluates to the result of the underlying expression `x`.
+The unary postfix `!` operator is the null-forgiving, or null-suppression, operator. It's used to suppress all nullable warnings for the preceding expression. The null-forgiving operator has no effect at run time. It only affects the compiler's static flow analysis by changing the null state of the expression. At run time, expression `x!` evaluates to the result of the underlying expression `x`.
 
 ## Null-forgiving
 
 `expression!`
 
-The null-forgiving operator ensures that a value is not null, thereby changing the assigned type of the value from `null | <type>` to `<type>`.
+The null-forgiving operator ensures that a value isn't null, thereby changing the assigned type of the value from `null | <type>` to `<type>`.
 The following example fails the design time validation:
 
 ```bicep
@@ -28,7 +28,7 @@ The warning message is:
 Expected a value of type "string" but the provided value is of type "null | string".
 ```
 
-To solve the problem use the null-forgiving operator:
+To solve the problem, use the null-forgiving operator:
 
 ```bicep
 param inputString string
