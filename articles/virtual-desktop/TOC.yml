@@ -288,7 +288,7 @@
         href: customize-rdp-properties.md
       - name: Configure load-balancing method
         href: configure-host-pool-load-balancing.md
-      - name: Set personal desktop assignment type
+      - name: Configure personal desktop assignment
         href: configure-host-pool-personal-desktop-assignment-type.md
       - name: Configure a validation environment
         href: configure-validation-environment.md
