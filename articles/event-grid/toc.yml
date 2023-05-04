@@ -454,7 +454,7 @@ items:
         href: mqtt-client-life-cycle-events.md
     - name: How-to guides
       items:
-      - name: Azure Event Grid Namespace MQTT client authentication using certificate chain
+      - name: MQTT client authentication using certificate chain
         href: mqtt-certificate-chain-client-authentication.md
       - name: How to configure multiple sessions for an MQTT client
         href: mqtt-establishing-multiple-sessions-per-client.md
