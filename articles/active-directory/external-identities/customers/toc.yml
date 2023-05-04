@@ -1,10 +1,10 @@
 items:  
-- name: Microsoft Entra External Identities for Customers documentation  
+- name: Azure Active Directory for customers documentation  
   href: index.yml  
 - name: Overview  
   expanded: true  
   items:   
-    - name: What is Microsoft Entra for customers?  
+    - name: What is Azure Active Directory for customers?  
       href: overview-customers-ciam.md 
     - name: "Solutions at-a-glance: Woodgrove demo"
       href: overview-solutions-customers.md 
@@ -222,14 +222,6 @@ items:
           href: ../../develop/custom-extension-get-started.md?context=/azure/active-directory/external-identities/customers/context/customers-context
         - name: Troubleshoot your custom claims provider API
           href: ../../develop/custom-extension-troubleshoot.md?context=/azure/active-directory/external-identities/customers/context/customers-context
-      - name: Attribute collection start and submit events
-        items:
-          - name: Configure custom extensions
-            href: how-to-configure-custom-extension.md
-          - name: OnAttributeCollectionStart
-            href: how-to-onattributecollectionstart.md
-          - name: OnAttributeCollectionSubmit
-            href: how-to-onattributecollectionsubmit.md
     - name: Secure
       expanded: true
       items:
