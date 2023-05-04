@@ -427,7 +427,7 @@ items:
         href: mqtt-routing-to-event-hubs-portal.md
     - name: Concepts
       items:
-      - name: Event Grid namespace terminology
+      - name: Terminology
         href: mqtt-event-grid-namespace-terminology.md
       - name: Event Grid namespace
         href: event-grid-namespace.md
