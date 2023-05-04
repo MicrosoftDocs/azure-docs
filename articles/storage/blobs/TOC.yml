@@ -763,12 +763,16 @@ items:
           items:
           - name: Upload blobs
             href: storage-blob-upload-javascript.md
-          - name: Get blob URL
-            href: storage-blob-get-url-javascript.md
           - name: Download blobs
             href: storage-blob-download-javascript.md
           - name: Copy blobs
-            href: storage-blob-copy-javascript.md
+            items:
+            - name: Overview of copy operations
+              href: storage-blob-copy-javascript.md
+            - name: Copy from a source object URL
+              href: storage-blob-copy-url-javascript.md
+            - name: Copy with asynchronous scheduling
+              href: storage-blob-copy-async-javascript.md
           - name: List blobs
             href: storage-blobs-list-javascript.md
           - name: Delete and restore blobs
@@ -779,6 +783,8 @@ items:
             href: storage-blob-lease-javascript.md
           - name: Manage blob properties and metadata
             href: storage-blob-properties-metadata-javascript.md
+          - name: Get blob URL
+            href: storage-blob-get-url-javascript.md
           - name: Use access tiers
             href: storage-blob-use-access-tier-javascript.md
       - name: TypeScript
@@ -830,7 +836,13 @@ items:
           - name: Download blobs
             href: storage-blob-download-typescript.md
           - name: Copy blobs
-            href: storage-blob-copy-typescript.md
+            items:
+            - name: Overview of copy operations
+              href: storage-blob-copy-typescript.md
+            - name: Copy from a source object URL
+              href: storage-blob-copy-url-typescript.md
+            - name: Copy with asynchronous scheduling
+              href: storage-blob-copy-async-typescript.md
           - name: List blobs
             href: storage-blobs-list-typescript.md
           - name: Delete and restore blobs
