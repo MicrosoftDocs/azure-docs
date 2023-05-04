@@ -20,7 +20,7 @@ items:
 - name: Samples 
   items: 
   - name: Content Safety samples
-    href: https://github.com/Azure/azure-sdk-for-python/tree/6516122d6286812221d4d9607807aefb334f0353/sdk/contentsafety/azure-ai-contentsafety/samples
+    href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/contentsafety/azure-ai-contentsafety/samples
 - name: How-to guides
   items:
   - name: Use a custom blocklist
