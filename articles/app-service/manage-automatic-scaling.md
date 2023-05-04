@@ -14,10 +14,6 @@ ms.author: msangapu
 
 App Service has an automatic scaling capability that adjusts the number of running instances of your application based on incoming HTTP requests. This ensures that your web applications can handle varying levels of traffic. You have control over scaling settings, such as defining the minimum and maximum number of instances per web app, to optimize performance and avoid bottlenecks. The platform also addresses cold start issues with prewarmed instances that act as a buffer when scaling out, ensuring smooth performance transitions. automatic scaling is available for the Premium Pv2 and Pv3 pricing tiers, and charges are calculated per second using existing billing meters. Prewarmed instances are also charged per second.
 
-> [!IMPORTANT]
-> [`Always ON`](./configure-common.md?tabs=portal#configure-general-settings) needs to be disabled to use automatic scaling.
->
-
 ## How automatic scaling works
 
 It's common to deploy multiple web apps to a single App Service plan. You can enable automatic scaling for an App Service plan and configure a range of instances for each of the web apps. As your web app starts receiving incoming HTTP traffic, the App Service monitors the load on the web apps and adds instances. Your web app can scale out to the maximum number of instances defined for the App Service plan or a fewer instances if a web app minimum is defined. Resources may be shared when multiple web apps within the App Service plan are required to scale out simultaneously.
@@ -27,6 +23,10 @@ Here are a few scenarios where you should use scale automatically:
 - You don't want to set up autoscale rules based on resource metrics.
 - You want your web apps within the same App Service plan to scale differently and independently of each other.
 - A web app is connected to backend data sources like databases or legacy systems, which may not be able to scale as fast as the web app. Scaling automatically allows you to set the maximum number of instances your App Service plan can scale to. This setting helps where the backend is a bottleneck to scaling and is overwhelmed by the web app.
+
+> [!IMPORTANT]
+> [`Always ON`](./configure-common.md?tabs=portal#configure-general-settings) needs to be disabled to use automatic scaling.
+>
 
 ## Enable automatic scaling
 
