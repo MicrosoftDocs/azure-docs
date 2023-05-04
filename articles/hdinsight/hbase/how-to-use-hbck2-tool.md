@@ -278,8 +278,9 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 
 -i,--inputFiles`  take one or more input files of server names
 
-Schedule `ServerCrashProcedure(SCP)` for list of `RegionServers`. Format server name as '<HOSTNAME>,<PORT>,<STARTCODE>' (See HBase UI/logs).
-Example using RegionServer 'a.example.org, 29100,1540348649479':
+Schedule `ServerCrashProcedure(SCP)` for list of `RegionServers`. Format server name as `<HOSTNAME>,<PORT>,<STARTCODE>` (See HBase UI/logs).
+ 
+Example using RegionServer 'a.example.org, 29100,1540348649479' 
 
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar scheduleRecoveries a.example.org,29100,1540348649479
