@@ -11,11 +11,11 @@ ms.custom: devx-track-csharp
 
 Disaster recovery typically involves creating a backup resource to prevent interruptions when a region becomes unhealthy. During this process a primary and secondary region of Azure Event Grid resources will be needed in your workload.
 
-There are different ways to recover from a severe loss of application functionality. In this article we are going to describe the checklist you will need to follow to prepare your client to recover from a failure due to an unhealthy resource or region.
+There are different ways to recover from a severe loss of application functionality. In this article we're going to describe the checklist you'll need to follow to prepare your client to recover from a failure due to an unhealthy resource or region.
 
 Event Grid supports manual and automatic geo disaster recovery (GeoDR) on the server side. You can still implement client-side disaster recovery logic if you want a greater control on the failover process. For details about automatic GeoDR, see [Server-side geo disaster recovery in Azure Event Grid](geo-disaster-recovery.md).
 
-The following table ilustrate the client-side failover and geo disaster recovery support in Event Grid.
+The following table illustrate the client-side failover and geo disaster recovery support in Event Grid.
 
 | Event Grid resource | Client-side failover support              | Geo disaster recovery (GeoDR) support |
 |---------------------|-------------------------------------------|---------------------------------------|
@@ -129,7 +129,7 @@ namespace EventGridFailoverPublisher
 
 Now that you have all of your components in place, you can test out your failover implementation.
 
-To make sure your failover is working, you can change a few characters in the primary topic key to make it no longer valid. Try running the publisher again. With the following sample events will continue flowing through Event Grid, however when you look at your client, you will see they're now being published via the secondary topic.
+To make sure your failover is working, you can change a few characters in the primary topic key to make it no longer valid. Try running the publisher again. With the following sample events will continue flowing through Event Grid, however when you look at your client, you'll see they're now being published via the secondary topic.
 
 ### Possible extensions
 
