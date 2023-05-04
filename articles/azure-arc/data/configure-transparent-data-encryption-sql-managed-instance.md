@@ -148,6 +148,7 @@ kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{
 Example:
 ```console
 kubectl patch sqlmi contososqlmi --namespace arc --type merge --patch '{ "spec": { "security": { "transparentDataEncryption": { "mode": Disabled } } } }'
+```
 
 ---
 
