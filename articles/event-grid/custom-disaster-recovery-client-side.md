@@ -15,7 +15,7 @@ There are different ways to recover from a severe loss of application functional
 
 Event Grid supports manual and automatic geo disaster recovery (GeoDR) on the server side. You can still implement client-side disaster recovery logic if you want a greater control on the failover process. For details about automatic GeoDR, see [Server-side geo disaster recovery in Azure Event Grid](geo-disaster-recovery.md).
 
-The following table illustrate the client-side failover and geo disaster recovery support in Event Grid.
+The following table illustrates the client-side failover and geo disaster recovery support in Event Grid.
 
 | Event Grid resource | Client-side failover support              | Geo disaster recovery (GeoDR) support |
 |---------------------|-------------------------------------------|---------------------------------------|
