@@ -17,7 +17,7 @@ ms.custom: aaddev, devx-track-python
 
 # Desktop app that calls web APIs: Acquire a token by using WAM
 
-The Microsoft Authentication Library (MSAL) calls Web Account Manager (WAM), a Windows 10+ component that acts as an authentication broker. Users of your app benefit from integration with accounts that are known from Windows, such as the account that you use to sign in to a Windows session.
+The Microsoft Authentication Library (MSAL) calls Web Account Manager (WAM), a Windows 10+ component that acts as an authentication broker.
 
 ## WAM value proposition
 
