@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: ciam
 ms.topic: how-to
-ms.date: 04/18/2023
+ms.date: 05/02/2023
 ms.custom: it-pro
 
 #Customer intent: As a dev, devops, or it admin, I want to learn about how to register an app on the Azure portal.
@@ -25,7 +25,7 @@ In this article, you’ll learn how to register an application in your customer 
 ## Prerequisites
 
 - An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Your Azure AD for customers tenant. If you don't already have one, sign up for a [free trial](https://aka.ms/ciam-hub-free-trial).
+- Your Azure AD for customers tenant. If you don't already have one, sign up for a [free trial](https://aka.ms/ciam-free-trial).
 
 ## Choose your app type
 
@@ -48,6 +48,11 @@ This app signs in users. You can add delegated permissions to it, by following t
 
 If you'd like to learn how to expose the permissions by adding a link, go to the [Web API](how-to-register-ciam-app.md?tabs=webapi) section.
 
+## Next steps
+ 
+- [Create a sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md)
+- [Sign in users in a sample vanilla JavaScript single-page app](how-to-single-page-app-vanillajs-sample-sign-in.md) 
+
 # [Web app](#tab/webapp)
 ## How to register your Web app?
 
@@ -55,7 +60,7 @@ If you'd like to learn how to expose the permissions by adding a link, go to the
 
 [!INCLUDE [add platform url](../customers/includes/register-app/add-platform-redirect-url-web-app-common.md)] 
 
-[!INCLUDE [add about redirect URI](../customers/includes/register-app/about-redirect-url.md)]  
+[!INCLUDE [add about redirect URI](../customers/includes/register-app/about-redirect-url.md)] 
 
 ### Add delegated permissions
 This app signs in users. You can add delegated permissions to it, by following the steps below:
@@ -66,6 +71,11 @@ This app signs in users. You can add delegated permissions to it, by following t
 
 ### If you want to call an API follow the steps below (optional):
 [!INCLUDE [grant permissions for calling an API](../customers/includes/register-app/grant-api-permission-call-api.md)] 
+
+## Next steps
+ 
+- [Create a sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md)
+- [Sign in users in a sample Node.js web app](how-to-web-app-node-sample-sign-in.md) 
 
 # [Web API](#tab/webapi)
 ## How to register your Web API?
@@ -82,6 +92,10 @@ This API needs to expose permissions, which a client needs to acquire to call it
 App roles enable the client app to obtain an access token as themselves. This is common when the client app isn't signing-in a user:
 [!INCLUDE [configure app roles](../customers/includes/register-app/add-app-role.md)]
 
+## Next steps
+ 
+- [Create a sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md) 
+
 # [Desktop or Mobile app](#tab/desktopmobileapp)
 ## How to register your Desktop or Mobile app?
 
@@ -94,8 +108,22 @@ App roles enable the client app to obtain an access token as themselves. This is
 ### If you want to call an API follow the steps below (optional):
 [!INCLUDE [grant permissions for calling an API](../customers/includes/register-app/grant-api-permission-call-api.md)] 
 
-
 ## Next steps
  
 - [Create a sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md)
-- [Enable self-service password reset](how-to-enable-password-reset-customers.md)
+- [Sign in users in a sample Electron desktop app](how-to-desktop-app-electron-sample-sign-in.md) 
+
+# [Daemon app](#tab/daemonapp)
+## How to register your Daemon app?
+
+[!INCLUDE [register daemon app](../customers/includes/register-app/register-daemon-app.md)]
+
+### If you want to call an API follow the steps below (optional)
+A daemon app signs-in as itself using the [OAuth 2.0 client credentials flow](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow), you add application permissions, which is required by apps that authenticate as themselves:
+
+[!INCLUDE [register daemon app](../customers/includes/register-app/grant-api-permissions-app-permissions.md)]
+
+## Next steps
+ 
+- Learn more about a [daemon app that calls a web API in the daemon's name](/azure/active-directory/develop/authentication-flows-app-scenarios#daemon-app-that-calls-a-web-api-in-the-daemons-name)
+- [Create a sign-up and sign-in user flow](how-to-user-flow-sign-up-sign-in-customers.md)

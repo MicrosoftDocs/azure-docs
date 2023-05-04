@@ -95,7 +95,7 @@ If you need to remove a role assignment from a user, follow these steps:
 
 ## Review administrator account role assignments
 
-As part of an auditing process, you typically review which users are assigned to specific roles in the Azure AD B2C directory. Use the following steps to audit which users are currently assigned privileged roles.
+As part of an auditing process, you typically review which users are assigned to specific roles in your customer directory. Use the following steps to audit which users are currently assigned privileged roles.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) with Global Administrator or Privileged Role Administrator permissions.
 1. Make sure you're using your customer tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
