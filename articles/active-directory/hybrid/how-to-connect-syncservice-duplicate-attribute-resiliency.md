@@ -74,8 +74,7 @@ Then, use the following cmdlets and operators to view errors in different ways:
 2. [By Property Type](#by-property-type)
 3. [By Conflicting Value](#by-conflicting-value)
 4. [Using a String Search](#using-a-string-search)
-5. Sorted
-6. [In a Limited Quantity or All](#in-a-limited-quantity-or-all)
+5. [In a Limited Quantity or All](#in-a-limited-quantity-or-all)
 
 #### See all
 Once connected, to see a general list of attribute provisioning errors in the tenant run:
