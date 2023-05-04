@@ -593,6 +593,8 @@
       items:
         - name: About Istio
           href: istio-about.md
+        - name: FAQ on Istio service mesh add-on
+          href: istio-faq.md
         - name: Deploy Istio service mesh add-on
           href: istio-deploy-addon.md
         - name: Deploy external or internal Istio Ingress
