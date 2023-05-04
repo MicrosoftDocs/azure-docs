@@ -5,6 +5,7 @@ author: sethmanheim
 ms.author: sethm
 ms.service: notification-hubs
 ms.topic: conceptual
+ms.custom: references_regions
 ms.date: 05/04/2023
 
 ---
