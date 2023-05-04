@@ -76,12 +76,11 @@ Download the [applicationinsights-agent-3.4.12.jar](https://github.com/microsoft
 
 > [!WARNING]
 >
-> If you are upgrading from an earlier 3.x version, you may be impacted by changing defaults or slight differences in the data we collect. See the migration notes at the top of the release notes for
+> If you are upgrading from an earlier 3.x version, you may be impacted by changing defaults or slight differences in the data we collect. For more information, see the migration section in the release notes.
 > [3.4.0](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.4.0),
 > [3.3.0](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.3.0),
 > [3.2.0](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0), and
 > [3.1.0](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.0)
-> for more details.
 
 #### [Node.js](#tab/nodejs)
 
@@ -150,7 +149,7 @@ app.Run();
 
 ##### [Java](#tab/java)
 
-Java auto-instrumentation is enabled through configuration changes; no code changes are required.
+Java autoinstrumentation is enabled through configuration changes; no code changes are required.
 
 Point the JVM to the jar file by adding `-javaagent:"path/to/applicationinsights-agent-3.4.12.jar"` to your application's JVM args.
 
@@ -253,13 +252,13 @@ input()
 
 #### Paste your unique Application Insights connection string
 
-You can set the connection string either programatically or by setting the environment variable `APPLICATIONINSIGHTS_CONNECTION_STRING`. In the event that both have been set, the programatic connection string will take precedence.
+You can set the connection string either programatically or by setting the environment variable `APPLICATIONINSIGHTS_CONNECTION_STRING`. If both have been set, the programmatic connection string takes precedence.
 
 :::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot that shows Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
 
 1. Go to the **Overview** pane of your Application Insights resource.
 
-1. Find your **Connection String** displayed on the right.
+1. Find your **Connection String**.
 
 1. Hover over the connection string and select the **Copy to clipboard** icon.
 
@@ -310,14 +309,14 @@ As part of using Application Insights instrumentation, we collect and send diagn
 
 <<!-- TODO: Add link to Troubleshooting page if data is NOT flowing.>>
 
-## Included instrumentation libraries
+## Automatic data collection
 
-The following libraries are bundled with our distro.
+The distros automatically collect data by bundling OpenTelemetry "instrumentation libraries".
 
 > [!WARNING]
 > Instrumentation libraries are based on experimental OpenTelemetry specifications, which impacts languages in [preview status](opentelemetry-enable.md#opentelemetry-release-status). Microsoft's *preview* support commitment is to ensure that the following libraries emit data to Azure Monitor Application Insights, but it's possible that breaking changes or experimental mapping will block some data elements.
 
-### Distributed Tracing
+### Included instrumentation libraries
 
 #### [ASP.NET Core](#tab/aspnetcore)
 
@@ -335,7 +334,7 @@ Dependencies
 
 #### [Java](#tab/java)
 
-Java 3.x includes the following auto-instrumentation.
+Java 3.x includes the following autoinstrumentation.
 
 Autocollected requests:
 
@@ -456,7 +455,7 @@ Dependencies
 > [!NOTE]
 > Application Insights standard metrics include a variety of measurements related to request processing, dependency calls, exceptions, browser timings, and performance counters. For more information, see [Application Insights standard metrics](standard-metrics.md)
 
-## Community instrumentation libraries
+### Add a community instrumentation library
 
 You can collect more data automatically when you include instrumentation libraries from the OpenTelemetry community.
 
@@ -465,7 +464,7 @@ You can collect more data automatically when you include instrumentation librari
 
 ### [ASP.NET Core](#tab/aspnetcore)
 
-To add a community library use the `ConfigureOpenTelemetryMeterProvider` or `ConfigureOpenTelemetryTraceProvider` methods.
+To add a community library, use the `ConfigureOpenTelemetryMeterProvider` or `ConfigureOpenTelemetryTraceProvider` methods.
 
 For example, to add the [Runtime Instrumentation](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Runtime):
 
@@ -533,8 +532,8 @@ Autocollected metrics
 #### [ASP.NET Core](#tab/aspnetcore)
 
 * OpenTelemetry uses .NET's ILogger. 
-  For more information about ILogger see [Logging in C# and .NET](https://learn.microsoft.com/dotnet/core/extensions/logging). 
-  For examples see [this](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/logs).
+  For more information about ILogger, see [Logging in C# and .NET](/dotnet/core/extensions/logging).
+  Examples can be found on [GitHub](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/logs).
 
 #### [Java](#tab/java)
 
@@ -555,7 +554,7 @@ Autocollected logs
 
 * [Python logging library](https://docs.python.org/3/howto/logging.html) <sup>[3](#FOOTNOTETHREE)</sup>
 
-See [this](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry/samples/logging) for examples of using the Python logging library.
+Examples of using the Python logging library can be found on [GitHub](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry/samples/logging).
 
 ---
 
@@ -606,9 +605,9 @@ The following table represents the currently supported custom telemetry types:
 > [!NOTE]
 > Custom Metrics are under preview in Azure Monitor Application Insights. Custom metrics without dimensions are available by default. To view and alert on dimensions, you need to [opt-in](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
-You may want to collect metrics beyond what is collected by [instrumentation libraries](#install-the-client-library).
+Consider collecting more metrics beyond what's provided by the [instrumentation libraries](#install-the-client-library).
 
-The OpenTelemetry API offers six metric "instruments" to cover various metric scenarios and you'll need to pick the correct "Aggregation Type" when visualizing metrics in Metrics Explorer. This requirement is true when using the OpenTelemetry Metric API to send metrics and when using an instrumentation library.
+The OpenTelemetry API offers six metric "instruments" to cover various metric scenarios and you need to pick the correct "Aggregation Type" when visualizing metrics in Metrics Explorer. This requirement is true when using the OpenTelemetry Metric API to send metrics and when using an instrumentation library.
 
 The following table shows the recommended [aggregation types](../essentials/metrics-aggregation-explained.md#aggregation-types) for each of the OpenTelemetry Metric Instruments.
 
@@ -1086,7 +1085,7 @@ catch(error){
 
 #### [Python](#tab/python)
 
-The OpenTelemetry Python SDK is implemented in such a way that exceptions thrown will automatically be captured and recorded. See below for an example of this behavior.
+The OpenTelemetry Python SDK is implemented in such a way that exceptions thrown are automatically captured and recorded. See the following code sample for an example of this behavior.
 
 ```python
 from azure.monitor.opentelemetry import configure_azure_monitor
@@ -1108,7 +1107,7 @@ except Exception:
 ```
 
 If you would like to record exceptions manually, you can disable that option
-within the context manager and use `record_exception()` directly as shown below:
+within the context manager and use `record_exception()` directly as shown in the following example:
 
 ```python
 ...
@@ -1126,7 +1125,7 @@ with tracer.start_as_current_span("hello", record_exception=False) as span:
 
 ### Add Custom Spans
 
-You may want to add a custom span when there's a dependency request that's not already collected by an instrumentation library or an application process that you wish to model as a span on the end-to-end transaction view.
+You may want to add a custom span in two scenarios. First, when there's a dependency request not already collected by an instrumentation library. Second, when you wish to model an application process as a span on the end-to-end transaction view.
   
 #### [ASP.NET Core](#tab/aspnetcore)
 
@@ -1157,11 +1156,9 @@ app.MapGet("/", () =>
 app.Run();
 ```
 
-By default, the activity will end up in the Application Insights `dependencies` table with dependency type `InProc`.
+By default, the activity ends up in the Application Insights `dependencies` table with dependency type `InProc`.
 
-If your code represents a background job that isn't already captured by an instrumentation library,
-we recommend that you set `ActivityKind.Server` in the `StartActivity` method
-so that it will end up in the Application Insights `requests` table.
+For code representing a background job not captured by an instrumentation library, we recommend setting `ActivityKind.Server` in the `StartActivity` method to ensure it appears in the Application Insights `requests` table.
 
 #### [Java](#tab/java)
   
@@ -1191,11 +1188,9 @@ Spans populate the `requests` and `dependencies` tables in Application Insights.
     }
    ```
 
-By default, the span will end up in the `dependencies` table with dependency type `InProc`.
+By default, the span ends up in the `dependencies` table with dependency type `InProc`.
 
-If your method represents a background job that isn't already captured by auto-instrumentation,
-we recommend that you apply the attribute `kind = SpanKind.SERVER` to the `@WithSpan` annotation
-so that it will end up in the Application Insights `requests` table.
+For methods representing a background job not captured by autoinstrumentation, we recommend applying the attribute `kind = SpanKind.SERVER` to the `@WithSpan` annotation to ensure they appear in the Application Insights `requests` table.
 
 #### Use the OpenTelemetry API
 
@@ -1242,11 +1237,9 @@ Coming soon.
 
 #### Use the OpenTelemetry API
 
-The OpenTelemetry API can be used to add your own spans, which will appear in
-the `requests` and `dependencies` tables in Application Insights.
+The OpenTelemetry API can be used to add your own spans, which appear in the `requests` and `dependencies` tables in Application Insights.
 
-The code example shows how to use the `tracer.start_as_current_span()` method to
-start, make the span current, and end the span within its context.
+The code example shows how to use the `tracer.start_as_current_span()` method to start, make the span current, and end the span within its context.
 
 ```python
 ...
@@ -1264,12 +1257,9 @@ with tracer.start_as_current_span("my first span") as span:
 
 ```
 
-By default, the span will be in the `dependencies` table with a dependency type of `InProc`.
+By default, the span is in the `dependencies` table with a dependency type of `InProc`.
 
-If your method represents a background job that isn't already captured by
-auto-instrumentation, we recommend that you set the attribute `kind =
-SpanKind.SERVER` so that it will end up in the Application Insights `requests`
-table.
+If your method represents a background job not already captured by autoinstrumentation, we recommend setting the attribute `kind = SpanKind.SERVER` to ensure it appears in the Application Insights `requests` table.
 
 ```python
 ...
@@ -1338,7 +1328,7 @@ We recommend you use the OpenTelemetry APIs whenever possible, but there may be 
   
 #### [ASP.NET Core](#tab/aspnetcore)
   
-This is not available in .NET.
+It isn't available in .NET.
 
 #### [Java](#tab/java)
 
@@ -1411,7 +1401,7 @@ Coming soon.
 
 #### [Python](#tab/python)
   
-This is not available in Python.
+It isn't available in Python.
 
 ---
 
@@ -1616,14 +1606,14 @@ span._attributes["http.client_ip"] = "<IP Address>"
 
 #### Set the user ID or authenticated user ID
 
-You can populate the _user_Id_ or _user_AuthenticatedId_ field for requests by using the guidance below. User ID is an anonymous user identifier. Authenticated User ID is a known user identifier.
+You can populate the _user_Id_ or _user_AuthenticatedId_ field for requests by using the following guidance. User ID is an anonymous user identifier. Authenticated User ID is a known user identifier.
 
 > [!IMPORTANT]
 > Consult applicable privacy laws before you set the Authenticated User ID.
 
 ##### [ASP.NET Core](#tab/aspnetcore)
 
-TODO: MOTHRA: FOLLOW UP ON THIS, What should happen when a user sets this? Today it goes to CustomDimensions.
+TODO: MOTHRA: FOLLOW UP ON THIS, What should happen when a user sets it? Today it goes to CustomDimensions.
 
 Use the add [custom property example](#add-a-custom-property-to-a-span).
 
@@ -1685,13 +1675,13 @@ span._attributes["enduser.id"] = "<User ID>"
 #### [ASP.NET Core](#tab/aspnetcore)
 
 OpenTelemetry uses .NET's ILogger.
-Attaching custom dimensions to logs can be accomplished using a [message template](https://learn.microsoft.com/dotnet/core/extensions/logging?tabs=command-line#log-message-template).
+Attaching custom dimensions to logs can be accomplished using a [message template](/dotnet/core/extensions/logging?tabs=command-line#log-message-template).
 
 #### [Java](#tab/java)
 
-Logback, Log4j, and java.util.logging are [auto-instrumented](#logs). Attaching custom dimensions to your logs can be accomplished in these ways:
+Logback, Log4j, and java.util.logging are [autoinstrumented](#logs). Attaching custom dimensions to your logs can be accomplished in these ways:
 
-* [Log4j 2 MapMessage](https://logging.apache.org/log4j/2.x/log4j-api/apidocs/org/apache/logging/log4j/message/MapMessage.html) (a `MapMessage` key of `"message"` will be captured as the log message)
+* [Log4j 2 MapMessage](https://logging.apache.org/log4j/2.x/log4j-api/apidocs/org/apache/logging/log4j/message/MapMessage.html) (a `MapMessage` key of `"message"` is captured as the log message)
 * [Log4j 2 Thread Context](https://logging.apache.org/log4j/2.x/manual/thread-context.html)
 * [Log4j 1.2 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html)
 
@@ -1701,7 +1691,7 @@ Coming soon.
 
 #### [Python](#tab/python)
   
-The Python [logging](https://docs.python.org/3/howto/logging.html) library is [auto-instrumented](#logs). You can attach custom dimensions to your logs by passing a dictionary into the `extra` argument of your logs.
+The Python [logging](https://docs.python.org/3/howto/logging.html) library is [autoinstrumented](#logs). You can attach custom dimensions to your logs by passing a dictionary into the `extra` argument of your logs.
 
 ```python
 ...
@@ -1759,7 +1749,7 @@ You might use the following ways to filter out telemetry before it leaves your a
     }
     ```
 
-1. If a particular source isn't explicitly added by using `AddSource("ActivitySourceName")`, then none of the activities created by using that source will be exported.
+1. If a particular source isn't explicitly added by using `AddSource("ActivitySourceName")`, then none of the activities created by using that source are exported.
 
 #### [Java](#tab/java)
 
@@ -1827,7 +1817,7 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
     ```
     export OTEL_PYTHON_EXCLUDED_URLS="http://localhost:8080/ignore"
     ```
-    Doing so will exclude the endpoint shown in the following Flask example:
+    Doing so excludes the endpoint shown in the following Flask example:
     
     ```python
     ...
@@ -1889,7 +1879,7 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
 
 ### Get the trace ID or span ID
     
-You might want to get the trace ID or span ID. If you have logs that are sent to a different destination besides Application Insights, you might want to add the trace ID or span ID to enable better correlation when you debug and diagnose issues.
+You might want to get the trace ID or span ID. If you have logs sent to a destination other than Application Insights, consider adding the trace ID or span ID. Doing so enables better correlation when debugging and diagnosing issues.
 
 #### [ASP.NET Core](#tab/aspnetcore)
 
@@ -1982,7 +1972,7 @@ To provide feedback:
 
 ### [ASP.NET Core](#tab/aspnetcore)
 
-- To further configure the OpenTelemetry distro, please see [Azure Monitor OpenTelemetry configuration](opentelemetry-configuration.md)
+- To further configure the OpenTelemetry distro, see [Azure Monitor OpenTelemetry configuration](opentelemetry-configuration.md)
 - To review the source code, see the [Azure Monitor AspNetCore GitHub repository](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore).
 - To install the NuGet package, check for updates, or view release notes, see the [Azure Monitor AspNetCore NuGet Package](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.AspNetCore/) page.
 - To become more familiar with Azure Monitor Application Insights and OpenTelemetry, see the [Azure Monitor Example Application](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/tests/Azure.Monitor.OpenTelemetry.AspNetCore.Demo).
@@ -1991,8 +1981,8 @@ To provide feedback:
 
 ### [Java](#tab/java)
 
-- Review [Java auto-instrumentation configuration options](java-standalone-config.md).
-- To review the source code, see the [Azure Monitor Java auto-instrumentation GitHub repository](https://github.com/Microsoft/ApplicationInsights-Java).
+- Review [Java autoinstrumentation configuration options](java-standalone-config.md).
+- To review the source code, see the [Azure Monitor Java autoinstrumentation GitHub repository](https://github.com/Microsoft/ApplicationInsights-Java).
 - To learn more about OpenTelemetry and its community, see the [OpenTelemetry Java GitHub repository](https://github.com/open-telemetry/opentelemetry-java-instrumentation).
 - To enable usage experiences, see [Enable web or browser user monitoring](javascript.md).
 - See the [release notes](https://github.com/microsoft/ApplicationInsights-Java/releases) on GitHub.
@@ -2007,13 +1997,13 @@ To provide feedback:
 
 ### [Python](#tab/python)
 
-- To review the source code and additional documentation, see the [Azure Monitor Distro GitHub repository](https://github.com/microsoft/ApplicationInsights-Python/blob/main/azure-monitor-opentelemetry/README.md).
-- To see additional samples and use cases, see [Azure Monitor Distro samples](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry/samples).
+- To review the source code and extra documentation, see the [Azure Monitor Distro GitHub repository](https://github.com/microsoft/ApplicationInsights-Python/blob/main/azure-monitor-opentelemetry/README.md).
+- To see extra samples and use cases, see [Azure Monitor Distro samples](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry/samples).
 - See the [release notes](https://github.com/microsoft/ApplicationInsights-Python/releases) on GitHub.
 - To install the PyPI package, check for updates, or view release notes, see the [Azure Monitor Distro PyPI Package](https://pypi.org/project/azure-monitor-opentelemetry/) page.
 - To become more familiar with Azure Monitor Application Insights and OpenTelemetry, see the [Azure Monitor Example Application](https://github.com/Azure-Samples/azure-monitor-opentelemetry-python).
 - To learn more about OpenTelemetry and its community, see the [OpenTelemetry Python GitHub repository](https://github.com/open-telemetry/opentelemetry-python).
-- To see available OpenTelemetry instrumentations and components, see the [OpenTelemetry Contrib Python GitHub repository](https://github.com/open-telemetry/opentelemetry-python-contrib).
+- To see available OpenTelemetry instrumentations and components, see the [OpenTelemetry Contributor Python GitHub repository](https://github.com/open-telemetry/opentelemetry-python-contrib).
 - To enable usage experiences, [enable web or browser user monitoring](javascript.md).
 
 ---

@@ -20,7 +20,8 @@ A connection string in Application Insights defines the target location for send
 
 ### [Java](#tab/java)
 
-See the [Java supplemental documentation](java-standalone-config.md) for more information.
+For more information about Java, see the [Java supplemental documentation](java-standalone-config.md).
+
 ### [Node.js](#tab/nodejs)
 
 
@@ -30,7 +31,7 @@ See the [Java supplemental documentation](java-standalone-config.md) for more in
 
 ## Set the Cloud Role Name and the Cloud Role Instance
 
-You might want to update the [Cloud Role Name](app-map.md#understand-the-cloud-role-name-within-the-context-of-an-application-map) and the Cloud Role Instance from the default values to something that makes sense to your team. They'll appear on the Application Map as the name underneath a node.
+You might want to update the [Cloud Role Name](app-map.md#understand-the-cloud-role-name-within-the-context-of-an-application-map) and the Cloud Role Instance from the default values to something that makes sense to your team. They appear on the Application Map as the name underneath a node.
 
 ### [.NET](#tab/net)
 
@@ -103,7 +104,7 @@ Set Resource attributes using the `OTEL_RESOURCE_ATTRIBUTES` and/or `OTEL_SERVIC
 export OTEL_RESOURCE_ATTRIBUTES="service.namespace=my-namespace,service.instance.id=my-instance"
 ```
 
-If you do not set Cloud Role Name via the "service.namespace" Resource Attribute, you can alternatively set the Cloud Role Name via the `OTEL_SERVICE_NAME` environment variable:
+If you don't set Cloud Role Name via the "service.namespace" Resource Attribute, you can alternatively set the Cloud Role Name via the `OTEL_SERVICE_NAME` environment variable:
 ```
 export OTEL_RESOURCE_ATTRIBUTES="service.instance.id=my-instance"
 export OTEL_SERVICE_NAME="my-namespace"
@@ -120,7 +121,7 @@ You may want to enable sampling to reduce your data ingestion volume, which redu
 
 #### [.NET](#tab/net)
 
-The sampler expects a sample rate of between 0 and 1 inclusive. A rate of 0.1 means approximately 10% of your traces will be sent.
+The sampler expects a sample rate of between 0 and 1 inclusive. A rate of 0.1 means approximately 10% of your traces are sent.
 
 In this example, we utilize the `ApplicationInsightsSampler`, which offers compatibility with Application Insights SDKs.
 
@@ -141,7 +142,7 @@ var tracerProvider = Sdk.CreateTracerProviderBuilder()
 
 #### [Java](#tab/java)
 
-Starting from 3.4.0, rate-limited sampling is available and is now the default. See [sampling]( java-standalone-config.md#sampling) for more information.
+Starting from 3.4.0, rate-limited sampling is available and is now the default. For more information about sampling, see [Java sampling]( java-standalone-config.md#sampling).
 
 #### [Node.js](#tab/nodejs)
 
@@ -167,11 +168,11 @@ provider.register();
 
 #### [Python](#tab/python)
 
-The `configure_azure_monitor()` function will automatically utilize
+The `configure_azure_monitor()` function automatically utilizes
 ApplicationInsightsSampler for compatibility with Application Insights SDKs and
 to sample your telemetry. The `OTEL_TRACES_SAMPLER_ARG` environment variable can be used to specify
 the sampling rate, with a valid range of 0 to 1, where 0 is 0% and 1 is 100%.
-For example, a value of 0.1 means 10% of your traces will be sent.
+For example, a value of 0.1 means 10% of your traces are sent.
 
 ```
 export OTEL_TRACES_SAMPLER_ARG=0.1
@@ -184,7 +185,7 @@ export OTEL_TRACES_SAMPLER_ARG=0.1
 
 ## Offline Storage and Automatic Retries
 
-To improve reliability and resiliency, Azure Monitor OpenTelemetry-based offerings write to offline/local storage by default when an application loses its connection with Application Insights. It saves the application telemetry to disk and periodically tries to send it again for up to 48 hours. In addition to exceeding the allowable time, telemetry will occasionally be dropped in high-load applications when the maximum file size is exceeded or the SDK doesn't have an opportunity to clear out the file. If we need to choose, the product will save more recent events over old ones. [Learn More](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage)
+To improve reliability and resiliency, Azure Monitor OpenTelemetry-based offerings write to offline/local storage by default when an application loses its connection with Application Insights. It saves the application telemetry to disk and periodically tries to send it again for up to 48 hours. In high-load applications, telemetry is occasionally dropped for two reasons. First, when the allowable time is exceeded, and second, when the maximum file size is exceeded or the SDK doesn't have an opportunity to clear out the file. If we need to choose, the product saves more recent events over old ones. [Learn More](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage)
 
 ### [.NET](#tab/net)
 
@@ -214,7 +215,7 @@ To disable this feature, you should set `AzureMonitorExporterOptions.DisableOffl
 
 ### [Java](#tab/java)
 
-Configuring Offline Storage and Automatic Retries is not available in Java.
+Configuring Offline Storage and Automatic Retries isn't available in Java.
 
 For a full list of available configurations, see [Configuration options](./java-standalone-config.md).
 
@@ -243,7 +244,7 @@ To disable this feature, you should set `disableOfflineStorage = true`.
 
 ### [Python](#tab/python)
 
-By default, the Azure Monitor exporters will use the following path:
+By default, Azure Monitor exporters use the following path:
 
 `<tempfile.gettempdir()>/Microsoft/AzureMonitor/opentelemetry-python-<your-instrumentation-key>`
 
@@ -302,7 +303,7 @@ You might want to enable the OpenTelemetry Protocol (OTLP) Exporter alongside yo
 
 #### [Java](#tab/java)
 
-See the [Java supplemental documentation](java-standalone-config.md) for more information.
+For more information about Java, see the [Java supplemental documentation](java-standalone-config.md).
 
 #### [Node.js](#tab/nodejs)
 
@@ -354,5 +355,27 @@ See the [Java supplemental documentation](java-standalone-config.md) for more in
     with tracer.start_as_current_span("test"):
         print("Hello world!")
     ```
+
+---
+
+## OpenTelemetry configurations
+
+The following OpenTelemetry configurations can be accessed through environment variables.
+
+### [.NET](#tab/net)
+
+Coming soon
+
+### [Java](#tab/java)
+
+For more information about Java, see the [Java supplemental documentation](java-standalone-config.md).
+
+### [Node.js](#tab/nodejs)
+
+Coming soon
+
+### [Python](#tab/python)
+
+Coming soon
 
 ---

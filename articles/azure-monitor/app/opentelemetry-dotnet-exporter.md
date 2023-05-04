@@ -527,7 +527,7 @@ activity?.SetTag("enduser.id", "<User Id>");
 ### Add Log Attributes
 
 OpenTelemetry uses .NET's ILogger.
-Attaching custom dimensions to logs can be accomplished using a [message template](https://learn.microsoft.com/dotnet/core/extensions/logging?tabs=command-line#log-message-template).
+Attaching custom dimensions to logs can be accomplished using a [message template](/dotnet/core/extensions/logging?tabs=command-line#log-message-template).
 
 ### Filter telemetry
 
