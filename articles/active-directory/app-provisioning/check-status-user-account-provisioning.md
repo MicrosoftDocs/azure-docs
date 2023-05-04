@@ -21,7 +21,7 @@ This article describes how to check the status of provisioning jobs after they h
 
 ## Overview
 
-Provisioning connectors are set up and configured using the [Azure portal](https://portal.azure.com), by following the [provided documentation](../saas-apps/tutorial-list.md) for the supported application. Once configured and running, provisioning jobs can be reported on using the following methods:
+Provisioning connectors are set up and configured using the [Azure portal](https://portal.azure.com), by following the [provided documentation](../saas-apps/tutorial-list.md) for the supported application. When  connector is configure and running, provisioning jobs can be reported on using the following methods:
 
 - The [Azure portal](https://portal.azure.com)
 
@@ -50,7 +50,7 @@ From here, you can access both the provisioning progress bar and the provisionin
 
 The [provisioning progress bar](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar) is visible in the **Provisioning** tab for a given application. It is located in the **Current Status** section and shows the status of the current initial or incremental cycle. This section also shows:
 
-* The total number of users and/groups that have been synchronized and are currently in scope for provisioning between the source system and the target system.
+* The total number of users and/groups that are synchronized and currently in scope for provisioning between the source system and the target system.
 * The last time the synchronization was run. Synchronizations typically occur every 20-40 minutes, after an [initial cycle](../app-provisioning/how-provisioning-works.md#provisioning-cycles-initial-and-incremental) has completed.
 * Whether or not an [initial cycle](../app-provisioning/how-provisioning-works.md#provisioning-cycles-initial-and-incremental) has been completed.
 * Whether or not the provisioning process has been placed in quarantine, and what the reason for the quarantine status is (for example, failure to communicate with target system due to invalid admin credentials).
