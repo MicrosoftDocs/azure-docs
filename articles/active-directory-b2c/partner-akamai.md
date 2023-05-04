@@ -1,7 +1,7 @@
 ---
-title: Configure Azure Active Directory B2C with Akamai Web Application Firewall
+title: Configure Azure Active Directory B2C with Akamai Web Application Protector
 titleSuffix: Azure AD B2C
-description: Configure Akamai Web application firewall with Azure AD B2C
+description: Configure Akamai Web Application Protector with Azure AD B2C
 services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
@@ -14,42 +14,42 @@ ms.author: gasinh
 ms.subservice: B2C
 ---
 
-# Configure Akamai with Azure Active Directory B2C
+# Configure Azure Active Directory B2C with Akamai Web Application Protector
 
-In this sample article, learn how to enable [Akamai Web Application Firewall (WAF)](https://www.akamai.com/us/en/resources/web-application-firewall.jsp) solution for Azure Active Directory B2C (Azure AD B2C) tenant using custom domains. Akamai WAF helps organization protect their web applications from malicious attacks that aim to exploit vulnerabilities such as SQL injection and Cross site scripting.
+Learn to enable Akamai Web Application Protector (WAP) for Azure Active Directory B2C (Azure AD B2C) tenant using custom domains. Akamai WAP helps organization protect their web applications from malicious attacks that aim to exploit vulnerabilities such as SQL injection and Cross site scripting.
 
->[!NOTE]
->This feature is in public preview.
+Learn more on akamai.com: [What Is a Web Application Firewall (WAF)?](https://www.akamai.com/glossary/what-is-a-waf)
 
-Benefits of using Akamai WAF solution:
+Benefits of using WAF:
 
-- An edge platform that allows traffic management to your services.
+* Control traffic management to your services
+* Configure in in front of an Azure AD B2C tenant
+* Manipulate traffic to protect and secure your identity infrastructure
 
-- Can be configured in front of your Azure AD B2C tenant.
+This article applies to:
 
-- Allows fine grained manipulation of traffic to protect and secure your identity infrastructure.
-
-This article applies to both [Web Application Protector (WAP)](https://www.akamai.com/us/en/products/security/web-application-protector-enterprise-waf-firewall-ddos-protection.jsp) and [Kona Site Defender (KSD)](https://www.akamai.com/us/en/products/security/kona-site-defender.jsp) WAF solutions that Akamai offers.
+WAP: [Web Application Protector](https://www.akamai.com/products/web-application-protector)
+KSD: [Kona Site Defender](https://www.akamai.com/us/en/products/security/kona-site-defender.jsp) 
 
 ## Prerequisites
 
-To get started, you'll need:
-
-- An Azure subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-
-- [An Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
-
-- An [Akamai WAF](https://www.akamai.com/us/en/akamai-free-trials.jsp) account.
+* An Azure subscription
+  * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
+* An Azure AD B2C tenant linked to your Azure subscription
+  * See, [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md) 
+* An Akamai WAP account
+  * Go to akamai.com for [Explore all Akamai products and trials](https://www.akamai.com/us/en/akamai-free-trials.jsp)
 
 ## Scenario description
 
-Akamai WAF integration includes the following components:
+Akamai WAP integration includes the following components:
 
-- **Azure AD B2C Tenant** – The authorization server, responsible for verifying the user’s credentials using the custom policies defined in the tenant.  It's also known as the identity provider.
-
-- [**Azure Front Door**](../frontdoor/front-door-overview.md) – Responsible for enabling custom domains for Azure B2C tenant. All traffic from Akamai WAF will be routed to Azure Front Door before arriving at Azure AD B2C tenant.
-
-- [**Akamai WAF**](https://www.akamai.com/us/en/resources/waf.jsp) – The web application firewall, which manages all traffic that is sent to the authorization server.
+* **Azure AD B2C** – the authorization server that verifies user credentials with custom policies in the tenant. Also known as the identity provider (IdP).
+* **Azure Front Door** – enables custom domains for the Azure B2C tenant
+  * Traffic from Akamai WAP routs to Azure Front Door then goes to the Azure AD B2C tenant
+  * [What is Azure Front Door?](../frontdoor/front-door-overview.md) 
+* **Akamai WAP** – The web application firewall that manages traffic sent to the authorization server
+  * See, [Web Application Protector](https://www.akamai.com/us/en/resources/waf.jsp)
 
 ## Integrate with Azure AD B2C
 
