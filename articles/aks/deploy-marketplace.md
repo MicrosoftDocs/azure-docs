@@ -81,7 +81,7 @@ az provider register --namespace Microsoft.KubernetesConfiguration --wait
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Verify the deployment by using the following command to list the extensions that are running on your cluster:
+Verify the deployment by using the following command to list the extensions that are running on your cluster:
 
    ```azurecli-interactive
    az k8s-extension list --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
@@ -89,7 +89,7 @@ az provider register --namespace Microsoft.KubernetesConfiguration --wait
 
 ### [Portal](#tab/azure-portal)
 
-1. Verify the deployment by using the following command to list the extensions that are running on your cluster or visit the cluster you recently installed the extension on, then navigate to "Extensions + Applications", where you'll see the extension status:
+Verify the deployment navigating to the cluster you recently installed the extension on, then navigate to "Extensions + Applications", where you'll see the extension status:
 
    :::image type="content" source="./media/deploy-marketplace/verify-inline.png" lightbox="./media/deploy-marketplace/verify.png" alt-text="The Azure portal page for the A K S cluster is shown. 'Extensions + Applications' is selected, and the deployed extension is listed.":::
 
@@ -137,7 +137,7 @@ To monitor billing and usage information for the offer that you deployed:
 
 ## Remove an offer
 
-You can delete a purchased plan for an Azure container offer by deleting the extension instance on the cluster. For example:
+You can delete a purchased plan for an Azure container offer by deleting the extension instance on the cluster.
 
 ### [Azure CLI](#tab/azure-cli)
 
