@@ -232,6 +232,8 @@
         href: manage/manage-billing-access.md
       - name: Microsoft Customer Agreements roles in Azure
         href: manage/understand-mca-roles.md
+      - name: Copy MCA billing roles across tenants
+        href: manage/mca-role-migration.md
       - name: Manage billing across tenants
         href: manage/manage-billing-across-tenants.md
       - name: Link partner ID
