@@ -22,10 +22,14 @@ To complete this procedure, you need:
 
 ## Create a data collection rule
 
-You can define a data collection rule to send data from multiple machines to multiple Log Analytics workspaces, including workspaces in a different region or tenant. Create the data collection rule in the *same region* as your Log Analytics workspace.
+You can define a data collection rule to send data from multiple machines to multiple Log Analytics workspaces, including workspaces in a different region or tenant. Create the data collection rule in the *same region* as your Log Analytics workspace. You can send Windows event and Syslog data to Azure Monitor Logs only. You can send performance counters to both Azure Monitor Metrics and Azure Monitor Logs. 
+
+> [!NOTE] 
+> At this time, Microsoft.HybridCompute ([Azure Arc-enabled servers](https://learn.microsoft.com/azure/azure-arc/servers/overview)) resources cannot be viewed in [Metrics Explorer](https://learn.microsoft.com/azure/azure-monitor/essentials/metrics-getting-started) (the Azure Portal UX), but can be acquired via the Metrics REST API ([Metric Namespaces - List](https://learn.microsoft.com/rest/api/monitor/metric-namespaces/list?tabs=HTTP), [Metric Definitions - List](https://learn.microsoft.com/rest/api/monitor/metric-definitions/list?tabs=HTTP), and [Metrics - List](https://learn.microsoft.com/rest/api/monitor/metrics/list?tabs=HTTP)).
 
 > [!NOTE]
 > To send data across tenants, you must first enable [Azure Lighthouse](../../lighthouse/overview.md).
+
 ### [Portal](#tab/portal)
 
 1. On the **Monitor** menu, select **Data Collection Rules**.
