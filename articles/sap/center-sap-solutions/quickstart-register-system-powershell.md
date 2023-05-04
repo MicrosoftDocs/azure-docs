@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Register an exisiting system with Azure Center for SAP solutions with PowerShell
+title: Quickstart - Register an existing system with Azure Center for SAP solutions with PowerShell
 description: Learn how to register an existing SAP system in Azure Center for SAP solutions through Azure PowerShell module.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
@@ -13,7 +13,7 @@ author: kalyaninamuduri
 
 The [Azure PowerShell AZ](/powershell/azure/new-azureps-module-az) module is used to create and manage Azure resources from the command line or in scripts.
 
-[Azure Center for SAP solutions](overview.md) enables you to deploy and manage SAP systems on Azure. This article shows you how to register an existing SAP system running on Azure with *Azure Center for SAP solutions* using AZ PowerShell module. Alternatively, you can register systems using the Azure CLI, or in the [Azure portal.  
+[Azure Center for SAP solutions](overview.md) enables you to deploy and manage SAP systems on Azure. This article shows you how to register an existing SAP system running on Azure with *Azure Center for SAP solutions* using Az PowerShell module. Alternatively, you can register systems using the Azure CLI, or in the [Azure portal.  
 After you register an SAP system with *Azure Center for SAP solutions*, you can use its visualization, management and monitoring capabilities through the Azure portal. For example, you can:
 
 - View and track the SAP system as an Azure resource, called the *Virtual Instance for SAP solutions (VIS)*.
@@ -24,7 +24,7 @@ After you register an SAP system with *Azure Center for SAP solutions*, you can 
 - Monitor the Azure infrastructure metrics for the SAP system resources.
 - View Cost Analysis for the SAP system.
 
-This quickstart requires the Azure PowerShell AZ module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
+This quickstart requires the Az PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
 
 ## Prerequisites for Registering a system
 - Check that you're trying to register a [supported SAP system configuration](/articles/sap/center-sap-solutions/register-existing-system.md)
