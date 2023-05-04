@@ -64,7 +64,7 @@ Create the pipeline job:
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/cli-deploy.sh" ID="run_pipeline_job_deployment" :::
+:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="run_pipeline_job_deployment" :::
 
 # [Python](#tab/python)
 
@@ -86,7 +86,7 @@ Now, let being with the deployment of the pipeline job. First, we need to deploy
 
     # [Azure CLI](#tab/cli)
 
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/cli-deploy.sh" ID="name_endpoint" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="name_endpoint" :::
 
     # [Python](#tab/python)
 
@@ -117,7 +117,7 @@ Now, let being with the deployment of the pipeline job. First, we need to deploy
 
     # [Azure CLI](#tab/cli)
 
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/cli-deploy.sh" ID="create_endpoint" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="create_endpoint" :::
 
     # [Python](#tab/python)
 
@@ -129,7 +129,7 @@ Now, let being with the deployment of the pipeline job. First, we need to deploy
 
     # [Azure CLI](#tab/cli)
 
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/cli-deploy.sh" ID="query_endpoint" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="query_endpoint" :::
 
     # [Python](#tab/python)
 
@@ -194,7 +194,7 @@ To deploy the pipeline component, we have to create a batch deployment from the 
     
     Run the following code to create a batch deployment under the batch endpoint and set it as the default deployment.
     
-    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/cli-deploy.sh" ID="create_deployment_from_job" :::
+    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="create_deployment_from_job" :::
     
     > [!TIP]
     > Notice the use of `--set job_definition=azureml:$JOB_NAME`. Since job names are unique, the command `--set` is used here to change the name of the job when your run it in your workspace.
@@ -223,7 +223,7 @@ Once the deployment is created, it's ready to receive jobs. You can invoke the d
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/cli-deploy.sh" ID="invoke_deployment_inline" :::
+:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="invoke_deployment_inline" :::
 
 # [Python](#tab/python)
 
@@ -239,7 +239,7 @@ You can monitor the progress of the show and stream the logs using:
 
 # [Azure CLI](#tab/cli)
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/cli-deploy.sh" ID="stream_job_logs" :::
+:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="stream_job_logs" :::
 
 # [Python](#tab/python)
 
@@ -262,7 +262,7 @@ Once you're done, delete the associated resources from the workspace:
 
 Run the following code to delete the batch endpoint and its underlying deployment. `--yes` is used to confirm the deletion.
 
-:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/cli-deploy.sh" ID="delete_endpoint" :::
+:::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh" ID="delete_endpoint" :::
 
 # [Python](#tab/python)
 

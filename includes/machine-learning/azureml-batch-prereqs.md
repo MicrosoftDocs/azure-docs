@@ -54,11 +54,15 @@ az configure --defaults workspace=<workspace> group=<resource-group> location=<l
 1. Import the required libraries:
 
     ```python
-    from azure.ai.ml import MLClient, Input
-    from azure.ai.ml.entities import BatchEndpoint, BatchDeployment, Model, AmlCompute, Data, BatchRetrySettings
+    from azure.ai.ml import MLClient, Input, load_component
+    from azure.ai.ml.entities import BatchEndpoint, ModelBatchDeployment, ModelBatchDeploymentSettings, PipelineComponentBatchDeployment, Model, AmlCompute, Data, BatchRetrySettings, CodeConfiguration, Environment, Data
     from azure.ai.ml.constants import AssetTypes, BatchDeploymentOutputAction
+    from azure.ai.ml.dsl import pipeline
     from azure.identity import DefaultAzureCredential
     ```
+
+    > [!NOTE]
+    > Classes `ModelBatchDeployment` and `PipelineComponentBatchDeployment` were introduced since version `1.7.0`.
 
 1. Configure the workspace details and get a handle to the workspace:
 

@@ -350,15 +350,9 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
    
    Let's get a reference to the environment:
    
-   ```python
-   environment = Environment(
-       name="batch-mlflow-xgboost",
-       conda_file="deployment-custom/environment/conda.yaml",
-       image="mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest",
-   )
-   ```
-   
-1. Let's create the deployment now:
+   [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=configure_environment_custom)]
+
+1. Configure the deployment: 
 
    # [Azure CLI](#tab/cli)
    
@@ -366,15 +360,19 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
    
    :::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/heart-classifier-mlflow/deployment-custom/deployment.yml" :::
    
-   Then, create the deployment with the following command:
+   # [Python](#tab/sdk)
+   
+   [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=configure_deployment_custom)]
+
+1. Let's create the deployment now:
+
+   # [Azure CLI](#tab/cli)
    
    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/heart-classifier-mlflow/deploy-and-run.sh" ID="create_deployment_non_default" :::
    
    # [Python](#tab/sdk)
    
-   To create a new deployment under the created endpoint, use the following script:
-   
-   [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=create_deployment_non_default)]
+   [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=create_deployment_custom)]
    ---
    
 1. At this point, our batch endpoint is ready to be used. 
