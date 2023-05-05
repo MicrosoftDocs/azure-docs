@@ -24,8 +24,8 @@ HBCK2 is the successor to HBCK, the repair tool that shipped with hbase-1.x (A.K
 
 ## Obtaining HBCK2
 
-You can find the release under the HBase distribution directory. See the HBASE Downloads Page.
-https://dlcdn.apache.org/hbase/hbase-operator-tools-1.2.0/hbase-operator-tools-1.2.0-bin.tar.gz
+You can find the release under the HBase distribution directory. See the [HBASE Downloads Page]
+(https://dlcdn.apache.org/hbase/hbase-operator-tools-1.2.0/hbase-operator-tools-1.2.0-bin.tar.gz).
 
 
 ### Master UI: The HBCK Report
