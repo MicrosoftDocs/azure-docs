@@ -24,20 +24,20 @@ This article provides tips and tricks that might be helpful when you use AzAcSna
 
 AzAcSnap 8 introduced a new global settings file (`.azacsnaprc`) which must be located in the same (current working) directory as azacsnap is executed in.  The filename is `.azacsnaprc` and by using the dot '.' character as the start of the filename makes it hidden to standard directory listings.  The file allows global settings controlling the behavior of AzAcSnap to be set.  The format is one entry per line with a supported customizing variable and a new overriding value.
 
-Settings which can be controlled by adding/editing the global settings file are:
+Settings, which can be controlled by adding/editing the global settings file are:
 
-- **MAINLOG_LOCATION** which sets the location of the "mainlog" output file which is called `azacsnap.log` and was introduced in AzAcSnap 8.  Values should be absolute paths, for example:
+- **MAINLOG_LOCATION** which sets the location of the "mainlog" output file, which is called `azacsnap.log` and was introduced in AzAcSnap 8.  Values should be absolute paths, for example:
   - `MAINLOG_LOCATION=/home/azacsnap/bin/logs`
 
 ## Mainlog parsing
 
-AzAcSnap 8 introduced a new "mainlog" to provide simpler parsing of runs of AzAcSnap.  Ths inspiration for this file is the SAP HANA backup catalog which shows when AzAcSnap was started, how long it took, and what the snapshot name is.  With AzAcSnap this has been taken further to include information for each of the AzAcSnap commands, specifically the `-c` options, and the file has the following headers:
+AzAcSnap 8 introduced a new "mainlog" to provide simpler parsing of runs of AzAcSnap.  Ths inspiration for this file is the SAP HANA backup catalog, which shows when AzAcSnap was started, how long it took, and what the snapshot name is.  With AzAcSnap this example has been taken further to include information for each of the AzAcSnap commands, specifically the `-c` options, and the file has the following headers:
 
 ```output
 DATE_TIME,OPERATION_NAME,STATUS,SID,DATABASE_TYPE,DURATION,SNAPSHOT_NAME,AZACSNAP_VERSION,AZACSNAP_CONFIG_FILE,VOLUME
 ```
 
-When AzAcSnap is run it will append to the log the appropriate information depending on the `-c` command used, examples of output are as follows:
+When AzAcSnap is run it appends to the log the appropriate information depending on the `-c` command used, examples of output are as follows:
 
 ```output
 2023-03-29T16:10:57.8643546+13:00,about,started,,,,,8,azacsnap.json,
@@ -48,7 +48,7 @@ When AzAcSnap is run it will append to the log the appropriate information depen
 2023-03-29T16:13:33.1806098+13:00,details,SUCCESS,PR1,Hana,0:00:03.1380686,,8,PR1.json,(data)HANADATA_P;(data)HANASHARED_P;(data)VGvol01;(other)HANALOGBACKUP_P;
 ```
 
-This makes it possible to use the Linux commands `watch`, `grep`, `head`, `tail`, and `column` to get continuous updates of AzAcSnap backups.  An example combination of these commands in  single shell script to monitor AzAcSnap is as follows:
+This format makes the file parse-able with the Linux commands `watch`, `grep`, `head`, `tail`, and `column` to get continuous updates of AzAcSnap backups.  An example combination of these commands in  single shell script to monitor AzAcSnap is as follows:
 
 ```bash
 #!/bin/bash
@@ -97,7 +97,7 @@ watch -t -n ${SCREEN_REFRESH_SECS} \
   "
 ```
 
-Will produce the following output refreshed every two seconds.
+Produces the following output refreshed every two seconds.
 
 ```output
 Monitoring AzAcSnap @Fri May  5 11:26:36 NZST 2023
@@ -137,7 +137,7 @@ az role definition create --role-definition '{ \
 }'
 ```
 
-For restore options to work successfully, the AzAcSnap service principal also needs to be able to create volumes.  In this case the role definition needs an additional action, therefore the complete service principal should look like the following example.
+For restore options to work successfully, the AzAcSnap service principal also needs to be able to create volumes.  In this case, the role definition needs an additional "Actions" clause added, therefore the complete service principal should look like the following example.
 
 ```azurecli
 az role definition create --role-definition '{ \
@@ -173,10 +173,10 @@ azacsnap -c backup --volume data --prefix hana_TEST --retention=1
 
 ## Setup automatic snapshot backup
 
-It is common practice on Unix/Linux systems to use `cron` to automate running commands on a
+It's common practice on Unix/Linux systems to use `cron` to automate running commands on a
 system. The standard practice for the snapshot tools is to set up the user's `crontab`.
 
-An example of a `crontab` for the user `azacsnap` to automate snapshots is below.
+An example of a `crontab` for the user `azacsnap` to automate snapshots follows.
 
 ```output
 MAILTO=""
@@ -218,9 +218,9 @@ generated successfully.
 
 ## Manage AzAcSnap log files
 
-AzAcSnap writes output of its operation to log files to assist with debugging and to validate correct operation. These log files will continue to grow unless actively managed. Fortunately UNIX based systems have a tool to manage and archive log files called logrotate.
+AzAcSnap writes output of its operation to log files to assist with debugging and to validate correct operation. These log files continue to grow unless actively managed. Fortunately UNIX based systems have a tool to manage and archive log files called logrotate.
 
-This is an example configuration for logrotate. This configuration will keep a maximum of 31 logs (approximately one month), and when the log files are larger than 10k it will rotate and compress them.
+This is an example configuration for logrotate. This configuration keeps a maximum of 31 logs (approximately one month), and when the log files are larger than 10k it will rotate and compress them.
 
 ```output
 # azacsnap logrotate configuration file
@@ -232,7 +232,7 @@ compress
 }
 ```
 
-After creating the logrotate.conf file, logrotate should be run on a regular basis to archive AzAcSnap log files accordingly. This can be done using cron. The following is the line of the azacsnap user's crontab which will run logrotate on a daily schedule using the configuration file described above.
+After creating the `logrotate.conf` file, the `logrotate` command should be run regularly to archive AzAcSnap log files accordingly. Automating the `logrotate` command can be done using cron. The following example is one line of the azacsnap user's crontab, this runs logrotate daily using the configuration file `~/logrotate.conf`.
 
 ```output
 @daily /usr/sbin/logrotate -s ~/logrotate.state ~/logrotate.conf >> ~/logrotate.log
@@ -241,7 +241,7 @@ After creating the logrotate.conf file, logrotate should be run on a regular bas
 > [!NOTE]
 > In the example above the logrotate.conf file is in the user's home (~) directory.
 
-After several days the azacsnap log files should look similar to the following directory listing.
+After several days, the azacsnap log files should look similar to the following directory listing.
 
 ```bash
 ls -ltra ~/bin/logs
@@ -262,9 +262,8 @@ ls -ltra ~/bin/logs
 
 The following conditions should be monitored to ensure a healthy system:
 
-1. Available disk space. Snapshots will slowly consume disk space as keeping older disk blocks
-    are retained in the snapshot.
-    1. To help automate disk space management, use the `--retention` and `--trim` options to automatically clean up the old snapshots and database log files.
+1. Available disk space. Snapshots will slowly consume disk space as keeping older disk blocks are retained in the snapshot.
+    1. To help automate disk space management, use the `--retention` and `--trim` options to automatically cleanup the old snapshots and database log files.
 1. Successful execution of the snapshot tools
     1. Check the `*.result` file for the success or failure of the latest running of `azacsnap`.
     1. Check `/var/log/messages` for output from the `azacsnap` command.
@@ -275,12 +274,10 @@ The following conditions should be monitored to ensure a healthy system:
 
 ## Delete a snapshot
 
-To delete a snapshot, use the command `azacsnap -c delete`. It's not possible to delete
-snapshots from the OS level. You must use the correct command (`azacsnap -c delete`) to delete the storage snapshots.
+To delete a snapshot, use the command `azacsnap -c delete`. It's not possible to delete snapshots from the OS level. You must use the correct command (`azacsnap -c delete`) to delete the storage snapshots.
 
 > [!IMPORTANT]
-> Be vigilant when you delete a snapshot. Once deleted, it is **IMPOSSIBLE** to recover
-the deleted snapshots.
+> Be vigilant when you delete a snapshot. Once deleted, it is **IMPOSSIBLE** to recover the deleted snapshots.
 
 ## Restore a snapshot
 
@@ -301,13 +298,13 @@ If you decide to perform the disaster recovery failover, the `azacsnap -c restor
 > [!IMPORTANT]
 > This operation applies only to Azure Large Instance.
 
-In some cases, customers already have tools to protect SAP HANA and only want to configure 'boot' volume snapshots.  In this case only the following steps need to completed.
+In some cases, customers already have tools to protect SAP HANA and only want to configure 'boot' volume snapshots.  In this case, only the following steps need to be completed.
 
 1. Complete steps 1-4 of the pre-requisites for installation.
 1. Enable communication with storage.
 1. Download and run the installer to install the snapshot tools.
 1. Complete setup of snapshot tools.
-1. Get the list of volumes to be added to the azacsnap configuration file, in this example the Storage User Name is `cl25h50backup` and the Storage IP Address is `10.1.1.10` 
+1. Get the list of volumes to be added to the azacsnap configuration file, in this example, the Storage User Name is `cl25h50backup` and the Storage IP Address is `10.1.1.10` 
     ```bash
     ssh cl25h50backup@10.1.1.10 "volume show -volume *boot*"
     ```
@@ -447,13 +444,13 @@ In some cases, customers already have tools to protect SAP HANA and only want to
 
 A 'boot' snapshot can be recovered as follows:
 
-1. The customer will need to shut down the server.
+1. The customer needs to shut down the server.
 1. After the Server is shut down, the customer will need to open a service request that contains the Machine ID and Snapshot to restore.
     > Customers can open a service request via the [Azure portal](https://portal.azure.com).
-1. Microsoft will restore the Operating System LUN using the specified Machine ID and Snapshot, and then boot the Server.
+1. Microsoft restores the Operating System LUN using the specified Machine ID and Snapshot, and then boot the Server.
 1. The customer will then need to confirm Server is booted and healthy.
 
-No additional steps to be performed after the restore.
+No other steps to be performed after the restore.
 
 ## Key facts to know about snapshots
 
@@ -470,9 +467,8 @@ Key attributes of storage volume snapshots:
   >  `.snapshot` is a read-only hidden *virtual* folder providing read-only access to the snapshots.
 
 - **Max snapshot:** The hardware can sustain up to 250 snapshots per volume. The snapshot
-    command will keep a maximum number of snapshots for the prefix based on the retention
-    set on the command line, and will delete the oldest snapshot if it goes beyond the
-    maximum number to retain.
+    command keeps a maximum number of snapshots for the prefix based on the retention
+    set on the command line.  Any additional snapshots, beyond the retention number with the same prefix, will be deleted.
 - **Snapshot name:** The snapshot name includes the prefix label provided by the customer.
 - **Size of the snapshot:** Depends upon the size/changes on the database level.
 - **Log file location:** Log files generated by the commands are output into folders as
