@@ -42,3 +42,4 @@ For example, your organization may block access to Outlook or SharePoint from of
 
 ## Next steps
 
+[Enable compliant network check with Conditional Access](how-to-compliant-network.md)
