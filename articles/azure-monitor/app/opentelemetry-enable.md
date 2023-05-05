@@ -276,14 +276,11 @@ Run your application and open your **Application Insights Resource** tab in the 
 
 As part of using Application Insights instrumentation, we collect and send diagnostic data to Microsoft. This data helps us run and improve Application Insights. To learn more, see [Statsbeat in Azure Application Insights](./statsbeat.md).
 
-<<!-- TODO: Add link to Troubleshooting page if data is NOT flowing.>>
+If you have any issues, see the troubleshooting page for [ASP.NET Core](/troubleshoot/azure/azure-monitor/app-insights/opentelemetry-troubleshooting-dotnet.md), [Java](/troubleshoot/azure/azure-monitor/app-insights/opentelemetry-troubleshooting-java.md), [Node.js](/troubleshoot/azure/azure-monitor/app-insights/opentelemetry-troubleshooting-nodejs.md), or [Python](/troubleshoot/azure/azure-monitor/app-insights/opentelemetry-troubleshooting-python.md).
 
 ## Automatic data collection
 
 The distros automatically collect data by bundling OpenTelemetry "instrumentation libraries".
-
-> [!WARNING]
-> Instrumentation libraries are based on experimental OpenTelemetry specifications, which impacts languages in [preview status](opentelemetry-enable.md#opentelemetry-release-status). Microsoft's *preview* support commitment is to ensure that the following libraries emit data to Azure Monitor Application Insights, but it's possible that breaking changes or experimental mapping will block some data elements.
 
 ### Included instrumentation libraries
 
@@ -426,7 +423,7 @@ Dependencies
 ---
 
 > [!NOTE]
-> Application Insights standard metrics include a variety of measurements related to request processing, dependency calls, exceptions, browser timings, and performance counters. For more information, see [Application Insights standard metrics](standard-metrics.md)
+> The Azure Monitor OpenTelemetry Distros include custom mapping and logic to automatically emit [Application Insights standard metrics](standard-metrics.md).
 
 ### Add a community instrumentation library
 
@@ -434,6 +431,9 @@ You can collect more data automatically when you include instrumentation librari
 
 > [!NOTE] 
 >  We don't support and cannot guarantee the quality of community instrumentation libraries. If you would like to suggest a community instrumentation library us to include in our distro, post or up-vote an idea in our [feedback community](https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0).
+
+> [!CAUTION]
+> Some instrumentation libraries are based on experimental OpenTelemetry semantic specifications. Adding them may leave you vulnerable to future breaking changes.
 
 ### [ASP.NET Core](#tab/aspnetcore)
 
