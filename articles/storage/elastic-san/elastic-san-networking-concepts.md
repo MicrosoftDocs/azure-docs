@@ -43,6 +43,10 @@ To use cross-region service endpoints, it might be necessary to delete existing 
 
 You can manage virtual network rules for volume groups through the Azure portal, PowerShell, or CLI.
 
+## Client connections
+
+If a connection between a virtual machine (VM) and an Elastic SAN volume is lost, the connection will retry for 90 seconds until terminating. Losing a connection to an Elastic SAN volume won't cause the VM to restart.
+
 ## Next steps
 
 [Configure Elastic SAN networking Preview](elastic-san-networking.md)
