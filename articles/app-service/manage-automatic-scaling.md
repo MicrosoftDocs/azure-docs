@@ -57,7 +57,7 @@ az appservice plan update --name <AppServicePlan> --resource-group <RESOURCE_GRO
 
 --- 
 
-## Set minimum number of instances
+## Set minimum number of web app instances
 
 __Always ready instances__ is an app-level setting to specify the minimum number of instances. If load exceeds what the always ready instances can handle, additional instances are added (up to the specified __maximum burst__ for the App Service Plan).
 
@@ -94,9 +94,9 @@ You can modify the number of pre-warmed instances for an app using the Azure CLI
 
 ---
 
-## Set maximum number of instances (web app)
+## Set maximum number of web app instances
 
-__Maximum scale limit__ sets the maximum number of instances a web app can scale to. This is most common for cases where a downstream component like a database has limited throughput. The per-app maximum by default is unrestricted up to the app maximum,but you can set a value between 1 and the __maximum burst__ defined for the App Service Plan.
+The __maximum scale limit__ sets the maximum number of instances a web app can scale to. This is most common for cases where a downstream component like a database has limited throughput. The per-app maximum by default is unrestricted up to the app maximum,but you can set a value between 1 and the __maximum burst__ defined for the App Service Plan.
 
 #### [Azure portal](#tab/azure-portal)
 
@@ -113,7 +113,6 @@ __Maximum scale limit__ sets the maximum number of instances a web app can scale
 You can't change the maximum scale limit in Azure CLI, you must instead use the Azure portal.
 
 ---
-
 
 ## Disable automatic scaling
 
