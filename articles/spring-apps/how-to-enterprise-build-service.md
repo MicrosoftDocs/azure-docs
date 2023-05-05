@@ -36,17 +36,17 @@ Tanzu Build Service in the Enterprise tier is the entry point to containerize us
 
 The following table shows the sizes available for build agent pool scale sets:
 
-| Scale Set | CPU/GB          |
+| Scale Set | CPU/Gi          |
 |-----------|-----------------|
-| S1        | 2 vCPU, 4 GB    |
-| S2        | 3 vCPU, 6 GB    |
-| S3        | 4 vCPU, 8 GB    |
-| S4        | 5 vCPU, 10 GB   |
-| S5        | 6 vCPU, 12 GB   |
-| S6        | 8 vCPU, 16 GB   |
-| S7        | 16 vCPU, 32 GB  |
-| S8        | 32 vCPU, 64 GB  |
-| S9        | 64 vCPU, 128 GB |
+| S1        | 2 vCPU, 4 Gi    |
+| S2        | 3 vCPU, 6 Gi    |
+| S3        | 4 vCPU, 8 Gi    |
+| S4        | 5 vCPU, 10 Gi   |
+| S5        | 6 vCPU, 12 Gi   |
+| S6        | 8 vCPU, 16 Gi   |
+| S7        | 16 vCPU, 32 Gi  |
+| S8        | 32 vCPU, 64 Gi  |
+| S9        | 64 vCPU, 128 Gi |
 
 Tanzu Build Service allows at most one pool-sized build task to build and twice the pool-sized build tasks to queue.
 
