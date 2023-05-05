@@ -6,7 +6,7 @@ ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 05/01/2023
+ms.date: 05/05/2023
 ---
 
 # Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS)
