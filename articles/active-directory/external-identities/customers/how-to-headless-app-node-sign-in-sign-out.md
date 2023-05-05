@@ -68,9 +68,6 @@ After creating the `msalConfig` object, add a `loginRequest` object that contain
 ```javascript
 const loginRequest = {
     scopes: [],
-    extraQueryParameters: {
-        dc: 'ESTS-PUB-EUS-AZ1-FD000-TEST1', // STS CIAM test slice
-    },
 };
 ```
 In `authcConfig.js`, export the `msalConfig` and `loginRequest` objects to make them accessible when required by adding the following code:
@@ -94,7 +91,7 @@ const msalInstance = new msal.PublicClientApplication(msalConfig);
 
 ## Create an instance of a PublicClientApplication object
 
-To use MSAL Node, you must first create an instance of a `[PublicClientApplication](/javascript/api/@azure/msal-node/publicclientapplication)` object using the `msalConfig` object. The initialized `PublicClientApplication` object is used to authenticate the user and obtain an access token. 
+To use MSAL Node, you must first create an instance of a [`PublicClientApplication`](/javascript/api/@azure/msal-node/publicclientapplication) object using the `msalConfig` object. The initialized `PublicClientApplication` object is used to authenticate the user and obtain an access token. 
 
 In *index.js*, add the following code to initialize the public client application:
 
@@ -104,7 +101,7 @@ const msalInstance = new msal.PublicClientApplication(msalConfig);
 
 ## Create the device code request
 
-To create the `[deviceCodeRequest](/javascript/api/@azure/msal-node/devicecoderequest)` that the application uses to obtain access tokens using the Oauth2 device code flow, add the following code to *index.js*
+To create the [`deviceCodeRequest`](/javascript/api/@azure/msal-node/devicecoderequest) that the application uses to obtain access tokens using the Oauth2 device code flow, add the following code to *index.js*
 
 ```javascript
 const getTokenDeviceCode = (clientApplication) => {
@@ -128,7 +125,7 @@ const getTokenDeviceCode = (clientApplication) => {
 ```
 The `getTokenDeviceCode` function takes a single parameter, `clientApplication`, which is an instance of the `PublicClientApplication` object we created previously. The function creates a new object named `deviceCodeRequest`, which includes the `loginRequest` object imported from the *authConfig.js* file. It also contains a `deviceCodeCallback` function that logs the device code message to the console. 
 
-The `clientApplication` object is then used to call the `[acquireTokenByDeviceCode](/javascript/api/@azure/msal-node/publicclientapplication#@azure-msal-node-publicclientapplication-acquiretokenbydevicecode)` API, passing in the `deviceCodeRequest` object. Once the device code request is executed, the application prompts the user to visit a URL, where they input the device code shown in the console. Once the code is entered, the promise should resolve with an access token response. 
+The `clientApplication` object is then used to call the [`acquireTokenByDeviceCode`](/javascript/api/@azure/msal-node/publicclientapplication#@azure-msal-node-publicclientapplication-acquiretokenbydevicecode) API, passing in the `deviceCodeRequest` object. Once the device code request is executed, the application prompts the user to visit a URL, where they input the device code shown in the console. Once the code is entered, the promise should resolve with an access token response. 
 
 ## Initiate the device code flow
 
