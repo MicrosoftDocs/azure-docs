@@ -31,7 +31,7 @@ Processing is performed fully locally where the Speech SDK is being used. No aud
 
 The Microsoft Audio Stack also powers a wide range of Microsoft products:
 * **Windows** - Microsoft Audio Stack is the default speech processing pipeline when using the Speech audio category. 
-* **Microsoft Teams Displays and Microsoft Teams Room devices** - Microsoft Teams Displays and Teams Room devices use the Microsoft Audio Stack to enable high quality hands-free, voice-based experiences with Cortana.
+* **Microsoft Teams Displays and Microsoft Teams Rooms devices** - Microsoft Teams Displays and Teams Rooms devices use the Microsoft Audio Stack to enable high quality hands-free, voice-based experiences with Cortana.
 
 ## Speech SDK integration
 

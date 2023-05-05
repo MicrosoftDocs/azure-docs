@@ -159,6 +159,8 @@
               href: developer-best-practices-resource-management.md
             - name: Pod security
               href: developer-best-practices-pod-security.md
+    - name: Back up and recover cluster
+      href: ../backup/azure-kubernetes-service-backup-overview.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Migrate to AKS
       items:
         - name: Plan and execute a migration
@@ -490,6 +492,8 @@
                   href: azure-files-csi.md
                 - name: Provision Azure Files storage
                   href: azure-csi-files-storage-provision.md
+            - name: Azure Files and Azure NetApp Files comparison
+              href: ../storage/files/storage-files-netapp-comparison.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
             - name: Provision Azure NetApp Files storage
               href: azure-netapp-files.md
         - name: Block storage
@@ -498,6 +502,8 @@
               href: azure-disk-csi.md
             - name: Provision Azure Disks storage
               href: azure-csi-disk-storage-provision.md
+            - name: Use Azure Premium SSD v2 disks
+              href: use-premium-v2-disks.md
             - name: Use Azure ultra disks
               href: use-ultra-disks.md
         - name: Other storage options
@@ -506,6 +512,16 @@
               href: azure-hpc-cache.md
             - name: NFS Server - static
               href: azure-nfs-volume.md
+    - name: Configure backup
+      items:
+        - name: Prerequisites
+          href: ../backup/azure-kubernetes-service-cluster-backup-concept.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+        - name: Backup
+          href: ../backup/azure-kubernetes-service-cluster-backup.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+        - name: Restore
+          href: ../backup/azure-kubernetes-service-cluster-restore.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+        - name: Manage
+          href: ../backup/azure-kubernetes-service-cluster-manage-backups.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Monitoring and logging
       items:
         - name: Monitor AKS

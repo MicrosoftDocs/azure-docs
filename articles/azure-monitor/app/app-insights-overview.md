@@ -26,7 +26,7 @@ Application Insights provides other features including, but not limited to:
 - [Usage](usage-overview.md): Understand which features are popular with users and how users interact and use your application.
 - [Smart detection](proactive-diagnostics.md): Detect failures and anomalies automatically through proactive telemetry analysis.
 
-Application Insights supports [distributed tracing](distributed-tracing.md), which is also known as distributed component correlation. This feature allows [searching for](diagnostic-search.md) and [visualizing](transaction-diagnostics.md) an end-to-end flow of a specific execution or transaction. The ability to trace activity from end to end is important for applications that were built as distributed components or [microservices](/azure/architecture/guide/architecture-styles/microservices).
+Application Insights supports [distributed tracing](distributed-tracing-telemetry-correlation.md), which is also known as distributed component correlation. This feature allows [searching for](diagnostic-search.md) and [visualizing](transaction-diagnostics.md) an end-to-end flow of a specific execution or transaction. The ability to trace activity from end to end is important for applications that were built as distributed components or [microservices](/azure/architecture/guide/architecture-styles/microservices).
 
 The [Application Map](app-map.md) allows a high-level, top-down view of the application architecture and at-a-glance visual references to component health and responsiveness.
 
