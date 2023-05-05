@@ -154,7 +154,7 @@ Azure Machine Learning serverless Spark provides easy access to distributed comp
  
  To view quota usage, navigate to Machine Learning studio and select the subscription name that you would like to see usage for. Select "Quota" in the left panel.
 
-:::image type="content" source="media/how-to-manage-quotas/azure-machine-learning-quota.png" alt-text="Screenshot of the Azure Machine Learning quotas.":::
+:::image type="content" source="media/how-to-manage-quotas/azure-machine-learning-quota.png" lightbox="media/how-to-manage-quotas/azure-machine-learning-quota.png" alt-text="Screenshot of the Azure Machine Learning quotas.":::
 
 ### Virtual machines
 Each Azure subscription has a limit on the number of virtual machines across all services. Virtual machine cores have a regional total limit and a regional limit per size series. Both limits are separately enforced.
