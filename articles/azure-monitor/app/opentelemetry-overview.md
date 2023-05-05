@@ -44,7 +44,7 @@ Manual instrumentation is coding against the OpenTelemetry API. In the context o
 > [!IMPORTANT]
 > "Manual" doesn't mean you'll be required to write complex code to define spans for distributed traces, although it remains an option. A rich and growing set of instrumentation libraries maintained by OpenTelemetry contributors will enable you to effortlessly capture telemetry signals across common frameworks and libraries.
 >
-> A subset of OpenTelemetry instrumentation libraries are supported in the Azure Monitor OpenTelemetry Distros, informed by customer feedback. We're also working to [instrument the most popular Azure Service SDKs using OpenTelemetry](https://devblogs.microsoft.com/azure-sdk/introducing-experimental-opentelemetry-support-in-the-azure-sdk-for-net/).
+> A subset of OpenTelemetry instrumentation libraries are included in the Azure Monitor OpenTelemetry Distros, informed by customer feedback. We're also working to [instrument the most popular Azure Service SDKs using OpenTelemetry](https://devblogs.microsoft.com/azure-sdk/introducing-experimental-opentelemetry-support-in-the-azure-sdk-for-net/).
 
 Auto-instrumentation enables telemetry collection through configuration without touching the application's code. Although it's more convenient, it tends to be less configurable. It's also not available in all languages. The [Azure Monitor OpenTelemetry Java Distro](opentelemetry-enable.md?tabs=java) uses the auto-instrumentation method.
 
