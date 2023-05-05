@@ -285,7 +285,7 @@ As part of using Application Insights instrumentation, we collect and send diagn
 
 ## Automatic data collection
 
-The distros automatically collects data by bundling in OpenTelemetry "instrumentation libraries".
+The distros automatically collect data by bundling in OpenTelemetry "instrumentation libraries".
 
 ### Included instrumentation libraries
 
