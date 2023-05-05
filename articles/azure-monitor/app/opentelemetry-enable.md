@@ -147,7 +147,7 @@ app.Run();
 
 ##### [Java](#tab/java)
 
-Java autoinstrumentation is enabled through configuration changes; no code changes are required.
+Java auto-instrumentation is enabled through configuration changes; no code changes are required.
 
 Point the JVM to the jar file by adding `-javaagent:"path/to/applicationinsights-agent-3.4.12.jar"` to your application's JVM args.
 
@@ -301,10 +301,7 @@ For more information about ILogger, see [Logging in C# and .NET](/dotnet/core/ex
 
 #### [Java](#tab/java)
 
-Java 3.x includes the following autoinstrumentation.
-
-Autocollected requests:
-
+Requests
 * JMS consumers
 * Kafka consumers
 * Netty
@@ -315,8 +312,7 @@ Autocollected requests:
   > [!NOTE]
   > Servlet and Netty auto-instrumentation covers the majority of Java HTTP services, including Java EE, Jakarta EE, Spring Boot, Quarkus, and Micronaut.
 
-Autocollected dependencies (plus downstream distributed trace propagation):
-
+Dependencies (plus downstream distributed trace propagation):
 * Apache HttpClient
 * Apache HttpAsyncClient
 * AsyncHttpClient
@@ -331,20 +327,18 @@ Autocollected dependencies (plus downstream distributed trace propagation):
 * Netty client
 * OkHttp
 
-Autocollected dependencies (without downstream distributed trace propagation):
-
+Dependencies (without downstream distributed trace propagation):
 * Cassandra
 * JDBC
 * MongoDB (async and sync)
 * Redis (Lettuce and Jedis)
 
-Autocollected metrics
+Metrics
 
 * Micrometer Metrics, including Spring Boot Actuator metrics
 * JMX Metrics
 
-Autocollected logs
-
+Logs
 * Logback (including MDC properties) [1](#FOOTNOTEONE)</sup> <sup>[3](#FOOTNOTETHREE)</sup>
 * Log4j (including MDC/Thread Context properties) [1](#FOOTNOTEONE)</sup> <sup>[3](#FOOTNOTETHREE)</sup>
 * JBoss Logging (including MDC properties) [1](#FOOTNOTEONE)</sup> <sup>[3](#FOOTNOTETHREE)</sup>
