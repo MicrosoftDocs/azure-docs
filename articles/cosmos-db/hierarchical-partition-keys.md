@@ -39,8 +39,10 @@ Find the latest preview version of each supported SDK:
 
 | SDK | Supported versions | Package manager link |
 | --- | --- | --- |
-| **.NET SDK v3** | *>= 3.17.0-preview* | <https://www.nuget.org/packages/Microsoft.Azure.Cosmos/> |
-| **Java SDK v4** | *>= 4.16.0-beta* | <https://mvnrepository.com/artifact/com.azure/azure-cosmos> |
+| **.NET SDK v3** | *>= 3.33.0* | <https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.33.0/> |
+| **Java SDK v4** | *>= 4.42.0* | <https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos/CHANGELOG.md#4420-2023-03-17/> |
+| **JavaScript SDK v4** | *3.17.4-beta.1* | <https://www.npmjs.com/package/@azure/cosmos/v/3.17.4-beta.1/> |
+
 
 ## Sample code
 
@@ -402,11 +404,7 @@ For more information, see [Azure Cosmos DB emulator](./local-emulator.md).
 
 ## Limitations and known issues
 
-* Working with containers that use hierarchical partition keys is supported only in the preview versions of the .NET v3 and Java v4 SDKs. You must use a supported SDK to create new containers with hierarchical partition keys and to perform CRUD/query operations on the data. Support for other SDK languages (Python, JavaScript) is planned and not yet available. 
-* Passing in a partition key in ``QueryRequestOptions`` isn't currently supported when issuing queries from the SDK. You must specify the partition key paths in the query text itself.
-* Azure portal support is planned and not yet available.
-* Support for automation platforms (Azure PowerShell, Azure CLI) is planned and not yet available.
-* In the Data Explorer in the portal, you currently can't view documents in a container with hierarchical partition keys. You can read or edit these documents with the supported .NET v3 or Java v4 SDK version\[s\].
+* Working with containers that use hierarchical partition keys is supported only in .NET v3, Java v4 SDKs, and the preview version of the JavaScript SDK. You must use a supported SDK to create new containers with hierarchical partition keys and to perform CRUD/query operations on the data. Support for other Python SDK is planned and not yet available. 
 * You can only specify hierarchical partition keys up to three layers in depth. 
 * Hierarchical partition keys can currently only be enabled on new containers. The desired partition key paths must be specified at the time of container creation and can't be changed later. To use hierarchical partitions on existing containers, you should create a new container with the hierarchical partition keys set and move the data using [container copy jobs](intra-account-container-copy.md).
 * Hierarchical partition keys are currently supported only for API for NoSQL accounts (API for MongoDB and Cassandra aren't currently supported).
