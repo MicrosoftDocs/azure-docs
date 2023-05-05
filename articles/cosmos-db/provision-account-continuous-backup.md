@@ -19,8 +19,6 @@ Azure Cosmos DB's point-in-time restore feature helps you to recover from an acc
 
 This article explains how to provision an account with continuous backup and point in time restore using [Azure portal](#provision-portal), [PowerShell](#provision-powershell), [CLI](#provision-cli) and [Resource Manager templates](#provision-arm-template).
 
-> [!IMPORTANT]
-> Support for 7-day continous backup in both provisioning and migration scenarios is still in preview. Please use PowerShell and Azure CLI to migrate or provision an account with continous backup configured at the 7-day tier.
 
 > [!NOTE]
 > You can provision continuous backup mode account only if the following conditions are true:
@@ -35,7 +33,6 @@ When creating a new Azure Cosmos DB account, in the **Backup policy** tab, choos
 
 :::image type="content" source="./media/provision-account-continuous-backup/provision-account-continuous-mode.png" alt-text="Provision an Azure Cosmos DB account with continuous backup configuration." border="true" lightbox="./media/provision-account-continuous-backup/provision-account-continuous-mode.png":::
 
-Support for API for Table and Gremlin is in preview and can be provisioned with PowerShell and Azure CLI.
 
 ## <a id="provision-powershell"></a>Provision using Azure PowerShell
 
@@ -44,7 +41,6 @@ For PowerShell and CLI commands, the tier value is optional, if it isn't already
 1. Install the latest version of Azure PowerShell
 
     * Before provisioning the account, install any version of Azure PowerShell higher than 6.2.0. For more information about the latest version of Azure PowerShell, see [latest version of Azure PowerShell](/powershell/azure/install-az-ps).
-    * For provisioning the ``Continuous7Days`` tier, you'll need to install the preview version of the module by running ``Install-Module -Name Az.CosmosDB -AllowPrerelease``.  
 
 1. Next connect to your Azure account and select the required subscription with the following commands:
 
@@ -133,7 +129,6 @@ Before provisioning the account, install Azure CLI with the following steps:
 
    * Install a version of the Azure CLI higher than 2.26.0. For more information about the latest version of the Azure CLI, see [Azure CLI](/cli/azure/install-azure-cli).
    * If you have already installed CLI, run ``az upgrade`` command to update to the latest version. This command will only work with CLI version higher than 2.11. If you have an earlier version, use the above link to install the latest version.
-   * For provisioning the ``Continuous7Days`` tier, you'll need to install the preview version of the extension by ``az extension update --name cosmosdb-preview``
 
 2. Sign in and select your subscription
 
@@ -249,3 +244,5 @@ az deployment group create -g <ResourceGroup> --template-file <ProvisionTemplate
 * [How to migrate to an account from periodic backup to continuous backup](migrate-continuous-backup.md).
 * [Continuous backup mode resource model.](continuous-backup-restore-resource-model.md)
 * [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.
+
+
