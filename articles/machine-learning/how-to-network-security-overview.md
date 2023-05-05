@@ -31,22 +31,24 @@ Secure Azure Machine Learning workspace resources and compute environments using
 > [!TIP]
 > This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 >
-:::moniker range="azureml-api-2"
+> :::moniker range="azureml-api-2"
 > * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
+> * [Secure machine learning registries (preview)](how-to-registry-network-isolation.md)
 > * [Secure the training environment](how-to-secure-training-vnet.md)
 > * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
-:::moniker-end
-:::moniker range="azureml-api-1"
-> * [Secure the workspace resources](./v1/how-to-secure-workspace-vnet.md)
-> * [Secure the training environment](./v1/how-to-secure-training-vnet.md)
-> * [Secure the inference environment](./v1/how-to-secure-inferencing-vnet.md)
-:::moniker-end
 > * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 > * [Use custom DNS](how-to-custom-dns.md)
 > * [Use a firewall](how-to-access-azureml-behind-firewall.md)
-:::moniker range="azureml-api-2"
 > * [API platform network isolation](how-to-configure-network-isolation-with-v2.md)
-:::moniker-end
+> :::moniker-end
+> :::moniker range="azureml-api-1"
+> * [Secure the workspace resources](./v1/how-to-secure-workspace-vnet.md)
+> * [Secure the training environment](./v1/how-to-secure-training-vnet.md)
+> * [Secure the inference environment](./v1/how-to-secure-inferencing-vnet.md)
+> * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
+> * [Use custom DNS](how-to-custom-dns.md)
+> * [Use a firewall](how-to-access-azureml-behind-firewall.md)
+> :::moniker-end
 >
 > For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md) or [Tutorial: Create a secure workspace using a template](tutorial-create-secure-workspace-template.md).
 
@@ -317,15 +319,19 @@ This article is part of a series on securing an Azure Machine Learning workflow.
 
 :::moniker range="azureml-api-2"
 * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
+* [Secure machine learning registries (preview)](how-to-registry-network-isolation.md)
 * [Secure the training environment](how-to-secure-training-vnet.md)
 * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+* [Enable studio functionality](how-to-enable-studio-virtual-network.md)
+* [Use custom DNS](how-to-custom-dns.md)
+* [Use a firewall](how-to-access-azureml-behind-firewall.md)
+* [API platform network isolation](how-to-configure-network-isolation-with-v2.md)
 :::moniker-end
 :::moniker range="azureml-api-1"
 * [Secure the workspace resources](./v1/how-to-secure-workspace-vnet.md)
 * [Secure the training environment](./v1/how-to-secure-training-vnet.md)
 * [Secure the inference environment](./v1/how-to-secure-inferencing-vnet.md)
-:::moniker-end
 * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 * [Use custom DNS](how-to-custom-dns.md)
 * [Use a firewall](how-to-access-azureml-behind-firewall.md)
-* [API platform network isolation](how-to-configure-network-isolation-with-v2.md)
+:::moniker-end
