@@ -30,15 +30,19 @@ In the preview, we support the Microsoft 365 traffic profile wich contains... (N
 
 ## Conditional Access on compliant network
 
+**Compliant network is tenant specific.**
+
 Network traffic coming from Global Secure Access clients or configured branch offices to resources can be identified in Conditional Access policies. This ability is surfaced as a location condition called **All Compliant Network locations**. This location is used in the same way IP ranges or countries would, without the overhead of updating and redefining individual ranges. This location can be included or excluded in Conditional Access policies to meet organizational requirements. [Branch office networks](NEED-LINK-TO-DOC) and endpoints running the [Global Secure Access client]((how-to-install-windows-client.md)) appear in this location.
 
 For example, you may only want users to access certain sensitive applications that don't support modern authentication when they are on this compliant network.
 
-## Continuous access evaluation strict location enforcement
+## Other stuff 
 
-Continuous access evaluation (CAE) introduced real time enformcent of events like accounts being disabled or risk elevation. Strict location enforcement when paired with a compliant network allows CAE to detect location based events and take action to block access. Integration of CAE with Global Secure Access features extends the functionality to any endpoint.
+CA Policiy still works as normal,....
 
-For example, your organization may block access to Outlook or SharePoint from off the compliant network. If a user moves from their office to another location, like a coffee shop and is no longer on a compliant network, the change in IP address is seen and access can be blocked.
+CAE still works as normal... link to doc
+
+Continuous access evaluation (CAE) introduced real time enformcent of events like accounts being disabled or risk elevation. Integration of CAE with Global Secure Access features extends the functionality to any endpoint. [CAE DOC LINK HERE](conditional-access/)
 
 ## Next steps
 

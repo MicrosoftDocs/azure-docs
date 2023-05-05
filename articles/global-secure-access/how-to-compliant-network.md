@@ -20,6 +20,8 @@ In Microsoft's implementation, we allow administrators to enforce user, device, 
 
 :::image type="content" source="media/concept-conditional-access/global-secure-access-overview.png" alt-text="Diagram showing NaaS conceptual traffic flow." lightbox="media/concept-conditional-access/global-secure-access-overview.png":::
 
+**Compliant network is tenant specific.**
+
 ### Prerequisites
 
 * A working Azure AD tenant with the appropriate [Global Secure Access license](NEED-LINK-TO-DOC). If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -73,33 +75,5 @@ After administrators confirm the policy settings using [report-only mode](howto-
 1. Browse to [https://outlook.office.com/mail/](https://outlook.office.com/mail/) or [http://<yourcompanyname>.sharepoint.com/](http://<yourcompanyname>.sharepoint.com/), this should allow you access to resources.
 1. Pause the NaaS client by right-clicking the application in the Windows tray and selecting **Pause**.
 1. Browse to [https://outlook.office.com/mail/](https://outlook.office.com/mail/) or [http://<yourcompanyname>.sharepoint.com/](http://<yourcompanyname>.sharepoint.com/), this should block access to resources and you should see an error message that says **You cannot access this right now**.
-
-## Combining with other Conditional Access controls
-
-Organizations may choose to combine compliant network with other Conditional Access controls. One example might look like the following policy:
-
-### Require compliant network or require multifactor authentication
-
-1. Sign in to the **Azure portal** as a Conditional Access Administrator or Security Administrator.
-1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
-1. Select **New policy**.
-1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
-1. Under **Assignments**, select **Users or workload identities**.
-   1. Under **Include**, select **All users**.
-   1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
-1. Under **Cloud apps or actions** > **Include**, and select **Select apps**.
-   1. Choose **Office 365 Exchange Online** and **Office 365 SharePoint Online**.
-1. Under **Conditions** > **Location**.
-   1. Set **Configure** to **Yes**
-   1. Under **Include**, select **Any location**.
-   1. Under **Exclude**, select **Selected locations**
-      1. Select the **All Network Access locations of my tenant** location.
-   1. Click **Select**.
-1. Under **Access controls**: 
-   1. Under **Access controls** > **Grant**, select **Grant access**, **Require multifactor authentication**, and select **Select**.
-1. Confirm your settings and set **Enable policy** to **Report-only**.
-1. Select **Create** to create to enable your policy.
-
-After administrators confirm the policy settings using [report-only mode](howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
 
 ## Next steps
