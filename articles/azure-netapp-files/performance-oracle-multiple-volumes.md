@@ -1,6 +1,6 @@
 ---
 title: Oracle database performance on Azure NetApp Files multiple volumes | Microsoft Docs
-description: 
+description: Migrating highly performant Exadata grade databases to the cloud is increasingly becoming an imperative for Microsoft customers.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-ahibbard
@@ -18,11 +18,11 @@ ms.author: anfdocs
 
 # Oracle database performance on Azure NetApp Files multiple volumes
 
-Migrating highly performant Exadata grade databases to the cloud is increasingly becoming an imperative for Microsoft customers. Supply Chain software suites typically set the bar high due to the intense demands on storage I/O with a mixed read and write workload driven by a single compute node. Azure infrastructure in combination with Azure NetApp Files is able to meet the needs of this highly demanding workload. This article presents an example of how this demand was met for one customer and how Azure can meet the demands of your critical Oracle workloads. 
+Migrating highly performant Exadata grade databases to the cloud is increasingly becoming an imperative for Microsoft customers. Supply chain software suites typically set the bar high due to the intense demands on storage I/O with a mixed read and write workload driven by a single compute node. Azure infrastructure in combination with Azure NetApp Files is able to meet the needs of this highly demanding workload. This article presents an example of how this demand was met for one customer and how Azure can meet the demands of your critical Oracle workloads. 
 
 ## Enterprise scale Oracle performance 
 
-When exploring the upper limits of performance, it is important to recognize and reduce any constraints that could falsely skew results. For example, if the intent is to prove performance capabilities of a storage system, the client should ideally be configured so that CPU does not become a mitigating factor before storage performance limits are reached. To that end, testing started with the E104ids_v5 instance type as this VM comes equipped not just with a 100 GBps network interface, but with an equally large (100 GBps) egress limit.  
+When exploring the upper limits of performance, it's important to recognize and reduce any constraints that could falsely skew results. For example, if the intent is to prove performance capabilities of a storage system, the client should ideally be configured so that CPU does not become a mitigating factor before storage performance limits are reached. To that end, testing started with the E104ids_v5 instance type as this VM comes equipped not just with a 100 GBps network interface, but with an equally large (100 GBps) egress limit.  
 
 The testing occurred in two phases: 
 
@@ -37,20 +37,20 @@ The following graphics capture the performance profile of a single E104ids_v5 Az
 
 The following diagram depicts the architecture that testing was completed against; note the Oracle database spread across multiple Azure NetApp Files volumes and endpoints.  
 
-:::image type="content" alt-text="Diagram of an Oracle subnet with an Azure NetApp Files capacity pool." source="./media/oracle-subnet-diagram.png":::
+:::image type="content" alt-text="Diagram of an Oracle subnet with an Azure NetApp Files capacity pool." source="../media/oracle-subnet-diagram.png":::
 
 #### Single-host storage IO 
 
-The following diagram shows a 100% randomly select workload with a database buffer hit ratio of about 8%. SLOB2 was able to drive approximately 850,000 I/O requests per second while maintaining a sub-millisecond DB file sequential read event latency. With a database block size of 8K, that amounts to approximately 6,800 MiB/s of storage throughput. 
+The following diagram shows a 100% randomly select workload with a database buffer hit ratio of about 8%. SLOB2 was able to drive approximately 850,000 I/O requests per second while maintaining a submillisecond DB file sequential read event latency. With a database block size of 8K that amounts to approximately 6,800 MiB/s of storage throughput. 
 
-:::image type="content" alt-text="Diagram of single-host random storage I/O." source="./media/single-host-random-performance-chart.png":::
+:::image type="content" alt-text="Diagram of single-host random storage I/O." source="../media/single-host-random-performance-chart.png":::
 
 
 #### Single-host throughput 
 
 The following diagram demonstrates that, for bandwidth intensive sequential IO workloads such as full table scans or RMAN activities, Azure NetApp Files can deliver the full bandwidth capabilities of the E104ids_v5 VM itself.  
 
-:::image type="content" alt-text="Diagram of single-host sequential throughput." source="./media/single-host-sequential-throughput-chart.png":::
+:::image type="content" alt-text="Diagram of single-host sequential throughput." source="../media/single-host-sequential-throughput-chart.png":::
 
 >[!NOTE]
 >As the compute instance is at the theoretical maximum of its bandwidth, adding additional application concurrency results only in increased client-side latency. This results in SLOB2 workloads exceeding the targeted completion timeframe therefore thread count was capped at six. 
@@ -63,35 +63,35 @@ The following graphics capture the performance profile of three E104ids_v5 Azure
 
 The following diagram depicts the architecture that testing was completed against; note the three Oracle databases spread across multiple Azure NetApp Files volumes and endpoints. Endpoints can be dedicated to a single host as shown with Oracle VM 1 or shared among hosts as shown with Oracle VM2 and Oracle VM 3. 
 
-:::image type="content" alt-text="Diagram of Oracle automatic storage management for Azure NetApp Files." source="./media/oracle-multiple-volume-diagram.png":::
+:::image type="content" alt-text="Diagram of Oracle automatic storage management for Azure NetApp Files." source="../media/oracle-multiple-volume-diagram.png":::
 
 #### Multi-host storage IO
 
-The following diagram shows a 100% random select workload with a database buffer hit ratio of about 8%. SLOB2 was able to drive approximately 850,000 I/O requests per second across all three hosts individually while executing in parallel to a collective total of about 2,500,000 I/O requests per second with each host still maintaining a sub-millisecond db file sequential read event latency. With a database block size of 8K that amounts to approximately 20,000 MiB/s between the three hosts. 
+The following diagram shows a 100% random select workload with a database buffer hit ratio of about 8%. SLOB2 was able to drive approximately 850,000 I/O requests per second across all three hosts individually. SLOB2 was able accomplish this while executing in parallel to a collective total of about 2,500,000 I/O requests per second with each host still maintaining a submillisecond db file sequential read event latency. With a database block size of 8K, this amounts to approximately 20,000 MiB/s between the three hosts. 
 
-:::image type="content" alt-text="Line graph of collective random storage from an IO perspective." source="./media/collective-random-storage-chart.png":::
+:::image type="content" alt-text="Line graph of collective random storage from an IO perspective." source="../media/collective-random-storage-chart.png":::
 
 #### Multi-host storage IO 
 
 The following diagram demonstrates that for sequential workloads, Azure NetApp Files can still deliver the full bandwidth capabilities of the E104ids_v5 VM itself even as it scales outward. SLOB2 was able to drive I/O totaling over 30,000 MiB/s across the three hosts while running in parallel.   
 
-:::image type="content" alt-text="Stacked bar chart of collective sequential throughput." source="./media/collective-sequential-throughput-chart.png":::
+:::image type="content" alt-text="Stacked bar chart of collective sequential throughput." source="../media/collective-sequential-throughput-chart.png":::
 
 #### Real-world performance 
 
-As mentioned, once scaling limits were tested with SLOB2, a real-word supply chain application suite was tested against Oracle on Azure NetApp files with excellent results. The below snapshots of an Oracle Automatic Workload Repository (AWR) report are a zoomed in look at how one specific critical job performed.  
+After scaling limits were tested with SLOB2, tests were conducted with a real-word supply chain application suite against Oracle on Azure NetApp files with excellent results. The below data from Oracle Automatic Workload Repository (AWR) report is a highlighted look at how one specific critical job performed.  
 
-This database has a lot of additional IO going on in addition to the application workload due to flashback being enabled and has a database block size of 16k. From the IO profile section of the AWR report it is apparent that there is a heavy ratio of writes in comparison to reads.   
+This database has significant extra IO going on in addition to the application workload due to flashback being enabled and has a database block size of 16k. From the IO profile section of the AWR report, it's apparent that there is a heavy ratio of writes in comparison to reads.   
 
-| | Read + write per second | Read per second | Write per second |
+| | Read and write per second | Read per second | Write per second |
 | - | -- | -- | -- |
 | Total (MB) | 4,988.1 | 1,395.2 | 3,592.9 | 
 
-Despite the db file sequential read wait event showing a bit higher latency at 2.2ms than in the SLOB2 testing, this customer saw a fifteen minute reduction in job execution time coming from a RAC database on Exadata to a single instance database in Azure. 
+Despite the db file sequential read wait event showing a  higher latency at 2.2 ms than in the SLOB2 testing, this customer saw a fifteen-minute reduction in job execution time coming from a RAC database on Exadata to a single instance database in Azure. 
 
 ## Azure resource constraints 
 
-Any system will eventually hit resource constraints – traditionally known as chokepoints.  Database workloads, especially highly demanding ones such as supply chain application suites, are resource intensive entities.  Finding these resource constraints and working through them is vital to any successful deployment, as such this section seeks to inform the reader on the various constraints one may expect to encounter in just such an environment and how to work through them. In each subsection, expect to learn both best practices and rationale behind them.   
+All systems eventually hit resource constraints, traditionally known as chokepoints. Database workloads, especially highly demanding ones such as supply chain application suites, are resource intensive entities. Finding these resource constraints and working through them is vital to any successful deployment. This section illuminates various constraints you may expect to encounter in just such an environment and how to work through them. In each subsection, expect to learn both best practices and rationale behind them.   
 
 ### Virtual machines 
 
@@ -99,15 +99,15 @@ This section details the criteria to be considered in selecting [VMs](../virtual
 
 #### Chipsets 
 
-The first topic of interest is chipset selection. Make sure that whatever VM SKU you select is built on a single chipset - for consistency reasons. The Intel variant of E_v5 VMs run on a 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) configuration.  All VM’s in this family come equipped with a single 100Gbps network interface. In contrast, the E_v3 series, mentioned by way of example, is built on four separate chipsets, with various physical network bandwidths. Further, the four chipsets used in the E_v3 family (Broadwell, Skylake, Cascade Lake, Haswell) have different processor speeds which in and of itself affects the performance characteristics of the machine. Read the Azure Compute documentation carefully paying attention to Chipset options. Also refer to [Azure VM SKUs best practices for Azure NetApp Files](../azure/azure-netapp-files/performance-virtual-machine-sku.md). Selecting a VM with a single chipset is preferable for best consistency. 
+The first topic of interest is chipset selection. Make sure that whatever VM SKU you select is built on a single chipset - for consistency reasons. The Intel variant of E_v5 VMs runs on a third Generation Intel Xeon Platinum 8370C (Ice Lake) configuration. All VMs in this family come equipped with a single 100 GBps network interface. In contrast, the E_v3 series, mentioned by way of example, is built on four separate chipsets, with various physical network bandwidths. Further, the four chipsets used in the E_v3 family (Broadwell, Skylake, Cascade Lake, Haswell) have different processor speeds, which affects the performance characteristics of the machine. Read the Azure Compute documentation carefully paying attention to Chipset options. Also refer to [Azure VM SKUs best practices for Azure NetApp Files](performance-virtual-machine-sku.md). Selecting a VM with a single chipset is preferable for best consistency. 
 
-#### Available Network Bandwidth 
+#### Available network bandwidth 
 
-It is also important to understand the difference between the available bandwidth of the VM network interface and the metered bandwidth applied against the same. When [Azure Compute documentation](../virtual-network/virtual-machine-network-throughput.md) speaks to network bandwidth limits, these limits are applied on egress (write) only. Ingress (read) traffic is not metered and as such is limited only by the physical bandwidth of the NIC itself. The network bandwidth of most VM’s far outpaces the egress limit applied against the machine.   
+It's also important to understand the difference between the available bandwidth of the VM network interface and the metered bandwidth applied against the same. When [Azure Compute documentation](../virtual-network/virtual-machine-network-throughput.md) speaks to network bandwidth limits, these limits are applied on egress (write) only. Ingress (read) traffic is not metered and as such is limited only by the physical bandwidth of the NIC itself. The network bandwidth of most VMs outpaces the egress limit applied against the machine.   
 
 As Azure NetApp Files volumes are network attached, the egress limit can be understood as being applied against writes specifically whereas ingress is defined as reads and read-like workloads. While the egress limit of most machines is greater than the network bandwidth of the NIC, the same cannot be said for the E104_v5 used in testing for this article. The E104_v5 has a 100 GBps NIC with the egress limit set at 100 GBps as well. By comparison, the E96_v5, with its 100 GBps NIC has an egress limit of 35 GBps with ingress unfettered at 100 GBps. As VMs decrease in size, egress limits decrease but ingress remains unfettered by logically imposed limits.  
 
-Keep in mind however that egress limits are VM-wide and are applied as such against all network-based workloads. When using Oracle Data Guard, all writes are doubled to archive logs and must be factored to egress limit considerations.  The same is true for archive log with multi-destination as well as RMAN if used. When selecting VMs, familiarize yourselves with such command line tools as ethtool which expose the configuration of the NIC as Azure does not document network interface configurations. 
+Keep in mind however that egress limits are VM-wide and are applied as such against all network-based workloads. When using Oracle Data Guard, all writes are doubled to archive logs and must be factored to egress limit considerations. This is also true for archive log with multi-destination and RMAN if used. When selecting VMs, familiarize yourselves with such command line tools as ethtool which expose the configuration of the NIC as Azure does not document network interface configurations. 
 
 #### Network concurrency 
 
@@ -115,7 +115,7 @@ Network Concurrency
 
 Azure Virtual Machines and Azure NetApp Files volumes come equipped with specific amounts of bandwidth.  As shown above, so long as a VM has sufficient CPU headroom, a workload can in theory consume the bandwidth made available to it – that is of course within the limits of the network card and or egress limit applied.  In practice however, the amount of throughput achievable is predicated upon the concurrency of the workload at the network stack i.e., the number of network flows and network endpoints.  Please read the [network flow limits](../virtual-network/virtual-machine-network-throughput.md#network-flow-limits) section of the VM network bandwidth document for greater understanding of.  This section can be simplified to a single statement: the more network flows connecting client to storage the richer the potential performance.   
 
-Oracle supports two separate NFS clients, Kernel NFS and [Direct NFS (dNFS)](https://docs.oracle.com/en/database/oracle/oracle-database/19/cwlin/about-direct-nfs-client-mounts-to-nfs-storage-devices.html). Kernel NFS, until late, supported a single network flow between two endpoints (compute – storage). Direct NFS, the more performant of the two, supports a variable number of network flows – tests have shown hundreds of unique connections per endpoint - increasing or decreasing as load demands. Due to the scaling of network flows between two endpoints, Direct NFS is far preferred over Kernel NFS, and as such, the recommended configuration. Azure NetApp Files product group does not recommend using Kernel NFS with Oracle workloads. Refer to the [Benefits of using Azure NetApp Files with Oracle Database](solutions-benefits-azure-netapp-files-oracle-database.md) for more details on this topic. 
+Oracle supports two separate NFS clients, Kernel NFS and [Direct NFS (dNFS)](https://docs.oracle.com/en/database/oracle/oracle-database/19/cwlin/about-direct-nfs-client-mounts-to-nfs-storage-devices.html). Kernel NFS, until late, supported a single network flow between two endpoints (compute – storage). Direct NFS, the more performant of the two, supports a variable number of network flows – tests have shown hundreds of unique connections per endpoint - increasing or decreasing as load demands. Due to the scaling of network flows between two endpoints, Direct NFS is far preferred over Kernel NFS, and as such, the recommended configuration. Azure NetApp Files product group does not recommend using Kernel NFS with Oracle workloads. For more information, refer to the [Benefits of using Azure NetApp Files with Oracle Database](solutions-benefits-azure-netapp-files-oracle-database.md). 
 
 #### Execution concurrency 
 
@@ -125,20 +125,20 @@ Utilizing Direct NFS, a single chipset for consistency, and understanding networ
 
 Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its networking performance. This high-performance path bypasses the host from the data path, which reduces latency, jitter, and CPU utilization for the most demanding network workloads on supported VM types. When deploying VMs through configuration management utilities such as terraform, command line be aware that accelerated networking is not enabled by default.  For optimal performance, enable accelerated networking. Take note, accelerated networking is enabled or disabled on a network interface by network interface basis.  The accelerated networking feature is one that may be enabled or disabled dynamically. 
 
-An authoritative approach to ensuing accelerated networking is enabled for a NIC is via the Linux terminal. If accelerated networking is enabled for a NIC, a second virtual NIC is present associated with the first NIC. This second NIC is configured by the system with the ‘SLAVE’ flag enabled. If no NIC is present with the ‘SLAVE’ flag, accelerated networking is not enabled for that interface.  
+An authoritative approach to ensuing accelerated networking is enabled for a NIC is via the Linux terminal. If accelerated networking is enabled for a NIC, a second virtual NIC is present associated with the first NIC. This second NIC is configured by the system with the `SLAVE` flag enabled. If no NIC is present with the `SLAVE` flag, accelerated networking is not enabled for that interface.  
 
-In the scenario where multiple NIC are configured, you will need to determine which ‘SLAVE’ interface is associated with the NIC used to mount the NFS volume. Keep in mind, as stated above, adding network interface cards to the VM has no effect on performance. 
+In the scenario where multiple NICs are configured, you'll need to determine which `SLAVE` interface is associated with the NIC used to mount the NFS volume. Keep in mind, as stated above, adding network interface cards to the VM has no effect on performance. 
 
-Use the following process to identify the mapping between configured network interface and its associated virtual interface. This process validate that accelerated networking is enabled for a specific NIC on your Linux machine as well as display the physical ingress speed the NIC can potentially achieve.  
+Use the following process to identify the mapping between configured network interface and its associated virtual interface. This process validates that accelerated networking is enabled for a specific NIC on your Linux machine as well as display the physical ingress speed the NIC can potentially achieve.  
 
 1. Execute the `ip a` command: 
-    :::image type="content" alt-text="Output of ip a command." source="./media/ip-a-command-output.png":::
+    :::image type="content" alt-text="Output of ip a command." source="../media/ip-a-command-output.png":::
 1. List the `/sys/class/net/` directory of the NIC ID you are verifying (`eth0` in the example) and `grep` for the word lower:
     ```bash
     ls /sys/class/net/eth0 | grep lower lower_eth1
     ```
 1. Execute the `ethtool` command against the ethernet device identified as the lower device in the previous step.
-    :::image type="content" alt-text="Output of settings for eth1." source="./media/ethtool-output.png":::
+    :::image type="content" alt-text="Output of settings for eth1." source="../media/ethtool-output.png":::
 
 #### Azure VM, Network vs. disk bandwidth limits 
 
@@ -146,11 +146,11 @@ A level of expertise is required when reading Azure Virtual Machine performance 
 * Temp storage throughput and IOPS numbers refer to the performance capabilities of the ephemeral on-box storage directly attached to the VM.
 * Uncached disk throughput and I/O numbers refer specifically to Azure Disk (Premium, Premium v2, and Ultra) and have no bearing on network attached storage such as Azure NetApp Files.   
 * Attaching additional NICs to the VM has no impact on performance limits or performance capabilities of the VM (documented and tested to be true). 
-* Maximum network bandwidth refers to egress limits (that is, writes when Azure NetApp Files is involved) applied against the VM network bandwidth. No ingress limits (that is, reads when Azure NetApp Files is involved) are applied. Given enough CPU, enough network concurrency, and rich enough endpoints a VM could theoretically drive ingress traffic to the limits of the NIC. As mentioned in the [Available network bandwidt](#available-network-bandwidth) section, use tools such ethtool to see the bandwidth of the NIC. 
+* Maximum network bandwidth refers to egress limits (that is, writes when Azure NetApp Files is involved) applied against the VM network bandwidth. No ingress limits (that is, reads when Azure NetApp Files is involved) are applied. Given enough CPU, enough network concurrency, and rich enough endpoints a VM could theoretically drive ingress traffic to the limits of the NIC. As mentioned in the [Available network bandwidth](#available-network-bandwidth) section, use tools such ethtool to see the bandwidth of the NIC. 
 
 A sample chart is shown for reference:
 
-:::image type="content" alt-text="." source="./media/sample-chart.png":::
+:::image type="content" alt-text="." source="../media/sample-chart.png":::
 
 ### Azure NetApp Files 
 
@@ -171,7 +171,7 @@ Oracle’s database version 19c is Oracle’s current [long term release](https:
 
 For best performance, all database volumes were mounted using the [Direct NFS](https://docs.oracle.com/en/database/oracle/oracle-database/19/cwlin/about-direct-nfs-client-mounts-to-nfs-storage-devices.html#GUID-31591084-74BD-4B66-8C5B-68BF0FEE8750), Kernel NFS is recommended against due to performance constraints. Please read the article [Oracle database performance on Azure NetApp Files single volumes](performance-oracle-single-volumes.md) for a performance comparison between the two clients. Note, all relevant [dNFS patches (Oracle Support ID 1495104)](https://support.oracle.com/knowledge/Oracle%20Cloud/1495104_1.html) were applied, as were the best practices outlined in the [Oracle Databases on Microsoft Azure using Azure NetApp Files](https://www.netapp.com/media/17105-tr4780.pdf) report.  
 
-While Oracle and Azure NetApp Files support both NFSv3 and NFSv4.1, as NFSv3 is the more mature protocol it is generally viewed as having the most stability and is the more reliable option for environments that are highly sensitive to disruption. The testing described in this article was all completed over NFSv3.
+While Oracle and Azure NetApp Files support both NFSv3 and NFSv4.1, as NFSv3 is the more mature protocol it's generally viewed as having the most stability and is the more reliable option for environments that are highly sensitive to disruption. The testing described in this article was all completed over NFSv3.
 
 >[!IMPORTANT]
 >Some of the recommended patches that Oracle documents in Support ID 1495104 are critical for maintaining data integrity when using dNFS. Application of such patches is strongly advised for production environments. 
@@ -180,13 +180,13 @@ Automatic Storage Management (ASM) is supported for NFS volumes. Though typicall
 
 An ASM over dNFS configuration was used to produce all test results discussed in this article. The below diagram illustrates the ASM file layout within the Azure NetApp Files volumes and the file allocation to the ASM disk groups.  
 
-:::image type="content" alt-text="Diagram of Oracle subnet with Azure NetApp Files." source="./media/oracle-subnet-diagram.png":::
+:::image type="content" alt-text="Diagram of Oracle subnet with Azure NetApp Files." source="../media/oracle-subnet-diagram.png":::
 
 There are some limitations with the use of ASM over Azure NetApp Files NFS mounted volumes when it comes to storage snapshots that can be overcome with certain architectural considerations. Please reach out to your Azure NetApp Files Specialist or Cloud Solution Architect for an in-depth review of these considerations.  
 
 ## Synthetic test tools and tunables 
 
-This section describes the test architecture, tunables, and configuration detail in specifics.  While the above section is focused on the why of configuration decisions, this section is focused specifically on the what with the intent that you, as the reader may be able reproduce the results in your own environment.   
+This section describes the test architecture, tunables, and configuration detail in specifics. While the previous section is focused reasons why configuration decisions are made, this section focuses specifically on the "what" of configuration decisions. 
 
 ### Automated deployment 
 
@@ -275,22 +275,20 @@ All performance metrics were reported through the Oracle Automatic Workload Repo
 
 ## Migrating from purpose-built, engineered systems to the cloud 
 
-Oracle Exadata is an engineered system--a combination of hardware and software that is considered the most optimized solution for running Oracle workloads.  Although the cloud has significant advantages in the overall scheme of the technical world, these specialized systems can look incredibly attractive to those who’ve read and viewed the optimizations Oracle has built around their particular workload(s).   
+Oracle Exadata is an engineered system--a combination of hardware and software that is considered the most optimized solution for running Oracle workloads.  Although the cloud has significant advantages in the overall scheme of the technical world, these specialized systems can look incredibly attractive to those who have read and viewed the optimizations Oracle has built around their particular workload(s).   
 
 When it comes to running Oracle on Exadata, there are some common reasons Exadata is chosen: 
 
-One-to-two high IO workloads that are natural fit for Exadata features and as these workloads will require significant Exadata engineered features, the rest of the databases running along with them were simply consolidated to the Exadata. 
-
-Complicated or difficult OLTP workloads that require RAC to scale and are difficult to architect with proprietary hardware without deep knowledge of Oracle optimization or may be technical debt unable to be optimized. 
-
-Under-utilized existing Exadata with various workloads, that exists either due to previous migrations, end-of-life on a previous Exadata or due to a desire to work/test an Exadata in-house. 
+* 1-2 high IO workloads that are natural fit for Exadata features and as these workloads will require significant Exadata engineered features, the rest of the databases running along with them were simply consolidated to the Exadata. 
+* Complicated or difficult OLTP workloads that require RAC to scale and are difficult to architect with proprietary hardware without deep knowledge of Oracle optimization or may be technical debt unable to be optimized. 
+* Under-utilized existing Exadata with various workloads: this exists either due to previous migrations, end-of-life on a previous Exadata, or due to a desire to work/test an Exadata in-house. 
 
 It's essential for any migration from an Exadata system to be understood from the perspective of the workloads and how simple or complex the migration may be.  A secondary need is to understand the reason for the Exadata purchase from a status perspective. Exadata and RAC skills are in higher demand and may have driven the recommendation to purchase one by the technical stakeholders. 
 
 >[!IMPORTANT]
 >No matter the scenario, the overall take-away should be, for any database workload coming from an Exadata, the more Exadata proprietary features used, the more complex the migration and planning is. Environments that are not heavily utilizing Exadata proprietary features have opportunities for a simpler migration and planning process.  
 
-There are several tools that can be used to assess these workload opportunities- 
+There are several tools that can be used to assess these workload opportunities: 
 
 * The Automatic Workload Repository (AWR) 
     * All Exadata databases are licensed to use AWR reports and connected performance and diagnostic features, 
@@ -319,7 +317,7 @@ Questions to answer when identifying Oracle Exadata workloads to migrate to the 
     1. Inspect the amount directed to the DB node to balance CPU. 
     1. Identify the number of bytes returned by smart scan, as these values can be subtracted in IO for the percentage of cell single block physical reads once it migrates off Exadata. 
 1. Note the number of logical reads from cache, determine if flash cache will be required in a cloud IaaS solution for the workload. 
-1. Compare the physical read and write total bytes to the amount performed total in cache.  Can memory be raised to eliminate physical read requirements, (it is common for some to shrink down SGA to force offloading for Exadata.) 
+1. Compare the physical read and write total bytes to the amount performed total in cache.  Can memory be raised to eliminate physical read requirements (it's common for some to shrink down SGA to force offloading for Exadata.) 
 1. In **System Statistics**, identify what objects are impacted by what statistic and if tuning SQL, additional indexing, partitioning or other physical tuning may optimize the workload dramatically. 
 1. Inspect **Initialization Parameters** for underscore (_) or deprecated parameters which should be justified due to database level impact they may be causing on performance.   
 
@@ -338,32 +336,32 @@ In 12.2 Oracle version and above, an Exadata specific addition will be included 
         * A `^` and a light yellow background indicate an outlier value above the high range
         * The top cells by percentage CPU are display and are in descending order of percentage CPU
         * Average: 39.34% CPU, 28.57% user, 10.77% sys
-        :::image type="content" alt-text="Table of top cells by percentage CPU." source="./media/exadata-top-cells.png":::
+        :::image type="content" alt-text="Table of top cells by percentage CPU." source="../media/exadata-top-cells.png":::
 
-* Single Cell Physical Block Reads, (see above.) 
+* Single Cell Physical Block Reads 
 * Flash Cache Usage 
 * Temp IO  
 * Columnar Cache Efficiency 
 
 ### Top database by IO throughput 
 
-Although sizing assessments can be performed, there are some questions about the averages and the simulated peaks that are built into these values for large workloads.  This section, to be found at the end of an AWR report, is exceptionally valuable, as it shows both the average flash and disk usage of the top ten databases on Exadata.  Although many may assume they want to size for peak in the cloud, most will clearly understand this doesn’t make sense when the majority of work, (over 95% is in the average range and with a simulated peak calculated in, can be upwards of 98% or more.)  With this knowledge in hand, it is important to pay for what is needed, even for the highest of Oracle’s demand workloads and inspecting the Top Databases by IO Throughput can be enlightening for the resource needs for the database regularly.   
+Although sizing assessments can be performed, there are some questions about the averages and the simulated peaks that are built into these values for large workloads. This section, to be found at the end of an AWR report, is exceptionally valuable, as it shows both the average flash and disk usage of the top 10 databases on Exadata. Although many may assume they want to size for peak in the cloud, most will clearly understand this doesn’t make sense when the majority of work (over 95% is in the average range and with a simulated peak calculated in, can be upwards of 98% or more). With this knowledge in hand, it's important to pay for what is needed, even for the highest of Oracle’s demand workloads and inspecting the Top Databases by IO Throughput can be enlightening for the resource needs for the database regularly.   
 
 ### Right-Size Oracle using the AWR on Exadata   
 
 When performing capacity planning for on-premises systems, it’s only natural to have significant overhead built into the hardware.  The over-provisioned hardware needs to serve the Oracle workload not just today, but for several years to come, no matter the additional workload added due to data growth, code changes and upgrades.   
 
-One of the benefits of the cloud is scaling of resources in virtual machine host and storage can be performed as demands increase. This helps conserve cloud costs, as well as licensing costs that are attached to processor usage, (very relevant with Oracle.)   
+One of the benefits of the cloud is scaling of resources in virtual machine host and storage can be performed as demands increase. This helps conserve cloud costs, as well as licensing costs that are attached to processor usage (very relevant with Oracle).
 
 Right-sizing involves removing the hardware from the traditional lift and shift migration and using the workload information provided by Oracle’s Automatic Workload Repository (AWR) to lift and shift the workload to compute and storage that is specially designed to support it in the cloud of the customer’s choice.  The right-sizing process ensures that the architecture going forward removes infrastructure technical debt, architecture redundancy that would occur if duplication of the on-premises system was replicated to the cloud and implements cloud services whenever possible. 
 
-Microsoft Oracle SMEs have estimated that over 80% of Oracle databases are over-provisioned and experience either the same cost or savings going to the cloud if they take the time to right-size the Oracle database workload before migrating to the cloud.  This assessment requires the database specialists on the team to shift their mindset on how they may have performed capacity planning in the past, but it is well worth the stakeholder's investment in the cloud and the business’ cloud strategy. 
+Microsoft Oracle SMEs have estimated that over 80% of Oracle databases are over-provisioned and experience either the same cost or savings going to the cloud if they take the time to right-size the Oracle database workload before migrating to the cloud.  This assessment requires the database specialists on the team to shift their mindset on how they may have performed capacity planning in the past, but it's well worth the stakeholder's investment in the cloud and the business’ cloud strategy. 
 
 ## Next Steps 
 
 * [Run Your Most Demanding Oracle Workloads in Azure without Sacrificing Performance or Scalability](https://techcommunity.microsoft.com/t5/azure-architecture-blog/run-your-most-demanding-oracle-workloads-in-azure-without/ba-p/3264545) 
 
-* [Solution architectures using Azure NetApp Files - Oracle](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-solution-architectures#oracle)
+* [Solution architectures using Azure NetApp Files - Oracle](azure-netapp-files-solution-architectures.md#oracle)
 
 * [Design and implement an Oracle database in Azure](../virtual-machines/workloads/oracle/oracle-design.md)
 
