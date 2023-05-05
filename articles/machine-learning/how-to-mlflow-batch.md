@@ -56,7 +56,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    
    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/heart-classifier-mlflow/deploy-and-run.sh" ID="register_model" :::
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/heart-classifier-mlflow/mlflow-for-batch-tabular.ipynb?name=register_model)]
    
@@ -68,7 +68,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    
    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/heart-classifier-mlflow/deploy-and-run.sh" ID="create_compute" :::
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    To create a new compute cluster where to create the deployment, use the following script:
    
@@ -82,7 +82,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
     
     :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/heart-classifier-mlflow/deploy-and-run.sh" ID="name_endpoint" :::
     
-    # [Python](#tab/sdk)
+    # [Python](#tab/python)
     
     In this case, let's place the name of the endpoint in a variable so we can easily reference it later.
 
@@ -100,7 +100,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    
    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/heart-classifier-mlflow/deploy-and-run.sh" ID="create_endpoint" :::
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    To create a new endpoint, use the following script:
    
@@ -122,7 +122,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    
    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/heart-classifier-mlflow/deploy-and-run.sh" ID="create_deployment" :::
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    To create a new deployment under the created endpoint, first define the deployment:
    
@@ -142,7 +142,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    
    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/heart-classifier-mlflow/deploy-and-run.sh" ID="set_default_deployment" :::
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/heart-classifier-mlflow/mlflow-for-batch-tabular.ipynb?name=set_default_deployment)]
 
@@ -166,7 +166,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    
    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/heart-classifier-mlflow/deploy-and-run.sh" ID="create_data_asset" :::
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    a. Create a data asset definition:
    
@@ -189,7 +189,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    > [!NOTE]
    > The utility `jq` may not be installed on every installation. You can get installation instructions in [this link](https://stedolan.github.io/jq/download/).
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/heart-classifier-mlflow/mlflow-for-batch-tabular.ipynb?name=start_batch_scoring_job)]
    ---
@@ -203,7 +203,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    
    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/heart-classifier-mlflow/deploy-and-run.sh" ID="show_job_in_studio" :::
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/heart-classifier-mlflow/mlflow-for-batch-tabular.ipynb?name=get_job)]
    
@@ -227,7 +227,7 @@ To download the predictions, use the following command:
 
 :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/heart-classifier-mlflow/deploy-and-run.sh" ID="download_outputs" :::
 
-# [Python](#tab/sdk)
+# [Python](#tab/python)
 
 [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/heart-classifier-mlflow/mlflow-for-batch-tabular.ipynb?name=download_outputs)]
 ---
@@ -344,9 +344,11 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
 
    # [Azure CLI](#tab/cli)
    
-   No extra step is required for the Azure Machine Learning CLI. The environment definition will be included in the deployment file.
+   The environment definition will be included in the deployment definition itself as an anonymous environment. You'll see in the following lines in the deployment:
+    
+    :::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/heart-classifier-mlflow/deployment-custom/deployment.yml" range="7-10":::
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    Let's get a reference to the environment:
    
@@ -360,7 +362,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
    
    :::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/heart-classifier-mlflow/deployment-custom/deployment.yml" :::
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/heart-classifier-mlflow/mlflow-for-batch-tabular.ipynb?name=configure_deployment_custom)]
 
@@ -370,7 +372,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
    
    :::code language="azurecli" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/heart-classifier-mlflow/deploy-and-run.sh" ID="create_deployment_non_default" :::
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/heart-classifier-mlflow/mlflow-for-batch-tabular.ipynb?name=create_deployment_custom)]
    ---

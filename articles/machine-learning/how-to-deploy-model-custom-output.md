@@ -138,7 +138,7 @@ Follow the next steps to create a deployment using the previous scoring script:
    
    No extra step is required for the Azure Machine Learning CLI. The environment definition will be included in the deployment file.
    
-   :::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deployment.yml" range="6-9":::
+   :::code language="yaml" source="~/azureml-examples-batch-pup/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deployment.yml" range="7-10":::
    
    # [Python](#tab/python)
    
@@ -146,10 +146,10 @@ Follow the next steps to create a deployment using the previous scoring script:
    
    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=configure_environment)]
 
-2. Create the deployment
+2. Create the deployment. Notice that now `output_action` is set to `SUMMARY_ONLY`.
 
    > [!NOTE]
-   > This example assumes you have an endpoint created with the name `heart-classifier-batch` and a compute cluster with name `cpu-cluster`. If you don't, please follow the steps in the doc [Use batch endpoints for batch scoring](how-to-use-batch-endpoint.md).
+   > This example assumes you have aa compute cluster with name `batch-cluster`. Change that name accordinly.
 
    # [Azure CLI](#tab/cli)
    
@@ -170,11 +170,7 @@ Follow the next steps to create a deployment using the previous scoring script:
    Then, create the deployment with the following command:
    
    [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=create_deployment)]
-   ---
    
-   > [!IMPORTANT]
-   > Notice that now `output_action` is set to `SUMMARY_ONLY`.
-
 3. At this point, our batch endpoint is ready to be used. 
 
 ## Testing out the deployment
