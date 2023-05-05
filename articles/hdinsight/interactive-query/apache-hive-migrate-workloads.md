@@ -30,12 +30,12 @@ Hive 3 supports only the thin client, Beeline for running queries and Hive admin
 
 You enter supported Hive CLI commands by invoking Beeline using the Hive keyword as a Hive user or invoke a beeline using `beeline -u <JDBC URL>`. You can get the JDBC URL from Ambari Hive page.
 
-:::image type="content" source="./media/apache-hive-migrate-workloads/jdbc-url.png" alt-text="JDBC URL output." border="true" lightbox="./media/apache-hive-migrate-workloads/jdbc-url.png":::
+:::image type="content" source="./media/apache-hive-migrate-workloads/jdbc-url.png" alt-text="Screenshot showing JDBC URL output." border="true" lightbox="./media/apache-hive-migrate-workloads/jdbc-url.png":::
 
 Use Beeline (instead of the thick client Hive CLI, which is no longer supported) has several advantages, includes:
 
-1. Instead of maintaining the entire Hive code base, you can maintain only the JDBC client.
-1. Startup overhead is lower by using Beeline because the entire Hive code base isn't involved.
+* Instead of maintaining the entire Hive code base, you can maintain only the JDBC client.
+* Startup overhead is lower by using Beeline because the entire Hive code base isn't involved.
 
 You can also execute the Hive script, which is under the directory “/usr/bin”, which invokes a beeline connection using JDBC URL.
 
@@ -43,8 +43,8 @@ You can also execute the Hive script, which is under the directory “/usr/bin�
 
 A thin client architecture facilitates securing data in
 
-1. Session state, internal data structures, passwords, and so on, reside on the client instead of the server.
-2. The small number of daemons required to execute queries simplifies monitoring and debugging.
+* Session state, internal data structures, passwords, and so on, reside on the client instead of the server.
+* The small number of daemons required to execute queries simplifies monitoring and debugging.
 
 HiveServer enforces allowlist and blocklist settings that you can change using `SET` commands. Using the blocklists, you can restrict memory configuration to prevent Hive Server instability. You can configure multiple HiveServer instances with different allowlist and blocklist to establish different levels of stability.
 
@@ -71,15 +71,15 @@ If a legacy script or application specifies MapReduce for execution, an exceptio
 
 **Changes with respect to ACID transaction and CBO:**
 
-1. ACID tables are the default table type in HDInsight 4.x with no performance or operational overload.
-1. Simplified application development, operations with stronger transactional guarantees, and simpler semantics for SQL commands
-1. Hive internal takes care of bucketing for ACID tables in HDInsight 4.1, thus removing maintenance overhead.
-1. Advanced optimizations – Upgrade in CBO
-1. Automatic Query cache. The Property used to enable query caching is `hive.query.results.cache.enabled`. You need to set this property to true. Hive stores the query result cache in `/tmp/hive/__resultcache__/.` By default, Hive allocates 2 GB for the query result cache. You can change this setting by configuring the following parameter in bytes `hive.query.results.cache.max.size`.
+* ACID tables are the default table type in HDInsight 4.x with no performance or operational overload.
+* Simplified application development, operations with stronger transactional guarantees, and simpler semantics for SQL commands
+* Hive internal takes care of bucketing for ACID tables in HDInsight 4.1, thus removing maintenance overhead.
+* Advanced optimizations – Upgrade in CBO
+* Automatic Query cache. The Property used to enable query caching is `hive.query.results.cache.enabled`. You need to set this property to true. Hive stores the query result cache in `/tmp/hive/__resultcache__/.` By default, Hive allocates 2 GB for the query result cache. You can change this setting by configuring the following parameter in bytes `hive.query.results.cache.max.size`.
 
-   For more information, [Benefits of migrating to Azure HDInsight 4.0.](../benefits-of-migrating-to-hdinsight-40.md)
+  For more information, [Benefits of migrating to Azure HDInsight 4.0.](../benefits-of-migrating-to-hdinsight-40.md)
 
-1. Materialized view rewrites. 
+**Materialized view rewrites**
    
    For more information, on [Hive - Materialized Views](https://techcommunity.microsoft.com/t5/analytics-on-azure-blog/hive-materialized-views/ba-p/2502785)
 
@@ -140,9 +140,9 @@ Hive impersonation was enabled by default in Hive 2 (doAs=true), and disabled by
 
 After the upgrade, the location of managed tables or partitions doesn't change under any one of the following conditions:
 
-1. The old table or partition directory wasn't in its default location /apps/hive/warehouse before the upgrade.
-1. The old table or partition is in a different file system than the new warehouse directory.
-1. The old table or partition directory is in a different encryption zone than the new warehouse directory.
+* The old table or partition directory wasn't in its default location /apps/hive/warehouse before the upgrade.
+* The old table or partition is in a different file system than the new warehouse directory.
+* The old table or partition directory is in a different encryption zone than the new warehouse directory.
 
 Otherwise, the location of managed tables or partitions does change. The upgrade process moves managed files to `/hive/warehouse/managed`. By default, Hive places any new external tables you create in HDInsight 4.x in `/hive/warehouse/external`
 
@@ -167,8 +167,8 @@ After upgrading, to convert a nontransactional table to an ACID v2 transactional
 ```
 transaction'='true' and 'EXTERNAL'='false
 ```
-1. The managed table, non-ACID, ORC format and owned by non-Hive user in HDInsight-3.x will be converted to external, non-ACID table in HDInsight-4.x.
-1. If the user wishes to change the external table (non-ACID) to ACID, then they should change the external table to managed and ACID as well. Because in HDInsight-4.x all the managed tables are strictly ACID by default. You can't convert the external tables(non-ACID) to ACID table.
+* The managed table, non-ACID, ORC format and owned by non-Hive user in HDInsight-3.x will be converted to external, non-ACID table in HDInsight-4.x.
+* If the user wishes to change the external table (non-ACID) to ACID, then they should change the external table to managed and ACID as well. Because in HDInsight-4.x all the managed tables are strictly ACID by default. You can't convert the external tables(non-ACID) to ACID table.
 
 > [!NOTE]
 > The table must be a ORC table.
@@ -218,14 +218,14 @@ alter table rt set TBLPROPERTIES ('EXTERNAL'='false', 'transactional'='true');
 
 ## Syntax and semantics
 
-1. Creating a table
+* Creating a table
 To improve useability and functionality, Hive 3 changed table creation.
 Hive has changed table creation in the following ways
-    1. Creates ACID-compliant table, which is the default in HDP
-    1. Supports simple writes and inserts
-    1. Writes to multiple partitions
-    1. Inserts multiple data updates in a single SELECT statement
-    1. Eliminates the need for bucketing.
+    * Creates ACID-compliant table, which is the default in HDP
+    * Supports simple writes and inserts
+    * Writes to multiple partitions
+    * Inserts multiple data updates in a single SELECT statement
+    * Eliminates the need for bucketing.
 
     If you have an ETL pipeline that creates tables in Hive, the tables create as ACID. Hive now tightly controls access and performs compaction periodically on the tables
 
@@ -237,7 +237,7 @@ Hive has changed table creation in the following ways
     **Action Required**
     To access Hive ACID tables from Spark, you connect to Hive using the Hive Warehouse Connector (HWC). To write ACID tables to Hive from Spark, you use the HWC and HWC API
 
-1. Escaping `db.table` References
+* Escaping `db.table` References
 
     You need to change queries that use db.table references to prevent Hive from interpreting the entire db.table string as the table name.
     Hive 3.x rejects `db.table` in SQL queries. A dot (.) isn't allowed in table names. You enclose the database name and the table name in backticks.
@@ -246,7 +246,7 @@ Hive has changed table creation in the following ways
     Enclose the database name and the table name in backticks.
      `CREATE TABLE `math`.`students` (name VARCHAR(64), age INT, gpa DECIMAL(3,2));`
 
-1. CASTING TIMESTAMPS
+* CASTING TIMESTAMPS
     Results of applications that cast numerics to timestamps differ from Hive 2 to Hive 3. Apache Hive changed the behavior of CAST to comply with the SQL Standard, which doesn't associate a time zone with the TIMESTAMP type.
     
     **Before Upgrade**
@@ -262,7 +262,7 @@ Hive has changed table creation in the following ways
     **Action Required**
     Change applications. Don't cast from a numeral to obtain a local time zone. Built-in functions from_utc_timestamp and to_utc_timestamp can be used to mimic behavior before the upgrade.
 
-1. CHECKING COMPATIBILITY OF COLUMN CHANGES
+* CHECKING COMPATIBILITY OF COLUMN CHANGES
     A default configuration change can cause applications that change column types to fail.
    
      **Before Upgrade**
@@ -274,7 +274,7 @@ Hive has changed table creation in the following ways
     **Action Required**
     Change applications to disallow incompatible column type changes to prevent possible data corruption.
 
-1.  DROPPING PARTITIONS
+* DROPPING PARTITIONS
 
     The OFFLINE and NO_DROP keywords in the CASCADE clause for dropping partitions causes performance problems and is no longer supported.
 
@@ -287,12 +287,12 @@ Hive has changed table creation in the following ways
     **Action Required**
     Change applications to remove OFFLINE and NO_DROP from the CASCADE clause. Use an authorization scheme, such as Ranger, to prevent partitions from being dropped or read.
 
-1. RENAMING A TABLE
+* RENAMING A TABLE
     After the upgrade Renaming a managed table moves its location only if the table is created without a `LOCATION` clause and is under its database directory.
 
 ## Limitations with respect to CBO
 
-1. We see that the select output gives trailing zero's in few columns. For example, if we have a table column with datatype as decimal(38,4) and if we insert data as 38 then it adds the trailing zero's and provide result as 38.0000
+* We see that the select output gives trailing zero's in few columns. For example, if we have a table column with datatype as decimal(38,4) and if we insert data as 38 then it adds the trailing zero's and provide result as 38.0000
 As per https://issues.apache.org/jira/browse/HIVE-12063 and https://issues.apache.org/jira/browse/HIVE-24389, the idea is retained the scale and precision instead of running a wrapper in decimal columns. This is the default behavior from Hive 2.
 To fix this issue, you can follow the below option.
 
@@ -487,7 +487,7 @@ From this output, you can find the column names that are missing or incorrect. Y
 
 `SELECT * FROM INFORMATION_SCHEMA.columns WHERE TABLE_NAME = 'PART_COL_STATS';`
 
-Incase any of the columns is missed in the table, for example, if we run the queries like insert or insert overwrite then the stats will be calculated automatically and it tries to update the stats table like PART_COL_STATS and TAB_COL_STATS. And if the column like "BIT_VECTOR" is missing in the tables then it will fail with "Invalid column name" error. You can add the column as mentioned in the following commands. As a workaround you can disable the stats by setting the following properties, which can't update the stats in the backend Database.
+In case any of the columns is missed in the table, for example, if we run the queries like insert or insert overwrite then the stats will be calculated automatically and it tries to update the stats table like PART_COL_STATS and TAB_COL_STATS. And if the column like "BIT_VECTOR" is missing in the tables then it will fail with "Invalid column name" error. You can add the column as mentioned in the following commands. As a workaround you can disable the stats by setting the following properties, which can't update the stats in the backend Database.
 
 ```
 hive.stats.autogather=false;
@@ -612,7 +612,7 @@ Other steps to be followed to fix the incorrect results and poor performance aft
 
      If you face any issue related to OOM by setting the property `hive.auto.convert.join` to true, then it's advisable to set it to false only for that particular query at the session level and not at the cluster level. This issue might occur if the stats are wrong and Hive decides to use map join based on the stats.
 
-1. **Issue**
+* **Issue**
     Hive query gives the incorrect result if the query has a join condition and the tables involved has null or empty values.
 
     **Cause**
@@ -621,7 +621,7 @@ Other steps to be followed to fix the incorrect results and poor performance aft
     **Resolution**
     We recommend try setting the property `set hive.cbo.returnpath.hiveop=true` at the session level if you get any incorrect results. This config introduces not null filtering on join keys. If the tables had many null values, for optimizing the join operation between multiple tables, we can enable this config so that it considers only the not null values.
 
-1. **Issue**
+* **Issue**
     Hive query gives the incorrect result if the query has a multiple join conditions.
 
     **Cause**
@@ -630,7 +630,7 @@ Other steps to be followed to fix the incorrect results and poor performance aft
     **Resolution**
     There's a chance of getting incorrect results when we set `hive.merge.nway.joins` to false. Try setting it to true only for the query, which got affected. This helps query with multiple joins on the same condition, merge joins together into a single join operator. This method is useful if large shuffle joins to avoid a reshuffle phase.
 
-1. **Issue**'
+* **Issue**'
     There's an increase in time of the query execution day by day when compared to the earlier runs.
 
     **Cause**
@@ -642,7 +642,7 @@ Other steps to be followed to fix the incorrect results and poor performance aft
     Reference link: [Hive Transactions - Apache Hive - Apache Software Foundation](https://cwiki.apache.org/confluence/display/hive/hive+transactions).
 
 
-1. **Issue**
+* **Issue**
     Hive query gives incorrect result when customer is using a join condition on managed acid orc table and managed non-ACID orc table.
 
     **Cause**
