@@ -819,7 +819,7 @@ Use the following ARM template to restore an account for the Azure Cosmos DB API
     {
       "name": "vinhpitrarmrestore-kal3",
       "type": "Microsoft.DocumentDB/databaseAccounts",
-      "apiVersion": "2022-02-15-preview",
+      "apiVersion": "2023-04-15",
       "location": "West US",
       "properties": {
         "locations": [
@@ -850,7 +850,7 @@ Use the following ARM template to restore an account for the Azure Cosmos DB API
     {
       "name": "ademo-pitr1",
       "type": "Microsoft.DocumentDB/databaseAccounts",
-      "apiVersion": "2022-02-15-preview",
+      "apiVersion": "2023-04-15",
       "location": "West US",
       "properties": {
         "locations": [
@@ -890,7 +890,7 @@ Use the following ARM template to restore an account for the Azure Cosmos DB API
     {
       "name": "ademo-pitr1",
       "type": "Microsoft.DocumentDB/databaseAccounts",
-      "apiVersion": "2022-02-15-preview",
+      "apiVersion": "2023-04-15",
       "location": "West US",
       "properties": {
         "locations": [
