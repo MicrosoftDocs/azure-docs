@@ -1,4 +1,12 @@
-### Vowels for it-IT
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
+### Vowels
 
 | `ipa` | `viseme` | Example 1    | Example 2            | Example 3     |
 |-------|----------|--------------|----------------------|---------------|
@@ -19,7 +27,7 @@
 | `oi`  | 8,6      | **oi**bò     | intellettual**oi**de | Gameb**oy**   |
 | `ou`  | 8,7      |              | sh**ow**             | talksh**ow**  |
 
-### Consonant for it-IT
+### Consonant
 
 | `ipa` | `viseme` | Example 1    | Example 2            | Example 3     |
 |-------|----------|--------------|----------------------|---------------|

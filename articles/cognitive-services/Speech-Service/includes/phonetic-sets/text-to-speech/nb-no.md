@@ -1,4 +1,12 @@
-### Vowels for nb-NO
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
+### Vowels
 
 | `ipa` | `viseme` | Example 1     | Example 2        | Example 3     |
 |-------|----------|---------------|------------------|---------------|
@@ -27,7 +35,7 @@
 | `ɔʏ`  | 3,7      | **Oi**lers    | b**oi**kotten    | konv**oi**    |
 | `ʉɪ`  | 6,6      |               | Br**ui**ns       | Mits**ui**    |
 
-### Consonant for nb-NO
+### Consonant
 
 | `ipa` | `viseme` | Example 1     | Example 2        | Example 3     |
 |-------|----------|---------------|------------------|---------------|

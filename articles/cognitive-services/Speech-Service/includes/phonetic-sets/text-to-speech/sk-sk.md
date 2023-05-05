@@ -1,4 +1,12 @@
-### Vowels for sk-SK
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
+### Vowels
 
 | `ipa` | `viseme` | Example 1        | Example 2          | Example 3      |
 |-------|----------|------------------|--------------------|----------------|
@@ -21,7 +29,7 @@
 | `ou`  | 8,7      |                  |                    |                |
 | `ə`   | 1        |                  |                    |                |
 
-### Consonant for sk-SK
+### Consonant
 
 | `ipa` | `viseme` | Example 1        | Example 2          | Example 3      |
 |-------|----------|------------------|--------------------|----------------|

@@ -1,4 +1,12 @@
-#### Vowels for es-MX
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
+#### Vowels
 
 | `ipa` | VisemeID | Example&nbsp;1  | Example&nbsp;2      | Example&nbsp;3|
 |-------|----------|------------|----------------|----------|
@@ -8,7 +16,7 @@
 | `o`   | 8        | h**o**gar  | ol**o**te      | cas**o** |
 | `u`   | 7        | **u**no    | ning**u**no    | tab**ú** |
 
-#### Consonants for es-MX
+#### Consonants
 
 | `ipa` | VisemeID | Example&nbsp;1  | Example&nbsp;2      | Example&nbsp;3|
 |-------|----------|------------|----------------|----------|

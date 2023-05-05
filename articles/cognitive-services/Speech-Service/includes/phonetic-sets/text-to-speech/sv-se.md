@@ -1,4 +1,12 @@
-### Vowels for sv-SE
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
+### Vowels
 
 | `ipa` | `viseme` | Example 1    | Example 2      | Example 3       |
 |-------|----------|--------------|----------------|-----------------|
@@ -27,7 +35,7 @@
 | `y`   | 4        | **y**tterst  | r**y**kte      | Tomm**y**       |
 | `yː`  | 4        | **y**ta      | fört**y**dliga | parapl**y**     |
 
-### Consonant for sv-SE
+### Consonant
 
 | `ipa` | `viseme` | Example 1    | Example 2      | Example 3       |
 |-------|----------|--------------|----------------|-----------------|

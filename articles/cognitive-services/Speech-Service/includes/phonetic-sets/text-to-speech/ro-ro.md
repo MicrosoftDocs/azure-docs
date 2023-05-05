@@ -1,4 +1,12 @@
-### Vowels for ro-RO
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
+### Vowels
 
 | `ipa` | `viseme` | Example 1     | Example 2        | Example 3        |
 |-------|----------|---------------|------------------|------------------|
@@ -13,7 +21,7 @@
 | `o̯a` | 8,2      | **oa**ră      | închis**oa**re   | șam**oa**        |
 | `u`   | 7        | **u**mble     | grad**u**l       | Alexandr**u**    |
 
-### Consonant for ro-RO
+### Consonant
 
 | `ipa` | `viseme` | Example 1     | Example 2        | Example 3        |
 |-------|----------|---------------|------------------|------------------|

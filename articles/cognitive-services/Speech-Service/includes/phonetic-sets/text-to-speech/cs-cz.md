@@ -1,4 +1,12 @@
-### Vowels for cs-CZ
+--
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
+### Vowels
 
 | `ipa` | `viseme` | Example 1      | Example 2         | Example 3      |
 |-------|----------|----------------|-------------------|----------------|
@@ -17,7 +25,7 @@
 | `ɛ͡ʊ̯`| 4,4      | **eu**forie    | terap**eu**tická  |                |
 | `ə`   | 1        |                |                   |                |
 
-### Consonant for cs-CZ
+### Consonant
 
 | `ipa` | `viseme` | Example 1      | Example 2         | Example 3      |
 |-------|----------|----------------|-------------------|----------------|

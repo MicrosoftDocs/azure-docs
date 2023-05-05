@@ -1,8 +1,16 @@
-### Suprasegmentals for French
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
+#### French suprasegmentals
 
 The Speech service phone set puts stress after the vowel of the stressed syllable. However, the `fr-FR` Speech service phone set doesn't support the IPA substress 'ˌ'. If the IPA substress is needed, you should use the IPA directly.
 
-### Vowels for French
+### Vowels
 
 | `sapi` | `ipa` | `viseme` | Example 1     | Example 2       | Example 3     |
 |--------|-------|----------|---------------|-----------------|---------------|
@@ -23,7 +31,7 @@ The Speech service phone set puts stress after the vowel of the stressed syllabl
 | uw     | `u`   | 7        | **ou**trage   | intr**ou**vable | **ou**        |
 | uy     | `y`   | 4        | **u**ne       | p**u**nir       | él**u**       |
 
-### Consonant for French
+### Consonant
 
 | `sapi` | `ipa` | `viseme` | Example 1     | Example 2       | Example 3     |
 |--------|-------|----------|---------------|-----------------|---------------|

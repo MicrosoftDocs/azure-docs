@@ -1,4 +1,12 @@
-### Vowels for fi-FI
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
+### Vowels
 
 | `ipa` | `viseme` | Example 1       | Example 2            | Example 3        |
 |-------|----------|-----------------|----------------------|------------------|
@@ -37,7 +45,7 @@
 | `y͡i` | 4,6      | **Yi**changin   | s**yi**tä            | järjestäyt**yi** |
 | `yː`  | 4        | **y**o          | r**yy**ppy           | iskeyt**yy**     |
 
-### Consonant for fi-FI
+### Consonant
 
 | `ipa` | `viseme` | Example 1       | Example 2            | Example 3        |
 |-------|----------|-----------------|----------------------|------------------|

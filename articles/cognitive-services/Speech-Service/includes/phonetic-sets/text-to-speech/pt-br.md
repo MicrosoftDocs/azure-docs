@@ -1,4 +1,12 @@
-### Vowels for pt-BR
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
+### Vowels
 
 | `ipa` | `viseme` | Example 1       | Example 2           | Example 3       |
 |-------|----------|-----------------|---------------------|-----------------|
@@ -16,7 +24,7 @@
 | `ẽ`  | 4        | **en**dorfina   | p**en**der          |                 |
 | `õ`  | 8        | **on**tologia   | c**on**to           |                 |
 
-### Consonant for pt-BR
+### Consonant
 
 | `ipa` | `viseme` | Example 1       | Example 2           | Example 3       |
 |-------|----------|-----------------|---------------------|-----------------|

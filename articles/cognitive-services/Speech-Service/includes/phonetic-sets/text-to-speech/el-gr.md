@@ -1,4 +1,12 @@
-### Vowels for el-GR
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
+### Vowels
 
 | `ipa` | `viseme` | Example 1        | Example 2            | Example 3           |
 |-------|----------|------------------|----------------------|---------------------|
@@ -8,7 +16,7 @@
 | `o`   | 8        | **ό**αση         | δ**ώ**ρο             | δυ**ο               |
 | `u`   | 7        | **ου**γγρικό     | παπ**ού**τσι         | μαϊμ**ού**          |
 
-### Consonant for el-GR
+### Consonant
 
 | `ipa` | `viseme` | Example 1        | Example 2            | Example 3           |
 |-------|----------|------------------|----------------------|---------------------|

@@ -1,4 +1,12 @@
-### Vowels for en-GB
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
+### Vowels
 
 | `ipa` | `viseme` | Example 1     | Example 2       | Example 3   |
 |-------|----------|---------------|-----------------|-------------|
@@ -23,7 +31,7 @@
 | `ʊə`  | 4,1      |               |                 | t**our**    |
 | `uː`  | 7        |               | f**oo**d        | t**wo**     |
 
-### Consonant for en-GB
+### Consonant
 
 | `ipa` | `viseme` | Example 1     | Example 2       | Example 3   |
 |-------|----------|---------------|-----------------|-------------|

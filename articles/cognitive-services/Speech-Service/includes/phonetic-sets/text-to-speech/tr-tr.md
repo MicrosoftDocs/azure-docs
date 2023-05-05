@@ -1,4 +1,12 @@
-### Vowels for tr-TR
+---
+author: eric-urban
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: include
+ms.author: eur
+---
+
+### Vowels
 
 | `ipa` | `viseme` | Example 1   | Example 2       | Example 3   |
 |-------|----------|-------------|-----------------|-------------|
@@ -19,7 +27,7 @@
 | `y`   | 4        | **ü**lke    | g**ü**l         | öyk**ü**    |
 | `y͡ɟ` | 4,16     |             | d**üğ**me       |             |
 
-### Consonant for tr-TR
+### Consonant
 
 | `ipa` | `viseme` | Example 1   | Example 2       | Example 3   |
 |-------|----------|-------------|-----------------|-------------|
