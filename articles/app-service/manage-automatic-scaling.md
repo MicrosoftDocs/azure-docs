@@ -60,7 +60,7 @@ __Always ready instances__ is an app-level setting to specify the minimum number
 
 To set the minimum number of instances in the Azure portal, select **Scale out (App Service Plan)** in the web app's left menu, update the **Always ready instances** value, and select the **Save** button.
 
-:::image type="content" source="./media/manage-automatic-scaling/azure-portal-always-ready-instances.png" alt-text="Always ready instances in Automatic scaling" :::
+:::image type="content" source="./media/manage-automatic-scaling/azure-portal-always-ready-instances.png" alt-text="Screenshot of always ready instances" :::
 
 #### [Azure CLI](#tab/azure-cli)
 ```azurecli-interactive
@@ -77,7 +77,7 @@ The __maximum scale limit__ sets the maximum number of instances a web app can s
 
 To set the maximum number of web app instances in the Azure portal, select **Scale out (App Service Plan)** in the web app's left menu, select **Enforce scale out limit**, update the **Maximum scale limit**, and select the **Save** button.
 
-:::image type="content" source="./media/manage-automatic-scaling/azure-portal-maximum-scale-limit.png" alt-text="Maximum scale limit in Azure app Service" :::
+:::image type="content" source="./media/manage-automatic-scaling/azure-portal-maximum-scale-limit.png" alt-text="Screenshot of maximum scale limit" :::
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -109,7 +109,7 @@ You can modify the number of prewarmed instances for an app using the Azure CLI.
 
 To disable automatic scaling in the Azure portal, select **Scale out (App Service Plan)** in the web app's left menu, select **Manual**, and select the **Save** button.   
 
-:::image type="content" source="./media/manage-automatic-scaling/azure-portal-manual-scaling.png" alt-text="Manual scaling in Azure app Service" :::
+:::image type="content" source="./media/manage-automatic-scaling/azure-portal-manual-scaling.png" alt-text="Screenshot of manual scaling" :::
 
 #### [Azure CLI](#tab/azure-cli)
 The following command disables automatic scaling for your existing App Service Plan and all web apps within this plan:
