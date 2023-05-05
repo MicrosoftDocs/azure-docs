@@ -23,6 +23,7 @@ This article answers commonly asked questions about the SMS serv
 Azure Communication Services customers can use Azure Event Grid to receive incoming messages. Follow this [quickstart](../../quickstarts/sms/handle-sms-events.md) to set up your event-grid to receive messages.
 
 ### Can I receive messages from any country/region on toll-free numbers?
+
 Toll-free numbers are not capable of sending or receiving messages to/from countries/regions outside of US, CA, and PR.
 
 ### Can I receive messages from any country/region on short codes?

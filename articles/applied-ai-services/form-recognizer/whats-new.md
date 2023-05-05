@@ -132,7 +132,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
   * India ID cards and documents (PAN and Aadhaar)
   * Australia ID cards and documents (photo card, Key-pass ID)
   * Canada ID cards and documents (identification card, Maple card)
-  * United Kingdom ID cards and documents (national identity card)
+  * United Kingdom ID cards and documents (national/regional identity card)
 
 ---
 
