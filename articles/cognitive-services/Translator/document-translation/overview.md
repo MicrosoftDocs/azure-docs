@@ -10,6 +10,7 @@ ms.custom: event-tier1-build-2022
 ms.topic: overview
 ms.date: 05/05/2023
 ms.author: lajanuar
+ms.custom: references_regions
 recommendations: false
 ---
 # What is Document Translation?
