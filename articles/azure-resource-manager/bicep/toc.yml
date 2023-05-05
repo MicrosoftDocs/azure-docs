@@ -345,6 +345,8 @@
       href: operator-null-forgiving.md
     - name: Numeric operators
       href: operators-numeric.md
+    - name: Safe-dereference operator
+      href: operator-safe-dereference.md
 - name: How to
   items:
   - name: Author
