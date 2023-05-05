@@ -23,7 +23,7 @@ MQTT is a publish-subscribe messaging transport protocol that was designed for c
 	- **Maximum message size** allows your clients to control the maximum message size that they can handle from the server.
 	- **Flow control** allows your clients to control the message flow depending on their capabilities such as processing speed or storage capabilities.
 	- **Clean start and session expiry** enable your clients to optimize the reliability and security of the session by preserving the client's subscription information and messages for a configurable time interval.
-	- **Negative acknowledgements** allow your clients to efficiently react to different error codes.
+	- **Negative acknowledgments** allow your clients to efficiently react to different error codes.
 	- **Server-sent disconnect packet** allow your clients to efficiently handle disconnects.
 - MQTT v3.1.1 support highlights: 
 	- **Persistent sessions** ensure reliability by preserving the client's subscription information and messages when a client disconnects.

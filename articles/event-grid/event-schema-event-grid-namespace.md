@@ -153,7 +153,7 @@ For the **MQTT Client Session Disconnected** event, the data object also contain
 | -------- | ---- | ----------- |
 | `disconnectionReason` | string | Reason for the disconnection of the MQTT client's session. The value could be one of the values in the disconnection reasons table. |
 
-### Disconnection Reasons:
+### Disconnection reasons:
 
 The following list details the different values for the disconnectionReason and their description:
 
