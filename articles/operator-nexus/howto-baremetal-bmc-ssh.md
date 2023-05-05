@@ -24,7 +24,7 @@ The BMCs support a maximum number of 12 users. Users are defined on a per Cluste
 
 - Install the latest version of the [appropriate CLI extensions](./howto-install-cli-extensions.md).
 - The on-premises Cluster must have connectivity to Azure.
-- Get the Resource group name that you created for the `Cluster` resource.
+- Get the Resource Group name for the `Cluster` resource.
 - The process applies keysets to all running bare metal machines.
 - The users added must be part of an Azure Active Directory (Azure AD) group. For more information, see [How to Manage Groups](../active-directory/fundamentals/how-to-manage-groups.md).
 - To restrict access for managing keysets, create a custom role. For more information, see [Azure Custom Roles](../role-based-access-control/custom-roles.md). In this instance, add or exclude permissions for `Microsoft.NetworkCloud/clusters/bmcKeySets`. The options are `/read`, `/write`, and `/delete`.
@@ -73,7 +73,7 @@ az networkcloud cluster bmckeyset create \
       type: Required. The extended location type: "CustomLocation".
   --privilege-level                           [Required] : The access level allowed for the users
                                                            in this key set.  Allowed values:
-                                                           "Standard" or "Superuser".
+                                                           "Administrator" or "ReadOnly".
   --resource-group -g                         [Required] : Name of resource group. Optional if
                                                            configuring the default group using `az
                                                            configure --defaults group=<name>`.
@@ -145,7 +145,7 @@ The command syntax is:
 
 ```azurecli
 az networkcloud cluster bmckeyset delete \
-  --name <bare metal machine Keyset Name> \
+  --name <BMC Keyset Name> \
   --cluster-name <Cluster Name> \
   --resource-group <Resource Group Name> \
 ```
@@ -179,7 +179,7 @@ The command syntax is:
 
 ```azurecli
 az networkcloud cluster bmckeyset update \
-  --name <bare metal machine Keyset Name> \
+  --name <BMC Keyset Name> \
   --jump-hosts-allowed <List of jump server IP addresses> \
   --privilege-level <"Standard" or "Superuser"> \
   --user-list '[{"description":"<User description>",\
@@ -205,7 +205,7 @@ az networkcloud cluster bmckeyset update \
                                                            users. Supports IPv4 or IPv6 addresses.
   --privilege-level                                      : The access level allowed for the users
                                                            in this key set.  Allowed values:
-                                                           "Standard" or "Superuser".
+                                                           "Administrator" or "ReadOnly".
   --user-list                                            : The unique list of permitted users.
     Usage: --user-list azure-user-name=XX description=XX key-data=XX
       azure-user-name: Required. User name used to login to the server.
