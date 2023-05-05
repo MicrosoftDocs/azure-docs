@@ -32,7 +32,7 @@ Sign-in using the Azure AD account you assigned a role to previously.
 
 ### [Visual Studio Code](#tab/sign-in-visual-studio-code)
 
-You will need to [install the Azure CLI](/cli/azure/install-azure-cli) to work with `DefaultAzureCredential` through Visual Studio code.
+You will need to [install the Azure CLI](/cli/azure/install-azure-cli) to work with `DefaultAzureCredential` through Visual Studio Code.
 
 On the main menu of Visual Studio Code, navigate to **Terminal > New Terminal**.
 
