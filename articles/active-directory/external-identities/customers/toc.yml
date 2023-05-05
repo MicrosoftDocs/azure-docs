@@ -148,15 +148,15 @@ items:
                           href: how-to-web-app-dotnet-sign-in-sign-out.md
             - name: Web API
               items: 
-                - name: Protect ASP.NET API
+                - name: Protect ASP.NET Core API
                   items:
                     - name: Overview
                       href: how-to-protect-web-api-dotnet-core-overview.md
-                    - name: Prepare API app
+                    - name: Prepare the API
                       href: how-to-protect-web-api-dotnet-core-prepare-api.md
                     - name: Protect API endpoints
                       href: how-to-protect-web-api-dotnet-core-protect-endpoints.md
-                    - name: Test API
+                    - name: Test the API
                       href: how-to-protect-web-api-dotnet-core-test-api.md
 
             - name: Headless app
