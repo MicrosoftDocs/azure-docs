@@ -4,7 +4,7 @@ description: An overview of Azure Elastic SAN Preview, a service that enables yo
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/04/2023
+ms.date: 05/05/2023
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: ignite-2022, devx-track-azurepowershell, devx-track-azurecli
@@ -67,6 +67,10 @@ Service endpoints for Azure Storage work between virtual networks and service in
 Cross-region service endpoints for Azure became generally available in April of 2023. With cross-region service endpoints, subnets will no longer use a public IP address to communicate with any storage account. Instead, all the traffic from subnets to storage accounts will use a private IP address as a source IP. As a result, any storage accounts that use IP network rules to permit traffic from those subnets will no longer have an effect.
 
 To use cross-region service endpoints, it might be necessary to delete existing **Microsoft.Storage** endpoints and recreate them as cross-region (**Microsoft.Storage.Global**).
+
+## Enable private endpoint
+
+(Private endpoint config info here)
 
 ## Managing virtual network rules
 
@@ -162,4 +166,6 @@ You can manage virtual network rules for volume groups through the Azure portal,
 
 ## Next steps
 
-[Plan for deploying an Elastic SAN Preview](elastic-san-planning.md)
+[Connect Azure Elastic SAN Preview volumes to an Azure Kubernetes Service cluster](elastic-san-connect-aks.md)
+[Connect to Elastic SAN Preview volumes - Linux](elastic-san-connect-linux.md)
+[Connect to Elastic SAN Preview volumes - Windows](elastic-san-connect-windows.md)
