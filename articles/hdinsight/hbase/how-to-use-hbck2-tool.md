@@ -54,7 +54,7 @@ This command with no options or arguments passed prints the HBCK2 help.
 
 **Options:**
 
--o,--override` - override ownership by another procedure
+`-o,--override` - override ownership by another procedure
 
 `-i,--inputFiles` - takes one or more encoded region names
 
@@ -262,7 +262,7 @@ To read current table state, in the hbase shell run:
 hbase> get 'hbase:meta', '<TABLENAME>', 'table:state'
 ```
 A value of x08x00 == ENABLED, x08x01 == DISABLED, etc.
-Can also run a 'describe `<TABLENAME>` at the shell prompt. An example making table name 'user` ENABLED:
+Can also run a 'describe `<TABLENAME>` at the shell prompt. An example making table name user ENABLED:
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar setTableState users ENABLED
 ```
@@ -276,7 +276,7 @@ hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target
 
 **Options**
 
--i,--inputFiles`  take one or more input files of server names
+`-i,--inputFiles`  take one or more input files of server names
 
 Schedule `ServerCrashProcedure(SCP)` for list of `RegionServers`. Format server name as `<HOSTNAME>,<PORT>,<STARTCODE>` (See HBase UI/logs).
  
