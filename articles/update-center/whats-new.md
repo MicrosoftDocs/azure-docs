@@ -5,12 +5,23 @@ ms.service: update-management-center
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 03/03/2023
+ms.date: 05/05/2023
 ---
 
 # What's new in Update management center (Preview)
 
 [Update management center (preview)](overview.md) helps you manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. This article summarizes new releases and features in Update management center (Preview).
+
+## May 2023
+
+### Support for Generalized images
+
+Update management center (preview) now supports generalized Azure Compute Gallery Custom images, and a combination of offer, publisher, and SKU for Marketplace/PIR images. See the [list of supported operating systems](support-matrix.md#supported-operating-systems). 
+
+### Public preview update: Customized image support
+
+Update management center provides customized image support for a few operations, such as Check for Updates, One-time updates, schedule updates or Periodic assessments to validate and initiate guest-patching on the supported VMs. [Learn more](manage-updates-customized-images.md).
+
 
 ## April 2023
 
