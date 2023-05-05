@@ -84,7 +84,7 @@ Follow these steps to sign into Azure and select your IoT hub from your Azure su
    > [!NOTE]
    > You can also use a connection string to access your IoT hub, by selecting **Set IoT Hub Connection String** from the action menu and entering the **iothubowner** policy connection string for your IoT hub in the **IoT Hub Connection String** input box. 
 
-Once signed in, you can interact with your hubs, devices, and modules from either the Command Palette or the action menu in the Explorer view of VS Code.
+Once signed in, you can interact with your hubs, devices, and modules from either the Command Palette or the action menu in the Explorer view of VS Code. For more information about interacting with the extension, including frequently asked questions and interaction examples, see [the wiki](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki) for the Azure IoT Hub extension.
 
 ## Manage your IoT hubs
 
