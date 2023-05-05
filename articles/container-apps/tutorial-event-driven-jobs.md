@@ -24,7 +24,6 @@ In this tutorial, you create an event-driven job that starts an execution for ea
 You learn how to:
 
 > [!div class="checklist"]
-
 > * Create a Container Apps environment to deploy your container apps
 > * Create an Azure Storage Queue to send messages to the container app
 > * Build a container image that runs a job
