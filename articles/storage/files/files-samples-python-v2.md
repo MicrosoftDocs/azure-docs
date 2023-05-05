@@ -59,7 +59,7 @@ Related article: [Develop for Azure Files with Python](storage-python-how-to-use
 
 In this section, you'll learn how to upload a file from local storage into Azure Files.
 
-An Azure file share contains, at the least, a root directory where files can reside. To create a file and upload data, use any of the following method:
+An Azure file share contains, at the least, a root directory where files can reside. To create a file and upload data, use any of the following methods:
 
 - [create_file_from_path](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice#azure-storage-file-fileservice-fileservice-create-file-from-path)
 - [create_file_from_stream](/python/api/azure-storage-file/azure.storage.file.fileservice.fileservice#azure-storage-file-fileservice-fileservice-create-file-from-stream)
