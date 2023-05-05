@@ -24,7 +24,7 @@ You can enable Azure Functions to automatically update your deployment of an ima
     ```
     
     The [`az functionapp deployment container config`](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-config) command enables continuous deployment and returns the deployment webhook URL. You can retrieve this URL at any later time by using the [`az functionapp deployment container show-cd-url`](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-show-cd-url) command.
-
+    
     # [Azure PowerShell](#tab/azure-powershell)
     ```azurepowershell
     Update-AzFunctionAppSetting -Name <APP_NAME> -ResourceGroupName AzureFunctionsContainers-rg -AppSetting @{"DOCKER_ENABLE_CI" = "true"}
@@ -32,9 +32,9 @@ You can enable Azure Functions to automatically update your deployment of an ima
     ```
     
     The `DOCKER_ENABLE_CI` application setting controls whether continuous deployment is enabled from the container repository. The [`Get-AzWebAppContainerContinuousDeploymentUrl`](/powershell/module/az.websites/get-azwebappcontainercontinuousdeploymenturl) cmdlet returns the URL of the deployment webhook.
-
+    
     ---    
-
+    
     As before, replace `<APP_NAME>` with your function app name.
 
 1. Copy the deployment webhook URL to the clipboard.

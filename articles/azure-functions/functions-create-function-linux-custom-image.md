@@ -1,25 +1,23 @@
 ---
-title: Create Azure Functions that run in in a custom container
+title: Create Azure Functions that runs in a custom container
 description: Learn how to create Azure Functions running on a custom Linux image.
-ms.date: 04/19/2023
+ms.date: 05/05/2023
 ms.topic: quickstart
 ms.custom: "devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli, devdivchpfy22"
 zone_pivot_groups: programming-languages-set-functions-full
 ---
 
-# Quickstart: Create a function that runs in custom container 
+# Quickstart: Create a function that runs in a custom container 
 
-In this article, you use Azure Functions tools to create your project code in a custom Docker container using a Linux base image. You all publish your custom image to a container registry, such as Azure Container Registry or Docker. 
+In this article, you use Azure Functions tools to create your project code as a function app in a custom Docker container using a language-specific Linux base image. Make sure to choose your language of choice at the top of the article. 
+
+You then publish your custom image to a container registry, such as Azure Container Registry or Docker. There are several options for deploying function apps in a custom container: Azure Functions hosting, Azure Container Apps, and Kubernetes, such as Azure Arc. Subsequent articles show you how to host your custom container function app. 
 
 ::: zone pivot="programming-language-other"
 Azure Functions supports any language or runtime using [custom handlers](functions-custom-handlers.md). For some languages, such as the R programming language used in this tutorial, you need to install the runtime or more libraries as dependencies that require the use of a custom container.
 ::: zone-end
 
-Deploying your function code in a custom Linux container requires [Premium plan](functions-premium-plan.md) or a [Dedicated (App Service) plan](dedicated-plan.md) hosting. 
-
-You can also use a default Azure App Service container as described in [Create your first function hosted on Linux](./create-first-function-cli-csharp.md?pivots=programming-language-python). Supported base images for Azure Functions are found in the [Azure Functions base images repo](https://hub.docker.com/_/microsoft-azure-functions-base).
-
-You can complete this quickstart on any computer running Windows, macOS, or Linux.
+You can complete this quickstart on any computer running Windows, macOS, or Linux. 
 
 [!INCLUDE [functions-linux-custom-container-note](../../includes/functions-linux-custom-container-note.md)]
 
