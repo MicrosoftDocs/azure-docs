@@ -35,8 +35,8 @@ Apache Spark history server is the web user interface for completed and running 
 
 4. Select **Spark history server**, then the Spark History Server web UI will show up. For a running Spark application, the button is **Spark UI**.
 
-    ![Screenshot showing open spark history server.](./media/apache-spark-history-server/open-spark-history-server.png)
-    ![Screenshot showing open spark ui.](./media/apache-spark-history-server/apache-spark-ui.png)
+    ![Screenshot showing open Spark history server.](./media/apache-spark-history-server/open-spark-history-server.png)
+    ![Screenshot showing open Spark UI.](./media/apache-spark-history-server/apache-spark-ui.png)
 
 ### Open the Spark History Server web UI from Data node
 
