@@ -894,16 +894,20 @@ sections:
            - Offline Storage and Automatic Retries
            - Preserves traces with service components using Application Insights SDKs
            - Live Metrics (future)
-          In the spirit of OpenTelemetry, we've designed the distro with openness and extensibility in mind.
-          For example, you can add:
-           - an OTLP exporter and send to a second destination simultaneously
-           - community instrumentations beyond what's bundled in with the package
+          In the spirit of OpenTelemetry, we've designed the distro to be open and extensible. For example, you can add:
+           - An OTLP exporter and send to a second destination simultaneously
+           - Community instrumentations beyond what's bundled in with the package
           
       - question: |
           How can I test out the Azure Monitor OpenTelemetry Distro?
         answer: |
           Check out our enablement docs for [.NET, Java, JavaScript (Node.js), and Python](app/opentelemetry-enable.md).
-          
+
+      - question: |
+          Should I use OpenTelemetry or the Application Insights SDK?
+        answer: |
+          It depends. Consider that OpenTelemetry is still "Preview", and it's not quite at feature parity with the Application Insights SDKs.
+      
       - question: |
           What's the current release state of features within the Azure Monitor OpenTelemetry Distro?
         answer: |
@@ -948,33 +952,9 @@ sections:
           The [OpenTelemetry web sandbox](https://github.com/open-telemetry/opentelemetry-sandbox-web-js) is a fork designed to make OpenTelemetry work in a browser. It's not yet possible to send telemetry to Application Insights. The SDK doesn't currently have defined general client events.
 
       - question: |
-          How do I determine if OpenTelemetry is right for me?
-        answer: |
-          The OpenTelemetry community uses [stable or experimental](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/versioning-and-stability.md) to signal the maturity of a piece of software. Separately, Azure Monitor uses "Public Preview" and "GA" to signal stability and support commitment.
-          
-          If your application is written in Java, we recommend our [OpenTelemetry-based offering](./app/opentelemetry-enable.md?tabs=java) for everyone. It became generally available [in November 2020](https://azure.microsoft.com/updates/java-agent-application-insights-ga/).
-          
-          If your application is written in C#, JavaScript (Node.js), or Python, the current Application Insights SDKs offer the most feature-rich experience:
-          
-          - C# ([ASP.NET](app/asp-net.md)
-          - [ASP.NET Core](app/asp-net-core.md)
-          - [JavaScript (Node.js)](app/nodejs.md)
-          - [OpenCensus Python](app/opencensus-python.md)
-          
-          Scenarios that might sway you toward OpenTelemetry sooner rather than later include:
-
-          - Sending telemetry to Azure Monitor and another vendor simultaneously.
-          - Collecting and converging [existing instrumentation protocols](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver). 
-          - Using features available in the OpenTelemetry Collector.
-          
-          For example, customers have reported using the [batch processor](https://github.com/open-telemetry/opentelemetry-collector/tree/main/processor/batchprocessor), [tail-based sampler](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/tailsamplingprocessor), and/or [attributes processor](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/attributesprocessor). Although similar features exist in the current Application Insights SDKs, some customers prefer to host this processing downstream in an agent.
-          
-          You can see our progress toward OpenTelemetry-based Azure Monitor exporters for [C#](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter), [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter), and [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-opentelemetry-exporter/) in open-source repositories.
-
-      - question: |
           Is running Application Insights alongside competitor agents like AppDynamics, DataDog, and NewRelic supported?
         answer: |
-          No. This practice isn't something we plan to test or support, although our OpenTelemetry-based offerings allow you to [export to an OTLP endpoint](app/opentelemetry-configuration.md#enable-the-otlp-exporter) alongside Azure Monitor simultaneously.
+          No. This practice isn't something we plan to test or support, although our Distros allow you to [export to an OTLP endpoint](app/opentelemetry-configuration.md#enable-the-otlp-exporter) alongside Azure Monitor simultaneously.
 
       - question: |
           Can I use preview builds in production environments?
@@ -982,16 +962,9 @@ sections:
           We don't recommend it. See [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
           
       - question: |
-          Does Azure Monitor have an OpenTelemetry distro?
+          Can I use the Azure Monitor Exporter as a standalone component?
         answer: |
-          OpenTelemetry defines [distribution](https://opentelemetry.io/docs/concepts/distributions/#what-is-a-distribution) as a "wrapper around an upstream OpenTelemetry repository with some customizations." In this sense, our Java, Python, and JavaScript (Node.js) OpenTelemetry-based offerings are a "distro" because we package several components together for easy enablement. These distros include Azure-specific components like Azure Monitor Exporter with offline storage and custom sampler to achieve the best experience in Azure Monitor Application Insights. 
-          
-          In some cases, customers might want to use a piecemeal approach to instrument rather than using the distro. In these cases, customers can use our exporter directly. They're responsible for pulling in all the right packages for their implementation. At this time, .NET only offers the OpenTelemetry exporter for the piecemeal approach. In the future, it will also have a distro to cover common telemetry scenarios.
-
-      - question: |
-          What is the difference between the OpenTelemetry distro and the standalone exporter?
-        answer: |
-          The distro bundles together everything you need for the best experience on Azure and we've designed it so that it's open and extensible.
+          Yes, we understand some customers may want to instrument using a "piecemeal approach". However, the distro provides easiest way to get started with the best experience on Azure.
 
       - question: |
           What's the difference between manual and auto-instrumentation?
