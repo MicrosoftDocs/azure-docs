@@ -561,7 +561,7 @@ Before you can deploy your function code to Azure, you need to create three reso
 * A storage account, which is used to maintain state and other information about your functions.
 * A function app, which provides the environment for executing your function code. A function app maps to your local function project and lets you group functions as a logical unit for easier management, deployment and sharing of resources.
 
-Use the following commands to create these item. 
+Use the following commands to create these items. 
 
 1. If you haven't done so already, sign in to Azure:
 
