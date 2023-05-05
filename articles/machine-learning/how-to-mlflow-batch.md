@@ -350,7 +350,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
    
    Let's get a reference to the environment:
    
-   [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=configure_environment_custom)]
+   [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/heart-classifier-mlflow/mlflow-for-batch-tabular.ipynb?name=configure_environment_custom)]
 
 1. Configure the deployment: 
 
@@ -362,7 +362,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
    
    # [Python](#tab/sdk)
    
-   [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=configure_deployment_custom)]
+   [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/heart-classifier-mlflow/mlflow-for-batch-tabular.ipynb?name=configure_deployment_custom)]
 
 1. Let's create the deployment now:
 
@@ -372,7 +372,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
    
    # [Python](#tab/sdk)
    
-   [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=create_deployment_custom)]
+   [!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/heart-classifier-mlflow/mlflow-for-batch-tabular.ipynb?name=create_deployment_custom)]
    ---
    
 1. At this point, our batch endpoint is ready to be used. 
@@ -389,7 +389,7 @@ Run the following code to delete the batch endpoint and all the underlying deplo
 
 Run the following code to delete the batch endpoint and all the underlying deployments. Batch scoring jobs won't be deleted.
 
-[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=delete_endpoint)]
+[!notebook-python[] (~/azureml-examples-batch-pup/sdk/python/endpoints/batch/deploy-models/heart-classifier-mlflow/mlflow-for-batch-tabular.ipynb?name=delete_endpoint)]
 
 ---
 
