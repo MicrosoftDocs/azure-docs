@@ -18,7 +18,7 @@ ms.custom: developer
 
 # Sign in users in your own Node.js headless application by using Microsoft Entra - Overview
 
-In this article, you learn how to build a Node.js headless application that signs in users. The client application you build uses the [OAuth 2.0 device code flow](../../develop/v2-oauth2-device-code) to sign in users interactively, using another device such as a mobile phone. Using the device code flow, the application will:
+In this article, you learn how to build a Node.js headless application that signs in users. The client application you build uses the [OAuth 2.0 device code flow](../../develop/v2-oauth2-device-code.md) to sign in users interactively, using another device such as a mobile phone. Using the device code flow, the application will:
 
 - Authenticate a user.
 - Acquire an access token to call a web API.
@@ -34,7 +34,7 @@ We've broken down this article into three separate articles so it's easy for you
 The device code flow is an OAuth2.0 grant flow that allows users to sign in to input-constrained devices like smart TVs, IoT devices, and printers. In a typical interactive authentication experience, Azure AD for customers requires a web browser for user sign-in. In our headless application scenario, the app uses the [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) to obtain tokens through a flow that involves the following steps:
 
 1. The application checks with the authorization server for a device and code used to initiate authentication.
-1. The application asks the user to use another device and navigate to a URL (for instance, http://microsoft.com/devicelogin), where they're prompted to enter the code.
+1. The application asks the user to use another device and navigate to a URL (for instance, https://microsoft.com/devicelogin), where they're prompted to enter the code.
 1. That URL leads the user through a normal authentication experience, including consent prompts and multi-factor authentication if necessary.
 1. Upon successful authentication, the app receives the required tokens through a back channel to enable it to perform the web API calls it needs. 
 
