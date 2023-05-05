@@ -480,7 +480,7 @@ app.Run();
 ```
 
 ### [Java](#tab/java)
-You extend the Java Distro with a community instrumentation libraries. To request that we include another instrumentation library, please open an issue on our Github page. You can find a link to our Github page in [Next Steps](#next-steps).
+You cannot extend the Java Distro with community instrumentation libraries. To request that we include another instrumentation library, please open an issue on our Github page. You can find a link to our Github page in [Next Steps](#next-steps).
 
 ### [Node.js](#tab/nodejs)
 
