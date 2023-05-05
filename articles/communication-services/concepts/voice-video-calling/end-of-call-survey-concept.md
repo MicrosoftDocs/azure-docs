@@ -28,13 +28,16 @@ ms.subservice: calling
 The End of Call Survey allows Azure Communication Services to improve the overall Calling SDK. 
 
 <!-- provides you with a tool to understand how your end users perceive the overall quality and reliability of your JavaScript / Web SDK calling solution.  -->
-<!-- 
+
+
+Test coordination
+
 ## Purpose of the End of Call Survey
 It’s difficult to determine a customer’s perceived calling experience and determine how well your calling solution is performing without gathering subjective feedback from customers.
 
 You can use the End of Call Survey to collect and analyze customers **subjective** opinions on their calling experience as opposed to relying only on **objective** measurements such as audio and video bitrate, jitter, and latency, which may not indicate if a customer had a poor calling experience. 
 
-After publishing survey data, you can view the survey results through Azure for analysis and improvements. Azure Communication Services uses these survey results to monitor and improve quality and reliability. -->
+After publishing survey data, you can view the survey results through Azure for analysis and improvements. Azure Communication Services uses these survey results to monitor and improve quality and reliability.
 
 
 ## Survey structure
