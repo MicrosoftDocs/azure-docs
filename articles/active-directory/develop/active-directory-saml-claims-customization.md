@@ -79,7 +79,7 @@ For more information about identifier values, see [Table 3: Valid ID values per 
 
 Any constant (static) value can be assigned to any claim that is defined in Azure AD. The following steps outline how to assign a constant value:
 
-1. In the [Azure portal](https://portal.azure.com/), in the **User Attributes & Claims** section, select **Edit** to edit the claims.
+1. In the [Azure portal](https://portal.azure.com/), in the **Attributes & Claims** section, select **Edit** to edit the claims.
 1. Select the required claim that you want to modify.
 1. Enter the constant value without quotes in the **Source attribute** as per your organization and click **Save**.
 
@@ -88,6 +88,29 @@ Any constant (static) value can be assigned to any claim that is defined in Azur
 1. The constant value will be displayed as shown in the following image.
 
     :::image type="content" source="./media/active-directory-saml-claims-customization/edit-attributes-claims.png" alt-text="Screenshot of editing in the Attributes & Claims section in the Azure portal.":::
+
+### Directory Schema extensions (Preview)
+
+You can also configure directory schema extension attribute as non-conditional/conditional attribute in Azure AD. The following steps outline how to configure the single or multi-valued directory schema extension attribute as claim:
+
+1.  In the [Azure portal](https://portal.azure.com/), in the **Attributes & Claims** section, select **Edit** to edit the claims.  
+2. Click **Add new claim** or edit an existing claim. 
+
+    :::image type="content" source="./media/active-directory-saml-claims-customization/mv-extension-1.jpg" alt-text="Screenshot of the MultiValue extension configuration section in the Azure portal.":::
+
+3. Select source application from application picker where extension property is defined. 
+    :::image type="content" source="./media/active-directory-saml-claims-customization/mv-extension-2.jpg" alt-text="Screenshot of the source application selection in MultiValue extension configuration section in the Azure portal.":::
+
+4. Click **Add** to add the selection to the claims.
+
+<!---
+5. To select single or multi-valued directory schema extension attribute as conditional attribute select **Directory schema extension** option from the source dropdown.
+
+    :::image type="content" source="./media/active-directory-saml-claims-customization/mv-extension-3.png" alt-text="Screenshot of the MultiValue extension configuration for conditional claims section in the Azure portal.":::
+--->
+
+5. Click **Save** to commit the changes. 
+
 
 ## Special claims transformations
 
@@ -113,10 +136,16 @@ To apply a transformation to a user attribute:
 
 1. In **Manage claim**, select *Transformation* as the claim source to open the **Manage transformation** page.
 1. Select the function from the transformation dropdown. Depending on the function selected, you'll have to provide parameters and a constant value to evaluate in the transformation. Refer to the following table for more information about the available functions.
+1. Select the source of the attribute by clicking on the appropriate radio button. Directory schema extension source is in preview currently.
+
+    :::image type="content" source="./media/active-directory-saml-claims-customization/mv-extension-4.png" alt-text="Screenshot of claims transformation.":::
+
+1. Select the attribute name from the dropdown.
+
 1. **Treat source as multivalued** is a checkbox indicating whether the transform should be applied to all values or just the first. By default, transformations are only applied to the first element in a multi-value claim, by checking this box it ensures it's applied to all. This checkbox is only be enabled for multi-valued attributes, for example `user.proxyaddresses`.
+
 1. To apply multiple transformations, select **Add transformation**. You can apply a maximum of two transformations to a claim. For example, you could first extract the email prefix of the `user.mail`. Then, make the string upper case.
 
-    :::image type="content" source="./media/active-directory-saml-claims-customization/sso-saml-multiple-claims-transformation.png" alt-text="Screenshot of claims transformation.":::
 
 You can use the following functions to transform claims.
 
@@ -231,7 +260,7 @@ To add a claim condition:
 1. In **Manage claim**, expand the Claim conditions.
 1. Select the user type.
 1. Select the group(s) to which the user should belong. You can select up to 50 unique groups across all claims for a given application.
-1. Select the **Source** where the claim is going to retrieve its value. You can select a user attribute from the source attribute dropdown or apply a transformation to the user attribute before emitting it as a claim.
+1. Select the **Source** where the claim is going to retrieve its value. You can either select a user attribute from the source attribute dropdown or apply a transformation to the user attribute or a directory schema extension (preview) before emitting it as a claim.
 
 The order in which you add the conditions are important. Azure AD first evaluates all conditions with source `Attribute` and then evaluates all conditions with source `Transformation` to decide which value to emit in the claim. Conditions with the same source are evaluated from top to bottom. The last value, which matches the expression is emitted in the claim. Transformations such as `IsNotEmpty` and `Contains` act like  restrictions.
 
@@ -239,7 +268,7 @@ For example, Britta Simon is a guest user in the Contoso tenant. Britta belongs 
 
 First, the Microsoft identity platform verifies whether Britta's user type is **All guests**. Because this is true, the Microsoft identity platform assigns the source for the claim to `user.extensionattribute1`. Second, the Microsoft identity platform verifies whether Britta's user type is **AAD guests**, because this is also true, the Microsoft identity platform assigns the source for the claim to `user.mail`. Finally, the claim is emitted with a value of `user.mail` for Britta.
 
-:::image type="content" source="./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png" alt-text="Screenshot of claims conditional configuration.":::
+:::image type="content" source="./media/active-directory-saml-claims-customization/mv-extension-3.png" alt-text="Screenshot of claims conditional configuration.":::
 
 As another example, consider when Britta Simon tries to sign in and the following configuration is used. Azure AD first evaluates all conditions with source `Attribute`. Because Britta's user type is **AAD guests**, `user.mail` is assigned as the source for the claim. Next, Azure AD evaluates the transformations. Because Britta is a guest, `user.extensionattribute1` is now the new source for the claim. Because Britta is in **AAD guests**, `user.othermail` is now the source for this claim. Finally, the claim is emitted with a value of `user.othermail` for Britta.
 

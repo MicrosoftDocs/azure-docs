@@ -2,6 +2,8 @@
   href: index.yml
 - name: Overview
   items:
+    - name: Getting started
+      href: getting-started.md
     - name: About App Service
       href: overview.md
     - name: About App Service Environments
@@ -122,6 +124,8 @@
               href: scenario-secure-app-access-microsoft-graph-as-user.md
             - name: JavaScript
               href: tutorial-connect-app-access-microsoft-graph-as-user-javascript.md
+        - name: App to SQL Database
+          href: tutorial-connect-app-access-sql-database-as-user-dotnet.md
         - name: App to app authentication
           href: tutorial-auth-aad.md
         - name: App to app to another Azure service

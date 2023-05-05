@@ -3,7 +3,7 @@ title: "ExtraHop Reveal(x) connector for Microsoft Sentinel"
 description: "Learn how to install the connector ExtraHop Reveal(x) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 03/25/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -17,7 +17,7 @@ The ExtraHop Reveal(x) data connector enables you to easily connect your Reveal(
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog (‘ExtraHop’)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
+| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
 | **Supported by** | [ExtraHop](https://www.extrahop.com/support/) |
 
 ## Query samples

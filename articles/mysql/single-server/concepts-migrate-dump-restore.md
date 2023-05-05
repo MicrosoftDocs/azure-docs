@@ -4,8 +4,8 @@ description: This article explains two common ways to back up and restore databa
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-author: savjani
-ms.author: pariks
+author: aditivgupta
+ms.author: adig
 ms.date: 06/20/2022
 ---
 
@@ -19,7 +19,7 @@ This article explains two common ways to back up and restore databases in your A
 - Dump and restore from the command-line (using mysqldump)
 - Dump and restore using PHPMyAdmin
 
-You can also refer to [Database Migration Guide](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide) for detailed information and use cases about migrating databases to Azure Database for MySQL. This guide provides guidance that will lead the successful planning and execution of a MySQL migration to Azure.
+You can also refer to [Database Migration Guide](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide) for detailed information and use cases about migrating databases to Azure Database for MySQL. This guide provides guidance that leads the successful planning and execution of a MySQL migration to Azure.
 
 ## Before you begin
 To step through this how-to guide, you need to have:
@@ -75,8 +75,8 @@ Add the connection information into your MySQL Workbench.
 ## Preparing the target Azure Database for MySQL server for fast data loads
 To prepare the target Azure Database for MySQL server for faster data loads, the following server parameters and configuration needs to be changed.
 - max_allowed_packet – set to 1073741824 (that is, 1 GB) to prevent any overflow issue due to long rows.
-- slow_query_log – set to OFF to turn off the slow query log. This will eliminate the overhead caused by slow query logging during data loads.
-- query_store_capture_mode – set to NONE to turn off the Query Store. This will eliminate the overhead caused by sampling activities by Query Store.
+- slow_query_log – set to OFF to turn off the slow query log. This eliminates the overhead caused by slow query logging during data loads.
+- query_store_capture_mode – set to NONE to turn off the Query Store. This eliminates the overhead caused by sampling activities by Query Store.
 - innodb_buffer_pool_size – Scale up the server to 32 vCore Memory Optimized SKU from the Pricing tier of the portal during migration to increase the innodb_buffer_pool_size. Innodb_buffer_pool_size can only be increased by scaling up compute for Azure Database for MySQL server.
 - innodb_io_capacity & innodb_io_capacity_max - Change to 9000 from the Server parameters in Azure portal to improve the IO utilization to optimize for migration speed.
 - innodb_write_io_threads & innodb_write_io_threads - Change to 4 from the Server parameters in Azure portal to improve the speed of migration.
@@ -138,7 +138,7 @@ $ mysql -h mydemoserver.mysql.database.azure.com -u myadmin -p testdb < testdb_b
 ```
 ---
 
->[!Note]
+>[!NOTE]
 >You can also use [MySQL Workbench client utility to restore MySQL database](./concepts-migrate-import-export.md#import-and-export-data-by-using-mysql-workbench).
 ## Dump and restore using PHPMyAdmin
 Follow these steps to dump and restore a database using PHPMyadmin.
@@ -170,4 +170,4 @@ For known issues, tips and tricks, we recommend you to look at our [techcommunit
 ## Next steps
 - [Connect applications to Azure Database for MySQL](./how-to-connection-string.md).
 - For more information about migrating databases to Azure Database for MySQL, see the [Database Migration Guide](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide).
-- If you're looking to migrate large databases with database sizes more than 1 TBs, you may want to consider using community tools like **mydumper/myloader** which supports parallel export and import. Learn [how to migrate large MySQL databases](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699).
+- If you're looking to migrate large databases with database sizes more than 1 TB, you may want to consider using community tools like **mydumper/myloader** which supports parallel export and import. Learn [how to migrate large MySQL databases](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699).

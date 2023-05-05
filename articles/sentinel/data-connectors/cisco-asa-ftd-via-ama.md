@@ -39,7 +39,7 @@ CommonSecurityLog
 
 To integrate with Cisco ASA/FTD via AMA (Preview) make sure you have: 
 
-- ****: To collect data from non-Azure VMs, they must have Azure Arc installed and enabled. [Learn more](https://learn.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-install?tabs=ARMAgentPowerShell,PowerShellWindows,PowerShellWindowsArc,CLIWindows,CLIWindowsArc)
+- ****: To collect data from non-Azure VMs, they must have Azure Arc installed and enabled. [Learn more](/azure/azure-monitor/agents/azure-monitor-agent-install?tabs=ARMAgentPowerShell,PowerShellWindows,PowerShellWindowsArc,CLIWindows,CLIWindowsArc)
 
 
 ## Vendor installation instructions

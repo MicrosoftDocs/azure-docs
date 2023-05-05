@@ -3,6 +3,7 @@ title: Azure Arc resource bridge (preview) deployment command overview
 description: Learn about the Azure CLI commands that can be used to manage your Azure Arc resource bridge (preview) deployment.
 ms.date: 02/06/2023
 ms.topic: overview
+ms.custom: devx-track-azurecli
 ---
 
 

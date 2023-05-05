@@ -16,7 +16,8 @@
           "**/includes/**",
           "**/obj/**",
           "**/*.graffle",
-          "healthcare-apis/**"
+          "healthcare-apis/**",
+          "machine-learning/**"
         ]
       },
       {
@@ -59,6 +60,34 @@
             "**/_themes/**",
             "**/includes/**",
             "**/obj/**"
+        ]
+      },
+      {
+        "group": "grp-machine-learning",
+        "src": "articles/machine-learning",
+        "dest": "./machine-learning",
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [
+          "**/_themes/**",
+          "**/includes/**",
+          "**/obj/**"
+        ]
+      },
+      {
+        "group": "grp-machine-learningv1",
+        "src": "articles/machine-learning/v1",
+        "dest": "./machine-learning",
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [
+          "**/_themes/**",
+          "**/includes/**",
+          "**/obj/**"
         ]
       },
       {
@@ -91,7 +120,8 @@
           "applied-ai-services/form-recognizer/**",
           "**/_themes/**",
           "**/obj/**",
-          "healthcare-apis/**"
+          "healthcare-apis/**",
+          "machine-learning/**"
         ]
       },
       {
@@ -130,6 +160,39 @@
         "group": "healthcare-apis",
         "src": "articles/healthcare-apis",
         "dest": "./healthcare-apis/",
+        "files": [
+          "**/*.gif",
+          "**/*.jpeg",
+          "**/*.jpg",
+          "**/*.png",
+          "**/*.svg"
+        ],
+        "exclude": [
+          "**/_themes/**",
+          "**/obj/**"
+        ]
+      },
+      {
+        "group": "grp-machine-learning",
+        "src": "articles/machine-learning",
+        "dest": "./machine-learning/",
+        "files": [
+          "**/*.gif",
+          "**/*.jpeg",
+          "**/*.jpg",
+          "**/*.png",
+          "**/*.svg"
+        ],
+        "exclude": [
+          "**/_themes/**",
+          "**/obj/**",
+          "**/v1/**"
+        ]
+      },
+      {
+        "group": "grp-machine-learningv1",
+        "src": "articles/machine-learning/v1",
+        "dest": "./machine-learning/",
         "files": [
           "**/*.gif",
           "**/*.jpeg",
@@ -166,6 +229,14 @@
       "grp-form-recognizer": {
         "dest": "destformrecognizer",
         "moniker_range": ">=form-recog-2.1.0"
+      },
+      "grp-machine-learning": {
+        "dest": "destmachinelearning",
+        "moniker_range": "azureml-api-2 || azureml-api-1"
+      },
+      "grp-machine-learningv1": {
+        "dest": "destmachinelearningv1",
+        "moniker_range": "azureml-api-1"
       }
     },
     "overwrite": [],
@@ -310,7 +381,7 @@
         "articles/azure-resource-manager/management/**/*.md": "tfitzmac",
         "articles/azure-resource-manager/templates/**/*.md": "mumian",
         "articles/azure-resource-manager/bicep/**/*.md": "mumian",
-        "articles/azure-resource-manager/troubleshooting/**/*.md": "davidsmatlak",
+        "articles/azure-resource-manager/troubleshooting/**/*.md": "tfitzmac",
         "articles/azure-vmware/**/*.md": "jjaygbay1",
         "articles/backup/**/*.md": "jyothisuri",
         "articles/backup/**/*.yml": "jyothisuri",
@@ -320,6 +391,7 @@
         "articles/sap/**/*.md": "lauradolan",
         "articles/chef/**/*.md": "TomArcherMsft",
         "articles/applied-ai-services/**/*.md": "mrbullwinkle",
+        "articles/cloud-shell/**/*.md": "sdwheeler",
         "articles/cognitive-services/**/*.md": "PatrickFarley",
         "articles/cognitive-services/Anomaly-Detector/**/*.md": "mrbullwinkle",
         "articles/cognitive-services/Bing-Autosuggest/**/*.md": "aahill",
@@ -358,11 +430,12 @@
         "articles/devtest-labs/**/*.md": "j-martens",
         "articles/event-grid/**/*.md": "spelluru",
         "articles/event-hubs/**/*.md": "spelluru",
-        "articles/governance/*.md": "timwarner-msft",
-        "articles/governance/blueprints/**/*.md": "timwarner-msft",
+        "articles/governance/*.md": "davidsmatlak",
+        "articles/governance/blueprints/**/*.md": "mumian",
+        "articles/governance/machine-configuration/**/*.md": "michaeltlombardi",
         "articles/governance/management-groups/**/*.md": "rthorn17",
-        "articles/governance/policy/**/*.md": "timwarner-msft",
-        "articles/governance/resource-graph/**/*.md": "timwarner-msft",
+        "articles/governance/policy/**/*.md": "davidsmatlak",
+        "articles/governance/resource-graph/**/*.md": "davidsmatlak",
         "articles/hdinsight/*.md": "sreekzz",
         "articles/hdinsight/*.yml": "sreekzz",
         "articles/hdinsight/**/*.md": "sreekzz",
@@ -635,6 +708,7 @@
         "articles/backup/**/*.md": "evansma",
         "articles/baremetal-infrastructure/**/*.md": "akashdubey",
         "articles/batch/**/*.md": "mamccrea",
+        "articles/cloud-shell/**/*.md": "jasongroce",
         "articles/cognitive-services/**/*.md": "nitinme",
         "articles/defender-for-cloud/*.md": "raynew",
         "articles/defender-for-iot/organizations/*.md": "raynew",
@@ -691,7 +765,7 @@
         "articles/azure-resource-manager/management/**/*.md": "tomfitz",
         "articles/azure-resource-manager/templates/**/*.md": "jgao",
         "articles/azure-resource-manager/bicep/**/*.md": "jgao",
-        "articles/azure-resource-manager/troubleshooting/**/*.md": "davidsmatlak",
+        "articles/azure-resource-manager/troubleshooting/**/*.md": "tomfitz",
         "articles/azure-vmware/**/*.md": "jacobjaygbay",
         "articles/backup/**/*.md": "jsuri",
         "articles/backup/**/*.yml": "jyothisuri",
@@ -700,6 +774,7 @@
         "articles/blockchain/**/*.md": "patricka",
         "articles/chef/**/*.md": "tarcher",
         "articles/applied-ai-services/**/*.md": "mbullwin",
+        "articles/cloud-shell/**/*.md": "sewhee",
         "articles/cognitive-services/**/*.md": "pafarley",
         "articles/cognitive-services/Anomaly-Detector/**/*.md": "mbullwin",
         "articles/cognitive-services/Bing-Autosuggest/**/*.md": "aahi",
@@ -738,11 +813,12 @@
         "articles/devtest-labs/**/*.md": "juliako",
         "articles/event-grid/**/*.md": "spelluru",
         "articles/event-hubs/*.md": "spelluru",
-        "articles/governance/*.md": "timwarner",
-        "articles/governance/blueprints/**/*.md": "timwarner",
+        "articles/governance/*.md": "davidsmatlak",
+        "articles/governance/blueprints/**/*.md": "jgao",
+        "articles/governance/machine-configuration/**/*.md": "mlombardi",
         "articles/governance/management-groups/**/*.md": "rithorn",
-        "articles/governance/policy/**/*.md": "timwarner",
-        "articles/governance/resource-graph/**/*.md": "timwarner",
+        "articles/governance/policy/**/*.md": "davidsmatlak",
+        "articles/governance/resource-graph/**/*.md": "davidsmatlak",
         "articles/hdinsight/*.md": "v-sreiyer",
         "articles/hdinsight/*.yml": "v-sreiyer",
         "articles/hdinsight/**/*.md": "v-sreiyer",
@@ -848,6 +924,7 @@
         "articles/batch/**/*.md": "batch",
         "articles/blockchain/**/*.md": "azure-blockchain",
         "articles/chef/**/*.md": "chef",
+        "articles/cloud-shell/**/*.md": "cloud-shell",
         "articles/cognitive-services/**/*.md": "cognitive-services",
         "articles/connectors/*.md": "logic-apps",
         "articles/container-instances/**/*.md": "container-instances",
@@ -862,6 +939,7 @@
         "articles/event-hubs/*.md": "event-hubs",
         "articles/governance/*.md": "governance",
         "articles/governance/blueprints/**/*.md": "blueprints",
+        "articles/governance/machine-configuration/**/*.md": "machine-configuration",
         "articles/governance/management-groups/**/*.md": "governance",
         "articles/governance/policy/**/*.md": "azure-policy",
         "articles/governance/resource-graph/**/*.md": "resource-graph",
@@ -967,9 +1045,14 @@
         "articles/cosmos-db/sql/*.md": "cosmosdb-sql",
         "articles/defender-for-iot/device-builders/*.md": "device-builders"
       },
+      "ms.workload": {
+        "articles/cloud-shell/**/*.md": "infrastructure-services"
+      },
       "monikerRange": {
         "articles/iot-edge/**/*.md": ">=iotedge-1.4",
-        "articles/applied-ai-services/form-recognizer/**/*.md": ">=form-recog-2.1.0"
+        "articles/applied-ai-services/form-recognizer/**/*.md": ">=form-recog-2.1.0",
+        "articles/machine-learning/**/*.md": "azureml-api-2",
+        "articles/machine-learning/v1/**/*.md": "azureml-api-1"
       },
       "recommendations": {
         "articles/cognitive-services/Translator/**/*.md": false
@@ -1075,10 +1158,10 @@
         "articles/time-series-insights/**/*.yml": ["Azure","Time Series Insights"],
         "articles/virtual-machines/**/*.md": ["Azure","Virtual Machines"],
         "articles/virtual-machines/**/*.yml": ["Azure","Virtual Machines"],
-        "articles/virtual-machines/linux/**/*.md": ["Azure","Linux Virtual Machines"],
-        "articles/virtual-machines/linux/**/*.yml": ["Azure","Linux Virtual Machines"],
-        "articles/virtual-machines/windows/**/*.md": ["Azure","Windows Virtual Machines"],
-        "articles/virtual-machines/windows/**/*.yml": ["Azure","Windows Virtual Machines"],
+        "articles/virtual-machines/linux/**/*.md": ["Azure","Virtual Machines"],
+        "articles/virtual-machines/linux/**/*.yml": ["Azure","Virtual Machines"],
+        "articles/virtual-machines/windows/**/*.md": ["Azure","Virtual Machines"],
+        "articles/virtual-machines/windows/**/*.yml": ["Azure","Virtual Machines"],
         "articles/virtual-machine-scale-sets/**/*.md": ["Azure","Virtual Machine Scale Sets"],
         "articles/virtual-machine-scale-sets/**/*.yml": ["Azure","Virtual Machine Scale Sets"]
       },
@@ -1156,6 +1239,8 @@
         "articles/governance/policy/**/*.md": "Azure Policy",
         "articles/governance/resource-graph/**/*.md": "Azure Resource Graph",
         "articles/industry/agriculture/**/*.md": "Azure for Industry: Agriculture",
+        "articles/iot/**/*.md": "Azure IoT",
+        "articles/iot/**/*yml": "Azure IoT",
         "articles/jenkins/**/*.yml": "Jenkins",
         "articles/lab-services/**/*.md": "Azure Lab Services",
         "articles/lighthouse/**/*.md": "Azure Lighthouse",

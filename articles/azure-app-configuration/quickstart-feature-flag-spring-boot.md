@@ -5,7 +5,7 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 05/02/2022
+ms.date: 03/20/2023
 ms.author: mametcal
 ms.custom: devx-track-java, mode-other
 #Customer intent: As an Spring Boot developer, I want to use feature flags to control feature availability quickly and confidently.
@@ -19,20 +19,17 @@ The Spring Boot Feature Management libraries extend the framework with comprehen
 
 ## Prerequisites
 
-* Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-* A supported [Java Development Kit SDK](/java/azure/jdk) with version 11.
-* [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- A supported [Java Development Kit SDK](/java/azure/jdk) with version 11.
+- [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
 
-## Create an App Configuration instance
+## Add a feature flag
 
-[!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./quickstart-azure-app-configuration-create.md#create-a-feature-flag).
 
-7. Select **Feature Manager** > **+Add** to add a feature flag called `Beta`.
-
-    > [!div class="mx-imgBorder"]
-    > ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
-
-    Leave `label` undefined for now.
+> [!div class="mx-imgBorder"]
+> ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
 
 ## Create a Spring Boot app
 

@@ -35,13 +35,20 @@ The policy assumes that Dapr runtime is running in a sidecar container in the sa
 
 | Attribute        | Description                     | Required | Default |
 |------------------|---------------------------------|----------|---------|
-| name            | Target binding name. Must match the name of the bindings [defined](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#bindings-structure) in Dapr.           | Yes      | N/A     |
-| operation       | Target operation name (binding specific). Maps to the [operation](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#invoking-output-bindings) property in Dapr. | No | None |
-| ignore-error     | If set to `true` instructs the policy not to trigger ["on-error"](api-management-error-handling-policies.md) section upon receiving error from Dapr runtime. | No | `false` |
-| response-variable-name | Name of the [Variables](api-management-policy-expressions.md#ContextVariables) collection entry to use for storing response from Dapr runtime. | No | None |
-| timeout | Time (in seconds) to wait for Dapr runtime to respond. Can range from 1 to 240 seconds. | No | 5 |
-| template | Templating engine to use for transforming the message content. "Liquid" is the only supported value. | No | None |
+| name            | Target binding name. Must match the name of the bindings [defined](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#bindings-structure) in Dapr. Policy expressions are allowed.          | Yes      | N/A     |
+| operation       | Target operation name (binding specific). Maps to the [operation](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#invoking-output-bindings) property in Dapr. Policy expressions aren't allowed. | No | None |
+| ignore-error     | If set to `true` instructs the policy not to trigger ["on-error"](api-management-error-handling-policies.md) section upon receiving error from Dapr runtime. Policy expressions aren't allowed. | No | `false` |
+| response-variable-name | Name of the [Variables](api-management-policy-expressions.md#ContextVariables) collection entry to use for storing response from Dapr runtime. Policy expressions aren't allowed. | No | None |
+| timeout | Time (in seconds) to wait for Dapr runtime to respond. Can range from 1 to 240 seconds. Policy expressions are allowed.| No | 5 |
+| template | Templating engine to use for transforming the message content. "Liquid" is the only supported value.  | No | None |
 | content-type | Type of the message content. "application/json" is the only supported value. | No | None |
+
+## Elements
+
+| Element             | Description  | Required |
+|---------------------|--------------|----------|
+| metadata            | Binding specific metadata in the form of key/value pairs. Maps to the [metadata](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#invoking-output-bindings) property in Dapr. | No |
+| data            | Content of the message. Maps to the [data](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#invoking-output-bindings) property in Dapr. Policy expressions are allowed. | No |
 
 ## Usage
 

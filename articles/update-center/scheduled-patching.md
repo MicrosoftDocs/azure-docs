@@ -2,7 +2,7 @@
 title: Scheduling recurring updates in Update management center (preview)
 description: The article details how to use update management center (preview) in Azure to set update schedules that install recurring updates on your machines.
 ms.service: update-management-center
-ms.date: 12/27/2022
+ms.date: 04/11/2023
 ms.topic: conceptual
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -44,6 +44,7 @@ To schedule recurring updates on a single VM, follow these steps:
 	> Currently, VMs and maintenance configuration in the same subscription are supported.
 
 1. In the **Basics** page, select **Subscription**, **Resource Group** and all options in **Instance details**.
+    - Select the **Maintenance scope** as *Guest (Azure VM, Arc-enabled VMs/servers)*.
 	- Select **Add a schedule** and in **Add/Modify schedule**, specify the schedule details such as:
 	
 		- Start on
@@ -182,8 +183,9 @@ You can create a new Guest OS update maintenance configuration or modify an exis
 1. Go to **Machines** and select machines from the list.
 1. In the **Updates (Preview)**, select **Scheduled updates**.
 1. In **Create a maintenance configuration**, follow step 3 in this [procedure](#schedule-recurring-updates-on-single-vm) to create a maintenance configuration.
+1. In **Basics** tab, select the **Maintenance scope** as *Guest (Azure VM, Arc-enabled VMs/servers)*.
 
-	:::image type="content" source="./media/scheduled-updates/create-maintenance-configuration.png" alt-text="Create Maintenance configuration.":::
+   :::image type="content" source="./media/scheduled-updates/create-maintenance-configuration.png" alt-text="Create Maintenance configuration.":::
 	
 
 ### Add/remove machines from maintenance configuration
@@ -204,9 +206,9 @@ You can create a new Guest OS update maintenance configuration or modify an exis
 
    :::image type="content" source="./media/scheduled-updates/change-update-selection-criteria-of-maintenance-configuration-inline.png" alt-text="Change update selection criteria of Maintenance configuration." lightbox="./media/scheduled-updates/change-update-selection-criteria-of-maintenance-configuration-expanded.png":::
 
-## Dynamic scoping using policy
+## Grouping using policy
 
-The update management center (preview) allows you to target a dynamic group of Azure or non-Azure VMs for update deployment via Azure Policy. Using a dynamic group keeps you from having to edit your deployment to update machines. You can use subscription, resource group, tags or regions to define the scope and use dynamic scoping by using built-in policies which you can customize as per your use-case.
+The update management center (preview) allows you to target a group of Azure or non-Azure VMs for update deployment via Azure Policy. The grouping using policy, keeps you from having to edit your deployment to update machines. You can use subscription, resource group, tags or regions to define the scope and use this feature for the built-in policies which you can customize as per your use-case.
 
 > [!NOTE]
 > This policy also ensures that the patch orchestration property for Azure machines is set to **Azure-orchestrated (Automatic by Platform)** as it is a prerequisite for scheduled patching.

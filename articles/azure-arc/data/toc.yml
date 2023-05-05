@@ -233,7 +233,11 @@ items:
             - name: Reprovision replica
               href: reprovision-replica.md
         - name: Troubleshoot
-          href: troubleshoot-managed-instance.md
+          items:
+            - name: General
+              href: troubleshoot-managed-instance.md
+            - name: Configuration
+              href: troubleshoot-managed-instance-configuration.md
 - name: Azure Arc-enabled PostgreSQL (preview) 
   items:
     - name: Overview

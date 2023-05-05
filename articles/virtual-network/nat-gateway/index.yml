@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Virtual Network NAT documentation
-summary: Learn how to use Azure Virtual Network NAT. Quickstarts, tutorials, samples, and more, show you how to deploy a NAT gateway.
+title: Azure NAT Gateway documentation
+summary: Learn how to use NAT gateway. Quickstarts, tutorials, samples, and more, show you how to deploy a NAT gateway.
 metadata:
-  title: Azure Virtual Network NAT Documentation - Tutorials, quickstarts, API references
-  description: Learn how to use Azure Virtual Network NAT. Quickstarts, tutorials, samples, and more, show you how to deploy a NAT gateway.
+  title: Azure NAT Gateway Documentation - Tutorials, quickstarts, API references
+  description: Learn how to use NAT gateway. Quickstarts, tutorials, samples, and more, show you how to deploy a NAT gateway.
   services: virtual-network
   ms.service: virtual-network
   ms.subservice: nat
@@ -20,11 +20,11 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: About Virtual Network NAT
+  - title: About Azure NAT Gateway
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Virtual Network NAT?
+          - text: What is Azure NAT Gateway?
             url: nat-overview.md
       - linkListType: concept
         links:
@@ -36,7 +36,7 @@ landingContent:
             url: resource-health.md
       - linkListType: learn
         links:
-          - text: Introduction to Azure Virtual Network NAT
+          - text: Introduction to Azure NAT Gateway
             url: /training/modules/intro-to-azure-virtual-network-nat
       - linkListType: whats-new
         links:
@@ -84,7 +84,7 @@ landingContent:
             url: troubleshoot-nat-and-azure-services.md
 
   # Card (optional)
-  - title: Learn about Virtual Network NAT architecture
+  - title: Learn about NAT Gateway architecture
     linkLists:
       - linkListType: overview
         links:

@@ -6,8 +6,8 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: overview
-ms.date: 02/14/2023
-ms.reviewer: cynthn
+ms.date: 03/23/2023
+ms.reviewer: cynthn, mattmcinnes
 
 ---
 
@@ -142,10 +142,8 @@ For more information, see [Share images using a community gallery](./share-galle
 
 > [!IMPORTANT]
 > Azure Compute Gallery – community galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> 
-> To publish a community gallery, you need to register for the preview at [https://aka.ms/communitygallery-preview](https://aka.ms/communitygallery-preview). Creating VMs from the community gallery is open to all Azure users.
-> 
-> During the preview, the gallery must be created as a community gallery (for CLI, this means using the `--permissions community` parameter) you currently can't migrate a regular gallery to a community gallery.
+>
+>To publish a community gallery, you'll need to enable the preview feature using the azure CLI: `az feature register --name CommunityGallery --namespace Microsoft.Compute` or PowerShell: `Register-AzProviderFeature -FeatureName "CommunityGallery" -ProviderNamespace "Microsoft.Compute"`. For more information on enabling preview features and checking the status, see   [Set up preview features in your Azure subscription](../azure-resource-manager/management/preview-features.md). Creating VMs from community gallery images is open to all Azure users. 
 > 
 > You can't currently create a Flexible virtual machine scale set from an image shared by another tenant.
 
@@ -208,7 +206,7 @@ There are some limitations for sharing your gallery to the community:
 
 **Q: Is it safe to use images shared to the community?**
 
-**A**: Users should exercise caution while using images from non-verified sources, since these images aren't subject to Azure certification.  
+**A**: Users should exercise caution while using images from non-verified sources, since these images aren't subject to certification and not scanned for malware/vulnerabilities and publisher details are not verified.
 
 **Q: If an image that is shared to the community doesn’t work, who do I contact for support?**
 

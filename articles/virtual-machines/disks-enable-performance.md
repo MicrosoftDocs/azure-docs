@@ -99,9 +99,9 @@ $sourceURI=diskOrSnapshotURI
 
 Set-AzContext -SubscriptionName <<yourSubscriptionName>> 
 
-$diskConfig = New-AzDiskConfig -Location $region -CreateOption Copy -DiskSizeGB $size -SkuName $sku -PerfromancePlus $true -SourceResourceID $sourceURI
+$diskConfig = New-AzDiskConfig -Location $region -CreateOption Copy -DiskSizeGB $size -SkuName $sku -PerformancePlus $true -SourceResourceID $sourceURI
 
-$dataDisk = New-AzDisk -ResourceGroupName $myRG  -DiskName $myDisk 
+$dataDisk = New-AzDisk -ResourceGroupName $myRG  -DiskName $myDisk -Disk $diskconfig
 ```
 ---
 

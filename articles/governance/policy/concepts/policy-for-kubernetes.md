@@ -4,8 +4,8 @@ description: Learn how Azure Policy uses Rego and Open Policy Agent to manage cl
 ms.date: 06/17/2022
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.author: timwarner
-author: timwarner-msft
+ms.author: davidsmatlak
+author: davidsmatlak
 ---
 # Understand Azure Policy for Kubernetes clusters
 
@@ -51,8 +51,6 @@ The following general limitations apply to the Azure Policy Add-on for Kubernete
 
 - Azure Policy Add-on for Kubernetes is supported on Kubernetes version **1.14** or higher.
 - Azure Policy Add-on for Kubernetes can only be deployed to Linux node pools.
-- Only built-in policy definitions are supported. Custom policy definitions are a _public preview_
-  feature.
 - Maximum number of pods supported by the Azure Policy Add-on: **10,000**
 - Maximum number of Non-compliant records per policy per cluster: **500**
 - Maximum number of Non-compliant records per subscription: **1 million**

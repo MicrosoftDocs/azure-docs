@@ -240,7 +240,7 @@ This section provides guidance for cluster administrators who want to create one
 |--- | **Following parameters are only for blobfuse** | --- | --- | --- |
 |volumeAttributes.secretName | Secret name that stores storage account name and key (only applies for SMB).| | No ||
 |volumeAttributes.secretNamespace | Specify namespace of secret to store account key. | `default` | No | Pvc namespace|
-|nodeStageSecretRef.name | Specify secret name that stores one of the following:<br> `azurestorageaccountkey`<br>`azurestorageaccountsastoken`<br>`msisecret`<br>`azurestoragespnclientsecret`. | |Existing Kubernetes secret name |  No  |
+|nodeStageSecretRef.name | Specify secret name that stores one of the following:<br> `azurestorageaccountkey`<br>`azurestorageaccountsastoken`<br>`msisecret`<br>`azurestoragespnclientsecret`. | |  No  |Existing Kubernetes secret name |
 |nodeStageSecretRef.namespace | Specify the namespace of secret. | Kubernetes namespace | Yes ||
 |--- | **Following parameters are only for NFS protocol** | --- | --- | --- |
 |volumeAttributes.mountPermissions | Specify mounted folder permissions. | `0777` | No ||

@@ -2,7 +2,7 @@
 title: Use Container Storage Interface (CSI) driver for Azure Files on Azure Kubernetes Service (AKS)
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Files in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.date: 01/18/2023
+ms.date: 04/19/2023
 ---
 
 # Use Azure Files Container Storage Interface (CSI) driver in Azure Kubernetes Service (AKS)
@@ -16,47 +16,13 @@ To create an AKS cluster with CSI drivers support, see [Enable CSI drivers on AK
 > [!NOTE]
 > *In-tree drivers* refers to the current storage drivers that are part of the core Kubernetes code versus the new CSI drivers, which are plug-ins.
 
-## Azure Files CSI driver new features
+## Azure File CSI driver new features
 
-In addition to the original in-tree driver features, Azure Files CSI driver supports the following new features:
+In addition to the original in-tree driver features, Azure File CSI driver supports the following new features:
 
 - Network File System (NFS) version 4.1
 - [Private endpoint][private-endpoint-overview]
 - Creating large mount of file shares in parallel.
-
-## Storage class driver dynamic parameters
-
-|Name | Meaning | Available Value | Mandatory | Default value
-|--- | --- | --- | --- | ---
-|skuName | Azure Files storage account type (alias: `storageAccountType`)| `Standard_LRS`, `Standard_ZRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_RAGZRS`,`Premium_LRS`, `Premium_ZRS` | No | `StandardSSD_LRS`<br> Minimum file share size for Premium account type is 100 GiB.<br> ZRS account type is supported in limited regions.<br> NFS file share only supports Premium account type.|
-|location | Specify Azure region where Azure storage account will be created. | For example, `eastus`. | No | If empty, driver uses the same location name as current AKS cluster.|
-|resourceGroup | Specify the resource group where the Azure Disks will be created. | Existing resource group name | No | If empty, driver uses the same resource group name as current AKS cluster.|
-|shareName | Specify Azure file share name | Existing or new Azure file share name. | No | If empty, driver generates an Azure file share name. |
-|shareNamePrefix | Specify Azure file share name prefix created by driver. | Share name can only contain lowercase letters, numbers, hyphens, and length should be fewer than 21 characters. | No |
-|folderName | Specify folder name in Azure file share. | Existing folder name in Azure file share. | No | If folder name does not exist in file share, mount will fail. |
-|shareAccessTier | [Access tier for file share][storage-tiers] | General purpose v2 account can choose between `TransactionOptimized` (default), `Hot`, and `Cool`. Premium storage account type for file shares only. | No | Empty. Use default setting for different storage account types.|
-|server | Specify Azure storage account server address | Existing server address, for example `accountname.privatelink.file.core.windows.net`. | No | If empty, driver uses default `accountname.file.core.windows.net` or other sovereign cloud account address. |
-|disableDeleteRetentionPolicy | Specify whether disable DeleteRetentionPolicy for storage account created by driver. | `true` or `false` | No | `false` |
-|allowBlobPublicAccess | Allow or disallow public access to all blobs or containers for storage account created by driver. | `true` or `false` | No | `false` |
-|requireInfraEncryption | Specify whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest for storage account created by driver. | `true` or `false` | No | `false` |
-|networkEndpointType | Specify network endpoint type for the storage account created by driver. If `privateEndpoint` is specified, a private endpoint will be created for the storage account. For other cases, a service endpoint will be created by default. | "",`privateEndpoint`| No | "" |
-|storageEndpointSuffix | Specify Azure storage endpoint suffix. | `core.windows.net`, `core.chinacloudapi.cn`, etc. | No | If empty, driver uses default storage endpoint suffix according to cloud environment. For example, `core.windows.net`. |
-|tags | [tags][tag-resources] are created in new storage account. | Tag format: 'foo=aaa,bar=bbb' | No | "" |
-|matchTags | Match tags when driver tries to find a suitable storage account. | `true` or `false` | No | `false` |
-|--- | **Following parameters are only for SMB protocol** | --- | --- |
-|subscriptionID | Specify Azure subscription ID where Azure file share is created. | Azure subscription ID | No | If not empty, `resourceGroup` must be provided. |
-|storeAccountKey | Specify whether to store account key to Kubernetes secret. | `true` or `false`<br>`false` means driver leverages kubelet identity to get account key. | No | `true` |
-|secretName | Specify secret name to store account key. | | No |
-|secretNamespace | Specify the namespace of secret to store account key. <br><br> **Note:** <br> If `secretNamespace` isn't specified, the secret is created in the same namespace as the pod. | `default`,`kube-system`, etc | No | Pvc namespace, for example `csi.storage.k8s.io/pvc/namespace` |
-|useDataPlaneAPI | Specify whether to use [data plane API][data-plane-api] for file share create/delete/resize. This could solve the SRP API throttling issue because the data plane API has almost no limit, while it would fail when there is firewall or Vnet setting on storage account. | `true` or `false` | No | `false` |
-|--- | **Following parameters are only for NFS protocol** | --- | --- |
-|rootSquashType | Specify root squashing behavior on the share. The default is `NoRootSquash` | `AllSquash`, `NoRootSquash`, `RootSquash` | No |
-|mountPermissions | Mounted folder permissions. The default is `0777`. If set to `0`, driver doesn't perform `chmod` after mount | `0777` | No |
-|--- | **Following parameters are only for vnet setting, e.g. NFS, private endpoint** | --- | --- |
-|vnetResourceGroup | Specify Vnet resource group where virtual network is defined. | Existing resource group name. | No | If empty, driver uses the `vnetResourceGroup` value in Azure cloud config file. |
-|vnetName | Virtual network name | Existing virtual network name. | No | If empty, driver uses the `vnetName` value in Azure cloud config file. |
-|subnetName | Subnet name | Existing subnet name of the agent node. | No | If empty, driver uses the `subnetName` value in Azure cloud config file. |
-|fsGroupChangePolicy | Indicates how volume's ownership is changed by the driver. Pod `securityContext.fsGroupChangePolicy` is ignored. | `OnRootMismatch` (default), `Always`, `None` | No | `OnRootMismatch`|
 
 ## Use a persistent volume with Azure Files
 
@@ -81,7 +47,7 @@ A storage class is used to define how an Azure file share is created. A storage 
 > [!NOTE]
 > Azure Files supports Azure Premium Storage. The minimum premium file share capacity is 100 GiB.
 
-When you use storage CSI drivers on AKS, there are two more built-in `StorageClasses` that uses the Azure Files CSI storage drivers. The other CSI storage classes are created with the cluster alongside the in-tree default storage classes.
+When you use storage CSI drivers on AKS, there are two more built-in `StorageClasses` that uses the Azure File CSI storage drivers. The other CSI storage classes are created with the cluster alongside the in-tree default storage classes.
 
 - `azurefile-csi`: Uses Azure Standard Storage to create an Azure Files share.
 - `azurefile-csi-premium`: Uses Azure Premium Storage to create an Azure Files share.
@@ -158,7 +124,7 @@ The output of the command resembles the following example:
 storageclass.storage.k8s.io/my-azurefile created
 ```
 
-The Azure Files CSI driver supports creating [snapshots of persistent volumes](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html) and the underlying file shares.
+The Azure File CSI driver supports creating [snapshots of persistent volumes](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html) and the underlying file shares.
 
 > [!NOTE]
 > This driver only supports snapshot creation, restore from snapshot is not supported by this driver. Snapshots can be restored from Azure portal or CLI. For more information about creating and restoring a snapshot, see [Overview of share snapshots for Azure Files][share-snapshots-overview].
@@ -359,6 +325,8 @@ provisioner: file.csi.azure.com
 allowVolumeExpansion: true
 parameters:
   protocol: nfs
+mountOptions:
+  - nconnect=4
 ```
 
 After editing and saving the file, create the storage class with the [kubectl apply][kubectl-apply] command:
@@ -415,9 +383,8 @@ spec:
   volumeClaimTemplates:
     - metadata:
         name: persistent-storage
-        annotations:
-          volume.beta.kubernetes.io/storage-class: azurefile-csi-nfs
       spec:
+        storageClassName: azurefile-csi-nfs
         accessModes: ["ReadWriteMany"]
         resources:
           requests:
@@ -451,7 +418,7 @@ accountname.file.core.windows.net:/accountname/pvc-fa72ec43-ae64-42e4-a8a2-55660
 
 ## Windows containers
 
-The Azure Files CSI driver also supports Windows nodes and containers. To use Windows containers, follow the [Windows containers quickstart](./learn/quick-windows-container-deploy-cli.md) to add a Windows node pool.
+The Azure File CSI driver also supports Windows nodes and containers. To use Windows containers, follow the [Windows containers quickstart](./learn/quick-windows-container-deploy-cli.md) to add a Windows node pool.
 
 After you have a Windows node pool, use the built-in storage classes like `azurefile-csi` or create a custom one. You can deploy an example [Windows-based stateful set](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) that saves timestamps into a file `data.txt` by running the [kubectl apply][kubectl-apply] command:
 

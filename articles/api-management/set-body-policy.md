@@ -32,8 +32,8 @@ Use the `set-body` policy to set the message body for incoming and outgoing requ
 
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-|template|Used to change the templating mode that the `set-body` policy will run in. Currently the only supported value is:<br /><br />- `liquid` - the `set-body` policy will use the liquid templating engine |No| N/A|
-|xsi-nil| Used to control how elements marked with `xsi:nil="true"` are represented in XML payloads. Set to one of the following values:<br /><br />- `blank` - `nil` is represented with an empty string.<br />- `null` - `nil` is represented with a null value.|No | `blank` |
+|template|Used to change the templating mode that the `set-body` policy runs in. Currently the only supported value is:<br /><br />- `liquid` - the `set-body` policy will use the liquid templating engine |No| N/A|
+|xsi-nil| Used to control how elements marked with `xsi:nil="true"` are represented in XML payloads. Set to one of the following values:<br /><br />- `blank` - `nil` is represented with an empty string.<br />- `null` - `nil` is represented with a null value.<br/></br>Policy expressions aren't allowed. |No | `blank` |
 
 For accessing information about the request and response, the Liquid template can bind to a context object with the following properties: <br />
 <pre>context.
@@ -82,10 +82,10 @@ OriginalUrl.
 
 ### Usage notes
 
- - If you are using the `set-body` policy to return a new or updated body, you don't need to set `preserveContent` to `true` because you are explicitly supplying the new body contents.
- -   Preserving the content of a response in the inbound pipeline doesn't make sense because there is no response yet.
+ - If you're using the `set-body` policy to return a new or updated body, you don't need to set `preserveContent` to `true` because you're explicitly supplying the new body contents.
+ -   Preserving the content of a response in the inbound pipeline doesn't make sense because there's no response yet.
  -   Preserving the content of a request in the outbound pipeline doesn't make sense because the request has already been sent to the backend at this point.
- -   If this policy is used when there is no message body, for example in an inbound `GET`, an exception is thrown.
+ -   If this policy is used when there's no message body, for example in an inbound `GET`, an exception is thrown.
 
 For more information, see the `context.Request.Body`, `context.Response.Body`, and the `IMessageBody` sections in the [Context variable](api-management-policy-expressions.md#ContextVariables) table.
 
@@ -162,7 +162,7 @@ The following Liquid filters are supported in the `set-body` policy. For filter 
 
 ### Accessing the body as a string
 
-We are preserving the original request body so that we can access it later in the pipeline.
+We're preserving the original request body so that we can access it later in the pipeline.
 
 ```xml
 <set-body>
@@ -178,7 +178,7 @@ We are preserving the original request body so that we can access it later in th
 
 ### Accessing the body as a JObject
 
-Since we are not reserving the original request body, accessing it later in the pipeline will result in an exception.
+Since we're not reserving the original request body, accessing it later in the pipeline will result in an exception.
 
 ```xml
 <set-body> 
@@ -239,7 +239,7 @@ This example shows how to perform content filtering by removing data elements fr
 ```
 
 ### Access the body as URL-encoded form data
-The following example uses the `AsFormUrlEncodedContent()` expression to access the request body as URL-encoded form data (content type `application/x-www-form-urlencoded`), and then converts it to JSON. Since we are not reserving the original request body, accessing it later in the pipeline will result in an exception.
+The following example uses the `AsFormUrlEncodedContent()` expression to access the request body as URL-encoded form data (content type `application/x-www-form-urlencoded`), and then converts it to JSON. Since we're not reserving the original request body, accessing it later in the pipeline will result in an exception.
 
 ```xml
 <set-body> 
@@ -251,7 +251,7 @@ The following example uses the `AsFormUrlEncodedContent()` expression to access 
 ```
 
 ### Access and return body as URL-encoded form data
-The following example uses the `AsFormUrlEncodedContent()` expression to access the request body as URL-encoded form data (content type `application/x-www-form-urlencoded`), adds data to the payload, and returns URL-encoded form data. Since we are not reserving the original request body, accessing it later in the pipeline will result in an exception.
+The following example uses the `AsFormUrlEncodedContent()` expression to access the request body as URL-encoded form data (content type `application/x-www-form-urlencoded`), adds data to the payload, and returns URL-encoded form data. Since we're not reserving the original request body, accessing it later in the pipeline will result in an exception.
 
 ```xml
 <set-body> 

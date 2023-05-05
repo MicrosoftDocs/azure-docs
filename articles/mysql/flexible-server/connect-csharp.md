@@ -26,7 +26,7 @@ For this quickstart you need:
     [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 - Create an Azure Database for MySQL - Flexible Server using [Azure portal](./quickstart-create-server-portal.md) <br/> or [Azure CLI](./quickstart-create-server-cli.md) if you do not have one.
 - Based on whether you are using public or private access, complete **ONE** of the actions below to enable connectivity.
-- [Create a database and non-admin user](../howto-create-users.md)
+- [Create a database and non-admin user](../single-server/how-to-create-users.md)
 - Install the [.NET SDK for your platform](https://dotnet.microsoft.com/download) (Windows, Ubuntu Linux, or macOS) for your platform.
 
 [Having issues? Let us know](https://github.com/MicrosoftDocs/azure-docs/issues)
@@ -237,7 +237,6 @@ namespace AzureMySqlExample
     }
 }
 ```
-
 
 ## Step 4: Delete data
 Use the following code to connect and delete the data by using a `DELETE` SQL statement.

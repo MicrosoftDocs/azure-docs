@@ -141,7 +141,7 @@ To resolve this error:
 * Use the latest versions of the [IoT SDKs](iot-hub-devguide-sdks.md).
 * See the guidance for [IoT Hub internal server errors](#500xxx-internal-errors).
 
-We recommend using Azure IoT device SDKs to manage connections reliably. To learn more, see [Manage connectivity and reliable messaging by using Azure IoT Hub device SDKs](../iot-develop/how-to-use-reliability-features-in-sdks.md)
+We recommend using Azure IoT device SDKs to manage connections reliably. To learn more, see [Manage connectivity and reliable messaging by using Azure IoT Hub device SDKs](../iot-develop/concepts-manage-device-reconnections.md)
 
 ## 409001 DeviceAlreadyExists
 
@@ -199,7 +199,7 @@ You may see that your request to IoT Hub fails with an error that begins with 50
 
 There can be a number of causes for a 500xxx error response. In all cases, the issue is most likely transient. While the IoT Hub team works hard to maintain [the SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/), small subsets of IoT Hub nodes can occasionally experience transient faults. When your device tries to connect to a node that's having issues, you receive this error.
 
-To mitigate 500xxx errors, issue a retry from the device. To [automatically manage retries](../iot-develop/how-to-use-reliability-features-in-sdks.md#connection-and-retry), make sure you use the latest version of the [Azure IoT SDKs](iot-hub-devguide-sdks.md). For best practice on transient fault handling and retries, see [Transient fault handling](/azure/architecture/best-practices/transient-faults).
+To mitigate 500xxx errors, issue a retry from the device. To [automatically manage retries](../iot-develop/concepts-manage-device-reconnections.md#connection-and-retry), make sure you use the latest version of the [Azure IoT SDKs](iot-hub-devguide-sdks.md). For best practice on transient fault handling and retries, see [Transient fault handling](/azure/architecture/best-practices/transient-faults).
 
 If the problem persists, check [Resource Health](iot-hub-azure-service-health-integration.md#check-iot-hub-health-with-azure-resource-health) and [Azure Status](https://azure.status.microsoft/) to see if IoT Hub has a known problem. You can also use the [manual failover feature](tutorial-manual-failover.md).
 

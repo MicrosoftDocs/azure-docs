@@ -56,7 +56,7 @@ An I/O depth of greater than 1 isn't supported on older versions of CentOS Linux
 
 #### Workaround
 
-- Upgrade to CentOS Linux 8.2+ or RHEL 8.2+.
+- Upgrade to CentOS Linux 8.6+ or RHEL 8.6+.
 - Change to Ubuntu.
 - For other Linux VMs, upgrade the kernel to 5.0 or later.
 

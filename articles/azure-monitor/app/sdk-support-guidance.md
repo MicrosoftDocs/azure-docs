@@ -16,6 +16,8 @@ For more information, review the [Azure SDK Lifecycle and Support Policy](https:
 > [!NOTE]
 > Diagnostic tools often provide better insight into the root cause of a problem when the latest stable SDK version is used.
 
+## SDK update guidance
+
 Support engineers are expected to provide SDK update guidance according to the following table, referencing the current SDK version in use and any alternatives.
 
 |Current SDK version in use |Alternative version available |Update policy for support |
@@ -38,4 +40,13 @@ Support engineers are expected to provide SDK update guidance according to the f
 > [!WARNING]
 > Only commercially reasonable support is provided for Preview versions of the SDK. If a support incident requires escalation to development for further guidance, customers will be asked to use a fully supported SDK version to continue support. Commercially reasonable support does not include an option to engage Microsoft product development resources; technical workarounds may be limited or not possible.
 
-To see the current version of Application Insights SDKs and previous versions release dates, reference the [release notes](release-notes.md).
+## Release notes
+
+Reference the release notes to see the current version of Application Insights SDKs and previous versions release dates.
+
+- [.NET SDKs (Including ASP.NET, ASP.NET Core, and Logging Adapters)](https://github.com/Microsoft/ApplicationInsights-dotnet/releases)
+- [Python](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/CHANGELOG.md)
+- [Node.js](https://github.com/Microsoft/ApplicationInsights-node.js/releases)
+- [JavaScript](https://github.com/microsoft/ApplicationInsights-JS/releases)
+
+Our [Service Updates](https://azure.microsoft.com/updates/?service=application-insights) also summarize major Application Insights improvements.

@@ -7,7 +7,7 @@ ms.service: load-balancer
 ms.topic: quickstart
 ms.author: mbender
 ms.date: 04/29/2022
-ms.custom: template-quickstart, subject-armqs, mode-arm
+ms.custom: template-quickstart, subject-armqs, mode-arm, devx-track-bicep
 ---
 
 # Quickstart: Create an internal load balancer to load balance VMs using Bicep

@@ -25,27 +25,38 @@ For more information, see [Securing IoT devices in the enterprise](concept-enter
 
 ## Prerequisites
 
-Before you start registering an Enterprise IoT sensor:
+This section describes the prerequisites required before deploying an Enterprise IoT network sensor.
 
-- To view Defender for IoT data in Microsoft 365 Defender, including devices, alerts, recommendations, and vulnerabilities, you must have an Enterprise IoT plan, [onboarded from Microsoft 365 Defender](eiot-defender-for-endpoint.md).
+### Azure requirements
+
+- To view Defender for IoT data in Microsoft 365 Defender, including devices, alerts, recommendations, and vulnerabilities, you must have an Enterprise IoT plan, [onboarded from Microsoft 365 Defender](eiot-defender-for-endpoint.md).  
 
     If you only want to view data in the Azure portal, an Enterprise IoT plan isn't required. You can also onboard your Enterprise IoT plan from Microsoft 365 Defender after registering your network sensor to bring [extra device visibility and security value](concept-enterprise.md#security-value-in-microsoft-365-defender) to your organization.
 
 - Make sure you can access the Azure portal as a [Security admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) user. If you don't already have an Azure account, you can [create your free Azure account today](https://azure.microsoft.com/free/).
 
+### Network requirements
 
-- Allocate a physical appliance or a virtual machine (VM) to use as your network sensor. Make sure that your machine has the following specifications:
+- Identify the devices and subnets you want to monitor so that you understand where to place an Enterprise IoT sensor in your network. You may want to deploy multiple Enterprise IoT sensors.
 
-    | Tier | Requirements |
-    |--|--|
-    | **Minimum** | To support up to 1 Gbps of data: <br><br>- 4 CPUs, each with 2.4 GHz or more<br>- 16-GB RAM of DDR4 or better<br>- 250 GB HDD |
-    | **Recommended** | To support up to 15 Gbps of data: <br><br>-	8 CPUs, each with 2.4 GHz or more<br>-  32-GB RAM of DDR4 or better<br>- 500 GB HDD |
+- Configure traffic mirroring in your network so that the traffic you want to monitor is mirrored to your Enterprise IoT sensor. Supported traffic mirroring methods are the same as for OT monitoring. For more information, see [Choose a traffic mirroring method for traffic monitoring](best-practices/traffic-mirroring-methods.md).
 
-    Your machine must also have:
+### Physical or virtual machine requirements
 
-    - The [Ubuntu 18.04 Server](https://releases.ubuntu.com/18.04/) operating system. If you don't yet have Ubuntu installed, download the installation files to an external storage, such as a DVD or disk-on-key, and then install it on your appliance or VM. For more information, see the Ubuntu [Image Burning Guide](https://help.ubuntu.com/community/BurningIsoHowto).
+Allocate a physical appliance or a virtual machine (VM) to use as your network sensor. Make sure that your machine has the following specifications:
 
-    - Network adapters, at least one for your switch monitoring (SPAN) port, and one for your management port to access the sensor's user interface
+| Tier | Requirements |
+|--|--|
+| **Minimum** | To support up to 1 Gbps of data: <br><br>- 4 CPUs, each with 2.4 GHz or more<br>- 16-GB RAM of DDR4 or better<br>- 250 GB HDD |
+| **Recommended** | To support up to 15 Gbps of data: <br><br>-	8 CPUs, each with 2.4 GHz or more<br>-  32-GB RAM of DDR4 or better<br>- 500 GB HDD |
+
+Your machine must also have:
+
+- The [Ubuntu 18.04 Server](https://releases.ubuntu.com/18.04/) operating system. If you don't yet have Ubuntu installed, download the installation files to an external storage, such as a DVD or disk-on-key, and then install it on your appliance or VM. For more information, see the Ubuntu [Image Burning Guide](https://help.ubuntu.com/community/BurningIsoHowto).
+
+- Network adapters, at least one for your switch monitoring (SPAN) port, and one for your management port to access the sensor's user interface
+
+Your Enterprise IoT sensor must have access to the Azure cloud using a [direct connection](architecture-connections.md#direct-connections). Direct connections are configured for Enterprise IoT sensors using the same procedure as for OT sensors. For more information, see [Provision sensors for cloud management](ot-deploy/provision-cloud-management.md).
 
 ## Prepare a physical appliance or VM
 
@@ -83,7 +94,6 @@ This procedure describes how to prepare your physical appliance or VM to install
     |--|--|--|--|--|
     | HTTPS | TCP | In/Out | 443 | Cloud connection |
     | DNS | TCP/UDP | In/Out | 53  | Address resolution |
-
 
 1. Make sure that your physical appliance or VM can access the cloud using HTTPS on port 443 to the following Microsoft endpoints:
 
@@ -202,7 +212,7 @@ Delete a sensor if it's no longer in use with Defender for IoT.
 
 1. From the **Sites and sensors** page on the Azure portal, locate your sensor in the grid.
 
-1. In the row for your sensor, select the **...** options menu on the right > **Delete sensor**.
+1. In the row for your sensor, select the **...** options menu > **Delete sensor**.
 
 For more information, see [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md).
 
@@ -234,7 +244,7 @@ Billing changes will take effect one hour after cancellation of the previous sub
 
 1. Delete the legacy sensor from the previous subscription.  In Defender for IoT, go to the **Sites and sensors** page and locate the legacy sensor on the previous subscription.
 
-1. In the row for your sensor, from the options (**...**) menu on the right, select **Delete** to delete the sensor from the previous subscription.
+1. In the row for your sensor, from the options (**...**) menu, select **Delete** to delete the sensor from the previous subscription.
 
 1. If relevant, cancel the Defender for IoT plan from the previous subscription. For more information, see [Cancel your Enterprise IoT plan](manage-subscriptions-enterprise.md#cancel-your-enterprise-iot-plan).
 

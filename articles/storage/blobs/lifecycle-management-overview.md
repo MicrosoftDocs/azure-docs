@@ -156,7 +156,7 @@ Lifecycle management supports tiering and deletion of current versions, previous
 |-----------------------------------------|--------------------------------------------|---------------|-------------------|
 | tierToCool                              | Supported for `blockBlob`                  | Supported     | Supported         |
 | enableAutoTierToHotFromCool<sup>1</sup> | Supported for `blockBlob`                  | Not supported | Not supported     |
-| tierToArchive                           | Supported for `blockBlob`                  | Supported     | Supported         |
+| tierToArchive<sup>4</sup>               | Supported for `blockBlob`                  | Supported     | Supported         |
 | delete<sup>2,3</sup>                    | Supported for `blockBlob` and `appendBlob` | Supported     | Supported         |
 
 <sup>1</sup> The `enableAutoTierToHotFromCool` action is available only when used with the `daysAfterLastAccessTimeGreaterThan` run condition. That condition is described in the next table.
@@ -164,6 +164,8 @@ Lifecycle management supports tiering and deletion of current versions, previous
 <sup>2</sup> When applied to an account with a hierarchical namespace enabled, a `delete` action removes empty directories. If the directory isn't empty, then the `delete` action removes objects that meet the policy conditions within the first 24-hour cycle. If that action results in an empty directory that also meets the policy conditions, then that directory will be removed within the next 24-hour cycle, and so on.
 
 <sup>3</sup> A lifecycle management policy will not delete the current version of a blob until any previous versions or snapshots associated with that blob have been deleted. If blobs in your storage account have previous versions or snapshots, then you must include previous versions and snapshots when you specify a delete action as part of the policy.
+
+<sup>4</sup> Only storage accounts that are configured for LRS, GRS, or RA-GRS support moving blobs to the archive tier. The archive tier isn't supported for ZRS, GZRS, or RA-GZRS accounts. This action gets listed based on the redundancy configured for the account. 
 
 > [!NOTE]
 > If you define more than one action on the same blob, lifecycle management applies the least expensive action to the blob. For example, action `delete` is cheaper than action `tierToArchive`. Action `tierToArchive` is cheaper than action `tierToCool`.

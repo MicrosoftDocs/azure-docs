@@ -30,6 +30,8 @@ landingContent:
             url: backup-support-matrix.md
           - text: Azure Backup architecture
             url: backup-architecture.md
+          - text: Azure Backup security
+            url: security-overview.md
 
   # Card (optional)
   - title: Get started with Azure Backup

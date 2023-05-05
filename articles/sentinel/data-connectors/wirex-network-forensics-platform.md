@@ -3,7 +3,7 @@ title: "WireX Network Forensics Platform connector for Microsoft Sentinel"
 description: "Learn how to install the connector WireX Network Forensics Platform to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 03/25/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -17,7 +17,7 @@ The WireX Systems data connector allows security professional to integrate with 
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog (WireXNFPevents)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
+| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
 | **Supported by** | [WireX Systems](https://wirexsystems.com/contact-us/) |
 
 ## Query samples

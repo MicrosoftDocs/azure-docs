@@ -4,15 +4,15 @@ title: Azure Video Analyzer documentation # < 60 chars
 summary: Learn how to use Azure Video Analyzer # < 160 chars
 
 metadata:
-  title: Azure Video Analyzer documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Learn how to use Azure Video Analyzer # Required; article description that is displayed in search results. < 160 chars.
+  title: Azure Video Analyzer documentation
+  description: Learn how to use Azure Video Analyzer
   services: azure-video-analyzer
-  ms.service: azure-video-analyzer  #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.topic: landing-page # Required
+  ms.service: azure-video-analyzer
+  ms.topic: landing-page
   ms.collection: collection
-  author: Juliako #Required; your GitHub user alias, with correct capitalization.
-  ms.author:  juliako #Required; microsoft alias of author; optional team alias.
-  ms.date: 01/03/2022 #Required; mm/dd/yyyy format.
+  author: Juliako
+  ms.author:  juliako
+  ms.date: 01/03/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 

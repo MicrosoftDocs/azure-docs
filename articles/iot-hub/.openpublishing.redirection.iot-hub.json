@@ -922,6 +922,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-how-to-clone.md",
+      "redirect_url": "/azure/iot-hub/migrate-hub-arm",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/iot-hub/iot-hub-csharp-csharp-direct-methods.md",
       "redirect_url": "/azure/iot-hub/quickstart-control-device-dotnet",
       "redirect_document_id": false

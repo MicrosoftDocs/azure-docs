@@ -28,7 +28,7 @@ Use a direct method to initiate device management actions (such as reboot, facto
 
 * Providing status updates through *reported properties* to IoT Hub.
 
-You can use Azure CLI to run device twin queries to report on the progress of your device management actions.
+You can use Azure CLI to run device twin queries to report on the progress of your device management actions. For more information about using direct methods, see [Cloud-to-device communication guidance](iot-hub-devguide-c2d-guidance.md).
 
 This article shows you how to create two Azure CLI sessions:
 

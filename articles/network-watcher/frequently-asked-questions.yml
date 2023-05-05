@@ -88,7 +88,7 @@ sections:
       - question: |
           What are resource limits on Network Watcher?
         answer: |
-          See the [Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#network-watcher-limits) page for all limits.  
+          See the [Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-network-watcher-limits) page for all limits.  
           
       - question: |
           Why is only one instance of Network Watcher allowed per region? 

@@ -1,7 +1,7 @@
 ---
 title: Install the devcenter Azure CLI extension
-titleSuffix: Azure Deployment Environments Preview
-description: Learn how to install the Azure CLI and the Azure Deployment Environments Preview CLI extension so you can create Deployment Environments resources from the command line.
+titleSuffix: Azure Deployment Environments 
+description: Learn how to install the Azure CLI and the Azure Deployment Environments CLI extension so you can create Deployment Environments resources from the command line.
 services: deployment-environments
 ms.service: deployment-environments
 ms.topic: how-to

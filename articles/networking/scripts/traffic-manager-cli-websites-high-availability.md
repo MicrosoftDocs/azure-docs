@@ -7,6 +7,7 @@ author: asudbring
 manager: KumudD
 ms.service: traffic-manager
 ms.devlang: azurecli
+ms.custom: devx-track-azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: traffic-manager

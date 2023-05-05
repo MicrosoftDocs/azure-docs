@@ -6,16 +6,13 @@ author: bashan-git
 manager: sphenry
 services: azure-communication-services
 ms.author: bashan
-ms.date: 04/15/2022
+ms.date: 03/31/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.custom: private_preview, event-tier1-build-2022
 ---
 # Quickstart: How to add Azure Managed Domains to Email Communication Service
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-In this quick start, you'll learn about how to provision the Azure Managed domain in Azure Communication Services to send email.
+In this quick start, you learn about how to provision the Azure Managed domain in Azure Communication Services to send email.
 
 ## Prerequisites
 
@@ -44,7 +41,7 @@ In this quick start, you'll learn about how to provision the Azure Managed domai
 
     :::image type="content" source="./media/email-add-azure-domain-created.png" alt-text="Screenshot that shows the list of provisioned email domains." lightbox="media/email-add-azure-domain-created-expanded.png":::
 
-5. Click the name of the provisioned domain. This will navigate you to the overview page for the domain resource type.
+5. Click the name of the provisioned domain, which navigates you to the overview page for the domain resource type.
 
     :::image type="content" source="./media/email-azure-domain-overview.png"  alt-text="Screenshot that shows Azure Managed Domain overview page." lightbox="media/email-azure-domain-overview-expanded.png":::
 
@@ -52,28 +49,8 @@ In this quick start, you'll learn about how to provision the Azure Managed domai
 Azure communication Services Email automatically configures the required email authentication protocols to set proper authentication for the email as detailed in [Email Authentication best practices](../../concepts/email/email-authentication-best-practice.md). 
 
 ## Changing MailFrom and FROM display name for Azure Managed Domain
-When Azure Manged Domain is provisioned to send mail, it has default Mail From address as donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net and the FROM display name would be the same. You'll able to configure and change the Mail from address and FROM display name to more user friendly value.
 
-1. Go the overview page of the Email Communications Service resource that you created earlier.
-2. Click **Provision Domains** on the left navigation panel. You'll see list of provisioned domains.
-3. Click on the Azure Manged Domain link
- 
-    :::image type="content" source="./media/email-provisioned-domains.png" alt-text="Screenshot that shows Azure Managed Domain link in list of provisioned email domains." lightbox="media/email-provisioned-domains-expanded.png":::
-4. The navigation lands in Azure Managed Domain Overview page where you'll able to see Mailfrom and From attributes.
- 
-   :::image type="content" source="./media/email-provisioned-domains-overview.png" alt-text="Screenshot that shows the overview page of provisioned email domain."  lightbox="media/email-provisioned-domains-overview-expanded.png":::
-
-5. Click on edit link on MailFrom 
-
-    :::image type="content" source="./media/email-domains-mailfrom.png" alt-text="Screenshot that explains how to change Mail From address and display name for an email address.":::
-
-6. You'll able to modify the Display Name and MailFrom address. 
- 
-    :::image type="content" source="./media/email-domains-mailfrom-change.png" alt-text="Screenshot that shows the submit button to save Mail From address and display name changes.":::
-
-7. Click **Save**. You'll see the updated values in the overview page. 
-
-    :::image type="content" source="./media/email-domains-overview-updated.png" alt-text="Screenshot that shows Azure Managed Domain overview page with updated values." lightbox="media/email-provisioned-domains-overview-expanded.png":::
+You can optionally configure your MailFrom address to be something other than the default DoNotReply, and also add more than one sender username to your domain. To understand how to configure your sender address, see how to [add multiple sender addresses](add-multiple-senders.md).
 
 **Your email domain is now ready to send emails.**
 

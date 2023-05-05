@@ -164,7 +164,7 @@ The following considerations apply:
 
 - Administrators can enable passwordless authentication methods for their tenant.
 
-- Administrators can target all users or select users/groups within their tenant for each method.
+- Administrators can target all users or select users/Security groups within their tenant for each method.
 
 - Users can register and manage these passwordless authentication methods in their account portal.
 

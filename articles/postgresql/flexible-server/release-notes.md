@@ -1,13 +1,13 @@
 ---
 title: Azure Database for PostgreSQL - Flexible Server Release notes
 description: Release notes of Azure Database for PostgreSQL - Flexible Server.
-ms.author: alkuchar
-author: AwdotiaRomanowna
+author: varun-dhawan
+ms.author: varundhawan
 ms.custom: references_regions
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 11/05/2022
+ms.date: 4/10/2023
 ---
 
 # Release notes - Azure Database for PostgreSQL - Flexible Server
@@ -16,7 +16,11 @@ ms.date: 11/05/2022
 
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant for Flexible Server - PostgreSQL
 
+## Release: April 2023
+* Public preview of [Query Performance Insight](./concepts-query-performance-insight.md) for Azure Database for PostgreSQL – Flexible Server.
+
 ## Release: March 2023
+* General availability of [Read Replica](concepts-read-replicas.md) for Azure Database for PostgreSQL – Flexible Server.
 * Public preview of [PgBouncer Metrics](./concepts-monitoring.md#pgbouncer-metrics) for Azure Database for PostgreSQL – Flexible Server.
 * General availability of [Azure Monitor workbooks](./concepts-workbooks.md) for Azure Database for PostgreSQL – Flexible Server.
 

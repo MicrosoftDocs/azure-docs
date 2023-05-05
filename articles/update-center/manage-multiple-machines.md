@@ -2,7 +2,7 @@
 title: Manage multiple machines in update management center (preview)
 description: The article details how to use Update management center (preview) in Azure to manage multiple supported machines and view their compliance state in the Azure portal.
 ms.service: update-management-center
-ms.date: 04/21/2022
+ms.date: 04/11/2023
 ms.topic: conceptual
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -51,9 +51,9 @@ Instead of performing these actions from a selected Azure VM or Arc-enabled serv
       - The machine has an unsupported OS
       - The machine is in an unsupported region and you can't perform an assessment.
 
-   - **Patch orchestration configuration of Azure virtual machines** — all the Azure or Arc-enabled machines inventoried in the subscription are summarized by each update orchestration method. Values are: 
+   - **Patch orchestration configuration of Azure virtual machines** — all the Azure machines inventoried in the subscription are summarized by each update orchestration method. Values are: 
 
-      - **Azure orchestrated**—this mode enables automatic VM guest patching for the Azure virtual machine and Arc-enabled server. Subsequent patch installation is orchestrated by Azure. 
+      - **Azure orchestrated**—this mode enables automatic VM guest patching for the Azure virtual machine. Subsequent patch installation is orchestrated by Azure. 
       - **Image Default**—for Linux machines, it uses the default patching configuration.
       - **OS orchestrated**—the OS automatically updates the machine.
       - **Manual updates**—you control the application of patches to a machine by applying patches manually inside the machine. In this mode, automatic updates are disabled for Windows OS. 

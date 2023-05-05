@@ -1,6 +1,6 @@
 ---
-title: Use Azure IoT Tools for VSCode to manage IoT Hub messaging
-description: Learn how to use Azure IoT Tools for Visual Studio Code to monitor device to cloud messages and send cloud to device messages in Azure IoT Hub.
+title: Use the Azure IoT Hub extension for Visual Studio Code to manage IoT Hub messaging
+description: Learn how to use the Azure IoT Hub extension for Visual Studio Code to monitor device to cloud messages and send cloud to device messages in Azure IoT Hub.
 author: formulahendry
 
 ms.author: junhan
@@ -10,13 +10,13 @@ ms.date: 01/18/2019
 ms.custom: ['Role: Cloud Development']
 ---
 
-# Use Azure IoT Tools for Visual Studio Code to send and receive messages between your device and IoT Hub
+# Use the Azure IoT Hub extension for Visual Studio Code to send and receive messages between your device and IoT Hub
 
 ![End-to-end diagram](./media/iot-hub-vscode-iot-toolkit-cloud-device-messaging/e-to-e-diagram.png)
 
-In this article, you learn how to use Azure IoT Tools for Visual Studio Code to monitor device-to-cloud messages and to send cloud-to-device messages. Device-to-cloud messages could be sensor data that your device collects and then sends to your IoT hub. Cloud-to-device messages could be commands that your IoT hub sends to your device to blink an LED that is connected to your device.
+In this article, you learn how to use the Azure IoT Hub extension for Visual Studio Code to monitor device-to-cloud messages and to send cloud-to-device messages. Device-to-cloud messages could be sensor data that your device collects and then sends to your IoT hub. Cloud-to-device messages could be commands that your IoT hub sends to your device to blink an LED that is connected to your device.
 
-[Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) is a useful Visual Studio Code extension that makes IoT Hub management and IoT application development easier. This article focuses on how to use Azure IoT Tools for Visual Studio Code to send and receive messages between your device and your IoT hub.
+The [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) is a useful extension that makes IoT Hub management and IoT application development easier. This article focuses on how to use the extension to send and receive messages between your device and your IoT hub.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -28,42 +28,50 @@ In this article, you learn how to use Azure IoT Tools for Visual Studio Code to 
 
 * [Visual Studio Code](https://code.visualstudio.com/)
 
-* [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) or copy and paste this URL into a browser window: `vscode:extension/vsciot-vscode.azure-iot-toolkit`
+* [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) or copy and paste this URL into a browser window: `vscode:extension/vsciot-vscode.azure-iot-toolkit`
 
 ## Sign in to access your IoT hub
 
-1. In **Explorer** view of VS Code, expand **Azure IoT Hub Devices** section in the bottom left corner.
+Follow these steps to sign into Azure and access your IoT hub from your Azure subscription:
 
-2. Click **Select IoT Hub** in context menu.
+1. In the **Explorer** view of VS Code, expand the **Azure IoT Hub** section in the side bar.
 
-3. A pop-up will show in the bottom right corner to let you sign in to Azure for the first time.
+1. Select the ellipsis (…) button of the **Azure IoT Hub** section to display the action menu, and then select **Select IoT Hub** from the action menu.
 
-4. After you sign in, your Azure Subscription list will be shown, then select Azure Subscription and IoT Hub.
+1. If you're not signed into Azure, a pop-up notification is shown in the bottom right corner to let you sign in to Azure. Select **Sign In** and follow the instructions to sign into Azure.
 
-5. The device list will be shown in **Azure IoT Hub Devices** tab in a few seconds.
+1. Select your Azure subscription from the **Select Subscription** dropdown list.
 
-   > [!Note]
-   > You can also complete the set up by choosing **Set IoT Hub Connection String**. Enter the **iothubowner** policy connection string for the IoT hub that your IoT device connects to in the pop-up window.
+1. Select your IoT hub from the **Select IoT Hub** dropdown list.
+
+1. The devices for your IoT hub are retrieved from IoT Hub and shown under the **Devices** node in the **Azure IoT Hub** section of the side bar.
+
+   > [!NOTE]
+   > You can also use a connection string to access your IoT hub, by selecting **Set IoT Hub Connection String** from the action menu and entering the **iothubowner** policy connection string for your IoT hub in the **IoT Hub Connection String** input box. 
 
 ## Monitor device-to-cloud messages
 
 To monitor messages that are sent from your device to your IoT hub, follow these steps:
 
-1. Right-click your device and select **Start Monitoring Built-in Event Endpoint**.
+1. In the side bar, expand the **Devices** node under the **Azure IoT Hub** section.
 
-2. The monitored messages will be shown in **OUTPUT** > **Azure IoT Hub** view.
+1. Right-click your IoT device and select **Start Monitoring Built-in Event Endpoint**. 
 
-3. To stop monitoring, right-click the **OUTPUT** view and select **Stop Monitoring Built-in Event Endpoint**.
+1. The monitored messages are shown in the **Output** panel.
+
+1. To stop monitoring messages, right-click the **Output** panel and select **Stop Monitoring Built-in Event Endpoint**.
 
 ## Send cloud-to-device messages
 
 To send a message from your IoT hub to your device, follow these steps:
+ 
+1. In the side bar, expand the **Devices** node under the **Azure IoT Hub** section.
 
-1. Right-click your device and select **Send C2D Message to Device**.
+1. Right-click your IoT device and select **Send C2D Message to Device** from the context menu. 
 
-2. Enter the message in input box.
+1. Enter the message in the input box, and then select the Enter key.
 
-3. Results will be shown in **OUTPUT** > **Azure IoT Hub** view.
+1. The results are shown in the **Output** panel.
 
 ## Next steps
 

@@ -29,9 +29,9 @@ The policy assumes that Dapr runs in a sidecar container in the same pod as the 
 | Attribute        | Description                     | Required | Default |
 |------------------|---------------------------------|----------|---------|
 | backend-id       | Must be set to "dapr".           | Yes      | N/A     |
-| dapr-app-id      | Name of the target microservice. Used to form the [appId](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) parameter in Dapr.| Yes | N/A |
-| dapr-method      | Name of the method or a URL to invoke on the target microservice. Maps to the [method-name](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) parameter in Dapr.| Yes | N/A |
-| dapr-namespace   | Name of the namespace the target microservice is residing in. Used to form the [appId](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) parameter in Dapr.| No | N/A |
+| dapr-app-id      | Name of the target microservice. Used to form the [appId](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) parameter in Dapr. Policy expressions are allowed. | Yes | N/A |
+| dapr-method      | Name of the method or a URL to invoke on the target microservice. Maps to the [method-name](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) parameter in Dapr. Policy expressions are allowed. | Yes | N/A |
+| dapr-namespace   | Name of the namespace the target microservice is residing in. Used to form the [appId](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) parameter in Dapr. Policy expressions are allowed. | No | N/A |
 
 ## Usage
 

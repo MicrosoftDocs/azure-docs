@@ -33,6 +33,8 @@ The common schema includes information about the affected resource and the cause
 
     If you want to route alert instances to specific teams based on criteria such as a resource group, you can use the fields in the **Essentials** section to provide routing logic for all alert types. The teams that receive the alert notification can then use the context fields for their investigation.
 - **Alert context**: Fields that vary depending on the type of the alert. The alert context fields describe the cause of the alert. For example, a metric alert would have fields like the metric name and metric value in the alert context. An activity log alert would have information about the event that generated the alert.
+- **Custom Properties**: A “key: value” object, defined in the alert rule and added to the webhook notifications. 
+If the custom properties are not set in the Alert rule, this field will be null.  Note: today this is only supported for Metric Alerts other alert types will contain null in this field.
 
 ## Sample alert payload
 
@@ -82,6 +84,10 @@ The common schema includes information about the affected resource and the cause
           }
         ]
       }
+      },
+      "customProperties":{
+        "Key1": "Value1",
+        "Key2": "Value2"
     }
   }
 }

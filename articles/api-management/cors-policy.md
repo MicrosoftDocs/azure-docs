@@ -39,30 +39,53 @@ The `cors` policy adds cross-origin resource sharing (CORS) support to an operat
 
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
-|allow-credentials|The `Access-Control-Allow-Credentials` header in the preflight response will be set to the value of this attribute and affect the client's ability to submit credentials in cross-domain requests.|No|`false`|
-|terminate-unmatched-request|Controls the processing of cross-origin requests that don't match the policy settings.<br/><br/>When `OPTIONS` request is processed as a preflight request and `Origin` header doesn't match policy settings:<br/> - If the attribute is set to `true`, immediately terminate the request with an empty `200 OK` response<br/>- If the attribute is set to `false`, check inbound for other in-scope `cors` policies that are direct children of the inbound element and apply them. If no `cors` policies are found, terminate the request with an empty `200 OK` response. <br/><br/>When `GET` or `HEAD` request includes the `Origin` header (and therefore is processed as a simple cross-origin request), and doesn't match policy settings:<br/>- If the attribute is set to `true`, immediately terminate the request with an empty `200 OK` response.<br/> - If the attribute is set to `false`, allow the request to proceed normally and don't add CORS headers to the response.|No|`true`|
+|allow-credentials|The `Access-Control-Allow-Credentials` header in the preflight response will be set to the value of this attribute and affect the client's ability to submit credentials in cross-domain requests. Policy expressions are allowed.|No|`false`|
+|terminate-unmatched-request|Controls the processing of cross-origin requests that don't match the policy settings. Policy expressions are allowed.<br/><br/>When `OPTIONS` request is processed as a preflight request and `Origin` header doesn't match policy settings:<br/> - If the attribute is set to `true`, immediately terminate the request with an empty `200 OK` response<br/>- If the attribute is set to `false`, check inbound for other in-scope `cors` policies that are direct children of the inbound element and apply them. If no `cors` policies are found, terminate the request with an empty `200 OK` response. <br/><br/>When `GET` or `HEAD` request includes the `Origin` header (and therefore is processed as a simple cross-origin request), and doesn't match policy settings:<br/>- If the attribute is set to `true`, immediately terminate the request with an empty `200 OK` response.<br/> - If the attribute is set to `false`, allow the request to proceed normally and don't add CORS headers to the response.|No|`true`|
 
 ## Elements
 
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
 |allowed-origins|Contains `origin` elements that describe the allowed origins for cross-domain requests. `allowed-origins` can contain either a single `origin` element that specifies `*` to allow any origin, or one or more `origin` elements that contain a URI.|Yes|N/A|
-|origin|The value can be either `*` to allow all origins, or a URI that specifies a single origin. The URI must include a scheme, host, and port.|Yes|If the port is omitted in a URI, port 80 is used for HTTP and port 443 is used for HTTPS.|
 |allowed-methods|This element is required if methods other than `GET` or `POST` are allowed. Contains `method` elements that specify the supported HTTP verbs. The value `*` indicates all methods.|No|If this section isn't present, `GET` and `POST` are supported.|
-|method|Specifies an HTTP verb.|At least one `method` element is required if the `allowed-methods` section is present.|N/A|
 |allowed-headers|This element contains `header` elements specifying names of the headers that can be included in the request.|Yes|N/A|
 |expose-headers|This element contains `header` elements specifying names of the headers that will be accessible by the client.|No|N/A|
-|header|Specifies a header name.|At least one `header` element is required in `allowed-headers` or in `expose-headers` if that section is present.|N/A|
 
 > [!CAUTION]
 > Use the `*` wildcard with care in policy settings. This configuration may be overly permissive and may make an API more vulnerable to certain [API security threats](mitigate-owasp-api-threats.md#security-misconfiguration).
+
+
+### allowed-origins elements
+
+|Name|Description|Required|Default|
+|----------|-----------------|--------------|-------------|
+|origin|The value can be either `*` to allow all origins, or a URI that specifies a single origin. The URI must include a scheme, host, and port.|Yes|If the port is omitted in a URI, port 80 is used for HTTP and port 443 is used for HTTPS.|
 
 
 ### allowed-methods attributes
 
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
-|preflight-result-max-age|The `Access-Control-Max-Age` header in the preflight response will be set to the value of this attribute and affect the user agent's ability to cache the preflight response.|No|0|
+|preflight-result-max-age|The `Access-Control-Max-Age` header in the preflight response will be set to the value of this attribute and affect the user agent's ability to cache the preflight response. Policy expressions are allowed.|No|0|
+
+### allowed-methods elements
+
+|Name|Description|Required|Default|
+|----------|-----------------|--------------|-------------|
+|method|Specifies an HTTP verb. Policy expressions are allowed.|At least one `method` element is required if the `allowed-methods` section is present.|N/A|
+
+### allowed-headers elements
+
+|Name|Description|Required|Default|
+|----------|-----------------|--------------|-------------|
+|header|Specifies a header name.|At least one `header` element is required in `allowed-headers` if that section is present.|N/A|
+
+### expose-headers elements
+
+|Name|Description|Required|Default|
+|----------|-----------------|--------------|-------------|
+|header|Specifies a header name.|At least one `header` element is required in `expose-headers` if that section is present.|N/A|
+
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound

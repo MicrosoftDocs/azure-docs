@@ -120,7 +120,9 @@ To create a new virtual switch:
 1. For the newly created virtual switch, set the name to something memorable.  For this example, you use *LabServicesSwitch*.
 1. Select **OK**.
 
-    Windows now creates a new network adapter. The name is similar to *vEthernet (LabServicesSwitch)*.  To verify, open the **Control Panel** > **Network and Internet** > **View network status and tasks**.  On the left, select **Change adapter settings**.
+    Windows now creates a new network adapter. The name is similar to *vEthernet (LabServicesSwitch)*.  To verify, open the **Control Panel** > **Network and Internet** > **View network status and tasks**.  On the left, select **Change adapter settings** to view all network adapters.
+
+1. Before you continue to create a NAT network, restart the template virtual machine.
 
 ### Create a NAT network
 
@@ -131,15 +133,21 @@ To create a NAT network:
 1. Select the local server in the left navigation page.
 1. Choose **Action** -> **Configure and Enable Routing and Remote Access**.
 1. When **Routing and Remote Access Server Setup Wizard** appears, select **Next**.
-1. On the **Configuration** page, select **Network address translation (NAT)** configuration.  Select **Next**.
+1. On the **Configuration** page, select **Network address translation (NAT)** configuration, and then select **Next**.
 
     >[!WARNING]
-    >Do not choose the 'Virtual private network (VPN) access and NAT' option.
+    >Don't choose the **Virtual private network (VPN) access and NAT** option.
 
-1. On **NAT Internet Connection** page, choose 'Ethernet'.  Don't choose the 'vEthernet (LabServicesSwitch)' connection we created in Hyper-V Manager. Select **Next**.
+1. On **NAT Internet Connection** page, choose **Ethernet**, and then select **Next**. 
+
+    >[!WARNING]
+    >Don't choose the **vEthernet (LabServicesSwitch)** connection we created in Hyper-V Manager.
+
+    If there are no network interfaces in the list, restart the virtual machine.
+
 1. Select **Finish** on the last page of the wizard.
-1. When the **Start the service** dialog appears, select **Start Service**.
-1. Wait until service is running.
+
+1. On the **Start the service** dialog, select **Start Service**, and wait until the service is running.
 
 ## Update network adapter settings
 

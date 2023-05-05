@@ -65,26 +65,26 @@ For file share with a public endpoint:
 #!/bin/bash
 
 # Assign variables values for your storage account and file share
-storage_account_name=""
-storage_account_key=""
-fileshare_name=""
+STORAGE_ACCOUNT_NAME=""
+STORAGE_ACCOUNT_KEY=""
+FILESHARE_NAME=""
 
 # Do not use 'mnt' for mount directory.
 # Using ‘mnt’ will cause issues on student VMs.
-mount_directory="prm-mnt" 
+MOUNT_DIRECTORY="prm-mnt" 
 
-sudo mkdir /$mount_directory/$fileshare_name
+sudo mkdir /$MOUNT_DIRECTORY/$FILESHARE_NAME
 if [ ! -d "/etc/smbcredentials" ]; then
     sudo mkdir /etc/smbcredentials
 fi
-if [ ! -f "/etc/smbcredentials/$storage_account_name.cred" ]; then
-    sudo bash -c "echo ""username=$storage_account_name"" >> /etc/smbcredentials/$storage_account_name.cred"
-    sudo bash -c "echo ""password=$storage_account_key"" >> /etc/smbcredentials/$storage_account_name.cred"
+if [ ! -f "/etc/smbcredentials/$STORAGE_ACCOUNT_NAME.cred" ]; then
+    sudo bash -c "echo ""username=$STORAGE_ACCOUNT_NAME"" >> /etc/smbcredentials/$STORAGE_ACCOUNT_NAME.cred"
+    sudo bash -c "echo ""password=$STORAGE_ACCOUNT_KEY"" >> /etc/smbcredentials/$STORAGE_ACCOUNT_NAME.cred"
 fi
-sudo chmod 600 /etc/smbcredentials/$storage_account_name.cred
+sudo chmod 600 /etc/smbcredentials/$STORAGE_ACCOUNT_NAME.cred
 
-sudo bash -c "echo ""//$storage_account_name.file.core.windows.net/$fileshare_name /$mount_directory/$fileshare_name cifs nofail,vers=3.0,credentials=/etc/smbcredentials/$storage_account_name.cred,dir_mode=0777,file_mode=0777,serverino"" >> /etc/fstab"
-sudo mount -t cifs //$storage_account_name.file.core.windows.net/$fileshare_name /$mount_directory/$fileshare_name -o vers=3.0,credentials=/etc/smbcredentials/$storage_account_name.cred,dir_mode=0777,file_mode=0777,serverino
+sudo bash -c "echo ""//$STORAGE_ACCOUNT_NAME.file.core.windows.net/$FILESHARE_NAME /$MOUNT_DIRECTORY/$FILESHARE_NAME cifs nofail,vers=3.0,credentials=/etc/smbcredentials/$STORAGE_ACCOUNT_NAME.cred,dir_mode=0777,file_mode=0777,serverino"" >> /etc/fstab"
+sudo mount -t cifs //$STORAGE_ACCOUNT_NAME.file.core.windows.net/$FILESHARE_NAME /$MOUNT_DIRECTORY/$FILESHARE_NAME -o vers=3.0,credentials=/etc/smbcredentials/$STORAGE_ACCOUNT_NAME.cred,dir_mode=0777,file_mode=0777,serverino
 ```
 
 For file share with a private endpoint:
@@ -93,27 +93,27 @@ For file share with a private endpoint:
 #!/bin/bash
 
 # Assign variables values for your storage account and file share
-storage_account_name=""
-storage_account_ip=""
-storage_account_key=""
-fileshare_name=""
+STORAGE_ACCOUNT_NAME=""
+STORAGE_ACCOUNT_IP=""
+STORAGE_ACCOUNT_KEY=""
+FILESHARE_NAME=""
 
 # Do not use 'mnt' for mount directory.
 # Using ‘mnt’ will cause issues on student VMs.
-mount_directory="prm-mnt" 
+MOUNT_DIRECTORY="prm-mnt" 
 
-sudo mkdir /$mount_directory/$fileshare_name
+sudo mkdir /$MOUNT_DIRECTORY/$FILESHARE_NAME
 if [ ! -d "/etc/smbcredentials" ]; then
     sudo mkdir /etc/smbcredentials
 fi
-if [ ! -f "/etc/smbcredentials/$storage_account_name.cred" ]; then
-    sudo bash -c "echo ""username=$storage_account_name"" >> /etc/smbcredentials/$storage_account_name.cred"
-    sudo bash -c "echo ""password=$storage_account_key"" >> /etc/smbcredentials/$storage_account_name.cred"
+if [ ! -f "/etc/smbcredentials/$STORAGE_ACCOUNT_NAME.cred" ]; then
+    sudo bash -c "echo ""username=$STORAGE_ACCOUNT_NAME"" >> /etc/smbcredentials/$STORAGE_ACCOUNT_NAME.cred"
+    sudo bash -c "echo ""password=$STORAGE_ACCOUNT_KEY"" >> /etc/smbcredentials/$STORAGE_ACCOUNT_NAME.cred"
 fi
 sudo chmod 600 /etc/smbcredentials/$storage_account_name.cred
 
-sudo bash -c "echo ""//$storage_account_ip/$fileshare_name /$mount_directory/$fileshare_name cifs nofail,vers=3.0,credentials=/etc/smbcredentials/$storage_account_name.cred,dir_mode=0777,file_mode=0777,serverino"" >> /etc/fstab"
-sudo mount -t cifs //$storage_account_name.file.core.windows.net/$fileshare_name /$mount_directory/$fileshare_name -o vers=3.0,credentials=/etc/smbcredentials/$storage_account_name.cred,dir_mode=0777,file_mode=0777,serverino
+sudo bash -c "echo ""//$STORAGE_ACCOUNT_IP/$FILESHARE_NAME /$MOUNT_DIRECTORY/$fileshare_name cifs nofail,vers=3.0,credentials=/etc/smbcredentials/$STORAGE_ACCOUNT_NAME.cred,dir_mode=0777,file_mode=0777,serverino"" >> /etc/fstab"
+sudo mount -t cifs //$STORAGE_ACCOUNT_NAME.file.core.windows.net/$FILESHARE_NAME /$MOUNT_DIRECTORY/$FILESHARE_NAME -o vers=3.0,credentials=/etc/smbcredentials/$STORAGE_ACCOUNT_NAME.cred,dir_mode=0777,file_mode=0777,serverino
 ```
 
 If the template VM that mounts the Azure Files share to the `/mnt` directory is already published, the student can either:
@@ -211,18 +211,18 @@ To use an Azure NetApp Files share in Azure Lab Services:
         exit 1
     fi
     
-    volume_name=$1
-    capacity_pool_ipaddress=0.0.0.0 # IP address of capacity pool
+    VOLUME_NAME=$1
+    CAPACITY_POOL_IP_ADDR=0.0.0.0 # IP address of capacity pool
     
     # Do not use 'mnt' for mount directory.
     # Using ‘mnt’ might cause issues on student VMs.
-    mount_directory="prm-mnt" 
+    MOUNT_DIRECTORY="prm-mnt" 
     
-    sudo mkdir -p /$mount_directory
-    sudo mkdir /$mount_directory/$folder_name
+    sudo mkdir -p /$MOUNT_DIRECTORY
+    sudo mkdir /$MOUNT_DIRECTORY/$FOLDER_NAME
     
-    sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp $capacity_pool_ipaddress:/$volume_name /$mount_directory/$volume_name
-    sudo bash -c "echo ""$capacity_pool_ipaddress:/$volume_name /$mount_directory/$volume_name nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0"" >> /etc/fstab"
+    sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp $CAPACITY_POOL_IP_ADDR:/$VOLUME_NAME /$MOUNT_DIRECTORY/$VOLUME_NAME
+    sudo bash -c "echo ""$CAPACITY_POOL_IP_ADDR:/$VOLUME_NAME /$MOUNT_DIRECTORY/$VOLUME_NAME nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0"" >> /etc/fstab"
     ```
 
 6. If all students are sharing access to the same Azure NetApp Files volume, you can run the `mount_fileshare.sh` script on the template machine before publishing. If students each get their own volume, save the script to be run later by the student.

@@ -181,7 +181,7 @@
       href: cache-configure.md
     - name: Import/Export data
       href: cache-how-to-import-export-data.md
-    - name: Configure active encryption for Enterprise
+    - name: Configure disk encryption 
       href: cache-how-to-encryption.md
     - name: Reboot
       href: cache-administration.md#reboot
@@ -211,7 +211,7 @@
       href: cache-insights-overview.md
   - name: Scale
     items:
-    - name: Update to a different size and tier
+    - name: Change the size and tier of a cache
       href: cache-how-to-scale.md
     - name: Use Redis cluster to scale in/out
       href: cache-how-to-premium-clustering.md

@@ -3,7 +3,7 @@ title: "Vectra AI Detect connector for Microsoft Sentinel"
 description: "Learn how to install the connector Vectra AI Detect to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 03/25/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -17,7 +17,7 @@ The AI Vectra Detect connector allows users to connect Vectra Detect logs with M
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog (AIVectraDetect)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
+| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
 | **Supported by** | [Vectra AI](https://www.vectra.ai/support) |
 
 ## Query samples

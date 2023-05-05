@@ -12,7 +12,7 @@ ms.author: orspodek
 
 Advisor resources are now onboarded to [Azure Resource Graph](https://azure.microsoft.com/features/resource-graph/). This lays foundation to many at-scale customer scenarios for Advisor recommendations. Few scenarios that were not possible before to do at scale and now can be achieved using Resource Graph are:
 * Gives capability to perform complex query for all your subscriptions in Azure portal
-* Recommendations summarized by category types ( like reliability, performance)  and impact types (high, medium, low)
+* Recommendations summarized by category types (like reliability, performance)  and impact types (high, medium, low)
 * All recommendations for a particular recommendation type
 * Impacted resource count by recommendation category
 
