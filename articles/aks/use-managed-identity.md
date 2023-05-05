@@ -3,7 +3,7 @@ title: Use a managed identity in Azure Kubernetes Service (AKS)
 description: Learn how to use a system-assigned or user-assigned managed identity in Azure Kubernetes Service (AKS).
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 04/26/2023
+ms.date: 05/05/2023
 ---
 
 # Use a managed identity in Azure Kubernetes Service (AKS)
@@ -176,7 +176,7 @@ A custom control plane managed identity enables access to the existing identity 
     }
     ```
 
-* Before creating the cluster, [add the role assignment for control plane identity][add role assignment for control plane identity] using the [`az aks create`][az-aks-create] command.
+* Before creating the cluster, [add the role assignment for control plane identity][add role assignment for control plane identity] using the [`az role assignment create`][az-role-assignment-create] command.
 
     ```azurecli-interactive
     az aks create \
@@ -220,7 +220,7 @@ Make sure you have Azure CLI version 2.49.0 or later installed. Run `az --versio
     }
     ```
   
-* After creating the identity, [add the role assignment for control plane identity][add role assignment for control plane identity] using the [`az aks create`][az-aks-create] command.
+* After creating the identity, [add the role assignment for control plane identity][add role assignment for control plane identity] using the [`az role assignment create`][az-role-assignment-create] command.
 
 * Update your cluster with your existing identities using the [`az aks update`][az-aks-update] command. Make sure you provide the control plane identity resource ID for `assign-identity`.
 
