@@ -1,6 +1,6 @@
 ---
 title: "Azure Arc-enabled Kubernetes identity and access overview"
-ms.date: 02/28/2023
+ms.date: 05/04/2023
 ms.topic: conceptual
 description: "Understand identity and access options for Arc-enabled Kubernetes clusters."
 ---
@@ -27,12 +27,12 @@ For more information, see [Cluster connect access to Azure Arc-enabled Kubernete
 
 With Azure RBAC, role definitions outline the permissions to be applied. You assign these roles to users or groups via a role assignment for a particular scope. The scope can be across the entire subscription or limited to a resource group or to an individual resource such as a Kubernetes cluster.
 
-Using Azure RBAC with your Arc-enabled Kubernetes clusters allows the benefits of Azure role assignments, such as activity logs showing all Azure RBAC changes to an Azure resource.
+Using Azure RBAC with your Arc-enabled Kubernetes clusters allows the benefits of Azure role assignments, such as activity logs that show all Azure RBAC changes to an Azure resource.
 
-For more information, see [Azure RBAC on Azure Arc-enabled Kubernetes](conceptual-azure-rbac.md) and [Use Azure RBAC for Azure Arc-enabled Kubernetes clusters](azure-rbac.md).
+For more information, see [Azure RBAC on Azure Arc-enabled Kubernetes (preview)](conceptual-azure-rbac.md) and [Use Azure RBAC on Azure Arc-enabled Kubernetes clusters (preview)](azure-rbac.md).
 
 ## Next steps
 
+- Learn about [cluster connect access to Azure Arc-enabled Kubernetes clusters](conceptual-cluster-connect.md).
+- Learn about [Azure RBAC on Azure Arc-enabled Kubernetes (preview)](conceptual-azure-rbac.md)
 - Learn about [access and identity options for Azure Kubernetes Service (AKS) clusters](../../aks/concepts-identity.md).
-- Learn about [Cluster connect access to Azure Arc-enabled Kubernetes clusters](conceptual-cluster-connect.md).
-- Learn about [Azure RBAC on Azure Arc-enabled Kubernetes](conceptual-azure-rbac.md)
