@@ -19,6 +19,10 @@ recommendations: false
 
 # Azure Text Translation SDK (preview)
 
+> [!IMPORTANT]
+>
+> * The Translator text SDKs are currently available in public preview. Features, approaches and processes may change, prior to General Availability (GA), based on user feedback.
+
 Azure Text Translation is a cloud-based REST API feature of the Azure Translator service. The Text Translation API enables quick and accurate source-to-target text translations in real time. The Text Translation software development kit (SDK) is a set of libraries and tools that enable you to easily integrate Text Translation REST API capabilities into your applications. Text Translation SDK is available across programming platforms in C#/.NET, Java, JavaScript, and Python.
 
 ## Supported languages
@@ -27,10 +31,10 @@ Text Translation SDK supports the following:
 
 | Language → SDK version | Package|Client library| Supported API version|
 |:----------------------:|:----------|:----------|:-------------|
-|[.NET/C# → 1.0.0-beta.1](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.Translation.Text/1.0.0-beta.1/index.html)|[NuGet](https://www.nuget.org/packages/Azure.AI.Translation.Text/1.0.0-beta.1)|[Azure SDK for .NET](/dotnet/api/overview/azure/ai.translation.text-readme?view=azure-dotnet-preview&preserve-view=true)|Translator v3.0|
-|[Java → 1.0.0-beta.1](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-translation-text/1.0.0-beta.1/index.html)|[MVN repository](https://mvnrepository.com/artifact/com.azure/azure-ai-translation-text/1.0.0-beta.1)|[Azure SDK for Java](/java/api/overview/azure/ai-translation-text-readme?view=azure-java-preview&preserve-view=true)|Translator v3.0|
-|[JavaScript → 1.0.0-beta.1](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-cognitiveservices-translatortext/1.0.0/index.html)|[npm](https://www.npmjs.com/package/@azure-rest/ai-translation-text/v/1.0.0-beta.1)|[Azure SDK for JavaScript](/javascript/api/overview/azure/text-translation?view=azure-node-preview&preserve-view=true) |Translator v3.0 |
-|[Python → 1.0.0b1](/python/api/azure-ai-translation-text/azure.ai.translation.text?view=azure-python-preview&preserve-view=true)|[PyPi](https://pypi.org/project/azure-ai-translation-text/1.0.0b1/)| |Translator v3.0|
+|[.NET/C# → 1.0.0-beta.1](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.Translation.Text/1.0.0-beta.1/index.html)|[NuGet](https://www.nuget.org/packages/Azure.AI.Translation.Text/1.0.0-beta.1)|[Azure SDK for .NET](https://learn.microsoft.com/dotnet/api/overview/azure/ai.translation.text-readme?view=azure-dotnet-preview&preserve-view=true)|Translator v3.0|
+|[Java → 1.0.0-beta.1](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-translation-text/1.0.0-beta.1/index.html)|[MVN repository](https://mvnrepository.com/artifact/com.azure/azure-ai-translation-text/1.0.0-beta.1)|[Azure SDK for Java](https://learn.microsoft.com/java/api/overview/azure/ai-translation-text-readme?view=azure-java-preview&preserve-view=true)|Translator v3.0|
+|[JavaScript → 1.0.0-beta.1](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-cognitiveservices-translatortext/1.0.0/index.html)|[npm](https://www.npmjs.com/package/@azure-rest/ai-translation-text/v/1.0.0-beta.1)|[Azure SDK for JavaScript](https://learn.microsoft.com/javascript/api/overview/azure/text-translation?view=azure-node-preview&preserve-view=true) |Translator v3.0 |
+|[Python → 1.0.0b1](https://learn.microsoft.com/python/api/azure-ai-translation-text/azure.ai.translation.text?view=azure-python-preview&preserve-view=true)|[PyPi](https://pypi.org/project/azure-ai-translation-text/1.0.0b1/)| |Translator v3.0|
 
 ## Changelog and release history
 
@@ -292,7 +296,7 @@ Create a client object to interact with the Text Translation SDK, and then call 
 
 ## Help options
 
-The [Microsoft Q&A](/answers/tags/132/azure-translator) and [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-text-translation) forums are available for the developer community to ask and answer questions about Azure Text Translation and other services. Microsoft monitors the forums and replies to questions that the community has yet to answer. To make sure that we see your question, tag it with **`azure-text-translation`**.
+The [Microsoft Q&A](https://learn.microsoft.com/answers/tags/132/azure-translator) and [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-text-translation) forums are available for the developer community to ask and answer questions about Azure Text Translation and other services. Microsoft monitors the forums and replies to questions that the community has yet to answer. To make sure that we see your question, tag it with **`azure-text-translation`**.
 
 ## Next steps
 

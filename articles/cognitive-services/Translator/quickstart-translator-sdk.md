@@ -21,7 +21,11 @@ zone_pivot_groups:  programming-languages-set-translator-sdk
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD049 -->
 
-# Quickstart: Azure Cognitive Services Translator SDKs
+# Quickstart: Azure Cognitive Services Translator SDKs (preview)
+
+> [!IMPORTANT]
+>
+> * The Translator text SDKs are currently available in public preview. Features, approaches and processes may change, prior to General Availability (GA), based on user feedback.
 
 In this quickstart, get started using the Translator service to [translate text](reference/v3-0-translate.md) using a programming language of your choice. For this project, we recommend using the free pricing tier (F0), while you're learning the technology, and later upgrading to a paid tier for production.
 
