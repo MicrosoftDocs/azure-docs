@@ -35,7 +35,7 @@ To export your configuration:
 
 Exporting and saving your configuration allows you to roll back to a previous version of your configuration. We recommend exporting your provisioning configuration and saving it for later use anytime you make a change to your attribute mappings or scoping filters. All you need to do is open up the JSON file that you downloaded in the steps above, copy the entire contents of the JSON file, replace the entire contents of the JSON payload in the schema editor, and then save. If there's an active provisioning cycle, it completes and the next cycle uses the updated schema. The next cycle is also an initial cycle, which reevaluates every user and group based on the new configuration. Consider the following when rolling back to a previous configuration:
 
-- Users are evaluated again to determine if they should be in scope. If the scoping filters have changed a user isn't in scope anymore they are disabled. While this is the desired behavior in most cases, there are times where you may want to prevent this and can use the [skip out of scope deletions](./skip-out-of-scope-deletions.md) functionality. 
+- Users are evaluated again to determine if they should be in scope. If the scoping filters have changed a user isn't in scope anymore they're disabled. While this is the desired behavior in most cases, there are times where you may want to prevent this and can use the [skip out of scope deletions](./skip-out-of-scope-deletions.md) functionality. 
 - Changing your provisioning configuration restarts the service and triggers an [initial cycle](./how-provisioning-works.md#provisioning-cycles-initial-and-incremental).
 
 ## Export and import your provisioning configuration by using the Microsoft Graph API
@@ -45,7 +45,7 @@ You can use the Microsoft Graph API and the Microsoft Graph Explorer to export y
 ### Step 1: Retrieve your Provisioning App Service Principal ID (Object ID)
 
 1. Launch the [Azure portal](https://portal.azure.com), and navigate to the Properties section of your  provisioning application. For example, if you want to export your *Workday to AD User Provisioning application* mapping navigate to the Properties section of that app.
-1. In the Properties section of your provisioning app, copy the GUID value associated with the *Object ID* field. This value is also called the **ServicePrincipalId** of your App and it is used in Microsoft Graph Explorer operations.
+1. In the Properties section of your provisioning app, copy the GUID value associated with the *Object ID* field. This value is also called the **ServicePrincipalId** of your App and it's used in Microsoft Graph Explorer operations.
 
    ![Workday App Service Principal ID](./media/export-import-provisioning-configuration/wd_export_01.png)
 
