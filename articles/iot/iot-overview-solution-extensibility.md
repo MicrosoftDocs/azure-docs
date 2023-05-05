@@ -9,7 +9,7 @@ ms.topic: overview
 ms.date: 04/03/2023
 ms.custom: template-overview
 
-# As a solution builder, I want a high-level overview of the options for extensing an IoT solution so that I can easily find relevant content for my scenario.
+# As a solution builder, I want a high-level overview of the options for extending an IoT solution so that I can easily find relevant content for my scenario.
 ---
 
 # Extend your IoT solution
