@@ -117,7 +117,7 @@ For more information on creating groups in Azure Active Directory using Azure Po
     1. Sign in to Azure:
 
         ```azurepowershell-interactive
-        Login-AzAccount
+        Connect-AzAccount
         ```
     
 ## Acquire the object ID
