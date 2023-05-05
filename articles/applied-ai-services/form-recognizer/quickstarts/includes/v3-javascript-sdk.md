@@ -308,7 +308,7 @@ In this example, we analyze an invoice using the **prebuilt-invoice** model.
 async function main() {
     const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
 
-    const poller = await client.beginAnalyzeDocumentFromUrl("prebuilt-layout", invoiceUrl);
+    const poller = await client.beginAnalyzeDocumentFromUrl("prebuilt-invoice", invoiceUrl);
 
     const {
         pages,
