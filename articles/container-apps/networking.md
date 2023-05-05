@@ -173,7 +173,7 @@ UDR is only supported on the workload profiles architecture. The following appli
 Application rules allow or deny traffic based on the application layer. The following outbound firewall application rules are required based on scenario.
 
 | Scenarios | FQDNs | Description | 
-|--|--|--|--|
+|--|--|--|
 | All scenarios | *mcr.microsoft.com*, **.data.mcr.microsoft.com* | These FQDNs for Microsoft Container Registry (MCR) are used by Azure Container Apps and either these application rules or the network rules for MCR must be added to the allowlist when using Azure Container Apps with Azure Firewall. | 
 | Azure Container Registry (ACR) | *Your-ACR-address*, **.blob.windows.net* | These FQDNs are required when using Azure Container Apps with ACR and Azure Firewall. | 
 | Azure Key Vault | *Your-Azure-Key-Vault-address*, *login.microsoft.com* | These FQDNs are required in addition to the service tag required for the network rule for Azure Key Vault. | 
@@ -184,10 +184,10 @@ Application rules allow or deny traffic based on the application layer. The foll
 Network rules allow or deny traffic based on the network and transport layer. The following outbound firewall network rules are required based on scenario.
 
 | Scenarios | Service Tag | Description | 
-|--|--|--|--|
-| All scenarios | *MicrosoftContainerRegistry*, *AzureFrontDoorFirstParty*  | These Service Tags for Microsoft Container Registry (MCR) are used by Azure Container Apps and either these network rules or the application rules for MCR must be added to the allowlist when using Azure Container Apps with Azure Firewall. | No |
-| Azure Container Registry (ACR) | *AzureContainerRegistry* | When using ACR with Azure Container Apps, you will need to configure these application rules used by Azure Container Registry. | No |
-| Azure Key Vault | *AzureKeyVault*, *AzureActiveDirectory* | These service tags are required in addition to the FQDN for the application rule for Azure Key Vault. | No |
+|--|--|--|
+| All scenarios | *MicrosoftContainerRegistry*, *AzureFrontDoorFirstParty*  | These Service Tags for Microsoft Container Registry (MCR) are used by Azure Container Apps and either these network rules or the application rules for MCR must be added to the allowlist when using Azure Container Apps with Azure Firewall. |
+| Azure Container Registry (ACR) | *AzureContainerRegistry* | When using ACR with Azure Container Apps, you will need to configure these application rules used by Azure Container Registry. |
+| Azure Key Vault | *AzureKeyVault*, *AzureActiveDirectory* | These service tags are required in addition to the FQDN for the application rule for Azure Key Vault. |
 
 > [!Note]
 > For Azure resources you are using with Azure Firewall not listed above, please refer to the [service tags documentation](../virtual-network/service-tags-overview.md#available-service-tags).
