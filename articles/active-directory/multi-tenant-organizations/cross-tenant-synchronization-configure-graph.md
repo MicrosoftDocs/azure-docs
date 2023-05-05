@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: how-to
-ms.date: 04/15/2023
+ms.date: 05/05/2023
 ms.author: rolyon
 ms.custom: it-pro
 

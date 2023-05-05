@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 02/14/2023
+ms.date: 05/05/2023
 ms.author: mimart
 author: msmimart
 manager: celestedg

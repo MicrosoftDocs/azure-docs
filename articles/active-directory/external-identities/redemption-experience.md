@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 01/23/2023
+ms.date: 05/05/2023
 ms.author: cmulligan
 author: csmulligan
 manager: celestedg
