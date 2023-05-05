@@ -46,11 +46,11 @@ items:
                 - name: JavaScript
                   items:
                     - name: Sign in users
-                      href: how-to-single-page-app-vanillajs-sample-sign-in.md  
+                      href: how-to-single-page-app-vanillajs-sample-sign-in.md
                 - name: React
                   items:
                     - name: Sign in users
-                      href: how-to-single-page-app-react-sample.md  
+                      href: how-to-single-page-application-react-sample.md
             - name: Web app
               items:
                 - name: Node.js
