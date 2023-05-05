@@ -79,7 +79,7 @@ To create a new app Deployment, you use the
 cmdlet. The following example creates an app deployment in Azure Spring Apps named `default`, for the `gateway` app.
 
 ```azurepowershell-interactive
-New-AzSpringCloudAppDeployment -ResourceGroupName <resource group name> -Name <service instance name> -AppName gateway -DeploymentName default
+New-AzSpringCloudAppDeployment -ResourceGroupName <resource group name> -ServiceName <service instance name> -AppName gateway -Name default
 ```
 
 ## Get a service and its properties
