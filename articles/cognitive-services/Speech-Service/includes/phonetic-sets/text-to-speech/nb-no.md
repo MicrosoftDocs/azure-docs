@@ -6,7 +6,7 @@ ms.topic: include
 ms.author: eur
 ---
 
-### Vowels for nm-NO
+### Vowels for nb-NO
 
 | `ipa` | `viseme` | Example 1     | Example 2        | Example 3     |
 |-------|----------|---------------|------------------|---------------|

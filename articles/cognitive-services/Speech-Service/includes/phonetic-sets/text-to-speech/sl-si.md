@@ -6,7 +6,7 @@ ms.topic: include
 ms.author: eur
 ---
 
-### Vowelsfor sl-SI
+### Vowels for sl-SI
 
 | `ipa` | `viseme` | Example 1              | Example 2       | Example 3        |
 |-------|----------|------------------------|-----------------|------------------|

@@ -13,7 +13,7 @@ ms.author: eur
 | anders /a **1** n - d ax r s/ | Multiplikationszeichen /m uh l - t iy - p l iy - k a - ts y ow **1** n s - ts ay - c n/ | Biologie /b iy - ow - l ow - g iy **1**/ | Speech service phone set put stress after the vowel of the stressed  syllable |
 | Allgemeinwissen /a **2** l - g ax - m ay 1 n - v ih - s n/ | Abfallentsorgungsfirma /a 1 p - f a l - ^ eh n t - z oh **2** ax r - g uh ng s - f ih ax r - m  a/ | Computertomographie /k oh m - p y uw 1 - t ax r - t ow - m ow - g r a - f iy **2**/ | The Speech service phone set puts stress after the vowel of the sub-stressed syllable |
 
-#### Vowels for german
+#### Vowels for German
 
 | `sapi` | `ipa`     | VisemeID | Example&nbsp;1                             | Example&nbsp;2     | Example&nbsp;3                          |
 |--------|-----------|----------|---------------------------------------|---------------|------------------------------------|

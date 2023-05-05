@@ -73,7 +73,7 @@ The Speech service phone set for `zh-TW` is based on the native phone <a href="h
 | ㄨㄤ       | uang     | 廣 (ㄍ**ㄨㄤ**ˇ, g**uang** 3)        |
 | ㄨㄛ       | uo       | 多 (ㄉ**ㄨㄛ**, d**uo** 1)           |
 
-### Bopomofo Whole syllable for zh-TW
+### Bopomofo Whole syllable zh-TW
 
 | Bopomofo | Pinyin | `sapi` Example  <br> (Bopomofo, Pinyin) |
 |----------|--------|----------------------------------|
@@ -109,7 +109,7 @@ The Speech service phone set for `zh-TW` is based on the native phone <a href="h
 | ㄥ        | eng      | 鞥 (**ㄥ**, **eng** 1)             |
 | ㄝ        | ê        | ㄝ (**ㄝ**, **ê** 1)               |
 
-### Bopomofo tone for zh-TW
+### Bopomofo tone zh-TW
 
 | Bopomofo | Tone number | `sapi` Example <br> (Bopomofo, Pinyin)|
 |----------|-------------|--------------------------------|

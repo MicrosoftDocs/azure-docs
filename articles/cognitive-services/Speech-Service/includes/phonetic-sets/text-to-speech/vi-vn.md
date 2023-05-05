@@ -46,7 +46,7 @@ ms.author: eur
 | `iə`  | 6,1      |           |           | k**ìa**  |
 | `a͡ʲ` | 2        | **a**ch   | họ**a**ch |          |
 
-### Consonant fo vi-VN
+### Consonant for vi-VN
 
 | `ipa` | `viseme` | Example 1 | Example 2 | Example 3|
 |-------|----------|-----------|-----------|----------|
