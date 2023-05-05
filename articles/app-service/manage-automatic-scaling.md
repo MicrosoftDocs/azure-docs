@@ -12,7 +12,7 @@ ms.author: msangapu
 > Automatic scaling is in preview. It's available for Premium Pv2 and Pv3 pricing tiers, and supported for all app types: Windows, Linux, and Windows container.
 >
 
-App Service offers automatic scaling that adjusts the number of instances based on incoming HTTP requests. This guarantees that your web apps can manage different levels of traffic. You can adjust scaling settings, like setting the minimum and maximum number of instances per web app, to enhance performance. The platform tackles cold start issues by pre-warming instances that act as a buffer when scaling out, resulting in smooth performance transitions. Billing is calculated per second using existing meters, and pre-warmed instances are also charged per second.
+App Service offers automatic scaling that adjusts the number of instances based on incoming HTTP requests. Automatic scaling guarantees that your web apps can manage different levels of traffic. You can adjust scaling settings, like setting the minimum and maximum number of instances per web app, to enhance performance. The platform tackles cold start issues by pre-warming instances that act as a buffer when scaling out, resulting in smooth performance transitions. Billing is calculated per second using existing meters, and pre-warmed instances are also charged per second.
 
 ## How automatic scaling works
 
@@ -22,7 +22,7 @@ Here are a few scenarios where you should use scale automatically:
 
 - You don't want to set up autoscale rules based on resource metrics.
 - You want your web apps within the same App Service Plan to scale differently and independently of each other.
-- A web app is connected to backend data sources like databases or legacy systems, which may not be able to scale as fast as the web app. Scaling automatically allows you to set the maximum number of instances your App Service Plan can scale to. This setting helps where the backend is a bottleneck to scaling and is overwhelmed by the web app.
+- A web app is connected to backend data sources like databases or legacy systems, which may not be able to scale as fast as the web app. Scaling automatically allows you to set the maximum number of instances your App Service Plan can scale to. This setting helps the web app to not overwhelm the backend.
 
 > [!IMPORTANT]
 > [`Always ON`](./configure-common.md?tabs=portal#configure-general-settings) needs to be disabled to use automatic scaling.
@@ -93,7 +93,7 @@ You can modify the number of pre-warmed instances for an app using the Azure CLI
 
 ## Set maximum number of web app instances
 
-The __maximum scale limit__ sets the maximum number of instances a web app can scale to. This is helpful when a downstream component like a database has limited throughput. The per-app maximum can be between 1 and the __maximum burst__.
+The __maximum scale limit__ sets the maximum number of instances a web app can scale to. The maximum scale limit helps when a downstream component like a database has limited throughput. The per-app maximum can be between 1 and the __maximum burst__.
 
 #### [Azure portal](#tab/azure-portal)
 
@@ -140,19 +140,19 @@ az appservice plan update --resource-group <RESOURCE_GROUP> --name <APP_SERVICE_
 ### How is automatic scaling different than autoscale?
 Automatic scaling is a new scaling option in App Service that automatically handles web app scaling decisions for you. **[Azure autoscale](../azure-monitor/autoscale/autoscale-overview.md)** is a pre-existing Azure capability for defining schedule-based and resource-based scaling rules for your App Service Plans. 
 
-A quick comparison of various scale out and scale in options available for App Service web apps:
+A comparison of scale out and scale in options available on App Service:
 
 | | **Manual scaling** | **Auto scaling** | **Automatic scaling** |
 | --- | --- | --- | --- |
-| Available pricing Tiers	| Basic and Up | Standard and Up | Premium v2 and Premium v3 |
-|Rule Based Scaling	|No	|Yes	|No (Scale out & in is managed by the platform bbased on incoming HTTP traffic)|
-|Schedule Based Scaling	|No	|Yes	|No|
-|Always Ready Instances | No, your web app will run on the number of manually scaled instances.	| No, your web app will run on other instances available during the scale out operation, based on threshold defined for auto scale rules. | Yes (Minimum of 1) |
-|Prewarmed Instances	|No	|No	|Yes (Default 1) |
-|Per-App Maximum	|No	|No	|Yes|
+| Available pricing tiers	| Basic and Up | Standard and Up | Premium v2 and Premium v3 |
+|Rule-based scaling	|No	|Yes	|No, the platform manages the scale out and in based on HTTP traffic. |
+|Schedule-based scaling	|No	|Yes	|No|
+|Always ready instances | No, your web app runs on the number of manually scaled instances.	| No, your web app runs on other instances available during the scale out operation, based on threshold defined for autoscale rules. | Yes (minimum 1) |
+|Pre-warmed instances	|No	|No	|Yes (default 1) |
+|Per-app maximum	|No	|No	|Yes|
 
 ### How does automatic scaling work with existing autoscale rules?
-Once automatic scaling for web apps is configured, existing Azure autoscale rules and schedules won't work. Applications can use either automatic scaling, or autoscale, but not both.
+Once automatic scaling is configured, existing Azure autoscale rules and schedules are disabled. Applications can use either automatic scaling, or autoscale, but not both.
 
 ### Does automatic scaling support Azure Function apps?
 No, you can only have Azure App Service web apps in the App Service Plan where you wish to enable automatic scaling. If you have existing Azure Functions apps in the same App Service Plan, or if you create new Azure Functions apps, then automatic scaling is disabled. For Functions, it's recommended to use the [Azure Functions Premium plan](../azure-functions/functions-premium-plan.md) instead.
