@@ -15,7 +15,7 @@ ms.reviewer: arvinh
 
 # How-to: Export provisioning configuration and roll back to a known good state
 
-In this article, you'll learn how to:
+In this article, you learn how to:
 
 - Export and import your provisioning configuration from the Azure portal
 - Export and import your provisioning configuration by using the Microsoft Graph API
