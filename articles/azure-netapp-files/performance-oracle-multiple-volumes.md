@@ -127,6 +127,10 @@ Utilizing Direct NFS, a single chipset for consistency, and understanding networ
 
 Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its networking performance. This high-performance path bypasses the host from the data path, which reduces latency, jitter, and CPU utilization for the most demanding network workloads on supported VM types. When deploying VMs through configuration management utilities such as terraform or command line, be aware that accelerated networking is not enabled by default. For optimal performance, enable accelerated networking. Take note, accelerated networking is enabled or disabled on a network interface by network interface basis. The accelerated networking feature is one that may be enabled or disabled dynamically. 
 
+>[!NOTE]
+>This article contains references to the term slave, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+
+
 An authoritative approach to ensuing accelerated networking is enabled for a NIC is via the Linux terminal. If accelerated networking is enabled for a NIC, a second virtual NIC is present associated with the first NIC. This second NIC is configured by the system with the SLAVE flag enabled. If no NIC is present with the SLAVE flag, accelerated networking is not enabled for that interface. 
 
 In the scenario where multiple NICs are configured, you need to determine which SLAVE interface is associated with the NIC used to mount the NFS volume. Adding network interface cards to the VM has no effect on performance. 
