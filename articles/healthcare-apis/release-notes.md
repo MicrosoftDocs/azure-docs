@@ -29,10 +29,12 @@ General availability (GA) of Azure Health Data services in West Central US regio
 #### FHIR Service 
 
 **Fixed performance for Search Queries with identifiers**
+
 This bug fix addresses timeout issues observed for search queries with identifiers, by leveraging OPTIMIZE clause.
 For more details, visit [#3207](https://github.com/microsoft/fhir-server/pull/3207)
 
 **Fixed transient issues associated with loading custom search parameters**
+
 This bug fix addresses the issue, where the FHIR service would not load the latest SearchParameter status in event of failure.
 For more details, visit [#3222](https://github.com/microsoft/fhir-server/pull/3222)
 
