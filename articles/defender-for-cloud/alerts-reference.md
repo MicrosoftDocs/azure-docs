@@ -600,8 +600,6 @@ The following tables include the Defender for Servers security alerts [to be dep
 
 | **Alert Type** | **Alert Display Name** | **Severity**
 |---|---|---|
-VM.Windows_KnownCredentialAccessTools |  Suspicious process executed | High
-VM.Windows_SuspiciousAccountCreation | Suspicious Account Creation Detected | Medium
 VM_AbnormalDaemonTermination | Abnormal Termination |  Low
 VM_BinaryGeneratedFromCommandLine |  Suspicious binary detected | Medium
 VM_CommandlineSuspectDomain  Suspicious | domain name reference | Low
@@ -700,6 +698,7 @@ VM.Windows_ExecutableDecodedUsingCertutil | Detected decoding of an executable u
 VM.Windows_FileDeletionIsSospisiousLocation | Suspicious file deletion detected | Medium
 VM.Windows_KerberosGoldenTicketAttack | Suspected Kerberos Golden Ticket attack parameters observed | Medium
 VM.Windows_KeygenToolKnownProcessName | Detected possible execution of keygen executable Suspicious process executed | Medium
+VM.Windows_KnownCredentialAccessTools |  Suspicious process executed | High
 VM.Windows_KnownSuspiciousPowerShellScript | Suspicious use of PowerShell detected | High
 VM.Windows_KnownSuspiciousSoftwareInstallation | High risk software detected | Medium
 VM.Windows_MsHtaAndPowerShellCombination | Detected suspicious combination of HTA and PowerShell | Medium 
@@ -713,6 +712,7 @@ VM.Windows_RansomwareIndication | Ransomware indicators detected | High
 VM.Windows_SqlDumperUsedSuspiciously | Possible credential dumping detected [seen multiple times] | Medium
 VM.Windows_StopCriticalServices | Detected the disabling of critical services | Medium
 VM.Windows_SubvertingAccessibilityBinary | Sticky keys attack detected <br/> Suspicious account creation detected  Medium
+VM.Windows_SuspiciousAccountCreation | Suspicious Account Creation Detected | Medium 
 VM.Windows_SuspiciousFirewallRuleAdded | Detected suspicious new firewall rule | Medium
 VM.Windows_SuspiciousFTPSSwitchUsage | Detected suspicious use of FTP -s switch | Medium
 VM.Windows_SuspiciousSQLActivity | Suspicious SQL activity | Medium
@@ -755,8 +755,7 @@ VM_VbScriptHttpObjectAllocation| VBScript HTTP object allocation detected | High
 **(Preview) Previously unseen parameter used in an API call**<br/> (API_UnseenParam) | A single IP was observed accessing one of the API endpoints using a previously unseen or out-of-bounds parameter in the request. Based on historical traffic patterns from the last 30 days, Defender for APIs learns a set of expected parameters associated with calls to an endpoint. The alert was triggered because an IP recently accessed an endpoint using a previously unseen parameter. | Impact | Medium
 **(Preview) Access from a Tor exit node to an API endpoint**<br/> (API_AccessFromTorExitNode) | An IP address from the Tor network accessed one of your API endpoints. Tor is a network that allows people to access the Internet while keeping their real IP hidden. Though there are legitimate uses, it is frequently used by attackers to hide their identity when they target people's systems online. | Pre-attack | Medium
 **(Preview) API Endpoint access from suspicious IP**<br/> (API_AccessFromSuspiciousIP) | An IP address accessing one of your API endpoints was identified by Microsoft Threat Intelligence as having a high probability of being a threat. While observing malicious Internet traffic, this IP came up as involved in attacking other online targets.  | Pre-attack | High
-**(Preview) Suspicious User Agent detected**<br/> (API_AccessFromSuspiciousUserAgent) | 
-The user agent of a request accessing one of your API endpoints contained anomalous values indicative of an attempt at remote code execution. This does not mean that any of your API endpoints have been breached, but it does suggest that an attempted attack is underway. | Execution | Medium
+**(Preview) Suspicious User Agent detected**<br/> (API_AccessFromSuspiciousUserAgent) | The user agent of a request accessing one of your API endpoints contained anomalous values indicative of an attempt at remote code execution. This does not mean that any of your API endpoints have been breached, but it does suggest that an attempted attack is underway. | Execution | Medium
 
 ## Next steps
 

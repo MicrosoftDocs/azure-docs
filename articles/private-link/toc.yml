@@ -61,6 +61,8 @@
     href: private-endpoint-dns.md   
   - name: RBAC permissions
     href: rbac-permissions.md 
+  - name: Private Link and DNS in Azure Virtual WAN
+    href: /azure/architecture/guide/networking/private-link-virtual-wan-dns-guide?toc=/azure/private-link/toc.json
   - name: Security
     items:
     - name: Security baseline
