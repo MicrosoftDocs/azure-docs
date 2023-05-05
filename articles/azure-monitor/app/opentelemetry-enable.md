@@ -273,12 +273,15 @@ Run your application and open your **Application Insights Resource** tab in the 
 
 :::image type="content" source="media/opentelemetry/server-requests.png" alt-text="Screenshot of the Application Insights Overview tab with server requests and server response time highlighted.":::
 
+That's it. Your application is now being monitored by Application Insights. Everything else below is optional and available for further customization.
+
+Not working? Check out the troubleshooting page for [ASP.NET Core](/troubleshoot/azure/azure-monitor/app-insights/opentelemetry-troubleshooting-dotnet), [Java](/troubleshoot/azure/azure-monitor/app-insights/opentelemetry-troubleshooting-java), [Node.js](/troubleshoot/azure/azure-monitor/app-insights/opentelemetry-troubleshooting-nodejs), or [Python](/troubleshoot/azure/azure-monitor/app-insights/opentelemetry-troubleshooting-python).
+
 > [!IMPORTANT]
 > If you have two or more services that emit telemetry to the same Application Insights resource, you're required to [set Cloud Role Names](opentelemetry-configuration.md#set-the-cloud-role-name-and-the-cloud-role-instance) to represent them properly on the Application Map.
 
 As part of using Application Insights instrumentation, we collect and send diagnostic data to Microsoft. This data helps us run and improve Application Insights. To learn more, see [Statsbeat in Azure Application Insights](./statsbeat.md).
 
-If you have any issues, see the troubleshooting page for [ASP.NET Core](/troubleshoot/azure/azure-monitor/app-insights/opentelemetry-troubleshooting-dotnet), [Java](/troubleshoot/azure/azure-monitor/app-insights/opentelemetry-troubleshooting-java), [Node.js](/troubleshoot/azure/azure-monitor/app-insights/opentelemetry-troubleshooting-nodejs), or [Python](/troubleshoot/azure/azure-monitor/app-insights/opentelemetry-troubleshooting-python).
 
 ## Automatic data collection
 
