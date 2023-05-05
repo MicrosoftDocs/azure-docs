@@ -192,7 +192,7 @@ This section shows the configurable runtime settings for each supported language
 | `AZURE_TOMCAT90_HOME` | Read-only. For native Windows apps, path to the Tomcat 9 installation. | |
 | `AZURE_SITE_HOME` | The value added to the Java args as `-Dsite.home`. The default is the value of `HOME`. | |
 | `HTTP_PLATFORM_PORT` | Added to Java args as `-Dport.http`. The following environment variables used by different Java web frameworks are also set to this value: `SERVER_PORT`, `MICRONAUT_SERVER_PORT`, `THORNTAIL_HTTP_PORT`, `RATPACK_PORT`, `QUARKUS_HTTP_PORT`, `PAYARAMICRO_PORT`. ||
-| `AZURE_LOGGING_DIR` | Native Windows apps only. Added to Java args as `-Dsite.logdir`. The default is `%HOME%\LogFiles\`. ||
+| `AZURE_LOGGING_DIR` | For Windows Apps, added to Java args as `-Dsite.logdir`. The default is `%HOME%\LogFiles\`. Default value in Linux is `AZURE_LOGGING_DIR=/home/LogFiles`. ||
 
 <!-- 
 WEBSITE_JAVA_COPY_ALL
