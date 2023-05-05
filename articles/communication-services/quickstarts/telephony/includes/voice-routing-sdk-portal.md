@@ -42,7 +42,7 @@ ms.author: nikuklic
 
 The health of an SBC connection now exposed in Azure portal. It takes in account Transport Layer Security (TLS) status and SIP OPTIONS. 
 
-   [![Screenshot of SBC connection properties.](../media/voice-routing/sbc-connection-properties.png)](../media/sbc-connection-properties.png#lightbox)
+   [![Screenshot of SBC connection properties.](../media/voice-routing/sbc-connection-properties.png)](../media/voice-routing/sbc-connection-properties.png#lightbox)
 
 #### Possible values of each health indicator
 
