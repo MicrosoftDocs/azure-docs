@@ -11,6 +11,9 @@ ms.reviewer: mmcc
 
 This article covers configuration settings for the Azure Monitor OpenTelemetry distro.
 
+> [!TIP]
+> For Node.js, this config guidance applies to the 3.X BETA Package only. If you're using a previous version, see the [Node.js Application Insights SDK Docs](nodejs.md).
+
 ## Connection string
 
 A connection string in Application Insights defines the target location for sending telemetry data, ensuring it reaches the appropriate resource for monitoring and analysis.
@@ -158,6 +161,35 @@ export OTEL_TRACES_SAMPLER_ARG=0.1
 
 > [!TIP]
 > When using fixed-rate/percentage sampling and you aren't sure what to set the sampling rate as, start at 5% (i.e., 0.05 sampling ratio) and adjust the rate based on the accuracy of the operations shown in the failures and performance blades. A higher rate generally results in higher accuracy. However, ANY sampling will affect accuracy so we recommend alerting on [OpenTelemetry metrics](opentelemetry-enable.md#metrics), which are unaffected by sampling.
+
+## Enable AAD Auth
+
+You might want to enable Azure Active Directory (AAD) Authentication for a more secure connection to Azure, which prevents unauthorized telemetry from being ingested into your subscription.
+
+#### [.NET](#tab/net)
+    
+    ```csharp
+    coming soon
+    ```
+    
+#### [Java](#tab/java)
+
+For more information about Java, see the [Java supplemental documentation](java-standalone-config.md).
+
+#### [Node.js](#tab/nodejs)
+
+    ```javascript
+    coming soon
+    ```
+
+#### [Python](#tab/python)
+    
+    ```python
+    coming soon
+    ```
+
+---
+
 
 ## Offline Storage and Automatic Retries
 
