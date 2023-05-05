@@ -24,7 +24,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 |[Renaming container recommendations powered by Qualys](#renaming-container-recommendations-powered-by-qualys) | May 2023 |
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) | June 2023 |
 | [Replacing agent-based discovery with agentless discovery for containers capabilities in Defender CSPM](#replacing-agent-based-discovery-with-agentless-discovery-for-containers-capabilities-in-defender-cspm) | June 2023 |
-| [Changes to the Defender for DevOps recommendations environment source and resource ID](#Changes-to-the-Defender-for-DevOps-recommendations-environment-source-and-resource-ID) |  June 2023
+| [Changes to the Defender for DevOps recommendations environment source and resource ID](#changes-to-the-defender-for-devops-recommendations-environment-source-and-resource-id) |  June 2023
 
 ### Deprecation of legacy compliance standards across cloud environments
 
@@ -140,12 +140,12 @@ The recommendation environment source will be updated from “Azure” to "Azure
 
 The format for resource IDs will be changed from:
 
-    Microsoft.SecurityDevOps/githubConnectors/owners/repos/
+```Microsoft.SecurityDevOps/githubConnectors/owners/repos/```
 
 To:
 
-    Microsoft.Security/securityConnectors/devops/azureDevOpsOrgs/projects/repos
-    Microsoft.Security/securityConnectors/devops/gitHubOwners/repos
+```Microsoft.Security/securityConnectors/devops/azureDevOpsOrgs/projects/repos```
+```Microsoft.Security/securityConnectors/devops/gitHubOwners/repos```
 
 As a part of the migration, source code management system specific recommendations will be created for security findings:
 -	GitHub repositories should have code scanning findings resolved (preview)
