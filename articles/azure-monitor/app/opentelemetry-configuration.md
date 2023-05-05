@@ -27,6 +27,23 @@ For more information about Java, see the [Java supplemental documentation](java-
 
 ### [Node.js](#tab/nodejs)
 
+Use one of the following two ways to configure the connection string:
+
+- Set an environment variable:
+        
+   ```console
+   APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
+   ```
+
+- Use configuration object:
+
+    ```javascript
+    const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
+    const config = new ApplicationInsightsConfig();
+    config.azureMonitorExporterConfig.connectionString = "<Your Connection String>";
+    const appInsights = new ApplicationInsightsClient(config);
+
+    ```
 
 ### [Python](#tab/python)
 
@@ -377,7 +394,7 @@ For more information about Java, see the [Java supplemental documentation](java-
 
 ### [Node.js](#tab/nodejs)
 
-Coming soon
+For more information about OpenTelemetry SDK congiguration, see the [OpenTelemetry documentation](https://opentelemetry.io/docs/concepts/sdk-configuration). 
 
 ### [Python](#tab/python)
 

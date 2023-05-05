@@ -528,7 +528,12 @@ Autocollected logs
 
 #### [Node.js](#tab/nodejs)
 
-Coming soon.
+Currently OpenTelemetry doesn't support Logs in Javascript, we do support auto collection of logs by using Application Insights code and will migrate to OpenTelemetry solution whenever is ready.
+
+Autocollected logs
+* [Node.js console](https://nodejs.org/api/console.html)
+* [Bunyan](https://github.com/trentm/node-bunyan#readme)
+* [Winston](https://github.com/winstonjs/winston#readme)
 
 #### [Python](#tab/python)
 
@@ -572,7 +577,7 @@ The following table represents the currently supported custom telemetry types:
 |                                           |               |                |              |            |            |          |        |
 | **Node.js**                               |               |                |              |            |            |          |        |
 | &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               | Yes            | Yes          | Yes        |            | Yes      |        |
-| &nbsp;&nbsp;&nbsp;Winston, Pino, Bunyan   |               |                |              |            |            |          | Yes    |
+| &nbsp;&nbsp;&nbsp;Console, Winston, Bunyan|               |                |              |            |            |          | Yes    |
 | &nbsp;&nbsp;&nbsp;AI Classic API          | Yes           | Yes            | Yes          | Yes        | Yes        | Yes      | Yes    |
 |                                           |               |                |              |            |            |          |        |
 | **Python**                                |               |                |              |            |            |          |        |
@@ -1318,8 +1323,50 @@ It isn't available in .NET.
     ```
 
 #### [Node.js](#tab/nodejs)
-  
-Coming soon.
+
+
+1. Get `LogHandler`:
+
+```javascript
+const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
+const appInsights = new ApplicationInsightsClient(new ApplicationInsightsConfig());
+const logHandler = appInsights.getLogHandler();
+```
+
+1. Use the `LogHandler` to send custom telemetry:
+
+    ##### Events
+    
+    ```javascript
+    let eventTelemetry = {
+        name: "testEvent"
+    };
+    logHandler.trackEvent(eventTelemetry);
+    ```
+    
+    ##### Logs
+    
+    ```javascript
+    let traceTelemetry = {
+        message: "testMessage",
+        severity: "Information"
+    };
+    logHandler.trackTrace(traceTelemetry);
+    ```
+    
+    ##### Exceptions
+    
+    ```javascript
+    try {
+        ...
+    } catch (error) {
+        let exceptionTelemetry = {
+            exception: error,
+            severity: "Critical"
+        };
+        logHandler.trackException(exceptionTelemetry);
+    }
+    ```
 
 #### [Python](#tab/python)
   
