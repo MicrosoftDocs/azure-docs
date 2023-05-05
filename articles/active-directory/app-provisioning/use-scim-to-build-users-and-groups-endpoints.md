@@ -75,7 +75,7 @@ Go to the [reference code](https://github.com/AzureAD/SCIMReferenceCode) from Gi
 
 1. If not installed, add [Azure App Service for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension.
 
-1. To deploy the Microsoft.SCIM.WebHostSample app to Azure App Services, [create a new App Services](../../app-service/quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-vscode#2-publish-your-web-ap).
+1. To deploy the Microsoft.SCIM.WebHostSample app to Azure App Services, [create a new App Services](../../app-service/quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-vscode#2-publish-your-web-app).
 
 1. In the Visual Studio Code terminal, run the .NET CLI command. This command generates a deployable publish folder for the app in the bin/debug/publish directory.
 
