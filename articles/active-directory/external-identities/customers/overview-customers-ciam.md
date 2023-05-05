@@ -89,14 +89,12 @@ Azure AD for customers is designed for flexibility. In addition to the built-in 
 
 - **Use custom authentication extensions to enrich tokens**.  Add claims from external systems to the application token just before the token is issued to the application.
 
-- **Add logic to attribute collection**. Define validation actions at the start of attribute collection or just before attribute submission.
-
 Learn more about [custom authentication extensions](concept-custom-extensions.md).
 
 
 ## Microsoft Entra security and reliability
 
-Azure AD for customers represents the convergence of business-to-consumer (B2C) features into the Microsoft Entra platform. Because it's built on Microsoft Entra and Azure Active Directory, so you benefit from the advantages offered by these platforms.
+Azure AD for customers represents the convergence of business-to-consumer (B2C) features into the Microsoft Entra platform. Because it's built on Microsoft Entra and Azure AD, so you benefit from the advantages offered by these platforms.
 
 - **Microsoft Entra security.** Get all the security and data privacy benefits of Microsoft Entra, including Conditional Access, multifactor authentication, and governance. Protect access to your apps using strong authentication and risk-based adaptive access policies. Because customers are managed in a separate tenant, you can tailor your access policies to users who typically use personal and shared devices instead of managed ones.
 

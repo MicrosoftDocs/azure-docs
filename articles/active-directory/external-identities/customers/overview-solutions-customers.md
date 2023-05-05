@@ -15,7 +15,7 @@ ms.custom: it-pro
 ---
 # Solutions at a glance: Woodgrove Groceries demo
 
-Microsoft Entra Azure Active Directory offers customer solutions that let you quickly add intuitive, user-friendly sign-up and sign-up experiences for your customer apps. The Woodgrove Groceries demo environment illustrates several of the most common authentication experiences that can be configured for your customer-facing apps.
+Azure Active Directory (Azure AD) for customers offers solutions that let you quickly add intuitive, user-friendly sign-up and sign-up experiences for your customer apps. The Woodgrove Groceries demo environment illustrates several of the most common authentication experiences that can be configured for your customer-facing apps.
 
 ## Get started
 
@@ -51,7 +51,7 @@ To allow your customers to sign up and sign in using their social accounts, you 
 
 ### Sign-up with a one-time passcode
 
-Email one-time passcode sign-in method is a type of passwordless authentication option for your email account identity provider. With email one-time passcode, users can sign up and sign-in to your app using an email as their primary sign-in identifier. They don't need to create and remember passwords. During the sign-in, users are asked to enter their email address, to which Azure Active Directory sends a one-time passcode. The users then open they mailbox and enter the passcode set to them into the sign-in page.
+Email one-time passcode sign-in method is a type of passwordless authentication option for your email account identity provider. With email one-time passcode, users can sign up and sign-in to your app using an email as their primary sign-in identifier. They don't need to create and remember passwords. During the sign-in, users are asked to enter their email address, to which Azure AD sends a one-time passcode. The users then open they mailbox and enter the passcode set to them into the sign-in page.
 
 :::image type="content" source="media/overview-solutions-customers/use-case-passcode.png" alt-text="Screenshot of the one-time passcode use case.":::
 
