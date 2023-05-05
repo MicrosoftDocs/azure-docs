@@ -24,39 +24,34 @@ While registering the clients, you need to identify the certificate field used t
 **Self-signed client certificate - thumbprint based authentication:**
 Clients are onboarded to the service using the certificate thumbprint alongside the identity record. In this method of authentication, the client registry stores the exact thumbprint of the certificate that the client is going to use to authenticate.  When client tries to connect to the service, service validates the client by comparing the thumbprint presented in the client certificate with the thumbprint stored in client metadata.
 
-## Key terms of client metadata
+> [!NOTE]
+> We recommend that you include the client authentication name in the username field of the client's connect packet.  Using this authentication name along with the client certificate, service will be able to authenticate the client.
+> If you do not provide the authentication name in the username field, you need to configure the alternative source fields for the client authentication name at the namespace scope.  Service looks for the client authentication name in corresponding field of the client certificate to authenticate the client connection.
 
-**Client Authentication Name:**  You can provide a unique identifier for the client without Azure Resource Manager naming constraints. It's a mandatory field and if not explicitly provided, it's defaulted to the Client Name.
+In the configuration page at namespace scope, you can enable alternative client authentication name sources and then select the client certificate fields that have the client authentication name.
 
-No two clients can have same authentication name within a Namespace. While authenticating a client, we treat Client authentication name as case insensitive.
+:::image type="content" source="./media/mqtt-client-authentication/mqtt-configuration-client-authentication.png" alt-text="Screenshot showing namespace configuration page with client authentication name alternate source settings.":::
 
-We preserve the original case of client authentication name that you configure in the client. We use the original client authentication name (case sensitive) that was provided when client was created, in routing enrichments, topic space matching, etc.
+Service looks for the client authentication name in the client certificate fields in the same order in which the fields are selected on the namespace configuration page.
 
-**Client Certificate Authentication Validation Scheme:**
-To use CA certificate for authentication, you can choose from one of following options to specify the location of the client identity in the client certificate. When the client tries to connect to the service, service finds the client identify from this certificate field and matches it with the client authentication name to authenticate the client.
+For example, if you select the Certificate DNS option first and then the Subject Name option -
+while authenticating the client connection,
+- service checks the subject alternative name DNS field of the client certificate first for the client authentication name
+- if the DNS field is empty, then service checks the Subject Name field of the client certificate
+- if client authentication name isn't present in either of these two fields, client connection is denied
 
-We support five certificate fields:
-- Subject Matches Authentication Name
-- Dns Matches Authentication Name
-- Uri Matches Authentication Name
-- IP Matches Authentication Name
-- Email Matches Authentication Name
+In both modes of client authentication, we expect the client authentication name to be provided either in the username field of the connect packet or in one of the client certificate fields.
 
-Use the "Thumbprint Match" option while using self-signed certificate to authenticate the client.
+### Supported client certificate fields for alternative source of client authentication name
+You can use one of the following fields to provide client authentication name in the client certificate.
 
-### Client authentication source options
-
-| Authentication Source Option | Certificate field | Description |
+| Authentication name source option | Certificate field | Description |
 | ------------ | ------------ | ------------ |
 | Certificate Subject Name | tls_client_auth_subject_dn | The subject distinguished name of the certificate. |
 | Certificate Dns | tls_client_auth_san_dns | The dNSName SAN entry in the certificate. |
 | Certificate Uri | tls_client_auth_san_uri | The uniformResourceIdentifier SAN entry in the certificate. |
 | Certificate Ip | tls_client_auth_san_ip | The IPv4 or IPv6 address present in the iPAddress SAN entry in the certificate. |
 | Certificate Email | tls_client_auth_san_email | The rfc822Name SAN entry in the certificate. |
-
-> [!NOTE]
-> We recommend that you include the client authentication name in the username field of the client's connect packet.  Using this authentication name along with the client certificate, service will be able to authenticate the client.
-> If you do not provide the authentication name in the username field, you need to configure the alternative source fields at namespace scope.  Service will look for the client authentication name in corresponding field of the client certificate in the order the fields are mentioned on the namespace configuration page.
 
 ## High level flow of how mutual transport layer security (mTLS) connection is established
 

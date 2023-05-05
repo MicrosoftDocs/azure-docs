@@ -1,6 +1,6 @@
 ---
-title: 'Azure Event Grid namespace terminology'
-description: 'Describes the key terminology relevant for Event Grid namespace and MQTT functionality.'
+title: 'Azure Event Grid namespace MQTT functionality terminology'
+description: 'Describes the key terminology relevant for Event Grid namespace MQTT functionality.'
 ms.topic: conceptual
 ms.date: 04/26/2023
 author: veyaddan
@@ -13,7 +13,7 @@ Key terms relevant for Event Grid namespace and MQTT resources are explained.
 | Term | Definition |
 | ------------ | ------------ |
 | MQTT Broker | An MQTT broker is an intermediary entity that enables MQTT clients to communicate. Specifically, an MQTT broker receives messages published by clients, filters the messages by topic, and distributes them to subscribers.|
-| Namespace | A namespace is a declarative space that provides a scope to the resources (certificates, clients, client groups, topic spaces, permission bindings, etc.) inside it. Namespaces are used to organize the resources into logical groups.|
+| Namespace | An Event Grid namespace is a declarative space that provides a scope to all the nested resources or subresources such as topics, certificates, clients, client groups, topic spaces, permission bindings.  Namespace is a tracked resource with 'tags' and a 'location' properties, and once created can be found on resources.azure.com.  Using the namespace, you can organize the subresources into logical groups and manage them as a single unit in your Azure subscription.  Deleting a namespace deletes all the subresources encompassed within the namespace.|
 | Client | Client is a device or an application that can publish and/or subscribe MQTT messages |
 | Certificate / Cert | Certificate is a form of asymmetric credential. They're a combination of a public key from an asymmetric keypair and a set of metadata describing the valid uses of the keypair. If the keypair of the issuer is the same keypair as the certificate, the certificate is said to be "self-signed". Third-party certificate issuers are sometimes called Certificate Authorities (CA). |
 | Client attributes | Client attributes represent a set of key-value pairs that provide descriptive information about the client. Client attributes are used in creating client groups and as variables in Topic Templates. For example, client type is an attribute that provides the client's type. |
@@ -24,5 +24,7 @@ Key terms relevant for Event Grid namespace and MQTT resources are explained.
 | Permission bindings | A Permission Binding grants access to a specific client group to either publish or subscribe on a specific topic space. |
 
 ## Next steps
-
-- [Publish and subscribe MQTT messages using Event Grid namespace](mqtt-publish-and-subscribe-portal.md)
+- Learn about [creating an Event Grid namespace](create-view-manage-namespaces.md)
+- Learn about [MQTT support in Event Grid](mqtt-overview.md)
+- Learn more about [MQTT clients](mqtt-clients.md)
+- Learn how to [Publish and subscribe MQTT messages using Event Grid namespace](mqtt-publish-and-subscribe-portal.md)
