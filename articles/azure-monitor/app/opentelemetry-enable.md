@@ -280,7 +280,7 @@ If you have any issues, see the troubleshooting page for [ASP.NET Core](/trouble
 
 ## Automatic data collection
 
-The distros automatically collect data by bundling OpenTelemetry "instrumentation libraries".
+The distros automatically collects data by bundling in OpenTelemetry "instrumentation libraries".
 
 ### Included instrumentation libraries
 
@@ -295,9 +295,9 @@ Dependencies
 - [SqlClient](https://github.com/open-telemetry/opentelemetry-dotnet/blob/1.0.0-rc9.14/src/OpenTelemetry.Instrumentation.SqlClient/README.md) <sup>[1](#FOOTNOTEONE)</sup>
 
 Logging
-* OpenTelemetry uses .NET's ILogger. 
-  For more information about ILogger, see [Logging in C# and .NET](/dotnet/core/extensions/logging).
-  Examples can be found on [GitHub](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/logs).
+- ILogger
+ 
+For more information about ILogger, see [Logging in C# and .NET](/dotnet/core/extensions/logging) and [code examples](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/logs).
 
 #### [Java](#tab/java)
 
@@ -403,17 +403,18 @@ Telemetry emitted by these Azure SDKs is automatically collected by default:
 
 The following OpenTelemetry Instrumentation libraries are included as part of Azure Monitor Application Insights Distro.
 
-  - [HTTP/HTTPS](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http) <sup>[2](#FOOTNOTETWO)</sup>
-  - [MongoDB](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-mongodb)
-  - [MySQL](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-mysql)
-  - [Postgres](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-pg)
-  - [Redis](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-redis)
-  - [Redis-4](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-redis-4)
-  - [Azure SDK](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/instrumentation/opentelemetry-instrumentation-azure-sdk)
+Requests
+- [HTTP/HTTPS](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http) <sup>[2](#FOOTNOTETWO)</sup>
 
-Currently OpenTelemetry doesn't support Logs in Javascript, we do support auto collection of logs by using Application Insights code and will migrate to OpenTelemetry solution whenever is ready.
+Dependencies
+- [MongoDB](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-mongodb)
+- [MySQL](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-mysql)
+- [Postgres](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-pg)
+- [Redis](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-redis)
+- [Redis-4](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node/opentelemetry-instrumentation-redis-4)
+- [Azure SDK](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/instrumentation/opentelemetry-instrumentation-azure-sdk)
 
-Autocollected logs
+Logs
 - [Node.js console](https://nodejs.org/api/console.html)
 - [Bunyan](https://github.com/trentm/node-bunyan#readme)
 - [Winston](https://github.com/winstonjs/winston#readme)
@@ -433,12 +434,12 @@ Dependencies
 - [Urllib3](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-urllib3) <sup>[1](#FOOTNOTEONE)</sup> <sup>[2](#FOOTNOTETWO)</sup>
 
 Logs
-
 - [Python logging library](https://docs.python.org/3/howto/logging.html) <sup>[4](#FOOTNOTEFOUR)</sup>
 
 Examples of using the Python logging library can be found on [GitHub](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry/samples/logging).
 
 ---
+
 **Footnotes**
 - <a name="FOOTNOTEONE">1</a>: Supports automatic reporting of unhandled exceptions
 - <a name="FOOTNOTETWO">2</a>: Supports OpenTelemetry Metrics
@@ -540,7 +541,7 @@ The following table represents the currently supported custom telemetry types:
 > [!NOTE]
 > Custom Metrics are under preview in Azure Monitor Application Insights. Custom metrics without dimensions are available by default. To view and alert on dimensions, you need to [opt-in](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
-Consider collecting more metrics beyond what's provided by the [instrumentation libraries](#install-the-client-library).
+Consider collecting more metrics beyond what's provided by the instrumentation libraries.
 
 The OpenTelemetry API offers six metric "instruments" to cover various metric scenarios and you need to pick the correct "Aggregation Type" when visualizing metrics in Metrics Explorer. This requirement is true when using the OpenTelemetry Metric API to send metrics and when using an instrumentation library.
 
