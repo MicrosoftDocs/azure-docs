@@ -66,7 +66,7 @@ In the Microsoft Graph Explorer, run the following GET query replacing [serviceP
    GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/jobs
 ```
 
-You get a response as shown below. Copy the "id attribute" present in the response. This value is the **ProvisioningJobId** and is used to retrieve the underlying schema metadata.
+You get a response as shown. Copy the `id` attribute present in the response. This value is the **ProvisioningJobId** and is used to retrieve the underlying schema metadata.
 
    [![Provisioning Job ID](./media/export-import-provisioning-configuration/wd_export_03.png)](./media/export-import-provisioning-configuration/wd_export_03.png#lightbox)
 
