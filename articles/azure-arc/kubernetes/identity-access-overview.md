@@ -15,7 +15,7 @@ This topic provides an overview of these two RBAC systems and how you can use th
 
 ## Kubernetes RBAC
 
-[Kubernetes RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) provides granular filtering of user actions. With Kubernetes RBAC, You assign users or groups permission to create and modify resources or view logs from running application workloads. You can create roles to define permissions, and then assign those roles to users with role bindings. Permissions may be scoped to a single namespace or across the entire cluster.
+[Kubernetes RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) provides granular filtering of user actions. With Kubernetes RBAC, you assign users or groups permission to create and modify resources or view logs from running application workloads. You can create roles to define permissions, and then assign those roles to users with role bindings. Permissions may be scoped to a single namespace or across the entire cluster.
 
 The Azure Arc-enabled Kubernetes cluster connect feature uses Kubernetes RBAC to provide connectivity to the `apiserver` of the cluster. This connectivity doesn't require any inbound port to be enabled on the firewall. A reverse proxy agent running on the cluster can securely start a session with the Azure Arc service in an outbound manner. Using the cluster connect feature helps enable interactive debugging and troubleshooting scenarios. It can also be used to provide cluster access to Azure services for [custom locations](conceptual-custom-locations.md).
 

@@ -3,11 +3,13 @@ title: 'Quickstart: Use Apache Kafka with Azure Event Hubs'
 description: 'This quickstart shows you how to stream data into and from Azure Event Hubs using the Apache Kafka protocol.'
 ms.topic: quickstart
 ms.date: 02/07/2023
+author: kasun04
+ms.author: kindrasiri
 ms.custom: mode-other, passwordless-java
 ---
 
 # Quickstart: Stream data with Azure Event Hubs and Apache Kafka
-This quickstart shows you how to stream data into and from Azure Event Hubs using the Apache Kafka protocol. You'll not change any code in the sample Kafka producer or consumer apps. You just update the configurations that the clients use to point to an Event Hubs namespace, which exposes a Kafka endpoint. You also don't build and use a Kafka cluster on your own. Instead, you'll  use the Event Hubs namespace with the Kafka endpoint.
+This quickstart shows you how to stream data into and from Azure Event Hubs using the Apache Kafka protocol. You'll not change any code in the sample Kafka producer or consumer apps. You just update the configurations that the clients use to point to an Event Hubs namespace, which exposes a Kafka endpoint. You also don't build and use a Kafka cluster on your own. Instead, you use the Event Hubs namespace with the Kafka endpoint.
 
 > [!NOTE]
 > This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/java)
@@ -51,13 +53,13 @@ Azure Event Hubs supports using Azure Active Directory (Azure AD) to authorize r
         1. Select the **Azure subscription** that has the VM.
         1. For **Managed identity**, select **Virtual machine**
         1. Select your virtual machine's managed identity. 
-        1. Click **Select** at the bottom of the page.
+        1. Select **Select** at the bottom of the page.
         
             :::image type="content" source="./media/event-hubs-quickstart-kafka-enabled-event-hubs/add-vm-identity.png" alt-text="Screenshot showing the Add role assignment -> Select managed identities page.":::      
     1. Select **Review + Assign**.
 
         :::image type="content" source="./media/event-hubs-quickstart-kafka-enabled-event-hubs/review-assign.png" alt-text="Screenshot showing the Add role assignment page with role assigned to VM's managed identity.":::
-1. Restart the VM and log in back to the VM for which you configured the managed identity. 
+1. Restart the VM and sign in back to the VM for which you configured the managed identity. 
 1. Clone the [Azure Event Hubs for Kafka repository](https://github.com/Azure/azure-event-hubs-for-kafka).
 1. Navigate to `azure-event-hubs-for-kafka/tutorials/oauth/java/managedidentity/consumer`.
 1. Switch to the `src/main/resources/` folder, and open `consumer.config`. Replace `namespacename` with the name of your Event Hubs namespace. 

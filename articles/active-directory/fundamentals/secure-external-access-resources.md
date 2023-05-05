@@ -39,7 +39,7 @@ Both methods have drawbacks. For more information, see the following table.
 | Area of concern | Local credentials | Federation |
 |----|---|---|
 | Security | - Access continues after external user terminates<br> - UserType is Member by default, which grants too much default access | - No user-level visibility  <br> - Unknown partner security posture|
-| Expense | - Password and multi-factor authentication (MFA) management<br> - Onboarding process<br> - Identity cleanup<br> - Overhead of running a separate directory | Small partners can't afford the infrastructure, lack expertise, and might user consumer email|
+| Expense | - Password and multi-factor authentication (MFA) management<br> - Onboarding process<br> - Identity cleanup<br> - Overhead of running a separate directory | Small partners can't afford the infrastructure, lack expertise, and might use consumer email|
 | Complexity | Partner users manage more credentials | Complexity grows with each new partner, and increased for partners|
 
 Azure Active Directory (Azure AD) B2B integrates with other tools in Azure AD, and Microsoft 365 services. Azure AD B2B simplifies collaboration, reduces expense, and increases security. 

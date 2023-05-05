@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 10/15/2020
+ ms.date: 04/24/2023
  ms.author: cherylmc
  ms.custom: include file
 
@@ -76,9 +76,7 @@ Register the VPN client in the Azure AD tenant.
 
     ![Directory ID 2](./media/openvpn-azure-ad-tenant-multi-app/pick.png)
 
-6. Select **Accept** when prompted.
-
-    ![Screenshot shows a window with the message Permissions requested Accept for you organization and information about the request.](./media/openvpn-azure-ad-tenant-multi-app/accept.jpg)
+6. On the **Permissions requested** page, select **Accept** to grant permissions to the app.
 
 7. Under your Azure AD, in **Enterprise applications**, you will see **Azure VPN** listed.
 

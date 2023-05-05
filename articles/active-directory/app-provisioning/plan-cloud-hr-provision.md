@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/19/2023
+ms.date: 04/24/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -258,7 +258,7 @@ For example: In the diagram, the provisioning apps are set up for each geographi
 * Use the [provisioning agent configuration wizard](../cloud-sync/how-to-install.md#install-the-agent) to register all child AD domains with your Azure AD tenant. 
 * Create a separate HR2AD provisioning app for each target domain. 
 * When configuring the provisioning app, select the respective child AD domain from the dropdown of available AD domains. 
-* Use [scoping filters](define-conditional-rules-for-provisioning-user-accounts.md) in the provisioning app to define users to be processed by each app. 
+* Use [scoping filters](define-conditional-rules-for-provisioning-user-accounts.md) in the provisioning app to define users that each app processes. 
 * Configure [skip out of scope deletions flag](skip-out-of-scope-deletions.md) to prevent accidental account deactivations. 
 
 
@@ -275,9 +275,9 @@ For example: In the diagram, the provisioning apps are set up for each geographi
 * Configure [referral chasing](../cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing) on the provisioning agent. 
 * Use the [provisioning agent configuration wizard](../cloud-sync/how-to-install.md#install-the-agent) to register the parent AD domain and all child AD domains with your Azure AD tenant. 
 * Create a separate HR2AD provisioning app for each target domain. 
-* When configuring each provisioning app, select the parent AD domain from the dropdown of available AD domains. This ensures forest-wide lookup while generating unique values for attributes like *userPrincipalName*, *samAccountName* and *mail*.
+* When configuring each provisioning app, select the parent AD domain from the dropdown of available AD domains. Selecting the parent domain ensures forest-wide lookup while generating unique values for attributes like *userPrincipalName*, *samAccountName* and *mail*.
 * Use *parentDistinguishedName* with expression mapping to dynamically create user in the correct child domain and [OU container](#configure-active-directory-ou-container-assignment). 
-* Use [scoping filters](define-conditional-rules-for-provisioning-user-accounts.md) in the provisioning app to define users to be processed by each app. 
+* Use [scoping filters](define-conditional-rules-for-provisioning-user-accounts.md) in the provisioning app to define users that each app processes.
 * To resolve cross-domain managers references, create a separate HR2AD provisioning app for updating only the *manager* attribute. Set the scope of this app to all users. 
 * Configure [skip out of scope deletions flag](skip-out-of-scope-deletions.md) to prevent accidental account deactivations. 
 
@@ -294,7 +294,7 @@ For example: In the diagram, a single provisioning app manages users present in 
 * Configure [referral chasing](../cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing) on the provisioning agent. 
 * Use the [provisioning agent configuration wizard](../cloud-sync/how-to-install.md#install-the-agent) to register the parent AD domain and all child AD domains with your Azure AD tenant. 
 * Create a single HR2AD provisioning app for the entire forest. 
-* When configuring the provisioning app, select the parent AD domain from the dropdown of available AD domains. This ensures forest-wide lookup while generating unique values for attributes like *userPrincipalName*, *samAccountName* and *mail*.
+* When configuring the provisioning app, select the parent AD domain from the dropdown of available AD domains. Selecting the parent domain ensures forest-wide lookup while generating unique values for attributes like *userPrincipalName*, *samAccountName* and *mail*.
 * Use *parentDistinguishedName* with expression mapping to dynamically create user in the correct child domain and [OU container](#configure-active-directory-ou-container-assignment). 
 * If you're using scoping filters, configure [skip out of scope deletions flag](skip-out-of-scope-deletions.md) to prevent accidental account deactivations. 
 
@@ -363,7 +363,7 @@ You can also [customize the default attribute mappings](../app-provisioning/cust
 
 ### Determine user account status
 
-By default, the provisioning connector app maps the HR user profile status to the user account status in Active Directory or Azure AD to determine whether to enable or disable the user account.
+By default, the provisioning connector app maps the HR user profile status to the user account status. The status is used to determine whether to enable or disable the user account.
 
 When you initiate the Joiners-Leavers process, gather the following requirements.
 
@@ -399,8 +399,8 @@ When you initiate the Joiners-Movers-Leavers process, gather the following requi
 Depending on your requirements, you can modify the mappings to meet your integration goals. For more information, see the specific cloud HR app tutorial (such as [Workday](../saas-apps/workday-inbound-tutorial.md#part-4-configure-attribute-mappings)) for a list of custom attributes to map.
 
 ### Generate a unique attribute value
+Attributes like CN, samAccountName, and the UPN have unique constraints. You may need to generate unique attribute values when you initiate the Joiners process.
 
-When you initiate the Joiners process, you might need to generate unique attribute values when you set attributes like CN, samAccountName, and the UPN, which has unique constraints.
 
 The Azure AD function [SelectUniqueValues](../app-provisioning/functions-for-customizing-application-data.md#selectuniquevalue) evaluates each rule and then checks the value generated for uniqueness in the target system. For an example, see [Generate unique value for the userPrincipalName (UPN) attribute](../app-provisioning/functions-for-customizing-application-data.md#generate-unique-value-for-userprincipalname-upn-attribute).
 
@@ -439,8 +439,7 @@ When the Azure AD provisioning service runs for the first time, it performs an [
 After you're satisfied with the results of the initial cycle for test users, start the [incremental updates](../app-provisioning/how-provisioning-works.md#incremental-cycles).
 
 ## Plan testing and security
-
-At each stage of your deployment from initial pilot through enabling user provisioning, ensure that you're testing that results are as expected and auditing the provisioning cycles.
+A deployment consists of stages ranging from the initial pilot to enabling user provisioning. At each stage, ensure that you're testing for expected results. Also, audit the provisioning cycles.
 
 ### Plan testing
 
@@ -452,7 +451,7 @@ After you configure the cloud HR app to Azure AD user provisioning, run test cas
 |User is terminated in the cloud HR app.|- The user account is disabled in Active Directory.</br>- The user can't log into any enterprise apps protected by Active Directory.
 |User supervisory organization is updated in the cloud HR app.|Based on the attribute mapping, the user account moves from one OU to another in Active Directory.|
 |HR updates the user's manager in the cloud HR app.|The manager field in Active Directory is updated to reflect the new manager's name.|
-|HR rehires an employee into a new role.|Behavior depends on how the cloud HR app is configured to generate employee IDs:</br>- If the old employee ID is used for a rehired employee, the connector enables the existing Active Directory account for the user.</br>- If the rehired employee gets a new employee ID, the connector creates a new Active Directory account for the user.|
+|HR rehires an employee into a new role.|Behavior depends on how the cloud HR app is configured to generate employee IDs. If the old employee ID is used for a rehired employee, the connector enables the existing Active Directory account for the user. If the rehired employee gets a new employee ID, the connector creates a new Active Directory account for the user.|
 |HR converts the employee to a contract worker or vice versa.|A new Active Directory account is created for the new persona and the old account gets disabled on the conversion effective date.|
 
 Use the previous results to determine how to transition your automatic user provisioning implementation into production based on your established timelines.
@@ -482,7 +481,7 @@ Choose the cloud HR app that aligns to your solution requirements.
 
 ## Manage your configuration
 
-Azure AD can provide additional insights into your organization's user provisioning usage and operational health through audit logs and reports.
+Azure AD can provide more insights into your organization's user provisioning usage and operational health through audit logs and reports.
 
 ### Gain insights from reports and logs
 

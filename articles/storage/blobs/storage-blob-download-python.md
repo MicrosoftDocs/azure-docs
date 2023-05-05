@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 01/24/2023
+ms.date: 04/21/2023
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -16,7 +16,20 @@ ms.custom: devx-track-python, devguide-python
 
 # Download a blob with Python
 
-This article shows how to download a blob using the [Azure Storage client library for Python](/python/api/overview/azure/storage). You can download a blob by using the following method:
+This article shows how to download a blob using the [Azure Storage client library for Python](/python/api/overview/azure/storage). You can download blob data to various destinations, including a local file path, stream, or text string. You can also open a blob stream and read from it.
+
+## Prerequisites
+
+To work with the code examples in this article, make sure you have:
+
+- An authorized client object to connect to Blob Storage data resources. To learn more, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
+- Permissions to perform an upload operation. To learn more, see the authorization guidance for the following REST API operation:
+    - [Get Blob](/rest/api/storageservices/get-blob#authorization)
+- The package **azure-storage-blob** installed to your project directory. To learn more about setting up your project, see [Get Started with Azure Storage and Java](storage-blob-java-get-started.md#set-up-your-project).
+
+## Download a blob
+
+You can use the following method to download a blob:
 
 - [BlobClient.download_blob](/python/api/azure-storage-blob/azure.storage.blob.blobclient#azure-storage-blob-blobclient-download-blob)
 

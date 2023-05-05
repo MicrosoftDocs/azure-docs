@@ -527,13 +527,7 @@ $smssignin = Get-MgUserAuthenticationPhoneMethod -UserId $userId
 Users in scope fail to provision. The provisioning logs details include the following error message:
 
 ```
-The provisioning service was forbidden from performing an operation on Azure Active Directory, which is unusual. 
-A simultaneous change to the target object may have occurred, in which case, the operation might succeed when it is retried.
-Alternatively, the target of the operation, or one of its properties, may be mastered on-premises, in which case, 
-the provisioning service is not permitted to update it, and the corresponding source entry should be removed from the provisioning service's scope.
-Otherwise, authorizations may have been customized in such a way as to prevent the provisioning service from modifying the target object or one of its properties; 
-if so, then, again, the corresponding source entry should be removed from scope. 
-This operation was retried 0 times. 
+Guest invitations not allowed for your company. Contact your company administrator for more details.
 ```
 
 **Cause**
