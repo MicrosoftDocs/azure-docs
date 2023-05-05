@@ -1,5 +1,5 @@
 ---
-title: Deploy an Kubernetes application from Azure Marketplace 
+title: Deploy a Kubernetes application from Azure Marketplace 
 description: Learn how to deploy Kubernetes applications from Azure Marketplace on an Azure Kubernetes Service (AKS) cluster.
 author: nickomang
 ms.author: nickoman
@@ -177,7 +177,7 @@ az k8s-extension delete --name <extension-name> --cluster-name <clusterName> --r
 
 Select an application, then select the uninstall button to remove the extension from your cluster:
 
-:::image type="content" source="./media/deploy-marketplace/uninstall-inline.png" alt-text="The Azure portal page for the A K S cluster is shown. 'Extensions + Applications' is selected, and the deployed extension is listed. The 'uninstall' button is highlighted." lightbox="./media/deploy-marketplace/uninstall.png":::
+:::image type="content" source="./media/deploy-marketplace/uninstall-inline.png" alt-text="The Azure portal page for the A K S cluster is shown. The deployed extension is listed with the 'uninstall' button highlighted." lightbox="./media/deploy-marketplace/uninstall.png":::
 
 ---
 
