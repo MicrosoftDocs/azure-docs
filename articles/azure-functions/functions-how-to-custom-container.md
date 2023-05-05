@@ -8,7 +8,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Working with custom containers and Azure Functions
 
-This article shows you how to work with function apps deployed as custom Linux containers. To learn more about container deployments of Azure Functions, see [zure Functions Linux container deployment](./functions-containers.md). 
+This article shows you how to work with function apps deployed as custom Linux containers. To learn more about container deployments of Azure Functions, see [Azure Functions Linux container deployment](./functions-containers.md). 
 
 Unless otherwise noted, the content applies to all function apps running in custom containers. 
 
@@ -49,39 +49,15 @@ You can enable Azure Functions to automatically update your deployment of an ima
 
 SSH enables secure communication between a container and a client. With SSH enabled, you can connect to your container using App Service Advanced Tools (Kudu). For easy connection to your container using SSH, Azure Functions provides a base image that has SSH already enabled. You only need to edit your *Dockerfile*, then rebuild, and redeploy the image. You can then connect to the container through the Advanced Tools (Kudu).
 
-1. In your *Dockerfile*, append the string `-appservice` to the base image in your `FROM` instruction.
-
-    ::: zone pivot="programming-language-csharp"
+1. In your *Dockerfile*, append the string `-appservice` to the base image in your `FROM` instruction, as in the following example:
+ 
     ```Dockerfile
-    FROM mcr.microsoft.com/azure-functions/dotnet:3.0-appservice
+    FROM mcr.microsoft.com/azure-functions/node:4-node18-appservice
     ```
-    ::: zone-end
 
-    ::: zone pivot="programming-language-javascript"
-    ```Dockerfile
-    FROM mcr.microsoft.com/azure-functions/node:2.0-appservice
-    ```
-    ::: zone-end
-
-    ::: zone pivot="programming-language-powershell"
-    ```Dockerfile
-    FROM mcr.microsoft.com/azure-functions/powershell:2.0-appservice
-    ```
-    ::: zone-end
-
-    ::: zone pivot="programming-language-python"
-    ```Dockerfile
-    FROM mcr.microsoft.com/azure-functions/python:2.0-python3.7-appservice
-    ```
-    ::: zone-end
-
-    ::: zone pivot="programming-language-typescript"
-    ```Dockerfile
-    FROM mcr.microsoft.com/azure-functions/node:2.0-appservice
-    ```
-    ::: zone-end
+    This example uses the SSH-enabled version of the Node.js version 18 base image. Visit the [Azure Functions base image repos](https://mcr.microsoft.com/en-us/catalog?search=functions) to verify that you are using the latest version of the SSH-enabled base image.
     
-1. Rebuild the image by using the `docker build` command again, replace the `<docker_id>` with your Docker Hub account ID.
+1. Rebuild the image by using the `docker build` command, replace the `<docker_id>` with your Docker Hub account ID, as in the following example.
 
     ```console
     docker build --tag <docker_id>/azurefunctionsimage:v1.0.0 .
@@ -187,20 +163,10 @@ In a browser, use the same URL as before to invoke your function. The browser mu
 
 ::: zone-end
 
-## Clean up resources
-
-If you want to continue working with Azure Function using the resources you created in this tutorial, you can leave all those resources in place. Because you created a Premium Plan for Azure Functions, you'll incur one or two USD per day in ongoing costs.
-
-To avoid ongoing costs, delete the `AzureFunctionsContainers-rg` resource group to clean up all the resources in that group:
-
-```azurecli
-az group delete --name AzureFunctionsContainers-rg
-```
-
 ## Next steps
 
-+ [Monitoring functions](functions-monitoring.md)
+The following articles provide more information about deploying and managing custom containers:
+
++ [Azure Functions Linux container deployment](./functions-containers.md)
 + [Scale and hosting options](functions-scale.md)
 + [Kubernetes-based serverless hosting](functions-kubernetes-keda.md)
-
-[authorization keys]: functions-bindings-http-webhook-trigger.md#authorization-keys
