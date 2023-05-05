@@ -113,7 +113,7 @@ To learn more about input delay performance counters, see [User Input Delay perf
 
 ## Estimating Windows Event Log ingestion
 
-Windows Event Logs are data sources collected by Log Analytics agents on Windows virtual machines. You can collect events from standard logs like System and Application as well as custom logs created by applications you need to monitor.
+Windows Event Logs are data sources collected by the Azure Monitor Agent on Windows virtual machines. You can collect events from standard logs like System and Application as well as custom logs created by applications you need to monitor.
 
 These are the default Windows Events for Azure Virtual Desktop Insights:
 
@@ -124,7 +124,10 @@ These are the default Windows Events for Azure Virtual Desktop Insights:
 - Microsoft-FSLogix-Apps/Operational
 - Microsoft-FSLogix-Apps/Admin
 
-Windows Events send whenever the terms of the event are met in the environment. Machines in healthy states will send fewer events than machines in unhealthy states. Since event count is unpredictable, we use a range of 1,000 to 10,000 events per VM per day based on examples from healthy environments for this estimate. For example, if we estimate each event record size in this example to be 1,500 bytes, this comes out to roughly 2 to 15 megabytes of event data per day for the specified environment.
+Windows Events sends events whenever the environment meets the terms of the event. Machines in healthy states will send fewer events than machines in unhealthy states. Since event count is unpredictable, we use a range of 1,000 to 10,000 events per VM per day based on examples from healthy environments for this estimate. For example, if we estimate each event record size in this example to be 1,500 bytes, this comes out to roughly 2 to 15 megabytes of event data per day for the specified environment.
+
+To learn more about configuring Windows event log data collection with the Azure Monitor Agent, see how to Collect events and performance counters from virtual machines with Azure Monitor Agent.
+<!--The link he gave me for this didn't work. If this is a link to a section, then it's a section that doesn't exist yet. I'll need to ask the PM about what he meant to link to later.-->
 
 To learn more about Windows events, see [Windows event records properties](../azure-monitor/agents/data-sources-windows-events.md).
 
@@ -146,6 +149,31 @@ The service sends diagnostic information whenever the environment meets the term
 For example, if we estimate each diagnostic record size in this example to be 200 bytes, then the total ingested data would be less than 1 MB per VM per day.
 
 To learn more about the activity log categories, see [Azure Virtual Desktop diagnostics](diagnostics-log-analytics.md).
+
+## Measure and manage your performance counter data 
+
+Your true monitoring costs will depend on your environment size, usage, and health. To understand how to measure data ingestion in your Log Analytics workspace, see [Analyze usage in Log Analytics workspace](). 
+<!--Where's the link? Is this meant to be to a different article or a new section within this article?-->
+
+
+
+The performance counters the session hosts use is among the largest source of ingested data for Azure Virtual Desktop Insights. Run the following custom query template for a Log Analytics workspace to track frequency and megabytes ingested per performance counter over the last day: 
+
+```azcopy
+let WVDHosts = dynamic(['Host1.MyCompany.com', 'Host2.MyCompany.com']); 
+Perf 
+| where TimeGenerated > ago(1d) 
+| where Computer in (WVDHosts) 
+| extend PerfCounter = strcat(ObjectName, ":", CounterName) 
+| summarize Records = count(TimeGenerated), InstanceNames = dcount(InstanceName), Bytes=sum(_BilledSize) by PerfCounter 
+| extend Billed_MBytes = Bytes / (1024 * 1024), BytesPerRecord = Bytes / Records 
+| sort by Records desc 
+```
+ 
+>[!NOTE]
+>Make sure to replace the template's placeholder values with the values your environment uses, otherwise the query won't work. 
+
+This query will show all performance counters you've enabled in the environment, not just the default ones for Azure Virtual Desktop Insights. This information can help you understand which areas to target to reduce costs.
 
 ## Estimating total costs
 
