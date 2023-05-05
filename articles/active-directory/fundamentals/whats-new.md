@@ -255,7 +255,7 @@ Workload Identity Federation enables developers to use managed identities for th
 For more information, see: 
 - [Workload identity federation](../workload-identities/workload-identity-federation.md).
 - [Configure a user-assigned managed identity to trust an external identity provider (preview)](../workload-identities/workload-identity-federation-create-trust-user-assigned-managed-identity.md)
-- [Use Azure AD workload identity (preview) with Azure Kubernetes Service (AKS)](../../aks/workload-identity-overview.md)
+- [Use Azure AD workload identity with Azure Kubernetes Service (AKS)](../../aks/workload-identity-overview.md)
 
 ---
 
