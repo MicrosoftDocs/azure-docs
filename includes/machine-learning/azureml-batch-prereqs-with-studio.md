@@ -66,7 +66,7 @@ The workspace is the top-level resource for Azure Machine Learning, providing a 
     ```
 
     > [!NOTE]
-    > Classes `ModelBatchDeployment` and `PipelineComponentBatchDeployment` were introduced since version `1.7.0`.
+    > Classes `ModelBatchDeployment` and `PipelineComponentBatchDeployment` were introduced in version 1.7.0 of the SDK.
 
 2. Configure workspace details and get a handle to the workspace:
 
