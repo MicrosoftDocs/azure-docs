@@ -31,7 +31,7 @@ Settings, which can be controlled by adding/editing the global settings file are
 
 ## Mainlog parsing
 
-AzAcSnap 8 introduced a new "mainlog" to provide simpler parsing of runs of AzAcSnap.  Ths inspiration for this file is the SAP HANA backup catalog, which shows when AzAcSnap was started, how long it took, and what the snapshot name is.  With AzAcSnap this example has been taken further to include information for each of the AzAcSnap commands, specifically the `-c` options, and the file has the following headers:
+AzAcSnap 8 introduced a new "mainlog" to provide simpler parsing of runs of AzAcSnap.  The inspiration for this file is the SAP HANA backup catalog, which shows when AzAcSnap was started, how long it took, and what the snapshot name is.  With AzAcSnap, this idea has been taken further to include information for each of the AzAcSnap commands, specifically the `-c` options, and the file has the following headers:
 
 ```output
 DATE_TIME,OPERATION_NAME,STATUS,SID,DATABASE_TYPE,DURATION,SNAPSHOT_NAME,AZACSNAP_VERSION,AZACSNAP_CONFIG_FILE,VOLUME
@@ -137,7 +137,7 @@ az role definition create --role-definition '{ \
 }'
 ```
 
-For restore options to work successfully, the AzAcSnap service principal also needs to be able to create volumes.  In this case, the role definition needs an additional "Actions" clause added, therefore the complete service principal should look like the following example.
+For restore options to work successfully, the AzAcSnap service principal also needs to be able to create volumes.  In this case, the role definition needs an extra "Actions" clause added, therefore the complete service principal should look like the following example.
 
 ```azurecli
 az role definition create --role-definition '{ \
@@ -191,13 +191,13 @@ MAILTO=""
 
 Explanation of the above crontab.
 
-- `MAILTO=""`: by having an empty value this prevents cron from automatically trying to email the user when executing the crontab entry as it would likely end up in the local user's mail file.
+- `MAILTO=""`: by having an empty value this prevents cron from automatically trying to email the local Linux user when executing the crontab entry.
 - Shorthand versions of timing for crontab entries are self-explanatory:
   - `@monthly` = Run once a month, that is, "0 0 1 * *".
   - `@weekly`  = Run once a week, that is,  "0 0 * * 0".
   - `@daily`   = Run once a day, that is,   "0 0 * * *".
   - `@hourly`  = Run once an hour, that is, "0 * * * *".
-- The first five columns are used to designate times, refer to column examples below:
+- The first five columns are used to designate times, refer to the following column examples:
   - `0,15,30,45`: Every 15 minutes
   - `0-23`: Every hour
   - `*` : Every day
@@ -220,7 +220,7 @@ generated successfully.
 
 AzAcSnap writes output of its operation to log files to assist with debugging and to validate correct operation. These log files continue to grow unless actively managed. Fortunately UNIX based systems have a tool to manage and archive log files called logrotate.
 
-This is an example configuration for logrotate. This configuration keeps a maximum of 31 logs (approximately one month), and when the log files are larger than 10k it will rotate and compress them.
+The following output provides an example configuration for logrotate. This configuration keeps a maximum of 31 logs (approximately one month), and when the log files are larger than 10k it rotates them by renaming with a number added to the filename and compresses them.
 
 ```output
 # azacsnap logrotate configuration file
@@ -232,7 +232,7 @@ compress
 }
 ```
 
-After creating the `logrotate.conf` file, the `logrotate` command should be run regularly to archive AzAcSnap log files accordingly. Automating the `logrotate` command can be done using cron. The following example is one line of the azacsnap user's crontab, this runs logrotate daily using the configuration file `~/logrotate.conf`.
+After creating the `logrotate.conf` file, the `logrotate` command should be run regularly to archive AzAcSnap log files accordingly. Automating the `logrotate` command can be done using cron. The following output is one line of the azacsnap user's crontab, this example runs logrotate daily using the configuration file `~/logrotate.conf`.
 
 ```output
 @daily /usr/sbin/logrotate -s ~/logrotate.state ~/logrotate.conf >> ~/logrotate.log
@@ -262,7 +262,7 @@ ls -ltra ~/bin/logs
 
 The following conditions should be monitored to ensure a healthy system:
 
-1. Available disk space. Snapshots will slowly consume disk space as keeping older disk blocks are retained in the snapshot.
+1. Available disk space. Snapshots slowly consume disk space based on the block-level change rate, as keeping older disk blocks are retained in the snapshot.
     1. To help automate disk space management, use the `--retention` and `--trim` options to automatically cleanup the old snapshots and database log files.
 1. Successful execution of the snapshot tools
     1. Check the `*.result` file for the success or failure of the latest running of `azacsnap`.
@@ -291,7 +291,7 @@ copy is made (`cp /hana/data/H80/mnt00001/.snapshot/hana_hourly.2020-06-17T11304
 
 For Azure Large Instance, you could contact the Microsoft operations team by opening a service request to restore a desired snapshot from the existing available snapshots. You can open a service request via the [Azure portal](https://portal.azure.com).
 
-If you decide to perform the disaster recovery failover, the `azacsnap -c restore --restore revertvolume` command at the DR site will automatically make available the most recent (`/hana/data` and `/hana/logbackups`) volume snapshots to allow for an SAP HANA recovery. Use this command with caution as it breaks replication between production and DR sites.
+If you decide to perform the disaster recovery failover, the `azacsnap -c restore --restore revertvolume` command at the DR site automatically makes available the most recent (`/hana/data` and `/hana/logbackups`) volume snapshots to allow for an SAP HANA recovery. Use this command with caution as it breaks replication between production and DR sites.
 
 ## Set up snapshots for 'boot' volumes only
 
@@ -448,7 +448,7 @@ A 'boot' snapshot can be recovered as follows:
 1. After the Server is shut down, the customer will need to open a service request that contains the Machine ID and Snapshot to restore.
     > Customers can open a service request via the [Azure portal](https://portal.azure.com).
 1. Microsoft restores the Operating System LUN using the specified Machine ID and Snapshot, and then boot the Server.
-1. The customer will then need to confirm Server is booted and healthy.
+1. The customer then needs to confirm Server is booted and healthy.
 
 No other steps to be performed after the restore.
 
@@ -468,7 +468,7 @@ Key attributes of storage volume snapshots:
 
 - **Max snapshot:** The hardware can sustain up to 250 snapshots per volume. The snapshot
     command keeps a maximum number of snapshots for the prefix based on the retention
-    set on the command line.  Any additional snapshots, beyond the retention number with the same prefix, will be deleted.
+    set on the command line.  Any more snapshots, beyond the retention number with the same prefix, are deleted.
 - **Snapshot name:** The snapshot name includes the prefix label provided by the customer.
 - **Size of the snapshot:** Depends upon the size/changes on the database level.
 - **Log file location:** Log files generated by the commands are output into folders as
