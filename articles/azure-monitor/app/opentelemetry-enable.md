@@ -88,7 +88,7 @@ Download the [applicationinsights-agent-3.4.12.jar](https://github.com/microsoft
 
 Install these packages:
 
-- [applicationinsights]https://www.npmjs.com/package/applicationinsights/v/beta)
+- [applicationinsights](https://www.npmjs.com/package/applicationinsights/v/beta)
 
 ```sh
 npm install applicationinsights@beta
@@ -96,14 +96,18 @@ npm install applicationinsights@beta
 
 The following packages are also used for some specific scenarios described later in this article:
 
+- [@opentelemetry/api](https://www.npmjs.com/package/@opentelemetry/api)
 - [@opentelemetry/sdk-metrics](https://www.npmjs.com/package/@opentelemetry/sdk-metrics)
 - [@opentelemetry/resources](https://www.npmjs.com/package/@opentelemetry/resources)
 - [@opentelemetry/semantic-conventions](https://www.npmjs.com/package/@opentelemetry/semantic-conventions)
+- [@opentelemetry/sdk-trace-base](https://www.npmjs.com/package/@opentelemetry/sdk-trace-base)
 
 ```sh
+npm install @opentelemetry/api
 npm install @opentelemetry/sdk-metrics
 npm install @opentelemetry/resources
 npm install @opentelemetry/semantic-conventions
+npm install @opentelemetry/sdk-trace-base
 ```
 
 #### [Python](#tab/python)
@@ -161,9 +165,7 @@ The following code demonstrates how to enable OpenTelemetry in a simple Node.js 
 const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
 
 const config = new ApplicationInsightsConfig();
-config.connectionString = "<Your Connection String>";
 const appInsights = new ApplicationInsightsClient(config);
-appInsights.start();
 ```
 
 ##### [Python](#tab/python)
@@ -242,7 +244,23 @@ Use one of the following two ways to point the jar file to your Application Insi
 
 #### [Node.js](#tab/nodejs)
 
-Replace the `<Your Connection String>` in the preceding code with the connection string from *your* Application Insights resource.
+Use one of the following two ways to point the client to your Application Insights resource:
+
+- Set an environment variable:
+        
+   ```console
+   APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
+   ```
+
+- Use configuration object:
+
+```javascript
+const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
+
+const config = new ApplicationInsightsConfig();
+config.azureMonitorExporterConfig.connectionString = "<Your Connection String>";
+const appInsights = new ApplicationInsightsClient(config);
+```
 
 #### [Python](#tab/python)
 
@@ -444,14 +462,13 @@ app.Run();
 
 Other OpenTelemetry Instrumentations are available [here](https://github.com/open-telemetry/opentelemetry-js-contrib/tree/main/plugins/node) and could be added using TraceHandler in ApplicationInsightsClient.
 
- ```typescript
+ ```javascript
     const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
     const { ExpressInstrumentation } = require('@opentelemetry/instrumentation-express');
 
     const appInsights = new ApplicationInsightsClient(new ApplicationInsightsConfig());
     const traceHandler = appInsights.getTraceHandler();
     traceHandler.addInstrumentation(new ExpressInstrumentation());
-    appInsights.start();
 ```
 
 ### [Python](#tab/python)
@@ -650,13 +667,12 @@ public class Program {
 
 #### [Node.js](#tab/nodejs)
 
- ```typescript
+ ```javascript
     const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
     const appInsights = new ApplicationInsightsClient(new ApplicationInsightsConfig());
     const customMetricsHandler = appInsights.getMetricHandler().getCustomMetricsHandler();
     const meter =  customMetricsHandler.getMeter();
     let histogram = meter.createHistogram("histogram");
-    appInsights.start();
     histogram.record(1, { "testKey": "testValue" });
     histogram.record(30, { "testKey": "testValue2" });
     histogram.record(100, { "testKey2": "testValue" });
@@ -744,13 +760,12 @@ public class Program {
 
 #### [Node.js](#tab/nodejs)
 
-```typescript
+```javascript
     const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
     const appInsights = new ApplicationInsightsClient(new ApplicationInsightsConfig());
     const customMetricsHandler = appInsights.getMetricHandler().getCustomMetricsHandler();
     const meter =  customMetricsHandler.getMeter();
     let counter = meter.createCounter("counter");
-    appInsights.start();
     counter.add(1, { "testKey": "testValue" });
     counter.add(5, { "testKey2": "testValue" });
     counter.add(3, { "testKey": "testValue2" });
@@ -875,7 +890,7 @@ public class Program {
 
 #### [Node.js](#tab/nodejs)
 
-```typescript
+```javascript
     const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
     const appInsights = new ApplicationInsightsClient(new ApplicationInsightsConfig());
     const customMetricsHandler = appInsights.getMetricHandler().getCustomMetricsHandler();
@@ -885,7 +900,6 @@ public class Program {
         let randomNumber = Math.floor(Math.random() * 100);
         observableResult.observe(randomNumber, {"testKey": "testValue"});
     });
-    appInsights.start();
 ```
 
 #### [Python](#tab/python)
@@ -972,7 +986,7 @@ You can use `opentelemetry-api` to update the status of a span and record except
 
 #### [Node.js](#tab/nodejs)
 
-```typescript
+```javascript
 const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
 
 const appInsights = new ApplicationInsightsClient(new ApplicationInsightsConfig());
@@ -1134,7 +1148,7 @@ you can add your spans by using the OpenTelemetry API.
 
 #### [Node.js](#tab/nodejs)
 
-```typescript
+```javascript
 const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
 
 const appInsights = new ApplicationInsightsClient(new ApplicationInsightsConfig());
@@ -1405,7 +1419,7 @@ Adding one or more span attributes populates the `customDimensions` field in the
 
 ##### [Node.js](#tab/nodejs)
 
-```typescript
+```javascript
 const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
 const { ReadableSpan, Span, SpanProcessor } = require("@opentelemetry/sdk-trace-base");
 const { SemanticAttributes } = require("@opentelemetry/semantic-conventions");
@@ -1428,7 +1442,6 @@ class SpanEnrichingProcessor implements SpanProcessor{
 }
 
 appInsights.getTraceHandler().addSpanProcessor(new SpanEnrichingProcessor());
-appInsights.start();
 ```
 
 ##### [Python](#tab/python)
@@ -1549,7 +1562,7 @@ Populate the `user ID` field in the `requests`, `dependencies`, or `exceptions` 
 
 Use the add [custom property example](#add-a-custom-property-to-a-span), but replace the following lines of code:
 
-```typescript
+```javascript
 ...
 import { SemanticAttributes } from "@opentelemetry/semantic-conventions";
 
@@ -1663,7 +1676,7 @@ See [sampling overrides](java-standalone-config.md#sampling-overrides-preview) a
 
     The following example shows how to exclude a certain URL from being tracked by using the [HTTP/HTTPS instrumentation library](https://github.com/open-telemetry/opentelemetry-js/tree/main/experimental/packages/opentelemetry-instrumentation-http):
     
-    ```typescript
+    ```javascript
     const { ApplicationInsightsClient, ApplicationInsightsConfig } = require("applicationinsights");
     const { IncomingMessage } = require("http");
     const { RequestOptions } = require("https");
@@ -1689,8 +1702,6 @@ See [sampling overrides](java-standalone-config.md#sampling-overrides-preview) a
     const config = new ApplicationInsightsConfig();
     config.instrumentations.http = httpInstrumentationConfig;
     const appInsights = new ApplicationInsightsClient(config);
-    appInsights.start();
-    
     ```
 
 2. Use a custom processor. You can use a custom span processor to exclude certain spans from being exported. To mark spans to not be exported, set `TraceFlag` to `DEFAULT`.
