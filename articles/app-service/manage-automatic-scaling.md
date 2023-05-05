@@ -12,7 +12,7 @@ ms.author: msangapu
 > Automatic scaling is in preview.
 >
 
-App Service has an automatic scaling capability that adjusts the number of running instances of your application based on incoming HTTP requests. This ensures that your web applications can handle varying levels of traffic. You have control over scaling settings, such as defining the minimum and maximum number of instances per web app, to optimize performance and avoid bottlenecks. The platform also addresses cold start issues with pre-warmed instances that act as a buffer when scaling out, ensuring smooth performance transitions. automatic scaling is available for the Premium Pv2 and Pv3 pricing tiers, and charges are calculated per second using existing billing meters. Pre-warmed instances are also charged per second.
+App Service has an automatic scaling capability that adjusts the number of running instances of your application based on incoming HTTP requests. This ensures that your web applications can handle varying levels of traffic. You have control over scaling settings, such as defining the minimum and maximum number of instances per web app, to optimize performance and avoid bottlenecks. The platform also addresses cold start issues with pre-warmed instances that act as a buffer when scaling out, ensuring smooth performance transitions. Automatic scaling is available for the Premium Pv2 and Pv3 pricing tiers, and charges are calculated per second using existing billing meters. Pre-warmed instances are also charged per second.
 
 ## How automatic scaling works
 
@@ -47,9 +47,6 @@ The following command enables automatic scaling for your existing App Service Pl
 ```azurecli-interactive
 az appservice plan update --name <APP_SERVICE_PLAN> --resource-group <RESOURCE_GROUP> --elastic-scale true --max-elastic-worker-count <YOUR_MAX_BURST> 
 ```
-
-- `--elastic-scale true` enables automatic scaling.
-- `<YOUR_MAX_BURST>` should be equal to or greater than number of workers in your App Service Plan, and less than or equal to the maximum instances allowed for your App Service Plan.
 
 >[!NOTE]
 > If you receive an error message `Operation returned an invalid status 'Bad Request'`, try using a different resource group or create a new one.
