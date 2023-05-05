@@ -207,18 +207,20 @@ The following instructions detail where to paste your unique connection string.
 
 #### [ASP.NET Core](#tab/aspnetcore)
 
-TODO: MOTHRA: ConnStr via EnvVar, Code, ConfigFile
+Use one of the following ways to point the client to your Application Insights resource:
 
-```csharp
-var builder = WebApplication.CreateBuilder(args);
+- Programatically set your connection string:
+    ```csharp
+    var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddOpenTelemetry().UseAzureMonitor(options => options.ConnectionString = "<Your Connection String>");
+    builder.Services.AddOpenTelemetry().UseAzureMonitor(options => options.ConnectionString = "<Your Connection String>");
 
-var app = builder.Build();
+    var app = builder.Build();
 
-app.Run();
-```
+    app.Run();
+    ```
 
+- Set the `APPLICATIONINSIGHTS_CONNECTION_STRING` environment variable.
 
 #### [Java](#tab/java)
 
