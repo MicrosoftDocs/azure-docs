@@ -38,6 +38,9 @@ Follow the steps in this section to instrument your application with OpenTelemet
 - An Azure subscription: [Create an Azure subscription for free](https://azure.microsoft.com/free/)
 - An Application Insights resource: [Create an Application Insights resource](create-workspace-resource.md#create-a-workspace-based-resource)
 
+> [!CAUTION]
+> We have not tested the Azure Monitor OpenTelemetry Distro running side-by-side with the OpenTelemetry Community Package. We recommend you uninstall any OpenTelemetry-related packages before installing the Distro.
+
 <!---NOTE TO CONTRIBUTORS: PLEASE DO NOT SEPARATE OUT JAVASCRIPT AND TYPESCRIPT INTO DIFFERENT TABS.--->
 
 ### [ASP.NET Core](#tab/aspnetcore)
