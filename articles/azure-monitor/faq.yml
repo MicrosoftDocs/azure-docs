@@ -977,7 +977,7 @@ sections:
       - question: |
           What's the difference between manual and auto-instrumentation?
         answer: |
-          See the [OpenTelemetry Overview](opentelemetry-overview.md#instrument-your-application).
+          See the [OpenTelemetry Overview](app/opentelemetry-overview.md#instrument-your-application).
           
       - question: |
           Can I use the OpenTelemetry Collector?
