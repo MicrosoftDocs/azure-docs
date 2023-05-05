@@ -102,6 +102,7 @@ To deploy the job, you must first build a container image that contains the job 
         --registry $CONTAINER_REGISTRY_NAME \
         --image $CONTAINER_IMAGE_NAME \
         https://github.com/Azure-Samples/azure-container-apps-samples.git
+    ```
 
     The image is now available in the container registry.
 
