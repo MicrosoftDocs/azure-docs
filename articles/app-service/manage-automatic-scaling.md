@@ -18,7 +18,7 @@ App Service offers automatic scaling that adjusts the number of instances based 
 
 It's common to deploy multiple web apps to a single App Service Plan. You can enable automatic scaling for an App Service Plan and configure a range of instances for each of the web apps. As your web app starts receiving incoming HTTP traffic, App Service monitors the load and adds instances. Resources may be shared when multiple web apps within an App Service Plan are required to scale out simultaneously.
 
-Here are a few scenarios where you should use scale out automatically:
+Here are a few scenarios where you should scale out automatically:
 
 - You don't want to set up autoscale rules based on resource metrics.
 - You want your web apps within the same App Service Plan to scale differently and independently of each other.
