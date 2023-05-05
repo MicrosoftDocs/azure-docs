@@ -5,7 +5,7 @@ author: timkresler
 ms.author: timkresler
 ms.service: storage
 ms.topic: quickstart #Required; leave this attribute/value as-is.
-ms.date: 05/02/2023
+ms.date: 05/05/2023
 ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 ---
 # Atempo Quick Start Guide
@@ -29,14 +29,14 @@ A little upfront planning helps configure your Miria software to use Azure as a 
 
 ### Get Started with Azure
 
-Microsoft offers a framework to get you started with Azure. The Cloud Adoption Framework (CAF) is a detailed approach to enterprise digital transformation and a comprehensive guide to planning a production-grade cloud adoption. The CAF includes a step-by-step Azure setup guide to help you get up and running quickly and securely. You can find an interactive version in the Azure portal. You can find sample architectures, specific best practices for deploying applications, and free training resources to put you on the path to Azure expertise.
+Microsoft offers a framework to get you started with Azure. The [Cloud Adoption Framework (CAF)](/azure/cloud-adoption-framework/) is a detailed approach to enterprise digital transformation and a comprehensive guide to planning a production-grade cloud adoption. The CAF includes a step-by-step Azure setup guide to help you get up and running quickly and securely. You will find sample architectures, specific best practices for deploying applications, and free training resources to put you on the path to Azure expertise.
 
 ### Considerations For Migrations
 
 Several aspects are important when considering migrations of file data to Azure. Before proceeding learn more
 
-- Storage Migration Overview
-- Latest supported features by Miria in Migration tools comparison matrix
+- [Storage Migration Overview](https://www.atempo.com/solutions/miria-large-data-and-file-migration-and-copy-2/)
+- Latest supported features by Miria in [Migration tools comparison matrix](/azure/storage/solution-integration/validated-partners/data-management/migration-tools-comparison)
 
 Remember, you need enough network capacity to support migrations without impacting production applications. This section outlines the tools and techniques that are available to assess your network needs.
 
@@ -62,10 +62,11 @@ Use the following methods to identify the bandwidth headroom that is free to con
 
 ### Before you begin
 
-This documentation assumes that you already have a Miria Server and Miria Data Mover installed and running. Reference the following documentation for detailed information on how to install Miria Server and Data Mover
-
-- [Miria Server and Data Movers deployment and initial configuration](https://www.atempo.com/privatedocs/Miria_2022_Migration_Documentation.pdf)
-- [Details on platforms and OS versions supported by Miria](https://usergroup.atempo.com/wp-content/uploads/2021/08/COMPATIBILITY-GUIDE_MIRIA_2021.pdf)
+This documentation assumes that:
+- you have the [read and write permissions](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) in the Azure Storage Account Container that you are using, or an appropriate [RBAC role](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor).
+- you already have a Miria Server and Miria Data Mover installed and running on a VM or on a server in your environment. If this is not the case, please refer to the following links for more information regarding:
+    - [Miria Server and Data Movers deployment and initial configuration](https://www.atempo.com/privatedocs/Miria_2022_Migration_Documentation.pdf)
+    - [Details on platforms and OS versions supported by Miria](https://usergroup.atempo.com/wp-content/uploads/2021/08/COMPATIBILITY-GUIDE_MIRIA_2021.pdf)
 
 The following section guides you in successive steps:
 
@@ -76,7 +77,7 @@ The following section guides you in successive steps:
 5. Checking on progress, logs, and reports at the project and task level 
 6. Creating other tasks in your migration project
 
-### Azure BLOB configuration
+### Azure Storage configuration
 
 This section provides a brief guide for how to add Azure BLOB to an on-premises-to-Azure Miria deployment
 
@@ -131,7 +132,7 @@ This section provides a brief guide for how to add Azure BLOB to an on-premises-
 
 ### Creating a Miria Target Storage: Azure BLOB
 
-1. In Miria Web UI, you need to declare the Azure storage and the newly created bucket. To do so, navigate to Infrastructure in the left pane, then select Object storage & application
+1. In Miria Web UI, you need to declare the Azure storage and the newly created container. To do so, navigate to Infrastructure in the left pane, then select Object storage & application
 :::image type="content" source="./media/atempo-quick-start-guide/miria-overview.png" alt-text="Screenshot of the Miria Overview section of the Miria software.":::
 
 &nbsp;
@@ -141,7 +142,7 @@ This section provides a brief guide for how to add Azure BLOB to an on-premises-
 
 &nbsp;
 
-3. In the "Type" drop-down list, select Microsoft Azure BLOB Block among Cloud entries and select Next
+3. In the "Type" drop-down list, select Microsoft Azure Block Blob among Cloud entries and select Next
 :::image type="content" source="./media/atempo-quick-start-guide/block-blob-config.png" alt-text="Screenshot of the selection of Azure Block Blob Configuration option.":::
 
 &nbsp;
@@ -192,7 +193,7 @@ Then select Create at the bottom. Your SMC is successfully created, select Back 
 
 &nbsp;
 
-Congratulations! Your Azure storage and bucket are now fully declared and ready to use.
+Congratulations! Your Azure storage container and bucket are now fully declared and ready to use.
 
 ### Creating a Miria Source Storage for a Windows file server
 
@@ -393,7 +394,7 @@ When you need help with your migration to Azure solution, you should open a case
 
 ### To Open a Case with Atempo
 
-On the Atempo Support Site, sign into your account using the credentials received with your Miria package and open a case
+On the [Atempo Support Site](https://support.atempo.com/login), sign into your account using the credentials received with your Miria package and open a case
 
 ### To Open a Case with Azure
 
@@ -404,9 +405,3 @@ Search for Support in the Azure portal search bar. Select Help + support -> New 
 Learn more about the process and recommendations for migrating data to Azure Storage
 
 - [Azure Storage migration overview](../data-management/azure-file-migration-program-solutions.md)
-
-Learn more about Miria, its configuration, and deployment by visiting the documentation provided with your Miria product package
-
-- Miria for Migration
-- Miria User Manual
-- Miria Installation and Getting Started
