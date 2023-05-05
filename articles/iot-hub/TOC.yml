@@ -272,7 +272,7 @@
           - name: Automatically migrate an IoT hub using CLI
             href: migrate-hub-state-cli.md
           - name: Manually migrate an IoT hub using ARM
-            href: iot-hub-how-to-clone.md
+            href: migrate-hub-arm.md
           - name: Bulk import and export IoT devices
             href: iot-hub-bulk-identity-mgmt.md
         - name: Configure IP filtering

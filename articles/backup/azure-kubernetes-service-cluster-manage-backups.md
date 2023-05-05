@@ -3,7 +3,7 @@ title: Manage Azure Kubernetes Service (AKS) backups using Azure Backup
 description: This article explains how to manage Azure Kubernetes Service (AKS) backups using Azure Backup.
 ms.topic: how-to
 ms.service: backup
-ms.date: 04/21/2023
+ms.date: 04/26/2023
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -82,7 +82,7 @@ This section provides the set of Azure CLI commands to perform create, update, o
 To install the Backup Extension, run the following command:
 
    ```azurecli-interactive
-   az k8s-extension create --name azure-aks-backup --extension-type Microsoft.DataProtection.Kubernetes --scope cluster --cluster-type managedClusters --cluster-name <aksclustername> --resource-group <aksclusterrg> --release-train stable --configuration-settings blobContainer=<containername> storageAccount=<storageaccountname> storageAccountResourceGroup=<storageaccountrg> storageAccountSubscriptionId=<subscriptionid>
+   az k8s-extension create --name azure-aks-backup --extension-type microsoft.dataprotection.kubernetes --scope cluster --cluster-type managedClusters --cluster-name <aksclustername> --resource-group <aksclusterrg> --release-train stable --configuration-settings blobContainer=<containername> storageAccount=<storageaccountname> storageAccountResourceGroup=<storageaccountrg> storageAccountSubscriptionId=<subscriptionid>
    ```
 
 ### View Backup Extension installation status
@@ -127,11 +127,11 @@ To enable Trusted Access between Backup vault and AKS cluster, use the following
 
    ```azurecli-interactive
    az aks trustedaccess rolebinding create \
-   --resource-group <backupvaultrg> \ 
-   --cluster-name <aksclustername> \
-   --name <randomRoleBindingName> \ 
-   --source-resource-id /subscriptions/<subscriptionid>/resourcegroups/<backupvaultrg>/providers/Microsoft.DataProtection/BackupVaults/<backupvaultname> \ 
-   --roles Microsoft.DataProtection/backupVaults/backup-operator
+   -g $myResourceGroup \ 
+   --cluster-name $myAKSCluster 
+   –n <randomRoleBindingName> \ 
+   --source-resource-id <vaultID> \ 
+   --roles Microsoft.DataProtection/backupVaults/backup-operator   
    ```
 
 Learn more about [other commands related to Trusted Access](../aks/trusted-access-feature.md#trusted-access-feature-overview).

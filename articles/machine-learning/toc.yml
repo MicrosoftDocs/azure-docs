@@ -208,6 +208,13 @@
         - name: MLflow
           href: ./v1/concept-mlflow-v1.md
         # end v1
+        - name: MLflow models
+          displayName: tracking models, mlflow, custom, flavors
+          href: concept-mlflow-models.md
+    - name: Foundation Models
+      items:
+        - name: Foundation Models
+          href: concept-foundation-models.md
     - name: Manage the ML lifecycle (MLOps)
       items:
         # v1
@@ -1187,11 +1194,52 @@
           items:
             - name: Manage models with MLflow
               href: how-to-manage-models-mlflow.md
+            - name: Manage experiments and runs with MLflow
+              href: how-to-track-experiments-mlflow.md
+        - name: Deploy & consume models
+          items:
+            - name: Guidelines for deploying MLflow models
+              displayName: mlflow models deployment plugin
+              href: how-to-deploy-mlflow-models.md
+            - name: Using MLflow models for no-code deployment
+              href: how-to-log-mlflow-models.md
+            - name: Online inference
+              items:
+                - name: Deploy MLflow models to Online Endpoints
+                  href: how-to-deploy-mlflow-models-online-endpoints.md
+                - name: Progressive rollout of MLflow models to Online Endpoints
+                  href: how-to-deploy-mlflow-models-online-progressive.md
+            - name: Batch inference
+              items:
+                - name: Deploy MLflow models to Batch Endpoints
+                  href: how-to-mlflow-batch.md
+                - name: Deploy and run MLflow models in Spark jobs
+                  href: how-to-deploy-mlflow-model-spark-jobs.md
+    - name: Work with Foundation Models
+      items:
+        - name: How to use Foundation Models
+          href: how-to-use-foundation-models.md
     - name: Manage the ML lifecycle (MLOps)
       items:
         - name: Build & use ML pipelines
           displayName: pipelines
           items:
+            - name: Create ML pipelines using components (CLI v2)
+              href: how-to-create-component-pipelines-cli.md
+            - name: Create ML pipelines using components (Python SDK v2)
+              href: how-to-create-component-pipeline-python.md
+            - name: Create ML pipelines using components (UI)
+              href: how-to-create-component-pipelines-ui.md
+            - name: How to use sweep in pipelines (v2)
+              href: how-to-use-sweep-in-pipeline.md
+            - name: Build and debug pipelines (UI)
+              href: how-to-use-pipeline-ui.md
+            - name: How to use parallel job in pipeline
+              href: how-to-use-parallel-job-in-pipeline.md
+            - name: How to use pipeline component in pipeline
+              href: how-to-use-pipeline-component.md
+            - name: How to debug pipeline reuse issues
+              href: how-to-debug-pipeline-reuse-issues.md
             # v1
             - name: Create ML pipelines (Python)
               href: ./v1/how-to-create-machine-learning-pipelines.md
@@ -1336,6 +1384,8 @@
           href: reference-yaml-model.md
         - name: Schedule
           href: reference-yaml-schedule.md
+        - name: Pipeline component
+          href: reference-yaml-component-pipeline.md
         - name: Compute
           items:
             - name: Compute cluster (AmlCompute)
