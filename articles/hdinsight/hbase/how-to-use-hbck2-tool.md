@@ -309,7 +309,7 @@ Generally, on assign, the Master persists until successful. An assign takes an e
 **Master startup cannot progress, in holding-pattern until region online**
 
 ```
-2018-10-01 22:07:42,792 WARN org.apache.hadoop.hbase.master.HMaster: `hbase:meta`,,1.1588230740 isn't online; state={1588230740 state=CLOSING, ts=1538456302300, server=ve1017.example.org,22101,1538449648131}; ServerCrashProcedures=true. Master startup cannot progress, in holding-pattern until region online.
+2018-10-01 22:07:42,792 WARN org.apache.hadoop.hbase.master.HMaster: hbase:meta,1.1588230740 isn't online; state={1588230740 state=CLOSING, ts=1538456302300, server=ve1017.example.org,22101,1538449648131}; ServerCrashProcedures=true. Master startup cannot progress, in holding-pattern until region online.
 ```
 The Master is unable to continue startup because there's no Procedure to assign `hbase:meta` (or `hbase:namespace`). To inject one, use the HBCK2 tool:
 ```
@@ -322,7 +322,7 @@ The same may happen to the `hbase:namespace` system table. Look for the encoded 
 ```
 2019-07-09 22:08:38,966 WARN  [master/localhost:16000:becomeActiveMaster] master.HMaster: hbase:namespace,,1562733904278.9559cf72b8e81e1291c626a8e781a6ae. isn't online; state={9559cf72b8e81e1291c626a8e781a6ae state=CLOSED, ts=1562735318897, server=null}; ServerCrashProcedures=true. Master startup cannot progress, in holding-pattern until region onlined.
 ```
-To schedule an assign for the `hbase:namespace` table noted in the above log line, you would do:
+To schedule an assign for the hbase:namespace table noted in the above log line, you would do:
 ```
 hbase --config /etc/hbase/conf hbck -j ~/hbase-operator-tools/hbase-hbck2/target/hbase-hbck2-1.x.x-SNAPSHOT.jar -skip assigns 9559cf72b8e81e1291c626a8e781a6ae
 ```
